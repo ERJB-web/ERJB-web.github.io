@@ -1,8 +1,0 @@
-{
-  "remplacements": [
-    { "avant": "./assets/cv-academique.docx", "apres": "./assets/cv-academique.pdf", "fois": 3 },
-    { "avant": "./assets/cv-professionnel.docx", "apres": "./assets/cv-professionnel.pdf", "fois": 2 },
-    { "avant": "Eric-Bernier-CV-academique.docx", "apres": "Eric-Bernier-CV-academique.pdf", "fois": 3 },
-    { "avant": "Eric-Bernier-CV-professionnel.docx", "apres": "Eric-Bernier-CV-professionnel.pdf", "fois": 2 }
-  ]
-}
