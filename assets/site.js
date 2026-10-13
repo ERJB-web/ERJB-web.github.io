@@ -89,6 +89,8 @@
     $$(".salle-progres span").forEach((x, k) => x.classList.toggle("actif", k <= ordre.indexOf(s)));
     $("#salle-titre").textContent = `${String(ordre.indexOf(s) + 1).padStart(2, "0")} / ${String(ordre.length).padStart(2, "0")} · ${groupe.porte.dataset.titre} · ${section.dataset.titre}`;
     onglets.hidden = groupe.sections.length < 2;
+    const nb = groupe.sections.length;
+    onglets.style.setProperty("--colonnes", nb > 5 ? Math.ceil(nb / 2) : nb);
     onglets.replaceChildren(
       ...groupe.sections.map((x) => {
         const sx = $(`section[data-salle="${x}"]`);
