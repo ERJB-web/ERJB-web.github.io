@@ -206,6 +206,21 @@ h1{margin:0;color:var(--ink);font:400 clamp(40px,4vw,58px)/1 var(--serif);letter
 .recit-num{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--sea);color:var(--green);font:600 14px var(--sans);border:1px solid var(--line)}
 .recit h3{margin:8px 0 8px;color:var(--ink);font:400 23px/1.3 var(--serif)}
 .recit p{margin:0;font-size:16px;line-height:1.8}
+.recit p+p{margin-top:12px}
+.recit strong,.vision strong,.bio-intro strong{color:var(--ink)}
+.bio-intro p{margin:0 0 14px;font-size:16.5px;line-height:1.75}
+.bio-intro p:first-child{font-size:18px;color:var(--ink)}
+.bio-figure{margin:22px 0 0}
+.citation{margin:20px 0 0;padding:0 0 0 0;font:italic 21px/1.45 var(--serif);color:var(--green-deep);quotes:"«\00a0" "\00a0»"}
+.citation:lang(en){quotes:"“" "”"}
+.citation:lang(es){quotes:"«" "»"}
+.citation::before{content:open-quote}
+.citation::after{content:close-quote}
+.vision{margin:8px 0 18px;padding:26px 28px;border-radius:16px;background:var(--ink);color:#e6eef1}
+.vision h3{margin:0 0 14px;color:#fff;font:400 26px/1.25 var(--serif)}
+.vision p{margin:0 0 12px;font-size:15.5px;line-height:1.75}
+.vision p:last-child{margin-bottom:0}
+.vision strong{color:#fff}
 .recit-fin{margin:6px 0 0 74px;font:italic 18px/1.5 var(--serif);color:var(--green-deep)}
 .cadres{display:grid;gap:12px}
 .cadre{padding:18px 20px;border:1px solid var(--line);border-radius:12px;background:var(--white)}

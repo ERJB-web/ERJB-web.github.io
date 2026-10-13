@@ -85,7 +85,7 @@ const fr = {
       approche: ["L’approche", "Posture, méthodes, axes, valeurs"],
       implantation: ["Implantation", "Transfert de connaissances et implantation"],
       publications: ["Publications", "Communications, mémoires, outils"],
-      biographie: ["Biographie", "Une histoire, plusieurs vies"],
+      biographie: ["Biographie", "Des expériences humaines aux transformations collectives"],
       parcours: ["Le parcours", "Formations et expériences"],
       engagements: ["Engagements", "Représentation, enseignement, distinctions"],
     },
@@ -198,12 +198,30 @@ const fr = {
       titre: "Mes valeurs",
       devise: ["Devise", "Per aspera ad astra", "Par des sentiers ardus jusqu’aux étoiles"],
       items: [
-        ["Résilience", "Faire des épreuves traversées une ressource pour avancer."],
-        ["Persévérance", "Progresser pas à pas, malgré les obstacles."],
-        ["Autodétermination", "Respecter le choix des personnes sur leur propre vie."],
-        ["Coconstruction", "Écouter, puis chercher et décider avec les milieux, pas seulement pour eux."],
-        ["Utilité sociale", "Que les connaissances servent concrètement aux personnes et aux services."],
-        ["Audace d’innover", "Oser proposer, entreprendre et créer de nouvelles réponses."],
+        [
+          "Curiosité intellectuelle",
+          "Aller voir ailleurs : d’autres disciplines, d’autres milieux, d’autres façons de penser."
+        ],
+        [
+          "Résilience",
+          "Faire des épreuves traversées une ressource pour avancer."
+        ],
+        [
+          "Autonomie",
+          "Penser par soi-même et soutenir chez chacun la capacité de choisir sa vie."
+        ],
+        [
+          "Sens critique",
+          "Interroger les évidences, les données et les institutions, à commencer par les siennes."
+        ],
+        [
+          "Solidarité",
+          "Ne laisser personne au bord du chemin : un principe d’accompagnement et de politique publique."
+        ],
+        [
+          "Audace d’entreprendre",
+          "Oser proposer, créer et mettre en œuvre de nouvelles réponses."
+        ]
       ],
     },
   },
@@ -255,18 +273,76 @@ const fr = {
     ],
   },
   biographie: {
-    surtitre: "05 · Biographie",
-    titre: "Chaque étape est née des limites de la précédente",
-    intro: "Éducateur spécialisé, juriste et doctorant en santé publique : mon parcours n’a rien de linéaire, et c’est précisément ce qui lui donne sa cohérence.",
-    chapitres: [
-      ["Partir de l’expérience", "J’ai connu l’aide sociale à l’enfance, en France, puis j’ai quitté l’école à 16 ans. Ma neuroatypie m’a appris tôt à apprendre autrement, à chercher mes propres chemins et à ne pas renoncer. De ce point de départ, je garde une conviction qui guide encore mon travail : une politique publique se juge à ce qu’elle change concrètement dans la vie des personnes."],
-      ["La musique, puis le terrain", "Les études sont revenues par la musique, avec une licence en musicologie : l’écoute, la rigueur et la persévérance du travail patient. En parallèle, l’animation puis la responsabilité de séjours adaptés pour des personnes en situation de handicap m’ont appris à organiser, à encadrer des équipes et à partir des besoins de chaque personne."],
-      ["Le choix de l’utilité sociale", "Une remise en question est venue ensuite : quel est mon rapport à la société, et à quoi suis-je utile ? J’ai repris mes études pour devenir éducateur spécialisé et entrer dans le champ de la santé par la pratique professionnelle."],
-      ["Des limites de la pratique à la gestion", "Mon mémoire d’éducateur portait sur l’influence des pratiques éducatives sur l’autodétermination. Il m’a montré une limite : sans organisation adaptée, la meilleure pratique bute sur le cadre. Je suis donc allé voir du côté de la gestion, avec une maîtrise en direction d’établissements de santé et un diplôme universitaire en entrepreneuriat."],
-      ["Du droit à la gouvernance", "La gestion a révélé à son tour ses limites : la planification, le droit et le financement se décident souvent plus haut. J’ai poursuivi à l’Université Paris Panthéon-Assas, en droit public, droit social et droit de la santé, puis à l’Agence nationale d’appui à la performance, au plus près de l’organisation centrale, de la planification, des sciences politiques et de la gouvernance."],
-      ["Chercher pour proposer", "Le doctorat en santé publique, à Montréal, réunit aujourd’hui ces regards : le terrain, la gestion, le droit et la gouvernance. Je n’y cherche pas seulement à comprendre ; je veux innover et proposer des réponses mieux organisées pour les personnes dont les besoins traversent plusieurs secteurs. Le même élan me pousse à entreprendre, avec la création d’OWNNIGHT."],
+    "surtitre": "05 · Biographie",
+    "titre": "Des expériences humaines aux transformations collectives",
+    "intro": [
+      "Éducateur spécialisé, juriste, doctorant en santé publique : trois titres, un seul fil. Il relie l’accompagnement des personnes, la gestion des organisations, le droit, les politiques publiques et la recherche.",
+      "Une ambition les traverse : **comprendre ce qui façonne les trajectoires, individuelles et collectives, pour contribuer à des sociétés plus justes, plus solidaires, capables de reconnaître à chacun sa capacité d’agir.**",
+      "Et une conviction, forgée sur le terrain avant de l’être dans les livres : on ne comprend pas une vie sans comprendre les systèmes qui l’entourent."
     ],
-    conclusion: "Per aspera ad astra : par des sentiers ardus jusqu’aux étoiles.",
+    "citation": "On ne comprend pas une vie sans comprendre les systèmes qui l’entourent.",
+    "chapitres": [
+      [
+        "Partir de loin",
+        [
+          "Tout commence en France, dans un milieu populaire. L’aide sociale à l’enfance, puis l’école quittée à seize ans : le genre de départ qui ne promet rien.",
+          "Je n’ai pas suivi la voie tracée ; j’ai construit la mienne, pierre après pierre, par le travail, par la découverte d’autres milieux, par le retour aux études.",
+          "De ces années, et de ma neuroatypie, je garde une indépendance de pensée, une grande capacité d’adaptation et une question qui ne m’a plus quitté : qu’est-ce qui reproduit les inégalités, et qu’est-ce qui permet de s’en affranchir ?"
+        ]
+      ],
+      [
+        "La musique, la rencontre, le soin",
+        [
+          "Il y a d’abord eu la musique : une licence en musicologie, menée en parallèle de mes premiers pas dans l’animation, puis de la responsabilité de séjours adaptés pour des personnes en situation de handicap.",
+          "Trois mondes en apparence éloignés ; un même apprentissage. L’expression de soi, la vie collective, la responsabilité envers autrui.",
+          "Onze années d’engagement auprès de personnes vulnérables m’ont appris l’essentiel : l’éthique du *prendre soin*. Reconnaître les capacités de chacun. Accompagner vers l’autonomie, jamais vers la dépendance."
+        ]
+      ],
+      [
+        "Choisir l’utilité sociale",
+        [
+          "Vint le temps des questions : à quoi suis-je utile, et quelle place veux-je occuper dans la société ?",
+          "J’ai repris des études en éducation spécialisée pour donner à ma pratique des fondements théoriques, éthiques et méthodologiques, et la recentrer sur l’autodétermination : faire *avec* les personnes, plutôt que *pour* elles.",
+          "Mon mémoire sur l’influence des pratiques éducatives sur l’autodétermination a ouvert une brèche : **comment garantir la liberté de choix d’une personne quand son accompagnement dépend aussi du fonctionnement des institutions ?**"
+        ]
+      ],
+      [
+        "Comprendre les organisations",
+        [
+          "La question m’a conduit au cœur des organisations.",
+          "Une formation en direction d’établissements sanitaires et médico-sociaux, puis un diplôme universitaire en entrepreneuriat à l’IAE de Brest, en 2023 : management, financement, coordination, ressources humaines, conduite du changement.",
+          "J’y ai vu ce que le terrain pressent sans toujours pouvoir le nommer : le financement, le travail partenarial ou le recrutement se décident en grande partie ailleurs, dans les politiques publiques. Comprendre comment des intentions deviennent des pratiques, et comment une organisation concilie ses contraintes avec les besoins des personnes, est devenu mon fil."
+        ]
+      ],
+      [
+        "Remonter jusqu’aux politiques",
+        [
+          "Restait à remonter à la source : les cadres juridiques, la planification, le financement, la gouvernance.",
+          "Le droit public, sanitaire et social à l’Université Paris-Panthéon-Assas, puis l’Agence nationale d’appui à la performance (ANAP), où j’ai traduit des orientations nationales en dispositifs concrets, au contact des gestionnaires, des professionnels et des usagers.",
+          "J’y ai mesuré la distance entre une politique écrite et une politique vécue, surtout quand la réponse exige de franchir les frontières entre organisations et secteurs. Mon mémoire sur le virage domiciliaire en France et au Québec m’a mené jusqu’à des chercheuses et chercheurs québécois, avec une proposition : mettre les systèmes de santé en regard pour mieux comprendre ce qui freine le maintien à domicile."
+        ]
+      ],
+      [
+        "Chercher pour éclairer l’action",
+        [
+          "Ce chemin se prolonge aujourd’hui au doctorat en santé publique de l’Université de Montréal, sous la direction des Dres Nadia Sourial et Géraldine Layani.",
+          "J’étudie l’organisation des systèmes de santé et de services sociaux, les besoins sociaux des populations, les collaborations intersectorielles et les conditions qui rendent possibles des réponses intégrées, notamment pour le soutien à domicile.",
+          "Ma démarche est interdisciplinaire et pragmatique : rapprocher l’expérience vécue, la connaissance scientifique et la réalité des décisions. Elle fait une place à la recherche partenariale, où les patients sont aussi producteurs de savoirs, et au transfert des connaissances vers celles et ceux qui les mobiliseront.",
+          "Le même élan, créer, expérimenter, proposer, me porte vers l’entrepreneuriat, avec **OWNNIGHT**, en cours de création."
+        ]
+      ]
+    ],
+    "vision": {
+      "titre": "Faire dialoguer les personnes, les savoirs et les institutions",
+      "paragraphes": [
+        "Je crois que les savoirs académiques, professionnels et expérientiels gagnent à se confronter plutôt qu’à se hiérarchiser.",
+        "J’ai traversé plusieurs strates de la société et du système de santé, et j’y ai occupé des places différentes. Cette pluralité de regards est devenue une ressource de ma démarche scientifique.",
+        "**La recherche est pour moi un instrument de compréhension, mais aussi d’émancipation humaine, de justice sociale et d’appui à la décision collective.** Sa valeur tient autant à la rigueur des connaissances produites qu’à leur capacité à nourrir le débat, à éclairer les choix et à soutenir leur mise en œuvre, pour des parcours plus équitables, plus continus et de meilleure qualité, dans l’esprit des Objectifs de développement durable des Nations Unies.",
+        "Curiosité intellectuelle, résilience, autonomie, sens critique, solidarité, audace d’entreprendre : ces valeurs traversent mon cheminement.",
+        "Je veux poursuivre cette exploration à l’interface des disciplines et des milieux, avec une conviction : les défis de santé publique de notre temps exigent de faire dialoguer les personnes, les savoirs et les institutions."
+      ]
+    },
+    "conclusion": "Per aspera ad astra : par des sentiers ardus jusqu’aux étoiles."
   },
   parcours: {
     surtitre: "06 · Le parcours",
@@ -425,7 +501,7 @@ const en = {
       approche: ["Approach", "Stance, methods, areas, values"],
       implantation: ["Implementation", "Knowledge translation and implementation"],
       publications: ["Publications", "Presentations, theses, tools"],
-      biographie: ["Biography", "One story, several lives"],
+      biographie: ["Biography", "From human experiences to collective change"],
       parcours: ["Background", "Education and experience"],
       engagements: ["Engagement", "Representation, teaching, awards"],
     },
@@ -538,12 +614,30 @@ const en = {
       titre: "My values",
       devise: ["Motto", "Per aspera ad astra", "Through hardships to the stars"],
       items: [
-        ["Resilience", "Turning hardships into resources to move forward."],
-        ["Perseverance", "Moving forward step by step, despite obstacles."],
-        ["Self-determination", "Respecting people’s choices about their own lives."],
-        ["Co-design", "Listening, then researching and deciding with practice settings, not only for them."],
-        ["Social usefulness", "Making knowledge concretely useful to people and services."],
-        ["Daring to innovate", "Daring to propose, to undertake and to create new responses."],
+        [
+          "Intellectual curiosity",
+          "Looking elsewhere: other disciplines, other settings, other ways of thinking."
+        ],
+        [
+          "Resilience",
+          "Turning hardships into resources to move forward."
+        ],
+        [
+          "Autonomy",
+          "Thinking for oneself, and supporting everyone’s capacity to choose their own life."
+        ],
+        [
+          "Critical thinking",
+          "Questioning what seems obvious, data and institutions, starting with one’s own."
+        ],
+        [
+          "Solidarity",
+          "Leaving no one by the wayside: a principle of support and of public policy."
+        ],
+        [
+          "Boldness to undertake",
+          "Daring to propose, create and implement new responses."
+        ]
       ],
     },
   },
@@ -595,18 +689,76 @@ const en = {
     ],
   },
   biographie: {
-    surtitre: "05 · Biography",
-    titre: "Each step grew out of the limits of the one before",
-    intro: "Special needs educator, jurist and PhD student in public health: my path is anything but linear, and that is precisely what makes it coherent.",
-    chapitres: [
-      ["Starting from experience", "I went through the child welfare system in France, then left school at 16. Neurodivergence taught me early on to learn differently, to find my own paths and not to give up. From that starting point I keep a conviction that still guides my work: a public policy should be judged by what it concretely changes in people’s lives."],
-      ["Music, then the field", "Studying came back through music, with a bachelor’s degree in musicology: listening, rigour and the perseverance of patient work. Alongside, youth and leisure programmes and then managing adapted stays for people with disabilities taught me to organise, to lead teams and to start from each person’s needs."],
-      ["Choosing social usefulness", "Then came a moment of questioning: what is my relationship to society, and how am I useful? I went back to school to become a special needs educator and to enter the health field through professional practice."],
-      ["From the limits of practice to management", "My educator’s thesis examined how educational practices shape self-determination. It showed me a limit: without the right organisation, even the best practice runs into the framework. So I turned to management, with a master’s in health care facility management and a university diploma in entrepreneurship."],
-      ["From law to governance", "Management in turn revealed its own limits: planning, law and funding are often decided higher up. I went on to Université Paris Panthéon-Assas, in public, social and health law, then to France’s national agency for performance support (ANAP), close to central organisation, planning, political science and governance."],
-      ["Researching in order to propose", "Today, the PhD in public health in Montréal brings these perspectives together: the field, management, law and governance. I am not only trying to understand; I want to innovate and propose better-organised responses for people whose needs cut across several sectors. The same drive leads me to entrepreneurship, with the creation of OWNNIGHT."],
+    "surtitre": "05 · Biography",
+    "titre": "From human experiences to collective change",
+    "intro": [
+      "Special needs educator, jurist, PhD student in public health: three titles, one thread. It connects supporting people, managing organisations, law, public policy and research.",
+      "One ambition runs through them all: **to understand what shapes individual and collective trajectories, and to help build fairer, more supportive societies that recognise each person’s capacity to act.**",
+      "And one conviction, forged in the field before it was ever found in books: you cannot understand a life without understanding the systems around it."
     ],
-    conclusion: "Per aspera ad astra: through hardships to the stars.",
+    "citation": "You cannot understand a life without understanding the systems around it.",
+    "chapitres": [
+      [
+        "Starting from far away",
+        [
+          "It begins in France, in a working-class setting. The child welfare system, then leaving school at sixteen: the kind of start that promises nothing.",
+          "I did not follow the path laid out; I built my own, stone by stone, through work, through discovering other worlds, through returning to study.",
+          "From those years, and from my neurodivergence, I keep an independent mind, a great capacity to adapt, and a question that has never left me: what reproduces inequality, and what makes it possible to break free from it?"
+        ]
+      ],
+      [
+        "Music, encounter, care",
+        [
+          "First came music: a bachelor’s degree in musicology, alongside my first steps in youth and leisure programmes, and then managing adapted stays for people with disabilities.",
+          "Three seemingly distant worlds; one lesson. Self-expression, collective life, responsibility towards others.",
+          "Eleven years alongside vulnerable people taught me what matters most: the ethics of *care*. Recognising each person’s capacities. Supporting autonomy, never dependence."
+        ]
+      ],
+      [
+        "Choosing to be useful",
+        [
+          "Then came the questions: what am I useful for, and what place do I want to hold in society?",
+          "I went back to study special needs education, to give my practice theoretical, ethical and methodological foundations, and to refocus it on self-determination: working *with* people rather than *for* them.",
+          "My thesis on how educational practices shape self-determination opened a breach: **how can a person’s freedom of choice be guaranteed when their support also depends on how institutions work?**"
+        ]
+      ],
+      [
+        "Understanding organisations",
+        [
+          "That question took me to the heart of organisations.",
+          "Training in the management of health and medico-social facilities, then a university diploma in entrepreneurship at IAE Brest in 2023: management, funding, coordination, human resources, change management.",
+          "There I saw what the field senses without always being able to name it: funding, partnership work and recruitment are largely decided elsewhere, in public policy. Understanding how intentions become practice, and how an organisation reconciles its constraints with people’s needs, became my thread."
+        ]
+      ],
+      [
+        "Going back up to policy",
+        [
+          "What remained was to trace things back to their source: legal frameworks, planning, funding, governance.",
+          "Public, health and social law at Université Paris-Panthéon-Assas, then France’s national agency for performance support (ANAP), where I turned national directions into concrete arrangements, working with managers, professionals and service users.",
+          "There I measured the distance between policy as written and policy as lived, especially when the response requires crossing the boundaries between organisations and sectors. My thesis on the shift towards home care in France and Québec led me to researchers in Québec, with a proposal: to set health systems side by side to better understand what holds back ageing in place."
+        ]
+      ],
+      [
+        "Researching to inform action",
+        [
+          "Today this path continues in the PhD in public health at Université de Montréal, supervised by Dr. Nadia Sourial and Dr. Géraldine Layani.",
+          "I study the organisation of health and social service systems, populations’ social needs, intersectoral collaboration and the conditions that make integrated responses possible, particularly in home support.",
+          "My approach is interdisciplinary and pragmatic: bringing together lived experience, scientific knowledge and the reality of decisions. It makes room for partnership research, where patients are also producers of knowledge, and for knowledge translation towards those who will use it.",
+          "The same drive, to create, experiment and propose, leads me to entrepreneurship, with **OWNNIGHT**, now being created."
+        ]
+      ]
+    ],
+    "vision": {
+      "titre": "Bringing people, knowledge and institutions into dialogue",
+      "paragraphes": [
+        "I believe that academic, professional and experiential knowledge gain from being confronted rather than ranked.",
+        "I have crossed several layers of society and of the health system, and held different places within them. This plurality of perspectives has become a resource of my scientific approach.",
+        "**For me, research is an instrument of understanding, but also of human emancipation, social justice and support for collective decision-making.** Its value lies as much in the rigour of the knowledge it produces as in its capacity to feed debate, inform choices and support their implementation, for fairer, more continuous and better care pathways, in the spirit of the United Nations Sustainable Development Goals.",
+        "Intellectual curiosity, resilience, autonomy, critical thinking, solidarity and the boldness to undertake: these values run through my journey.",
+        "I want to pursue this exploration at the interface of disciplines and settings, with one conviction: today’s public health challenges demand that people, knowledge and institutions talk to one another."
+      ]
+    },
+    "conclusion": "Per aspera ad astra: through hardships to the stars."
   },
   parcours: {
     surtitre: "06 · Background",
@@ -765,7 +917,7 @@ const es = {
       approche: ["El enfoque", "Postura, métodos, ejes, valores"],
       implantation: ["Implementación", "Transferencia de conocimientos e implementación"],
       publications: ["Publicaciones", "Comunicaciones, memorias, herramientas"],
-      biographie: ["Biografía", "Una historia, varias vidas"],
+      biographie: ["Biografía", "De las experiencias humanas a las transformaciones colectivas"],
       parcours: ["La trayectoria", "Formación y experiencia"],
       engagements: ["Compromisos", "Representación, docencia, distinciones"],
     },
@@ -878,12 +1030,30 @@ const es = {
       titre: "Mis valores",
       devise: ["Lema", "Per aspera ad astra", "A través de las dificultades hasta las estrellas"],
       items: [
-        ["Resiliencia", "Hacer de las pruebas vividas un recurso para avanzar."],
-        ["Perseverancia", "Avanzar paso a paso, pese a los obstáculos."],
-        ["Autodeterminación", "Respetar la elección de las personas sobre su propia vida."],
-        ["Coconstrucción", "Escuchar, y luego investigar y decidir con los entornos de práctica, no solo para ellos."],
-        ["Utilidad social", "Que los conocimientos sirvan concretamente a las personas y a los servicios."],
-        ["Audacia para innovar", "Atreverse a proponer, emprender y crear nuevas respuestas."],
+        [
+          "Curiosidad intelectual",
+          "Mirar más allá: otras disciplinas, otros entornos, otras maneras de pensar."
+        ],
+        [
+          "Resiliencia",
+          "Hacer de las pruebas vividas un recurso para avanzar."
+        ],
+        [
+          "Autonomía",
+          "Pensar por uno mismo y sostener en cada persona la capacidad de elegir su vida."
+        ],
+        [
+          "Sentido crítico",
+          "Interrogar las evidencias, los datos y las instituciones, empezando por las propias."
+        ],
+        [
+          "Solidaridad",
+          "No dejar a nadie al borde del camino: un principio de acompañamiento y de política pública."
+        ],
+        [
+          "Audacia para emprender",
+          "Atreverse a proponer, crear y poner en práctica nuevas respuestas."
+        ]
       ],
     },
   },
@@ -935,18 +1105,76 @@ const es = {
     ],
   },
   biographie: {
-    surtitre: "05 · Biografía",
-    titre: "Cada etapa nació de los límites de la anterior",
-    intro: "Educador especializado, jurista y doctorando en salud pública: mi trayectoria no tiene nada de lineal, y es precisamente eso lo que le da coherencia.",
-    chapitres: [
-      ["Partir de la experiencia", "Pasé por la protección de la infancia en Francia y dejé la escuela a los 16 años. Mi neuroatipia me enseñó pronto a aprender de otra manera, a buscar mis propios caminos y a no rendirme. De ese punto de partida conservo una convicción que todavía guía mi trabajo: una política pública se juzga por lo que cambia concretamente en la vida de las personas."],
-      ["La música, y luego el terreno", "Los estudios volvieron a través de la música, con una licenciatura en musicología: la escucha, el rigor y la perseverancia del trabajo paciente. Al mismo tiempo, la animación sociocultural y después la responsabilidad de estancias adaptadas para personas con discapacidad me enseñaron a organizar, a dirigir equipos y a partir de las necesidades de cada persona."],
-      ["Elegir la utilidad social", "Luego llegó un replanteamiento: ¿cuál es mi relación con la sociedad y para qué soy útil? Retomé los estudios para ser educador especializado y entrar en el ámbito de la salud a través de la práctica profesional."],
-      ["De los límites de la práctica a la gestión", "Mi memoria de educador trataba sobre la influencia de las prácticas educativas en la autodeterminación. Me mostró un límite: sin una organización adecuada, incluso la mejor práctica choca con el marco. Por eso me dirigí a la gestión, con una maestría en dirección de establecimientos de salud y un diploma universitario en emprendimiento."],
-      ["Del derecho a la gobernanza", "La gestión reveló a su vez sus propios límites: la planificación, el derecho y la financiación suelen decidirse más arriba. Continué en la Université Paris Panthéon-Assas, en derecho público, social y de la salud, y después en la Agencia nacional francesa de apoyo al desempeño (ANAP), cerca de la organización central, la planificación, la ciencia política y la gobernanza."],
-      ["Investigar para proponer", "Hoy, el doctorado en salud pública en Montreal reúne estas miradas: el terreno, la gestión, el derecho y la gobernanza. No busco solo comprender; quiero innovar y proponer respuestas mejor organizadas para las personas cuyas necesidades atraviesan varios sectores. El mismo impulso me lleva a emprender, con la creación de OWNNIGHT."],
+    "surtitre": "05 · Biografía",
+    "titre": "De las experiencias humanas a las transformaciones colectivas",
+    "intro": [
+      "Educador especializado, jurista, doctorando en salud pública: tres títulos, un solo hilo. Une el acompañamiento de las personas, la gestión de las organizaciones, el derecho, las políticas públicas y la investigación.",
+      "Una ambición los atraviesa: **comprender lo que da forma a las trayectorias individuales y colectivas, para contribuir a sociedades más justas, más solidarias, capaces de reconocer a cada persona su capacidad de actuar.**",
+      "Y una convicción, forjada en el terreno antes que en los libros: no se comprende una vida sin comprender los sistemas que la rodean."
     ],
-    conclusion: "Per aspera ad astra: a través de las dificultades hasta las estrellas.",
+    "citation": "No se comprende una vida sin comprender los sistemas que la rodean.",
+    "chapitres": [
+      [
+        "Partir de lejos",
+        [
+          "Todo comienza en Francia, en un medio popular. La protección de la infancia, y luego la escuela abandonada a los dieciséis años: el tipo de comienzo que no promete nada.",
+          "No seguí el camino trazado; construí el mío, piedra a piedra, con el trabajo, descubriendo otros mundos, volviendo a los estudios.",
+          "De esos años, y de mi neuroatipia, conservo una independencia de pensamiento, una gran capacidad de adaptación y una pregunta que ya no me ha abandonado: ¿qué reproduce las desigualdades y qué permite liberarse de ellas?"
+        ]
+      ],
+      [
+        "La música, el encuentro, el cuidado",
+        [
+          "Primero fue la música: una licenciatura en musicología, en paralelo a mis primeros pasos en la animación sociocultural y, después, a la responsabilidad de estancias adaptadas para personas con discapacidad.",
+          "Tres mundos en apariencia lejanos; un mismo aprendizaje. La expresión de uno mismo, la vida colectiva, la responsabilidad hacia los demás.",
+          "Once años de compromiso junto a personas vulnerables me enseñaron lo esencial: la ética del *cuidado*. Reconocer las capacidades de cada persona. Acompañar hacia la autonomía, nunca hacia la dependencia."
+        ]
+      ],
+      [
+        "Elegir la utilidad social",
+        [
+          "Llegó el tiempo de las preguntas: ¿para qué soy útil y qué lugar quiero ocupar en la sociedad?",
+          "Retomé los estudios en educación especializada para dar a mi práctica fundamentos teóricos, éticos y metodológicos, y centrarla en la autodeterminación: hacer *con* las personas, y no *para* ellas.",
+          "Mi memoria sobre la influencia de las prácticas educativas en la autodeterminación abrió una brecha: **¿cómo garantizar la libertad de elección de una persona cuando su acompañamiento depende también del funcionamiento de las instituciones?**"
+        ]
+      ],
+      [
+        "Comprender las organizaciones",
+        [
+          "Esa pregunta me llevó al corazón de las organizaciones.",
+          "Una formación en dirección de establecimientos sanitarios y sociosanitarios, y después un diploma universitario en emprendimiento en el IAE de Brest, en 2023: gestión, financiación, coordinación, recursos humanos, conducción del cambio.",
+          "Allí vi lo que el terreno intuye sin poder siempre nombrarlo: la financiación, el trabajo en red o la contratación se deciden en gran parte en otro lugar, en las políticas públicas. Comprender cómo las intenciones se convierten en prácticas, y cómo una organización concilia sus limitaciones con las necesidades de las personas, se convirtió en mi hilo conductor."
+        ]
+      ],
+      [
+        "Remontar hasta las políticas",
+        [
+          "Quedaba remontar hasta la fuente: los marcos jurídicos, la planificación, la financiación, la gobernanza.",
+          "El derecho público, sanitario y social en la Université Paris-Panthéon-Assas, y después la Agencia nacional francesa de apoyo al desempeño (ANAP), donde traduje orientaciones nacionales en dispositivos concretos, en contacto con gestores, profesionales y usuarios.",
+          "Allí medí la distancia entre la política escrita y la política vivida, sobre todo cuando la respuesta exige cruzar las fronteras entre organizaciones y sectores. Mi memoria sobre la atención domiciliaria en Francia y Quebec me llevó hasta investigadoras e investigadores quebequenses, con una propuesta: poner los sistemas de salud frente a frente para comprender mejor lo que frena la permanencia en el domicilio."
+        ]
+      ],
+      [
+        "Investigar para esclarecer la acción",
+        [
+          "Hoy este camino continúa en el doctorado en salud pública de la Université de Montréal, bajo la dirección de la Dra. Nadia Sourial y la Dra. Géraldine Layani.",
+          "Estudio la organización de los sistemas de salud y de servicios sociales, las necesidades sociales de las poblaciones, las colaboraciones intersectoriales y las condiciones que hacen posibles las respuestas integradas, en particular en el apoyo a domicilio.",
+          "Mi enfoque es interdisciplinario y pragmático: acercar la experiencia vivida, el conocimiento científico y la realidad de las decisiones. Da un lugar a la investigación participativa, en la que los pacientes también producen saberes, y a la transferencia de conocimientos hacia quienes los movilizarán.",
+          "El mismo impulso, crear, experimentar, proponer, me lleva al emprendimiento, con **OWNNIGHT**, en creación."
+        ]
+      ]
+    ],
+    "vision": {
+      "titre": "Hacer dialogar a las personas, los saberes y las instituciones",
+      "paragraphes": [
+        "Creo que los saberes académicos, profesionales y experienciales ganan al confrontarse en lugar de jerarquizarse.",
+        "He atravesado varios estratos de la sociedad y del sistema de salud, y he ocupado en ellos lugares distintos. Esta pluralidad de miradas se ha convertido en un recurso de mi trabajo científico.",
+        "**Para mí, la investigación es un instrumento de comprensión, pero también de emancipación humana, de justicia social y de apoyo a la decisión colectiva.** Su valor reside tanto en el rigor de los conocimientos que produce como en su capacidad de alimentar el debate, esclarecer las decisiones y sostener su puesta en práctica, por itinerarios más equitativos, más continuos y de mejor calidad, en el espíritu de los Objetivos de Desarrollo Sostenible de las Naciones Unidas.",
+        "Curiosidad intelectual, resiliencia, autonomía, sentido crítico, solidaridad y audacia para emprender: estos valores atraviesan mi camino.",
+        "Quiero continuar esta exploración en la interfaz entre disciplinas y entornos, con una convicción: los desafíos de salud pública de nuestro tiempo exigen hacer dialogar a las personas, los saberes y las instituciones."
+      ]
+    },
+    "conclusion": "Per aspera ad astra: a través de las dificultades hasta las estrellas."
   },
   parcours: {
     surtitre: "06 · La trayectoria",

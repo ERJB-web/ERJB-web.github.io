@@ -183,15 +183,17 @@ ${cadres}
 
 function sectionBiographie(c) {
   const b = c.biographie;
+  const riche = (s) => e(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*(.+?)\*/g, "<em>$1</em>");
   return `<div class="section-corps">
 <div class="colonne-texte">
 <p class="surtitre">${e(b.surtitre)}</p>
 <h2>${e(b.titre)}</h2>
-<p class="intro">${e(b.intro)}</p>
-<img class="portrait-bio" src="${c.chemin}assets/portrait.jpg" width="720" height="900" alt="${e(c.accueil.portrait)}" loading="lazy">
+<div class="bio-intro">${b.intro.map((p) => `<p>${riche(p)}</p>`).join("")}</div>
+<figure class="bio-figure"><img class="portrait-bio" src="${c.chemin}assets/portrait.jpg" width="720" height="900" alt="${e(c.accueil.portrait)}" loading="lazy"><blockquote class="citation">${e(b.citation)}</blockquote></figure>
 </div>
 <div class="colonne-outils">
-<ol class="recit">${b.chapitres.map(([titre, texte], i) => `<li><span class="recit-num">${num(i)}</span><div><h3>${e(titre)}</h3><p>${e(texte)}</p></div></li>`).join("")}</ol>
+<ol class="recit">${b.chapitres.map(([titre, paragraphes], k) => `<li><span class="recit-num">${num(k)}</span><div><h3>${e(titre)}</h3>${paragraphes.map((p) => `<p>${riche(p)}</p>`).join("")}</div></li>`).join("")}</ol>
+<div class="vision"><h3>${e(b.vision.titre)}</h3>${b.vision.paragraphes.map((p) => `<p>${riche(p)}</p>`).join("")}</div>
 <p class="recit-fin">${e(b.conclusion)}</p>
 </div>
 </div>`;
