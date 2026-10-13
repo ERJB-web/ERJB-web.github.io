@@ -1059,7 +1059,7 @@ ${bandeAccueil(c)}
 
 ${SALLES.map(
   (s, i) => `<section class="section${i % 2 ? " teinte" : ""}" id="${s}" data-salle="${s}" data-titre="${e(c.hall.portes[s][0])}">
-<div class="section-contenu" data-numero="${NUMS[s]}">
+<div class="section-contenu" data-numero="${NUMS[s]}" data-mini="${p}assets/portes-mini/${s}.jpg?v=${empreinte("assets/portes-mini/" + s + ".jpg")}">
 <div class="bandeau" style="--c1:${TEINTES[s][0]};background-image:var(--degrade),url(${p}assets/${bandeau(s)}?v=${empreinte("assets/" + bandeau(s))})" role="img" aria-label="${e(c.hall.portes[s][0])}"><div class="bandeau-texte"><span class="bandeau-num">${NUMS[s]}</span><span class="bandeau-titre">${e(c.hall.portes[s][0])}</span><span class="bandeau-legende">${e(c.hall.portes[s][1])}</span></div></div>
 ${sections[s].replace(/<p class="surtitre">(\d{2} · )?/, `<p class="surtitre">${NUMS[s]} · `)}
 </div>

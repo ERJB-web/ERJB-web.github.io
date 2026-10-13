@@ -107,6 +107,8 @@
         d.className = "baie mini";
         d.setAttribute("aria-hidden", "true");
         d.innerHTML = "<span class=\"ouverture\"><span class=\"battant\"><span class=\"vignette\"></span><span class=\"poignee\"></span></span></span>";
+        const mini = sx.querySelector(".section-contenu").dataset.mini;
+        if (mini) d.querySelector(".vignette").style.backgroundImage = `url("${mini}")`;
         bouton.append(d, n, t);
         bouton.dataset.sous = x;
         bouton.addEventListener("click", () => passerSous(x));
