@@ -16,7 +16,7 @@ const empreinte = (fichier) => require("crypto").createHash("sha256").update(fs.
 const VERSION_CSS = empreinte("assets/site.css");
 const VERSION_JS = empreinte("assets/site.js");
 const URL = "https://erjb-web.github.io/";
-const SALLES = ["recherche", "approche", "implantation", "publications", "biographie", "parcours", "engagements"];
+const SALLES = ["recherche", "approche", "implantation", "publications", "biographie", "parcours", "engagements", "ressources"];
 
 let typoFr = false;
 const e = (s) => {
@@ -135,6 +135,7 @@ const IMAGES_PORTES = {
   biographie: "biographie.jpg",
   parcours: "parcours.jpg",
   engagements: "engagements.jpg",
+  ressources: "ressources.jpg",
 };
 
 const TEINTES = {
@@ -145,6 +146,7 @@ const TEINTES = {
   publications: ["#327a66", "#1f5446"],
   parcours: ["#9a7448", "#6c4f2e"],
   engagements: ["#5d6585", "#40465f"],
+  ressources: ["#3f6f8f", "#2c5068"],
 };
 
 
@@ -165,7 +167,9 @@ const SCHEMAS = {
     reseauLegende: "Dans ma thèse, l’analyse de réseau est égocentrée : elle se déroule à partir du CLSC. Ses intervenants et gestionnaires nomment leurs interlocuteurs, qui reçoivent à leur tour le questionnaire ; les liens entre partenaires sont ainsi déclarés par les partenaires eux-mêmes. Les vignettes décrivent le réseau potentiel, les interactions des douze derniers mois le réseau réel, et des entretiens sur la carte du réseau éclairent le pourquoi et le comment de ces interactions.",
     partenaires: ["Clinique","Hôpital","Pharmacie","École","Municipalité","Organisme communautaire","CPE"],
     figure: "Gouvernance locale animée par le CLSC du territoire : un milieu d’affiliation pour chaque personne, au sein d’un voisinage de soins et de services.",
-    source: "Source : ministère de la Santé et des Services sociaux du Québec (2026).",
+    source: "Source : ministère de la Santé et des Services sociaux du Québec (2026), Politique de première ligne.",
+    comparePolitique: "Ce que prévoit la politique",
+    compareThese: "Ce que la thèse observe",
     alt: "Schéma officiel : le CLSC anime la gouvernance locale de son territoire avec la clinique, l’hôpital, la pharmacie, l’école, la municipalité, les organismes communautaires et les CPE.",
     posture: ["Lecture positiviste", "Mesurer, estimer, tester", "Lecture constructiviste", "Comprendre le sens donné aux pratiques", "Posture pragmatique", "La question décide de la méthode : des méthodes mixtes intégrées."],
   },
@@ -174,7 +178,9 @@ const SCHEMAS = {
     reseauLegende: "In my thesis, network analysis is ego-centred: it unfolds from the CLSC. Its practitioners and managers name the people they work with, who in turn receive the questionnaire; links between partners are thus reported by the partners themselves. Vignettes describe the potential network, interactions over the past twelve months the actual network, and interviews on the network map shed light on why and how these interactions occur.",
     partenaires: ["Clinic","Hospital","Pharmacy","School","Municipality","Community organisation","Childcare centre"],
     figure: "Local governance led by the territory’s CLSC: a home base for each person, within a neighbourhood of care and services.",
-    source: "Source: Quebec Ministry of Health and Social Services (2026).",
+    source: "Source: Quebec Ministry of Health and Social Services (2026), first-line services policy.",
+    comparePolitique: "What the policy sets out",
+    compareThese: "What the thesis observes",
     alt: "Official diagram: the CLSC leads local governance in its territory with the clinic, hospital, pharmacy, school, municipality, community organisations and childcare centres.",
     posture: ["Positivist lens", "Measure, estimate, test", "Constructivist lens", "Understand the meaning given to practices", "Pragmatic stance", "The question decides the method: integrated mixed methods."],
   },
@@ -183,7 +189,9 @@ const SCHEMAS = {
     reseauLegende: "En mi tesis, el análisis de redes es egocentrado: se despliega a partir del CLSC. Sus profesionales y gestores nombran a sus interlocutores, que a su vez reciben el cuestionario; los vínculos entre socios son así declarados por los propios socios. Las viñetas describen la red potencial, las interacciones de los últimos doce meses la red real, y entrevistas sobre el mapa de la red aclaran el porqué y el cómo de esas interacciones.",
     partenaires: ["Clínica","Hospital","Farmacia","Escuela","Municipio","Organismo comunitario","Centro de primera infancia"],
     figure: "Gobernanza local animada por el CLSC del territorio: un lugar de afiliación para cada persona, dentro de una vecindad de cuidados y servicios.",
-    source: "Fuente: Ministerio de Salud y Servicios Sociales de Quebec (2026).",
+    source: "Fuente: Ministerio de Salud y Servicios Sociales de Quebec (2026), política de primera línea.",
+    comparePolitique: "Lo que prevé la política",
+    compareThese: "Lo que observa la tesis",
     alt: "Esquema oficial: el CLSC anima la gobernanza local de su territorio con la clínica, el hospital, la farmacia, la escuela, el municipio, los organismos comunitarios y los centros de primera infancia.",
     posture: ["Lectura positivista", "Medir, estimar, probar", "Lectura constructivista", "Comprender el sentido dado a las prácticas", "Postura pragmática", "La pregunta decide el método: métodos mixtos integrados."],
   },
@@ -192,7 +200,9 @@ const SCHEMAS = {
     reseauLegende: "在我的博士论文中，网络分析以 CLSC 为中心展开：其从业人员和管理者列出与之合作的对象，这些对象再依次填写问卷；合作伙伴之间的联系因此由伙伴自己申报。情景案例描述潜在网络，过去十二个月的互动描述实际网络，而围绕网络图进行的访谈则阐明这些互动发生的原因与方式。",
     partenaires: ["诊所","医院","药房","学校","市政","社区组织","幼儿中心"],
     figure: "由区域内 CLSC 主导的地方治理：在照护与服务的邻里网络中，为每个人提供一个归属的服务场所。",
-    source: "来源：魁北克卫生与社会服务部（2026）。",
+    source: "来源：魁北克卫生与社会服务部（2026），《第一线服务政策》。",
+    comparePolitique: "政策的规定",
+    compareThese: "论文的观察",
     alt: "官方示意图：CLSC 与诊所、医院、药房、学校、市政、社区组织和幼儿中心共同主导其区域的地方治理。",
     posture: ["实证主义视角", "测量、估计、检验", "建构主义视角", "理解行动者赋予实践的意义", "实用主义立场", "由问题决定方法：整合的混合方法。"],
   },
@@ -201,7 +211,9 @@ const SCHEMAS = {
     reseauLegende: "في أطروحتي، يتمحور تحليل الشبكات حول CLSC: إذ يسمّي ممارسوه ومديروه الجهات التي يتعاملون معها، فتتلقى هذه الجهات بدورها الاستبيان؛ وبذلك يصرّح الشركاء أنفسهم بالروابط القائمة بينهم. تصف الحالات الافتراضية الشبكة المحتملة، وتصف تفاعلات الأشهر الاثني عشر الأخيرة الشبكة الفعلية، ثم توضّح المقابلات حول خريطة الشبكة أسباب هذه التفاعلات وكيفية حدوثها.",
     partenaires: ["العيادة","المستشفى","الصيدلية","المدرسة","البلدية","المنظمة المجتمعية","مركز الطفولة المبكرة"],
     figure: "حوكمة محلية يقودها CLSC في منطقته: مكان انتماء لكل شخص ضمن جوار من خدمات الرعاية والخدمات.",
-    source: "المصدر: وزارة الصحة والخدمات الاجتماعية في كيبيك (2026).",
+    source: "المصدر: وزارة الصحة والخدمات الاجتماعية في كيبيك (2026)، سياسة خدمات الخط الأول.",
+    comparePolitique: "ما تنصّ عليه السياسة",
+    compareThese: "ما ترصده الأطروحة",
     alt: "رسم رسمي: يقود CLSC الحوكمة المحلية في منطقته مع العيادة والمستشفى والصيدلية والمدرسة والبلدية والمنظمات المجتمعية ومراكز الطفولة المبكرة.",
     posture: ["المنظور الوضعي", "القياس والتقدير والاختبار", "المنظور البنائي", "فهم المعنى الذي يمنحه الفاعلون لممارساتهم", "الموقف البراغماتي", "السؤال هو الذي يحدّد المنهج: مناهج مختلطة متكاملة."],
   },
@@ -217,7 +229,7 @@ function schemaReseau(c) {
   const liens = [[0, 1], [1, 2], [0, 5], [5, 4], [4, 3], [5, 6], [3, 6]];
   const ancre = (cx) => (Math.abs(cx) < 0.2 ? "middle" : cx > 0 ? "start" : "end");
   return `<figure class="schema schema-reseau">
-<figcaption class="schema-titre">${e(S.reseauTitre)}</figcaption>
+<p class="comparaison-etiquette these">${e(S.compareThese)}</p><figcaption class="schema-titre">${e(S.reseauTitre)}</figcaption>
 <svg viewBox="0 0 640 400" role="img" aria-label="${e(S.reseauTitre)}">
 ${liens.map(([a, b]) => `<line x1="${pts[a][0].toFixed(1)}" y1="${pts[a][1].toFixed(1)}" x2="${pts[b][0].toFixed(1)}" y2="${pts[b][1].toFixed(1)}" class="lien-partenaires"/>`).join("")}
 ${pts.map(([x, y]) => `<line x1="320" y1="200" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" class="lien-centre"/>`).join("")}
@@ -236,7 +248,7 @@ ${pts
 
 function figureClsc(c) {
   const S = SCHEMAS[c.lang];
-  return `<figure class="figure-officielle"><img src="${c.chemin}assets/figures/clsc-gouvernance.png?v=${empreinte("assets/figures/clsc-gouvernance.png")}" width="1400" height="983" alt="${e(S.alt)}" loading="lazy"><figcaption>${e(S.figure)} <span class="source">${e(S.source)}</span></figcaption></figure>`;
+  return `<figure class="figure-officielle"><p class="comparaison-etiquette politique">${e(S.comparePolitique)}</p><img src="${c.chemin}assets/figures/clsc-gouvernance.png?v=${empreinte("assets/figures/clsc-gouvernance.png")}" width="1400" height="983" alt="${e(S.alt)}" loading="lazy"><figcaption>${e(S.figure)} <span class="source">${e(S.source)}</span></figcaption></figure>`;
 }
 
 function schemaPosture(c) {
@@ -277,6 +289,44 @@ const ICONES_GROUPES = {
 };
 const ICONES_TYPES = { formation: "chapeau", experience: "mallette", entreprise: "fusee" };
 
+// Accueil : parcours illustré et chiffres clés.
+const BANDE = {
+  fr: {
+    titre: "Le parcours en un coup d’œil",
+    etapes: [["2016–2024", "Séjours adaptés et de répit", "coeur"], ["2020–2023", "Éducateur spécialisé, Adapei 35", "personne"], ["2024", "Direction des structures médico-sociales, UBO", "mallette"], ["2024–2025", "Chargé de mission, ANAP", "reseau"], ["2025", "Droit de la santé, Paris-Panthéon-Assas", "balance"], ["Depuis 2025", "Doctorat en santé publique, ESPUM et CRCHUM", "loupe"]],
+    chiffres: [["8", "années auprès de personnes en situation de handicap"], ["2", "masters : gestion médico-sociale et droit de la santé"], ["10", "outils nationaux de pilotage conçus à l’ANAP"], ["222", "publications dans le corpus de thèse"]],
+  },
+  en: {
+    titre: "The path at a glance",
+    etapes: [["2016–2024", "Adapted and respite holidays", "coeur"], ["2020–2023", "Special needs educator, Adapei 35", "personne"], ["2024", "Management of social care services, UBO", "mallette"], ["2024–2025", "Project manager, ANAP", "reseau"], ["2025", "Health law, Paris-Panthéon-Assas", "balance"], ["Since 2025", "PhD in public health, ESPUM and CRCHUM", "loupe"]],
+    chiffres: [["8", "years supporting people with disabilities"], ["2", "master’s degrees: social care management and health law"], ["10", "national management tools designed at ANAP"], ["222", "publications in the thesis corpus"]],
+  },
+  es: {
+    titre: "La trayectoria de un vistazo",
+    etapes: [["2016–2024", "Estancias adaptadas y de respiro", "coeur"], ["2020–2023", "Educador especializado, Adapei 35", "personne"], ["2024", "Dirección de estructuras médico-sociales, UBO", "mallette"], ["2024–2025", "Encargado de misión, ANAP", "reseau"], ["2025", "Derecho de la salud, Paris-Panthéon-Assas", "balance"], ["Desde 2025", "Doctorado en salud pública, ESPUM y CRCHUM", "loupe"]],
+    chiffres: [["8", "años junto a personas en situación de discapacidad"], ["2", "másteres: gestión médico-social y derecho de la salud"], ["10", "herramientas nacionales de pilotaje diseñadas en la ANAP"], ["222", "publicaciones en el corpus de la tesis"]],
+  },
+  zh: {
+    titre: "经历一览",
+    etapes: [["2016–2024", "适应性度假与喘息服务", "coeur"], ["2020–2023", "特殊教育工作者，Adapei 35", "personne"], ["2024", "医疗社会服务机构管理，UBO", "mallette"], ["2024–2025", "项目专员，ANAP", "reseau"], ["2025", "卫生法，巴黎-先贤祠-阿萨斯大学", "balance"], ["2025 年起", "公共卫生博士，ESPUM 与 CRCHUM", "loupe"]],
+    chiffres: [["8", "年陪伴残障人士"], ["2", "个硕士学位：医疗社会管理与卫生法"], ["10", "项在 ANAP 设计的全国性管理工具"], ["222", "篇论文文献库中的文献"]],
+  },
+  ar: {
+    titre: "المسار في لمحة",
+    etapes: [["2016–2024", "إقامات مكيّفة وإقامات راحة", "coeur"], ["2020–2023", "مربٍّ متخصص، Adapei 35", "personne"], ["2024", "إدارة المؤسسات الطبية الاجتماعية، UBO", "mallette"], ["2024–2025", "مكلّف بمهمة، ANAP", "reseau"], ["2025", "قانون الصحة، باريس-بانتيون-أساس", "balance"], ["منذ 2025", "دكتوراه في الصحة العامة، ESPUM وCRCHUM", "loupe"]],
+    chiffres: [["8", "سنوات إلى جانب الأشخاص ذوي الإعاقة"], ["2", "شهادتا ماجستير: إدارة الخدمات الطبية الاجتماعية وقانون الصحة"], ["10", "أدوات وطنية للقيادة صُمّمت في ANAP"], ["222", "منشورًا في مدوّنة الأطروحة"]],
+  },
+};
+
+function bandeAccueil(c) {
+  const B = BANDE[c.lang];
+  return `<div class="bande-accueil">
+<p class="bande-titre">${e(B.titre)}</p>
+<ol class="trajectoire">${B.etapes.map(([quand, quoi, ic], i) => `<li style="--rang:${i}"><span class="trajectoire-date">${e(quand)}</span><span class="trajectoire-texte">${e(quoi)}</span></li>`).join("")}</ol>
+<div class="chiffres chiffres-accueil">${B.chiffres.map(([v, l]) => `<div><strong>${e(v)}</strong><span>${e(l)}</span></div>`).join("")}</div>
+</div>`;
+}
+
 function sectionRecherche(c) {
   const r = c.recherche;
   const valeur = (v) => (Array.isArray(v) ? v.map((x) => `<span class="ligne">${e(x)}</span>`).join("") : e(v));
@@ -312,8 +362,8 @@ ${lien(
 </div>
 <div class="colonne-outils">
 ${tableOnglets(r.table.titre, r.table.detail, r.table.etapes, r.table.terminus)}
-${figureClsc(c)}
-${schemaReseau(c)}
+<div class="comparaison">${figureClsc(c)}
+${schemaReseau(c)}</div>
 <h3 class="titre-bloc">${e(r.notions.titre)}</h3>
 <div class="notions">${r.notions.items.map(([t, d, ref]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p>${ref ? `<p class="ref">(${e(ref)})</p>` : ""}</div>`).join("")}</div>
 <h3 class="titre-bloc">${e(r.retombees.titre)}</h3>
@@ -453,7 +503,63 @@ function sectionGroupes(c, s, extra = "", icones = []) {
 <p class="intro">${e(s.intro)}</p>
 ${extra}
 </div>
-<div class="colonne-outils">${s.groupes.map((g, k) => `<h3 class="titre-bloc titre-icone"><span class="pastille-icone">${icone(icones[k] || "papiers")}</span>${e(g.titre)}<span class="compte">${g.items.length}</span></h3>${liste(g.items)}`).join("")}</div>
+<div class="colonne-outils">${s.groupes.map((g, k) => `<h3 class="titre-bloc titre-icone">${e(g.titre)}<span class="compte">${g.items.length}</span></h3>${liste(g.items)}`).join("")}</div>
+</div>`;
+}
+
+const RESSOURCES = JSON.parse(fs.readFileSync(path.join(__dirname, "ressources-donnees.json"), "utf8"));
+const lienFinal = (s) => e(s).replace(/(https?:\/\/\S+?)(\.?)$/, (u, url, point) => `<a href="${url}" target="_blank" rel="noopener">${url}</a>${point}`);
+
+function sectionRessources(c) {
+  const t = c.ressources;
+  const D = RESSOURCES;
+  const cles = ["5", "4", "3", "2", "1"];
+  const max = Math.max(...cles.map((k) => D.priorites[k]));
+  const barres = cles
+    .map((k) => `<div class="barre"><span class="barre-libelle">${e(t.prioriteLibelle)} ${k}</span><span class="barre-piste"><span class="barre-valeur p${k}" style="width:${((100 * D.priorites[k]) / max).toFixed(1)}%"></span></span><span class="barre-nombre">${D.priorites[k]}</span></div>`)
+    .join("");
+  const total = t.provenance.reduce((s, [, n]) => s + n, 0);
+  const teintes = ["var(--accent)", "#286d5c", "#a0663b"];
+  let cumul = 0;
+  const segments = t.provenance.map(([, n], i) => {
+    const debut = cumul;
+    cumul += (100 * n) / total;
+    return `${teintes[i]} ${debut.toFixed(2)}% ${cumul.toFixed(2)}%`;
+  });
+  const anneau = `<div class="anneau-bloc"><div class="anneau" style="background:conic-gradient(${segments.join(",")})" role="img" aria-label="${e(t.provenanceTitre)}"><span>${total}</span></div><ul class="anneau-legende">${t.provenance
+    .map(([nom, n], i) => `<li><span class="pastille-couleur" style="background:${teintes[i]}"></span>${e(nom)}<b>${n}</b></li>`)
+    .join("")}</ul></div>`;
+  const lacunes = t.lacunes
+    .map(
+      (l) => `<article class="lacune s${l.score}"><div class="lacune-tete"><h4>${e(l.dimension)}</h4><span class="niveau">${e(l.niveau)}</span></div><div class="jauge" aria-hidden="true">${[1, 2, 3, 4, 5]
+        .map((n) => `<span${n <= l.score ? ' class="plein"' : ""}></span>`)
+        .join("")}</div><p class="etat">${e(l.etat)}</p><p>${e(l.constat)}</p><p class="ref">${e(l.reperes)}</p></article>`
+    )
+    .join("");
+  const lectures = (arr) =>
+    `<ol class="lectures">${arr.map((x) => `<li><span class="lecture-auteurs">${e(x.auteurs)} (${e(x.annee)})</span> ${x.lien ? lien(x.lien, e(x.titre)) : e(x.titre)} <span class="type">${e(x.type)}</span></li>`).join("")}</ol>`;
+  return `<div class="section-corps">
+<div class="colonne-texte">
+<p class="surtitre">${e(t.surtitre)}</p>
+<h2>${e(t.titre)}</h2>
+<p class="intro">${e(t.intro)}</p>
+<div class="chiffres">${t.chiffres.map(([v, l]) => `<div><strong>${e(v)}</strong><span>${e(l)}</span></div>`).join("")}</div>
+<h3 class="titre-bloc">${e(t.prioritesTitre)}</h3>
+<div class="barres">${barres}</div>
+<h3 class="titre-bloc">${e(t.provenanceTitre)}</h3>
+${anneau}
+<p class="note">${e(t.note)}</p>
+</div>
+<div class="colonne-outils">
+<h3 class="titre-bloc">${e(t.lacunesTitre)}</h3>
+<p class="note">${e(t.lacunesIntro)}</p>
+<div class="lacunes">${lacunes}</div>
+<div class="lacune-principale"><h4>${e(t.principaleTitre)}</h4><p>${e(t.principale)}</p><p class="vigilance">${e(t.vigilance)}</p></div>
+<details class="biblio"><summary>${e(t.p5Titre)}</summary>${lectures(D.p5)}</details>
+<details class="biblio"><summary>${e(t.p4Titre)}</summary>${lectures(D.p4)}</details>
+<h3 class="titre-bloc">${e(t.formationTitre)}</h3>
+<div class="cours">${t.cours.map(([nom, refs]) => `<article class="cours-carte"><h4>${e(nom)}</h4><ul>${refs.map((x) => `<li>${lienFinal(x)}</li>`).join("")}</ul></article>`).join("")}</div>
+</div>
 </div>`;
 }
 
@@ -472,7 +578,7 @@ function sectionParcours(c) {
 <div class="colonne-outils"><ol class="frise">${p.etapes
     .map(
       (s) =>
-        `<li class="${s.type}"><span class="frise-icone" aria-hidden="true">${icone(ICONES_TYPES[s.type] || "mallette")}</span><span class="date">${e(s.date)}</span><div><span class="type">${e(p.types[s.type])}</span><h4>${e(s.titre)}</h4><p>${e(s.detail)}</p>${
+        `<li class="${s.type}"><span class="date">${e(s.date)}</span><div><span class="type">${e(p.types[s.type])}</span><h4>${e(s.titre)}</h4><p>${e(s.detail)}</p>${
           s.discret ? `<p class="discret">${e(s.discret)}</p>` : ""
         }</div></li>`
     )
@@ -542,6 +648,7 @@ function page(c) {
     publications: sectionGroupes(c, c.publications, "", ICONES_GROUPES.publications),
     biographie: sectionBiographie(c),
     parcours: sectionParcours(c),
+    ressources: sectionRessources(c),
     engagements: sectionGroupes(
       c,
       c.engagements,
@@ -602,6 +709,7 @@ ${menuAcces(c, c.lang)}
 <div class="portes">${SALLES.map((s, i) => porte(c, s, i)).join("")}</div>
 <div class="hall-pied"><span>${e(c.hall.consigne)}</span></div>
 </div>
+${bandeAccueil(c)}
 </section>
 
 ${SALLES.map(

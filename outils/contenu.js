@@ -83,6 +83,7 @@ const fr = {
     ["biographie", "Biographie"],
     ["parcours", "Parcours"],
     ["engagements", "Engagements"],
+    ["ressources", "Ressources"],
     ["contact", "Contact"],
   ],
   accueil: {
@@ -104,7 +105,7 @@ const fr = {
   },
   hall: {
     titre: "Le hall",
-    compte: "7 portes",
+    compte: "8 portes",
     consigne: "Cliquez sur une porte pour entrer",
     portes: {
       recherche: ["La recherche", "Thèse et travaux en cours"],
@@ -114,6 +115,7 @@ const fr = {
       biographie: ["Biographie", "Des expériences humaines aux transformations collectives"],
       parcours: ["Le parcours", "Formations et expériences"],
       engagements: ["Engagements", "Représentation, enseignement, distinctions"],
+      ressources: ["Ressources","Corpus de thèse, lacunes, lectures"],
     },
   },
   recherche: {
@@ -206,15 +208,46 @@ const fr = {
       ],
     },
     expertises: {
-      titre: "Expertises",
-      items: [
-        ["Méthodologie et évaluation de projet", "Concevoir, piloter et évaluer des projets : devis, indicateurs, outils d’aide à la décision et conduite du changement."],
-        ["Handicap", "Accompagnement éducatif, autodétermination et adaptation des services, du foyer d’hébergement aux séjours adaptés."],
-        ["Autisme", "Accompagnement éducatif des personnes autistes et adaptation des services à leurs besoins."],
-        ["Accompagnement des personnes aînées", "Vieillissement, perte d’autonomie, maintien à domicile et handicap vieillissant, de la pratique à la recherche."],
-      ],
-    },
-    axes: {
+      "titre": "Expertises",
+      "items": [
+        [
+          "Direction des établissements sanitaires, sociaux et médico-sociaux",
+          "Mon master Direction des structures médico-sociales et de services aux personnes (Université de Bretagne Occidentale, 2024, mention spéciale du jury) couvre la gestion budgétaire et financière (CPOM, EPRD), la comptabilité publique, la gestion des ressources humaines, le management des organisations et le projet d’établissement. Responsable de séjours de répit et de séjours adaptés de 2016 à 2024, j’en ai assuré la gestion des ressources humaines, administrative et financière."
+        ],
+        [
+          "Droit sanitaire, social et médico-social",
+          "Mon master en droit public, spécialisé en droit de la santé et en droit social (Université Paris-Panthéon-Assas, 2025, mention spéciale du jury), porte sur l’organisation et la planification des secteurs sanitaire, social et médico-social : autorisation, habilitation, tarification et contentieux de la tarification. Il couvre aussi les droits de l’usager, la contractualisation, les responsabilités civile, pénale et administrative, ainsi que le droit du travail et de la sécurité sociale."
+        ],
+        [
+          "Transformation de l’offre et appui à la performance",
+          "Chargé de mission à l’Agence nationale d’appui à la performance (ANAP, Paris) en 2024–2025, j’ai accompagné la transformation de l’offre en santé et en services sociaux. Cette mission a porté sur des outils d’aide à la décision pour la réforme des services autonomie à domicile et sur dix outils de pilotage des centres de ressources territoriaux, qui totalisent plusieurs milliers de téléchargements."
+        ],
+        [
+          "Vieillissement, autonomie et EHPAD",
+          "Mes deux mémoires de master portent sur ce champ : l’adaptation des EHPAD aux personnes handicapées vieillissantes (Université de Bretagne Occidentale, 2024) et la mise en œuvre du virage domiciliaire, dans une étude comparée de la France et du Québec (« Vieillir chez soi », Université Paris-Panthéon-Assas, 2025). S’y ajoutent une expérience en EHPAD et le travail mené à l’ANAP sur la réforme des services autonomie à domicile."
+        ],
+        [
+          "Handicap et autodétermination",
+          "Éducateur spécialisé en foyer d’hébergement (Adapei 35, Saint-Malo, 2020–2023), j’ai évalué les besoins des personnes accompagnées, coconstruit leurs projets individualisés et coordonné une équipe pluridisciplinaire. Mon mémoire de 2023 porte sur l’influence des pratiques éducatives sur l’autodétermination. De 2016 à 2024, j’ai également été responsable de séjours de répit et de séjours adaptés pour personnes en situation de handicap."
+        ],
+        [
+          "Autisme",
+          "Mon expérience d’éducateur spécialisé en foyer d’hébergement, à l’Adapei 35 de Saint-Malo de 2020 à 2023, comprend l’accompagnement de personnes autistes. Cet accompagnement repose sur l’évaluation des besoins propres à chaque personne, la coconstruction de son projet individualisé avec elle et la coordination d’une équipe pluridisciplinaire autour de ce projet."
+        ],
+        [
+          "Méthodologie de recherche et évaluation de projet",
+          "Doctorant en santé publique à l’ESPUM (Université de Montréal), je mobilise des méthodes mixtes, quantitatives et qualitatives. L’un de mes axes de recherche porte sur la performance, la conduite du changement et le pilotage des organisations. En évaluation de projet, je m’appuie sur ma formation (évaluation des établissements, contrats d’objectifs et de moyens) et sur les outils d’aide à la décision et de pilotage élaborés à l’ANAP."
+        ],
+        [
+          "Intersectorialité et soins primaires",
+          "Stagiaire de recherche au Centre de recherche du CHUM (CRCHUM), j’étudie les politiques de soins primaires, l’intersectorialité et l’intégration des soins et services. L’intersectorialité désigne l’action concertée de plusieurs secteurs, tels que la santé, les services sociaux, l’éducation ou le logement, sur des problèmes qui dépassent le champ d’un seul d’entre eux. Ces travaux rejoignent mon axe d’analyse comparée des systèmes de santé."
+        ],
+        [
+          "Entrepreneuriat et management",
+          "Formé à l’entrepreneuriat et au management (diplôme universitaire, IAE de Brest, 2023), j’ai entrepris la création d’OWNNIGHT, une application de bien-être et d’éducation au sommeil. Mon approche du management s’appuie sur la clinique des organisations et le développement de l’activité d’une structure, étudiés en master, ainsi que sur le leadership de proximité exercé comme responsable de séjours adaptés."
+        ]
+      ]
+    },    axes: {
       titre: "Axes de travaux",
       principaux: ["Gouvernance et évaluation des politiques de santé", "Approche intersectorielle en première ligne", "Vieillissement, perte d’autonomie et politiques du maintien à domicile"],
       secondairesTitre: "Axes secondaires",
@@ -996,6 +1029,155 @@ const fr = {
       items: ["Chaire de recherche GSK en gestion optimale des maladies chroniques", "Groupe francophone en soins primaires (GFSP)", "Réseau québécois de recherche sur le vieillissement (RQRV)", "Canadian Association for Health Services and Policy Research (CAHSPR)"],
     },
   },
+  ressources: {
+    "surtitre": "08 · Ressources",
+    "titre": "Le socle de ma recherche",
+    "intro": "Cette salle réunit le corpus de ma thèse sur les besoins sociaux multiples, concomitants et non satisfaits des adultes en soins primaires, les lacunes qu’il met en évidence et les lectures qui ont structuré ma formation doctorale.",
+    "chiffres": [
+      [
+        222,
+        "publications retenues"
+      ],
+      [
+        39,
+        "lectures prioritaires"
+      ],
+      [
+        83,
+        "lectures importantes"
+      ],
+      [
+        9,
+        "dimensions de lacunes examinées"
+      ]
+    ],
+    "prioritesTitre": "Répartition par priorité",
+    "prioriteLibelle": "Priorité",
+    "provenanceTitre": "Provenance des publications",
+    "provenance": [
+      [
+        "PubMed",
+        112
+      ],
+      [
+        "Embase et MEDLINE (Ovid)",
+        95
+      ],
+      [
+        "Cairn",
+        15
+      ]
+    ],
+    "lacunesTitre": "Ce que la littérature laisse ouvert",
+    "lacunesIntro": "Pour chacune des neuf dimensions examinées, le tableau indique l’état de la littérature, l’importance de la lacune et quelques repères bibliographiques.",
+    "lacunes": [
+      {
+        "dimension": "Conceptualisation",
+        "etat": "Présente mais non stabilisée",
+        "niveau": "Importante",
+        "score": 3,
+        "constat": "Les études indexées dans PubMed distinguent de plus en plus le risque social, le besoin social et le désir d’assistance. Les travaux francophones de Cairn y ajoutent un vocabulaire de la précarité et de la vulnérabilité sociale, souvent multidimensionnel, mais conceptuellement plus large que le besoin non satisfait.",
+        "reperes": "Gruß 2021; Tucher 2026; Tudrej 2019; Karran 2023"
+      },
+      {
+        "dimension": "Mesure",
+        "etat": "Abondante mais hétérogène",
+        "niveau": "Importante",
+        "score": 3,
+        "constat": "Les outils diffèrent fortement par leurs domaines, leurs seuils et leur mode d’administration. Les scores multidimensionnels de précarité repérés dans Cairn, comme EPICES et PRECAR, ne sont pas équivalents aux questionnaires de besoins sociaux non satisfaits.",
+        "reperes": "Zein 2026; Karran 2023; Tudrej 2019; Rogers 2025"
+      },
+      {
+        "dimension": "Caractérisation / prévalence",
+        "etat": "Bien documentée pour au moins un besoin",
+        "niveau": "Modérée",
+        "score": 2,
+        "constat": "De nombreuses études décrivent la prévalence par domaine et la charge cumulative des besoins, mais les estimations se comparent difficilement lorsque la définition du besoin et l’outil diffèrent.",
+        "reperes": "Jih 2023; Bleacher 2020; Fiori 2021"
+      },
+      {
+        "dimension": "Multiplicité / concomitance",
+        "etat": "Émergente mais désormais démontrée",
+        "niveau": "Importante",
+        "score": 3,
+        "constat": "La coexistence de plusieurs besoins ou risques sociaux est fréquente, et des grappes, des classes et des mesures de charge cumulative ont été proposées. Une étude récente montre en outre que la multiplicité des risques augmente fortement la probabilité de souhaiter une aide.",
+        "reperes": "Vest 2025; Kreuter 2021; Zeng 2024; Tucher 2026"
+      },
+      {
+        "dimension": "Priorisation par les patients",
+        "etat": "Quelques études directes, mais champ encore peu développé",
+        "niveau": "Majeure",
+        "score": 4,
+        "constat": "La littérature mesure surtout le désir d’aide, les objectifs négociés, l’acceptabilité ou la priorité relative, et les travaux récents renforcent la distinction entre risque détecté et aide souhaitée. Les travaux e-CARE montrent un accompagnement ajusté au rythme et aux priorités du patient, sans produire de hiérarchie standardisée des besoins.",
+        "reperes": "O’Loughlin 2022; Gruß 2021; Tucher 2026; Vasan 2026; Ouanhnon 2022"
+      },
+      {
+        "dimension": "Interrelations entre besoins",
+        "etat": "Principalement décrites comme cooccurrence ou complexité globale",
+        "niveau": "Majeure",
+        "score": 4,
+        "constat": "Les analyses quantitatives documentent surtout la cooccurrence des besoins et des profils. Les travaux qualitatifs francophones de Cairn décrivent l’imbrication des difficultés sociales, administratives, économiques et de santé, mais rarement leur direction, leur séquence ou leur mécanisme causal.",
+        "reperes": "Vest 2025; Kreuter 2021; Marron-Delabre 2015; Ouanhnon 2022"
+      },
+      {
+        "dimension": "Résolution / trajectoire",
+        "etat": "Croissante mais dominée par des indicateurs intermédiaires",
+        "niveau": "Majeure",
+        "score": 4,
+        "constat": "Le champ distingue de plus en plus le dépistage, la référence, la connexion, la ressource reçue et la résolution. Les travaux francophones e-CARE suivent aussi des résultats concrets, comme l’ouverture de droits, l’accès à un médecin traitant, le logement et l’autonomie dans le parcours, mais sans mesure standardisée de la résolution de chaque besoin.",
+        "reperes": "Steeves-Reece 2022; Hausmann 2024; Ouanhnon 2022; Agarwal 2025"
+      },
+      {
+        "dimension": "Réseaux / réponse intersectorielle",
+        "etat": "Littérature substantielle mais souvent séparée des données patient",
+        "niveau": "Majeure pour l’intégration",
+        "score": 4,
+        "constat": "PubMed documente la navigation, les agents de santé communautaire, les partenariats médico-juridiques et les boucles de référence fermées, et Cairn les unités sociales en médecine générale, les MSP, les CPTS, les DAC et la coordination territoriale. La configuration du réseau est toutefois rarement reliée aux profils de besoins et à leur résolution.",
+        "reperes": "Hogg-Graham 2021; Tevaearai 2022; Yatim & Sebai 2021; Lessi 2023; Ouanhnon 2022"
+      },
+      {
+        "dimension": "Synthèse intégrée",
+        "etat": "Non identifiée dans les audits PubMed et Cairn",
+        "niveau": "Lacune principale",
+        "score": 5,
+        "constat": "Aucune synthèse repérée ne réunit, chez les adultes consultant en soins primaires, le caractère non satisfait des besoins, leur mesure multidomaine, leurs configurations de concomitance, la priorité que leur accorde le patient, leurs interrelations, la configuration du réseau mobilisable et la trajectoire jusqu’à leur résolution.",
+        "reperes": "Karran 2023; Vest 2025; Chang 2026; Tudrej 2019; Ouanhnon 2022"
+      }
+    ],
+    "principaleTitre": "La lacune principale",
+    "principale": "La littérature n’est pas vide sur chacune des composantes de la question, qu’il s’agisse de la mesure des besoins sociaux multiples, de leur cooccurrence, du désir d’aide des patients ou des dispositifs de réponse. En revanche, aucune synthèse identifiée ne réunit, chez les adultes en soins primaires, le caractère non satisfait des besoins, leur concomitance, leur priorisation par les patients, leurs interrelations, le réseau de réponse et la trajectoire jusqu’à leur résolution. La lacune porte donc sur l’articulation entre la configuration des besoins et celle de la réponse intersectorielle, ainsi que sur les mécanismes qui expliquent pourquoi certains besoins persistent malgré leur identification.",
+    "vigilance": "Par rigueur méthodologique, la formulation retenue est « aucune synthèse identifiée dans les recherches PubMed et Cairn réalisées » et non « aucune synthèse n’existe ».",
+    "p5Titre": "Les 39 lectures prioritaires",
+    "p4Titre": "Les 83 lectures importantes",
+    "formationTitre": "Lectures de formation",
+    "cours": [
+      [
+        "MSO 6011 · Concepts et méthodes en épidémiologie",
+        [
+          "Celentano, D. D., Szklo, M., & Youssef, M. K. F. Gordis Epidemiology (7e éd.). Elsevier.",
+          "Szklo, M., & Nieto, F. J. (2018). Epidemiology: Beyond the basics (4e éd.). Jones & Bartlett Learning.",
+          "Rothman, K. J. Epidemiology: An introduction (chapitres 2 et 3).",
+          "Oleckno, W. A. Epidemiology: Concepts and methods (chapitre 6)."
+        ]
+      ],
+      [
+        "ASA 6754 · Système de santé et santé des populations",
+        [
+          "Arpin, E., Gautier, L., & Quesnel-Vallée, A. (2025). Quebec: A health system profile. University of Toronto Press.",
+          "Pineault, R. (2012). Comprendre le système de santé pour mieux le gérer. Presses de l’Université de Montréal."
+        ]
+      ],
+      [
+        "POL 6021 · Méthodes quantitatives",
+        [
+          "Arel-Bundock, V. (2021). Analyse causale et méthodes quantitatives. Presses de l’Université de Montréal.",
+          "Arel-Bundock, V. Model to meaning (chapitres 3, 5, 6 et 10). https://marginaleffects.com",
+          "Angrist, J. D., & Pischke, J.-S. (2015). Mastering ’metrics: The path from cause to effect. Princeton University Press."
+        ]
+      ]
+    ],
+    "note": "Le corpus a été constitué à partir d’Ovid (Embase, MEDLINE), de PubMed et de Cairn, et chaque publication a reçu une priorité selon sa pertinence pour la question de thèse."
+  },
   contact: {
     surtitre: "Contact",
     titre: "Échanger sur un travail",
@@ -1060,6 +1242,7 @@ const en = {
     ["biographie", "Biography"],
     ["parcours", "Background"],
     ["engagements", "Engagement"],
+    ["ressources", "Resources"],
     ["contact", "Contact"],
   ],
   accueil: {
@@ -1081,7 +1264,7 @@ const en = {
   },
   hall: {
     titre: "The hall",
-    compte: "7 doors",
+    compte: "8 doors",
     consigne: "Click a door to step in",
     portes: {
       recherche: ["Research", "Thesis and work in progress"],
@@ -1091,6 +1274,7 @@ const en = {
       biographie: ["Biography", "From human experiences to collective change"],
       parcours: ["Background", "Education and experience"],
       engagements: ["Engagement", "Representation, teaching, awards"],
+      ressources: ["Resources","Thesis corpus, gaps, readings"],
     },
   },
   recherche: {
@@ -1183,15 +1367,46 @@ const en = {
       ],
     },
     expertises: {
-      titre: "Expertise",
-      items: [
-        ["Project methodology and evaluation", "Designing, steering and evaluating projects: study design, indicators, decision-support tools and change management."],
-        ["Disability", "Educational support, self-determination and adapting services, from residential homes to adapted stays."],
-        ["Autism", "Educational support for autistic people and adapting services to their needs."],
-        ["Support for older adults", "Ageing, loss of autonomy, ageing in place and ageing with a disability, from practice to research."],
-      ],
-    },
-    axes: {
+      "titre": "Expertise",
+      "items": [
+        [
+          "Management of health, social and medico-social establishments",
+          "My master’s degree in Management of Medico-Social Organisations and Personal Services (Université de Bretagne Occidentale, 2024, with special distinction from the jury) covers budgetary and financial management (CPOM, EPRD), public accounting, human resource management, organisational management and the institutional project. As manager of respite stays and adapted stays from 2016 to 2024, I was responsible for their human resource, administrative and financial management."
+        ],
+        [
+          "Health, social and medico-social law",
+          "My master’s degree in public law, specialising in health law and social law (Université Paris-Panthéon-Assas, 2025, with special distinction from the jury), addresses the organisation and planning of the health, social and medico-social sectors: authorisation, approval, rate-setting and rate-setting litigation. It also covers service users’ rights, contracting, civil, criminal and administrative liability, and employment and social security law."
+        ],
+        [
+          "Transformation of service provision and performance support",
+          "As a project officer at the French national agency for performance support (ANAP, Paris) in 2024–2025, I supported the transformation of health and social service provision. This work covered decision-support tools for the reform of home-based autonomy services and ten steering tools for territorial resource centres, which together account for several thousand downloads."
+        ],
+        [
+          "Ageing, autonomy and EHPAD",
+          "My two master’s dissertations address this field: the adaptation of EHPAD (French care homes for dependent older people) to ageing people with disabilities (Université de Bretagne Occidentale, 2024), and the implementation of the shift to home-based care, in a comparative study of France and Quebec (‘Vieillir chez soi’, Université Paris-Panthéon-Assas, 2025). EHPAD experience and work at ANAP on the reform of home-based autonomy services complement them."
+        ],
+        [
+          "Disability and self-determination",
+          "As a special needs educator in a residential home (Adapei 35, Saint-Malo, 2020–2023), I assessed the needs of the people supported, co-designed their individual plans and coordinated a multidisciplinary team. My 2023 dissertation examines the influence of educational practices on self-determination. From 2016 to 2024, I was also manager of respite stays and adapted stays for people with disabilities."
+        ],
+        [
+          "Autism",
+          "My experience as a special needs educator in a residential home, at Adapei 35 in Saint-Malo from 2020 to 2023, includes supporting autistic people. This support rests on assessing each person’s specific needs, co-designing their individual plan with them and coordinating a multidisciplinary team around that plan."
+        ],
+        [
+          "Research methodology and project evaluation",
+          "As a doctoral candidate in public health at ESPUM (Université de Montréal), I use mixed methods, both quantitative and qualitative. One of my research areas concerns performance, change management and the steering of organisations. In project evaluation, I draw on my training (evaluation of establishments, objectives and resources contracts) and on the decision-support and steering tools developed at ANAP."
+        ],
+        [
+          "Intersectoral action and primary care",
+          "As a research trainee at the CHUM Research Centre (CRCHUM), I study primary care policy, intersectoral action and the integration of care and services. Intersectoral action refers to the concerted action of several sectors, such as health, social services, education or housing, on problems that extend beyond the remit of any one of them. This work links to my research area of comparative health systems analysis."
+        ],
+        [
+          "Entrepreneurship and management",
+          "Trained in entrepreneurship and management (university diploma, IAE de Brest, 2023), I have embarked on the creation of OWNNIGHT, a well-being and sleep education application. My approach to management draws on the clinical approach to organisations and on developing an organisation’s activity, both studied at master’s level, as well as on the hands-on leadership I exercised as manager of adapted stays."
+        ]
+      ]
+    },    axes: {
       titre: "Areas of work",
       principaux: ["Governance and evaluation of health policy", "Intersectoral approaches in primary care", "Ageing, loss of autonomy and ageing-in-place policies"],
       secondairesTitre: "Secondary areas",
@@ -1973,6 +2188,155 @@ const en = {
       items: ["GSK Research Chair in optimal management of chronic diseases", "Groupe francophone en soins primaires (GFSP)", "Quebec Network for Research on Aging (RQRV)", "Canadian Association for Health Services and Policy Research (CAHSPR)"],
     },
   },
+  ressources: {
+    "surtitre": "08 · Resources",
+    "titre": "The foundations of my research",
+    "intro": "This room brings together my thesis corpus on multiple, co-occurring and unmet social needs among adults in primary care, the gaps it brings to light and the readings that have shaped my doctoral training.",
+    "chiffres": [
+      [
+        222,
+        "publications retained"
+      ],
+      [
+        39,
+        "priority readings"
+      ],
+      [
+        83,
+        "important readings"
+      ],
+      [
+        9,
+        "gap dimensions examined"
+      ]
+    ],
+    "prioritesTitre": "Distribution by priority",
+    "prioriteLibelle": "Priority",
+    "provenanceTitre": "Sources of the publications",
+    "provenance": [
+      [
+        "PubMed",
+        112
+      ],
+      [
+        "Embase and MEDLINE (Ovid)",
+        95
+      ],
+      [
+        "Cairn",
+        15
+      ]
+    ],
+    "lacunesTitre": "What the literature leaves open",
+    "lacunesIntro": "For each of the nine dimensions examined, the table shows the state of the literature, the significance of the gap and a few key references.",
+    "lacunes": [
+      {
+        "dimension": "Conceptualisation",
+        "etat": "Present but not yet settled",
+        "niveau": "Substantial",
+        "score": 3,
+        "constat": "Studies indexed in PubMed increasingly distinguish social risk, social need and desire for assistance. French-language work in Cairn adds a vocabulary of precariousness and social vulnerability that is often multidimensional but conceptually broader than unmet need.",
+        "reperes": "Gruß 2021; Tucher 2026; Tudrej 2019; Karran 2023"
+      },
+      {
+        "dimension": "Measurement",
+        "etat": "Abundant but heterogeneous",
+        "niveau": "Substantial",
+        "score": 3,
+        "constat": "Instruments differ markedly in their domains, thresholds and mode of administration. Multidimensional deprivation scores found in Cairn, such as EPICES and PRECAR, are not equivalent to unmet social needs questionnaires.",
+        "reperes": "Zein 2026; Karran 2023; Tudrej 2019; Rogers 2025"
+      },
+      {
+        "dimension": "Characterisation and prevalence",
+        "etat": "Well documented for at least one need",
+        "niveau": "Moderate",
+        "score": 2,
+        "constat": "Many studies describe prevalence by domain and cumulative burden, but estimates are difficult to compare when the definition of need and the instrument differ.",
+        "reperes": "Jih 2023; Bleacher 2020; Fiori 2021"
+      },
+      {
+        "dimension": "Multiplicity and co-occurrence",
+        "etat": "Emerging but now demonstrated",
+        "niveau": "Substantial",
+        "score": 3,
+        "constat": "The coexistence of several social needs or risks is common, and clusters, classes and cumulative burden measures have been proposed. A recent study also shows that multiple risks sharply increase the likelihood of wanting assistance.",
+        "reperes": "Vest 2025; Kreuter 2021; Zeng 2024; Tucher 2026"
+      },
+      {
+        "dimension": "Prioritisation by patients",
+        "etat": "A few direct studies, but a field still underdeveloped",
+        "niveau": "Major",
+        "score": 4,
+        "constat": "The literature mainly measures desire for assistance, negotiated goals, acceptability or relative priority, and recent work reinforces the distinction between detected risk and desired help. The e-CARE studies show support adjusted to the patient’s pace and priorities, without producing a standardised ranking of needs.",
+        "reperes": "O’Loughlin 2022; Gruß 2021; Tucher 2026; Vasan 2026; Ouanhnon 2022"
+      },
+      {
+        "dimension": "Interrelations between needs",
+        "etat": "Mostly described as co-occurrence or overall complexity",
+        "niveau": "Major",
+        "score": 4,
+        "constat": "Quantitative analyses mainly document co-occurrence and profiles. Qualitative French-language work in Cairn describes how social, administrative, economic and health difficulties are intertwined, but rarely their direction, sequence or causal mechanism.",
+        "reperes": "Vest 2025; Kreuter 2021; Marron-Delabre 2015; Ouanhnon 2022"
+      },
+      {
+        "dimension": "Resolution and trajectory",
+        "etat": "Growing but dominated by intermediate indicators",
+        "niveau": "Major",
+        "score": 4,
+        "constat": "The field increasingly distinguishes screening, referral, connection, receipt of a resource and resolution. French-language e-CARE studies also track concrete outcomes such as access to entitlements, a regular doctor, housing and autonomy in navigating care, but without a standardised measure of whether each need is resolved.",
+        "reperes": "Steeves-Reece 2022; Hausmann 2024; Ouanhnon 2022; Agarwal 2025"
+      },
+      {
+        "dimension": "Networks and cross-sector response",
+        "etat": "Substantial literature, but often separate from patient data",
+        "niveau": "Major for integration",
+        "score": 4,
+        "constat": "PubMed documents navigation, community health workers, medical-legal partnerships and closed-loop referral, while Cairn documents social units in general practice and French primary care and territorial coordination structures (MSP, CPTS, DAC). Yet the configuration of the network is rarely linked to need profiles and their resolution.",
+        "reperes": "Hogg-Graham 2021; Tevaearai 2022; Yatim & Sebai 2021; Lessi 2023; Ouanhnon 2022"
+      },
+      {
+        "dimension": "Integrated synthesis",
+        "etat": "Not identified in the PubMed and Cairn audits",
+        "niveau": "Principal gap",
+        "score": 5,
+        "constat": "No synthesis located brings together, for adults attending primary care, the unmet nature of needs, multi-domain measurement, patterns of co-occurrence, the priority patients give to their needs, interrelations between needs, the configuration of the mobilisable network and the trajectory to resolution.",
+        "reperes": "Karran 2023; Vest 2025; Chang 2026; Tudrej 2019; Ouanhnon 2022"
+      }
+    ],
+    "principaleTitre": "The principal gap",
+    "principale": "The literature is not empty on each component of the question, whether the measurement of multiple social needs, their co-occurrence, patients’ desire for assistance or the services that respond to them. However, no synthesis identified brings together, for adults in primary care, the unmet nature of needs, their co-occurrence, their prioritisation by patients, their interrelations, the response network and the trajectory to resolution. The gap therefore lies in the link between how needs are configured and how the cross-sector response is configured, and in the mechanisms that explain why some needs persist despite being identified.",
+    "vigilance": "For methodological accuracy, the wording used is ‘no synthesis identified in the PubMed and Cairn searches conducted’ rather than ‘no synthesis exists’.",
+    "p5Titre": "The 39 priority readings",
+    "p4Titre": "The 83 important readings",
+    "formationTitre": "Formative readings",
+    "cours": [
+      [
+        "MSO 6011 · Concepts and methods in epidemiology",
+        [
+          "Celentano, D. D., Szklo, M., & Youssef, M. K. F. Gordis Epidemiology (7th ed.). Elsevier.",
+          "Szklo, M., & Nieto, F. J. (2018). Epidemiology: Beyond the basics (4th ed.). Jones & Bartlett Learning.",
+          "Rothman, K. J. Epidemiology: An introduction (chapters 2 and 3).",
+          "Oleckno, W. A. Epidemiology: Concepts and methods (chapter 6)."
+        ]
+      ],
+      [
+        "ASA 6754 · Health system and population health",
+        [
+          "Arpin, E., Gautier, L., & Quesnel-Vallée, A. (2025). Quebec: A health system profile. University of Toronto Press.",
+          "Pineault, R. (2012). Comprendre le système de santé pour mieux le gérer. Presses de l’Université de Montréal."
+        ]
+      ],
+      [
+        "POL 6021 · Quantitative methods",
+        [
+          "Arel-Bundock, V. (2021). Analyse causale et méthodes quantitatives. Presses de l’Université de Montréal.",
+          "Arel-Bundock, V. Model to meaning (chapters 3, 5, 6 and 10). https://marginaleffects.com",
+          "Angrist, J. D., & Pischke, J.-S. (2015). Mastering ’metrics: The path from cause to effect. Princeton University Press."
+        ]
+      ]
+    ],
+    "note": "The corpus was assembled from Ovid (Embase, MEDLINE), PubMed and Cairn, and each publication was assigned a priority according to its relevance to the thesis question."
+  },
   contact: {
     surtitre: "Contact",
     titre: "Let’s talk about your work",
@@ -2037,6 +2401,7 @@ const es = {
     ["biographie", "Biografía"],
     ["parcours", "Trayectoria"],
     ["engagements", "Compromisos"],
+    ["ressources", "Recursos"],
     ["contact", "Contacto"],
   ],
   accueil: {
@@ -2058,7 +2423,7 @@ const es = {
   },
   hall: {
     titre: "El vestíbulo",
-    compte: "7 puertas",
+    compte: "8 puertas",
     consigne: "Haga clic en una puerta para entrar",
     portes: {
       recherche: ["La investigación", "Tesis y trabajos en curso"],
@@ -2068,6 +2433,7 @@ const es = {
       biographie: ["Biografía", "De las experiencias humanas a las transformaciones colectivas"],
       parcours: ["La trayectoria", "Formación y experiencia"],
       engagements: ["Compromisos", "Representación, docencia, distinciones"],
+      ressources: ["Recursos","Corpus de tesis, lagunas, lecturas"],
     },
   },
   recherche: {
@@ -2160,15 +2526,46 @@ const es = {
       ],
     },
     expertises: {
-      titre: "Áreas de especialización",
-      items: [
-        ["Metodología y evaluación de proyectos", "Diseñar, dirigir y evaluar proyectos: diseño, indicadores, herramientas de apoyo a la decisión y gestión del cambio."],
-        ["Discapacidad", "Acompañamiento educativo, autodeterminación y adaptación de los servicios, de la residencia a las estancias adaptadas."],
-        ["Autismo", "Acompañamiento educativo de las personas autistas y adaptación de los servicios a sus necesidades."],
-        ["Acompañamiento de personas mayores", "Envejecimiento, pérdida de autonomía, permanencia en el domicilio y discapacidad en la vejez, de la práctica a la investigación."],
-      ],
-    },
-    axes: {
+      "titre": "Áreas de especialización",
+      "items": [
+        [
+          "Dirección de establecimientos sanitarios, sociales y medicosociales",
+          "Mi máster en Dirección de estructuras medicosociales y de servicios a las personas (Université de Bretagne Occidentale, 2024, mención especial del jurado) abarca la gestión presupuestaria y financiera (CPOM, EPRD), la contabilidad pública, la gestión de recursos humanos, la dirección de organizaciones y el proyecto de establecimiento. Como responsable de estancias de respiro y estancias adaptadas de 2016 a 2024, asumí su gestión de recursos humanos, administrativa y financiera."
+        ],
+        [
+          "Derecho sanitario, social y medicosocial",
+          "Mi máster en Derecho público, especializado en derecho de la salud y derecho social (Université Paris-Panthéon-Assas, 2025, mención especial del jurado), trata de la organización y la planificación de los sectores sanitario, social y medicosocial: autorización, habilitación, tarificación y contencioso de la tarificación. Abarca también los derechos del usuario, la contractualización, la responsabilidad civil, penal y administrativa, así como el derecho laboral y de la seguridad social."
+        ],
+        [
+          "Transformación de la oferta y apoyo al desempeño",
+          "Como encargado de misión en la Agencia nacional francesa de apoyo al desempeño (ANAP, París) en 2024–2025, acompañé la transformación de la oferta de salud y servicios sociales. Esta misión abarcó herramientas de apoyo a la decisión para la reforma de los servicios de autonomía a domicilio y diez herramientas de pilotaje de los centros de recursos territoriales, que suman varios miles de descargas."
+        ],
+        [
+          "Envejecimiento, autonomía y EHPAD",
+          "Mis dos memorias de máster tratan este campo: la adaptación de los EHPAD (residencias para mayores dependientes) a las personas con discapacidad envejecidas (Université de Bretagne Occidentale, 2024) y la aplicación del giro hacia el domicilio, comparando Francia y Quebec («Vieillir chez soi», Université Paris-Panthéon-Assas, 2025). Se suman una experiencia en EHPAD y el trabajo en la ANAP sobre la reforma de los servicios de autonomía a domicilio."
+        ],
+        [
+          "Discapacidad y autodeterminación",
+          "Como educador especializado en una residencia (Adapei 35, Saint-Malo, 2020–2023), evalué las necesidades de las personas acompañadas, coconstruí sus proyectos individualizados y coordiné un equipo pluridisciplinario. Mi memoria de 2023 trata de la influencia de las prácticas educativas en la autodeterminación. De 2016 a 2024 fui también responsable de estancias de respiro y estancias adaptadas para personas con discapacidad."
+        ],
+        [
+          "Autismo",
+          "Mi experiencia como educador especializado en una residencia, en la Adapei 35 de Saint-Malo de 2020 a 2023, incluye el acompañamiento de personas autistas. Este acompañamiento se basa en la evaluación de las necesidades propias de cada persona, la coconstrucción con ella de su proyecto individualizado y la coordinación de un equipo pluridisciplinario en torno a dicho proyecto."
+        ],
+        [
+          "Metodología de investigación y evaluación de proyectos",
+          "Doctorando en salud pública en la ESPUM (Université de Montréal), recurro a métodos mixtos, cuantitativos y cualitativos. Uno de mis ejes de investigación trata del desempeño, la gestión del cambio y el pilotaje de las organizaciones. En evaluación de proyectos, me apoyo en mi formación (evaluación de los establecimientos, contratos de objetivos y medios) y en las herramientas de apoyo a la decisión y de pilotaje elaboradas en la ANAP."
+        ],
+        [
+          "Intersectorialidad y atención primaria",
+          "Investigador en prácticas en el Centro de investigación del CHUM (CRCHUM), estudio las políticas de atención primaria, la intersectorialidad y la integración de cuidados y servicios. La intersectorialidad designa la acción concertada de varios sectores, como salud, servicios sociales, educación o vivienda, sobre problemas que exceden el ámbito de uno solo de ellos. Estos trabajos se vinculan con mi eje de análisis comparado de los sistemas de salud."
+        ],
+        [
+          "Emprendimiento y gestión",
+          "Formado en emprendimiento y gestión (diploma universitario, IAE de Brest, 2023), he iniciado la creación de OWNNIGHT, una aplicación de bienestar y educación del sueño. Mi enfoque de la gestión se apoya en la clínica de las organizaciones y en el desarrollo de la actividad de una estructura, estudiados en el máster, así como en el liderazgo de proximidad ejercido como responsable de estancias adaptadas."
+        ]
+      ]
+    },    axes: {
       titre: "Ejes de trabajo",
       principaux: ["Gobernanza y evaluación de las políticas de salud", "Enfoque intersectorial en atención primaria", "Envejecimiento, pérdida de autonomía y políticas de permanencia en el domicilio"],
       secondairesTitre: "Ejes secundarios",
@@ -2949,6 +3346,155 @@ const es = {
       titre: "Miembro estudiante",
       items: ["Cátedra de investigación GSK en gestión óptima de enfermedades crónicas", "Groupe francophone en soins primaires (GFSP)", "Red quebequense de investigación sobre el envejecimiento (RQRV)", "Canadian Association for Health Services and Policy Research (CAHSPR)"],
     },
+  },
+  ressources: {
+    "surtitre": "08 · Recursos",
+    "titre": "Los cimientos de mi investigación",
+    "intro": "Esta sala reúne el corpus de mi tesis sobre las necesidades sociales múltiples, concurrentes y no satisfechas de las personas adultas en atención primaria, los vacíos que pone de manifiesto y las lecturas que han estructurado mi formación doctoral.",
+    "chiffres": [
+      [
+        222,
+        "publicaciones seleccionadas"
+      ],
+      [
+        39,
+        "lecturas prioritarias"
+      ],
+      [
+        83,
+        "lecturas importantes"
+      ],
+      [
+        9,
+        "dimensiones de vacíos examinadas"
+      ]
+    ],
+    "prioritesTitre": "Distribución por prioridad",
+    "prioriteLibelle": "Prioridad",
+    "provenanceTitre": "Procedencia de las publicaciones",
+    "provenance": [
+      [
+        "PubMed",
+        112
+      ],
+      [
+        "Embase y MEDLINE (Ovid)",
+        95
+      ],
+      [
+        "Cairn",
+        15
+      ]
+    ],
+    "lacunesTitre": "Lo que la literatura deja abierto",
+    "lacunesIntro": "Para cada una de las nueve dimensiones examinadas, la tabla indica el estado de la literatura, la magnitud del vacío y algunas referencias clave.",
+    "lacunes": [
+      {
+        "dimension": "Conceptualización",
+        "etat": "Presente pero no consolidada",
+        "niveau": "Importante",
+        "score": 3,
+        "constat": "Los estudios indexados en PubMed distinguen cada vez más entre riesgo social, necesidad social y deseo de asistencia. Los trabajos francófonos de Cairn añaden un vocabulario de la precariedad y la vulnerabilidad social, a menudo multidimensional, pero conceptualmente más amplio que la necesidad no satisfecha.",
+        "reperes": "Gruß 2021; Tucher 2026; Tudrej 2019; Karran 2023"
+      },
+      {
+        "dimension": "Medición",
+        "etat": "Abundante pero heterogénea",
+        "niveau": "Importante",
+        "score": 3,
+        "constat": "Los instrumentos difieren mucho en sus dominios, umbrales y modo de administración. Las puntuaciones multidimensionales de precariedad identificadas en Cairn, como EPICES y PRECAR, no equivalen a los cuestionarios de necesidades sociales no satisfechas.",
+        "reperes": "Zein 2026; Karran 2023; Tudrej 2019; Rogers 2025"
+      },
+      {
+        "dimension": "Caracterización y prevalencia",
+        "etat": "Bien documentada para al menos una necesidad",
+        "niveau": "Moderada",
+        "score": 2,
+        "constat": "Numerosos estudios describen la prevalencia por dominio y la carga acumulada, pero las estimaciones son difíciles de comparar cuando difieren la definición de necesidad y el instrumento.",
+        "reperes": "Jih 2023; Bleacher 2020; Fiori 2021"
+      },
+      {
+        "dimension": "Multiplicidad y concurrencia",
+        "etat": "Emergente pero ya demostrada",
+        "niveau": "Importante",
+        "score": 3,
+        "constat": "La coexistencia de varias necesidades o riesgos sociales es frecuente, y se han propuesto agrupaciones, clases y medidas de carga acumulada. Un estudio reciente muestra además que la multiplicidad de riesgos aumenta fuertemente la probabilidad de desear ayuda.",
+        "reperes": "Vest 2025; Kreuter 2021; Zeng 2024; Tucher 2026"
+      },
+      {
+        "dimension": "Priorización por los pacientes",
+        "etat": "Algunos estudios directos, pero un campo aún poco desarrollado",
+        "niveau": "Mayor",
+        "score": 4,
+        "constat": "La literatura mide sobre todo el deseo de ayuda, los objetivos negociados, la aceptabilidad o la prioridad relativa, y los trabajos recientes refuerzan la distinción entre riesgo detectado y ayuda deseada. Los trabajos de e-CARE muestran un acompañamiento ajustado al ritmo y a las prioridades del paciente, sin producir una jerarquía estandarizada de las necesidades.",
+        "reperes": "O’Loughlin 2022; Gruß 2021; Tucher 2026; Vasan 2026; Ouanhnon 2022"
+      },
+      {
+        "dimension": "Interrelaciones entre necesidades",
+        "etat": "Descritas sobre todo como concurrencia o complejidad global",
+        "niveau": "Mayor",
+        "score": 4,
+        "constat": "Los análisis cuantitativos documentan sobre todo la concurrencia y los perfiles. Los trabajos cualitativos francófonos de Cairn describen el entrelazamiento de dificultades sociales, administrativas, económicas y de salud, pero rara vez su dirección, su secuencia o su mecanismo causal.",
+        "reperes": "Vest 2025; Kreuter 2021; Marron-Delabre 2015; Ouanhnon 2022"
+      },
+      {
+        "dimension": "Resolución y trayectoria",
+        "etat": "Creciente pero dominada por indicadores intermedios",
+        "niveau": "Mayor",
+        "score": 4,
+        "constat": "El campo distingue cada vez más entre cribado, derivación, conexión, recurso recibido y resolución. Los trabajos francófonos de e-CARE siguen además resultados concretos, como el acceso a derechos, a un médico de cabecera y a la vivienda o la autonomía en el recorrido asistencial, pero sin una medida estandarizada de la resolución de cada necesidad.",
+        "reperes": "Steeves-Reece 2022; Hausmann 2024; Ouanhnon 2022; Agarwal 2025"
+      },
+      {
+        "dimension": "Redes y respuesta intersectorial",
+        "etat": "Literatura sustancial, pero a menudo separada de los datos de pacientes",
+        "niveau": "Mayor para la integración",
+        "score": 4,
+        "constat": "PubMed documenta la navegación, los agentes comunitarios de salud, las alianzas médico-jurídicas y la derivación de circuito cerrado, y Cairn las unidades sociales en medicina general y las estructuras francesas de atención primaria y coordinación territorial (MSP, CPTS, DAC). Sin embargo, la configuración de la red rara vez se vincula con los perfiles de necesidades y su resolución.",
+        "reperes": "Hogg-Graham 2021; Tevaearai 2022; Yatim & Sebai 2021; Lessi 2023; Ouanhnon 2022"
+      },
+      {
+        "dimension": "Síntesis integrada",
+        "etat": "No identificada en las auditorías de PubMed y Cairn",
+        "niveau": "Vacío principal",
+        "score": 5,
+        "constat": "Ninguna síntesis localizada reúne, en personas adultas atendidas en atención primaria, el carácter no satisfecho de las necesidades, su medición multidominio, las configuraciones de concurrencia, la prioridad que les otorga el paciente, las interrelaciones entre necesidades, la configuración de la red movilizable y la trayectoria hasta su resolución.",
+        "reperes": "Karran 2023; Vest 2025; Chang 2026; Tudrej 2019; Ouanhnon 2022"
+      }
+    ],
+    "principaleTitre": "El vacío principal",
+    "principale": "La literatura no está vacía en cada uno de los componentes de la pregunta, ya se trate de la medición de las necesidades sociales múltiples, de su concurrencia, del deseo de ayuda de los pacientes o de los dispositivos de respuesta. Sin embargo, ninguna síntesis identificada reúne, en personas adultas en atención primaria, el carácter no satisfecho de las necesidades, su concurrencia, su priorización por los pacientes, sus interrelaciones, la red de respuesta y la trayectoria hasta su resolución. El vacío reside, por tanto, en la articulación entre la configuración de las necesidades y la de la respuesta intersectorial, así como en los mecanismos que explican por qué algunas necesidades persisten pese a haber sido identificadas.",
+    "vigilance": "Por rigor metodológico, la formulación adoptada es «ninguna síntesis identificada en las búsquedas realizadas en PubMed y Cairn» y no «no existe ninguna síntesis».",
+    "p5Titre": "Las 39 lecturas prioritarias",
+    "p4Titre": "Las 83 lecturas importantes",
+    "formationTitre": "Lecturas de formación",
+    "cours": [
+      [
+        "MSO 6011 · Conceptos y métodos en epidemiología",
+        [
+          "Celentano, D. D., Szklo, M., & Youssef, M. K. F. Gordis Epidemiology (7.ª ed.). Elsevier.",
+          "Szklo, M., & Nieto, F. J. (2018). Epidemiology: Beyond the basics (4.ª ed.). Jones & Bartlett Learning.",
+          "Rothman, K. J. Epidemiology: An introduction (capítulos 2 y 3).",
+          "Oleckno, W. A. Epidemiology: Concepts and methods (capítulo 6)."
+        ]
+      ],
+      [
+        "ASA 6754 · Sistema de salud y salud de las poblaciones",
+        [
+          "Arpin, E., Gautier, L., & Quesnel-Vallée, A. (2025). Quebec: A health system profile. University of Toronto Press.",
+          "Pineault, R. (2012). Comprendre le système de santé pour mieux le gérer. Presses de l’Université de Montréal."
+        ]
+      ],
+      [
+        "POL 6021 · Métodos cuantitativos",
+        [
+          "Arel-Bundock, V. (2021). Analyse causale et méthodes quantitatives. Presses de l’Université de Montréal.",
+          "Arel-Bundock, V. Model to meaning (capítulos 3, 5, 6 y 10). https://marginaleffects.com",
+          "Angrist, J. D., & Pischke, J.-S. (2015). Mastering ’metrics: The path from cause to effect. Princeton University Press."
+        ]
+      ]
+    ],
+    "note": "El corpus se constituyó a partir de Ovid (Embase, MEDLINE), PubMed y Cairn, y a cada publicación se le asignó una prioridad según su pertinencia para la pregunta de tesis."
   },
   contact: {
     surtitre: "Contacto",

@@ -1,0 +1,954 @@
+{
+ "total": 222,
+ "priorites": {
+  "5": 39,
+  "4": 83,
+  "3": 46,
+  "2": 24,
+  "1": 30
+ },
+ "provenance": {
+  "PubMed": 112,
+  "Embase; Ovid MEDLINE(R)": 49,
+  "Embase": 39,
+  "Ovid MEDLINE(R)": 7,
+  "Cairn": 15
+ },
+ "p5": [
+  {
+   "auteurs": "Dahrouge et al.",
+   "annee": "2026",
+   "titre": "A Randomized Controlled Trial of Social Prescribing: Comparing a Comprehensive Navigation Model With Signposting",
+   "type": "Essai randomisé",
+   "lien": "https://doi.org/10.1370/afm.250265"
+  },
+  {
+   "auteurs": "Dina Zein; Kriti Gogia; Jenifer Clapp; Alessandra Calvo-Friedman; Nichola J Davis; Ji E Chang",
+   "annee": "2026",
+   "titre": "Convergence and differences across social needs identified through structured screeners and clinical assessments",
+   "type": "Article",
+   "lien": "https://doi.org/10.1016/j.amepre.2026.108442"
+  },
+  {
+   "auteurs": "Mayo Clinic team",
+   "annee": "2026",
+   "titre": "Coordinating Multisector Efforts to Address Social Needs in a Rural Midwestern Primary Care Setting",
+   "type": "Cohorte comparative",
+   "lien": "https://pubmed.ncbi.nlm.nih.gov/42521199/"
+  },
+  {
+   "auteurs": "Russell et al.",
+   "annee": "2026",
+   "titre": "Racial, Ethnic, and Sex Differences in Social Risks and Social Needs Concordance Among Veterans",
+   "type": "Enquête transversale pondérée",
+   "lien": "https://doi.org/10.1001/jamanetworkopen.2025.59892"
+  },
+  {
+   "auteurs": "Stephanie S Loo et al.",
+   "annee": "2026",
+   "titre": "Experiences of Social Risk Screening in the Safety-Net Among Patients with Mental Health Needs",
+   "type": "Article qualitatif",
+   "lien": "https://doi.org/10.1007/s11606-025-10115-6"
+  },
+  {
+   "auteurs": "Bolen et al.",
+   "annee": "2025",
+   "titre": "The Impact of a Bidirectional Clinic to Community Social Care Referral Program",
+   "type": "Étude de programme",
+   "lien": "https://doi.org/10.1097/MLR.0000000000002144"
+  },
+  {
+   "auteurs": "Coletti D.J.; Andrews A.; Rooney E.; Chen A.; Alvarenga J.; Verbsky J.",
+   "annee": "2025",
+   "titre": "YEAR TWO, WE FOLLOW THROUGH: LONGITUDINAL SOCIAL DETERMINANTS OF HEALTH SCREENING IN A LARGE ACADEMIC RESIDENT PRACTICE.",
+   "type": "Conference Abstract",
+   "lien": "https://doi.org/10.1007/s11606-025-09516-4"
+  },
+  {
+   "auteurs": "Fennelly et al.",
+   "annee": "2025",
+   "titre": "Comparison of the Performance of Three Health Related Social Needs Screening Tools",
+   "type": "Étude comparative",
+   "lien": "https://doi.org/10.3122/jabfm.2025.250008R1"
+  },
+  {
+   "auteurs": "Hatef et al.",
+   "annee": "2025",
+   "titre": "An Electronic Health Record-Based Platform for Social Needs Assessment and Navigation Services: Preliminary Results of an RCT",
+   "type": "Essai randomisé",
+   "lien": "https://doi.org/10.1016/j.focus.2025.100344"
+  },
+  {
+   "auteurs": "Lewis et al.",
+   "annee": "2025",
+   "titre": "Optimizing the community resource specialist to address social needs in primary care: results from a pragmatic quality improvement evaluation",
+   "type": "Évaluation pragmatique d’amélioration de la qualité",
+   "lien": "https://doi.org/10.1186/s12875-025-02922-x"
+  },
+  {
+   "auteurs": "Saluja K; Mahbub A; Gauthier AP; Lemonde M; Timony P; Durand F; Dahrouge S",
+   "annee": "2025",
+   "titre": "Understanding patient barriers and enablers to accessing community resources: a qualitative study to inform navigation service delivery.",
+   "type": "Clinical Trial; Journal Article",
+   "lien": "https://doi.org/10.1186/s12875-025-03029-z"
+  },
+  {
+   "auteurs": "Vest J.R.; Wu W.; Conner K.",
+   "annee": "2025",
+   "titre": "Clusters of Health-Related Social Needs Among Adult Primary Care Patients.",
+   "type": "Article",
+   "lien": "https://doi.org/10.3122/jabfm.2024.240173R1"
+  },
+  {
+   "auteurs": "Vest et al.",
+   "annee": "2025",
+   "titre": "Performance of 4 Methods to Assess Health-Related Social Needs",
+   "type": "Étude comparative de méthodes",
+   "lien": "https://doi.org/10.1001/jamanetworkopen.2025.27426"
+  },
+  {
+   "auteurs": "Clapp et al.",
+   "annee": "2024",
+   "titre": "Implementing and monitoring high-quality community health worker care in adult primary care at New York City Health + Hospitals",
+   "type": "Étude d’implantation et de suivi",
+   "lien": "https://doi.org/10.1186/s12875-024-02571-6"
+  },
+  {
+   "auteurs": "Drake et al.",
+   "annee": "2024",
+   "titre": "Association of Patient-Reported Social Needs with Emergency Department Visits and Hospitalizations Among Federally Qualified Health Center Patients",
+   "type": "Cohorte rétrospective",
+   "lien": "https://doi.org/10.1007/s11606-024-08774-y"
+  },
+  {
+   "auteurs": "Gilbert et al.",
+   "annee": "2024",
+   "titre": "Patient Preferences for Addressing Unhealthy Behaviors, Mental Health Challenges, and Social Needs in Primary Care",
+   "type": "Analyse dans un essai randomisé",
+   "lien": "https://doi.org/10.1177/21501319241307741"
+  },
+  {
+   "auteurs": "Jane Jih; Antony Nguyen; Irena Cenzer; Jennifer Morrish",
+   "annee": "2023",
+   "titre": "Burden of unmet health-related social needs in an academic adult primary care practice in San Francisco California",
+   "type": "Article",
+   "lien": "https://doi.org/10.1186/s12875-023-02125-2"
+  },
+  {
+   "auteurs": "Renaud et al.",
+   "annee": "2023",
+   "titre": "Addressing Health-Related Social Needs Via Community Resources: Lessons From Accountable Health Communities",
+   "type": "Évaluation de programme avec comparaison randomisée",
+   "lien": "https://doi.org/10.1377/hlthaff.2022.01507"
+  },
+  {
+   "auteurs": "Shi et al.",
+   "annee": "2023",
+   "titre": "Social Needs Assessment and Linkage to Community Health Workers in a Large Urban Hospital System",
+   "type": "Cohorte observationnelle",
+   "lien": "https://doi.org/10.1177/21501319231166918"
+  },
+  {
+   "auteurs": "Teggart et al.",
+   "annee": "2023",
+   "titre": "Effectiveness of system navigation programs linking primary care with community-based health and social services: a systematic review",
+   "type": "Revue systématique",
+   "lien": "https://doi.org/10.1186/s12913-023-09424-5"
+  },
+  {
+   "auteurs": "Zhang WJ; Fornili K",
+   "annee": "2023",
+   "titre": "Screening for Social Determinants of Health Among Medicare Beneficiaries in Primary Care During the Covid-19 Pandemic in Prince George's County, Maryland.",
+   "type": "Journal Article",
+   "lien": "https://doi.org/10.1007/s10900-023-01236-2"
+  },
+  {
+   "auteurs": "Cene CW; Buys E; Clark JW; Foley K; True V; Kiger J; Salter AS",
+   "annee": "2022",
+   "titre": "Better Together: A Descriptive Analysis of a Medical-Legal Partnership in Western North Carolina.",
+   "type": "Journal Article",
+   "lien": "https://doi.org/10.18043/ncm.83.5.375"
+  },
+  {
+   "auteurs": "Jones K.G.; Roth S.E.; Vartanian K.B.",
+   "annee": "2022",
+   "titre": "Health and Health Care Use Strongly Associated with Cumulative Burden of Social Determinants of Health.",
+   "type": "Article",
+   "lien": "https://doi.org/10.1089/pop.2021.0255"
+  },
+  {
+   "auteurs": "Kristen O'Loughlin et al.",
+   "annee": "2022",
+   "titre": "Patient Preferences for Discussing and Acting on Health-Related Needs in Primary Care",
+   "type": "Article qualitatif",
+   "lien": "https://doi.org/10.1177/21501319221115946"
+  },
+  {
+   "auteurs": "Ouanhnon L; Esquerre B; Champrobert K; Buerba A; Pariente K",
+   "annee": "2022",
+   "titre": "Projet e-CARE : un dispositif expérimental d’aide au parcours de soin pour les patients en situation de précarité. Bilan après deux ans",
+   "type": "Évaluation descriptive de dispositif",
+   "lien": "https://doi.org/10.1684/med.2022.796"
+  },
+  {
+   "auteurs": "Sandhu et al.",
+   "annee": "2022",
+   "titre": "Patient Barriers to Accessing Referred Resources for Unmet Social Needs",
+   "type": "Étude qualitative dirigée intégrée à un suivi",
+   "lien": "https://doi.org/10.3122/jabfm.2022.04.210462"
+  },
+  {
+   "auteurs": "Heller CG; Rehm CD; Parsons AH; Chambers EC; Hollingsworth NH; Fiori KP",
+   "annee": "2021",
+   "titre": "The association between social needs and chronic conditions in a large, urban primary care population.",
+   "type": "Journal Article; Research Support, N.I.H., Extramural; Research Support, Non-U.S. Gov't; Research Support, U.S. Gov't, P.H.S.",
+   "lien": "https://doi.org/10.1016/j.ypmed.2021.106752"
+  },
+  {
+   "auteurs": "Hogg-Graham et al.",
+   "annee": "2021",
+   "titre": "Exploring the capacity of community-based organisations to absorb health system patient referrals for unmet social needs",
+   "type": "Méthodes mixtes + analyse de réseau social",
+   "lien": "https://doi.org/10.1111/hsc.13109"
+  },
+  {
+   "auteurs": "Lian et al.",
+   "annee": "2021",
+   "titre": "Factors Associated with Patients' Connection to Referred Social Needs Resources at a Federally Qualified Health Center",
+   "type": "Cohorte rétrospective",
+   "lien": "https://doi.org/10.1177/21501327211024390"
+  },
+  {
+   "auteurs": "Palakshappa D.; Benefield A.J.; Furgurson K.F.; Harley M.G.; Bundy R.; Moses A.; Taxter A.J.; Bensinger A.S.; Cao X.; Denizard-Thompson N.; Rosenthal G.E.; Miller D.P.",
+   "annee": "2021",
+   "titre": "Feasibility of Mobile Technology to Identify and Address Patients' Unmet Social Needs in a Primary Care Clinic.",
+   "type": "Article",
+   "lien": "https://doi.org/10.1089/pop.2020.0059"
+  },
+  {
+   "auteurs": "Bleacher et al.",
+   "annee": "2020",
+   "titre": "Associations Between Patients' Unmet Social Needs and Self-Reported Health Confidence at One Primary Care Clinic",
+   "type": "Étude transversale / amélioration de la qualité",
+   "lien": "https://doi.org/10.1177/2150132720921329"
+  },
+  {
+   "auteurs": "Rogers et al.",
+   "annee": "2020",
+   "titre": "Patients' Attitudes and Perceptions Regarding Social Needs Screening and Navigation: Multi-site Survey in a Large Integrated Health System",
+   "type": "Enquête multisite",
+   "lien": "https://doi.org/10.1007/s11606-019-05588-1"
+  },
+  {
+   "auteurs": "Buitron de la Vega et al.",
+   "annee": "2019",
+   "titre": "Implementing an EHR-based screening and referral system to address social determinants of health in primary care",
+   "type": "Étude d’implantation",
+   "lien": "https://doi.org/10.1097/MLR.0000000000001029"
+  },
+  {
+   "auteurs": "Sarah R Reves; Jonathan P O'Neal; Martha M Gonzalez; Chantal McHenry; Molly Favour; Rebecca S Etz",
+   "annee": "2019",
+   "titre": "A 60-Second Survey to Identify Patients' Unmet Social Needs",
+   "type": "Article",
+   "lien": "https://doi.org/10.1370/afm.2391"
+  },
+  {
+   "auteurs": "Hsu et al.",
+   "annee": "2018",
+   "titre": "Evaluation of the Learning to Integrate Neighborhoods and Clinical Care Project: Findings from Implementing a New Lay Role into Primary Care Teams to Address Social Determinants of Health",
+   "type": "Évaluation de programme mixte",
+   "lien": "https://doi.org/10.7812/TPP/18-101"
+  },
+  {
+   "auteurs": "Rodriguez J.; Nafisi A.; Rob-Inson C.; Arteaga E.; Pierce L.D.; Sunn L.; Kim K.J.",
+   "annee": "2018",
+   "titre": "Social determinants of health screening and com-munity resource referral in a safety-net resident primary care clinic.",
+   "type": "Conference Abstract",
+   "lien": ""
+  },
+  {
+   "auteurs": "Sundar et al.",
+   "annee": "2018",
+   "titre": "Universal Screening for Social Needs in a Primary Care Clinic: A Quality Improvement Approach",
+   "type": "Amélioration de la qualité",
+   "lien": "https://doi.org/10.7812/TPP/18-089"
+  },
+  {
+   "auteurs": "Page-Reeves et al.",
+   "annee": "2016",
+   "titre": "Addressing Social Determinants of Health in a Clinic Setting: The WellRx Pilot in Albuquerque, New Mexico",
+   "type": "Étude pilote",
+   "lien": "https://doi.org/10.3122/jabfm.2016.03.150272"
+  },
+  {
+   "auteurs": "Popay J.; Kowarzik U.; Mallinson S.; Mackian S.; Barker J.",
+   "annee": "2007",
+   "titre": "Social problems, primary care and pathways to help and support: Addressing health inequalities at the individual level. Part I: The GP perspective.",
+   "type": "Article",
+   "lien": "https://doi.org/10.1136/jech.2007.061937"
+  }
+ ],
+ "p4": [
+  {
+   "auteurs": "Cook N; Pisciotta M; Larson Z; Fein HL; Donovan J; McGrath BM; Gunn R; Owens-Jasey C; Templeton A; Volk-Britton M; Nishiike Y; Stowe S; Gold R",
+   "annee": "2026",
+   "titre": "Using a Modified Delphi Process to Develop an Intervention to Support Care Coordination of Patient Social Needs in Primary Care",
+   "type": "Delphi modifié / développement d’intervention",
+   "lien": "https://doi.org/10.1111/jan.70109"
+  },
+  {
+   "auteurs": "Eva Chang; Iridian Guzman; Nicole Glowacki; Rasha Khatib",
+   "annee": "2026",
+   "titre": "Implementation of Social Needs Screening and Intervention in Primary Care: A Systematic Review of Program-Level Determinants",
+   "type": "Revue systématique",
+   "lien": "https://doi.org/10.7326/ANNALS-25-00308"
+  },
+  {
+   "auteurs": "Graham et al.",
+   "annee": "2026",
+   "titre": "Merging Law and Medicine: Patient Attitudes About and Experiences with Social Needs Screening and Medical-Legal Partnerships in Primary Care",
+   "type": "Enquête nationale",
+   "lien": "https://doi.org/10.1177/21501319251411488"
+  },
+  {
+   "auteurs": "Gruber E; Grisham R; Arem H; Starling CM; Smith M; Dortch F; Perman C",
+   "annee": "2026",
+   "titre": "Experiences of Maryland Primary Care Practices in Addressing Social Needs Through a Novel Value-Based Payment",
+   "type": "Méthodes mixtes",
+   "lien": "https://doi.org/10.1111/1475-6773.70058"
+  },
+  {
+   "auteurs": "Isabelle Weld-Blundell et al.",
+   "annee": "2026",
+   "titre": "Social Needs Screening Tools for Clinical Populations in Australia and New Zealand: A Scoping Review and Critical Analysis",
+   "type": "Revue de portée",
+   "lien": "https://doi.org/10.1111/hex.70626"
+  },
+  {
+   "auteurs": "Kosowan et al.",
+   "annee": "2026",
+   "titre": "Implementing the screening for poverty and related social determinants and intervening to improve knowledge of and links to resources (SPARK) in primary care clinics across Canada",
+   "type": "Cohorte d’implantation",
+   "lien": "https://doi.org/10.1093/fampra/cmaf109"
+  },
+  {
+   "auteurs": "Multistakeholder study team",
+   "annee": "2026",
+   "titre": "Defining the Social Needs Service Cascade: Evidence From A Multistakeholder Qualitative Study",
+   "type": "Étude qualitative multiacteurs",
+   "lien": "https://pubmed.ncbi.nlm.nih.gov/42052990/"
+  },
+  {
+   "auteurs": "Park JK; Beck AF; Warren K; Sage WM",
+   "annee": "2026",
+   "titre": "Medical-Legal Partnership as Value-Based Primary Care: Interprofessional Teamwork for Health-Related Social Needs. [Review]",
+   "type": "Journal Article; Review",
+   "lien": "https://doi.org/10.1007/s11606-026-10402-w"
+  },
+  {
+   "auteurs": "Ralston et al.",
+   "annee": "2026",
+   "titre": "Outreach Assessment for Social Health Needs in Patients with Multiple Chronic Conditions: Qualitative Study of Patient Experience",
+   "type": "Étude qualitative multicentrique",
+   "lien": "https://doi.org/10.1007/s11606-025-09650-z"
+  },
+  {
+   "auteurs": "Tucher EL; Knox MJ; Grant RW; Brown MC",
+   "annee": "2026",
+   "titre": "Factors Associated With Patients Wanting Assistance With Their Social Risks",
+   "type": "Étude transversale pondérée",
+   "lien": "https://doi.org/10.1016/j.amepre.2025.108084"
+  },
+  {
+   "auteurs": "Vasan A; Knowles M; Flerchinger S; Tandy TK; Mosen D; Soltesz J; Paradis O; Friedman N; Long JA; Ertz-Berger BL; Kangovi S",
+   "annee": "2026",
+   "titre": "Effects of a Standardized Community Health Worker Intervention on Health Care Utilization Within an Integrated Delivery System",
+   "type": "Essai randomisé / analyse prospective",
+   "lien": "https://doi.org/10.1007/s11606-025-09495-6"
+  },
+  {
+   "auteurs": "Wright T; Jenkinson DJ; Yu D; Tierney S; Ford J; Tatton S; Yameen F; Jinks C; Parry E",
+   "annee": "2026",
+   "titre": "Screening for social determinants of health in primary care: protocol for a feasibility study.",
+   "type": "Journal Article",
+   "lien": "https://doi.org/10.3399/BJGPO.2026.0066"
+  },
+  {
+   "auteurs": "Agarwal G; Ziesmann A; Paramalingam A; Nair K; Delleman B; Edwards D; Crowe S; Tye H",
+   "annee": "2025",
+   "titre": "Perceptions of primary care patients attending a legal health clinic: a qualitative descriptive study",
+   "type": "Étude qualitative descriptive",
+   "lien": "https://doi.org/10.1186/s12913-025-13759-6"
+  },
+  {
+   "auteurs": "Anonymous",
+   "annee": "2025",
+   "titre": "Community Health Workers Systematically Assessing and Addressing Social Determinants of Health to Improve Outcomes in Community Health Centers (CHW-SYSTIM).",
+   "type": "Clinical Trial",
+   "lien": "https://clinicaltrials.gov/study/NCT06926855"
+  },
+  {
+   "auteurs": "Anonymous",
+   "annee": "2025",
+   "titre": "Measuring Patient Reported Needs in Outpatient Liver Disease Management.",
+   "type": "Clinical Trial",
+   "lien": "https://clinicaltrials.gov/study/NCT07191886"
+  },
+  {
+   "auteurs": "Elaine De Leon; Sneha Panganamamula; Antoinette Schoenthaler",
+   "annee": "2025",
+   "titre": "Health-Related Social Needs Discussions in Primary Care Encounters in Safety-Net Clinics: A Qualitative Analysis",
+   "type": "Article qualitatif",
+   "lien": "https://doi.org/10.1001/jamanetworkopen.2025.1997"
+  },
+  {
+   "auteurs": "Hudon et al.",
+   "annee": "2025",
+   "titre": "Planning the scale-up of integrated care for adults with complex health and social needs in Quebec",
+   "type": "Étude d’implantation/planification",
+   "lien": "https://doi.org/10.1016/j.healthpol.2025.105321"
+  },
+  {
+   "auteurs": "Kelsea LeBeau; Erin M Bergner; Joyce W Harris; Laurie L Novak; Isaac Schlotterbeck; Sunil Kripalani; Lyndsay A Nelson",
+   "annee": "2025",
+   "titre": "Optimizing the Collection, Integration, and Use of Health-Related Social Needs Data in the Primary Care Setting: Recommendations Derived From Key Interest-Holders",
+   "type": "Article qualitatif",
+   "lien": "https://doi.org/10.1177/21501319251398627"
+  },
+  {
+   "auteurs": "Kosowan et al.",
+   "annee": "2025",
+   "titre": "Validation of a standardised approach to collect sociodemographic and social needs data in Canadian primary care: cross-sectional study of the SPARK tool",
+   "type": "Étude de validation",
+   "lien": "https://doi.org/10.1136/bmjopen-2024-091318"
+  },
+  {
+   "auteurs": "Llamocca EN; Bossick AS; White Perkins D; Ahmedani BK; Behrendt R; Bloemen A; Murphy A; Kulkarni A; Lockhart E",
+   "annee": "2025",
+   "titre": "Health-related social needs screening, reporting, and assistance in a large health system",
+   "type": "Étude transversale sur dossiers cliniques",
+   "lien": "https://doi.org/10.1016/j.ypmed.2024.108182"
+  },
+  {
+   "auteurs": "Napierala H; Jeske N; Roll S; Köberlein-Neu J; Herrmann WJ",
+   "annee": "2025",
+   "titre": "Social prescribing to improve health and well-being of patients presenting with non-medical health related social needs in primary care: Study protocol of a multi-center randomized controlled pragmatic feasibility trial",
+   "type": "Protocole d’essai randomisé pragmatique",
+   "lien": "https://doi.org/10.1371/journal.pone.0322372"
+  },
+  {
+   "auteurs": "Olson et al.",
+   "annee": "2025",
+   "titre": "Getting Inside Closed-Loop Referrals: Exploring the Patient Experience of Finding and Connecting to Social Care With a Community Resource Referral System Using a Community-Based Participatory Approach",
+   "type": "Méthodes mixtes participatives",
+   "lien": "https://doi.org/10.1111/1475-6773.14451"
+  },
+  {
+   "auteurs": "Pola-Garcia M.; Enriquez Martin N.; Turon Lanuza A.; Mendez-Lopez F.; Gasch-Gallen A.; Lou Alcaine M.L.; Benede Azagra C.B.",
+   "annee": "2025",
+   "titre": "Assessing the implementation and impact of a social prescribing protocol in primary care.",
+   "type": "Article",
+   "lien": "https://doi.org/10.1186/s12875-025-02862-6"
+  },
+  {
+   "auteurs": "Rao M.; Maciejewski M.; Greene A.L.; Smith V.A.; Slightam C.; Cohen A.; Jacobs J.; Blalock D.V.; Kimerling R.; Zulman D.M.",
+   "annee": "2025",
+   "titre": "PREVALENCE OF 18 SOCIAL RISKS IN A NATIONAL SURVEY OF VETERANS HEALTH ADMINISTRATION PATIENTS.",
+   "type": "Conference Abstract",
+   "lien": "https://doi.org/10.1007/s11606-025-09516-4"
+  },
+  {
+   "auteurs": "Sidebottom et al.",
+   "annee": "2025",
+   "titre": "Health-Related Social Needs and Health Care Utilization in the Accountable Health Communities Model",
+   "type": "Cohorte/évaluation AHC",
+   "lien": "https://doi.org/10.1001/jamanetworkopen.2025.48036"
+  },
+  {
+   "auteurs": "Vest et al.",
+   "annee": "2025",
+   "titre": "Health-related social needs, methods, and concerns for a polysocial risk score: an expert panel",
+   "type": "Delphi / panel d’experts",
+   "lien": "https://doi.org/10.37765/ajmc.2025.89676"
+  },
+  {
+   "auteurs": "Agarwal et al.",
+   "annee": "2024",
+   "titre": "Integrating a Legal Clinic Program Within Urban Primary Healthcare",
+   "type": "Étude de programme",
+   "lien": "https://doi.org/10.1177/21501319241245849"
+  },
+  {
+   "auteurs": "Carroll J.K.; Fernald D.H.; Hall T.L.; Groves H.M.; Grant G.; Sherrill A.; Crispe K.; Brown A.; Lampe S.; Perry Dickinson W.",
+   "annee": "2024",
+   "titre": "A Unique Model and Workforce to Address Health-Related Social Needs and Health Equity: Regional Health Connectors in Colorado.",
+   "type": "Article",
+   "lien": "https://doi.org/10.1177/15248399231173703"
+  },
+  {
+   "auteurs": "Drake et al.",
+   "annee": "2024",
+   "titre": "Implementation of NCCARE360, a Digital Statewide Closed-Loop Referral Platform to Improve Health and Social Care Coordination: Evidence from the North Carolina COVID-19 Support Services Program",
+   "type": "Étude de cas d’implantation",
+   "lien": "https://doi.org/10.18043/001c.94877"
+  },
+  {
+   "auteurs": "Gore R; Engelberg RS; Johnson D; Jebb O; Schwartz MD; Islam N",
+   "annee": "2024",
+   "titre": "Integrating Community Health Workers' Dual Clinic-Community Role in Safety-Net Primary Care: Implementation Lessons from a Pragmatic Diabetes-Prevention Trial",
+   "type": "Étude qualitative d’implantation",
+   "lien": "https://doi.org/10.1007/s11606-023-08512-w"
+  },
+  {
+   "auteurs": "Hatef E; Richards T; Topel K; Hail S; Kitchen C; Shaw K; Zhang T; Lasser EC; Weiner JP",
+   "annee": "2024",
+   "titre": "Piloting a Clinical Decision Support Tool to Identify Patients With Social Needs and Provide Navigation Services and Referral to Community-Based Organizations: Protocol for a Randomized Controlled Trial",
+   "type": "Protocole d’essai randomisé",
+   "lien": "https://doi.org/10.2196/57316"
+  },
+  {
+   "auteurs": "Hausmann et al.",
+   "annee": "2024",
+   "titre": "Participation of Veterans Affairs Medical Centers in veteran-centric community-based service navigation networks: A mixed methods study",
+   "type": "Méthodes mixtes interorganisationnelles",
+   "lien": "https://doi.org/10.1111/1475-6773.14286"
+  },
+  {
+   "auteurs": "Hudon et al.",
+   "annee": "2024",
+   "titre": "Opportunities of integrated care to improve equity for adults with complex health and social needs: a qualitative study",
+   "type": "Étude qualitative",
+   "lien": "https://doi.org/10.1186/s12875-024-02643-7"
+  },
+  {
+   "auteurs": "Leung C.W.; Patel M.R.; Miller M.; Spring E.; Wang Z.; Wolfson J.A.; Cohen A.J.; Heisler M.; Hao W.",
+   "annee": "2024",
+   "titre": "Food Insecurity at a Large Academic Medical Center: Understanding the Five-Year Prevalence, Trends, Associated Health-Related Social Risks, and Requests for Assistance.",
+   "type": "Conference Abstract",
+   "lien": "https://doi.org/10.1016/j.cdnut.2024.102473"
+  },
+  {
+   "auteurs": "Leung C.W.; Patel M.R.; Miller M.; Spring E.; Wang Z.; Wolfson J.A.; Cohen A.J.; Heisler M.; Hao W.",
+   "annee": "2024",
+   "titre": "Food Insecurity Prevalence and Risk Factors at a Large Academic Medical Center in Michigan.",
+   "type": "Article",
+   "lien": "https://doi.org/10.1001/jamanetworkopen.2024.3723"
+  },
+  {
+   "auteurs": "Moon et al.",
+   "annee": "2024",
+   "titre": "Automated Identification of Patients' Unmet Social Needs in Clinical Text Using Natural Language Processing",
+   "type": "Étude de développement/validation d’algorithmes",
+   "lien": "https://doi.org/10.1016/j.mcpdig.2024.06.008"
+  },
+  {
+   "auteurs": "Parchman ML; Stefanik-Guizlo K; Penfold RB; Holden E; Shah AC",
+   "annee": "2024",
+   "titre": "Improving Diabetes Control in a Medicaid Managed Care Population With Complex Needs",
+   "type": "Évaluation de programme",
+   "lien": "https://doi.org/10.7812/TPP/23.106"
+  },
+  {
+   "auteurs": "Sabatino et al.",
+   "annee": "2024",
+   "titre": "Identifying and addressing health-related social needs: a Medicaid member perspective",
+   "type": "Étude qualitative",
+   "lien": "https://doi.org/10.1186/s12913-024-11605-9"
+  },
+  {
+   "auteurs": "Sosso J.L.; Fischer K.M.; Lampman M.A.; Garrison G.M.; Stacey S.K.; Bernard M.E.; Foss R.M.; Jegen D.A.; Allen S.V.; Thacher T.D.",
+   "annee": "2024",
+   "titre": "Relationship Between Social Risks and Diabetes Metrics in a US Health System.",
+   "type": "Article",
+   "lien": "https://doi.org/10.3122/jabfm.2023.230498R2"
+  },
+  {
+   "auteurs": "Walker R.J.; Williams J.S.; Linde S.; Egede L.E.",
+   "annee": "2024",
+   "titre": "Social Risk and Clinical Outcomes Among Adults With Type 2 Diabetes.",
+   "type": "Article",
+   "lien": "https://doi.org/10.1001/jamanetworkopen.2024.25996"
+  },
+  {
+   "auteurs": "Zeng et al.",
+   "annee": "2024",
+   "titre": "Patterns of Social Needs Among Patients in a Large Health System",
+   "type": "Analyse par classes latentes",
+   "lien": "https://doi.org/10.1007/s11606-024-08788-6"
+  },
+  {
+   "auteurs": "Anonymous",
+   "annee": "2023",
+   "titre": "The Hotspotters Project. Pursuing the Triple Aim in Hotspotters: Identification and Integrated Care.",
+   "type": "Clinical Trial",
+   "lien": "https://clinicaltrials.gov/study/NCT05878054"
+  },
+  {
+   "auteurs": "Egede L.E.; Walker R.J.; Linde S.; Williams J.S.",
+   "annee": "2023",
+   "titre": "IDENTIFYING INDIVIDUALS WITH HIGHEST SOCIAL RISK IN ADULTS WITH TYPE 2 DIABETES: TWO PARAMETER ITEM RESPONSE THEORY METHODOLOGY.",
+   "type": "Conference Abstract",
+   "lien": "https://doi.org/10.1007/s11606-023-08226-z"
+  },
+  {
+   "auteurs": "Emma L Karran et al.",
+   "annee": "2023",
+   "titre": "The 'what' and 'how' of screening for social needs in healthcare settings: a scoping review",
+   "type": "Revue de portée",
+   "lien": "https://doi.org/10.7717/peerj.15263"
+  },
+  {
+   "auteurs": "Kerry K Meltzer; Corinne M Rhodes; Anna U Morgan; Gillian L Lautenbach; Judy A Shea; Marguerite A Balasta",
+   "annee": "2023",
+   "titre": "Insights Into Patients' Perceptions of Health-Related Social Needs and the Role of the Adult Primary Care Clinic",
+   "type": "Article qualitatif",
+   "lien": "https://doi.org/10.1177/21501319231184380"
+  },
+  {
+   "auteurs": "Rao M.; Maciejewski M.; Nelson K.; Marcotte L.M.; Zulman D.",
+   "annee": "2023",
+   "titre": "BEYOND SCREENING AND REFERRAL: A PRAGMATIC FRAMEWORK FOR HEALTH CARE SYSTEMS TO DETERMINE THE ACTIONABILITY OF SOCIAL RISKS.",
+   "type": "Conference Abstract",
+   "lien": "https://doi.org/10.1007/s11606-023-08226-z"
+  },
+  {
+   "auteurs": "Williams J.S.; Linde S.; Walker R.J.; Egede L.E.",
+   "annee": "2023",
+   "titre": "RELATIONSHIP BETWEEN SOCIAL RISK INDICATORS AND CLINICAL OUTCOMES FOR ADULTS WITH TYPE 2 DIABETES: A LATENT CLASS ANALYSIS.",
+   "type": "Conference Abstract",
+   "lien": "https://doi.org/10.1007/s11606-023-08226-z"
+  },
+  {
+   "auteurs": "Albert et al.",
+   "annee": "2022",
+   "titre": "Do patients want clinicians to ask about social needs and include this information in their medical record?",
+   "type": "Enquête transversale",
+   "lien": "https://doi.org/10.1186/s12913-022-08652-5"
+  },
+  {
+   "auteurs": "Alice F Yan et al.",
+   "annee": "2022",
+   "titre": "Effectiveness of Social Needs Screening and Interventions in Clinical Settings on Utilization, Cost, and Clinical Outcomes: A Systematic Review",
+   "type": "Revue systématique",
+   "lien": "https://doi.org/10.1089/heq.2022.0010"
+  },
+  {
+   "auteurs": "Anna Louise Steeves-Reece et al.",
+   "annee": "2022",
+   "titre": "Social Needs Resource Connections: A Systematic Review of Barriers, Facilitators, and Evaluation",
+   "type": "Revue systématique mixte",
+   "lien": "https://doi.org/10.1016/j.amepre.2021.12.002"
+  },
+  {
+   "auteurs": "Beidler et al.",
+   "annee": "2022",
+   "titre": "\"More than just giving them a piece of paper\": Interviews with Primary Care on Social Needs Referrals to Community-Based Organizations",
+   "type": "Étude qualitative nationale",
+   "lien": "https://doi.org/10.1007/s11606-022-07531-3"
+  },
+  {
+   "auteurs": "Broaddus-Shea et al.",
+   "annee": "2022",
+   "titre": "Health-related social needs screening communication in primary care: patient and staff perspectives",
+   "type": "Étude qualitative",
+   "lien": "https://doi.org/10.1111/hsc.13752"
+  },
+  {
+   "auteurs": "Jopling et al.",
+   "annee": "2022",
+   "titre": "TeamCare: an interprofessional primary care intervention for patients with complex health and social needs",
+   "type": "Protocole/étude d’intervention",
+   "lien": "https://doi.org/10.1136/bmjopen-2022-065362"
+  },
+  {
+   "auteurs": "Khan et al.",
+   "annee": "2022",
+   "titre": "Exploring Intra and Interorganizational Integration Efforts Involving the Primary Care Sector - A Case Study from Ontario",
+   "type": "Étude de cas + approche de réseau social",
+   "lien": "https://doi.org/10.5334/ijic.5541"
+  },
+  {
+   "auteurs": "Mathieu Bujold; Pierre Pluye; France Légaré; Participatory Review Team",
+   "annee": "2022",
+   "titre": "Decision-making and related outcomes of patients with complex care needs in primary care settings: a systematic literature review with a case-based qualitative synthesis",
+   "type": "Revue systématique mixte",
+   "lien": "https://doi.org/10.1186/s12875-022-01879-5"
+  },
+  {
+   "auteurs": "McQueen et al.",
+   "annee": "2022",
+   "titre": "Associations among social needs, health and healthcare utilization, and desire for navigation services among US Medicaid beneficiaries with type 2 diabetes",
+   "type": "Enquête transversale",
+   "lien": "https://doi.org/10.1111/hsc.13296"
+  },
+  {
+   "auteurs": "Simpson et al.",
+   "annee": "2022",
+   "titre": "Understanding social care need through primary care big data: a scoping review",
+   "type": "Revue de portée",
+   "lien": "https://doi.org/10.3399/BJGPO.2022.0016"
+  },
+  {
+   "auteurs": "Tevaearai M; Hangartner E; Dory É; Abelairas H; Marion-Veyron R; Pahud Vermeulen B; Bodenmann P",
+   "annee": "2022",
+   "titre": "Chapitre 3.17. Une unité sociale installée au cœur des consultations de médecine générale",
+   "type": "Chapitre d’ouvrage / retour d’expérience",
+   "lien": "https://doi.org/10.3917/mh.boden.2022.01.0607"
+  },
+  {
+   "auteurs": "Chagin et al.",
+   "annee": "2021",
+   "titre": "A Framework for Evaluating Social Determinants of Health Screening and Referrals for Assistance",
+   "type": "Développement de cadre + application",
+   "lien": "https://doi.org/10.1177/21501327211052204"
+  },
+  {
+   "auteurs": "Drake et al.",
+   "annee": "2021",
+   "titre": "Implementation of social needs screening in primary care: a qualitative study using the health equity implementation framework",
+   "type": "Étude qualitative d’implantation",
+   "lien": "https://doi.org/10.1186/s12913-021-06991-3"
+  },
+  {
+   "auteurs": "Emily Ruiz Escobar; Shweta Pathak; Carrie M Blanchard",
+   "annee": "2021",
+   "titre": "Screening and Referral Care Delivery Services and Unmet Health-Related Social Needs: A Systematic Review",
+   "type": "Revue systématique",
+   "lien": "https://doi.org/10.5888/pcd18.200569"
+  },
+  {
+   "auteurs": "Fiori et al.",
+   "annee": "2021",
+   "titre": "Scaling-up social needs screening in practice: a retrospective, cross-sectional analysis of data from electronic health records from Bronx county, New York, USA",
+   "type": "Analyse rétrospective d’implantation",
+   "lien": "https://doi.org/10.1136/bmjopen-2021-053633"
+  },
+  {
+   "auteurs": "Fraze et al.",
+   "annee": "2021",
+   "titre": "Resource Brokering: Efforts to Assist Patients With Housing, Transportation, and Economic Needs in Primary Care",
+   "type": "Étude qualitative organisationnelle",
+   "lien": "https://doi.org/10.1370/afm.2739"
+  },
+  {
+   "auteurs": "Gruß I; Varga A; Brooks N; Gold R; Banegas MP",
+   "annee": "2021",
+   "titre": "Patient Interest in Receiving Assistance with Self-Reported Social Risks",
+   "type": "Étude transversale",
+   "lien": "https://doi.org/10.3122/jabfm.2021.05.210069"
+  },
+  {
+   "auteurs": "Matthew W Kreuter; Rachel Garg; Linda Li; Laura McNulty; Tess Thompson; Amy McQueen; Alina A Luke",
+   "annee": "2021",
+   "titre": "How Do Social Needs Cluster Among Low-Income Individuals?",
+   "type": "Article",
+   "lien": "https://doi.org/10.1089/pop.2020.0107"
+  },
+  {
+   "auteurs": "Nguyen et al.",
+   "annee": "2021",
+   "titre": "Receipt of Social Needs Assistance and Health Center Patient Experience of Care",
+   "type": "Analyse d’enquête nationale",
+   "lien": "https://doi.org/10.1016/j.amepre.2020.08.030"
+  },
+  {
+   "auteurs": "Piemeu et al.",
+   "annee": "2021",
+   "titre": "Expectations and needs of socially vulnerable patients for navigational support of primary health care services",
+   "type": "Étude qualitative",
+   "lien": "https://doi.org/10.1186/s12913-021-06811-8"
+  },
+  {
+   "auteurs": "Sahil Sandhu; Jacqueline Xu; Howard Eisenson; Janet Prvu Bettger",
+   "annee": "2021",
+   "titre": "Workforce Models to Screen for and Address Patients' Unmet Social Needs in the Clinic Setting: A Scoping Review",
+   "type": "Revue de portée",
+   "lien": "https://doi.org/10.1177/21501327211021021"
+  },
+  {
+   "auteurs": "Boch et al.",
+   "annee": "2020",
+   "titre": "Integrative Review of Social Determinants of Health Screening Tools Used in Primary Care",
+   "type": "Revue intégrative",
+   "lien": "https://doi.org/10.1353/hpu.2020.0048"
+  },
+  {
+   "auteurs": "Iott et al.",
+   "annee": "2020",
+   "titre": "More than a Database: Understanding Community Resource Referrals within a Socio-Technical Systems Framework",
+   "type": "Étude qualitative sociotechnique",
+   "lien": "https://pubmed.ncbi.nlm.nih.gov/33936432/"
+  },
+  {
+   "auteurs": "Johnston KJ; Mittler J; Hockenberry JM",
+   "annee": "2020",
+   "titre": "Patient social risk factors and continuity of care for Medicare beneficiaries.",
+   "type": "Journal Article; Observational Study; Research Support, Non-U.S. Gov't",
+   "lien": "https://doi.org/10.1111/1475-6773.13272"
+  },
+  {
+   "auteurs": "Krist et al.",
+   "annee": "2020",
+   "titre": "Enhanced care planning and clinical-community linkages versus usual care to address basic needs of patients with multiple chronic conditions: a clinician-level randomized controlled trial",
+   "type": "Protocole d’essai randomisé",
+   "lien": "https://pubmed.ncbi.nlm.nih.gov/32527322/"
+  },
+  {
+   "auteurs": "Manian et al.",
+   "annee": "2020",
+   "titre": "Social needs intervention dosage and successful resource connections",
+   "type": "Étude observationnelle de programme",
+   "lien": "https://doi.org/10.1016/j.puhe.2020.05.058"
+  },
+  {
+   "auteurs": "Samuels-Kalow et al.",
+   "annee": "2020",
+   "titre": "The terminology of social emergency medicine: Measuring social determinants of health, social risk, and social need",
+   "type": "Article conceptuel",
+   "lien": "https://doi.org/10.1002/emp2.12191"
+  },
+  {
+   "auteurs": "Berkowitz et al.",
+   "annee": "2019",
+   "titre": "Impact of Social Needs Navigation on Utilization Among High Utilizers in a Large Integrated Health System: a Quasi-experimental Study",
+   "type": "Étude quasi-expérimentale",
+   "lien": "https://pubmed.ncbi.nlm.nih.gov/31228054/"
+  },
+  {
+   "auteurs": "Santo et al.",
+   "annee": "2019",
+   "titre": "Patient-Defined Visit Priorities in Primary Care: Psychosocial Versus Medically Focused Concerns",
+   "type": "Étude observationnelle",
+   "lien": "https://doi.org/10.3122/jabfm.2019.04.180380"
+  },
+  {
+   "auteurs": "Tudrej BV; Martinière A; Etonno R; Reif C; Emery S; Hervé C; Birault F",
+   "annee": "2019",
+   "titre": "Scores de précarité en pratique clinique",
+   "type": "Revue des outils / article de synthèse",
+   "lien": "https://doi.org/10.1684/med.2019.424"
+  },
+  {
+   "auteurs": "Jules McGregor; Stewart W Mercer; Fiona M Harris",
+   "annee": "2018",
+   "titre": "Health benefits of primary care social work for adults with complex health and social needs: a systematic review",
+   "type": "Revue systématique",
+   "lien": "https://doi.org/10.1111/hsc.12337"
+  },
+  {
+   "auteurs": "Leppin et al.",
+   "annee": "2018",
+   "titre": "Applying Social Network Analysis to Evaluate Implementation of a Multisector Population Health Collaborative That Uses a Bridging Hub Organization",
+   "type": "Analyse de réseau social d’implantation",
+   "lien": "https://doi.org/10.3389/fpubh.2018.00315"
+  },
+  {
+   "auteurs": "Valaitis et al.",
+   "annee": "2018",
+   "titre": "Navigation delivery models and roles of navigators in primary care: a scoping literature review",
+   "type": "Revue de portée",
+   "lien": "https://pubmed.ncbi.nlm.nih.gov/29422057/"
+  },
+  {
+   "auteurs": "Flye Sainte Marie C; Querrioux I; Baumann C; Di Patrizio P",
+   "annee": "2015",
+   "titre": "Difficultés des médecins généralistes dans la prise en charge de leurs patients précaires",
+   "type": "Étude mixte",
+   "lien": "https://doi.org/10.3917/spub.155.0679"
+  },
+  {
+   "auteurs": "Marron-Delabre A; Rivollier E; Bois C",
+   "annee": "2015",
+   "titre": "Relation médecin-patient en situation de précarité économique : point de vue des patients",
+   "type": "Étude qualitative",
+   "lien": "https://doi.org/10.3917/spub.156.0837"
+  },
+  {
+   "auteurs": "Whitford D.L.; Chan W.-S.",
+   "annee": "2007",
+   "titre": "A randomised controlled trial of a lengthened and multi-disciplinary consultation model in a socially deprived community: A study protocol.",
+   "type": "Article",
+   "lien": "https://doi.org/10.1186/1471-2296-8-38"
+  }
+ ],
+ "lacunes": [
+  {
+   "dimension": "Conceptualisation",
+   "etat": "Présente mais non stabilisée",
+   "niveau": "Importante",
+   "constat": "PubMed distingue de plus en plus risque social, besoin social et désir d’assistance. Cairn ajoute un vocabulaire francophone de précarité et vulnérabilité sociale, souvent multidimensionnel mais conceptuellement plus large que le besoin non satisfait.",
+   "reperes": "Gruß 2021; Tucher 2026; Tudrej 2019; Karran 2023"
+  },
+  {
+   "dimension": "Mesure",
+   "etat": "Abondante mais hétérogène",
+   "niveau": "Importante",
+   "constat": "Les outils diffèrent fortement par domaines, seuils et mode d’administration. Cairn confirme l’existence de scores multidimensionnels de précarité tels qu’EPICES et PRECAR, qui ne sont pas équivalents aux questionnaires de besoins sociaux non satisfaits.",
+   "reperes": "Zein 2026; Karran 2023; Tudrej 2019; Rogers 2025"
+  },
+  {
+   "dimension": "Caractérisation / prévalence",
+   "etat": "Bien documentée pour au moins un besoin",
+   "niveau": "Modérée",
+   "constat": "De nombreuses études décrivent la prévalence par domaine et la charge cumulative, mais les estimations restent difficilement comparables lorsque la définition du besoin et l’outil diffèrent.",
+   "reperes": "Jih 2023; Bleacher 2020; Fiori 2021"
+  },
+  {
+   "dimension": "Multiplicité / concomitance",
+   "etat": "Émergente mais désormais démontrée",
+   "niveau": "Importante",
+   "constat": "La coexistence de plusieurs besoins ou risques sociaux est fréquente. Des grappes/classes et mesures de charge cumulative existent. Une étude récente montre en outre que la multiplicité des risques augmente fortement la probabilité de vouloir une aide.",
+   "reperes": "Vest 2025; Kreuter 2021; Zeng 2024; Tucher 2026"
+  },
+  {
+   "dimension": "Priorisation par les patients",
+   "etat": "Quelques études directes, mais champ encore peu développé",
+   "niveau": "Majeure",
+   "constat": "La littérature mesure surtout désir d’aide, objectifs négociés, acceptabilité ou priorité relative. Les nouvelles références renforcent la distinction entre risque détecté et aide souhaitée. e-CARE montre aussi un accompagnement ajusté au rythme et aux priorités du patient, sans produire une hiérarchie standardisée des besoins.",
+   "reperes": "O’Loughlin 2022; Gruß 2021; Tucher 2026; Vasan 2026; Ouanhnon 2022"
+  },
+  {
+   "dimension": "Interrelations entre besoins",
+   "etat": "Principalement décrites comme cooccurrence ou complexité globale",
+   "niveau": "Majeure",
+   "constat": "Les analyses quantitatives documentent surtout cooccurrence et profils. Cairn décrit qualitativement l’imbrication de difficultés sociales, administratives, économiques et de santé, mais rarement leur direction, séquence ou mécanisme causal.",
+   "reperes": "Vest 2025; Kreuter 2021; Marron-Delabre 2015; Ouanhnon 2022"
+  },
+  {
+   "dimension": "Résolution / trajectoire",
+   "etat": "Croissante mais dominée par des indicateurs intermédiaires",
+   "niveau": "Majeure",
+   "constat": "Le champ distingue progressivement dépistage, référence, connexion, ressource reçue et résolution. Les travaux francophones e-CARE ajoutent un suivi de résultats concrets tels qu’ouverture de droits, accès à un médecin traitant, logement et autonomie du parcours, mais sans mesure standardisée de résolution de chaque besoin.",
+   "reperes": "Steeves-Reece 2022; Hausmann 2024; Ouanhnon 2022; Agarwal 2025"
+  },
+  {
+   "dimension": "Réseaux / réponse intersectorielle",
+   "etat": "Littérature substantielle mais souvent séparée des données patient",
+   "niveau": "Majeure pour l’intégration",
+   "constat": "PubMed documente navigation, CHW, partenariats médico-juridiques et boucles fermées. Cairn documente unités sociales en médecine générale, MSP, CPTS, DAC et coordination territoriale. La configuration du réseau n’est cependant que rarement reliée aux profils de besoins et à leur résolution.",
+   "reperes": "Hogg-Graham 2021; Tevaearai 2022; Yatim & Sebai 2021; Lessi 2023; Ouanhnon 2022"
+  },
+  {
+   "dimension": "Synthèse intégrée",
+   "etat": "Non identifiée dans les audits PubMed et Cairn",
+   "niveau": "Lacune principale",
+   "constat": "Aucune synthèse repérée ne réunit, chez des adultes consultant en soins primaires, le caractère non satisfait, la mesure multidomaine, les configurations de concomitance, la priorité donnée par le patient, les interrelations entre besoins, la configuration du réseau mobilisable et la trajectoire jusqu’à résolution.",
+   "reperes": "Karran 2023; Vest 2025; Chang 2026; Tudrej 2019; Ouanhnon 2022"
+  }
+ ],
+ "notes": [
+  [
+   "Formulation de la lacune défendable après audits PubMed et Cairn"
+  ],
+  [
+   "L’extension à PubMed et Cairn confirme que la littérature n’est pas vide sur chacune des composantes de la question. Les besoins ou risques sociaux multiples sont mesurés; certaines configurations de cooccurrence sont décrites; le désir d’aide et les objectifs du patient sont étudiés; des dispositifs de prescription sociale, navigation, agents de santé communautaire, partenariats médico-juridiques, unités sociales intégrées, MSP, CPTS et dispositifs territoriaux organisent différentes formes de réponse. La littérature francophone ajoute en outre une conceptualisation importante de la précarité multidimensionnelle et de la complexité médico-sociale. En revanche, aucune synthèse identifiée ne relie systématiquement, chez les adultes consultant en soins primaires, la configuration de plusieurs besoins sociaux concomitants et non satisfaits, leur hiérarchisation par la personne, leurs interrelations, la configuration du réseau effectivement disponible et mobilisable, puis la résolution de chacun de ces besoins. La lacune devient donc plus précise : elle porte sur l’articulation empirique entre configuration des besoins et configuration de la réponse intersectorielle, ainsi que sur les mécanismes qui expliquent pourquoi certains besoins persistent malgré leur identification ou leur orientation."
+  ],
+  [
+   "Point de vigilance méthodologique"
+  ],
+  [
+   "La formulation correcte demeure « aucune synthèse identifiée dans les recherches PubMed et Cairn réalisées » et non « aucune synthèse n’existe ». Cairn utilise fréquemment les notions de précarité, vulnérabilité, complexité et non-recours; ces concepts doivent être codés séparément des besoins sociaux non satisfaits afin de ne pas créer artificiellement une homogénéité conceptuelle."
+  ]
+ ]
+}
