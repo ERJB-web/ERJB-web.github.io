@@ -1,212 +1,1302 @@
 {
  "fr": {
-  "juriste": { "salle": ["Juriste", "Droit de la santé et droit social"], "surtitre": "Parcours", "titre": "Juriste en droit de la santé et en droit social",
+  "juriste": {
+   "salle": [
+    "Droit",
+    "Droit de la santé et droit social"
+   ],
+   "surtitre": "Parcours",
+   "titre": "Juriste en droit de la santé et en droit social",
    "intro": "Formé au droit sanitaire et social à l’Université Paris-Panthéon-Assas (master, mention spéciale du jury), j’analyse l’environnement juridique des établissements, des professionnels et des politiques de santé, des droits des personnes jusqu’au contentieux.",
    "blocs": [
-    ["Droit de la santé et de la protection sociale", ["Grands enjeux du droit de la santé", "Économie et politiques de santé", "Droits des patients et des personnes vulnérables", "Droit de la sécurité sociale", "Droit de l’aide et de l’action sociales", "Droit du handicap et de la perte d’autonomie"]],
-    ["Régulation des établissements et services", ["Planification et régime des autorisations", "Inspections et contrôles des établissements et services", "Coopérations et contractualisations", "Évaluations et modes de financement"]],
-    ["Gestion des établissements et services", ["Gouvernance des établissements de santé", "Gouvernance des établissements et services sociaux et médico-sociaux", "Tarification, gestion financière et comptable", "Droit des professions de santé", "Gestion et statuts des personnels"]],
-    ["Responsabilités et contentieux", ["Contentieux de la sécurité sociale, de l’aide et de l’action sociales", "Responsabilité et contentieux administratifs", "Responsabilité et contentieux civils", "Responsabilité et contentieux pénaux"]],
-    ["Droit du travail", ["Droit du travail", "Droit du travail spécial du secteur social et médico-social", "Gestion des ressources humaines et relations de travail"]],
-    ["Travaux juridiques", ["Mémoire : « Vieillir chez soi : réalités et mise en œuvre du virage domiciliaire. Une étude comparée France / Québec », sous la direction de Benoît Apollis", "Article doctrinal en préparation : « Vieillir chez soi à l’épreuve du droit : l’effectivité du choix du lieu de vie en droit français et en droit québécois »"]]
-   ] },
-  "gestionnaire": { "salle": ["Gestionnaire", "Direction et gestion des établissements"], "surtitre": "Parcours", "titre": "Gestionnaire d’établissements sociaux et médico-sociaux",
+    [
+     "Droit de la santé et de la protection sociale",
+     [
+      "Grands enjeux du droit de la santé",
+      "Économie et politiques de santé",
+      "Droits des patients et des personnes vulnérables",
+      "Droit de la sécurité sociale",
+      "Droit de l’aide et de l’action sociales",
+      "Droit du handicap et de la perte d’autonomie"
+     ]
+    ],
+    [
+     "Régulation des établissements et services",
+     [
+      "Planification et régime des autorisations",
+      "Inspections et contrôles des établissements et services",
+      "Coopérations et contractualisations",
+      "Évaluations et modes de financement"
+     ]
+    ],
+    [
+     "Gestion des établissements et services",
+     [
+      "Gouvernance des établissements de santé",
+      "Gouvernance des établissements et services sociaux et médico-sociaux",
+      "Tarification, gestion financière et comptable",
+      "Droit des professions de santé",
+      "Gestion et statuts des personnels"
+     ]
+    ],
+    [
+     "Responsabilités et contentieux",
+     [
+      "Contentieux de la sécurité sociale, de l’aide et de l’action sociales",
+      "Responsabilité et contentieux administratifs",
+      "Responsabilité et contentieux civils",
+      "Responsabilité et contentieux pénaux"
+     ]
+    ],
+    [
+     "Droit du travail",
+     [
+      "Droit du travail",
+      "Droit du travail spécial du secteur social et médico-social",
+      "Gestion des ressources humaines et relations de travail"
+     ]
+    ],
+    [
+     "Travaux juridiques",
+     [
+      "Mémoire : « Vieillir chez soi : réalités et mise en œuvre du virage domiciliaire. Une étude comparée France / Québec », sous la direction de Benoît Apollis",
+      "Article doctrinal en préparation : « Vieillir chez soi à l’épreuve du droit : l’effectivité du choix du lieu de vie en droit français et en droit québécois »"
+     ]
+    ]
+   ]
+  },
+  "gestionnaire": {
+   "salle": [
+    "Gestion",
+    "Direction et gestion des établissements"
+   ],
+   "surtitre": "Parcours",
+   "titre": "Gestionnaire d’établissements sociaux et médico-sociaux",
    "intro": "Formé à la direction des structures médico-sociales et de services aux personnes à l’Université de Bretagne Occidentale (master, mention spéciale du jury), j’ai exercé la gestion au quotidien comme responsable de séjours adaptés, puis lors d’un stage de direction en EHPAD.",
    "blocs": [
-    ["Stratégie et projets", ["Planification stratégique", "Projet d’établissement et projet de service", "Pilotage et gestion de projet", "Management de la qualité et évaluation"]],
-    ["Management et ressources humaines", ["Management des organisations", "Clinique des organisations", "Gestion des ressources humaines et de la masse salariale", "Plannings de travail, conduite de réunion et communication managériale"]],
-    ["Finances et comptabilité", ["Gestion comptable", "Gestion budgétaire et financière (CPOM, EPRD)", "Comptabilité publique et finances locales", "Principes de tarification"]],
-    ["Financements et partenariats", ["Recherche de financements et philanthropie", "Coopérations et contractualisations", "Politiques sociales"]],
-    ["Connaissance du secteur", ["Typologie des établissements et services sociaux et médico-sociaux", "Handicap, personnes âgées, services à domicile et ESAT", "Sujet, lien social et vulnérabilité"]],
-    ["Expérience", ["Responsable de séjours adaptés (2016–2024) : équipes, budget, logistique et projets de service", "Stage de direction en EHPAD (2023)", "Chargé de mission à l’ANAP (2024–2025)"]]
-   ] },
-  "educateur": { "salle": ["Éducateur spécialisé", "Accompagnement et autodétermination"], "surtitre": "Parcours", "titre": "Éducateur spécialisé",
+    [
+     "Stratégie et projets",
+     [
+      "Planification stratégique",
+      "Projet d’établissement et projet de service",
+      "Pilotage et gestion de projet",
+      "Management de la qualité et évaluation"
+     ]
+    ],
+    [
+     "Management et ressources humaines",
+     [
+      "Management des organisations",
+      "Clinique des organisations",
+      "Gestion des ressources humaines et de la masse salariale",
+      "Plannings de travail, conduite de réunion et communication managériale"
+     ]
+    ],
+    [
+     "Finances et comptabilité",
+     [
+      "Gestion comptable",
+      "Gestion budgétaire et financière (CPOM, EPRD)",
+      "Comptabilité publique et finances locales",
+      "Principes de tarification"
+     ]
+    ],
+    [
+     "Financements et partenariats",
+     [
+      "Recherche de financements et philanthropie",
+      "Coopérations et contractualisations",
+      "Politiques sociales"
+     ]
+    ],
+    [
+     "Connaissance du secteur",
+     [
+      "Typologie des établissements et services sociaux et médico-sociaux",
+      "Handicap, personnes âgées, services à domicile et ESAT",
+      "Sujet, lien social et vulnérabilité"
+     ]
+    ],
+    [
+     "Expérience",
+     [
+      "Responsable de séjours adaptés (2016–2024) : équipes, budget, logistique et projets de service",
+      "Stage de direction en EHPAD (2023)",
+      "Chargé de mission à l’ANAP (2024–2025)"
+     ]
+    ]
+   ]
+  },
+  "educateur": {
+   "salle": [
+    "Éducation spécialisée",
+    "Accompagnement et autodétermination"
+   ],
+   "surtitre": "Parcours",
+   "titre": "Éducateur spécialisé",
    "intro": "Diplômé d’État (Académie de Rennes, 2023), j’ai accompagné des personnes en situation de handicap, dont des personnes autistes, en foyer d’hébergement et en séjours adaptés, avec une conviction : soutenir leur autodétermination.",
    "blocs": [
-    ["Relation éducative spécialisée", ["Accompagnement socio-éducatif au quotidien", "Relation éducative favorisant l’autonomie", "Soutien à l’autodétermination et au pouvoir d’agir"]],
-    ["Conception et conduite de projet", ["Évaluation des besoins et des attentes", "Coconstruction du projet personnalisé", "Coordination et suivi des projets"]],
-    ["Travail en équipe et communication", ["Coordination d’une équipe pluridisciplinaire", "Écrits professionnels et transmissions", "Travail avec les familles et les proches"]],
-    ["Partenariats et réseaux", ["Dynamiques interinstitutionnelles", "Partenariats avec les acteurs du territoire", "Coordination des parcours"]],
-    ["Savoirs mobilisés", ["Psychologie du développement et psychopathologie", "Handicap, autisme et vieillissement", "Sociologie et droit de l’action sociale"]],
-    ["Expérience", ["Éducateur spécialisé en foyer d’hébergement (Adapei 35, 2020–2023)", "Responsable de séjours adaptés (2016–2024)", "Mémoire : parcours de vie et autodétermination (2023)"]]
-   ] },
-  "entrepreneuriat": { "salle": ["Entrepreneur", "Innover à partir des besoins"], "surtitre": "Parcours", "titre": "Entreprendre pour répondre à des besoins réels",
-   "intro": "Penser en entrepreneur, c’est partir d’un besoin mal comblé, imaginer une réponse utile et la construire avec les personnes concernées.", "lien": "Voir la salle Outils numériques",
+    [
+     "Relation éducative spécialisée",
+     [
+      "Accompagnement socio-éducatif au quotidien",
+      "Relation éducative favorisant l’autonomie",
+      "Soutien à l’autodétermination et au pouvoir d’agir"
+     ]
+    ],
+    [
+     "Conception et conduite de projet",
+     [
+      "Évaluation des besoins et des attentes",
+      "Coconstruction du projet personnalisé",
+      "Coordination et suivi des projets"
+     ]
+    ],
+    [
+     "Travail en équipe et communication",
+     [
+      "Coordination d’une équipe pluridisciplinaire",
+      "Écrits professionnels et transmissions",
+      "Travail avec les familles et les proches"
+     ]
+    ],
+    [
+     "Partenariats et réseaux",
+     [
+      "Dynamiques interinstitutionnelles",
+      "Partenariats avec les acteurs du territoire",
+      "Coordination des parcours"
+     ]
+    ],
+    [
+     "Savoirs mobilisés",
+     [
+      "Psychologie du développement et psychopathologie",
+      "Handicap, autisme et vieillissement",
+      "Sociologie et droit de l’action sociale"
+     ]
+    ],
+    [
+     "Expérience",
+     [
+      "Éducateur spécialisé en foyer d’hébergement (Adapei 35, 2020–2023)",
+      "Responsable de séjours adaptés (2016–2024)",
+      "Mémoire : parcours de vie et autodétermination (2023)"
+     ]
+    ],
+    [
+     "Équivalence au Québec (CNP 42203)",
+     [
+      "Intervenir auprès de personnes aux prises avec diverses problématiques (santé mentale, dépendances, troubles du langage, régulation des émotions)",
+      "Identifier les obstacles cognitifs, sociaux et affectifs",
+      "Élaborer un plan d’intervention avec des objectifs et des actions précises",
+      "Évaluer les limitations et les capacités pour fixer des objectifs d’adaptation et de réadaptation",
+      "Aider les personnes à acquérir des compétences sociales et pratiques",
+      "Collaborer avec d’autres spécialistes (conseillers en réadaptation, orthophonistes, ergothérapeutes)"
+     ],
+     {
+      "large": true
+     }
+    ]
+   ]
+  },
+  "entrepreneuriat": {
+   "salle": [
+    "Entrepreneuriat",
+    "Innover à partir des besoins"
+   ],
+   "surtitre": "Parcours",
+   "titre": "Entreprendre pour répondre à des besoins réels",
+   "intro": "Penser en entrepreneur, c’est partir d’un besoin mal comblé, imaginer une réponse utile et la construire avec les personnes concernées.",
+   "lien": "Voir la salle Outils numériques",
    "blocs": [
-    ["Comprendre les besoins", ["Personas et parcours des utilisateurs", "Étude de marché et analyse d’opportunité", "Tests et itérations avec les personnes concernées"]],
-    ["Construire le projet", ["Modèle d’affaires et plan d’affaires", "Stratégie marketing et développement", "Gestion financière du projet"]],
-    ["Financer", ["Recherche de financements : subventions, prêts d’honneur, investisseurs", "Philanthropie et partenariats", "Prévisionnel financier"]],
-    ["Cadre juridique", ["Choix de la structure juridique", "Propriété intellectuelle", "Protection des données personnelles"]],
-    ["Diriger", ["Management d’équipe et leadership", "Pilotage et gouvernance du projet"]],
-    ["Projets en cours", ["OWNNIGHT, application d’éducation au sommeil fondée sur la TCC-I", "Les Sphères, applications pour comprendre l’épidémiologie et les statistiques"]]
-   ] }
+    [
+     "Comprendre les besoins",
+     [
+      "Personas et parcours des utilisateurs",
+      "Étude de marché et analyse d’opportunité",
+      "Tests et itérations avec les personnes concernées"
+     ]
+    ],
+    [
+     "Construire le projet",
+     [
+      "Modèle d’affaires et plan d’affaires",
+      "Stratégie marketing et développement",
+      "Gestion financière du projet"
+     ]
+    ],
+    [
+     "Financer",
+     [
+      "Recherche de financements : subventions, prêts d’honneur, investisseurs",
+      "Philanthropie et partenariats",
+      "Prévisionnel financier"
+     ]
+    ],
+    [
+     "Cadre juridique",
+     [
+      "Choix de la structure juridique",
+      "Propriété intellectuelle",
+      "Protection des données personnelles"
+     ]
+    ],
+    [
+     "Diriger",
+     [
+      "Management d’équipe et leadership",
+      "Pilotage et gouvernance du projet"
+     ]
+    ],
+    [
+     "Projets en cours",
+     [
+      "OWNNIGHT, application d’éducation au sommeil fondée sur la TCC-I",
+      "Les Sphères, applications pour comprendre l’épidémiologie et les statistiques"
+     ]
+    ]
+   ]
+  }
  },
  "en": {
-  "juriste": { "salle": ["Jurist", "Health law and social law"], "surtitre": "Background", "titre": "Jurist in health law and social law",
+  "juriste": {
+   "salle": [
+    "Law",
+    "Health law and social law"
+   ],
+   "surtitre": "Background",
+   "titre": "Jurist in health law and social law",
    "intro": "Trained in health and social law at Université Paris-Panthéon-Assas (master’s degree, special mention from the jury), I analyse the legal environment of facilities, professionals and health policies, from people’s rights to litigation.",
    "blocs": [
-    ["Health and social protection law", ["Major issues in health law", "Health economics and policy", "Rights of patients and vulnerable persons", "Social security law", "Social assistance and social action law", "Disability and loss of autonomy law"]],
-    ["Regulation of facilities and services", ["Planning and authorisation regimes", "Inspections and audits of facilities and services", "Cooperation and contracting", "Evaluation and funding models"]],
-    ["Management of facilities and services", ["Governance of health facilities", "Governance of social and medico-social facilities and services", "Pricing, financial and accounting management", "Law of the health professions", "Staff management and employment status"]],
-    ["Liability and litigation", ["Social security, social assistance and social action litigation", "Administrative liability and litigation", "Civil liability and litigation", "Criminal liability and litigation"]],
-    ["Labour law", ["Labour law", "Special labour law for the social and medico-social sector", "Human resources management and employment relations"]],
-    ["Legal work", ["Master’s thesis: “Ageing at home: realities and implementation of the shift to home-based care. A France / Quebec comparison”, supervised by Benoît Apollis", "Doctrinal article in preparation: “Ageing at home put to the test of law: the effectiveness of the choice of residence in French and Quebec law”"]]
-   ] },
-  "gestionnaire": { "salle": ["Manager", "Leading and managing facilities"], "surtitre": "Background", "titre": "Manager of social and medico-social facilities",
+    [
+     "Health and social protection law",
+     [
+      "Major issues in health law",
+      "Health economics and policy",
+      "Rights of patients and vulnerable persons",
+      "Social security law",
+      "Social assistance and social action law",
+      "Disability and loss of autonomy law"
+     ]
+    ],
+    [
+     "Regulation of facilities and services",
+     [
+      "Planning and authorisation regimes",
+      "Inspections and audits of facilities and services",
+      "Cooperation and contracting",
+      "Evaluation and funding models"
+     ]
+    ],
+    [
+     "Management of facilities and services",
+     [
+      "Governance of health facilities",
+      "Governance of social and medico-social facilities and services",
+      "Pricing, financial and accounting management",
+      "Law of the health professions",
+      "Staff management and employment status"
+     ]
+    ],
+    [
+     "Liability and litigation",
+     [
+      "Social security, social assistance and social action litigation",
+      "Administrative liability and litigation",
+      "Civil liability and litigation",
+      "Criminal liability and litigation"
+     ]
+    ],
+    [
+     "Labour law",
+     [
+      "Labour law",
+      "Special labour law for the social and medico-social sector",
+      "Human resources management and employment relations"
+     ]
+    ],
+    [
+     "Legal work",
+     [
+      "Master’s thesis: “Ageing at home: realities and implementation of the shift to home-based care. A France / Quebec comparison”, supervised by Benoît Apollis",
+      "Doctrinal article in preparation: “Ageing at home put to the test of law: the effectiveness of the choice of residence in French and Quebec law”"
+     ]
+    ]
+   ]
+  },
+  "gestionnaire": {
+   "salle": [
+    "Management",
+    "Leading and managing facilities"
+   ],
+   "surtitre": "Background",
+   "titre": "Manager of social and medico-social facilities",
    "intro": "Trained in the management of medico-social organisations and personal services at Université de Bretagne Occidentale (master’s degree, special mention from the jury), I have practised day-to-day management as head of adapted holiday programmes, then during a management internship in a nursing home.",
    "blocs": [
-    ["Strategy and projects", ["Strategic planning", "Facility and service plans", "Project steering and management", "Quality management and evaluation"]],
-    ["Management and human resources", ["Organisational management", "Organisational clinical approach", "Human resources and payroll management", "Work scheduling, running meetings and managerial communication"]],
-    ["Finance and accounting", ["Accounting management", "Budget and financial management (multi-year contracts, forecasts)", "Public accounting and local finance", "Pricing principles"]],
-    ["Funding and partnerships", ["Fundraising and philanthropy", "Cooperation and contracting", "Social policy"]],
-    ["Knowledge of the sector", ["Types of social and medico-social facilities and services", "Disability, older people, home services and sheltered work", "The individual, social ties and vulnerability"]],
-    ["Experience", ["Head of adapted holiday programmes (2016–2024): teams, budget, logistics and service plans", "Management internship in a nursing home (2023)", "Project officer at ANAP (2024–2025)"]]
-   ] },
-  "educateur": { "salle": ["Special needs educator", "Support and self-determination"], "surtitre": "Background", "titre": "Special needs educator",
+    [
+     "Strategy and projects",
+     [
+      "Strategic planning",
+      "Facility and service plans",
+      "Project steering and management",
+      "Quality management and evaluation"
+     ]
+    ],
+    [
+     "Management and human resources",
+     [
+      "Organisational management",
+      "Organisational clinical approach",
+      "Human resources and payroll management",
+      "Work scheduling, running meetings and managerial communication"
+     ]
+    ],
+    [
+     "Finance and accounting",
+     [
+      "Accounting management",
+      "Budget and financial management (multi-year contracts, forecasts)",
+      "Public accounting and local finance",
+      "Pricing principles"
+     ]
+    ],
+    [
+     "Funding and partnerships",
+     [
+      "Fundraising and philanthropy",
+      "Cooperation and contracting",
+      "Social policy"
+     ]
+    ],
+    [
+     "Knowledge of the sector",
+     [
+      "Types of social and medico-social facilities and services",
+      "Disability, older people, home services and sheltered work",
+      "The individual, social ties and vulnerability"
+     ]
+    ],
+    [
+     "Experience",
+     [
+      "Head of adapted holiday programmes (2016–2024): teams, budget, logistics and service plans",
+      "Management internship in a nursing home (2023)",
+      "Project officer at ANAP (2024–2025)"
+     ]
+    ]
+   ]
+  },
+  "educateur": {
+   "salle": [
+    "Special education",
+    "Support and self-determination"
+   ],
+   "surtitre": "Background",
+   "titre": "Special needs educator",
    "intro": "State-certified (Académie de Rennes, 2023), I supported people with disabilities, including autistic people, in a residential home and on adapted holiday programmes, with one conviction: supporting their self-determination.",
    "blocs": [
-    ["Specialised educational relationship", ["Day-to-day socio-educational support", "An educational relationship that fosters autonomy", "Supporting self-determination and empowerment"]],
-    ["Designing and running projects", ["Assessing needs and expectations", "Co-constructing the personalised plan", "Coordinating and following up plans"]],
-    ["Teamwork and communication", ["Coordinating a multidisciplinary team", "Professional writing and handovers", "Working with families and relatives"]],
-    ["Partnerships and networks", ["Inter-institutional dynamics", "Partnerships with local stakeholders", "Coordinating care pathways"]],
-    ["Knowledge applied", ["Developmental psychology and psychopathology", "Disability, autism and ageing", "Sociology and social action law"]],
-    ["Experience", ["Special needs educator in a residential home (Adapei 35, 2020–2023)", "Head of adapted holiday programmes (2016–2024)", "Thesis: life course and self-determination (2023)"]]
-   ] },
-  "entrepreneuriat": { "salle": ["Entrepreneur", "Innovating from real needs"], "surtitre": "Background", "titre": "Building ventures that meet real needs",
-   "intro": "Thinking like an entrepreneur means starting from an unmet need, imagining a useful response and building it with the people concerned.", "lien": "See the Digital tools room",
+    [
+     "Specialised educational relationship",
+     [
+      "Day-to-day socio-educational support",
+      "An educational relationship that fosters autonomy",
+      "Supporting self-determination and empowerment"
+     ]
+    ],
+    [
+     "Designing and running projects",
+     [
+      "Assessing needs and expectations",
+      "Co-constructing the personalised plan",
+      "Coordinating and following up plans"
+     ]
+    ],
+    [
+     "Teamwork and communication",
+     [
+      "Coordinating a multidisciplinary team",
+      "Professional writing and handovers",
+      "Working with families and relatives"
+     ]
+    ],
+    [
+     "Partnerships and networks",
+     [
+      "Inter-institutional dynamics",
+      "Partnerships with local stakeholders",
+      "Coordinating care pathways"
+     ]
+    ],
+    [
+     "Knowledge applied",
+     [
+      "Developmental psychology and psychopathology",
+      "Disability, autism and ageing",
+      "Sociology and social action law"
+     ]
+    ],
+    [
+     "Experience",
+     [
+      "Special needs educator in a residential home (Adapei 35, 2020–2023)",
+      "Head of adapted holiday programmes (2016–2024)",
+      "Thesis: life course and self-determination (2023)"
+     ]
+    ],
+    [
+     "Quebec equivalent (NOC 42203)",
+     [
+      "Intervening with people facing various issues (mental health, addiction, language disorders, emotional regulation)",
+      "Identifying cognitive, social and emotional barriers",
+      "Drawing up an intervention plan with goals and specific actions",
+      "Assessing limitations and abilities to set adaptation and rehabilitation goals",
+      "Helping people acquire social and practical skills",
+      "Collaborating with other specialists (rehabilitation counsellors, speech therapists, occupational therapists)"
+     ],
+     {
+      "large": true
+     }
+    ]
+   ]
+  },
+  "entrepreneuriat": {
+   "salle": [
+    "Entrepreneurship",
+    "Innovating from real needs"
+   ],
+   "surtitre": "Background",
+   "titre": "Building ventures that meet real needs",
+   "intro": "Thinking like an entrepreneur means starting from an unmet need, imagining a useful response and building it with the people concerned.",
+   "lien": "See the Digital tools room",
    "blocs": [
-    ["Understanding needs", ["Personas and user journeys", "Market research and opportunity analysis", "Testing and iterating with the people concerned"]],
-    ["Building the venture", ["Business model and business plan", "Marketing and growth strategy", "Financial management of the project"]],
-    ["Funding", ["Seeking funding: grants, honour loans, investors", "Philanthropy and partnerships", "Financial forecasting"]],
-    ["Legal framework", ["Choosing a legal structure", "Intellectual property", "Personal data protection"]],
-    ["Leading", ["Team management and leadership", "Project steering and governance"]],
-    ["Projects in progress", ["OWNNIGHT, a sleep education app grounded in CBT-I", "The Spheres, apps for understanding epidemiology and statistics"]]
-   ] }
+    [
+     "Understanding needs",
+     [
+      "Personas and user journeys",
+      "Market research and opportunity analysis",
+      "Testing and iterating with the people concerned"
+     ]
+    ],
+    [
+     "Building the venture",
+     [
+      "Business model and business plan",
+      "Marketing and growth strategy",
+      "Financial management of the project"
+     ]
+    ],
+    [
+     "Funding",
+     [
+      "Seeking funding: grants, honour loans, investors",
+      "Philanthropy and partnerships",
+      "Financial forecasting"
+     ]
+    ],
+    [
+     "Legal framework",
+     [
+      "Choosing a legal structure",
+      "Intellectual property",
+      "Personal data protection"
+     ]
+    ],
+    [
+     "Leading",
+     [
+      "Team management and leadership",
+      "Project steering and governance"
+     ]
+    ],
+    [
+     "Projects in progress",
+     [
+      "OWNNIGHT, a sleep education app grounded in CBT-I",
+      "The Spheres, apps for understanding epidemiology and statistics"
+     ]
+    ]
+   ]
+  }
  },
  "es": {
-  "juriste": { "salle": ["Jurista", "Derecho de la salud y derecho social"], "surtitre": "Trayectoria", "titre": "Jurista en derecho de la salud y derecho social",
+  "juriste": {
+   "salle": [
+    "Derecho",
+    "Derecho de la salud y derecho social"
+   ],
+   "surtitre": "Trayectoria",
+   "titre": "Jurista en derecho de la salud y derecho social",
    "intro": "Formado en derecho sanitario y social en la Université Paris-Panthéon-Assas (máster, mención especial del jurado), analizo el entorno jurídico de los establecimientos, los profesionales y las políticas de salud, desde los derechos de las personas hasta el contencioso.",
    "blocs": [
-    ["Derecho de la salud y de la protección social", ["Grandes retos del derecho de la salud", "Economía y políticas de salud", "Derechos de los pacientes y de las personas vulnerables", "Derecho de la seguridad social", "Derecho de la ayuda y la acción sociales", "Derecho de la discapacidad y de la pérdida de autonomía"]],
-    ["Regulación de establecimientos y servicios", ["Planificación y régimen de autorizaciones", "Inspecciones y controles de establecimientos y servicios", "Cooperaciones y contractualizaciones", "Evaluaciones y modos de financiación"]],
-    ["Gestión de establecimientos y servicios", ["Gobernanza de los establecimientos de salud", "Gobernanza de los establecimientos y servicios sociales y médico-sociales", "Tarificación, gestión financiera y contable", "Derecho de las profesiones sanitarias", "Gestión y estatutos del personal"]],
-    ["Responsabilidades y contencioso", ["Contencioso de la seguridad social, de la ayuda y la acción sociales", "Responsabilidad y contencioso administrativos", "Responsabilidad y contencioso civiles", "Responsabilidad y contencioso penales"]],
-    ["Derecho laboral", ["Derecho laboral", "Derecho laboral especial del sector social y médico-social", "Gestión de recursos humanos y relaciones laborales"]],
-    ["Trabajos jurídicos", ["Memoria: «Envejecer en casa: realidades y aplicación del giro domiciliario. Un estudio comparado Francia / Quebec», bajo la dirección de Benoît Apollis", "Artículo doctrinal en preparación: «Envejecer en casa a prueba del derecho: la efectividad de la elección del lugar de vida en el derecho francés y quebequense»"]]
-   ] },
-  "gestionnaire": { "salle": ["Gestor", "Dirección y gestión de establecimientos"], "surtitre": "Trayectoria", "titre": "Gestor de establecimientos sociales y médico-sociales",
+    [
+     "Derecho de la salud y de la protección social",
+     [
+      "Grandes retos del derecho de la salud",
+      "Economía y políticas de salud",
+      "Derechos de los pacientes y de las personas vulnerables",
+      "Derecho de la seguridad social",
+      "Derecho de la ayuda y la acción sociales",
+      "Derecho de la discapacidad y de la pérdida de autonomía"
+     ]
+    ],
+    [
+     "Regulación de establecimientos y servicios",
+     [
+      "Planificación y régimen de autorizaciones",
+      "Inspecciones y controles de establecimientos y servicios",
+      "Cooperaciones y contractualizaciones",
+      "Evaluaciones y modos de financiación"
+     ]
+    ],
+    [
+     "Gestión de establecimientos y servicios",
+     [
+      "Gobernanza de los establecimientos de salud",
+      "Gobernanza de los establecimientos y servicios sociales y médico-sociales",
+      "Tarificación, gestión financiera y contable",
+      "Derecho de las profesiones sanitarias",
+      "Gestión y estatutos del personal"
+     ]
+    ],
+    [
+     "Responsabilidades y contencioso",
+     [
+      "Contencioso de la seguridad social, de la ayuda y la acción sociales",
+      "Responsabilidad y contencioso administrativos",
+      "Responsabilidad y contencioso civiles",
+      "Responsabilidad y contencioso penales"
+     ]
+    ],
+    [
+     "Derecho laboral",
+     [
+      "Derecho laboral",
+      "Derecho laboral especial del sector social y médico-social",
+      "Gestión de recursos humanos y relaciones laborales"
+     ]
+    ],
+    [
+     "Trabajos jurídicos",
+     [
+      "Memoria: «Envejecer en casa: realidades y aplicación del giro domiciliario. Un estudio comparado Francia / Quebec», bajo la dirección de Benoît Apollis",
+      "Artículo doctrinal en preparación: «Envejecer en casa a prueba del derecho: la efectividad de la elección del lugar de vida en el derecho francés y quebequense»"
+     ]
+    ]
+   ]
+  },
+  "gestionnaire": {
+   "salle": [
+    "Gestión",
+    "Dirección y gestión de establecimientos"
+   ],
+   "surtitre": "Trayectoria",
+   "titre": "Gestor de establecimientos sociales y médico-sociales",
    "intro": "Formado en dirección de estructuras médico-sociales y de servicios a las personas en la Universidad de Bretaña Occidental (máster, mención especial del jurado), he ejercido la gestión cotidiana como responsable de estancias adaptadas y en unas prácticas de dirección en una residencia para mayores.",
    "blocs": [
-    ["Estrategia y proyectos", ["Planificación estratégica", "Proyecto de establecimiento y proyecto de servicio", "Dirección y gestión de proyectos", "Gestión de la calidad y evaluación"]],
-    ["Gestión y recursos humanos", ["Gestión de las organizaciones", "Clínica de las organizaciones", "Gestión de recursos humanos y de la masa salarial", "Planificación del trabajo, conducción de reuniones y comunicación directiva"]],
-    ["Finanzas y contabilidad", ["Gestión contable", "Gestión presupuestaria y financiera (CPOM, EPRD)", "Contabilidad pública y finanzas locales", "Principios de tarificación"]],
-    ["Financiación y alianzas", ["Búsqueda de financiación y filantropía", "Cooperaciones y contractualizaciones", "Políticas sociales"]],
-    ["Conocimiento del sector", ["Tipología de los establecimientos y servicios sociales y médico-sociales", "Discapacidad, personas mayores, servicios a domicilio y empleo protegido", "Sujeto, vínculo social y vulnerabilidad"]],
-    ["Experiencia", ["Responsable de estancias adaptadas (2016-2024): equipos, presupuesto, logística y proyectos de servicio", "Prácticas de dirección en una residencia para mayores (2023)", "Encargado de misión en la ANAP (2024-2025)"]]
-   ] },
-  "educateur": { "salle": ["Educador especializado", "Acompañamiento y autodeterminación"], "surtitre": "Trayectoria", "titre": "Educador especializado",
+    [
+     "Estrategia y proyectos",
+     [
+      "Planificación estratégica",
+      "Proyecto de establecimiento y proyecto de servicio",
+      "Dirección y gestión de proyectos",
+      "Gestión de la calidad y evaluación"
+     ]
+    ],
+    [
+     "Gestión y recursos humanos",
+     [
+      "Gestión de las organizaciones",
+      "Clínica de las organizaciones",
+      "Gestión de recursos humanos y de la masa salarial",
+      "Planificación del trabajo, conducción de reuniones y comunicación directiva"
+     ]
+    ],
+    [
+     "Finanzas y contabilidad",
+     [
+      "Gestión contable",
+      "Gestión presupuestaria y financiera (CPOM, EPRD)",
+      "Contabilidad pública y finanzas locales",
+      "Principios de tarificación"
+     ]
+    ],
+    [
+     "Financiación y alianzas",
+     [
+      "Búsqueda de financiación y filantropía",
+      "Cooperaciones y contractualizaciones",
+      "Políticas sociales"
+     ]
+    ],
+    [
+     "Conocimiento del sector",
+     [
+      "Tipología de los establecimientos y servicios sociales y médico-sociales",
+      "Discapacidad, personas mayores, servicios a domicilio y empleo protegido",
+      "Sujeto, vínculo social y vulnerabilidad"
+     ]
+    ],
+    [
+     "Experiencia",
+     [
+      "Responsable de estancias adaptadas (2016-2024): equipos, presupuesto, logística y proyectos de servicio",
+      "Prácticas de dirección en una residencia para mayores (2023)",
+      "Encargado de misión en la ANAP (2024-2025)"
+     ]
+    ]
+   ]
+  },
+  "educateur": {
+   "salle": [
+    "Educación especializada",
+    "Acompañamiento y autodeterminación"
+   ],
+   "surtitre": "Trayectoria",
+   "titre": "Educador especializado",
    "intro": "Titulado por el Estado (Académie de Rennes, 2023), he acompañado a personas con discapacidad, entre ellas personas autistas, en un hogar residencial y en estancias adaptadas, con una convicción: apoyar su autodeterminación.",
    "blocs": [
-    ["Relación educativa especializada", ["Acompañamiento socioeducativo cotidiano", "Relación educativa que favorece la autonomía", "Apoyo a la autodeterminación y al empoderamiento"]],
-    ["Diseño y conducción de proyectos", ["Evaluación de necesidades y expectativas", "Coconstrucción del proyecto personalizado", "Coordinación y seguimiento de los proyectos"]],
-    ["Trabajo en equipo y comunicación", ["Coordinación de un equipo multidisciplinar", "Escritos profesionales y transmisiones", "Trabajo con las familias y allegados"]],
-    ["Alianzas y redes", ["Dinámicas interinstitucionales", "Alianzas con los actores del territorio", "Coordinación de los itinerarios"]],
-    ["Saberes movilizados", ["Psicología del desarrollo y psicopatología", "Discapacidad, autismo y envejecimiento", "Sociología y derecho de la acción social"]],
-    ["Experiencia", ["Educador especializado en un hogar residencial (Adapei 35, 2020-2023)", "Responsable de estancias adaptadas (2016-2024)", "Memoria: trayectoria vital y autodeterminación (2023)"]]
-   ] },
-  "entrepreneuriat": { "salle": ["Emprendedor", "Innovar a partir de necesidades reales"], "surtitre": "Trayectoria", "titre": "Emprender para responder a necesidades reales",
-   "intro": "Pensar como emprendedor es partir de una necesidad mal cubierta, imaginar una respuesta útil y construirla con las personas concernidas.", "lien": "Ver la sala Herramientas digitales",
+    [
+     "Relación educativa especializada",
+     [
+      "Acompañamiento socioeducativo cotidiano",
+      "Relación educativa que favorece la autonomía",
+      "Apoyo a la autodeterminación y al empoderamiento"
+     ]
+    ],
+    [
+     "Diseño y conducción de proyectos",
+     [
+      "Evaluación de necesidades y expectativas",
+      "Coconstrucción del proyecto personalizado",
+      "Coordinación y seguimiento de los proyectos"
+     ]
+    ],
+    [
+     "Trabajo en equipo y comunicación",
+     [
+      "Coordinación de un equipo multidisciplinar",
+      "Escritos profesionales y transmisiones",
+      "Trabajo con las familias y allegados"
+     ]
+    ],
+    [
+     "Alianzas y redes",
+     [
+      "Dinámicas interinstitucionales",
+      "Alianzas con los actores del territorio",
+      "Coordinación de los itinerarios"
+     ]
+    ],
+    [
+     "Saberes movilizados",
+     [
+      "Psicología del desarrollo y psicopatología",
+      "Discapacidad, autismo y envejecimiento",
+      "Sociología y derecho de la acción social"
+     ]
+    ],
+    [
+     "Experiencia",
+     [
+      "Educador especializado en un hogar residencial (Adapei 35, 2020-2023)",
+      "Responsable de estancias adaptadas (2016-2024)",
+      "Memoria: trayectoria vital y autodeterminación (2023)"
+     ]
+    ],
+    [
+     "Equivalencia en Quebec (CNP 42203)",
+     [
+      "Intervenir con personas que enfrentan diversas problemáticas (salud mental, adicciones, trastornos del lenguaje, regulación emocional)",
+      "Identificar los obstáculos cognitivos, sociales y afectivos",
+      "Elaborar un plan de intervención con objetivos y acciones concretas",
+      "Evaluar las limitaciones y capacidades para fijar objetivos de adaptación y rehabilitación",
+      "Ayudar a las personas a adquirir competencias sociales y prácticas",
+      "Colaborar con otros especialistas (consejeros de rehabilitación, logopedas, terapeutas ocupacionales)"
+     ],
+     {
+      "large": true
+     }
+    ]
+   ]
+  },
+  "entrepreneuriat": {
+   "salle": [
+    "Emprendimiento",
+    "Innovar a partir de necesidades reales"
+   ],
+   "surtitre": "Trayectoria",
+   "titre": "Emprender para responder a necesidades reales",
+   "intro": "Pensar como emprendedor es partir de una necesidad mal cubierta, imaginar una respuesta útil y construirla con las personas concernidas.",
+   "lien": "Ver la sala Herramientas digitales",
    "blocs": [
-    ["Comprender las necesidades", ["Personas tipo y recorridos de usuario", "Estudio de mercado y análisis de oportunidad", "Pruebas e iteraciones con las personas concernidas"]],
-    ["Construir el proyecto", ["Modelo de negocio y plan de negocio", "Estrategia de marketing y desarrollo", "Gestión financiera del proyecto"]],
-    ["Financiar", ["Búsqueda de financiación: subvenciones, préstamos de honor, inversores", "Filantropía y alianzas", "Previsión financiera"]],
-    ["Marco jurídico", ["Elección de la forma jurídica", "Propiedad intelectual", "Protección de los datos personales"]],
-    ["Dirigir", ["Gestión de equipos y liderazgo", "Dirección y gobernanza del proyecto"]],
-    ["Proyectos en curso", ["OWNNIGHT, aplicación de educación sobre el sueño basada en la TCC-I", "Las Esferas, aplicaciones para comprender la epidemiología y la estadística"]]
-   ] }
+    [
+     "Comprender las necesidades",
+     [
+      "Personas tipo y recorridos de usuario",
+      "Estudio de mercado y análisis de oportunidad",
+      "Pruebas e iteraciones con las personas concernidas"
+     ]
+    ],
+    [
+     "Construir el proyecto",
+     [
+      "Modelo de negocio y plan de negocio",
+      "Estrategia de marketing y desarrollo",
+      "Gestión financiera del proyecto"
+     ]
+    ],
+    [
+     "Financiar",
+     [
+      "Búsqueda de financiación: subvenciones, préstamos de honor, inversores",
+      "Filantropía y alianzas",
+      "Previsión financiera"
+     ]
+    ],
+    [
+     "Marco jurídico",
+     [
+      "Elección de la forma jurídica",
+      "Propiedad intelectual",
+      "Protección de los datos personales"
+     ]
+    ],
+    [
+     "Dirigir",
+     [
+      "Gestión de equipos y liderazgo",
+      "Dirección y gobernanza del proyecto"
+     ]
+    ],
+    [
+     "Proyectos en curso",
+     [
+      "OWNNIGHT, aplicación de educación sobre el sueño basada en la TCC-I",
+      "Las Esferas, aplicaciones para comprender la epidemiología y la estadística"
+     ]
+    ]
+   ]
+  }
  },
  "zh": {
-  "juriste": { "salle": ["法律专业人士", "卫生法与社会法"], "surtitre": "经历", "titre": "卫生法与社会法领域的法律专业人士",
+  "juriste": {
+   "salle": [
+    "法律",
+    "卫生法与社会法"
+   ],
+   "surtitre": "经历",
+   "titre": "卫生法与社会法领域的法律专业人士",
    "intro": "我在巴黎-先贤祠-阿萨斯大学接受卫生与社会法训练（硕士，获评审团特别表扬），分析医疗卫生机构、专业人员与卫生政策所处的法律环境，涵盖个人权利直至诉讼。",
    "blocs": [
-    ["卫生法与社会保障法", ["卫生法的重大议题", "卫生经济与卫生政策", "患者与弱势人群的权利", "社会保障法", "社会救助与社会行动法", "残障与失能法"]],
-    ["机构与服务的规制", ["规划与许可制度", "对机构与服务的检查和监督", "合作与合同化", "评估与筹资模式"]],
-    ["机构与服务的管理", ["医疗机构治理", "社会与医疗社会机构及服务的治理", "定价、财务与会计管理", "卫生职业法", "人员管理与身份制度"]],
-    ["责任与诉讼", ["社会保障、社会救助与社会行动诉讼", "行政责任与行政诉讼", "民事责任与民事诉讼", "刑事责任与刑事诉讼"]],
-    ["劳动法", ["劳动法", "社会与医疗社会领域的特别劳动法", "人力资源管理与劳动关系"]],
-    ["法律研究成果", ["硕士论文：《居家养老：居家转向的现实与实施——法国与魁北克比较研究》，导师 Benoît Apollis", "撰写中的法学论文：《法律检验下的居家养老：法国法与魁北克法中居住地选择的实效性》"]]
-   ] },
-  "gestionnaire": { "salle": ["管理者", "机构的领导与管理"], "surtitre": "经历", "titre": "社会与医疗社会机构的管理者",
+    [
+     "卫生法与社会保障法",
+     [
+      "卫生法的重大议题",
+      "卫生经济与卫生政策",
+      "患者与弱势人群的权利",
+      "社会保障法",
+      "社会救助与社会行动法",
+      "残障与失能法"
+     ]
+    ],
+    [
+     "机构与服务的规制",
+     [
+      "规划与许可制度",
+      "对机构与服务的检查和监督",
+      "合作与合同化",
+      "评估与筹资模式"
+     ]
+    ],
+    [
+     "机构与服务的管理",
+     [
+      "医疗机构治理",
+      "社会与医疗社会机构及服务的治理",
+      "定价、财务与会计管理",
+      "卫生职业法",
+      "人员管理与身份制度"
+     ]
+    ],
+    [
+     "责任与诉讼",
+     [
+      "社会保障、社会救助与社会行动诉讼",
+      "行政责任与行政诉讼",
+      "民事责任与民事诉讼",
+      "刑事责任与刑事诉讼"
+     ]
+    ],
+    [
+     "劳动法",
+     [
+      "劳动法",
+      "社会与医疗社会领域的特别劳动法",
+      "人力资源管理与劳动关系"
+     ]
+    ],
+    [
+     "法律研究成果",
+     [
+      "硕士论文：《居家养老：居家转向的现实与实施——法国与魁北克比较研究》，导师 Benoît Apollis",
+      "撰写中的法学论文：《法律检验下的居家养老：法国法与魁北克法中居住地选择的实效性》"
+     ]
+    ]
+   ]
+  },
+  "gestionnaire": {
+   "salle": [
+    "管理",
+    "机构的领导与管理"
+   ],
+   "surtitre": "经历",
+   "titre": "社会与医疗社会机构的管理者",
    "intro": "我在西布列塔尼大学接受医疗社会机构与个人服务机构领导方面的训练（硕士，获评审团特别表扬），曾作为适应性度假项目负责人从事日常管理，并在一家养老院（EHPAD）完成管理实习。",
    "blocs": [
-    ["战略与项目", ["战略规划", "机构计划与服务计划", "项目统筹与管理", "质量管理与评估"]],
-    ["管理与人力资源", ["组织管理", "组织临床学", "人力资源与薪酬总额管理", "工作排班、会议主持与管理沟通"]],
-    ["财务与会计", ["会计管理", "预算与财务管理（多年期目标合同、收支预测）", "公共会计与地方财政", "定价原则"]],
-    ["筹资与合作", ["筹资与慈善", "合作与合同化", "社会政策"]],
-    ["行业知识", ["社会与医疗社会机构及服务的类型", "残障、老年人、居家服务与庇护性就业", "个体、社会联系与脆弱性"]],
-    ["经验", ["适应性度假项目负责人（2016–2024）：团队、预算、后勤与服务计划", "养老院（EHPAD）管理实习（2023）", "法国国家绩效支持署（ANAP）项目专员（2024–2025）"]]
-   ] },
-  "educateur": { "salle": ["特殊教育工作者", "陪伴与自我决定"], "surtitre": "经历", "titre": "特殊教育工作者",
+    [
+     "战略与项目",
+     [
+      "战略规划",
+      "机构计划与服务计划",
+      "项目统筹与管理",
+      "质量管理与评估"
+     ]
+    ],
+    [
+     "管理与人力资源",
+     [
+      "组织管理",
+      "组织临床学",
+      "人力资源与薪酬总额管理",
+      "工作排班、会议主持与管理沟通"
+     ]
+    ],
+    [
+     "财务与会计",
+     [
+      "会计管理",
+      "预算与财务管理（多年期目标合同、收支预测）",
+      "公共会计与地方财政",
+      "定价原则"
+     ]
+    ],
+    [
+     "筹资与合作",
+     [
+      "筹资与慈善",
+      "合作与合同化",
+      "社会政策"
+     ]
+    ],
+    [
+     "行业知识",
+     [
+      "社会与医疗社会机构及服务的类型",
+      "残障、老年人、居家服务与庇护性就业",
+      "个体、社会联系与脆弱性"
+     ]
+    ],
+    [
+     "经验",
+     [
+      "适应性度假项目负责人（2016–2024）：团队、预算、后勤与服务计划",
+      "养老院（EHPAD）管理实习（2023）",
+      "法国国家绩效支持署（ANAP）项目专员（2024–2025）"
+     ]
+    ]
+   ]
+  },
+  "educateur": {
+   "salle": [
+    "特殊教育",
+    "陪伴与自我决定"
+   ],
+   "surtitre": "经历",
+   "titre": "特殊教育工作者",
    "intro": "我持有国家文凭（雷恩学区，2023），曾在住宿之家和适应性度假项目中陪伴残障人士，其中包括自闭症人士，并始终坚持一个信念：支持他们的自我决定。",
    "blocs": [
-    ["专业教育关系", ["日常的社会教育陪伴", "促进自主的教育关系", "支持自我决定与赋权"]],
-    ["项目的设计与实施", ["评估需求与期望", "共同制定个性化计划", "协调与跟进项目"]],
-    ["团队合作与沟通", ["协调多学科团队", "专业书面材料与交接", "与家庭和亲属合作"]],
-    ["合作与网络", ["机构间协作", "与地方各方的合作", "照护路径协调"]],
-    ["运用的知识", ["发展心理学与精神病理学", "残障、自闭症与老龄化", "社会学与社会行动法"]],
-    ["经验", ["住宿之家特殊教育工作者（Adapei 35，2020–2023）", "适应性度假项目负责人（2016–2024）", "论文：人生历程与自我决定（2023）"]]
-   ] },
-  "entrepreneuriat": { "salle": ["创业者", "从真实需求出发创新"], "surtitre": "经历", "titre": "以创业回应真实需求",
-   "intro": "以创业者的方式思考，就是从未被满足的需求出发，构想有用的解决方案，并与相关人士一起把它做出来。", "lien": "前往“数字工具”展厅",
+    [
+     "专业教育关系",
+     [
+      "日常的社会教育陪伴",
+      "促进自主的教育关系",
+      "支持自我决定与赋权"
+     ]
+    ],
+    [
+     "项目的设计与实施",
+     [
+      "评估需求与期望",
+      "共同制定个性化计划",
+      "协调与跟进项目"
+     ]
+    ],
+    [
+     "团队合作与沟通",
+     [
+      "协调多学科团队",
+      "专业书面材料与交接",
+      "与家庭和亲属合作"
+     ]
+    ],
+    [
+     "合作与网络",
+     [
+      "机构间协作",
+      "与地方各方的合作",
+      "照护路径协调"
+     ]
+    ],
+    [
+     "运用的知识",
+     [
+      "发展心理学与精神病理学",
+      "残障、自闭症与老龄化",
+      "社会学与社会行动法"
+     ]
+    ],
+    [
+     "经验",
+     [
+      "住宿之家特殊教育工作者（Adapei 35，2020–2023）",
+      "适应性度假项目负责人（2016–2024）",
+      "论文：人生历程与自我决定（2023）"
+     ]
+    ],
+    [
+     "魁北克对应职业（CNP 42203）",
+     [
+      "为面临多种问题（心理健康、成瘾、语言障碍、情绪调节）的人提供干预",
+      "识别认知、社会与情感方面的障碍",
+      "制定包含目标与具体行动的干预计划",
+      "评估受限情况与能力，以确定适应与康复目标",
+      "帮助当事人获得社交与实用技能",
+      "与其他专业人员合作（康复顾问、言语治疗师、作业治疗师）"
+     ],
+     {
+      "large": true
+     }
+    ]
+   ]
+  },
+  "entrepreneuriat": {
+   "salle": [
+    "创业",
+    "从真实需求出发创新"
+   ],
+   "surtitre": "经历",
+   "titre": "以创业回应真实需求",
+   "intro": "以创业者的方式思考，就是从未被满足的需求出发，构想有用的解决方案，并与相关人士一起把它做出来。",
+   "lien": "前往“数字工具”展厅",
    "blocs": [
-    ["理解需求", ["用户画像与用户旅程", "市场研究与机会分析", "与相关人士一起测试和迭代"]],
-    ["构建项目", ["商业模式与商业计划", "营销与发展战略", "项目财务管理"]],
-    ["筹资", ["寻求资金：补助、荣誉贷款、投资者", "慈善与合作伙伴", "财务预测"]],
-    ["法律框架", ["选择法律形式", "知识产权", "个人数据保护"]],
-    ["领导", ["团队管理与领导力", "项目统筹与治理"]],
-    ["进行中的项目", ["OWNNIGHT：以失眠认知行为疗法为基础的睡眠教育应用", "Sphères：帮助理解流行病学与统计学的应用"]]
-   ] }
+    [
+     "理解需求",
+     [
+      "用户画像与用户旅程",
+      "市场研究与机会分析",
+      "与相关人士一起测试和迭代"
+     ]
+    ],
+    [
+     "构建项目",
+     [
+      "商业模式与商业计划",
+      "营销与发展战略",
+      "项目财务管理"
+     ]
+    ],
+    [
+     "筹资",
+     [
+      "寻求资金：补助、荣誉贷款、投资者",
+      "慈善与合作伙伴",
+      "财务预测"
+     ]
+    ],
+    [
+     "法律框架",
+     [
+      "选择法律形式",
+      "知识产权",
+      "个人数据保护"
+     ]
+    ],
+    [
+     "领导",
+     [
+      "团队管理与领导力",
+      "项目统筹与治理"
+     ]
+    ],
+    [
+     "进行中的项目",
+     [
+      "OWNNIGHT：以失眠认知行为疗法为基础的睡眠教育应用",
+      "Sphères：帮助理解流行病学与统计学的应用"
+     ]
+    ]
+   ]
+  }
  },
  "ar": {
-  "juriste": { "salle": ["قانوني", "قانون الصحة والقانون الاجتماعي"], "surtitre": "المسار", "titre": "قانوني في قانون الصحة والقانون الاجتماعي",
+  "juriste": {
+   "salle": [
+    "القانون",
+    "قانون الصحة والقانون الاجتماعي"
+   ],
+   "surtitre": "المسار",
+   "titre": "قانوني في قانون الصحة والقانون الاجتماعي",
    "intro": "تكوّنتُ في القانون الصحي والاجتماعي بجامعة باريس-بانتيون-أساس (ماستر، مع تنويه خاص من لجنة التحكيم)، وأحلّل البيئة القانونية للمؤسسات والمهنيين والسياسات الصحية، من حقوق الأشخاص إلى المنازعات.",
    "blocs": [
-    ["قانون الصحة والحماية الاجتماعية", ["القضايا الكبرى لقانون الصحة", "اقتصاد الصحة وسياساتها", "حقوق المرضى والأشخاص المستضعفين", "قانون الضمان الاجتماعي", "قانون المساعدة والعمل الاجتماعيين", "قانون الإعاقة وفقدان الاستقلالية"]],
-    ["تنظيم المؤسسات والخدمات", ["التخطيط ونظام التراخيص", "تفتيش المؤسسات والخدمات ومراقبتها", "التعاون والتعاقد", "التقييم وأنماط التمويل"]],
-    ["تسيير المؤسسات والخدمات", ["حوكمة المؤسسات الصحية", "حوكمة المؤسسات والخدمات الاجتماعية والطبية الاجتماعية", "التسعير والتسيير المالي والمحاسبي", "قانون المهن الصحية", "تسيير الموظفين وأنظمتهم الأساسية"]],
-    ["المسؤوليات والمنازعات", ["منازعات الضمان الاجتماعي والمساعدة والعمل الاجتماعيين", "المسؤولية والمنازعات الإدارية", "المسؤولية والمنازعات المدنية", "المسؤولية والمنازعات الجزائية"]],
-    ["قانون العمل", ["قانون العمل", "قانون العمل الخاص بالقطاع الاجتماعي والطبي الاجتماعي", "تسيير الموارد البشرية وعلاقات العمل"]],
-    ["أعمال قانونية", ["مذكرة: «الشيخوخة في المنزل: واقع التحوّل نحو الرعاية المنزلية وتطبيقه. دراسة مقارنة بين فرنسا وكيبك»، بإشراف Benoît Apollis", "مقالة فقهية قيد الإعداد: «الشيخوخة في المنزل على محكّ القانون: فعلية اختيار مكان العيش في القانونين الفرنسي والكيبكي»"]]
-   ] },
-  "gestionnaire": { "salle": ["مسيّر", "إدارة المؤسسات وتسييرها"], "surtitre": "المسار", "titre": "مسيّر للمؤسسات الاجتماعية والطبية الاجتماعية",
+    [
+     "قانون الصحة والحماية الاجتماعية",
+     [
+      "القضايا الكبرى لقانون الصحة",
+      "اقتصاد الصحة وسياساتها",
+      "حقوق المرضى والأشخاص المستضعفين",
+      "قانون الضمان الاجتماعي",
+      "قانون المساعدة والعمل الاجتماعيين",
+      "قانون الإعاقة وفقدان الاستقلالية"
+     ]
+    ],
+    [
+     "تنظيم المؤسسات والخدمات",
+     [
+      "التخطيط ونظام التراخيص",
+      "تفتيش المؤسسات والخدمات ومراقبتها",
+      "التعاون والتعاقد",
+      "التقييم وأنماط التمويل"
+     ]
+    ],
+    [
+     "تسيير المؤسسات والخدمات",
+     [
+      "حوكمة المؤسسات الصحية",
+      "حوكمة المؤسسات والخدمات الاجتماعية والطبية الاجتماعية",
+      "التسعير والتسيير المالي والمحاسبي",
+      "قانون المهن الصحية",
+      "تسيير الموظفين وأنظمتهم الأساسية"
+     ]
+    ],
+    [
+     "المسؤوليات والمنازعات",
+     [
+      "منازعات الضمان الاجتماعي والمساعدة والعمل الاجتماعيين",
+      "المسؤولية والمنازعات الإدارية",
+      "المسؤولية والمنازعات المدنية",
+      "المسؤولية والمنازعات الجزائية"
+     ]
+    ],
+    [
+     "قانون العمل",
+     [
+      "قانون العمل",
+      "قانون العمل الخاص بالقطاع الاجتماعي والطبي الاجتماعي",
+      "تسيير الموارد البشرية وعلاقات العمل"
+     ]
+    ],
+    [
+     "أعمال قانونية",
+     [
+      "مذكرة: «الشيخوخة في المنزل: واقع التحوّل نحو الرعاية المنزلية وتطبيقه. دراسة مقارنة بين فرنسا وكيبك»، بإشراف Benoît Apollis",
+      "مقالة فقهية قيد الإعداد: «الشيخوخة في المنزل على محكّ القانون: فعلية اختيار مكان العيش في القانونين الفرنسي والكيبكي»"
+     ]
+    ]
+   ]
+  },
+  "gestionnaire": {
+   "salle": [
+    "التسيير",
+    "إدارة المؤسسات وتسييرها"
+   ],
+   "surtitre": "المسار",
+   "titre": "مسيّر للمؤسسات الاجتماعية والطبية الاجتماعية",
    "intro": "تكوّنتُ في إدارة الهياكل الطبية الاجتماعية وخدمات الأشخاص بجامعة بريتاني الغربية (ماستر، مع تنويه خاص من لجنة التحكيم)، ومارستُ التسيير اليومي بصفتي مسؤولًا عن إقامات مكيّفة، ثم خلال تدريب في الإدارة بدار لرعاية المسنّين.",
    "blocs": [
-    ["الاستراتيجية والمشاريع", ["التخطيط الاستراتيجي", "مشروع المؤسسة ومشروع الخدمة", "قيادة المشاريع وتسييرها", "إدارة الجودة والتقييم"]],
-    ["الإدارة والموارد البشرية", ["إدارة المنظمات", "عيادة المنظمات", "تسيير الموارد البشرية وكتلة الأجور", "جداول العمل وإدارة الاجتماعات والتواصل الإداري"]],
-    ["المالية والمحاسبة", ["التسيير المحاسبي", "التسيير الميزاني والمالي (عقود الأهداف والوسائل، التوقعات)", "المحاسبة العمومية والمالية المحلية", "مبادئ التسعير"]],
-    ["التمويل والشراكات", ["البحث عن التمويل والعمل الخيري", "التعاون والتعاقد", "السياسات الاجتماعية"]],
-    ["معرفة القطاع", ["أنواع المؤسسات والخدمات الاجتماعية والطبية الاجتماعية", "الإعاقة والمسنّون والخدمات المنزلية والعمل المحمي", "الفرد والرابط الاجتماعي والهشاشة"]],
-    ["الخبرة", ["مسؤول عن إقامات مكيّفة (2016–2024): الفرق والميزانية واللوجستيات ومشاريع الخدمة", "تدريب في الإدارة بدار لرعاية المسنّين (2023)", "مكلّف بمهمة في الوكالة الوطنية لدعم الأداء ANAP (2024–2025)"]]
-   ] },
-  "educateur": { "salle": ["مربٍّ متخصص", "المرافقة وتقرير المصير"], "surtitre": "المسار", "titre": "مربٍّ متخصص",
+    [
+     "الاستراتيجية والمشاريع",
+     [
+      "التخطيط الاستراتيجي",
+      "مشروع المؤسسة ومشروع الخدمة",
+      "قيادة المشاريع وتسييرها",
+      "إدارة الجودة والتقييم"
+     ]
+    ],
+    [
+     "الإدارة والموارد البشرية",
+     [
+      "إدارة المنظمات",
+      "عيادة المنظمات",
+      "تسيير الموارد البشرية وكتلة الأجور",
+      "جداول العمل وإدارة الاجتماعات والتواصل الإداري"
+     ]
+    ],
+    [
+     "المالية والمحاسبة",
+     [
+      "التسيير المحاسبي",
+      "التسيير الميزاني والمالي (عقود الأهداف والوسائل، التوقعات)",
+      "المحاسبة العمومية والمالية المحلية",
+      "مبادئ التسعير"
+     ]
+    ],
+    [
+     "التمويل والشراكات",
+     [
+      "البحث عن التمويل والعمل الخيري",
+      "التعاون والتعاقد",
+      "السياسات الاجتماعية"
+     ]
+    ],
+    [
+     "معرفة القطاع",
+     [
+      "أنواع المؤسسات والخدمات الاجتماعية والطبية الاجتماعية",
+      "الإعاقة والمسنّون والخدمات المنزلية والعمل المحمي",
+      "الفرد والرابط الاجتماعي والهشاشة"
+     ]
+    ],
+    [
+     "الخبرة",
+     [
+      "مسؤول عن إقامات مكيّفة (2016–2024): الفرق والميزانية واللوجستيات ومشاريع الخدمة",
+      "تدريب في الإدارة بدار لرعاية المسنّين (2023)",
+      "مكلّف بمهمة في الوكالة الوطنية لدعم الأداء ANAP (2024–2025)"
+     ]
+    ]
+   ]
+  },
+  "educateur": {
+   "salle": [
+    "التربية المتخصصة",
+    "المرافقة وتقرير المصير"
+   ],
+   "surtitre": "المسار",
+   "titre": "مربٍّ متخصص",
    "intro": "حاصل على الشهادة الوطنية (أكاديمية رين، 2023)، رافقتُ أشخاصًا في وضعية إعاقة، منهم أشخاص مصابون بالتوحد، في دار إيواء وإقامات مكيّفة، انطلاقًا من قناعة: دعم تقريرهم لمصيرهم.",
    "blocs": [
-    ["العلاقة التربوية المتخصصة", ["المرافقة الاجتماعية التربوية اليومية", "علاقة تربوية تعزّز الاستقلالية", "دعم تقرير المصير والتمكين"]],
-    ["تصميم المشاريع وقيادتها", ["تقييم الاحتياجات والتطلعات", "البناء المشترك للمشروع الشخصي", "تنسيق المشاريع ومتابعتها"]],
-    ["العمل الجماعي والتواصل", ["تنسيق فريق متعدد التخصصات", "الكتابات المهنية والتسليم", "العمل مع الأسر والمقرّبين"]],
-    ["الشراكات والشبكات", ["الديناميات بين المؤسسات", "الشراكات مع فاعلي الإقليم", "تنسيق المسارات"]],
-    ["المعارف الموظَّفة", ["علم نفس النمو وعلم النفس المرضي", "الإعاقة والتوحد والشيخوخة", "علم الاجتماع وقانون العمل الاجتماعي"]],
-    ["الخبرة", ["مربٍّ متخصص في دار إيواء (Adapei 35، 2020–2023)", "مسؤول عن إقامات مكيّفة (2016–2024)", "مذكرة: مسار الحياة وتقرير المصير (2023)"]]
-   ] },
-  "entrepreneuriat": { "salle": ["رائد أعمال", "الابتكار انطلاقًا من الاحتياجات الفعلية"], "surtitre": "المسار", "titre": "ريادة الأعمال للاستجابة لاحتياجات حقيقية",
-   "intro": "التفكير بعقلية رائد الأعمال يعني الانطلاق من حاجة غير ملبّاة، وتصوّر استجابة مفيدة، وبناءها مع الأشخاص المعنيين.", "lien": "زيارة قاعة الأدوات الرقمية",
+    [
+     "العلاقة التربوية المتخصصة",
+     [
+      "المرافقة الاجتماعية التربوية اليومية",
+      "علاقة تربوية تعزّز الاستقلالية",
+      "دعم تقرير المصير والتمكين"
+     ]
+    ],
+    [
+     "تصميم المشاريع وقيادتها",
+     [
+      "تقييم الاحتياجات والتطلعات",
+      "البناء المشترك للمشروع الشخصي",
+      "تنسيق المشاريع ومتابعتها"
+     ]
+    ],
+    [
+     "العمل الجماعي والتواصل",
+     [
+      "تنسيق فريق متعدد التخصصات",
+      "الكتابات المهنية والتسليم",
+      "العمل مع الأسر والمقرّبين"
+     ]
+    ],
+    [
+     "الشراكات والشبكات",
+     [
+      "الديناميات بين المؤسسات",
+      "الشراكات مع فاعلي الإقليم",
+      "تنسيق المسارات"
+     ]
+    ],
+    [
+     "المعارف الموظَّفة",
+     [
+      "علم نفس النمو وعلم النفس المرضي",
+      "الإعاقة والتوحد والشيخوخة",
+      "علم الاجتماع وقانون العمل الاجتماعي"
+     ]
+    ],
+    [
+     "الخبرة",
+     [
+      "مربٍّ متخصص في دار إيواء (Adapei 35، 2020–2023)",
+      "مسؤول عن إقامات مكيّفة (2016–2024)",
+      "مذكرة: مسار الحياة وتقرير المصير (2023)"
+     ]
+    ],
+    [
+     "المعادل في كيبك (CNP 42203)",
+     [
+      "التدخل لدى أشخاص يواجهون إشكاليات متنوعة (الصحة النفسية، الإدمان، اضطرابات اللغة، تنظيم الانفعالات)",
+      "تحديد العوائق المعرفية والاجتماعية والعاطفية",
+      "إعداد خطة تدخل تتضمن أهدافًا وإجراءات محددة",
+      "تقييم القيود والقدرات لتحديد أهداف التكيّف وإعادة التأهيل",
+      "مساعدة الأشخاص على اكتساب مهارات اجتماعية وعملية",
+      "التعاون مع مختصين آخرين (مستشارو إعادة التأهيل، أخصائيو النطق، أخصائيو العلاج الوظيفي)"
+     ],
+     {
+      "large": true
+     }
+    ]
+   ]
+  },
+  "entrepreneuriat": {
+   "salle": [
+    "ريادة الأعمال",
+    "الابتكار انطلاقًا من الاحتياجات الفعلية"
+   ],
+   "surtitre": "المسار",
+   "titre": "ريادة الأعمال للاستجابة لاحتياجات حقيقية",
+   "intro": "التفكير بعقلية رائد الأعمال يعني الانطلاق من حاجة غير ملبّاة، وتصوّر استجابة مفيدة، وبناءها مع الأشخاص المعنيين.",
+   "lien": "زيارة قاعة الأدوات الرقمية",
    "blocs": [
-    ["فهم الاحتياجات", ["الشخصيات النموذجية ومسارات المستخدمين", "دراسة السوق وتحليل الفرص", "الاختبار والتكرار مع الأشخاص المعنيين"]],
-    ["بناء المشروع", ["نموذج العمل وخطة العمل", "استراتيجية التسويق والتطوير", "التسيير المالي للمشروع"]],
-    ["التمويل", ["البحث عن التمويل: المنح والقروض الشرفية والمستثمرون", "العمل الخيري والشراكات", "التوقعات المالية"]],
-    ["الإطار القانوني", ["اختيار الشكل القانوني", "الملكية الفكرية", "حماية البيانات الشخصية"]],
-    ["القيادة", ["إدارة الفرق والقيادة", "قيادة المشروع وحوكمته"]],
-    ["مشاريع قيد الإنجاز", ["OWNNIGHT، تطبيق للتثقيف حول النوم قائم على العلاج المعرفي السلوكي للأرق", "تطبيقات Sphères لفهم علم الأوبئة والإحصاء"]]
-   ] }
+    [
+     "فهم الاحتياجات",
+     [
+      "الشخصيات النموذجية ومسارات المستخدمين",
+      "دراسة السوق وتحليل الفرص",
+      "الاختبار والتكرار مع الأشخاص المعنيين"
+     ]
+    ],
+    [
+     "بناء المشروع",
+     [
+      "نموذج العمل وخطة العمل",
+      "استراتيجية التسويق والتطوير",
+      "التسيير المالي للمشروع"
+     ]
+    ],
+    [
+     "التمويل",
+     [
+      "البحث عن التمويل: المنح والقروض الشرفية والمستثمرون",
+      "العمل الخيري والشراكات",
+      "التوقعات المالية"
+     ]
+    ],
+    [
+     "الإطار القانوني",
+     [
+      "اختيار الشكل القانوني",
+      "الملكية الفكرية",
+      "حماية البيانات الشخصية"
+     ]
+    ],
+    [
+     "القيادة",
+     [
+      "إدارة الفرق والقيادة",
+      "قيادة المشروع وحوكمته"
+     ]
+    ],
+    [
+     "مشاريع قيد الإنجاز",
+     [
+      "OWNNIGHT، تطبيق للتثقيف حول النوم قائم على العلاج المعرفي السلوكي للأرق",
+      "تطبيقات Sphères لفهم علم الأوبئة والإحصاء"
+     ]
+    ]
+   ]
+  }
  }
 }
