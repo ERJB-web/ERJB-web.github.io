@@ -1181,8 +1181,10 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 .porte .baie{position:relative;inset:auto;grid-column:1;grid-row:1;width:var(--largeur-porte);height:auto;aspect-ratio:.62;min-height:0;overflow:hidden}
 .porte .ouverture{perspective:1800px}
 .porte .plaque{min-height:0}
-.porte .sous-portes{align-self:stretch;display:grid;grid-template-columns:repeat(2,minmax(min-content,max-content));align-items:stretch;margin-top:0}
-.porte .sous-portes span{display:inline-flex;gap:2px;min-width:0;max-width:100%;justify-self:stretch;padding:3px;border-radius:5px;line-height:1.35;hyphens:none;overflow-wrap:normal}
+.porte .sous-portes{align-self:stretch;display:grid;grid-template-columns:repeat(2,minmax(min-content,1fr));align-items:stretch;min-width:0;margin-top:0}
+.porte .sous-portes span{display:inline-flex;gap:4px;min-width:0;max-width:100%;justify-self:stretch;padding:4px 5px;border-radius:2px;line-height:1.35;hyphens:none;overflow-wrap:normal}
+.porte .sous-portes span::before{width:2px;height:12px;border-radius:1px}
+.porte .sous-portes span:last-child:nth-child(odd){grid-column:1 / -1}
 .porte .entrer{margin-top:auto;text-align:right}
 @media (max-width:1100px){.porte{--largeur-porte:126px}}
 @media (max-width:700px){.portes{grid-template-columns:1fr}.porte{--largeur-porte:98px}}
