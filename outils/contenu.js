@@ -1535,7 +1535,7 @@ const fr = {
           {
             "date": "2013",
             "titre": "Bénévolat et service civique",
-            "detail": "Association de la fondation étudiante pour la ville (AFEV), France."
+            "detail": "Association de la fondation étudiante pour la ville (AFEV), France : coordination des étudiants bénévoles et accompagnement d’une jeune dans son parcours scolaire et culturel."
           }
         ]
       },
@@ -1554,6 +1554,15 @@ const fr = {
           {
             "date": "Sport",
             "titre": "Hockey sur glace"
+          },
+          {
+            "date": "Programmation",
+            "titre": "Programmation assistée par IA"
+          },
+          {
+            "date": "Culture",
+            "titre": "Culture scientifique",
+            "detail": "Sciences de la vie et de la Terre, philosophie, géopolitique, science politique, physique, astronomie."
           }
         ]
       }
@@ -3087,7 +3096,7 @@ const en = {
           {
             "date": "2013",
             "titre": "Volunteering and civic service",
-            "detail": "Association de la fondation étudiante pour la ville (AFEV), France."
+            "detail": "Association de la fondation étudiante pour la ville (AFEV), France: coordinating student volunteers and supporting a young person through her school and cultural journey."
           }
         ]
       },
@@ -3106,6 +3115,15 @@ const en = {
           {
             "date": "Sport",
             "titre": "Ice hockey"
+          },
+          {
+            "date": "Programming",
+            "titre": "AI-assisted programming"
+          },
+          {
+            "date": "Culture",
+            "titre": "Scientific culture",
+            "detail": "Life and Earth sciences, philosophy, geopolitics, political science, physics, astronomy."
           }
         ]
       }
@@ -4639,7 +4657,7 @@ const es = {
           {
             "date": "2013",
             "titre": "Voluntariado y servicio cívico",
-            "detail": "Association de la fondation étudiante pour la ville (AFEV), Francia."
+            "detail": "Association de la fondation étudiante pour la ville (AFEV), Francia: coordinación de los estudiantes voluntarios y acompañamiento de una joven en su trayectoria escolar y cultural."
           }
         ]
       },
@@ -4658,6 +4676,15 @@ const es = {
           {
             "date": "Deporte",
             "titre": "Hockey sobre hielo"
+          },
+          {
+            "date": "Programación",
+            "titre": "Programación asistida por IA"
+          },
+          {
+            "date": "Cultura",
+            "titre": "Cultura científica",
+            "detail": "Ciencias de la vida y de la Tierra, filosofía, geopolítica, ciencia política, física, astronomía."
           }
         ]
       }

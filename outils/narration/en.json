@@ -400,10 +400,9 @@
   "06Boldness to undertake.",
   "Daring to propose, create and implement new responses."
  ],
- "engagements": [
+ "representation": [
   "Representing, contributing, engaging.",
   "Taking part in student and scientific life, in continuity with the path so far.",
-  "Student member.",
   "Student representation7.",
   "2026. PhD coordinator in public health · AÉÉSPUM.",
   "Elected.",
@@ -417,12 +416,19 @@
   "2022–2024. Elected member of the CROUS board.",
   "France.",
   "2021. President of Askoria’s regional social work student association.",
-  "France.",
+  "France."
+ ],
+ "communaute": [
+  "Representing, contributing, engaging.",
+  "Student member.",
   "Scientific community2.",
   "Ongoing. Student scientific committee of the AÉÉSPUM conference.",
   "Member.",
   "June 2026. Scientific committee, GFSP early-career research day.",
-  "Student member.",
+  "Student member."
+ ],
+ "distinctions": [
+  "Representing, contributing, engaging.",
   "Scholarships and awards4.",
   "2026. Best poster presentation award, doctoral and postdoctoral category.",
   "Early-career research day, Groupe francophone en soins primaires.",
@@ -431,19 +437,39 @@
   "2025. International recruitment scholarship.",
   "Graduate and Postdoctoral Studies, Université de Montréal.",
   "2023–2025. Three special distinctions from the jury.",
-  "Academic excellence.",
+  "Academic excellence."
+ ],
+ "citoyen": [
+  "Representing, contributing, engaging.",
   "Civic engagement2.",
   "2023. Volunteer firefighter.",
   "Dinard fire and rescue station, France.",
   "2013. Volunteering and civic service.",
-  "Association de la fondation étudiante pour la ville (AFEV), France.",
-  "Sports and leisure3.",
+  "Association de la fondation étudiante pour la ville (AFEV), France: coordinating student volunteers and supporting a young person through her school and cultural journey."
+ ],
+ "loisirs": [
+  "Representing, contributing, engaging.",
+  "Sports and leisure5.",
   "RunningThree-time marathonerParis Marathon 2025 and 2026, Montréal Marathon 2026.",
   "MusicPiano, singing and guitar.",
-  "SportIce hockey."
+  "SportIce hockey.",
+  "ProgrammingAI-assisted programming.",
+  "CultureScientific cultureLife and Earth sciences, philosophy, geopolitics, political science, physics, astronomy."
  ],
- "ressources": [
-  "Articles, videos and podcasts.",
+ "litterature": [
+  "Open-access articles and readings by theme.",
   "An annotated selection to explore knowledge mobilisation and implementation science further, in French and English."
+ ],
+ "grise": [
+  "Reports, policies, guides and tools."
+ ],
+ "presse": [
+  "Newspaper and magazine articles."
+ ],
+ "capsules": [
+  "Videos in French and English."
+ ],
+ "balados": [
+  "Podcasts in French and English."
  ]
 }

@@ -21,14 +21,14 @@ const GROUPES = [
   ["recherche", ["recherche", "approche", "conceptualisation", "publications"]],
   ["implantation", ["implantation", "transmission"]],
   ["parcours", ["biographie", "parcours", "valeurs"]],
-  ["engagements", ["engagements"]],
-  ["ressources", ["ressources"]],
+  ["engagements", ["representation", "communaute", "distinctions", "citoyen", "loisirs"]],
+  ["ressources", ["litterature", "grise", "presse", "capsules", "balados"]],
   ["contact", []],
 ];
 const SALLES = GROUPES.flatMap(([, ss]) => ss);
 const NUMS = Object.fromEntries(GROUPES.flatMap(([, ss], gi) => ss.map((s, k) => [s, String(gi + 1).padStart(2, "0") + (ss.length > 1 ? "." + (k + 1) : "")])));
 const TRANSMISSION = {
-  fr: { porte: ["Transfert et implantation", "Implantation, enseignement, vulgarisation et communication"], salle: ["Enseigner et vulgariser", "Enseignement, communication et vulgarisation"], surtitre: "Transmission", titre: "Enseigner, vulgariser, communiquer", intro: "Transférer les connaissances, c’est aussi les enseigner, les rendre lisibles et les partager avec celles et ceux qui les mobilisent.", groupes: ["Enseignement", "Communications scientifiques", "Vulgarisation et accessibilité", "Animation de réseaux"], affiche: ["Affiche du projet de thèse en version accessible", "Sept langues, dont l’inuktitut et l’innu-aimun (versions préliminaires), une version en facile à lire et à comprendre (FALC), et des versions adaptées au daltonisme et à la basse vision."], rdv: "Réserver un rendez-vous" },
+  fr: { porte: ["Transfert de connaissances et implantation", "Implantation, enseignement, vulgarisation et communication"], salle: ["Enseigner et vulgariser", "Enseignement, communication et vulgarisation"], surtitre: "Transmission", titre: "Enseigner, vulgariser, communiquer", intro: "Transférer les connaissances, c’est aussi les enseigner, les rendre lisibles et les partager avec celles et ceux qui les mobilisent.", groupes: ["Enseignement", "Communications scientifiques", "Vulgarisation et accessibilité", "Animation de réseaux"], affiche: ["Affiche du projet de thèse en version accessible", "Sept langues, dont l’inuktitut et l’innu-aimun (versions préliminaires), une version en facile à lire et à comprendre (FALC), et des versions adaptées au daltonisme et à la basse vision."], rdv: "Réserver un rendez-vous" },
   en: { porte: ["Knowledge transfer and implementation", "Implementation, teaching, outreach and communication"], salle: ["Teaching and outreach", "Teaching, communication and outreach"], surtitre: "Sharing knowledge", titre: "Teaching, outreach, communication", intro: "Transferring knowledge also means teaching it, making it readable and sharing it with those who put it to use.", groupes: ["Teaching", "Scientific communications", "Outreach and accessibility", "Network facilitation"], affiche: ["Accessible version of the thesis project poster", "Seven languages, including Inuktitut and Innu-aimun (preliminary versions), an easy-to-read version, and versions adapted for colour blindness and low vision."], rdv: "Book a meeting" },
   es: { porte: ["Transferencia de conocimientos e implementación", "Implementación, docencia, divulgación y comunicación"], salle: ["Enseñar y divulgar", "Docencia, comunicación y divulgación"], surtitre: "Transmisión", titre: "Enseñar, divulgar, comunicar", intro: "Transferir conocimientos también es enseñarlos, hacerlos comprensibles y compartirlos con quienes los movilizan.", groupes: ["Docencia", "Comunicaciones científicas", "Divulgación y accesibilidad", "Animación de redes"], affiche: ["Versión accesible del póster del proyecto de tesis", "Siete idiomas, entre ellos el inuktitut y el innu-aimun (versiones preliminares), una versión de lectura fácil y versiones adaptadas al daltonismo y a la baja visión."], rdv: "Reservar una cita" },
   zh: { porte: ["知识转化与实施", "实施、教学、科普与传播"], salle: ["教学与科普", "教学、传播与科普"], surtitre: "知识传递", titre: "教学、科普与传播", intro: "转化知识，也意味着教授知识、让知识易于理解，并与运用知识的人分享。", groupes: ["教学", "学术交流", "科普与无障碍", "网络组织与引导"], affiche: ["博士论文项目海报无障碍版", "共七种语言，包括因纽特语和因努语（初步版本），另有易读版，以及适合色觉障碍和低视力人士的版本。"], rdv: "预约会面" },
@@ -57,6 +57,25 @@ function sectionTransmission(c) {
   };
   return sectionGroupes(c, s);
 }
+const SOUS_RESSOURCES = {
+  fr: { litterature: ["Littérature scientifique", "Articles en libre accès et lectures par thème"], grise: ["Littérature grise", "Rapports, politiques, guides et outils"], presse: [null, "Articles de presse et de magazines"], capsules: [null, "Vidéos en français et en anglais"], balados: [null, "Balados en français et en anglais"], rapports: "Rapports, politiques et cadres de référence" },
+  en: { litterature: ["Scientific literature", "Open-access articles and readings by theme"], grise: ["Grey literature", "Reports, policies, guides and tools"], presse: [null, "Newspaper and magazine articles"], capsules: [null, "Videos in French and English"], balados: [null, "Podcasts in French and English"], rapports: "Reports, policies and frameworks" },
+  es: { litterature: ["Literatura científica", "Artículos de acceso abierto y lecturas por tema"], grise: ["Literatura gris", "Informes, políticas, guías y herramientas"], presse: [null, "Artículos de prensa y revistas"], capsules: [null, "Vídeos en francés y en inglés"], balados: [null, "Pódcasts en francés y en inglés"], rapports: "Informes, políticas y marcos de referencia" },
+  zh: { litterature: ["科学文献", "开放获取论文与分主题阅读"], grise: ["灰色文献", "报告、政策、指南与工具"], presse: [null, "报刊与杂志文章"], capsules: [null, "法语和英语视频"], balados: [null, "法语和英语播客"], rapports: "报告、政策与参考框架" },
+  ar: { litterature: ["الأدبيات العلمية", "مقالات مفتوحة الوصول وقراءات حسب الموضوع"], grise: ["الأدبيات الرمادية", "تقارير وسياسات وأدلة وأدوات"], presse: [null, "مقالات صحفية ومقالات مجلات"], capsules: [null, "مقاطع فيديو بالفرنسية والإنجليزية"], balados: [null, "بودكاست بالفرنسية والإنجليزية"], rapports: "تقارير وسياسات وأطر مرجعية" },
+};
+// Groupes de ressources (même ordre dans toutes les langues) : 0 articles, 1 guides, 2 balados, 3 vidéos, 4 presse.
+const PARTIES_RESSOURCES = { litterature: { groupes: [0], lectures: "sci" }, grise: { groupes: [1], lectures: "grise" }, presse: { groupes: [4] }, capsules: { groupes: [3] }, balados: { groupes: [2] } };
+const INDEX_ENGAGEMENTS = { representation: 0, communaute: 1, distinctions: 2, citoyen: 3, loisirs: 4 };
+const GRISE = /^(Ministère|Commissaire|Institut national|Commission|Organisation mondiale|World Health|National Academies|Institute of Medicine|OECD|OCDE)/;
+// Libellés des petites portes de Ressources et d'Engagements, posés avant la construction de la page.
+function poserSousPortes(c) {
+  const S = SOUS_RESSOURCES[c.lang] || SOUS_RESSOURCES.en;
+  for (const [s, P] of Object.entries(PARTIES_RESSOURCES)) c.hall.portes[s] = [S[s][0] || c.ressources.groupes[P.groupes[0]][0], S[s][1]];
+  for (const [s, k] of Object.entries(INDEX_ENGAGEMENTS)) c.hall.portes[s] = [c.engagements.groupes[k].titre, c.hall.portes.engagements[0]];
+}
+const BANDEAUX = { litterature: "bandeaux/ressources.jpg", representation: "photos/representation.jpg", communaute: "bandeaux/engagements.jpg", distinctions: "photos/distinctions.jpg" };
+const bandeau = (s) => BANDEAUX[s] || "bandeaux/" + s + ".jpg";
 const TEXTES_GROUPES = {
   fr: { ressources: ["Ressources","Lectures, articles, capsules et balados"], recherche: ["Recherche", "Thèse, approche, recherche en cours et publications"], parcours: ["Parcours", "Biographie, expériences et valeurs"] },
   en: { ressources: ["Resources","Readings, articles, videos and podcasts"], recherche: ["Research", "Thesis, approach, research in progress and publications"], parcours: ["Background", "Biography, experience and values"] },
@@ -210,6 +229,16 @@ const TEINTES = {
   valeurs: ["#7a5a8c", "#5a4068"],
   ressources: ["#2f7f86", "#215c61"],
   transmission: ["#5f7f35", "#43592a"],
+  litterature: ["#2a6fb0", "#1d4f80"],
+  grise: ["#3d7a5a", "#2a5640"],
+  presse: ["#8a5a2b", "#63401e"],
+  capsules: ["#1b5e7a", "#124257"],
+  balados: ["#5a3d7a", "#3f2a56"],
+  representation: ["#5d6585", "#40465f"],
+  communaute: ["#2f6f86", "#1f4f62"],
+  distinctions: ["#a8842c", "#7a5f1e"],
+  citoyen: ["#b5523b", "#843a2a"],
+  loisirs: ["#3f8a4f", "#2b6237"],
 };
 
 
@@ -220,7 +249,7 @@ function porte(c, [nom, sections], i) {
   const fond = image ? ` style="background-image:url(${c.chemin}assets/portes/${image}?v=${empreinte("assets/portes/" + image)})"` : "";
   return `<button class="porte${image ? "" : " porte-contact"}" type="button" data-salle="${nom}" data-sections="${sections.join(" ")}" data-titre="${e(titre)}" style="--c1:${c1};--c2:${c2}" aria-label="${num(i)}. ${e(titre)}${deuxPoints(c)} ${e(legende)}">
 <span class="baie" aria-hidden="true"><span class="ouverture"><span class="apercu">${e(c.ui.entrer)}</span><span class="battant"><span class="vignette"${fond}></span><span class="poignee"></span></span></span></span>
-<span class="porte-texte" aria-hidden="true"><span class="plaque"><span class="num">${num(i)}</span>${e(titre)}</span><span class="legende">${e(legende)}</span>${sections.length > 1 ? `<span class="sous-portes">${sections.map((s) => `<span style="--c1:${TEINTES[s][0]}">${e(c.hall.portes[s][0])}</span>`).join("")}</span>` : ""}<span class="entrer">${e(c.ui.entrer)} →</span></span>
+<span class="porte-texte" aria-hidden="true"><span class="plaque"><span class="num">${num(i)}</span>${e(titre)}</span><span class="legende">${e(legende)}</span>${sections.length > 1 ? `<span class="sous-portes">${sections.map((s) => `<span data-sous="${s}" style="--c1:${TEINTES[s][0]}">${e(c.hall.portes[s][0])}</span>`).join("")}</span>` : ""}<span class="entrer">${e(c.ui.entrer)} →</span></span>
 </button>`;
 }
 
@@ -558,27 +587,29 @@ function sectionBiographie(c) {
 }
 
 const PHOTOS_ENGAGEMENTS = ["representation", null, "distinctions", null, null];
-const PHOTOS_LOISIRS = ["course", "musique", null];
+const PHOTOS_LOISIRS = ["course", "musique", null, null, null];
 const photo = (c, nom, alt = "") => `<img class="photo-groupe" src="${c.chemin}assets/photos/${nom}.jpg?v=${empreinte("assets/photos/" + nom + ".jpg")}" alt="${e(alt)}" width="800" height="457" loading="lazy">`;
 
-function sectionEngagements(c) {
+function sectionEngagements(c, sous) {
   const s = c.engagements;
+  const kSous = INDEX_ENGAGEMENTS[sous];
   const groupes = s.groupes
     .map((g, k) => {
+      if (k !== kSous) return "";
       const tete = `<h3 class="titre-bloc titre-icone">${e(g.titre)}<span class="compte">${g.items.length}</span></h3>`;
       if (k === s.groupes.length - 1)
         return `<div class="groupe-large">${tete}<div class="loisirs">${g.items
           .map((it, i) => `<figure class="loisir${PHOTOS_LOISIRS[i] ? "" : " sans-photo"}">${PHOTOS_LOISIRS[i] ? photo(c, PHOTOS_LOISIRS[i], it.titre) : ""}<figcaption><span>${e(it.date)}</span><strong>${e(it.titre)}</strong>${it.detail ? `<small>${e(it.detail)}</small>` : ""}</figcaption></figure>`)
           .join("")}</div></div>`;
-      return `<article class="groupe-carte">${PHOTOS_ENGAGEMENTS[k] ? photo(c, PHOTOS_ENGAGEMENTS[k]) : ""}<div class="groupe-corps">${tete}${liste(g.items)}</div></article>`;
+      return `<div class="groupe-large">${tete}${liste(g.items).replace('<ul class="liste">', '<ul class="liste liste-cartes">')}</div>`;
     })
     .join("");
   return `<div class="section-corps pleine">
 <div class="colonne-texte">
 <p class="surtitre">${e(s.surtitre)}</p>
 <h2>${e(s.titre)}</h2>
-<p class="intro">${e(s.intro)}</p>
-<h3 class="titre-bloc">${e(s.affiliations.titre)}</h3>${etiquettes(s.affiliations.items, "etiquettes grandes")}
+${kSous === 0 ? `<p class="intro">${e(s.intro)}</p>` : ""}
+${kSous === 1 ? `<h3 class="titre-bloc">${e(s.affiliations.titre)}</h3>${etiquettes(s.affiliations.items, "etiquettes grandes")}` : ""}
 </div>
 <div class="colonne-outils"><div class="groupes-grille">${groupes}</div></div>
 </div>`;
@@ -670,17 +701,25 @@ function sectionValeurs(c) {
 // Lectures de toute la scolarité, par thème, en français puis en anglais
 const LECTURES = require("./lectures.json").themes;
 const LECTURES_TITRE = { fr: "Lectures", en: "Readings", es: "Lecturas", zh: "阅读文献", ar: "قراءات" };
-function sectionLectures(c, R) {
+function sectionLectures(c, R, mode) {
   const l = LECTURES_TITRE[c.lang] ? c.lang : "en";
-  const total = LECTURES.reduce((n, t) => n + t.lectures.length, 0);
+  const garder = (x) => (mode === "grise") === GRISE.test(x.apa);
+  const THEMES = LECTURES.map((t) => ({ ...t, lectures: t.lectures.filter(garder) })).filter((t) => t.lectures.length);
+  const total = THEMES.reduce((n, t) => n + t.lectures.length, 0);
   const ref = (x) => { const t = e(x.apa); return `<li>${x.lien ? t.replace(e(x.lien), `<a href="${e(x.lien)}" rel="noopener">${e(x.lien.replace("https://doi.org/", "doi:"))}</a>`) : t}</li>`; };
   const theme = (t) => {
     const cols = ["fr", "en"].map((k, i) => { const v = t.lectures.filter((x) => x.langue === k); return v.length ? `<div class="rg-colonne"><p class="rg-langue">${e(R.langues[i])}</p><ol class="lectures-liste">${v.map(ref).join("")}</ol></div>` : ""; }).join("");
     return `<details class="lecture-theme"><summary>${e(t[l] || t.en)}<span class="compte">${t.lectures.length}</span></summary><div class="rg-langues">${cols}</div></details>`;
   };
-  return `<section class="rg rg-lectures"><h3 class="rg-titre">${LECTURES_TITRE[l]}<span class="compte">${total}</span></h3><div class="lectures-themes">${LECTURES.map(theme).join("")}</div></section>`;
+  if (mode === "grise") {
+    const tout = THEMES.flatMap((t) => t.lectures).filter((x, i, a) => a.findIndex((y) => y.apa === x.apa) === i).sort((a, b) => a.apa.localeCompare(b.apa));
+    const cols = ["fr", "en"].map((k, i) => { const v = tout.filter((x) => x.langue === k); return v.length ? `<div class="rg-colonne"><p class="rg-langue">${e(R.langues[i])}</p><ol class="lectures-liste">${v.map(ref).join("")}</ol></div>` : ""; }).join("");
+    return `<section class="rg rg-lectures"><h3 class="rg-titre">${e((SOUS_RESSOURCES[c.lang] || SOUS_RESSOURCES.en).rapports)}<span class="compte">${tout.length}</span></h3><div class="rg-langues">${cols}</div></section>`;
+  }
+  return `<section class="rg rg-lectures"><h3 class="rg-titre">${LECTURES_TITRE[l]}<span class="compte">${total}</span></h3><div class="lectures-themes">${THEMES.map(theme).join("")}</div></section>`;
 }
-function sectionMedias(c) {
+function sectionMedias(c, partie) {
+  const P = PARTIES_RESSOURCES[partie];
   const R = c.ressources;
   const classes = ["rg-articles", "rg-guides", "rg-balados", "rg-videos", "rg-presse"];
   const enAnglais = (gi, ii) => /\(anglais\)/.test(fr.ressources.groupes[gi][1][ii][1]);
@@ -699,11 +738,11 @@ function sectionMedias(c) {
   return `<div class="section-corps pleine section-medias">
 <div class="colonne-texte">
 <p class="surtitre">${e(R.surtitre)}</p>
-<h2>${e(R.titre)}</h2>
-<p class="intro">${e(R.intro)}</p>
+<h2>${e(c.hall.portes[partie][1])}</h2>
+${partie === "litterature" ? `<p class="intro">${e(R.intro)}</p>` : ""}
 </div>
 </div>
-<div class="rg-ensemble">${R.groupes.map(bloc).join("")}${sectionLectures(c, R)}</div>`;
+<div class="rg-ensemble">${P.groupes.map((gi) => bloc(R.groupes[gi], gi)).join("")}${P.lectures ? sectionLectures(c, R, P.lectures) : ""}</div>`;
 }
 
 function sectionParcours(c) {
@@ -785,6 +824,7 @@ function page(c) {
     sameAs: [c.contact.liens.find((l) => l[0] === "ORCID")[2]],
   };
   c.hall.portes.transmission = textesTransmission(c).salle;
+  poserSousPortes(c);
   const sections = {
     recherche: sectionRecherche(c),
     approche: sectionApproche(c),
@@ -795,8 +835,16 @@ function page(c) {
     parcours: sectionParcours(c),
     conceptualisation: sectionConceptualisation(c),
     valeurs: sectionValeurs(c),
-    ressources: sectionMedias(c),
-    engagements: sectionEngagements(c),
+    litterature: sectionMedias(c, "litterature"),
+    grise: sectionMedias(c, "grise"),
+    presse: sectionMedias(c, "presse"),
+    capsules: sectionMedias(c, "capsules"),
+    balados: sectionMedias(c, "balados"),
+    representation: sectionEngagements(c, "representation"),
+    communaute: sectionEngagements(c, "communaute"),
+    distinctions: sectionEngagements(c, "distinctions"),
+    citoyen: sectionEngagements(c, "citoyen"),
+    loisirs: sectionEngagements(c, "loisirs"),
   };
 
   return `<!doctype html>
@@ -858,7 +906,7 @@ ${bandeAccueil(c)}
 ${SALLES.map(
   (s, i) => `<section class="section${i % 2 ? " teinte" : ""}" id="${s}" data-salle="${s}" data-titre="${e(c.hall.portes[s][0])}">
 <div class="section-contenu" data-numero="${NUMS[s]}">
-<div class="bandeau" style="--c1:${TEINTES[s][0]};background-image:var(--degrade),url(${p}assets/bandeaux/${s}.jpg?v=${empreinte("assets/bandeaux/" + s + ".jpg")})" role="img" aria-label="${e(c.hall.portes[s][0])}"><div class="bandeau-texte"><span class="bandeau-num">${NUMS[s]}</span><span class="bandeau-titre">${e(c.hall.portes[s][0])}</span><span class="bandeau-legende">${e(c.hall.portes[s][1])}</span></div></div>
+<div class="bandeau" style="--c1:${TEINTES[s][0]};background-image:var(--degrade),url(${p}assets/${bandeau(s)}?v=${empreinte("assets/" + bandeau(s))})" role="img" aria-label="${e(c.hall.portes[s][0])}"><div class="bandeau-texte"><span class="bandeau-num">${NUMS[s]}</span><span class="bandeau-titre">${e(c.hall.portes[s][0])}</span><span class="bandeau-legende">${e(c.hall.portes[s][1])}</span></div></div>
 ${sections[s].replace(/<p class="surtitre">(\d{2} · )?/, `<p class="surtitre">${NUMS[s]} · `)}
 </div>
 </section>`

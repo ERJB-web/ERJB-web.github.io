@@ -133,7 +133,10 @@
 
   if (salle) {
   racine.classList.add("salles");
-  $$(".porte").forEach((p) => p.addEventListener("click", () => entrer(p.dataset.salle)));
+  $$(".porte").forEach((p) => p.addEventListener("click", (ev) => {
+    const sous = ev.target.closest("[data-sous]");
+    entrer(sous ? sous.dataset.sous : p.dataset.sections.split(" ")[0] || p.dataset.salle);
+  }));
   // Les liens vers une salle (menu, « Explorer ») ouvrent sa porte
   document.addEventListener("click", (ev) => {
     const a = ev.target.closest('a[href^="#"]');

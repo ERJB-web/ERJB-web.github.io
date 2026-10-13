@@ -1604,7 +1604,7 @@
           {
             "date": "2013年",
             "titre": "志愿服务与公民服务",
-            "detail": "Association de la fondation étudiante pour la ville（AFEV，学生城市基金会协会），法国。"
+            "detail": "Association de la fondation étudiante pour la ville（AFEV，学生城市基金会协会），法国：协调学生志愿者，并陪伴一名年轻人走过她的学业与文化成长历程。"
           }
         ]
       },
@@ -1623,6 +1623,15 @@
           {
             "date": "运动",
             "titre": "冰球"
+          },
+          {
+            "date": "编程",
+            "titre": "AI 辅助编程"
+          },
+          {
+            "date": "文化",
+            "titre": "科学素养",
+            "detail": "生命与地球科学、哲学、地缘政治、政治学、物理学、天文学。"
           }
         ]
       }

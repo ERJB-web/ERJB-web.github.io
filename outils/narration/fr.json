@@ -400,10 +400,9 @@
   "06Audace d’entreprendre.",
   "Oser proposer, créer et mettre en œuvre de nouvelles réponses."
  ],
- "engagements": [
+ "representation": [
   "Représenter, contribuer, s’engager.",
   "Une présence dans la vie étudiante et scientifique, en continuité avec le parcours.",
-  "Membre étudiant.",
   "Représentation étudiante7.",
   "2026. Coordinateur au doctorat en santé publique · AÉÉSPUM.",
   "Élu.",
@@ -417,12 +416,19 @@
   "2022–2024. Représentant élu au conseil d’administration du CROUS.",
   "France.",
   "2021. Président du bureau régional des étudiants en travail social d’Askoria.",
-  "France.",
+  "France."
+ ],
+ "communaute": [
+  "Représenter, contribuer, s’engager.",
+  "Membre étudiant.",
   "Communauté scientifique2.",
   "En cours. Comité scientifique étudiant du congrès de l’AÉÉSPUM.",
   "Membre.",
   "Juin 2026. Comité scientifique de la journée de la relève du GFSP.",
-  "Membre étudiant.",
+  "Membre étudiant."
+ ],
+ "distinctions": [
+  "Représenter, contribuer, s’engager.",
   "Bourses et distinctions4.",
   "2026. Prix de la meilleure présentation par affiche, 3e cycle et postdoctorat.",
   "Journée de la relève, Groupe francophone en soins primaires.",
@@ -431,19 +437,39 @@
   "2025. Bourse de recrutement international.",
   "Études supérieures et postdoctorales, Université de Montréal.",
   "2023–2025. Trois mentions spéciales du jury.",
-  "Excellence académique.",
+  "Excellence académique."
+ ],
+ "citoyen": [
+  "Représenter, contribuer, s’engager.",
   "Engagement citoyen2.",
   "2023. Sapeur-pompier volontaire.",
   "Centre d’incendie et de secours de Dinard, France.",
   "2013. Bénévolat et service civique.",
-  "Association de la fondation étudiante pour la ville (AFEV), France.",
-  "Sports et loisirs3.",
+  "Association de la fondation étudiante pour la ville (AFEV), France : coordination des étudiants bénévoles et accompagnement d’une jeune dans son parcours scolaire et culturel."
+ ],
+ "loisirs": [
+  "Représenter, contribuer, s’engager.",
+  "Sports et loisirs5.",
   "CourseTriple marathonienMarathons de Paris 2025 et 2026, marathon de Montréal 2026.",
   "MusiquePiano, chant et guitare.",
-  "SportHockey sur glace."
+  "SportHockey sur glace.",
+  "ProgrammationProgrammation assistée par IA.",
+  "CultureCulture scientifiqueSciences de la vie et de la Terre, philosophie, géopolitique, science politique, physique, astronomie."
  ],
- "ressources": [
-  "Articles, capsules et balados.",
+ "litterature": [
+  "Articles en libre accès et lectures par thème.",
   "Une sélection commentée pour approfondir la mobilisation des connaissances et la science de l’implantation, en français et en anglais."
+ ],
+ "grise": [
+  "Rapports, politiques, guides et outils."
+ ],
+ "presse": [
+  "Articles de presse et de magazines."
+ ],
+ "capsules": [
+  "Vidéos en français et en anglais."
+ ],
+ "balados": [
+  "Balados en français et en anglais."
  ]
 }

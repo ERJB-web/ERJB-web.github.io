@@ -963,3 +963,26 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 .onglet-salle .onglet-num{background:var(--c1)}
 .onglet-salle.actif{background:var(--c1);border-color:var(--c1);color:#fff;box-shadow:0 10px 24px -12px var(--c1)}
 .onglet-salle.actif .onglet-num{background:rgba(255,255,255,.24)}
+
+/* Accueil : portes plus grandes et plus visibles, carte autour discrète */
+.portes{gap:22px}
+.porte{grid-template-columns:150px minmax(0,1fr);padding:18px 22px;background:transparent;border:1px solid transparent;border-top:0;box-shadow:none}
+.porte:hover,.porte:focus-visible{background:color-mix(in srgb,var(--c1) 5%,transparent);border-color:color-mix(in srgb,var(--c1) 25%,transparent);box-shadow:none}
+.porte .baie{width:150px;background:#fff;box-shadow:0 0 0 6px #fff,0 0 0 8px var(--c1),0 18px 26px -14px rgba(15,49,66,.6)}
+.porte .battant{border-color:color-mix(in srgb,var(--c1) 45%,#c3d5d8)}
+.porte .poignee{background:var(--c1)}
+.plaque{font-size:19px}
+.sous-portes span{cursor:pointer;transition:transform .2s,box-shadow .2s}
+.sous-portes span:hover{transform:translateY(-1px);box-shadow:0 4px 10px -4px var(--c1)}
+/* Petites portes épurées : cadre blanc, seule la porte est colorée */
+.onglet-salle{background:var(--white);border-color:var(--line);box-shadow:none;color:var(--ink)}
+.onglet-salle.actif{background:var(--white);border-color:var(--c1);color:var(--ink);box-shadow:inset 0 -3px 0 var(--c1)}
+.onglet-salle.actif .onglet-num{background:var(--c1)}
+.onglet-salle .onglet-num{background:var(--c1)}
+/* Engagements : éléments en cartes alignées ; loisirs sur une ligne */
+.liste-cartes{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.liste.liste-cartes li{display:block;padding:16px 18px;background:var(--white);border:1px solid var(--line);border-radius:14px}
+.liste-cartes .date{display:inline-block;margin-bottom:4px;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.loisirs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+@media (max-width:1100px){.porte{grid-template-columns:118px minmax(0,1fr)}.porte .baie{width:118px}}
+@media (max-width:640px){.porte{grid-template-columns:92px minmax(0,1fr)}.porte .baie{width:92px}}
