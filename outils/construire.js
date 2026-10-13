@@ -1057,7 +1057,7 @@ ${LANGUES.filter((l) => l.hreflang).map((l) => `<link rel="alternate" hreflang="
 <body>
 <a class="evitement" href="#contenu">${e(c.ui.evitement)}</a>
 <header class="entete">
-<a class="marque" href="${p || "./"}"><span class="marque-mono" aria-hidden="true"><span class="mono-grand">E</span><span class="mono-frac"><span class="mono-r">r</span><span class="mono-barre"></span><span class="mono-j">j</span></span><span class="mono-grand">B</span></span><span><strong>Éric Bernier</strong><small>${e(c.ui.sousTitre)}</small></span></a>
+<a class="marque" href="${p || "./"}"><span class="marque-mono"><span class="mono-grand">EB</span></span><span class="marque-domaines">${e(c.ui.sousTitre)}</span></a>
 <p class="coordonnees coordonnees-haut"><a href="mailto:${e(c.contact.courriel)}">${icone("enveloppe")}${e(c.contact.courriel)}</a><a href="tel:${TELEPHONE[1]}">${icone("telephone")}${TELEPHONE[0]}</a></p>
 <nav class="nav" aria-label="${e(c.ui.navigation)}">${GROUPES.map(([g, ss]) => `<a href="#${ss[0] || g}">${e(texteGroupe(c, g)[0])}</a>`).join("")}</nav>
 <div class="outils">
@@ -1149,7 +1149,7 @@ ${PREFERENCES}
 <body class="page-abregee">
 <a class="evitement" href="#contenu">${e(fr.ui.evitement)}</a>
 <header class="entete">
-<a class="marque" href="../"><span class="marque-mono" aria-hidden="true"><span class="mono-grand">E</span><span class="mono-frac"><span class="mono-r">r</span><span class="mono-barre"></span><span class="mono-j">j</span></span><span class="mono-grand">B</span></span><span><strong>Éric Bernier</strong><small>${e(fr.ui.sousTitre)}</small></span></a>
+<a class="marque" href="../"><span class="marque-mono"><span class="mono-grand">EB</span></span><span class="marque-domaines">${e(fr.ui.sousTitre)}</span></a>
 <div class="outils">
 ${menuLangues(c, code)}
 ${menuAcces(c, code)}
