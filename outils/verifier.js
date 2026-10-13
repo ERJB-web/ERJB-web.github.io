@@ -1,0 +1,59 @@
+// Contrôles avant publication : pages produites, liens internes, langues, données à ne jamais publier.
+"use strict";
+const fs = require("fs");
+const path = require("path");
+const { fr, en, es, LANGUES } = require("./contenu");
+
+const RACINE = path.join(__dirname, "..");
+const zh = JSON.parse(fs.readFileSync(path.join(__dirname, "i18n", "zh.json"), "utf8"));
+const ar = JSON.parse(fs.readFileSync(path.join(__dirname, "i18n", "ar.json"), "utf8"));
+const resultats = [];
+const verifier = (nom, ok, detail = "") => resultats.push({ nom, ok: !!ok, detail });
+
+const forme = (v) =>
+  Array.isArray(v) ? "[" + v.map(forme).join(",") + "]" : v && typeof v === "object" ? "{" + Object.keys(v).sort().map((k) => k + ":" + forme(v[k])).join(",") + "}" : typeof v;
+for (const [nom, c] of Object.entries({ en, es, zh, ar })) verifier(`structure ${nom} identique au français`, forme(c) === forme(fr));
+
+const pages = LANGUES.map((l) => path.join(l.dossier, "index.html")).concat("404.html");
+const html = {};
+for (const p of pages) {
+  const f = path.join(RACINE, p);
+  verifier(`page ${p} produite`, fs.existsSync(f));
+  if (fs.existsSync(f)) html[p] = fs.readFileSync(f, "utf8");
+}
+
+const INTERDITS = [
+  [/263[\s.\- ]*384[\s.\- ]*3050/, "numéro de téléphone"],
+  [/Lanaudi[eè]re/i, "région du terrain"],
+  [/2026[–-]2029/, "calendrier de thèse"],
+  [/27 octobre/, "présentation du protocole"],
+  [/attestation[^<]{0,40}MobilizeU|MobilizeU[^<]{0,40}attestation/i, "attestation MobilizeU"],
+  [/Per aspera ad astra/, "ancienne devise"],
+];
+for (const [p, h] of Object.entries(html)) {
+  for (const [motif, quoi] of INTERDITS) verifier(`${p} sans ${quoi}`, !motif.test(h));
+  const courriels = [...new Set((h.match(/[\w.+-]+@[\w-]+\.[\w.]+/g) || []).filter((m) => !/\.(png|jpg|svg)$/.test(m)))];
+  verifier(`${p} : seul son courriel apparaît`, courriels.every((m) => m === "eric.bernier.1@umontreal.ca"), courriels.join(", "));
+  const dossier = path.dirname(path.join(RACINE, p));
+  const internes = [...h.matchAll(/(?:href|src)="([^"#:]+?)(?:\?[^"]*)?(?:#[^"]*)?"/g)].map((m) => m[1]).filter((u) => u && !u.startsWith("//"));
+  const manquants = internes.filter((u) => {
+    const cible = u.startsWith("/") ? path.join(RACINE, u) : path.join(dossier, u);
+    return !fs.existsSync(cible) && !fs.existsSync(path.join(cible, "index.html"));
+  });
+  verifier(`${p} : liens internes valides`, manquants.length === 0, manquants.join(", "));
+}
+
+for (const l of LANGUES.filter((x) => x.hreflang)) {
+  const h = html[path.join(l.dossier, "index.html")];
+  verifier(`${l.code} : attribut lang`, h && h.includes(`<html lang="${l.code === "zh" ? "zh-Hans" : l.code}"`));
+  verifier(`${l.code} : liens hreflang vers les cinq langues`, h && LANGUES.filter((x) => x.hreflang).every((x) => h.includes(`hreflang="${x.hreflang}" href=`)));
+  verifier(`${l.code} : affiche dans sa langue`, h && h.includes(`affiche-releve/img/affiche-${l.code}.png`));
+}
+verifier("arabe de droite à gauche", html[path.join("ar", "index.html")].includes('dir="rtl"'));
+verifier("Nadia Sourial agrégée", html["index.html"].includes("Professeure agrégée"));
+verifier("titres avec entrepreneur", html["index.html"].includes("Juriste · Entrepreneur · Doctorant"));
+
+const echecs = resultats.filter((r) => !r.ok);
+for (const r of echecs) console.log("ÉCHEC", r.nom, r.detail);
+console.log(`${resultats.length - echecs.length}/${resultats.length} contrôles réussis`);
+process.exitCode = echecs.length ? 1 : 0;

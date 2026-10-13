@@ -1,8 +1,14 @@
-// Produit index.html (français), en/index.html (anglais), es/index.html (espagnol) et 404.html à partir d'outils/contenu.js.
+// Produit les pages complètes (fr, en, es, zh, ar), les versions abrégées (iu, innu, falc) et 404.html à partir d'outils/contenu.js et d'outils/i18n.
 "use strict";
 const fs = require("fs");
 const path = require("path");
-const { fr, en, es, LANGUES } = require("./contenu");
+const { fr, en, es, LANGUES, AFFICHE } = require("./contenu");
+const lireLangue = (code) => JSON.parse(fs.readFileSync(path.join(__dirname, "i18n", code + ".json"), "utf8"));
+const zh = lireLangue("zh");
+const ar = lireLangue("ar");
+const COMPLETES = [fr, en, es, zh, ar];
+const langue = (code) => LANGUES.find((l) => l.code === code);
+const ABREGE = require("./contenu-abrege");
 
 const RACINE = path.join(__dirname, "..");
 const empreinte = (fichier) => require("crypto").createHash("sha256").update(fs.readFileSync(path.join(RACINE, fichier))).digest("hex").slice(0, 10);
@@ -22,7 +28,52 @@ const lien = (href, texte, classe = "") =>
 const num = (i) => String(i + 1).padStart(2, "0");
 const etiquettes = (tags, classe = "etiquettes") => `<div class="${classe}">${tags.map((t) => `<span>${e(t)}</span>`).join("")}</div>`;
 const riche = (s) => e(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*(.+?)\*/g, "<em>$1</em>");
-const deuxPoints = (c) => (c.lang === "fr" ? " :" : ":");
+const deuxPoints = (c) => (c.lang === "fr" ? " :" : c.lang === "zh" ? "：" : ":");
+const etoile = (cx, cy, r) => {
+  const p = [];
+  for (let k = 0; k < 10; k++) {
+    const a = -Math.PI / 2 + (k * Math.PI) / 5;
+    const rr = k % 2 ? r * 0.382 : r;
+    p.push(`${(cx + rr * Math.cos(a)).toFixed(2)} ${(cy + rr * Math.sin(a)).toFixed(2)}`);
+  }
+  return `M${p.join("L")}Z`;
+};
+const DRAPEAUX = {
+  fr: '<svg viewBox="0 0 3 2"><path fill="#002654" d="M0 0h1v2H0z"/><path fill="#fff" d="M1 0h1v2H1z"/><path fill="#ce1126" d="M2 0h1v2H2z"/></svg>',
+  gb: '<svg viewBox="0 0 60 30"><path fill="#012169" d="M0 0h60v30H0z"/><path d="M0 0l60 30M60 0L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30M60 0L0 30" stroke="#c8102e" stroke-width="2"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#c8102e" stroke-width="6"/></svg>',
+  es: '<svg viewBox="0 0 3 2"><path fill="#aa151b" d="M0 0h3v2H0z"/><path fill="#f1bf00" d="M0 .5h3v1H0z"/></svg>',
+  cn: `<svg viewBox="0 0 30 20"><path fill="#ee1c25" d="M0 0h30v20H0z"/><path fill="#ffde00" d="${etoile(5, 5, 3)}${etoile(10, 2, 1)}${etoile(12, 4, 1)}${etoile(12, 7, 1)}${etoile(10, 9, 1)}"/></svg>`,
+};
+const PASTILLES = { ar: "ع", iu: "ᐃ", innu: "In", falc: "Aa" };
+const drapeau = (code) =>
+  DRAPEAUX[code] ? `<span class="drapeau" aria-hidden="true">${DRAPEAUX[code]}</span>` : `<span class="drapeau pastille pastille-${code}" aria-hidden="true">${PASTILLES[code]}</span>`;
+
+const ICONES = {
+  oeil: '<path d="M2 12c2.5-4.5 6-6.5 10-6.5s7.5 2 10 6.5c-2.5 4.5-6 6.5-10 6.5S4.5 16.5 2 12Z"/><circle cx="12" cy="12" r="3"/>',
+  loupe: '<circle cx="10.5" cy="10.5" r="7"/><path d="M15.6 15.6 21 21M7.5 10.5h6M10.5 7.5v6"/>',
+  contraste: '<circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18Z" fill="currentColor"/>',
+  casque: '<path d="M4 15v-2.5a8 8 0 0 1 16 0V15M4 14.5h3.2v6H4ZM20 14.5h-3.2v6H20Z"/>',
+  chevron: '<path d="m6 9 6 6 6-6"/>',
+  acces: '<circle cx="12" cy="4.5" r="2"/><path d="m4 8.5 8 1.5 8-1.5M12 10v5m0 0-3.5 6.5M12 15l3.5 6.5"/>',
+  personne: '<circle cx="12" cy="7.5" r="3.8"/><path d="M4.5 21c0-4.4 3.4-7.4 7.5-7.4s7.5 3 7.5 7.4"/>',
+  mallette: '<rect x="3" y="7.5" width="18" height="12.5" rx="2"/><path d="M9 7.5v-2A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5v2M3 13h18"/>',
+  cartes: '<rect x="3.5" y="6.5" width="9" height="14" rx="1.5"/><path d="M12.5 8.5 15.5 5l5.5 5-5.5 7.5-3-2.5"/>',
+  coeur: '<path d="M12 20s-7.5-4.6-7.5-10.1A4.4 4.4 0 0 1 12 7.4a4.4 4.4 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20Z"/>',
+  chemin: '<path d="M8 21 11 3M16 21 13 3M12 7v2M12 13v2"/>',
+  enveloppe: '<rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/>',
+  info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/>',
+  maison: '<path d="M3 11 12 3.5 21 11M5.5 9v11.5h13V9M10 20.5v-6h4v6"/>',
+  argent: '<circle cx="12" cy="12" r="8.5"/><path d="M14.8 9.2c-.5-.9-1.5-1.4-2.8-1.4-1.7 0-2.8.8-2.8 2.1 0 2.9 5.6 1.5 5.6 4.3 0 1.3-1.2 2.1-2.8 2.1-1.4 0-2.5-.6-3-1.6M12 6.2v1.6M12 16.4V18"/>',
+  repas: '<circle cx="13" cy="13" r="6"/><path d="M3 4v5a2 2 0 0 0 4 0V4M5 4v16M21 4c-1.5 0-2.5 2-2.5 5s1 3 2.5 3v8"/>',
+  sante: '<rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M12 8v8M8 12h8"/>',
+  famille: '<circle cx="8" cy="7" r="2.8"/><circle cx="16.5" cy="9" r="2.2"/><path d="M3 20c0-3.4 2.3-6 5-6s5 2.6 5 6M13 20c0-2.6 1.6-4.6 3.5-4.6S20 17.4 20 20"/>',
+  bus: '<rect x="4.5" y="3.5" width="15" height="14" rx="2.5"/><path d="M4.5 11h15M8 17.5V20M16 17.5V20M8 14.5h.01M16 14.5h.01"/>',
+  papiers: '<path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v4h4M9 12h6M9 16h6"/>',
+  musique: '<path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/>',
+  bulles: '<path d="M4 5h11v8H8l-4 3Z"/><path d="M15 9h5v8l-3-2h-6v-2"/>',
+};
+const icone = (nom) =>
+  `<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICONES[nom]}</svg>`;
 
 function liste(items) {
   return `<ul class="liste">${items
@@ -108,7 +159,11 @@ ${t.etiquettes ? etiquettes(t.etiquettes) : ""}
 <p class="intro">${e(r.question)}</p>
 <p>${e(r.but)}</p>
 <ul class="faits">${r.faits.map(([k, v]) => `<li><b>${e(k)}</b><span>${valeur(v)}</span></li>`).join("")}</ul>
-${lien(r.affiche[2], `<span><strong>${e(r.affiche[0])}</strong><small>${e(r.affiche[1])}</small></span><span aria-hidden="true">↗</span>`, "carte-lien")}
+${lien(
+  r.affiche[2],
+  `<img class="affiche-vignette" src="${AFFICHE}img/affiche-${c.lang}.png" data-std="${AFFICHE}img/affiche-${c.lang}.png" data-cb="${AFFICHE}img/affiche-${c.lang}-daltonien.png" alt="${e(c.ui.afficheAlt)}" width="2400" height="2400" loading="lazy" decoding="async"><span><strong>${e(r.affiche[0])}</strong><small>${e(r.affiche[1])}</small></span><span aria-hidden="true">↗</span>`,
+  "carte-lien carte-affiche"
+)}
 </div>
 <div class="colonne-outils">
 ${tableOnglets(r.table.titre, r.table.detail, r.table.etapes, r.table.terminus)}
@@ -237,12 +292,35 @@ function sectionParcours(c) {
 </div>`;
 }
 
-function selecteur(c) {
-  return `<div class="langue" role="group" aria-label="${e(c.ui.langue)}">${LANGUES.map((l) =>
-    l.code === c.lang
-      ? `<span aria-current="true" lang="${l.code}">${l.libelle}</span>`
-      : `<a href="${c.chemin + l.dossier || "./"}" hreflang="${l.code}" lang="${l.code}" title="${l.nom}">${l.libelle}</a>`
-  ).join("")}</div>`;
+const PREFERENCES = `<script>(function(){try{var h=document.documentElement,m=(localStorage.getItem("eb-modes")||"").split(" "),t=+localStorage.getItem("eb-taille")||0,a=location.hash;if(a==="#daltonien"||a==="#colour-blind")m.push("cb");if(a==="#basse-vision"||a==="#low-vision")m.push("lv");m.forEach(function(x){if(/^(cb|lv|hc)$/.test(x))h.classList.add(x)});if(t>0&&t<4)h.classList.add("t"+t)}catch(e){}})();</script>`;
+
+const langueHtml = (l) => (l.code === "falc" ? "fr" : l.code);
+
+function menuLangues(c, ici) {
+  const actuelle = langue(ici);
+  const lienLangue = (l) =>
+    l.code === ici
+      ? `<span aria-current="page" lang="${langueHtml(l)}">${drapeau(l.drapeau)}<span>${e(l.nom)}</span></span>`
+      : `<a href="${c.chemin + l.dossier || "./"}" lang="${langueHtml(l)}"${l.hreflang ? ` hreflang="${l.hreflang}"` : ""}>${drapeau(l.drapeau)}<span>${e(l.nom)}</span></a>`;
+  return `<details class="menu menu-langues"><summary aria-label="${e(c.ui.langue)}${deuxPoints(c)} ${e(actuelle.nom)}">${drapeau(actuelle.drapeau)}<span class="menu-libelle">${e(actuelle.libelle)}</span>${icone("chevron")}</summary>
+<div class="menu-panneau"><p class="menu-titre">${e(c.ui.langue)}</p><ul>${LANGUES.filter((l) => !l.abregee).map((l) => `<li>${lienLangue(l)}</li>`).join("")}</ul>
+<p class="menu-titre">${e(c.ui.autresLangues)}</p><ul>${LANGUES.filter((l) => l.abregee).map((l) => `<li>${lienLangue(l)}</li>`).join("")}</ul></div></details>`;
+}
+
+function menuAcces(c, ici) {
+  const u = c.ui;
+  return `<details class="menu menu-acces"><summary aria-label="${e(u.acces)}">${icone("acces")}<span class="menu-libelle">${e(u.acces)}</span>${icone("chevron")}</summary>
+<div class="menu-panneau">
+<button type="button" data-mode="cb" aria-pressed="false">${icone("oeil")}<span>${e(u.daltonisme)}</span></button>
+<button type="button" data-mode="lv" aria-pressed="false">${icone("loupe")}<span>${e(u.basseVision)}</span></button>
+<button type="button" data-mode="hc" aria-pressed="false">${icone("contraste")}<span>${e(u.contraste)}</span></button>
+<div class="taille" role="group" aria-label="${e(u.taille)}"><span>${e(u.taille)}</span><button type="button" data-taille="-1" aria-label="${e(u.moins)}">A−</button><button type="button" data-taille="1" aria-label="${e(u.plus)}">A+</button></div>
+<div class="menu-sep"></div>
+<button type="button" data-ecouter>${icone("casque")}<span>${e(u.ecouterPage)}</span></button>
+<button type="button" data-arreter hidden><span>${e(u.arreter)}</span></button>
+<p class="note-voix" data-sans-voix hidden>${e(u.sansVoix)}</p>
+${ici === "falc" ? "" : `<a href="${c.chemin}falc/" lang="fr">${drapeau("falc")}<span>${e(u.falc)}</span></a>`}
+</div></details>`;
 }
 
 function page(c) {
@@ -283,15 +361,16 @@ function page(c) {
   };
 
   return `<!doctype html>
-<html lang="${c.lang}">
+<html lang="${c.lang === "zh" ? "zh-Hans" : c.lang}"${langue(c.lang).dir ? ` dir="${langue(c.lang).dir}"` : ""} data-voix="${langue(c.lang).voix}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+${PREFERENCES}
 <title>${e(c.meta.titre)}</title>
 <meta name="description" content="${e(c.meta.description)}">
 <meta name="theme-color" content="#fcfdfb">
 <link rel="canonical" href="${ici}">
-${LANGUES.map((l) => `<link rel="alternate" hreflang="${l.code}" href="${URL}${l.dossier}">`).join("\n")}
+${LANGUES.filter((l) => l.hreflang).map((l) => `<link rel="alternate" hreflang="${l.hreflang}" href="${URL}${l.dossier}">`).join("\n")}
 <link rel="alternate" hreflang="x-default" href="${URL}">
 <link rel="icon" href="${p}assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="${p}assets/site.css?v=${VERSION_CSS}">
@@ -311,7 +390,8 @@ ${LANGUES.map((l) => `<link rel="alternate" hreflang="${l.code}" href="${URL}${l
 <a class="marque" href="${p || "./"}"><span class="monogramme" aria-hidden="true">EB</span><span><strong>Éric Bernier</strong><small>${e(c.ui.sousTitre)}</small></span></a>
 <nav class="nav" aria-label="${e(c.ui.navigation)}">${c.nav.map(([id, t]) => `<a href="#${id}">${e(t)}</a>`).join("")}</nav>
 <div class="outils">
-${selecteur(c)}
+${menuLangues(c, c.lang)}
+${menuAcces(c, c.lang)}
 <a class="bouton-cv" href="${p}docs/cv-academique.pdf">${e(c.ui.cv)} <span aria-hidden="true">↓</span></a>
 </div>
 </header>
@@ -365,8 +445,9 @@ ${sections[s]}
 <div class="salle-barre">
 <button type="button" data-retour>← ${e(c.ui.hall)}</button>
 <span id="salle-titre"></span>
+<div class="salle-actions"><button type="button" data-ecouter>${icone("casque")}<span>${e(c.ui.ecouter)}</span></button><button type="button" data-arreter hidden>${e(c.ui.arreter)}</button>
 <button type="button" data-suivante>${e(c.ui.suivante)} →</button>
-<button type="button" data-contact hidden>${e(c.ui.contact)} →</button>
+<button type="button" data-contact hidden>${e(c.ui.contact)} →</button></div>
 </div>
 <div class="salle-contenu"></div>
 </div>
@@ -375,24 +456,114 @@ ${sections[s]}
 `;
 }
 
+function enTeteAbregee(c, code) {
+  return `<!doctype html>
+<html lang="fr" data-voix="fr-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+${PREFERENCES}
+<title>${e(c.titre)}</title>
+<meta name="description" content="${e(c.description)}">
+<link rel="canonical" href="${URL}${langue(code).dossier}">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css?v=${VERSION_CSS}">
+<script src="../assets/site.js?v=${VERSION_JS}" defer></script>
+</head>
+<body class="page-abregee">
+<a class="evitement" href="#contenu">${e(fr.ui.evitement)}</a>
+<header class="entete">
+<a class="marque" href="../"><span class="monogramme" aria-hidden="true">EB</span><span><strong>Éric Bernier</strong><small>${e(fr.ui.sousTitre)}</small></span></a>
+<div class="outils">
+${menuLangues(c, code)}
+${menuAcces(c, code)}
+</div>
+</header>`;
+}
+
+const piedAbrege = () => `<footer class="pied"><span>${e(fr.pied)}</span><a href="#contenu">${e(fr.ui.haut)} ↑</a></footer>
+</body>
+</html>
+`;
+
+function pageFalc() {
+  typoFr = true;
+  const a = ABREGE.falc;
+  const c = { ...fr, chemin: "../", titre: a.titre, description: a.description };
+  const ecouter = (cible, texte) =>
+    `<button type="button" class="bouton-ecouter" data-ecouter data-cible="${cible}">${icone("casque")}<span>${e(texte)}</span></button>`;
+  const bloc = (b, i) => `<section class="bloc-falc" id="bloc-${i + 1}" aria-labelledby="titre-bloc-${i + 1}">
+<div class="picto">${icone(b.icone)}</div>
+<div>
+<h2 id="titre-bloc-${i + 1}">${e(b.titre)}</h2>
+${b.phrases.map((p) => `<p>${e(p)}</p>`).join("")}
+${b.cartes ? `<ul class="cartes-vie">${b.cartes.map(([ic, nom]) => `<li>${icone(ic)}<span>${e(nom)}</span></li>`).join("")}</ul>` : ""}
+${b.courriel ? `<p><a class="primaire" href="mailto:${e(b.courriel)}">${e(b.courriel)}</a></p>` : ""}
+${b.lien ? `<p>${lien(b.lien[1], e(b.lien[0]) + (externe(b.lien[1]) ? ' <span aria-hidden="true">↗</span>' : " →"), "lien")}</p>` : ""}
+${ecouter("bloc-" + (i + 1), a.ecouter)}
+</div>
+</section>`;
+  return `${enTeteAbregee(c, "falc")}
+<main id="contenu" class="abrege falc">
+<p class="surtitre">${e(a.surtitre)}</p>
+<h1>${e(a.h1)}</h1>
+<p class="actions-ecoute">${ecouter("contenu", a.ecouterTout)}<button type="button" class="bouton-ecouter" data-arreter hidden>${e(fr.ui.arreter)}</button></p>
+${a.blocs.map(bloc).join("\n")}
+</main>
+${piedAbrege()}`;
+}
+
+function pageSalutation(code) {
+  typoFr = true;
+  const a = ABREGE[langue(code).dossier.replace("/", "")];
+  const c = { ...fr, chemin: "../", titre: a.titre, description: a.description };
+  const P = ABREGE.presentation;
+  const liens = (l) =>
+    `<ul class="liens-contact compact">${ABREGE.liensCommuns[l]
+      .map(([texte, href]) => `<li>${lien(href, `<span><strong>${e(texte)}</strong></span><span aria-hidden="true">${externe(href) ? "↗" : "→"}</span>`)}</li>`)
+      .join("")}</ul>`;
+  const colonne = (l, nom) =>
+    `<section lang="${l}" aria-labelledby="titre-${l}"><h2 id="titre-${l}">${nom}</h2><p class="avis">${e(a.avis[l])}</p>${P[l].map((p) => `<p>${e(p)}</p>`).join("")}${liens(l)}</section>`;
+  return `${enTeteAbregee(c, code)}
+<main id="contenu" class="abrege salutation-page">
+<p class="salutation" lang="${code}">${e(a.salutation[0])}</p>
+${a.salutation[1] ? `<p class="translitteration">${e(a.salutation[1])}</p>` : ""}
+<p class="sens">${e(a.salutation[2])}</p>
+<h1>Éric Bernier</h1>
+<div class="duo-langues">
+${colonne("fr", "Français")}
+${colonne("en", "English")}
+</div>
+<p class="merci"><span lang="${code}">${e(a.merci[0])}</span>${a.merci[1] ? ` <span class="translitteration">(${e(a.merci[1])})</span>` : ""} · ${e(a.merci[2])}</p>
+<p><a class="primaire" href="mailto:${e(ABREGE.COURRIEL)}">${e(ABREGE.COURRIEL)}</a></p>
+</main>
+${piedAbrege()}`;
+}
+
 function introuvable() {
   typoFr = false;
-  const ligne = (c, dossier) => `<p lang="${c.lang}" class="note">${e(c.introuvable.texte)} <a href="/${dossier}">${e(c.introuvable.retour)}</a></p>`;
+  const ligne = (c, dossier) => `<p lang="${c.lang}"${langue(c.lang).dir ? ` dir="${langue(c.lang).dir}"` : ""} class="note">${e(c.introuvable.texte)} <a href="/${dossier}">${e(c.introuvable.retour)}</a></p>`;
   return `<!doctype html>
 <html lang="fr">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${e(fr.introuvable.titre)} · Éric Bernier</title>
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css"></head>
 <body class="page-404"><main><p class="surtitre">404</p><h1>${e(fr.introuvable.titre)}</h1><p>${e(fr.introuvable.texte)}</p><p><a class="primaire" href="/">${e(fr.introuvable.retour)} →</a></p>
-${ligne(en, "en/")}
-${ligne(es, "es/")}</main></body>
+${[en, es, zh, ar].map((c) => ligne(c, langue(c.lang).dossier)).join("\n")}</main></body>
 </html>
 `;
 }
 
-for (const c of [fr, en, es]) {
-  const dossier = LANGUES.find((l) => l.code === c.lang).dossier;
+const ecrire = (dossier, html) => {
   fs.mkdirSync(path.join(RACINE, dossier), { recursive: true });
-  fs.writeFileSync(path.join(RACINE, dossier, "index.html"), page(c));
+  fs.writeFileSync(path.join(RACINE, dossier, "index.html"), html);
+};
+// En arabe, les flèches de direction suivent le sens de lecture.
+const miroir = (html) => html.replace(/[→←]/g, (m) => (m === "→" ? "←" : "→"));
+for (const c of COMPLETES) {
+  const l = langue(c.lang);
+  ecrire(l.dossier, l.dir === "rtl" ? miroir(page(c)) : page(c));
 }
+ecrire("falc/", pageFalc());
+for (const code of ["iu", "moe"]) ecrire(langue(code).dossier, pageSalutation(code));
 fs.writeFileSync(path.join(RACINE, "404.html"), introuvable());
-console.log("index.html, en/index.html, es/index.html et 404.html produits");
+console.log("pages produites : " + LANGUES.map((l) => l.dossier || "/").join(", ") + " et 404.html");

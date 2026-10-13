@@ -10,10 +10,16 @@ const ANAP_CRT = "https://www.anap.fr/s/article/centre-ressources-territorial-cr
 const CRCHUM_SOURIAL = "https://www.chumontreal.qc.ca/crchum/chercheurs/nadia-sourial";
 const CRCHUM_LAYANI = "https://www.chumontreal.qc.ca/crchum/chercheurs/geraldine-layani";
 
+// Langues complètes (hreflang) puis versions abrégées : inuktitut, innu-aimun, facile à lire.
 const LANGUES = [
-  { code: "fr", libelle: "FR", nom: "Français", dossier: "" },
-  { code: "en", libelle: "EN", nom: "English", dossier: "en/" },
-  { code: "es", libelle: "ES", nom: "Español", dossier: "es/" },
+  { code: "fr", libelle: "FR", nom: "Français", dossier: "", hreflang: "fr", drapeau: "fr", voix: "fr-CA" },
+  { code: "en", libelle: "EN", nom: "English", dossier: "en/", hreflang: "en", drapeau: "gb", voix: "en-CA" },
+  { code: "es", libelle: "ES", nom: "Español", dossier: "es/", hreflang: "es", drapeau: "es", voix: "es-ES" },
+  { code: "zh", libelle: "中文", nom: "中文（简体）", dossier: "zh/", hreflang: "zh-Hans", drapeau: "cn", voix: "zh-CN" },
+  { code: "ar", libelle: "عربي", nom: "العربية", dossier: "ar/", hreflang: "ar", drapeau: "ar", voix: "ar", dir: "rtl" },
+  { code: "iu", libelle: "ᐃᓄ", nom: "ᐃᓄᒃᑎᑐᑦ · Inuktitut", dossier: "iu/", drapeau: "iu", abregee: true },
+  { code: "moe", libelle: "Innu", nom: "Innu-aimun", dossier: "innu/", drapeau: "innu", abregee: true },
+  { code: "falc", libelle: "FALC", nom: "Facile à lire (FALC)", dossier: "falc/", drapeau: "falc", abregee: true },
 ];
 
 const TITRES_ORIGINAUX = {
@@ -54,6 +60,20 @@ const fr = {
     suivante: "Porte suivante",
     contact: "Me contacter",
     haut: "Haut de page",
+    acces: "Accessibilité",
+    daltonisme: "Daltonisme",
+    basseVision: "Basse vision",
+    contraste: "Contraste élevé",
+    taille: "Taille du texte",
+    plus: "Agrandir le texte",
+    moins: "Réduire le texte",
+    ecouter: "Écouter",
+    ecouterPage: "Écouter la page",
+    arreter: "Arrêter la lecture",
+    sansVoix: "Votre appareil n’a pas de voix pour cette langue.",
+    falc: "Version facile à lire (FALC)",
+    afficheAlt: "Aperçu de l’affiche du projet de thèse, 120 × 120 cm",
+    autresLangues: "Autres langues",
   },
   nav: [
     ["recherche", "Recherche"],
@@ -119,7 +139,7 @@ const fr = {
         { nom: "Dre Géraldine Layani", grade: "M.D., M. Sc.", lignes: ["Médecin de famille, GMF-U Notre-Dame, Montréal", "Professeure adjointe de clinique, Département de médecine de famille et de médecine d’urgence, Université de Montréal", "Chercheuse régulière au CRCHUM, Carrefour de l’innovation"], chaire: "Cotitulaire de la Chaire de recherche GSK en gestion optimale des maladies chroniques", lien: CRCHUM_LAYANI },
       ],
     },
-    affiche: ["Voir l’affiche du projet", "Version accessible : français, anglais, daltonisme, écoute", AFFICHE],
+    affiche: ["Voir l’affiche du projet", "Version accessible : 5 langues, FALC, daltonisme, basse vision, écoute", AFFICHE],
     table: {
       titre: "Table d’exploration",
       detail: "Le devis en quatre étapes",
@@ -792,6 +812,20 @@ const en = {
     suivante: "Next door",
     contact: "Get in touch",
     haut: "Back to top",
+    acces: "Accessibility",
+    daltonisme: "Colour blindness",
+    basseVision: "Low vision",
+    contraste: "High contrast",
+    taille: "Text size",
+    plus: "Larger text",
+    moins: "Smaller text",
+    ecouter: "Listen",
+    ecouterPage: "Listen to this page",
+    arreter: "Stop reading",
+    sansVoix: "Your device has no voice for this language.",
+    falc: "Easy-to-read version (in French, FALC)",
+    afficheAlt: "Preview of the thesis project poster, 120 × 120 cm",
+    autresLangues: "Other languages",
   },
   nav: [
     ["recherche", "Research"],
@@ -857,7 +891,7 @@ const en = {
         { nom: "Dr. Géraldine Layani", grade: "MD, MSc", lignes: ["Family physician, GMF-U Notre-Dame, Montréal", "Assistant clinical professor, Department of Family and Emergency Medicine, Université de Montréal", "Principal scientist, CRCHUM, Health Innovation and Evaluation Hub"], chaire: "Co-holder, GSK Research Chair in optimal management of chronic diseases", lien: CRCHUM_LAYANI },
       ],
     },
-    affiche: ["See the project poster", "Accessible version: French, English, colour-blind friendly, audio", AFFICHE],
+    affiche: ["See the project poster", "Accessible version: 5 languages, easy-to-read French, colour-blind friendly, low vision, audio", AFFICHE + "en/"],
     table: {
       titre: "Exploration table",
       detail: "The design in four steps",
@@ -1500,7 +1534,7 @@ const en = {
       ["Professional CV", "PDF, in French", "docs/cv-professionnel.pdf"],
       ["ORCID", "0009-0001-4236-4932", ORCID],
       ["LinkedIn", "Profile", LINKEDIN],
-      ["Thesis project poster", "Accessible version", AFFICHE],
+      ["Thesis project poster", "Accessible version", AFFICHE + "en/"],
     ],
     adresse: "School of Public Health, Université de Montréal · 7101 avenue du Parc, Montréal, Québec",
   },
@@ -1530,6 +1564,20 @@ const es = {
     suivante: "Puerta siguiente",
     contact: "Contactarme",
     haut: "Volver arriba",
+    acces: "Accesibilidad",
+    daltonisme: "Daltonismo",
+    basseVision: "Baja visión",
+    contraste: "Alto contraste",
+    taille: "Tamaño del texto",
+    plus: "Agrandar el texto",
+    moins: "Reducir el texto",
+    ecouter: "Escuchar",
+    ecouterPage: "Escuchar la página",
+    arreter: "Detener la lectura",
+    sansVoix: "Su dispositivo no tiene voz para este idioma.",
+    falc: "Versión de lectura fácil (en francés, FALC)",
+    afficheAlt: "Vista previa del póster del proyecto de tesis, 120 × 120 cm",
+    autresLangues: "Otros idiomas",
   },
   nav: [
     ["recherche", "Investigación"],
@@ -1595,7 +1643,7 @@ const es = {
         { nom: "Dra. Géraldine Layani", grade: "M.D., M. Sc.", lignes: ["Médica de familia, GMF-U Notre-Dame, Montreal", "Profesora adjunta clínica, Departamento de Medicina Familiar y de Urgencias, Université de Montréal", "Investigadora del CRCHUM, Polo de innovación y evaluación en salud"], chaire: "Cotitular de la Cátedra de investigación GSK en gestión óptima de enfermedades crónicas", lien: CRCHUM_LAYANI },
       ],
     },
-    affiche: ["Ver el póster del proyecto", "Versión accesible: francés, inglés, daltonismo, audio", AFFICHE],
+    affiche: ["Ver el póster del proyecto", "Versión accesible: 5 idiomas, lectura fácil, daltonismo, baja visión, audio", AFFICHE + "es/"],
     table: {
       titre: "Mesa de exploración",
       detail: "El diseño en cuatro etapas",
@@ -2238,7 +2286,7 @@ const es = {
       ["CV profesional", "PDF, en francés", "docs/cv-professionnel.pdf"],
       ["ORCID", "0009-0001-4236-4932", ORCID],
       ["LinkedIn", "Perfil", LINKEDIN],
-      ["Póster del proyecto de tesis", "Versión accesible", AFFICHE],
+      ["Póster del proyecto de tesis", "Versión accesible", AFFICHE + "es/"],
     ],
     adresse: "Escuela de Salud Pública de la Université de Montréal · 7101, avenue du Parc, Montreal (Quebec)",
   },
@@ -2247,4 +2295,4 @@ const es = {
   introuvable: { titre: "Página no encontrada", texte: "Esta página no existe o ha sido trasladada.", retour: "Volver a la página de inicio" },
 };
 
-module.exports = { fr, en, es, LANGUES };
+module.exports = { fr, en, es, LANGUES, AFFICHE };

@@ -1,0 +1,1185 @@
+{
+  "lang": "ar",
+  "locale": "ar_AR",
+  "chemin": "../",
+  "meta": {
+    "titre": "Éric Bernier — طالب دكتوراه في الصحة العامة، ESPUM وCRCHUM",
+    "description": "Éric Bernier، طالب دكتوراه في الصحة العامة (الأنظمة والمنظمات والسياسات الصحية) في ESPUM، وقانوني ورائد أعمال ومربٍّ متخصص. يتناول بحثه الاستجابة المشتركة بين القطاعات للاحتياجات الاجتماعية المعقدة في الرعاية الصحية الأولية."
+  },
+  "ui": {
+    "evitement": "الانتقال إلى المحتوى",
+    "sousTitre": "الصحة العامة · الحوكمة · الإدارة · القانون · التدخل الاجتماعي والعمل المشترك بين القطاعات",
+    "navigation": "التنقل الرئيسي",
+    "langue": "اللغة",
+    "entrer": "دخول",
+    "cv": "السيرة الذاتية",
+    "hall": "البهو",
+    "suivante": "الباب التالي",
+    "contact": "تواصل معي",
+    "haut": "أعلى الصفحة",
+    "acces": "إمكانية الوصول",
+    "daltonisme": "عمى الألوان",
+    "basseVision": "ضعف البصر",
+    "contraste": "تباين عالٍ",
+    "taille": "حجم النص",
+    "plus": "تكبير النص",
+    "moins": "تصغير النص",
+    "ecouter": "استماع",
+    "ecouterPage": "الاستماع إلى الصفحة",
+    "arreter": "إيقاف القراءة",
+    "sansVoix": "لا يتوفر في جهازك صوت لهذه اللغة.",
+    "falc": "نسخة سهلة القراءة (بالفرنسية، FALC)",
+    "afficheAlt": "معاينة ملصق مشروع الأطروحة، 120 × 120 سم",
+    "autresLangues": "لغات أخرى"
+  },
+  "nav": [
+    [
+      "recherche",
+      "البحث"
+    ],
+    [
+      "approche",
+      "المقاربة"
+    ],
+    [
+      "implantation",
+      "التنفيذ"
+    ],
+    [
+      "publications",
+      "المنشورات"
+    ],
+    [
+      "biographie",
+      "السيرة"
+    ],
+    [
+      "parcours",
+      "المسار"
+    ],
+    [
+      "engagements",
+      "الانخراط"
+    ],
+    [
+      "contact",
+      "التواصل"
+    ]
+  ],
+  "accueil": {
+    "surtitre": "طالب دكتوراه في الصحة العامة · ESPUM · CRCHUM",
+    "roles": "مربٍّ متخصص · قانوني · رائد أعمال · طالب دكتوراه في الصحة العامة",
+    "chapeau": {
+      "titre": "فتح الأبواب، ووصل العوالم",
+      "paragraphes": [
+        "من مرافقة الأشخاص إلى البحث في الصحة العامة، قادني مساري إلى استكشاف المستويات المختلفة للنظام الصحي: من الواقع الفردي إلى المؤسسات، وصولًا إلى السياسات العامة والحوكمة.",
+        "وقد رسّخت هذه التجارب، الواقعة عند ملتقى الميدان والإدارة والقانون والبحث، قناعةً لديّ: **إن تحويل النظم الصحية يقتضي إقامة حوار بين التجارب الإنسانية والمعارف العلمية والديناميات الجماعية والخيارات السياسية.**",
+        "وطموحي هو **فتح الأبواب بين هذه العوالم التي تتجاور دون أن تتفاهم دائمًا**، وكسر الحواجز بين وجهات النظر، وتقريب البحث من العمل، من أجل تعزيز تقرير المصير، وإنارة القرارات الجماعية، والإسهام في مجتمع أكثر عدلًا وصحة."
+      ]
+    },
+    "encadrement": "أطروحة بإشراف مشترك من الدكتورة Nadia Sourial، Ph. D.، والدكتورة Géraldine Layani، M.D. · Chaire de recherche GSK en gestion optimale des maladies chroniques (كرسي GSK للبحث في الإدارة المثلى للأمراض المزمنة) · CRCHUM · حاصل على منحة FRQ (B2)",
+    "visite": "بدء الجولة",
+    "explorer": "الاستكشاف بحرية",
+    "portrait": "صورة شخصية لـ Éric Bernier"
+  },
+  "hall": {
+    "titre": "البهو",
+    "compte": "7 أبواب",
+    "consigne": "انقر على باب للدخول",
+    "portes": {
+      "recherche": [
+        "البحث",
+        "الأطروحة والأعمال الجارية"
+      ],
+      "approche": [
+        "المقاربة",
+        "الموقف المعرفي، المناهج، المحاور، القيم"
+      ],
+      "implantation": [
+        "التنفيذ",
+        "نقل المعارف والتنفيذ"
+      ],
+      "publications": [
+        "المنشورات",
+        "العروض العلمية، الرسائل الجامعية، الأدوات"
+      ],
+      "biographie": [
+        "السيرة",
+        "من التجارب الإنسانية إلى التحولات الجماعية"
+      ],
+      "parcours": [
+        "المسار",
+        "المؤهلات والخبرات"
+      ],
+      "engagements": [
+        "الانخراط",
+        "التمثيل، التدريس، الجوائز"
+      ]
+    }
+  },
+  "recherche": {
+    "surtitre": "01 · البحث",
+    "etiquette": "أطروحة دكتوراه قيد الإنجاز · موضوع مؤقت",
+    "titre": "تنظيم الاستجابة المشتركة بين القطاعات للاحتياجات الاجتماعية المعقدة والمتزامنة في الرعاية الصحية الأولية",
+    "sousTitre": "تشكيل الشبكات الملائمة لمختلف أنماط المرضى المتكفَّل بهم",
+    "question": "كيف تُنظَّم الاستجابة المشتركة بين القطاعات لمختلف أنماط المرضى ذوي الاحتياجات الاجتماعية المعقدة والمتزامنة الذين يُتكفَّل بهم في الرعاية الصحية الأولية؟",
+    "but": "يهدف المشروع إلى ربط كل نمط من الاحتياجات بتشكيلة من الشركاء وبمنسّقها، على مستوى إقليم أحد مراكز الخدمات المجتمعية المحلية (CLSC).",
+    "faits": [
+      [
+        "البرنامج",
+        "دكتوراه في الصحة العامة، تخصص الأنظمة والمنظمات والسياسات الصحية (SOPS) · السنة الثانية"
+      ],
+      [
+        "المؤسسة",
+        "École de santé publique de l’Université de Montréal (كلية الصحة العامة بجامعة مونتريال، ESPUM)"
+      ],
+      [
+        "الكرسي",
+        "Chaire de recherche GSK en gestion optimale des maladies chroniques (كرسي GSK للبحث في الإدارة المثلى للأمراض المزمنة)"
+      ],
+      [
+        "مركز البحث",
+        "Centre de recherche du CHUM (مركز البحث التابع للمركز الاستشفائي الجامعي لمونتريال، CRCHUM) · متدرّب بحثي"
+      ],
+      [
+        "التمويل",
+        "Fonds de recherche du Québec (صناديق البحث في كيبيك)، منحة دكتوراه (B2)"
+      ]
+    ],
+    "codirection": {
+      "titre": "الإشراف المشترك",
+      "profil": "الملف التعريفي في CRCHUM",
+      "personnes": [
+        {
+          "nom": "الدكتورة Nadia Sourial",
+          "grade": "Ph. D.",
+          "lignes": [
+            "أستاذة مشاركة، Département de gestion, d’évaluation et de politique de santé (قسم الإدارة والتقييم والسياسات الصحية)، École de santé publique، Université de Montréal",
+            "باحثة منتظمة في CRCHUM، Carrefour de l’innovation (ملتقى الابتكار)"
+          ],
+          "chaire": "شاغلة مشاركة لكرسي Chaire de recherche GSK en gestion optimale des maladies chroniques",
+          "lien": "https://www.chumontreal.qc.ca/crchum/chercheurs/nadia-sourial"
+        },
+        {
+          "nom": "الدكتورة Géraldine Layani",
+          "grade": "M.D., M. Sc.",
+          "lignes": [
+            "طبيبة أسرة، GMF-U Notre-Dame (مجموعة طب الأسرة الجامعية نوتردام)، مونتريال",
+            "أستاذة مساعدة سريرية، Département de médecine de famille et de médecine d’urgence (قسم طب الأسرة وطب الطوارئ)، Université de Montréal",
+            "باحثة منتظمة في CRCHUM، Carrefour de l’innovation (ملتقى الابتكار)"
+          ],
+          "chaire": "شاغلة مشاركة لكرسي Chaire de recherche GSK en gestion optimale des maladies chroniques",
+          "lien": "https://www.chumontreal.qc.ca/crchum/chercheurs/geraldine-layani"
+        }
+      ]
+    },
+    "affiche": [
+      "الاطلاع على ملصق المشروع",
+      "نسخة ميسّرة: 5 لغات، ونسخة سهلة القراءة، ومكيّفة لعمى الألوان ولضعف البصر، ومتاحة للاستماع",
+      "https://erjb-web.github.io/affiche-releve/ar/"
+    ],
+    "table": {
+      "titre": "طاولة الاستكشاف",
+      "detail": "تصميم البحث في أربع مراحل",
+      "etapes": [
+        [
+          "الهدف 1",
+          "أيّ أنماط؟",
+          "مراجعة استكشافية",
+          "انطلاقًا من الدراسات المنشورة، استخلاص أنماط الاحتياجات الاجتماعية المتكررة، ثم تحويلها إلى أربع إلى ست حالات افتراضية: مواقف متخيَّلة جرى التحقق من صلاحيتها.",
+          [
+            "مراجعة استكشافية",
+            "حالات افتراضية"
+          ]
+        ],
+        [
+          "الهدف 2",
+          "مَن نُشرك؟",
+          "الشبكة المتمركزة حول مركز CLSC",
+          "في كل حالة افتراضية، يكون مركز CLSC في الوسط: نحدّد الشركاء الذين سيستعين بهم والروابط القائمة بين هؤلاء الشركاء. فنحصل على تشكيلة لكل نمط.",
+          [
+            "تحليل الشبكات",
+            "شبكة متمركزة حول الذات"
+          ]
+        ],
+        [
+          "الهدف 2",
+          "لماذا هذه الخيارات؟",
+          "مقابلات حول خريطة الشبكة",
+          "تستند المقابلات إلى خريطة كل شبكة لتفسير الخيارات الملاحظة، مثلًا: لماذا يضعف الترابط بين هؤلاء الشركاء؟",
+          [
+            "مقابلات",
+            "مناهج مختلطة"
+          ]
+        ],
+        [
+          "الهدف 3",
+          "بِمَ نوصي؟",
+          "ورشة تداولية",
+          "يصوغ مرضى شركاء وفاعلون من الرعاية الأولية والقطاع المجتمعي والحوكمة المحلية والقطاع البلدي والقطاع الخاص توصياتٍ لكل نمط.",
+          [
+            "التداول",
+            "المرضى الشركاء"
+          ]
+        ]
+      ],
+      "terminus": "يندمج كل ذلك في جدول تكاملي مشترك: سطر لكل نمط، يضم الشبكة والتفسيرات والتوصيات."
+    },
+    "notions": {
+      "titre": "ثلاثة مفاهيم",
+      "items": [
+        [
+          "التزامن",
+          "وجود احتياجين اجتماعيين على الأقل في الوقت نفسه. وهو قابل للعدّ: إنه معيار الإدراج.",
+          "Kreuter et al., 2021"
+        ],
+        [
+          "التعقيد",
+          "تراكم الأمراض المزمنة والإعاقات ومشكلات الصحة النفسية والهشاشة الاجتماعية. يُوصَف دون أن يكون شرطًا.",
+          "Kuluski et al., 2017"
+        ],
+        [
+          "الاستجابة المشتركة بين القطاعات",
+          "إجراءات تتخذها قطاعات أخرى غير قطاع الصحة، بالتعاون معه: مراكز CLSC، ومجموعات طب الأسرة (GMF)، والمستشفى، والصيدليات، والمنظمات المجتمعية، والبلدية، والمدارس، ومراكز الطفولة المبكرة (CPE). وهي تُنظَّم على مستوى إقليم محدد.",
+          "Leppo et al., 2013 ; MSSS, 2017"
+        ]
+      ]
+    },
+    "retombees": {
+      "titre": "الآثار المتوقعة",
+      "items": [
+        [
+          "بالنسبة إلى الأشخاص",
+          "استجابة مكيّفة وفق مزيج احتياجاتهم."
+        ],
+        [
+          "بالنسبة إلى مركز CLSC وشركائه",
+          "مرجعيات حول مَن يُشرَك، وكيف يترابط الشركاء، ومَن يتولى التنسيق."
+        ],
+        [
+          "بالنسبة إلى سياسة خط الرعاية الأول",
+          "وصف للوضع الأولي وتوصيات وفق أدوار مركز CLSC."
+        ],
+        [
+          "بالنسبة إلى البحث",
+          "فرضية تربط نمط الاحتياجات بالشبكة."
+        ]
+      ]
+    },
+    "travaux": {
+      "titre": "أعمال جارية",
+      "intro": "مقالات ومخطوطات قيد الكتابة، بالتوازي مع الأطروحة.",
+      "items": [
+        {
+          "domaine": "الإبستمولوجيا ونقل المعارف",
+          "statut": "قيد الإعداد",
+          "titre": "Epistemic return in public health governance: The road back from health to science",
+          "auteurs": "Bernier, É.",
+          "resume": "يُتصوَّر أثر البحث عادةً في اتجاه واحد، من المعرفة نحو السياسات والممارسات. ويقترح هذا المقال تصوّر الصحة العامة بوصفها علمًا انعكاسيًا للحوكمة: إذ يحدّد الشروط التي يمكن فيها للنتائج الملاحظة في الميدان ولمعارف الفئات السكانية المعنية أن تستوجب إعادة النظر في الفئات والمؤشرات والقواعد في المراحل السابقة. ويُترجَم هذا المفهوم إلى تدقيق وثائقي جرى اختباره على أربع سلاسل مؤسسية.",
+          "etiquettes": [
+            "العودة المعرفية",
+            "الحوكمة الانعكاسية",
+            "أثر البحث"
+          ]
+        },
+        {
+          "domaine": "الأنظمة الصحية والرعاية الأولية",
+          "statut": "مخطوطة قيد الإعداد",
+          "titre": "Potentially avoidable hospitalisations and primary care: the role of patient experience across Commonwealth countries",
+          "auteurs": "Bernier, É., Algoët, A., Sourial, N., Layani, G., Vedel, I., Calafiore, M."
+        },
+        {
+          "domaine": "الحوكمة والفضاء العام",
+          "statut": "مخطوطة قيد الإعداد",
+          "titre": "Prise de parole des médecins dans l’espace public québécois lors des débats entourant le projet de loi n° 2 : une analyse qualitative du discours critique",
+          "auteurs": "Bernier, É., Aïssi, F., Diene Faye, C., Boukari Abdo, S."
+        },
+        {
+          "domaine": "قانون الصحة",
+          "statut": "مخطوطة قيد الإعداد",
+          "titre": "Vieillir chez soi à l’épreuve du droit : l’effectivité du choix du lieu de vie en droit français et en droit québécois",
+          "auteurs": "Bernier, É. · مقالة فقهية قانونية"
+        }
+      ]
+    }
+  },
+  "approche": {
+    "surtitre": "02 · المقاربة",
+    "titre": "موقف براغماتي ومناهج مختلطة",
+    "intro": "من السؤال إلى الملاحظة: لكل سؤال بياناته ومنهج تحليله وتأويله. أختار المناهج وفق ما ينبغي إيضاحه، مع المزاوجة بين التخصصات.",
+    "piliers": [
+      [
+        "موقف براغماتي",
+        "موقف يجمع بين قراءة وضعية (القياس والتقدير واختبار الفرضيات) وقراءة بنائية (فهم المعنى الذي يمنحه الفاعلون لممارساتهم). السؤال هو الذي يحدد المنهج."
+      ],
+      [
+        "مناهج مختلطة",
+        "تحليلات كمية ونوعية متكاملة: تحليل الشبكات، والانحدار، والتحليل الموضوعاتي، والتحليل الوثائقي، ورسم الخرائط، تجتمع كلها في جداول تكاملية."
+      ],
+      [
+        "تعدد التخصصات",
+        "الصحة العامة والقانون والإدارة والعلوم السياسية والتدخل الاجتماعي: رؤى يكمّل بعضها بعضًا لتحليل نظام واحد."
+      ]
+    ],
+    "outils": {
+      "titre": "صندوق الأدوات",
+      "groupes": [
+        [
+          "تحليل البيانات",
+          [
+            "Positron (R)",
+            "Python",
+            "NVivo",
+            "QGIS",
+            "Excel"
+          ]
+        ],
+        [
+          "التعاون والتنشيط",
+          [
+            "Miro",
+            "Klaxoon",
+            "Canva"
+          ]
+        ],
+        [
+          "البرمجيات المكتبية والذكاء الاصطناعي",
+          [
+            "Office 365",
+            "الذكاء الاصطناعي"
+          ]
+        ]
+      ]
+    },
+    "expertises": {
+      "titre": "مجالات الخبرة",
+      "items": [
+        [
+          "المنهجية وتقييم المشاريع",
+          "تصميم المشاريع وقيادتها وتقييمها: تصميم البحث، والمؤشرات، وأدوات دعم القرار، وإدارة التغيير."
+        ],
+        [
+          "الإعاقة",
+          "المرافقة التربوية، وتقرير المصير، وتكييف الخدمات، من دور الإيواء إلى الإقامات المكيّفة."
+        ],
+        [
+          "التوحد",
+          "المرافقة التربوية للأشخاص ذوي التوحد وتكييف الخدمات وفق احتياجاتهم."
+        ],
+        [
+          "مرافقة كبار السن",
+          "الشيخوخة، وفقدان الاستقلالية، والبقاء في المنزل، والإعاقة مع التقدم في السن، من الممارسة إلى البحث."
+        ]
+      ]
+    },
+    "axes": {
+      "titre": "محاور العمل",
+      "principaux": [
+        "حوكمة السياسات الصحية وتقييمها",
+        "المقاربة المشتركة بين القطاعات في خط الرعاية الأول",
+        "الشيخوخة وفقدان الاستقلالية وسياسات دعم البقاء في المنزل"
+      ],
+      "secondairesTitre": "محاور ثانوية",
+      "secondaires": [
+        "التخطيط القانوني والتحليل الفقهي وقانون الصحة",
+        "الأداء وإدارة التغيير وقيادة المنظمات",
+        "التحليل المقارن للأنظمة الصحية"
+      ]
+    },
+    "valeurs": {
+      "titre": "قيمي",
+      "devise": [
+        "الشعار",
+        "Ad astra per aspera",
+        "عبر الدروب الوعرة إلى النجوم"
+      ],
+      "items": [
+        [
+          "الفضول الفكري",
+          "الذهاب إلى آفاق أخرى: تخصصات أخرى، وأوساط أخرى، وطرق تفكير أخرى."
+        ],
+        [
+          "الصمود",
+          "تحويل المحن التي اجتزناها إلى مورد للمضي قدمًا."
+        ],
+        [
+          "الاستقلالية",
+          "التفكير باستقلال، ودعم قدرة كل فرد على اختيار مسار حياته."
+        ],
+        [
+          "الحس النقدي",
+          "مساءلة البديهيات والبيانات والمؤسسات، بدءًا بما يخصّنا منها."
+        ],
+        [
+          "التضامن",
+          "ألّا يُترك أحد على قارعة الطريق: مبدأ في المرافقة وفي السياسات العامة."
+        ],
+        [
+          "جرأة المبادرة",
+          "الجرأة على الاقتراح والإبداع وتنفيذ استجابات جديدة."
+        ]
+      ]
+    }
+  },
+  "implantation": {
+    "surtitre": "03 · التنفيذ",
+    "titre": "نقل المعارف والتنفيذ",
+    "intro": "تيسير تداول المعارف بين الأشخاص وأوساط الممارسة والبحث، ثم فحص ما تتيح تغييره فعلًا.",
+    "precision": "في أطروحتي، ترافق تعبئةُ المعارف البحثَ: فهي ليست دراسة تنفيذ ولا تقييمًا لسياسة.",
+    "formation": {
+      "etiquette": "التعليم المستمر · 2026",
+      "titre": "MobilizeU: تعبئة المعارف في البحث",
+      "texte": "Réseau Impact Recherche Canada (شبكة أثر البحث في كندا) وYork University (جامعة يورك). تكوين مخصّص لأطر تعبئة المعارف، والتخطيط، والشراكات، وإشراك الجمهور، والتواصل، وتقييم الآثار.",
+      "themes": [
+        "النظريات والنماذج والأطر",
+        "التخطيط",
+        "الشراكات",
+        "التعبئة الشاملة",
+        "إشراك الجمهور",
+        "التواصل العلمي",
+        "الأثر والتقييم"
+      ],
+      "lien": "https://researchimpact.ca/learning/mobilizeu/",
+      "lienTexte": "اكتشف MobilizeU"
+    },
+    "plan": {
+      "titre": "في أطروحتي: خطة لتعبئة المعارف",
+      "items": [
+        {
+          "nom": "لماذا، وماذا، ولِمَن، وكيف",
+          "texte": "يبني إطار Ward الخطة حول أربعة أسئلة. ويُكمله تسلسل MobilizeU: تحديد «ماذا» و«لماذا» و«مَن» قبل اختيار «كيف»، والصيغ، والقنوات.",
+          "ref": "Ward, 2017 ; Réseau Impact Recherche Canada, 2026"
+        },
+        {
+          "nom": "من المعارف إلى العمل",
+          "texte": "يؤطّر نموذج «من المعرفة إلى العمل» إنتاجَ المعارف وتكييفها وإيصالها ومتابعتها، دون الادعاء بضمان تبنّيها المستدام.",
+          "ref": "Graham et al., 2006"
+        },
+        {
+          "nom": "شراكات قائمة على المبادئ الأربعة (4R)",
+          "texte": "يوجّه الاحترامُ والملاءمةُ والمعاملةُ بالمثل والمسؤوليةُ الشراكاتِ مع المرضى والأوساط المعنية، استنادًا إلى إطار إشراك المرضى الصادر عن IRSC (المعاهد الكندية لأبحاث الصحة).",
+          "ref": "Kirkness & Barnhardt, 1991 ; IRSC, 2014 ; Bowen & Graham, 2013"
+        },
+        {
+          "nom": "حوار تداولي",
+          "texte": "تحوّل ورشةٌ تداولية النتائجَ إلى توصيات مكيّفة مع السياق، مع إعادة النتائج إلى المشاركين. ويُبلَّغ عن المشاركة وفق قائمة GRIPP2.",
+          "ref": "Boyko et al., 2012 ; Lavis et al., 2009 ; Staniszewska et al., 2017"
+        },
+        {
+          "nom": "تتبّع الإسهام لا الإسناد",
+          "texte": "تتيح أربعة مؤشرات (الإنتاج، والانتشار، والتملّك، والاستخدام الموثّق) وسجلٌّ للمتابعة تقديرَ الإسهام المعقول للبحث، دون أن تُنسَب إليه التغييرات اللاحقة.",
+          "ref": "Morton, 2015"
+        }
+      ]
+    },
+    "cadres": {
+      "titre": "مرجعيات في علم التنفيذ",
+      "items": [
+        {
+          "nom": "CFIR 2.0",
+          "texte": "فحص السياق والمحددات التي تيسّر التنفيذ أو تعيقه.",
+          "ref": "Damschroder et al., 2022"
+        },
+        {
+          "nom": "نتائج التنفيذ",
+          "texte": "التمييز بين القبول، والتبنّي، والملاءمة، والجدوى، والأمانة، والكلفة، والانتشار، والاستدامة.",
+          "ref": "Proctor et al., 2011"
+        },
+        {
+          "nom": "أثر البحث",
+          "texte": "ترسم أطر الأثر في الغالب طريق الذهاب، من البحث نحو الممارسة؛ وتتساءل أعمالي أيضًا عن طريق العودة.",
+          "ref": "Greenhalgh et al., 2016 ; Brownson et al., 2026"
+        },
+        {
+          "nom": "مقاربة الإسهامات",
+          "texte": "ربط المخرجات بالاستخدامات، ثم بالتغييرات الموثّقة، مع فحص التأثيرات الأخرى الممكنة.",
+          "ref": "Morton, 2015 ; Bayley & Phipps, 2019"
+        },
+        {
+          "nom": "الإنتاج المشترك والتطبيق المتكامل",
+          "texte": "تتوقف آليات الإنتاج المشترك على البنية التحتية ووضوح الأدوار وتقاسم السلطة؛ ولتكاليفها أيضًا وزنها.",
+          "ref": "Graham et al., 2019 ; Kothari et al., 2025 ; Oliver et al., 2019"
+        },
+        {
+          "nom": "علم تنفيذ نقدي",
+          "texte": "التنظير بدلًا من تطبيق الأطر كما لو كانت قوائم تحقق.",
+          "ref": "Kislov et al., 2019"
+        },
+        {
+          "nom": "المشاركة والتداول",
+          "texte": "تصميم عمليات المشاركة العامة وتقييمها بحيث تترك أثرًا يدل على تأثيرها.",
+          "ref": "Abelson et al., 2003 ; OCDE, 2022"
+        }
+      ]
+    },
+    "ressources": {
+      "titre": "موارد",
+      "items": [
+        [
+          "MobilizeU",
+          "Réseau Impact Recherche Canada",
+          "https://researchimpact.ca/learning/mobilizeu/"
+        ],
+        [
+          "MobilizeU في York University",
+          "تعبئة المعارف",
+          "https://www.yorku.ca/research/innovation-partnerships/knowledge-mobilization/mobilizeu/"
+        ],
+        [
+          "مسرد تعبئة المعارف",
+          "Instituts de recherche en santé du Canada (المعاهد الكندية لأبحاث الصحة)",
+          "https://cihr-irsc.gc.ca/f/54014.html"
+        ],
+        [
+          "إطار إشراك المرضى",
+          "IRSC، استراتيجية البحث المرتكز على المريض",
+          "https://cihr-irsc.gc.ca/f/48413.html"
+        ],
+        [
+          "المبادئ التوجيهية بشأن مشاركة المواطنين",
+          "OCDE (منظمة التعاون الاقتصادي والتنمية)، 2022",
+          "https://doi.org/10.1787/f765caf6-en"
+        ]
+      ]
+    },
+    "mobilizeu": {
+      "titre": "مسار MobilizeU في ثماني وحدات",
+      "detail": "Réseau Impact Recherche Canada · 2026",
+      "intro": "ما استخلصته من كل وحدة، مع القراءات الأساسية المقترحة.",
+      "lectures": "قراءات أساسية",
+      "modules": [
+        [
+          "الوحدة 1",
+          "مقدمة",
+          "تعبئة المعارف",
+          "تربط تعبئة المعارف البحثَ بالأشخاص القادرين على الاستفادة منه: إنتاج المعارف وتكييفها وتقاسمها وتتبّع استخدامها. ويميّز نموذج «من المعرفة إلى العمل» بين إنشاء المعارف ودورة وضعها موضع التطبيق.",
+          [
+            "Graham et al. (2006)",
+            "Graham et al. (2024)"
+          ]
+        ],
+        [
+          "الوحدة 2",
+          "الأطر",
+          "النظريات والنماذج والأطر",
+          "يساعد الإطار على تحديد لماذا نعبّئ المعارف، وأيّ معارف، ومع مَن، وكيف. ويحوّل إطار Ward ذلك إلى أربعة أسئلة بسيطة توجّه كل قرار.",
+          [
+            "Ward (2017)",
+            "Dancause (2023)",
+            "Société Santé en français (2018)"
+          ]
+        ],
+        [
+          "الوحدة 3",
+          "التخطيط",
+          "تخطيط التعبئة",
+          "تحدّد الخطة الجماهير المستهدفة، والأهداف، والرسائل، والأنشطة، والموارد، والجدول الزمني، والمؤشرات. وللانطلاق: معرفة الجماهير، وإحاطة النفس بالشركاء، وإشراك أشخاص ذوي تجربة معيشة، وتنويع الصيغ، والتعلّم من كل تجربة.",
+          [
+            "Diany et al. (2025)",
+            "Dancause (2023)"
+          ]
+        ],
+        [
+          "الوحدة 4",
+          "الشراكات",
+          "بناء الشراكات",
+          "تقوم الشراكة على الترابط المتبادل والإبداع المشترك: تقاسم السلطة والأدوار والمنافع، من بداية المشروع إلى نهايته.",
+          [
+            "Skipper & Pepler (2020)",
+            "Nolet et al. (2017)"
+          ]
+        ],
+        [
+          "الوحدة 5",
+          "الشمول",
+          "تعبئة شاملة",
+          "تشمل العدالة أيضًا تداول المعارف: مَن يُسمَع صوته، ومَن يشارك، ومَن يستفيد. وتستدعي معارف الشعوب الأصلية البناء المشترك والثقة والمعاملة بالمثل.",
+          [
+            "Georgalakis (2023)",
+            "Lévesque (2022)"
+          ]
+        ],
+        [
+          "الوحدة 6",
+          "الجماهير",
+          "إثارة اهتمام الجماهير",
+          "اختيار الصيغة وفق الهدف (الإبداع المشترك، أو النشر، أو التنفيذ)، وتحديد «ماذا» و«لماذا» و«مَن»، ومراعاة إمكانية الوصول بأبعادها المادية والحسية والمالية والثقافية واللغوية.",
+          []
+        ],
+        [
+          "الوحدة 7",
+          "التواصل",
+          "التواصل",
+          "يتقاطع التواصل الاستراتيجي وتطبيق المعارف دون أن يتطابقا: فالأول يدعم الظهور، والثاني يدعم استخدام المعارف. ويمكن للفن البصري أن يصبح أداة للإبداع المشترك مع المعارف النابعة من التجربة.",
+          [
+            "Barwick et al. (2014)",
+            "Courcy et al. (2022)"
+          ]
+        ],
+        [
+          "الوحدة 8",
+          "الأثر",
+          "الأثر والتقييم",
+          "تقييم الأثر يعني تتبّع إسهام البحث في التغييرات، دون نسبتها إليه وحده: المخرجات، ثم الاستخدامات، ثم الآثار الموثّقة.",
+          [
+            "Morton (2015)",
+            "Plouffe (2015)"
+          ]
+        ]
+      ],
+      "suggestions": {
+        "titre": "للتعمّق أكثر",
+        "groupes": [
+          [
+            "مقالات وأدلة",
+            [
+              [
+                "Perdus dans l’application des connaissances : besoin d’une carte ?",
+                "Graham et al., 2024، ترجمة فرنسية",
+                "https://doi.org/10.18166/tuc.2024.8.2.46"
+              ],
+              [
+                "Ten simple rules for getting started with knowledge mobilization",
+                "Diany et al., 2025، مجلة PLOS Computational Biology",
+                "https://doi.org/10.1371/journal.pcbi.1012888"
+              ],
+              [
+                "Guide pédagogique sur la mobilisation des connaissances",
+                "Dancause, 2023، منصة Érudit",
+                "https://www.erudit.org/fr/livres/hors-collection/guide-pedagogique-sur-la-mobilisation-des-connaissances/"
+              ],
+              [
+                "L’interdépendance dans la recherche partenariale",
+                "Nolet et al., 2017، مجلة Nouvelles pratiques sociales",
+                "https://doi.org/10.7202/1043406ar"
+              ]
+            ]
+          ],
+          [
+            "بودكاست",
+            [
+              [
+                "David Phipps on knowledge mobilization",
+                "Technology in Human Services، الحلقة 41 (بالإنجليزية)",
+                "https://researchimpact.ca/announcements/podcast-featuring-david-phipps-on-knowledge-mobilization/"
+              ],
+              [
+                "Exploring podcast options for knowledge mobilization",
+                "CRSP Talk، الحلقة 1، Wilfrid Laurier University (جامعة ويلفريد لورييه)، بالإنجليزية",
+                "https://exhibits.wlu.ca/s/online-exhibitions/item/5862"
+              ]
+            ]
+          ],
+          [
+            "فيديو",
+            [
+              [
+                "Les retombées vers les milieux : l’évaluation du transfert des connaissances est-elle possible ?",
+                "Laurence Plouffe، IRSST، 2015",
+                "https://www.irsst.qc.ca/publications-et-outils/video/i/100291/n/les-retombees-vers-les-milieux-dans-quelle-mesure-l-evaluation-du-transfert-des-connaissances-est-elle-possible-"
+              ]
+            ]
+          ],
+          [
+            "الصحافة والمدونات",
+            [
+              [
+                "Bâtir des ponts entre savoirs scientifiques et savoirs autochtones",
+                "Carole Lévesque، موقع The Conversation، 2022",
+                "https://theconversation.com/batir-des-ponts-entre-savoirs-scientifiques-et-savoirs-autochtones-184230"
+              ],
+              [
+                "We need to talk about equity in knowledge mobilisation",
+                "James Georgalakis، مدونة Transforming Evidence، 2023 (بالإنجليزية)",
+                "https://transforming-evidence.org/blog/we-need-to-talk-about-equity-in-knowledge-mobilisation"
+              ]
+            ]
+          ]
+        ]
+      }
+    },
+    "bibliographie": {
+      "titre": "المراجع (APA)",
+      "items": [
+        "Abelson, J., Forest, P.-G., Eyles, J., Smith, P., Martin, E., & Gauvin, F.-P. (2003). Deliberations about deliberative methods: Issues in the design and evaluation of public participation processes. Social Science & Medicine, 57(2), 239–251. https://doi.org/10.1016/S0277-9536(02)00343-X",
+        "Barwick, M., Phipps, D., Myers, G., Johnny, M., & Coriandoli, R. (2014). Knowledge translation and strategic communications: Unpacking differences and similarities for scholarly and research communications. Scholarly and Research Communication, 5(3). https://doi.org/10.22230/src.2014v5n3a175",
+        "Bayley, J. E., & Phipps, D. (2019). Building the concept of research impact literacy. Evidence & Policy, 15(4), 597–606. https://doi.org/10.1332/174426417X15034894876108",
+        "Bowen, S. J., & Graham, I. D. (2013). From knowledge translation to engaged scholarship: Promoting research relevance and utilization. Archives of Physical Medicine and Rehabilitation, 94(1 Suppl.), S3–S8. https://doi.org/10.1016/j.apmr.2012.04.037",
+        "Boyko, J. A., Lavis, J. N., Abelson, J., Dobbins, M., & Carter, N. (2012). Deliberative dialogues as a mechanism for knowledge translation and exchange in health systems decision-making. Social Science & Medicine, 75(11), 1938–1945. https://doi.org/10.1016/j.socscimed.2012.06.016",
+        "Brownson, R. C., Iwelunmor, J., Odeny, T. A., Proctor, E. K., & Geng, E. H. (2026). So what? Elevating the impact of implementation science. Implementation Science Communications, 7, 2. https://doi.org/10.1186/s43058-025-00831-9",
+        "Campana, M. (Animateur). (s. d.). David Phipps on knowledge mobilization (épisode 41) [Balado]. Technology in Human Services. https://researchimpact.ca/announcements/podcast-featuring-david-phipps-on-knowledge-mobilization/",
+        "Courcy, I., Bureau, A., & Grenier, G. (2022). L’art visuel comme outil de pratique en mobilisation et transfert de connaissances : retour sur un projet de cocréation d’une murale alliant la recherche, l’art et des savoirs expérientiels. Revue francophone de recherche sur le transfert et l’utilisation des connaissances, 6(3). https://doi.org/10.18166/tuc.2022.6.3.25",
+        "Damschroder, L. J., Reardon, C. M., Widerquist, M. A. O., & Lowery, J. (2022). The updated Consolidated Framework for Implementation Research based on user feedback. Implementation Science, 17, 75. https://doi.org/10.1186/s13012-022-01245-0",
+        "Dancause, L. (2023). Guide pédagogique sur la mobilisation des connaissances (L. Cardinal & J. Luckerhoff, dir.). Laboratoire interdisciplinaire de recherche sur l’enseignement supérieur. https://www.erudit.org/fr/livres/hors-collection/guide-pedagogique-sur-la-mobilisation-des-connaissances/",
+        "Diany, R., Fitzgibbon-Collins, L. K., & Gagliano Taliun, S. A. (2025). Ten simple rules for getting started with knowledge mobilization. PLOS Computational Biology, 21(4), e1012888. https://doi.org/10.1371/journal.pcbi.1012888",
+        "Georgalakis, J. (2023, 16 janvier). We need to talk about equity in knowledge mobilisation. Transforming Evidence. https://transforming-evidence.org/blog/we-need-to-talk-about-equity-in-knowledge-mobilisation",
+        "Graham, I. D., Logan, J., Harrison, M. B., Straus, S. E., Tetroe, J., Caswell, W., & Robinson, N. (2006). Lost in knowledge translation: Time for a map? Journal of Continuing Education in the Health Professions, 26(1), 13–24. https://doi.org/10.1002/chp.47",
+        "Graham, I. D., Logan, J., Harrison, M. B., Straus, S. E., Tetroe, J., Caswell, W., & Robinson, N. (2024). Perdus dans l’application des connaissances : besoin d’une carte ? Revue francophone de recherche sur le transfert et l’utilisation des connaissances, 8(2). https://doi.org/10.18166/tuc.2024.8.2.46",
+        "Graham, I. D., McCutcheon, C., & Kothari, A. (2019). Exploring the frontiers of research co-production: The Integrated Knowledge Translation Research Network concept papers. Health Research Policy and Systems, 17, 88. https://doi.org/10.1186/s12961-019-0501-7",
+        "Greenhalgh, T., Raftery, J., Hanney, S., & Glover, M. (2016). Research impact: A narrative review. BMC Medicine, 14, 78. https://doi.org/10.1186/s12916-016-0620-8",
+        "Instituts de recherche en santé du Canada. (2014). Cadre d’engagement des patients de la Stratégie de recherche axée sur le patient. https://cihr-irsc.gc.ca/f/48413.html",
+        "Kirkness, V. J., & Barnhardt, R. (1991). First Nations and higher education: The four R’s—Respect, relevance, reciprocity, responsibility. Journal of American Indian Education, 30(3), 1–15.",
+        "Kislov, R., Pope, C., Martin, G. P., & Wilson, P. M. (2019). Harnessing the power of theorising in implementation science. Implementation Science, 14, 103. https://doi.org/10.1186/s13012-019-0957-4",
+        "Kothari, A., Sibbald, S. L., McCutcheon, C., Berta, W., Urquhart, R., Horsley, T., Comer, L., & Graham, I. D. (2025). How does integrated knowledge translation work? A realist review. Health Research Policy and Systems, 23, 102. https://doi.org/10.1186/s12961-025-01374-0",
+        "Lavis, J. N., Boyko, J. A., Oxman, A. D., Lewin, S., & Fretheim, A. (2009). SUPPORT Tools for evidence-informed health Policymaking (STP) 14: Organising and using policy dialogues to support evidence-informed policymaking. Health Research Policy and Systems, 7(Suppl. 1), S14. https://doi.org/10.1186/1478-4505-7-S1-S14",
+        "Lévesque, C. (2022, 14 juin). Bâtir des ponts entre savoirs scientifiques et savoirs autochtones. The Conversation. https://theconversation.com/batir-des-ponts-entre-savoirs-scientifiques-et-savoirs-autochtones-184230",
+        "Morton, S. (2015). Progressing research impact assessment: A “contributions” approach. Research Evaluation, 24(4), 405–419. https://doi.org/10.1093/reseval/rvv016",
+        "Nolet, A.-M., Cousineau, M.-M., Maheu, J., & Gervais, L. (2017). L’interdépendance dans la recherche partenariale. Nouvelles pratiques sociales, 29(1-2), 271–287. https://doi.org/10.7202/1043406ar",
+        "OECD. (2022). OECD guidelines for citizen participation processes. OECD Publishing. https://doi.org/10.1787/f765caf6-en",
+        "Oliver, K., Kothari, A., & Mays, N. (2019). The dark side of coproduction: Do the costs outweigh the benefits for health research? Health Research Policy and Systems, 17, 33. https://doi.org/10.1186/s12961-019-0432-3",
+        "Plouffe, L. (2015, 20 novembre). Les retombées vers les milieux : dans quelle mesure l’évaluation du transfert des connaissances est-elle possible? [Vidéo]. Institut de recherche Robert-Sauvé en santé et en sécurité du travail. https://www.irsst.qc.ca/publications-et-outils/video/i/100291/n/les-retombees-vers-les-milieux-dans-quelle-mesure-l-evaluation-du-transfert-des-connaissances-est-elle-possible-",
+        "Proctor, E., Silmere, H., Raghavan, R., Hovmand, P., Aarons, G., Bunger, A., Griffey, R., & Hensley, M. (2011). Outcomes for implementation research: Conceptual distinctions, measurement challenges, and research agenda. Administration and Policy in Mental Health and Mental Health Services Research, 38(2), 65–76. https://doi.org/10.1007/s10488-010-0319-7",
+        "Réseau Impact Recherche Canada. (2026). MobilizeU : formation en mobilisation des connaissances. https://researchimpact.ca/learning/mobilizeu/",
+        "Skipper, Y., & Pepler, D. J. (2020). Knowledge mobilization: Stepping into interdependent and relational space using co-creation. Action Research. Publication anticipée en ligne. https://doi.org/10.1177/1476750320960810",
+        "Société Santé en français. (2018). Stratégie de mobilisation des connaissances 2018-2023. https://resefan.ca/wp-content/uploads/xx/02/5_-_strategie_mdc_ssf_18-23_finale.pdf",
+        "Staniszewska, S., Brett, J., Simera, I., Seers, K., Mockford, C., Goodlad, S., Altman, D. G., Moher, D., Barber, R., Denegri, S., Entwistle, A., Littlejohns, P., Morris, C., Suleman, R., Thomas, V., & Tysall, C. (2017). GRIPP2 reporting checklists: Tools to improve reporting of patient and public involvement in research. BMJ, 358, j3453. https://doi.org/10.1136/bmj.j3453",
+        "Ward, V. (2017). Why, whose, what and how? A framework for knowledge mobilisers. Evidence & Policy, 13(3), 477–497. https://doi.org/10.1332/174426416X14634763278725"
+      ]
+    },
+    "transfert": {
+      "titre": "نقل المعارف والتنفيذ",
+      "detail": "خمس مراحل",
+      "etapes": [
+        [
+          "الإصغاء",
+          "بناء السؤال مع الأوساط المعنية",
+          "تحديد الاحتياجات والقرارات التي ينبغي إنارتها. وتحديد مَن يشارك، وفي أي مرحلة، وبأي قدر من التأثير.",
+          [
+            "الاحتياجات",
+            "المشاركة"
+          ]
+        ],
+        [
+          "التداول",
+          "وضع المعارف في سياقها",
+          "إقامة حوار بين البحث والمعارف النابعة من التجربة. وتكييف الصيغة واللغة والمحتوى مع الاستخدامات المقصودة.",
+          [
+            "معارف التجربة",
+            "صيغ مكيّفة"
+          ]
+        ],
+        [
+          "البناء المشترك",
+          "مناقشة الخيارات والقرارات",
+          "الاستشارة تجمع الآراء؛ والبناء المشترك يعني الإعداد معًا؛ والتداول يعني فحص الحجج والموازنات. مع توثيق التأثير الفعلي للإسهامات.",
+          [
+            "البناء المشترك",
+            "التداول"
+          ]
+        ],
+        [
+          "التنفيذ",
+          "مرافقة التطبيق",
+          "فحص السياق والموارد والعقبات. وتحديد الفاعلين والتكييفات واستراتيجيات المرافقة، بالاستعانة بأطر مثل CFIR.",
+          [
+            "التنفيذ",
+            "CFIR"
+          ]
+        ],
+        [
+          "التقييم",
+          "التمييز بين الإنتاج والاستخدام والتغيير",
+          "الأداة المنشورة مُخرَج. وتبنّيها نتيجة من نتائج التنفيذ. أما التغييرات التي تطرأ على الخدمات وعلى حياة الأشخاص فهي نتائج أخرى ينبغي توثيقها.",
+          [
+            "التقييم",
+            "الأثر"
+          ]
+        ]
+      ],
+      "note": "حاصل على تكوين في تعبئة المعارف (MobilizeU، Research Impact Canada وYork University، 2026)."
+    }
+  },
+  "publications": {
+    "surtitre": "04 · المنشورات",
+    "titre": "العروض العلمية والرسائل الجامعية والأدوات",
+    "intro": "يحتفظ كل عمل بعنوانه الأصلي ومؤلفيه ووضعه. وتُعرض المخطوطات الجارية في قاعة «البحث».",
+    "groupes": [
+      {
+        "titre": "العروض العلمية",
+        "items": [
+          {
+            "date": "يونيو 2026",
+            "statut": "جائزة أفضل ملصق · الدكتوراه وما بعد الدكتوراه",
+            "titre": "Intégration des soins et services de proximité pour soutenir l’autonomie domiciliaire des personnes aînées : une étude qualitative comparative",
+            "detail": "Bernier, É., Sourial, N., Layani, G. · Groupe francophone en soins primaires (المجموعة الفرنكوفونية للرعاية الأولية، GFSP)، مونتريال · عرض بملصق"
+          },
+          {
+            "date": "مايو 2026",
+            "statut": "ملصق",
+            "titre": "Integrating Care and Services to Support Aging at Home: A Comparative Analysis of Institutional, Organizational, and Professional Mechanisms in France and Quebec",
+            "detail": "Bernier, É., Sourial, N., Layani, G. · CAHSPR، أوتاوا"
+          },
+          {
+            "date": "أبريل 2026",
+            "statut": "ملصق وعرض في 180 ثانية",
+            "titre": "Intégration des soins et services de proximité pour soutenir l’autonomie domiciliaire des personnes aînées : une étude qualitative comparative",
+            "detail": "Bernier, É., Sourial, N., Layani, G. · Réseau québécois de recherche sur le vieillissement (الشبكة الكيبيكية لأبحاث الشيخوخة، RQRV)، شيربروك · ملصق وتبسيط علمي في 180 ثانية"
+          }
+        ]
+      },
+      {
+        "titre": "رسائل جامعية نوقشت أمام لجنة",
+        "items": [
+          {
+            "date": "2025",
+            "titre": "Vieillir chez soi : réalités et mise en œuvre du virage domiciliaire. Une étude comparée France / Québec",
+            "detail": "ماستر في القانون · Université Paris-Panthéon-Assas (جامعة باريس بانتيون أساس) · إشراف: Benoît Apollis"
+          },
+          {
+            "date": "2024",
+            "titre": "La prise en charge des personnes en situation de handicap vieillissantes : comment les établissements d’hébergement pour personnes âgées dépendantes peuvent-ils adapter leurs structures et services à leurs besoins spécifiques ?",
+            "detail": "ماجستير في إدارة المؤسسات · Université de Bretagne Occidentale (جامعة بريتاني الغربية) · إشراف: Michelle-Hentic Giliberto"
+          },
+          {
+            "date": "2023",
+            "titre": "Parcours de vie et autodétermination : l’influence des pratiques éducatives sur le parcours de vie des personnes en situation de handicap en institution d’hébergement",
+            "detail": "دبلوم الدولة للمربي المتخصص · Académie de Rennes (الأكاديمية التعليمية لرين)"
+          }
+        ]
+      },
+      {
+        "titre": "أدوات مهنية",
+        "items": [
+          {
+            "date": "2024–2025",
+            "titre": "إصلاح خدمات الاستقلالية في المنزل: أدوات لدعم القرار",
+            "detail": "Agence nationale d’appui à la performance (الوكالة الوطنية لدعم الأداء، ANAP) · عدة آلاف من التنزيلات",
+            "lien": "https://anap.fr/s/article/reforme-services-autonomie-a-domicile"
+          },
+          {
+            "date": "2024–2025",
+            "titre": "مراكز الموارد الإقليمية: عشر أدوات لدعم القيادة",
+            "detail": "ANAP · عدة آلاف من التنزيلات",
+            "lien": "https://www.anap.fr/s/article/centre-ressources-territorial-crt-ambition-nouvelle"
+          }
+        ]
+      }
+    ]
+  },
+  "biographie": {
+    "surtitre": "05 · السيرة",
+    "titre": "من التجارب الإنسانية إلى التحولات الجماعية",
+    "intro": [
+      "مربٍّ متخصص وقانوني ورائد أعمال وطالب دكتوراه في الصحة العامة، تشكّل مساري في ملتقى عوالم مختلفة: مرافقة الأشخاص، وإدارة المنظمات، والقانون، والسياسات العامة، والبحث.",
+      "وخلف هذا التنوع يكمن طموح واحد: **فهم الآليات التي تشكّل المسارات الفردية والجماعية، للإسهام في بناء مجتمعات أكثر عدلًا وتضامنًا، وقادرة على الاعتراف بإمكانات الفعل لدى كل فرد.**",
+      "ويغذّي مساري، الشخصي والمهني على حد سواء، قناعةً راسخة: لا يمكن فصل الواقع الإنساني عن الأنظمة الاجتماعية والتنظيمية والسياسية التي يندرج فيها.",
+      "ويتبع هذا المسار دينامية تصاعدية: من مرافقة الأشخاص نحو تحويل المنظمات وسياسات الصحة والخدمات الاجتماعية، مع توجّه واضح نحو دعم القرار العمومي."
+    ],
+    "citation": "لا يمكن فصل الواقع الإنساني عن الأنظمة الاجتماعية والتنظيمية والسياسية التي يندرج فيها.",
+    "chapitres": [
+      [
+        "بناء الذات خارج المسارات التقليدية",
+        [
+          "بدأ مساري في فرنسا، في وسط شعبي، طبعته على وجه الخصوص تجربةٌ مع نظام الرعاية الاجتماعية للطفولة وانقطاعٌ عن الدراسة في سن السادسة عشرة.",
+          "وبعيدًا عن المسار الأكاديمي التقليدي، بنيتُ مساري تدريجيًا من خلال العمل، واستكشاف أوساط مختلفة، والعودة إلى الدراسة.",
+          "وقد غذّت هذه التجارب، شأنها شأن تنوّعي العصبي، استقلاليةَ تفكيري وقدرتي على التكيّف واهتمامي بآليات إعادة الإنتاج الاجتماعي والتحرر والتضامن. وهي تسهم اليوم في تشكيل نظرتي إلى المؤسسات وإلى تنوع التجارب الإنسانية."
+        ]
+      ],
+      [
+        "الإبداع واللقاء وأخلاقيات الرعاية",
+        [
+          "قادني اهتمامي بالموسيقى إلى الالتحاق بدراسة الليسانس في علم الموسيقى، بالتوازي مع تجاربي الأولى في التنشيط، ثم إلى تولّي مسؤولية إقامات مكيّفة لفائدة أشخاص في وضعية إعاقة.",
+          "وبعيدًا عن اختلافاتها، أتاحت لي هذه العوالم استكشاف العلاقات الإنسانية في أبعاد متعددة: التعبير الفردي، والحياة الجماعية، والمرافقة، والمسؤولية تجاه الآخر.",
+          "وعلى امتداد إحدى عشرة سنة من الالتزام إلى جانب الهشاشة الإنسانية، منحت هذه التجارب تدريجيًا مكانةً محورية لأخلاقيات *الرعاية*، وللاعتراف بالقدرات الفردية، ولأهمية مرافقةٍ تعزّز الاستقلالية بدلًا من التبعية. كما أظهرت لي قوة آليات التضامن."
+        ]
+      ],
+      [
+        "من المرافقة إلى تقرير المصير",
+        [
+          "بعد سنوات عديدة من العمل الميداني، رغبتُ في إعطاء توجّه جديد لنشاطي المهني، مسترشدًا بتفكير في المنفعة الاجتماعية وفي المكانة التي أردتُ أن أشغلها في المجتمع.",
+          "فعدتُ إلى الدراسة في التربية المتخصصة لتعميق الأسس النظرية والأخلاقية والمنهجية للمرافقة في القطاعين الاجتماعي والطبي الاجتماعي، مع إعادة تركيز ممارستي على تقرير المصير وعلى «العمل مع» الأشخاص.",
+          "وقد شكّلت رسالتي في الممارسة المهنية، المخصّصة لتأثير الممارسات التربوية في تقرير المصير، منعطفًا في تساؤلاتي: **كيف نعزّز حرية الأشخاص في الاختيار حين تكون شروط مرافقتهم محكومةً أيضًا بطريقة عمل المؤسسات؟**"
+        ]
+      ],
+      [
+        "فهم المنظمات لتحويل الممارسات",
+        [
+          "قادني هذا التساؤل إلى توسيع تفكيري ليشمل المنظمات ذاتها.",
+          "فتابعتُ تكوينًا في إدارة المؤسسات الصحية والطبية الاجتماعية وتسييرها، إلى جانب دبلوم جامعي في ريادة الأعمال من IAE de Brest (معهد إدارة الأعمال في بريست)، حصلتُ عليه سنة 2023.",
+          "وفيهما عمّقتُ قضايا الإدارة والتمويل والتنسيق والموارد البشرية وإدارة التغيير. ولاحظتُ أن صعوبات المؤسسات، من التمويل إلى العمل الشراكي فالتوظيف، كانت مشروطةً إلى حد بعيد بالسياسات العامة للصحة.",
+          "وقد سعيتُ قبل كل شيء إلى فهم الشروط التي تمكّن المهنيين من ترجمة نواياهم إلى ممارسات فعلية، وتمكّن المنظمات من التوفيق بين قيودها واحتياجات الأشخاص."
+        ]
+      ],
+      [
+        "من طريقة عمل المؤسسات إلى حوكمة الأنظمة الصحية",
+        [
+          "قادتني دراسة المنظمات إلى استكشاف الآليات التي توجّه قراراتها: الأطر القانونية، والسياسات العامة، والتخطيط، وآليات التمويل، وأنماط الحوكمة.",
+          "وواصلتُ هذا التفكير في Université Paris-Panthéon-Assas (جامعة باريس بانتيون أساس)، في القانون العام والصحي والاجتماعي، لتجاوز الإشكاليات التسييرية واعتماد مقاربة متعددة المستويات للنظام الصحي وللأدوات القانونية للتضامن الوطني، ثم بصفتي مكلّفًا بالمشاريع في Agence nationale d’appui à la performance (الوكالة الوطنية لدعم الأداء، ANAP).",
+          "وأتاحت لي هذه التجربة العمل عند نقطة التقاء التوجهات الوطنية بالواقع التشغيلي، عبر ترجمة هذه التوجهات إلى آليات ملموسة، على تماسّ مع القضايا التي يواجهها المسيّرون والمهنيون ومستخدمو النظام الصحي.",
+          "وقد عزّزت اهتمامي بصعوبات تنفيذ السياسات العامة، ولا سيما حين تقتضي الاستجابات المطلوبة تجاوزَ الحدود بين المنظمات وقطاعات التدخل. وقد كشف هذا الانغماس، الذي عزّزته رسالة بحث، عن صعوبات تنفيذ نماذج الرعاية والخدمات المتكاملة، وعن ضرورة مقاربة مشتركة بين القطاعات ومتعددة التخصصات في مواجهة الممارسات المنعزلة. فتواصلتُ حينها مع عدد من الباحثين في كيبيك، وعرضتُ عليهم ملاحظاتي ومشروعًا لمقارنة الأنظمة الصحية، بحثًا عن حلول لصعوبات تنفيذ سياسات البقاء في المنزل."
+        ]
+      ],
+      [
+        "إنتاج المعارف لإنارة العمل الجماعي",
+        [
+          "واليوم، يواصل هذا المسارَ برنامجُ الدكتوراه في الصحة العامة الذي أتابعه في Université de Montréal (جامعة مونتريال)، تحت إشراف الدكتورتين N. Sourial وG. Layani.",
+          "وتتناول أعمالي تنظيم أنظمة الصحة والخدمات الاجتماعية، والاحتياجات الاجتماعية للسكان، والتعاون بين القطاعات، وشروط تنفيذ استجابات متكاملة، لا سيما في مجال الدعم المنزلي.",
+          "ومقاربتي متعددة التخصصات وبراغماتية بامتياز. وهي تسعى إلى التقريب بين التجارب المعيشة والمعارف العلمية وواقع صنع القرار، لفهم الظواهر المدروسة على نحو أفضل والإسهام في تحويل الممارسات والسياسات العامة.",
+          "وأولي اهتمامًا خاصًا للفئات السكانية التي تعاني فقدان الاستقلالية والبعيدة عن الخدمات، وللبحث التشاركي الذي يُدمج المرضى بوصفهم منتجين للمعارف، ولنقل المعارف وتعبئتها من قِبل الأشخاص والمهنيين والمنظمات وصنّاع القرار.",
+          "وتمتد هذه الرغبة في الإبداع والتجريب والاقتراح أيضًا إلى ريادة الأعمال، ولا سيما من خلال تطوير **OWNNIGHT**، وهو مشروع قيد الإنشاء."
+        ]
+      ]
+    ],
+    "vision": {
+      "titre": "رؤية تربط بين التجارب والمعارف والعمل",
+      "paragraphes": [
+        "أومن بأن المعارف الأكاديمية والمهنية والمعارف النابعة من التجربة تكسب من مقابلة بعضها ببعض بدلًا من ترتيبها في تسلسل هرمي.",
+        "وقد أتاح لي مساري اكتشاف طبقات مختلفة من المجتمع ومن النظام الصحي، وشغل مواقع متنوعة فيها، وملاحظة تفاعلاتها. وتشكّل هذه التعددية في وجهات النظر اليوم أحد موارد مسعاي العلمي.",
+        "**يمثّل البحث بالنسبة إليّ أداةً للفهم، ولكنه أيضًا أداة للتحرر الإنساني وللعدالة الاجتماعية ولدعم القرار الجماعي.** وتكمن قيمته في صرامة المعارف المنتَجة بقدر ما تكمن في قدرتها على إثراء النقاش، وإنارة الخيارات، ودعم تنفيذها.",
+        "ويندرج هذا البحث ضمن أهداف التنمية المستدامة للأمم المتحدة: تحسين رفاه كبار السن، والحد من أوجه عدم المساواة في البقاء في المنزل، وتعزيز مؤسسات شاملة وخاضعة للمساءلة. وعلى المدى البعيد، أطمح إلى أن أصبح باحثًا مستقلًا، معروفًا بالتزامه بالربط بين البيّنات العلمية والحوار بين الأطراف المعنية وتبسيط العلوم للجمهور العريض.",
+        "الفضول الفكري، والصمود، والاستقلالية، والحس النقدي، والتضامن، وجرأة المبادرة: قيمٌ تسري في مساري كله.",
+        "وأرغب في مواصلة هذا الاستكشاف عند ملتقى التخصصات والأوساط، مقتنعًا بأن الاستجابة لتحديات الصحة العامة المعاصرة تقتضي إقامة الحوار بين الأشخاص والمعارف والمؤسسات."
+      ]
+    },
+    "conclusion": "Ad astra per aspera — عبر الدروب الوعرة إلى النجوم."
+  },
+  "parcours": {
+    "surtitre": "06 · المسار",
+    "titre": "المؤهلات والخبرات",
+    "sousTitre": "من الميدان إلى السياسات الصحية",
+    "intro": "من التربية المتخصصة إلى الدكتوراه: الشهادات والمناصب والتكوينات التي طبعت هذا المسار.",
+    "types": {
+      "formation": "التعليم",
+      "experience": "الخبرة المهنية",
+      "entreprise": "ريادة الأعمال"
+    },
+    "etapes": [
+      {
+        "date": "جارٍ",
+        "type": "entreprise",
+        "titre": "إنشاء OWNNIGHT · رائد أعمال",
+        "detail": "تطبيق Android للعافية والتثقيف في مجال النوم: خطة فردية، ودروس، وجلسات موجَّهة. تبقى البيانات على الهاتف، دون حاجة إلى حساب."
+      },
+      {
+        "date": "منذ 2025",
+        "type": "formation",
+        "titre": "دكتوراه في الصحة العامة · ESPUM",
+        "detail": "تخصص الأنظمة والمنظمات والسياسات الصحية (SOPS)، السنة الثانية. متدرّب بحثي في CRCHUM: سياسات الرعاية الأولية، والعمل المشترك بين القطاعات، وتكامل الرعاية والخدمات.",
+        "discret": "المعدل التراكمي: 4.1"
+      },
+      {
+        "date": "2025",
+        "type": "formation",
+        "titre": "ماستر في القانون (LL.M.)",
+        "detail": "القانون العام والقانون الاجتماعي وقانون الصحة · Université Paris-Panthéon-Assas، مع تنويه خاص من لجنة التحكيم."
+      },
+      {
+        "date": "2024–2025",
+        "type": "experience",
+        "titre": "مكلّف بمهمة · Agence nationale d’appui à la performance (الوكالة الوطنية لدعم الأداء)",
+        "detail": "باريس. مرافقة تحوّل العرض في مجال الصحة والخدمات الاجتماعية، وقيادة المشاريع، وإنتاج أدوات لدعم القرار، وتنشيط شبكة من الخبراء ومجتمعات الممارسة."
+      },
+      {
+        "date": "2024",
+        "type": "formation",
+        "titre": "ماجستير في إدارة المؤسسات الصحية",
+        "detail": "Université de Bretagne Occidentale (جامعة بريتاني الغربية)، مع تنويه خاص من لجنة التحكيم."
+      },
+      {
+        "date": "2023",
+        "type": "formation",
+        "titre": "دبلوم جامعي في ريادة الأعمال",
+        "detail": "Institut d’administration des entreprises (IAE) de Brest (معهد إدارة الأعمال في بريست)، مع تنويه خاص من لجنة التحكيم."
+      },
+      {
+        "date": "2023",
+        "type": "formation",
+        "titre": "دبلوم الدولة للمربي المتخصص",
+        "detail": "Académie de Rennes (الأكاديمية التعليمية لرين)."
+      },
+      {
+        "date": "2020–2023",
+        "type": "experience",
+        "titre": "مربٍّ متخصص",
+        "detail": "دار إيواء، Adapei 35، سان مالو: تقييم الاحتياجات، والبناء المشترك للمشاريع الفردية، وتنسيق فريق متعدد التخصصات."
+      },
+      {
+        "date": "2016–2024",
+        "type": "experience",
+        "titre": "مسؤول عن إقامات الراحة المؤقتة",
+        "detail": "إقامات مكيّفة للأشخاص في وضعية إعاقة، بريست: التأطير، ومشاريع الخدمة، وإدارة الفرق والميزانية والخدمات اللوجستية."
+      }
+    ],
+    "continue": {
+      "titre": "التعليم المستمر · 2026",
+      "items": [
+        "السلوك المسؤول في البحث · CRCHUM",
+        "ممارسة مهام المساعد البحثي · Université de Montréal",
+        "MobilizeU، تعبئة المعارف · Research Impact Canada وYork University"
+      ]
+    },
+    "note": "شهادات فرنسية جرى تقييمها من قِبل وزارة الهجرة والفرنسة والإدماج في كيبيك (MIFI) ومن قِبل WES Canada."
+  },
+  "engagements": {
+    "surtitre": "07 · الانخراط",
+    "titre": "التمثيل، والتدريس، والإسهام",
+    "intro": "حضور في الحياة الطلابية والعلمية، امتدادًا للمسار.",
+    "groupes": [
+      {
+        "titre": "التمثيل الطلابي",
+        "items": [
+          {
+            "date": "2026",
+            "titre": "منسّق برنامج الدكتوراه في الصحة العامة · AÉÉSPUM",
+            "detail": "منتخَب."
+          },
+          {
+            "date": "2026",
+            "titre": "ممثل طلاب الدكتوراه · DGEPS",
+            "detail": "Département de gestion, d’évaluation et de politique de santé (قسم الإدارة والتقييم والسياسات الصحية)، ESPUM."
+          },
+          {
+            "date": "شتاء 2026",
+            "titre": "سفير Université de Montréal"
+          },
+          {
+            "date": "2022–2024",
+            "titre": "ممثل منتخَب في مجلس إدارة CROUS (المركز الإقليمي للخدمات الجامعية والمدرسية)",
+            "detail": "فرنسا."
+          },
+          {
+            "date": "2021",
+            "titre": "رئيس المكتب الإقليمي لطلاب العمل الاجتماعي في Askoria",
+            "detail": "فرنسا."
+          }
+        ]
+      },
+      {
+        "titre": "الخبرة في التدريس",
+        "items": [
+          {
+            "date": "خريف 2026",
+            "statut": "جارٍ",
+            "titre": "مساعد تدريس · SPU 7001 وASA 6754 وASA 6765",
+            "detail": "Université de Montréal."
+          },
+          {
+            "date": "شتاء 2026",
+            "titre": "مساعد تدريس · ASA 6754",
+            "detail": "النظام الصحي وصحة السكان، Université de Montréal: مرافقة الطلاب، وتصحيح الامتحانات الكتابية والشفوية."
+          }
+        ]
+      },
+      {
+        "titre": "المجتمع العلمي",
+        "items": [
+          {
+            "date": "يونيو 2026",
+            "titre": "اللجنة العلمية ليوم الباحثين الناشئين في GFSP",
+            "detail": "عضو طالب."
+          }
+        ]
+      },
+      {
+        "titre": "المنح والجوائز",
+        "items": [
+          {
+            "date": "2026",
+            "titre": "جائزة أفضل عرض بملصق، الدكتوراه وما بعد الدكتوراه",
+            "detail": "يوم الباحثين الناشئين، Groupe francophone en soins primaires."
+          },
+          {
+            "date": "2025",
+            "titre": "منحة الدكتوراه من Fonds de recherche du Québec (B2)",
+            "detail": "منحة تميّز، المرتبة 3.",
+            "lien": "https://doi.org/10.69777/2009461"
+          },
+          {
+            "date": "2025",
+            "titre": "منحة الاستقطاب الدولي",
+            "detail": "الدراسات العليا وما بعد الدكتوراه، Université de Montréal."
+          },
+          {
+            "date": "2023–2025",
+            "titre": "ثلاثة تنويهات خاصة من لجان التحكيم",
+            "detail": "التميّز الأكاديمي."
+          }
+        ]
+      },
+      {
+        "titre": "المشاركة المدنية",
+        "items": [
+          {
+            "date": "2023",
+            "titre": "رجل إطفاء متطوع",
+            "detail": "Centre d’incendie et de secours de Dinard (مركز الإطفاء والإنقاذ في دينار)، فرنسا."
+          },
+          {
+            "date": "2013",
+            "titre": "العمل التطوعي والخدمة المدنية",
+            "detail": "Association de la fondation étudiante pour la ville (جمعية المؤسسة الطلابية من أجل المدينة، AFEV)، فرنسا."
+          }
+        ]
+      },
+      {
+        "titre": "الرياضة والترفيه",
+        "items": [
+          {
+            "date": "الجري",
+            "titre": "عدّاء ماراثون ثلاث مرات",
+            "detail": "ماراثون باريس 2025 و2026، وماراثون مونتريال 2026."
+          },
+          {
+            "date": "الموسيقى",
+            "titre": "البيانو والغناء والغيتار"
+          },
+          {
+            "date": "الرياضة",
+            "titre": "هوكي الجليد"
+          }
+        ]
+      }
+    ],
+    "affiliations": {
+      "titre": "عضو طالب",
+      "items": [
+        "Chaire de recherche GSK en gestion optimale des maladies chroniques",
+        "Groupe francophone en soins primaires (GFSP)",
+        "Réseau québécois de recherche sur le vieillissement (RQRV)",
+        "Canadian Association for Health Services and Policy Research (الجمعية الكندية لبحوث الخدمات والسياسات الصحية، CAHSPR)"
+      ]
+    }
+  },
+  "contact": {
+    "surtitre": "التواصل",
+    "titre": "لنتحاور حول عمل ما",
+    "intro": "سؤال، أو قراءة تودّ مشاركتها، أو مشروع للنقاش: راسلني.",
+    "courriel": "eric.bernier.1@umontreal.ca",
+    "ecrire": "أرسل بريدًا إلكترونيًا",
+    "liens": [
+      [
+        "السيرة الذاتية الأكاديمية",
+        "PDF",
+        "docs/cv-academique.pdf"
+      ],
+      [
+        "السيرة الذاتية المهنية",
+        "PDF",
+        "docs/cv-professionnel.pdf"
+      ],
+      [
+        "ORCID",
+        "0009-0001-4236-4932",
+        "https://orcid.org/0009-0001-4236-4932"
+      ],
+      [
+        "LinkedIn",
+        "الملف الشخصي",
+        "https://www.linkedin.com/in/eric-b-5aa52b250"
+      ],
+      [
+        "ملصق مشروع الأطروحة",
+        "نسخة ميسّرة",
+        "https://erjb-web.github.io/affiche-releve/ar/"
+      ]
+    ],
+    "adresse": "École de santé publique de l’Université de Montréal (كلية الصحة العامة بجامعة مونتريال) · 7101, avenue du Parc, Montréal (Québec)"
+  },
+  "pied": "© 2026 Éric Bernier · موقع بلا ملفات تعريف الارتباط ولا قياس للجمهور.",
+  "credits": "صور الأبواب: صور فوتوغرافية من Unsplash وصورة Éric Bernier الشخصية؛ صورة المدرّج مولَّدة، والرسوم التوضيحية مرسومة خصيصًا للموقع.",
+  "introuvable": {
+    "titre": "الصفحة غير موجودة",
+    "texte": "هذه الصفحة غير موجودة أو نُقلت إلى مكان آخر.",
+    "retour": "العودة إلى الصفحة الرئيسية"
+  }
+}
