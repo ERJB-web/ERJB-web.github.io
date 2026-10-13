@@ -563,7 +563,7 @@ const fr = {
         ],
         [
           "Transformation de l’offre et appui à la performance",
-          "Chargé de mission à l’Agence nationale d’appui à la performance (ANAP, Paris) en 2024–2025, j’ai accompagné la transformation de l’offre en santé et en services sociaux. Cette mission a porté sur des outils d’aide à la décision pour la réforme des services autonomie à domicile et sur dix outils de pilotage des centres de ressources territoriaux, qui totalisent plusieurs milliers de téléchargements."
+          "Chargé de mission à l’Agence nationale d’appui à la performance (ANAP, Paris) en 2024–2025, j’ai accompagné la transformation de l’offre en santé et en services sociaux : copilotage du réseau des experts, animation de webinaires, recueil et analyse de données, animation et coconstruction de séances de communautés de pratique."
         ],
         [
           "Vieillissement, autonomie et EHPAD",
@@ -1198,34 +1198,54 @@ const fr = {
     ]
   },
   publications: {
-    surtitre: "04 · Publications",
-    titre: "Communications, mémoires et outils",
-    intro: "Chaque travail garde son titre original, ses auteurs et son statut. Les manuscrits en cours sont présentés dans la salle La recherche.",
-    groupes: [
+    "surtitre": "04 · Publications",
+    "titre": "Communications, mémoires et outils",
+    "intro": "Chaque travail garde son titre original, ses auteurs et son statut. Les manuscrits en cours sont présentés dans la salle La recherche.",
+    "groupes": [
       {
-        titre: "Communications scientifiques",
-        items: [
-          { date: "Juin 2026", statut: "Prix de la meilleure affiche · 3e cycle et postdoctorat", titre: TITRES_ORIGINAUX.gfsp, detail: `${AUTEURS.trio} · Groupe francophone en soins primaires (GFSP), Montréal · présentation par affiche` },
-          { date: "Mai 2026", statut: "Affiche", titre: TITRES_ORIGINAUX.cahspr, detail: `${AUTEURS.trio} · CAHSPR, Ottawa` },
-          { date: "Avril 2026", statut: "Affiche et 180 secondes", titre: TITRES_ORIGINAUX.gfsp, detail: `${AUTEURS.trio} · Réseau québécois de recherche sur le vieillissement (RQRV), Sherbrooke · affiche et vulgarisation en 180 secondes` },
-        ],
+        "titre": "Communications scientifiques",
+        "items": [
+          {
+            "date": "Juin 2026",
+            "statut": "Prix de la meilleure affiche · 3e cycle et postdoctorat",
+            "titre": "Intégration des soins et services de proximité pour soutenir l’autonomie domiciliaire des personnes aînées : une étude qualitative comparative",
+            "detail": "Bernier, É., Sourial, N., Layani, G. · Groupe francophone en soins primaires (GFSP), Montréal · présentation par affiche"
+          },
+          {
+            "date": "Mai 2026",
+            "statut": "Affiche",
+            "titre": "Integrating Care and Services to Support Aging at Home: A Comparative Analysis of Institutional, Organizational, and Professional Mechanisms in France and Quebec",
+            "detail": "Bernier, É., Sourial, N., Layani, G. · CAHSPR, Ottawa"
+          },
+          {
+            "date": "Avril 2026",
+            "statut": "Affiche et 180 secondes",
+            "titre": "Intégration des soins et services de proximité pour soutenir l’autonomie domiciliaire des personnes aînées : une étude qualitative comparative",
+            "detail": "Bernier, É., Sourial, N., Layani, G. · Réseau québécois de recherche sur le vieillissement (RQRV), Sherbrooke · affiche et vulgarisation en 180 secondes"
+          }
+        ]
       },
       {
-        titre: "Mémoires soutenus devant jury",
-        items: [
-          { date: "2025", titre: TITRES_ORIGINAUX.memoireDroit, detail: "Master en droit · Université Paris Panthéon-Assas · direction : Benoît Apollis" },
-          { date: "2024", titre: TITRES_ORIGINAUX.memoireGestion, detail: "Maîtrise en direction d’établissements · Université de Bretagne Occidentale · direction : Michelle-Hentic Giliberto" },
-          { date: "2023", titre: TITRES_ORIGINAUX.memoireEduc, detail: "Diplôme d’État d’éducateur spécialisé · Académie de Rennes" },
-        ],
-      },
-      {
-        titre: "Outils professionnels",
-        items: [
-          { date: "2024–2025", titre: "Réforme des services autonomie à domicile : outils d’aide à la décision", detail: "Agence nationale d’appui à la performance (ANAP) · plusieurs milliers de téléchargements", lien: ANAP_SAD },
-          { date: "2024–2025", titre: "Centres de ressources territoriaux : dix outils d’aide au pilotage", detail: "ANAP · plusieurs milliers de téléchargements", lien: ANAP_CRT },
-        ],
-      },
-    ],
+        "titre": "Mémoires soutenus devant jury",
+        "items": [
+          {
+            "date": "2025",
+            "titre": "Vieillir chez soi : réalités et mise en œuvre du virage domiciliaire. Une étude comparée France / Québec",
+            "detail": "Master en droit · Université Paris Panthéon-Assas · direction : Benoît Apollis"
+          },
+          {
+            "date": "2024",
+            "titre": "La prise en charge des personnes en situation de handicap vieillissantes : comment les établissements d’hébergement pour personnes âgées dépendantes peuvent-ils adapter leurs structures et services à leurs besoins spécifiques ?",
+            "detail": "Maîtrise en direction d’établissements · Université de Bretagne Occidentale · direction : Michelle-Hentic Giliberto"
+          },
+          {
+            "date": "2023",
+            "titre": "Parcours de vie et autodétermination : l’influence des pratiques éducatives sur le parcours de vie des personnes en situation de handicap en institution d’hébergement",
+            "detail": "Diplôme d’État d’éducateur spécialisé · Académie de Rennes"
+          }
+        ]
+      }
+    ]
   },
   biographie: {
     "surtitre": "05 · Biographie",
@@ -1350,7 +1370,7 @@ const fr = {
         "date": "2024–2025",
         "type": "experience",
         "titre": "Chargé de mission · Agence nationale d’appui à la performance",
-        "detail": "Paris. Accompagner la transformation de l’offre en santé et services sociaux, piloter des projets, produire des outils d’aide à la décision, animer un réseau d’experts et des communautés de pratique."
+        "detail": "Paris. Copilotage du réseau des experts, animation de webinaires, recueil et analyse de données, animation et coconstruction de séances de communautés de pratique."
       },
       {
         "date": "2024",
@@ -2075,7 +2095,7 @@ const en = {
         ],
         [
           "Transformation of service provision and performance support",
-          "As a project officer at the French national agency for performance support (ANAP, Paris) in 2024–2025, I supported the transformation of health and social service provision. This work covered decision-support tools for the reform of home-based autonomy services and ten steering tools for territorial resource centres, which together account for several thousand downloads."
+          "As a project officer at the French national agency for performance support (ANAP, Paris) in 2024–2025, I supported the transformation of health and social service provision: co-leading the expert network, hosting webinars, collecting and analysing data, and facilitating and co-designing community of practice sessions."
         ],
         [
           "Ageing, autonomy and EHPAD",
@@ -2710,34 +2730,54 @@ const en = {
     ]
   },
   publications: {
-    surtitre: "04 · Publications",
-    titre: "Presentations, theses and tools",
-    intro: "Each work keeps its original title, authors and status. Manuscripts in progress are presented in the Research room.",
-    groupes: [
+    "surtitre": "04 · Publications",
+    "titre": "Presentations, theses and tools",
+    "intro": "Each work keeps its original title, authors and status. Manuscripts in progress are presented in the Research room.",
+    "groupes": [
       {
-        titre: "Scientific presentations",
-        items: [
-          { date: "June 2026", statut: "Best poster award · doctoral and postdoctoral", titre: TITRES_ORIGINAUX.gfsp, detail: `${AUTEURS.trio} · Groupe francophone en soins primaires (GFSP), Montréal · poster` },
-          { date: "May 2026", statut: "Poster", titre: TITRES_ORIGINAUX.cahspr, detail: `${AUTEURS.trio} · CAHSPR, Ottawa` },
-          { date: "April 2026", statut: "Poster and 180-second talk", titre: TITRES_ORIGINAUX.gfsp, detail: `${AUTEURS.trio} · Quebec Network for Research on Aging (RQRV), Sherbrooke · poster and 180-second talk` },
-        ],
+        "titre": "Scientific presentations",
+        "items": [
+          {
+            "date": "June 2026",
+            "statut": "Best poster award · doctoral and postdoctoral",
+            "titre": "Intégration des soins et services de proximité pour soutenir l’autonomie domiciliaire des personnes aînées : une étude qualitative comparative",
+            "detail": "Bernier, É., Sourial, N., Layani, G. · Groupe francophone en soins primaires (GFSP), Montréal · poster"
+          },
+          {
+            "date": "May 2026",
+            "statut": "Poster",
+            "titre": "Integrating Care and Services to Support Aging at Home: A Comparative Analysis of Institutional, Organizational, and Professional Mechanisms in France and Quebec",
+            "detail": "Bernier, É., Sourial, N., Layani, G. · CAHSPR, Ottawa"
+          },
+          {
+            "date": "April 2026",
+            "statut": "Poster and 180-second talk",
+            "titre": "Intégration des soins et services de proximité pour soutenir l’autonomie domiciliaire des personnes aînées : une étude qualitative comparative",
+            "detail": "Bernier, É., Sourial, N., Layani, G. · Quebec Network for Research on Aging (RQRV), Sherbrooke · poster and 180-second talk"
+          }
+        ]
       },
       {
-        titre: "Theses defended before a jury",
-        items: [
-          { date: "2025", titre: TITRES_ORIGINAUX.memoireDroit, detail: "Master of Laws · Université Paris Panthéon-Assas · supervisor: Benoît Apollis" },
-          { date: "2024", titre: TITRES_ORIGINAUX.memoireGestion, detail: "Master’s in health care facility management · Université de Bretagne Occidentale · supervisor: Michelle-Hentic Giliberto" },
-          { date: "2023", titre: TITRES_ORIGINAUX.memoireEduc, detail: "State diploma in special needs education · Académie de Rennes" },
-        ],
-      },
-      {
-        titre: "Professional tools",
-        items: [
-          { date: "2024–2025", titre: "Home care services reform: decision-support tools", detail: "French national agency for performance support (ANAP) · several thousand downloads", lien: ANAP_SAD },
-          { date: "2024–2025", titre: "Territorial resource centres: ten management support tools", detail: "ANAP · several thousand downloads", lien: ANAP_CRT },
-        ],
-      },
-    ],
+        "titre": "Theses defended before a jury",
+        "items": [
+          {
+            "date": "2025",
+            "titre": "Vieillir chez soi : réalités et mise en œuvre du virage domiciliaire. Une étude comparée France / Québec",
+            "detail": "Master of Laws · Université Paris Panthéon-Assas · supervisor: Benoît Apollis"
+          },
+          {
+            "date": "2024",
+            "titre": "La prise en charge des personnes en situation de handicap vieillissantes : comment les établissements d’hébergement pour personnes âgées dépendantes peuvent-ils adapter leurs structures et services à leurs besoins spécifiques ?",
+            "detail": "Master’s in health care facility management · Université de Bretagne Occidentale · supervisor: Michelle-Hentic Giliberto"
+          },
+          {
+            "date": "2023",
+            "titre": "Parcours de vie et autodétermination : l’influence des pratiques éducatives sur le parcours de vie des personnes en situation de handicap en institution d’hébergement",
+            "detail": "State diploma in special needs education · Académie de Rennes"
+          }
+        ]
+      }
+    ]
   },
   biographie: {
     "surtitre": "05 · Biography",
@@ -2862,7 +2902,7 @@ const en = {
         "date": "2024–2025",
         "type": "experience",
         "titre": "Project manager · French national agency for performance support (ANAP)",
-        "detail": "Paris. Supporting the transformation of health and social services, leading projects, producing decision-support tools, coordinating an expert network and communities of practice."
+        "detail": "Paris. Co-leading the expert network, hosting webinars, collecting and analysing data, facilitating and co-designing community of practice sessions."
       },
       {
         "date": "2024",
@@ -3587,7 +3627,7 @@ const es = {
         ],
         [
           "Transformación de la oferta y apoyo al desempeño",
-          "Como encargado de misión en la Agencia nacional francesa de apoyo al desempeño (ANAP, París) en 2024–2025, acompañé la transformación de la oferta de salud y servicios sociales. Esta misión abarcó herramientas de apoyo a la decisión para la reforma de los servicios de autonomía a domicilio y diez herramientas de pilotaje de los centros de recursos territoriales, que suman varios miles de descargas."
+          "Como encargado de misión en la Agencia nacional francesa de apoyo al desempeño (ANAP, París) en 2024–2025, acompañé la transformación de la oferta de salud y servicios sociales: copilotaje de la red de expertos, animación de seminarios web, recopilación y análisis de datos, animación y coconstrucción de sesiones de comunidades de práctica."
         ],
         [
           "Envejecimiento, autonomía y EHPAD",
@@ -4222,34 +4262,54 @@ const es = {
     ]
   },
   publications: {
-    surtitre: "04 · Publicaciones",
-    titre: "Comunicaciones, memorias y herramientas",
-    intro: "Cada trabajo conserva su título original, sus autores y su estado. Los manuscritos en curso se presentan en la sala La investigación.",
-    groupes: [
+    "surtitre": "04 · Publicaciones",
+    "titre": "Comunicaciones, memorias y herramientas",
+    "intro": "Cada trabajo conserva su título original, sus autores y su estado. Los manuscritos en curso se presentan en la sala La investigación.",
+    "groupes": [
       {
-        titre: "Comunicaciones científicas",
-        items: [
-          { date: "Junio de 2026", statut: "Premio al mejor póster · doctorado y posdoctorado", titre: TITRES_ORIGINAUX.gfsp, detail: `${AUTEURS.trio} · Groupe francophone en soins primaires (GFSP), Montreal · póster` },
-          { date: "Mayo de 2026", statut: "Póster", titre: TITRES_ORIGINAUX.cahspr, detail: `${AUTEURS.trio} · CAHSPR, Ottawa` },
-          { date: "Abril de 2026", statut: "Póster y 180 segundos", titre: TITRES_ORIGINAUX.gfsp, detail: `${AUTEURS.trio} · Red quebequense de investigación sobre el envejecimiento (RQRV), Sherbrooke · póster y divulgación en 180 segundos` },
-        ],
+        "titre": "Comunicaciones científicas",
+        "items": [
+          {
+            "date": "Junio de 2026",
+            "statut": "Premio al mejor póster · doctorado y posdoctorado",
+            "titre": "Intégration des soins et services de proximité pour soutenir l’autonomie domiciliaire des personnes aînées : une étude qualitative comparative",
+            "detail": "Bernier, É., Sourial, N., Layani, G. · Groupe francophone en soins primaires (GFSP), Montreal · póster"
+          },
+          {
+            "date": "Mayo de 2026",
+            "statut": "Póster",
+            "titre": "Integrating Care and Services to Support Aging at Home: A Comparative Analysis of Institutional, Organizational, and Professional Mechanisms in France and Quebec",
+            "detail": "Bernier, É., Sourial, N., Layani, G. · CAHSPR, Ottawa"
+          },
+          {
+            "date": "Abril de 2026",
+            "statut": "Póster y 180 segundos",
+            "titre": "Intégration des soins et services de proximité pour soutenir l’autonomie domiciliaire des personnes aînées : une étude qualitative comparative",
+            "detail": "Bernier, É., Sourial, N., Layani, G. · Red quebequense de investigación sobre el envejecimiento (RQRV), Sherbrooke · póster y divulgación en 180 segundos"
+          }
+        ]
       },
       {
-        titre: "Memorias defendidas ante un jurado",
-        items: [
-          { date: "2025", titre: TITRES_ORIGINAUX.memoireDroit, detail: "Máster en Derecho · Université Paris Panthéon-Assas · dirección: Benoît Apollis" },
-          { date: "2024", titre: TITRES_ORIGINAUX.memoireGestion, detail: "Maestría en dirección de establecimientos de salud · Université de Bretagne Occidentale · dirección: Michelle-Hentic Giliberto" },
-          { date: "2023", titre: TITRES_ORIGINAUX.memoireEduc, detail: "Diploma de Estado de educador especializado · Académie de Rennes" },
-        ],
-      },
-      {
-        titre: "Herramientas profesionales",
-        items: [
-          { date: "2024–2025", titre: "Reforma de los servicios de autonomía a domicilio: herramientas de apoyo a la decisión", detail: "Agencia nacional francesa de apoyo al desempeño (ANAP) · varios miles de descargas", lien: ANAP_SAD },
-          { date: "2024–2025", titre: "Centros de recursos territoriales: diez herramientas de apoyo a la dirección", detail: "ANAP · varios miles de descargas", lien: ANAP_CRT },
-        ],
-      },
-    ],
+        "titre": "Memorias defendidas ante un jurado",
+        "items": [
+          {
+            "date": "2025",
+            "titre": "Vieillir chez soi : réalités et mise en œuvre du virage domiciliaire. Une étude comparée France / Québec",
+            "detail": "Máster en Derecho · Université Paris Panthéon-Assas · dirección: Benoît Apollis"
+          },
+          {
+            "date": "2024",
+            "titre": "La prise en charge des personnes en situation de handicap vieillissantes : comment les établissements d’hébergement pour personnes âgées dépendantes peuvent-ils adapter leurs structures et services à leurs besoins spécifiques ?",
+            "detail": "Maestría en dirección de establecimientos de salud · Université de Bretagne Occidentale · dirección: Michelle-Hentic Giliberto"
+          },
+          {
+            "date": "2023",
+            "titre": "Parcours de vie et autodétermination : l’influence des pratiques éducatives sur le parcours de vie des personnes en situation de handicap en institution d’hébergement",
+            "detail": "Diploma de Estado de educador especializado · Académie de Rennes"
+          }
+        ]
+      }
+    ]
   },
   biographie: {
     "surtitre": "05 · Biografía",
@@ -4374,7 +4434,7 @@ const es = {
         "date": "2024–2025",
         "type": "experience",
         "titre": "Encargado de misión · Agencia nacional francesa de apoyo al desempeño (ANAP)",
-        "detail": "París. Acompañar la transformación de la oferta de salud y servicios sociales, dirigir proyectos, producir herramientas de apoyo a la decisión, animar una red de expertos y comunidades de práctica."
+        "detail": "París. Copilotaje de la red de expertos, animación de seminarios web, recopilación y análisis de datos, animación y coconstrucción de sesiones de comunidades de práctica."
       },
       {
         "date": "2024",
