@@ -38,12 +38,12 @@
     const r0 = porte.getBoundingClientRect();
     if (r0.top < 70 || r0.bottom > innerHeight) {
       porte.scrollIntoView({ block: "center", behavior: reduit ? "auto" : "smooth" });
-      await attendre(450);
+      await attendre(300);
     }
     $$(".porte.ouverte").forEach((p) => p.classList.remove("ouverte"));
     porte.classList.add("ouverte");
     marquer(nom);
-    await attendre(650);
+    await attendre(400);
 
     const r = $(".ouverture", porte).getBoundingClientRect();
     const passage = document.createElement("div");
@@ -56,9 +56,9 @@
           { left: r.left + "px", top: r.top + "px", width: r.width + "px", height: r.height + "px" },
           { left: "0px", top: "0px", width: innerWidth + "px", height: innerHeight + "px" },
         ],
-        { duration: 620, easing: "cubic-bezier(.6,0,.2,1)", fill: "forwards" }
+        { duration: 420, easing: "cubic-bezier(.6,0,.2,1)", fill: "forwards" }
       );
-      await Promise.race([anim.finished, attendre(700)]);
+      await Promise.race([anim.finished, attendre(480)]);
     }
 
     afficher(cible);
@@ -67,7 +67,7 @@
     document.body.classList.add("salle-ouverte");
     void salle.offsetWidth;
     salle.classList.add("visible");
-    await attendre(320);
+    await attendre(220);
     passage.remove();
     $("[data-retour]", salle).focus({ preventScroll: true });
     occupe = false;
