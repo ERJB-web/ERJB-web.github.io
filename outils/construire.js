@@ -610,6 +610,20 @@ function sectionValeurs(c) {
 }
 
 // Ressources : articles, guides, capsules, balados et presse, chacun dans sa propre section, en français et en anglais.
+
+// Lectures de toute la scolarité, par thème, en français puis en anglais
+const LECTURES = require("./lectures.json").themes;
+const LECTURES_TITRE = { fr: "Lectures", en: "Readings", es: "Lecturas", zh: "阅读文献", ar: "قراءات" };
+function sectionLectures(c, R) {
+  const l = LECTURES_TITRE[c.lang] ? c.lang : "en";
+  const total = LECTURES.reduce((n, t) => n + t.lectures.length, 0);
+  const ref = (x) => { const t = e(x.apa); return `<li>${x.lien ? t.replace(e(x.lien), `<a href="${e(x.lien)}" rel="noopener">${e(x.lien.replace("https://doi.org/", "doi:"))}</a>`) : t}</li>`; };
+  const theme = (t) => {
+    const cols = ["fr", "en"].map((k, i) => { const v = t.lectures.filter((x) => x.langue === k); return v.length ? `<div class="rg-colonne"><p class="rg-langue">${e(R.langues[i])}</p><ol class="lectures-liste">${v.map(ref).join("")}</ol></div>` : ""; }).join("");
+    return `<details class="lecture-theme"><summary>${e(t[l] || t.en)}<span class="compte">${t.lectures.length}</span></summary><div class="rg-langues">${cols}</div></details>`;
+  };
+  return `<section class="rg rg-lectures"><h3 class="rg-titre">${LECTURES_TITRE[l]}<span class="compte">${total}</span></h3><div class="lectures-themes">${LECTURES.map(theme).join("")}</div></section>`;
+}
 function sectionMedias(c) {
   const R = c.ressources;
   const classes = ["rg-articles", "rg-guides", "rg-balados", "rg-videos", "rg-presse"];
@@ -633,7 +647,7 @@ function sectionMedias(c) {
 <p class="intro">${e(R.intro)}</p>
 </div>
 </div>
-<div class="rg-ensemble">${R.groupes.map(bloc).join("")}</div>`;
+<div class="rg-ensemble">${R.groupes.map(bloc).join("")}${sectionLectures(c, R)}</div>`;
 }
 
 function sectionParcours(c) {
