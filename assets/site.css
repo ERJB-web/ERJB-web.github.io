@@ -632,3 +632,8 @@ html.cb .schema-reseau .n0{fill:#0072b2}html.cb .schema-reseau .n1{fill:#009e73}
   .cycle-noeud{width:74px;height:74px;font-size:11px}
   .schema{padding:16px 12px 12px}
 }
+
+.figure-officielle{margin:30px 0 8px;padding:16px;border-radius:16px;background:var(--white);border:1px solid var(--line)}
+.figure-officielle img{width:100%;height:auto;border-radius:10px}
+.figure-officielle figcaption{margin-top:10px;font-size:13.5px;color:var(--muted)}
+.figure-officielle .source{display:block;margin-top:4px;font-style:italic}

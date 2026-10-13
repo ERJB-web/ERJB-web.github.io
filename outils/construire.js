@@ -162,32 +162,47 @@ function porte(c, nom, i) {
 const SCHEMAS = {
   fr: {
     reseauTitre: "Le réseau égocentré du CLSC",
-    reseauLegende: "Schéma illustratif : le CLSC au centre, les partenaires qu’il mobilise et les liens que ces partenaires déclarent entre eux.",
-    partenaires: ["GMF et cliniques", "Hôpital", "Organismes communautaires", "Municipalité", "Logement", "Sécurité alimentaire", "Emploi et revenu", "Milieu scolaire"],
+    reseauLegende: "Dans ma thèse, l’analyse de réseau est égocentrée : elle se déroule à partir du CLSC. Ses intervenants et gestionnaires nomment leurs interlocuteurs, qui reçoivent à leur tour le questionnaire ; les liens entre partenaires sont ainsi déclarés par les partenaires eux-mêmes. Les vignettes décrivent le réseau potentiel, les interactions des douze derniers mois le réseau réel, et des entretiens sur la carte du réseau éclairent le pourquoi et le comment de ces interactions.",
+    partenaires: ["Clinique","Hôpital","Pharmacie","École","Municipalité","Organisme communautaire","CPE"],
+    figure: "Gouvernance locale animée par le CLSC du territoire : un milieu d’affiliation pour chaque personne, au sein d’un voisinage de soins et de services.",
+    source: "Source : ministère de la Santé et des Services sociaux du Québec (2026).",
+    alt: "Schéma officiel : le CLSC anime la gouvernance locale de son territoire avec la clinique, l’hôpital, la pharmacie, l’école, la municipalité, les organismes communautaires et les CPE.",
     posture: ["Lecture positiviste", "Mesurer, estimer, tester", "Lecture constructiviste", "Comprendre le sens donné aux pratiques", "Posture pragmatique", "La question décide de la méthode : des méthodes mixtes intégrées."],
   },
   en: {
     reseauTitre: "The CLSC’s ego-centred network",
-    reseauLegende: "Illustrative diagram: the CLSC at the centre, the partners it mobilises and the links these partners report between themselves.",
-    partenaires: ["Family medicine groups", "Hospital", "Community organisations", "Municipality", "Housing", "Food security", "Employment and income", "Schools"],
+    reseauLegende: "In my thesis, network analysis is ego-centred: it unfolds from the CLSC. Its practitioners and managers name the people they work with, who in turn receive the questionnaire; links between partners are thus reported by the partners themselves. Vignettes describe the potential network, interactions over the past twelve months the actual network, and interviews on the network map shed light on why and how these interactions occur.",
+    partenaires: ["Clinic","Hospital","Pharmacy","School","Municipality","Community organisation","Childcare centre"],
+    figure: "Local governance led by the territory’s CLSC: a home base for each person, within a neighbourhood of care and services.",
+    source: "Source: Quebec Ministry of Health and Social Services (2026).",
+    alt: "Official diagram: the CLSC leads local governance in its territory with the clinic, hospital, pharmacy, school, municipality, community organisations and childcare centres.",
     posture: ["Positivist lens", "Measure, estimate, test", "Constructivist lens", "Understand the meaning given to practices", "Pragmatic stance", "The question decides the method: integrated mixed methods."],
   },
   es: {
     reseauTitre: "La red egocentrada del CLSC",
-    reseauLegende: "Esquema ilustrativo: el CLSC en el centro, los socios que moviliza y los vínculos que estos socios declaran entre sí.",
-    partenaires: ["GMF y clínicas", "Hospital", "Organismos comunitarios", "Municipio", "Vivienda", "Seguridad alimentaria", "Empleo e ingresos", "Escuelas"],
+    reseauLegende: "En mi tesis, el análisis de redes es egocentrado: se despliega a partir del CLSC. Sus profesionales y gestores nombran a sus interlocutores, que a su vez reciben el cuestionario; los vínculos entre socios son así declarados por los propios socios. Las viñetas describen la red potencial, las interacciones de los últimos doce meses la red real, y entrevistas sobre el mapa de la red aclaran el porqué y el cómo de esas interacciones.",
+    partenaires: ["Clínica","Hospital","Farmacia","Escuela","Municipio","Organismo comunitario","Centro de primera infancia"],
+    figure: "Gobernanza local animada por el CLSC del territorio: un lugar de afiliación para cada persona, dentro de una vecindad de cuidados y servicios.",
+    source: "Fuente: Ministerio de Salud y Servicios Sociales de Quebec (2026).",
+    alt: "Esquema oficial: el CLSC anima la gobernanza local de su territorio con la clínica, el hospital, la farmacia, la escuela, el municipio, los organismos comunitarios y los centros de primera infancia.",
     posture: ["Lectura positivista", "Medir, estimar, probar", "Lectura constructivista", "Comprender el sentido dado a las prácticas", "Postura pragmática", "La pregunta decide el método: métodos mixtos integrados."],
   },
   zh: {
     reseauTitre: "以 CLSC 为中心的自我中心网络",
-    reseauLegende: "示意图：CLSC 位于中心，周围是其动员的合作伙伴，以及这些伙伴之间相互申报的联系。",
-    partenaires: ["家庭医疗团队与诊所", "医院", "社区组织", "市政", "住房", "粮食安全", "就业与收入", "学校"],
+    reseauLegende: "在我的博士论文中，网络分析以 CLSC 为中心展开：其从业人员和管理者列出与之合作的对象，这些对象再依次填写问卷；合作伙伴之间的联系因此由伙伴自己申报。情景案例描述潜在网络，过去十二个月的互动描述实际网络，而围绕网络图进行的访谈则阐明这些互动发生的原因与方式。",
+    partenaires: ["诊所","医院","药房","学校","市政","社区组织","幼儿中心"],
+    figure: "由区域内 CLSC 主导的地方治理：在照护与服务的邻里网络中，为每个人提供一个归属的服务场所。",
+    source: "来源：魁北克卫生与社会服务部（2026）。",
+    alt: "官方示意图：CLSC 与诊所、医院、药房、学校、市政、社区组织和幼儿中心共同主导其区域的地方治理。",
     posture: ["实证主义视角", "测量、估计、检验", "建构主义视角", "理解行动者赋予实践的意义", "实用主义立场", "由问题决定方法：整合的混合方法。"],
   },
   ar: {
     reseauTitre: "الشبكة المتمركزة حول CLSC",
-    reseauLegende: "رسم توضيحي: يقع CLSC في المركز، ويحيط به الشركاء الذين يحشدهم، والروابط التي يصرّح بها هؤلاء الشركاء فيما بينهم.",
-    partenaires: ["مجموعات طب الأسرة والعيادات", "المستشفى", "المنظمات المجتمعية", "البلدية", "السكن", "الأمن الغذائي", "العمل والدخل", "المدارس"],
+    reseauLegende: "في أطروحتي، يتمحور تحليل الشبكات حول CLSC: إذ يسمّي ممارسوه ومديروه الجهات التي يتعاملون معها، فتتلقى هذه الجهات بدورها الاستبيان؛ وبذلك يصرّح الشركاء أنفسهم بالروابط القائمة بينهم. تصف الحالات الافتراضية الشبكة المحتملة، وتصف تفاعلات الأشهر الاثني عشر الأخيرة الشبكة الفعلية، ثم توضّح المقابلات حول خريطة الشبكة أسباب هذه التفاعلات وكيفية حدوثها.",
+    partenaires: ["العيادة","المستشفى","الصيدلية","المدرسة","البلدية","المنظمة المجتمعية","مركز الطفولة المبكرة"],
+    figure: "حوكمة محلية يقودها CLSC في منطقته: مكان انتماء لكل شخص ضمن جوار من خدمات الرعاية والخدمات.",
+    source: "المصدر: وزارة الصحة والخدمات الاجتماعية في كيبيك (2026).",
+    alt: "رسم رسمي: يقود CLSC الحوكمة المحلية في منطقته مع العيادة والمستشفى والصيدلية والمدرسة والبلدية والمنظمات المجتمعية ومراكز الطفولة المبكرة.",
     posture: ["المنظور الوضعي", "القياس والتقدير والاختبار", "المنظور البنائي", "فهم المعنى الذي يمنحه الفاعلون لممارساتهم", "الموقف البراغماتي", "السؤال هو الذي يحدّد المنهج: مناهج مختلطة متكاملة."],
   },
 };
@@ -199,7 +214,7 @@ function schemaReseau(c) {
     const a = -Math.PI / 2 + (i * 2 * Math.PI) / n;
     return [320 + 215 * Math.cos(a), 200 + 140 * Math.sin(a), Math.cos(a)];
   });
-  const liens = [[0, 1], [2, 3], [4, 5], [2, 6], [3, 7], [0, 2]];
+  const liens = [[0, 1], [1, 2], [0, 5], [5, 4], [4, 3], [5, 6], [3, 6]];
   const ancre = (cx) => (Math.abs(cx) < 0.2 ? "middle" : cx > 0 ? "start" : "end");
   return `<figure class="schema schema-reseau">
 <figcaption class="schema-titre">${e(S.reseauTitre)}</figcaption>
@@ -217,6 +232,11 @@ ${pts
 </svg>
 <p class="schema-legende">${e(S.reseauLegende)}</p>
 </figure>`;
+}
+
+function figureClsc(c) {
+  const S = SCHEMAS[c.lang];
+  return `<figure class="figure-officielle"><img src="${c.chemin}assets/figures/clsc-gouvernance.png?v=${empreinte("assets/figures/clsc-gouvernance.png")}" width="1400" height="983" alt="${e(S.alt)}" loading="lazy"><figcaption>${e(S.figure)} <span class="source">${e(S.source)}</span></figcaption></figure>`;
 }
 
 function schemaPosture(c) {
@@ -292,6 +312,7 @@ ${lien(
 </div>
 <div class="colonne-outils">
 ${tableOnglets(r.table.titre, r.table.detail, r.table.etapes, r.table.terminus)}
+${figureClsc(c)}
 ${schemaReseau(c)}
 <h3 class="titre-bloc">${e(r.notions.titre)}</h3>
 <div class="notions">${r.notions.items.map(([t, d, ref]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p>${ref ? `<p class="ref">(${e(ref)})</p>` : ""}</div>`).join("")}</div>
@@ -579,7 +600,7 @@ ${menuAcces(c, c.lang)}
 <div class="hall" role="group" aria-label="${e(c.hall.titre)}">
 <div class="hall-tete"><span>${e(c.hall.titre)}</span><span>${e(c.hall.compte)}</span></div>
 <div class="portes">${SALLES.map((s, i) => porte(c, s, i)).join("")}</div>
-<div class="hall-pied"><span>${e(c.hall.consigne)}</span><span class="points" aria-hidden="true">${SALLES.map(() => "<span></span>").join("")}</span></div>
+<div class="hall-pied"><span>${e(c.hall.consigne)}</span></div>
 </div>
 </section>
 
