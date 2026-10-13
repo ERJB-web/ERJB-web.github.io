@@ -1549,7 +1549,7 @@ const fr = {
           },
           {
             "date": "Musique",
-            "titre": "Piano, chant et guitare"
+            "titre": "Piano, écriture musicale et guitare"
           },
           {
             "date": "Sport",
@@ -3110,7 +3110,7 @@ const en = {
           },
           {
             "date": "Music",
-            "titre": "Piano, singing and guitar"
+            "titre": "Piano, music composition and guitar"
           },
           {
             "date": "Sport",
@@ -4671,7 +4671,7 @@ const es = {
           },
           {
             "date": "Música",
-            "titre": "Piano, canto y guitarra"
+            "titre": "Piano, composición musical y guitarra"
           },
           {
             "date": "Deporte",
