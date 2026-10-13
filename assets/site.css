@@ -1109,3 +1109,4 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 .poignee::after{display:block;content:"";position:absolute;right:50%;top:35%;width:340%;height:26%;min-height:2px;transform:translateY(-50%) rotate(0deg);transform-origin:100% 50%;border-radius:2px;background:linear-gradient(180deg,#f1f3f4 0%,#aeb7bb 55%,#6c767a 100%);box-shadow:0 1px 1.5px rgba(15,30,40,.35);transition:transform .3s var(--ease);z-index:1}
 .porte:hover .poignee::after,.porte:focus-visible .poignee::after,.porte.ouverte .poignee::after,.onglet-salle:hover .poignee::after,.onglet-salle.ouverte .poignee::after{transform:translateY(-50%) rotate(-40deg)}
 .poignee::after{width:280%}
+.porte:focus,.porte:focus-visible{outline:none}
