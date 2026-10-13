@@ -100,7 +100,11 @@
         const t = document.createElement("span");
         t.className = "onglet-titre";
         t.textContent = sx.dataset.titre;
-        bouton.append(n, t);
+        const d = document.createElement("span");
+        d.className = "baie mini";
+        d.setAttribute("aria-hidden", "true");
+        d.innerHTML = "<span class=\"ouverture\"><span class=\"battant\"><span class=\"vignette\"></span><span class=\"poignee\"></span></span></span>";
+        bouton.append(d, n, t);
         bouton.addEventListener("click", () => afficher(x));
         return bouton;
       })

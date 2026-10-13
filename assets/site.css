@@ -924,3 +924,18 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 .section-corps.pleine .colonne-texte>:is(p,h2,h3,blockquote,.badge-these){max-width:880px;margin-inline-start:max(0px,calc((100% - 880px) / 2))}
 .salle-onglets{margin-bottom:18px}
 .porte-contact .vignette::before{content:"@";position:absolute;inset:0;display:grid;place-items:center;font:400 46px/1 var(--serif);color:rgba(255,255,255,.92)}
+/* Petites portes dans chaque pièce */
+.onglet-salle{gap:14px;padding:10px 18px 10px 12px}
+.onglet-salle .baie.mini{width:40px;flex:none;box-shadow:0 0 0 3px #fff,0 0 0 4px #d6e1e2,0 8px 12px -8px rgba(15,49,66,.5)}
+.onglet-salle .vignette{inset-inline-start:12%;inset-inline-end:12%;top:8%;height:62%;background:linear-gradient(160deg,var(--c1),color-mix(in srgb,var(--c1) 55%,#000))}
+.onglet-salle .battant::after{top:76%;height:14%}
+.onglet-salle .poignee{background:var(--c1)}
+.onglet-salle:hover .battant,.onglet-salle:focus-visible .battant{transform:rotateY(-34deg)}
+.onglet-salle.actif{background:color-mix(in srgb,var(--c1) 10%,var(--white));border-color:var(--c1);color:var(--ink);box-shadow:inset 0 -3px 0 var(--c1)}
+.onglet-salle.actif .battant{transform:rotateY(-72deg)}
+.onglet-salle.actif .onglet-num{background:var(--c1)}
+/* Ressources : français puis anglais l'un sous l'autre, cartes et vidéos centrées */
+.rg .rg-langues{grid-template-columns:1fr}
+.rg .liens-contact.suggestions{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:12px}
+.rg .mediatheque{grid-template-columns:repeat(auto-fit,minmax(280px,360px));justify-content:center}
+@media (max-width:760px){.rg .liens-contact.suggestions,.rg .mediatheque{grid-template-columns:1fr}}

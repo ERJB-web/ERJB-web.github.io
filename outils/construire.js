@@ -663,7 +663,7 @@ function sectionMedias(c) {
         : "";
     return `<section class="rg ${classes[gi] || ""}"><h3 class="rg-titre">${e(nom)}<span class="compte">${items.length}</span></h3><div class="rg-langues">${parLangue.map(colonne).join("")}</div></section>`;
   };
-  return `<div class="section-corps section-medias">
+  return `<div class="section-corps pleine section-medias">
 <div class="colonne-texte">
 <p class="surtitre">${e(R.surtitre)}</p>
 <h2>${e(R.titre)}</h2>
