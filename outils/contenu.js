@@ -76,15 +76,50 @@ const fr = {
     autresLangues: "Autres langues",
   },
   nav: [
-    ["recherche", "Recherche"],
-    ["approche", "Approche"],
-    ["implantation", "Implantation"],
-    ["publications", "Publications"],
-    ["biographie", "Biographie"],
-    ["parcours", "Parcours"],
-    ["engagements", "Engagements"],
-    ["ressources", "Ressources"],
-    ["contact", "Contact"],
+    [
+      "recherche",
+      "Recherche"
+    ],
+    [
+      "conceptualisation",
+      "Conceptualisation"
+    ],
+    [
+      "approche",
+      "Approche"
+    ],
+    [
+      "valeurs",
+      "Valeurs"
+    ],
+    [
+      "implantation",
+      "Implantation"
+    ],
+    [
+      "ressources",
+      "Ressources"
+    ],
+    [
+      "publications",
+      "Publications"
+    ],
+    [
+      "biographie",
+      "Biographie"
+    ],
+    [
+      "parcours",
+      "Parcours"
+    ],
+    [
+      "engagements",
+      "Engagements"
+    ],
+    [
+      "contact",
+      "Contact"
+    ]
   ],
   accueil: {
     surtitre: "Doctorant en santé publique · ESPUM · CRCHUM",
@@ -104,19 +139,51 @@ const fr = {
     portrait: "Portrait d’Éric Bernier",
   },
   hall: {
-    titre: "Le hall",
-    compte: "8 portes",
-    consigne: "Cliquez sur une porte pour entrer",
-    portes: {
-      recherche: ["La recherche", "Thèse et travaux en cours"],
-      approche: ["L’approche", "Posture, méthodes, axes, valeurs"],
-      implantation: ["Implantation", "Transfert de connaissances et implantation"],
-      publications: ["Publications", "Communications, mémoires, outils"],
-      biographie: ["Biographie", "Des expériences humaines aux transformations collectives"],
-      parcours: ["Le parcours", "Formations et expériences"],
-      engagements: ["Engagements", "Représentation, enseignement, distinctions"],
-      ressources: ["Ressources","Corpus de thèse, lacunes, lectures"],
-    },
+    "titre": "Le hall",
+    "compte": "10 portes",
+    "consigne": "Cliquez sur une porte pour entrer",
+    "portes": {
+      "recherche": [
+        "La recherche",
+        "Thèse et travaux en cours"
+      ],
+      "conceptualisation": [
+        "Conceptualisation",
+        "Recherche en cours : corpus et lacunes"
+      ],
+      "approche": [
+        "L’approche",
+        "Posture, méthodes, axes, valeurs"
+      ],
+      "valeurs": [
+        "Valeurs",
+        "Ce qui guide ma pratique"
+      ],
+      "implantation": [
+        "Implantation",
+        "Transfert de connaissances et implantation"
+      ],
+      "ressources": [
+        "Ressources",
+        "Articles, capsules, balados"
+      ],
+      "publications": [
+        "Publications",
+        "Communications, mémoires, outils"
+      ],
+      "biographie": [
+        "Biographie",
+        "Des expériences humaines aux transformations collectives"
+      ],
+      "parcours": [
+        "Le parcours",
+        "Formations et expériences"
+      ],
+      "engagements": [
+        "Engagements",
+        "Représentation, enseignement, distinctions"
+      ]
+    }
   },
   recherche: {
     surtitre: "01 · La recherche",
@@ -189,34 +256,213 @@ const fr = {
       ],
     },
   },
-  approche: {
-    surtitre: "02 · L’approche",
-    titre: "Une posture pragmatique, des méthodes mixtes",
-    intro:
-      "De la question à l’observation : chaque question appelle ses données, sa méthode d’analyse et son interprétation. Je choisis les méthodes selon ce qu’il faut éclairer, en croisant les disciplines.",
-    piliers: [
-      ["Posture pragmatique", "Une posture qui articule une lecture positiviste (mesurer, estimer, tester des hypothèses) et une lecture constructiviste (comprendre le sens que les acteurs donnent à leurs pratiques). La question décide de la méthode."],
-      ["Méthodes mixtes", "Analyses quantitatives et qualitatives intégrées : analyse de réseaux, régressions, analyse thématique, analyse documentaire et cartographie, réunies dans des tableaux d’intégration."],
-      ["Pluridisciplinarité", "Santé publique, droit, gestion, sciences politiques et intervention sociale : des regards qui se répondent pour analyser un même système."],
-    ],
-    outils: {
-      titre: "Boîte à outils",
-      groupes: [
-        ["Analyse de données", ["Positron (R)", "Python", "NVivo", "QGIS", "Excel"]],
-        ["Collaboration et animation", ["Miro", "Klaxoon", "Canva"]],
-        ["Bureautique et IA", ["Office 365", "Intelligence artificielle"]],
+  conceptualisation: {
+    "surtitre": "Recherche en cours",
+    "titre": "Conceptualiser le projet de recherche",
+    "intro": "Je suis à l’étape de la conceptualisation : un corpus de publications priorisées, les lacunes qu’il fait apparaître et les lectures de formation qui l’appuient.",
+    "chiffres": [
+      [
+        222,
+        "publications retenues"
       ],
+      [
+        39,
+        "lectures prioritaires"
+      ],
+      [
+        83,
+        "lectures importantes"
+      ],
+      [
+        9,
+        "dimensions de lacunes examinées"
+      ]
+    ],
+    "prioritesTitre": "Répartition par priorité",
+    "prioriteLibelle": "Priorité",
+    "provenanceTitre": "Provenance des publications",
+    "provenance": [
+      [
+        "PubMed",
+        112
+      ],
+      [
+        "Embase et MEDLINE (Ovid)",
+        95
+      ],
+      [
+        "Cairn",
+        15
+      ]
+    ],
+    "lacunesTitre": "Ce que la littérature laisse ouvert",
+    "lacunesIntro": "Pour chacune des neuf dimensions examinées, le tableau indique l’état de la littérature, l’importance de la lacune et quelques repères bibliographiques.",
+    "lacunes": [
+      {
+        "dimension": "Conceptualisation",
+        "etat": "Présente mais non stabilisée",
+        "niveau": "Importante",
+        "score": 3,
+        "constat": "Les études indexées dans PubMed distinguent de plus en plus le risque social, le besoin social et le désir d’assistance. Les travaux francophones de Cairn y ajoutent un vocabulaire de la précarité et de la vulnérabilité sociale, souvent multidimensionnel, mais conceptuellement plus large que le besoin non satisfait.",
+        "reperes": "Gruß 2021; Tucher 2026; Tudrej 2019; Karran 2023"
+      },
+      {
+        "dimension": "Mesure",
+        "etat": "Abondante mais hétérogène",
+        "niveau": "Importante",
+        "score": 3,
+        "constat": "Les outils diffèrent fortement par leurs domaines, leurs seuils et leur mode d’administration. Les scores multidimensionnels de précarité repérés dans Cairn, comme EPICES et PRECAR, ne sont pas équivalents aux questionnaires de besoins sociaux non satisfaits.",
+        "reperes": "Zein 2026; Karran 2023; Tudrej 2019; Rogers 2025"
+      },
+      {
+        "dimension": "Caractérisation / prévalence",
+        "etat": "Bien documentée pour au moins un besoin",
+        "niveau": "Modérée",
+        "score": 2,
+        "constat": "De nombreuses études décrivent la prévalence par domaine et la charge cumulative des besoins, mais les estimations se comparent difficilement lorsque la définition du besoin et l’outil diffèrent.",
+        "reperes": "Jih 2023; Bleacher 2020; Fiori 2021"
+      },
+      {
+        "dimension": "Multiplicité / concomitance",
+        "etat": "Émergente mais désormais démontrée",
+        "niveau": "Importante",
+        "score": 3,
+        "constat": "La coexistence de plusieurs besoins ou risques sociaux est fréquente, et des grappes, des classes et des mesures de charge cumulative ont été proposées. Une étude récente montre en outre que la multiplicité des risques augmente fortement la probabilité de souhaiter une aide.",
+        "reperes": "Vest 2025; Kreuter 2021; Zeng 2024; Tucher 2026"
+      },
+      {
+        "dimension": "Priorisation par les patients",
+        "etat": "Quelques études directes, mais champ encore peu développé",
+        "niveau": "Majeure",
+        "score": 4,
+        "constat": "La littérature mesure surtout le désir d’aide, les objectifs négociés, l’acceptabilité ou la priorité relative, et les travaux récents renforcent la distinction entre risque détecté et aide souhaitée. Les travaux e-CARE montrent un accompagnement ajusté au rythme et aux priorités du patient, sans produire de hiérarchie standardisée des besoins.",
+        "reperes": "O’Loughlin 2022; Gruß 2021; Tucher 2026; Vasan 2026; Ouanhnon 2022"
+      },
+      {
+        "dimension": "Interrelations entre besoins",
+        "etat": "Principalement décrites comme cooccurrence ou complexité globale",
+        "niveau": "Majeure",
+        "score": 4,
+        "constat": "Les analyses quantitatives documentent surtout la cooccurrence des besoins et des profils. Les travaux qualitatifs francophones de Cairn décrivent l’imbrication des difficultés sociales, administratives, économiques et de santé, mais rarement leur direction, leur séquence ou leur mécanisme causal.",
+        "reperes": "Vest 2025; Kreuter 2021; Marron-Delabre 2015; Ouanhnon 2022"
+      },
+      {
+        "dimension": "Résolution / trajectoire",
+        "etat": "Croissante mais dominée par des indicateurs intermédiaires",
+        "niveau": "Majeure",
+        "score": 4,
+        "constat": "Le champ distingue de plus en plus le dépistage, la référence, la connexion, la ressource reçue et la résolution. Les travaux francophones e-CARE suivent aussi des résultats concrets, comme l’ouverture de droits, l’accès à un médecin traitant, le logement et l’autonomie dans le parcours, mais sans mesure standardisée de la résolution de chaque besoin.",
+        "reperes": "Steeves-Reece 2022; Hausmann 2024; Ouanhnon 2022; Agarwal 2025"
+      },
+      {
+        "dimension": "Réseaux / réponse intersectorielle",
+        "etat": "Littérature substantielle mais souvent séparée des données patient",
+        "niveau": "Majeure pour l’intégration",
+        "score": 4,
+        "constat": "PubMed documente la navigation, les agents de santé communautaire, les partenariats médico-juridiques et les boucles de référence fermées, et Cairn les unités sociales en médecine générale, les MSP, les CPTS, les DAC et la coordination territoriale. La configuration du réseau est toutefois rarement reliée aux profils de besoins et à leur résolution.",
+        "reperes": "Hogg-Graham 2021; Tevaearai 2022; Yatim & Sebai 2021; Lessi 2023; Ouanhnon 2022"
+      },
+      {
+        "dimension": "Synthèse intégrée",
+        "etat": "Non identifiée dans les audits PubMed et Cairn",
+        "niveau": "Lacune principale",
+        "score": 5,
+        "constat": "Aucune synthèse repérée ne réunit, chez les adultes consultant en soins primaires, le caractère non satisfait des besoins, leur mesure multidomaine, leurs configurations de concomitance, la priorité que leur accorde le patient, leurs interrelations, la configuration du réseau mobilisable et la trajectoire jusqu’à leur résolution.",
+        "reperes": "Karran 2023; Vest 2025; Chang 2026; Tudrej 2019; Ouanhnon 2022"
+      }
+    ],
+    "principaleTitre": "La lacune principale",
+    "principale": "La littérature n’est pas vide sur chacune des composantes de la question, qu’il s’agisse de la mesure des besoins sociaux multiples, de leur cooccurrence, du désir d’aide des patients ou des dispositifs de réponse. En revanche, aucune synthèse identifiée ne réunit, chez les adultes en soins primaires, le caractère non satisfait des besoins, leur concomitance, leur priorisation par les patients, leurs interrelations, le réseau de réponse et la trajectoire jusqu’à leur résolution. La lacune porte donc sur l’articulation entre la configuration des besoins et celle de la réponse intersectorielle, ainsi que sur les mécanismes qui expliquent pourquoi certains besoins persistent malgré leur identification.",
+    "vigilance": "Par rigueur méthodologique, la formulation retenue est « aucune synthèse identifiée dans les recherches PubMed et Cairn réalisées » et non « aucune synthèse n’existe ».",
+    "p5Titre": "Les 39 lectures prioritaires",
+    "p4Titre": "Les 83 lectures importantes",
+    "formationTitre": "Lectures de formation",
+    "cours": [
+      [
+        "MSO 6011 · Concepts et méthodes en épidémiologie",
+        [
+          "Celentano, D. D., Szklo, M., & Youssef, M. K. F. Gordis Epidemiology (7e éd.). Elsevier.",
+          "Szklo, M., & Nieto, F. J. (2018). Epidemiology: Beyond the basics (4e éd.). Jones & Bartlett Learning.",
+          "Rothman, K. J. Epidemiology: An introduction (chapitres 2 et 3).",
+          "Oleckno, W. A. Epidemiology: Concepts and methods (chapitre 6)."
+        ]
+      ],
+      [
+        "ASA 6754 · Système de santé et santé des populations",
+        [
+          "Arpin, E., Gautier, L., & Quesnel-Vallée, A. (2025). Quebec: A health system profile. University of Toronto Press.",
+          "Pineault, R. (2012). Comprendre le système de santé pour mieux le gérer. Presses de l’Université de Montréal."
+        ]
+      ],
+      [
+        "POL 6021 · Méthodes quantitatives",
+        [
+          "Arel-Bundock, V. (2021). Analyse causale et méthodes quantitatives. Presses de l’Université de Montréal.",
+          "Arel-Bundock, V. Model to meaning (chapitres 3, 5, 6 et 10). https://marginaleffects.com",
+          "Angrist, J. D., & Pischke, J.-S. (2015). Mastering ’metrics: The path from cause to effect. Princeton University Press."
+        ]
+      ]
+    ],
+    "note": "Le corpus a été constitué à partir d’Ovid (Embase, MEDLINE), de PubMed et de Cairn, et chaque publication a reçu une priorité selon sa pertinence pour la question de thèse."
+  },
+  approche: {
+    "surtitre": "02 · L’approche",
+    "titre": "Une posture pragmatique, des méthodes mixtes",
+    "intro": "De la question à l’observation : chaque question appelle ses données, sa méthode d’analyse et son interprétation. Je choisis les méthodes selon ce qu’il faut éclairer, en croisant les disciplines.",
+    "piliers": [
+      [
+        "Posture pragmatique",
+        "Une posture qui articule une lecture positiviste (mesurer, estimer, tester des hypothèses) et une lecture constructiviste (comprendre le sens que les acteurs donnent à leurs pratiques). La question décide de la méthode."
+      ],
+      [
+        "Méthodes mixtes",
+        "Analyses quantitatives et qualitatives intégrées : analyse de réseaux, régressions, analyse thématique, analyse documentaire et cartographie, réunies dans des tableaux d’intégration."
+      ],
+      [
+        "Pluridisciplinarité",
+        "Santé publique, droit, gestion, sciences politiques et intervention sociale : des regards qui se répondent pour analyser un même système."
+      ]
+    ],
+    "outils": {
+      "titre": "Boîte à outils",
+      "groupes": [
+        [
+          "Analyse de données",
+          [
+            "Positron (R)",
+            "Python",
+            "NVivo",
+            "QGIS",
+            "Excel"
+          ]
+        ],
+        [
+          "Collaboration et animation",
+          [
+            "Miro",
+            "Klaxoon",
+            "Canva"
+          ]
+        ],
+        [
+          "Bureautique et IA",
+          [
+            "Office 365",
+            "Intelligence artificielle"
+          ]
+        ]
+      ]
     },
-    expertises: {
+    "expertises": {
       "titre": "Expertises",
       "items": [
         [
           "Direction des établissements sanitaires, sociaux et médico-sociaux",
-          "Mon master Direction des structures médico-sociales et de services aux personnes (Université de Bretagne Occidentale, 2024, mention spéciale du jury) couvre la gestion budgétaire et financière (CPOM, EPRD), la comptabilité publique, la gestion des ressources humaines, le management des organisations et le projet d’établissement. Responsable de séjours de répit et de séjours adaptés de 2016 à 2024, j’en ai assuré la gestion des ressources humaines, administrative et financière."
+          "Ma maîtrise en direction des structures médico-sociales et de services aux personnes (Université de Bretagne Occidentale, 2024, mention spéciale du jury) couvre la gestion budgétaire et financière (CPOM, EPRD), la comptabilité, la gestion des ressources humaines et le droit du travail, le management, la théorie et la sociologie des organisations, la philosophie et le projet d’établissement. Responsable de séjours de répit et de séjours adaptés de 2016 à 2024, j’en ai assuré la gestion des équipes, du budget et de la logistique."
         ],
         [
           "Droit sanitaire, social et médico-social",
-          "Mon master en droit public, spécialisé en droit de la santé et en droit social (Université Paris-Panthéon-Assas, 2025, mention spéciale du jury), porte sur l’organisation et la planification des secteurs sanitaire, social et médico-social : autorisation, habilitation, tarification et contentieux de la tarification. Il couvre aussi les droits de l’usager, la contractualisation, les responsabilités civile, pénale et administrative, ainsi que le droit du travail et de la sécurité sociale."
+          "Mon master en droit public, spécialisé en droit de la santé et en droit social (Université Paris-Panthéon-Assas, 2025, mention spéciale du jury), porte sur l’organisation et la planification des secteurs sanitaire, social et médico-social : autorisation, habilitation, tarification et contentieux de la tarification. Il couvre aussi les droits des patients et des usagers, la bioéthique, l’économie de la santé, la contractualisation, les responsabilités civile, pénale et administrative, ainsi que le droit du travail et de la sécurité sociale."
         ],
         [
           "Transformation de l’offre et appui à la performance",
@@ -247,42 +493,57 @@ const fr = {
           "Formé à l’entrepreneuriat et au management (diplôme universitaire, IAE de Brest, 2023), j’ai entrepris la création d’OWNNIGHT, une application de bien-être et d’éducation au sommeil. Mon approche du management s’appuie sur la clinique des organisations et le développement de l’activité d’une structure, étudiés en master, ainsi que sur le leadership de proximité exercé comme responsable de séjours adaptés."
         ]
       ]
-    },    axes: {
-      titre: "Axes de travaux",
-      principaux: ["Gouvernance et évaluation des politiques de santé", "Approche intersectorielle en première ligne", "Vieillissement, perte d’autonomie et politiques du maintien à domicile"],
-      secondairesTitre: "Axes secondaires",
-      secondaires: ["Planification juridique, analyse doctrinale et droit de la santé", "Performance, conduite du changement et pilotage des organisations", "Analyse comparée des systèmes de santé"],
     },
-    valeurs: {
-      titre: "Mes valeurs",
-      devise: ["Devise", "Ad astra per aspera", "Par des sentiers ardus jusqu’aux étoiles"],
-      items: [
-        [
-          "Curiosité intellectuelle",
-          "Aller voir ailleurs : d’autres disciplines, d’autres milieux, d’autres façons de penser."
-        ],
-        [
-          "Résilience",
-          "Faire des épreuves traversées une ressource pour avancer."
-        ],
-        [
-          "Autonomie",
-          "Penser par soi-même et soutenir chez chacun la capacité de choisir sa vie."
-        ],
-        [
-          "Sens critique",
-          "Interroger les évidences, les données et les institutions, à commencer par les siennes."
-        ],
-        [
-          "Solidarité",
-          "Ne laisser personne au bord du chemin : un principe d’accompagnement et de politique publique."
-        ],
-        [
-          "Audace d’entreprendre",
-          "Oser proposer, créer et mettre en œuvre de nouvelles réponses."
-        ]
+    "axes": {
+      "titre": "Axes de travaux",
+      "principaux": [
+        "Gouvernance et évaluation des politiques de santé",
+        "Approche intersectorielle en première ligne",
+        "Vieillissement, perte d’autonomie et politiques du maintien à domicile"
       ],
-    },
+      "secondairesTitre": "Axes secondaires",
+      "secondaires": [
+        "Planification juridique, analyse doctrinale et droit de la santé",
+        "Performance, conduite du changement et pilotage des organisations",
+        "Analyse comparée des systèmes de santé"
+      ]
+    }
+  },
+  valeurs: {
+    "surtitre": "Valeurs",
+    "titre": "Ce qui guide ma pratique",
+    "intro": "Six valeurs qui orientent mon travail, du terrain à la recherche.",
+    "devise": [
+      "Devise",
+      "Ad astra per aspera",
+      "Par des sentiers ardus jusqu’aux étoiles"
+    ],
+    "items": [
+      [
+        "Curiosité intellectuelle",
+        "Aller voir ailleurs : d’autres disciplines, d’autres milieux, d’autres façons de penser."
+      ],
+      [
+        "Résilience",
+        "Faire des épreuves traversées une ressource pour avancer."
+      ],
+      [
+        "Autonomie",
+        "Penser par soi-même et soutenir chez chacun la capacité de choisir sa vie."
+      ],
+      [
+        "Sens critique",
+        "Interroger les évidences, les données et les institutions, à commencer par les siennes."
+      ],
+      [
+        "Solidarité",
+        "Ne laisser personne au bord du chemin : un principe d’accompagnement et de politique publique."
+      ],
+      [
+        "Audace d’entreprendre",
+        "Oser proposer, créer et mettre en œuvre de nouvelles réponses."
+      ]
+    ]
   },
   implantation: {
     "surtitre": "03 · Implantation",
@@ -505,199 +766,6 @@ const fr = {
         ]
       ]
     },
-    "plusLoin": {
-      "titre": "Pour aller plus loin",
-      "intro": "Articles, guides, balados, vidéos et presse pour prolonger chaque chantier.",
-      "groupes": [
-        [
-          "Articles scientifiques en libre accès",
-          [
-            [
-              "Making sense of implementation theories, models and frameworks",
-              "Nilsen, Implementation Science, 2015 (anglais)",
-              "https://doi.org/10.1186/s13012-015-0242-0",
-              "La typologie qui range les théories, modèles et cadres en cinq familles (modèles de processus, cadres de déterminants, théories classiques, théories de l’implantation, cadres d’évaluation) selon ce qu’on cherche à faire : guider, expliquer ou évaluer."
-            ],
-            [
-              "Community-based participatory research and integrated knowledge translation: advancing the co-creation of knowledge",
-              "Jull, Giles et Graham, Implementation Science, 2017 (anglais)",
-              "https://doi.org/10.1186/s13012-017-0696-3",
-              "Met côte à côte la recherche participative communautaire et l’application intégrée des connaissances pour montrer où elles convergent, où elles divergent et ce que chacune peut emprunter à l’autre pour coconstruire des savoirs."
-            ],
-            [
-              "The dos and don’ts of influencing policy: a systematic review of advice to academics",
-              "Oliver et Cairney, Palgrave Communications, 2019 (anglais)",
-              "https://doi.org/10.1057/s41599-019-0232-y",
-              "Une revue systématique des conseils donnés aux chercheurs qui veulent influencer les politiques : ces conseils reposent rarement sur des données et passent sous silence les coûts et les risques de l’engagement politique."
-            ],
-            [
-              "Connecting knowledge with action for health equity: a critical interpretive synthesis of promising practices",
-              "Plamondon, Caxaj, Graham et Bottorff, International Journal for Equity in Health, 2019 (anglais)",
-              "https://doi.org/10.1186/s12939-019-1108-x",
-              "Une synthèse interprétative critique qui dégage des pratiques prometteuses pour relier savoirs et action en faveur de l’équité, en insistant sur la redistribution du pouvoir et sur les causes structurelles des inégalités."
-            ],
-            [
-              "Quel impact avons-nous ? Vers l’élaboration d’un cadre pour rendre visibles les retombées du transfert des connaissances",
-              "Gervais, Souffez et Ziam, Revue francophone de recherche sur le transfert et l’utilisation des connaissances, 2016",
-              "https://doi.org/10.18166/tuc.2016.1.1.5",
-              "À partir de l’examen de 29 cadres conceptuels, jette en français les bases d’un cadre pour rendre visibles les retombées des activités de transfert et répondre aux exigences de reddition de comptes des organisations."
-            ],
-            [
-              "Plain language summaries: A systematic review of theory, guidelines and empirical research",
-              "Stoll, Kerwer, Lieb et Chasiotis, PLOS ONE, 2022 (anglais)",
-              "https://doi.org/10.1371/journal.pone.0268789",
-              "Fait le tour des théories, lignes directrices et études empiriques sur les résumés en langage clair et en tire un cadre conceptuel pour rédiger des synthèses compréhensibles par un public non spécialiste."
-            ]
-          ]
-        ],
-        [
-          "Guides et outils",
-          [
-            [
-              "Animer un processus de transfert des connaissances : bilan des connaissances et outil d’animation",
-              "Nicole Lemire, Karine Souffez et Marie-Claire Laurendeau, Institut national de santé publique du Québec, 2009",
-              "https://www.inspq.qc.ca/publications/1012",
-              "Le guide québécois qui conçoit le transfert comme un processus dynamique et propose un outil d’animation et un aide-mémoire pour structurer chaque étape avec les acteurs concernés."
-            ],
-            [
-              "Outil pour soutenir l’élaboration d’un plan de transfert des connaissances",
-              "Karine Souffez et Marie-Claire Laurendeau, Institut national de santé publique du Québec, sans date (métadonnées du PDF : 2011)",
-              "https://www.inspq.qc.ca/sites/default/files/publications/outil_pour_soutenir_l_elaboration_d_un_plan_de_transfert_des_connaissances.pdf",
-              "Une grille à remplir en équipe, dès le début d’un projet, pour préciser les produits de connaissances, les publics, les acteurs à impliquer, puis les stratégies, les échéances et les ressources du plan de transfert."
-            ],
-            [
-              "Guide pour accompagner l’implantation de pratiques prometteuses dans un établissement : soutien à l’implantation de pratiques prometteuses et au transfert de connaissances dans le réseau de la santé et des services sociaux",
-              "Marie Massuard, sous la direction de Julie Lane, ministère de la Santé et des Services sociaux du Québec, 2023",
-              "https://publications.msss.gouv.qc.ca/msss/fichiers/2023/23-516-04W.pdf",
-              "Un guide ministériel québécois qui transpose la science de l’implantation et l’application intégrée des connaissances en démarche d’accompagnement concrète pour les établissements du réseau."
-            ],
-            [
-              "Guide pratique – Stratégie de partenariat avec les patients et le public en recherche",
-              "Geneviève David et Alexandre Grégoire, Unité de soutien SRAP du Québec et Centre d’excellence sur le partenariat avec les patients et le public (CEPPP), 2018",
-              "https://ceppp.ca/wp-content/uploads/2021/01/USSQ_Guide-pratique-SPPP-en-recherche_V1.pdf",
-              "Un guide de démarrage, coécrit par un coordonnateur patient, qui répond aux questions pourquoi, qui, quand, où, combien et comment engager des patients et le public dans un projet de recherche, avec l’évaluation et les enjeux éthiques."
-            ]
-          ]
-        ],
-        [
-          "Balados",
-          [
-            [
-              "Le pont entre la recherche et le terrain",
-              "Les humains derrière la recherche en soins palliatifs, avec Chantal Verdon (UQO), 2025",
-              "https://podcasts.apple.com/ca/podcast/le-pont-entre-la-recherche-et-le-terrain/id1608211841?i=1000736634362",
-              "Une chercheuse en sciences infirmières explique comment elle a bâti un pont entre la recherche et la pratique, notamment par des communautés de pratique avec des infirmières et des infirmiers."
-            ],
-            [
-              "Season 2, Ep 1: David Chambers",
-              "That Implementation Science Podcast, animé par Mike Pullmann et Kevin King, 2024 (anglais)",
-              "https://thatimplementationsciencepodcast.podbean.com/e/season-2-ep-1-david-chambers/",
-              "Le directeur adjoint de la science de l’implantation au National Cancer Institute revient sur l’histoire du champ, sur le caractère collectif de la science et sur ce qui rend une équipe de recherche efficace."
-            ],
-            [
-              "SCCM Pod-520: Implementation Science: From Evidence to Practice",
-              "SCCM Podcast (Society of Critical Care Medicine), animé par Marilyn N. Bulloch avec Anne E. Sales, 2024 (anglais)",
-              "https://www.sccm.org/communications/sccm-podcast/sccm-podcast-all-episodes/sccm-pod-520-implementation-science-from-evidence-to-practice",
-              "Une introduction accessible où une chercheuse présente la science de l’implantation comme l’étude du changement planifié des comportements dans les contraintes des organisations, exemples cliniques à l’appui."
-            ]
-          ]
-        ],
-        [
-          "Vidéos",
-          [
-            [
-              "Ancrage historique et évolution du courtage de connaissances",
-              "Équipe RENARD, présentation de Christian Dagenais et Saliha Ziam au colloque 31 du 90e congrès de l’Acfas, 2023",
-              "https://www.youtube.com/watch?v=3uucW5ZOp-g",
-              "Une courte présentation qui retrace d’où vient le courtage de connaissances et comment cette fonction a évolué, en guise d’entrée en matière sur le rôle de courtier."
-            ],
-            [
-              "Les compétences clés pour agir en courtage de connaissances",
-              "Équipe RENARD, présentation d’Esther McSween-Cadieux au colloque 31 du 90e congrès de l’Acfas, 2023",
-              "https://www.youtube.com/watch?v=RGVmhf9Wyzo",
-              "Fait le point sur les compétences dont une personne a besoin pour exercer le courtage de connaissances, un complément pratique aux textes sur le rôle de courtier."
-            ],
-            [
-              "Expériences du midi: Recherche en partenariat avec une citoyenne-chercheuse",
-              "Unité de soutien SSA Québec, webinaire avec Julie Coulombe et Marie-Hélène Morin, 2025",
-              "https://www.youtube.com/watch?v=TNwIcNyGjwY",
-              "Un cas concret de recherche menée avec une citoyenne-chercheuse sur la pair-aidance famille en santé mentale, qui montre ce que la science participative change à la conduite d’un projet."
-            ],
-            [
-              "CCNMO - Prise de décisions fondée sur des données probantes",
-              "Centre de collaboration nationale des méthodes et outils (CCNMO), 2016",
-              "https://www.youtube.com/watch?v=XrZjc3Flrz8",
-              "Présente en huit minutes le modèle du CCNMO, qui montre comment données de recherche, contexte local, préférences de la population et ressources se combinent dans une décision de santé publique."
-            ],
-            [
-              "TIDIRC: Introduction to Dissemination & Implementation Science",
-              "National Cancer Institute (TIDIRC OpenAccess), conférence de David Chambers, 2022 (anglais)",
-              "https://www.youtube.com/watch?v=DO2tv7DqL3w",
-              "Une conférence d’introduction qui distingue recherche sur la diffusion, diffusion de la recherche, recherche sur l’implantation et recherche pragmatique, et présente les concepts de base du champ."
-            ],
-            [
-              "Quand l’expertise académique rencontre le vécu du terrain (Le Réverbère, mini-série sur la science citoyenne, épisode 2)",
-              "Le Réverbère, Institut du Nouveau Monde avec le Fonds de recherche du Québec, 2026",
-              "https://www.youtube.com/watch?v=J6gVGWA_yhc",
-              "Des duos citoyen-chercheur racontent comment ils partagent les rôles dans un projet de recherche lancé par une question citoyenne, sans que l’un ou l’autre perde sa propre expertise."
-            ],
-            [
-              "Ép. 23 - Patient Partenaire: des alliés pour la recherche",
-              "Des femmes comme vous, Les Radieuses Magazine, avec Catherine Wilhelmy, 2024",
-              "https://www.youtube.com/watch?v=27KRzWNoxAA",
-              "Une patiente devenue responsable du partenariat dans un centre de recherche explique au grand public ce qu’est le mouvement patient partenaire et pourquoi le vécu des patients doit nourrir la recherche et les soins."
-            ]
-          ]
-        ],
-        [
-          "Presse et magazines",
-          [
-            [
-              "Communiquer efficacement les connaissances scientifiques permet de sauver des vies",
-              "Christian Dagenais, Aurélie Hot et Valéry Ridde, The Conversation (Canada), 2023",
-              "https://theconversation.com/communiquer-efficacement-les-connaissances-scientifiques-permet-de-sauver-des-vies-197191",
-              "Défend l’idée que la recherche ne change les pratiques que si ses résultats parviennent aux décideurs sous une forme accessible et si le changement est accompagné dans la durée, avec l’appui des bailleurs de fonds."
-            ],
-            [
-              "Pour mieux communiquer la science, commençons par bien choisir nos mots",
-              "Valéry Ridde, Aurélie Hot et Christian Dagenais, The Conversation (Canada), 2025",
-              "https://theconversation.com/pour-mieux-communiquer-la-science-commencons-par-bien-choisir-nos-mots-247661",
-              "Montre comment la profusion de termes concurrents (transfert, application, mobilisation…) brouille la collaboration et le financement de ce champ, et plaide pour une clarification du vocabulaire."
-            ],
-            [
-              "Recherche et politiques publiques : comment mieux faire circuler les savoirs ?",
-              "Mohamed Berrada, Affaires universitaires, 2026",
-              "https://www.affairesuniversitaires.ca/actualites/recherche-et-politiques-publiques-comment-mieux-faire-circuler-les-savoirs/",
-              "Compte rendu d’un colloque de l’Acfas où universités, collèges, organismes et décideurs ont cherché comment rapprocher recherche et décisions publiques sans sacrifier le temps long de la recherche."
-            ],
-            [
-              "Au-delà de l’acceptabilité sociale, ouvrir le dialogue pour favoriser la participation citoyenne au débat sur l’utilisation des données de santé",
-              "Carole Jabet et Cécile Petitgand, Fonds de recherche du Québec, 2022",
-              "https://frq.gouv.qc.ca/ouvrir-le-dialogue-pour-favoriser-la-participation-citoyenne/",
-              "Tiré d’un colloque de l’Acfas, ce texte propose des dispositifs délibératifs, comme des groupes de travail régionaux ou des forums citoyens, pour associer le public aux décisions sur l’usage des données de santé."
-            ],
-            [
-              "Construction et hiérarchisation des données probantes en santé : savoirs scientifiques, expérientiels et contextuels",
-              "Marie-Dominique Beaulieu, Revue du CREMIS, 2016",
-              "https://cremis.ca/publications/articles-et-medias/construction-et-hierarchisation-des-donnees-probantes-en-sante-savoirs-scientifiques-experientiels-et-contextuels/",
-              "Revient sur l’essor de la médecine fondée sur les données probantes et sur la hiérarchie des preuves, et plaide pour intégrer plutôt qu’opposer savoirs scientifiques, expérientiels et contextuels dans les décisions en santé."
-            ],
-            [
-              "Knowledge mobilization will help Canada face the next major challenge",
-              "Ursula Gobel, Policy Options / Options politiques, 2021 (anglais)",
-              "https://policyoptions.irpp.org/magazines/february-2021/knowledge-mobilization-will-help-canada-face-the-next-major-challenge/",
-              "Une vice-présidente du CRSH tire de la pandémie l’idée que la synthèse des connaissances et des réseaux de recherche interdisciplinaires et intersectoriels sont indispensables pour éclairer les décisions publiques face aux crises."
-            ],
-            [
-              "To Support Evidence-Based Policymaking, Bring Researchers and Policymakers Together",
-              "D. Max Crowley et J. Taylor Scott, Issues in Science and Technology, 2023 (anglais)",
-              "https://issues.org/evidence-based-policymaking-researchers-policymakers-collaborate-crowley-scott/",
-              "Deux chercheurs décrivent un modèle de collaboration directe entre scientifiques et élus, fondé sur la confiance, et rapportent qu’il améliore la quantité et la qualité des données probantes mobilisées dans la législation."
-            ]
-          ]
-        ]
-      ]
-    },
     "bibliographie": {
       "titre": "Bibliographie (APA)",
       "items": [
@@ -834,6 +902,204 @@ const fr = {
       "note": "Ces cinq temps s’inspirent du modèle des connaissances à l’action (Graham et al., 2006) et du cadre de Ward (2017)."
     }
   },
+  ressources: {
+    "surtitre": "Ressources",
+    "titre": "Articles, capsules et balados",
+    "intro": "Une sélection commentée pour approfondir la mobilisation des connaissances et la science de l’implantation, en français et en anglais.",
+    "langues": [
+      "En français",
+      "En anglais"
+    ],
+    "groupes": [
+      [
+        "Articles scientifiques en libre accès",
+        [
+          [
+            "Making sense of implementation theories, models and frameworks",
+            "Nilsen, Implementation Science, 2015 (anglais)",
+            "https://doi.org/10.1186/s13012-015-0242-0",
+            "La typologie qui range les théories, modèles et cadres en cinq familles (modèles de processus, cadres de déterminants, théories classiques, théories de l’implantation, cadres d’évaluation) selon ce qu’on cherche à faire : guider, expliquer ou évaluer."
+          ],
+          [
+            "Community-based participatory research and integrated knowledge translation: advancing the co-creation of knowledge",
+            "Jull, Giles et Graham, Implementation Science, 2017 (anglais)",
+            "https://doi.org/10.1186/s13012-017-0696-3",
+            "Met côte à côte la recherche participative communautaire et l’application intégrée des connaissances pour montrer où elles convergent, où elles divergent et ce que chacune peut emprunter à l’autre pour coconstruire des savoirs."
+          ],
+          [
+            "The dos and don’ts of influencing policy: a systematic review of advice to academics",
+            "Oliver et Cairney, Palgrave Communications, 2019 (anglais)",
+            "https://doi.org/10.1057/s41599-019-0232-y",
+            "Une revue systématique des conseils donnés aux chercheurs qui veulent influencer les politiques : ces conseils reposent rarement sur des données et passent sous silence les coûts et les risques de l’engagement politique."
+          ],
+          [
+            "Connecting knowledge with action for health equity: a critical interpretive synthesis of promising practices",
+            "Plamondon, Caxaj, Graham et Bottorff, International Journal for Equity in Health, 2019 (anglais)",
+            "https://doi.org/10.1186/s12939-019-1108-x",
+            "Une synthèse interprétative critique qui dégage des pratiques prometteuses pour relier savoirs et action en faveur de l’équité, en insistant sur la redistribution du pouvoir et sur les causes structurelles des inégalités."
+          ],
+          [
+            "Quel impact avons-nous ? Vers l’élaboration d’un cadre pour rendre visibles les retombées du transfert des connaissances",
+            "Gervais, Souffez et Ziam, Revue francophone de recherche sur le transfert et l’utilisation des connaissances, 2016",
+            "https://doi.org/10.18166/tuc.2016.1.1.5",
+            "À partir de l’examen de 29 cadres conceptuels, jette en français les bases d’un cadre pour rendre visibles les retombées des activités de transfert et répondre aux exigences de reddition de comptes des organisations."
+          ],
+          [
+            "Plain language summaries: A systematic review of theory, guidelines and empirical research",
+            "Stoll, Kerwer, Lieb et Chasiotis, PLOS ONE, 2022 (anglais)",
+            "https://doi.org/10.1371/journal.pone.0268789",
+            "Fait le tour des théories, lignes directrices et études empiriques sur les résumés en langage clair et en tire un cadre conceptuel pour rédiger des synthèses compréhensibles par un public non spécialiste."
+          ]
+        ]
+      ],
+      [
+        "Guides et outils",
+        [
+          [
+            "Animer un processus de transfert des connaissances : bilan des connaissances et outil d’animation",
+            "Nicole Lemire, Karine Souffez et Marie-Claire Laurendeau, Institut national de santé publique du Québec, 2009",
+            "https://www.inspq.qc.ca/publications/1012",
+            "Le guide québécois qui conçoit le transfert comme un processus dynamique et propose un outil d’animation et un aide-mémoire pour structurer chaque étape avec les acteurs concernés."
+          ],
+          [
+            "Outil pour soutenir l’élaboration d’un plan de transfert des connaissances",
+            "Karine Souffez et Marie-Claire Laurendeau, Institut national de santé publique du Québec, sans date (métadonnées du PDF : 2011)",
+            "https://www.inspq.qc.ca/sites/default/files/publications/outil_pour_soutenir_l_elaboration_d_un_plan_de_transfert_des_connaissances.pdf",
+            "Une grille à remplir en équipe, dès le début d’un projet, pour préciser les produits de connaissances, les publics, les acteurs à impliquer, puis les stratégies, les échéances et les ressources du plan de transfert."
+          ],
+          [
+            "Guide pour accompagner l’implantation de pratiques prometteuses dans un établissement : soutien à l’implantation de pratiques prometteuses et au transfert de connaissances dans le réseau de la santé et des services sociaux",
+            "Marie Massuard, sous la direction de Julie Lane, ministère de la Santé et des Services sociaux du Québec, 2023",
+            "https://publications.msss.gouv.qc.ca/msss/fichiers/2023/23-516-04W.pdf",
+            "Un guide ministériel québécois qui transpose la science de l’implantation et l’application intégrée des connaissances en démarche d’accompagnement concrète pour les établissements du réseau."
+          ],
+          [
+            "Guide pratique – Stratégie de partenariat avec les patients et le public en recherche",
+            "Geneviève David et Alexandre Grégoire, Unité de soutien SRAP du Québec et Centre d’excellence sur le partenariat avec les patients et le public (CEPPP), 2018",
+            "https://ceppp.ca/wp-content/uploads/2021/01/USSQ_Guide-pratique-SPPP-en-recherche_V1.pdf",
+            "Un guide de démarrage, coécrit par un coordonnateur patient, qui répond aux questions pourquoi, qui, quand, où, combien et comment engager des patients et le public dans un projet de recherche, avec l’évaluation et les enjeux éthiques."
+          ]
+        ]
+      ],
+      [
+        "Balados",
+        [
+          [
+            "Le pont entre la recherche et le terrain",
+            "Les humains derrière la recherche en soins palliatifs, avec Chantal Verdon (UQO), 2025",
+            "https://podcasts.apple.com/ca/podcast/le-pont-entre-la-recherche-et-le-terrain/id1608211841?i=1000736634362",
+            "Une chercheuse en sciences infirmières explique comment elle a bâti un pont entre la recherche et la pratique, notamment par des communautés de pratique avec des infirmières et des infirmiers."
+          ],
+          [
+            "Season 2, Ep 1: David Chambers",
+            "That Implementation Science Podcast, animé par Mike Pullmann et Kevin King, 2024 (anglais)",
+            "https://thatimplementationsciencepodcast.podbean.com/e/season-2-ep-1-david-chambers/",
+            "Le directeur adjoint de la science de l’implantation au National Cancer Institute revient sur l’histoire du champ, sur le caractère collectif de la science et sur ce qui rend une équipe de recherche efficace."
+          ],
+          [
+            "SCCM Pod-520: Implementation Science: From Evidence to Practice",
+            "SCCM Podcast (Society of Critical Care Medicine), animé par Marilyn N. Bulloch avec Anne E. Sales, 2024 (anglais)",
+            "https://www.sccm.org/communications/sccm-podcast/sccm-podcast-all-episodes/sccm-pod-520-implementation-science-from-evidence-to-practice",
+            "Une introduction accessible où une chercheuse présente la science de l’implantation comme l’étude du changement planifié des comportements dans les contraintes des organisations, exemples cliniques à l’appui."
+          ]
+        ]
+      ],
+      [
+        "Capsules vidéo",
+        [
+          [
+            "Ancrage historique et évolution du courtage de connaissances",
+            "Équipe RENARD, présentation de Christian Dagenais et Saliha Ziam au colloque 31 du 90e congrès de l’Acfas, 2023",
+            "https://www.youtube.com/watch?v=3uucW5ZOp-g",
+            "Une courte présentation qui retrace d’où vient le courtage de connaissances et comment cette fonction a évolué, en guise d’entrée en matière sur le rôle de courtier."
+          ],
+          [
+            "Les compétences clés pour agir en courtage de connaissances",
+            "Équipe RENARD, présentation d’Esther McSween-Cadieux au colloque 31 du 90e congrès de l’Acfas, 2023",
+            "https://www.youtube.com/watch?v=RGVmhf9Wyzo",
+            "Fait le point sur les compétences dont une personne a besoin pour exercer le courtage de connaissances, un complément pratique aux textes sur le rôle de courtier."
+          ],
+          [
+            "Expériences du midi: Recherche en partenariat avec une citoyenne-chercheuse",
+            "Unité de soutien SSA Québec, webinaire avec Julie Coulombe et Marie-Hélène Morin, 2025",
+            "https://www.youtube.com/watch?v=TNwIcNyGjwY",
+            "Un cas concret de recherche menée avec une citoyenne-chercheuse sur la pair-aidance famille en santé mentale, qui montre ce que la science participative change à la conduite d’un projet."
+          ],
+          [
+            "CCNMO - Prise de décisions fondée sur des données probantes",
+            "Centre de collaboration nationale des méthodes et outils (CCNMO), 2016",
+            "https://www.youtube.com/watch?v=XrZjc3Flrz8",
+            "Présente en huit minutes le modèle du CCNMO, qui montre comment données de recherche, contexte local, préférences de la population et ressources se combinent dans une décision de santé publique."
+          ],
+          [
+            "TIDIRC: Introduction to Dissemination & Implementation Science",
+            "National Cancer Institute (TIDIRC OpenAccess), conférence de David Chambers, 2022 (anglais)",
+            "https://www.youtube.com/watch?v=DO2tv7DqL3w",
+            "Une conférence d’introduction qui distingue recherche sur la diffusion, diffusion de la recherche, recherche sur l’implantation et recherche pragmatique, et présente les concepts de base du champ."
+          ],
+          [
+            "Quand l’expertise académique rencontre le vécu du terrain (Le Réverbère, mini-série sur la science citoyenne, épisode 2)",
+            "Le Réverbère, Institut du Nouveau Monde avec le Fonds de recherche du Québec, 2026",
+            "https://www.youtube.com/watch?v=J6gVGWA_yhc",
+            "Des duos citoyen-chercheur racontent comment ils partagent les rôles dans un projet de recherche lancé par une question citoyenne, sans que l’un ou l’autre perde sa propre expertise."
+          ],
+          [
+            "Ép. 23 - Patient Partenaire: des alliés pour la recherche",
+            "Des femmes comme vous, Les Radieuses Magazine, avec Catherine Wilhelmy, 2024",
+            "https://www.youtube.com/watch?v=27KRzWNoxAA",
+            "Une patiente devenue responsable du partenariat dans un centre de recherche explique au grand public ce qu’est le mouvement patient partenaire et pourquoi le vécu des patients doit nourrir la recherche et les soins."
+          ]
+        ]
+      ],
+      [
+        "Presse et magazines",
+        [
+          [
+            "Communiquer efficacement les connaissances scientifiques permet de sauver des vies",
+            "Christian Dagenais, Aurélie Hot et Valéry Ridde, The Conversation (Canada), 2023",
+            "https://theconversation.com/communiquer-efficacement-les-connaissances-scientifiques-permet-de-sauver-des-vies-197191",
+            "Défend l’idée que la recherche ne change les pratiques que si ses résultats parviennent aux décideurs sous une forme accessible et si le changement est accompagné dans la durée, avec l’appui des bailleurs de fonds."
+          ],
+          [
+            "Pour mieux communiquer la science, commençons par bien choisir nos mots",
+            "Valéry Ridde, Aurélie Hot et Christian Dagenais, The Conversation (Canada), 2025",
+            "https://theconversation.com/pour-mieux-communiquer-la-science-commencons-par-bien-choisir-nos-mots-247661",
+            "Montre comment la profusion de termes concurrents (transfert, application, mobilisation…) brouille la collaboration et le financement de ce champ, et plaide pour une clarification du vocabulaire."
+          ],
+          [
+            "Recherche et politiques publiques : comment mieux faire circuler les savoirs ?",
+            "Mohamed Berrada, Affaires universitaires, 2026",
+            "https://www.affairesuniversitaires.ca/actualites/recherche-et-politiques-publiques-comment-mieux-faire-circuler-les-savoirs/",
+            "Compte rendu d’un colloque de l’Acfas où universités, collèges, organismes et décideurs ont cherché comment rapprocher recherche et décisions publiques sans sacrifier le temps long de la recherche."
+          ],
+          [
+            "Au-delà de l’acceptabilité sociale, ouvrir le dialogue pour favoriser la participation citoyenne au débat sur l’utilisation des données de santé",
+            "Carole Jabet et Cécile Petitgand, Fonds de recherche du Québec, 2022",
+            "https://frq.gouv.qc.ca/ouvrir-le-dialogue-pour-favoriser-la-participation-citoyenne/",
+            "Tiré d’un colloque de l’Acfas, ce texte propose des dispositifs délibératifs, comme des groupes de travail régionaux ou des forums citoyens, pour associer le public aux décisions sur l’usage des données de santé."
+          ],
+          [
+            "Construction et hiérarchisation des données probantes en santé : savoirs scientifiques, expérientiels et contextuels",
+            "Marie-Dominique Beaulieu, Revue du CREMIS, 2016",
+            "https://cremis.ca/publications/articles-et-medias/construction-et-hierarchisation-des-donnees-probantes-en-sante-savoirs-scientifiques-experientiels-et-contextuels/",
+            "Revient sur l’essor de la médecine fondée sur les données probantes et sur la hiérarchie des preuves, et plaide pour intégrer plutôt qu’opposer savoirs scientifiques, expérientiels et contextuels dans les décisions en santé."
+          ],
+          [
+            "Knowledge mobilization will help Canada face the next major challenge",
+            "Ursula Gobel, Policy Options / Options politiques, 2021 (anglais)",
+            "https://policyoptions.irpp.org/magazines/february-2021/knowledge-mobilization-will-help-canada-face-the-next-major-challenge/",
+            "Une vice-présidente du CRSH tire de la pandémie l’idée que la synthèse des connaissances et des réseaux de recherche interdisciplinaires et intersectoriels sont indispensables pour éclairer les décisions publiques face aux crises."
+          ],
+          [
+            "To Support Evidence-Based Policymaking, Bring Researchers and Policymakers Together",
+            "D. Max Crowley et J. Taylor Scott, Issues in Science and Technology, 2023 (anglais)",
+            "https://issues.org/evidence-based-policymaking-researchers-policymakers-collaborate-crowley-scott/",
+            "Deux chercheurs décrivent un modèle de collaboration directe entre scientifiques et élus, fondé sur la confiance, et rapportent qu’il améliore la quantité et la qualité des données probantes mobilisées dans la législation."
+          ]
+        ]
+      ]
+    ]
+  },
   publications: {
     surtitre: "04 · Publications",
     titre: "Communications, mémoires et outils",
@@ -942,241 +1208,231 @@ const fr = {
     "conclusion": "Ad astra per aspera : par des sentiers ardus jusqu’aux étoiles."
   },
   parcours: {
-    surtitre: "06 · Le parcours",
-    titre: "Formations et expériences",
-    sousTitre: "Du terrain aux politiques de santé",
-    intro: "De l’éducation spécialisée au doctorat : les diplômes, les postes et les formations qui jalonnent le parcours.",
-    types: { formation: "Formation", experience: "Expérience", entreprise: "Entrepreneuriat" },
-    etapes: [
-      { date: "En cours", type: "entreprise", titre: "Création d’OWNNIGHT · entrepreneur", detail: "Application Android de bien-être et d’éducation au sommeil : plan individualisé, leçons et séances guidées." },
-      { date: "Depuis 2025", type: "formation", titre: "Doctorat en santé publique · ESPUM", detail: "Option systèmes, organisations et politiques de santé (SOPS), 2e année. Stagiaire de recherche au CRCHUM : politiques de soins primaires, intersectorialité et intégration des soins et services.", discret: "Moyenne cumulative : 4,1" },
-      { date: "2025", type: "formation", titre: "Master en droit (LL.M.)", detail: "Droit public, droit social et droit de la santé · Université Paris Panthéon-Assas, mention spéciale du jury." },
-      { date: "2024–2025", type: "experience", titre: "Chargé de mission · Agence nationale d’appui à la performance", detail: "Paris. Accompagner la transformation de l’offre en santé et services sociaux, piloter des projets, produire des outils d’aide à la décision, animer un réseau d’experts et des communautés de pratique." },
-      { date: "2024", type: "formation", titre: "Maîtrise en direction d’établissements de santé", detail: "Université de Bretagne Occidentale, mention spéciale du jury." },
-      { date: "2023", type: "formation", titre: "Diplôme universitaire en entrepreneuriat", detail: "Institut d’administration des entreprises (IAE) de Brest, mention spéciale du jury." },
-      { date: "2023", type: "formation", titre: "Diplôme d’État d’éducateur spécialisé", detail: "Académie de Rennes." },
-      { date: "2020–2023", type: "experience", titre: "Éducateur spécialisé", detail: "Foyer d’hébergement, Adapei 35, Saint-Malo : évaluer les besoins, coconstruire les projets individualisés, coordonner une équipe pluridisciplinaire." },
-      { date: "2016–2024", type: "experience", titre: "Responsable de séjours de répit", detail: "Séjours adaptés pour personnes en situation de handicap, Brest : encadrement, projets de service, gestion des équipes, du budget et de la logistique." },
-    ],
-    continue: {
-      titre: "Formation continue · 2026",
-      items: [
-        "Conduite responsable de la recherche · CRCHUM",
-        "Pratique d’auxiliaire de recherche · Université de Montréal",
-        "MobilizeU, mobilisation des connaissances · Research Impact Canada et Université York",
-      ],
+    "surtitre": "06 · Le parcours",
+    "titre": "Formations et expériences",
+    "sousTitre": "Du terrain aux politiques de santé",
+    "intro": "De l’éducation spécialisée au doctorat : les diplômes, les postes et les formations qui jalonnent le parcours.",
+    "types": {
+      "formation": "Formation",
+      "experience": "Expérience",
+      "entreprise": "Entrepreneuriat"
     },
-    note: "Diplômes français évalués par le MIFI (Québec) et WES Canada.",
-  },
-  engagements: {
-    surtitre: "07 · Engagements",
-    titre: "Représenter, enseigner, contribuer",
-    intro: "Une présence dans la vie étudiante et scientifique, en continuité avec le parcours.",
-    groupes: [
+    "etapes": [
       {
-        titre: "Représentation étudiante",
-        items: [
-          { date: "2026", titre: "Coordinateur au doctorat en santé publique · AÉÉSPUM", detail: "Élu." },
-          { date: "En cours", titre: "Coordination du mentorat solidaire · programme de doctorat en santé publique", detail: "ESPUM, Université de Montréal." },
-          { date: "En cours", titre: "Représentant étudiant au comité du programme de doctorat en santé publique", detail: "ESPUM, Université de Montréal." },
-          { date: "2026", titre: "Représentant étudiant du doctorat · DGEPS", detail: "Département de gestion, d’évaluation et de politique de santé, ESPUM." },
-          { date: "Hiver 2026", titre: "Ambassadeur de l’Université de Montréal" },
-          { date: "2022–2024", titre: "Représentant élu au conseil d’administration du CROUS", detail: "France." },
-          { date: "2021", titre: "Président du bureau régional des étudiants en travail social d’Askoria", detail: "France." },
-        ],
+        "date": "En cours",
+        "type": "entreprise",
+        "titre": "Création d’OWNNIGHT · entrepreneur",
+        "detail": "Application Android de bien-être et d’éducation au sommeil : plan individualisé, leçons et séances guidées."
       },
       {
-        titre: "Expérience en enseignement",
-        items: [
-          { date: "Automne 2026", statut: "En cours", titre: "Auxiliaire d’enseignement · SPU 7001, ASA 6754 et ASA 6765", detail: "Université de Montréal." },
-          { date: "Hiver 2026", titre: "Auxiliaire d’enseignement · ASA 6754", detail: "Système de santé et santé des populations, Université de Montréal : accompagnement des étudiants, correction des examens écrits et oraux." },
-        ],
+        "date": "Depuis 2025",
+        "type": "formation",
+        "titre": "Doctorat en santé publique · ESPUM",
+        "detail": "Option systèmes, organisations et politiques de santé (SOPS), 2e année. Stagiaire de recherche au CRCHUM : politiques de soins primaires, intersectorialité et intégration des soins et services.",
+        "discret": "Moyenne cumulative : 4,1"
       },
       {
-        titre: "Communauté scientifique",
-        items: [
-          { date: "En cours", titre: "Comité scientifique étudiant du congrès de l’AÉÉSPUM", detail: "Membre." },
-          { date: "Juin 2026", titre: "Comité scientifique de la journée de la relève du GFSP", detail: "Membre étudiant." },
-        ],
+        "date": "Automne 2026",
+        "type": "experience",
+        "titre": "Auxiliaire d’enseignement · SPU 7001, ASA 6754 et ASA 6765",
+        "detail": "Université de Montréal."
       },
       {
-        titre: "Bourses et distinctions",
-        items: [
-          { date: "2026", titre: "Prix de la meilleure présentation par affiche, 3e cycle et postdoctorat", detail: "Journée de la relève, Groupe francophone en soins primaires." },
-          { date: "2025", titre: "Bourse de doctorat du Fonds de recherche du Québec (B2)", detail: "Bourse d’excellence, rang 3.", lien: FRQ_DOI },
-          { date: "2025", titre: "Bourse de recrutement international", detail: "Études supérieures et postdoctorales, Université de Montréal." },
-          { date: "2023–2025", titre: "Trois mentions spéciales du jury", detail: "Excellence académique." },
-        ],
+        "date": "Hiver 2026",
+        "type": "experience",
+        "titre": "Auxiliaire d’enseignement · ASA 6754",
+        "detail": "Système de santé et santé des populations, Université de Montréal : accompagnement des étudiants, correction des examens écrits et oraux."
       },
       {
-        titre: "Engagement citoyen",
-        items: [
-          { date: "2023", titre: "Sapeur-pompier volontaire", detail: "Centre d’incendie et de secours de Dinard, France." },
-          { date: "2013", titre: "Bénévolat et service civique", detail: "Association de la fondation étudiante pour la ville (AFEV), France." },
-        ],
+        "date": "2025",
+        "type": "formation",
+        "titre": "Master en droit (LL.M.)",
+        "detail": "Droit public, droit social et droit de la santé · Université Paris Panthéon-Assas, mention spéciale du jury."
       },
       {
-        titre: "Sports et loisirs",
-        items: [
-          { date: "Course", titre: "Triple marathonien", detail: "Marathons de Paris 2025 et 2026, marathon de Montréal 2026." },
-          { date: "Musique", titre: "Piano, chant et guitare" },
-          { date: "Sport", titre: "Hockey sur glace" },
-        ],
-      },
-    ],
-    affiliations: {
-      titre: "Membre étudiant",
-      items: ["Chaire de recherche GSK en gestion optimale des maladies chroniques", "Groupe francophone en soins primaires (GFSP)", "Réseau québécois de recherche sur le vieillissement (RQRV)", "Canadian Association for Health Services and Policy Research (CAHSPR)"],
-    },
-  },
-  ressources: {
-    "surtitre": "08 · Ressources",
-    "titre": "Le socle de ma recherche",
-    "intro": "Cette salle réunit le corpus de ma thèse sur les besoins sociaux multiples, concomitants et non satisfaits des adultes en soins primaires, les lacunes qu’il met en évidence et les lectures qui ont structuré ma formation doctorale.",
-    "chiffres": [
-      [
-        222,
-        "publications retenues"
-      ],
-      [
-        39,
-        "lectures prioritaires"
-      ],
-      [
-        83,
-        "lectures importantes"
-      ],
-      [
-        9,
-        "dimensions de lacunes examinées"
-      ]
-    ],
-    "prioritesTitre": "Répartition par priorité",
-    "prioriteLibelle": "Priorité",
-    "provenanceTitre": "Provenance des publications",
-    "provenance": [
-      [
-        "PubMed",
-        112
-      ],
-      [
-        "Embase et MEDLINE (Ovid)",
-        95
-      ],
-      [
-        "Cairn",
-        15
-      ]
-    ],
-    "lacunesTitre": "Ce que la littérature laisse ouvert",
-    "lacunesIntro": "Pour chacune des neuf dimensions examinées, le tableau indique l’état de la littérature, l’importance de la lacune et quelques repères bibliographiques.",
-    "lacunes": [
-      {
-        "dimension": "Conceptualisation",
-        "etat": "Présente mais non stabilisée",
-        "niveau": "Importante",
-        "score": 3,
-        "constat": "Les études indexées dans PubMed distinguent de plus en plus le risque social, le besoin social et le désir d’assistance. Les travaux francophones de Cairn y ajoutent un vocabulaire de la précarité et de la vulnérabilité sociale, souvent multidimensionnel, mais conceptuellement plus large que le besoin non satisfait.",
-        "reperes": "Gruß 2021; Tucher 2026; Tudrej 2019; Karran 2023"
+        "date": "2024–2025",
+        "type": "experience",
+        "titre": "Chargé de mission · Agence nationale d’appui à la performance",
+        "detail": "Paris. Accompagner la transformation de l’offre en santé et services sociaux, piloter des projets, produire des outils d’aide à la décision, animer un réseau d’experts et des communautés de pratique."
       },
       {
-        "dimension": "Mesure",
-        "etat": "Abondante mais hétérogène",
-        "niveau": "Importante",
-        "score": 3,
-        "constat": "Les outils diffèrent fortement par leurs domaines, leurs seuils et leur mode d’administration. Les scores multidimensionnels de précarité repérés dans Cairn, comme EPICES et PRECAR, ne sont pas équivalents aux questionnaires de besoins sociaux non satisfaits.",
-        "reperes": "Zein 2026; Karran 2023; Tudrej 2019; Rogers 2025"
+        "date": "2024",
+        "type": "formation",
+        "titre": "Maîtrise en direction d’établissements de santé",
+        "detail": "Université de Bretagne Occidentale, mention spéciale du jury."
       },
       {
-        "dimension": "Caractérisation / prévalence",
-        "etat": "Bien documentée pour au moins un besoin",
-        "niveau": "Modérée",
-        "score": 2,
-        "constat": "De nombreuses études décrivent la prévalence par domaine et la charge cumulative des besoins, mais les estimations se comparent difficilement lorsque la définition du besoin et l’outil diffèrent.",
-        "reperes": "Jih 2023; Bleacher 2020; Fiori 2021"
+        "date": "2023",
+        "type": "experience",
+        "titre": "Stage de direction en EHPAD",
+        "detail": "Établissement d’hébergement pour personnes âgées dépendantes, l’équivalent d’un CHSLD au Québec : stage auprès de la direction."
       },
       {
-        "dimension": "Multiplicité / concomitance",
-        "etat": "Émergente mais désormais démontrée",
-        "niveau": "Importante",
-        "score": 3,
-        "constat": "La coexistence de plusieurs besoins ou risques sociaux est fréquente, et des grappes, des classes et des mesures de charge cumulative ont été proposées. Une étude récente montre en outre que la multiplicité des risques augmente fortement la probabilité de souhaiter une aide.",
-        "reperes": "Vest 2025; Kreuter 2021; Zeng 2024; Tucher 2026"
+        "date": "2023",
+        "type": "formation",
+        "titre": "Diplôme universitaire en entrepreneuriat",
+        "detail": "Institut d’administration des entreprises (IAE) de Brest, mention spéciale du jury."
       },
       {
-        "dimension": "Priorisation par les patients",
-        "etat": "Quelques études directes, mais champ encore peu développé",
-        "niveau": "Majeure",
-        "score": 4,
-        "constat": "La littérature mesure surtout le désir d’aide, les objectifs négociés, l’acceptabilité ou la priorité relative, et les travaux récents renforcent la distinction entre risque détecté et aide souhaitée. Les travaux e-CARE montrent un accompagnement ajusté au rythme et aux priorités du patient, sans produire de hiérarchie standardisée des besoins.",
-        "reperes": "O’Loughlin 2022; Gruß 2021; Tucher 2026; Vasan 2026; Ouanhnon 2022"
+        "date": "2023",
+        "type": "formation",
+        "titre": "Diplôme d’État d’éducateur spécialisé",
+        "detail": "Académie de Rennes."
       },
       {
-        "dimension": "Interrelations entre besoins",
-        "etat": "Principalement décrites comme cooccurrence ou complexité globale",
-        "niveau": "Majeure",
-        "score": 4,
-        "constat": "Les analyses quantitatives documentent surtout la cooccurrence des besoins et des profils. Les travaux qualitatifs francophones de Cairn décrivent l’imbrication des difficultés sociales, administratives, économiques et de santé, mais rarement leur direction, leur séquence ou leur mécanisme causal.",
-        "reperes": "Vest 2025; Kreuter 2021; Marron-Delabre 2015; Ouanhnon 2022"
+        "date": "2020–2023",
+        "type": "experience",
+        "titre": "Éducateur spécialisé",
+        "detail": "Foyer d’hébergement, Adapei 35, Saint-Malo : évaluer les besoins, coconstruire les projets individualisés, coordonner une équipe pluridisciplinaire."
       },
       {
-        "dimension": "Résolution / trajectoire",
-        "etat": "Croissante mais dominée par des indicateurs intermédiaires",
-        "niveau": "Majeure",
-        "score": 4,
-        "constat": "Le champ distingue de plus en plus le dépistage, la référence, la connexion, la ressource reçue et la résolution. Les travaux francophones e-CARE suivent aussi des résultats concrets, comme l’ouverture de droits, l’accès à un médecin traitant, le logement et l’autonomie dans le parcours, mais sans mesure standardisée de la résolution de chaque besoin.",
-        "reperes": "Steeves-Reece 2022; Hausmann 2024; Ouanhnon 2022; Agarwal 2025"
-      },
-      {
-        "dimension": "Réseaux / réponse intersectorielle",
-        "etat": "Littérature substantielle mais souvent séparée des données patient",
-        "niveau": "Majeure pour l’intégration",
-        "score": 4,
-        "constat": "PubMed documente la navigation, les agents de santé communautaire, les partenariats médico-juridiques et les boucles de référence fermées, et Cairn les unités sociales en médecine générale, les MSP, les CPTS, les DAC et la coordination territoriale. La configuration du réseau est toutefois rarement reliée aux profils de besoins et à leur résolution.",
-        "reperes": "Hogg-Graham 2021; Tevaearai 2022; Yatim & Sebai 2021; Lessi 2023; Ouanhnon 2022"
-      },
-      {
-        "dimension": "Synthèse intégrée",
-        "etat": "Non identifiée dans les audits PubMed et Cairn",
-        "niveau": "Lacune principale",
-        "score": 5,
-        "constat": "Aucune synthèse repérée ne réunit, chez les adultes consultant en soins primaires, le caractère non satisfait des besoins, leur mesure multidomaine, leurs configurations de concomitance, la priorité que leur accorde le patient, leurs interrelations, la configuration du réseau mobilisable et la trajectoire jusqu’à leur résolution.",
-        "reperes": "Karran 2023; Vest 2025; Chang 2026; Tudrej 2019; Ouanhnon 2022"
+        "date": "2016–2024",
+        "type": "experience",
+        "titre": "Responsable de séjours de répit",
+        "detail": "Séjours adaptés pour personnes en situation de handicap, Brest : coconstruction du projet pédagogique, accompagnement socioéducatif, activités de loisirs et suivi des traitements ; encadrement, projets de service, gestion des équipes, du budget et de la logistique."
       }
     ],
-    "principaleTitre": "La lacune principale",
-    "principale": "La littérature n’est pas vide sur chacune des composantes de la question, qu’il s’agisse de la mesure des besoins sociaux multiples, de leur cooccurrence, du désir d’aide des patients ou des dispositifs de réponse. En revanche, aucune synthèse identifiée ne réunit, chez les adultes en soins primaires, le caractère non satisfait des besoins, leur concomitance, leur priorisation par les patients, leurs interrelations, le réseau de réponse et la trajectoire jusqu’à leur résolution. La lacune porte donc sur l’articulation entre la configuration des besoins et celle de la réponse intersectorielle, ainsi que sur les mécanismes qui expliquent pourquoi certains besoins persistent malgré leur identification.",
-    "vigilance": "Par rigueur méthodologique, la formulation retenue est « aucune synthèse identifiée dans les recherches PubMed et Cairn réalisées » et non « aucune synthèse n’existe ».",
-    "p5Titre": "Les 39 lectures prioritaires",
-    "p4Titre": "Les 83 lectures importantes",
-    "formationTitre": "Lectures de formation",
-    "cours": [
-      [
-        "MSO 6011 · Concepts et méthodes en épidémiologie",
-        [
-          "Celentano, D. D., Szklo, M., & Youssef, M. K. F. Gordis Epidemiology (7e éd.). Elsevier.",
-          "Szklo, M., & Nieto, F. J. (2018). Epidemiology: Beyond the basics (4e éd.). Jones & Bartlett Learning.",
-          "Rothman, K. J. Epidemiology: An introduction (chapitres 2 et 3).",
-          "Oleckno, W. A. Epidemiology: Concepts and methods (chapitre 6)."
-        ]
-      ],
-      [
-        "ASA 6754 · Système de santé et santé des populations",
-        [
-          "Arpin, E., Gautier, L., & Quesnel-Vallée, A. (2025). Quebec: A health system profile. University of Toronto Press.",
-          "Pineault, R. (2012). Comprendre le système de santé pour mieux le gérer. Presses de l’Université de Montréal."
-        ]
-      ],
-      [
-        "POL 6021 · Méthodes quantitatives",
-        [
-          "Arel-Bundock, V. (2021). Analyse causale et méthodes quantitatives. Presses de l’Université de Montréal.",
-          "Arel-Bundock, V. Model to meaning (chapitres 3, 5, 6 et 10). https://marginaleffects.com",
-          "Angrist, J. D., & Pischke, J.-S. (2015). Mastering ’metrics: The path from cause to effect. Princeton University Press."
-        ]
+    "continue": {
+      "titre": "Formation continue · 2026",
+      "items": [
+        "Conduite responsable de la recherche · CRCHUM",
+        "Pratique d’auxiliaire de recherche · Université de Montréal",
+        "MobilizeU, mobilisation des connaissances · Research Impact Canada et Université York"
       ]
+    },
+    "note": "Diplômes français évalués par le MIFI (Québec) et WES Canada."
+  },
+  engagements: {
+    "surtitre": "07 · Engagements",
+    "titre": "Représenter, enseigner, contribuer",
+    "intro": "Une présence dans la vie étudiante et scientifique, en continuité avec le parcours.",
+    "groupes": [
+      {
+        "titre": "Représentation étudiante",
+        "items": [
+          {
+            "date": "2026",
+            "titre": "Coordinateur au doctorat en santé publique · AÉÉSPUM",
+            "detail": "Élu."
+          },
+          {
+            "date": "En cours",
+            "titre": "Coordination du mentorat solidaire · programme de doctorat en santé publique",
+            "detail": "ESPUM, Université de Montréal."
+          },
+          {
+            "date": "En cours",
+            "titre": "Représentant étudiant au comité du programme de doctorat en santé publique",
+            "detail": "ESPUM, Université de Montréal."
+          },
+          {
+            "date": "2026",
+            "titre": "Représentant étudiant du doctorat · DGEPS",
+            "detail": "Département de gestion, d’évaluation et de politique de santé, ESPUM."
+          },
+          {
+            "date": "Hiver 2026",
+            "titre": "Ambassadeur de l’Université de Montréal"
+          },
+          {
+            "date": "2022–2024",
+            "titre": "Représentant élu au conseil d’administration du CROUS",
+            "detail": "France."
+          },
+          {
+            "date": "2021",
+            "titre": "Président du bureau régional des étudiants en travail social d’Askoria",
+            "detail": "France."
+          }
+        ]
+      },
+      {
+        "titre": "Communauté scientifique",
+        "items": [
+          {
+            "date": "En cours",
+            "titre": "Comité scientifique étudiant du congrès de l’AÉÉSPUM",
+            "detail": "Membre."
+          },
+          {
+            "date": "Juin 2026",
+            "titre": "Comité scientifique de la journée de la relève du GFSP",
+            "detail": "Membre étudiant."
+          }
+        ]
+      },
+      {
+        "titre": "Bourses et distinctions",
+        "items": [
+          {
+            "date": "2026",
+            "titre": "Prix de la meilleure présentation par affiche, 3e cycle et postdoctorat",
+            "detail": "Journée de la relève, Groupe francophone en soins primaires."
+          },
+          {
+            "date": "2025",
+            "titre": "Bourse de doctorat du Fonds de recherche du Québec (B2)",
+            "detail": "Bourse d’excellence, rang 3.",
+            "lien": "https://doi.org/10.69777/2009461"
+          },
+          {
+            "date": "2025",
+            "titre": "Bourse de recrutement international",
+            "detail": "Études supérieures et postdoctorales, Université de Montréal."
+          },
+          {
+            "date": "2023–2025",
+            "titre": "Trois mentions spéciales du jury",
+            "detail": "Excellence académique."
+          }
+        ]
+      },
+      {
+        "titre": "Engagement citoyen",
+        "items": [
+          {
+            "date": "2023",
+            "titre": "Sapeur-pompier volontaire",
+            "detail": "Centre d’incendie et de secours de Dinard, France."
+          },
+          {
+            "date": "2013",
+            "titre": "Bénévolat et service civique",
+            "detail": "Association de la fondation étudiante pour la ville (AFEV), France."
+          }
+        ]
+      },
+      {
+        "titre": "Sports et loisirs",
+        "items": [
+          {
+            "date": "Course",
+            "titre": "Triple marathonien",
+            "detail": "Marathons de Paris 2025 et 2026, marathon de Montréal 2026."
+          },
+          {
+            "date": "Musique",
+            "titre": "Piano, chant et guitare"
+          },
+          {
+            "date": "Sport",
+            "titre": "Hockey sur glace"
+          }
+        ]
+      }
     ],
-    "note": "Le corpus a été constitué à partir d’Ovid (Embase, MEDLINE), de PubMed et de Cairn, et chaque publication a reçu une priorité selon sa pertinence pour la question de thèse."
+    "affiliations": {
+      "titre": "Membre étudiant",
+      "items": [
+        "Chaire de recherche GSK en gestion optimale des maladies chroniques",
+        "Groupe francophone en soins primaires (GFSP)",
+        "Réseau québécois de recherche sur le vieillissement (RQRV)",
+        "Canadian Association for Health Services and Policy Research (CAHSPR)",
+        "Centre de recherche en santé publique (CReSP)",
+        "Centre de recherche du CISSS de Chaudière-Appalaches",
+        "Centre interuniversitaire de recherche en analyse des organisations (CIRANO)"
+      ]
+    }
   },
   contact: {
     surtitre: "Contact",
@@ -1235,15 +1491,50 @@ const en = {
     autresLangues: "Other languages",
   },
   nav: [
-    ["recherche", "Research"],
-    ["approche", "Approach"],
-    ["implantation", "Implementation"],
-    ["publications", "Publications"],
-    ["biographie", "Biography"],
-    ["parcours", "Background"],
-    ["engagements", "Engagement"],
-    ["ressources", "Resources"],
-    ["contact", "Contact"],
+    [
+      "recherche",
+      "Research"
+    ],
+    [
+      "conceptualisation",
+      "Conceptualisation"
+    ],
+    [
+      "approche",
+      "Approach"
+    ],
+    [
+      "valeurs",
+      "Values"
+    ],
+    [
+      "implantation",
+      "Implementation"
+    ],
+    [
+      "ressources",
+      "Resources"
+    ],
+    [
+      "publications",
+      "Publications"
+    ],
+    [
+      "biographie",
+      "Biography"
+    ],
+    [
+      "parcours",
+      "Background"
+    ],
+    [
+      "engagements",
+      "Engagement"
+    ],
+    [
+      "contact",
+      "Contact"
+    ]
   ],
   accueil: {
     surtitre: "PhD student in public health · ESPUM · CRCHUM",
@@ -1263,19 +1554,51 @@ const en = {
     portrait: "Portrait of Éric Bernier",
   },
   hall: {
-    titre: "The hall",
-    compte: "8 doors",
-    consigne: "Click a door to step in",
-    portes: {
-      recherche: ["Research", "Thesis and work in progress"],
-      approche: ["Approach", "Stance, methods, areas, values"],
-      implantation: ["Implementation", "Knowledge translation and implementation"],
-      publications: ["Publications", "Presentations, theses, tools"],
-      biographie: ["Biography", "From human experiences to collective change"],
-      parcours: ["Background", "Education and experience"],
-      engagements: ["Engagement", "Representation, teaching, awards"],
-      ressources: ["Resources","Thesis corpus, gaps, readings"],
-    },
+    "titre": "The hall",
+    "compte": "10 doors",
+    "consigne": "Click a door to step in",
+    "portes": {
+      "recherche": [
+        "Research",
+        "Thesis and work in progress"
+      ],
+      "conceptualisation": [
+        "Conceptualisation",
+        "Research in progress: corpus and gaps"
+      ],
+      "approche": [
+        "Approach",
+        "Stance, methods, areas, values"
+      ],
+      "valeurs": [
+        "Values",
+        "What guides my practice"
+      ],
+      "implantation": [
+        "Implementation",
+        "Knowledge translation and implementation"
+      ],
+      "ressources": [
+        "Resources",
+        "Articles, videos, podcasts"
+      ],
+      "publications": [
+        "Publications",
+        "Presentations, theses, tools"
+      ],
+      "biographie": [
+        "Biography",
+        "From human experiences to collective change"
+      ],
+      "parcours": [
+        "Background",
+        "Education and experience"
+      ],
+      "engagements": [
+        "Engagement",
+        "Representation, teaching, awards"
+      ]
+    }
   },
   recherche: {
     surtitre: "01 · Research",
@@ -1348,850 +1671,10 @@ const en = {
       ],
     },
   },
-  approche: {
-    surtitre: "02 · Approach",
-    titre: "A pragmatic stance, mixed methods",
-    intro:
-      "From question to observation: each question calls for its own data, analytical method and interpretation. I choose methods according to what needs to be understood, drawing on several disciplines.",
-    piliers: [
-      ["Pragmatic stance", "A stance that combines a positivist reading (measuring, estimating, testing hypotheses) with a constructivist one (understanding the meaning actors give to their practices). The question determines the method."],
-      ["Mixed methods", "Integrated quantitative and qualitative analyses: network analysis, regression, thematic analysis, document analysis and mapping, brought together in joint displays."],
-      ["Multidisciplinarity", "Public health, law, management, political science and social intervention: perspectives that inform one another to analyse the same system."],
-    ],
-    outils: {
-      titre: "Toolbox",
-      groupes: [
-        ["Data analysis", ["Positron (R)", "Python", "NVivo", "QGIS", "Excel"]],
-        ["Collaboration and facilitation", ["Miro", "Klaxoon", "Canva"]],
-        ["Office tools and AI", ["Office 365", "Artificial intelligence"]],
-      ],
-    },
-    expertises: {
-      "titre": "Expertise",
-      "items": [
-        [
-          "Management of health, social and medico-social establishments",
-          "My master’s degree in Management of Medico-Social Organisations and Personal Services (Université de Bretagne Occidentale, 2024, with special distinction from the jury) covers budgetary and financial management (CPOM, EPRD), public accounting, human resource management, organisational management and the institutional project. As manager of respite stays and adapted stays from 2016 to 2024, I was responsible for their human resource, administrative and financial management."
-        ],
-        [
-          "Health, social and medico-social law",
-          "My master’s degree in public law, specialising in health law and social law (Université Paris-Panthéon-Assas, 2025, with special distinction from the jury), addresses the organisation and planning of the health, social and medico-social sectors: authorisation, approval, rate-setting and rate-setting litigation. It also covers service users’ rights, contracting, civil, criminal and administrative liability, and employment and social security law."
-        ],
-        [
-          "Transformation of service provision and performance support",
-          "As a project officer at the French national agency for performance support (ANAP, Paris) in 2024–2025, I supported the transformation of health and social service provision. This work covered decision-support tools for the reform of home-based autonomy services and ten steering tools for territorial resource centres, which together account for several thousand downloads."
-        ],
-        [
-          "Ageing, autonomy and EHPAD",
-          "My two master’s dissertations address this field: the adaptation of EHPAD (French care homes for dependent older people) to ageing people with disabilities (Université de Bretagne Occidentale, 2024), and the implementation of the shift to home-based care, in a comparative study of France and Quebec (‘Vieillir chez soi’, Université Paris-Panthéon-Assas, 2025). EHPAD experience and work at ANAP on the reform of home-based autonomy services complement them."
-        ],
-        [
-          "Disability and self-determination",
-          "As a special needs educator in a residential home (Adapei 35, Saint-Malo, 2020–2023), I assessed the needs of the people supported, co-designed their individual plans and coordinated a multidisciplinary team. My 2023 dissertation examines the influence of educational practices on self-determination. From 2016 to 2024, I was also manager of respite stays and adapted stays for people with disabilities."
-        ],
-        [
-          "Autism",
-          "My experience as a special needs educator in a residential home, at Adapei 35 in Saint-Malo from 2020 to 2023, includes supporting autistic people. This support rests on assessing each person’s specific needs, co-designing their individual plan with them and coordinating a multidisciplinary team around that plan."
-        ],
-        [
-          "Research methodology and project evaluation",
-          "As a doctoral candidate in public health at ESPUM (Université de Montréal), I use mixed methods, both quantitative and qualitative. One of my research areas concerns performance, change management and the steering of organisations. In project evaluation, I draw on my training (evaluation of establishments, objectives and resources contracts) and on the decision-support and steering tools developed at ANAP."
-        ],
-        [
-          "Intersectoral action and primary care",
-          "As a research trainee at the CHUM Research Centre (CRCHUM), I study primary care policy, intersectoral action and the integration of care and services. Intersectoral action refers to the concerted action of several sectors, such as health, social services, education or housing, on problems that extend beyond the remit of any one of them. This work links to my research area of comparative health systems analysis."
-        ],
-        [
-          "Entrepreneurship and management",
-          "Trained in entrepreneurship and management (university diploma, IAE de Brest, 2023), I have embarked on the creation of OWNNIGHT, a well-being and sleep education application. My approach to management draws on the clinical approach to organisations and on developing an organisation’s activity, both studied at master’s level, as well as on the hands-on leadership I exercised as manager of adapted stays."
-        ]
-      ]
-    },    axes: {
-      titre: "Areas of work",
-      principaux: ["Governance and evaluation of health policy", "Intersectoral approaches in primary care", "Ageing, loss of autonomy and ageing-in-place policies"],
-      secondairesTitre: "Secondary areas",
-      secondaires: ["Legal planning, doctrinal analysis and health law", "Performance, change management and organisational steering", "Comparative analysis of health systems"],
-    },
-    valeurs: {
-      titre: "My values",
-      devise: ["Motto", "Ad astra per aspera", "Through hardships to the stars"],
-      items: [
-        [
-          "Intellectual curiosity",
-          "Looking elsewhere: other disciplines, other settings, other ways of thinking."
-        ],
-        [
-          "Resilience",
-          "Turning hardships into resources to move forward."
-        ],
-        [
-          "Autonomy",
-          "Thinking for oneself, and supporting everyone’s capacity to choose their own life."
-        ],
-        [
-          "Critical thinking",
-          "Questioning what seems obvious, data and institutions, starting with one’s own."
-        ],
-        [
-          "Solidarity",
-          "Leaving no one by the wayside: a principle of support and of public policy."
-        ],
-        [
-          "Boldness to undertake",
-          "Daring to propose, create and implement new responses."
-        ]
-      ],
-    },
-  },
-  implantation: {
-    "surtitre": "03 · Implementation",
-    "titre": "Knowledge translation and implementation",
-    "intro": "Moving knowledge between people, practice settings and research, then examining what it actually helps to change.",
-    "precision": "In my thesis, knowledge mobilisation accompanies the research: it is neither an implementation study nor a policy evaluation.",
-    "formation": {
-      "etiquette": "Completed training",
-      "titre": "MobilizeU, knowledge mobilisation · Research Impact Canada and York University, 2026",
-      "lien": "https://researchimpact.ca/learning/mobilizeu/",
-      "lienTexte": "Learn more"
-    },
-    "plan": {
-      "titre": "In my thesis: a knowledge mobilisation plan",
-      "items": [
-        {
-          "nom": "Why, what, to whom, how",
-          "texte": "Ward’s framework structures the plan around four questions: clarify the what, the why and the who before choosing the how, the formats and the channels.",
-          "ref": "Ward, 2017"
-        },
-        {
-          "nom": "Knowledge to action",
-          "texte": "The knowledge-to-action model frames the production, tailoring, communication and monitoring of knowledge, without claiming to secure lasting uptake.",
-          "ref": "Graham et al., 2006"
-        },
-        {
-          "nom": "Partnerships based on the 4Rs",
-          "texte": "Respect, relevance, reciprocity and responsibility guide partnerships with patients and practice settings, drawing on the CIHR patient engagement framework.",
-          "ref": "Kirkness & Barnhardt, 1991; CIHR, 2014; Bowen & Graham, 2013"
-        },
-        {
-          "nom": "A deliberative dialogue",
-          "texte": "A deliberative workshop turns findings into contextualised recommendations, with feedback to participants. Involvement is reported using GRIPP2.",
-          "ref": "Boyko et al., 2012; Lavis et al., 2009; Staniszewska et al., 2017"
-        },
-        {
-          "nom": "Tracking contribution, not attribution",
-          "texte": "Four indicators (output, reach, uptake, documented use) and a log make it possible to assess the plausible contribution of the research without attributing later changes to it.",
-          "ref": "Morton, 2015"
-        }
-      ]
-    },
-    "cadres": {
-      "titre": "Landmarks in implementation science",
-      "items": [
-        {
-          "nom": "CFIR 2.0",
-          "texte": "Examining the context and the determinants that help or hinder implementation.",
-          "ref": "Damschroder et al., 2022"
-        },
-        {
-          "nom": "Implementation outcomes",
-          "texte": "Distinguishing acceptability, adoption, appropriateness, feasibility, fidelity, cost, penetration and sustainability.",
-          "ref": "Proctor et al., 2011"
-        },
-        {
-          "nom": "Research impact",
-          "texte": "Impact frameworks mostly map the forward path, from research to practice; my work also examines the way back.",
-          "ref": "Greenhalgh et al., 2016; Brownson et al., 2026"
-        },
-        {
-          "nom": "Contribution approach",
-          "texte": "Linking outputs to uses, then to documented changes, while examining other possible influences.",
-          "ref": "Morton, 2015; Bayley & Phipps, 2019"
-        },
-        {
-          "nom": "Co-production and integrated knowledge translation",
-          "texte": "Co-production mechanisms depend on infrastructure, role clarity and power sharing; their costs matter too.",
-          "ref": "Graham et al., 2019; Kothari et al., 2025; Oliver et al., 2019"
-        },
-        {
-          "nom": "Critical implementation science",
-          "texte": "Theorising rather than applying frameworks as checklists.",
-          "ref": "Kislov et al., 2019"
-        },
-        {
-          "nom": "Participation and deliberation",
-          "texte": "Designing and evaluating public participation processes that leave a record of their influence.",
-          "ref": "Abelson et al., 2003; OECD, 2022"
-        },
-        {
-          "nom": "Why implementation",
-          "texte": "Proving that an innovation is effective is not enough to ensure that it will be adopted.",
-          "ref": "Bauer & Kirchner, 2020"
-        },
-        {
-          "nom": "Implementation strategies",
-          "texte": "The ERIC compilation offers a common vocabulary of 73 strategies for describing, selecting and reporting the strategies used.",
-          "ref": "Powell et al., 2015"
-        },
-        {
-          "nom": "Complex interventions",
-          "texte": "Implementation becomes a phase in its own right, with context, programme theory and stakeholders at the centre.",
-          "ref": "Skivington et al., 2021"
-        },
-        {
-          "nom": "Implementing with older adults",
-          "texte": "In Quebec, the implementation of personalised citizen support for older adults’ social participation sheds light on the conditions that matter.",
-          "ref": "Gobeil et al., 2023"
-        }
-      ]
-    },
-    "ressources": {
-      "titre": "Resources",
-      "items": [
-        [
-          "Knowledge mobilization glossary",
-          "Canadian Institutes of Health Research (in French)",
-          "https://cihr-irsc.gc.ca/f/54014.html"
-        ],
-        [
-          "Patient engagement framework",
-          "CIHR, Strategy for Patient-Oriented Research (in French)",
-          "https://cihr-irsc.gc.ca/f/48413.html"
-        ],
-        [
-          "Guidelines for citizen participation",
-          "OECD, 2022",
-          "https://doi.org/10.1787/f765caf6-en"
-        ]
-      ]
-    },
-    "chantiers": {
-      "titre": "Eight areas of knowledge mobilisation",
-      "intro": "Each area links the scientific literature to my practice.",
-      "detail": "Scientific literature",
-      "items": [
-        [
-          "Mobilize",
-          "Moving knowledge both ways",
-          "Mobilizing means moving knowledge from research to practice settings, and also from those settings and from people back to research. Knowledge translation models describe a cycle (produce, adapt, share, support use) without guaranteeing uptake.",
-          [
-            "Graham et al. (2006)",
-            "Grimshaw et al. (2012)",
-            "Ward et al. (2012)",
-            "Munerol et al. (2013)"
-          ]
-        ],
-        [
-          "Frameworks",
-          "Choosing a framework to fit the question",
-          "A framework makes choices explicit: why mobilize, which knowledge, with whom and how. Typologies distinguish process models, determinant frameworks and evaluation frameworks; choosing them to fit the question avoids using them as checklists.",
-          [
-            "Ward (2017)",
-            "Nilsen (2015)",
-            "Harvey & Kitson (2016)",
-            "Esmail et al. (2020)"
-          ]
-        ],
-        [
-          "Planning",
-          "Planning from the outset",
-          "A mobilization plan sets out audiences, goals, messages, activities, resources, timeline and indicators. It is built with partners from the design stage, not at the end.",
-          [
-            "CIHR (2012)",
-            "Tchameni Ngamo et al. (2016)",
-            "Kwan et al. (2022)",
-            "Diany et al. (2025)",
-            "Dancause (2023)"
-          ]
-        ],
-        [
-          "Partnerships",
-          "Co-producing and sharing power",
-          "Co-production and integrated knowledge translation involve knowledge users at every stage. They take time, clear roles and real power sharing; their costs must also be acknowledged.",
-          [
-            "Jull et al. (2017)",
-            "Boaz et al. (2018)",
-            "Hoekstra et al. (2020)",
-            "Skipper & Pepler (2020)",
-            "Oliver et al. (2019)"
-          ]
-        ],
-        [
-          "Inclusion",
-          "Who is heard, who takes part, who benefits",
-          "Inclusive mobilization questions everyone’s place. Experiential and Indigenous knowledge are not add-ons: they reshape questions, methods and interpretation.",
-          [
-            "Plamondon et al. (2019)",
-            "Morton Ninomiya et al. (2022)",
-            "Gainforth et al. (2021)",
-            "Breton (2025)",
-            "Georgalakis (2023)"
-          ]
-        ],
-        [
-          "Audiences",
-          "Choosing the format to fit the goal",
-          "Format follows purpose: co-create (deliberative dialogue, World Café, workshop), disseminate (exhibition, webinar, panel) or implement (training, project meeting). Accessibility is considered in all its forms (physical, sensory, financial, cultural, linguistic): audiences must feel included, not merely invited.",
-          [
-            "Pomey et al. (2015)",
-            "Greenhalgh et al. (2019)",
-            "Stoll et al. (2022)",
-            "Courcy et al. (2022)"
-          ]
-        ],
-        [
-          "Communicating",
-          "Aiming for use as much as visibility",
-          "Strategic communication and knowledge translation overlap without being the same: one supports visibility, the other use. Informing a decision requires understanding the policy context, building lasting relationships and offering short, usable messages.",
-          [
-            "Lomas (2007)",
-            "Barwick et al. (2014)",
-            "Oliver & Cairney (2019)",
-            "Oliver et al. (2026)",
-            "Fillol et al. (2026)"
-          ]
-        ],
-        [
-          "Impact",
-          "Tracking contribution, not attribution",
-          "Assessing impact means tracking research’s contribution to change without attributing change to research alone: outputs, reach, uptake, documented use, then benefits for services and people.",
-          [
-            "Mayne (2012)",
-            "Morton (2015)",
-            "Gervais et al. (2016)",
-            "Ziam et al. (2024)",
-            "Plouffe (2015)"
-          ]
-        ]
-      ]
-    },
-    "plusLoin": {
-      "titre": "Going further",
-      "intro": "Articles, guides, podcasts, videos and press to take each area further.",
-      "groupes": [
-        [
-          "Open-access scientific articles",
-          [
-            [
-              "Making sense of implementation theories, models and frameworks",
-              "Nilsen, Implementation Science, 2015",
-              "https://doi.org/10.1186/s13012-015-0242-0",
-              "The typology that sorts theories, models and frameworks into five families (process models, determinant frameworks, classic theories, implementation theories, evaluation frameworks) according to what one seeks to do: guide, explain or evaluate."
-            ],
-            [
-              "Community-based participatory research and integrated knowledge translation: advancing the co-creation of knowledge",
-              "Jull, Giles and Graham, Implementation Science, 2017",
-              "https://doi.org/10.1186/s13012-017-0696-3",
-              "Sets community-based participatory research and integrated knowledge translation side by side to show where they converge, where they diverge and what each can borrow from the other to co-create knowledge."
-            ],
-            [
-              "The dos and don’ts of influencing policy: a systematic review of advice to academics",
-              "Oliver and Cairney, Palgrave Communications, 2019",
-              "https://doi.org/10.1057/s41599-019-0232-y",
-              "A systematic review of the advice given to academics who want to influence policy: this advice is rarely based on evidence and says little about the costs and risks of engaging with policy."
-            ],
-            [
-              "Connecting knowledge with action for health equity: a critical interpretive synthesis of promising practices",
-              "Plamondon, Caxaj, Graham and Bottorff, International Journal for Equity in Health, 2019",
-              "https://doi.org/10.1186/s12939-019-1108-x",
-              "A critical interpretive synthesis that identifies promising practices for connecting knowledge with action for equity, with an emphasis on redistributing power and on the structural causes of inequities."
-            ],
-            [
-              "Quel impact avons-nous ? Vers l’élaboration d’un cadre pour rendre visibles les retombées du transfert des connaissances",
-              "Gervais, Souffez and Ziam, Revue francophone de recherche sur le transfert et l’utilisation des connaissances, 2016 (in French)",
-              "https://doi.org/10.18166/tuc.2016.1.1.5",
-              "Drawing on a review of 29 conceptual frameworks, lays the groundwork, in French, for a framework that makes the impacts of knowledge transfer activities visible and meets organisations’ accountability requirements."
-            ],
-            [
-              "Plain language summaries: A systematic review of theory, guidelines and empirical research",
-              "Stoll, Kerwer, Lieb and Chasiotis, PLOS ONE, 2022",
-              "https://doi.org/10.1371/journal.pone.0268789",
-              "Surveys theories, guidelines and empirical studies on plain language summaries and derives a conceptual framework for writing summaries that a non-specialist audience can understand."
-            ]
-          ]
-        ],
-        [
-          "Guides and tools",
-          [
-            [
-              "Animer un processus de transfert des connaissances : bilan des connaissances et outil d’animation",
-              "Nicole Lemire, Karine Souffez and Marie-Claire Laurendeau, Institut national de santé publique du Québec, 2009 (in French)",
-              "https://www.inspq.qc.ca/publications/1012",
-              "The Quebec guide that frames knowledge transfer as a dynamic process and offers a facilitation tool and a checklist for structuring each stage with the stakeholders concerned."
-            ],
-            [
-              "Outil pour soutenir l’élaboration d’un plan de transfert des connaissances",
-              "Karine Souffez and Marie-Claire Laurendeau, Institut national de santé publique du Québec, undated (PDF metadata: 2011) (in French)",
-              "https://www.inspq.qc.ca/sites/default/files/publications/outil_pour_soutenir_l_elaboration_d_un_plan_de_transfert_des_connaissances.pdf",
-              "A grid for teams to complete at the start of a project, to specify the knowledge products, the audiences and the actors to involve, then the strategies, deadlines and resources of the transfer plan."
-            ],
-            [
-              "Guide pour accompagner l’implantation de pratiques prometteuses dans un établissement : soutien à l’implantation de pratiques prometteuses et au transfert de connaissances dans le réseau de la santé et des services sociaux",
-              "Marie Massuard, under the direction of Julie Lane, Ministère de la Santé et des Services sociaux du Québec, 2023 (in French)",
-              "https://publications.msss.gouv.qc.ca/msss/fichiers/2023/23-516-04W.pdf",
-              "A Quebec ministry guide that turns implementation science and integrated knowledge translation into a practical support process for institutions in the health and social services network."
-            ],
-            [
-              "Guide pratique – Stratégie de partenariat avec les patients et le public en recherche",
-              "Geneviève David and Alexandre Grégoire, Unité de soutien SRAP du Québec and Centre d’excellence sur le partenariat avec les patients et le public (CEPPP), 2018 (in French)",
-              "https://ceppp.ca/wp-content/uploads/2021/01/USSQ_Guide-pratique-SPPP-en-recherche_V1.pdf",
-              "A starter guide, co-written by a patient coordinator, that answers why, who, when, where, how much and how to engage patients and the public in a research project, including evaluation and ethical issues."
-            ]
-          ]
-        ],
-        [
-          "Podcasts",
-          [
-            [
-              "Le pont entre la recherche et le terrain",
-              "Les humains derrière la recherche en soins palliatifs, with Chantal Verdon (UQO), 2025 (in French)",
-              "https://podcasts.apple.com/ca/podcast/le-pont-entre-la-recherche-et-le-terrain/id1608211841?i=1000736634362",
-              "A nursing researcher explains how she built a bridge between research and practice, notably through communities of practice with nurses."
-            ],
-            [
-              "Season 2, Ep 1: David Chambers",
-              "That Implementation Science Podcast, hosted by Mike Pullmann and Kevin King, 2024",
-              "https://thatimplementationsciencepodcast.podbean.com/e/season-2-ep-1-david-chambers/",
-              "The deputy director for implementation science at the National Cancer Institute reflects on the history of the field, the collective nature of science and what makes a research team effective."
-            ],
-            [
-              "SCCM Pod-520: Implementation Science: From Evidence to Practice",
-              "SCCM Podcast (Society of Critical Care Medicine), hosted by Marilyn N. Bulloch with Anne E. Sales, 2024",
-              "https://www.sccm.org/communications/sccm-podcast/sccm-podcast-all-episodes/sccm-pod-520-implementation-science-from-evidence-to-practice",
-              "An accessible introduction in which a researcher presents implementation science as the study of planned behaviour change within organisational constraints, illustrated with clinical examples."
-            ]
-          ]
-        ],
-        [
-          "Videos",
-          [
-            [
-              "Ancrage historique et évolution du courtage de connaissances",
-              "Équipe RENARD, presentation by Christian Dagenais and Saliha Ziam at Colloquium 31 of the 90th Acfas Congress, 2023 (in French)",
-              "https://www.youtube.com/watch?v=3uucW5ZOp-g",
-              "A short presentation that traces where knowledge brokering comes from and how the role has evolved, as an introduction to the work of a knowledge broker."
-            ],
-            [
-              "Les compétences clés pour agir en courtage de connaissances",
-              "Équipe RENARD, presentation by Esther McSween-Cadieux at Colloquium 31 of the 90th Acfas Congress, 2023 (in French)",
-              "https://www.youtube.com/watch?v=RGVmhf9Wyzo",
-              "Reviews the competencies a person needs to work in knowledge brokering, a practical complement to the readings on the broker’s role."
-            ],
-            [
-              "Expériences du midi: Recherche en partenariat avec une citoyenne-chercheuse",
-              "Unité de soutien SSA Québec, webinar with Julie Coulombe and Marie-Hélène Morin, 2025 (in French)",
-              "https://www.youtube.com/watch?v=TNwIcNyGjwY",
-              "A concrete case of research conducted with a citizen researcher on family peer support in mental health, showing what participatory science changes in the way a project is run."
-            ],
-            [
-              "CCNMO - Prise de décisions fondée sur des données probantes",
-              "Centre de collaboration nationale des méthodes et outils (CCNMO), 2016 (in French)",
-              "https://www.youtube.com/watch?v=XrZjc3Flrz8",
-              "Presents, in eight minutes, the CCNMO model, which shows how research evidence, local context, population preferences and resources come together in a public health decision."
-            ],
-            [
-              "TIDIRC: Introduction to Dissemination & Implementation Science",
-              "National Cancer Institute (TIDIRC OpenAccess), lecture by David Chambers, 2022",
-              "https://www.youtube.com/watch?v=DO2tv7DqL3w",
-              "An introductory lecture that distinguishes dissemination research, research dissemination, implementation research and pragmatic research, and presents the core concepts of the field."
-            ],
-            [
-              "Quand l’expertise académique rencontre le vécu du terrain (Le Réverbère, mini-série sur la science citoyenne, épisode 2)",
-              "Le Réverbère, Institut du Nouveau Monde with the Fonds de recherche du Québec, 2026 (in French)",
-              "https://www.youtube.com/watch?v=J6gVGWA_yhc",
-              "Citizen–researcher pairs describe how they share roles in a research project launched by a citizen’s question, without either of them losing their own expertise."
-            ],
-            [
-              "Ép. 23 - Patient Partenaire: des alliés pour la recherche",
-              "Des femmes comme vous, Les Radieuses Magazine, with Catherine Wilhelmy, 2024 (in French)",
-              "https://www.youtube.com/watch?v=27KRzWNoxAA",
-              "A patient who became partnership lead at a research centre explains to a general audience what the patient-partner movement is and why patients’ lived experience should inform research and care."
-            ]
-          ]
-        ],
-        [
-          "Press and magazines",
-          [
-            [
-              "Communiquer efficacement les connaissances scientifiques permet de sauver des vies",
-              "Christian Dagenais, Aurélie Hot and Valéry Ridde, The Conversation (Canada), 2023 (in French)",
-              "https://theconversation.com/communiquer-efficacement-les-connaissances-scientifiques-permet-de-sauver-des-vies-197191",
-              "Argues that research changes practice only if its findings reach decision-makers in an accessible form and if change is supported over time, with backing from funders."
-            ],
-            [
-              "Pour mieux communiquer la science, commençons par bien choisir nos mots",
-              "Valéry Ridde, Aurélie Hot and Christian Dagenais, The Conversation (Canada), 2025 (in French)",
-              "https://theconversation.com/pour-mieux-communiquer-la-science-commencons-par-bien-choisir-nos-mots-247661",
-              "Shows how the profusion of competing terms (transfer, translation, mobilisation…) muddles collaboration and funding in this field, and calls for a clearer vocabulary."
-            ],
-            [
-              "Recherche et politiques publiques : comment mieux faire circuler les savoirs ?",
-              "Mohamed Berrada, Affaires universitaires, 2026 (in French)",
-              "https://www.affairesuniversitaires.ca/actualites/recherche-et-politiques-publiques-comment-mieux-faire-circuler-les-savoirs/",
-              "A report on an Acfas symposium where universities, colleges, organisations and decision-makers looked for ways to bring research and public decision-making closer together without sacrificing the long time frames of research."
-            ],
-            [
-              "Au-delà de l’acceptabilité sociale, ouvrir le dialogue pour favoriser la participation citoyenne au débat sur l’utilisation des données de santé",
-              "Carole Jabet and Cécile Petitgand, Fonds de recherche du Québec, 2022 (in French)",
-              "https://frq.gouv.qc.ca/ouvrir-le-dialogue-pour-favoriser-la-participation-citoyenne/",
-              "Drawn from an Acfas symposium, this piece proposes deliberative mechanisms, such as regional working groups or citizen forums, to involve the public in decisions about the use of health data."
-            ],
-            [
-              "Construction et hiérarchisation des données probantes en santé : savoirs scientifiques, expérientiels et contextuels",
-              "Marie-Dominique Beaulieu, Revue du CREMIS, 2016 (in French)",
-              "https://cremis.ca/publications/articles-et-medias/construction-et-hierarchisation-des-donnees-probantes-en-sante-savoirs-scientifiques-experientiels-et-contextuels/",
-              "Looks back at the rise of evidence-based medicine and the hierarchy of evidence, and argues for integrating rather than opposing scientific, experiential and contextual knowledge in health decisions."
-            ],
-            [
-              "Knowledge mobilization will help Canada face the next major challenge",
-              "Ursula Gobel, Policy Options / Options politiques, 2021",
-              "https://policyoptions.irpp.org/magazines/february-2021/knowledge-mobilization-will-help-canada-face-the-next-major-challenge/",
-              "A vice-president of SSHRC draws from the pandemic the lesson that knowledge synthesis and interdisciplinary, intersectoral research networks are essential to inform public decisions in times of crisis."
-            ],
-            [
-              "To Support Evidence-Based Policymaking, Bring Researchers and Policymakers Together",
-              "D. Max Crowley and J. Taylor Scott, Issues in Science and Technology, 2023",
-              "https://issues.org/evidence-based-policymaking-researchers-policymakers-collaborate-crowley-scott/",
-              "Two researchers describe a trust-based model of direct collaboration between scientists and elected officials, and report that it improves the quantity and quality of the evidence used in legislation."
-            ]
-          ]
-        ]
-      ]
-    },
-    "bibliographie": {
-      "titre": "References (APA)",
-      "items": [
-        "Abelson, J., Forest, P.-G., Eyles, J., Smith, P., Martin, E., & Gauvin, F.-P. (2003). Deliberations about deliberative methods: Issues in the design and evaluation of public participation processes. Social Science & Medicine, 57(2), 239–251. https://doi.org/10.1016/S0277-9536(02)00343-X",
-        "Barwick, M., Phipps, D., Myers, G., Johnny, M., & Coriandoli, R. (2014). Knowledge translation and strategic communications: Unpacking differences and similarities for scholarly and research communications. Scholarly and Research Communication, 5(3). https://doi.org/10.22230/src.2014v5n3a175",
-        "Bauer, M. S., & Kirchner, J. (2020). Implementation science: What is it and why should I care? Psychiatry Research, 283, Article 112376. https://doi.org/10.1016/j.psychres.2019.04.025",
-        "Bayley, J. E., & Phipps, D. (2019). Building the concept of research impact literacy. Evidence & Policy, 15(4), 597–606. https://doi.org/10.1332/174426417X15034894876108",
-        "Beaulieu, M.-D. (2016). Construction et hiérarchisation des données probantes en santé : savoirs scientifiques, expérientiels et contextuels. Revue du CREMIS, 9(2), 9-15. https://cremis.ca/publications/articles-et-medias/construction-et-hierarchisation-des-donnees-probantes-en-sante-savoirs-scientifiques-experientiels-et-contextuels/",
-        "Berrada, M. (2026, 2 juin). Recherche et politiques publiques : comment mieux faire circuler les savoirs ? Affaires universitaires. https://www.affairesuniversitaires.ca/actualites/recherche-et-politiques-publiques-comment-mieux-faire-circuler-les-savoirs/",
-        "Boaz, A., Hanney, S., Borst, R., O’Shea, A., & Kok, M. (2018). How to engage stakeholders in research: Design principles to support improvement. Health Research Policy and Systems, 16, Article 60. https://doi.org/10.1186/s12961-018-0337-6",
-        "Bowen, S. J., & Graham, I. D. (2013). From knowledge translation to engaged scholarship: Promoting research relevance and utilization. Archives of Physical Medicine and Rehabilitation, 94(1 Suppl.), S3–S8. https://doi.org/10.1016/j.apmr.2012.04.037",
-        "Boyko, J. A., Lavis, J. N., Abelson, J., Dobbins, M., & Carter, N. (2012). Deliberative dialogues as a mechanism for knowledge translation and exchange in health systems decision-making. Social Science & Medicine, 75(11), 1938–1945. https://doi.org/10.1016/j.socscimed.2012.06.016",
-        "Breton, H. (2025). Savoirs expérientiels en santé : revue systématique de littérature. Santé Publique, 37(3), 241-251. https://doi.org/10.3917/spub.255.0241",
-        "Brownson, R. C., Iwelunmor, J., Odeny, T. A., Proctor, E. K., & Geng, E. H. (2026). So what? Elevating the impact of implementation science. Implementation Science Communications, 7, 2. https://doi.org/10.1186/s43058-025-00831-9",
-        "Bulloch, M. N. (Animatrice). (2024, 17 juillet). SCCM Pod-520: Implementation science: From evidence to practice [Balado]. Dans SCCM Podcast. Society of Critical Care Medicine. https://www.sccm.org/communications/sccm-podcast/sccm-podcast-all-episodes/sccm-pod-520-implementation-science-from-evidence-to-practice",
-        "Centre de collaboration nationale des méthodes et outils. (2016, 4 juillet). CCNMO - Prise de décisions fondée sur des données probantes [Vidéo]. YouTube. https://www.youtube.com/watch?v=XrZjc3Flrz8",
-        "Courcy, I., Bureau, A., & Grenier, G. (2022). L’art visuel comme outil de pratique en mobilisation et transfert de connaissances : retour sur un projet de cocréation d’une murale alliant la recherche, l’art et des savoirs expérientiels. Revue francophone de recherche sur le transfert et l’utilisation des connaissances, 6(3). https://doi.org/10.18166/tuc.2022.6.3.25",
-        "Crowley, D. M., & Scott, J. T. (2023). To support evidence-based policymaking, bring researchers and policymakers together. Issues in Science and Technology, 39(2), 31-35. https://issues.org/evidence-based-policymaking-researchers-policymakers-collaborate-crowley-scott/",
-        "Dagenais, C., Hot, A., & Ridde, V. (2023, 21 février). Communiquer efficacement les connaissances scientifiques permet de sauver des vies. The Conversation. https://theconversation.com/communiquer-efficacement-les-connaissances-scientifiques-permet-de-sauver-des-vies-197191",
-        "Damschroder, L. J., Reardon, C. M., Widerquist, M. A. O., & Lowery, J. (2022). The updated Consolidated Framework for Implementation Research based on user feedback. Implementation Science, 17, 75. https://doi.org/10.1186/s13012-022-01245-0",
-        "Dancause, L. (2023). Guide pédagogique sur la mobilisation des connaissances (L. Cardinal & J. Luckerhoff, dir.). Laboratoire interdisciplinaire de recherche sur l’enseignement supérieur. https://www.erudit.org/fr/livres/hors-collection/guide-pedagogique-sur-la-mobilisation-des-connaissances/",
-        "David, G., & Grégoire, A. (2018). Guide pratique – Stratégie de partenariat avec les patients et le public en recherche. Unité de soutien SRAP du Québec. https://ceppp.ca/wp-content/uploads/2021/01/USSQ_Guide-pratique-SPPP-en-recherche_V1.pdf",
-        "Diany, R., Fitzgibbon-Collins, L. K., & Gagliano Taliun, S. A. (2025). Ten simple rules for getting started with knowledge mobilization. PLOS Computational Biology, 21(4), e1012888. https://doi.org/10.1371/journal.pcbi.1012888",
-        "Équipe RENARD. (2023, 26 mai). Ancrage historique et évolution du courtage de connaissances [Vidéo]. YouTube. https://www.youtube.com/watch?v=3uucW5ZOp-g",
-        "Équipe RENARD. (2023, 29 mai). Les compétences clés pour agir en courtage de connaissances [Vidéo]. YouTube. https://www.youtube.com/watch?v=RGVmhf9Wyzo",
-        "Esmail, R., Hanson, H. M., Holroyd-Leduc, J., Brown, S., Strifler, L., Straus, S. E., Niven, D. J., & Clement, F. M. (2020). A scoping review of full-spectrum knowledge translation theories, models, and frameworks. Implementation Science, 15, Article 11. https://doi.org/10.1186/s13012-020-0964-5",
-        "Fillol, A., Traverson, L., Zitti, T., Bars, G., Minssieux, N., Hot, A., Dagenais, C., & Ridde, V. (2026). Évaluation d’une intervention de courtage de connaissances à l’Agence régionale de santé Île-de-France. Santé Publique, 38(1), 15-34. https://doi.org/10.3917/spub.261.0015",
-        "Gainforth, H. L., Hoekstra, F., McKay, R., McBride, C. B., Sweet, S. N., Martin Ginis, K. A., Anderson, K., Chernesky, J., Clarke, T., Forwell, S., Maffin, J., McPhail, L. T., Mortenson, W. B., Scarrow, G., Schaefer, L., Sibley, K. M., Athanasopoulos, P., & Willms, R. (2021). Integrated knowledge translation guiding principles for conducting and disseminating spinal cord injury research in partnership. Archives of Physical Medicine and Rehabilitation, 102(4), 656-663. https://doi.org/10.1016/j.apmr.2020.09.393",
-        "Georgalakis, J. (2023, 16 janvier). We need to talk about equity in knowledge mobilisation. Transforming Evidence. https://transforming-evidence.org/blog/we-need-to-talk-about-equity-in-knowledge-mobilisation",
-        "Gervais, M.-J., Souffez, K., & Ziam, S. (2016). Quel impact avons-nous ? Vers l’élaboration d’un cadre pour rendre visibles les retombées du transfert des connaissances. Revue francophone de recherche sur le transfert et l’utilisation des connaissances, 1(1). https://doi.org/10.18166/tuc.2016.1.1.5",
-        "Gobeil, J., Gaumond, V., Germain, S., Vézina, A., Duguay, A.-M., & Levasseur, M. (2023). Implantation de l’Accompagnement-citoyen personnalisé d’intégration communautaire (APIC) : vers l’optimisation de la mise en œuvre de cette approche novatrice visant la participation sociale des aînés. Canadian Journal on Aging / La Revue canadienne du vieillissement, 42(4), 551-564. https://doi.org/10.1017/S0714980823000132",
-        "Gobel, U. (2021, 8 février). Knowledge mobilization will help Canada face the next major challenge. Policy Options. https://policyoptions.irpp.org/magazines/february-2021/knowledge-mobilization-will-help-canada-face-the-next-major-challenge/",
-        "Graham, I. D., Logan, J., Harrison, M. B., Straus, S. E., Tetroe, J., Caswell, W., & Robinson, N. (2006). Lost in knowledge translation: Time for a map? Journal of Continuing Education in the Health Professions, 26(1), 13–24. https://doi.org/10.1002/chp.47",
-        "Graham, I. D., McCutcheon, C., & Kothari, A. (2019). Exploring the frontiers of research co-production: The Integrated Knowledge Translation Research Network concept papers. Health Research Policy and Systems, 17, 88. https://doi.org/10.1186/s12961-019-0501-7",
-        "Greenhalgh, T., Hinton, L., Finlay, T., Macfarlane, A., Fahy, N., Clyde, B., & Chant, A. (2019). Frameworks for supporting patient and public involvement in research: Systematic review and co-design pilot. Health Expectations, 22(4), 785-801. https://doi.org/10.1111/hex.12888",
-        "Greenhalgh, T., Raftery, J., Hanney, S., & Glover, M. (2016). Research impact: A narrative review. BMC Medicine, 14, 78. https://doi.org/10.1186/s12916-016-0620-8",
-        "Grimshaw, J. M., Eccles, M. P., Lavis, J. N., Hill, S. J., & Squires, J. E. (2012). Knowledge translation of research findings. Implementation Science, 7, Article 50. https://doi.org/10.1186/1748-5908-7-50",
-        "Harvey, G., & Kitson, A. (2016). PARIHS revisited: From heuristic to integrated framework for the successful implementation of knowledge into practice. Implementation Science, 11, Article 33. https://doi.org/10.1186/s13012-016-0398-2",
-        "Hoekstra, F., Mrklas, K. J., Khan, M., McKay, R. C., Vis-Dunbar, M., Sibley, K. M., Nguyen, T., Graham, I. D., SCI Guiding Principles Consensus Panel, & Gainforth, H. L. (2020). A review of reviews on principles, strategies, outcomes and impacts of research partnerships approaches: A first step in synthesising the research partnership literature. Health Research Policy and Systems, 18, Article 51. https://doi.org/10.1186/s12961-020-0544-9",
-        "Institut du Nouveau Monde. (2026, 31 mars). Quand l’expertise académique rencontre le vécu du terrain (Épisode 2) [Balado]. Dans Le Réverbère : mini-série sur la science citoyenne. YouTube. https://www.youtube.com/watch?v=J6gVGWA_yhc",
-        "Instituts de recherche en santé du Canada. (2012). Guide de planification de l’application des connaissances aux IRSC : approches intégrées et de fin de subvention. https://irsc-cihr.gc.ca/f/documents/kt_lm_ktplan-fr.pdf",
-        "Instituts de recherche en santé du Canada. (2014). Cadre d’engagement des patients de la Stratégie de recherche axée sur le patient. https://cihr-irsc.gc.ca/f/48413.html",
-        "Jabet, C., & Petitgand, C. (2022, 21 juillet). Au-delà de l’acceptabilité sociale, ouvrir le dialogue pour favoriser la participation citoyenne au débat sur l’utilisation des données de santé. Fonds de recherche du Québec. https://frq.gouv.qc.ca/ouvrir-le-dialogue-pour-favoriser-la-participation-citoyenne/",
-        "Jull, J., Giles, A., & Graham, I. D. (2017). Community-based participatory research and integrated knowledge translation: Advancing the co-creation of knowledge. Implementation Science, 12, Article 150. https://doi.org/10.1186/s13012-017-0696-3",
-        "Kirkness, V. J., & Barnhardt, R. (1991). First Nations and higher education: The four R’s—Respect, relevance, reciprocity, responsibility. Journal of American Indian Education, 30(3), 1–15.",
-        "Kislov, R., Pope, C., Martin, G. P., & Wilson, P. M. (2019). Harnessing the power of theorising in implementation science. Implementation Science, 14, 103. https://doi.org/10.1186/s13012-019-0957-4",
-        "Kothari, A., Sibbald, S. L., McCutcheon, C., Berta, W., Urquhart, R., Horsley, T., Comer, L., & Graham, I. D. (2025). How does integrated knowledge translation work? A realist review. Health Research Policy and Systems, 23, 102. https://doi.org/10.1186/s12961-025-01374-0",
-        "Kwan, B. M., Brownson, R. C., Glasgow, R. E., Morrato, E. H., & Luke, D. A. (2022). Designing for dissemination and sustainability to promote equitable impacts on health. Annual Review of Public Health, 43, 331-353. https://doi.org/10.1146/annurev-publhealth-052220-112457",
-        "Lavis, J. N., Boyko, J. A., Oxman, A. D., Lewin, S., & Fretheim, A. (2009). SUPPORT Tools for evidence-informed health Policymaking (STP) 14: Organising and using policy dialogues to support evidence-informed policymaking. Health Research Policy and Systems, 7(Suppl. 1), S14. https://doi.org/10.1186/1478-4505-7-S1-S14",
-        "Lemire, N., Souffez, K., & Laurendeau, M.-C. (2009). Animer un processus de transfert des connaissances : bilan des connaissances et outil d’animation. Institut national de santé publique du Québec. https://www.inspq.qc.ca/publications/1012",
-        "Les humains derrière la recherche en soins palliatifs. (2025, 13 novembre). Le pont entre la recherche et le terrain [Balado]. Apple Podcasts. https://podcasts.apple.com/ca/podcast/le-pont-entre-la-recherche-et-le-terrain/id1608211841?i=1000736634362",
-        "Lomas, J. (2007). The in-between world of knowledge brokering. BMJ, 334(7585), 129-132. https://doi.org/10.1136/bmj.39038.593380.AE",
-        "Massuard, M. (2023). Guide pour accompagner l’implantation de pratiques prometteuses dans un établissement : soutien à l’implantation de pratiques prometteuses et au transfert de connaissances dans le réseau de la santé et des services sociaux (J. Lane, dir.). Ministère de la Santé et des Services sociaux. https://publications.msss.gouv.qc.ca/msss/fichiers/2023/23-516-04W.pdf",
-        "Mayne, J. (2012). Contribution analysis: Coming of age? Evaluation, 18(3), 270-280. https://doi.org/10.1177/1356389012451663",
-        "Morton Ninomiya, M. E., Maddox, R., Brascoupé, S., Robinson, N., Atkinson, D., Firestone, M., Ziegler, C., & Smylie, J. (2022). Knowledge translation approaches and practices in Indigenous health research: A systematic review. Social Science & Medicine, 301, Article 114898. https://doi.org/10.1016/j.socscimed.2022.114898",
-        "Morton, S. (2015). Progressing research impact assessment: A “contributions” approach. Research Evaluation, 24(4), 405–419. https://doi.org/10.1093/reseval/rvv016",
-        "Munerol, L., Cambon, L., & Alla, F. (2013). Le courtage en connaissances, définition et mise en œuvre : une revue de la littérature. Santé Publique, 25(5), 587-597. https://doi.org/10.3917/spub.135.0587",
-        "NCI Scientific Events and Resources. (2022, 23 février). TIDIRC: Introduction to dissemination & implementation science [Vidéo]. YouTube. https://www.youtube.com/watch?v=DO2tv7DqL3w",
-        "Nilsen, P. (2015). Making sense of implementation theories, models and frameworks. Implementation Science, 10, Article 53. https://doi.org/10.1186/s13012-015-0242-0",
-        "OECD. (2022). OECD guidelines for citizen participation processes. OECD Publishing. https://doi.org/10.1787/f765caf6-en",
-        "Oliver, K., & Cairney, P. (2019). The dos and don’ts of influencing policy: A systematic review of advice to academics. Palgrave Communications, 5, Article 21. https://doi.org/10.1057/s41599-019-0232-y",
-        "Oliver, K., Kothari, A., & Mays, N. (2019). The dark side of coproduction: Do the costs outweigh the benefits for health research? Health Research Policy and Systems, 17, 33. https://doi.org/10.1186/s12961-019-0432-3",
-        "Oliver, K., Malin, J., Akerlof, K. L., Day, E., Grant, S., McGill, E., Lorenc, T., Martin, P., Lam, J., Williamson, L. E., Mouthaan, M., Pleguezuelo, V. C., Iqbal, S., Jaques, L., Nyanchoka, M., Cesar Alejandre, J., Lane, L., Persson, E., Forde, H., . . . Falconer, J. (2026). What factors influence evidence use in policy? An updated systematic map. Humanities and Social Sciences Communications. Publication en ligne anticipée. https://doi.org/10.1057/s41599-026-08391-6",
-        "Plamondon, K. M., Caxaj, C. S., Graham, I. D., & Bottorff, J. L. (2019). Connecting knowledge with action for health equity: A critical interpretive synthesis of promising practices. International Journal for Equity in Health, 18, Article 202. https://doi.org/10.1186/s12939-019-1108-x",
-        "Plouffe, L. (2015, 20 novembre). Les retombées vers les milieux : dans quelle mesure l’évaluation du transfert des connaissances est-elle possible? [Vidéo]. Institut de recherche Robert-Sauvé en santé et en sécurité du travail. https://www.irsst.qc.ca/publications-et-outils/video/i/100291/n/les-retombees-vers-les-milieux-dans-quelle-mesure-l-evaluation-du-transfert-des-connaissances-est-elle-possible-",
-        "Pomey, M.-P., Flora, L., Karazivan, P., Dumez, V., Lebel, P., Vanier, M.-C., Débarges, B., Clavel, N., & Jouet, E. (2015). Le « Montreal model » : enjeux du partenariat relationnel entre patients et professionnels de la santé. Santé Publique, 27(1, suppl.), S41-S50. https://doi.org/10.3917/spub.150.0041",
-        "Powell, B. J., Waltz, T. J., Chinman, M. J., Damschroder, L. J., Smith, J. L., Matthieu, M. M., Proctor, E. K., & Kirchner, J. E. (2015). A refined compilation of implementation strategies: Results from the Expert Recommendations for Implementing Change (ERIC) project. Implementation Science, 10, Article 21. https://doi.org/10.1186/s13012-015-0209-1",
-        "Proctor, E., Silmere, H., Raghavan, R., Hovmand, P., Aarons, G., Bunger, A., Griffey, R., & Hensley, M. (2011). Outcomes for implementation research: Conceptual distinctions, measurement challenges, and research agenda. Administration and Policy in Mental Health and Mental Health Services Research, 38(2), 65–76. https://doi.org/10.1007/s10488-010-0319-7",
-        "Pullmann, M., & King, K. (Animateurs). (2024, 8 juin). Season 2, Ep 1: David Chambers [Balado]. Dans That Implementation Science Podcast. Podbean. https://thatimplementationsciencepodcast.podbean.com/e/season-2-ep-1-david-chambers/",
-        "Ridde, V., Hot, A., & Dagenais, C. (2025, 16 février). Pour mieux communiquer la science, commençons par bien choisir nos mots. The Conversation. https://theconversation.com/pour-mieux-communiquer-la-science-commencons-par-bien-choisir-nos-mots-247661",
-        "Skipper, Y., & Pepler, D. J. (2020). Knowledge mobilization: Stepping into interdependent and relational space using co-creation. Action Research. Publication anticipée en ligne. https://doi.org/10.1177/1476750320960810",
-        "Skivington, K., Matthews, L., Simpson, S. A., Craig, P., Baird, J., Blazeby, J. M., Boyd, K. A., Craig, N., French, D. P., McIntosh, E., Petticrew, M., Rycroft-Malone, J., White, M., & Moore, L. (2021). A new framework for developing and evaluating complex interventions: Update of Medical Research Council guidance. BMJ, 374, Article n2061. https://doi.org/10.1136/bmj.n2061",
-        "Souffez, K., & Laurendeau, M.-C. (s. d.). Outil pour soutenir l’élaboration d’un plan de transfert des connaissances. Institut national de santé publique du Québec. https://www.inspq.qc.ca/sites/default/files/publications/outil_pour_soutenir_l_elaboration_d_un_plan_de_transfert_des_connaissances.pdf",
-        "Staniszewska, S., Brett, J., Simera, I., Seers, K., Mockford, C., Goodlad, S., Altman, D. G., Moher, D., Barber, R., Denegri, S., Entwistle, A., Littlejohns, P., Morris, C., Suleman, R., Thomas, V., & Tysall, C. (2017). GRIPP2 reporting checklists: Tools to improve reporting of patient and public involvement in research. BMJ, 358, j3453. https://doi.org/10.1136/bmj.j3453",
-        "Stoll, M., Kerwer, M., Lieb, K., & Chasiotis, A. (2022). Plain language summaries: A systematic review of theory, guidelines and empirical research. PLOS ONE, 17(6), Article e0268789. https://doi.org/10.1371/journal.pone.0268789",
-        "Tchameni Ngamo, S., Souffez, K., Lord, C., & Dagenais, C. (2016). Do knowledge translation (KT) plans help to structure KT practices? Health Research Policy and Systems, 14, Article 46. https://doi.org/10.1186/s12961-016-0118-z",
-        "Unité de soutien SSA Québec. (2025, 21 février). Expériences du midi: Recherche en partenariat avec une citoyenne-chercheuse [Vidéo]. YouTube. https://www.youtube.com/watch?v=TNwIcNyGjwY",
-        "Villeneuve, V., & Tousignant, C. (Animatrices). (2024, 30 septembre). Patient partenaire : des alliés pour la recherche (Épisode 23) [Balado]. Dans Des femmes comme vous. Les Radieuses Magazine. https://www.youtube.com/watch?v=27KRzWNoxAA",
-        "Ward, V. (2017). Why, whose, what and how? A framework for knowledge mobilisers. Evidence & Policy, 13(3), 477–497. https://doi.org/10.1332/174426416X14634763278725",
-        "Ward, V., Smith, S., House, A., & Hamer, S. (2012). Exploring knowledge exchange: A useful framework for practice and policy. Social Science & Medicine, 74(3), 297-304. https://doi.org/10.1016/j.socscimed.2011.09.021",
-        "Ziam, S., Lanoue, S., McSween-Cadieux, E., Gervais, M.-J., Lane, J., Gaid, D., Chouinard, L. J., Dagenais, C., Ridde, V., Jean, E., Fleury, F. C., Hong, Q. N., & Prigent, O. (2024). A scoping review of theories, models and frameworks used or proposed to evaluate knowledge mobilization strategies. Health Research Policy and Systems, 22, Article 8. https://doi.org/10.1186/s12961-023-01090-7"
-      ]
-    },
-    "transfert": {
-      "titre": "Knowledge translation and implementation",
-      "detail": "Five stages",
-      "etapes": [
-        [
-          "Listen",
-          "Framing the question with practice settings",
-          "Identify the needs and the decisions to inform. Specify who takes part, when, and with what influence.",
-          [
-            "Needs",
-            "Participation"
-          ]
-        ],
-        [
-          "Circulate",
-          "Putting knowledge in context",
-          "Bring research into dialogue with lived experience. Adapt format, language and content to the intended uses.",
-          [
-            "Lived experience",
-            "Adapted formats"
-          ]
-        ],
-        [
-          "Co-design",
-          "Discussing options and choices",
-          "Consultation gathers views; co-design means building together; deliberation weighs arguments and trade-offs. Document the actual influence of contributions.",
-          [
-            "Co-design",
-            "Deliberation"
-          ]
-        ],
-        [
-          "Implement",
-          "Supporting implementation",
-          "Examine context, resources and barriers. Specify actors, adaptations and support strategies, using frameworks such as CFIR.",
-          [
-            "Implementation",
-            "CFIR"
-          ]
-        ],
-        [
-          "Evaluate",
-          "Telling producing, using and changing apart",
-          "A disseminated tool is an output. Its adoption is an implementation outcome. Changes for services and people are further outcomes to document.",
-          [
-            "Evaluation",
-            "Impact"
-          ]
-        ]
-      ],
-      "note": "These five stages draw on the knowledge-to-action model (Graham et al., 2006) and Ward’s framework (2017)."
-    }
-  },
-  publications: {
-    surtitre: "04 · Publications",
-    titre: "Presentations, theses and tools",
-    intro: "Each work keeps its original title, authors and status. Manuscripts in progress are presented in the Research room.",
-    groupes: [
-      {
-        titre: "Scientific presentations",
-        items: [
-          { date: "June 2026", statut: "Best poster award · doctoral and postdoctoral", titre: TITRES_ORIGINAUX.gfsp, detail: `${AUTEURS.trio} · Groupe francophone en soins primaires (GFSP), Montréal · poster` },
-          { date: "May 2026", statut: "Poster", titre: TITRES_ORIGINAUX.cahspr, detail: `${AUTEURS.trio} · CAHSPR, Ottawa` },
-          { date: "April 2026", statut: "Poster and 180-second talk", titre: TITRES_ORIGINAUX.gfsp, detail: `${AUTEURS.trio} · Quebec Network for Research on Aging (RQRV), Sherbrooke · poster and 180-second talk` },
-        ],
-      },
-      {
-        titre: "Theses defended before a jury",
-        items: [
-          { date: "2025", titre: TITRES_ORIGINAUX.memoireDroit, detail: "Master of Laws · Université Paris Panthéon-Assas · supervisor: Benoît Apollis" },
-          { date: "2024", titre: TITRES_ORIGINAUX.memoireGestion, detail: "Master’s in health care facility management · Université de Bretagne Occidentale · supervisor: Michelle-Hentic Giliberto" },
-          { date: "2023", titre: TITRES_ORIGINAUX.memoireEduc, detail: "State diploma in special needs education · Académie de Rennes" },
-        ],
-      },
-      {
-        titre: "Professional tools",
-        items: [
-          { date: "2024–2025", titre: "Home care services reform: decision-support tools", detail: "French national agency for performance support (ANAP) · several thousand downloads", lien: ANAP_SAD },
-          { date: "2024–2025", titre: "Territorial resource centres: ten management support tools", detail: "ANAP · several thousand downloads", lien: ANAP_CRT },
-        ],
-      },
-    ],
-  },
-  biographie: {
-    "surtitre": "05 · Biography",
-    "titre": "From human experiences to collective transformations",
-    "intro": [
-      "Special needs educator, jurist, entrepreneur and PhD student in public health, I built my path at the meeting point of different worlds: supporting people, managing organisations, law, public policy and research.",
-      "Behind this diversity lies one ambition: **to understand the mechanisms that shape individual and collective trajectories, in order to contribute to fairer, more supportive societies that recognise everyone’s capacity to act.**",
-      "My journey, personal and professional, feeds one conviction: human realities cannot be separated from the social, organisational and political systems in which they are embedded.",
-      "It follows an upward movement: from supporting people towards transforming health and social service organisations and policies, with a clear focus on supporting public decision-making."
-    ],
-    "citation": "Human realities cannot be separated from the social, organisational and political systems in which they are embedded.",
-    "chapitres": [
-      [
-        "Growing up outside conventional paths",
-        [
-          "My path begins in France, in a working-class setting, marked in particular by time in the child welfare system and by leaving school at sixteen.",
-          "Far from a conventional academic route, I gradually built my trajectory through work, through exploring different settings and through returning to study.",
-          "These experiences, like my neurodivergence, nurtured my independent thinking, my adaptability and my interest in the mechanisms of social reproduction, emancipation and solidarity. Today they inform how I look at institutions and at the diversity of human experience."
-        ]
-      ],
-      [
-        "Creation, encounter and the ethics of care",
-        [
-          "My interest in music led me to a bachelor’s degree in musicology, alongside my first experiences in youth and leisure programmes and then managing adapted stays for people with disabilities.",
-          "For all their differences, these worlds let me explore human relationships in several dimensions: individual expression, collective life, support and responsibility towards others.",
-          "Over eleven years of commitment alongside human vulnerability, these experiences gradually placed the ethics of *care* at the centre, together with the recognition of individual capacities and the importance of support that fosters autonomy rather than dependence. They also showed me the strength of solidarity."
-        ]
-      ],
-      [
-        "From support to self-determination",
-        [
-          "After several years in the field, I wanted to give my professional life a new direction, guided by a reflection on social usefulness and on the place I wished to hold in society.",
-          "I therefore returned to study special needs education to deepen the theoretical, ethical and methodological foundations of support in the social and medico-social sectors, refocusing my practice on self-determination and on working *with* people.",
-          "My professional practice thesis, on how educational practices influence self-determination, was a turning point in my questioning: **how can people’s freedom of choice be fostered when the conditions of their support are also determined by how institutions work?**"
-        ]
-      ],
-      [
-        "Understanding organisations to transform practice",
-        [
-          "This question led me to widen my reflection to organisations themselves.",
-          "I completed training in the management of health and medico-social facilities, as well as a university diploma in entrepreneurship at IAE Brest, obtained in 2023.",
-          "There I deepened issues of management, funding, coordination, human resources and change management, and observed that the facilities’ difficulties, from funding to partnership work and recruitment, were largely conditioned by health policy.",
-          "Above all, I sought to understand the conditions that allow professionals to turn their intentions into effective practice, and organisations to reconcile their constraints with people’s needs."
-        ]
-      ],
-      [
-        "From how institutions work to the governance of health systems",
-        [
-          "Studying organisations led me to explore the mechanisms that steer their decisions: legal frameworks, public policy, planning, funding arrangements and governance.",
-          "I pursued this reflection at Université Paris-Panthéon-Assas, in public, health and social law, to move beyond management issues and adopt a multilevel approach to the health system and to the legal instruments of national solidarity, then as a project manager at France’s national agency for performance support (ANAP).",
-          "This experience allowed me to work at the interface between national directions and operational realities, turning those directions into concrete arrangements, in close contact with the challenges faced by managers, professionals and users of the health system.",
-          "It strengthened my interest in the difficulties of implementing public policy, especially when the responses needed require crossing the boundaries between organisations and sectors. Consolidated by a research thesis, this immersion revealed the difficulties of implementing integrated care and service models, and the need for an intersectoral and interdisciplinary approach to siloed practices. I then reached out to several researchers in Québec, presenting my findings and a project to contrast health systems, in search of answers to the difficulties of implementing ageing-in-place policies."
-        ]
-      ],
-      [
-        "Producing knowledge to inform collective action",
-        [
-          "Today, my PhD in public health at Université de Montréal, supervised by Drs. N. Sourial and G. Layani, continues this journey.",
-          "My work focuses on the organisation of health and social service systems, populations’ social needs, intersectoral collaboration and the conditions for implementing integrated responses, particularly in home support.",
-          "My approach is resolutely interdisciplinary and pragmatic. It seeks to bring together lived experience, scientific knowledge and decision-making realities, to better understand the phenomena studied and to contribute to changing practice and public policy.",
-          "I pay particular attention to people losing autonomy and those far from services, to partnership research that recognises patients as producers of knowledge, to knowledge translation and to the use of knowledge by people, professionals, organisations and decision-makers.",
-          "This drive to create, experiment and propose also extends to entrepreneurship, notably through the development of **OWNNIGHT**, a project under way."
-        ]
-      ]
-    ],
-    "vision": {
-      "titre": "A vision that connects experience, knowledge and action",
-      "paragraphes": [
-        "I believe that academic, professional and experiential knowledge gain from being confronted rather than ranked.",
-        "My path has let me discover different layers of society and of the health system, hold various positions within them and observe how they interact. This plurality of perspectives is now one of the resources of my scientific approach.",
-        "**For me, research is an instrument of understanding, but also of human emancipation, social justice and support for collective decision-making.** Its value lies as much in the rigour of the knowledge it produces as in its capacity to feed debate, inform choices and support their implementation.",
-        "It is aligned with the United Nations Sustainable Development Goals: improving the well-being of older adults, reducing inequalities in ageing at home and strengthening inclusive, accountable institutions. In the long run, my ambition is to become an independent researcher, recognised for combining evidence, dialogue among stakeholders and outreach to the general public.",
-        "Intellectual curiosity, resilience, autonomy, critical thinking, solidarity and the boldness to undertake are values that run through my journey.",
-        "I wish to pursue this exploration at the interface of disciplines and settings, convinced that today’s public health challenges require bringing people, knowledge and institutions into dialogue."
-      ]
-    },
-    "conclusion": "Ad astra per aspera: through hardships to the stars."
-  },
-  parcours: {
-    surtitre: "06 · Background",
-    titre: "Education and experience",
-    sousTitre: "From frontline practice to health policy",
-    intro: "From special needs education to the PhD: the degrees, positions and training that mark the path.",
-    types: { formation: "Education", experience: "Experience", entreprise: "Entrepreneurship" },
-    etapes: [
-      { date: "Ongoing", type: "entreprise", titre: "Founding OWNNIGHT · entrepreneur", detail: "An Android app for sleep well-being and sleep education: a personalised plan, lessons and guided sessions." },
-      { date: "Since 2025", type: "formation", titre: "PhD in public health · ESPUM", detail: "Health systems, organisations and policy option (SOPS), 2nd year. Research trainee at CRCHUM: primary care policy, intersectoral action and integration of care and services.", discret: "Cumulative GPA: 4.1" },
-      { date: "2025", type: "formation", titre: "Master of Laws (LL.M.)", detail: "Public law, social law and health law · Université Paris Panthéon-Assas, with special distinction from the jury." },
-      { date: "2024–2025", type: "experience", titre: "Project manager · French national agency for performance support (ANAP)", detail: "Paris. Supporting the transformation of health and social services, leading projects, producing decision-support tools, coordinating an expert network and communities of practice." },
-      { date: "2024", type: "formation", titre: "Master’s in health care facility management", detail: "Université de Bretagne Occidentale, with special distinction from the jury." },
-      { date: "2023", type: "formation", titre: "University diploma in entrepreneurship", detail: "Institut d’administration des entreprises (IAE) de Brest, with special distinction from the jury." },
-      { date: "2023", type: "formation", titre: "State diploma in special needs education", detail: "Académie de Rennes." },
-      { date: "2020–2023", type: "experience", titre: "Special needs educator", detail: "Residential home, Adapei 35, Saint-Malo: assessing needs, co-designing individual plans, coordinating a multidisciplinary team." },
-      { date: "2016–2024", type: "experience", titre: "Respite stay manager", detail: "Adapted stays for people with disabilities, Brest: supervision, service projects, team, budget and logistics management." },
-    ],
-    continue: {
-      titre: "Continuing education · 2026",
-      items: [
-        "Responsible conduct of research · CRCHUM",
-        "Research assistant practice · Université de Montréal",
-        "MobilizeU, knowledge mobilisation · Research Impact Canada and York University",
-      ],
-    },
-    note: "French degrees evaluated by the MIFI (Québec) and WES Canada.",
-  },
-  engagements: {
-    surtitre: "07 · Engagement",
-    titre: "Representing, teaching, contributing",
-    intro: "Taking part in student and scientific life, in continuity with the path so far.",
-    groupes: [
-      {
-        titre: "Student representation",
-        items: [
-          { date: "2026", titre: "PhD coordinator in public health · AÉÉSPUM", detail: "Elected." },
-          { date: "Ongoing", titre: "Coordinator of solidarity mentoring · PhD program in public health", detail: "ESPUM, Université de Montréal." },
-          { date: "Ongoing", titre: "Student representative on the PhD program committee in public health", detail: "ESPUM, Université de Montréal." },
-          { date: "2026", titre: "Doctoral student representative · DGEPS", detail: "Department of Health Management, Evaluation and Policy, ESPUM." },
-          { date: "Winter 2026", titre: "Université de Montréal ambassador" },
-          { date: "2022–2024", titre: "Elected member of the CROUS board", detail: "France." },
-          { date: "2021", titre: "President of Askoria’s regional social work student association", detail: "France." },
-        ],
-      },
-      {
-        titre: "Teaching experience",
-        items: [
-          { date: "Fall 2026", statut: "Ongoing", titre: "Teaching assistant · SPU 7001, ASA 6754 and ASA 6765", detail: "Université de Montréal." },
-          { date: "Winter 2026", titre: "Teaching assistant · ASA 6754", detail: "Health system and population health, Université de Montréal: student support, grading of written and oral exams." },
-        ],
-      },
-      {
-        titre: "Scientific community",
-        items: [
-          { date: "Ongoing", titre: "Student scientific committee of the AÉÉSPUM conference", detail: "Member." },
-          { date: "June 2026", titre: "Scientific committee, GFSP early-career research day", detail: "Student member." },
-        ],
-      },
-      {
-        titre: "Scholarships and awards",
-        items: [
-          { date: "2026", titre: "Best poster presentation award, doctoral and postdoctoral category", detail: "Early-career research day, Groupe francophone en soins primaires." },
-          { date: "2025", titre: "Fonds de recherche du Québec doctoral scholarship (B2)", detail: "Excellence scholarship, ranked 3rd.", lien: FRQ_DOI },
-          { date: "2025", titre: "International recruitment scholarship", detail: "Graduate and Postdoctoral Studies, Université de Montréal." },
-          { date: "2023–2025", titre: "Three special distinctions from the jury", detail: "Academic excellence." },
-        ],
-      },
-      {
-        titre: "Civic engagement",
-        items: [
-          { date: "2023", titre: "Volunteer firefighter", detail: "Dinard fire and rescue station, France." },
-          { date: "2013", titre: "Volunteering and civic service", detail: "Association de la fondation étudiante pour la ville (AFEV), France." },
-        ],
-      },
-      {
-        titre: "Sports and leisure",
-        items: [
-          { date: "Running", titre: "Three-time marathoner", detail: "Paris Marathon 2025 and 2026, Montréal Marathon 2026." },
-          { date: "Music", titre: "Piano, singing and guitar" },
-          { date: "Sport", titre: "Ice hockey" },
-        ],
-      },
-    ],
-    affiliations: {
-      titre: "Student member",
-      items: ["GSK Research Chair in optimal management of chronic diseases", "Groupe francophone en soins primaires (GFSP)", "Quebec Network for Research on Aging (RQRV)", "Canadian Association for Health Services and Policy Research (CAHSPR)"],
-    },
-  },
-  ressources: {
-    "surtitre": "08 · Resources",
-    "titre": "The foundations of my research",
-    "intro": "This room brings together my thesis corpus on multiple, co-occurring and unmet social needs among adults in primary care, the gaps it brings to light and the readings that have shaped my doctoral training.",
+  conceptualisation: {
+    "surtitre": "Research in progress",
+    "titre": "Conceptualising the research project",
+    "intro": "I am at the conceptualisation stage: a corpus of prioritised publications, the gaps it reveals and the training readings that support it.",
     "chiffres": [
       [
         222,
@@ -2337,401 +1820,276 @@ const en = {
     ],
     "note": "The corpus was assembled from Ovid (Embase, MEDLINE), PubMed and Cairn, and each publication was assigned a priority according to its relevance to the thesis question."
   },
-  contact: {
-    surtitre: "Contact",
-    titre: "Let’s talk about your work",
-    intro: "A question, a reading to share, a project to discuss: write to me.",
-    courriel: COURRIEL,
-    ecrire: "Send an email",
-    liens: [
-      ["Academic CV", "PDF, in French", "docs/cv-academique.pdf"],
-      ["Professional CV", "PDF, in French", "docs/cv-professionnel.pdf"],
-      ["ORCID", "0009-0001-4236-4932", ORCID],
-      ["LinkedIn", "Profile", LINKEDIN],
-      ["Thesis project poster", "Accessible version", AFFICHE + "en/"],
+  approche: {
+    "surtitre": "02 · Approach",
+    "titre": "A pragmatic stance, mixed methods",
+    "intro": "From question to observation: each question calls for its own data, analytical method and interpretation. I choose methods according to what needs to be understood, drawing on several disciplines.",
+    "piliers": [
+      [
+        "Pragmatic stance",
+        "A stance that combines a positivist reading (measuring, estimating, testing hypotheses) with a constructivist one (understanding the meaning actors give to their practices). The question determines the method."
+      ],
+      [
+        "Mixed methods",
+        "Integrated quantitative and qualitative analyses: network analysis, regression, thematic analysis, document analysis and mapping, brought together in joint displays."
+      ],
+      [
+        "Multidisciplinarity",
+        "Public health, law, management, political science and social intervention: perspectives that inform one another to analyse the same system."
+      ]
     ],
-    adresse: "School of Public Health, Université de Montréal · 7101 avenue du Parc, Montréal, Québec",
-  },
-  pied: "© 2026 Éric Bernier · No cookies, no analytics.",
-  credits: "Door images: Unsplash photographs and a portrait of Éric Bernier; lecture hall, assembly chamber and participatory workshop generated for this site, depicting no real people. Read-aloud voices: Kyutai TTS (CC BY 4.0), reference voices CML-TTS (Oliveira et al., 2023) and Alba MacKenna (CC BY 4.0).",
-  introuvable: { titre: "Page not found", texte: "This page does not exist or has moved.", retour: "Back to the home page" },
-};
-
-/* ----------------------------------------------------------------- Español */
-const es = {
-  lang: "es",
-  locale: "es_ES",
-  chemin: "../",
-  meta: {
-    titre: "Éric Bernier",
-    description:
-      "Éric Bernier, doctorando en salud pública (sistemas, organizaciones y políticas de salud) en la ESPUM, Université de Montréal, jurista, emprendedor y educador especializado. Investigación sobre la respuesta intersectorial a las necesidades sociales complejas en atención primaria.",
-  },
-  ui: {
-    evitement: "Ir al contenido",
-    sousTitre: "Salud pública · Gobernanza · Gestión · Derecho · Intervención social e intersectorialidad",
-    navigation: "Navegación principal",
-    langue: "Idioma",
-    entrer: "Entrar",
-    cv: "CV",
-    hall: "El vestíbulo",
-    suivante: "Puerta siguiente",
-    contact: "Contactarme",
-    haut: "Volver arriba",
-    acces: "Accesibilidad",
-    daltonisme: "Daltonismo",
-    basseVision: "Baja visión",
-    contraste: "Alto contraste",
-    taille: "Tamaño del texto",
-    plus: "Agrandar el texto",
-    moins: "Reducir el texto",
-    ecouter: "Escuchar",
-    ecouterPage: "Escuchar la página",
-    arreter: "Detener la lectura",
-    sansVoix: "Su dispositivo no tiene voz para este idioma.",
-    falc: "Versión de lectura fácil (en francés, FALC)",
-    afficheAlt: "Vista previa del póster del proyecto de tesis, 120 × 120 cm",
-    autresLangues: "Otros idiomas",
-  },
-  nav: [
-    ["recherche", "Investigación"],
-    ["approche", "Enfoque"],
-    ["implantation", "Implementación"],
-    ["publications", "Publicaciones"],
-    ["biographie", "Biografía"],
-    ["parcours", "Trayectoria"],
-    ["engagements", "Compromisos"],
-    ["ressources", "Recursos"],
-    ["contact", "Contacto"],
-  ],
-  accueil: {
-    surtitre: "Doctorando en salud pública · ESPUM · CRCHUM",
-    roles: "Educador especializado · Jurista · Emprendedor · Doctorando en salud pública",
-    chapeau: {
-      "titre": "De las personas a las políticas: una lectura integrada de los sistemas de salud",
-      "paragraphes": [
-        "Del acompañamiento de las personas a la investigación en salud pública, mi trayectoria me ha llevado a explorar las distintas escalas del sistema de salud: de las realidades individuales a las organizaciones, hasta las políticas públicas y la gobernanza.",
-        "Estas experiencias, en la encrucijada del terreno, la gestión, el derecho y la investigación, han forjado una convicción: **transformar los sistemas de salud supone hacer dialogar las experiencias humanas, los saberes científicos, las dinámicas colectivas y las decisiones políticas.**",
-        "Mi ambición es **abrir puertas entre esos universos que conviven sin entenderse siempre**, romper los compartimentos entre perspectivas y acercar la investigación a la acción, para favorecer la autodeterminación, orientar las decisiones colectivas y contribuir a una sociedad más justa y más sana."
+    "outils": {
+      "titre": "Toolbox",
+      "groupes": [
+        [
+          "Data analysis",
+          [
+            "Positron (R)",
+            "Python",
+            "NVivo",
+            "QGIS",
+            "Excel"
+          ]
+        ],
+        [
+          "Collaboration and facilitation",
+          [
+            "Miro",
+            "Klaxoon",
+            "Canva"
+          ]
+        ],
+        [
+          "Office tools and AI",
+          [
+            "Office 365",
+            "Artificial intelligence"
+          ]
+        ]
       ]
     },
-    encadrement:
-      "Tesis codirigida por la Dra. Nadia Sourial, Ph. D., y la Dra. Géraldine Layani, M.D. · Cátedra de investigación GSK en gestión óptima de enfermedades crónicas · CRCHUM · Becario del FRQ (B2)",
-    visite: "Comenzar la visita",
-    explorer: "Explorar libremente",
-    portrait: "Retrato de Éric Bernier",
-  },
-  hall: {
-    titre: "El vestíbulo",
-    compte: "8 puertas",
-    consigne: "Haga clic en una puerta para entrar",
-    portes: {
-      recherche: ["La investigación", "Tesis y trabajos en curso"],
-      approche: ["El enfoque", "Postura, métodos, ejes, valores"],
-      implantation: ["Implementación", "Transferencia de conocimientos e implementación"],
-      publications: ["Publicaciones", "Comunicaciones, memorias, herramientas"],
-      biographie: ["Biografía", "De las experiencias humanas a las transformaciones colectivas"],
-      parcours: ["La trayectoria", "Formación y experiencia"],
-      engagements: ["Compromisos", "Representación, docencia, distinciones"],
-      ressources: ["Recursos","Corpus de tesis, lagunas, lecturas"],
-    },
-  },
-  recherche: {
-    surtitre: "01 · La investigación",
-    etiquette: "Tesis doctoral en curso · tema provisional",
-    titre: "Organizar la respuesta intersectorial a las necesidades sociales complejas y concurrentes en atención primaria",
-    sousTitre: "Configuraciones de redes adaptadas a los distintos perfiles de pacientes atendidos",
-    question:
-      "¿Cómo se organiza la respuesta intersectorial para los distintos perfiles de pacientes con necesidades sociales complejas y concurrentes atendidos en atención primaria?",
-    but: "El proyecto busca vincular cada perfil de necesidades con una configuración de socios y con su coordinador, a la escala de un territorio de CLSC (centro local de servicios comunitarios).",
-    faits: [
-      ["Programa", "Doctorado en salud pública, opción sistemas, organizaciones y políticas de salud (SOPS) · 2.º año"],
-      ["Institución", "Escuela de Salud Pública de la Université de Montréal (ESPUM)"],
-      ["Cátedra", "Cátedra de investigación GSK en gestión óptima de enfermedades crónicas"],
-      ["Centro de investigación", "Centro de investigación del CHUM (CRCHUM) · investigador en prácticas"],
-      ["Financiación", "Fonds de recherche du Québec, beca de doctorado (B2)"],
-    ],
-    codirection: {
-      titre: "Codirección",
-      profil: "Perfil CRCHUM",
-      personnes: [
-        { nom: "Dra. Nadia Sourial", grade: "Ph. D.", lignes: ["Profesora agregada, Departamento de Gestión, Evaluación y Política de Salud, Escuela de Salud Pública, Université de Montréal", "Investigadora del CRCHUM, Polo de innovación y evaluación en salud"], chaire: "Cotitular de la Cátedra de investigación GSK en gestión óptima de enfermedades crónicas", lien: CRCHUM_SOURIAL },
-        { nom: "Dra. Géraldine Layani", grade: "M.D., M. Sc.", lignes: ["Médica de familia, GMF-U Notre-Dame, Montreal", "Profesora adjunta clínica, Departamento de Medicina Familiar y de Urgencias, Université de Montréal", "Investigadora del CRCHUM, Polo de innovación y evaluación en salud"], chaire: "Cotitular de la Cátedra de investigación GSK en gestión óptima de enfermedades crónicas", lien: CRCHUM_LAYANI },
-      ],
-    },
-    affiche: ["Ver el póster del proyecto", "Versión accesible: 5 idiomas, lectura fácil, daltonismo, baja visión, audio", AFFICHE + "es/"],
-    table: {
-      titre: "Mesa de exploración",
-      detail: "El diseño en cuatro etapas",
-      etapes: [
-        ["Objetivo 1", "¿Qué perfiles?", "Una revisión de alcance", "A partir de los estudios publicados, identificar los perfiles recurrentes de necesidades sociales y convertirlos en cuatro a seis viñetas: situaciones ficticias validadas.", ["Revisión de alcance", "Viñetas"]],
-        ["Objetivo 2", "¿A quién movilizar?", "La red egocéntrica del CLSC", "Para cada viñeta, el CLSC está en el centro: se identifican los socios que movilizaría y los vínculos entre ellos. Se obtiene una configuración por perfil.", ["Análisis de redes", "Red egocéntrica"]],
-        ["Objetivo 2", "¿Por qué esas elecciones?", "Entrevistas sobre el mapa de la red", "Las entrevistas se apoyan en el mapa de cada red para explicar las elecciones observadas; por ejemplo: ¿por qué estos socios están poco conectados?", ["Entrevistas", "Métodos mixtos"]],
-        ["Objetivo 3", "¿Qué recomendar?", "Un taller deliberativo", "Pacientes colaboradores y actores de la atención primaria, del sector comunitario, de la gobernanza local, del ámbito municipal y del sector privado formulan recomendaciones para cada perfil.", ["Deliberación", "Pacientes colaboradores"]],
-      ],
-      terminus: "Todo se integra en una tabla conjunta: una fila por perfil, con la red, las explicaciones y las recomendaciones.",
-    },
-    notions: {
-      titre: "Tres nociones",
-      items: [
-        ["La concurrencia", "La presencia de al menos dos necesidades sociales al mismo tiempo. Se cuenta: es el criterio de inclusión.", "Kreuter et al., 2021"],
-        ["La complejidad", "La acumulación de enfermedades crónicas, discapacidades, problemas de salud mental y vulnerabilidad social. Se describe, sin ser exigida.", "Kuluski et al., 2017"],
-        ["La respuesta intersectorial", "Las acciones de sectores distintos de la salud, realizadas junto con ella: CLSC, grupos de medicina familiar, hospital, farmacias, organizaciones comunitarias, municipio, escuelas, guarderías. Se organiza en un territorio.", "Leppo et al., 2013; MSSS, 2017"],
-      ],
-    },
-    retombees: {
-      titre: "Resultados esperados",
-      items: [
-        ["Para las personas", "una respuesta ajustada a su combinación de necesidades."],
-        ["Para el CLSC y sus socios", "referencias sobre a quién movilizar, cómo vincularse y quién coordina."],
-        ["Para la política de atención primaria", "un punto de partida y recomendaciones según los roles del CLSC."],
-        ["Para la investigación", "una hipótesis que vincula el perfil de necesidades con la red."],
-      ],
-    },
-    travaux: {
-      titre: "Trabajos en curso",
-      intro: "Artículos y manuscritos en redacción, en paralelo a la tesis.",
-      items: [
-        {
-          domaine: "Epistemología y transferencia de conocimientos",
-          statut: "En elaboración",
-          titre: TITRES_ORIGINAUX.epistemic,
-          auteurs: "Bernier, É.",
-          resume:
-            "El impacto de la investigación suele pensarse en un solo sentido, del conocimiento hacia las políticas y las prácticas. El artículo propone una salud pública concebida como ciencia reflexiva de la gobernanza: precisa en qué condiciones las consecuencias observadas en el terreno y los saberes de las poblaciones afectadas pueden exigir que se reexaminen las categorías, los indicadores y las reglas de origen. El concepto se traduce en una auditoría documental, puesta a prueba en cuatro cadenas institucionales.",
-          etiquettes: ["Retorno epistémico", "Gobernanza reflexiva", "Impacto de la investigación"],
-        },
-        { domaine: "Sistemas de salud y atención primaria", statut: "En proceso de envío a BJGP Open", titre: TITRES_ORIGINAUX.hospit, auteurs: AUTEURS.hospit },
-        { domaine: "Gobernanza y espacio público", statut: "Manuscrito en preparación", titre: TITRES_ORIGINAUX.pl2, auteurs: AUTEURS.pl2 },
-        { domaine: "Derecho de la salud", statut: "Manuscrito en preparación", titre: TITRES_ORIGINAUX.droit, auteurs: "Bernier, É. · artículo de doctrina" },
-      ],
-    },
-  },
-  approche: {
-    surtitre: "02 · El enfoque",
-    titre: "Una postura pragmática, métodos mixtos",
-    intro:
-      "De la pregunta a la observación: cada pregunta requiere sus datos, su método de análisis y su interpretación. Elijo los métodos según lo que haya que esclarecer, cruzando disciplinas.",
-    piliers: [
-      ["Postura pragmática", "Una postura que articula una lectura positivista (medir, estimar, poner a prueba hipótesis) y una lectura constructivista (comprender el sentido que los actores dan a sus prácticas). La pregunta decide el método."],
-      ["Métodos mixtos", "Análisis cuantitativos y cualitativos integrados: análisis de redes, regresiones, análisis temático, análisis documental y cartografía, reunidos en tablas de integración."],
-      ["Pluridisciplinariedad", "Salud pública, derecho, gestión, ciencia política e intervención social: miradas que dialogan para analizar un mismo sistema."],
-    ],
-    outils: {
-      titre: "Caja de herramientas",
-      groupes: [
-        ["Análisis de datos", ["Positron (R)", "Python", "NVivo", "QGIS", "Excel"]],
-        ["Colaboración y animación", ["Miro", "Klaxoon", "Canva"]],
-        ["Ofimática e IA", ["Office 365", "Inteligencia artificial"]],
-      ],
-    },
-    expertises: {
-      "titre": "Áreas de especialización",
+    "expertises": {
+      "titre": "Expertise",
       "items": [
         [
-          "Dirección de establecimientos sanitarios, sociales y medicosociales",
-          "Mi máster en Dirección de estructuras medicosociales y de servicios a las personas (Université de Bretagne Occidentale, 2024, mención especial del jurado) abarca la gestión presupuestaria y financiera (CPOM, EPRD), la contabilidad pública, la gestión de recursos humanos, la dirección de organizaciones y el proyecto de establecimiento. Como responsable de estancias de respiro y estancias adaptadas de 2016 a 2024, asumí su gestión de recursos humanos, administrativa y financiera."
+          "Management of health, social and medico-social establishments",
+          "My master’s-level degree (maîtrise) in managing medico-social organisations and personal services (Université de Bretagne Occidentale, 2024, with special distinction from the jury) covers budgetary and financial management (CPOM, EPRD), accounting, human resource management and employment law, management, organisation theory and the sociology of organisations, philosophy and the institutional project. As manager of respite and adapted holidays from 2016 to 2024, I was responsible for their teams, budget and logistics."
         ],
         [
-          "Derecho sanitario, social y medicosocial",
-          "Mi máster en Derecho público, especializado en derecho de la salud y derecho social (Université Paris-Panthéon-Assas, 2025, mención especial del jurado), trata de la organización y la planificación de los sectores sanitario, social y medicosocial: autorización, habilitación, tarificación y contencioso de la tarificación. Abarca también los derechos del usuario, la contractualización, la responsabilidad civil, penal y administrativa, así como el derecho laboral y de la seguridad social."
+          "Health, social and medico-social law",
+          "My master’s degree in public law, specialising in health law and social law (Université Paris-Panthéon-Assas, 2025, with special distinction from the jury), addresses the organisation and planning of the health, social and medico-social sectors: authorisation, approval, rate-setting and rate-setting litigation. It also covers patients’ and service users’ rights, bioethics, health economics, contracting, civil, criminal and administrative liability, and employment and social security law."
         ],
         [
-          "Transformación de la oferta y apoyo al desempeño",
-          "Como encargado de misión en la Agencia nacional francesa de apoyo al desempeño (ANAP, París) en 2024–2025, acompañé la transformación de la oferta de salud y servicios sociales. Esta misión abarcó herramientas de apoyo a la decisión para la reforma de los servicios de autonomía a domicilio y diez herramientas de pilotaje de los centros de recursos territoriales, que suman varios miles de descargas."
+          "Transformation of service provision and performance support",
+          "As a project officer at the French national agency for performance support (ANAP, Paris) in 2024–2025, I supported the transformation of health and social service provision. This work covered decision-support tools for the reform of home-based autonomy services and ten steering tools for territorial resource centres, which together account for several thousand downloads."
         ],
         [
-          "Envejecimiento, autonomía y EHPAD",
-          "Mis dos memorias de máster tratan este campo: la adaptación de los EHPAD (residencias para mayores dependientes) a las personas con discapacidad envejecidas (Université de Bretagne Occidentale, 2024) y la aplicación del giro hacia el domicilio, comparando Francia y Quebec («Vieillir chez soi», Université Paris-Panthéon-Assas, 2025). Se suman una experiencia en EHPAD y el trabajo en la ANAP sobre la reforma de los servicios de autonomía a domicilio."
+          "Ageing, autonomy and EHPAD",
+          "My two master’s dissertations address this field: the adaptation of EHPAD (French care homes for dependent older people) to ageing people with disabilities (Université de Bretagne Occidentale, 2024), and the implementation of the shift to home-based care, in a comparative study of France and Quebec (‘Vieillir chez soi’, Université Paris-Panthéon-Assas, 2025). EHPAD experience and work at ANAP on the reform of home-based autonomy services complement them."
         ],
         [
-          "Discapacidad y autodeterminación",
-          "Como educador especializado en una residencia (Adapei 35, Saint-Malo, 2020–2023), evalué las necesidades de las personas acompañadas, coconstruí sus proyectos individualizados y coordiné un equipo pluridisciplinario. Mi memoria de 2023 trata de la influencia de las prácticas educativas en la autodeterminación. De 2016 a 2024 fui también responsable de estancias de respiro y estancias adaptadas para personas con discapacidad."
+          "Disability and self-determination",
+          "As a special needs educator in a residential home (Adapei 35, Saint-Malo, 2020–2023), I assessed the needs of the people supported, co-designed their individual plans and coordinated a multidisciplinary team. My 2023 dissertation examines the influence of educational practices on self-determination. From 2016 to 2024, I was also manager of respite stays and adapted stays for people with disabilities."
         ],
         [
-          "Autismo",
-          "Mi experiencia como educador especializado en una residencia, en la Adapei 35 de Saint-Malo de 2020 a 2023, incluye el acompañamiento de personas autistas. Este acompañamiento se basa en la evaluación de las necesidades propias de cada persona, la coconstrucción con ella de su proyecto individualizado y la coordinación de un equipo pluridisciplinario en torno a dicho proyecto."
+          "Autism",
+          "My experience as a special needs educator in a residential home, at Adapei 35 in Saint-Malo from 2020 to 2023, includes supporting autistic people. This support rests on assessing each person’s specific needs, co-designing their individual plan with them and coordinating a multidisciplinary team around that plan."
         ],
         [
-          "Metodología de investigación y evaluación de proyectos",
-          "Doctorando en salud pública en la ESPUM (Université de Montréal), recurro a métodos mixtos, cuantitativos y cualitativos. Uno de mis ejes de investigación trata del desempeño, la gestión del cambio y el pilotaje de las organizaciones. En evaluación de proyectos, me apoyo en mi formación (evaluación de los establecimientos, contratos de objetivos y medios) y en las herramientas de apoyo a la decisión y de pilotaje elaboradas en la ANAP."
+          "Research methodology and project evaluation",
+          "As a doctoral candidate in public health at ESPUM (Université de Montréal), I use mixed methods, both quantitative and qualitative. One of my research areas concerns performance, change management and the steering of organisations. In project evaluation, I draw on my training (evaluation of establishments, objectives and resources contracts) and on the decision-support and steering tools developed at ANAP."
         ],
         [
-          "Intersectorialidad y atención primaria",
-          "Investigador en prácticas en el Centro de investigación del CHUM (CRCHUM), estudio las políticas de atención primaria, la intersectorialidad y la integración de cuidados y servicios. La intersectorialidad designa la acción concertada de varios sectores, como salud, servicios sociales, educación o vivienda, sobre problemas que exceden el ámbito de uno solo de ellos. Estos trabajos se vinculan con mi eje de análisis comparado de los sistemas de salud."
+          "Intersectoral action and primary care",
+          "As a research trainee at the CHUM Research Centre (CRCHUM), I study primary care policy, intersectoral action and the integration of care and services. Intersectoral action refers to the concerted action of several sectors, such as health, social services, education or housing, on problems that extend beyond the remit of any one of them. This work links to my research area of comparative health systems analysis."
         ],
         [
-          "Emprendimiento y gestión",
-          "Formado en emprendimiento y gestión (diploma universitario, IAE de Brest, 2023), he iniciado la creación de OWNNIGHT, una aplicación de bienestar y educación del sueño. Mi enfoque de la gestión se apoya en la clínica de las organizaciones y en el desarrollo de la actividad de una estructura, estudiados en el máster, así como en el liderazgo de proximidad ejercido como responsable de estancias adaptadas."
+          "Entrepreneurship and management",
+          "Trained in entrepreneurship and management (university diploma, IAE de Brest, 2023), I have embarked on the creation of OWNNIGHT, a well-being and sleep education application. My approach to management draws on the clinical approach to organisations and on developing an organisation’s activity, both studied at master’s level, as well as on the hands-on leadership I exercised as manager of adapted stays."
         ]
       ]
-    },    axes: {
-      titre: "Ejes de trabajo",
-      principaux: ["Gobernanza y evaluación de las políticas de salud", "Enfoque intersectorial en atención primaria", "Envejecimiento, pérdida de autonomía y políticas de permanencia en el domicilio"],
-      secondairesTitre: "Ejes secundarios",
-      secondaires: ["Planificación jurídica, análisis doctrinal y derecho de la salud", "Desempeño, gestión del cambio y dirección de organizaciones", "Análisis comparado de sistemas de salud"],
     },
-    valeurs: {
-      titre: "Mis valores",
-      devise: ["Lema", "Ad astra per aspera", "A través de las dificultades hasta las estrellas"],
-      items: [
-        [
-          "Curiosidad intelectual",
-          "Mirar más allá: otras disciplinas, otros entornos, otras maneras de pensar."
-        ],
-        [
-          "Resiliencia",
-          "Hacer de las pruebas vividas un recurso para avanzar."
-        ],
-        [
-          "Autonomía",
-          "Pensar por uno mismo y sostener en cada persona la capacidad de elegir su vida."
-        ],
-        [
-          "Sentido crítico",
-          "Interrogar las evidencias, los datos y las instituciones, empezando por las propias."
-        ],
-        [
-          "Solidaridad",
-          "No dejar a nadie al borde del camino: un principio de acompañamiento y de política pública."
-        ],
-        [
-          "Audacia para emprender",
-          "Atreverse a proponer, crear y poner en práctica nuevas respuestas."
-        ]
+    "axes": {
+      "titre": "Areas of work",
+      "principaux": [
+        "Governance and evaluation of health policy",
+        "Intersectoral approaches in primary care",
+        "Ageing, loss of autonomy and ageing-in-place policies"
       ],
-    },
+      "secondairesTitre": "Secondary areas",
+      "secondaires": [
+        "Legal planning, doctrinal analysis and health law",
+        "Performance, change management and organisational steering",
+        "Comparative analysis of health systems"
+      ]
+    }
+  },
+  valeurs: {
+    "surtitre": "Values",
+    "titre": "What guides my practice",
+    "intro": "Six values that guide my work, from practice to research.",
+    "devise": [
+      "Motto",
+      "Ad astra per aspera",
+      "Through hardships to the stars"
+    ],
+    "items": [
+      [
+        "Intellectual curiosity",
+        "Looking elsewhere: other disciplines, other settings, other ways of thinking."
+      ],
+      [
+        "Resilience",
+        "Turning hardships into resources to move forward."
+      ],
+      [
+        "Autonomy",
+        "Thinking for oneself, and supporting everyone’s capacity to choose their own life."
+      ],
+      [
+        "Critical thinking",
+        "Questioning what seems obvious, data and institutions, starting with one’s own."
+      ],
+      [
+        "Solidarity",
+        "Leaving no one by the wayside: a principle of support and of public policy."
+      ],
+      [
+        "Boldness to undertake",
+        "Daring to propose, create and implement new responses."
+      ]
+    ]
   },
   implantation: {
-    "surtitre": "03 · Implementación",
-    "titre": "Transferencia de conocimientos e implementación",
-    "intro": "Hacer circular los saberes entre las personas, los entornos de práctica y la investigación, y examinar después lo que realmente permiten cambiar.",
-    "precision": "En mi tesis, la movilización de conocimientos acompaña la investigación: no es un estudio de implementación ni una evaluación de políticas.",
+    "surtitre": "03 · Implementation",
+    "titre": "Knowledge translation and implementation",
+    "intro": "Moving knowledge between people, practice settings and research, then examining what it actually helps to change.",
+    "precision": "In my thesis, knowledge mobilisation accompanies the research: it is neither an implementation study nor a policy evaluation.",
     "formation": {
-      "etiquette": "Formación completada",
-      "titre": "MobilizeU, movilización de conocimientos · Research Impact Canada y York University, 2026",
+      "etiquette": "Completed training",
+      "titre": "MobilizeU, knowledge mobilisation · Research Impact Canada and York University, 2026",
       "lien": "https://researchimpact.ca/learning/mobilizeu/",
-      "lienTexte": "Más información"
+      "lienTexte": "Learn more"
     },
     "plan": {
-      "titre": "En mi tesis: un plan de movilización de conocimientos",
+      "titre": "In my thesis: a knowledge mobilisation plan",
       "items": [
         {
-          "nom": "Por qué, qué, para quién, cómo",
-          "texte": "El marco de Ward estructura el plan en cuatro preguntas: precisar el qué, el porqué y el quién antes de elegir el cómo, los formatos y los canales.",
+          "nom": "Why, what, to whom, how",
+          "texte": "Ward’s framework structures the plan around four questions: clarify the what, the why and the who before choosing the how, the formats and the channels.",
           "ref": "Ward, 2017"
         },
         {
-          "nom": "Del conocimiento a la acción",
-          "texte": "El modelo del conocimiento a la acción enmarca la producción, la adaptación, la comunicación y el seguimiento de los conocimientos, sin pretender garantizar su adopción duradera.",
+          "nom": "Knowledge to action",
+          "texte": "The knowledge-to-action model frames the production, tailoring, communication and monitoring of knowledge, without claiming to secure lasting uptake.",
           "ref": "Graham et al., 2006"
         },
         {
-          "nom": "Alianzas basadas en las 4R",
-          "texte": "Respeto, pertinencia, reciprocidad y responsabilidad guían las alianzas con los pacientes y los entornos de práctica, apoyándose en el marco de participación de pacientes de los IRSC.",
-          "ref": "Kirkness y Barnhardt, 1991; IRSC, 2014; Bowen y Graham, 2013"
+          "nom": "Partnerships based on the 4Rs",
+          "texte": "Respect, relevance, reciprocity and responsibility guide partnerships with patients and practice settings, drawing on the CIHR patient engagement framework.",
+          "ref": "Kirkness & Barnhardt, 1991; CIHR, 2014; Bowen & Graham, 2013"
         },
         {
-          "nom": "Un diálogo deliberativo",
-          "texte": "Un taller deliberativo convierte los resultados en recomendaciones contextualizadas, con un retorno a los participantes. La participación se informa según GRIPP2.",
+          "nom": "A deliberative dialogue",
+          "texte": "A deliberative workshop turns findings into contextualised recommendations, with feedback to participants. Involvement is reported using GRIPP2.",
           "ref": "Boyko et al., 2012; Lavis et al., 2009; Staniszewska et al., 2017"
         },
         {
-          "nom": "Seguir la contribución, no la atribución",
-          "texte": "Cuatro indicadores (producción, alcance, apropiación, uso documentado) y un registro permiten valorar la contribución plausible de la investigación, sin atribuirle los cambios posteriores.",
+          "nom": "Tracking contribution, not attribution",
+          "texte": "Four indicators (output, reach, uptake, documented use) and a log make it possible to assess the plausible contribution of the research without attributing later changes to it.",
           "ref": "Morton, 2015"
         }
       ]
     },
     "cadres": {
-      "titre": "Referencias en ciencia de la implementación",
+      "titre": "Landmarks in implementation science",
       "items": [
         {
           "nom": "CFIR 2.0",
-          "texte": "Examinar el contexto y los determinantes que facilitan o frenan la implementación.",
+          "texte": "Examining the context and the determinants that help or hinder implementation.",
           "ref": "Damschroder et al., 2022"
         },
         {
-          "nom": "Resultados de implementación",
-          "texte": "Distinguir aceptabilidad, adopción, pertinencia, factibilidad, fidelidad, costo, penetración y sostenibilidad.",
+          "nom": "Implementation outcomes",
+          "texte": "Distinguishing acceptability, adoption, appropriateness, feasibility, fidelity, cost, penetration and sustainability.",
           "ref": "Proctor et al., 2011"
         },
         {
-          "nom": "Impacto de la investigación",
-          "texte": "Los marcos de impacto cartografían sobre todo el camino de ida, de la investigación a la práctica; mis trabajos examinan también el camino de vuelta.",
+          "nom": "Research impact",
+          "texte": "Impact frameworks mostly map the forward path, from research to practice; my work also examines the way back.",
           "ref": "Greenhalgh et al., 2016; Brownson et al., 2026"
         },
         {
-          "nom": "Enfoque por contribuciones",
-          "texte": "Vincular las producciones con los usos y después con los cambios documentados, examinando otras influencias posibles.",
-          "ref": "Morton, 2015; Bayley y Phipps, 2019"
+          "nom": "Contribution approach",
+          "texte": "Linking outputs to uses, then to documented changes, while examining other possible influences.",
+          "ref": "Morton, 2015; Bayley & Phipps, 2019"
         },
         {
-          "nom": "Coproducción y traslación integrada",
-          "texte": "Los mecanismos de coproducción dependen de la infraestructura, de la claridad de los roles y del reparto del poder; sus costos también cuentan.",
+          "nom": "Co-production and integrated knowledge translation",
+          "texte": "Co-production mechanisms depend on infrastructure, role clarity and power sharing; their costs matter too.",
           "ref": "Graham et al., 2019; Kothari et al., 2025; Oliver et al., 2019"
         },
         {
-          "nom": "Una ciencia de la implementación crítica",
-          "texte": "Teorizar en lugar de aplicar los marcos como listas de verificación.",
+          "nom": "Critical implementation science",
+          "texte": "Theorising rather than applying frameworks as checklists.",
           "ref": "Kislov et al., 2019"
         },
         {
-          "nom": "Participación y deliberación",
-          "texte": "Diseñar y evaluar procesos de participación pública que dejen constancia de su influencia.",
-          "ref": "Abelson et al., 2003; OCDE, 2022"
+          "nom": "Participation and deliberation",
+          "texte": "Designing and evaluating public participation processes that leave a record of their influence.",
+          "ref": "Abelson et al., 2003; OECD, 2022"
         },
         {
-          "nom": "Por qué la implementación",
-          "texte": "Demostrar que una innovación es eficaz no basta para garantizar que será adoptada.",
-          "ref": "Bauer y Kirchner, 2020"
+          "nom": "Why implementation",
+          "texte": "Proving that an innovation is effective is not enough to ensure that it will be adopted.",
+          "ref": "Bauer & Kirchner, 2020"
         },
         {
-          "nom": "Estrategias de implementación",
-          "texte": "La compilación ERIC ofrece un vocabulario común de 73 estrategias para describir, seleccionar e informar las estrategias empleadas.",
+          "nom": "Implementation strategies",
+          "texte": "The ERIC compilation offers a common vocabulary of 73 strategies for describing, selecting and reporting the strategies used.",
           "ref": "Powell et al., 2015"
         },
         {
-          "nom": "Intervenciones complejas",
-          "texte": "La implementación se convierte en una fase por derecho propio, con el contexto, la teoría del programa y las partes interesadas en el centro.",
+          "nom": "Complex interventions",
+          "texte": "Implementation becomes a phase in its own right, with context, programme theory and stakeholders at the centre.",
           "ref": "Skivington et al., 2021"
         },
         {
-          "nom": "Implementar con las personas mayores",
-          "texte": "En Quebec, la implementación de un acompañamiento ciudadano para la participación social de las personas mayores arroja luz sobre las condiciones que importan.",
+          "nom": "Implementing with older adults",
+          "texte": "In Quebec, the implementation of personalised citizen support for older adults’ social participation sheds light on the conditions that matter.",
           "ref": "Gobeil et al., 2023"
         }
       ]
     },
     "ressources": {
-      "titre": "Recursos",
+      "titre": "Resources",
       "items": [
         [
-          "Glosario de la movilización de conocimientos",
-          "Institutos de Investigación en Salud de Canadá (en francés)",
+          "Knowledge mobilization glossary",
+          "Canadian Institutes of Health Research (in French)",
           "https://cihr-irsc.gc.ca/f/54014.html"
         ],
         [
-          "Marco de participación de pacientes",
-          "IRSC, Estrategia de investigación orientada al paciente (en francés)",
+          "Patient engagement framework",
+          "CIHR, Strategy for Patient-Oriented Research (in French)",
           "https://cihr-irsc.gc.ca/f/48413.html"
         ],
         [
-          "Directrices sobre participación ciudadana",
-          "OCDE, 2022",
+          "Guidelines for citizen participation",
+          "OECD, 2022",
           "https://doi.org/10.1787/f765caf6-en"
         ]
       ]
     },
     "chantiers": {
-      "titre": "Ocho ejes de la movilización de conocimientos",
-      "intro": "Cada eje vincula la literatura científica con mi práctica.",
-      "detail": "Literatura científica",
+      "titre": "Eight areas of knowledge mobilisation",
+      "intro": "Each area links the scientific literature to my practice.",
+      "detail": "Scientific literature",
       "items": [
         [
-          "Movilizar",
-          "Hacer circular los saberes en ambos sentidos",
-          "Movilizar es hacer circular los saberes de la investigación hacia los entornos de práctica, y también de esos entornos y de las personas hacia la investigación. Los modelos de traslación del conocimiento describen un ciclo (producir, adaptar, compartir, apoyar el uso) sin garantizar la adopción.",
+          "Mobilize",
+          "Moving knowledge both ways",
+          "Mobilising is to circulate knowledge from research into settings, but also from settings and people into research. The knowledge-to-action model distinguishes the creation of knowledge and the cycle of its implementation: identifying a problem, adapting knowledge to the context, identifying barriers, supporting and monitoring its use (Graham et al., 2006). Five questions organise the approach: what to transfer, to whom, by whom, how and with what effect, and one mobilises first sets of evidence rather than an isolated study (Grimshaw et al., 2012). Knowledge brokerage gives a face to this linking work (Munerol et al., 2013).",
           [
             "Graham et al. (2006)",
             "Grimshaw et al. (2012)",
@@ -2740,22 +2098,22 @@ const es = {
           ]
         ],
         [
-          "Marcos",
-          "Elegir un marco según la pregunta",
-          "Un marco hace explícitas las decisiones: por qué movilizar, qué saberes, con quién y cómo. Las tipologías distinguen modelos de proceso, marcos de determinantes y marcos de evaluación; elegirlos según la pregunta evita aplicarlos como listas de verificación.",
+          "Frameworks",
+          "Choosing a framework to fit the question",
+          "A framework makes choices explicit: why mobilise, which knowledges, with whom and how (Ward, 2017). Theories, models and frameworks are grouped into families according to what one seeks to do: guide a process, explain what facilitates or hinders, or evaluate (Nilsen, 2015). Some place facilitation at the heart of implementation (Harvey & Kitson, 2016); others cover the entire cycle of knowledge application (Esmail et al., 2020). Choosing them according to the question, and discussing rather than ticking them off as a list, makes the approach more fruitful (Kislov et al., 2019).",
           [
             "Ward (2017)",
             "Nilsen (2015)",
-            "Harvey y Kitson (2016)",
+            "Harvey & Kitson (2016)",
             "Esmail et al. (2020)"
           ]
         ],
         [
-          "Planificar",
-          "Planificar desde el diseño",
-          "Un plan de movilización precisa los públicos, los objetivos, los mensajes, las actividades, los recursos, el calendario y los indicadores. Se construye con los socios desde el diseño del proyecto, no al final.",
+          "Planning",
+          "Planning from the outset",
+          "A mobilisation plan specifies the audiences, objectives, messages, activities, resources, timeline and indicators (IRSC, 2012). It is built with partners from the outset of the project: designing for dissemination and sustainability means thinking early about the fit between findings and their adoption context (Kwan et al., 2022). Real plans describe well the partners and strategies, but often forget evaluation and resources (Tchameni Ngamo et al., 2016). To start: know your audiences, surround yourself, involve people with lived experience and draw lessons from each trial (Diany et al., 2025; Dancause, 2023).",
           [
-            "IRSC (2012)",
+            "CIHR (2012)",
             "Tchameni Ngamo et al. (2016)",
             "Kwan et al. (2022)",
             "Diany et al. (2025)",
@@ -2763,21 +2121,21 @@ const es = {
           ]
         ],
         [
-          "Alianzas",
-          "Coproducir y compartir el poder",
-          "La coproducción y la traslación integrada del conocimiento asocian a los usuarios de los resultados en cada etapa. Requieren tiempo, roles claros y un reparto real del poder; también hay que reconocer sus costos.",
+          "Partnerships",
+          "Co-producing and sharing power",
+          "Co-production and integrated application of knowledge involve knowledge users at every stage, from question to dissemination (Jull et al., 2017). Partnership research approaches share common principles, strategies and outcomes, which a shared vocabulary allows to describe and compare (Hoekstra et al., 2020). Engagement is conceptualised across three levels, organisation, values and practices (Boaz et al., 2018), and rests on real interdependence and co-creation (Skipper & Pepler, 2020). It requires time and resources: its costs must be recognised (Oliver et al., 2019).",
           [
             "Jull et al. (2017)",
             "Boaz et al. (2018)",
             "Hoekstra et al. (2020)",
-            "Skipper y Pepler (2020)",
+            "Skipper & Pepler (2020)",
             "Oliver et al. (2019)"
           ]
         ],
         [
-          "Inclusión",
-          "Quién es escuchado, quién participa, quién se beneficia",
-          "Una movilización inclusiva cuestiona el lugar de cada persona. Los saberes de experiencia y los saberes indígenas no son complementos: transforman las preguntas, los métodos y la interpretación.",
+          "Inclusion",
+          "Who is heard, who takes part, who benefits",
+          "An inclusive mobilisation questions the place of each: who is heard, who participates, who benefits (Georgalakis, 2023). Linking knowledge and action for equity requires redistributing power and addressing the structural causes of inequalities (Plamondon et al., 2019). Experiential knowledge is not a complement: it transforms the questions, methods and interpretation (Breton, 2025). In Indigenous health, promising practices respect the ways of sharing knowledge specific to communities (Morton Ninomiya et al., 2022); in the field of disability, co-constructed principles avoid token participation (Gainforth et al., 2021).",
           [
             "Plamondon et al. (2019)",
             "Morton Ninomiya et al. (2022)",
@@ -2787,9 +2145,9 @@ const es = {
           ]
         ],
         [
-          "Públicos",
-          "Elegir el formato según el objetivo",
-          "El formato sigue al objetivo: cocrear (diálogo deliberativo, World Café, taller), difundir (exposición, seminario web, mesa redonda) o implementar (formación, reunión de proyecto). La accesibilidad se piensa en todas sus formas (física, sensorial, financiera, cultural, lingüística): los públicos deben sentirse incluidos, no solo invitados.",
+          "Audiences",
+          "Choosing the format to fit the goal",
+          "The format follows the aim: co-create (deliberative dialogue, world café, workshop), disseminate (exhibition, webinar, panel discussion) or implement (training, project meeting). Accessibility is considered in all its forms, physical, sensory, financial, cultural and linguistic: audiences must feel included, not just invited. The Montreal model recognises the experiential knowledge of patients as complementary to professional knowledge (Pomey et al., 2015), and many frameworks support the involvement of patients and the public in research (Greenhalgh et al., 2019). Clear language summaries (Stoll et al., 2022) and co-built visual art (Courcy et al., 2022) open research to other audiences.",
           [
             "Pomey et al. (2015)",
             "Greenhalgh et al. (2019)",
@@ -2798,21 +2156,21 @@ const es = {
           ]
         ],
         [
-          "Comunicar",
-          "Buscar el uso tanto como la visibilidad",
-          "La comunicación estratégica y la traslación del conocimiento se solapan sin confundirse: una apoya la visibilidad, la otra el uso. Orientar una decisión exige comprender el contexto político, mantener relaciones duraderas y proponer mensajes breves y utilizables.",
+          "Communicating",
+          "Aiming for use as much as visibility",
+          "Strategic communication and knowledge application overlap without merging: one supports visibility, the other use (Barwick et al., 2014). The knowledge broker works in between, building links between researchers and decision-makers rather than disseminating products (Lomas, 2007). In public policy, the relevance of data and organisational factors weigh heavily (Oliver et al., 2026), whereas advice given to researchers rarely rests on evidence and silences the costs of engagement (Oliver & Cairney, 2019). A brokerage intervention in a regional health agency shows that skills progress more quickly than influence on decisions (Fillol et al., 2026).",
           [
             "Lomas (2007)",
             "Barwick et al. (2014)",
-            "Oliver y Cairney (2019)",
+            "Oliver & Cairney (2019)",
             "Oliver et al. (2026)",
             "Fillol et al. (2026)"
           ]
         ],
         [
-          "Impacto",
-          "Seguir la contribución, no la atribución",
-          "Evaluar el impacto es seguir la contribución de la investigación a los cambios sin atribuírselos solo a ella: productos, alcance, apropiación, usos documentados y luego beneficios para los servicios y las personas.",
+          "Impact",
+          "Tracking contribution, not attribution",
+          "Evaluating impact is to follow the contribution of research to changes without attributing them solely to it: productions, scope, appropriation, documented uses, then outcomes for services and people (Morton, 2015). Contribution analysis offers a reasoned approach when strict causal attribution is out of reach (Mayne, 2012). French-speaking frameworks make visible the outcomes of transfer (Gervais et al., 2016), and a Quebec review lists the models used to evaluate mobilisation strategies (Ziam et al., 2024). There remains an open and debated question: to what extent is transfer evaluation possible (Plouffe, 2015)?",
           [
             "Mayne (2012)",
             "Morton (2015)",
@@ -2823,201 +2181,8 @@ const es = {
         ]
       ]
     },
-    "plusLoin": {
-      "titre": "Para ir más lejos",
-      "intro": "Artículos, guías, pódcasts, vídeos y prensa para profundizar en cada eje.",
-      "groupes": [
-        [
-          "Artículos científicos de acceso abierto",
-          [
-            [
-              "Making sense of implementation theories, models and frameworks",
-              "Nilsen, Implementation Science, 2015 (en inglés)",
-              "https://doi.org/10.1186/s13012-015-0242-0",
-              "La tipología que clasifica las teorías, los modelos y los marcos en cinco familias (modelos de proceso, marcos de determinantes, teorías clásicas, teorías de la implementación, marcos de evaluación) según lo que se busca hacer: guiar, explicar o evaluar."
-            ],
-            [
-              "Community-based participatory research and integrated knowledge translation: advancing the co-creation of knowledge",
-              "Jull, Giles y Graham, Implementation Science, 2017 (en inglés)",
-              "https://doi.org/10.1186/s13012-017-0696-3",
-              "Pone lado a lado la investigación participativa basada en la comunidad y la traslación integrada del conocimiento para mostrar en qué convergen, en qué divergen y qué puede tomar cada una de la otra para coconstruir saberes."
-            ],
-            [
-              "The dos and don’ts of influencing policy: a systematic review of advice to academics",
-              "Oliver y Cairney, Palgrave Communications, 2019 (en inglés)",
-              "https://doi.org/10.1057/s41599-019-0232-y",
-              "Una revisión sistemática de los consejos dados a los investigadores que quieren influir en las políticas: estos consejos rara vez se basan en datos y pasan por alto los costos y los riesgos de implicarse en el ámbito político."
-            ],
-            [
-              "Connecting knowledge with action for health equity: a critical interpretive synthesis of promising practices",
-              "Plamondon, Caxaj, Graham y Bottorff, International Journal for Equity in Health, 2019 (en inglés)",
-              "https://doi.org/10.1186/s12939-019-1108-x",
-              "Una síntesis interpretativa crítica que identifica prácticas prometedoras para vincular saberes y acción en favor de la equidad, con énfasis en la redistribución del poder y en las causas estructurales de las desigualdades."
-            ],
-            [
-              "Quel impact avons-nous ? Vers l’élaboration d’un cadre pour rendre visibles les retombées du transfert des connaissances",
-              "Gervais, Souffez y Ziam, Revue francophone de recherche sur le transfert et l’utilisation des connaissances, 2016 (en francés)",
-              "https://doi.org/10.18166/tuc.2016.1.1.5",
-              "A partir del examen de 29 marcos conceptuales, sienta en francés las bases de un marco para hacer visibles las repercusiones de las actividades de transferencia y responder a las exigencias de rendición de cuentas de las organizaciones."
-            ],
-            [
-              "Plain language summaries: A systematic review of theory, guidelines and empirical research",
-              "Stoll, Kerwer, Lieb y Chasiotis, PLOS ONE, 2022 (en inglés)",
-              "https://doi.org/10.1371/journal.pone.0268789",
-              "Repasa las teorías, las directrices y los estudios empíricos sobre los resúmenes en lenguaje claro y extrae de ellos un marco conceptual para redactar síntesis comprensibles para un público no especializado."
-            ]
-          ]
-        ],
-        [
-          "Guías y herramientas",
-          [
-            [
-              "Animer un processus de transfert des connaissances : bilan des connaissances et outil d’animation",
-              "Nicole Lemire, Karine Souffez y Marie-Claire Laurendeau, Institut national de santé publique du Québec, 2009 (en francés)",
-              "https://www.inspq.qc.ca/publications/1012",
-              "La guía quebequense que concibe la transferencia como un proceso dinámico y propone una herramienta de facilitación y una lista de verificación para estructurar cada etapa con los actores implicados."
-            ],
-            [
-              "Outil pour soutenir l’élaboration d’un plan de transfert des connaissances",
-              "Karine Souffez y Marie-Claire Laurendeau, Institut national de santé publique du Québec, sin fecha (metadatos del PDF: 2011) (en francés)",
-              "https://www.inspq.qc.ca/sites/default/files/publications/outil_pour_soutenir_l_elaboration_d_un_plan_de_transfert_des_connaissances.pdf",
-              "Una plantilla para completar en equipo, desde el inicio de un proyecto, a fin de precisar los productos de conocimiento, los públicos y los actores que hay que implicar y, después, las estrategias, los plazos y los recursos del plan de transferencia."
-            ],
-            [
-              "Guide pour accompagner l’implantation de pratiques prometteuses dans un établissement : soutien à l’implantation de pratiques prometteuses et au transfert de connaissances dans le réseau de la santé et des services sociaux",
-              "Marie Massuard, bajo la dirección de Julie Lane, Ministère de la Santé et des Services sociaux du Québec, 2023 (en francés)",
-              "https://publications.msss.gouv.qc.ca/msss/fichiers/2023/23-516-04W.pdf",
-              "Una guía ministerial quebequense que traduce la ciencia de la implementación y la traslación integrada del conocimiento en un proceso concreto de acompañamiento para los establecimientos de la red de salud y servicios sociales."
-            ],
-            [
-              "Guide pratique – Stratégie de partenariat avec les patients et le public en recherche",
-              "Geneviève David y Alexandre Grégoire, Unité de soutien SRAP du Québec y Centre d’excellence sur le partenariat avec les patients et le public (CEPPP), 2018 (en francés)",
-              "https://ceppp.ca/wp-content/uploads/2021/01/USSQ_Guide-pratique-SPPP-en-recherche_V1.pdf",
-              "Una guía de inicio, coescrita por un coordinador paciente, que responde a las preguntas por qué, quién, cuándo, dónde, cuánto y cómo implicar a pacientes y al público en un proyecto de investigación, incluidas la evaluación y las cuestiones éticas."
-            ]
-          ]
-        ],
-        [
-          "Pódcasts",
-          [
-            [
-              "Le pont entre la recherche et le terrain",
-              "Les humains derrière la recherche en soins palliatifs, con Chantal Verdon (UQO), 2025 (en francés)",
-              "https://podcasts.apple.com/ca/podcast/le-pont-entre-la-recherche-et-le-terrain/id1608211841?i=1000736634362",
-              "Una investigadora en ciencias de enfermería explica cómo tendió un puente entre la investigación y la práctica, en particular mediante comunidades de práctica con enfermeras y enfermeros."
-            ],
-            [
-              "Season 2, Ep 1: David Chambers",
-              "That Implementation Science Podcast, presentado por Mike Pullmann y Kevin King, 2024 (en inglés)",
-              "https://thatimplementationsciencepodcast.podbean.com/e/season-2-ep-1-david-chambers/",
-              "El director adjunto de ciencia de la implementación del National Cancer Institute repasa la historia del campo, el carácter colectivo de la ciencia y lo que hace eficaz a un equipo de investigación."
-            ],
-            [
-              "SCCM Pod-520: Implementation Science: From Evidence to Practice",
-              "SCCM Podcast (Society of Critical Care Medicine), presentado por Marilyn N. Bulloch con Anne E. Sales, 2024 (en inglés)",
-              "https://www.sccm.org/communications/sccm-podcast/sccm-podcast-all-episodes/sccm-pod-520-implementation-science-from-evidence-to-practice",
-              "Una introducción accesible en la que una investigadora presenta la ciencia de la implementación como el estudio del cambio planificado de comportamientos dentro de las limitaciones de las organizaciones, con ejemplos clínicos."
-            ]
-          ]
-        ],
-        [
-          "Vídeos",
-          [
-            [
-              "Ancrage historique et évolution du courtage de connaissances",
-              "Équipe RENARD, presentación de Christian Dagenais y Saliha Ziam en el coloquio 31 del 90.º congreso de la Acfas, 2023 (en francés)",
-              "https://www.youtube.com/watch?v=3uucW5ZOp-g",
-              "Una breve presentación que repasa de dónde viene la intermediación de conocimientos y cómo ha evolucionado esta función, a modo de introducción al papel del intermediario."
-            ],
-            [
-              "Les compétences clés pour agir en courtage de connaissances",
-              "Équipe RENARD, presentación de Esther McSween-Cadieux en el coloquio 31 del 90.º congreso de la Acfas, 2023 (en francés)",
-              "https://www.youtube.com/watch?v=RGVmhf9Wyzo",
-              "Hace balance de las competencias que necesita una persona para ejercer la intermediación de conocimientos, un complemento práctico a los textos sobre el papel del intermediario."
-            ],
-            [
-              "Expériences du midi: Recherche en partenariat avec une citoyenne-chercheuse",
-              "Unité de soutien SSA Québec, seminario web con Julie Coulombe y Marie-Hélène Morin, 2025 (en francés)",
-              "https://www.youtube.com/watch?v=TNwIcNyGjwY",
-              "Un caso concreto de investigación realizada con una ciudadana investigadora sobre el apoyo entre pares para familias en salud mental, que muestra lo que la ciencia participativa cambia en la conducción de un proyecto."
-            ],
-            [
-              "CCNMO - Prise de décisions fondée sur des données probantes",
-              "Centre de collaboration nationale des méthodes et outils (CCNMO), 2016 (en francés)",
-              "https://www.youtube.com/watch?v=XrZjc3Flrz8",
-              "Presenta en ocho minutos el modelo del CCNMO, que muestra cómo los datos de investigación, el contexto local, las preferencias de la población y los recursos se combinan en una decisión de salud pública."
-            ],
-            [
-              "TIDIRC: Introduction to Dissemination & Implementation Science",
-              "National Cancer Institute (TIDIRC OpenAccess), conferencia de David Chambers, 2022 (en inglés)",
-              "https://www.youtube.com/watch?v=DO2tv7DqL3w",
-              "Una conferencia introductoria que distingue la investigación sobre la difusión, la difusión de la investigación, la investigación sobre la implementación y la investigación pragmática, y presenta los conceptos básicos del campo."
-            ],
-            [
-              "Quand l’expertise académique rencontre le vécu du terrain (Le Réverbère, mini-série sur la science citoyenne, épisode 2)",
-              "Le Réverbère, Institut du Nouveau Monde con el Fonds de recherche du Québec, 2026 (en francés)",
-              "https://www.youtube.com/watch?v=J6gVGWA_yhc",
-              "Dúos de ciudadano e investigador cuentan cómo se reparten los roles en un proyecto de investigación surgido de una pregunta ciudadana, sin que ninguno de los dos pierda su propia experticia."
-            ],
-            [
-              "Ép. 23 - Patient Partenaire: des alliés pour la recherche",
-              "Des femmes comme vous, Les Radieuses Magazine, con Catherine Wilhelmy, 2024 (en francés)",
-              "https://www.youtube.com/watch?v=27KRzWNoxAA",
-              "Una paciente que llegó a ser responsable de la colaboración con pacientes en un centro de investigación explica al público general qué es el movimiento del paciente colaborador y por qué la experiencia vivida de los pacientes debe nutrir la investigación y la atención."
-            ]
-          ]
-        ],
-        [
-          "Prensa y revistas",
-          [
-            [
-              "Communiquer efficacement les connaissances scientifiques permet de sauver des vies",
-              "Christian Dagenais, Aurélie Hot y Valéry Ridde, The Conversation (Canada), 2023 (en francés)",
-              "https://theconversation.com/communiquer-efficacement-les-connaissances-scientifiques-permet-de-sauver-des-vies-197191",
-              "Defiende la idea de que la investigación solo cambia las prácticas si sus resultados llegan a los responsables de las decisiones en una forma accesible y si el cambio se acompaña en el tiempo, con el apoyo de los financiadores."
-            ],
-            [
-              "Pour mieux communiquer la science, commençons par bien choisir nos mots",
-              "Valéry Ridde, Aurélie Hot y Christian Dagenais, The Conversation (Canada), 2025 (en francés)",
-              "https://theconversation.com/pour-mieux-communiquer-la-science-commencons-par-bien-choisir-nos-mots-247661",
-              "Muestra cómo la profusión de términos que compiten entre sí (transferencia, traslación, movilización…) enturbia la colaboración y la financiación de este campo, y aboga por clarificar el vocabulario."
-            ],
-            [
-              "Recherche et politiques publiques : comment mieux faire circuler les savoirs ?",
-              "Mohamed Berrada, Affaires universitaires, 2026 (en francés)",
-              "https://www.affairesuniversitaires.ca/actualites/recherche-et-politiques-publiques-comment-mieux-faire-circuler-les-savoirs/",
-              "Reseña de un coloquio de la Acfas en el que universidades, centros de estudios superiores, organismos y responsables de las decisiones buscaron cómo acercar la investigación y las decisiones públicas sin sacrificar los tiempos largos de la investigación."
-            ],
-            [
-              "Au-delà de l’acceptabilité sociale, ouvrir le dialogue pour favoriser la participation citoyenne au débat sur l’utilisation des données de santé",
-              "Carole Jabet y Cécile Petitgand, Fonds de recherche du Québec, 2022 (en francés)",
-              "https://frq.gouv.qc.ca/ouvrir-le-dialogue-pour-favoriser-la-participation-citoyenne/",
-              "Surgido de un coloquio de la Acfas, este texto propone dispositivos deliberativos, como grupos de trabajo regionales o foros ciudadanos, para asociar al público a las decisiones sobre el uso de los datos de salud."
-            ],
-            [
-              "Construction et hiérarchisation des données probantes en santé : savoirs scientifiques, expérientiels et contextuels",
-              "Marie-Dominique Beaulieu, Revue du CREMIS, 2016 (en francés)",
-              "https://cremis.ca/publications/articles-et-medias/construction-et-hierarchisation-des-donnees-probantes-en-sante-savoirs-scientifiques-experientiels-et-contextuels/",
-              "Repasa el auge de la medicina basada en la evidencia y la jerarquía de las pruebas, y aboga por integrar, en lugar de oponer, los saberes científicos, experienciales y contextuales en las decisiones de salud."
-            ],
-            [
-              "Knowledge mobilization will help Canada face the next major challenge",
-              "Ursula Gobel, Policy Options / Options politiques, 2021 (en inglés)",
-              "https://policyoptions.irpp.org/magazines/february-2021/knowledge-mobilization-will-help-canada-face-the-next-major-challenge/",
-              "Una vicepresidenta del CRSH extrae de la pandemia la idea de que la síntesis de conocimientos y las redes de investigación interdisciplinarias e intersectoriales son indispensables para orientar las decisiones públicas ante las crisis."
-            ],
-            [
-              "To Support Evidence-Based Policymaking, Bring Researchers and Policymakers Together",
-              "D. Max Crowley y J. Taylor Scott, Issues in Science and Technology, 2023 (en inglés)",
-              "https://issues.org/evidence-based-policymaking-researchers-policymakers-collaborate-crowley-scott/",
-              "Dos investigadores describen un modelo de colaboración directa entre científicos y cargos electos, basado en la confianza, e informan de que mejora la cantidad y la calidad de la evidencia movilizada en la legislación."
-            ]
-          ]
-        ]
-      ]
-    },
     "bibliographie": {
-      "titre": "Referencias (APA)",
+      "titre": "References (APA)",
       "items": [
         "Abelson, J., Forest, P.-G., Eyles, J., Smith, P., Martin, E., & Gauvin, F.-P. (2003). Deliberations about deliberative methods: Issues in the design and evaluation of public participation processes. Social Science & Medicine, 57(2), 239–251. https://doi.org/10.1016/S0277-9536(02)00343-X",
         "Barwick, M., Phipps, D., Myers, G., Johnny, M., & Coriandoli, R. (2014). Knowledge translation and strategic communications: Unpacking differences and similarities for scholarly and research communications. Scholarly and Research Communication, 5(3). https://doi.org/10.22230/src.2014v5n3a175",
@@ -3100,257 +2265,831 @@ const es = {
       ]
     },
     "transfert": {
-      "titre": "Transferencia de conocimientos e implementación",
-      "detail": "Cinco tiempos",
+      "titre": "Knowledge translation and implementation",
+      "detail": "Five stages",
       "etapes": [
         [
-          "Escuchar",
-          "Construir la pregunta con los entornos de práctica",
-          "Identificar las necesidades y las decisiones que hay que esclarecer. Precisar quién participa, en qué momento y con qué influencia.",
+          "Listen",
+          "Framing the question with practice settings",
+          "Everything starts with listening: identifying with the communities the needs and decisions to be informed, then specifying who participates, when and with what influence. Transfer plans often neglect fine-grained knowledge of the public (Tchameni Ngamo et al., 2016); integrated knowledge application, on the other hand, involves users of the results from the formulation of the question (Jull et al., 2017). Respect, relevance, reciprocity and responsibility guide this first encounter (Kirkness & Barnhardt, 1991).",
           [
-            "Necesidades",
-            "Participación"
+            "Needs",
+            "Participation"
           ]
         ],
         [
-          "Hacer circular",
-          "Contextualizar los saberes",
-          "Poner en diálogo la investigación y los saberes de experiencia. Adaptar el formato, el lenguaje y el contenido a los usos previstos.",
+          "Circulate",
+          "Putting knowledge in context",
+          "Research knowledge does not circulate on its own: it meets experiential and contextual knowledge that needs to be put into dialogue rather than opposed (Breton, 2025). The exchange of knowledge is a social process, made of back-and-forth interactions, and not a simple transmission (Ward et al., 2012). Adapting the format, language and content to the intended uses involves clear language summaries (Stoll et al., 2022) and, often, a knowledge broker who makes the link (Lomas, 2007).",
           [
-            "Saberes de experiencia",
-            "Formatos adaptados"
+            "Lived experience",
+            "Adapted formats"
           ]
         ],
         [
-          "Coconstruir",
-          "Discutir las opciones y las decisiones",
-          "Consultar recoge opiniones; coconstruir es elaborar en conjunto; deliberar es examinar argumentos y arbitrajes. Documentar la influencia real de las contribuciones.",
+          "Co-design",
+          "Discussing options and choices",
+          "Consulting gathers opinions; co-constructing is developing together; deliberating is examining arguments and making decisions. Deliberative dialogue transforms findings into discussed options by the concerned people (Boyko et al., 2012). Yet it is still necessary to document the real influence of contributions and to recognise the costs of co-production for all parties (Oliver et al., 2019), in order to avoid token participation (Gainforth et al., 2021).",
           [
-            "Coconstrucción",
-            "Deliberación"
+            "Co-design",
+            "Deliberation"
           ]
         ],
         [
-          "Implementar",
-          "Acompañar la puesta en marcha",
-          "Examinar el contexto, los recursos y los obstáculos. Precisar los actores, las adaptaciones y las estrategias de acompañamiento, con marcos como el CFIR.",
+          "Implement",
+          "Supporting implementation",
+          "A promising practice does not implement itself: proving its effectiveness does not guarantee its adoption (Bauer & Kirchner, 2020). One must examine the context, resources and obstacles using frameworks such as CFIR (Damschroder et al., 2022), then choose and describe the support strategies in a shared vocabulary (Powell et al., 2015). In Quebec, the implementation of a citizen support approach for the elderly illuminates the favourable factors, obstacles and essential conditions (Gobeil et al., 2023).",
           [
-            "Implementación",
+            "Implementation",
             "CFIR"
           ]
         ],
         [
-          "Evaluar",
-          "Distinguir producir, utilizar y cambiar",
-          "Una herramienta difundida es una producción. Su adopción es un resultado de implementación. Los cambios para los servicios y las personas son otros resultados que documentar.",
+          "Evaluate",
+          "Telling producing, using and changing apart",
+          "A disseminated tool is a product; its adoption is an implementation outcome; changes for services and people are other outcomes, to be documented separately (Proctor et al., 2011). Rather than attributing these changes to the research alone, we follow its plausible contribution by examining other influences (Mayne, 2012; Morton, 2015). French-speaking frameworks help to make these outcomes visible (Gervais et al., 2016).",
           [
-            "Evaluación",
-            "Impacto"
+            "Evaluation",
+            "Impact"
           ]
         ]
       ],
-      "note": "Estos cinco tiempos se inspiran en el modelo del conocimiento a la acción (Graham et al., 2006) y en el marco de Ward (2017)."
+      "note": "These five stages draw on the knowledge-to-action model (Graham et al., 2006) and Ward’s framework (2017)."
     }
   },
+  ressources: {
+    "surtitre": "Resources",
+    "titre": "Articles, videos and podcasts",
+    "intro": "An annotated selection to explore knowledge mobilisation and implementation science further, in French and English.",
+    "langues": [
+      "In French",
+      "In English"
+    ],
+    "groupes": [
+      [
+        "Open-access scientific articles",
+        [
+          [
+            "Making sense of implementation theories, models and frameworks",
+            "Nilsen, Implementation Science, 2015",
+            "https://doi.org/10.1186/s13012-015-0242-0",
+            "The typology that sorts theories, models and frameworks into five families (process models, determinant frameworks, classic theories, implementation theories, evaluation frameworks) according to what one seeks to do: guide, explain or evaluate."
+          ],
+          [
+            "Community-based participatory research and integrated knowledge translation: advancing the co-creation of knowledge",
+            "Jull, Giles and Graham, Implementation Science, 2017",
+            "https://doi.org/10.1186/s13012-017-0696-3",
+            "Sets community-based participatory research and integrated knowledge translation side by side to show where they converge, where they diverge and what each can borrow from the other to co-create knowledge."
+          ],
+          [
+            "The dos and don’ts of influencing policy: a systematic review of advice to academics",
+            "Oliver and Cairney, Palgrave Communications, 2019",
+            "https://doi.org/10.1057/s41599-019-0232-y",
+            "A systematic review of the advice given to academics who want to influence policy: this advice is rarely based on evidence and says little about the costs and risks of engaging with policy."
+          ],
+          [
+            "Connecting knowledge with action for health equity: a critical interpretive synthesis of promising practices",
+            "Plamondon, Caxaj, Graham and Bottorff, International Journal for Equity in Health, 2019",
+            "https://doi.org/10.1186/s12939-019-1108-x",
+            "A critical interpretive synthesis that identifies promising practices for connecting knowledge with action for equity, with an emphasis on redistributing power and on the structural causes of inequities."
+          ],
+          [
+            "Quel impact avons-nous ? Vers l’élaboration d’un cadre pour rendre visibles les retombées du transfert des connaissances",
+            "Gervais, Souffez and Ziam, Revue francophone de recherche sur le transfert et l’utilisation des connaissances, 2016 (in French)",
+            "https://doi.org/10.18166/tuc.2016.1.1.5",
+            "Drawing on a review of 29 conceptual frameworks, lays the groundwork, in French, for a framework that makes the impacts of knowledge transfer activities visible and meets organisations’ accountability requirements."
+          ],
+          [
+            "Plain language summaries: A systematic review of theory, guidelines and empirical research",
+            "Stoll, Kerwer, Lieb and Chasiotis, PLOS ONE, 2022",
+            "https://doi.org/10.1371/journal.pone.0268789",
+            "Surveys theories, guidelines and empirical studies on plain language summaries and derives a conceptual framework for writing summaries that a non-specialist audience can understand."
+          ]
+        ]
+      ],
+      [
+        "Guides and tools",
+        [
+          [
+            "Animer un processus de transfert des connaissances : bilan des connaissances et outil d’animation",
+            "Nicole Lemire, Karine Souffez and Marie-Claire Laurendeau, Institut national de santé publique du Québec, 2009 (in French)",
+            "https://www.inspq.qc.ca/publications/1012",
+            "The Quebec guide that frames knowledge transfer as a dynamic process and offers a facilitation tool and a checklist for structuring each stage with the stakeholders concerned."
+          ],
+          [
+            "Outil pour soutenir l’élaboration d’un plan de transfert des connaissances",
+            "Karine Souffez and Marie-Claire Laurendeau, Institut national de santé publique du Québec, undated (PDF metadata: 2011) (in French)",
+            "https://www.inspq.qc.ca/sites/default/files/publications/outil_pour_soutenir_l_elaboration_d_un_plan_de_transfert_des_connaissances.pdf",
+            "A grid for teams to complete at the start of a project, to specify the knowledge products, the audiences and the actors to involve, then the strategies, deadlines and resources of the transfer plan."
+          ],
+          [
+            "Guide pour accompagner l’implantation de pratiques prometteuses dans un établissement : soutien à l’implantation de pratiques prometteuses et au transfert de connaissances dans le réseau de la santé et des services sociaux",
+            "Marie Massuard, under the direction of Julie Lane, Ministère de la Santé et des Services sociaux du Québec, 2023 (in French)",
+            "https://publications.msss.gouv.qc.ca/msss/fichiers/2023/23-516-04W.pdf",
+            "A Quebec ministry guide that turns implementation science and integrated knowledge translation into a practical support process for institutions in the health and social services network."
+          ],
+          [
+            "Guide pratique – Stratégie de partenariat avec les patients et le public en recherche",
+            "Geneviève David and Alexandre Grégoire, Unité de soutien SRAP du Québec and Centre d’excellence sur le partenariat avec les patients et le public (CEPPP), 2018 (in French)",
+            "https://ceppp.ca/wp-content/uploads/2021/01/USSQ_Guide-pratique-SPPP-en-recherche_V1.pdf",
+            "A starter guide, co-written by a patient coordinator, that answers why, who, when, where, how much and how to engage patients and the public in a research project, including evaluation and ethical issues."
+          ]
+        ]
+      ],
+      [
+        "Podcasts",
+        [
+          [
+            "Le pont entre la recherche et le terrain",
+            "Les humains derrière la recherche en soins palliatifs, with Chantal Verdon (UQO), 2025 (in French)",
+            "https://podcasts.apple.com/ca/podcast/le-pont-entre-la-recherche-et-le-terrain/id1608211841?i=1000736634362",
+            "A nursing researcher explains how she built a bridge between research and practice, notably through communities of practice with nurses."
+          ],
+          [
+            "Season 2, Ep 1: David Chambers",
+            "That Implementation Science Podcast, hosted by Mike Pullmann and Kevin King, 2024",
+            "https://thatimplementationsciencepodcast.podbean.com/e/season-2-ep-1-david-chambers/",
+            "The deputy director for implementation science at the National Cancer Institute reflects on the history of the field, the collective nature of science and what makes a research team effective."
+          ],
+          [
+            "SCCM Pod-520: Implementation Science: From Evidence to Practice",
+            "SCCM Podcast (Society of Critical Care Medicine), hosted by Marilyn N. Bulloch with Anne E. Sales, 2024",
+            "https://www.sccm.org/communications/sccm-podcast/sccm-podcast-all-episodes/sccm-pod-520-implementation-science-from-evidence-to-practice",
+            "An accessible introduction in which a researcher presents implementation science as the study of planned behaviour change within organisational constraints, illustrated with clinical examples."
+          ]
+        ]
+      ],
+      [
+        "Video capsules",
+        [
+          [
+            "Ancrage historique et évolution du courtage de connaissances",
+            "Équipe RENARD, presentation by Christian Dagenais and Saliha Ziam at Colloquium 31 of the 90th Acfas Congress, 2023 (in French)",
+            "https://www.youtube.com/watch?v=3uucW5ZOp-g",
+            "A short presentation that traces where knowledge brokering comes from and how the role has evolved, as an introduction to the work of a knowledge broker."
+          ],
+          [
+            "Les compétences clés pour agir en courtage de connaissances",
+            "Équipe RENARD, presentation by Esther McSween-Cadieux at Colloquium 31 of the 90th Acfas Congress, 2023 (in French)",
+            "https://www.youtube.com/watch?v=RGVmhf9Wyzo",
+            "Reviews the competencies a person needs to work in knowledge brokering, a practical complement to the readings on the broker’s role."
+          ],
+          [
+            "Expériences du midi: Recherche en partenariat avec une citoyenne-chercheuse",
+            "Unité de soutien SSA Québec, webinar with Julie Coulombe and Marie-Hélène Morin, 2025 (in French)",
+            "https://www.youtube.com/watch?v=TNwIcNyGjwY",
+            "A concrete case of research conducted with a citizen researcher on family peer support in mental health, showing what participatory science changes in the way a project is run."
+          ],
+          [
+            "CCNMO - Prise de décisions fondée sur des données probantes",
+            "Centre de collaboration nationale des méthodes et outils (CCNMO), 2016 (in French)",
+            "https://www.youtube.com/watch?v=XrZjc3Flrz8",
+            "Presents, in eight minutes, the CCNMO model, which shows how research evidence, local context, population preferences and resources come together in a public health decision."
+          ],
+          [
+            "TIDIRC: Introduction to Dissemination & Implementation Science",
+            "National Cancer Institute (TIDIRC OpenAccess), lecture by David Chambers, 2022",
+            "https://www.youtube.com/watch?v=DO2tv7DqL3w",
+            "An introductory lecture that distinguishes dissemination research, research dissemination, implementation research and pragmatic research, and presents the core concepts of the field."
+          ],
+          [
+            "Quand l’expertise académique rencontre le vécu du terrain (Le Réverbère, mini-série sur la science citoyenne, épisode 2)",
+            "Le Réverbère, Institut du Nouveau Monde with the Fonds de recherche du Québec, 2026 (in French)",
+            "https://www.youtube.com/watch?v=J6gVGWA_yhc",
+            "Citizen–researcher pairs describe how they share roles in a research project launched by a citizen’s question, without either of them losing their own expertise."
+          ],
+          [
+            "Ép. 23 - Patient Partenaire: des alliés pour la recherche",
+            "Des femmes comme vous, Les Radieuses Magazine, with Catherine Wilhelmy, 2024 (in French)",
+            "https://www.youtube.com/watch?v=27KRzWNoxAA",
+            "A patient who became partnership lead at a research centre explains to a general audience what the patient-partner movement is and why patients’ lived experience should inform research and care."
+          ]
+        ]
+      ],
+      [
+        "Press and magazines",
+        [
+          [
+            "Communiquer efficacement les connaissances scientifiques permet de sauver des vies",
+            "Christian Dagenais, Aurélie Hot and Valéry Ridde, The Conversation (Canada), 2023 (in French)",
+            "https://theconversation.com/communiquer-efficacement-les-connaissances-scientifiques-permet-de-sauver-des-vies-197191",
+            "Argues that research changes practice only if its findings reach decision-makers in an accessible form and if change is supported over time, with backing from funders."
+          ],
+          [
+            "Pour mieux communiquer la science, commençons par bien choisir nos mots",
+            "Valéry Ridde, Aurélie Hot and Christian Dagenais, The Conversation (Canada), 2025 (in French)",
+            "https://theconversation.com/pour-mieux-communiquer-la-science-commencons-par-bien-choisir-nos-mots-247661",
+            "Shows how the profusion of competing terms (transfer, translation, mobilisation…) muddles collaboration and funding in this field, and calls for a clearer vocabulary."
+          ],
+          [
+            "Recherche et politiques publiques : comment mieux faire circuler les savoirs ?",
+            "Mohamed Berrada, Affaires universitaires, 2026 (in French)",
+            "https://www.affairesuniversitaires.ca/actualites/recherche-et-politiques-publiques-comment-mieux-faire-circuler-les-savoirs/",
+            "A report on an Acfas symposium where universities, colleges, organisations and decision-makers looked for ways to bring research and public decision-making closer together without sacrificing the long time frames of research."
+          ],
+          [
+            "Au-delà de l’acceptabilité sociale, ouvrir le dialogue pour favoriser la participation citoyenne au débat sur l’utilisation des données de santé",
+            "Carole Jabet and Cécile Petitgand, Fonds de recherche du Québec, 2022 (in French)",
+            "https://frq.gouv.qc.ca/ouvrir-le-dialogue-pour-favoriser-la-participation-citoyenne/",
+            "Drawn from an Acfas symposium, this piece proposes deliberative mechanisms, such as regional working groups or citizen forums, to involve the public in decisions about the use of health data."
+          ],
+          [
+            "Construction et hiérarchisation des données probantes en santé : savoirs scientifiques, expérientiels et contextuels",
+            "Marie-Dominique Beaulieu, Revue du CREMIS, 2016 (in French)",
+            "https://cremis.ca/publications/articles-et-medias/construction-et-hierarchisation-des-donnees-probantes-en-sante-savoirs-scientifiques-experientiels-et-contextuels/",
+            "Looks back at the rise of evidence-based medicine and the hierarchy of evidence, and argues for integrating rather than opposing scientific, experiential and contextual knowledge in health decisions."
+          ],
+          [
+            "Knowledge mobilization will help Canada face the next major challenge",
+            "Ursula Gobel, Policy Options / Options politiques, 2021",
+            "https://policyoptions.irpp.org/magazines/february-2021/knowledge-mobilization-will-help-canada-face-the-next-major-challenge/",
+            "A vice-president of SSHRC draws from the pandemic the lesson that knowledge synthesis and interdisciplinary, intersectoral research networks are essential to inform public decisions in times of crisis."
+          ],
+          [
+            "To Support Evidence-Based Policymaking, Bring Researchers and Policymakers Together",
+            "D. Max Crowley and J. Taylor Scott, Issues in Science and Technology, 2023",
+            "https://issues.org/evidence-based-policymaking-researchers-policymakers-collaborate-crowley-scott/",
+            "Two researchers describe a trust-based model of direct collaboration between scientists and elected officials, and report that it improves the quantity and quality of the evidence used in legislation."
+          ]
+        ]
+      ]
+    ]
+  },
   publications: {
-    surtitre: "04 · Publicaciones",
-    titre: "Comunicaciones, memorias y herramientas",
-    intro: "Cada trabajo conserva su título original, sus autores y su estado. Los manuscritos en curso se presentan en la sala La investigación.",
+    surtitre: "04 · Publications",
+    titre: "Presentations, theses and tools",
+    intro: "Each work keeps its original title, authors and status. Manuscripts in progress are presented in the Research room.",
     groupes: [
       {
-        titre: "Comunicaciones científicas",
+        titre: "Scientific presentations",
         items: [
-          { date: "Junio de 2026", statut: "Premio al mejor póster · doctorado y posdoctorado", titre: TITRES_ORIGINAUX.gfsp, detail: `${AUTEURS.trio} · Groupe francophone en soins primaires (GFSP), Montreal · póster` },
-          { date: "Mayo de 2026", statut: "Póster", titre: TITRES_ORIGINAUX.cahspr, detail: `${AUTEURS.trio} · CAHSPR, Ottawa` },
-          { date: "Abril de 2026", statut: "Póster y 180 segundos", titre: TITRES_ORIGINAUX.gfsp, detail: `${AUTEURS.trio} · Red quebequense de investigación sobre el envejecimiento (RQRV), Sherbrooke · póster y divulgación en 180 segundos` },
+          { date: "June 2026", statut: "Best poster award · doctoral and postdoctoral", titre: TITRES_ORIGINAUX.gfsp, detail: `${AUTEURS.trio} · Groupe francophone en soins primaires (GFSP), Montréal · poster` },
+          { date: "May 2026", statut: "Poster", titre: TITRES_ORIGINAUX.cahspr, detail: `${AUTEURS.trio} · CAHSPR, Ottawa` },
+          { date: "April 2026", statut: "Poster and 180-second talk", titre: TITRES_ORIGINAUX.gfsp, detail: `${AUTEURS.trio} · Quebec Network for Research on Aging (RQRV), Sherbrooke · poster and 180-second talk` },
         ],
       },
       {
-        titre: "Memorias defendidas ante un jurado",
+        titre: "Theses defended before a jury",
         items: [
-          { date: "2025", titre: TITRES_ORIGINAUX.memoireDroit, detail: "Máster en Derecho · Université Paris Panthéon-Assas · dirección: Benoît Apollis" },
-          { date: "2024", titre: TITRES_ORIGINAUX.memoireGestion, detail: "Maestría en dirección de establecimientos de salud · Université de Bretagne Occidentale · dirección: Michelle-Hentic Giliberto" },
-          { date: "2023", titre: TITRES_ORIGINAUX.memoireEduc, detail: "Diploma de Estado de educador especializado · Académie de Rennes" },
+          { date: "2025", titre: TITRES_ORIGINAUX.memoireDroit, detail: "Master of Laws · Université Paris Panthéon-Assas · supervisor: Benoît Apollis" },
+          { date: "2024", titre: TITRES_ORIGINAUX.memoireGestion, detail: "Master’s in health care facility management · Université de Bretagne Occidentale · supervisor: Michelle-Hentic Giliberto" },
+          { date: "2023", titre: TITRES_ORIGINAUX.memoireEduc, detail: "State diploma in special needs education · Académie de Rennes" },
         ],
       },
       {
-        titre: "Herramientas profesionales",
+        titre: "Professional tools",
         items: [
-          { date: "2024–2025", titre: "Reforma de los servicios de autonomía a domicilio: herramientas de apoyo a la decisión", detail: "Agencia nacional francesa de apoyo al desempeño (ANAP) · varios miles de descargas", lien: ANAP_SAD },
-          { date: "2024–2025", titre: "Centros de recursos territoriales: diez herramientas de apoyo a la dirección", detail: "ANAP · varios miles de descargas", lien: ANAP_CRT },
+          { date: "2024–2025", titre: "Home care services reform: decision-support tools", detail: "French national agency for performance support (ANAP) · several thousand downloads", lien: ANAP_SAD },
+          { date: "2024–2025", titre: "Territorial resource centres: ten management support tools", detail: "ANAP · several thousand downloads", lien: ANAP_CRT },
         ],
       },
     ],
   },
   biographie: {
-    "surtitre": "05 · Biografía",
-    "titre": "De las experiencias humanas a las transformaciones colectivas",
+    "surtitre": "05 · Biography",
+    "titre": "From human experiences to collective transformations",
     "intro": [
-      "Educador especializado, jurista, emprendedor y doctorando en salud pública, construí mi trayectoria en el encuentro de distintos mundos: el acompañamiento de las personas, la gestión de las organizaciones, el derecho, las políticas públicas y la investigación.",
-      "Detrás de esta diversidad hay una misma ambición: **comprender los mecanismos que dan forma a las trayectorias individuales y colectivas, para contribuir a sociedades más justas, solidarias y capaces de reconocer las posibilidades de actuar de cada persona.**",
-      "Mi camino, personal y profesional, alimenta una convicción: las realidades humanas no pueden separarse de los sistemas sociales, organizativos y políticos en los que se inscriben.",
-      "Sigue una dinámica ascendente: del acompañamiento de las personas hacia la transformación de las organizaciones y de las políticas de salud y de servicios sociales, con una orientación clara hacia el apoyo a la decisión pública."
+      "Special needs educator, jurist, entrepreneur and PhD student in public health, I built my path at the meeting point of different worlds: supporting people, managing organisations, law, public policy and research.",
+      "Behind this diversity lies one ambition: **to understand the mechanisms that shape individual and collective trajectories, in order to contribute to fairer, more supportive societies that recognise everyone’s capacity to act.**",
+      "My journey, personal and professional, feeds one conviction: human realities cannot be separated from the social, organisational and political systems in which they are embedded.",
+      "It follows an upward movement: from supporting people towards transforming health and social service organisations and policies, with a clear focus on supporting public decision-making."
     ],
-    "citation": "Las realidades humanas no pueden separarse de los sistemas sociales, organizativos y políticos en los que se inscriben.",
+    "citation": "Human realities cannot be separated from the social, organisational and political systems in which they are embedded.",
     "chapitres": [
       [
-        "Construirse fuera de las trayectorias convencionales",
+        "Growing up outside conventional paths",
         [
-          "Mi trayectoria comienza en Francia, en un medio popular, marcado en particular por una experiencia en la protección de la infancia y por el abandono de la escuela a los dieciséis años.",
-          "Lejos de un recorrido académico convencional, fui construyendo mi trayectoria a través del trabajo, la exploración de distintos entornos y la vuelta a los estudios.",
-          "Estas experiencias, al igual que mi neuroatipia, alimentaron mi independencia de pensamiento, mi capacidad de adaptación y mi interés por los mecanismos de reproducción social, de emancipación y de solidaridad. Hoy forman parte de mi mirada sobre las instituciones y sobre la diversidad de las experiencias humanas."
+          "My path begins in France, in a working-class setting, marked in particular by time in the child welfare system and by leaving school at sixteen.",
+          "Far from a conventional academic route, I gradually built my trajectory through work, through exploring different settings and through returning to study.",
+          "These experiences, like my neurodivergence, nurtured my independent thinking, my adaptability and my interest in the mechanisms of social reproduction, emancipation and solidarity. Today they inform how I look at institutions and at the diversity of human experience."
         ]
       ],
       [
-        "La creación, el encuentro y la ética del cuidado",
+        "Creation, encounter and the ethics of care",
         [
-          "Mi interés por la música me llevó a cursar una licenciatura en musicología, en paralelo a mis primeras experiencias en la animación sociocultural y, después, a la responsabilidad de estancias adaptadas para personas con discapacidad.",
-          "Más allá de sus diferencias, estos mundos me permitieron explorar las relaciones humanas en varias dimensiones: la expresión individual, la vida colectiva, el acompañamiento y la responsabilidad hacia los demás.",
-          "A lo largo de once años de compromiso junto a la vulnerabilidad humana, estas experiencias fueron dando un lugar central a la ética del *cuidado*, al reconocimiento de las capacidades individuales y a la importancia de un acompañamiento que favorezca la autonomía y no la dependencia. También me mostraron la fuerza de la solidaridad."
+          "My interest in music led me to a bachelor’s degree in musicology, alongside my first experiences in youth and leisure programmes and then managing adapted stays for people with disabilities.",
+          "For all their differences, these worlds let me explore human relationships in several dimensions: individual expression, collective life, support and responsibility towards others.",
+          "Over eleven years of commitment alongside human vulnerability, these experiences gradually placed the ethics of *care* at the centre, together with the recognition of individual capacities and the importance of support that fosters autonomy rather than dependence. They also showed me the strength of solidarity."
         ]
       ],
       [
-        "Del acompañamiento a la autodeterminación",
+        "From support to self-determination",
         [
-          "Tras varios años de compromiso en el terreno, quise dar una nueva orientación a mi actividad profesional, guiado por una reflexión sobre la utilidad social y sobre el lugar que deseaba ocupar en la sociedad.",
-          "Así retomé los estudios en educación especializada para profundizar en los fundamentos teóricos, éticos y metodológicos del acompañamiento en los sectores social y sociosanitario, centrando mi práctica en la autodeterminación y en el «hacer con» las personas.",
-          "Mi memoria de práctica profesional, dedicada a la influencia de las prácticas educativas en la autodeterminación, marcó un punto de inflexión en mis preguntas: **¿cómo favorecer la libertad de elección de las personas cuando las condiciones de su acompañamiento dependen también del funcionamiento de las instituciones?**"
+          "After several years in the field, I wanted to give my professional life a new direction, guided by a reflection on social usefulness and on the place I wished to hold in society.",
+          "I therefore returned to study special needs education to deepen the theoretical, ethical and methodological foundations of support in the social and medico-social sectors, refocusing my practice on self-determination and on working *with* people.",
+          "My professional practice thesis, on how educational practices influence self-determination, was a turning point in my questioning: **how can people’s freedom of choice be fostered when the conditions of their support are also determined by how institutions work?**"
         ]
       ],
       [
-        "Comprender las organizaciones para transformar las prácticas",
+        "Understanding organisations to transform practice",
         [
-          "Esta pregunta me llevó a ampliar mi reflexión a las propias organizaciones.",
-          "Cursé una formación en dirección y gestión de establecimientos sanitarios y sociosanitarios, así como un diploma universitario en emprendimiento en el IAE de Brest, obtenido en 2023.",
-          "Allí profundicé en los retos de la gestión, la financiación, la coordinación, los recursos humanos y la conducción del cambio, y comprobé que las dificultades de las estructuras, desde la financiación hasta el trabajo en red y la contratación, dependían en gran medida de las políticas públicas de salud.",
-          "Sobre todo, busqué comprender las condiciones que permiten a los profesionales traducir sus intenciones en prácticas efectivas, y a las organizaciones conciliar sus limitaciones con las necesidades de las personas."
+          "This question led me to widen my reflection to organisations themselves.",
+          "I completed training in the management of health and medico-social facilities, as well as a university diploma in entrepreneurship at IAE Brest, obtained in 2023.",
+          "There I deepened issues of management, funding, coordination, human resources and change management, and observed that the facilities’ difficulties, from funding to partnership work and recruitment, were largely conditioned by health policy.",
+          "Above all, I sought to understand the conditions that allow professionals to turn their intentions into effective practice, and organisations to reconcile their constraints with people’s needs."
         ]
       ],
       [
-        "Del funcionamiento de las instituciones a la gobernanza de los sistemas de salud",
+        "From how institutions work to the governance of health systems",
         [
-          "El estudio de las organizaciones me llevó a explorar los mecanismos que orientan sus decisiones: los marcos jurídicos, las políticas públicas, la planificación, los mecanismos de financiación y las modalidades de gobernanza.",
-          "Continué esta reflexión en la Université Paris-Panthéon-Assas, en derecho público, sanitario y social, para superar los problemas de gestión y adoptar un enfoque multinivel del sistema de salud y de los instrumentos jurídicos de la solidaridad nacional, y después como encargado de proyectos en la Agencia nacional francesa de apoyo al desempeño (ANAP).",
-          "Esta experiencia me permitió trabajar en la articulación entre las orientaciones nacionales y las realidades operativas, traduciendo esas orientaciones en dispositivos concretos, en contacto con los retos de gestores, profesionales y usuarios del sistema de salud.",
-          "Reforzó mi interés por las dificultades de implementación de las políticas públicas, sobre todo cuando las respuestas exigen superar las fronteras entre organizaciones y sectores. Consolidada por una memoria de investigación, esta inmersión reveló las dificultades de implementación de los modelos de atención y servicios integrados, y la necesidad de un enfoque intersectorial e interdisciplinario frente a las prácticas en silos. Entonces me dirigí a varios investigadores quebequenses, presentándoles mis constataciones y un proyecto para contrastar los sistemas de salud, en busca de respuestas a las dificultades de implementación de la permanencia en el domicilio."
+          "Studying organisations led me to explore the mechanisms that steer their decisions: legal frameworks, public policy, planning, funding arrangements and governance.",
+          "I pursued this reflection at Université Paris-Panthéon-Assas, in public, health and social law, to move beyond management issues and adopt a multilevel approach to the health system and to the legal instruments of national solidarity, then as a project manager at France’s national agency for performance support (ANAP).",
+          "This experience allowed me to work at the interface between national directions and operational realities, turning those directions into concrete arrangements, in close contact with the challenges faced by managers, professionals and users of the health system.",
+          "It strengthened my interest in the difficulties of implementing public policy, especially when the responses needed require crossing the boundaries between organisations and sectors. Consolidated by a research thesis, this immersion revealed the difficulties of implementing integrated care and service models, and the need for an intersectoral and interdisciplinary approach to siloed practices. I then reached out to several researchers in Québec, presenting my findings and a project to contrast health systems, in search of answers to the difficulties of implementing ageing-in-place policies."
         ]
       ],
       [
-        "Producir conocimientos para esclarecer la acción colectiva",
+        "Producing knowledge to inform collective action",
         [
-          "Hoy, mi doctorado en salud pública en la Université de Montréal, bajo la dirección de las Dras. N. Sourial y G. Layani, prolonga este camino.",
-          "Mis trabajos abordan la organización de los sistemas de salud y de servicios sociales, las necesidades sociales de las poblaciones, las colaboraciones intersectoriales y las condiciones de implementación de respuestas integradas, en particular en el apoyo a domicilio.",
-          "Mi enfoque es decididamente interdisciplinario y pragmático. Busca acercar las experiencias vividas, los conocimientos científicos y las realidades de la toma de decisiones para comprender mejor los fenómenos estudiados y contribuir a transformar las prácticas y las políticas públicas.",
-          "Presto una atención particular a las personas que pierden autonomía y a quienes están lejos de los servicios, a la investigación participativa que reconoce a los pacientes como productores de saberes, a la transferencia de conocimientos y a su movilización por las personas, los profesionales, las organizaciones y quienes toman las decisiones.",
-          "Esta voluntad de crear, experimentar y proponer se prolonga también en el emprendimiento, en particular con el desarrollo de **OWNNIGHT**, un proyecto en creación."
+          "Today, my PhD in public health at Université de Montréal, supervised by Drs. N. Sourial and G. Layani, continues this journey.",
+          "My work focuses on the organisation of health and social service systems, populations’ social needs, intersectoral collaboration and the conditions for implementing integrated responses, particularly in home support.",
+          "My approach is resolutely interdisciplinary and pragmatic. It seeks to bring together lived experience, scientific knowledge and decision-making realities, to better understand the phenomena studied and to contribute to changing practice and public policy.",
+          "I pay particular attention to people losing autonomy and those far from services, to partnership research that recognises patients as producers of knowledge, to knowledge translation and to the use of knowledge by people, professionals, organisations and decision-makers.",
+          "This drive to create, experiment and propose also extends to entrepreneurship, notably through the development of **OWNNIGHT**, a project under way."
         ]
       ]
     ],
     "vision": {
-      "titre": "Una visión que une experiencias, saberes y acción",
+      "titre": "A vision that connects experience, knowledge and action",
       "paragraphes": [
-        "Creo que los saberes académicos, profesionales y experienciales ganan al confrontarse en lugar de jerarquizarse.",
-        "Mi trayectoria me ha permitido descubrir distintos estratos de la sociedad y del sistema de salud, ocupar en ellos posiciones diversas y observar sus interacciones. Esta pluralidad de perspectivas es hoy uno de los recursos de mi trabajo científico.",
-        "**Para mí, la investigación es un instrumento de comprensión, pero también de emancipación humana, de justicia social y de apoyo a la decisión colectiva.** Su valor reside tanto en el rigor de los conocimientos producidos como en su capacidad de alimentar el debate, esclarecer las decisiones y sostener su puesta en práctica.",
-        "Se inscribe en los Objetivos de Desarrollo Sostenible de las Naciones Unidas: mejorar el bienestar de las personas mayores, reducir las desigualdades ante la permanencia en el domicilio y consolidar instituciones inclusivas y responsables. A largo plazo, aspiro a ser un investigador autónomo, reconocido por su compromiso de articular datos probatorios, diálogo entre las partes interesadas y divulgación al gran público.",
-        "Curiosidad intelectual, resiliencia, autonomía, sentido crítico, solidaridad y audacia para emprender son valores que atraviesan mi camino.",
-        "Deseo continuar esta exploración en la interfaz entre disciplinas y entornos, convencido de que las respuestas a los desafíos actuales de salud pública exigen hacer dialogar a las personas, los saberes y las instituciones."
+        "I believe that academic, professional and experiential knowledge gain from being confronted rather than ranked.",
+        "My path has let me discover different layers of society and of the health system, hold various positions within them and observe how they interact. This plurality of perspectives is now one of the resources of my scientific approach.",
+        "**For me, research is an instrument of understanding, but also of human emancipation, social justice and support for collective decision-making.** Its value lies as much in the rigour of the knowledge it produces as in its capacity to feed debate, inform choices and support their implementation.",
+        "It is aligned with the United Nations Sustainable Development Goals: improving the well-being of older adults, reducing inequalities in ageing at home and strengthening inclusive, accountable institutions. In the long run, my ambition is to become an independent researcher, recognised for combining evidence, dialogue among stakeholders and outreach to the general public.",
+        "Intellectual curiosity, resilience, autonomy, critical thinking, solidarity and the boldness to undertake are values that run through my journey.",
+        "I wish to pursue this exploration at the interface of disciplines and settings, convinced that today’s public health challenges require bringing people, knowledge and institutions into dialogue."
       ]
     },
-    "conclusion": "Ad astra per aspera: a través de las dificultades hasta las estrellas."
+    "conclusion": "Ad astra per aspera: through hardships to the stars."
   },
   parcours: {
-    surtitre: "06 · La trayectoria",
-    titre: "Formación y experiencia",
-    sousTitre: "Del terreno a las políticas de salud",
-    intro: "De la educación especializada al doctorado: los títulos, los puestos y las formaciones que marcan la trayectoria.",
-    types: { formation: "Formación", experience: "Experiencia", entreprise: "Emprendimiento" },
-    etapes: [
-      { date: "En curso", type: "entreprise", titre: "Creación de OWNNIGHT · emprendedor", detail: "Aplicación Android de bienestar y educación sobre el sueño: plan personalizado, lecciones y sesiones guiadas." },
-      { date: "Desde 2025", type: "formation", titre: "Doctorado en salud pública · ESPUM", detail: "Opción sistemas, organizaciones y políticas de salud (SOPS), 2.º año. Investigador en prácticas en el CRCHUM: políticas de atención primaria, intersectorialidad e integración de cuidados y servicios.", discret: "Promedio acumulado: 4,1" },
-      { date: "2025", type: "formation", titre: "Máster en Derecho (LL.M.)", detail: "Derecho público, derecho social y derecho de la salud · Université Paris Panthéon-Assas, mención especial del jurado." },
-      { date: "2024–2025", type: "experience", titre: "Encargado de misión · Agencia nacional francesa de apoyo al desempeño (ANAP)", detail: "París. Acompañar la transformación de la oferta de salud y servicios sociales, dirigir proyectos, producir herramientas de apoyo a la decisión, animar una red de expertos y comunidades de práctica." },
-      { date: "2024", type: "formation", titre: "Maestría en dirección de establecimientos de salud", detail: "Université de Bretagne Occidentale, mención especial del jurado." },
-      { date: "2023", type: "formation", titre: "Diploma universitario en emprendimiento", detail: "Institut d’administration des entreprises (IAE) de Brest, mención especial del jurado." },
-      { date: "2023", type: "formation", titre: "Diploma de Estado de educador especializado", detail: "Académie de Rennes." },
-      { date: "2020–2023", type: "experience", titre: "Educador especializado", detail: "Residencia, Adapei 35, Saint-Malo: evaluar las necesidades, coconstruir los proyectos individualizados, coordinar un equipo pluridisciplinario." },
-      { date: "2016–2024", type: "experience", titre: "Responsable de estancias de respiro", detail: "Estancias adaptadas para personas con discapacidad, Brest: supervisión, proyectos de servicio, gestión de equipos, presupuesto y logística." },
-    ],
-    continue: {
-      titre: "Formación continua · 2026",
-      items: [
-        "Conducta responsable en la investigación · CRCHUM",
-        "Práctica de auxiliar de investigación · Université de Montréal",
-        "MobilizeU, movilización de conocimientos · Research Impact Canada y Universidad York",
-      ],
+    "surtitre": "06 · Background",
+    "titre": "Education and experience",
+    "sousTitre": "From frontline practice to health policy",
+    "intro": "From special needs education to the PhD: the degrees, positions and training that mark the path.",
+    "types": {
+      "formation": "Education",
+      "experience": "Experience",
+      "entreprise": "Entrepreneurship"
     },
-    note: "Títulos franceses evaluados por el MIFI (Quebec) y WES Canada.",
+    "etapes": [
+      {
+        "date": "Ongoing",
+        "type": "entreprise",
+        "titre": "Founding OWNNIGHT · entrepreneur",
+        "detail": "An Android app for sleep well-being and sleep education: a personalised plan, lessons and guided sessions."
+      },
+      {
+        "date": "Since 2025",
+        "type": "formation",
+        "titre": "PhD in public health · ESPUM",
+        "detail": "Health systems, organisations and policy option (SOPS), 2nd year. Research trainee at CRCHUM: primary care policy, intersectoral action and integration of care and services.",
+        "discret": "Cumulative GPA: 4.1"
+      },
+      {
+        "date": "Fall 2026",
+        "type": "experience",
+        "titre": "Teaching assistant · SPU 7001, ASA 6754 and ASA 6765",
+        "detail": "Université de Montréal."
+      },
+      {
+        "date": "Winter 2026",
+        "type": "experience",
+        "titre": "Teaching assistant · ASA 6754",
+        "detail": "Health system and population health, Université de Montréal: student support, grading of written and oral exams."
+      },
+      {
+        "date": "2025",
+        "type": "formation",
+        "titre": "Master of Laws (LL.M.)",
+        "detail": "Public law, social law and health law · Université Paris Panthéon-Assas, with special distinction from the jury."
+      },
+      {
+        "date": "2024–2025",
+        "type": "experience",
+        "titre": "Project manager · French national agency for performance support (ANAP)",
+        "detail": "Paris. Supporting the transformation of health and social services, leading projects, producing decision-support tools, coordinating an expert network and communities of practice."
+      },
+      {
+        "date": "2024",
+        "type": "formation",
+        "titre": "Master’s in health care facility management",
+        "detail": "Université de Bretagne Occidentale, with special distinction from the jury."
+      },
+      {
+        "date": "2023",
+        "type": "experience",
+        "titre": "Management internship in an EHPAD",
+        "detail": "French long-term care home for dependent older adults, the equivalent of a CHSLD in Quebec: internship with the management team."
+      },
+      {
+        "date": "2023",
+        "type": "formation",
+        "titre": "University diploma in entrepreneurship",
+        "detail": "Institut d’administration des entreprises (IAE) de Brest, with special distinction from the jury."
+      },
+      {
+        "date": "2023",
+        "type": "formation",
+        "titre": "State diploma in special needs education",
+        "detail": "Académie de Rennes."
+      },
+      {
+        "date": "2020–2023",
+        "type": "experience",
+        "titre": "Special needs educator",
+        "detail": "Residential home, Adapei 35, Saint-Malo: assessing needs, co-designing individual plans, coordinating a multidisciplinary team."
+      },
+      {
+        "date": "2016–2024",
+        "type": "experience",
+        "titre": "Respite stay manager",
+        "detail": "Adapted holidays for people with disabilities, Brest: co-designing the educational project, socio-educational support, leisure activities and medication follow-up; supervision, service projects, management of teams, budget and logistics."
+      }
+    ],
+    "continue": {
+      "titre": "Continuing education · 2026",
+      "items": [
+        "Responsible conduct of research · CRCHUM",
+        "Research assistant practice · Université de Montréal",
+        "MobilizeU, knowledge mobilisation · Research Impact Canada and York University"
+      ]
+    },
+    "note": "French degrees evaluated by the MIFI (Québec) and WES Canada."
   },
   engagements: {
-    surtitre: "07 · Compromisos",
-    titre: "Representar, enseñar, contribuir",
-    intro: "Una presencia en la vida estudiantil y científica, en continuidad con la trayectoria.",
-    groupes: [
+    "surtitre": "07 · Engagement",
+    "titre": "Representing, teaching, contributing",
+    "intro": "Taking part in student and scientific life, in continuity with the path so far.",
+    "groupes": [
       {
-        titre: "Representación estudiantil",
-        items: [
-          { date: "2026", titre: "Coordinador del doctorado en salud pública · AÉÉSPUM", detail: "Electo." },
-          { date: "En curso", titre: "Coordinación de la mentoría solidaria · programa de doctorado en salud pública", detail: "ESPUM, Université de Montréal." },
-          { date: "En curso", titre: "Representante estudiantil en el comité del programa de doctorado en salud pública", detail: "ESPUM, Université de Montréal." },
-          { date: "2026", titre: "Representante estudiantil del doctorado · DGEPS", detail: "Departamento de Gestión, Evaluación y Política de Salud, ESPUM." },
-          { date: "Invierno de 2026", titre: "Embajador de la Université de Montréal" },
-          { date: "2022–2024", titre: "Representante electo en el consejo de administración del CROUS", detail: "Francia." },
-          { date: "2021", titre: "Presidente de la oficina regional de estudiantes de trabajo social de Askoria", detail: "Francia." },
-        ],
+        "titre": "Student representation",
+        "items": [
+          {
+            "date": "2026",
+            "titre": "PhD coordinator in public health · AÉÉSPUM",
+            "detail": "Elected."
+          },
+          {
+            "date": "Ongoing",
+            "titre": "Coordinator of solidarity mentoring · PhD program in public health",
+            "detail": "ESPUM, Université de Montréal."
+          },
+          {
+            "date": "Ongoing",
+            "titre": "Student representative on the PhD program committee in public health",
+            "detail": "ESPUM, Université de Montréal."
+          },
+          {
+            "date": "2026",
+            "titre": "Doctoral student representative · DGEPS",
+            "detail": "Department of Health Management, Evaluation and Policy, ESPUM."
+          },
+          {
+            "date": "Winter 2026",
+            "titre": "Université de Montréal ambassador"
+          },
+          {
+            "date": "2022–2024",
+            "titre": "Elected member of the CROUS board",
+            "detail": "France."
+          },
+          {
+            "date": "2021",
+            "titre": "President of Askoria’s regional social work student association",
+            "detail": "France."
+          }
+        ]
       },
       {
-        titre: "Experiencia docente",
-        items: [
-          { date: "Otoño de 2026", statut: "En curso", titre: "Auxiliar docente · SPU 7001, ASA 6754 y ASA 6765", detail: "Université de Montréal." },
-          { date: "Invierno de 2026", titre: "Auxiliar docente · ASA 6754", detail: "Sistema de salud y salud de las poblaciones, Université de Montréal: acompañamiento de estudiantes, corrección de exámenes escritos y orales." },
-        ],
+        "titre": "Scientific community",
+        "items": [
+          {
+            "date": "Ongoing",
+            "titre": "Student scientific committee of the AÉÉSPUM conference",
+            "detail": "Member."
+          },
+          {
+            "date": "June 2026",
+            "titre": "Scientific committee, GFSP early-career research day",
+            "detail": "Student member."
+          }
+        ]
       },
       {
-        titre: "Comunidad científica",
-        items: [
-          { date: "En curso", titre: "Comité científico estudiantil del congreso de la AÉÉSPUM", detail: "Miembro." },
-          { date: "Junio de 2026", titre: "Comité científico de la jornada de jóvenes investigadores del GFSP", detail: "Miembro estudiante." },
-        ],
+        "titre": "Scholarships and awards",
+        "items": [
+          {
+            "date": "2026",
+            "titre": "Best poster presentation award, doctoral and postdoctoral category",
+            "detail": "Early-career research day, Groupe francophone en soins primaires."
+          },
+          {
+            "date": "2025",
+            "titre": "Fonds de recherche du Québec doctoral scholarship (B2)",
+            "detail": "Excellence scholarship, ranked 3rd.",
+            "lien": "https://doi.org/10.69777/2009461"
+          },
+          {
+            "date": "2025",
+            "titre": "International recruitment scholarship",
+            "detail": "Graduate and Postdoctoral Studies, Université de Montréal."
+          },
+          {
+            "date": "2023–2025",
+            "titre": "Three special distinctions from the jury",
+            "detail": "Academic excellence."
+          }
+        ]
       },
       {
-        titre: "Becas y distinciones",
-        items: [
-          { date: "2026", titre: "Premio a la mejor presentación en póster, doctorado y posdoctorado", detail: "Jornada de jóvenes investigadores, Groupe francophone en soins primaires." },
-          { date: "2025", titre: "Beca de doctorado del Fonds de recherche du Québec (B2)", detail: "Beca de excelencia, tercer puesto.", lien: FRQ_DOI },
-          { date: "2025", titre: "Beca de captación internacional", detail: "Estudios de posgrado y posdoctorado, Université de Montréal." },
-          { date: "2023–2025", titre: "Tres menciones especiales del jurado", detail: "Excelencia académica." },
-        ],
+        "titre": "Civic engagement",
+        "items": [
+          {
+            "date": "2023",
+            "titre": "Volunteer firefighter",
+            "detail": "Dinard fire and rescue station, France."
+          },
+          {
+            "date": "2013",
+            "titre": "Volunteering and civic service",
+            "detail": "Association de la fondation étudiante pour la ville (AFEV), France."
+          }
+        ]
       },
       {
-        titre: "Compromiso ciudadano",
-        items: [
-          { date: "2023", titre: "Bombero voluntario", detail: "Centro de bomberos y rescate de Dinard, Francia." },
-          { date: "2013", titre: "Voluntariado y servicio cívico", detail: "Association de la fondation étudiante pour la ville (AFEV), Francia." },
-        ],
-      },
-      {
-        titre: "Deportes y ocio",
-        items: [
-          { date: "Carrera", titre: "Triple maratonista", detail: "Maratón de París 2025 y 2026, maratón de Montreal 2026." },
-          { date: "Música", titre: "Piano, canto y guitarra" },
-          { date: "Deporte", titre: "Hockey sobre hielo" },
-        ],
-      },
+        "titre": "Sports and leisure",
+        "items": [
+          {
+            "date": "Running",
+            "titre": "Three-time marathoner",
+            "detail": "Paris Marathon 2025 and 2026, Montréal Marathon 2026."
+          },
+          {
+            "date": "Music",
+            "titre": "Piano, singing and guitar"
+          },
+          {
+            "date": "Sport",
+            "titre": "Ice hockey"
+          }
+        ]
+      }
     ],
-    affiliations: {
-      titre: "Miembro estudiante",
-      items: ["Cátedra de investigación GSK en gestión óptima de enfermedades crónicas", "Groupe francophone en soins primaires (GFSP)", "Red quebequense de investigación sobre el envejecimiento (RQRV)", "Canadian Association for Health Services and Policy Research (CAHSPR)"],
+    "affiliations": {
+      "titre": "Student member",
+      "items": [
+        "GSK Research Chair in optimal management of chronic diseases",
+        "Groupe francophone en soins primaires (GFSP)",
+        "Quebec Network for Research on Aging (RQRV)",
+        "Canadian Association for Health Services and Policy Research (CAHSPR)",
+        "Centre de recherche en santé publique (CReSP)",
+        "Centre de recherche du CISSS de Chaudière-Appalaches",
+        "Centre interuniversitaire de recherche en analyse des organisations (CIRANO)"
+      ]
+    }
+  },
+  contact: {
+    surtitre: "Contact",
+    titre: "Let’s talk about your work",
+    intro: "A question, a reading to share, a project to discuss: write to me.",
+    courriel: COURRIEL,
+    ecrire: "Send an email",
+    liens: [
+      ["Academic CV", "PDF, in French", "docs/cv-academique.pdf"],
+      ["Professional CV", "PDF, in French", "docs/cv-professionnel.pdf"],
+      ["ORCID", "0009-0001-4236-4932", ORCID],
+      ["LinkedIn", "Profile", LINKEDIN],
+      ["Thesis project poster", "Accessible version", AFFICHE + "en/"],
+    ],
+    adresse: "School of Public Health, Université de Montréal · 7101 avenue du Parc, Montréal, Québec",
+  },
+  pied: "© 2026 Éric Bernier · No cookies, no analytics.",
+  credits: "Door images: Unsplash photographs and a portrait of Éric Bernier; lecture hall, assembly chamber and participatory workshop generated for this site, depicting no real people. Read-aloud voices: Kyutai TTS (CC BY 4.0), reference voices CML-TTS (Oliveira et al., 2023) and Alba MacKenna (CC BY 4.0).",
+  introuvable: { titre: "Page not found", texte: "This page does not exist or has moved.", retour: "Back to the home page" },
+};
+
+/* ----------------------------------------------------------------- Español */
+const es = {
+  lang: "es",
+  locale: "es_ES",
+  chemin: "../",
+  meta: {
+    titre: "Éric Bernier",
+    description:
+      "Éric Bernier, doctorando en salud pública (sistemas, organizaciones y políticas de salud) en la ESPUM, Université de Montréal, jurista, emprendedor y educador especializado. Investigación sobre la respuesta intersectorial a las necesidades sociales complejas en atención primaria.",
+  },
+  ui: {
+    evitement: "Ir al contenido",
+    sousTitre: "Salud pública · Gobernanza · Gestión · Derecho · Intervención social e intersectorialidad",
+    navigation: "Navegación principal",
+    langue: "Idioma",
+    entrer: "Entrar",
+    cv: "CV",
+    hall: "El vestíbulo",
+    suivante: "Puerta siguiente",
+    contact: "Contactarme",
+    haut: "Volver arriba",
+    acces: "Accesibilidad",
+    daltonisme: "Daltonismo",
+    basseVision: "Baja visión",
+    contraste: "Alto contraste",
+    taille: "Tamaño del texto",
+    plus: "Agrandar el texto",
+    moins: "Reducir el texto",
+    ecouter: "Escuchar",
+    ecouterPage: "Escuchar la página",
+    arreter: "Detener la lectura",
+    sansVoix: "Su dispositivo no tiene voz para este idioma.",
+    falc: "Versión de lectura fácil (en francés, FALC)",
+    afficheAlt: "Vista previa del póster del proyecto de tesis, 120 × 120 cm",
+    autresLangues: "Otros idiomas",
+  },
+  nav: [
+    [
+      "recherche",
+      "Investigación"
+    ],
+    [
+      "conceptualisation",
+      "Conceptualización"
+    ],
+    [
+      "approche",
+      "Enfoque"
+    ],
+    [
+      "valeurs",
+      "Valores"
+    ],
+    [
+      "implantation",
+      "Implementación"
+    ],
+    [
+      "ressources",
+      "Recursos"
+    ],
+    [
+      "publications",
+      "Publicaciones"
+    ],
+    [
+      "biographie",
+      "Biografía"
+    ],
+    [
+      "parcours",
+      "Trayectoria"
+    ],
+    [
+      "engagements",
+      "Compromisos"
+    ],
+    [
+      "contact",
+      "Contacto"
+    ]
+  ],
+  accueil: {
+    surtitre: "Doctorando en salud pública · ESPUM · CRCHUM",
+    roles: "Educador especializado · Jurista · Emprendedor · Doctorando en salud pública",
+    chapeau: {
+      "titre": "De las personas a las políticas: una lectura integrada de los sistemas de salud",
+      "paragraphes": [
+        "Del acompañamiento de las personas a la investigación en salud pública, mi trayectoria me ha llevado a explorar las distintas escalas del sistema de salud: de las realidades individuales a las organizaciones, hasta las políticas públicas y la gobernanza.",
+        "Estas experiencias, en la encrucijada del terreno, la gestión, el derecho y la investigación, han forjado una convicción: **transformar los sistemas de salud supone hacer dialogar las experiencias humanas, los saberes científicos, las dinámicas colectivas y las decisiones políticas.**",
+        "Mi ambición es **abrir puertas entre esos universos que conviven sin entenderse siempre**, romper los compartimentos entre perspectivas y acercar la investigación a la acción, para favorecer la autodeterminación, orientar las decisiones colectivas y contribuir a una sociedad más justa y más sana."
+      ]
+    },
+    encadrement:
+      "Tesis codirigida por la Dra. Nadia Sourial, Ph. D., y la Dra. Géraldine Layani, M.D. · Cátedra de investigación GSK en gestión óptima de enfermedades crónicas · CRCHUM · Becario del FRQ (B2)",
+    visite: "Comenzar la visita",
+    explorer: "Explorar libremente",
+    portrait: "Retrato de Éric Bernier",
+  },
+  hall: {
+    "titre": "El vestíbulo",
+    "compte": "10 puertas",
+    "consigne": "Haga clic en una puerta para entrar",
+    "portes": {
+      "recherche": [
+        "La investigación",
+        "Tesis y trabajos en curso"
+      ],
+      "conceptualisation": [
+        "Conceptualización",
+        "Investigación en curso: corpus y lagunas"
+      ],
+      "approche": [
+        "El enfoque",
+        "Postura, métodos, ejes, valores"
+      ],
+      "valeurs": [
+        "Valores",
+        "Lo que guía mi práctica"
+      ],
+      "implantation": [
+        "Implementación",
+        "Transferencia de conocimientos e implementación"
+      ],
+      "ressources": [
+        "Recursos",
+        "Artículos, cápsulas, pódcasts"
+      ],
+      "publications": [
+        "Publicaciones",
+        "Comunicaciones, memorias, herramientas"
+      ],
+      "biographie": [
+        "Biografía",
+        "De las experiencias humanas a las transformaciones colectivas"
+      ],
+      "parcours": [
+        "La trayectoria",
+        "Formación y experiencia"
+      ],
+      "engagements": [
+        "Compromisos",
+        "Representación, docencia, distinciones"
+      ]
+    }
+  },
+  recherche: {
+    surtitre: "01 · La investigación",
+    etiquette: "Tesis doctoral en curso · tema provisional",
+    titre: "Organizar la respuesta intersectorial a las necesidades sociales complejas y concurrentes en atención primaria",
+    sousTitre: "Configuraciones de redes adaptadas a los distintos perfiles de pacientes atendidos",
+    question:
+      "¿Cómo se organiza la respuesta intersectorial para los distintos perfiles de pacientes con necesidades sociales complejas y concurrentes atendidos en atención primaria?",
+    but: "El proyecto busca vincular cada perfil de necesidades con una configuración de socios y con su coordinador, a la escala de un territorio de CLSC (centro local de servicios comunitarios).",
+    faits: [
+      ["Programa", "Doctorado en salud pública, opción sistemas, organizaciones y políticas de salud (SOPS) · 2.º año"],
+      ["Institución", "Escuela de Salud Pública de la Université de Montréal (ESPUM)"],
+      ["Cátedra", "Cátedra de investigación GSK en gestión óptima de enfermedades crónicas"],
+      ["Centro de investigación", "Centro de investigación del CHUM (CRCHUM) · investigador en prácticas"],
+      ["Financiación", "Fonds de recherche du Québec, beca de doctorado (B2)"],
+    ],
+    codirection: {
+      titre: "Codirección",
+      profil: "Perfil CRCHUM",
+      personnes: [
+        { nom: "Dra. Nadia Sourial", grade: "Ph. D.", lignes: ["Profesora agregada, Departamento de Gestión, Evaluación y Política de Salud, Escuela de Salud Pública, Université de Montréal", "Investigadora del CRCHUM, Polo de innovación y evaluación en salud"], chaire: "Cotitular de la Cátedra de investigación GSK en gestión óptima de enfermedades crónicas", lien: CRCHUM_SOURIAL },
+        { nom: "Dra. Géraldine Layani", grade: "M.D., M. Sc.", lignes: ["Médica de familia, GMF-U Notre-Dame, Montreal", "Profesora adjunta clínica, Departamento de Medicina Familiar y de Urgencias, Université de Montréal", "Investigadora del CRCHUM, Polo de innovación y evaluación en salud"], chaire: "Cotitular de la Cátedra de investigación GSK en gestión óptima de enfermedades crónicas", lien: CRCHUM_LAYANI },
+      ],
+    },
+    affiche: ["Ver el póster del proyecto", "Versión accesible: 5 idiomas, lectura fácil, daltonismo, baja visión, audio", AFFICHE + "es/"],
+    table: {
+      titre: "Mesa de exploración",
+      detail: "El diseño en cuatro etapas",
+      etapes: [
+        ["Objetivo 1", "¿Qué perfiles?", "Una revisión de alcance", "A partir de los estudios publicados, identificar los perfiles recurrentes de necesidades sociales y convertirlos en cuatro a seis viñetas: situaciones ficticias validadas.", ["Revisión de alcance", "Viñetas"]],
+        ["Objetivo 2", "¿A quién movilizar?", "La red egocéntrica del CLSC", "Para cada viñeta, el CLSC está en el centro: se identifican los socios que movilizaría y los vínculos entre ellos. Se obtiene una configuración por perfil.", ["Análisis de redes", "Red egocéntrica"]],
+        ["Objetivo 2", "¿Por qué esas elecciones?", "Entrevistas sobre el mapa de la red", "Las entrevistas se apoyan en el mapa de cada red para explicar las elecciones observadas; por ejemplo: ¿por qué estos socios están poco conectados?", ["Entrevistas", "Métodos mixtos"]],
+        ["Objetivo 3", "¿Qué recomendar?", "Un taller deliberativo", "Pacientes colaboradores y actores de la atención primaria, del sector comunitario, de la gobernanza local, del ámbito municipal y del sector privado formulan recomendaciones para cada perfil.", ["Deliberación", "Pacientes colaboradores"]],
+      ],
+      terminus: "Todo se integra en una tabla conjunta: una fila por perfil, con la red, las explicaciones y las recomendaciones.",
+    },
+    notions: {
+      titre: "Tres nociones",
+      items: [
+        ["La concurrencia", "La presencia de al menos dos necesidades sociales al mismo tiempo. Se cuenta: es el criterio de inclusión.", "Kreuter et al., 2021"],
+        ["La complejidad", "La acumulación de enfermedades crónicas, discapacidades, problemas de salud mental y vulnerabilidad social. Se describe, sin ser exigida.", "Kuluski et al., 2017"],
+        ["La respuesta intersectorial", "Las acciones de sectores distintos de la salud, realizadas junto con ella: CLSC, grupos de medicina familiar, hospital, farmacias, organizaciones comunitarias, municipio, escuelas, guarderías. Se organiza en un territorio.", "Leppo et al., 2013; MSSS, 2017"],
+      ],
+    },
+    retombees: {
+      titre: "Resultados esperados",
+      items: [
+        ["Para las personas", "una respuesta ajustada a su combinación de necesidades."],
+        ["Para el CLSC y sus socios", "referencias sobre a quién movilizar, cómo vincularse y quién coordina."],
+        ["Para la política de atención primaria", "un punto de partida y recomendaciones según los roles del CLSC."],
+        ["Para la investigación", "una hipótesis que vincula el perfil de necesidades con la red."],
+      ],
+    },
+    travaux: {
+      titre: "Trabajos en curso",
+      intro: "Artículos y manuscritos en redacción, en paralelo a la tesis.",
+      items: [
+        {
+          domaine: "Epistemología y transferencia de conocimientos",
+          statut: "En elaboración",
+          titre: TITRES_ORIGINAUX.epistemic,
+          auteurs: "Bernier, É.",
+          resume:
+            "El impacto de la investigación suele pensarse en un solo sentido, del conocimiento hacia las políticas y las prácticas. El artículo propone una salud pública concebida como ciencia reflexiva de la gobernanza: precisa en qué condiciones las consecuencias observadas en el terreno y los saberes de las poblaciones afectadas pueden exigir que se reexaminen las categorías, los indicadores y las reglas de origen. El concepto se traduce en una auditoría documental, puesta a prueba en cuatro cadenas institucionales.",
+          etiquettes: ["Retorno epistémico", "Gobernanza reflexiva", "Impacto de la investigación"],
+        },
+        { domaine: "Sistemas de salud y atención primaria", statut: "En proceso de envío a BJGP Open", titre: TITRES_ORIGINAUX.hospit, auteurs: AUTEURS.hospit },
+        { domaine: "Gobernanza y espacio público", statut: "Manuscrito en preparación", titre: TITRES_ORIGINAUX.pl2, auteurs: AUTEURS.pl2 },
+        { domaine: "Derecho de la salud", statut: "Manuscrito en preparación", titre: TITRES_ORIGINAUX.droit, auteurs: "Bernier, É. · artículo de doctrina" },
+      ],
     },
   },
-  ressources: {
-    "surtitre": "08 · Recursos",
-    "titre": "Los cimientos de mi investigación",
-    "intro": "Esta sala reúne el corpus de mi tesis sobre las necesidades sociales múltiples, concurrentes y no satisfechas de las personas adultas en atención primaria, los vacíos que pone de manifiesto y las lecturas que han estructurado mi formación doctoral.",
+  conceptualisation: {
+    "surtitre": "Investigación en curso",
+    "titre": "Conceptualizar el proyecto de investigación",
+    "intro": "Estoy en la etapa de conceptualización: un corpus de publicaciones priorizadas, las lagunas que revela y las lecturas de formación que lo respaldan.",
     "chiffres": [
       [
         222,
@@ -3495,6 +3234,1035 @@ const es = {
       ]
     ],
     "note": "El corpus se constituyó a partir de Ovid (Embase, MEDLINE), PubMed y Cairn, y a cada publicación se le asignó una prioridad según su pertinencia para la pregunta de tesis."
+  },
+  approche: {
+    "surtitre": "02 · El enfoque",
+    "titre": "Una postura pragmática, métodos mixtos",
+    "intro": "De la pregunta a la observación: cada pregunta requiere sus datos, su método de análisis y su interpretación. Elijo los métodos según lo que haya que esclarecer, cruzando disciplinas.",
+    "piliers": [
+      [
+        "Postura pragmática",
+        "Una postura que articula una lectura positivista (medir, estimar, poner a prueba hipótesis) y una lectura constructivista (comprender el sentido que los actores dan a sus prácticas). La pregunta decide el método."
+      ],
+      [
+        "Métodos mixtos",
+        "Análisis cuantitativos y cualitativos integrados: análisis de redes, regresiones, análisis temático, análisis documental y cartografía, reunidos en tablas de integración."
+      ],
+      [
+        "Pluridisciplinariedad",
+        "Salud pública, derecho, gestión, ciencia política e intervención social: miradas que dialogan para analizar un mismo sistema."
+      ]
+    ],
+    "outils": {
+      "titre": "Caja de herramientas",
+      "groupes": [
+        [
+          "Análisis de datos",
+          [
+            "Positron (R)",
+            "Python",
+            "NVivo",
+            "QGIS",
+            "Excel"
+          ]
+        ],
+        [
+          "Colaboración y animación",
+          [
+            "Miro",
+            "Klaxoon",
+            "Canva"
+          ]
+        ],
+        [
+          "Ofimática e IA",
+          [
+            "Office 365",
+            "Inteligencia artificial"
+          ]
+        ]
+      ]
+    },
+    "expertises": {
+      "titre": "Áreas de especialización",
+      "items": [
+        [
+          "Dirección de establecimientos sanitarios, sociales y medicosociales",
+          "Mi maestría (maîtrise) en dirección de estructuras medicosociales y de servicios a las personas (Université de Bretagne Occidentale, 2024, mención especial del jurado) abarca la gestión presupuestaria y financiera (CPOM, EPRD), la contabilidad, la gestión de recursos humanos y el derecho laboral, el management, la teoría y la sociología de las organizaciones, la filosofía y el proyecto de establecimiento. Como responsable de estancias de respiro y estancias adaptadas de 2016 a 2024, asumí la gestión de los equipos, del presupuesto y de la logística."
+        ],
+        [
+          "Derecho sanitario, social y medicosocial",
+          "Mi máster en Derecho público, especializado en derecho de la salud y derecho social (Université Paris-Panthéon-Assas, 2025, mención especial del jurado), trata de la organización y la planificación de los sectores sanitario, social y medicosocial: autorización, habilitación, tarificación y contencioso de la tarificación. Abarca también los derechos de los pacientes y de los usuarios, la bioética, la economía de la salud, la contractualización, la responsabilidad civil, penal y administrativa, así como el derecho laboral y de la seguridad social."
+        ],
+        [
+          "Transformación de la oferta y apoyo al desempeño",
+          "Como encargado de misión en la Agencia nacional francesa de apoyo al desempeño (ANAP, París) en 2024–2025, acompañé la transformación de la oferta de salud y servicios sociales. Esta misión abarcó herramientas de apoyo a la decisión para la reforma de los servicios de autonomía a domicilio y diez herramientas de pilotaje de los centros de recursos territoriales, que suman varios miles de descargas."
+        ],
+        [
+          "Envejecimiento, autonomía y EHPAD",
+          "Mis dos memorias de máster tratan este campo: la adaptación de los EHPAD (residencias para mayores dependientes) a las personas con discapacidad envejecidas (Université de Bretagne Occidentale, 2024) y la aplicación del giro hacia el domicilio, comparando Francia y Quebec («Vieillir chez soi», Université Paris-Panthéon-Assas, 2025). Se suman una experiencia en EHPAD y el trabajo en la ANAP sobre la reforma de los servicios de autonomía a domicilio."
+        ],
+        [
+          "Discapacidad y autodeterminación",
+          "Como educador especializado en una residencia (Adapei 35, Saint-Malo, 2020–2023), evalué las necesidades de las personas acompañadas, coconstruí sus proyectos individualizados y coordiné un equipo pluridisciplinario. Mi memoria de 2023 trata de la influencia de las prácticas educativas en la autodeterminación. De 2016 a 2024 fui también responsable de estancias de respiro y estancias adaptadas para personas con discapacidad."
+        ],
+        [
+          "Autismo",
+          "Mi experiencia como educador especializado en una residencia, en la Adapei 35 de Saint-Malo de 2020 a 2023, incluye el acompañamiento de personas autistas. Este acompañamiento se basa en la evaluación de las necesidades propias de cada persona, la coconstrucción con ella de su proyecto individualizado y la coordinación de un equipo pluridisciplinario en torno a dicho proyecto."
+        ],
+        [
+          "Metodología de investigación y evaluación de proyectos",
+          "Doctorando en salud pública en la ESPUM (Université de Montréal), recurro a métodos mixtos, cuantitativos y cualitativos. Uno de mis ejes de investigación trata del desempeño, la gestión del cambio y el pilotaje de las organizaciones. En evaluación de proyectos, me apoyo en mi formación (evaluación de los establecimientos, contratos de objetivos y medios) y en las herramientas de apoyo a la decisión y de pilotaje elaboradas en la ANAP."
+        ],
+        [
+          "Intersectorialidad y atención primaria",
+          "Investigador en prácticas en el Centro de investigación del CHUM (CRCHUM), estudio las políticas de atención primaria, la intersectorialidad y la integración de cuidados y servicios. La intersectorialidad designa la acción concertada de varios sectores, como salud, servicios sociales, educación o vivienda, sobre problemas que exceden el ámbito de uno solo de ellos. Estos trabajos se vinculan con mi eje de análisis comparado de los sistemas de salud."
+        ],
+        [
+          "Emprendimiento y gestión",
+          "Formado en emprendimiento y gestión (diploma universitario, IAE de Brest, 2023), he iniciado la creación de OWNNIGHT, una aplicación de bienestar y educación del sueño. Mi enfoque de la gestión se apoya en la clínica de las organizaciones y en el desarrollo de la actividad de una estructura, estudiados en el máster, así como en el liderazgo de proximidad ejercido como responsable de estancias adaptadas."
+        ]
+      ]
+    },
+    "axes": {
+      "titre": "Ejes de trabajo",
+      "principaux": [
+        "Gobernanza y evaluación de las políticas de salud",
+        "Enfoque intersectorial en atención primaria",
+        "Envejecimiento, pérdida de autonomía y políticas de permanencia en el domicilio"
+      ],
+      "secondairesTitre": "Ejes secundarios",
+      "secondaires": [
+        "Planificación jurídica, análisis doctrinal y derecho de la salud",
+        "Desempeño, gestión del cambio y dirección de organizaciones",
+        "Análisis comparado de sistemas de salud"
+      ]
+    }
+  },
+  valeurs: {
+    "surtitre": "Valores",
+    "titre": "Lo que guía mi práctica",
+    "intro": "Seis valores que orientan mi trabajo, del terreno a la investigación.",
+    "devise": [
+      "Lema",
+      "Ad astra per aspera",
+      "A través de las dificultades hasta las estrellas"
+    ],
+    "items": [
+      [
+        "Curiosidad intelectual",
+        "Mirar más allá: otras disciplinas, otros entornos, otras maneras de pensar."
+      ],
+      [
+        "Resiliencia",
+        "Hacer de las pruebas vividas un recurso para avanzar."
+      ],
+      [
+        "Autonomía",
+        "Pensar por uno mismo y sostener en cada persona la capacidad de elegir su vida."
+      ],
+      [
+        "Sentido crítico",
+        "Interrogar las evidencias, los datos y las instituciones, empezando por las propias."
+      ],
+      [
+        "Solidaridad",
+        "No dejar a nadie al borde del camino: un principio de acompañamiento y de política pública."
+      ],
+      [
+        "Audacia para emprender",
+        "Atreverse a proponer, crear y poner en práctica nuevas respuestas."
+      ]
+    ]
+  },
+  implantation: {
+    "surtitre": "03 · Implementación",
+    "titre": "Transferencia de conocimientos e implementación",
+    "intro": "Hacer circular los saberes entre las personas, los entornos de práctica y la investigación, y examinar después lo que realmente permiten cambiar.",
+    "precision": "En mi tesis, la movilización de conocimientos acompaña la investigación: no es un estudio de implementación ni una evaluación de políticas.",
+    "formation": {
+      "etiquette": "Formación completada",
+      "titre": "MobilizeU, movilización de conocimientos · Research Impact Canada y York University, 2026",
+      "lien": "https://researchimpact.ca/learning/mobilizeu/",
+      "lienTexte": "Más información"
+    },
+    "plan": {
+      "titre": "En mi tesis: un plan de movilización de conocimientos",
+      "items": [
+        {
+          "nom": "Por qué, qué, para quién, cómo",
+          "texte": "El marco de Ward estructura el plan en cuatro preguntas: precisar el qué, el porqué y el quién antes de elegir el cómo, los formatos y los canales.",
+          "ref": "Ward, 2017"
+        },
+        {
+          "nom": "Del conocimiento a la acción",
+          "texte": "El modelo del conocimiento a la acción enmarca la producción, la adaptación, la comunicación y el seguimiento de los conocimientos, sin pretender garantizar su adopción duradera.",
+          "ref": "Graham et al., 2006"
+        },
+        {
+          "nom": "Alianzas basadas en las 4R",
+          "texte": "Respeto, pertinencia, reciprocidad y responsabilidad guían las alianzas con los pacientes y los entornos de práctica, apoyándose en el marco de participación de pacientes de los IRSC.",
+          "ref": "Kirkness y Barnhardt, 1991; IRSC, 2014; Bowen y Graham, 2013"
+        },
+        {
+          "nom": "Un diálogo deliberativo",
+          "texte": "Un taller deliberativo convierte los resultados en recomendaciones contextualizadas, con un retorno a los participantes. La participación se informa según GRIPP2.",
+          "ref": "Boyko et al., 2012; Lavis et al., 2009; Staniszewska et al., 2017"
+        },
+        {
+          "nom": "Seguir la contribución, no la atribución",
+          "texte": "Cuatro indicadores (producción, alcance, apropiación, uso documentado) y un registro permiten valorar la contribución plausible de la investigación, sin atribuirle los cambios posteriores.",
+          "ref": "Morton, 2015"
+        }
+      ]
+    },
+    "cadres": {
+      "titre": "Referencias en ciencia de la implementación",
+      "items": [
+        {
+          "nom": "CFIR 2.0",
+          "texte": "Examinar el contexto y los determinantes que facilitan o frenan la implementación.",
+          "ref": "Damschroder et al., 2022"
+        },
+        {
+          "nom": "Resultados de implementación",
+          "texte": "Distinguir aceptabilidad, adopción, pertinencia, factibilidad, fidelidad, costo, penetración y sostenibilidad.",
+          "ref": "Proctor et al., 2011"
+        },
+        {
+          "nom": "Impacto de la investigación",
+          "texte": "Los marcos de impacto cartografían sobre todo el camino de ida, de la investigación a la práctica; mis trabajos examinan también el camino de vuelta.",
+          "ref": "Greenhalgh et al., 2016; Brownson et al., 2026"
+        },
+        {
+          "nom": "Enfoque por contribuciones",
+          "texte": "Vincular las producciones con los usos y después con los cambios documentados, examinando otras influencias posibles.",
+          "ref": "Morton, 2015; Bayley y Phipps, 2019"
+        },
+        {
+          "nom": "Coproducción y traslación integrada",
+          "texte": "Los mecanismos de coproducción dependen de la infraestructura, de la claridad de los roles y del reparto del poder; sus costos también cuentan.",
+          "ref": "Graham et al., 2019; Kothari et al., 2025; Oliver et al., 2019"
+        },
+        {
+          "nom": "Una ciencia de la implementación crítica",
+          "texte": "Teorizar en lugar de aplicar los marcos como listas de verificación.",
+          "ref": "Kislov et al., 2019"
+        },
+        {
+          "nom": "Participación y deliberación",
+          "texte": "Diseñar y evaluar procesos de participación pública que dejen constancia de su influencia.",
+          "ref": "Abelson et al., 2003; OCDE, 2022"
+        },
+        {
+          "nom": "Por qué la implementación",
+          "texte": "Demostrar que una innovación es eficaz no basta para garantizar que será adoptada.",
+          "ref": "Bauer y Kirchner, 2020"
+        },
+        {
+          "nom": "Estrategias de implementación",
+          "texte": "La compilación ERIC ofrece un vocabulario común de 73 estrategias para describir, seleccionar e informar las estrategias empleadas.",
+          "ref": "Powell et al., 2015"
+        },
+        {
+          "nom": "Intervenciones complejas",
+          "texte": "La implementación se convierte en una fase por derecho propio, con el contexto, la teoría del programa y las partes interesadas en el centro.",
+          "ref": "Skivington et al., 2021"
+        },
+        {
+          "nom": "Implementar con las personas mayores",
+          "texte": "En Quebec, la implementación de un acompañamiento ciudadano para la participación social de las personas mayores arroja luz sobre las condiciones que importan.",
+          "ref": "Gobeil et al., 2023"
+        }
+      ]
+    },
+    "ressources": {
+      "titre": "Recursos",
+      "items": [
+        [
+          "Glosario de la movilización de conocimientos",
+          "Institutos de Investigación en Salud de Canadá (en francés)",
+          "https://cihr-irsc.gc.ca/f/54014.html"
+        ],
+        [
+          "Marco de participación de pacientes",
+          "IRSC, Estrategia de investigación orientada al paciente (en francés)",
+          "https://cihr-irsc.gc.ca/f/48413.html"
+        ],
+        [
+          "Directrices sobre participación ciudadana",
+          "OCDE, 2022",
+          "https://doi.org/10.1787/f765caf6-en"
+        ]
+      ]
+    },
+    "chantiers": {
+      "titre": "Ocho ejes de la movilización de conocimientos",
+      "intro": "Cada eje vincula la literatura científica con mi práctica.",
+      "detail": "Literatura científica",
+      "items": [
+        [
+          "Movilizar",
+          "Hacer circular los saberes en ambos sentidos",
+          "Mobilizar, es hacer circular los conocimientos de la investigación hacia los entornos, pero también de los entornos y las personas hacia la investigación. El modelo de conocimientos a la acción distingue la creación de conocimientos y el ciclo de su puesta en práctica: identificar un problema, adaptar los conocimientos al contexto, detectar los obstáculos, apoyar y seguir el uso (Graham y al., 2006). Cinco preguntas organizan la démarche, qué transferir, a quién, por quién, cómo y con qué efecto, y se mobilizan primero conjuntos de evidencia en lugar de un estudio aislado (Grimshaw y al., 2012). El brokerage de conocimientos da un rostro a este trabajo de enlace (Munerol y al., 2013).",
+          [
+            "Graham et al. (2006)",
+            "Grimshaw et al. (2012)",
+            "Ward et al. (2012)",
+            "Munerol et al. (2013)"
+          ]
+        ],
+        [
+          "Marcos",
+          "Elegir un marco según la pregunta",
+          "Un marco hace explícitos los criterios: por qué movilizar, qué conocimientos, con quién y cómo (Ward, 2017). Las teorías, modelos y marcos se agrupan en familias según lo que se busca lograr: guiar un proceso, explicar lo que facilita o obstaculiza, o evaluar (Nilsen, 2015). Algunos colocan la facilitación en el centro de la implementación (Harvey y Kitson, 2016); otros abarcan todo el ciclo de aplicación del conocimiento (Esmail et al., 2020). Elegirlos según la pregunta y discutirlos en lugar de marcarlos como una lista, hace que el enfoque sea más fructuoso (Kislov et al., 2019).",
+          [
+            "Ward (2017)",
+            "Nilsen (2015)",
+            "Harvey y Kitson (2016)",
+            "Esmail et al. (2020)"
+          ]
+        ],
+        [
+          "Planificar",
+          "Planificar desde el diseño",
+          "Un plan de movilización precisa los públicos, los objetivos, los mensajes, las actividades, los recursos, el calendario y los indicadores (IRSC, 2012). Se construye con los socios desde la concepción del proyecto: concebir para la difusión y la sostenibilidad, es pensar temprano la adecuación entre los resultados y su contexto de adopción (Kwan y al., 2022). Los planes reales describen bien los socios y las estrategias, pero suelen olvidar a menudo la evaluación y los recursos (Tchameni Ngamo y al., 2016). Para empezar: conocer a sus públicos, rodearse, implicar a personas con experiencia vivida y sacar lecciones de cada ensayo (Diany y al., 2025; Dancause, 2023).",
+          [
+            "IRSC (2012)",
+            "Tchameni Ngamo et al. (2016)",
+            "Kwan et al. (2022)",
+            "Diany et al. (2025)",
+            "Dancause (2023)"
+          ]
+        ],
+        [
+          "Alianzas",
+          "Coproducir y compartir el poder",
+          "La coproducción y la aplicación integrada del conocimiento involucran a los usuarios de los resultados en cada etapa, desde la formulación hasta la difusión (Jull y al., 2017). Las aproximaciones de investigación en colaboración comparten principios, estrategias y resultados comunes, que un vocabulario compartido permite describir y comparar (Hoekstra y al., 2020). El compromiso se concibe en tres niveles: organización, valores y prácticas (Boaz y al., 2018), y se fundamenta en una interdependencia real y la co-creación (Skipper y Pepler, 2020). Requiere tiempo y recursos: sus costos deben ser reconocidos (Oliver y al., 2019).",
+          [
+            "Jull et al. (2017)",
+            "Boaz et al. (2018)",
+            "Hoekstra et al. (2020)",
+            "Skipper y Pepler (2020)",
+            "Oliver et al. (2019)"
+          ]
+        ],
+        [
+          "Inclusión",
+          "Quién es escuchado, quién participa, quién se beneficia",
+          "Una movilización inclusiva cuestiona el lugar de cada uno: quién es escuchado, quién participa, quién se beneficia (Georgalakis, 2023). Relacionar conocimientos y acción para la equidad implica redistribuir el poder y abordar las causas estructurales de las desigualdades (Plamondon y al., 2019). Los conocimientos de experiencia no son complementos: transforman las preguntas, los métodos y la interpretación (Breton, 2025). En salud indígena, las prácticas prometedoras respetan las formas de compartir conocimientos propias de las comunidades (Morton Ninomiya y al., 2022); en el campo del discapacidad, principios coconstruidos evitan la participación en la superficie (Gainforth y al., 2021).",
+          [
+            "Plamondon et al. (2019)",
+            "Morton Ninomiya et al. (2022)",
+            "Gainforth et al. (2021)",
+            "Breton (2025)",
+            "Georgalakis (2023)"
+          ]
+        ],
+        [
+          "Públicos",
+          "Elegir el formato según el objetivo",
+          "El formato sigue el objetivo: co-crear (diálogo deliberativo, café del mundo, taller), difundir (exposición, webinario, mesa redonda) o implementar (formación, reunión de proyecto). La accesibilidad se concibe en todas sus formas, física, sensorial, financiera, cultural y lingüística: los públicos deben sentirse incluidos, no solo invitados. El modelo de Montreal reconoce los saberes experimentales de los pacientes como complementarios de los saberes profesionales (Pomey et al., 2015), y muchos marcos apoyan la participación de los pacientes y del público en la investigación (Greenhalgh et al., 2019). Los resúmenes en lenguaje claro (Stoll et al., 2022) y el arte visual coconstruido (Courcy et al., 2022) abren la investigación a otros públicos.",
+          [
+            "Pomey et al. (2015)",
+            "Greenhalgh et al. (2019)",
+            "Stoll et al. (2022)",
+            "Courcy et al. (2022)"
+          ]
+        ],
+        [
+          "Comunicar",
+          "Buscar el uso tanto como la visibilidad",
+          "La comunicación estratégica y la aplicación de conocimientos se superponen sin coincidir: una apoya la visibilidad, la otra el uso (Barwick y al., 2014). El intermediario de conocimientos trabaja en un entretiempo, tejiendo enlaces entre investigadores y tomadores de decisiones en lugar de difundir productos (Lomas, 2007). En las políticas públicas, la pertinencia de los datos y los factores organizacionales pesan mucho (Oliver y al., 2026), mientras que los consejos dados a los investigadores rara vez se basan en evidencia y callan los costos del compromiso (Oliver y Cairney, 2019). Una intervención de intermediación en una agencia regional de salud muestra que las habilidades progresan más rápido que la influencia en las decisiones (Fillol y al., 2026).",
+          [
+            "Lomas (2007)",
+            "Barwick et al. (2014)",
+            "Oliver y Cairney (2019)",
+            "Oliver et al. (2026)",
+            "Fillol et al. (2026)"
+          ]
+        ],
+        [
+          "Impacto",
+          "Seguir la contribución, no la atribución",
+          "Evaluar el impacto consiste en seguir la contribución de la investigación a los cambios sin atribuirle a ella sola: producciones, alcance, apropiación, usos documentados, así como efectos para los servicios y las personas (Morton, 2015). El análisis de contribución ofrece una metodología racionalizada cuando la atribución causal estricta resulta fuera de alcance (Mayne, 2012). Marco teóricos franceses hacen visibles los efectos del traslado (Gervais y al., 2016), y una revisión canadiense recopila los modelos utilizados para evaluar las estrategias de movilización (Ziam y al., 2024). Queda una pregunta abierta y discutida: en qué medida es posible evaluar el traslado (Plouffe, 2015)?",
+          [
+            "Mayne (2012)",
+            "Morton (2015)",
+            "Gervais et al. (2016)",
+            "Ziam et al. (2024)",
+            "Plouffe (2015)"
+          ]
+        ]
+      ]
+    },
+    "bibliographie": {
+      "titre": "Referencias (APA)",
+      "items": [
+        "Abelson, J., Forest, P.-G., Eyles, J., Smith, P., Martin, E., & Gauvin, F.-P. (2003). Deliberations about deliberative methods: Issues in the design and evaluation of public participation processes. Social Science & Medicine, 57(2), 239–251. https://doi.org/10.1016/S0277-9536(02)00343-X",
+        "Barwick, M., Phipps, D., Myers, G., Johnny, M., & Coriandoli, R. (2014). Knowledge translation and strategic communications: Unpacking differences and similarities for scholarly and research communications. Scholarly and Research Communication, 5(3). https://doi.org/10.22230/src.2014v5n3a175",
+        "Bauer, M. S., & Kirchner, J. (2020). Implementation science: What is it and why should I care? Psychiatry Research, 283, Article 112376. https://doi.org/10.1016/j.psychres.2019.04.025",
+        "Bayley, J. E., & Phipps, D. (2019). Building the concept of research impact literacy. Evidence & Policy, 15(4), 597–606. https://doi.org/10.1332/174426417X15034894876108",
+        "Beaulieu, M.-D. (2016). Construction et hiérarchisation des données probantes en santé : savoirs scientifiques, expérientiels et contextuels. Revue du CREMIS, 9(2), 9-15. https://cremis.ca/publications/articles-et-medias/construction-et-hierarchisation-des-donnees-probantes-en-sante-savoirs-scientifiques-experientiels-et-contextuels/",
+        "Berrada, M. (2026, 2 juin). Recherche et politiques publiques : comment mieux faire circuler les savoirs ? Affaires universitaires. https://www.affairesuniversitaires.ca/actualites/recherche-et-politiques-publiques-comment-mieux-faire-circuler-les-savoirs/",
+        "Boaz, A., Hanney, S., Borst, R., O’Shea, A., & Kok, M. (2018). How to engage stakeholders in research: Design principles to support improvement. Health Research Policy and Systems, 16, Article 60. https://doi.org/10.1186/s12961-018-0337-6",
+        "Bowen, S. J., & Graham, I. D. (2013). From knowledge translation to engaged scholarship: Promoting research relevance and utilization. Archives of Physical Medicine and Rehabilitation, 94(1 Suppl.), S3–S8. https://doi.org/10.1016/j.apmr.2012.04.037",
+        "Boyko, J. A., Lavis, J. N., Abelson, J., Dobbins, M., & Carter, N. (2012). Deliberative dialogues as a mechanism for knowledge translation and exchange in health systems decision-making. Social Science & Medicine, 75(11), 1938–1945. https://doi.org/10.1016/j.socscimed.2012.06.016",
+        "Breton, H. (2025). Savoirs expérientiels en santé : revue systématique de littérature. Santé Publique, 37(3), 241-251. https://doi.org/10.3917/spub.255.0241",
+        "Brownson, R. C., Iwelunmor, J., Odeny, T. A., Proctor, E. K., & Geng, E. H. (2026). So what? Elevating the impact of implementation science. Implementation Science Communications, 7, 2. https://doi.org/10.1186/s43058-025-00831-9",
+        "Bulloch, M. N. (Animatrice). (2024, 17 juillet). SCCM Pod-520: Implementation science: From evidence to practice [Balado]. Dans SCCM Podcast. Society of Critical Care Medicine. https://www.sccm.org/communications/sccm-podcast/sccm-podcast-all-episodes/sccm-pod-520-implementation-science-from-evidence-to-practice",
+        "Centre de collaboration nationale des méthodes et outils. (2016, 4 juillet). CCNMO - Prise de décisions fondée sur des données probantes [Vidéo]. YouTube. https://www.youtube.com/watch?v=XrZjc3Flrz8",
+        "Courcy, I., Bureau, A., & Grenier, G. (2022). L’art visuel comme outil de pratique en mobilisation et transfert de connaissances : retour sur un projet de cocréation d’une murale alliant la recherche, l’art et des savoirs expérientiels. Revue francophone de recherche sur le transfert et l’utilisation des connaissances, 6(3). https://doi.org/10.18166/tuc.2022.6.3.25",
+        "Crowley, D. M., & Scott, J. T. (2023). To support evidence-based policymaking, bring researchers and policymakers together. Issues in Science and Technology, 39(2), 31-35. https://issues.org/evidence-based-policymaking-researchers-policymakers-collaborate-crowley-scott/",
+        "Dagenais, C., Hot, A., & Ridde, V. (2023, 21 février). Communiquer efficacement les connaissances scientifiques permet de sauver des vies. The Conversation. https://theconversation.com/communiquer-efficacement-les-connaissances-scientifiques-permet-de-sauver-des-vies-197191",
+        "Damschroder, L. J., Reardon, C. M., Widerquist, M. A. O., & Lowery, J. (2022). The updated Consolidated Framework for Implementation Research based on user feedback. Implementation Science, 17, 75. https://doi.org/10.1186/s13012-022-01245-0",
+        "Dancause, L. (2023). Guide pédagogique sur la mobilisation des connaissances (L. Cardinal & J. Luckerhoff, dir.). Laboratoire interdisciplinaire de recherche sur l’enseignement supérieur. https://www.erudit.org/fr/livres/hors-collection/guide-pedagogique-sur-la-mobilisation-des-connaissances/",
+        "David, G., & Grégoire, A. (2018). Guide pratique – Stratégie de partenariat avec les patients et le public en recherche. Unité de soutien SRAP du Québec. https://ceppp.ca/wp-content/uploads/2021/01/USSQ_Guide-pratique-SPPP-en-recherche_V1.pdf",
+        "Diany, R., Fitzgibbon-Collins, L. K., & Gagliano Taliun, S. A. (2025). Ten simple rules for getting started with knowledge mobilization. PLOS Computational Biology, 21(4), e1012888. https://doi.org/10.1371/journal.pcbi.1012888",
+        "Équipe RENARD. (2023, 26 mai). Ancrage historique et évolution du courtage de connaissances [Vidéo]. YouTube. https://www.youtube.com/watch?v=3uucW5ZOp-g",
+        "Équipe RENARD. (2023, 29 mai). Les compétences clés pour agir en courtage de connaissances [Vidéo]. YouTube. https://www.youtube.com/watch?v=RGVmhf9Wyzo",
+        "Esmail, R., Hanson, H. M., Holroyd-Leduc, J., Brown, S., Strifler, L., Straus, S. E., Niven, D. J., & Clement, F. M. (2020). A scoping review of full-spectrum knowledge translation theories, models, and frameworks. Implementation Science, 15, Article 11. https://doi.org/10.1186/s13012-020-0964-5",
+        "Fillol, A., Traverson, L., Zitti, T., Bars, G., Minssieux, N., Hot, A., Dagenais, C., & Ridde, V. (2026). Évaluation d’une intervention de courtage de connaissances à l’Agence régionale de santé Île-de-France. Santé Publique, 38(1), 15-34. https://doi.org/10.3917/spub.261.0015",
+        "Gainforth, H. L., Hoekstra, F., McKay, R., McBride, C. B., Sweet, S. N., Martin Ginis, K. A., Anderson, K., Chernesky, J., Clarke, T., Forwell, S., Maffin, J., McPhail, L. T., Mortenson, W. B., Scarrow, G., Schaefer, L., Sibley, K. M., Athanasopoulos, P., & Willms, R. (2021). Integrated knowledge translation guiding principles for conducting and disseminating spinal cord injury research in partnership. Archives of Physical Medicine and Rehabilitation, 102(4), 656-663. https://doi.org/10.1016/j.apmr.2020.09.393",
+        "Georgalakis, J. (2023, 16 janvier). We need to talk about equity in knowledge mobilisation. Transforming Evidence. https://transforming-evidence.org/blog/we-need-to-talk-about-equity-in-knowledge-mobilisation",
+        "Gervais, M.-J., Souffez, K., & Ziam, S. (2016). Quel impact avons-nous ? Vers l’élaboration d’un cadre pour rendre visibles les retombées du transfert des connaissances. Revue francophone de recherche sur le transfert et l’utilisation des connaissances, 1(1). https://doi.org/10.18166/tuc.2016.1.1.5",
+        "Gobeil, J., Gaumond, V., Germain, S., Vézina, A., Duguay, A.-M., & Levasseur, M. (2023). Implantation de l’Accompagnement-citoyen personnalisé d’intégration communautaire (APIC) : vers l’optimisation de la mise en œuvre de cette approche novatrice visant la participation sociale des aînés. Canadian Journal on Aging / La Revue canadienne du vieillissement, 42(4), 551-564. https://doi.org/10.1017/S0714980823000132",
+        "Gobel, U. (2021, 8 février). Knowledge mobilization will help Canada face the next major challenge. Policy Options. https://policyoptions.irpp.org/magazines/february-2021/knowledge-mobilization-will-help-canada-face-the-next-major-challenge/",
+        "Graham, I. D., Logan, J., Harrison, M. B., Straus, S. E., Tetroe, J., Caswell, W., & Robinson, N. (2006). Lost in knowledge translation: Time for a map? Journal of Continuing Education in the Health Professions, 26(1), 13–24. https://doi.org/10.1002/chp.47",
+        "Graham, I. D., McCutcheon, C., & Kothari, A. (2019). Exploring the frontiers of research co-production: The Integrated Knowledge Translation Research Network concept papers. Health Research Policy and Systems, 17, 88. https://doi.org/10.1186/s12961-019-0501-7",
+        "Greenhalgh, T., Hinton, L., Finlay, T., Macfarlane, A., Fahy, N., Clyde, B., & Chant, A. (2019). Frameworks for supporting patient and public involvement in research: Systematic review and co-design pilot. Health Expectations, 22(4), 785-801. https://doi.org/10.1111/hex.12888",
+        "Greenhalgh, T., Raftery, J., Hanney, S., & Glover, M. (2016). Research impact: A narrative review. BMC Medicine, 14, 78. https://doi.org/10.1186/s12916-016-0620-8",
+        "Grimshaw, J. M., Eccles, M. P., Lavis, J. N., Hill, S. J., & Squires, J. E. (2012). Knowledge translation of research findings. Implementation Science, 7, Article 50. https://doi.org/10.1186/1748-5908-7-50",
+        "Harvey, G., & Kitson, A. (2016). PARIHS revisited: From heuristic to integrated framework for the successful implementation of knowledge into practice. Implementation Science, 11, Article 33. https://doi.org/10.1186/s13012-016-0398-2",
+        "Hoekstra, F., Mrklas, K. J., Khan, M., McKay, R. C., Vis-Dunbar, M., Sibley, K. M., Nguyen, T., Graham, I. D., SCI Guiding Principles Consensus Panel, & Gainforth, H. L. (2020). A review of reviews on principles, strategies, outcomes and impacts of research partnerships approaches: A first step in synthesising the research partnership literature. Health Research Policy and Systems, 18, Article 51. https://doi.org/10.1186/s12961-020-0544-9",
+        "Institut du Nouveau Monde. (2026, 31 mars). Quand l’expertise académique rencontre le vécu du terrain (Épisode 2) [Balado]. Dans Le Réverbère : mini-série sur la science citoyenne. YouTube. https://www.youtube.com/watch?v=J6gVGWA_yhc",
+        "Instituts de recherche en santé du Canada. (2012). Guide de planification de l’application des connaissances aux IRSC : approches intégrées et de fin de subvention. https://irsc-cihr.gc.ca/f/documents/kt_lm_ktplan-fr.pdf",
+        "Instituts de recherche en santé du Canada. (2014). Cadre d’engagement des patients de la Stratégie de recherche axée sur le patient. https://cihr-irsc.gc.ca/f/48413.html",
+        "Jabet, C., & Petitgand, C. (2022, 21 juillet). Au-delà de l’acceptabilité sociale, ouvrir le dialogue pour favoriser la participation citoyenne au débat sur l’utilisation des données de santé. Fonds de recherche du Québec. https://frq.gouv.qc.ca/ouvrir-le-dialogue-pour-favoriser-la-participation-citoyenne/",
+        "Jull, J., Giles, A., & Graham, I. D. (2017). Community-based participatory research and integrated knowledge translation: Advancing the co-creation of knowledge. Implementation Science, 12, Article 150. https://doi.org/10.1186/s13012-017-0696-3",
+        "Kirkness, V. J., & Barnhardt, R. (1991). First Nations and higher education: The four R’s—Respect, relevance, reciprocity, responsibility. Journal of American Indian Education, 30(3), 1–15.",
+        "Kislov, R., Pope, C., Martin, G. P., & Wilson, P. M. (2019). Harnessing the power of theorising in implementation science. Implementation Science, 14, 103. https://doi.org/10.1186/s13012-019-0957-4",
+        "Kothari, A., Sibbald, S. L., McCutcheon, C., Berta, W., Urquhart, R., Horsley, T., Comer, L., & Graham, I. D. (2025). How does integrated knowledge translation work? A realist review. Health Research Policy and Systems, 23, 102. https://doi.org/10.1186/s12961-025-01374-0",
+        "Kwan, B. M., Brownson, R. C., Glasgow, R. E., Morrato, E. H., & Luke, D. A. (2022). Designing for dissemination and sustainability to promote equitable impacts on health. Annual Review of Public Health, 43, 331-353. https://doi.org/10.1146/annurev-publhealth-052220-112457",
+        "Lavis, J. N., Boyko, J. A., Oxman, A. D., Lewin, S., & Fretheim, A. (2009). SUPPORT Tools for evidence-informed health Policymaking (STP) 14: Organising and using policy dialogues to support evidence-informed policymaking. Health Research Policy and Systems, 7(Suppl. 1), S14. https://doi.org/10.1186/1478-4505-7-S1-S14",
+        "Lemire, N., Souffez, K., & Laurendeau, M.-C. (2009). Animer un processus de transfert des connaissances : bilan des connaissances et outil d’animation. Institut national de santé publique du Québec. https://www.inspq.qc.ca/publications/1012",
+        "Les humains derrière la recherche en soins palliatifs. (2025, 13 novembre). Le pont entre la recherche et le terrain [Balado]. Apple Podcasts. https://podcasts.apple.com/ca/podcast/le-pont-entre-la-recherche-et-le-terrain/id1608211841?i=1000736634362",
+        "Lomas, J. (2007). The in-between world of knowledge brokering. BMJ, 334(7585), 129-132. https://doi.org/10.1136/bmj.39038.593380.AE",
+        "Massuard, M. (2023). Guide pour accompagner l’implantation de pratiques prometteuses dans un établissement : soutien à l’implantation de pratiques prometteuses et au transfert de connaissances dans le réseau de la santé et des services sociaux (J. Lane, dir.). Ministère de la Santé et des Services sociaux. https://publications.msss.gouv.qc.ca/msss/fichiers/2023/23-516-04W.pdf",
+        "Mayne, J. (2012). Contribution analysis: Coming of age? Evaluation, 18(3), 270-280. https://doi.org/10.1177/1356389012451663",
+        "Morton Ninomiya, M. E., Maddox, R., Brascoupé, S., Robinson, N., Atkinson, D., Firestone, M., Ziegler, C., & Smylie, J. (2022). Knowledge translation approaches and practices in Indigenous health research: A systematic review. Social Science & Medicine, 301, Article 114898. https://doi.org/10.1016/j.socscimed.2022.114898",
+        "Morton, S. (2015). Progressing research impact assessment: A “contributions” approach. Research Evaluation, 24(4), 405–419. https://doi.org/10.1093/reseval/rvv016",
+        "Munerol, L., Cambon, L., & Alla, F. (2013). Le courtage en connaissances, définition et mise en œuvre : une revue de la littérature. Santé Publique, 25(5), 587-597. https://doi.org/10.3917/spub.135.0587",
+        "NCI Scientific Events and Resources. (2022, 23 février). TIDIRC: Introduction to dissemination & implementation science [Vidéo]. YouTube. https://www.youtube.com/watch?v=DO2tv7DqL3w",
+        "Nilsen, P. (2015). Making sense of implementation theories, models and frameworks. Implementation Science, 10, Article 53. https://doi.org/10.1186/s13012-015-0242-0",
+        "OECD. (2022). OECD guidelines for citizen participation processes. OECD Publishing. https://doi.org/10.1787/f765caf6-en",
+        "Oliver, K., & Cairney, P. (2019). The dos and don’ts of influencing policy: A systematic review of advice to academics. Palgrave Communications, 5, Article 21. https://doi.org/10.1057/s41599-019-0232-y",
+        "Oliver, K., Kothari, A., & Mays, N. (2019). The dark side of coproduction: Do the costs outweigh the benefits for health research? Health Research Policy and Systems, 17, 33. https://doi.org/10.1186/s12961-019-0432-3",
+        "Oliver, K., Malin, J., Akerlof, K. L., Day, E., Grant, S., McGill, E., Lorenc, T., Martin, P., Lam, J., Williamson, L. E., Mouthaan, M., Pleguezuelo, V. C., Iqbal, S., Jaques, L., Nyanchoka, M., Cesar Alejandre, J., Lane, L., Persson, E., Forde, H., . . . Falconer, J. (2026). What factors influence evidence use in policy? An updated systematic map. Humanities and Social Sciences Communications. Publication en ligne anticipée. https://doi.org/10.1057/s41599-026-08391-6",
+        "Plamondon, K. M., Caxaj, C. S., Graham, I. D., & Bottorff, J. L. (2019). Connecting knowledge with action for health equity: A critical interpretive synthesis of promising practices. International Journal for Equity in Health, 18, Article 202. https://doi.org/10.1186/s12939-019-1108-x",
+        "Plouffe, L. (2015, 20 novembre). Les retombées vers les milieux : dans quelle mesure l’évaluation du transfert des connaissances est-elle possible? [Vidéo]. Institut de recherche Robert-Sauvé en santé et en sécurité du travail. https://www.irsst.qc.ca/publications-et-outils/video/i/100291/n/les-retombees-vers-les-milieux-dans-quelle-mesure-l-evaluation-du-transfert-des-connaissances-est-elle-possible-",
+        "Pomey, M.-P., Flora, L., Karazivan, P., Dumez, V., Lebel, P., Vanier, M.-C., Débarges, B., Clavel, N., & Jouet, E. (2015). Le « Montreal model » : enjeux du partenariat relationnel entre patients et professionnels de la santé. Santé Publique, 27(1, suppl.), S41-S50. https://doi.org/10.3917/spub.150.0041",
+        "Powell, B. J., Waltz, T. J., Chinman, M. J., Damschroder, L. J., Smith, J. L., Matthieu, M. M., Proctor, E. K., & Kirchner, J. E. (2015). A refined compilation of implementation strategies: Results from the Expert Recommendations for Implementing Change (ERIC) project. Implementation Science, 10, Article 21. https://doi.org/10.1186/s13012-015-0209-1",
+        "Proctor, E., Silmere, H., Raghavan, R., Hovmand, P., Aarons, G., Bunger, A., Griffey, R., & Hensley, M. (2011). Outcomes for implementation research: Conceptual distinctions, measurement challenges, and research agenda. Administration and Policy in Mental Health and Mental Health Services Research, 38(2), 65–76. https://doi.org/10.1007/s10488-010-0319-7",
+        "Pullmann, M., & King, K. (Animateurs). (2024, 8 juin). Season 2, Ep 1: David Chambers [Balado]. Dans That Implementation Science Podcast. Podbean. https://thatimplementationsciencepodcast.podbean.com/e/season-2-ep-1-david-chambers/",
+        "Ridde, V., Hot, A., & Dagenais, C. (2025, 16 février). Pour mieux communiquer la science, commençons par bien choisir nos mots. The Conversation. https://theconversation.com/pour-mieux-communiquer-la-science-commencons-par-bien-choisir-nos-mots-247661",
+        "Skipper, Y., & Pepler, D. J. (2020). Knowledge mobilization: Stepping into interdependent and relational space using co-creation. Action Research. Publication anticipée en ligne. https://doi.org/10.1177/1476750320960810",
+        "Skivington, K., Matthews, L., Simpson, S. A., Craig, P., Baird, J., Blazeby, J. M., Boyd, K. A., Craig, N., French, D. P., McIntosh, E., Petticrew, M., Rycroft-Malone, J., White, M., & Moore, L. (2021). A new framework for developing and evaluating complex interventions: Update of Medical Research Council guidance. BMJ, 374, Article n2061. https://doi.org/10.1136/bmj.n2061",
+        "Souffez, K., & Laurendeau, M.-C. (s. d.). Outil pour soutenir l’élaboration d’un plan de transfert des connaissances. Institut national de santé publique du Québec. https://www.inspq.qc.ca/sites/default/files/publications/outil_pour_soutenir_l_elaboration_d_un_plan_de_transfert_des_connaissances.pdf",
+        "Staniszewska, S., Brett, J., Simera, I., Seers, K., Mockford, C., Goodlad, S., Altman, D. G., Moher, D., Barber, R., Denegri, S., Entwistle, A., Littlejohns, P., Morris, C., Suleman, R., Thomas, V., & Tysall, C. (2017). GRIPP2 reporting checklists: Tools to improve reporting of patient and public involvement in research. BMJ, 358, j3453. https://doi.org/10.1136/bmj.j3453",
+        "Stoll, M., Kerwer, M., Lieb, K., & Chasiotis, A. (2022). Plain language summaries: A systematic review of theory, guidelines and empirical research. PLOS ONE, 17(6), Article e0268789. https://doi.org/10.1371/journal.pone.0268789",
+        "Tchameni Ngamo, S., Souffez, K., Lord, C., & Dagenais, C. (2016). Do knowledge translation (KT) plans help to structure KT practices? Health Research Policy and Systems, 14, Article 46. https://doi.org/10.1186/s12961-016-0118-z",
+        "Unité de soutien SSA Québec. (2025, 21 février). Expériences du midi: Recherche en partenariat avec une citoyenne-chercheuse [Vidéo]. YouTube. https://www.youtube.com/watch?v=TNwIcNyGjwY",
+        "Villeneuve, V., & Tousignant, C. (Animatrices). (2024, 30 septembre). Patient partenaire : des alliés pour la recherche (Épisode 23) [Balado]. Dans Des femmes comme vous. Les Radieuses Magazine. https://www.youtube.com/watch?v=27KRzWNoxAA",
+        "Ward, V. (2017). Why, whose, what and how? A framework for knowledge mobilisers. Evidence & Policy, 13(3), 477–497. https://doi.org/10.1332/174426416X14634763278725",
+        "Ward, V., Smith, S., House, A., & Hamer, S. (2012). Exploring knowledge exchange: A useful framework for practice and policy. Social Science & Medicine, 74(3), 297-304. https://doi.org/10.1016/j.socscimed.2011.09.021",
+        "Ziam, S., Lanoue, S., McSween-Cadieux, E., Gervais, M.-J., Lane, J., Gaid, D., Chouinard, L. J., Dagenais, C., Ridde, V., Jean, E., Fleury, F. C., Hong, Q. N., & Prigent, O. (2024). A scoping review of theories, models and frameworks used or proposed to evaluate knowledge mobilization strategies. Health Research Policy and Systems, 22, Article 8. https://doi.org/10.1186/s12961-023-01090-7"
+      ]
+    },
+    "transfert": {
+      "titre": "Transferencia de conocimientos e implementación",
+      "detail": "Cinco tiempos",
+      "etapes": [
+        [
+          "Escuchar",
+          "Construir la pregunta con los entornos de práctica",
+          "Todo comienza con la escucha: identificar con los entornos las necesidades y las decisiones a iluminar, luego precisar quién participa, en qué momento y con qué influencia. Los planes de transferencia suelen ignorar a menudo el conocimiento fino de los públicos (Tchameni Ngamo y al., 2016); la aplicación integrada del conocimiento, en cambio, incluye a los usuarios de los resultados desde la formulación de la pregunta (Jull y al., 2017). El respeto, la pertinencia, la reciprocidad y la responsabilidad guían esta primera reunión (Kirkness y Barnhardt, 1991).",
+          [
+            "Necesidades",
+            "Participación"
+          ]
+        ],
+        [
+          "Hacer circular",
+          "Contextualizar los saberes",
+          "Los conocimientos de la investigación no circulan solos: se encuentran con conocimientos de experiencia y contexto que deben ponerse en diálogo, en lugar de oponerse (Breton, 2025). El intercambio de conocimientos es un proceso social, compuesto por idas y vueltas, y no una simple transmisión (Ward y al., 2012). Adaptar el formato, el lenguaje y el contenido a los usos buscados pasa por resúmenes en lenguaje claro (Stoll y al., 2022) y, a menudo, por un intermediario de conocimientos que establece el vínculo (Lomas, 2007).",
+          [
+            "Saberes de experiencia",
+            "Formatos adaptados"
+          ]
+        ],
+        [
+          "Coconstruir",
+          "Discutir las opciones y las decisiones",
+          "Consultar recoge opiniones; coconstruir, es elaborar juntos; deliberar, es examinar argumentos y arbitrarios. El diálogo deliberativo transforma resultados en opciones discutidas por las personas involucradas (Boyko y al., 2012). Aún hay que documentar la influencia real de las contribuciones y reconocer los costos de la coproducción para todas las partes (Oliver y al., 2019), con el fin de evitar una participación de cara (Gainforth y al., 2021).",
+          [
+            "Coconstrucción",
+            "Deliberación"
+          ]
+        ],
+        [
+          "Implementar",
+          "Acompañar la puesta en marcha",
+          "Una práctica prometedora no se implanta por sí sola: demostrar su eficacia no garantiza su adopción (Bauer y Kirchner, 2020). Es necesario examinar el contexto, los recursos y los obstáculos con marcos como el CFIR (Damschroder et al., 2022), luego elegir y describir las estrategias de acompañamiento en un vocabulario compartido (Powell et al., 2015). En Quebec, la implantación de un acompañamiento ciudadano junto a los adultos mayores ilumina los factores favorables, los obstáculos y las condiciones esenciales (Gobeil et al., 2023).",
+          [
+            "Implementación",
+            "CFIR"
+          ]
+        ],
+        [
+          "Evaluar",
+          "Distinguir producir, utilizar y cambiar",
+          "Un producto difundido es una producción; su adopción es un resultado de implementación; los cambios para los servicios y las personas son otros resultados, a documentar por separado (Proctor et al., 2011). En lugar de atribuir estos cambios solo a la investigación, se sigue su contribución plausible examinando las otras influencias (Mayne, 2012; Morton, 2015). Marco francófonos ayudan a hacer visibles estas repercusiones (Gervais et al., 2016).",
+          [
+            "Evaluación",
+            "Impacto"
+          ]
+        ]
+      ],
+      "note": "Estos cinco tiempos se inspiran en el modelo del conocimiento a la acción (Graham et al., 2006) y en el marco de Ward (2017)."
+    }
+  },
+  ressources: {
+    "surtitre": "Recursos",
+    "titre": "Artículos, cápsulas y pódcasts",
+    "intro": "Una selección comentada para profundizar en la movilización del conocimiento y la ciencia de la implementación, en francés y en inglés.",
+    "langues": [
+      "En francés",
+      "En inglés"
+    ],
+    "groupes": [
+      [
+        "Artículos científicos de acceso abierto",
+        [
+          [
+            "Making sense of implementation theories, models and frameworks",
+            "Nilsen, Implementation Science, 2015 (en inglés)",
+            "https://doi.org/10.1186/s13012-015-0242-0",
+            "La tipología que clasifica las teorías, los modelos y los marcos en cinco familias (modelos de proceso, marcos de determinantes, teorías clásicas, teorías de la implementación, marcos de evaluación) según lo que se busca hacer: guiar, explicar o evaluar."
+          ],
+          [
+            "Community-based participatory research and integrated knowledge translation: advancing the co-creation of knowledge",
+            "Jull, Giles y Graham, Implementation Science, 2017 (en inglés)",
+            "https://doi.org/10.1186/s13012-017-0696-3",
+            "Pone lado a lado la investigación participativa basada en la comunidad y la traslación integrada del conocimiento para mostrar en qué convergen, en qué divergen y qué puede tomar cada una de la otra para coconstruir saberes."
+          ],
+          [
+            "The dos and don’ts of influencing policy: a systematic review of advice to academics",
+            "Oliver y Cairney, Palgrave Communications, 2019 (en inglés)",
+            "https://doi.org/10.1057/s41599-019-0232-y",
+            "Una revisión sistemática de los consejos dados a los investigadores que quieren influir en las políticas: estos consejos rara vez se basan en datos y pasan por alto los costos y los riesgos de implicarse en el ámbito político."
+          ],
+          [
+            "Connecting knowledge with action for health equity: a critical interpretive synthesis of promising practices",
+            "Plamondon, Caxaj, Graham y Bottorff, International Journal for Equity in Health, 2019 (en inglés)",
+            "https://doi.org/10.1186/s12939-019-1108-x",
+            "Una síntesis interpretativa crítica que identifica prácticas prometedoras para vincular saberes y acción en favor de la equidad, con énfasis en la redistribución del poder y en las causas estructurales de las desigualdades."
+          ],
+          [
+            "Quel impact avons-nous ? Vers l’élaboration d’un cadre pour rendre visibles les retombées du transfert des connaissances",
+            "Gervais, Souffez y Ziam, Revue francophone de recherche sur le transfert et l’utilisation des connaissances, 2016 (en francés)",
+            "https://doi.org/10.18166/tuc.2016.1.1.5",
+            "A partir del examen de 29 marcos conceptuales, sienta en francés las bases de un marco para hacer visibles las repercusiones de las actividades de transferencia y responder a las exigencias de rendición de cuentas de las organizaciones."
+          ],
+          [
+            "Plain language summaries: A systematic review of theory, guidelines and empirical research",
+            "Stoll, Kerwer, Lieb y Chasiotis, PLOS ONE, 2022 (en inglés)",
+            "https://doi.org/10.1371/journal.pone.0268789",
+            "Repasa las teorías, las directrices y los estudios empíricos sobre los resúmenes en lenguaje claro y extrae de ellos un marco conceptual para redactar síntesis comprensibles para un público no especializado."
+          ]
+        ]
+      ],
+      [
+        "Guías y herramientas",
+        [
+          [
+            "Animer un processus de transfert des connaissances : bilan des connaissances et outil d’animation",
+            "Nicole Lemire, Karine Souffez y Marie-Claire Laurendeau, Institut national de santé publique du Québec, 2009 (en francés)",
+            "https://www.inspq.qc.ca/publications/1012",
+            "La guía quebequense que concibe la transferencia como un proceso dinámico y propone una herramienta de facilitación y una lista de verificación para estructurar cada etapa con los actores implicados."
+          ],
+          [
+            "Outil pour soutenir l’élaboration d’un plan de transfert des connaissances",
+            "Karine Souffez y Marie-Claire Laurendeau, Institut national de santé publique du Québec, sin fecha (metadatos del PDF: 2011) (en francés)",
+            "https://www.inspq.qc.ca/sites/default/files/publications/outil_pour_soutenir_l_elaboration_d_un_plan_de_transfert_des_connaissances.pdf",
+            "Una plantilla para completar en equipo, desde el inicio de un proyecto, a fin de precisar los productos de conocimiento, los públicos y los actores que hay que implicar y, después, las estrategias, los plazos y los recursos del plan de transferencia."
+          ],
+          [
+            "Guide pour accompagner l’implantation de pratiques prometteuses dans un établissement : soutien à l’implantation de pratiques prometteuses et au transfert de connaissances dans le réseau de la santé et des services sociaux",
+            "Marie Massuard, bajo la dirección de Julie Lane, Ministère de la Santé et des Services sociaux du Québec, 2023 (en francés)",
+            "https://publications.msss.gouv.qc.ca/msss/fichiers/2023/23-516-04W.pdf",
+            "Una guía ministerial quebequense que traduce la ciencia de la implementación y la traslación integrada del conocimiento en un proceso concreto de acompañamiento para los establecimientos de la red de salud y servicios sociales."
+          ],
+          [
+            "Guide pratique – Stratégie de partenariat avec les patients et le public en recherche",
+            "Geneviève David y Alexandre Grégoire, Unité de soutien SRAP du Québec y Centre d’excellence sur le partenariat avec les patients et le public (CEPPP), 2018 (en francés)",
+            "https://ceppp.ca/wp-content/uploads/2021/01/USSQ_Guide-pratique-SPPP-en-recherche_V1.pdf",
+            "Una guía de inicio, coescrita por un coordinador paciente, que responde a las preguntas por qué, quién, cuándo, dónde, cuánto y cómo implicar a pacientes y al público en un proyecto de investigación, incluidas la evaluación y las cuestiones éticas."
+          ]
+        ]
+      ],
+      [
+        "Pódcasts",
+        [
+          [
+            "Le pont entre la recherche et le terrain",
+            "Les humains derrière la recherche en soins palliatifs, con Chantal Verdon (UQO), 2025 (en francés)",
+            "https://podcasts.apple.com/ca/podcast/le-pont-entre-la-recherche-et-le-terrain/id1608211841?i=1000736634362",
+            "Una investigadora en ciencias de enfermería explica cómo tendió un puente entre la investigación y la práctica, en particular mediante comunidades de práctica con enfermeras y enfermeros."
+          ],
+          [
+            "Season 2, Ep 1: David Chambers",
+            "That Implementation Science Podcast, presentado por Mike Pullmann y Kevin King, 2024 (en inglés)",
+            "https://thatimplementationsciencepodcast.podbean.com/e/season-2-ep-1-david-chambers/",
+            "El director adjunto de ciencia de la implementación del National Cancer Institute repasa la historia del campo, el carácter colectivo de la ciencia y lo que hace eficaz a un equipo de investigación."
+          ],
+          [
+            "SCCM Pod-520: Implementation Science: From Evidence to Practice",
+            "SCCM Podcast (Society of Critical Care Medicine), presentado por Marilyn N. Bulloch con Anne E. Sales, 2024 (en inglés)",
+            "https://www.sccm.org/communications/sccm-podcast/sccm-podcast-all-episodes/sccm-pod-520-implementation-science-from-evidence-to-practice",
+            "Una introducción accesible en la que una investigadora presenta la ciencia de la implementación como el estudio del cambio planificado de comportamientos dentro de las limitaciones de las organizaciones, con ejemplos clínicos."
+          ]
+        ]
+      ],
+      [
+        "Cápsulas de vídeo",
+        [
+          [
+            "Ancrage historique et évolution du courtage de connaissances",
+            "Équipe RENARD, presentación de Christian Dagenais y Saliha Ziam en el coloquio 31 del 90.º congreso de la Acfas, 2023 (en francés)",
+            "https://www.youtube.com/watch?v=3uucW5ZOp-g",
+            "Una breve presentación que repasa de dónde viene la intermediación de conocimientos y cómo ha evolucionado esta función, a modo de introducción al papel del intermediario."
+          ],
+          [
+            "Les compétences clés pour agir en courtage de connaissances",
+            "Équipe RENARD, presentación de Esther McSween-Cadieux en el coloquio 31 del 90.º congreso de la Acfas, 2023 (en francés)",
+            "https://www.youtube.com/watch?v=RGVmhf9Wyzo",
+            "Hace balance de las competencias que necesita una persona para ejercer la intermediación de conocimientos, un complemento práctico a los textos sobre el papel del intermediario."
+          ],
+          [
+            "Expériences du midi: Recherche en partenariat avec une citoyenne-chercheuse",
+            "Unité de soutien SSA Québec, seminario web con Julie Coulombe y Marie-Hélène Morin, 2025 (en francés)",
+            "https://www.youtube.com/watch?v=TNwIcNyGjwY",
+            "Un caso concreto de investigación realizada con una ciudadana investigadora sobre el apoyo entre pares para familias en salud mental, que muestra lo que la ciencia participativa cambia en la conducción de un proyecto."
+          ],
+          [
+            "CCNMO - Prise de décisions fondée sur des données probantes",
+            "Centre de collaboration nationale des méthodes et outils (CCNMO), 2016 (en francés)",
+            "https://www.youtube.com/watch?v=XrZjc3Flrz8",
+            "Presenta en ocho minutos el modelo del CCNMO, que muestra cómo los datos de investigación, el contexto local, las preferencias de la población y los recursos se combinan en una decisión de salud pública."
+          ],
+          [
+            "TIDIRC: Introduction to Dissemination & Implementation Science",
+            "National Cancer Institute (TIDIRC OpenAccess), conferencia de David Chambers, 2022 (en inglés)",
+            "https://www.youtube.com/watch?v=DO2tv7DqL3w",
+            "Una conferencia introductoria que distingue la investigación sobre la difusión, la difusión de la investigación, la investigación sobre la implementación y la investigación pragmática, y presenta los conceptos básicos del campo."
+          ],
+          [
+            "Quand l’expertise académique rencontre le vécu du terrain (Le Réverbère, mini-série sur la science citoyenne, épisode 2)",
+            "Le Réverbère, Institut du Nouveau Monde con el Fonds de recherche du Québec, 2026 (en francés)",
+            "https://www.youtube.com/watch?v=J6gVGWA_yhc",
+            "Dúos de ciudadano e investigador cuentan cómo se reparten los roles en un proyecto de investigación surgido de una pregunta ciudadana, sin que ninguno de los dos pierda su propia experticia."
+          ],
+          [
+            "Ép. 23 - Patient Partenaire: des alliés pour la recherche",
+            "Des femmes comme vous, Les Radieuses Magazine, con Catherine Wilhelmy, 2024 (en francés)",
+            "https://www.youtube.com/watch?v=27KRzWNoxAA",
+            "Una paciente que llegó a ser responsable de la colaboración con pacientes en un centro de investigación explica al público general qué es el movimiento del paciente colaborador y por qué la experiencia vivida de los pacientes debe nutrir la investigación y la atención."
+          ]
+        ]
+      ],
+      [
+        "Prensa y revistas",
+        [
+          [
+            "Communiquer efficacement les connaissances scientifiques permet de sauver des vies",
+            "Christian Dagenais, Aurélie Hot y Valéry Ridde, The Conversation (Canada), 2023 (en francés)",
+            "https://theconversation.com/communiquer-efficacement-les-connaissances-scientifiques-permet-de-sauver-des-vies-197191",
+            "Defiende la idea de que la investigación solo cambia las prácticas si sus resultados llegan a los responsables de las decisiones en una forma accesible y si el cambio se acompaña en el tiempo, con el apoyo de los financiadores."
+          ],
+          [
+            "Pour mieux communiquer la science, commençons par bien choisir nos mots",
+            "Valéry Ridde, Aurélie Hot y Christian Dagenais, The Conversation (Canada), 2025 (en francés)",
+            "https://theconversation.com/pour-mieux-communiquer-la-science-commencons-par-bien-choisir-nos-mots-247661",
+            "Muestra cómo la profusión de términos que compiten entre sí (transferencia, traslación, movilización…) enturbia la colaboración y la financiación de este campo, y aboga por clarificar el vocabulario."
+          ],
+          [
+            "Recherche et politiques publiques : comment mieux faire circuler les savoirs ?",
+            "Mohamed Berrada, Affaires universitaires, 2026 (en francés)",
+            "https://www.affairesuniversitaires.ca/actualites/recherche-et-politiques-publiques-comment-mieux-faire-circuler-les-savoirs/",
+            "Reseña de un coloquio de la Acfas en el que universidades, centros de estudios superiores, organismos y responsables de las decisiones buscaron cómo acercar la investigación y las decisiones públicas sin sacrificar los tiempos largos de la investigación."
+          ],
+          [
+            "Au-delà de l’acceptabilité sociale, ouvrir le dialogue pour favoriser la participation citoyenne au débat sur l’utilisation des données de santé",
+            "Carole Jabet y Cécile Petitgand, Fonds de recherche du Québec, 2022 (en francés)",
+            "https://frq.gouv.qc.ca/ouvrir-le-dialogue-pour-favoriser-la-participation-citoyenne/",
+            "Surgido de un coloquio de la Acfas, este texto propone dispositivos deliberativos, como grupos de trabajo regionales o foros ciudadanos, para asociar al público a las decisiones sobre el uso de los datos de salud."
+          ],
+          [
+            "Construction et hiérarchisation des données probantes en santé : savoirs scientifiques, expérientiels et contextuels",
+            "Marie-Dominique Beaulieu, Revue du CREMIS, 2016 (en francés)",
+            "https://cremis.ca/publications/articles-et-medias/construction-et-hierarchisation-des-donnees-probantes-en-sante-savoirs-scientifiques-experientiels-et-contextuels/",
+            "Repasa el auge de la medicina basada en la evidencia y la jerarquía de las pruebas, y aboga por integrar, en lugar de oponer, los saberes científicos, experienciales y contextuales en las decisiones de salud."
+          ],
+          [
+            "Knowledge mobilization will help Canada face the next major challenge",
+            "Ursula Gobel, Policy Options / Options politiques, 2021 (en inglés)",
+            "https://policyoptions.irpp.org/magazines/february-2021/knowledge-mobilization-will-help-canada-face-the-next-major-challenge/",
+            "Una vicepresidenta del CRSH extrae de la pandemia la idea de que la síntesis de conocimientos y las redes de investigación interdisciplinarias e intersectoriales son indispensables para orientar las decisiones públicas ante las crisis."
+          ],
+          [
+            "To Support Evidence-Based Policymaking, Bring Researchers and Policymakers Together",
+            "D. Max Crowley y J. Taylor Scott, Issues in Science and Technology, 2023 (en inglés)",
+            "https://issues.org/evidence-based-policymaking-researchers-policymakers-collaborate-crowley-scott/",
+            "Dos investigadores describen un modelo de colaboración directa entre científicos y cargos electos, basado en la confianza, e informan de que mejora la cantidad y la calidad de la evidencia movilizada en la legislación."
+          ]
+        ]
+      ]
+    ]
+  },
+  publications: {
+    surtitre: "04 · Publicaciones",
+    titre: "Comunicaciones, memorias y herramientas",
+    intro: "Cada trabajo conserva su título original, sus autores y su estado. Los manuscritos en curso se presentan en la sala La investigación.",
+    groupes: [
+      {
+        titre: "Comunicaciones científicas",
+        items: [
+          { date: "Junio de 2026", statut: "Premio al mejor póster · doctorado y posdoctorado", titre: TITRES_ORIGINAUX.gfsp, detail: `${AUTEURS.trio} · Groupe francophone en soins primaires (GFSP), Montreal · póster` },
+          { date: "Mayo de 2026", statut: "Póster", titre: TITRES_ORIGINAUX.cahspr, detail: `${AUTEURS.trio} · CAHSPR, Ottawa` },
+          { date: "Abril de 2026", statut: "Póster y 180 segundos", titre: TITRES_ORIGINAUX.gfsp, detail: `${AUTEURS.trio} · Red quebequense de investigación sobre el envejecimiento (RQRV), Sherbrooke · póster y divulgación en 180 segundos` },
+        ],
+      },
+      {
+        titre: "Memorias defendidas ante un jurado",
+        items: [
+          { date: "2025", titre: TITRES_ORIGINAUX.memoireDroit, detail: "Máster en Derecho · Université Paris Panthéon-Assas · dirección: Benoît Apollis" },
+          { date: "2024", titre: TITRES_ORIGINAUX.memoireGestion, detail: "Maestría en dirección de establecimientos de salud · Université de Bretagne Occidentale · dirección: Michelle-Hentic Giliberto" },
+          { date: "2023", titre: TITRES_ORIGINAUX.memoireEduc, detail: "Diploma de Estado de educador especializado · Académie de Rennes" },
+        ],
+      },
+      {
+        titre: "Herramientas profesionales",
+        items: [
+          { date: "2024–2025", titre: "Reforma de los servicios de autonomía a domicilio: herramientas de apoyo a la decisión", detail: "Agencia nacional francesa de apoyo al desempeño (ANAP) · varios miles de descargas", lien: ANAP_SAD },
+          { date: "2024–2025", titre: "Centros de recursos territoriales: diez herramientas de apoyo a la dirección", detail: "ANAP · varios miles de descargas", lien: ANAP_CRT },
+        ],
+      },
+    ],
+  },
+  biographie: {
+    "surtitre": "05 · Biografía",
+    "titre": "De las experiencias humanas a las transformaciones colectivas",
+    "intro": [
+      "Educador especializado, jurista, emprendedor y doctorando en salud pública, construí mi trayectoria en el encuentro de distintos mundos: el acompañamiento de las personas, la gestión de las organizaciones, el derecho, las políticas públicas y la investigación.",
+      "Detrás de esta diversidad hay una misma ambición: **comprender los mecanismos que dan forma a las trayectorias individuales y colectivas, para contribuir a sociedades más justas, solidarias y capaces de reconocer las posibilidades de actuar de cada persona.**",
+      "Mi camino, personal y profesional, alimenta una convicción: las realidades humanas no pueden separarse de los sistemas sociales, organizativos y políticos en los que se inscriben.",
+      "Sigue una dinámica ascendente: del acompañamiento de las personas hacia la transformación de las organizaciones y de las políticas de salud y de servicios sociales, con una orientación clara hacia el apoyo a la decisión pública."
+    ],
+    "citation": "Las realidades humanas no pueden separarse de los sistemas sociales, organizativos y políticos en los que se inscriben.",
+    "chapitres": [
+      [
+        "Construirse fuera de las trayectorias convencionales",
+        [
+          "Mi trayectoria comienza en Francia, en un medio popular, marcado en particular por una experiencia en la protección de la infancia y por el abandono de la escuela a los dieciséis años.",
+          "Lejos de un recorrido académico convencional, fui construyendo mi trayectoria a través del trabajo, la exploración de distintos entornos y la vuelta a los estudios.",
+          "Estas experiencias, al igual que mi neuroatipia, alimentaron mi independencia de pensamiento, mi capacidad de adaptación y mi interés por los mecanismos de reproducción social, de emancipación y de solidaridad. Hoy forman parte de mi mirada sobre las instituciones y sobre la diversidad de las experiencias humanas."
+        ]
+      ],
+      [
+        "La creación, el encuentro y la ética del cuidado",
+        [
+          "Mi interés por la música me llevó a cursar una licenciatura en musicología, en paralelo a mis primeras experiencias en la animación sociocultural y, después, a la responsabilidad de estancias adaptadas para personas con discapacidad.",
+          "Más allá de sus diferencias, estos mundos me permitieron explorar las relaciones humanas en varias dimensiones: la expresión individual, la vida colectiva, el acompañamiento y la responsabilidad hacia los demás.",
+          "A lo largo de once años de compromiso junto a la vulnerabilidad humana, estas experiencias fueron dando un lugar central a la ética del *cuidado*, al reconocimiento de las capacidades individuales y a la importancia de un acompañamiento que favorezca la autonomía y no la dependencia. También me mostraron la fuerza de la solidaridad."
+        ]
+      ],
+      [
+        "Del acompañamiento a la autodeterminación",
+        [
+          "Tras varios años de compromiso en el terreno, quise dar una nueva orientación a mi actividad profesional, guiado por una reflexión sobre la utilidad social y sobre el lugar que deseaba ocupar en la sociedad.",
+          "Así retomé los estudios en educación especializada para profundizar en los fundamentos teóricos, éticos y metodológicos del acompañamiento en los sectores social y sociosanitario, centrando mi práctica en la autodeterminación y en el «hacer con» las personas.",
+          "Mi memoria de práctica profesional, dedicada a la influencia de las prácticas educativas en la autodeterminación, marcó un punto de inflexión en mis preguntas: **¿cómo favorecer la libertad de elección de las personas cuando las condiciones de su acompañamiento dependen también del funcionamiento de las instituciones?**"
+        ]
+      ],
+      [
+        "Comprender las organizaciones para transformar las prácticas",
+        [
+          "Esta pregunta me llevó a ampliar mi reflexión a las propias organizaciones.",
+          "Cursé una formación en dirección y gestión de establecimientos sanitarios y sociosanitarios, así como un diploma universitario en emprendimiento en el IAE de Brest, obtenido en 2023.",
+          "Allí profundicé en los retos de la gestión, la financiación, la coordinación, los recursos humanos y la conducción del cambio, y comprobé que las dificultades de las estructuras, desde la financiación hasta el trabajo en red y la contratación, dependían en gran medida de las políticas públicas de salud.",
+          "Sobre todo, busqué comprender las condiciones que permiten a los profesionales traducir sus intenciones en prácticas efectivas, y a las organizaciones conciliar sus limitaciones con las necesidades de las personas."
+        ]
+      ],
+      [
+        "Del funcionamiento de las instituciones a la gobernanza de los sistemas de salud",
+        [
+          "El estudio de las organizaciones me llevó a explorar los mecanismos que orientan sus decisiones: los marcos jurídicos, las políticas públicas, la planificación, los mecanismos de financiación y las modalidades de gobernanza.",
+          "Continué esta reflexión en la Université Paris-Panthéon-Assas, en derecho público, sanitario y social, para superar los problemas de gestión y adoptar un enfoque multinivel del sistema de salud y de los instrumentos jurídicos de la solidaridad nacional, y después como encargado de proyectos en la Agencia nacional francesa de apoyo al desempeño (ANAP).",
+          "Esta experiencia me permitió trabajar en la articulación entre las orientaciones nacionales y las realidades operativas, traduciendo esas orientaciones en dispositivos concretos, en contacto con los retos de gestores, profesionales y usuarios del sistema de salud.",
+          "Reforzó mi interés por las dificultades de implementación de las políticas públicas, sobre todo cuando las respuestas exigen superar las fronteras entre organizaciones y sectores. Consolidada por una memoria de investigación, esta inmersión reveló las dificultades de implementación de los modelos de atención y servicios integrados, y la necesidad de un enfoque intersectorial e interdisciplinario frente a las prácticas en silos. Entonces me dirigí a varios investigadores quebequenses, presentándoles mis constataciones y un proyecto para contrastar los sistemas de salud, en busca de respuestas a las dificultades de implementación de la permanencia en el domicilio."
+        ]
+      ],
+      [
+        "Producir conocimientos para esclarecer la acción colectiva",
+        [
+          "Hoy, mi doctorado en salud pública en la Université de Montréal, bajo la dirección de las Dras. N. Sourial y G. Layani, prolonga este camino.",
+          "Mis trabajos abordan la organización de los sistemas de salud y de servicios sociales, las necesidades sociales de las poblaciones, las colaboraciones intersectoriales y las condiciones de implementación de respuestas integradas, en particular en el apoyo a domicilio.",
+          "Mi enfoque es decididamente interdisciplinario y pragmático. Busca acercar las experiencias vividas, los conocimientos científicos y las realidades de la toma de decisiones para comprender mejor los fenómenos estudiados y contribuir a transformar las prácticas y las políticas públicas.",
+          "Presto una atención particular a las personas que pierden autonomía y a quienes están lejos de los servicios, a la investigación participativa que reconoce a los pacientes como productores de saberes, a la transferencia de conocimientos y a su movilización por las personas, los profesionales, las organizaciones y quienes toman las decisiones.",
+          "Esta voluntad de crear, experimentar y proponer se prolonga también en el emprendimiento, en particular con el desarrollo de **OWNNIGHT**, un proyecto en creación."
+        ]
+      ]
+    ],
+    "vision": {
+      "titre": "Una visión que une experiencias, saberes y acción",
+      "paragraphes": [
+        "Creo que los saberes académicos, profesionales y experienciales ganan al confrontarse en lugar de jerarquizarse.",
+        "Mi trayectoria me ha permitido descubrir distintos estratos de la sociedad y del sistema de salud, ocupar en ellos posiciones diversas y observar sus interacciones. Esta pluralidad de perspectivas es hoy uno de los recursos de mi trabajo científico.",
+        "**Para mí, la investigación es un instrumento de comprensión, pero también de emancipación humana, de justicia social y de apoyo a la decisión colectiva.** Su valor reside tanto en el rigor de los conocimientos producidos como en su capacidad de alimentar el debate, esclarecer las decisiones y sostener su puesta en práctica.",
+        "Se inscribe en los Objetivos de Desarrollo Sostenible de las Naciones Unidas: mejorar el bienestar de las personas mayores, reducir las desigualdades ante la permanencia en el domicilio y consolidar instituciones inclusivas y responsables. A largo plazo, aspiro a ser un investigador autónomo, reconocido por su compromiso de articular datos probatorios, diálogo entre las partes interesadas y divulgación al gran público.",
+        "Curiosidad intelectual, resiliencia, autonomía, sentido crítico, solidaridad y audacia para emprender son valores que atraviesan mi camino.",
+        "Deseo continuar esta exploración en la interfaz entre disciplinas y entornos, convencido de que las respuestas a los desafíos actuales de salud pública exigen hacer dialogar a las personas, los saberes y las instituciones."
+      ]
+    },
+    "conclusion": "Ad astra per aspera: a través de las dificultades hasta las estrellas."
+  },
+  parcours: {
+    "surtitre": "06 · La trayectoria",
+    "titre": "Formación y experiencia",
+    "sousTitre": "Del terreno a las políticas de salud",
+    "intro": "De la educación especializada al doctorado: los títulos, los puestos y las formaciones que marcan la trayectoria.",
+    "types": {
+      "formation": "Formación",
+      "experience": "Experiencia",
+      "entreprise": "Emprendimiento"
+    },
+    "etapes": [
+      {
+        "date": "En curso",
+        "type": "entreprise",
+        "titre": "Creación de OWNNIGHT · emprendedor",
+        "detail": "Aplicación Android de bienestar y educación sobre el sueño: plan personalizado, lecciones y sesiones guiadas."
+      },
+      {
+        "date": "Desde 2025",
+        "type": "formation",
+        "titre": "Doctorado en salud pública · ESPUM",
+        "detail": "Opción sistemas, organizaciones y políticas de salud (SOPS), 2.º año. Investigador en prácticas en el CRCHUM: políticas de atención primaria, intersectorialidad e integración de cuidados y servicios.",
+        "discret": "Promedio acumulado: 4,1"
+      },
+      {
+        "date": "Otoño de 2026",
+        "type": "experience",
+        "titre": "Auxiliar docente · SPU 7001, ASA 6754 y ASA 6765",
+        "detail": "Université de Montréal."
+      },
+      {
+        "date": "Invierno de 2026",
+        "type": "experience",
+        "titre": "Auxiliar docente · ASA 6754",
+        "detail": "Sistema de salud y salud de las poblaciones, Université de Montréal: acompañamiento de estudiantes, corrección de exámenes escritos y orales."
+      },
+      {
+        "date": "2025",
+        "type": "formation",
+        "titre": "Máster en Derecho (LL.M.)",
+        "detail": "Derecho público, derecho social y derecho de la salud · Université Paris Panthéon-Assas, mención especial del jurado."
+      },
+      {
+        "date": "2024–2025",
+        "type": "experience",
+        "titre": "Encargado de misión · Agencia nacional francesa de apoyo al desempeño (ANAP)",
+        "detail": "París. Acompañar la transformación de la oferta de salud y servicios sociales, dirigir proyectos, producir herramientas de apoyo a la decisión, animar una red de expertos y comunidades de práctica."
+      },
+      {
+        "date": "2024",
+        "type": "formation",
+        "titre": "Maestría en dirección de establecimientos de salud",
+        "detail": "Université de Bretagne Occidentale, mención especial del jurado."
+      },
+      {
+        "date": "2023",
+        "type": "experience",
+        "titre": "Prácticas de dirección en un EHPAD",
+        "detail": "Residencia para personas mayores dependientes, equivalente a un CHSLD en Quebec: prácticas junto a la dirección."
+      },
+      {
+        "date": "2023",
+        "type": "formation",
+        "titre": "Diploma universitario en emprendimiento",
+        "detail": "Institut d’administration des entreprises (IAE) de Brest, mención especial del jurado."
+      },
+      {
+        "date": "2023",
+        "type": "formation",
+        "titre": "Diploma de Estado de educador especializado",
+        "detail": "Académie de Rennes."
+      },
+      {
+        "date": "2020–2023",
+        "type": "experience",
+        "titre": "Educador especializado",
+        "detail": "Residencia, Adapei 35, Saint-Malo: evaluar las necesidades, coconstruir los proyectos individualizados, coordinar un equipo pluridisciplinario."
+      },
+      {
+        "date": "2016–2024",
+        "type": "experience",
+        "titre": "Responsable de estancias de respiro",
+        "detail": "Estancias adaptadas para personas en situación de discapacidad, Brest: coconstrucción del proyecto pedagógico, acompañamiento socioeducativo, actividades de ocio y seguimiento de los tratamientos; encuadre, proyectos de servicio, gestión de equipos, presupuesto y logística."
+      }
+    ],
+    "continue": {
+      "titre": "Formación continua · 2026",
+      "items": [
+        "Conducta responsable en la investigación · CRCHUM",
+        "Práctica de auxiliar de investigación · Université de Montréal",
+        "MobilizeU, movilización de conocimientos · Research Impact Canada y Universidad York"
+      ]
+    },
+    "note": "Títulos franceses evaluados por el MIFI (Quebec) y WES Canada."
+  },
+  engagements: {
+    "surtitre": "07 · Compromisos",
+    "titre": "Representar, enseñar, contribuir",
+    "intro": "Una presencia en la vida estudiantil y científica, en continuidad con la trayectoria.",
+    "groupes": [
+      {
+        "titre": "Representación estudiantil",
+        "items": [
+          {
+            "date": "2026",
+            "titre": "Coordinador del doctorado en salud pública · AÉÉSPUM",
+            "detail": "Electo."
+          },
+          {
+            "date": "En curso",
+            "titre": "Coordinación de la mentoría solidaria · programa de doctorado en salud pública",
+            "detail": "ESPUM, Université de Montréal."
+          },
+          {
+            "date": "En curso",
+            "titre": "Representante estudiantil en el comité del programa de doctorado en salud pública",
+            "detail": "ESPUM, Université de Montréal."
+          },
+          {
+            "date": "2026",
+            "titre": "Representante estudiantil del doctorado · DGEPS",
+            "detail": "Departamento de Gestión, Evaluación y Política de Salud, ESPUM."
+          },
+          {
+            "date": "Invierno de 2026",
+            "titre": "Embajador de la Université de Montréal"
+          },
+          {
+            "date": "2022–2024",
+            "titre": "Representante electo en el consejo de administración del CROUS",
+            "detail": "Francia."
+          },
+          {
+            "date": "2021",
+            "titre": "Presidente de la oficina regional de estudiantes de trabajo social de Askoria",
+            "detail": "Francia."
+          }
+        ]
+      },
+      {
+        "titre": "Comunidad científica",
+        "items": [
+          {
+            "date": "En curso",
+            "titre": "Comité científico estudiantil del congreso de la AÉÉSPUM",
+            "detail": "Miembro."
+          },
+          {
+            "date": "Junio de 2026",
+            "titre": "Comité científico de la jornada de jóvenes investigadores del GFSP",
+            "detail": "Miembro estudiante."
+          }
+        ]
+      },
+      {
+        "titre": "Becas y distinciones",
+        "items": [
+          {
+            "date": "2026",
+            "titre": "Premio a la mejor presentación en póster, doctorado y posdoctorado",
+            "detail": "Jornada de jóvenes investigadores, Groupe francophone en soins primaires."
+          },
+          {
+            "date": "2025",
+            "titre": "Beca de doctorado del Fonds de recherche du Québec (B2)",
+            "detail": "Beca de excelencia, tercer puesto.",
+            "lien": "https://doi.org/10.69777/2009461"
+          },
+          {
+            "date": "2025",
+            "titre": "Beca de captación internacional",
+            "detail": "Estudios de posgrado y posdoctorado, Université de Montréal."
+          },
+          {
+            "date": "2023–2025",
+            "titre": "Tres menciones especiales del jurado",
+            "detail": "Excelencia académica."
+          }
+        ]
+      },
+      {
+        "titre": "Compromiso ciudadano",
+        "items": [
+          {
+            "date": "2023",
+            "titre": "Bombero voluntario",
+            "detail": "Centro de bomberos y rescate de Dinard, Francia."
+          },
+          {
+            "date": "2013",
+            "titre": "Voluntariado y servicio cívico",
+            "detail": "Association de la fondation étudiante pour la ville (AFEV), Francia."
+          }
+        ]
+      },
+      {
+        "titre": "Deportes y ocio",
+        "items": [
+          {
+            "date": "Carrera",
+            "titre": "Triple maratonista",
+            "detail": "Maratón de París 2025 y 2026, maratón de Montreal 2026."
+          },
+          {
+            "date": "Música",
+            "titre": "Piano, canto y guitarra"
+          },
+          {
+            "date": "Deporte",
+            "titre": "Hockey sobre hielo"
+          }
+        ]
+      }
+    ],
+    "affiliations": {
+      "titre": "Miembro estudiante",
+      "items": [
+        "Cátedra de investigación GSK en gestión óptima de enfermedades crónicas",
+        "Groupe francophone en soins primaires (GFSP)",
+        "Red quebequense de investigación sobre el envejecimiento (RQRV)",
+        "Canadian Association for Health Services and Policy Research (CAHSPR)",
+        "Centre de recherche en santé publique (CReSP)",
+        "Centre de recherche du CISSS de Chaudière-Appalaches",
+        "Centre interuniversitaire de recherche en analyse des organisations (CIRANO)"
+      ]
+    }
   },
   contact: {
     surtitre: "Contacto",

@@ -16,7 +16,8 @@ const empreinte = (fichier) => require("crypto").createHash("sha256").update(fs.
 const VERSION_CSS = empreinte("assets/site.css");
 const VERSION_JS = empreinte("assets/site.js");
 const URL = "https://erjb-web.github.io/";
-const SALLES = ["recherche", "approche", "implantation", "publications", "biographie", "parcours", "engagements", "ressources"];
+const TELEPHONE = ["(263) 384-3050", "+12633843050"];
+const SALLES = ["recherche", "conceptualisation", "approche", "valeurs", "implantation", "ressources", "publications", "biographie", "parcours", "engagements"];
 
 let typoFr = false;
 const e = (s) => {
@@ -45,7 +46,10 @@ const DRAPEAUX = {
   es: '<svg viewBox="0 0 3 2"><path fill="#aa151b" d="M0 0h3v2H0z"/><path fill="#f1bf00" d="M0 .5h3v1H0z"/></svg>',
   cn: `<svg viewBox="0 0 30 20"><path fill="#ee1c25" d="M0 0h30v20H0z"/><path fill="#ffde00" d="${etoile(5, 5, 3)}${etoile(10, 2, 1)}${etoile(12, 4, 1)}${etoile(12, 7, 1)}${etoile(10, 9, 1)}"/></svg>`,
 };
-const PASTILLES = { ar: "ع", iu: "ᐃ", innu: "In", falc: "Aa" };
+// Inuktitut : drapeau du Nunavut (inuksuk rouge, étoile bleue) ; innu-aimun : drapeau de l’Innu Nation (bandes, tambour et bois de caribou).
+DRAPEAUX.iu = `<svg viewBox="0 0 32 18"><path fill="#e8c547" d="M0 0h16v18H0z"/><path fill="#fff" d="M16 0h16v18H16z"/><path fill="#d52b1e" d="M14.6 3.2h2.8v2.4h-2.8zM11 6.4h10v1.6H11zM13.6 8.6h4.8v3.2h-4.8zM13.6 12.2h1.6v4.6h-1.6zM16.8 12.2h1.6v4.6h-1.6zM12.6 11.8h6.8v1H12.6z"/><path fill="#1e5aa8" d="${etoile(26.5, 4.2, 2.6)}"/></svg>`;
+DRAPEAUX.innu = '<svg viewBox="0 0 24 12"><path fill="#2e7d4f" d="M0 0h24v12H0z"/><path fill="#fff" d="M0 2h24v8H0z"/><path fill="#8ecae6" d="M0 3h24v6H0z"/><circle cx="12" cy="6" r="1.7" fill="#111"/><path d="M9.4 3.6l1.6 1.6M14.6 3.6 13 5.2M9 5l1.4.4M15 5l-1.4.4" stroke="#111" stroke-width=".7" stroke-linecap="round"/></svg>';
+const PASTILLES = { ar: "ع", falc: "Aa" };
 const drapeau = (code) =>
   DRAPEAUX[code] ? `<span class="drapeau" aria-hidden="true">${DRAPEAUX[code]}</span>` : `<span class="drapeau pastille pastille-${code}" aria-hidden="true">${PASTILLES[code]}</span>`;
 
@@ -135,6 +139,8 @@ const IMAGES_PORTES = {
   biographie: "biographie.jpg",
   parcours: "parcours.jpg",
   engagements: "engagements.jpg",
+  conceptualisation: "conceptualisation.jpg",
+  valeurs: "valeurs.jpg",
   ressources: "ressources.jpg",
 };
 
@@ -146,7 +152,9 @@ const TEINTES = {
   publications: ["#327a66", "#1f5446"],
   parcours: ["#9a7448", "#6c4f2e"],
   engagements: ["#5d6585", "#40465f"],
-  ressources: ["#3f6f8f", "#2c5068"],
+  conceptualisation: ["#3f6f8f", "#2c5068"],
+  valeurs: ["#7a5a8c", "#5a4068"],
+  ressources: ["#2f7f86", "#215c61"],
 };
 
 
@@ -397,9 +405,6 @@ ${a.outils.groupes.map(([g, items]) => `<div class="groupe-outils"><p>${e(g)}</p
 <div class="colonne-outils">
 <h3 class="titre-bloc">${e(a.expertises.titre)}</h3>
 <div class="expertises">${a.expertises.items.map(([t, d]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p></div>`).join("")}</div>
-<h3 class="titre-bloc">${e(a.valeurs.titre)}</h3>
-<p class="devise"><span class="devise-libelle">${e(a.valeurs.devise[0])}</span><span class="devise-latin" lang="la">${e(a.valeurs.devise[1])}</span><span class="devise-traduction">${e(a.valeurs.devise[2])}</span></p>
-<div class="valeurs">${a.valeurs.items.map(([t, d]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p></div>`).join("")}</div>
 <h3 class="titre-bloc">${e(a.axes.titre)}</h3>
 <ul class="puces">${a.axes.principaux.map((t) => `<li><b>${e(t)}</b></li>`).join("")}</ul>
 <p class="petit-titre">${e(a.axes.secondairesTitre)}</p>
@@ -470,17 +475,7 @@ ${cartes(m.cadres)}
 <details class="biblio"><summary>${e(m.bibliographie.titre)}</summary><ol>${m.bibliographie.items.map((r) => `<li>${lienDoi(r)}</li>`).join("")}</ol></details>
 </div>
 </div>
-<div class="plus-loin">
-<div class="travaux-tete"><h3>${e(m.plusLoin.titre)}</h3><p>${e(m.plusLoin.intro)}</p></div>
-${m.plusLoin.groupes
-  .filter(([, items]) => items.some(([, , href]) => integration(href)))
-  .map(([g, items]) => `<p class="petit-titre">${e(g)}</p><div class="mediatheque">${items.map((it) => media(c, it)).join("")}</div>`)
-  .join("")}
-<div class="plus-loin-grille">${m.plusLoin.groupes
-    .filter(([, items]) => !items.some(([, , href]) => integration(href)))
-    .map(([g, items]) => `<div><p class="petit-titre">${e(g)}</p><ul class="liens-contact compact suggestions">${items.map(suggestion).join("")}</ul></div>`)
-    .join("")}</div>
-</div>`;
+`;
 }
 
 function sectionBiographie(c) {
@@ -501,7 +496,7 @@ function sectionBiographie(c) {
 }
 
 function sectionGroupes(c, s, extra = "", icones = []) {
-  return `<div class="section-corps">
+  return `<div class="section-corps pleine">
 <div class="colonne-texte">
 <p class="surtitre">${e(s.surtitre)}</p>
 <h2>${e(s.titre)}</h2>
@@ -515,8 +510,8 @@ ${extra}
 const RESSOURCES = JSON.parse(fs.readFileSync(path.join(__dirname, "ressources-donnees.json"), "utf8"));
 const lienFinal = (s) => e(s).replace(/(https?:\/\/\S+?)(\.?)$/, (u, url, point) => `<a href="${url}" target="_blank" rel="noopener">${url}</a>${point}`);
 
-function sectionRessources(c) {
-  const t = c.ressources;
+function sectionConceptualisation(c) {
+  const t = c.conceptualisation;
   const D = RESSOURCES;
   const cles = ["5", "4", "3", "2", "1"];
   const max = Math.max(...cles.map((k) => D.priorites[k]));
@@ -562,10 +557,50 @@ ${anneau}
 <div class="lacune-principale"><h4>${e(t.principaleTitre)}</h4><p>${e(t.principale)}</p><p class="vigilance">${e(t.vigilance)}</p></div>
 <details class="biblio"><summary>${e(t.p5Titre)}</summary>${lectures(D.p5)}</details>
 <details class="biblio"><summary>${e(t.p4Titre)}</summary>${lectures(D.p4)}</details>
-<h3 class="titre-bloc">${e(t.formationTitre)}</h3>
-<div class="cours">${t.cours.map(([nom, refs]) => `<article class="cours-carte"><h4>${e(nom)}</h4><ul>${refs.map((x) => `<li>${lienFinal(x)}</li>`).join("")}</ul></article>`).join("")}</div>
 </div>
 </div>`;
+}
+
+function sectionValeurs(c) {
+  const v = c.valeurs;
+  return `<div class="section-corps pleine">
+<div class="colonne-texte">
+<p class="surtitre">${e(v.surtitre)}</p>
+<h2>${e(v.titre)}</h2>
+<p class="intro">${e(v.intro)}</p>
+<p class="devise devise-grande"><span class="devise-libelle">${e(v.devise[0])}</span><span class="devise-latin" lang="la">${e(v.devise[1])}</span><span class="devise-traduction">${e(v.devise[2])}</span></p>
+</div>
+<div class="colonne-outils"><div class="valeurs-grille">${v.items
+    .map(([t, d], i) => `<article class="valeur v${i % 6}"><span class="valeur-num">${num(i)}</span><h4>${e(t)}</h4><p>${e(d)}</p></article>`)
+    .join("")}</div></div>
+</div>`;
+}
+
+// Ressources : articles, guides, capsules, balados et presse, chacun dans sa propre section, en français et en anglais.
+function sectionMedias(c) {
+  const R = c.ressources;
+  const classes = ["rg-articles", "rg-guides", "rg-balados", "rg-videos", "rg-presse"];
+  const enAnglais = (gi, ii) => /\(anglais\)/.test(fr.ressources.groupes[gi][1][ii][1]);
+  const fleche = ' <span aria-hidden="true">↗</span>';
+  const suggestion = ([titre, source, href, apport]) =>
+    `<li>${lien(href, `<span><strong>${e(titre)}</strong><small>${e(source)}</small><small class="apport">${e(apport)}</small></span>${fleche}`)}</li>`;
+  const bloc = ([nom, items], gi) => {
+    const medias = items.some(([, , href]) => integration(href));
+    const parLangue = [0, 1].map((k) => items.filter((_, ii) => (k === 1) === enAnglais(gi, ii)));
+    const colonne = (liste, k) =>
+      liste.length
+        ? `<div class="rg-colonne"><p class="rg-langue">${e(R.langues[k])}</p>${medias ? `<div class="mediatheque">${liste.map((it) => media(c, it)).join("")}</div>` : `<ul class="liens-contact compact suggestions">${liste.map(suggestion).join("")}</ul>`}</div>`
+        : "";
+    return `<section class="rg ${classes[gi] || ""}"><h3 class="rg-titre">${e(nom)}<span class="compte">${items.length}</span></h3><div class="rg-langues">${parLangue.map(colonne).join("")}</div></section>`;
+  };
+  return `<div class="section-corps section-medias">
+<div class="colonne-texte">
+<p class="surtitre">${e(R.surtitre)}</p>
+<h2>${e(R.titre)}</h2>
+<p class="intro">${e(R.intro)}</p>
+</div>
+</div>
+<div class="rg-ensemble">${R.groupes.map(bloc).join("")}</div>`;
 }
 
 function sectionParcours(c) {
@@ -653,7 +688,9 @@ function page(c) {
     publications: sectionGroupes(c, c.publications, "", ICONES_GROUPES.publications),
     biographie: sectionBiographie(c),
     parcours: sectionParcours(c),
-    ressources: sectionRessources(c),
+    conceptualisation: sectionConceptualisation(c),
+    valeurs: sectionValeurs(c),
+    ressources: sectionMedias(c),
     engagements: sectionGroupes(
       c,
       c.engagements,
@@ -689,7 +726,7 @@ ${LANGUES.filter((l) => l.hreflang).map((l) => `<link rel="alternate" hreflang="
 <body>
 <a class="evitement" href="#contenu">${e(c.ui.evitement)}</a>
 <header class="entete">
-<a class="marque" href="${p || "./"}"><span class="monogramme" aria-hidden="true">EB</span><span><strong>Éric Bernier</strong><small>${e(c.ui.sousTitre)}</small></span></a>
+<a class="marque" href="${p || "./"}"><img class="marque-portrait" src="${p}assets/portrait-mini.jpg?v=${empreinte("assets/portrait-mini.jpg")}" alt="" width="44" height="44"><span><strong>Éric Bernier</strong><small>${e(c.ui.sousTitre)}</small></span></a>
 <nav class="nav" aria-label="${e(c.ui.navigation)}">${c.nav.map(([id, t]) => `<a href="#${id}">${e(t)}</a>`).join("")}</nav>
 <div class="outils">
 ${menuLangues(c, c.lang)}
@@ -707,6 +744,7 @@ ${menuAcces(c, c.lang)}
 </div>
 <div class="chapeau"><h2>${e(c.accueil.chapeau.titre)}</h2>${c.accueil.chapeau.paragraphes.map((x) => `<p>${riche(x)}</p>`).join("")}</div>
 <p class="encadrement">${e(c.accueil.encadrement)}</p>
+<p class="coordonnees"><a href="mailto:${e(c.contact.courriel)}">${e(c.contact.courriel)}</a><a href="tel:${TELEPHONE[1]}">${TELEPHONE[0]}</a></p>
 <div class="actions"><button class="primaire" type="button" id="visite">${e(c.accueil.visite)} <span aria-hidden="true">→</span></button><a class="lien" href="#recherche">${e(c.accueil.explorer)}</a></div>
 </div>
 <div class="hall" role="group" aria-label="${e(c.hall.titre)}">
@@ -719,9 +757,9 @@ ${bandeAccueil(c)}
 
 ${SALLES.map(
   (s, i) => `<section class="section${i % 2 ? " teinte" : ""}" id="${s}" data-salle="${s}" data-titre="${e(c.hall.portes[s][0])}">
-<div class="section-contenu">
+<div class="section-contenu" data-numero="${num(i)}">
 <div class="bandeau" style="--c1:${TEINTES[s][0]};background-image:var(--degrade),url(${p}assets/bandeaux/${s}.jpg?v=${empreinte("assets/bandeaux/" + s + ".jpg")})" role="img" aria-label="${e(c.hall.portes[s][0])}"><div class="bandeau-texte"><span class="bandeau-num">${num(i)}</span><span class="bandeau-titre">${e(c.hall.portes[s][0])}</span><span class="bandeau-legende">${e(c.hall.portes[s][1])}</span></div></div>
-${sections[s]}
+${sections[s].replace(/<p class="surtitre">(\d{2} · )?/, `<p class="surtitre">${num(i)} · `)}
 </div>
 </section>`
 ).join("\n")}
@@ -733,7 +771,8 @@ ${sections[s]}
 <h2>${e(c.contact.titre)}</h2>
 <p class="intro">${e(c.contact.intro)}</p>
 <a class="primaire" href="mailto:${e(c.contact.courriel)}">${e(c.contact.ecrire)} <span aria-hidden="true">→</span></a>
-<p class="courriel">${e(c.contact.courriel)}</p>
+<p class="courriel"><a href="mailto:${e(c.contact.courriel)}">${e(c.contact.courriel)}</a></p>
+<p class="courriel"><a href="tel:${TELEPHONE[1]}">${TELEPHONE[0]}</a></p>
 <p class="note">${e(c.contact.adresse)}</p>
 </div>
 <div class="colonne-outils"><ul class="liens-contact">${c.contact.liens
@@ -778,7 +817,7 @@ ${PREFERENCES}
 <body class="page-abregee">
 <a class="evitement" href="#contenu">${e(fr.ui.evitement)}</a>
 <header class="entete">
-<a class="marque" href="../"><span class="monogramme" aria-hidden="true">EB</span><span><strong>Éric Bernier</strong><small>${e(fr.ui.sousTitre)}</small></span></a>
+<a class="marque" href="../"><img class="marque-portrait" src="../assets/portrait-mini.jpg?v=${empreinte("assets/portrait-mini.jpg")}" alt="" width="44" height="44"><span><strong>Éric Bernier</strong><small>${e(fr.ui.sousTitre)}</small></span></a>
 <div class="outils">
 ${menuLangues(c, code)}
 ${menuAcces(c, code)}

@@ -23,7 +23,6 @@ for (const p of pages) {
 }
 
 const INTERDITS = [
-  [/263[\s.\- ]*384[\s.\- ]*3050/, "numéro de téléphone"],
   [/Lanaudi[eè]re/i, "région du terrain"],
   [/2026[–-]2029/, "calendrier de thèse"],
   [/27 octobre/, "présentation du protocole"],
