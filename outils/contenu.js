@@ -1194,7 +1194,7 @@ const fr = {
     adresse: "École de santé publique de l’Université de Montréal · 7101, avenue du Parc, Montréal (Québec)",
   },
   pied: "© 2026 Éric Bernier · Site sans témoins ni mesure d’audience.",
-  credits: "Images des portes : photographies Unsplash et portrait d’Éric Bernier ; amphithéâtre, hémicycle et atelier participatif générés pour le site, sans personne réelle.",
+  credits: "Images des portes : photographies Unsplash et portrait d’Éric Bernier ; amphithéâtre, hémicycle et atelier participatif générés pour le site, sans personne réelle. Lecture à voix haute : Kyutai TTS (CC BY 4.0), voix de référence CML-TTS (Oliveira et al., 2023) et Alba MacKenna (CC BY 4.0).",
   introuvable: { titre: "Page introuvable", texte: "Cette page n’existe pas ou a été déplacée.", retour: "Revenir à l’accueil" },
 };
 
@@ -2353,7 +2353,7 @@ const en = {
     adresse: "School of Public Health, Université de Montréal · 7101 avenue du Parc, Montréal, Québec",
   },
   pied: "© 2026 Éric Bernier · No cookies, no analytics.",
-  credits: "Door images: Unsplash photographs and a portrait of Éric Bernier; lecture hall, assembly chamber and participatory workshop generated for this site, depicting no real people.",
+  credits: "Door images: Unsplash photographs and a portrait of Éric Bernier; lecture hall, assembly chamber and participatory workshop generated for this site, depicting no real people. Read-aloud voices: Kyutai TTS (CC BY 4.0), reference voices CML-TTS (Oliveira et al., 2023) and Alba MacKenna (CC BY 4.0).",
   introuvable: { titre: "Page not found", texte: "This page does not exist or has moved.", retour: "Back to the home page" },
 };
 
@@ -3512,7 +3512,7 @@ const es = {
     adresse: "Escuela de Salud Pública de la Université de Montréal · 7101, avenue du Parc, Montreal (Quebec)",
   },
   pied: "© 2026 Éric Bernier · Sin cookies ni medición de audiencia.",
-  credits: "Imágenes de las puertas: fotografías de Unsplash y retrato de Éric Bernier; anfiteatro, hemiciclo y taller participativo generados para el sitio, sin personas reales.",
+  credits: "Imágenes de las puertas: fotografías de Unsplash y retrato de Éric Bernier; anfiteatro, hemiciclo y taller participativo generados para el sitio, sin personas reales. Lectura en voz alta: Kyutai TTS (CC BY 4.0), voces de referencia CML-TTS (Oliveira et al., 2023) y Alba MacKenna (CC BY 4.0).",
   introuvable: { titre: "Página no encontrada", texte: "Esta página no existe o ha sido trasladada.", retour: "Volver a la página de inicio" },
 };
 

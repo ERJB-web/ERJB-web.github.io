@@ -53,6 +53,8 @@
 
     const section = $(`section[data-salle="${nom}"]`);
     contenu.replaceChildren(section.querySelector(".section-contenu").cloneNode(true));
+    contenu.querySelectorAll(".revele").forEach((el) => el.classList.remove("revele", "vu"));
+    if (typeof preparer === "function") setTimeout(() => preparer(contenu), 0);
     const i = ordre.indexOf(nom);
     salle.style.setProperty("--c1", getComputedStyle(porte).getPropertyValue("--c1"));
     $$(".salle-progres span").forEach((s, k) => s.classList.toggle("actif", k <= i));
@@ -313,4 +315,14 @@
     f.referrerPolicy = "strict-origin-when-cross-origin";
     b.replaceWith(f);
   });
+
+  // Apparitions au défilement : schémas, cartes et figures entrent en douceur.
+  const CIBLES = '.schema, .figure-officielle, .cycle, .cadre, .expertises > div, .liste li, .frise li, .lacune, .media, .chiffres > div, .travail, .personne, .notions > div, .cours-carte, .bandeau-texte, .trajectoire li, .valeurs > div, .piliers > div';
+  const observateur = 'IntersectionObserver' in window && !mouvementReduit
+    ? new IntersectionObserver((entrees) => entrees.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('vu'); observateur.unobserve(en.target); } }), { rootMargin: '0px 0px -8% 0px' })
+    : null;
+  const preparer = (racineZone) => { if (!observateur) return; $$(CIBLES, racineZone).forEach((el) => { el.classList.add('revele'); observateur.observe(el); }); };
+  preparer(document);
+  // Sécurité : si le navigateur ne signale aucune apparition, tout est affiché.
+  setTimeout(() => { if (!document.querySelector(".revele.vu")) document.querySelectorAll(".revele").forEach((el) => el.classList.add("vu")); }, 1800);
 })();

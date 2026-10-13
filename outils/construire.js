@@ -485,7 +485,7 @@ function sectionBiographie(c) {
 <p class="surtitre">${e(b.surtitre)}</p>
 <h2>${e(b.titre)}</h2>
 <div class="bio-intro">${b.intro.map((p) => `<p>${riche(p)}</p>`).join("")}</div>
-<figure class="bio-figure"><img class="portrait-bio" src="${c.chemin}assets/portrait.jpg?v=${empreinte("assets/portrait.jpg")}" width="900" height="900" alt="${e(c.accueil.portrait)}" loading="lazy"><blockquote class="citation">${e(b.citation)}</blockquote></figure>
+<figure class="bio-figure"><img class="portrait-bio" src="${c.chemin}assets/portrait-bio.png?v=${empreinte("assets/portrait-bio.png")}" width="800" height="800" alt="${e(c.accueil.portrait)}" loading="lazy"><blockquote class="citation">${e(b.citation)}</blockquote></figure>
 </div>
 <div class="colonne-outils">
 <ol class="recit">${b.chapitres.map(([titre, paragraphes], k) => `<li><span class="recit-num">${num(k)}</span><div><h3>${e(titre)}</h3>${paragraphes.map((p) => `<p>${riche(p)}</p>`).join("")}</div></li>`).join("")}</ol>
@@ -586,7 +586,7 @@ function sectionParcours(c) {
 </div>`;
 }
 
-const PREFERENCES = `<script>(function(){try{var h=document.documentElement,m=(localStorage.getItem("eb-modes")||"").split(" "),t=+localStorage.getItem("eb-taille")||0,a=location.hash;if(a==="#daltonien"||a==="#colour-blind")m.push("cb");if(a==="#basse-vision"||a==="#low-vision")m.push("lv");m.forEach(function(x){if(/^(cb|lv|hc)$/.test(x))h.classList.add(x)});if(t>0&&t<4)h.classList.add("t"+t)}catch(e){}})();</script>`;
+const PREFERENCES = `<script>(function(){try{var h=document.documentElement;h.classList.add("js");var m=(localStorage.getItem("eb-modes")||"").split(" "),t=+localStorage.getItem("eb-taille")||0,a=location.hash;if(a==="#daltonien"||a==="#colour-blind")m.push("cb");if(a==="#basse-vision"||a==="#low-vision")m.push("lv");m.forEach(function(x){if(/^(cb|lv|hc)$/.test(x))h.classList.add(x)});if(t>0&&t<4)h.classList.add("t"+t)}catch(e){}})();</script>`;
 
 const langueHtml = (l) => (l.code === "falc" ? "fr" : l.code);
 
@@ -715,6 +715,7 @@ ${bandeAccueil(c)}
 ${SALLES.map(
   (s, i) => `<section class="section${i % 2 ? " teinte" : ""}" id="${s}" data-salle="${s}" data-titre="${e(c.hall.portes[s][0])}">
 <div class="section-contenu">
+<div class="bandeau" style="--c1:${TEINTES[s][0]};--image:url(${p}assets/bandeaux/${s}.jpg?v=${empreinte("assets/bandeaux/" + s + ".jpg")})" role="img" aria-label="${e(c.hall.portes[s][0])}"><div class="bandeau-texte"><span class="bandeau-num">${num(i)}</span><span class="bandeau-titre">${e(c.hall.portes[s][0])}</span><span class="bandeau-legende">${e(c.hall.portes[s][1])}</span></div></div>
 ${sections[s]}
 </div>
 </section>`

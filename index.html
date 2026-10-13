@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<script>(function(){try{var h=document.documentElement,m=(localStorage.getItem("eb-modes")||"").split(" "),t=+localStorage.getItem("eb-taille")||0,a=location.hash;if(a==="#daltonien"||a==="#colour-blind")m.push("cb");if(a==="#basse-vision"||a==="#low-vision")m.push("lv");m.forEach(function(x){if(/^(cb|lv|hc)$/.test(x))h.classList.add(x)});if(t>0&&t<4)h.classList.add("t"+t)}catch(e){}})();</script>
+<script>(function(){try{var h=document.documentElement;h.classList.add("js");var m=(localStorage.getItem("eb-modes")||"").split(" "),t=+localStorage.getItem("eb-taille")||0,a=location.hash;if(a==="#daltonien"||a==="#colour-blind")m.push("cb");if(a==="#basse-vision"||a==="#low-vision")m.push("lv");m.forEach(function(x){if(/^(cb|lv|hc)$/.test(x))h.classList.add(x)});if(t>0&&t<4)h.classList.add("t"+t)}catch(e){}})();</script>
 <title>Éric Bernier</title>
 <meta name="description" content="Éric Bernier, doctorant en santé publique (systèmes, organisations et politiques de santé) à l’ESPUM, juriste, entrepreneur et éducateur spécialisé. Recherche sur la réponse intersectorielle aux besoins sociaux complexes en soins primaires.">
 <meta name="theme-color" content="#fcfdfb">
@@ -15,7 +15,7 @@
 <link rel="alternate" hreflang="ar" href="https://erjb-web.github.io/ar/">
 <link rel="alternate" hreflang="x-default" href="https://erjb-web.github.io/">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/site.css?v=6f4c6c03b5">
+<link rel="stylesheet" href="assets/site.css?v=65350213e1">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Éric Bernier">
 <meta property="og:description" content="Éric Bernier, doctorant en santé publique (systèmes, organisations et politiques de santé) à l’ESPUM, juriste, entrepreneur et éducateur spécialisé. Recherche sur la réponse intersectorielle aux besoins sociaux complexes en soins primaires.">
@@ -24,7 +24,7 @@
 <meta property="og:locale" content="fr_CA">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Éric Bernier","url":"https://erjb-web.github.io/","image":"https://erjb-web.github.io/assets/portrait.jpg","jobTitle":"Doctorant en santé publique · ESPUM · CRCHUM","email":"mailto:eric.bernier.1@umontreal.ca","affiliation":[{"@type":"CollegeOrUniversity","name":"École de santé publique de l’Université de Montréal (ESPUM)"},{"@type":"ResearchOrganization","name":"Centre de recherche du CHUM (CRCHUM)"}],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Université Paris Panthéon-Assas"},{"@type":"CollegeOrUniversity","name":"Université de Bretagne Occidentale"}],"knowsAbout":["Gouvernance et évaluation des politiques de santé","Approche intersectorielle en première ligne","Vieillissement, perte d’autonomie et politiques du maintien à domicile"],"sameAs":["https://orcid.org/0009-0001-4236-4932","https://www.linkedin.com/in/eric-b-5aa52b250"]}</script>
-<script src="assets/site.js?v=ce858744f2" defer></script>
+<script src="assets/site.js?v=87de3318f5" defer></script>
 </head>
 <body>
 <a class="evitement" href="#contenu">Aller au contenu</a>
@@ -77,7 +77,7 @@
 <span class="baie" aria-hidden="true"><span class="ouverture"><span class="apercu">Entrer</span><span class="battant"><span class="vignette" style="background-image:url(assets/portes/publications.jpg?v=87d6f9a12e)"></span><span class="poignee"></span></span></span></span>
 <span class="porte-texte" aria-hidden="true"><span class="plaque"><span class="num">04</span>Publications</span><span class="legende">Communications, mémoires, outils</span><span class="entrer">Entrer →</span></span>
 </button><button class="porte" type="button" data-salle="biographie" style="--c1:#2f6f86;--c2:#1f4f62" aria-label="05. Biographie : Des expériences humaines aux transformations collectives">
-<span class="baie" aria-hidden="true"><span class="ouverture"><span class="apercu">Entrer</span><span class="battant"><span class="vignette" style="background-image:url(assets/portes/biographie.jpg?v=e8e4bbf85d)"></span><span class="poignee"></span></span></span></span>
+<span class="baie" aria-hidden="true"><span class="ouverture"><span class="apercu">Entrer</span><span class="battant"><span class="vignette" style="background-image:url(assets/portes/biographie.jpg?v=0fe6318d63)"></span><span class="poignee"></span></span></span></span>
 <span class="porte-texte" aria-hidden="true"><span class="plaque"><span class="num">05</span>Biographie</span><span class="legende">Des expériences humaines aux transformations collectives</span><span class="entrer">Entrer →</span></span>
 </button><button class="porte" type="button" data-salle="parcours" style="--c1:#9a7448;--c2:#6c4f2e" aria-label="06. Le parcours : Formations et expériences">
 <span class="baie" aria-hidden="true"><span class="ouverture"><span class="apercu">Entrer</span><span class="battant"><span class="vignette" style="background-image:url(assets/portes/parcours.jpg?v=c9106bb9ff)"></span><span class="poignee"></span></span></span></span>
@@ -100,6 +100,7 @@
 
 <section class="section" id="recherche" data-salle="recherche" data-titre="La recherche">
 <div class="section-contenu">
+<div class="bandeau" style="--c1:#245a73;--image:url(assets/bandeaux/recherche.jpg?v=07ac4d2d53)" role="img" aria-label="La recherche"><div class="bandeau-texte"><span class="bandeau-num">01</span><span class="bandeau-titre">La recherche</span><span class="bandeau-legende">Thèse et travaux en cours</span></div></div>
 <div class="section-corps">
 <div class="colonne-texte">
 <p class="surtitre">01 · La recherche</p>
@@ -173,6 +174,7 @@
 </section>
 <section class="section teinte" id="approche" data-salle="approche" data-titre="L’approche">
 <div class="section-contenu">
+<div class="bandeau" style="--c1:#8c4d58;--image:url(assets/bandeaux/approche.jpg?v=f9831e645e)" role="img" aria-label="L’approche"><div class="bandeau-texte"><span class="bandeau-num">02</span><span class="bandeau-titre">L’approche</span><span class="bandeau-legende">Posture, méthodes, axes, valeurs</span></div></div>
 <div class="section-corps">
 <div class="colonne-texte">
 <p class="surtitre">02 · L’approche</p>
@@ -209,6 +211,7 @@
 </section>
 <section class="section" id="implantation" data-salle="implantation" data-titre="Implantation">
 <div class="section-contenu">
+<div class="bandeau" style="--c1:#a0663b;--image:url(assets/bandeaux/implantation.jpg?v=116d1ef905)" role="img" aria-label="Implantation"><div class="bandeau-texte"><span class="bandeau-num">03</span><span class="bandeau-titre">Implantation</span><span class="bandeau-legende">Transfert de connaissances et implantation</span></div></div>
 <div class="section-corps">
 <div class="colonne-texte">
 <p class="surtitre">03 · Implantation</p>
@@ -253,6 +256,7 @@
 </section>
 <section class="section teinte" id="publications" data-salle="publications" data-titre="Publications">
 <div class="section-contenu">
+<div class="bandeau" style="--c1:#327a66;--image:url(assets/bandeaux/publications.jpg?v=cf613c3177)" role="img" aria-label="Publications"><div class="bandeau-texte"><span class="bandeau-num">04</span><span class="bandeau-titre">Publications</span><span class="bandeau-legende">Communications, mémoires, outils</span></div></div>
 <div class="section-corps">
 <div class="colonne-texte">
 <p class="surtitre">04 · Publications</p>
@@ -266,12 +270,13 @@
 </section>
 <section class="section" id="biographie" data-salle="biographie" data-titre="Biographie">
 <div class="section-contenu">
+<div class="bandeau" style="--c1:#2f6f86;--image:url(assets/bandeaux/biographie.jpg?v=3baa45be25)" role="img" aria-label="Biographie"><div class="bandeau-texte"><span class="bandeau-num">05</span><span class="bandeau-titre">Biographie</span><span class="bandeau-legende">Des expériences humaines aux transformations collectives</span></div></div>
 <div class="section-corps">
 <div class="colonne-texte">
 <p class="surtitre">05 · Biographie</p>
 <h2>Des expériences humaines aux transformations collectives</h2>
 <div class="bio-intro"><p>Éducateur spécialisé, juriste, entrepreneur et doctorant en santé publique, mon parcours s’est construit à la rencontre de différents univers : l’accompagnement des personnes, la gestion des organisations, le droit, les politiques publiques et la recherche.</p><p>Derrière cette diversité se trouve une même ambition : <strong>comprendre les mécanismes qui façonnent les trajectoires individuelles et collectives, pour contribuer à des sociétés plus justes, solidaires et capables de reconnaître les possibilités d’agir de chacun.</strong></p><p>Mon cheminement, personnel comme professionnel, nourrit une conviction : les réalités humaines ne peuvent être dissociées des systèmes sociaux, organisationnels et politiques dans lesquels elles s’inscrivent.</p><p>Il suit une dynamique ascendante : de l’accompagnement des personnes vers la transformation des organisations et des politiques de santé et de services sociaux, avec une orientation claire vers l’appui à la décision publique.</p></div>
-<figure class="bio-figure"><img class="portrait-bio" src="assets/portrait.jpg?v=0b343dfe24" width="900" height="900" alt="Portrait d’Éric Bernier" loading="lazy"><blockquote class="citation">Les réalités humaines ne peuvent être dissociées des systèmes sociaux, organisationnels et politiques dans lesquels elles s’inscrivent.</blockquote></figure>
+<figure class="bio-figure"><img class="portrait-bio" src="assets/portrait-bio.png?v=e3ad89d902" width="800" height="800" alt="Portrait d’Éric Bernier" loading="lazy"><blockquote class="citation">Les réalités humaines ne peuvent être dissociées des systèmes sociaux, organisationnels et politiques dans lesquels elles s’inscrivent.</blockquote></figure>
 </div>
 <div class="colonne-outils">
 <ol class="recit"><li><span class="recit-num">01</span><div><h3>Se construire hors des trajectoires conventionnelles</h3><p>Mon parcours commence en France, dans un milieu populaire, marqué notamment par une expérience de l’aide sociale à l’enfance et une déscolarisation à seize ans.</p><p>Loin d’un cheminement académique conventionnel, j’ai progressivement construit ma trajectoire par le travail, l’exploration de différents milieux et la reprise d’études.</p><p>Ces expériences, tout comme ma neuroatypie, ont nourri mon indépendance de pensée, ma capacité d’adaptation et mon intérêt pour les mécanismes de reproduction sociale, d’émancipation et de solidarité. Elles contribuent aujourd’hui à mon regard sur les institutions et sur la diversité des expériences humaines.</p></div></li><li><span class="recit-num">02</span><div><h3>La création, la rencontre et l’éthique du prendre soin</h3><p>Mon intérêt pour la musique m’a conduit à entreprendre une licence en musicologie, parallèlement à mes premières expériences dans l’animation, puis à la responsabilité de séjours adaptés auprès de personnes en situation de handicap.</p><p>Au-delà de leurs différences, ces univers m’ont permis d’explorer les rapports humains sous plusieurs dimensions : l’expression individuelle, la vie collective, l’accompagnement et la responsabilité envers autrui.</p><p>Au fil de onze années d’engagement auprès de la vulnérabilité humaine, ces expériences ont progressivement donné une place centrale à l’éthique du <em>prendre soin</em>, à la reconnaissance des capacités individuelles et à l’importance d’un accompagnement qui favorise l’autonomie plutôt que la dépendance. Elles m’ont aussi montré la force des mécanismes de solidarité.</p></div></li><li><span class="recit-num">03</span><div><h3>De l’accompagnement à l’autodétermination</h3><p>Après plusieurs années d’engagement sur le terrain, j’ai souhaité donner une nouvelle orientation à mon activité professionnelle, guidé par une réflexion sur l’utilité sociale et sur la place que je souhaitais occuper dans la société.</p><p>J’ai ainsi repris des études en éducation spécialisée pour approfondir les fondements théoriques, éthiques et méthodologiques de l’accompagnement dans les secteurs social et médico-social, en recentrant ma pratique sur l’autodétermination et le « faire avec » les personnes.</p><p>Mon mémoire de pratique professionnelle, consacré à l’influence des pratiques éducatives sur l’autodétermination, a constitué un tournant dans mon questionnement : <strong>comment favoriser la liberté de choix des personnes lorsque les conditions de leur accompagnement sont aussi déterminées par le fonctionnement des institutions ?</strong></p></div></li><li><span class="recit-num">04</span><div><h3>Comprendre les organisations pour transformer les pratiques</h3><p>Cette interrogation m’a conduit à élargir ma réflexion aux organisations elles-mêmes.</p><p>J’ai poursuivi une formation en direction et gestion des établissements sanitaires et médico-sociaux, ainsi qu’un diplôme universitaire en entrepreneuriat à l’IAE de Brest, obtenu en 2023.</p><p>J’y ai approfondi les enjeux de management, de financement, de coordination, de ressources humaines et de conduite du changement. J’y ai constaté que les difficultés des structures, du financement au travail partenarial et au recrutement, étaient largement conditionnées par les politiques publiques de santé.</p><p>J’ai surtout cherché à comprendre les conditions qui permettent aux professionnels de traduire leurs intentions en pratiques effectives, et aux organisations de concilier leurs contraintes avec les besoins des personnes.</p></div></li><li><span class="recit-num">05</span><div><h3>Du fonctionnement des institutions à la gouvernance des systèmes de santé</h3><p>L’étude des organisations m’a amené à explorer les mécanismes qui orientent leurs décisions : les cadres juridiques, les politiques publiques, la planification, les dispositifs de financement et les modalités de gouvernance.</p><p>J’ai poursuivi cette réflexion à l’Université Paris-Panthéon-Assas, en droit public, sanitaire et social, pour dépasser les problématiques gestionnaires et adopter une approche multiniveau du système de santé et des instruments juridiques de la solidarité nationale, puis comme chargé de projets à l’Agence nationale d’appui à la performance (ANAP).</p><p>Cette expérience m’a permis de travailler à l’articulation entre orientations nationales et réalités opérationnelles, en traduisant ces orientations en dispositifs concrets, au contact des enjeux rencontrés par les gestionnaires, les professionnels et les usagers du système de santé.</p><p>Elle a renforcé mon intérêt pour les difficultés de mise en œuvre des politiques publiques, particulièrement lorsque les réponses à apporter supposent de dépasser les frontières entre organisations et secteurs d’intervention. Consolidée par un mémoire de recherche, cette immersion a révélé les difficultés de mise en œuvre des modèles de soins et services intégrés, et la nécessité d’une approche intersectorielle et interdisciplinaire face aux pratiques en silos. J’ai alors sollicité plusieurs chercheurs québécois en leur présentant mes constats et un projet de mise en contraste des systèmes de santé, pour trouver des réponses aux difficultés de mise en œuvre du maintien à domicile.</p></div></li><li><span class="recit-num">06</span><div><h3>Produire des connaissances pour éclairer l’action collective</h3><p>Aujourd’hui, mon doctorat en santé publique à l’Université de Montréal, sous la direction des Dres N. Sourial et G. Layani, prolonge ce cheminement.</p><p>Mes travaux portent sur l’organisation des systèmes de santé et de services sociaux, les besoins sociaux des populations, les collaborations intersectorielles et les conditions de mise en œuvre de réponses intégrées, notamment dans le soutien à domicile.</p><p>Mon approche est résolument interdisciplinaire et pragmatique. Elle vise à rapprocher les expériences vécues, les connaissances scientifiques et les réalités décisionnelles pour mieux comprendre les phénomènes étudiés et contribuer à la transformation des pratiques et des politiques publiques.</p><p>Je porte une attention particulière aux populations en perte d’autonomie et éloignées des services, à la recherche partenariale, qui intègre les patients comme producteurs de savoirs, au transfert des connaissances et à leur mobilisation par les personnes, les professionnels, les organisations et les décideurs.</p><p>Cette volonté de créer, d’expérimenter et de proposer se prolonge également dans l’entrepreneuriat, notamment à travers le développement d’<strong>OWNNIGHT</strong>, un projet en cours de création.</p></div></li></ol>
@@ -283,6 +288,7 @@
 </section>
 <section class="section teinte" id="parcours" data-salle="parcours" data-titre="Le parcours">
 <div class="section-contenu">
+<div class="bandeau" style="--c1:#9a7448;--image:url(assets/bandeaux/parcours.jpg?v=b2ec419ef3)" role="img" aria-label="Le parcours"><div class="bandeau-texte"><span class="bandeau-num">06</span><span class="bandeau-titre">Le parcours</span><span class="bandeau-legende">Formations et expériences</span></div></div>
 <div class="section-corps">
 <div class="colonne-texte">
 <p class="surtitre">06 · Le parcours</p>
@@ -299,6 +305,7 @@
 </section>
 <section class="section" id="engagements" data-salle="engagements" data-titre="Engagements">
 <div class="section-contenu">
+<div class="bandeau" style="--c1:#5d6585;--image:url(assets/bandeaux/engagements.jpg?v=50d2bc6bec)" role="img" aria-label="Engagements"><div class="bandeau-texte"><span class="bandeau-num">07</span><span class="bandeau-titre">Engagements</span><span class="bandeau-legende">Représentation, enseignement, distinctions</span></div></div>
 <div class="section-corps">
 <div class="colonne-texte">
 <p class="surtitre">07 · Engagements</p>
@@ -312,6 +319,7 @@
 </section>
 <section class="section teinte" id="ressources" data-salle="ressources" data-titre="Ressources">
 <div class="section-contenu">
+<div class="bandeau" style="--c1:#3f6f8f;--image:url(assets/bandeaux/ressources.jpg?v=7785203da4)" role="img" aria-label="Ressources"><div class="bandeau-texte"><span class="bandeau-num">08</span><span class="bandeau-titre">Ressources</span><span class="bandeau-legende">Corpus de thèse, lacunes, lectures</span></div></div>
 <div class="section-corps">
 <div class="colonne-texte">
 <p class="surtitre">08 · Ressources</p>
@@ -353,7 +361,7 @@
 </section>
 </main>
 
-<footer class="pied"><span>© 2026 Éric Bernier · Site sans témoins ni mesure d’audience.<br><small>Images des portes : photographies Unsplash et portrait d’Éric Bernier ; amphithéâtre, hémicycle et atelier participatif générés pour le site, sans personne réelle.</small></span><a href="#contenu">Haut de page ↑</a></footer>
+<footer class="pied"><span>© 2026 Éric Bernier · Site sans témoins ni mesure d’audience.<br><small>Images des portes : photographies Unsplash et portrait d’Éric Bernier ; amphithéâtre, hémicycle et atelier participatif générés pour le site, sans personne réelle. Lecture à voix haute : Kyutai TTS (CC BY 4.0), voix de référence CML-TTS (Oliveira et al., 2023) et Alba MacKenna (CC BY 4.0).</small></span><a href="#contenu">Haut de page ↑</a></footer>
 
 <div class="salle" id="salle" role="dialog" aria-modal="true" aria-labelledby="salle-titre" hidden>
 <div class="salle-barre">
