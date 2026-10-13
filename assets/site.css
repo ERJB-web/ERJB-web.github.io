@@ -939,3 +939,13 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 .rg .liens-contact.suggestions{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:12px}
 .rg .mediatheque{grid-template-columns:repeat(auto-fit,minmax(280px,360px));justify-content:center}
 @media (max-width:760px){.rg .liens-contact.suggestions,.rg .mediatheque{grid-template-columns:1fr}}
+/* Contact : un seul axe centré, liens en grille régulière */
+.contact .section-corps.pleine{max-width:1040px;justify-items:stretch}
+.contact .colonne-texte{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+.contact .colonne-texte>*{margin-inline:0;max-width:720px}
+.contact .colonne-texte>.primaire{margin:14px 0 8px}
+.contact .colonne-texte>.courriel{margin:2px 0}
+.contact .liens-contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;text-align:start}
+.contact .liens-contact{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:980px){.contact .liens-contact{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.contact .liens-contact{grid-template-columns:1fr}}
