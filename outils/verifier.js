@@ -50,7 +50,7 @@ for (const l of LANGUES.filter((x) => x.hreflang)) {
 }
 verifier("arabe de droite à gauche", html[path.join("ar", "index.html")].includes('dir="rtl"'));
 verifier("Nadia Sourial agrégée", html["index.html"].includes("Professeure agrégée"));
-verifier("titres avec entrepreneur", html["index.html"].includes("Juriste · Entrepreneur · Doctorant"));
+verifier("titres avec entrepreneur", html["index.html"].includes("Doctorant en santé publique (2e année) · Juriste · Entrepreneur · Éducateur spécialisé"));
 
 const echecs = resultats.filter((r) => !r.ok);
 for (const r of echecs) console.log("ÉCHEC", r.nom, r.detail);
