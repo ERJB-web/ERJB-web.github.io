@@ -1021,3 +1021,14 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 .onglet-salle .poignee::before{width:6px;height:6px;top:-7px;box-shadow:0 .5px 1px rgba(40,25,0,.45)}
 .ouverture{background:radial-gradient(120% 70% at 50% 75%,color-mix(in srgb,var(--c1) 10%,rgba(255,255,255,.7)) 0%,color-mix(in srgb,var(--c1) 30%,rgba(255,255,255,.4)) 100%);box-shadow:inset 0 8px 12px color-mix(in srgb,var(--c1) 22%,transparent)}
 .apercu{color:color-mix(in srgb,var(--c1) 80%,#000)}
+/* Poignée réaliste : plaque colorée sur le montant, rosace et bec-de-cane dorés qui s'abaissent à l'ouverture */
+.vignette{inset-inline-end:27%}
+.poignee,.porte .poignee,.onglet-salle .poignee{top:40%;inset-inline-end:8%;width:6%;min-width:3px;height:17%;border-radius:3px;background:var(--c1);box-shadow:0 1px 2px rgba(15,30,40,.3)}
+.poignee::before{content:"";position:absolute;left:50%;top:30%;width:180%;aspect-ratio:1;height:auto;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff6cf 0%,#e8c25a 38%,#b8861f 70%,#7a5510 100%);box-shadow:0 1px 2px rgba(40,25,0,.45);z-index:2}
+.poignee::after{content:"";position:absolute;right:50%;top:30%;width:420%;height:22%;min-height:2px;transform:translateY(-50%) rotate(0deg);transform-origin:100% 50%;border-radius:2px;background:linear-gradient(180deg,#fbe7a1 0%,#d9ac3c 55%,#8a6512 100%);box-shadow:0 1px 1.5px rgba(40,25,0,.4);transition:transform .3s var(--ease);z-index:1}
+.porte .poignee::before,.onglet-salle .poignee::before{top:30%;width:180%}
+.porte:hover .poignee::after,.porte:focus-visible .poignee::after,.porte.ouverte .poignee::after,.onglet-salle:hover .poignee::after,.onglet-salle.ouverte .poignee::after{transform:translateY(-50%) rotate(-40deg)}
+.poignee::after{width:250%;height:18%}
+.poignee::before,.porte .poignee::before,.onglet-salle .poignee::before{width:150%}
+.vignette{inset-inline-end:28%}
+.poignee::after{width:215%}
