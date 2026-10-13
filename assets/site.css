@@ -1156,3 +1156,4 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 .carte-large .vitrine-liste{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px}
 @media (max-width:700px){.carte-large .vitrine-liste{grid-template-columns:1fr}}
 .mono-barre{width:.8px;height:19px;opacity:.6}
+.sous-portes span[data-lien]{cursor:pointer}

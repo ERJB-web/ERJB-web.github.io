@@ -172,6 +172,12 @@
   if (salle) {
   racine.classList.add("salles");
   $$(".porte").forEach((p) => p.addEventListener("click", (ev) => {
+    const lien = ev.target.closest("[data-lien]");
+    if (lien) {
+      if (lien.dataset.nouvel) window.open(lien.dataset.lien, "_blank", "noopener");
+      else location.href = lien.dataset.lien;
+      return;
+    }
     const sous = ev.target.closest("[data-sous]");
     entrer(sous ? sous.dataset.sous : p.dataset.sections.split(" ")[0] || p.dataset.salle);
   }));
