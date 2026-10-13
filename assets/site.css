@@ -1070,3 +1070,9 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 /* Teintes de porte plus sobres (peinture profonde, veinage discret) */
 .battant,.porte .battant{background:repeating-linear-gradient(90deg,rgba(255,255,255,.018) 0 2px,rgba(0,0,0,.022) 2px 6px),linear-gradient(165deg,color-mix(in srgb,var(--c1) 74%,#4a4a4a),color-mix(in srgb,var(--c1) 66%,#262626) 55%,color-mix(in srgb,var(--c1) 58%,#141414))}
 .marque-mono{letter-spacing:.03em;font-size:14px}
+/* Portes académiques : couleurs adoucies */
+.battant,.porte .battant{background:repeating-linear-gradient(90deg,rgba(255,255,255,.03) 0 2px,rgba(0,0,0,.018) 2px 6px),linear-gradient(165deg,color-mix(in srgb,var(--c1) 34%,#f1ece2),color-mix(in srgb,var(--c1) 42%,#e2dbcd) 55%,color-mix(in srgb,var(--c1) 50%,#cfc6b4));border:1px solid color-mix(in srgb,var(--c1) 40%,#9a907e);box-shadow:inset 0 0 0 3px color-mix(in srgb,var(--c1) 30%,#c9c0ad),inset 0 0 0 4px rgba(255,255,255,.35)}
+.vignette{box-shadow:0 0 0 3px color-mix(in srgb,var(--c1) 45%,#8f8676),0 0 0 4px rgba(255,255,255,.45),inset 0 0 10px rgba(0,0,0,.12)}
+.battant::after{border:1px solid rgba(255,255,255,.4);background:linear-gradient(180deg,rgba(0,0,0,.06),rgba(255,255,255,.12));box-shadow:inset 0 2px 4px rgba(0,0,0,.14),0 1px 0 rgba(255,255,255,.4)}
+.porte-contact .vignette{background:linear-gradient(160deg,color-mix(in srgb,var(--c1) 55%,#fff),color-mix(in srgb,var(--c1) 70%,#fff));color:var(--c1)}
+.porte-contact .vignette::before{color:#fff}
