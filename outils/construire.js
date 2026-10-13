@@ -293,28 +293,33 @@ const ICONES_TYPES = { formation: "chapeau", experience: "mallette", entreprise:
 const BANDE = {
   fr: {
     titre: "Le parcours en un coup d’œil",
-    etapes: [["2016–2024", "Séjours adaptés et de répit", "coeur"], ["2020–2023", "Éducateur spécialisé, Adapei 35", "personne"], ["2024", "Direction des structures médico-sociales, UBO", "mallette"], ["2024–2025", "Chargé de mission, ANAP", "reseau"], ["2025", "Droit de la santé, Paris-Panthéon-Assas", "balance"], ["Depuis 2025", "Doctorat en santé publique, ESPUM et CRCHUM", "loupe"]],
-    chiffres: [["8", "années auprès de personnes en situation de handicap"], ["2", "masters : gestion médico-sociale et droit de la santé"], ["10", "outils nationaux de pilotage conçus à l’ANAP"], ["222", "publications dans le corpus de thèse"]],
+    etapes: [["2016–2024","Séjours adaptés et de répit","coeur"],["2020–2023","Éducateur spécialisé, Adapei 35","personne"],["2024","Maîtrise en direction des structures médico-sociales, UBO","mallette"],["2024–2025","Chargé de mission, ANAP","reseau"],["2025","Master en droit de la santé, Paris-Panthéon-Assas","balance"],["Depuis 2025","Doctorat en santé publique, ESPUM et CRCHUM","loupe"]],
+    chiffres: [["8","années auprès de personnes en situation de handicap"],["4","charges d’auxiliaire d’enseignement à l’Université de Montréal"],["3","mentions spéciales du jury"],["1","prix de la meilleure affiche, 3e cycle (GFSP, 2026)"]],
+
   },
   en: {
     titre: "The path at a glance",
-    etapes: [["2016–2024", "Adapted and respite holidays", "coeur"], ["2020–2023", "Special needs educator, Adapei 35", "personne"], ["2024", "Management of social care services, UBO", "mallette"], ["2024–2025", "Project manager, ANAP", "reseau"], ["2025", "Health law, Paris-Panthéon-Assas", "balance"], ["Since 2025", "PhD in public health, ESPUM and CRCHUM", "loupe"]],
-    chiffres: [["8", "years supporting people with disabilities"], ["2", "master’s degrees: social care management and health law"], ["10", "national management tools designed at ANAP"], ["222", "publications in the thesis corpus"]],
+    etapes: [["2016–2024","Adapted and respite holidays","coeur"],["2020–2023","Special needs educator, Adapei 35","personne"],["2024","Master’s-level degree in managing social care services, UBO","mallette"],["2024–2025","Project manager, ANAP","reseau"],["2025","Master’s in health law, Paris-Panthéon-Assas","balance"],["Since 2025","PhD in public health, ESPUM and CRCHUM","loupe"]],
+    chiffres: [["8","years supporting people with disabilities"],["4","teaching assistantships at Université de Montréal"],["3","special distinctions from the jury"],["1","best poster award, doctoral level (GFSP, 2026)"]],
+
   },
   es: {
     titre: "La trayectoria de un vistazo",
-    etapes: [["2016–2024", "Estancias adaptadas y de respiro", "coeur"], ["2020–2023", "Educador especializado, Adapei 35", "personne"], ["2024", "Dirección de estructuras médico-sociales, UBO", "mallette"], ["2024–2025", "Encargado de misión, ANAP", "reseau"], ["2025", "Derecho de la salud, Paris-Panthéon-Assas", "balance"], ["Desde 2025", "Doctorado en salud pública, ESPUM y CRCHUM", "loupe"]],
-    chiffres: [["8", "años junto a personas en situación de discapacidad"], ["2", "másteres: gestión médico-social y derecho de la salud"], ["10", "herramientas nacionales de pilotaje diseñadas en la ANAP"], ["222", "publicaciones en el corpus de la tesis"]],
+    etapes: [["2016–2024","Estancias adaptadas y de respiro","coeur"],["2020–2023","Educador especializado, Adapei 35","personne"],["2024","Maestría en dirección de estructuras médico-sociales, UBO","mallette"],["2024–2025","Encargado de misión, ANAP","reseau"],["2025","Máster en derecho de la salud, Paris-Panthéon-Assas","balance"],["Desde 2025","Doctorado en salud pública, ESPUM y CRCHUM","loupe"]],
+    chiffres: [["8","años junto a personas en situación de discapacidad"],["4","ayudantías de docencia en la Université de Montréal"],["3","menciones especiales del jurado"],["1","premio al mejor póster, doctorado (GFSP, 2026)"]],
+
   },
   zh: {
     titre: "经历一览",
-    etapes: [["2016–2024", "适应性度假与喘息服务", "coeur"], ["2020–2023", "特殊教育工作者，Adapei 35", "personne"], ["2024", "医疗社会服务机构管理，UBO", "mallette"], ["2024–2025", "项目专员，ANAP", "reseau"], ["2025", "卫生法，巴黎-先贤祠-阿萨斯大学", "balance"], ["2025 年起", "公共卫生博士，ESPUM 与 CRCHUM", "loupe"]],
-    chiffres: [["8", "年陪伴残障人士"], ["2", "个硕士学位：医疗社会管理与卫生法"], ["10", "项在 ANAP 设计的全国性管理工具"], ["222", "篇论文文献库中的文献"]],
+    etapes: [["2016–2024","适应性度假与喘息服务","coeur"],["2020–2023","特殊教育工作者，Adapei 35","personne"],["2024","医疗社会服务机构管理硕士级文凭（Maîtrise），UBO","mallette"],["2024–2025","项目专员，ANAP","reseau"],["2025","卫生法硕士，巴黎-先贤祠-阿萨斯大学","balance"],["2025 年起","公共卫生博士，ESPUM 与 CRCHUM","loupe"]],
+    chiffres: [["8","年陪伴残障人士"],["4","次在蒙特利尔大学担任助教"],["3","次获评审团特别嘉许"],["1","项最佳海报奖，博士阶段（GFSP，2026）"]],
+
   },
   ar: {
     titre: "المسار في لمحة",
-    etapes: [["2016–2024", "إقامات مكيّفة وإقامات راحة", "coeur"], ["2020–2023", "مربٍّ متخصص، Adapei 35", "personne"], ["2024", "إدارة المؤسسات الطبية الاجتماعية، UBO", "mallette"], ["2024–2025", "مكلّف بمهمة، ANAP", "reseau"], ["2025", "قانون الصحة، باريس-بانتيون-أساس", "balance"], ["منذ 2025", "دكتوراه في الصحة العامة، ESPUM وCRCHUM", "loupe"]],
-    chiffres: [["8", "سنوات إلى جانب الأشخاص ذوي الإعاقة"], ["2", "شهادتا ماجستير: إدارة الخدمات الطبية الاجتماعية وقانون الصحة"], ["10", "أدوات وطنية للقيادة صُمّمت في ANAP"], ["222", "منشورًا في مدوّنة الأطروحة"]],
+    etapes: [["2016–2024","إقامات مكيّفة وإقامات راحة","coeur"],["2020–2023","مربٍّ متخصص، Adapei 35","personne"],["2024","ماجستير مهني (Maîtrise) في إدارة المؤسسات الطبية الاجتماعية، UBO","mallette"],["2024–2025","مكلّف بمهمة، ANAP","reseau"],["2025","ماجستير في قانون الصحة، باريس-بانتيون-أساس","balance"],["منذ 2025","دكتوراه في الصحة العامة، ESPUM وCRCHUM","loupe"]],
+    chiffres: [["8","سنوات إلى جانب الأشخاص ذوي الإعاقة"],["4","مهام مساعد تدريس في جامعة مونتريال"],["3","تنويهات خاصة من لجنة التحكيم"],["1","جائزة أفضل ملصق، مرحلة الدكتوراه (GFSP، 2026)"]],
+
   },
 };
 
