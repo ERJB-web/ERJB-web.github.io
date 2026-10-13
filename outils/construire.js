@@ -49,6 +49,16 @@ ${terminus ? `<p class="terminus">${e(terminus)}</p>` : ""}
 </div>`;
 }
 
+const IMAGES_PORTES = {
+  recherche: "recherche.jpg",
+  approche: "approche.svg",
+  implantation: "implantation.svg",
+  publications: "publications.jpg",
+  biographie: "biographie.jpg",
+  parcours: "parcours.jpg",
+  engagements: "engagements.jpg",
+};
+
 const TEINTES = {
   recherche: ["#245a73", "#163a4c"],
   approche: ["#8c4d58", "#63343e"],
@@ -63,14 +73,10 @@ const TEINTES = {
 function porte(c, nom, i) {
   const [titre, legende] = c.hall.portes[nom];
   const [c1, c2] = TEINTES[nom];
+  const image = IMAGES_PORTES[nom];
   return `<button class="porte" type="button" data-salle="${nom}" style="--c1:${c1};--c2:${c2}" aria-label="${num(i)}. ${e(titre)}${deuxPoints(c)} ${e(legende)}">
-<span class="plaque"><span class="num">${num(i)}</span>${e(titre)}</span>
-<span class="baie" aria-hidden="true">
-<span class="ouverture"><span class="apercu">${e(c.ui.entrer)} →</span><span class="battant"><span class="vignette" style="background-image:url(${c.chemin}assets/portes/${nom}.jpg)"></span><span class="poignee"></span></span></span>
-<span class="reflet"></span>
-</span>
-<span class="seuil" aria-hidden="true"></span>
-<span class="legende" aria-hidden="true">${e(legende)}</span>
+<span class="baie" aria-hidden="true"><span class="ouverture"><span class="apercu">${e(c.ui.entrer)}</span><span class="battant"><span class="vignette" style="background-image:url(${c.chemin}assets/portes/${image}?v=${empreinte("assets/portes/" + image)})"></span><span class="poignee"></span></span></span></span>
+<span class="porte-texte" aria-hidden="true"><span class="plaque"><span class="num">${num(i)}</span>${e(titre)}</span><span class="legende">${e(legende)}</span><span class="entrer">${e(c.ui.entrer)} →</span></span>
 </button>`;
 }
 
@@ -318,7 +324,7 @@ ${selecteur(c)}
 </div>
 <div class="hall" role="group" aria-label="${e(c.hall.titre)}">
 <div class="hall-tete"><span>${e(c.hall.titre)}</span><span>${e(c.hall.compte)}</span></div>
-<div class="scene"><div class="portes n${SALLES.length}">${SALLES.map((s, i) => porte(c, s, i)).join("")}</div></div>
+<div class="portes">${SALLES.map((s, i) => porte(c, s, i)).join("")}</div>
 <div class="hall-pied"><span>${e(c.hall.consigne)}</span><span class="points" aria-hidden="true">${SALLES.map(() => "<span></span>").join("")}</span></div>
 </div>
 </section>

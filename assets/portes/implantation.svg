@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" role="img" aria-label="Habitants d’un quartier : une personne aînée avec une canne, une personne en fauteuil roulant, un adulte et un enfant, devant le CLSC, une école et des maisons">
+  <defs>
+    <linearGradient id="ciel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e7f1f1"/><stop offset="1" stop-color="#fbf5e8"/></linearGradient>
+  </defs>
+  <rect width="400" height="600" fill="url(#ciel)"/>
+  <circle cx="318" cy="92" r="34" fill="#f6dfa6"/>
+  <!-- quartier -->
+  <g fill="#cfe0df">
+    <path d="M20 330v-90l45-38 45 38v90z"/>
+    <rect x="118" y="196" width="120" height="134" rx="4"/>
+    <path d="M250 330v-76l40-32 40 32v76z"/>
+    <rect x="336" y="228" width="56" height="102" rx="3"/>
+  </g>
+  <g fill="#ffffff" opacity=".85">
+    <rect x="134" y="214" width="22" height="20" rx="2"/><rect x="167" y="214" width="22" height="20" rx="2"/><rect x="200" y="214" width="22" height="20" rx="2"/>
+    <rect x="134" y="246" width="22" height="20" rx="2"/><rect x="200" y="246" width="22" height="20" rx="2"/>
+    <rect x="46" y="262" width="38" height="30" rx="2"/><rect x="274" y="268" width="32" height="26" rx="2"/>
+  </g>
+  <rect x="164" y="282" width="28" height="48" rx="3" fill="#286d5c"/>
+  <rect x="143" y="172" width="70" height="24" rx="4" fill="#173f52"/>
+  <text x="178" y="189" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">CLSC</text>
+  <path d="M346 228v-28l14 8-14 8" fill="none" stroke="#a0663b" stroke-width="3"/>
+  <g fill="#7fae9b"><circle cx="112" cy="300" r="20"/><circle cx="246" cy="296" r="22"/><circle cx="388" cy="300" r="18"/></g>
+  <rect y="328" width="400" height="272" fill="#e3ede6"/>
+  <path d="M0 360h400" stroke="#cfdcd3" stroke-width="3"/>
+  <!-- personne aînée avec canne -->
+  <g>
+    <rect x="44" y="430" width="16" height="92" rx="7" fill="#173f52"/><rect x="64" y="430" width="16" height="92" rx="7" fill="#173f52"/>
+    <path d="M36 452c0-40 12-68 26-68s26 28 26 68z" fill="#8c4d58"/>
+    <circle cx="62" cy="360" r="22" fill="#f1c9a5"/>
+    <path d="M40 356c2-18 12-26 22-26s22 8 22 26c-6-8-14-12-22-12s-16 4-22 12z" fill="#d7d2cb"/>
+    <path d="M90 438l10 86" stroke="#6c4f2e" stroke-width="5" stroke-linecap="round"/>
+    <path d="M84 428q8-4 12 6" stroke="#f1c9a5" stroke-width="9" stroke-linecap="round" fill="none"/>
+  </g>
+  <!-- personne en fauteuil roulant -->
+  <g>
+    <circle cx="170" cy="498" r="30" fill="none" stroke="#173f52" stroke-width="7"/>
+    <circle cx="170" cy="498" r="5" fill="#173f52"/>
+    <circle cx="214" cy="520" r="9" fill="#173f52"/>
+    <path d="M150 466h52v20h-52z" fill="#286d5c"/>
+    <path d="M196 480l26 2 2 34" stroke="#f1c9a5" stroke-width="12" stroke-linecap="round" fill="none"/>
+    <path d="M150 470c0-38 10-60 24-60s24 22 24 60z" fill="#327a66"/>
+    <circle cx="174" cy="386" r="21" fill="#a86f4c"/>
+    <path d="M152 384c0-16 10-24 22-24s22 8 22 22c-4-6-12-9-22-9s-18 4-22 11z" fill="#2b2522"/>
+    <path d="M142 448v-60" stroke="#173f52" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <!-- adulte -->
+  <g>
+    <rect x="262" y="420" width="17" height="104" rx="7" fill="#40465f"/><rect x="283" y="420" width="17" height="104" rx="7" fill="#40465f"/>
+    <path d="M252 442c0-46 14-80 30-80s30 34 30 80z" fill="#245a73"/>
+    <circle cx="282" cy="334" r="24" fill="#6d4430"/>
+    <path d="M258 330c0-18 10-28 24-28s24 10 24 26c-6-6-14-9-24-9s-18 3-24 11z" fill="#1d1a19"/>
+    <path d="M306 400q16 18 24 30" stroke="#6d4430" stroke-width="10" stroke-linecap="round" fill="none"/>
+  </g>
+  <!-- enfant -->
+  <g>
+    <rect x="330" y="470" width="12" height="54" rx="5" fill="#173f52"/><rect x="345" y="470" width="12" height="54" rx="5" fill="#173f52"/>
+    <path d="M324 486c0-30 8-50 19-50s19 20 19 50z" fill="#a0663b"/>
+    <circle cx="343" cy="420" r="17" fill="#d9a27c"/>
+    <path d="M326 418c0-12 8-19 17-19s17 7 17 18c-4-5-10-7-17-7s-13 2-17 8z" fill="#6b4a2b"/>
+  </g>
+</svg>
