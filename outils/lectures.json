@@ -638,11 +638,6 @@
      "lien": "https://doi.org/10.4135/9781849209915"
     },
     {
-     "apa": "Provan, K. G., Fish, A., & Sydow, J. (2007). Interorganizational networks at the network level: A review of the empirical literature on whole networks. Journal of Management, 33(3), 479–516. https://doi.org/10.1177/0149206307302554",
-     "langue": "en",
-     "lien": "https://doi.org/10.1177/0149206307302554"
-    },
-    {
      "apa": "Provan, K. G., & Kenis, P. (2008). Modes of network governance: Structure, management, and effectiveness. Journal of Public Administration Research and Theory, 18(2), 229–252. https://doi.org/10.1093/jopart/mum015",
      "langue": "en",
      "lien": "https://doi.org/10.1093/jopart/mum015"
@@ -651,6 +646,11 @@
      "apa": "Provan, K. G., & Milward, H. B. (2001). Do networks really work? A framework for evaluating public-sector organizational networks. Public Administration Review, 61(4), 414–423. https://doi.org/10.1111/0033-3352.00045",
      "langue": "en",
      "lien": "https://doi.org/10.1111/0033-3352.00045"
+    },
+    {
+     "apa": "Provan, K. G., Fish, A., & Sydow, J. (2007). Interorganizational networks at the network level: A review of the empirical literature on whole networks. Journal of Management, 33(3), 479–516. https://doi.org/10.1177/0149206307302554",
+     "langue": "en",
+     "lien": "https://doi.org/10.1177/0149206307302554"
     },
     {
      "apa": "Valente, T. W., Palinkas, L. A., Czaja, S., Chu, K.-H., & Brown, C. H. (2015). Social network analysis for program implementation. PLOS ONE, 10(6), e0131712. https://doi.org/10.1371/journal.pone.0131712",
@@ -1771,6 +1771,11 @@
      "lien": "https://doi.org/10.1177/20534345221122952"
     },
     {
+     "apa": "Dubuc, N., Hébert, R., Desrosiers, J., Buteau, M., & Trottier, L. (2006). Disability-based classification system for older people in integrated long-term care services: The Iso-SMAF profiles. Archives of Gerontology and Geriatrics, 42(2), 191–206. https://doi.org/10.1016/j.archger.2005.07.001",
+     "langue": "en",
+     "lien": "https://doi.org/10.1016/j.archger.2005.07.001"
+    },
+    {
      "apa": "Duminy, L., Ress, V., & Wild, E.-M. (2022). Complex community health and social care interventions – Which features lead to reductions in hospitalizations for ambulatory care sensitive conditions? A systematic literature review. Health Policy, 126(12), 1206–1225. https://doi.org/10.1016/j.healthpol.2022.10.003",
      "langue": "en",
      "lien": "https://doi.org/10.1016/j.healthpol.2022.10.003"
@@ -1804,6 +1809,16 @@
      "apa": "Hearld, L. R., & Alexander, J. A. (2012). Patient-centered care and emergency department utilization: A path analysis of the mediating effects of care coordination and delays in care. Medical Care Research and Review, 69(5), 560–580. https://doi.org/10.1177/1077558712453618",
      "langue": "en",
      "lien": "https://doi.org/10.1177/1077558712453618"
+    },
+    {
+     "apa": "Hébert, R. (1997). Functional decline in old age. CMAJ, 157(8), 1037–1045.",
+     "langue": "en",
+     "lien": null
+    },
+    {
+     "apa": "Hébert, R., Durand, P. J., Dubuc, N., & Tourigny, A. (2003). Frail elderly patients: New model for integrated service delivery. Canadian Family Physician, 49, 992–997.",
+     "langue": "en",
+     "lien": null
     },
     {
      "apa": "Hogg, W., Rowan, M., Russell, G., Geneau, R., & Muldoon, L. (2008). Framework for primary care organizations: The importance of a structural domain. International Journal for Quality in Health Care, 20(5), 308–313. https://doi.org/10.1093/intqhc/mzm054",
@@ -1901,6 +1916,11 @@
      "lien": "https://doi.org/10.1111/j.1553-2712.2011.01224.x"
     },
     {
+     "apa": "Raîche, M., Hébert, R., & Dubois, M.-F. (2008). PRISMA-7: A case-finding tool to identify older adults with moderate to severe disabilities. Archives of Gerontology and Geriatrics, 47(1), 9–18. https://doi.org/10.1016/j.archger.2007.06.004",
+     "langue": "en",
+     "lien": "https://doi.org/10.1016/j.archger.2007.06.004"
+    },
+    {
      "apa": "Rocks, S., Berntson, D., Gil-Salmerón, A., Kadu, M., Ehrenberg, N., Stein, V., & Tsiachristas, A. (2020). Cost and effects of integrated care: A systematic literature review and meta-analysis. The European Journal of Health Economics, 21(8), 1211–1221. https://doi.org/10.1007/s10198-020-01217-5",
      "langue": "en",
      "lien": "https://doi.org/10.1007/s10198-020-01217-5"
@@ -1931,6 +1951,11 @@
      "lien": "https://doi.org/10.1186/s12875-024-02312-9"
     },
     {
+     "apa": "Tourigny, A., Durand, P., Bonin, L., Hébert, R., & Rochette, L. (2004). Quasi-experimental study of the effectiveness of an integrated service delivery network for the frail elderly. Canadian Journal on Aging, 23(3), 231–246.",
+     "langue": "en",
+     "lien": null
+    },
+    {
      "apa": "Valentijn, P. P., Schepman, S. M., Opheij, W., & Bruijnzeels, M. A. (2013). Understanding integrated care: A comprehensive conceptual framework based on the integrative functions of primary care. International Journal of Integrated Care, 13(1), e010. https://doi.org/10.5334/ijic.886",
      "langue": "en",
      "lien": "https://doi.org/10.5334/ijic.886"
@@ -1946,17 +1971,17 @@
      "lien": "https://doi.org/10.1016/j.pec.2022.11.003"
     },
     {
-     "apa": "World Health Organization. (2016). Framework on integrated, people-centred health services (Document A69/39). World Health Organization.",
-     "langue": "en",
-     "lien": null
-    },
-    {
      "apa": "World Health Organization, & United Nations Children's Fund. (2018). Declaration of Astana: Global Conference on Primary Health Care.",
      "langue": "en",
      "lien": null
     },
     {
      "apa": "World Health Organization, & United Nations Children's Fund. (2020). Operational framework for primary health care: Transforming vision into action. World Health Organization.",
+     "langue": "en",
+     "lien": null
+    },
+    {
+     "apa": "World Health Organization. (2016). Framework on integrated, people-centred health services (Document A69/39). World Health Organization.",
      "langue": "en",
      "lien": null
     },
@@ -1974,6 +1999,30 @@
    "zh": "老龄化、居家照护与自主",
    "ar": "الشيخوخة والرعاية المنزلية والاستقلالية",
    "lectures": [
+    {
+     "apa": "Agence nationale d’appui à la performance. (2023, 7 septembre). Franchissez le cap de l’habitat intermédiaire ! https://anap.fr/s/article/franchissez-le-cap-de-l-habitat-intermediaire",
+     "langue": "fr",
+     "lien": "https://anap.fr/s/article/franchissez-le-cap-de-l-habitat-intermediaire",
+     "grise": true
+    },
+    {
+     "apa": "Agence nationale d’appui à la performance. (2024, 19 novembre). Le Centre de Ressources Territorial : une ambition nouvelle. https://anap.fr/s/article/centre-ressources-territorial-crt-ambition-nouvelle",
+     "langue": "fr",
+     "lien": "https://anap.fr/s/article/centre-ressources-territorial-crt-ambition-nouvelle",
+     "grise": true
+    },
+    {
+     "apa": "Agence nationale d’appui à la performance. (2024, 2 avril). Réforme des SAD : tous les outils Anap. https://www.anap.fr/s/article/reforme-services-autonomie-a-domicile",
+     "langue": "fr",
+     "lien": "https://www.anap.fr/s/article/reforme-services-autonomie-a-domicile",
+     "grise": true
+    },
+    {
+     "apa": "Agence nationale d’appui à la performance. (s.d.). Domicile du futur [Programme thématique].",
+     "langue": "fr",
+     "lien": null,
+     "grise": true
+    },
     {
      "apa": "Ariaans, M., Linden, P., & Wendt, C. (2021). Worlds of long-term care: A typology of OECD countries. Health Policy, 125(5), 609–617. https://doi.org/10.1016/j.healthpol.2021.02.009",
      "langue": "en",
@@ -2060,6 +2109,12 @@
      "lien": "https://doi.org/10.1186/1471-2318-11-67"
     },
     {
+     "apa": "Emmanuelli, J., Frossard, J.-B. et Vincent, B. (2024). Lieux de vie et accompagnement des personnes âgées en perte d’autonomie : les défis de la politique domiciliaire. Se sentir chez soi où que l’on soit (Rapport no 2023-014R). Inspection générale des affaires sociales. https://www.igas.gouv.fr/IMG/pdf/2023-014r_-_rapport-2.pdf",
+     "langue": "fr",
+     "lien": "https://www.igas.gouv.fr/IMG/pdf/2023-014r_-_rapport-2.pdf",
+     "grise": true
+    },
+    {
      "apa": "Ethier, A., Dubois, M.-F., Savaria, V., & Carrier, A. (2024). Tensions experienced by case managers working in home care for older adults in Quebec: First level analysis of an institutional ethnography. BMC Health Services Research, 24(1), 296. https://doi.org/10.1186/s12913-024-10709-6",
      "langue": "en",
      "lien": "https://doi.org/10.1186/s12913-024-10709-6"
@@ -2105,6 +2160,12 @@
      "lien": "https://doi.org/10.1093/geronb/gbp027"
     },
     {
+     "apa": "Inspection générale des affaires sociales. (2023). Soutenir les aidants en levant les freins au développement de solutions de répit.",
+     "langue": "fr",
+     "lien": null,
+     "grise": true
+    },
+    {
      "apa": "Jang, A., Lee, Y., & Choi, Y. (2026). A cross-national comparative study on the de-familialization in caring for older people: Focusing on the location of care. Journal of Applied Gerontology, 07334648261457770. https://doi.org/10.1177/07334648261457770",
      "langue": "en",
      "lien": "https://doi.org/10.1177/07334648261457770"
@@ -2140,6 +2201,12 @@
      "lien": "https://doi.org/10.5334/ijic.2246"
     },
     {
+     "apa": "Ministère de la Santé et des Services sociaux. (2013). L’autonomie pour tous : livre blanc sur la création d’une assurance autonomie. Gouvernement du Québec.",
+     "langue": "fr",
+     "lien": null,
+     "grise": true
+    },
+    {
      "apa": "Ministère de la Santé et des Services sociaux. (2024). La fierté de vieillir : plan d'action gouvernemental 2024-2029. Gouvernement du Québec.",
      "langue": "fr",
      "lien": null
@@ -2158,6 +2225,24 @@
      "apa": "Paraponaris, A., Davin, B., & Verger, P. (2012). Formal and informal care for disabled elderly living in the community: An appraisal of French care composition and costs. The European Journal of Health Economics, 13(3), 327–336. https://doi.org/10.1007/s10198-011-0305-3",
      "langue": "en",
      "lien": "https://doi.org/10.1007/s10198-011-0305-3"
+    },
+    {
+     "apa": "Raymond, M., Roussille, B. et Strohl, H. (2009). Enquête sur les conditions de la qualité des services d’aide à domicile pour les personnes âgées (Rapport no RM2009-035P). Inspection générale des affaires sociales. https://igas.gouv.fr/sites/igas/files/files-spip/pdf/rm2009-035p_enquete_sur_les_conditions_de_la_qualite_des_services_d_aide_a_domicile_pour_les_personnes_agees.pdf",
+     "langue": "fr",
+     "lien": "https://igas.gouv.fr/sites/igas/files/files-spip/pdf/rm2009-035p_enquete_sur_les_conditions_de_la_qualite_des_services_d_aide_a_domicile_pour_les_personnes_agees.pdf",
+     "grise": true
+    },
+    {
+     "apa": "Réseau québécois de recherche sur le vieillissement. (2025). Livre blanc : vieillir au Québec. Perspectives de la recherche. https://rqrv.com/wp-content/uploads/2025/10/2025-RQRV-LivreBlanc_compressed.pdf",
+     "langue": "fr",
+     "lien": "https://rqrv.com/wp-content/uploads/2025/10/2025-RQRV-LivreBlanc_compressed.pdf",
+     "grise": true
+    },
+    {
+     "apa": "Réseau québécois de recherche sur le vieillissement. (s.d.). Répertoire des innovations. https://rqrv.com/livre-blanc-et-innovations/repertoire-des-innovations/",
+     "langue": "fr",
+     "lien": "https://rqrv.com/livre-blanc-et-innovations/repertoire-des-innovations/",
+     "grise": true
     },
     {
      "apa": "Rodrigues, L. P., de Oliveira Rezende, A. T., Delpino, F. M., Mendonça, C. R., Noll, M., Nunes, B. P., de Oliviera, C., & Silveira, E. A. (2022). Association between multimorbidity and hospitalization in older adults: Systematic review and meta-analysis. Age and Ageing, 51(7), afac155. https://doi.org/10.1093/ageing/afac155",
@@ -2198,48 +2283,6 @@
      "apa": "Zhang, W., Sun, H., & L'Heureux, J. (2021). Substitutes or complements between informal and formal home care in the Canadian Longitudinal Study on Aging: Functional impairment as an effect modifier. Health Policy, 125(9), 1267–1275. https://doi.org/10.1016/j.healthpol.2021.07.004",
      "langue": "en",
      "lien": "https://doi.org/10.1016/j.healthpol.2021.07.004"
-    },
-    {
-     "apa": "Agence nationale d’appui à la performance. (2024). Réformes des services à domicile : des outils pour accompagner les gestionnaires [Outil d’aide à la décision et fiches thématiques]. https://www.anap.fr/s/article/reforme-services-autonomie-a-domicile",
-     "langue": "fr",
-     "lien": "https://www.anap.fr/s/article/reforme-services-autonomie-a-domicile",
-     "grise": true
-    },
-    {
-     "apa": "Agence nationale d’appui à la performance. (2024). Centre de ressources territorial (CRT) [Guide et boîte à outils]. https://anap.fr/s/article/centre-ressources-territorial-crt-ambition-nouvelle",
-     "langue": "fr",
-     "lien": "https://anap.fr/s/article/centre-ressources-territorial-crt-ambition-nouvelle",
-     "grise": true
-    },
-    {
-     "apa": "Agence nationale d’appui à la performance. (s.d.). Franchissez le cap de l’habitat intermédiaire ! https://anap.fr/s/article/franchissez-le-cap-de-l-habitat-intermediaire",
-     "langue": "fr",
-     "lien": "https://anap.fr/s/article/franchissez-le-cap-de-l-habitat-intermediaire",
-     "grise": true
-    },
-    {
-     "apa": "Agence nationale d’appui à la performance. (s.d.). Domicile du futur [Programme thématique].",
-     "langue": "fr",
-     "lien": null,
-     "grise": true
-    },
-    {
-     "apa": "Emmanuelli, J., Frossard, J.-B. et Vincent, B. (2024). Lieux de vie et accompagnement des personnes âgées en perte d’autonomie : les défis de la politique domiciliaire. Se sentir chez soi où que l’on soit (Rapport no 2023-014R). Inspection générale des affaires sociales. https://www.igas.gouv.fr/IMG/pdf/2023-014r_-_rapport-2.pdf",
-     "langue": "fr",
-     "lien": "https://www.igas.gouv.fr/IMG/pdf/2023-014r_-_rapport-2.pdf",
-     "grise": true
-    },
-    {
-     "apa": "Raymond, M., Roussille, B. et Strohl, H. (2009). Enquête sur les conditions de la qualité des services d’aide à domicile pour les personnes âgées (Rapport no RM2009-035P). Inspection générale des affaires sociales. https://igas.gouv.fr/sites/igas/files/files-spip/pdf/rm2009-035p_enquete_sur_les_conditions_de_la_qualite_des_services_d_aide_a_domicile_pour_les_personnes_agees.pdf",
-     "langue": "fr",
-     "lien": "https://igas.gouv.fr/sites/igas/files/files-spip/pdf/rm2009-035p_enquete_sur_les_conditions_de_la_qualite_des_services_d_aide_a_domicile_pour_les_personnes_agees.pdf",
-     "grise": true
-    },
-    {
-     "apa": "Inspection générale des affaires sociales. (2023). Soutenir les aidants en levant les freins au développement de solutions de répit.",
-     "langue": "fr",
-     "lien": null,
-     "grise": true
     }
    ]
   },
@@ -2385,6 +2428,11 @@
      "lien": "https://doi.org/10.1016/S1574-0064(00)80161-4"
     },
     {
+     "apa": "Jacques, O., & Noël, A. (2022). The politics of public health investments. Social Science & Medicine, 309, 115272. https://doi.org/10.1016/j.socscimed.2022.115272",
+     "langue": "en",
+     "lien": "https://doi.org/10.1016/j.socscimed.2022.115272"
+    },
+    {
      "apa": "Jacques, O., Arpin, E., Ammi, M., & Noël, A. (2023). The political and fiscal determinants of public health and curative care expenditures: Evidence from the Canadian provinces, 1980–2018. Canadian Journal of Public Health, 114(4), 584–592. https://doi.org/10.17269/s41997-023-00751-y",
      "langue": "en",
      "lien": "https://doi.org/10.17269/s41997-023-00751-y"
@@ -2393,11 +2441,6 @@
      "apa": "Jacques, O., Ben Jelili, E. et Arpin, E. (2024). Divergences et convergences idéologiques sur les dépenses sociales et de santé. Sociologie et sociétés, 56(1-2), 287–316. https://doi.org/10.7202/1121164ar",
      "langue": "fr",
      "lien": "https://doi.org/10.7202/1121164ar"
-    },
-    {
-     "apa": "Jacques, O., & Noël, A. (2022). The politics of public health investments. Social Science & Medicine, 309, 115272. https://doi.org/10.1016/j.socscimed.2022.115272",
-     "langue": "en",
-     "lien": "https://doi.org/10.1016/j.socscimed.2022.115272"
     },
     {
      "apa": "Joynt, K. E., Gawande, A. A., Orav, E. J., & Jha, A. K. (2013). Contribution of preventable acute care spending to total spending for high-cost Medicare patients. JAMA, 309(24), 2572–2578. https://doi.org/10.1001/jama.2013.7103",
