@@ -571,8 +571,8 @@
           ]
         },
         {
-          "titre": "البرمجة القابلة لإعادة الإنتاج باستخدام R في Positron",
-          "texte": "تعني البرمجة القابلة لإعادة الإنتاج تنفيذ كل مرحلة من مراحل التحليل، من استيراد البيانات إلى إعداد الأشكال، في نصوص برمجية يمكن إعادة تشغيلها والتحقق منها. أعمل بلغة R داخل Positron، بيئة التطوير المتكاملة من Posit. تُستخدم مجموعة tidyverse لتهيئة البيانات وتنسيقها، وتُستخدم igraph وstatnet لبناء الشبكات وحساب مقاييس المركزية والكثافة والتماسك ونمذجة تشكّل الروابط، بينما تعالج sf البيانات المكانية المتجهية وربطها بخصائص المنظمات. وتجمع هذه السلسلة، في مشروع واحد موثّق، بيانات الشبكة والبيانات الإقليمية والأشكال، مما ييسّر التحقق من التحليلات وإعادة استخدامها من قِبل فرق أخرى.",
+          "titre": "البرمجة القابلة لإعادة الإنتاج: R وPython في Positron، وسطر الأوامر",
+          "texte": "تعني البرمجة القابلة لإعادة الإنتاج إنجازَ كل مرحلة من مراحل التحليل، من استيراد البيانات إلى إعداد الأشكال، ضمن نصوص برمجية يمكن إعادة تشغيلها والتحقق منها. أبرمج بلغتي R وPython في Positron، بيئة التطوير التابعة لـ Posit، وأسلسل المعالجات عبر سطر الأوامر (shell). في R، تنظّم حزمة tidyverse إعداد البيانات، وتُستخدم igraph وstatnet لبناء الشبكات وحساب المركزية والكثافة والتماسك، وتتولى sf البيانات المكانية. ويُكمل Python هذه السلسلة في إعداد البيانات وأتمتتها. ويربط كل ذلك، ضمن مشروع واحد موثّق، بيانات الشبكات والبيانات الإقليمية والأشكال.",
           "references": [
             "Handcock, M. S., Hunter, D. R., Butts, C. T., Goodreau, S. M., & Morris, M. (2008). statnet: Software tools for the representation, visualization, analysis and simulation of network data. Journal of Statistical Software, 24(1), 1–11. https://doi.org/10.18637/jss.v024.i01",
             "Pebesma, E. (2018). Simple features for R: Standardized support for spatial vector data. The R Journal, 10(1), 439–446. https://doi.org/10.32614/RJ-2018-009",
@@ -613,6 +613,27 @@
               "page": "https://doi.org/10.3390/ijerph18168372",
               "legende": "خريطة شبكة رُسمت أثناء مقابلة ثم رُقمنت، ضمن تحليل نوعي لشبكة مشتركة بين القطاعات لتعزيز الصحة.",
               "credit": "الشكل 1 من Fleuren وThiel وFrahsa (2021)، International Journal of Environmental Research and Public Health، رخصة CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "التحليل النقدي للخطاب",
+          "texte": "أجريتُ تحليلًا نوعيًا للخطاب النقدي لأطباء كيبيك خلال النقاشات حول مشروع القانون رقم 2. وتضم المدوّنة المختارة قصدًا 42 وثيقة صحفية وبيانًا (قاعدة Eureka، من مايو إلى ديسمبر 2025)، رُمّزت زمنيًا حتى استقرار بنية الرموز. ويجمع التحليل بين النموذج الثلاثي الأبعاد لـ Fairclough (النص، وممارسات الإنتاج والتداول، والسياق الاجتماعي السياسي)، ونظرية التأطير، وإسناد الأدوار السردية: الضحايا، والمسؤولون، والحُماة. وتُتتبَّع كل اقتباسة حتى مصدرها، ويميّز التحليل بين ما تقوله النصوص وتأويلها السوسيولوجي.",
+          "references": [
+            "Entman, R. M. (1993). Framing: Toward clarification of a fractured paradigm. Journal of Communication, 43(4), 51–58. https://doi.org/10.1111/j.1460-2466.1993.tb01304.x",
+            "Fairclough, N. (1995). Critical discourse analysis: The critical study of language. Longman.",
+            "Hennink, M. M., Kaiser, B. N., & Marconi, V. C. (2017). Code saturation versus meaning saturation: How many interviews are enough? Qualitative Health Research, 27(4), 591–608. https://doi.org/10.1177/1049732316665344",
+            "Shanahan, E. A., Jones, M. D., & McBeth, M. K. (2018). How to conduct a Narrative Policy Framework study. The Social Science Journal, 55(3), 332–345. https://doi.org/10.1016/j.soscij.2017.12.002"
+          ],
+          "illustrations": [
+            {
+              "schema": [
+                "الممارسة الاجتماعية: السياق الاجتماعي السياسي",
+                "الممارسة الخطابية: الإنتاج والتداول",
+                "النص"
+              ],
+              "legende": "النموذج الثلاثي الأبعاد للتحليل النقدي للخطاب",
+              "credit": "رسم تخطيطي وفق Fairclough (1995)"
             }
           ]
         }

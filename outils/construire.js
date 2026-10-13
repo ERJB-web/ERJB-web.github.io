@@ -41,8 +41,8 @@ const etoile = (cx, cy, r) => {
   return `M${p.join("L")}Z`;
 };
 const DRAPEAUX = {
-  fr: '<svg viewBox="0 0 3 2"><path fill="#002654" d="M0 0h1v2H0z"/><path fill="#fff" d="M1 0h1v2H1z"/><path fill="#ce1126" d="M2 0h1v2H2z"/></svg>',
-  gb: '<svg viewBox="0 0 60 30"><path fill="#012169" d="M0 0h60v30H0z"/><path d="M0 0l60 30M60 0L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30M60 0L0 30" stroke="#c8102e" stroke-width="2"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#c8102e" stroke-width="6"/></svg>',
+  fr: '<svg viewBox="0 0 24 16"><path fill="#003da5" d="M0 0h24v16H0z"/><path fill="#fff" d="M10 0h4v16h-4zM0 6h24v4H0z"/><path fill="#fff" d="M5 1.4c.5.5.6 1.1.3 1.7.5-.3 1-.2 1.2.3-.4 0-.7.2-.9.5h-1.2c-.2-.3-.5-.5-.9-.5.2-.5.7-.6 1.2-.3-.3-.6-.2-1.2.3-1.7zM4.1 3.9h1.8v.4h-1.8zM19 1.4c.5.5.6 1.1.3 1.7.5-.3 1-.2 1.2.3-.4 0-.7.2-.9.5h-1.2c-.2-.3-.5-.5-.9-.5.2-.5.7-.6 1.2-.3-.3-.6-.2-1.2.3-1.7zM18.1 3.9h1.8v.4h-1.8zM5 11.4c.5.5.6 1.1.3 1.7.5-.3 1-.2 1.2.3-.4 0-.7.2-.9.5h-1.2c-.2-.3-.5-.5-.9-.5.2-.5.7-.6 1.2-.3-.3-.6-.2-1.2.3-1.7zM4.1 13.9h1.8v.4h-1.8zM19 11.4c.5.5.6 1.1.3 1.7.5-.3 1-.2 1.2.3-.4 0-.7.2-.9.5h-1.2c-.2-.3-.5-.5-.9-.5.2-.5.7-.6 1.2-.3-.3-.6-.2-1.2.3-1.7zM18.1 13.9h1.8v.4h-1.8z"/></svg>',
+  gb: '<svg viewBox="0 0 32 16"><path fill="#d52b1e" d="M0 0h8v16H0zM24 0h8v16h-8z"/><path fill="#fff" d="M8 0h16v16H8z"/><path fill="#d52b1e" d="M16 2.2l1 1.9 1-.5-.4 2.7 1.4-1.4.3.8 1.6-.3-.5 1.6.7.3-2.4 2 .3.9-2.4-.4v2.4h-.4v-2.4l-2.4.4.3-.9-2.4-2 .7-.3-.5-1.6 1.6.3.3-.8 1.4 1.4-.4-2.7 1 .5z"/></svg>',
   es: '<svg viewBox="0 0 3 2"><path fill="#aa151b" d="M0 0h3v2H0z"/><path fill="#f1bf00" d="M0 .5h3v1H0z"/></svg>',
   cn: `<svg viewBox="0 0 30 20"><path fill="#ee1c25" d="M0 0h30v20H0z"/><path fill="#ffde00" d="${etoile(5, 5, 3)}${etoile(10, 2, 1)}${etoile(12, 4, 1)}${etoile(12, 7, 1)}${etoile(10, 9, 1)}"/></svg>`,
 };
@@ -358,7 +358,7 @@ ${t.etiquettes ? etiquettes(t.etiquettes) : ""}
     )
     .join("")}</div>
 </div>`;
-  return `<div class="section-corps">
+  return `<div class="section-corps pleine">
 <div class="colonne-texte">
 <p class="surtitre">${e(r.surtitre)}</p>
 <p class="badge-these">${e(r.etiquette)}</p>
@@ -366,7 +366,7 @@ ${t.etiquettes ? etiquettes(t.etiquettes) : ""}
 <p class="sous-titre">${e(r.sousTitre)}</p>
 <p class="intro">${e(r.question)}</p>
 <p>${e(r.but)}</p>
-<ul class="faits">${r.faits.map(([k, v]) => `<li><b>${e(k)}</b><span>${valeur(v)}</span></li>`).join("")}</ul>
+<ul class="faits">${r.faits.map(([k, v], i) => `<li><b>${e(k)}</b><span>${valeur(v)}${i === r.faits.findIndex(([, x]) => /B2/.test(x)) ? ` <a class="doi" href="https://doi.org/10.69777/2009461">DOI 10.69777/2009461</a>` : ""}</span></li>`).join("")}</ul>
 ${lien(
   r.affiche[2],
   `<img class="affiche-vignette" src="${AFFICHE}img/affiche-${c.lang}.png" data-std="${AFFICHE}img/affiche-${c.lang}.png" data-cb="${AFFICHE}img/affiche-${c.lang}-daltonien.png" alt="${e(c.ui.afficheAlt)}" width="2400" height="2400" loading="lazy" decoding="async"><span><strong>${e(r.affiche[0])}</strong><small>${e(r.affiche[1])}</small></span><span aria-hidden="true">↗</span>`,
@@ -388,9 +388,13 @@ ${schemaReseau(c)}</div>
 ${travaux}`;
 }
 
+function schemaDiscours([social, discursive, texte], titre) {
+  return `<svg class="schema-discours" viewBox="0 0 520 300" role="img" aria-label="${e(titre)}"><rect x="6" y="6" width="508" height="288" rx="18" class="niveau-1"/><rect x="46" y="62" width="428" height="202" rx="14" class="niveau-2"/><rect x="128" y="134" width="264" height="90" rx="12" class="niveau-3"/><text x="260" y="38" text-anchor="middle">${e(social)}</text><text x="260" y="98" text-anchor="middle">${e(discursive)}</text><text x="260" y="186" text-anchor="middle" class="centre">${e(texte)}</text></svg>`;
+}
+
 function sectionApproche(c) {
   const a = c.approche;
-  return `<div class="section-corps">
+  return `<div class="section-corps pleine large">
 <div class="colonne-texte">
 <p class="surtitre">${e(a.surtitre)}</p>
 <h2>${e(a.titre)}</h2>
@@ -406,7 +410,7 @@ ${a.outils.groupes.map(([g, items]) => `<div class="groupe-outils"><p>${e(g)}</p
 <h3 class="titre-bloc">${e(a.expertises.titre)}</h3>
 <div class="expertises">${a.expertises.items.map(([t, d]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p></div>`).join("")}</div>
 <h3 class="titre-bloc">${e(a.methodes.titre)}</h3>
-<div class="methodes">${a.methodes.items.map((m) => `<article class="methode"><div class="methode-texte"><h4>${e(m.titre)}</h4><p>${e(m.texte)}</p><ul class="methode-refs">${m.references.map((x) => `<li>${lienFinal(x)}</li>`).join("")}</ul></div><div class="methode-figures">${m.illustrations.map((il) => `<figure><a href="${e(il.page)}" target="_blank" rel="noopener"><img src="${e(il.src)}" alt="${e(il.legende)}" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>${e(il.legende)} <span class="source">${e(il.credit)}</span></figcaption></figure>`).join("")}</div></article>`).join("")}</div>
+<div class="methodes">${a.methodes.items.map((m) => `<article class="methode"><div class="methode-texte"><h4>${e(m.titre)}</h4><p>${e(m.texte)}</p><ul class="methode-refs">${m.references.map((x) => `<li>${lienFinal(x)}</li>`).join("")}</ul></div><div class="methode-figures">${m.illustrations.map((il) => `<figure>${il.schema ? schemaDiscours(il.schema, il.legende) : `<a href="${e(il.page)}" target="_blank" rel="noopener"><img src="${e(il.src)}" alt="${e(il.legende)}" loading="lazy" referrerpolicy="no-referrer"></a>`}<figcaption>${e(il.legende)} <span class="source">${e(il.credit)}</span></figcaption></figure>`).join("")}</div></article>`).join("")}</div>
 <h3 class="titre-bloc">${e(a.axes.titre)}</h3>
 <ul class="puces">${a.axes.principaux.map((t) => `<li><b>${e(t)}</b></li>`).join("")}</ul>
 <p class="petit-titre">${e(a.axes.secondairesTitre)}</p>
@@ -454,7 +458,7 @@ function sectionImplantation(c) {
   const lienDoi = (s) => e(s).replace(/(https?:\/\/\S+)$/, (u) => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`);
   const suggestion = ([titre, source, href, apport]) =>
     `<li>${lien(href, `<span><strong>${e(titre)}</strong><small>${e(source)}</small><small class="apport">${e(apport)}</small></span>${fleche}`)}</li>`;
-  return `<div class="section-corps">
+  return `<div class="section-corps pleine">
 <div class="colonne-texte">
 <p class="surtitre">${e(m.surtitre)}</p>
 <h2>${e(m.titre)}</h2>
@@ -482,7 +486,7 @@ ${cartes(m.cadres)}
 
 function sectionBiographie(c) {
   const b = c.biographie;
-  return `<div class="section-corps">
+  return `<div class="section-corps pleine">
 <div class="colonne-texte">
 <p class="surtitre">${e(b.surtitre)}</p>
 <h2>${e(b.titre)}</h2>
@@ -497,8 +501,8 @@ function sectionBiographie(c) {
 </div>`;
 }
 
-const PHOTOS_ENGAGEMENTS = ["representation", "communaute", "distinctions", "citoyen", null];
-const PHOTOS_LOISIRS = ["course", "musique", "hockey"];
+const PHOTOS_ENGAGEMENTS = ["representation", null, "distinctions", null, null];
+const PHOTOS_LOISIRS = ["course", "musique", null];
 const photo = (c, nom, alt = "") => `<img class="photo-groupe" src="${c.chemin}assets/photos/${nom}.jpg?v=${empreinte("assets/photos/" + nom + ".jpg")}" alt="${e(alt)}" width="800" height="457" loading="lazy">`;
 
 function sectionEngagements(c) {
@@ -507,10 +511,10 @@ function sectionEngagements(c) {
     .map((g, k) => {
       const tete = `<h3 class="titre-bloc titre-icone">${e(g.titre)}<span class="compte">${g.items.length}</span></h3>`;
       if (k === s.groupes.length - 1)
-        return `${tete}<div class="loisirs">${g.items
-          .map((it, i) => `<figure class="loisir">${photo(c, PHOTOS_LOISIRS[i] || "course", it.titre)}<figcaption><span>${e(it.date)}</span><strong>${e(it.titre)}</strong>${it.detail ? `<small>${e(it.detail)}</small>` : ""}</figcaption></figure>`)
-          .join("")}</div>`;
-      return `<div class="groupe-photo">${PHOTOS_ENGAGEMENTS[k] ? photo(c, PHOTOS_ENGAGEMENTS[k]) : ""}<div>${tete}${liste(g.items)}</div></div>`;
+        return `<div class="groupe-large">${tete}<div class="loisirs">${g.items
+          .map((it, i) => `<figure class="loisir${PHOTOS_LOISIRS[i] ? "" : " sans-photo"}">${PHOTOS_LOISIRS[i] ? photo(c, PHOTOS_LOISIRS[i], it.titre) : ""}<figcaption><span>${e(it.date)}</span><strong>${e(it.titre)}</strong>${it.detail ? `<small>${e(it.detail)}</small>` : ""}</figcaption></figure>`)
+          .join("")}</div></div>`;
+      return `<article class="groupe-carte">${PHOTOS_ENGAGEMENTS[k] ? photo(c, PHOTOS_ENGAGEMENTS[k]) : ""}<div class="groupe-corps">${tete}${liste(g.items)}</div></article>`;
     })
     .join("");
   return `<div class="section-corps pleine">
@@ -520,7 +524,7 @@ function sectionEngagements(c) {
 <p class="intro">${e(s.intro)}</p>
 <h3 class="titre-bloc">${e(s.affiliations.titre)}</h3>${etiquettes(s.affiliations.items, "etiquettes grandes")}
 </div>
-<div class="colonne-outils">${groupes}</div>
+<div class="colonne-outils"><div class="groupes-grille">${groupes}</div></div>
 </div>`;
 }
 
@@ -532,7 +536,7 @@ function sectionGroupes(c, s, extra = "", icones = []) {
 <p class="intro">${e(s.intro)}</p>
 ${extra}
 </div>
-<div class="colonne-outils">${s.groupes.map((g, k) => `<h3 class="titre-bloc titre-icone">${e(g.titre)}<span class="compte">${g.items.length}</span></h3>${liste(g.items)}`).join("")}</div>
+<div class="colonne-outils"><div class="groupes-grille">${s.groupes.map((g) => `<article class="groupe-carte"><div class="groupe-corps"><h3 class="titre-bloc titre-icone">${e(g.titre)}<span class="compte">${g.items.length}</span></h3>${liste(g.items)}</div></article>`).join("")}</div></div>
 </div>`;
 }
 
@@ -567,7 +571,7 @@ function sectionConceptualisation(c) {
     .join("");
   const lectures = (arr) =>
     `<ol class="lectures">${arr.map((x) => `<li><span class="lecture-auteurs">${e(x.auteurs)} (${e(x.annee)})</span> ${x.lien ? lien(x.lien, e(x.titre)) : e(x.titre)} <span class="type">${e(x.type)}</span></li>`).join("")}</ol>`;
-  return `<div class="section-corps">
+  return `<div class="section-corps pleine">
 <div class="colonne-texte">
 <p class="surtitre">${e(t.surtitre)}</p>
 <h2>${e(t.titre)}</h2>
@@ -634,7 +638,7 @@ function sectionMedias(c) {
 
 function sectionParcours(c) {
   const p = c.parcours;
-  return `<div class="section-corps">
+  return `<div class="section-corps pleine">
 <div class="colonne-texte">
 <p class="surtitre">${e(p.surtitre)}</p>
 <h2>${e(p.titre)}</h2>
@@ -682,7 +686,7 @@ function menuAcces(c, ici) {
 <button type="button" data-ecouter>${icone("casque")}<span>${e(u.ecouterPage)}</span></button>
 <button type="button" data-arreter hidden><span>${e(u.arreter)}</span></button>
 <p class="note-voix" data-sans-voix hidden>${e(u.sansVoix)}</p>
-${ici === "falc" ? `<span aria-current="page" lang="fr">${drapeau("falc")}<span>${e(u.falc)}</span></span>` : `<a href="${c.chemin}falc/" lang="fr">${drapeau("falc")}<span>${e(u.falc)}</span></a>`}
+${ici === "falc" ? `<span aria-current="page" lang="fr"><img class="logo-falc" src="${c.chemin}assets/logo-falc-mini.jpg" alt="" width="22" height="22"><span>${e(u.falc)}</span></span>` : `<a href="${c.chemin}falc/" lang="fr"><img class="logo-falc" src="${c.chemin}assets/logo-falc-mini.jpg" alt="" width="22" height="22"><span>${e(u.falc)}</span></a>`}
 </div></details>`;
 }
 
@@ -751,6 +755,7 @@ ${LANGUES.filter((l) => l.hreflang).map((l) => `<link rel="alternate" hreflang="
 <a class="evitement" href="#contenu">${e(c.ui.evitement)}</a>
 <header class="entete">
 <a class="marque" href="${p || "./"}"><img class="marque-portrait" src="${p}assets/portrait-mini.jpg?v=${empreinte("assets/portrait-mini.jpg")}" alt="" width="44" height="44"><span><strong>Éric Bernier</strong><small>${e(c.ui.sousTitre)}</small></span></a>
+<p class="coordonnees coordonnees-haut"><a href="mailto:${e(c.contact.courriel)}">${e(c.contact.courriel)}</a><a href="tel:${TELEPHONE[1]}">${TELEPHONE[0]}</a></p>
 <nav class="nav" aria-label="${e(c.ui.navigation)}">${[...SALLES, "contact"].map((id) => c.nav.find((x) => x[0] === id)).filter(Boolean).map(([id, t]) => `<a href="#${id}">${e(t)}</a>`).join("")}</nav>
 <div class="outils">
 ${menuLangues(c, c.lang)}
@@ -768,7 +773,6 @@ ${menuAcces(c, c.lang)}
 </div>
 <div class="chapeau"><h2>${e(c.accueil.chapeau.titre)}</h2>${c.accueil.chapeau.paragraphes.map((x) => `<p>${riche(x)}</p>`).join("")}</div>
 <p class="encadrement">${e(c.accueil.encadrement)}</p>
-<p class="coordonnees"><a href="mailto:${e(c.contact.courriel)}">${e(c.contact.courriel)}</a><a href="tel:${TELEPHONE[1]}">${TELEPHONE[0]}</a></p>
 <div class="actions"><button class="primaire" type="button" id="visite">${e(c.accueil.visite)} <span aria-hidden="true">→</span></button><a class="lien" href="#recherche">${e(c.accueil.explorer)}</a></div>
 </div>
 <div class="hall" role="group" aria-label="${e(c.hall.titre)}">
@@ -789,7 +793,7 @@ ${sections[s].replace(/<p class="surtitre">(\d{2} · )?/, `<p class="surtitre">$
 ).join("\n")}
 
 <section class="section contact" id="contact">
-<div class="section-corps">
+<div class="section-corps pleine">
 <div class="colonne-texte">
 <p class="surtitre">${e(c.contact.surtitre)}</p>
 <h2>${e(c.contact.titre)}</h2>
@@ -875,8 +879,10 @@ ${ecouter("bloc-" + (i + 1), a.ecouter)}
 <main id="contenu" class="abrege falc">
 <p class="surtitre">${e(a.surtitre)}</p>
 <h1>${e(a.h1)}</h1>
+<p class="logo-falc-bloc"><img src="../assets/logo-falc.jpg" width="80" height="79" alt="Logo européen Facile à lire"></p>
 <p class="actions-ecoute">${ecouter("contenu", a.ecouterTout)}<button type="button" class="bouton-ecouter" data-arreter hidden>${e(fr.ui.arreter)}</button></p>
 ${a.blocs.map(bloc).join("\n")}
+<p class="credit-falc">© European Easy-to-Read Logo: Inclusion Europe. Plus d’informations : <a href="https://www.easy-to-read.eu" target="_blank" rel="noopener">www.easy-to-read.eu</a></p>
 </main>
 ${piedAbrege()}`;
 }

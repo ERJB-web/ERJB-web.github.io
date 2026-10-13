@@ -571,8 +571,8 @@
           ]
         },
         {
-          "titre": "在 Positron 中使用 R 进行可重复编程",
-          "texte": "可重复编程是指将分析的每一步，从数据导入到图表生成，都写入可重新运行、可核查的脚本之中。我在 Posit 推出的集成开发环境 Positron 中使用 R 开展工作。tidyverse 用于数据的整理与格式化；igraph 和 statnet 用于构建网络、计算中心性、密度和凝聚性等指标，并对联系的形成进行建模；sf 用于处理矢量空间数据，并将其与机构属性进行连接。这一流程在同一个有完整记录的项目中整合网络数据、地域数据和图表，便于核查分析结果，也便于其他团队复用。",
+          "titre": "可重复编程：在 Positron 中使用 R 与 Python，以及命令行（shell）",
+          "texte": "可重复编程是指在可重新运行、可核查的脚本中完成分析的每一步，从导入数据到生成图表。我在 Posit 的开发环境 Positron 中使用 R 与 Python 编程，并在命令行（shell）中串联各项处理步骤。在 R 中，tidyverse 用于组织数据准备；igraph 与 statnet 用于构建网络并计算中心性、密度与凝聚性；sf 用于处理空间数据。Python 则在数据准备与自动化方面补充这一流程。整个流程在同一个有文档记录的项目中连接网络数据、地域数据与图表。",
           "references": [
             "Handcock, M. S., Hunter, D. R., Butts, C. T., Goodreau, S. M., & Morris, M. (2008). statnet: Software tools for the representation, visualization, analysis and simulation of network data. Journal of Statistical Software, 24(1), 1–11. https://doi.org/10.18637/jss.v024.i01",
             "Pebesma, E. (2018). Simple features for R: Standardized support for spatial vector data. The R Journal, 10(1), 439–446. https://doi.org/10.32614/RJ-2018-009",
@@ -613,6 +613,27 @@
               "page": "https://doi.org/10.3390/ijerph18168372",
               "legende": "访谈中手绘后数字化的网络图，出自对一个跨部门健康促进网络的定性分析。",
               "credit": "图1，引自 Fleuren、Thiel 和 Frahsa（2021），International Journal of Environmental Research and Public Health，CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "批判性话语分析",
+          "texte": "我对魁北克医生在第2号法案辩论期间的批判性话语进行了定性分析。目的性语料库包括42份新闻报道与新闻稿（Eureka 数据库，2025年5月至12月），按时间顺序编码，直至编码结构趋于稳定。分析结合了 Fairclough 的三维模型（文本、生产与传播实践、社会政治语境）、框架理论以及叙事角色的分配：受害者、责任者与保护者。每一条引文都可追溯至其来源，分析区分了文本本身所说的内容与其社会学解读。",
+          "references": [
+            "Entman, R. M. (1993). Framing: Toward clarification of a fractured paradigm. Journal of Communication, 43(4), 51–58. https://doi.org/10.1111/j.1460-2466.1993.tb01304.x",
+            "Fairclough, N. (1995). Critical discourse analysis: The critical study of language. Longman.",
+            "Hennink, M. M., Kaiser, B. N., & Marconi, V. C. (2017). Code saturation versus meaning saturation: How many interviews are enough? Qualitative Health Research, 27(4), 591–608. https://doi.org/10.1177/1049732316665344",
+            "Shanahan, E. A., Jones, M. D., & McBeth, M. K. (2018). How to conduct a Narrative Policy Framework study. The Social Science Journal, 55(3), 332–345. https://doi.org/10.1016/j.soscij.2017.12.002"
+          ],
+          "illustrations": [
+            {
+              "schema": [
+                "社会实践：社会政治语境",
+                "话语实践：生产与传播",
+                "文本"
+              ],
+              "legende": "批判性话语分析的三维模型",
+              "credit": "示意图，依据 Fairclough（1995）"
             }
           ]
         }

@@ -503,8 +503,8 @@ const fr = {
           ]
         },
         {
-          "titre": "Programmation reproductible avec R dans Positron",
-          "texte": "La programmation reproductible consiste à conduire chaque étape d’une analyse, de l’importation des données aux figures, dans des scripts qui peuvent être réexécutés et vérifiés. Je travaille en R dans Positron, l’environnement de développement de Posit. Le tidyverse structure la préparation et la mise en forme des données ; igraph et statnet servent à construire les réseaux, à calculer les mesures de centralité, de densité et de cohésion, et à modéliser la formation des liens ; sf gère les données spatiales vectorielles et leur jointure avec les attributs des organisations. Cette chaîne relie, dans un même projet documenté, les données de réseau, les données territoriales et les figures, ce qui facilite la vérification des analyses et leur reprise par d’autres équipes.",
+          "titre": "Programmation reproductible : R et Python dans Positron, et le shell",
+          "texte": "La programmation reproductible consiste à conduire chaque étape d’une analyse, de l’importation des données aux figures, dans des scripts qui peuvent être réexécutés et vérifiés. Je code en R et en Python dans Positron, l’environnement de développement de Posit, et j’enchaîne les traitements en ligne de commande dans le shell. En R, le tidyverse structure la préparation des données ; igraph et statnet servent à construire les réseaux et à calculer centralité, densité et cohésion ; sf gère les données spatiales. Python complète cette chaîne pour la préparation et l’automatisation des données. Le tout relie, dans un même projet documenté, les données de réseau, les données territoriales et les figures.",
           "references": [
             "Handcock, M. S., Hunter, D. R., Butts, C. T., Goodreau, S. M., & Morris, M. (2008). statnet: Software tools for the representation, visualization, analysis and simulation of network data. Journal of Statistical Software, 24(1), 1–11. https://doi.org/10.18637/jss.v024.i01",
             "Pebesma, E. (2018). Simple features for R: Standardized support for spatial vector data. The R Journal, 10(1), 439–446. https://doi.org/10.32614/RJ-2018-009",
@@ -545,6 +545,27 @@ const fr = {
               "page": "https://doi.org/10.3390/ijerph18168372",
               "legende": "Carte de réseau dessinée en entretien puis numérisée, dans une analyse qualitative d’un réseau intersectoriel de promotion de la santé.",
               "credit": "Figure 1 de Fleuren, Thiel et Frahsa (2021), International Journal of Environmental Research and Public Health, CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "Analyse critique du discours",
+          "texte": "J’ai mené une analyse qualitative du discours critique des médecins québécois lors des débats entourant le projet de loi n° 2. Le corpus raisonné compte 42 documents de presse et communiqués (base Eureka, mai à décembre 2025), codés chronologiquement jusqu’à la stabilité de l’architecture des codes. L’analyse articule le modèle tridimensionnel de Fairclough (le texte, les pratiques de production et de circulation, le contexte sociopolitique), la théorie du cadrage et l’attribution des rôles narratifs : victimes, responsables, protecteurs. Chaque citation est tracée jusqu’à sa source, et l’analyse distingue ce que disent les textes de leur interprétation sociologique.",
+          "references": [
+            "Entman, R. M. (1993). Framing: Toward clarification of a fractured paradigm. Journal of Communication, 43(4), 51–58. https://doi.org/10.1111/j.1460-2466.1993.tb01304.x",
+            "Fairclough, N. (1995). Critical discourse analysis: The critical study of language. Longman.",
+            "Hennink, M. M., Kaiser, B. N., & Marconi, V. C. (2017). Code saturation versus meaning saturation: How many interviews are enough? Qualitative Health Research, 27(4), 591–608. https://doi.org/10.1177/1049732316665344",
+            "Shanahan, E. A., Jones, M. D., & McBeth, M. K. (2018). How to conduct a Narrative Policy Framework study. The Social Science Journal, 55(3), 332–345. https://doi.org/10.1016/j.soscij.2017.12.002"
+          ],
+          "illustrations": [
+            {
+              "schema": [
+                "Pratique sociale : contexte sociopolitique",
+                "Pratique discursive : production et circulation",
+                "Texte"
+              ],
+              "legende": "Modèle tridimensionnel de l’analyse critique du discours",
+              "credit": "Schéma d’après Fairclough (1995)"
             }
           ]
         }
@@ -2035,8 +2056,8 @@ const en = {
           ]
         },
         {
-          "titre": "Reproducible programming with R in Positron",
-          "texte": "Reproducible programming means carrying out every step of an analysis, from data import to figures, in scripts that can be rerun and checked. I work in R within Positron, the integrated development environment from Posit. The tidyverse structures data preparation and formatting; igraph and statnet are used to build networks, compute centrality, density and cohesion measures, and model tie formation; sf handles vector spatial data and their joins with organizational attributes. This workflow brings together network data, territorial data and figures within a single documented project, which makes the analyses easier to verify and for other teams to reuse.",
+          "titre": "Reproducible programming: R and Python in Positron, and the shell",
+          "texte": "Reproducible programming means carrying out every step of an analysis, from importing data to producing figures, in scripts that can be rerun and checked. I code in R and Python in Positron, Posit’s development environment, and chain processing steps on the command line in the shell. In R, the tidyverse structures data preparation; igraph and statnet build networks and compute centrality, density and cohesion; sf handles spatial data. Python complements this pipeline for data preparation and automation. Everything links network data, territorial data and figures within a single documented project.",
           "references": [
             "Handcock, M. S., Hunter, D. R., Butts, C. T., Goodreau, S. M., & Morris, M. (2008). statnet: Software tools for the representation, visualization, analysis and simulation of network data. Journal of Statistical Software, 24(1), 1–11. https://doi.org/10.18637/jss.v024.i01",
             "Pebesma, E. (2018). Simple features for R: Standardized support for spatial vector data. The R Journal, 10(1), 439–446. https://doi.org/10.32614/RJ-2018-009",
@@ -2077,6 +2098,27 @@ const en = {
               "page": "https://doi.org/10.3390/ijerph18168372",
               "legende": "Network map drawn during an interview and then digitized, in a qualitative analysis of an intersectoral health promotion network.",
               "credit": "Figure 1 from Fleuren, Thiel, and Frahsa (2021), International Journal of Environmental Research and Public Health, CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "Critical discourse analysis",
+          "texte": "I conducted a qualitative analysis of Quebec physicians’ critical discourse during the debates on Bill 2. The purposive corpus comprises 42 press documents and press releases (Eureka database, May to December 2025), coded chronologically until the code structure stabilised. The analysis combines Fairclough’s three-dimensional model (the text, practices of production and circulation, the sociopolitical context), framing theory and the attribution of narrative roles: victims, villains and heroes. Every quotation is traced back to its source, and the analysis separates what the texts say from their sociological interpretation.",
+          "references": [
+            "Entman, R. M. (1993). Framing: Toward clarification of a fractured paradigm. Journal of Communication, 43(4), 51–58. https://doi.org/10.1111/j.1460-2466.1993.tb01304.x",
+            "Fairclough, N. (1995). Critical discourse analysis: The critical study of language. Longman.",
+            "Hennink, M. M., Kaiser, B. N., & Marconi, V. C. (2017). Code saturation versus meaning saturation: How many interviews are enough? Qualitative Health Research, 27(4), 591–608. https://doi.org/10.1177/1049732316665344",
+            "Shanahan, E. A., Jones, M. D., & McBeth, M. K. (2018). How to conduct a Narrative Policy Framework study. The Social Science Journal, 55(3), 332–345. https://doi.org/10.1016/j.soscij.2017.12.002"
+          ],
+          "illustrations": [
+            {
+              "schema": [
+                "Social practice: sociopolitical context",
+                "Discursive practice: production and circulation",
+                "Text"
+              ],
+              "legende": "Three-dimensional model of critical discourse analysis",
+              "credit": "Diagram after Fairclough (1995)"
             }
           ]
         }
@@ -3567,8 +3609,8 @@ const es = {
           ]
         },
         {
-          "titre": "Programación reproducible con R en Positron",
-          "texte": "La programación reproducible consiste en realizar cada etapa de un análisis, desde la importación de los datos hasta las figuras, en scripts que pueden volver a ejecutarse y verificarse. Trabajo en R dentro de Positron, el entorno de desarrollo de Posit. El tidyverse estructura la preparación y el formateo de los datos; igraph y statnet sirven para construir las redes, calcular medidas de centralidad, densidad y cohesión, y modelizar la formación de vínculos; sf gestiona los datos espaciales vectoriales y su unión con los atributos de las organizaciones. Esta cadena reúne, en un mismo proyecto documentado, los datos de red, los datos territoriales y las figuras, lo que facilita la verificación de los análisis y su reutilización por otros equipos.",
+          "titre": "Programación reproducible: R y Python en Positron, y el shell",
+          "texte": "La programación reproducible consiste en llevar a cabo cada etapa de un análisis, desde la importación de los datos hasta las figuras, en scripts que pueden volver a ejecutarse y verificarse. Programo en R y en Python en Positron, el entorno de desarrollo de Posit, y encadeno los procesos en línea de comandos en el shell. En R, el tidyverse estructura la preparación de los datos; igraph y statnet sirven para construir las redes y calcular centralidad, densidad y cohesión; sf gestiona los datos espaciales. Python completa esta cadena para la preparación y la automatización de los datos. Todo enlaza, en un mismo proyecto documentado, los datos de red, los datos territoriales y las figuras.",
           "references": [
             "Handcock, M. S., Hunter, D. R., Butts, C. T., Goodreau, S. M., & Morris, M. (2008). statnet: Software tools for the representation, visualization, analysis and simulation of network data. Journal of Statistical Software, 24(1), 1–11. https://doi.org/10.18637/jss.v024.i01",
             "Pebesma, E. (2018). Simple features for R: Standardized support for spatial vector data. The R Journal, 10(1), 439–446. https://doi.org/10.32614/RJ-2018-009",
@@ -3609,6 +3651,27 @@ const es = {
               "page": "https://doi.org/10.3390/ijerph18168372",
               "legende": "Mapa de red dibujado durante una entrevista y luego digitalizado, en un análisis cualitativo de una red intersectorial de promoción de la salud.",
               "credit": "Figura 1 de Fleuren, Thiel y Frahsa (2021), International Journal of Environmental Research and Public Health, CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "Análisis crítico del discurso",
+          "texte": "Realicé un análisis cualitativo del discurso crítico de los médicos quebequenses durante los debates sobre el proyecto de ley n.º 2. El corpus intencional reúne 42 documentos de prensa y comunicados (base Eureka, de mayo a diciembre de 2025), codificados cronológicamente hasta la estabilidad de la arquitectura de códigos. El análisis articula el modelo tridimensional de Fairclough (el texto, las prácticas de producción y circulación, el contexto sociopolítico), la teoría del encuadre y la atribución de roles narrativos: víctimas, responsables y protectores. Cada cita se rastrea hasta su fuente, y el análisis distingue lo que dicen los textos de su interpretación sociológica.",
+          "references": [
+            "Entman, R. M. (1993). Framing: Toward clarification of a fractured paradigm. Journal of Communication, 43(4), 51–58. https://doi.org/10.1111/j.1460-2466.1993.tb01304.x",
+            "Fairclough, N. (1995). Critical discourse analysis: The critical study of language. Longman.",
+            "Hennink, M. M., Kaiser, B. N., & Marconi, V. C. (2017). Code saturation versus meaning saturation: How many interviews are enough? Qualitative Health Research, 27(4), 591–608. https://doi.org/10.1177/1049732316665344",
+            "Shanahan, E. A., Jones, M. D., & McBeth, M. K. (2018). How to conduct a Narrative Policy Framework study. The Social Science Journal, 55(3), 332–345. https://doi.org/10.1016/j.soscij.2017.12.002"
+          ],
+          "illustrations": [
+            {
+              "schema": [
+                "Práctica social: contexto sociopolítico",
+                "Práctica discursiva: producción y circulación",
+                "Texto"
+              ],
+              "legende": "Modelo tridimensional del análisis crítico del discurso",
+              "credit": "Esquema según Fairclough (1995)"
             }
           ]
         }

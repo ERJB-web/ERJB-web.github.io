@@ -832,3 +832,62 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 .methode-figures .source{display:block;color:var(--muted);font-style:italic;margin-top:2px}
 @media (max-width:980px){.methode{grid-template-columns:1fr}}
 @media (max-width:520px){.methode-figures{grid-template-columns:1fr}.methode-figures img{height:200px}}
+.logo-falc{width:22px;height:22px;border-radius:4px;flex:none}
+.logo-falc-bloc{margin:0 0 18px}
+.logo-falc-bloc img{width:80px;height:auto;border-radius:10px}
+.credit-falc{margin-top:28px;font-size:14px;color:var(--muted)}
+
+/* Approche en pleine largeur : figures et cartes prennent l'espace */
+.section-corps.pleine.large .colonne-texte{max-width:none}
+.section-corps.pleine.large .colonne-outils{columns:auto}
+.section-corps.pleine.large .expertises{grid-template-columns:repeat(3,minmax(0,1fr))}
+.section-corps.pleine.large .methode{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}
+.section-corps.pleine.large .methode-figures img{height:260px}
+.section-corps.pleine.large .piliers{grid-template-columns:repeat(3,minmax(0,1fr))}
+.schema-discours{width:100%;height:auto;display:block;background:#fff;border:1px solid var(--line);border-radius:10px}
+.schema-discours .niveau-1{fill:#e8eef8;stroke:#344c9a;stroke-width:2}
+.schema-discours .niveau-2{fill:#d3e6df;stroke:#286d5c;stroke-width:2}
+.schema-discours .niveau-3{fill:#173f52}
+.schema-discours text{font:600 14px var(--sans);fill:var(--ink)}
+.schema-discours text.centre{fill:#fff;font-size:18px}
+@media (max-width:980px){.section-corps.pleine.large .expertises,.section-corps.pleine.large .piliers{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.section-corps.pleine.large .expertises,.section-corps.pleine.large .piliers{grid-template-columns:1fr}}
+
+/* Mise en page harmonieuse : en-tête en pleine largeur, contenus en grilles alignées */
+.section-corps.pleine{grid-template-columns:1fr;gap:28px;max-width:1240px}
+.section-corps.pleine .colonne-texte,.section-corps.pleine .colonne-outils{columns:auto;max-width:none}
+.section-corps.pleine .colonne-texte>h2,.section-corps.pleine .colonne-texte>.intro,.section-corps.pleine .colonne-texte>p:not(.surtitre):not(.badge-these){max-width:880px}
+.section-corps.pleine .faits{grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
+.section-corps.pleine .colonne-texte>.liens-contact{grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
+.section-corps.pleine .carte-affiche{max-width:640px}
+.section-corps.pleine .notions{grid-template-columns:repeat(3,minmax(0,1fr))}
+.section-corps.pleine .cadres{grid-template-columns:repeat(3,minmax(0,1fr))}
+.section-corps.pleine .codirection{grid-template-columns:repeat(2,minmax(0,1fr))}
+.section-corps.pleine .lacunes{grid-template-columns:repeat(3,minmax(0,1fr))}
+.section-corps.pleine .frise{grid-template-columns:repeat(2,minmax(0,1fr))}
+.section-corps.pleine .cycle-bloc{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:32px;align-items:center}
+.section-corps.pleine .cycle-bloc .cycle{margin:0}
+.section-corps.pleine .comparaison{grid-template-columns:repeat(2,minmax(0,1fr))}
+.groupes-grille{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:start}
+.groupe-carte{border-radius:18px;background:var(--white);border:1px solid var(--line);overflow:hidden;box-shadow:0 8px 26px rgba(15,49,66,.06)}
+.groupe-carte>.photo-groupe{width:100%;aspect-ratio:16/7;object-fit:cover;border-radius:0;box-shadow:none;display:block}
+.groupe-corps{padding:18px 22px 20px}
+.groupe-corps .titre-bloc{margin:0 0 12px}
+.groupe-carte .liste{gap:0}
+.groupe-carte .liste li{grid-template-columns:1fr;gap:2px;padding:10px 0;background:none;border:0;border-radius:0}
+.groupe-carte .liste li+li{border-top:0}
+.groupe-carte .liste li:hover{box-shadow:none}
+.groupe-carte .liste .date{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.groupe-carte .liste h4{font-size:15px;margin:0}
+.groupe-carte .liste p{font-size:13.5px;color:var(--muted)}
+.groupe-large{grid-column:1 / -1}
+.groupe-large .loisirs{margin-top:4px}
+@media (max-width:980px){.section-corps.pleine :is(.notions,.cadres,.lacunes,.frise,.comparaison){grid-template-columns:repeat(2,minmax(0,1fr))}.section-corps.pleine .cycle-bloc{grid-template-columns:1fr}}
+@media (max-width:760px){.groupes-grille,.section-corps.pleine :is(.notions,.cadres,.lacunes,.frise,.comparaison,.codirection){grid-template-columns:1fr}}
+
+/* Coordonnées centrées dans la bande du haut ; carte de loisir sans photo */
+.coordonnees-haut{flex:1 1 auto;justify-content:center;margin:0;gap:10px}
+.coordonnees-haut a{padding:6px 14px;font-size:14px}
+.loisir.sans-photo{display:flex;align-items:flex-end;min-height:100%;background:linear-gradient(135deg,var(--accent-pale),var(--white))}
+.faits .doi{display:inline-block;margin-inline-start:6px;font-size:12.5px;font-weight:700;color:var(--accent-fonce)}
+@media (max-width:760px){.coordonnees-haut{order:5;flex-basis:100%}}
