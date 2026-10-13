@@ -1081,3 +1081,4 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 .mono-grand{font-family:"Snell Roundhand","Apple Chancery","Edwardian Script ITC","Palace Script MT","Segoe Script","Brush Script MT",Georgia,serif;font-size:25px;font-weight:400;line-height:48px;color:#f4e3b0}
 .mono-petit{font-family:var(--serif);font-style:italic;font-size:11px;line-height:48px;margin:0 1px;color:#f4ecd8;opacity:.85}
 .plaque-laiton{height:3.4%;padding:0}
+.plaque-laiton{display:none}
