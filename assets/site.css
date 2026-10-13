@@ -1144,3 +1144,11 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 @media (max-width:1100px){.grille-vitrine{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:700px){.grille-vitrine{grid-template-columns:1fr}}
 .salle-onglets{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+/* Monogramme : r et j en diagonale autour d'une barre dorée */
+.marque-mono{align-items:center;gap:1px}
+.mono-grand{line-height:1}
+.mono-frac{position:relative;display:inline-block;width:15px;height:26px;margin:0 1px}
+.mono-r,.mono-j{position:absolute;font:italic 400 12px/1 "Palatino Linotype","Palatino","Book Antiqua",Georgia,serif;color:#efe6cf}
+.mono-r{top:1px;left:0}
+.mono-j{bottom:1px;right:0}
+.mono-barre{position:absolute;left:50%;top:50%;width:1.3px;height:24px;border-radius:1px;background:#e3c983;transform:translate(-50%,-50%) rotate(32deg)}
