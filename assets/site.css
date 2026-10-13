@@ -818,3 +818,17 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 .loisir figcaption small{display:block;color:var(--muted);font-size:13px;margin-top:4px;line-height:1.4}
 @media (max-width:860px){.groupe-photo{grid-template-columns:1fr}.groupe-photo>.photo-groupe{aspect-ratio:16/9}.loisirs{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.loisirs{grid-template-columns:1fr}}
+/* Expertises méthodologiques illustrées */
+.methodes{display:grid;gap:18px}
+.methode{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:20px;padding:20px;border-radius:18px;background:var(--white);border:1px solid var(--line);border-inline-start:6px solid var(--accent)}
+.methode:nth-child(2){border-inline-start-color:#286d5c}.methode:nth-child(3){border-inline-start-color:#c08a2e}.methode:nth-child(4){border-inline-start-color:#8c4d58}
+.methode h4{margin:0 0 8px;color:var(--ink);font:400 21px/1.25 var(--serif)}
+.methode p{margin:0 0 10px;font-size:14.5px;text-align:start}
+.methode-refs{margin:0;padding-inline-start:18px;font-size:12.5px;color:var(--muted);display:grid;gap:4px}
+.methode-figures{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-content:start}
+.methode-figures figure{margin:0}
+.methode-figures img{width:100%;height:150px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:10px;padding:6px}
+.methode-figures figcaption{margin-top:6px;font-size:12px;line-height:1.4;color:var(--body)}
+.methode-figures .source{display:block;color:var(--muted);font-style:italic;margin-top:2px}
+@media (max-width:980px){.methode{grid-template-columns:1fr}}
+@media (max-width:520px){.methode-figures{grid-template-columns:1fr}.methode-figures img{height:200px}}
