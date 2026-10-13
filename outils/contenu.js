@@ -90,7 +90,7 @@ const fr = {
     surtitre: "Doctorant en santé publique · ESPUM · CRCHUM",
     roles: "Éducateur spécialisé · Juriste · Entrepreneur · Doctorant en santé publique",
     chapeau: {
-      "titre": "Ouvrir des portes, relier les mondes",
+      "titre": "Des personnes aux politiques : une lecture intégrée des systèmes de santé",
       "paragraphes": [
         "De l’accompagnement des personnes à la recherche en santé publique, mon parcours m’a conduit à explorer les différentes échelles du système de santé : des réalités individuelles aux organisations, jusqu’aux politiques publiques et à la gouvernance.",
         "Ces expériences, à la croisée du terrain, de la gestion, du droit et de la recherche, ont nourri une conviction : **transformer les systèmes de santé suppose de faire dialoguer les expériences humaines, les savoirs scientifiques, les dynamiques collectives et les choix politiques.**",
@@ -1249,7 +1249,7 @@ const en = {
     surtitre: "PhD student in public health · ESPUM · CRCHUM",
     roles: "Special needs educator · Jurist · Entrepreneur · PhD student in public health",
     chapeau: {
-      "titre": "Opening doors, connecting worlds",
+      "titre": "From people to policy: an integrated view of health systems",
       "paragraphes": [
         "From supporting people to public health research, my path has led me to explore the different scales of the health system: from individual realities to organisations, all the way to public policy and governance.",
         "These experiences, at the crossroads of practice, management, law and research, have shaped a conviction: **transforming health systems means bringing human experiences, scientific knowledge, collective dynamics and political choices into dialogue.**",
@@ -2408,7 +2408,7 @@ const es = {
     surtitre: "Doctorando en salud pública · ESPUM · CRCHUM",
     roles: "Educador especializado · Jurista · Emprendedor · Doctorando en salud pública",
     chapeau: {
-      "titre": "Abrir puertas, conectar mundos",
+      "titre": "De las personas a las políticas: una lectura integrada de los sistemas de salud",
       "paragraphes": [
         "Del acompañamiento de las personas a la investigación en salud pública, mi trayectoria me ha llevado a explorar las distintas escalas del sistema de salud: de las realidades individuales a las organizaciones, hasta las políticas públicas y la gobernanza.",
         "Estas experiencias, en la encrucijada del terreno, la gestión, el derecho y la investigación, han forjado una convicción: **transformar los sistemas de salud supone hacer dialogar las experiencias humanas, los saberes científicos, las dinámicas colectivas y las decisiones políticas.**",
