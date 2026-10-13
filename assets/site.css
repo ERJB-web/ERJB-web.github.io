@@ -998,3 +998,7 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 @media (max-width:760px){.lectures-liste{grid-template-columns:1fr}}
 .carte-notion .titre-bloc{font:400 22px/1.2 var(--serif);text-transform:none;letter-spacing:0;color:var(--ink);margin:0 0 10px}
 .carte-notion .groupe-corps>p.notion-refs-titre{font-size:11.5px;line-height:1.3}
+/* Étiquettes des sous-catégories allégées : fond clair, simple pastille de couleur */
+.sous-portes span{display:inline-flex;align-items:center;gap:6px;background:var(--white);color:var(--ink);border:1px solid var(--line);font-weight:500}
+.sous-portes span::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--c1)}
+.sous-portes span:hover{border-color:var(--c1);box-shadow:none}
