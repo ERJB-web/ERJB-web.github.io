@@ -39,7 +39,7 @@ const fr = {
   locale: "fr_CA",
   chemin: "",
   meta: {
-    titre: "Éric Bernier — Doctorant en santé publique, ESPUM",
+    titre: "Éric Bernier — Doctorant en santé publique, ESPUM et CRCHUM",
     description:
       "Éric Bernier, doctorant en santé publique (systèmes, organisations et politiques de santé) à l’ESPUM, juriste et éducateur spécialisé. Recherche sur la réponse intersectorielle aux besoins sociaux complexes en soins primaires.",
   },
@@ -66,7 +66,7 @@ const fr = {
     ["contact", "Contact"],
   ],
   accueil: {
-    surtitre: "Doctorant en santé publique · ESPUM",
+    surtitre: "Doctorant en santé publique · ESPUM · CRCHUM",
     roles: "Éducateur spécialisé · Juriste · Doctorant en santé publique",
     chapeau:
       "Une même attention aux personnes, à leurs droits et aux services qui les accompagnent. Mon parcours croise la pratique éducative, le droit public et la recherche en systèmes, organisations et politiques de santé.",
@@ -379,7 +379,7 @@ const en = {
   locale: "en_CA",
   chemin: "../",
   meta: {
-    titre: "Éric Bernier — PhD student in public health, ESPUM",
+    titre: "Éric Bernier — PhD student in public health, ESPUM and CRCHUM",
     description:
       "Éric Bernier, PhD student in public health (health systems, organisations and policy) at ESPUM, Université de Montréal, trained in law and special needs education. Research on intersectoral responses to complex social needs in primary care.",
   },
@@ -406,7 +406,7 @@ const en = {
     ["contact", "Contact"],
   ],
   accueil: {
-    surtitre: "PhD student in public health · ESPUM",
+    surtitre: "PhD student in public health · ESPUM · CRCHUM",
     roles: "Special needs educator · Jurist · PhD student in public health",
     chapeau:
       "The same attention to people, to their rights and to the services that support them. My path brings together educational practice, public law and research on health systems, organisations and policy.",
@@ -719,7 +719,7 @@ const es = {
   locale: "es_ES",
   chemin: "../",
   meta: {
-    titre: "Éric Bernier — Doctorando en salud pública, ESPUM",
+    titre: "Éric Bernier — Doctorando en salud pública, ESPUM y CRCHUM",
     description:
       "Éric Bernier, doctorando en salud pública (sistemas, organizaciones y políticas de salud) en la ESPUM, Université de Montréal, jurista y educador especializado. Investigación sobre la respuesta intersectorial a las necesidades sociales complejas en atención primaria.",
   },
@@ -746,7 +746,7 @@ const es = {
     ["contact", "Contacto"],
   ],
   accueil: {
-    surtitre: "Doctorando en salud pública · ESPUM",
+    surtitre: "Doctorando en salud pública · ESPUM · CRCHUM",
     roles: "Educador especializado · Jurista · Doctorando en salud pública",
     chapeau:
       "Una misma atención a las personas, a sus derechos y a los servicios que las acompañan. Mi trayectoria cruza la práctica educativa, el derecho público y la investigación en sistemas, organizaciones y políticas de salud.",
