@@ -1543,8 +1543,8 @@ const fr = {
         "titre": "Sports et loisirs",
         "items": [
           {
-            "date": "Course",
-            "titre": "Triple marathonien",
+            "date": "Sport",
+            "titre": "Pratique du marathon",
             "detail": "Marathons de Paris 2025 et 2026, marathon de Montréal 2026."
           },
           {
@@ -3104,8 +3104,8 @@ const en = {
         "titre": "Sports and leisure",
         "items": [
           {
-            "date": "Running",
-            "titre": "Three-time marathoner",
+            "date": "Sport",
+            "titre": "Marathon running",
             "detail": "Paris Marathon 2025 and 2026, Montréal Marathon 2026."
           },
           {
@@ -4665,8 +4665,8 @@ const es = {
         "titre": "Deportes y ocio",
         "items": [
           {
-            "date": "Carrera",
-            "titre": "Triple maratonista",
+            "date": "Deporte",
+            "titre": "Práctica del maratón",
             "detail": "Maratón de París 2025 y 2026, maratón de Montreal 2026."
           },
           {
