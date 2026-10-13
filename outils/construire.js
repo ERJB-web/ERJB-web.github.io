@@ -72,6 +72,13 @@ const ICONES = {
   papiers: '<path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v4h4M9 12h6M9 16h6"/>',
   musique: '<path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/>',
   bulles: '<path d="M4 5h11v8H8l-4 3Z"/><path d="M15 9h5v8l-3-2h-6v-2"/>',
+  chapeau: '<path d="M2 9.5 12 5l10 4.5-10 4.5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5M22 9.5V15"/>',
+  fusee: '<path d="M12 3c3 2 4.5 5.5 4.5 9.5L14 15h-4l-2.5-2.5C7.5 8.5 9 5 12 3Z"/><circle cx="12" cy="9" r="1.6"/><path d="M10 15l-1.5 4L12 17.5 15.5 19 14 15"/>',
+  etoile: '<path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.6l1-5.8L3.5 9.7l5.9-.9z"/>',
+  course: '<circle cx="14" cy="4.5" r="1.8"/><path d="M8 21l3-6 3 2.5V21M6 12l3-3.5 4 1 2.5 3.5 3 .5M11 15l-1-4"/>',
+  outils: '<path d="M4 20l7-7M13.5 4.5a4 4 0 0 1 5.6 5.6l-3 .5-1.6 1.6-3.2-3.2 1.6-1.6z"/>',
+  balance: '<path d="M12 4v16M7 20h10M5 7h14M5 7l-3 6a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z"/>',
+  reseau: '<circle cx="12" cy="12" r="2.5"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M6.5 6.5l3.7 3.7M17.5 6.5l-3.7 3.7M6.5 17.5l3.7-3.7M17.5 17.5l-3.7-3.7"/>',
 };
 const icone = (nom) =>
   `<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICONES[nom]}</svg>`;
@@ -151,6 +158,105 @@ function porte(c, nom, i) {
 </button>`;
 }
 
+// Schémas : réseau égocentré du CLSC, postures de recherche, cycle des cinq temps.
+const SCHEMAS = {
+  fr: {
+    reseauTitre: "Le réseau égocentré du CLSC",
+    reseauLegende: "Schéma illustratif : le CLSC au centre, les partenaires qu’il mobilise et les liens que ces partenaires déclarent entre eux.",
+    partenaires: ["GMF et cliniques", "Hôpital", "Organismes communautaires", "Municipalité", "Logement", "Sécurité alimentaire", "Emploi et revenu", "Milieu scolaire"],
+    posture: ["Lecture positiviste", "Mesurer, estimer, tester", "Lecture constructiviste", "Comprendre le sens donné aux pratiques", "Posture pragmatique", "La question décide de la méthode : des méthodes mixtes intégrées."],
+  },
+  en: {
+    reseauTitre: "The CLSC’s ego-centred network",
+    reseauLegende: "Illustrative diagram: the CLSC at the centre, the partners it mobilises and the links these partners report between themselves.",
+    partenaires: ["Family medicine groups", "Hospital", "Community organisations", "Municipality", "Housing", "Food security", "Employment and income", "Schools"],
+    posture: ["Positivist lens", "Measure, estimate, test", "Constructivist lens", "Understand the meaning given to practices", "Pragmatic stance", "The question decides the method: integrated mixed methods."],
+  },
+  es: {
+    reseauTitre: "La red egocentrada del CLSC",
+    reseauLegende: "Esquema ilustrativo: el CLSC en el centro, los socios que moviliza y los vínculos que estos socios declaran entre sí.",
+    partenaires: ["GMF y clínicas", "Hospital", "Organismos comunitarios", "Municipio", "Vivienda", "Seguridad alimentaria", "Empleo e ingresos", "Escuelas"],
+    posture: ["Lectura positivista", "Medir, estimar, probar", "Lectura constructivista", "Comprender el sentido dado a las prácticas", "Postura pragmática", "La pregunta decide el método: métodos mixtos integrados."],
+  },
+  zh: {
+    reseauTitre: "以 CLSC 为中心的自我中心网络",
+    reseauLegende: "示意图：CLSC 位于中心，周围是其动员的合作伙伴，以及这些伙伴之间相互申报的联系。",
+    partenaires: ["家庭医疗团队与诊所", "医院", "社区组织", "市政", "住房", "粮食安全", "就业与收入", "学校"],
+    posture: ["实证主义视角", "测量、估计、检验", "建构主义视角", "理解行动者赋予实践的意义", "实用主义立场", "由问题决定方法：整合的混合方法。"],
+  },
+  ar: {
+    reseauTitre: "الشبكة المتمركزة حول CLSC",
+    reseauLegende: "رسم توضيحي: يقع CLSC في المركز، ويحيط به الشركاء الذين يحشدهم، والروابط التي يصرّح بها هؤلاء الشركاء فيما بينهم.",
+    partenaires: ["مجموعات طب الأسرة والعيادات", "المستشفى", "المنظمات المجتمعية", "البلدية", "السكن", "الأمن الغذائي", "العمل والدخل", "المدارس"],
+    posture: ["المنظور الوضعي", "القياس والتقدير والاختبار", "المنظور البنائي", "فهم المعنى الذي يمنحه الفاعلون لممارساتهم", "الموقف البراغماتي", "السؤال هو الذي يحدّد المنهج: مناهج مختلطة متكاملة."],
+  },
+};
+
+function schemaReseau(c) {
+  const S = SCHEMAS[c.lang];
+  const n = S.partenaires.length;
+  const pts = S.partenaires.map((_, i) => {
+    const a = -Math.PI / 2 + (i * 2 * Math.PI) / n;
+    return [320 + 215 * Math.cos(a), 200 + 140 * Math.sin(a), Math.cos(a)];
+  });
+  const liens = [[0, 1], [2, 3], [4, 5], [2, 6], [3, 7], [0, 2]];
+  const ancre = (cx) => (Math.abs(cx) < 0.2 ? "middle" : cx > 0 ? "start" : "end");
+  return `<figure class="schema schema-reseau">
+<figcaption class="schema-titre">${e(S.reseauTitre)}</figcaption>
+<svg viewBox="0 0 640 400" role="img" aria-label="${e(S.reseauTitre)}">
+${liens.map(([a, b]) => `<line x1="${pts[a][0].toFixed(1)}" y1="${pts[a][1].toFixed(1)}" x2="${pts[b][0].toFixed(1)}" y2="${pts[b][1].toFixed(1)}" class="lien-partenaires"/>`).join("")}
+${pts.map(([x, y]) => `<line x1="320" y1="200" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" class="lien-centre"/>`).join("")}
+${pts
+  .map(([x, y, cx], i) => {
+    const dx = Math.abs(cx) < 0.2 ? 0 : cx > 0 ? 16 : -16;
+    const dy = Math.abs(cx) < 0.2 ? (y < 200 ? -18 : 28) : 5;
+    return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="11" class="noeud n${i % 4}"/><text x="${(x + dx).toFixed(1)}" y="${(y + dy).toFixed(1)}" text-anchor="${ancre(cx)}">${e(S.partenaires[i])}</text>`;
+  })
+  .join("")}
+<circle cx="320" cy="200" r="40" class="noeud-centre"/><text x="320" y="206" text-anchor="middle" class="texte-centre">CLSC</text>
+</svg>
+<p class="schema-legende">${e(S.reseauLegende)}</p>
+</figure>`;
+}
+
+function schemaPosture(c) {
+  const [g, gs, d, ds, centre, legende] = SCHEMAS[c.lang].posture;
+  return `<figure class="schema schema-posture">
+<svg viewBox="0 0 560 290" role="img" aria-label="${e(centre)}">
+<circle cx="205" cy="140" r="122" class="cercle-gauche"/><circle cx="355" cy="140" r="122" class="cercle-droit"/>
+<text x="150" y="128" text-anchor="middle" class="venn-titre">${e(g)}</text><text x="150" y="152" text-anchor="middle" class="venn-sous">${e(gs)}</text>
+<text x="410" y="128" text-anchor="middle" class="venn-titre">${e(d)}</text><text x="410" y="152" text-anchor="middle" class="venn-sous">${e(ds)}</text>
+<rect x="222" y="122" width="116" height="40" rx="20" class="venn-pastille"/><text x="280" y="147" text-anchor="middle" class="venn-centre">${e(centre)}</text>
+</svg>
+<p class="schema-legende">${e(legende)}</p>
+</figure>`;
+}
+
+function schemaCycle(tr) {
+  const n = tr.etapes.length;
+  const pos = tr.etapes.map((_, i) => {
+    const a = -Math.PI / 2 + (i * 2 * Math.PI) / n;
+    return [50 + 38 * Math.cos(a), 50 + 38 * Math.sin(a)];
+  });
+  const arcs = pos.map((_, i) => {
+    const a1 = -Math.PI / 2 + ((i + 0.22) * 2 * Math.PI) / n;
+    const a2 = -Math.PI / 2 + ((i + 0.78) * 2 * Math.PI) / n;
+    const p = (a) => `${(180 + 137 * Math.cos(a)).toFixed(1)} ${(180 + 137 * Math.sin(a)).toFixed(1)}`;
+    return `<path d="M${p(a1)} A137 137 0 0 1 ${p(a2)}" class="arc" marker-end="url(#fleche-cycle)"/>`;
+  });
+  return `<div class="cycle" aria-hidden="false">
+<svg viewBox="0 0 360 360" aria-hidden="true"><defs><marker id="fleche-cycle" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="pointe"/></marker></defs>${arcs.join("")}</svg>
+<p class="cycle-centre">${e(tr.detail)}</p>
+${tr.etapes.map(([verbe], i) => `<button type="button" class="cycle-noeud${i ? "" : " actif"}" data-aller="${i}" style="left:${pos[i][0].toFixed(1)}%;top:${pos[i][1].toFixed(1)}%"><span>${num(i)}</span>${e(verbe)}</button>`).join("")}
+</div>`;
+}
+
+const ICONES_GROUPES = {
+  engagements: ["bulles", "chapeau", "loupe", "etoile", "coeur", "course"],
+  publications: ["bulles", "papiers", "chapeau", "outils", "papiers", "papiers"],
+};
+const ICONES_TYPES = { formation: "chapeau", experience: "mallette", entreprise: "fusee" };
+
 function sectionRecherche(c) {
   const r = c.recherche;
   const valeur = (v) => (Array.isArray(v) ? v.map((x) => `<span class="ligne">${e(x)}</span>`).join("") : e(v));
@@ -186,6 +292,7 @@ ${lien(
 </div>
 <div class="colonne-outils">
 ${tableOnglets(r.table.titre, r.table.detail, r.table.etapes, r.table.terminus)}
+${schemaReseau(c)}
 <h3 class="titre-bloc">${e(r.notions.titre)}</h3>
 <div class="notions">${r.notions.items.map(([t, d, ref]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p>${ref ? `<p class="ref">(${e(ref)})</p>` : ""}</div>`).join("")}</div>
 <h3 class="titre-bloc">${e(r.retombees.titre)}</h3>
@@ -204,6 +311,7 @@ function sectionApproche(c) {
 <p class="surtitre">${e(a.surtitre)}</p>
 <h2>${e(a.titre)}</h2>
 <p class="intro">${e(a.intro)}</p>
+${schemaPosture(c)}
 <div class="piliers">${a.piliers.map(([t, d]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p></div>`).join("")}</div>
 <div class="boite-outils">
 <h3>${e(a.outils.titre)}</h3>
@@ -276,7 +384,8 @@ function sectionImplantation(c) {
 <p class="formation-discrete"><span>${e(m.formation.etiquette)}</span>${e(m.formation.titre)} · ${lien(m.formation.lien, e(m.formation.lienTexte) + fleche)}</p>
 </div>
 <div class="colonne-outils">
-${tableOnglets(tr.titre, tr.detail, tr.etapes.map(([verbe, titre, texte, tags]) => ["", verbe, titre, texte, tags]))}
+<div class="cycle-bloc">${schemaCycle(tr)}
+${tableOnglets(tr.titre, tr.detail, tr.etapes.map(([verbe, titre, texte, tags]) => ["", verbe, titre, texte, tags]))}</div>
 <p class="note">${e(tr.note)}</p>
 <p class="note note-avant">${e(m.chantiers.intro)}</p>
 ${tableOnglets(m.chantiers.titre, m.chantiers.detail, m.chantiers.items.map(([court, titre, texte, refs]) => ["", court, titre, texte, refs]), "")}
@@ -315,7 +424,7 @@ function sectionBiographie(c) {
 </div>`;
 }
 
-function sectionGroupes(c, s, extra = "") {
+function sectionGroupes(c, s, extra = "", icones = []) {
   return `<div class="section-corps">
 <div class="colonne-texte">
 <p class="surtitre">${e(s.surtitre)}</p>
@@ -323,7 +432,7 @@ function sectionGroupes(c, s, extra = "") {
 <p class="intro">${e(s.intro)}</p>
 ${extra}
 </div>
-<div class="colonne-outils">${s.groupes.map((g) => `<h3 class="titre-bloc">${e(g.titre)}</h3>${liste(g.items)}`).join("")}</div>
+<div class="colonne-outils">${s.groupes.map((g, k) => `<h3 class="titre-bloc titre-icone"><span class="pastille-icone">${icone(icones[k] || "papiers")}</span>${e(g.titre)}<span class="compte">${g.items.length}</span></h3>${liste(g.items)}`).join("")}</div>
 </div>`;
 }
 
@@ -342,7 +451,7 @@ function sectionParcours(c) {
 <div class="colonne-outils"><ol class="frise">${p.etapes
     .map(
       (s) =>
-        `<li class="${s.type}"><span class="date">${e(s.date)}</span><div><span class="type">${e(p.types[s.type])}</span><h4>${e(s.titre)}</h4><p>${e(s.detail)}</p>${
+        `<li class="${s.type}"><span class="frise-icone" aria-hidden="true">${icone(ICONES_TYPES[s.type] || "mallette")}</span><span class="date">${e(s.date)}</span><div><span class="type">${e(p.types[s.type])}</span><h4>${e(s.titre)}</h4><p>${e(s.detail)}</p>${
           s.discret ? `<p class="discret">${e(s.discret)}</p>` : ""
         }</div></li>`
     )
@@ -409,13 +518,14 @@ function page(c) {
     recherche: sectionRecherche(c),
     approche: sectionApproche(c),
     implantation: sectionImplantation(c),
-    publications: sectionGroupes(c, c.publications),
+    publications: sectionGroupes(c, c.publications, "", ICONES_GROUPES.publications),
     biographie: sectionBiographie(c),
     parcours: sectionParcours(c),
     engagements: sectionGroupes(
       c,
       c.engagements,
-      `<h3 class="titre-bloc">${e(c.engagements.affiliations.titre)}</h3>${etiquettes(c.engagements.affiliations.items, "etiquettes grandes")}`
+      `<h3 class="titre-bloc">${e(c.engagements.affiliations.titre)}</h3>${etiquettes(c.engagements.affiliations.items, "etiquettes grandes")}`,
+      ICONES_GROUPES.engagements
     ),
   };
 
@@ -508,6 +618,7 @@ ${sections[s]}
 <button type="button" data-suivante>${e(c.ui.suivante)} →</button>
 <button type="button" data-contact hidden>${e(c.ui.contact)} →</button></div>
 </div>
+<div class="salle-progres" aria-hidden="true">${SALLES.map(() => "<span></span>").join("")}</div>
 <div class="salle-contenu"></div>
 </div>
 </body>

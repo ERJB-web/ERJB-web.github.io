@@ -113,8 +113,8 @@ h1{margin:0;color:var(--ink);font:400 clamp(40px,4vw,58px)/1 var(--serif);letter
 .note{font-size:13.5px;color:var(--muted)}
 .titre-bloc{margin:40px 0 14px;color:var(--ink);font:600 13px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase}
 .colonne-outils>.titre-bloc:first-child{margin-top:0}
-.faits{list-style:none;padding:0;margin:28px 0;border-top:1px solid var(--line)}
-.faits li{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.faits{list-style:none;padding:0;margin:28px 0;display:grid;gap:8px}
+.faits li{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:12px 16px;background:var(--sea);border-radius:10px;font-size:14.5px}
 .faits b{color:var(--ink);font-weight:600}
 .faits .ligne{display:block}
 .faits .ligne+.ligne{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
@@ -263,8 +263,9 @@ h1{margin:0;color:var(--ink);font:400 clamp(40px,4vw,58px)/1 var(--serif);letter
 .devise-traduction{font-size:14px;color:#d5e4e8}
 .pied small{font-size:12px;color:var(--muted)}
 
-.liste{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-.liste li{display:grid;grid-template-columns:110px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--line)}
+.liste{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.liste li{display:grid;grid-template-columns:110px 1fr;gap:18px;padding:14px 18px;background:var(--white);border:1px solid var(--line);border-radius:12px;transition:border-color .2s,box-shadow .2s}
+.liste li:hover{border-color:var(--accent);box-shadow:0 10px 26px rgba(31,111,178,.1)}
 .liste .date,.frise .date{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:2px}
 .liste h4,.frise h4{margin:0 0 4px;color:var(--ink);font-size:15.5px;font-weight:600;line-height:1.45}
 .liste h4 a{text-decoration:none;border-bottom:1px solid var(--line)}
@@ -567,3 +568,67 @@ a,button,summary{-webkit-tap-highlight-color:rgba(31,111,178,.18)}
 .avis-traduction span{display:block}
 .salutation-page p.salutation{font-size:clamp(52px,8vw,88px);margin:0}
 .salutation-page p.merci{font-size:22px}
+
+/* Schémas */
+.schema{margin:30px 0 8px;padding:22px 22px 16px;border-radius:16px;background:linear-gradient(160deg,#f6fafc,#eef5f3);border:1px solid var(--line)}
+.schema svg{display:block;width:100%;height:auto;overflow:visible}
+.schema-titre{font:600 13px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin:0 0 6px}
+.schema-legende{margin:10px 0 0;font-size:13.5px;color:var(--muted);text-align:start}
+.schema-reseau text{font:500 13px var(--sans);fill:var(--ink)}
+.schema-reseau .lien-centre{stroke:var(--accent);stroke-width:2;opacity:.55}
+.schema-reseau .lien-partenaires{stroke:var(--green);stroke-width:1.5;stroke-dasharray:5 5;opacity:.7}
+.schema-reseau .noeud{stroke:#fff;stroke-width:3}
+.schema-reseau .n0{fill:#1f6fb2}.schema-reseau .n1{fill:#286d5c}.schema-reseau .n2{fill:#a0663b}.schema-reseau .n3{fill:#8c4d58}
+.schema-reseau .noeud-centre{fill:var(--ink);stroke:#fff;stroke-width:4;filter:drop-shadow(0 6px 14px rgba(15,49,66,.25))}
+.schema-reseau .texte-centre{fill:#fff;font:700 16px var(--sans);letter-spacing:.06em}
+.schema-posture .cercle-gauche{fill:rgba(31,111,178,.14);stroke:#1f6fb2;stroke-width:2}
+.schema-posture .cercle-droit{fill:rgba(40,109,92,.14);stroke:#286d5c;stroke-width:2}
+.schema-posture .venn-titre{font:600 15px var(--sans);fill:var(--ink)}
+.schema-posture .venn-sous{font:400 12.5px var(--sans);fill:var(--muted)}
+.schema-posture .venn-pastille{fill:var(--ink)}
+.schema-posture .venn-centre{font:600 12px var(--sans);fill:#fff}
+html.cb .schema-reseau .n0{fill:#0072b2}html.cb .schema-reseau .n1{fill:#009e73}html.cb .schema-reseau .n2{fill:#e69f00}html.cb .schema-reseau .n3{fill:#cc79a7}
+
+/* Cycle des cinq temps */
+.cycle{position:relative;width:min(100%,380px);aspect-ratio:1;margin:8px auto 18px}
+.cycle svg{position:absolute;inset:0;width:100%;height:100%}
+.cycle .arc{fill:none;stroke:var(--accent);stroke-width:2.5;opacity:.6}
+.cycle .pointe{fill:var(--accent);opacity:.8}
+.cycle-centre{position:absolute;inset:0;display:grid;place-items:center;margin:0;font:400 22px var(--serif);color:var(--ink);text-align:center;pointer-events:none}
+.cycle-noeud{position:absolute;transform:translate(-50%,-50%);width:92px;height:92px;border-radius:50%;background:var(--white);border:2px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:12.5px;font-weight:600;color:var(--ink);line-height:1.15;text-align:center;padding:6px;box-shadow:0 6px 18px rgba(15,49,66,.08);transition:background .2s,border-color .2s,transform .2s,color .2s}
+.cycle-noeud span{font-size:11px;color:var(--muted);font-weight:600}
+.cycle-noeud:hover{border-color:var(--accent);transform:translate(-50%,-50%) scale(1.06)}
+.cycle-noeud.actif{background:var(--accent);border-color:var(--accent);color:#fff}
+.cycle-noeud.actif span{color:#dbe9f6}
+
+/* Groupes avec icône et nombre */
+.titre-icone{display:flex;align-items:center;gap:10px}
+.pastille-icone{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--accent-pale);color:var(--accent);flex:none}
+.pastille-icone .ic{width:19px;height:19px}
+.titre-icone .compte{margin-inline-start:auto;min-width:28px;height:24px;padding:0 8px;border-radius:999px;background:var(--ink);color:#fff;font-size:12px;display:grid;place-items:center;letter-spacing:0}
+
+/* Parcours : cartes illustrées par type */
+.frise::before{display:none}
+.frise{display:grid;gap:12px}
+.frise li{grid-template-columns:44px 96px 1fr;gap:16px;align-items:start;padding:16px 18px;background:var(--white);border:1px solid var(--line);border-radius:14px;transition:border-color .2s,box-shadow .2s}
+.frise li:hover{border-color:var(--accent);box-shadow:0 10px 26px rgba(31,111,178,.1)}
+.frise li::before{display:none}
+.frise-icone{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--accent-pale);color:var(--accent)}
+.frise li.formation .frise-icone{background:#e7f1ec;color:#286d5c}
+.frise li.entreprise .frise-icone{background:#fbf1d9;color:#8a6a2f}
+.frise-icone .ic{width:22px;height:22px}
+
+/* Barre de salle : couleur de la salle et progression des portes */
+.salle{border-top:5px solid var(--c1,var(--ink))}
+.salle-progres{position:sticky;top:57px;z-index:1;display:flex;gap:4px;padding:0 var(--gouttiere) 0;background:transparent;height:4px}
+.salle-progres span{flex:1;border-radius:2px;background:var(--line)}
+.salle-progres span.actif{background:var(--c1,var(--ink))}
+#salle-titre{font-weight:600;color:var(--c1,var(--ink))!important}
+
+@media (max-width:640px){
+  .frise li{grid-template-columns:40px 1fr;gap:12px}
+  .frise li .date{grid-column:2}
+  .frise li>div{grid-column:2}
+  .cycle-noeud{width:74px;height:74px;font-size:11px}
+  .schema{padding:16px 12px 12px}
+}

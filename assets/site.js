@@ -54,6 +54,8 @@
     const section = $(`section[data-salle="${nom}"]`);
     contenu.replaceChildren(section.querySelector(".section-contenu").cloneNode(true));
     const i = ordre.indexOf(nom);
+    salle.style.setProperty("--c1", getComputedStyle(porte).getPropertyValue("--c1"));
+    $$(".salle-progres span").forEach((s, k) => s.classList.toggle("actif", k <= i));
     $("#salle-titre").textContent = `${String(i + 1).padStart(2, "0")} / ${String(ordre.length).padStart(2, "0")} · ${section.dataset.titre}`;
     $("[data-suivante]", salle).hidden = i === ordre.length - 1;
     $("[data-contact]", salle).hidden = i !== ordre.length - 1;
@@ -116,9 +118,20 @@
     }
   });
 
+  // Cycle des cinq temps : chaque étape ouvre l'onglet correspondant.
+  document.addEventListener("click", (ev) => {
+    const noeud = ev.target.closest("[data-aller]");
+    if (!noeud) return;
+    const bloc = noeud.closest(".cycle-bloc");
+    const onglet = $$("[role=tab]", bloc)[+noeud.dataset.aller];
+    if (onglet) onglet.click();
+  });
+
   document.addEventListener("click", (ev) => {
     const onglet = ev.target.closest(".onglets [role=tab]");
     if (!onglet) return;
+    const bloc = onglet.closest(".cycle-bloc");
+    if (bloc) $$(".cycle-noeud", bloc).forEach((n) => n.classList.toggle("actif", n.dataset.aller === onglet.dataset.volet));
     const table = onglet.closest("[data-onglets]");
     $$("[role=tab]", table).forEach((b) => b.setAttribute("aria-selected", b === onglet));
     $$(".volet", table).forEach((v) => (v.hidden = v.dataset.volet !== onglet.dataset.volet));
