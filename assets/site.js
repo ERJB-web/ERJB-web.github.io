@@ -29,7 +29,7 @@
       return;
     }
     const cible = groupe.sections.includes(nom) ? nom : groupe.sections[0];
-    if (courante && groupeDe(courante) === groupe) return afficher(cible);
+    if (courante && groupeDe(courante) === groupe) return passerSous(cible);
     if (occupe) return;
     occupe = true;
     reduit = sansPassage();
@@ -105,7 +105,8 @@
         d.setAttribute("aria-hidden", "true");
         d.innerHTML = "<span class=\"ouverture\"><span class=\"battant\"><span class=\"vignette\"></span><span class=\"poignee\"></span></span></span>";
         bouton.append(d, n, t);
-        bouton.addEventListener("click", () => afficher(x));
+        bouton.dataset.sous = x;
+        bouton.addEventListener("click", () => passerSous(x));
         return bouton;
       })
     );
@@ -114,6 +115,36 @@
     $("[data-contact]", salle).hidden = i !== ordre.length - 1;
     salle.scrollTop = 0;
     courante = s;
+  }
+
+  // Petite porte : même transition que les grandes (la porte s’ouvre, on passe à travers).
+  async function passerSous(x) {
+    if (occupe || x === courante) return;
+    const bouton = onglets.querySelector(`[data-sous="${x}"]`);
+    if (!bouton) return afficher(x);
+    occupe = true;
+    reduit = sansPassage();
+    bouton.classList.add("ouverte");
+    await attendre(450);
+    const r = bouton.querySelector(".ouverture").getBoundingClientRect();
+    const passage = document.createElement("div");
+    passage.className = "passage";
+    Object.assign(passage.style, { left: r.left + "px", top: r.top + "px", width: r.width + "px", height: r.height + "px" });
+    document.body.append(passage);
+    if (!reduit && passage.animate) {
+      const anim = passage.animate(
+        [
+          { left: r.left + "px", top: r.top + "px", width: r.width + "px", height: r.height + "px" },
+          { left: "0px", top: "0px", width: innerWidth + "px", height: innerHeight + "px" },
+        ],
+        { duration: 560, easing: "cubic-bezier(.6,0,.2,1)", fill: "forwards" }
+      );
+      await Promise.race([anim.finished, attendre(650)]);
+    }
+    afficher(x);
+    if (!reduit && passage.animate) await Promise.race([passage.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 320, fill: "forwards" }).finished, attendre(380)]);
+    passage.remove();
+    occupe = false;
   }
 
   async function sortir(rendreFocus = true) {
