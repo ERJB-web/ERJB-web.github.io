@@ -1099,3 +1099,13 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 /* Logos de l'affiche dans La recherche */
 .logos-recherche{margin:22px 0 4px;padding:18px 26px;background:#fff;border:1px solid var(--line);border-radius:16px}
 .logos-recherche img{display:block;width:100%;max-width:1000px;height:auto;margin:0 auto}
+/* Pas de cadre autour de la porte au survol */
+.porte,.porte:hover,.porte:focus-visible{background:transparent;border-color:transparent;box-shadow:none;border-top:0}
+.porte:focus-visible{outline:2px solid var(--c1);outline-offset:4px}
+/* Poignée moderne grise : plaque, rosace et bec-de-cane en acier qui s'abaisse à l'ouverture */
+.vignette,.porte .vignette{inset-inline-end:26%}
+.poignee,.porte .poignee,.onglet-salle .poignee{top:46%;inset-inline-end:9%;width:4%;min-width:2px;height:10%;aspect-ratio:auto;border-radius:2px;background:linear-gradient(90deg,#7d878b,#cfd5d8 50%,#7d878b);box-shadow:0 1px 1.5px rgba(15,30,40,.3)}
+.poignee::before,.porte .poignee::before,.onglet-salle .poignee::before{display:block;content:"";position:absolute;left:50%;top:35%;right:auto;bottom:auto;width:210%;height:auto;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 35% 30%,#f6f8f9 0%,#bcc4c7 55%,#737d81 100%);box-shadow:0 1px 2px rgba(15,30,40,.35);z-index:2}
+.poignee::after{display:block;content:"";position:absolute;right:50%;top:35%;width:340%;height:26%;min-height:2px;transform:translateY(-50%) rotate(0deg);transform-origin:100% 50%;border-radius:2px;background:linear-gradient(180deg,#f1f3f4 0%,#aeb7bb 55%,#6c767a 100%);box-shadow:0 1px 1.5px rgba(15,30,40,.35);transition:transform .3s var(--ease);z-index:1}
+.porte:hover .poignee::after,.porte:focus-visible .poignee::after,.porte.ouverte .poignee::after,.onglet-salle:hover .poignee::after,.onglet-salle.ouverte .poignee::after{transform:translateY(-50%) rotate(-40deg)}
+.poignee::after{width:280%}
