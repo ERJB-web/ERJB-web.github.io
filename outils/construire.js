@@ -519,12 +519,21 @@ function figureClsc(c) {
 
 function schemaPosture(c) {
   const [g, gs, d, ds, centre, legende] = SCHEMAS[c.lang].posture;
+  const sousTexte = (texte, x) => {
+    const lignes = [];
+    for (const mot of texte.split(" ")) {
+      const dernier = lignes.length - 1;
+      if (dernier >= 0 && (lignes[dernier] + " " + mot).length <= 24) lignes[dernier] += " " + mot;
+      else lignes.push(mot);
+    }
+    return `<text x="${x}" y="134" text-anchor="middle" class="venn-sous">${lignes.map((ligne, i) => `<tspan x="${x}" dy="${i ? 18 : 0}">${e(ligne)}${i < lignes.length - 1 ? " " : ""}</tspan>`).join("")}</text>`;
+  };
   return `<figure class="schema schema-posture">
 <svg viewBox="0 0 560 290" role="img" aria-label="${e(centre)}">
 <circle cx="205" cy="140" r="122" class="cercle-gauche"/><circle cx="355" cy="140" r="122" class="cercle-droit"/>
-<text x="150" y="128" text-anchor="middle" class="venn-titre">${e(g)}</text><text x="150" y="152" text-anchor="middle" class="venn-sous">${e(gs)}</text>
-<text x="410" y="128" text-anchor="middle" class="venn-titre">${e(d)}</text><text x="410" y="152" text-anchor="middle" class="venn-sous">${e(ds)}</text>
-<rect x="222" y="122" width="116" height="40" rx="20" class="venn-pastille"/><text x="280" y="147" text-anchor="middle" class="venn-centre">${e(centre)}</text>
+<text x="190" y="108" text-anchor="middle" class="venn-titre">${e(g)}</text>${sousTexte(gs, 190)}
+<text x="370" y="108" text-anchor="middle" class="venn-titre">${e(d)}</text>${sousTexte(ds, 370)}
+<rect x="192" y="188" width="176" height="44" rx="22" class="venn-pastille"/><text x="280" y="215" text-anchor="middle" class="venn-centre">${e(centre)}</text>
 </svg>
 <p class="schema-legende">${e(legende)}</p>
 </figure>`;
