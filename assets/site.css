@@ -49,7 +49,7 @@ p{text-wrap:pretty}
 .presentation .identite{grid-row:1 / span 3;margin:0}
 .presentation .chapeau,.presentation .encadrement,.presentation .actions{grid-column:2}
 .identite{display:flex;gap:22px;align-items:flex-end;margin-bottom:26px}
-.portrait{width:150px;height:auto;aspect-ratio:4/5;border-radius:12px;object-fit:cover;box-shadow:var(--shadow);flex:none}
+.portrait{width:150px;height:auto;aspect-ratio:1/1;border-radius:12px;object-fit:cover;box-shadow:var(--shadow);flex:none}
 h1{margin:0;color:var(--ink);font:400 clamp(40px,4vw,58px)/1 var(--serif);letter-spacing:-.02em;white-space:nowrap}
 .identite .surtitre{letter-spacing:.1em}
 @media (min-width:1081px){.identite .surtitre{white-space:nowrap}}
@@ -205,7 +205,7 @@ h1{margin:0;color:var(--ink);font:400 clamp(40px,4vw,58px)/1 var(--serif);letter
 .expertises>div{padding:18px;border-radius:12px;background:var(--white);border:1px solid var(--line);border-top:3px solid var(--green)}
 .expertises h4{margin:0 0 6px;color:var(--ink);font:400 19px/1.3 var(--serif)}
 .expertises p{margin:0;font-size:14.5px}
-.portrait-bio{width:100%;max-width:360px;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:14px;box-shadow:var(--shadow);margin-top:22px}
+.portrait-bio{width:100%;max-width:360px;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:14px;box-shadow:var(--shadow);margin-top:22px}
 .recit{list-style:none;margin:0;padding:0}
 .recit li{display:grid;grid-template-columns:56px 1fr;gap:18px;padding:0 0 30px;position:relative}
 .recit li::before{content:"";position:absolute;inset-inline-start:22px;top:48px;bottom:8px;width:1px;background:var(--line)}

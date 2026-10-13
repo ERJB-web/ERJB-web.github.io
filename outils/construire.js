@@ -286,7 +286,7 @@ function sectionBiographie(c) {
 <p class="surtitre">${e(b.surtitre)}</p>
 <h2>${e(b.titre)}</h2>
 <div class="bio-intro">${b.intro.map((p) => `<p>${riche(p)}</p>`).join("")}</div>
-<figure class="bio-figure"><img class="portrait-bio" src="${c.chemin}assets/portrait.jpg" width="720" height="900" alt="${e(c.accueil.portrait)}" loading="lazy"><blockquote class="citation">${e(b.citation)}</blockquote></figure>
+<figure class="bio-figure"><img class="portrait-bio" src="${c.chemin}assets/portrait.jpg" width="900" height="900" alt="${e(c.accueil.portrait)}" loading="lazy"><blockquote class="citation">${e(b.citation)}</blockquote></figure>
 </div>
 <div class="colonne-outils">
 <ol class="recit">${b.chapitres.map(([titre, paragraphes], k) => `<li><span class="recit-num">${num(k)}</span><div><h3>${e(titre)}</h3>${paragraphes.map((p) => `<p>${riche(p)}</p>`).join("")}</div></li>`).join("")}</ol>
@@ -439,7 +439,7 @@ ${menuAcces(c, c.lang)}
 <section class="accueil" aria-labelledby="nom">
 <div class="presentation">
 <div class="identite">
-<img class="portrait" src="${p}assets/portrait.jpg" width="720" height="900" alt="${e(c.accueil.portrait)}">
+<img class="portrait" src="${p}assets/portrait.jpg" width="900" height="900" alt="${e(c.accueil.portrait)}">
 <div><p class="surtitre">${e(c.accueil.surtitre)}</p><h1 id="nom">Éric Bernier</h1><p class="roles">${e(c.accueil.roles)}</p></div>
 </div>
 <div class="chapeau"><h2>${e(c.accueil.chapeau.titre)}</h2>${c.accueil.chapeau.paragraphes.map((x) => `<p>${riche(x)}</p>`).join("")}</div>
