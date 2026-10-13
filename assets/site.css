@@ -57,8 +57,12 @@ h1{margin:0;color:var(--ink);font:400 clamp(40px,4vw,58px)/1 var(--serif);letter
 .identite .surtitre{letter-spacing:.1em}
 @media (min-width:1081px){.identite .surtitre{white-space:nowrap}}
 .roles{margin:14px 0 0;color:var(--ink);font-size:15.5px;font-weight:500}
-.chapeau{font-size:17px;line-height:1.7;margin:0 0 22px;max-width:560px}
-.encadrement{font-size:13.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin:0 0 28px;max-width:560px}
+.chapeau{font-size:16.5px;line-height:1.7;margin:0 0 22px;max-width:620px}
+.chapeau h2{font-size:clamp(24px,2.4vw,30px);line-height:1.2;margin:0 0 14px}
+.chapeau p{margin:0 0 12px}
+.chapeau p:last-child{margin-bottom:0}
+.chapeau strong{font-weight:600;color:var(--ink)}
+.encadrement{font-size:13.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin:0 0 28px;max-width:620px}
 .actions{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
 
 /* Le hall */

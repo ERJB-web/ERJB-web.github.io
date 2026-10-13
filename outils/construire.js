@@ -21,6 +21,7 @@ const lien = (href, texte, classe = "") =>
   `<a href="${e(href)}"${classe ? ` class="${classe}"` : ""}${externe(href) ? ' target="_blank" rel="noopener"' : ""}>${texte}</a>`;
 const num = (i) => String(i + 1).padStart(2, "0");
 const etiquettes = (tags, classe = "etiquettes") => `<div class="${classe}">${tags.map((t) => `<span>${e(t)}</span>`).join("")}</div>`;
+const riche = (s) => e(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*(.+?)\*/g, "<em>$1</em>");
 const deuxPoints = (c) => (c.lang === "fr" ? " :" : ":");
 
 function liste(items) {
@@ -186,7 +187,6 @@ ${cartes(m.cadres)}
 
 function sectionBiographie(c) {
   const b = c.biographie;
-  const riche = (s) => e(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*(.+?)\*/g, "<em>$1</em>");
   return `<div class="section-corps">
 <div class="colonne-texte">
 <p class="surtitre">${e(b.surtitre)}</p>
@@ -323,7 +323,7 @@ ${selecteur(c)}
 <img class="portrait" src="${p}assets/portrait.jpg" width="720" height="900" alt="${e(c.accueil.portrait)}">
 <div><p class="surtitre">${e(c.accueil.surtitre)}</p><h1 id="nom">Éric Bernier</h1><p class="roles">${e(c.accueil.roles)}</p></div>
 </div>
-<p class="chapeau">${e(c.accueil.chapeau)}</p>
+<div class="chapeau"><h2>${e(c.accueil.chapeau.titre)}</h2>${c.accueil.chapeau.paragraphes.map((x) => `<p>${riche(x)}</p>`).join("")}</div>
 <p class="encadrement">${e(c.accueil.encadrement)}</p>
 <div class="actions"><button class="primaire" type="button" id="visite">${e(c.accueil.visite)} <span aria-hidden="true">→</span></button><a class="lien" href="#recherche">${e(c.accueil.explorer)}</a></div>
 </div>

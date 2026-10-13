@@ -41,7 +41,7 @@ const fr = {
   meta: {
     titre: "Éric Bernier — Doctorant en santé publique, ESPUM et CRCHUM",
     description:
-      "Éric Bernier, doctorant en santé publique (systèmes, organisations et politiques de santé) à l’ESPUM, juriste et éducateur spécialisé. Recherche sur la réponse intersectorielle aux besoins sociaux complexes en soins primaires.",
+      "Éric Bernier, doctorant en santé publique (systèmes, organisations et politiques de santé) à l’ESPUM, juriste, entrepreneur et éducateur spécialisé. Recherche sur la réponse intersectorielle aux besoins sociaux complexes en soins primaires.",
   },
   ui: {
     evitement: "Aller au contenu",
@@ -67,9 +67,15 @@ const fr = {
   ],
   accueil: {
     surtitre: "Doctorant en santé publique · ESPUM · CRCHUM",
-    roles: "Éducateur spécialisé · Juriste · Doctorant en santé publique",
-    chapeau:
-      "Une même attention aux personnes, à leurs droits et aux services qui les accompagnent. Mon parcours croise la pratique éducative, le droit public et la recherche en systèmes, organisations et politiques de santé.",
+    roles: "Éducateur spécialisé · Juriste · Entrepreneur · Doctorant en santé publique",
+    chapeau: {
+      "titre": "Ouvrir des portes, relier les mondes",
+      "paragraphes": [
+        "De l’accompagnement des personnes à la recherche en santé publique, mon parcours m’a conduit à explorer les différentes échelles du système de santé : des réalités individuelles aux organisations, jusqu’aux politiques publiques et à la gouvernance.",
+        "Ces expériences, à la croisée du terrain, de la gestion, du droit et de la recherche, ont nourri une conviction : **transformer les systèmes de santé suppose de faire dialoguer les expériences humaines, les savoirs scientifiques, les dynamiques collectives et les choix politiques.**",
+        "Mon ambition est d’**ouvrir des portes entre ces univers qui se côtoient sans toujours se comprendre**, de décloisonner les perspectives et de rapprocher la recherche de l’action, pour favoriser l’autodétermination, éclairer les décisions collectives et contribuer à une société plus juste et en meilleure santé."
+      ]
+    },
     encadrement:
       "Thèse codirigée par les Dres Nadia Sourial, Ph. D., et Géraldine Layani, M.D. · Chaire de recherche GSK en gestion optimale des maladies chroniques · CRCHUM · Boursier FRQ (B2)",
     visite: "Commencer la visite",
@@ -587,7 +593,7 @@ const fr = {
     "surtitre": "05 · Biographie",
     "titre": "Des expériences humaines aux transformations collectives",
     "intro": [
-      "Éducateur spécialisé, juriste et doctorant en santé publique, mon parcours s’est construit à la rencontre de différents univers : l’accompagnement des personnes, la gestion des organisations, le droit, les politiques publiques et la recherche.",
+      "Éducateur spécialisé, juriste, entrepreneur et doctorant en santé publique, mon parcours s’est construit à la rencontre de différents univers : l’accompagnement des personnes, la gestion des organisations, le droit, les politiques publiques et la recherche.",
       "Derrière cette diversité se trouve une même ambition : **comprendre les mécanismes qui façonnent les trajectoires individuelles et collectives, pour contribuer à des sociétés plus justes, solidaires et capables de reconnaître les possibilités d’agir de chacun.**",
       "Mon cheminement, personnel comme professionnel, nourrit une conviction : les réalités humaines ne peuvent être dissociées des systèmes sociaux, organisationnels et politiques dans lesquels elles s’inscrivent.",
       "Il suit une dynamique ascendante : de l’accompagnement des personnes vers la transformation des organisations et des politiques de santé et de services sociaux, avec une orientation claire vers l’appui à la décision publique."
@@ -773,7 +779,7 @@ const en = {
   meta: {
     titre: "Éric Bernier — PhD student in public health, ESPUM and CRCHUM",
     description:
-      "Éric Bernier, PhD student in public health (health systems, organisations and policy) at ESPUM, Université de Montréal, trained in law and special needs education. Research on intersectoral responses to complex social needs in primary care.",
+      "Éric Bernier, PhD student in public health (health systems, organisations and policy) at ESPUM, Université de Montréal, trained in law and special needs education, and an entrepreneur. Research on intersectoral responses to complex social needs in primary care.",
   },
   ui: {
     evitement: "Skip to content",
@@ -799,9 +805,15 @@ const en = {
   ],
   accueil: {
     surtitre: "PhD student in public health · ESPUM · CRCHUM",
-    roles: "Special needs educator · Jurist · PhD student in public health",
-    chapeau:
-      "The same attention to people, to their rights and to the services that support them. My path brings together educational practice, public law and research on health systems, organisations and policy.",
+    roles: "Special needs educator · Jurist · Entrepreneur · PhD student in public health",
+    chapeau: {
+      "titre": "Opening doors, connecting worlds",
+      "paragraphes": [
+        "From supporting people to public health research, my path has led me to explore the different scales of the health system: from individual realities to organisations, all the way to public policy and governance.",
+        "These experiences, at the crossroads of practice, management, law and research, have shaped a conviction: **transforming health systems means bringing human experiences, scientific knowledge, collective dynamics and political choices into dialogue.**",
+        "My ambition is to **open doors between these worlds that sit side by side without always understanding one another**, to break down silos between perspectives and bring research closer to action, so as to foster self-determination, inform collective decisions and contribute to a fairer, healthier society."
+      ]
+    },
     encadrement:
       "Thesis co-supervised by Dr. Nadia Sourial, PhD, and Dr. Géraldine Layani, MD · GSK Research Chair in optimal management of chronic diseases · CRCHUM · FRQ doctoral scholar (B2)",
     visite: "Start the visit",
@@ -1319,7 +1331,7 @@ const en = {
     "surtitre": "05 · Biography",
     "titre": "From human experiences to collective transformations",
     "intro": [
-      "Special needs educator, jurist and PhD student in public health, I built my path at the meeting point of different worlds: supporting people, managing organisations, law, public policy and research.",
+      "Special needs educator, jurist, entrepreneur and PhD student in public health, I built my path at the meeting point of different worlds: supporting people, managing organisations, law, public policy and research.",
       "Behind this diversity lies one ambition: **to understand the mechanisms that shape individual and collective trajectories, in order to contribute to fairer, more supportive societies that recognise everyone’s capacity to act.**",
       "My journey, personal and professional, feeds one conviction: human realities cannot be separated from the social, organisational and political systems in which they are embedded.",
       "It follows an upward movement: from supporting people towards transforming health and social service organisations and policies, with a clear focus on supporting public decision-making."
@@ -1505,7 +1517,7 @@ const es = {
   meta: {
     titre: "Éric Bernier — Doctorando en salud pública, ESPUM y CRCHUM",
     description:
-      "Éric Bernier, doctorando en salud pública (sistemas, organizaciones y políticas de salud) en la ESPUM, Université de Montréal, jurista y educador especializado. Investigación sobre la respuesta intersectorial a las necesidades sociales complejas en atención primaria.",
+      "Éric Bernier, doctorando en salud pública (sistemas, organizaciones y políticas de salud) en la ESPUM, Université de Montréal, jurista, emprendedor y educador especializado. Investigación sobre la respuesta intersectorial a las necesidades sociales complejas en atención primaria.",
   },
   ui: {
     evitement: "Ir al contenido",
@@ -1531,9 +1543,15 @@ const es = {
   ],
   accueil: {
     surtitre: "Doctorando en salud pública · ESPUM · CRCHUM",
-    roles: "Educador especializado · Jurista · Doctorando en salud pública",
-    chapeau:
-      "Una misma atención a las personas, a sus derechos y a los servicios que las acompañan. Mi trayectoria cruza la práctica educativa, el derecho público y la investigación en sistemas, organizaciones y políticas de salud.",
+    roles: "Educador especializado · Jurista · Emprendedor · Doctorando en salud pública",
+    chapeau: {
+      "titre": "Abrir puertas, conectar mundos",
+      "paragraphes": [
+        "Del acompañamiento de las personas a la investigación en salud pública, mi trayectoria me ha llevado a explorar las distintas escalas del sistema de salud: de las realidades individuales a las organizaciones, hasta las políticas públicas y la gobernanza.",
+        "Estas experiencias, en la encrucijada del terreno, la gestión, el derecho y la investigación, han forjado una convicción: **transformar los sistemas de salud supone hacer dialogar las experiencias humanas, los saberes científicos, las dinámicas colectivas y las decisiones políticas.**",
+        "Mi ambición es **abrir puertas entre esos universos que conviven sin entenderse siempre**, romper los compartimentos entre perspectivas y acercar la investigación a la acción, para favorecer la autodeterminación, orientar las decisiones colectivas y contribuir a una sociedad más justa y más sana."
+      ]
+    },
     encadrement:
       "Tesis codirigida por la Dra. Nadia Sourial, Ph. D., y la Dra. Géraldine Layani, M.D. · Cátedra de investigación GSK en gestión óptima de enfermedades crónicas · CRCHUM · Becario del FRQ (B2)",
     visite: "Comenzar la visita",
@@ -2051,7 +2069,7 @@ const es = {
     "surtitre": "05 · Biografía",
     "titre": "De las experiencias humanas a las transformaciones colectivas",
     "intro": [
-      "Educador especializado, jurista y doctorando en salud pública, construí mi trayectoria en el encuentro de distintos mundos: el acompañamiento de las personas, la gestión de las organizaciones, el derecho, las políticas públicas y la investigación.",
+      "Educador especializado, jurista, emprendedor y doctorando en salud pública, construí mi trayectoria en el encuentro de distintos mundos: el acompañamiento de las personas, la gestión de las organizaciones, el derecho, las políticas públicas y la investigación.",
       "Detrás de esta diversidad hay una misma ambición: **comprender los mecanismos que dan forma a las trayectorias individuales y colectivas, para contribuir a sociedades más justas, solidarias y capaces de reconocer las posibilidades de actuar de cada persona.**",
       "Mi camino, personal y profesional, alimenta una convicción: las realidades humanas no pueden separarse de los sistemas sociales, organizativos y políticos en los que se inscriben.",
       "Sigue una dinámica ascendente: del acompañamiento de las personas hacia la transformación de las organizaciones y de las políticas de salud y de servicios sociales, con una orientación clara hacia el apoyo a la decisión pública."
