@@ -20,7 +20,7 @@ const TELEPHONE = ["(263) 384-3050", "+12633843050"];
 const GROUPES = [
   ["recherche", ["recherche", "approche", "conceptualisation", "publications"]],
   ["implantation", ["implantation", "notions", "transmission", "outils"]],
-  ["parcours", ["biographie", "parcours", "valeurs"]],
+  ["parcours", ["biographie", "parcours", "juriste", "gestionnaire", "educateur", "entrepreneuriat", "valeurs"]],
   ["engagements", ["representation", "communaute", "distinctions", "citoyen", "loisirs"]],
   ["ressources", ["litterature", "grise", "presse", "capsules", "balados"]],
   ["contact", []],
@@ -223,12 +223,31 @@ function sectionOutils(c) {
 <div class="colonne-outils"><div class="projets">${projet("ownnight")}${projet("spheres")}</div></div>
 </div>`;
 }
+const VITRINES = JSON.parse(fs.readFileSync(path.join(__dirname, "vitrines.json"), "utf8"));
+const CLES_VITRINES = ["juriste", "gestionnaire", "educateur", "entrepreneuriat"];
+const textesVitrine = (c, cle) => (VITRINES[c.lang] || VITRINES.en)[cle];
+// Vitrine d'expertise : en-tête, puis une carte par domaine avec ses matières ou réalisations.
+function sectionVitrine(c, cle) {
+  const V = textesVitrine(c, cle);
+  const projets = cle === "entrepreneuriat"
+    ? `<div class="projets-vignettes">${["ownnight-accueil.jpg", "spheres-lecon.jpg"].map((f, i) => `<img class="${i ? "ecran-tab" : "ecran-tel"} vignette-projet" src="${c.chemin}assets/projets/${f}?v=${empreinte("assets/projets/" + f)}" alt="" loading="lazy">`).join("")}</div><a class="lien-salle" href="#outils">${e(V.lien)} <span aria-hidden="true">→</span></a>`
+    : "";
+  const cartes = V.blocs.map(([t, items], k) => `<article class="groupe-carte carte-vitrine"><div class="groupe-corps"><h3 class="titre-bloc">${e(t)}</h3><ul class="vitrine-liste">${items.map((x) => `<li>${e(x)}</li>`).join("")}</ul>${k === V.blocs.length - 1 ? projets : ""}</div></article>`).join("");
+  return `<div class="section-corps pleine">
+<div class="colonne-texte">
+<p class="surtitre">${e(V.surtitre)}</p>
+<h2>${e(V.titre)}</h2>
+<p class="intro">${e(V.intro)}</p>
+</div>
+<div class="colonne-outils"><div class="groupes-grille grille-vitrine">${cartes}</div></div>
+</div>`;
+}
 const TEXTES_GROUPES = {
-  fr: { ressources: ["Ressources","Lectures, articles, capsules et balados"], recherche: ["Recherche", "Thèse, approche, recherche en cours et publications"], parcours: ["Parcours", "Biographie, expériences et valeurs"] },
-  en: { ressources: ["Resources","Readings, articles, videos and podcasts"], recherche: ["Research", "Thesis, approach, research in progress and publications"], parcours: ["Background", "Biography, experience and values"] },
-  es: { ressources: ["Recursos","Lecturas, artículos, cápsulas y pódcasts"], recherche: ["Investigación", "Tesis, enfoque, investigación en curso y publicaciones"], parcours: ["Trayectoria", "Biografía, experiencia y valores"] },
-  zh: { ressources: ["资源","阅读文献、文章、视频与播客"], recherche: ["研究", "博士论文、研究取向、在研工作与发表成果"], parcours: ["经历", "个人简介、经历与价值观"] },
-  ar: { ressources: ["الموارد","قراءات ومقالات ومقاطع فيديو وبودكاست"], recherche: ["البحث", "الأطروحة والمقاربة والبحث الجاري والمنشورات"], parcours: ["المسار", "السيرة والخبرات والقيم"] },
+  fr: { ressources: ["Ressources","Lectures, articles, capsules et balados"], recherche: ["Recherche", "Thèse, approche, recherche en cours et publications"], parcours: ["Parcours", "Biographie, parcours, expertises et valeurs"] },
+  en: { ressources: ["Resources","Readings, articles, videos and podcasts"], recherche: ["Research", "Thesis, approach, research in progress and publications"], parcours: ["Background", "Biography, background, expertise and values"] },
+  es: { ressources: ["Recursos","Lecturas, artículos, cápsulas y pódcasts"], recherche: ["Investigación", "Tesis, enfoque, investigación en curso y publicaciones"], parcours: ["Trayectoria", "Biografía, trayectoria, pericias y valores"] },
+  zh: { ressources: ["资源","阅读文献、文章、视频与播客"], recherche: ["研究", "博士论文、研究取向、在研工作与发表成果"], parcours: ["经历", "个人简介、经历、专长与价值观"] },
+  ar: { ressources: ["الموارد","قراءات ومقالات ومقاطع فيديو وبودكاست"], recherche: ["البحث", "الأطروحة والمقاربة والبحث الجاري والمنشورات"], parcours: ["المسار", "السيرة والمسار ومجالات الخبرة والقيم"] },
 };
 const texteGroupe = (c, g) =>
   g === "implantation"
@@ -379,6 +398,10 @@ const TEINTES = {
   transmission: ["#5f7f35", "#43592a"],
   notions: ["#7a4f9a", "#563870"],
   outils: ["#2f3f7a", "#1c2650"],
+  juriste: ["#7a2e3a", "#561f28"],
+  gestionnaire: ["#46507a", "#2f3656"],
+  educateur: ["#4f8a5b", "#37633f"],
+  entrepreneuriat: ["#b8862b", "#8a641f"],
   litterature: ["#2a6fb0", "#1d4f80"],
   grise: ["#3d7a5a", "#2a5640"],
   presse: ["#8a5a2b", "#63401e"],
@@ -977,6 +1000,7 @@ function page(c) {
   c.hall.portes.transmission = textesTransmission(c).salle;
   c.hall.portes.notions = textesNotions(c).salle;
   c.hall.portes.outils = textesOutils(c).salle;
+  for (const k of CLES_VITRINES) c.hall.portes[k] = textesVitrine(c, k).salle;
   poserSousPortes(c);
   const sections = {
     recherche: sectionRecherche(c),
@@ -990,6 +1014,10 @@ function page(c) {
     parcours: sectionParcours(c),
     conceptualisation: sectionConceptualisation(c),
     valeurs: sectionValeurs(c),
+    juriste: sectionVitrine(c, "juriste"),
+    gestionnaire: sectionVitrine(c, "gestionnaire"),
+    educateur: sectionVitrine(c, "educateur"),
+    entrepreneuriat: sectionVitrine(c, "entrepreneuriat"),
     litterature: sectionMedias(c, "litterature"),
     grise: sectionMedias(c, "grise"),
     presse: sectionMedias(c, "presse"),
