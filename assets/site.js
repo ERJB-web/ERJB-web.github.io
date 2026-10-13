@@ -83,8 +83,8 @@
     const gi = groupes.indexOf(groupe);
     const avecSalles = groupes.filter((g) => g.sections.length);
     salle.style.setProperty("--c1", getComputedStyle(groupe.porte).getPropertyValue("--c1"));
-    $$(".salle-progres span").forEach((x, k) => x.classList.toggle("actif", k <= gi));
-    $("#salle-titre").textContent = `${String(gi + 1).padStart(2, "0")} / ${String(avecSalles.length).padStart(2, "0")} · ${groupe.porte.dataset.titre}`;
+    $$(".salle-progres span").forEach((x, k) => x.classList.toggle("actif", k <= ordre.indexOf(s)));
+    $("#salle-titre").textContent = `${String(ordre.indexOf(s) + 1).padStart(2, "0")} / ${String(ordre.length).padStart(2, "0")} · ${groupe.porte.dataset.titre} · ${section.dataset.titre}`;
     onglets.hidden = groupe.sections.length < 2;
     onglets.replaceChildren(
       ...groupe.sections.map((x) => {

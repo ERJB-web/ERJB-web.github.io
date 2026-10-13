@@ -857,7 +857,7 @@ ${sections[s].replace(/<p class="surtitre">(\d{2} · )?/, `<p class="surtitre">$
 <button type="button" data-suivante>${e(c.ui.suivante)} →</button>
 <button type="button" data-contact hidden>${e(c.ui.contact)} →</button></div>
 </div>
-<div class="salle-progres" aria-hidden="true">${GROUPES.filter(([, ss]) => ss.length).map(() => "<span></span>").join("")}</div>
+<div class="salle-progres" aria-hidden="true">${SALLES.map(() => "<span></span>").join("")}</div>
 <nav class="salle-onglets" aria-label="${e(c.hall.titre)}" hidden></nav>
 <div class="salle-contenu"></div>
 </div>
