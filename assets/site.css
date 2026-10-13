@@ -1069,3 +1069,4 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 .porte:hover,.porte:focus-visible{background:transparent}
 /* Teintes de porte plus sobres (peinture profonde, veinage discret) */
 .battant,.porte .battant{background:repeating-linear-gradient(90deg,rgba(255,255,255,.018) 0 2px,rgba(0,0,0,.022) 2px 6px),linear-gradient(165deg,color-mix(in srgb,var(--c1) 74%,#4a4a4a),color-mix(in srgb,var(--c1) 66%,#262626) 55%,color-mix(in srgb,var(--c1) 58%,#141414))}
+.marque-mono{letter-spacing:.03em;font-size:14px}
