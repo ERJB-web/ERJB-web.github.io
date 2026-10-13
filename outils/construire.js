@@ -17,7 +17,27 @@ const VERSION_CSS = empreinte("assets/site.css");
 const VERSION_JS = empreinte("assets/site.js");
 const URL = "https://erjb-web.github.io/";
 const TELEPHONE = ["(263) 384-3050", "+12633843050"];
-const SALLES = ["recherche", "conceptualisation", "publications", "approche", "implantation", "parcours", "engagements", "biographie", "valeurs", "ressources"];
+const GROUPES = [
+  ["recherche", ["recherche", "conceptualisation", "publications"]],
+  ["expertise", ["approche", "implantation"]],
+  ["parcours", ["biographie", "parcours", "valeurs"]],
+  ["engagements", ["engagements"]],
+  ["ressources", ["ressources"]],
+  ["contact", []],
+];
+const SALLES = GROUPES.flatMap(([, ss]) => ss);
+const NUMS = Object.fromEntries(GROUPES.flatMap(([, ss], gi) => ss.map((s, k) => [s, String(gi + 1).padStart(2, "0") + (ss.length > 1 ? "." + (k + 1) : "")])));
+const TEXTES_GROUPES = {
+  fr: { ressources: ["Ressources","Lectures, articles, capsules et balados"], recherche: ["Recherche", "Thèse, recherche en cours et publications"], expertise: ["Expertise", "Approche, méthodes et implantation"], parcours: ["Parcours", "Biographie, expériences et valeurs"] },
+  en: { ressources: ["Resources","Readings, articles, videos and podcasts"], recherche: ["Research", "Thesis, research in progress and publications"], expertise: ["Expertise", "Approach, methods and implementation"], parcours: ["Background", "Biography, experience and values"] },
+  es: { ressources: ["Recursos","Lecturas, artículos, cápsulas y pódcasts"], recherche: ["Investigación", "Tesis, investigación en curso y publicaciones"], expertise: ["Pericia", "Enfoque, métodos e implementación"], parcours: ["Trayectoria", "Biografía, experiencia y valores"] },
+  zh: { ressources: ["资源","阅读文献、文章、视频与播客"], recherche: ["研究", "博士论文、在研工作与发表成果"], expertise: ["专业能力", "研究取向、方法与实施"], parcours: ["经历", "个人简介、经历与价值观"] },
+  ar: { ressources: ["الموارد","قراءات ومقالات ومقاطع فيديو وبودكاست"], recherche: ["البحث", "الأطروحة والبحث الجاري والمنشورات"], expertise: ["الخبرة", "المقاربة والمناهج والتنفيذ"], parcours: ["المسار", "السيرة والخبرات والقيم"] },
+};
+const texteGroupe = (c, g) =>
+  g === "contact"
+    ? [c.nav.find((x) => x[0] === "contact")[1], `${c.contact.courriel} · ${TELEPHONE[0]}`]
+    : (TEXTES_GROUPES[c.lang] || TEXTES_GROUPES.en)[g] || c.hall.portes[g];
 
 let typoFr = false;
 const e = (s) => {
@@ -131,6 +151,8 @@ ${terminus ? `<p class="terminus">${e(terminus)}</p>` : ""}
 </div>`;
 }
 
+const IMAGES_GROUPES = { recherche: "recherche.jpg", expertise: "expertise.jpg", parcours: "biographie.jpg", engagements: "engagements.jpg", ressources: "ressources.jpg" };
+const TEINTES_GROUPES = { expertise: ["#8c4d58", "#63343e"], parcours: ["#9a7448", "#6c4f2e"], contact: ["#2c6b5a", "#1d4a3e"] };
 const IMAGES_PORTES = {
   recherche: "recherche.jpg",
   approche: "approche.jpg",
@@ -158,13 +180,14 @@ const TEINTES = {
 };
 
 
-function porte(c, nom, i) {
-  const [titre, legende] = c.hall.portes[nom];
-  const [c1, c2] = TEINTES[nom];
-  const image = IMAGES_PORTES[nom];
-  return `<button class="porte" type="button" data-salle="${nom}" style="--c1:${c1};--c2:${c2}" aria-label="${num(i)}. ${e(titre)}${deuxPoints(c)} ${e(legende)}">
-<span class="baie" aria-hidden="true"><span class="ouverture"><span class="apercu">${e(c.ui.entrer)}</span><span class="battant"><span class="vignette" style="background-image:url(${c.chemin}assets/portes/${image}?v=${empreinte("assets/portes/" + image)})"></span><span class="poignee"></span></span></span></span>
-<span class="porte-texte" aria-hidden="true"><span class="plaque"><span class="num">${num(i)}</span>${e(titre)}</span><span class="legende">${e(legende)}</span><span class="entrer">${e(c.ui.entrer)} →</span></span>
+function porte(c, [nom, sections], i) {
+  const [titre, legende] = texteGroupe(c, nom);
+  const [c1, c2] = TEINTES_GROUPES[nom] || TEINTES[nom];
+  const image = IMAGES_GROUPES[nom];
+  const fond = image ? ` style="background-image:url(${c.chemin}assets/portes/${image}?v=${empreinte("assets/portes/" + image)})"` : "";
+  return `<button class="porte${image ? "" : " porte-contact"}" type="button" data-salle="${nom}" data-sections="${sections.join(" ")}" data-titre="${e(titre)}" style="--c1:${c1};--c2:${c2}" aria-label="${num(i)}. ${e(titre)}${deuxPoints(c)} ${e(legende)}">
+<span class="baie" aria-hidden="true"><span class="ouverture"><span class="apercu">${e(c.ui.entrer)}</span><span class="battant"><span class="vignette"${fond}></span><span class="poignee"></span></span></span></span>
+<span class="porte-texte" aria-hidden="true"><span class="plaque"><span class="num">${num(i)}</span>${e(titre)}</span><span class="legende">${e(legende)}</span>${sections.length > 1 ? `<span class="sous-portes">${sections.map((s) => `<span>${e(c.hall.portes[s][0])}</span>`).join("")}</span>` : ""}<span class="entrer">${e(c.ui.entrer)} →</span></span>
 </button>`;
 }
 
@@ -726,7 +749,7 @@ function page(c) {
       { "@type": "CollegeOrUniversity", name: "Université de Bretagne Occidentale" },
     ],
     knowsAbout: c.approche.axes.principaux,
-    sameAs: [c.contact.liens.find((l) => l[0] === "ORCID")[2], c.contact.liens.find((l) => l[0] === "LinkedIn")[2]],
+    sameAs: [c.contact.liens.find((l) => l[0] === "ORCID")[2]],
   };
   const sections = {
     recherche: sectionRecherche(c),
@@ -770,7 +793,7 @@ ${LANGUES.filter((l) => l.hreflang).map((l) => `<link rel="alternate" hreflang="
 <header class="entete">
 <a class="marque" href="${p || "./"}"><img class="marque-portrait" src="${p}assets/portrait-mini.jpg?v=${empreinte("assets/portrait-mini.jpg")}" alt="" width="44" height="44"><span><strong>Éric Bernier</strong><small>${e(c.ui.sousTitre)}</small></span></a>
 <p class="coordonnees coordonnees-haut"><a href="mailto:${e(c.contact.courriel)}">${e(c.contact.courriel)}</a><a href="tel:${TELEPHONE[1]}">${TELEPHONE[0]}</a></p>
-<nav class="nav" aria-label="${e(c.ui.navigation)}">${[...SALLES, "contact"].map((id) => c.nav.find((x) => x[0] === id)).filter(Boolean).map(([id, t]) => `<a href="#${id}">${e(t)}</a>`).join("")}</nav>
+<nav class="nav" aria-label="${e(c.ui.navigation)}">${GROUPES.map(([g, ss]) => `<a href="#${ss[0] || g}">${e(texteGroupe(c, g)[0])}</a>`).join("")}</nav>
 <div class="outils">
 ${menuLangues(c, c.lang)}
 ${menuAcces(c, c.lang)}
@@ -790,8 +813,8 @@ ${menuAcces(c, c.lang)}
 <div class="actions"><button class="primaire" type="button" id="visite">${e(c.accueil.visite)} <span aria-hidden="true">→</span></button><a class="lien" href="#recherche">${e(c.accueil.explorer)}</a></div>
 </div>
 <div class="hall" role="group" aria-label="${e(c.hall.titre)}">
-<div class="hall-tete"><span>${e(c.hall.titre)}</span><span>${e(c.hall.compte)}</span></div>
-<div class="portes">${SALLES.map((s, i) => porte(c, s, i)).join("")}</div>
+<div class="hall-tete"><span>${e(c.hall.titre)}</span><span>${e(c.hall.compte.replace(/\d+/, GROUPES.length))}</span></div>
+<div class="portes">${GROUPES.map((g, i) => porte(c, g, i)).join("")}</div>
 <div class="hall-pied"><span>${e(c.hall.consigne)}</span></div>
 </div>
 ${bandeAccueil(c)}
@@ -799,9 +822,9 @@ ${bandeAccueil(c)}
 
 ${SALLES.map(
   (s, i) => `<section class="section${i % 2 ? " teinte" : ""}" id="${s}" data-salle="${s}" data-titre="${e(c.hall.portes[s][0])}">
-<div class="section-contenu" data-numero="${num(i)}">
-<div class="bandeau" style="--c1:${TEINTES[s][0]};background-image:var(--degrade),url(${p}assets/bandeaux/${s}.jpg?v=${empreinte("assets/bandeaux/" + s + ".jpg")})" role="img" aria-label="${e(c.hall.portes[s][0])}"><div class="bandeau-texte"><span class="bandeau-num">${num(i)}</span><span class="bandeau-titre">${e(c.hall.portes[s][0])}</span><span class="bandeau-legende">${e(c.hall.portes[s][1])}</span></div></div>
-${sections[s].replace(/<p class="surtitre">(\d{2} · )?/, `<p class="surtitre">${num(i)} · `)}
+<div class="section-contenu" data-numero="${NUMS[s]}">
+<div class="bandeau" style="--c1:${TEINTES[s][0]};background-image:var(--degrade),url(${p}assets/bandeaux/${s}.jpg?v=${empreinte("assets/bandeaux/" + s + ".jpg")})" role="img" aria-label="${e(c.hall.portes[s][0])}"><div class="bandeau-texte"><span class="bandeau-num">${NUMS[s]}</span><span class="bandeau-titre">${e(c.hall.portes[s][0])}</span><span class="bandeau-legende">${e(c.hall.portes[s][1])}</span></div></div>
+${sections[s].replace(/<p class="surtitre">(\d{2} · )?/, `<p class="surtitre">${NUMS[s]} · `)}
 </div>
 </section>`
 ).join("\n")}
@@ -834,7 +857,8 @@ ${sections[s].replace(/<p class="surtitre">(\d{2} · )?/, `<p class="surtitre">$
 <button type="button" data-suivante>${e(c.ui.suivante)} →</button>
 <button type="button" data-contact hidden>${e(c.ui.contact)} →</button></div>
 </div>
-<div class="salle-progres" aria-hidden="true">${SALLES.map(() => "<span></span>").join("")}</div>
+<div class="salle-progres" aria-hidden="true">${GROUPES.filter(([, ss]) => ss.length).map(() => "<span></span>").join("")}</div>
+<nav class="salle-onglets" aria-label="${e(c.hall.titre)}" hidden></nav>
 <div class="salle-contenu"></div>
 </div>
 </body>

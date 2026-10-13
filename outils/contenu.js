@@ -1,7 +1,6 @@
 "use strict";
 
 const ORCID = "https://orcid.org/0009-0001-4236-4932";
-const LINKEDIN = "https://www.linkedin.com/in/eric-b-5aa52b250";
 const AFFICHE = "https://erjb-web.github.io/affiche-releve/";
 const COURRIEL = "eric.bernier.1@umontreal.ca";
 const FRQ_DOI = "https://doi.org/10.69777/2009461";
@@ -654,8 +653,8 @@ const fr = {
         "Interroger les évidences, les données et les institutions, à commencer par les siennes."
       ],
       [
-        "Solidarité",
-        "Ne laisser personne au bord du chemin : un principe d’accompagnement et de politique publique."
+        "Coconstruire pour le bien collectif",
+        "Faire avec les personnes, et non pour elles : une recherche à impact, menée avec et pour les gens."
       ],
       [
         "Audace d’entreprendre",
@@ -1339,7 +1338,7 @@ const fr = {
         "Mon parcours m’a permis de découvrir différentes strates de la société et du système de santé, d’y occuper des positions diverses et d’en observer les interactions. Cette pluralité de perspectives constitue aujourd’hui l’une des ressources de ma démarche scientifique.",
         "**La recherche représente pour moi un instrument de compréhension, mais aussi d’émancipation humaine, de justice sociale et d’appui à la décision collective.** Sa valeur réside autant dans la rigueur des connaissances produites que dans leur capacité à nourrir le débat, à éclairer les choix et à soutenir leur mise en œuvre.",
         "Elle s’inscrit dans les Objectifs de développement durable de l’Organisation des Nations Unies : l’amélioration du bien-être des aînés, la réduction des inégalités face au maintien à domicile et la consolidation d’institutions inclusives et responsables. À terme, mon ambition est de devenir un chercheur autonome, reconnu pour son engagement à articuler données probantes, dialogue entre parties prenantes et vulgarisation auprès du grand public.",
-        "Curiosité intellectuelle, résilience, autonomie, sens critique, solidarité et audace d’entreprendre sont autant de valeurs qui traversent mon cheminement.",
+        "Curiosité intellectuelle, résilience, autonomie, sens critique, coconstruction et audace d’entreprendre sont autant de valeurs qui traversent mon cheminement.",
         "Je souhaite poursuivre cette exploration à l’interface des disciplines et des milieux, convaincu que les réponses aux défis contemporains de santé publique nécessitent de faire dialoguer les personnes, les savoirs et les institutions."
       ]
     },
@@ -1582,7 +1581,6 @@ const fr = {
       ["CV académique", "PDF", "docs/cv-academique.pdf"],
       ["CV professionnel", "PDF", "docs/cv-professionnel.pdf"],
       ["ORCID", "0009-0001-4236-4932", ORCID],
-      ["LinkedIn", "Profil", LINKEDIN],
       ["Affiche du projet de thèse", "Version accessible", AFFICHE],
     ],
     adresse: "École de santé publique de l’Université de Montréal · 7101, avenue du Parc, Montréal (Québec)",
@@ -2207,8 +2205,8 @@ const en = {
         "Questioning what seems obvious, data and institutions, starting with one’s own."
       ],
       [
-        "Solidarity",
-        "Leaving no one by the wayside: a principle of support and of public policy."
+        "Co-constructing for the common good",
+        "Doing with people, not for them: impactful research carried out with and for the people it concerns."
       ],
       [
         "Boldness to undertake",
@@ -2892,7 +2890,7 @@ const en = {
         "My path has let me discover different layers of society and of the health system, hold various positions within them and observe how they interact. This plurality of perspectives is now one of the resources of my scientific approach.",
         "**For me, research is an instrument of understanding, but also of human emancipation, social justice and support for collective decision-making.** Its value lies as much in the rigour of the knowledge it produces as in its capacity to feed debate, inform choices and support their implementation.",
         "It is aligned with the United Nations Sustainable Development Goals: improving the well-being of older adults, reducing inequalities in ageing at home and strengthening inclusive, accountable institutions. In the long run, my ambition is to become an independent researcher, recognised for combining evidence, dialogue among stakeholders and outreach to the general public.",
-        "Intellectual curiosity, resilience, autonomy, critical thinking, solidarity and the boldness to undertake are values that run through my journey.",
+        "Intellectual curiosity, resilience, autonomy, critical thinking, co-construction and the boldness to undertake are values that run through my journey.",
         "I wish to pursue this exploration at the interface of disciplines and settings, convinced that today’s public health challenges require bringing people, knowledge and institutions into dialogue."
       ]
     },
@@ -3135,7 +3133,6 @@ const en = {
       ["Academic CV", "PDF, in French", "docs/cv-academique.pdf"],
       ["Professional CV", "PDF, in French", "docs/cv-professionnel.pdf"],
       ["ORCID", "0009-0001-4236-4932", ORCID],
-      ["LinkedIn", "Profile", LINKEDIN],
       ["Thesis project poster", "Accessible version", AFFICHE + "en/"],
     ],
     adresse: "School of Public Health, Université de Montréal · 7101 avenue du Parc, Montréal, Québec",
@@ -3760,8 +3757,8 @@ const es = {
         "Interrogar las evidencias, los datos y las instituciones, empezando por las propias."
       ],
       [
-        "Solidaridad",
-        "No dejar a nadie al borde del camino: un principio de acompañamiento y de política pública."
+        "Coconstruir por el bien colectivo",
+        "Hacer con las personas, y no por ellas: una investigación con impacto, realizada con y para la gente."
       ],
       [
         "Audacia para emprender",
@@ -4445,7 +4442,7 @@ const es = {
         "Mi trayectoria me ha permitido descubrir distintos estratos de la sociedad y del sistema de salud, ocupar en ellos posiciones diversas y observar sus interacciones. Esta pluralidad de perspectivas es hoy uno de los recursos de mi trabajo científico.",
         "**Para mí, la investigación es un instrumento de comprensión, pero también de emancipación humana, de justicia social y de apoyo a la decisión colectiva.** Su valor reside tanto en el rigor de los conocimientos producidos como en su capacidad de alimentar el debate, esclarecer las decisiones y sostener su puesta en práctica.",
         "Se inscribe en los Objetivos de Desarrollo Sostenible de las Naciones Unidas: mejorar el bienestar de las personas mayores, reducir las desigualdades ante la permanencia en el domicilio y consolidar instituciones inclusivas y responsables. A largo plazo, aspiro a ser un investigador autónomo, reconocido por su compromiso de articular datos probatorios, diálogo entre las partes interesadas y divulgación al gran público.",
-        "Curiosidad intelectual, resiliencia, autonomía, sentido crítico, solidaridad y audacia para emprender son valores que atraviesan mi camino.",
+        "Curiosidad intelectual, resiliencia, autonomía, sentido crítico, coconstrucción y audacia para emprender son valores que atraviesan mi camino.",
         "Deseo continuar esta exploración en la interfaz entre disciplinas y entornos, convencido de que las respuestas a los desafíos actuales de salud pública exigen hacer dialogar a las personas, los saberes y las instituciones."
       ]
     },
@@ -4688,7 +4685,6 @@ const es = {
       ["CV académico", "PDF, en francés", "docs/cv-academique.pdf"],
       ["CV profesional", "PDF, en francés", "docs/cv-professionnel.pdf"],
       ["ORCID", "0009-0001-4236-4932", ORCID],
-      ["LinkedIn", "Perfil", LINKEDIN],
       ["Póster del proyecto de tesis", "Versión accesible", AFFICHE + "es/"],
     ],
     adresse: "Escuela de Salud Pública de la Université de Montréal · 7101, avenue du Parc, Montreal (Quebec)",

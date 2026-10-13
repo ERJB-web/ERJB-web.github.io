@@ -3,7 +3,9 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const racine = document.documentElement;
-  const ordre = $$(".porte").map((p) => p.dataset.salle);
+  const groupes = $$(".porte").map((p) => ({ nom: p.dataset.salle, porte: p, sections: (p.dataset.sections || "").split(" ").filter(Boolean) }));
+  const ordre = groupes.flatMap((g) => g.sections);
+  const groupeDe = (s) => groupes.find((g) => g.nom === s || g.sections.includes(s));
   const mouvementReduit = matchMedia("(prefers-reduced-motion: reduce)").matches;
   // Le zoom des modes basse vision et taille du texte fausse les coordonnées du passage : on l'omet.
   const sansPassage = () => mouvementReduit || /(^| )(lv|t[123])( |$)/.test(racine.className);
@@ -20,10 +22,18 @@
   }
 
   async function entrer(nom) {
+    const groupe = groupeDe(nom);
+    if (!groupe) return;
+    if (!groupe.sections.length) {
+      $("#" + groupe.nom).scrollIntoView({ behavior: sansPassage() ? "auto" : "smooth" });
+      return;
+    }
+    const cible = groupe.sections.includes(nom) ? nom : groupe.sections[0];
+    if (courante && groupeDe(courante) === groupe) return afficher(cible);
     if (occupe) return;
     occupe = true;
     reduit = sansPassage();
-    const porte = $(`.porte[data-salle="${nom}"]`);
+    const porte = groupe.porte;
     if (salle.classList.contains("visible")) await sortir(false);
     const r0 = porte.getBoundingClientRect();
     if (r0.top < 70 || r0.bottom > innerHeight) {
@@ -51,26 +61,55 @@
       await Promise.race([anim.finished, attendre(700)]);
     }
 
-    const section = $(`section[data-salle="${nom}"]`);
-    contenu.replaceChildren(section.querySelector(".section-contenu").cloneNode(true));
-    contenu.querySelectorAll(".revele").forEach((el) => el.classList.remove("revele", "vu"));
-    if (typeof preparer === "function") setTimeout(() => preparer(contenu), 0);
-    const i = ordre.indexOf(nom);
-    salle.style.setProperty("--c1", getComputedStyle(porte).getPropertyValue("--c1"));
-    $$(".salle-progres span").forEach((s, k) => s.classList.toggle("actif", k <= i));
-    $("#salle-titre").textContent = `${String(i + 1).padStart(2, "0")} / ${String(ordre.length).padStart(2, "0")} · ${section.dataset.titre}`;
-    $("[data-suivante]", salle).hidden = i === ordre.length - 1;
-    $("[data-contact]", salle).hidden = i !== ordre.length - 1;
+    afficher(cible);
     salle.hidden = false;
     salle.scrollTop = 0;
     document.body.classList.add("salle-ouverte");
-    courante = nom;
     void salle.offsetWidth;
     salle.classList.add("visible");
     await attendre(320);
     passage.remove();
     $("[data-retour]", salle).focus({ preventScroll: true });
     occupe = false;
+  }
+
+  const onglets = salle && $(".salle-onglets", salle);
+  function afficher(s) {
+    const groupe = groupeDe(s);
+    const section = $(`section[data-salle="${s}"]`);
+    contenu.replaceChildren(section.querySelector(".section-contenu").cloneNode(true));
+    contenu.querySelectorAll(".revele").forEach((el) => el.classList.remove("revele", "vu"));
+    if (typeof preparer === "function") setTimeout(() => preparer(contenu), 0);
+    const gi = groupes.indexOf(groupe);
+    const avecSalles = groupes.filter((g) => g.sections.length);
+    salle.style.setProperty("--c1", getComputedStyle(groupe.porte).getPropertyValue("--c1"));
+    $$(".salle-progres span").forEach((x, k) => x.classList.toggle("actif", k <= gi));
+    $("#salle-titre").textContent = `${String(gi + 1).padStart(2, "0")} / ${String(avecSalles.length).padStart(2, "0")} · ${groupe.porte.dataset.titre}`;
+    onglets.hidden = groupe.sections.length < 2;
+    onglets.replaceChildren(
+      ...groupe.sections.map((x) => {
+        const sx = $(`section[data-salle="${x}"]`);
+        const bouton = document.createElement("button");
+        bouton.type = "button";
+        bouton.className = "onglet-salle" + (x === s ? " actif" : "");
+        bouton.setAttribute("aria-current", x === s ? "true" : "false");
+        bouton.style.setProperty("--c1", sx.querySelector(".bandeau").style.getPropertyValue("--c1"));
+        const n = document.createElement("span");
+        n.className = "onglet-num";
+        n.textContent = sx.querySelector(".section-contenu").dataset.numero;
+        const t = document.createElement("span");
+        t.className = "onglet-titre";
+        t.textContent = sx.dataset.titre;
+        bouton.append(n, t);
+        bouton.addEventListener("click", () => afficher(x));
+        return bouton;
+      })
+    );
+    const i = ordre.indexOf(s);
+    $("[data-suivante]", salle).hidden = i === ordre.length - 1;
+    $("[data-contact]", salle).hidden = i !== ordre.length - 1;
+    salle.scrollTop = 0;
+    courante = s;
   }
 
   async function sortir(rendreFocus = true) {
@@ -82,19 +121,33 @@
     salle.hidden = true;
     contenu.replaceChildren();
     document.body.classList.remove("salle-ouverte");
-    const porte = $(`.porte[data-salle="${nom}"]`);
+    const porte = groupeDe(nom).porte;
     setTimeout(() => porte.classList.remove("ouverte"), reduit ? 0 : 200);
     marquer(null);
     if (rendreFocus) porte.focus({ preventScroll: true });
   }
 
   if (salle) {
+  racine.classList.add("salles");
   $$(".porte").forEach((p) => p.addEventListener("click", () => entrer(p.dataset.salle)));
+  // Les liens vers une salle (menu, « Explorer ») ouvrent sa porte
+  document.addEventListener("click", (ev) => {
+    const a = ev.target.closest('a[href^="#"]');
+    if (!a || salle.contains(a)) return;
+    const id = a.getAttribute("href").slice(1);
+    if (!ordre.includes(id)) return;
+    if (a.closest(".actions")) racine.classList.add("libre");
+    if (racine.classList.contains("libre")) return;
+    ev.preventDefault();
+    entrer(id);
+  });
+  if (ordre.includes(location.hash.slice(1))) entrer(location.hash.slice(1));
   $("#visite").addEventListener("click", () => entrer(ordre[0]));
   $("[data-retour]", salle).addEventListener("click", () => sortir());
   $("[data-suivante]", salle).addEventListener("click", () => {
     const suivante = ordre[ordre.indexOf(courante) + 1];
     if (suivante) entrer(suivante);
+    salle.scrollTop = 0;
   });
   $("[data-contact]", salle).addEventListener("click", async () => {
     await sortir(false);
