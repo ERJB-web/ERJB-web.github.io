@@ -109,7 +109,7 @@ const fr = {
       titre: "Codirection",
       profil: "Profil CRCHUM",
       personnes: [
-        { nom: "Dre Nadia Sourial", grade: "Ph. D.", lignes: ["Professeure adjointe, Département de gestion, d’évaluation et de politique de santé, École de santé publique, Université de Montréal", "Chercheuse régulière au CRCHUM, Carrefour de l’innovation"], chaire: "Cotitulaire de la Chaire de recherche GSK en gestion optimale des maladies chroniques", lien: CRCHUM_SOURIAL },
+        { nom: "Dre Nadia Sourial", grade: "Ph. D.", lignes: ["Professeure agrégée, Département de gestion, d’évaluation et de politique de santé, École de santé publique, Université de Montréal", "Chercheuse régulière au CRCHUM, Carrefour de l’innovation"], chaire: "Cotitulaire de la Chaire de recherche GSK en gestion optimale des maladies chroniques", lien: CRCHUM_SOURIAL },
         { nom: "Dre Géraldine Layani", grade: "M.D., M. Sc.", lignes: ["Médecin de famille, GMF-U Notre-Dame, Montréal", "Professeure adjointe de clinique, Département de médecine de famille et de médecine d’urgence, Université de Montréal", "Chercheuse régulière au CRCHUM, Carrefour de l’innovation"], chaire: "Cotitulaire de la Chaire de recherche GSK en gestion optimale des maladies chroniques", lien: CRCHUM_LAYANI },
       ],
     },
@@ -196,7 +196,7 @@ const fr = {
     },
     valeurs: {
       titre: "Mes valeurs",
-      devise: ["Devise", "Per aspera ad astra", "Par des sentiers ardus jusqu’aux étoiles"],
+      devise: ["Devise", "Ad astra per aspera", "Par des sentiers ardus jusqu’aux étoiles"],
       items: [
         [
           "Curiosité intellectuelle",
@@ -419,73 +419,78 @@ const fr = {
     "surtitre": "05 · Biographie",
     "titre": "Des expériences humaines aux transformations collectives",
     "intro": [
-      "Éducateur spécialisé, juriste, doctorant en santé publique : trois titres, un seul fil. Il relie l’accompagnement des personnes, la gestion des organisations, le droit, les politiques publiques et la recherche.",
-      "Une ambition les traverse : **comprendre ce qui façonne les trajectoires, individuelles et collectives, pour contribuer à des sociétés plus justes, plus solidaires, capables de reconnaître à chacun sa capacité d’agir.**",
-      "Et une conviction, forgée sur le terrain avant de l’être dans les livres : on ne comprend pas une vie sans comprendre les systèmes qui l’entourent."
+      "Éducateur spécialisé, juriste et doctorant en santé publique, mon parcours s’est construit à la rencontre de différents univers : l’accompagnement des personnes, la gestion des organisations, le droit, les politiques publiques et la recherche.",
+      "Derrière cette diversité se trouve une même ambition : **comprendre les mécanismes qui façonnent les trajectoires individuelles et collectives, pour contribuer à des sociétés plus justes, solidaires et capables de reconnaître les possibilités d’agir de chacun.**",
+      "Mon cheminement, personnel comme professionnel, nourrit une conviction : les réalités humaines ne peuvent être dissociées des systèmes sociaux, organisationnels et politiques dans lesquels elles s’inscrivent.",
+      "Il suit une dynamique ascendante : de l’accompagnement des personnes vers la transformation des organisations et des politiques de santé et de services sociaux, avec une orientation claire vers l’appui à la décision publique."
     ],
-    "citation": "On ne comprend pas une vie sans comprendre les systèmes qui l’entourent.",
+    "citation": "Les réalités humaines ne peuvent être dissociées des systèmes sociaux, organisationnels et politiques dans lesquels elles s’inscrivent.",
     "chapitres": [
       [
-        "Partir de loin",
+        "Se construire hors des trajectoires conventionnelles",
         [
-          "Tout commence en France, dans un milieu populaire. L’aide sociale à l’enfance, puis l’école quittée à seize ans : le genre de départ qui ne promet rien.",
-          "Je n’ai pas suivi la voie tracée ; j’ai construit la mienne, pierre après pierre, par le travail, par la découverte d’autres milieux, par le retour aux études.",
-          "De ces années, et de ma neuroatypie, je garde une indépendance de pensée, une grande capacité d’adaptation et une question qui ne m’a plus quitté : qu’est-ce qui reproduit les inégalités, et qu’est-ce qui permet de s’en affranchir ?"
+          "Mon parcours commence en France, dans un milieu populaire, marqué notamment par une expérience de l’aide sociale à l’enfance et une déscolarisation à seize ans.",
+          "Loin d’un cheminement académique conventionnel, j’ai progressivement construit ma trajectoire par le travail, l’exploration de différents milieux et la reprise d’études.",
+          "Ces expériences, tout comme ma neuroatypie, ont nourri mon indépendance de pensée, ma capacité d’adaptation et mon intérêt pour les mécanismes de reproduction sociale, d’émancipation et de solidarité. Elles contribuent aujourd’hui à mon regard sur les institutions et sur la diversité des expériences humaines."
         ]
       ],
       [
-        "La musique, la rencontre, le soin",
+        "La création, la rencontre et l’éthique du prendre soin",
         [
-          "Il y a d’abord eu la musique : une licence en musicologie, menée en parallèle de mes premiers pas dans l’animation, puis de la responsabilité de séjours adaptés pour des personnes en situation de handicap.",
-          "Trois mondes en apparence éloignés ; un même apprentissage. L’expression de soi, la vie collective, la responsabilité envers autrui.",
-          "Onze années d’engagement auprès de personnes vulnérables m’ont appris l’essentiel : l’éthique du *prendre soin*. Reconnaître les capacités de chacun. Accompagner vers l’autonomie, jamais vers la dépendance."
+          "Mon intérêt pour la musique m’a conduit à entreprendre une licence en musicologie, parallèlement à mes premières expériences dans l’animation, puis à la responsabilité de séjours adaptés auprès de personnes en situation de handicap.",
+          "Au-delà de leurs différences, ces univers m’ont permis d’explorer les rapports humains sous plusieurs dimensions : l’expression individuelle, la vie collective, l’accompagnement et la responsabilité envers autrui.",
+          "Au fil de onze années d’engagement auprès de la vulnérabilité humaine, ces expériences ont progressivement donné une place centrale à l’éthique du *prendre soin*, à la reconnaissance des capacités individuelles et à l’importance d’un accompagnement qui favorise l’autonomie plutôt que la dépendance. Elles m’ont aussi montré la force des mécanismes de solidarité."
         ]
       ],
       [
-        "Choisir l’utilité sociale",
+        "De l’accompagnement à l’autodétermination",
         [
-          "Vint le temps des questions : à quoi suis-je utile, et quelle place veux-je occuper dans la société ?",
-          "J’ai repris des études en éducation spécialisée pour donner à ma pratique des fondements théoriques, éthiques et méthodologiques, et la recentrer sur l’autodétermination : faire *avec* les personnes, plutôt que *pour* elles.",
-          "Mon mémoire sur l’influence des pratiques éducatives sur l’autodétermination a ouvert une brèche : **comment garantir la liberté de choix d’une personne quand son accompagnement dépend aussi du fonctionnement des institutions ?**"
+          "Après plusieurs années d’engagement sur le terrain, j’ai souhaité donner une nouvelle orientation à mon activité professionnelle, guidé par une réflexion sur l’utilité sociale et sur la place que je souhaitais occuper dans la société.",
+          "J’ai ainsi repris des études en éducation spécialisée pour approfondir les fondements théoriques, éthiques et méthodologiques de l’accompagnement dans les secteurs social et médico-social, en recentrant ma pratique sur l’autodétermination et le « faire avec » les personnes.",
+          "Mon mémoire de pratique professionnelle, consacré à l’influence des pratiques éducatives sur l’autodétermination, a constitué un tournant dans mon questionnement : **comment favoriser la liberté de choix des personnes lorsque les conditions de leur accompagnement sont aussi déterminées par le fonctionnement des institutions ?**"
         ]
       ],
       [
-        "Comprendre les organisations",
+        "Comprendre les organisations pour transformer les pratiques",
         [
-          "La question m’a conduit au cœur des organisations.",
-          "Une formation en direction d’établissements sanitaires et médico-sociaux, puis un diplôme universitaire en entrepreneuriat à l’IAE de Brest, en 2023 : management, financement, coordination, ressources humaines, conduite du changement.",
-          "J’y ai vu ce que le terrain pressent sans toujours pouvoir le nommer : le financement, le travail partenarial ou le recrutement se décident en grande partie ailleurs, dans les politiques publiques. Comprendre comment des intentions deviennent des pratiques, et comment une organisation concilie ses contraintes avec les besoins des personnes, est devenu mon fil."
+          "Cette interrogation m’a conduit à élargir ma réflexion aux organisations elles-mêmes.",
+          "J’ai poursuivi une formation en direction et gestion des établissements sanitaires et médico-sociaux, ainsi qu’un diplôme universitaire en entrepreneuriat à l’IAE de Brest, obtenu en 2023.",
+          "J’y ai approfondi les enjeux de management, de financement, de coordination, de ressources humaines et de conduite du changement. J’y ai constaté que les difficultés des structures, du financement au travail partenarial et au recrutement, étaient largement conditionnées par les politiques publiques de santé.",
+          "J’ai surtout cherché à comprendre les conditions qui permettent aux professionnels de traduire leurs intentions en pratiques effectives, et aux organisations de concilier leurs contraintes avec les besoins des personnes."
         ]
       ],
       [
-        "Remonter jusqu’aux politiques",
+        "Du fonctionnement des institutions à la gouvernance des systèmes de santé",
         [
-          "Restait à remonter à la source : les cadres juridiques, la planification, le financement, la gouvernance.",
-          "Le droit public, sanitaire et social à l’Université Paris-Panthéon-Assas, puis l’Agence nationale d’appui à la performance (ANAP), où j’ai traduit des orientations nationales en dispositifs concrets, au contact des gestionnaires, des professionnels et des usagers.",
-          "J’y ai mesuré la distance entre une politique écrite et une politique vécue, surtout quand la réponse exige de franchir les frontières entre organisations et secteurs. Mon mémoire sur le virage domiciliaire en France et au Québec m’a mené jusqu’à des chercheuses et chercheurs québécois, avec une proposition : mettre les systèmes de santé en regard pour mieux comprendre ce qui freine le maintien à domicile."
+          "L’étude des organisations m’a amené à explorer les mécanismes qui orientent leurs décisions : les cadres juridiques, les politiques publiques, la planification, les dispositifs de financement et les modalités de gouvernance.",
+          "J’ai poursuivi cette réflexion à l’Université Paris-Panthéon-Assas, en droit public, sanitaire et social, pour dépasser les problématiques gestionnaires et adopter une approche multiniveau du système de santé et des instruments juridiques de la solidarité nationale, puis comme chargé de projets à l’Agence nationale d’appui à la performance (ANAP).",
+          "Cette expérience m’a permis de travailler à l’articulation entre orientations nationales et réalités opérationnelles, en traduisant ces orientations en dispositifs concrets, au contact des enjeux rencontrés par les gestionnaires, les professionnels et les usagers du système de santé.",
+          "Elle a renforcé mon intérêt pour les difficultés de mise en œuvre des politiques publiques, particulièrement lorsque les réponses à apporter supposent de dépasser les frontières entre organisations et secteurs d’intervention. Consolidée par un mémoire de recherche, cette immersion a révélé les difficultés de mise en œuvre des modèles de soins et services intégrés, et la nécessité d’une approche intersectorielle et interdisciplinaire face aux pratiques en silos. J’ai alors sollicité plusieurs chercheurs québécois en leur présentant mes constats et un projet de mise en contraste des systèmes de santé, pour trouver des réponses aux difficultés de mise en œuvre du maintien à domicile."
         ]
       ],
       [
-        "Chercher pour éclairer l’action",
+        "Produire des connaissances pour éclairer l’action collective",
         [
-          "Ce chemin se prolonge aujourd’hui au doctorat en santé publique de l’Université de Montréal, sous la direction des Dres Nadia Sourial et Géraldine Layani.",
-          "J’étudie l’organisation des systèmes de santé et de services sociaux, les besoins sociaux des populations, les collaborations intersectorielles et les conditions qui rendent possibles des réponses intégrées, notamment pour le soutien à domicile.",
-          "Ma démarche est interdisciplinaire et pragmatique : rapprocher l’expérience vécue, la connaissance scientifique et la réalité des décisions. Elle fait une place à la recherche partenariale, où les patients sont aussi producteurs de savoirs, et au transfert des connaissances vers celles et ceux qui les mobiliseront.",
-          "Le même élan, créer, expérimenter, proposer, me porte vers l’entrepreneuriat, avec **OWNNIGHT**, en cours de création."
+          "Aujourd’hui, mon doctorat en santé publique à l’Université de Montréal, sous la direction des Dres N. Sourial et G. Layani, prolonge ce cheminement.",
+          "Mes travaux portent sur l’organisation des systèmes de santé et de services sociaux, les besoins sociaux des populations, les collaborations intersectorielles et les conditions de mise en œuvre de réponses intégrées, notamment dans le soutien à domicile.",
+          "Mon approche est résolument interdisciplinaire et pragmatique. Elle vise à rapprocher les expériences vécues, les connaissances scientifiques et les réalités décisionnelles pour mieux comprendre les phénomènes étudiés et contribuer à la transformation des pratiques et des politiques publiques.",
+          "Je porte une attention particulière aux populations en perte d’autonomie et éloignées des services, à la recherche partenariale, qui intègre les patients comme producteurs de savoirs, au transfert des connaissances et à leur mobilisation par les personnes, les professionnels, les organisations et les décideurs.",
+          "Cette volonté de créer, d’expérimenter et de proposer se prolonge également dans l’entrepreneuriat, notamment à travers le développement d’**OWNNIGHT**, un projet en cours de création."
         ]
       ]
     ],
     "vision": {
-      "titre": "Faire dialoguer les personnes, les savoirs et les institutions",
+      "titre": "Une vision qui relie les expériences, les savoirs et l’action",
       "paragraphes": [
-        "Je crois que les savoirs académiques, professionnels et expérientiels gagnent à se confronter plutôt qu’à se hiérarchiser.",
-        "J’ai traversé plusieurs strates de la société et du système de santé, et j’y ai occupé des places différentes. Cette pluralité de regards est devenue une ressource de ma démarche scientifique.",
-        "**La recherche est pour moi un instrument de compréhension, mais aussi d’émancipation humaine, de justice sociale et d’appui à la décision collective.** Sa valeur tient autant à la rigueur des connaissances produites qu’à leur capacité à nourrir le débat, à éclairer les choix et à soutenir leur mise en œuvre, pour des parcours plus équitables, plus continus et de meilleure qualité, dans l’esprit des Objectifs de développement durable des Nations Unies.",
-        "Curiosité intellectuelle, résilience, autonomie, sens critique, solidarité, audace d’entreprendre : ces valeurs traversent mon cheminement.",
-        "Je veux poursuivre cette exploration à l’interface des disciplines et des milieux, avec une conviction : les défis de santé publique de notre temps exigent de faire dialoguer les personnes, les savoirs et les institutions."
+        "Je crois que les savoirs académiques, professionnels et expérientiels gagnent à être confrontés plutôt que hiérarchisés.",
+        "Mon parcours m’a permis de découvrir différentes strates de la société et du système de santé, d’y occuper des positions diverses et d’en observer les interactions. Cette pluralité de perspectives constitue aujourd’hui l’une des ressources de ma démarche scientifique.",
+        "**La recherche représente pour moi un instrument de compréhension, mais aussi d’émancipation humaine, de justice sociale et d’appui à la décision collective.** Sa valeur réside autant dans la rigueur des connaissances produites que dans leur capacité à nourrir le débat, à éclairer les choix et à soutenir leur mise en œuvre.",
+        "Elle s’inscrit dans les Objectifs de développement durable de l’Organisation des Nations Unies : l’amélioration du bien-être des aînés, la réduction des inégalités face au maintien à domicile et la consolidation d’institutions inclusives et responsables. À terme, mon ambition est de devenir un chercheur autonome, reconnu pour son engagement à articuler données probantes, dialogue entre parties prenantes et vulgarisation auprès du grand public.",
+        "Curiosité intellectuelle, résilience, autonomie, sens critique, solidarité et audace d’entreprendre sont autant de valeurs qui traversent mon cheminement.",
+        "Je souhaite poursuivre cette exploration à l’interface des disciplines et des milieux, convaincu que les réponses aux défis contemporains de santé publique nécessitent de faire dialoguer les personnes, les savoirs et les institutions."
       ]
     },
-    "conclusion": "Per aspera ad astra : par des sentiers ardus jusqu’aux étoiles."
+    "conclusion": "Ad astra per aspera — Par des sentiers ardus jusqu’aux étoiles."
   },
   parcours: {
     surtitre: "06 · Le parcours",
@@ -668,7 +673,7 @@ const en = {
       titre: "Co-supervision",
       profil: "CRCHUM profile",
       personnes: [
-        { nom: "Dr. Nadia Sourial", grade: "PhD", lignes: ["Assistant Professor, Department of Health Management, Evaluation and Policy, School of Public Health, Université de Montréal", "Principal scientist, CRCHUM, Health Innovation and Evaluation Hub"], chaire: "Co-holder, GSK Research Chair in optimal management of chronic diseases", lien: CRCHUM_SOURIAL },
+        { nom: "Dr. Nadia Sourial", grade: "PhD", lignes: ["Associate Professor, Department of Health Management, Evaluation and Policy, School of Public Health, Université de Montréal", "Principal scientist, CRCHUM, Health Innovation and Evaluation Hub"], chaire: "Co-holder, GSK Research Chair in optimal management of chronic diseases", lien: CRCHUM_SOURIAL },
         { nom: "Dr. Géraldine Layani", grade: "MD, MSc", lignes: ["Family physician, GMF-U Notre-Dame, Montréal", "Assistant clinical professor, Department of Family and Emergency Medicine, Université de Montréal", "Principal scientist, CRCHUM, Health Innovation and Evaluation Hub"], chaire: "Co-holder, GSK Research Chair in optimal management of chronic diseases", lien: CRCHUM_LAYANI },
       ],
     },
@@ -755,7 +760,7 @@ const en = {
     },
     valeurs: {
       titre: "My values",
-      devise: ["Motto", "Per aspera ad astra", "Through hardships to the stars"],
+      devise: ["Motto", "Ad astra per aspera", "Through hardships to the stars"],
       items: [
         [
           "Intellectual curiosity",
@@ -976,75 +981,80 @@ const en = {
   },
   biographie: {
     "surtitre": "05 · Biography",
-    "titre": "From human experiences to collective change",
+    "titre": "From human experiences to collective transformations",
     "intro": [
-      "Special needs educator, jurist, PhD student in public health: three titles, one thread. It connects supporting people, managing organisations, law, public policy and research.",
-      "One ambition runs through them all: **to understand what shapes individual and collective trajectories, and to help build fairer, more supportive societies that recognise each person’s capacity to act.**",
-      "And one conviction, forged in the field before it was ever found in books: you cannot understand a life without understanding the systems around it."
+      "Special needs educator, jurist and PhD student in public health, I built my path at the meeting point of different worlds: supporting people, managing organisations, law, public policy and research.",
+      "Behind this diversity lies one ambition: **to understand the mechanisms that shape individual and collective trajectories, in order to contribute to fairer, more supportive societies that recognise everyone’s capacity to act.**",
+      "My journey, personal and professional, feeds one conviction: human realities cannot be separated from the social, organisational and political systems in which they are embedded.",
+      "It follows an upward movement: from supporting people towards transforming health and social service organisations and policies, with a clear focus on supporting public decision-making."
     ],
-    "citation": "You cannot understand a life without understanding the systems around it.",
+    "citation": "Human realities cannot be separated from the social, organisational and political systems in which they are embedded.",
     "chapitres": [
       [
-        "Starting from far away",
+        "Growing up outside conventional paths",
         [
-          "It begins in France, in a working-class setting. The child welfare system, then leaving school at sixteen: the kind of start that promises nothing.",
-          "I did not follow the path laid out; I built my own, stone by stone, through work, through discovering other worlds, through returning to study.",
-          "From those years, and from my neurodivergence, I keep an independent mind, a great capacity to adapt, and a question that has never left me: what reproduces inequality, and what makes it possible to break free from it?"
+          "My path begins in France, in a working-class setting, marked in particular by time in the child welfare system and by leaving school at sixteen.",
+          "Far from a conventional academic route, I gradually built my trajectory through work, through exploring different settings and through returning to study.",
+          "These experiences, like my neurodivergence, nurtured my independent thinking, my adaptability and my interest in the mechanisms of social reproduction, emancipation and solidarity. Today they inform how I look at institutions and at the diversity of human experience."
         ]
       ],
       [
-        "Music, encounter, care",
+        "Creation, encounter and the ethics of care",
         [
-          "First came music: a bachelor’s degree in musicology, alongside my first steps in youth and leisure programmes, and then managing adapted stays for people with disabilities.",
-          "Three seemingly distant worlds; one lesson. Self-expression, collective life, responsibility towards others.",
-          "Eleven years alongside vulnerable people taught me what matters most: the ethics of *care*. Recognising each person’s capacities. Supporting autonomy, never dependence."
+          "My interest in music led me to a bachelor’s degree in musicology, alongside my first experiences in youth and leisure programmes and then managing adapted stays for people with disabilities.",
+          "For all their differences, these worlds let me explore human relationships in several dimensions: individual expression, collective life, support and responsibility towards others.",
+          "Over eleven years of commitment alongside human vulnerability, these experiences gradually placed the ethics of *care* at the centre, together with the recognition of individual capacities and the importance of support that fosters autonomy rather than dependence. They also showed me the strength of solidarity."
         ]
       ],
       [
-        "Choosing to be useful",
+        "From support to self-determination",
         [
-          "Then came the questions: what am I useful for, and what place do I want to hold in society?",
-          "I went back to study special needs education, to give my practice theoretical, ethical and methodological foundations, and to refocus it on self-determination: working *with* people rather than *for* them.",
-          "My thesis on how educational practices shape self-determination opened a breach: **how can a person’s freedom of choice be guaranteed when their support also depends on how institutions work?**"
+          "After several years in the field, I wanted to give my professional life a new direction, guided by a reflection on social usefulness and on the place I wished to hold in society.",
+          "I therefore returned to study special needs education to deepen the theoretical, ethical and methodological foundations of support in the social and medico-social sectors, refocusing my practice on self-determination and on working *with* people.",
+          "My professional practice thesis, on how educational practices influence self-determination, was a turning point in my questioning: **how can people’s freedom of choice be fostered when the conditions of their support are also determined by how institutions work?**"
         ]
       ],
       [
-        "Understanding organisations",
+        "Understanding organisations to transform practice",
         [
-          "That question took me to the heart of organisations.",
-          "Training in the management of health and medico-social facilities, then a university diploma in entrepreneurship at IAE Brest in 2023: management, funding, coordination, human resources, change management.",
-          "There I saw what the field senses without always being able to name it: funding, partnership work and recruitment are largely decided elsewhere, in public policy. Understanding how intentions become practice, and how an organisation reconciles its constraints with people’s needs, became my thread."
+          "This question led me to widen my reflection to organisations themselves.",
+          "I completed training in the management of health and medico-social facilities, as well as a university diploma in entrepreneurship at IAE Brest, obtained in 2023.",
+          "There I deepened issues of management, funding, coordination, human resources and change management, and observed that the facilities’ difficulties, from funding to partnership work and recruitment, were largely conditioned by health policy.",
+          "Above all, I sought to understand the conditions that allow professionals to turn their intentions into effective practice, and organisations to reconcile their constraints with people’s needs."
         ]
       ],
       [
-        "Going back up to policy",
+        "From how institutions work to the governance of health systems",
         [
-          "What remained was to trace things back to their source: legal frameworks, planning, funding, governance.",
-          "Public, health and social law at Université Paris-Panthéon-Assas, then France’s national agency for performance support (ANAP), where I turned national directions into concrete arrangements, working with managers, professionals and service users.",
-          "There I measured the distance between policy as written and policy as lived, especially when the response requires crossing the boundaries between organisations and sectors. My thesis on the shift towards home care in France and Québec led me to researchers in Québec, with a proposal: to set health systems side by side to better understand what holds back ageing in place."
+          "Studying organisations led me to explore the mechanisms that steer their decisions: legal frameworks, public policy, planning, funding arrangements and governance.",
+          "I pursued this reflection at Université Paris-Panthéon-Assas, in public, health and social law, to move beyond management issues and adopt a multilevel approach to the health system and to the legal instruments of national solidarity, then as a project manager at France’s national agency for performance support (ANAP).",
+          "This experience allowed me to work at the interface between national directions and operational realities, turning those directions into concrete arrangements, in close contact with the challenges faced by managers, professionals and users of the health system.",
+          "It strengthened my interest in the difficulties of implementing public policy, especially when the responses needed require crossing the boundaries between organisations and sectors. Consolidated by a research thesis, this immersion revealed the difficulties of implementing integrated care and service models, and the need for an intersectoral and interdisciplinary approach to siloed practices. I then reached out to several researchers in Québec, presenting my findings and a project to contrast health systems, in search of answers to the difficulties of implementing ageing-in-place policies."
         ]
       ],
       [
-        "Researching to inform action",
+        "Producing knowledge to inform collective action",
         [
-          "Today this path continues in the PhD in public health at Université de Montréal, supervised by Dr. Nadia Sourial and Dr. Géraldine Layani.",
-          "I study the organisation of health and social service systems, populations’ social needs, intersectoral collaboration and the conditions that make integrated responses possible, particularly in home support.",
-          "My approach is interdisciplinary and pragmatic: bringing together lived experience, scientific knowledge and the reality of decisions. It makes room for partnership research, where patients are also producers of knowledge, and for knowledge translation towards those who will use it.",
-          "The same drive, to create, experiment and propose, leads me to entrepreneurship, with **OWNNIGHT**, now being created."
+          "Today, my PhD in public health at Université de Montréal, supervised by Drs. N. Sourial and G. Layani, continues this journey.",
+          "My work focuses on the organisation of health and social service systems, populations’ social needs, intersectoral collaboration and the conditions for implementing integrated responses, particularly in home support.",
+          "My approach is resolutely interdisciplinary and pragmatic. It seeks to bring together lived experience, scientific knowledge and decision-making realities, to better understand the phenomena studied and to contribute to changing practice and public policy.",
+          "I pay particular attention to people losing autonomy and those far from services, to partnership research that recognises patients as producers of knowledge, to knowledge translation and to the use of knowledge by people, professionals, organisations and decision-makers.",
+          "This drive to create, experiment and propose also extends to entrepreneurship, notably through the development of **OWNNIGHT**, a project under way."
         ]
       ]
     ],
     "vision": {
-      "titre": "Bringing people, knowledge and institutions into dialogue",
+      "titre": "A vision that connects experience, knowledge and action",
       "paragraphes": [
         "I believe that academic, professional and experiential knowledge gain from being confronted rather than ranked.",
-        "I have crossed several layers of society and of the health system, and held different places within them. This plurality of perspectives has become a resource of my scientific approach.",
-        "**For me, research is an instrument of understanding, but also of human emancipation, social justice and support for collective decision-making.** Its value lies as much in the rigour of the knowledge it produces as in its capacity to feed debate, inform choices and support their implementation, for fairer, more continuous and better care pathways, in the spirit of the United Nations Sustainable Development Goals.",
-        "Intellectual curiosity, resilience, autonomy, critical thinking, solidarity and the boldness to undertake: these values run through my journey.",
-        "I want to pursue this exploration at the interface of disciplines and settings, with one conviction: today’s public health challenges demand that people, knowledge and institutions talk to one another."
+        "My path has let me discover different layers of society and of the health system, hold various positions within them and observe how they interact. This plurality of perspectives is now one of the resources of my scientific approach.",
+        "**For me, research is an instrument of understanding, but also of human emancipation, social justice and support for collective decision-making.** Its value lies as much in the rigour of the knowledge it produces as in its capacity to feed debate, inform choices and support their implementation.",
+        "It is aligned with the United Nations Sustainable Development Goals: improving the well-being of older adults, reducing inequalities in ageing at home and strengthening inclusive, accountable institutions. In the long run, my ambition is to become an independent researcher, recognised for combining evidence, dialogue among stakeholders and outreach to the general public.",
+        "Intellectual curiosity, resilience, autonomy, critical thinking, solidarity and the boldness to undertake are values that run through my journey.",
+        "I wish to pursue this exploration at the interface of disciplines and settings, convinced that today’s public health challenges require bringing people, knowledge and institutions into dialogue."
       ]
     },
-    "conclusion": "Per aspera ad astra: through hardships to the stars."
+    "conclusion": "Ad astra per aspera — Through hardships to the stars."
   },
   parcours: {
     surtitre: "06 · Background",
@@ -1227,7 +1237,7 @@ const es = {
       titre: "Codirección",
       profil: "Perfil CRCHUM",
       personnes: [
-        { nom: "Dra. Nadia Sourial", grade: "Ph. D.", lignes: ["Profesora adjunta, Departamento de Gestión, Evaluación y Política de Salud, Escuela de Salud Pública, Université de Montréal", "Investigadora del CRCHUM, Polo de innovación y evaluación en salud"], chaire: "Cotitular de la Cátedra de investigación GSK en gestión óptima de enfermedades crónicas", lien: CRCHUM_SOURIAL },
+        { nom: "Dra. Nadia Sourial", grade: "Ph. D.", lignes: ["Profesora agregada, Departamento de Gestión, Evaluación y Política de Salud, Escuela de Salud Pública, Université de Montréal", "Investigadora del CRCHUM, Polo de innovación y evaluación en salud"], chaire: "Cotitular de la Cátedra de investigación GSK en gestión óptima de enfermedades crónicas", lien: CRCHUM_SOURIAL },
         { nom: "Dra. Géraldine Layani", grade: "M.D., M. Sc.", lignes: ["Médica de familia, GMF-U Notre-Dame, Montreal", "Profesora adjunta clínica, Departamento de Medicina Familiar y de Urgencias, Université de Montréal", "Investigadora del CRCHUM, Polo de innovación y evaluación en salud"], chaire: "Cotitular de la Cátedra de investigación GSK en gestión óptima de enfermedades crónicas", lien: CRCHUM_LAYANI },
       ],
     },
@@ -1314,7 +1324,7 @@ const es = {
     },
     valeurs: {
       titre: "Mis valores",
-      devise: ["Lema", "Per aspera ad astra", "A través de las dificultades hasta las estrellas"],
+      devise: ["Lema", "Ad astra per aspera", "A través de las dificultades hasta las estrellas"],
       items: [
         [
           "Curiosidad intelectual",
@@ -1537,73 +1547,78 @@ const es = {
     "surtitre": "05 · Biografía",
     "titre": "De las experiencias humanas a las transformaciones colectivas",
     "intro": [
-      "Educador especializado, jurista, doctorando en salud pública: tres títulos, un solo hilo. Une el acompañamiento de las personas, la gestión de las organizaciones, el derecho, las políticas públicas y la investigación.",
-      "Una ambición los atraviesa: **comprender lo que da forma a las trayectorias individuales y colectivas, para contribuir a sociedades más justas, más solidarias, capaces de reconocer a cada persona su capacidad de actuar.**",
-      "Y una convicción, forjada en el terreno antes que en los libros: no se comprende una vida sin comprender los sistemas que la rodean."
+      "Educador especializado, jurista y doctorando en salud pública, construí mi trayectoria en el encuentro de distintos mundos: el acompañamiento de las personas, la gestión de las organizaciones, el derecho, las políticas públicas y la investigación.",
+      "Detrás de esta diversidad hay una misma ambición: **comprender los mecanismos que dan forma a las trayectorias individuales y colectivas, para contribuir a sociedades más justas, solidarias y capaces de reconocer las posibilidades de actuar de cada persona.**",
+      "Mi camino, personal y profesional, alimenta una convicción: las realidades humanas no pueden separarse de los sistemas sociales, organizativos y políticos en los que se inscriben.",
+      "Sigue una dinámica ascendente: del acompañamiento de las personas hacia la transformación de las organizaciones y de las políticas de salud y de servicios sociales, con una orientación clara hacia el apoyo a la decisión pública."
     ],
-    "citation": "No se comprende una vida sin comprender los sistemas que la rodean.",
+    "citation": "Las realidades humanas no pueden separarse de los sistemas sociales, organizativos y políticos en los que se inscriben.",
     "chapitres": [
       [
-        "Partir de lejos",
+        "Construirse fuera de las trayectorias convencionales",
         [
-          "Todo comienza en Francia, en un medio popular. La protección de la infancia, y luego la escuela abandonada a los dieciséis años: el tipo de comienzo que no promete nada.",
-          "No seguí el camino trazado; construí el mío, piedra a piedra, con el trabajo, descubriendo otros mundos, volviendo a los estudios.",
-          "De esos años, y de mi neuroatipia, conservo una independencia de pensamiento, una gran capacidad de adaptación y una pregunta que ya no me ha abandonado: ¿qué reproduce las desigualdades y qué permite liberarse de ellas?"
+          "Mi trayectoria comienza en Francia, en un medio popular, marcado en particular por una experiencia en la protección de la infancia y por el abandono de la escuela a los dieciséis años.",
+          "Lejos de un recorrido académico convencional, fui construyendo mi trayectoria a través del trabajo, la exploración de distintos entornos y la vuelta a los estudios.",
+          "Estas experiencias, al igual que mi neuroatipia, alimentaron mi independencia de pensamiento, mi capacidad de adaptación y mi interés por los mecanismos de reproducción social, de emancipación y de solidaridad. Hoy forman parte de mi mirada sobre las instituciones y sobre la diversidad de las experiencias humanas."
         ]
       ],
       [
-        "La música, el encuentro, el cuidado",
+        "La creación, el encuentro y la ética del cuidado",
         [
-          "Primero fue la música: una licenciatura en musicología, en paralelo a mis primeros pasos en la animación sociocultural y, después, a la responsabilidad de estancias adaptadas para personas con discapacidad.",
-          "Tres mundos en apariencia lejanos; un mismo aprendizaje. La expresión de uno mismo, la vida colectiva, la responsabilidad hacia los demás.",
-          "Once años de compromiso junto a personas vulnerables me enseñaron lo esencial: la ética del *cuidado*. Reconocer las capacidades de cada persona. Acompañar hacia la autonomía, nunca hacia la dependencia."
+          "Mi interés por la música me llevó a cursar una licenciatura en musicología, en paralelo a mis primeras experiencias en la animación sociocultural y, después, a la responsabilidad de estancias adaptadas para personas con discapacidad.",
+          "Más allá de sus diferencias, estos mundos me permitieron explorar las relaciones humanas en varias dimensiones: la expresión individual, la vida colectiva, el acompañamiento y la responsabilidad hacia los demás.",
+          "A lo largo de once años de compromiso junto a la vulnerabilidad humana, estas experiencias fueron dando un lugar central a la ética del *cuidado*, al reconocimiento de las capacidades individuales y a la importancia de un acompañamiento que favorezca la autonomía y no la dependencia. También me mostraron la fuerza de la solidaridad."
         ]
       ],
       [
-        "Elegir la utilidad social",
+        "Del acompañamiento a la autodeterminación",
         [
-          "Llegó el tiempo de las preguntas: ¿para qué soy útil y qué lugar quiero ocupar en la sociedad?",
-          "Retomé los estudios en educación especializada para dar a mi práctica fundamentos teóricos, éticos y metodológicos, y centrarla en la autodeterminación: hacer *con* las personas, y no *para* ellas.",
-          "Mi memoria sobre la influencia de las prácticas educativas en la autodeterminación abrió una brecha: **¿cómo garantizar la libertad de elección de una persona cuando su acompañamiento depende también del funcionamiento de las instituciones?**"
+          "Tras varios años de compromiso en el terreno, quise dar una nueva orientación a mi actividad profesional, guiado por una reflexión sobre la utilidad social y sobre el lugar que deseaba ocupar en la sociedad.",
+          "Así retomé los estudios en educación especializada para profundizar en los fundamentos teóricos, éticos y metodológicos del acompañamiento en los sectores social y sociosanitario, centrando mi práctica en la autodeterminación y en el «hacer con» las personas.",
+          "Mi memoria de práctica profesional, dedicada a la influencia de las prácticas educativas en la autodeterminación, marcó un punto de inflexión en mis preguntas: **¿cómo favorecer la libertad de elección de las personas cuando las condiciones de su acompañamiento dependen también del funcionamiento de las instituciones?**"
         ]
       ],
       [
-        "Comprender las organizaciones",
+        "Comprender las organizaciones para transformar las prácticas",
         [
-          "Esa pregunta me llevó al corazón de las organizaciones.",
-          "Una formación en dirección de establecimientos sanitarios y sociosanitarios, y después un diploma universitario en emprendimiento en el IAE de Brest, en 2023: gestión, financiación, coordinación, recursos humanos, conducción del cambio.",
-          "Allí vi lo que el terreno intuye sin poder siempre nombrarlo: la financiación, el trabajo en red o la contratación se deciden en gran parte en otro lugar, en las políticas públicas. Comprender cómo las intenciones se convierten en prácticas, y cómo una organización concilia sus limitaciones con las necesidades de las personas, se convirtió en mi hilo conductor."
+          "Esta pregunta me llevó a ampliar mi reflexión a las propias organizaciones.",
+          "Cursé una formación en dirección y gestión de establecimientos sanitarios y sociosanitarios, así como un diploma universitario en emprendimiento en el IAE de Brest, obtenido en 2023.",
+          "Allí profundicé en los retos de la gestión, la financiación, la coordinación, los recursos humanos y la conducción del cambio, y comprobé que las dificultades de las estructuras, desde la financiación hasta el trabajo en red y la contratación, dependían en gran medida de las políticas públicas de salud.",
+          "Sobre todo, busqué comprender las condiciones que permiten a los profesionales traducir sus intenciones en prácticas efectivas, y a las organizaciones conciliar sus limitaciones con las necesidades de las personas."
         ]
       ],
       [
-        "Remontar hasta las políticas",
+        "Del funcionamiento de las instituciones a la gobernanza de los sistemas de salud",
         [
-          "Quedaba remontar hasta la fuente: los marcos jurídicos, la planificación, la financiación, la gobernanza.",
-          "El derecho público, sanitario y social en la Université Paris-Panthéon-Assas, y después la Agencia nacional francesa de apoyo al desempeño (ANAP), donde traduje orientaciones nacionales en dispositivos concretos, en contacto con gestores, profesionales y usuarios.",
-          "Allí medí la distancia entre la política escrita y la política vivida, sobre todo cuando la respuesta exige cruzar las fronteras entre organizaciones y sectores. Mi memoria sobre la atención domiciliaria en Francia y Quebec me llevó hasta investigadoras e investigadores quebequenses, con una propuesta: poner los sistemas de salud frente a frente para comprender mejor lo que frena la permanencia en el domicilio."
+          "El estudio de las organizaciones me llevó a explorar los mecanismos que orientan sus decisiones: los marcos jurídicos, las políticas públicas, la planificación, los mecanismos de financiación y las modalidades de gobernanza.",
+          "Continué esta reflexión en la Université Paris-Panthéon-Assas, en derecho público, sanitario y social, para superar los problemas de gestión y adoptar un enfoque multinivel del sistema de salud y de los instrumentos jurídicos de la solidaridad nacional, y después como encargado de proyectos en la Agencia nacional francesa de apoyo al desempeño (ANAP).",
+          "Esta experiencia me permitió trabajar en la articulación entre las orientaciones nacionales y las realidades operativas, traduciendo esas orientaciones en dispositivos concretos, en contacto con los retos de gestores, profesionales y usuarios del sistema de salud.",
+          "Reforzó mi interés por las dificultades de implementación de las políticas públicas, sobre todo cuando las respuestas exigen superar las fronteras entre organizaciones y sectores. Consolidada por una memoria de investigación, esta inmersión reveló las dificultades de implementación de los modelos de atención y servicios integrados, y la necesidad de un enfoque intersectorial e interdisciplinario frente a las prácticas en silos. Entonces me dirigí a varios investigadores quebequenses, presentándoles mis constataciones y un proyecto para contrastar los sistemas de salud, en busca de respuestas a las dificultades de implementación de la permanencia en el domicilio."
         ]
       ],
       [
-        "Investigar para esclarecer la acción",
+        "Producir conocimientos para esclarecer la acción colectiva",
         [
-          "Hoy este camino continúa en el doctorado en salud pública de la Université de Montréal, bajo la dirección de la Dra. Nadia Sourial y la Dra. Géraldine Layani.",
-          "Estudio la organización de los sistemas de salud y de servicios sociales, las necesidades sociales de las poblaciones, las colaboraciones intersectoriales y las condiciones que hacen posibles las respuestas integradas, en particular en el apoyo a domicilio.",
-          "Mi enfoque es interdisciplinario y pragmático: acercar la experiencia vivida, el conocimiento científico y la realidad de las decisiones. Da un lugar a la investigación participativa, en la que los pacientes también producen saberes, y a la transferencia de conocimientos hacia quienes los movilizarán.",
-          "El mismo impulso, crear, experimentar, proponer, me lleva al emprendimiento, con **OWNNIGHT**, en creación."
+          "Hoy, mi doctorado en salud pública en la Université de Montréal, bajo la dirección de las Dras. N. Sourial y G. Layani, prolonga este camino.",
+          "Mis trabajos abordan la organización de los sistemas de salud y de servicios sociales, las necesidades sociales de las poblaciones, las colaboraciones intersectoriales y las condiciones de implementación de respuestas integradas, en particular en el apoyo a domicilio.",
+          "Mi enfoque es decididamente interdisciplinario y pragmático. Busca acercar las experiencias vividas, los conocimientos científicos y las realidades de la toma de decisiones para comprender mejor los fenómenos estudiados y contribuir a transformar las prácticas y las políticas públicas.",
+          "Presto una atención particular a las personas que pierden autonomía y a quienes están lejos de los servicios, a la investigación participativa que reconoce a los pacientes como productores de saberes, a la transferencia de conocimientos y a su movilización por las personas, los profesionales, las organizaciones y quienes toman las decisiones.",
+          "Esta voluntad de crear, experimentar y proponer se prolonga también en el emprendimiento, en particular con el desarrollo de **OWNNIGHT**, un proyecto en creación."
         ]
       ]
     ],
     "vision": {
-      "titre": "Hacer dialogar a las personas, los saberes y las instituciones",
+      "titre": "Una visión que une experiencias, saberes y acción",
       "paragraphes": [
         "Creo que los saberes académicos, profesionales y experienciales ganan al confrontarse en lugar de jerarquizarse.",
-        "He atravesado varios estratos de la sociedad y del sistema de salud, y he ocupado en ellos lugares distintos. Esta pluralidad de miradas se ha convertido en un recurso de mi trabajo científico.",
-        "**Para mí, la investigación es un instrumento de comprensión, pero también de emancipación humana, de justicia social y de apoyo a la decisión colectiva.** Su valor reside tanto en el rigor de los conocimientos que produce como en su capacidad de alimentar el debate, esclarecer las decisiones y sostener su puesta en práctica, por itinerarios más equitativos, más continuos y de mejor calidad, en el espíritu de los Objetivos de Desarrollo Sostenible de las Naciones Unidas.",
-        "Curiosidad intelectual, resiliencia, autonomía, sentido crítico, solidaridad y audacia para emprender: estos valores atraviesan mi camino.",
-        "Quiero continuar esta exploración en la interfaz entre disciplinas y entornos, con una convicción: los desafíos de salud pública de nuestro tiempo exigen hacer dialogar a las personas, los saberes y las instituciones."
+        "Mi trayectoria me ha permitido descubrir distintos estratos de la sociedad y del sistema de salud, ocupar en ellos posiciones diversas y observar sus interacciones. Esta pluralidad de perspectivas es hoy uno de los recursos de mi trabajo científico.",
+        "**Para mí, la investigación es un instrumento de comprensión, pero también de emancipación humana, de justicia social y de apoyo a la decisión colectiva.** Su valor reside tanto en el rigor de los conocimientos producidos como en su capacidad de alimentar el debate, esclarecer las decisiones y sostener su puesta en práctica.",
+        "Se inscribe en los Objetivos de Desarrollo Sostenible de las Naciones Unidas: mejorar el bienestar de las personas mayores, reducir las desigualdades ante la permanencia en el domicilio y consolidar instituciones inclusivas y responsables. A largo plazo, aspiro a ser un investigador autónomo, reconocido por su compromiso de articular datos probatorios, diálogo entre las partes interesadas y divulgación al gran público.",
+        "Curiosidad intelectual, resiliencia, autonomía, sentido crítico, solidaridad y audacia para emprender son valores que atraviesan mi camino.",
+        "Deseo continuar esta exploración en la interfaz entre disciplinas y entornos, convencido de que las respuestas a los desafíos actuales de salud pública exigen hacer dialogar a las personas, los saberes y las instituciones."
       ]
     },
-    "conclusion": "Per aspera ad astra: a través de las dificultades hasta las estrellas."
+    "conclusion": "Ad astra per aspera — A través de las dificultades hasta las estrellas."
   },
   parcours: {
     surtitre: "06 · La trayectoria",
