@@ -1,12 +1,12 @@
-// Produit index.html (français), en/index.html (anglais) et 404.html à partir d'outils/contenu.js.
+// Produit index.html (français), en/index.html (anglais), es/index.html (espagnol) et 404.html à partir d'outils/contenu.js.
 "use strict";
 const fs = require("fs");
 const path = require("path");
-const { fr, en } = require("./contenu");
+const { fr, en, es, LANGUES } = require("./contenu");
 
 const RACINE = path.join(__dirname, "..");
 const URL = "https://erjb-web.github.io/";
-const SALLES = ["recherche", "publications", "parcours", "engagements"];
+const SALLES = ["recherche", "approche", "publications", "parcours", "engagements"];
 
 let typoFr = false;
 const e = (s) => {
@@ -17,8 +17,10 @@ const externe = (href) => /^https?:/.test(href);
 const lien = (href, texte, classe = "") =>
   `<a href="${e(href)}"${classe ? ` class="${classe}"` : ""}${externe(href) ? ' target="_blank" rel="noopener"' : ""}>${texte}</a>`;
 const num = (i) => String(i + 1).padStart(2, "0");
+const etiquettes = (tags, classe = "etiquettes") => `<div class="${classe}">${tags.map((t) => `<span>${e(t)}</span>`).join("")}</div>`;
+const deuxPoints = (c) => (c.lang === "fr" ? " :" : ":");
 
-function liste(items, c) {
+function liste(items) {
   return `<ul class="liste">${items
     .map(
       (it) => `<li><span class="date">${e(it.date)}</span><div>${it.statut ? `<span class="statut">${e(it.statut)}</span>` : ""}<h4>${
@@ -28,28 +30,38 @@ function liste(items, c) {
     .join("")}</ul>`;
 }
 
+function tableOnglets(titre, detail, etapes, terminus = "") {
+  return `<div class="table" data-onglets>
+<div class="table-tete"><span>${e(titre)}</span><span>${e(detail)}</span></div>
+<div class="onglets n${etapes.length}" role="tablist">${etapes
+    .map(([petit, q], i) => `<button type="button" role="tab" aria-selected="${i === 0}" data-volet="${i}"><small>${petit ? `${num(i)} · ${e(petit)}` : num(i)}</small>${e(q)}</button>`)
+    .join("")}</div>
+${etapes
+  .map(
+    ([, , titreVolet, texte, tags], i) =>
+      `<div class="volet" role="tabpanel" data-volet="${i}"${i ? " hidden" : ""}><h3>${e(titreVolet)}</h3><p>${e(texte)}</p>${etiquettes(tags)}</div>`
+  )
+  .join("")}
+${terminus ? `<p class="terminus">${e(terminus)}</p>` : ""}
+</div>`;
+}
+
 const TEINTES = {
   recherche: ["#245a73", "#163a4c"],
+  approche: ["#8c4d58", "#63343e"],
   publications: ["#327a66", "#1f5446"],
   parcours: ["#9a7448", "#6c4f2e"],
   engagements: ["#5d6585", "#40465f"],
 };
 
-const EMBLEMES = {
-  recherche: '<circle cx="6" cy="7" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><circle cx="12" cy="11" r="1.6"/><path d="M8.2 8l2.6 2.1M15.8 7l-2.7 3.1M12 12.6v3"/>',
-  publications: '<path d="M4 6.5c3-1.4 5.6-1.4 8 0v12c-2.4-1.4-5-1.4-8 0z"/><path d="M20 6.5c-3-1.4-5.6-1.4-8 0v12c2.4-1.4 5-1.4 8 0z"/>',
-  parcours: '<circle cx="5" cy="18.5" r="1.8"/><circle cx="19" cy="5.5" r="1.8"/><path d="M6.6 17.4c3.4-1.8 1.4-5.4 5.4-5.4s2-4.6 5.4-5.6"/>',
-  engagements: '<circle cx="9" cy="8" r="3"/><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/><circle cx="17" cy="9.5" r="2.3"/><path d="M15.6 14.2c2.8-.2 5 1.5 5 4.3"/>',
-};
 
 function porte(c, nom, i) {
   const [titre, legende] = c.hall.portes[nom];
   const [c1, c2] = TEINTES[nom];
-  return `<button class="porte" type="button" data-salle="${nom}" style="--c1:${c1};--c2:${c2}" aria-label="${num(i)}. ${e(titre)} : ${e(legende)}">
+  return `<button class="porte" type="button" data-salle="${nom}" style="--c1:${c1};--c2:${c2}" aria-label="${num(i)}. ${e(titre)}${deuxPoints(c)} ${e(legende)}">
 <span class="plaque"><span class="num">${num(i)}</span>${e(titre)}</span>
 <span class="baie" aria-hidden="true">
-<span class="imposte"></span>
-<span class="ouverture"><span class="apercu">${e(c.ui.entrer)} →</span><span class="battant"><svg class="embleme" viewBox="0 0 24 24">${EMBLEMES[nom]}</svg><span class="poignee"></span></span></span>
+<span class="ouverture"><span class="apercu">${e(c.ui.entrer)} →</span><span class="battant"><span class="vignette" style="background-image:url(${c.chemin}assets/portes/${nom}.jpg)"></span><span class="poignee"></span></span></span>
 <span class="reflet"></span>
 </span>
 <span class="seuil" aria-hidden="true"></span>
@@ -70,7 +82,7 @@ function sectionRecherche(c) {
 <h4>${e(t.titre)}</h4>
 <p class="auteurs">${e(t.auteurs)}</p>
 ${t.resume ? `<p class="resume">${e(t.resume)}</p>` : ""}
-${t.etiquettes ? `<div class="etiquettes">${t.etiquettes.map((x) => `<span>${e(x)}</span>`).join("")}</div>` : ""}
+${t.etiquettes ? etiquettes(t.etiquettes) : ""}
 </article>`
     )
     .join("")}</div>
@@ -87,28 +99,41 @@ ${t.etiquettes ? `<div class="etiquettes">${t.etiquettes.map((x) => `<span>${e(x
 ${lien(r.affiche[2], `<span><strong>${e(r.affiche[0])}</strong><small>${e(r.affiche[1])}</small></span><span aria-hidden="true">↗</span>`, "carte-lien")}
 </div>
 <div class="colonne-outils">
-<div class="table" data-onglets>
-<div class="table-tete"><span>${e(r.table.titre)}</span><span>${e(r.table.detail)}</span></div>
-<div class="onglets" role="tablist">${r.table.etapes
-    .map(([obj, q], i) => `<button type="button" role="tab" aria-selected="${i === 0}" data-volet="${i}"><small>${num(i)} · ${e(obj)}</small>${e(q)}</button>`)
-    .join("")}</div>
-${r.table.etapes
-  .map(
-    ([, , titre, texte, tags], i) =>
-      `<div class="volet" role="tabpanel" data-volet="${i}"${i ? " hidden" : ""}><h3>${e(titre)}</h3><p>${e(texte)}</p><div class="etiquettes">${tags.map((t) => `<span>${e(t)}</span>`).join("")}</div></div>`
-  )
-  .join("")}
-<p class="terminus">${e(r.table.terminus)}</p>
-</div>
+${tableOnglets(r.table.titre, r.table.detail, r.table.etapes, r.table.terminus)}
 <h3 class="titre-bloc">${e(r.notions.titre)}</h3>
-<div class="notions">${r.notions.items.map(([t, d]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p></div>`).join("")}</div>
-<div class="duo">
-<div><h3 class="titre-bloc">${e(r.retombees.titre)}</h3><ul class="puces">${r.retombees.items.map(([t, d]) => `<li><b>${e(t)}</b>${c.lang === "fr" ? " :" : ":"} ${e(d)}</li>`).join("")}</ul></div>
-<div><h3 class="titre-bloc">${e(r.axes.titre)}</h3><ul class="puces">${r.axes.items.map((t) => `<li>${e(t)}</li>`).join("")}</ul></div>
-</div>
+<div class="notions">${r.notions.items.map(([t, d, ref]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p>${ref ? `<p class="ref">(${e(ref)})</p>` : ""}</div>`).join("")}</div>
+<h3 class="titre-bloc">${e(r.retombees.titre)}</h3>
+<ul class="puces deux-colonnes">${r.retombees.items.map(([t, d]) => `<li><b>${e(t)}</b>${deuxPoints(c)} ${e(d)}</li>`).join("")}</ul>
+<h3 class="titre-bloc">${e(r.codirection.titre)}</h3>
+<div class="codirection">${r.codirection.personnes.map((pe) => `<article class="personne"><h4>${e(pe.nom)}<span class="grade">${e(pe.grade)}</span></h4><ul>${pe.lignes.map((l) => `<li>${e(l)}</li>`).join("")}</ul><p class="chaire">${e(pe.chaire)}</p>${lien(pe.lien, `${e(r.codirection.profil)} <span aria-hidden="true">↗</span>`, "profil")}</article>`).join("")}</div>
 </div>
 </div>
 ${travaux}`;
+}
+
+function sectionApproche(c) {
+  const a = c.approche;
+  return `<div class="section-corps">
+<div class="colonne-texte">
+<p class="surtitre">${e(a.surtitre)}</p>
+<h2>${e(a.titre)}</h2>
+<p class="intro">${e(a.intro)}</p>
+<div class="piliers">${a.piliers.map(([t, d]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p></div>`).join("")}</div>
+<h3 class="titre-bloc">${e(a.outils.titre)}</h3>
+${etiquettes(a.outils.items, "etiquettes outils-liste")}
+</div>
+<div class="colonne-outils">
+${tableOnglets(a.transfert.titre, a.transfert.detail, a.transfert.etapes.map(([verbe, titre, texte, tags]) => ["", verbe, titre, texte, tags]))}
+<p class="note">${e(a.transfert.note)}</p>
+<h3 class="titre-bloc">${e(a.valeurs.titre)}</h3>
+<p class="devise"><span class="devise-libelle">${e(a.valeurs.devise[0])}</span><span class="devise-latin" lang="la">${e(a.valeurs.devise[1])}</span><span class="devise-traduction">${e(a.valeurs.devise[2])}</span></p>
+<div class="valeurs">${a.valeurs.items.map(([t, d]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p></div>`).join("")}</div>
+<h3 class="titre-bloc">${e(a.axes.titre)}</h3>
+<ul class="puces">${a.axes.principaux.map((t) => `<li><b>${e(t)}</b></li>`).join("")}</ul>
+<p class="petit-titre">${e(a.axes.secondairesTitre)}</p>
+<ul class="puces secondaires">${a.axes.secondaires.map((t) => `<li>${e(t)}</li>`).join("")}</ul>
+</div>
+</div>`;
 }
 
 function sectionGroupes(c, s, extra = "") {
@@ -129,7 +154,8 @@ function sectionParcours(c) {
 <div class="colonne-texte">
 <p class="surtitre">${e(p.surtitre)}</p>
 <h2>${e(p.titre)}</h2>
-<p class="intro">${e(p.intro)}</p>
+<p class="sous-titre">${e(p.sousTitre)}</p>
+<div class="bio">${p.bio.map((t) => `<p>${e(t)}</p>`).join("")}</div>
 <h3 class="titre-bloc">${e(p.continue.titre)}</h3>
 <ul class="puces">${p.continue.items.map((t) => `<li>${e(t)}</li>`).join("")}</ul>
 <p class="note">${e(p.note)}</p>
@@ -137,17 +163,26 @@ function sectionParcours(c) {
 <div class="colonne-outils"><ol class="frise">${p.etapes
     .map(
       (s) =>
-        `<li class="${s.type}"><span class="date">${e(s.date)}</span><div><span class="type">${e(p.types[s.type])}</span><h4>${e(s.titre)}</h4><p>${e(s.detail)}</p></div></li>`
+        `<li class="${s.type}"><span class="date">${e(s.date)}</span><div><span class="type">${e(p.types[s.type])}</span><h4>${e(s.titre)}</h4><p>${e(s.detail)}</p>${
+          s.discret ? `<p class="discret">${e(s.discret)}</p>` : ""
+        }</div></li>`
     )
     .join("")}</ol></div>
 </div>`;
 }
 
+function selecteur(c) {
+  return `<div class="langue" role="group" aria-label="${e(c.ui.langue)}">${LANGUES.map((l) =>
+    l.code === c.lang
+      ? `<span aria-current="true" lang="${l.code}">${l.libelle}</span>`
+      : `<a href="${c.chemin + l.dossier || "./"}" hreflang="${l.code}" lang="${l.code}" title="${l.nom}">${l.libelle}</a>`
+  ).join("")}</div>`;
+}
+
 function page(c) {
   typoFr = c.lang === "fr";
   const p = c.chemin;
-  const autreUrl = URL + (c.lang === "fr" ? "en/" : "");
-  const ici = URL + (c.lang === "fr" ? "" : "en/");
+  const ici = URL + LANGUES.find((l) => l.code === c.lang).dossier;
   const personne = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -164,17 +199,18 @@ function page(c) {
       { "@type": "CollegeOrUniversity", name: "Université Paris Panthéon-Assas" },
       { "@type": "CollegeOrUniversity", name: "Université de Bretagne Occidentale" },
     ],
-    knowsAbout: c.recherche.axes.items,
+    knowsAbout: c.approche.axes.principaux,
     sameAs: [c.contact.liens.find((l) => l[0] === "ORCID")[2], c.contact.liens.find((l) => l[0] === "LinkedIn")[2]],
   };
   const sections = {
     recherche: sectionRecherche(c),
+    approche: sectionApproche(c),
     publications: sectionGroupes(c, c.publications),
     parcours: sectionParcours(c),
     engagements: sectionGroupes(
       c,
       c.engagements,
-      `<h3 class="titre-bloc">${e(c.engagements.affiliations.titre)}</h3><div class="etiquettes grandes">${c.engagements.affiliations.items.map((t) => `<span>${e(t)}</span>`).join("")}</div>`
+      `<h3 class="titre-bloc">${e(c.engagements.affiliations.titre)}</h3>${etiquettes(c.engagements.affiliations.items, "etiquettes grandes")}`
     ),
   };
 
@@ -187,8 +223,8 @@ function page(c) {
 <meta name="description" content="${e(c.meta.description)}">
 <meta name="theme-color" content="#fcfdfb">
 <link rel="canonical" href="${ici}">
-<link rel="alternate" hreflang="fr" href="${URL}">
-<link rel="alternate" hreflang="en" href="${URL}en/">
+${LANGUES.map((l) => `<link rel="alternate" hreflang="${l.code}" href="${URL}${l.dossier}">`).join("\n")}
+<link rel="alternate" hreflang="x-default" href="${URL}">
 <link rel="icon" href="${p}assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="${p}assets/site.css">
 <meta property="og:type" content="profile">
@@ -207,7 +243,7 @@ function page(c) {
 <a class="marque" href="${p || "./"}"><span class="monogramme" aria-hidden="true">EB</span><span><strong>Éric Bernier</strong><small>${e(c.ui.sousTitre)}</small></span></a>
 <nav class="nav" aria-label="${e(c.ui.navigation)}">${c.nav.map(([id, t]) => `<a href="#${id}">${e(t)}</a>`).join("")}</nav>
 <div class="outils">
-<div class="langue" role="group" aria-label="${e(c.ui.langue)}"><span aria-current="true">${c.lang.toUpperCase()}</span><a href="${c.autre.href}" hreflang="${c.autre.code}" lang="${c.autre.code}" title="${e(c.autre.nom)}">${c.autre.libelle}</a></div>
+${selecteur(c)}
 <a class="bouton-cv" href="${p}docs/cv-academique.pdf">${e(c.ui.cv)} <span aria-hidden="true">↓</span></a>
 </div>
 </header>
@@ -225,7 +261,7 @@ function page(c) {
 </div>
 <div class="hall" role="group" aria-label="${e(c.hall.titre)}">
 <div class="hall-tete"><span>${e(c.hall.titre)}</span><span>${e(c.hall.compte)}</span></div>
-<div class="scene"><div class="portes">${SALLES.map((s, i) => porte(c, s, i)).join("")}</div></div>
+<div class="scene"><div class="portes n${SALLES.length}">${SALLES.map((s, i) => porte(c, s, i)).join("")}</div></div>
 <div class="hall-pied"><span>${e(c.hall.consigne)}</span><span class="points" aria-hidden="true">${SALLES.map(() => "<span></span>").join("")}</span></div>
 </div>
 </section>
@@ -255,7 +291,7 @@ ${sections[s]}
 </section>
 </main>
 
-<footer class="pied"><span>${e(c.pied)}</span><a href="#contenu">${e(c.ui.haut)} ↑</a></footer>
+<footer class="pied"><span>${e(c.pied)}<br><small>${e(c.credits)}</small></span><a href="#contenu">${e(c.ui.haut)} ↑</a></footer>
 
 <div class="salle" id="salle" role="dialog" aria-modal="true" aria-labelledby="salle-titre" hidden>
 <div class="salle-barre">
@@ -273,18 +309,22 @@ ${sections[s]}
 
 function introuvable() {
   typoFr = false;
+  const ligne = (c, dossier) => `<p lang="${c.lang}" class="note">${e(c.introuvable.texte)} <a href="/${dossier}">${e(c.introuvable.retour)}</a></p>`;
   return `<!doctype html>
 <html lang="fr">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${e(fr.introuvable.titre)} · Éric Bernier</title>
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css"></head>
 <body class="page-404"><main><p class="surtitre">404</p><h1>${e(fr.introuvable.titre)}</h1><p>${e(fr.introuvable.texte)}</p><p><a class="primaire" href="/">${e(fr.introuvable.retour)} →</a></p>
-<p lang="en" class="note">${e(en.introuvable.texte)} <a href="/en/">${e(en.introuvable.retour)}</a></p></main></body>
+${ligne(en, "en/")}
+${ligne(es, "es/")}</main></body>
 </html>
 `;
 }
 
-fs.writeFileSync(path.join(RACINE, "index.html"), page(fr));
-fs.mkdirSync(path.join(RACINE, "en"), { recursive: true });
-fs.writeFileSync(path.join(RACINE, "en", "index.html"), page(en));
+for (const c of [fr, en, es]) {
+  const dossier = LANGUES.find((l) => l.code === c.lang).dossier;
+  fs.mkdirSync(path.join(RACINE, dossier), { recursive: true });
+  fs.writeFileSync(path.join(RACINE, dossier, "index.html"), page(c));
+}
 fs.writeFileSync(path.join(RACINE, "404.html"), introuvable());
-console.log("index.html, en/index.html et 404.html produits");
+console.log("index.html, en/index.html, es/index.html et 404.html produits");
