@@ -1082,3 +1082,16 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 .mono-petit{font-family:var(--serif);font-style:italic;font-size:11px;line-height:48px;margin:0 1px;color:#f4ecd8;opacity:.85}
 .plaque-laiton{height:3.4%;padding:0}
 .plaque-laiton{display:none}
+/* Porte moderne : battant blanc mat, grande vitre, liseré de couleur côté charnière, barre de tirage en acier brossé */
+.porte .baie,.onglet-salle .baie.mini{background:#eef1f1;box-shadow:0 0 0 1px #d5dcde,0 16px 28px -16px rgba(15,49,66,.45)}
+.battant,.porte .battant{background:linear-gradient(180deg,#ffffff,#f3f5f5);border:1px solid #dde3e4;box-shadow:inset 4px 0 0 var(--c1)}
+[dir="rtl"] .battant{box-shadow:inset -4px 0 0 var(--c1)}
+.vignette,.porte .vignette{inset-inline-start:11%;inset-inline-end:22%;top:7%;height:76%;border-radius:4px;box-shadow:0 1px 3px rgba(15,30,40,.18)}
+.battant::after{display:none}
+.poignee,.porte .poignee,.onglet-salle .poignee{top:34%;inset-inline-end:8%;width:3.5%;min-width:2px;height:32%;aspect-ratio:auto;border-radius:3px;background:linear-gradient(90deg,#6f787c,#d8dee0 45%,#7d878b);box-shadow:1px 1px 2px rgba(15,30,40,.3)}
+.poignee::before,.poignee::after{display:none}
+.porte-contact .vignette{background:linear-gradient(160deg,color-mix(in srgb,var(--c1) 55%,#fff),var(--c1))}
+/* Monogramme de juriste : capitales à empattements, filet doré */
+.marque-mono{background:linear-gradient(150deg,#16364a,#0c2230);box-shadow:inset 0 0 0 1px rgba(214,182,110,.55),inset 0 0 0 3px #0f2a38,inset 0 0 0 4px rgba(214,182,110,.3)}
+.mono-grand{font-family:"Palatino Linotype","Palatino","Book Antiqua","Baskerville","Georgia",serif;font-size:23px;font-weight:400;font-style:normal;letter-spacing:.02em;color:#e3c983}
+.mono-petit{font-family:"Palatino Linotype","Palatino","Book Antiqua","Georgia",serif;font-style:italic;font-size:12px;margin:0 1px;color:#efe6cf;opacity:.9}
