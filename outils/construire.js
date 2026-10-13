@@ -750,7 +750,7 @@ function sectionBiographie(c) {
 <p class="surtitre">${e(b.surtitre)}</p>
 <h2>${e(b.titre)}</h2>
 <div class="bio-intro">${b.intro.map((p) => `<p>${riche(p)}</p>`).join("")}</div>
-<figure class="bio-figure"><img class="portrait-bio" src="${c.chemin}assets/portes/biographie.jpg?v=${empreinte("assets/portes/biographie.jpg")}" width="448" height="448" alt="${e(c.accueil.portrait)}" loading="lazy"><blockquote class="citation">${e(b.citation)}</blockquote></figure>
+<figure class="bio-figure"><blockquote class="citation">${e(b.citation)}</blockquote></figure>
 </div>
 <div class="colonne-outils">
 <ol class="recit">${b.chapitres.map(([titre, paragraphes], k) => `<li><span class="recit-num">${num(k)}</span><div><h3>${e(titre)}</h3>${paragraphes.map((p) => `<p>${riche(p)}</p>`).join("")}</div></li>`).join("")}</ol>
