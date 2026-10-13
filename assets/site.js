@@ -318,6 +318,6 @@
 
   // Apparitions au défilement : schémas, cartes et figures entrent en douceur.
   const CIBLES = '.schema, .figure-officielle, .cycle, .cadre, .expertises > div, .liste li, .frise li, .lacune, .media, .chiffres > div, .travail, .personne, .notions > div, .cours-carte, .bandeau-texte, .trajectoire li, .valeurs > div, .piliers > div';
-  const preparer = (racineZone) => $(CIBLES, racineZone).forEach((el) => el.classList.add('revele'));
+  const preparer = (racineZone) => $$(CIBLES, racineZone).forEach((el) => el.classList.add('revele'));
   preparer(document);
 })();

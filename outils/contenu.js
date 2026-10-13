@@ -181,7 +181,7 @@ const fr = {
       ],
       "engagements": [
         "Engagements",
-        "Représentation, enseignement, distinctions"
+        "Représentation, recherche, distinctions, loisirs"
       ]
     }
   },
@@ -1401,7 +1401,7 @@ const fr = {
   },
   engagements: {
     "surtitre": "07 · Engagements",
-    "titre": "Représenter, enseigner, contribuer",
+    "titre": "Représenter, contribuer, s’engager",
     "intro": "Une présence dans la vie étudiante et scientifique, en continuité avec le parcours.",
     "groupes": [
       {
@@ -1693,7 +1693,7 @@ const en = {
       ],
       "engagements": [
         "Engagement",
-        "Representation, teaching, awards"
+        "Representation, research, awards, leisure"
       ]
     }
   },
@@ -2913,7 +2913,7 @@ const en = {
   },
   engagements: {
     "surtitre": "07 · Engagement",
-    "titre": "Representing, teaching, contributing",
+    "titre": "Representing, contributing, engaging",
     "intro": "Taking part in student and scientific life, in continuity with the path so far.",
     "groupes": [
       {
@@ -3205,7 +3205,7 @@ const es = {
       ],
       "engagements": [
         "Compromisos",
-        "Representación, docencia, distinciones"
+        "Representación, investigación, distinciones, ocio"
       ]
     }
   },
@@ -4425,7 +4425,7 @@ const es = {
   },
   engagements: {
     "surtitre": "07 · Compromisos",
-    "titre": "Representar, enseñar, contribuir",
+    "titre": "Representar, contribuir, comprometerse",
     "intro": "Una presencia en la vida estudiantil y científica, en continuidad con la trayectoria.",
     "groupes": [
       {
