@@ -1683,7 +1683,7 @@
   "locale": "zh_CN",
   "chemin": "../",
   "pied": "© 2026 Éric Bernier · 本网站不使用 Cookie，亦不进行流量统计。",
-  "credits": "各扇门的图片：Unsplash 摄影作品与 Éric Bernier 的肖像；阶梯教室、议事厅与参与式工作坊为本网站生成的图像，不涉及真实人物。朗读语音：Kyutai TTS（CC BY 4.0），参考语音 CML-TTS（Oliveira et al., 2023）与 Alba MacKenna（CC BY 4.0）。",
+  "credits": "图片：Éric Bernier 的肖像、Unsplash 摄影作品，以及为本网站在本地生成的图像，不涉及真实人物。朗读语音：Kyutai TTS（CC BY 4.0），参考语音 CML-TTS（Oliveira et al., 2023）与 Alba MacKenna（CC BY 4.0）。",
   "introuvable": {
     "titre": "页面未找到",
     "texte": "该页面不存在或已被移动。",
