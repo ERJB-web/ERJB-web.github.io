@@ -18,8 +18,8 @@ const VERSION_JS = empreinte("assets/site.js");
 const URL = "https://erjb-web.github.io/";
 const TELEPHONE = ["(263) 384-3050", "+12633843050"];
 const GROUPES = [
-  ["recherche", ["recherche", "conceptualisation", "publications"]],
-  ["expertise", ["approche", "implantation"]],
+  ["recherche", ["recherche", "approche", "conceptualisation", "publications"]],
+  ["implantation", ["implantation"]],
   ["parcours", ["biographie", "parcours", "valeurs"]],
   ["engagements", ["engagements"]],
   ["ressources", ["ressources"]],
@@ -28,11 +28,11 @@ const GROUPES = [
 const SALLES = GROUPES.flatMap(([, ss]) => ss);
 const NUMS = Object.fromEntries(GROUPES.flatMap(([, ss], gi) => ss.map((s, k) => [s, String(gi + 1).padStart(2, "0") + (ss.length > 1 ? "." + (k + 1) : "")])));
 const TEXTES_GROUPES = {
-  fr: { ressources: ["Ressources","Lectures, articles, capsules et balados"], recherche: ["Recherche", "Thèse, recherche en cours et publications"], expertise: ["Expertise", "Approche, méthodes et implantation"], parcours: ["Parcours", "Biographie, expériences et valeurs"] },
-  en: { ressources: ["Resources","Readings, articles, videos and podcasts"], recherche: ["Research", "Thesis, research in progress and publications"], expertise: ["Expertise", "Approach, methods and implementation"], parcours: ["Background", "Biography, experience and values"] },
-  es: { ressources: ["Recursos","Lecturas, artículos, cápsulas y pódcasts"], recherche: ["Investigación", "Tesis, investigación en curso y publicaciones"], expertise: ["Pericia", "Enfoque, métodos e implementación"], parcours: ["Trayectoria", "Biografía, experiencia y valores"] },
-  zh: { ressources: ["资源","阅读文献、文章、视频与播客"], recherche: ["研究", "博士论文、在研工作与发表成果"], expertise: ["专业能力", "研究取向、方法与实施"], parcours: ["经历", "个人简介、经历与价值观"] },
-  ar: { ressources: ["الموارد","قراءات ومقالات ومقاطع فيديو وبودكاست"], recherche: ["البحث", "الأطروحة والبحث الجاري والمنشورات"], expertise: ["الخبرة", "المقاربة والمناهج والتنفيذ"], parcours: ["المسار", "السيرة والخبرات والقيم"] },
+  fr: { ressources: ["Ressources","Lectures, articles, capsules et balados"], recherche: ["Recherche", "Thèse, approche, recherche en cours et publications"], parcours: ["Parcours", "Biographie, expériences et valeurs"] },
+  en: { ressources: ["Resources","Readings, articles, videos and podcasts"], recherche: ["Research", "Thesis, approach, research in progress and publications"], parcours: ["Background", "Biography, experience and values"] },
+  es: { ressources: ["Recursos","Lecturas, artículos, cápsulas y pódcasts"], recherche: ["Investigación", "Tesis, enfoque, investigación en curso y publicaciones"], parcours: ["Trayectoria", "Biografía, experiencia y valores"] },
+  zh: { ressources: ["资源","阅读文献、文章、视频与播客"], recherche: ["研究", "博士论文、研究取向、在研工作与发表成果"], parcours: ["经历", "个人简介、经历与价值观"] },
+  ar: { ressources: ["الموارد","قراءات ومقالات ومقاطع فيديو وبودكاست"], recherche: ["البحث", "الأطروحة والمقاربة والبحث الجاري والمنشورات"], parcours: ["المسار", "السيرة والخبرات والقيم"] },
 };
 const texteGroupe = (c, g) =>
   g === "contact"
@@ -151,7 +151,7 @@ ${terminus ? `<p class="terminus">${e(terminus)}</p>` : ""}
 </div>`;
 }
 
-const IMAGES_GROUPES = { recherche: "recherche.jpg", expertise: "expertise.jpg", parcours: "biographie.jpg", engagements: "engagements.jpg", ressources: "ressources.jpg" };
+const IMAGES_GROUPES = { recherche: "recherche.jpg", implantation: "expertise.jpg", parcours: "biographie.jpg", engagements: "engagements.jpg", ressources: "ressources.jpg" };
 const TEINTES_GROUPES = { expertise: ["#8c4d58", "#63343e"], parcours: ["#9a7448", "#6c4f2e"], contact: ["#2c6b5a", "#1d4a3e"] };
 const IMAGES_PORTES = {
   recherche: "recherche.jpg",
