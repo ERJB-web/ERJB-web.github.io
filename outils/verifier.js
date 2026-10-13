@@ -32,7 +32,7 @@ const INTERDITS = [
 for (const [p, h] of Object.entries(html)) {
   for (const [motif, quoi] of INTERDITS) verifier(`${p} sans ${quoi}`, !motif.test(h));
   const courriels = [...new Set((h.match(/[\w.+-]+@[\w-]+\.[\w.]+/g) || []).filter((m) => !/\.(png|jpg|svg)$/.test(m)))];
-  verifier(`${p} : seul son courriel apparaît`, courriels.every((m) => m === "eric.bernier.1@umontreal.ca"), courriels.join(", "));
+  verifier(`${p} : seul son courriel apparaît`, courriels.every((m) => m === "eric.bernier.1@umontreal.ca" || m === "RDVavecEricBernier@umontreal.ca"), courriels.join(", "));
   const dossier = path.dirname(path.join(RACINE, p));
   const internes = [...h.matchAll(/(?:href|src)="([^"#:]+?)(?:\?[^"]*)?(?:#[^"]*)?"/g)].map((m) => m[1]).filter((u) => u && !u.startsWith("//"));
   const manquants = internes.filter((u) => {

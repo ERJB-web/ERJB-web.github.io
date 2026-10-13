@@ -19,7 +19,7 @@ const URL = "https://erjb-web.github.io/";
 const TELEPHONE = ["(263) 384-3050", "+12633843050"];
 const GROUPES = [
   ["recherche", ["recherche", "approche", "conceptualisation", "publications"]],
-  ["implantation", ["implantation"]],
+  ["implantation", ["implantation", "transmission"]],
   ["parcours", ["biographie", "parcours", "valeurs"]],
   ["engagements", ["engagements"]],
   ["ressources", ["ressources"]],
@@ -27,6 +27,36 @@ const GROUPES = [
 ];
 const SALLES = GROUPES.flatMap(([, ss]) => ss);
 const NUMS = Object.fromEntries(GROUPES.flatMap(([, ss], gi) => ss.map((s, k) => [s, String(gi + 1).padStart(2, "0") + (ss.length > 1 ? "." + (k + 1) : "")])));
+const TRANSMISSION = {
+  fr: { porte: ["Transfert et implantation", "Implantation, enseignement, vulgarisation et communication"], salle: ["Enseigner et vulgariser", "Enseignement, communication et vulgarisation"], surtitre: "Transmission", titre: "Enseigner, vulgariser, communiquer", intro: "Transférer les connaissances, c’est aussi les enseigner, les rendre lisibles et les partager avec celles et ceux qui les mobilisent.", groupes: ["Enseignement", "Communications scientifiques", "Vulgarisation et accessibilité", "Animation de réseaux"], affiche: ["Affiche du projet de thèse en version accessible", "Sept langues, dont l’inuktitut et l’innu-aimun (versions préliminaires), une version en facile à lire et à comprendre (FALC), et des versions adaptées au daltonisme et à la basse vision."], rdv: "Réserver un rendez-vous" },
+  en: { porte: ["Knowledge transfer and implementation", "Implementation, teaching, outreach and communication"], salle: ["Teaching and outreach", "Teaching, communication and outreach"], surtitre: "Sharing knowledge", titre: "Teaching, outreach, communication", intro: "Transferring knowledge also means teaching it, making it readable and sharing it with those who put it to use.", groupes: ["Teaching", "Scientific communications", "Outreach and accessibility", "Network facilitation"], affiche: ["Accessible version of the thesis project poster", "Seven languages, including Inuktitut and Innu-aimun (preliminary versions), an easy-to-read version, and versions adapted for colour blindness and low vision."], rdv: "Book a meeting" },
+  es: { porte: ["Transferencia de conocimientos e implementación", "Implementación, docencia, divulgación y comunicación"], salle: ["Enseñar y divulgar", "Docencia, comunicación y divulgación"], surtitre: "Transmisión", titre: "Enseñar, divulgar, comunicar", intro: "Transferir conocimientos también es enseñarlos, hacerlos comprensibles y compartirlos con quienes los movilizan.", groupes: ["Docencia", "Comunicaciones científicas", "Divulgación y accesibilidad", "Animación de redes"], affiche: ["Versión accesible del póster del proyecto de tesis", "Siete idiomas, entre ellos el inuktitut y el innu-aimun (versiones preliminares), una versión de lectura fácil y versiones adaptadas al daltonismo y a la baja visión."], rdv: "Reservar una cita" },
+  zh: { porte: ["知识转化与实施", "实施、教学、科普与传播"], salle: ["教学与科普", "教学、传播与科普"], surtitre: "知识传递", titre: "教学、科普与传播", intro: "转化知识，也意味着教授知识、让知识易于理解，并与运用知识的人分享。", groupes: ["教学", "学术交流", "科普与无障碍", "网络组织与引导"], affiche: ["博士论文项目海报无障碍版", "共七种语言，包括因纽特语和因努语（初步版本），另有易读版，以及适合色觉障碍和低视力人士的版本。"], rdv: "预约会面" },
+  ar: { porte: ["نقل المعارف والتنفيذ", "التنفيذ والتدريس والتبسيط العلمي والتواصل"], salle: ["التدريس والتبسيط", "التدريس والتواصل والتبسيط العلمي"], surtitre: "نقل المعرفة", titre: "التدريس والتبسيط والتواصل", intro: "نقل المعارف يعني أيضًا تدريسها وجعلها مفهومة ومشاركتها مع من يستخدمونها.", groupes: ["التدريس", "المداخلات العلمية", "التبسيط العلمي وإتاحة الوصول", "تنشيط الشبكات"], affiche: ["النسخة الميسّرة من ملصق مشروع الأطروحة", "سبع لغات، منها الإنكتيتوت والإينو-أيمون (نسخ أولية)، ونسخة سهلة القراءة، ونسخ مكيّفة لعمى الألوان وضعف البصر."], rdv: "حجز موعد" },
+};
+const BOOKINGS = "https://bookings.cloud.microsoft/book/RDVavecEricBernier@umontreal.ca/";
+const textesTransmission = (c) => TRANSMISSION[c.lang] || TRANSMISSION.en;
+// La salle reprend des éléments déjà publiés ailleurs sur le site (mêmes positions dans toutes les langues).
+function sectionTransmission(c) {
+  const T = textesTransmission(c);
+  const iEns = fr.parcours.etapes.map((x, i) => (/Auxiliaire d’enseignement/.test(x.titre) ? i : -1)).filter((i) => i >= 0);
+  const iAnap = fr.parcours.etapes.findIndex((x) => /ANAP|Agence nationale d’appui/.test(x.titre));
+  const gMent = fr.engagements.groupes.findIndex((g) => g.items.some((x) => /mentorat/i.test(x.titre)));
+  const iMent = gMent >= 0 ? fr.engagements.groupes[gMent].items.findIndex((x) => /mentorat/i.test(x.titre)) : -1;
+  const affiche = c.contact.liens.find((l) => /affiche|poster|póster|海报|ملصق/i.test(l[0] + l[1]));
+  const s = {
+    surtitre: T.surtitre,
+    titre: T.titre,
+    intro: T.intro,
+    groupes: [
+      { titre: T.groupes[0], items: iEns.map((i) => c.parcours.etapes[i]) },
+      { titre: T.groupes[1], items: c.publications.groupes[0].items },
+      { titre: T.groupes[2], items: [{ date: "2026", titre: T.affiche[0], detail: T.affiche[1], lien: affiche && (externe(affiche[2]) ? affiche[2] : c.chemin + affiche[2]) }] },
+      { titre: T.groupes[3], items: [c.parcours.etapes[iAnap], iMent >= 0 ? c.engagements.groupes[gMent].items[iMent] : null].filter(Boolean) },
+    ],
+  };
+  return sectionGroupes(c, s);
+}
 const TEXTES_GROUPES = {
   fr: { ressources: ["Ressources","Lectures, articles, capsules et balados"], recherche: ["Recherche", "Thèse, approche, recherche en cours et publications"], parcours: ["Parcours", "Biographie, expériences et valeurs"] },
   en: { ressources: ["Resources","Readings, articles, videos and podcasts"], recherche: ["Research", "Thesis, approach, research in progress and publications"], parcours: ["Background", "Biography, experience and values"] },
@@ -35,7 +65,9 @@ const TEXTES_GROUPES = {
   ar: { ressources: ["الموارد","قراءات ومقالات ومقاطع فيديو وبودكاست"], recherche: ["البحث", "الأطروحة والمقاربة والبحث الجاري والمنشورات"], parcours: ["المسار", "السيرة والخبرات والقيم"] },
 };
 const texteGroupe = (c, g) =>
-  g === "contact"
+  g === "implantation"
+    ? textesTransmission(c).porte
+    : g === "contact"
     ? [c.nav.find((x) => x[0] === "contact")[1], `${c.contact.courriel} · ${TELEPHONE[0]}`]
     : (TEXTES_GROUPES[c.lang] || TEXTES_GROUPES.en)[g] || c.hall.portes[g];
 
@@ -177,6 +209,7 @@ const TEINTES = {
   conceptualisation: ["#3f6f8f", "#2c5068"],
   valeurs: ["#7a5a8c", "#5a4068"],
   ressources: ["#2f7f86", "#215c61"],
+  transmission: ["#b5703f", "#8a5230"],
 };
 
 
@@ -751,10 +784,12 @@ function page(c) {
     knowsAbout: c.approche.axes.principaux,
     sameAs: [c.contact.liens.find((l) => l[0] === "ORCID")[2]],
   };
+  c.hall.portes.transmission = textesTransmission(c).salle;
   const sections = {
     recherche: sectionRecherche(c),
     approche: sectionApproche(c),
     implantation: sectionImplantation(c),
+    transmission: sectionTransmission(c),
     publications: sectionGroupes(c, c.publications, "", ICONES_GROUPES.publications),
     biographie: sectionBiographie(c),
     parcours: sectionParcours(c),
@@ -835,7 +870,7 @@ ${sections[s].replace(/<p class="surtitre">(\d{2} · )?/, `<p class="surtitre">$
 <p class="surtitre">${e(c.contact.surtitre)}</p>
 <h2>${e(c.contact.titre)}</h2>
 <p class="intro">${e(c.contact.intro)}</p>
-<a class="primaire" href="mailto:${e(c.contact.courriel)}">${e(c.contact.ecrire)} <span aria-hidden="true">→</span></a>
+<div class="contact-actions"><a class="primaire" href="mailto:${e(c.contact.courriel)}">${e(c.contact.ecrire)} <span aria-hidden="true">→</span></a><a class="primaire secondaire" href="${BOOKINGS}" rel="noopener" target="_blank">${e(textesTransmission(c).rdv)} <span aria-hidden="true">↗</span></a></div>
 <p class="courriel"><a href="mailto:${e(c.contact.courriel)}">${e(c.contact.courriel)}</a></p>
 <p class="courriel"><a href="tel:${TELEPHONE[1]}">${TELEPHONE[0]}</a></p>
 <p class="note">${e(c.contact.adresse)}</p>
