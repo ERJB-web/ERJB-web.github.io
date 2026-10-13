@@ -398,7 +398,7 @@ function porte(c, [nom, sections], i) {
   const image = IMAGES_GROUPES[nom];
   const fond = image ? ` style="background-image:url(${c.chemin}assets/portes/${image}?v=${empreinte("assets/portes/" + image)})"` : "";
   return `<button class="porte${image ? "" : " porte-contact"}" type="button" data-salle="${nom}" data-sections="${sections.join(" ")}" data-titre="${e(titre)}" style="--c1:${c1};--c2:${c2}" aria-label="${num(i)}. ${e(titre)}${deuxPoints(c)} ${e(legende)}">
-<span class="baie" aria-hidden="true"><span class="ouverture"><span class="apercu">${e(c.ui.entrer)}</span><span class="battant"><span class="vignette"${fond}></span><span class="poignee"></span></span></span></span>
+<span class="baie" aria-hidden="true"><span class="ouverture"><span class="apercu">${e(c.ui.entrer)}</span><span class="battant"><span class="vignette"${fond}></span><span class="plaque-laiton">${num(i)}</span><span class="poignee"></span></span></span></span>
 <span class="porte-texte" aria-hidden="true"><span class="plaque"><span class="num">${num(i)}</span>${e(titre)}</span><span class="legende">${e(legende)}</span>${sections.length > 1 ? `<span class="sous-portes">${sections.map((s) => `<span data-sous="${s}" style="--c1:${TEINTES[s][0]}">${e(c.hall.portes[s][0])}</span>`).join("")}</span>` : ""}<span class="entrer">${e(c.ui.entrer)} →</span></span>
 </button>`;
 }
@@ -1028,7 +1028,7 @@ ${LANGUES.filter((l) => l.hreflang).map((l) => `<link rel="alternate" hreflang="
 <body>
 <a class="evitement" href="#contenu">${e(c.ui.evitement)}</a>
 <header class="entete">
-<a class="marque" href="${p || "./"}"><img class="marque-portrait" src="${p}assets/portrait-mini.jpg?v=${empreinte("assets/portrait-mini.jpg")}" alt="" width="44" height="44"><span><strong>Éric Bernier</strong><small>${e(c.ui.sousTitre)}</small></span></a>
+<a class="marque" href="${p || "./"}"><span class="marque-mono" aria-hidden="true">ERJB</span><span><strong>Éric Bernier</strong><small>${e(c.ui.sousTitre)}</small></span></a>
 <p class="coordonnees coordonnees-haut"><a href="mailto:${e(c.contact.courriel)}">${icone("enveloppe")}${e(c.contact.courriel)}</a><a href="tel:${TELEPHONE[1]}">${icone("telephone")}${TELEPHONE[0]}</a></p>
 <nav class="nav" aria-label="${e(c.ui.navigation)}">${GROUPES.map(([g, ss]) => `<a href="#${ss[0] || g}">${e(texteGroupe(c, g)[0])}</a>`).join("")}</nav>
 <div class="outils">
@@ -1120,7 +1120,7 @@ ${PREFERENCES}
 <body class="page-abregee">
 <a class="evitement" href="#contenu">${e(fr.ui.evitement)}</a>
 <header class="entete">
-<a class="marque" href="../"><img class="marque-portrait" src="../assets/portrait-mini.jpg?v=${empreinte("assets/portrait-mini.jpg")}" alt="" width="44" height="44"><span><strong>Éric Bernier</strong><small>${e(fr.ui.sousTitre)}</small></span></a>
+<a class="marque" href="../"><span class="marque-mono" aria-hidden="true">ERJB</span><span><strong>Éric Bernier</strong><small>${e(fr.ui.sousTitre)}</small></span></a>
 <div class="outils">
 ${menuLangues(c, code)}
 ${menuAcces(c, code)}

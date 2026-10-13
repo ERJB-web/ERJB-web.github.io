@@ -1055,3 +1055,17 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 /* Petites portes illustrées */
 .onglet-salle .baie.mini{width:50px}
 .onglet-salle .vignette{background-size:cover;background-position:center}
+/* Monogramme */
+.marque-mono{flex:none;display:inline-grid;place-items:center;width:46px;height:46px;border-radius:12px;background:linear-gradient(150deg,#1d4256,#0f2a38);color:#f4ecd8;font:600 13px/1 var(--serif);letter-spacing:.08em;box-shadow:inset 0 0 0 1px rgba(244,236,216,.35)}
+/* Portes académiques : porte peinte, moulures, vitrage, plaque et poignée en laiton, chambranle crème */
+.porte .baie,.onglet-salle .baie.mini{background:#f6f1e6;box-shadow:0 0 0 6px #efe8d8,0 0 0 7px #d6cbb3,0 18px 26px -14px rgba(15,49,66,.5)}
+.battant,.porte .battant{background:repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 2px,rgba(0,0,0,.035) 2px 5px),linear-gradient(165deg,color-mix(in srgb,var(--c1) 88%,#fff),var(--c1) 45%,color-mix(in srgb,var(--c1) 72%,#000));border:1px solid color-mix(in srgb,var(--c1) 60%,#000);box-shadow:inset 0 0 0 3px color-mix(in srgb,var(--c1) 85%,#000),inset 0 0 0 4px rgba(255,255,255,.12)}
+.vignette{border-radius:1px;box-shadow:0 0 0 3px color-mix(in srgb,var(--c1) 70%,#000),0 0 0 4px rgba(255,255,255,.22),inset 0 0 12px rgba(0,0,0,.18)}
+.battant::after{border:1px solid rgba(255,255,255,.16);background:linear-gradient(180deg,rgba(0,0,0,.14),rgba(255,255,255,.04));box-shadow:inset 0 2px 5px rgba(0,0,0,.28),0 1px 0 rgba(255,255,255,.12)}
+.plaque-laiton{position:absolute;inset-inline-start:22%;inset-inline-end:34%;top:68%;padding:1px 0;border-radius:2px;background:linear-gradient(180deg,#f6e3a6,#cfa448 55%,#9c7424);box-shadow:0 1px 2px rgba(40,25,0,.45),inset 0 0 0 1px rgba(255,248,220,.5);color:#3d2a06;font:700 9px/1.4 var(--serif);letter-spacing:.12em;text-align:center;z-index:1}
+.porte .vignette{height:58%}
+.poignee,.porte .poignee,.onglet-salle .poignee{background:linear-gradient(90deg,#9c7424,#e7c66d 45%,#a97f2a)}
+.porte-contact .vignette{background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.05))}
+.porte:hover,.porte:focus-visible{background:transparent}
+/* Teintes de porte plus sobres (peinture profonde, veinage discret) */
+.battant,.porte .battant{background:repeating-linear-gradient(90deg,rgba(255,255,255,.018) 0 2px,rgba(0,0,0,.022) 2px 6px),linear-gradient(165deg,color-mix(in srgb,var(--c1) 74%,#4a4a4a),color-mix(in srgb,var(--c1) 66%,#262626) 55%,color-mix(in srgb,var(--c1) 58%,#141414))}
