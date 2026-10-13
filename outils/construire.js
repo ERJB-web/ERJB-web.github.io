@@ -5,6 +5,9 @@ const path = require("path");
 const { fr, en, es, LANGUES } = require("./contenu");
 
 const RACINE = path.join(__dirname, "..");
+const empreinte = (fichier) => require("crypto").createHash("sha256").update(fs.readFileSync(path.join(RACINE, fichier))).digest("hex").slice(0, 10);
+const VERSION_CSS = empreinte("assets/site.css");
+const VERSION_JS = empreinte("assets/site.js");
 const URL = "https://erjb-web.github.io/";
 const SALLES = ["recherche", "approche", "implantation", "publications", "biographie", "parcours", "engagements"];
 
@@ -280,7 +283,7 @@ function page(c) {
 ${LANGUES.map((l) => `<link rel="alternate" hreflang="${l.code}" href="${URL}${l.dossier}">`).join("\n")}
 <link rel="alternate" hreflang="x-default" href="${URL}">
 <link rel="icon" href="${p}assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="${p}assets/site.css">
+<link rel="stylesheet" href="${p}assets/site.css?v=${VERSION_CSS}">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="${e(c.meta.titre)}">
 <meta property="og:description" content="${e(c.meta.description)}">
@@ -289,7 +292,7 @@ ${LANGUES.map((l) => `<link rel="alternate" hreflang="${l.code}" href="${URL}${l
 <meta property="og:locale" content="${c.locale}">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">${JSON.stringify(personne)}</script>
-<script src="${p}assets/site.js" defer></script>
+<script src="${p}assets/site.js?v=${VERSION_JS}" defer></script>
 </head>
 <body>
 <a class="evitement" href="#contenu">${e(c.ui.evitement)}</a>
