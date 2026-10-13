@@ -19,7 +19,7 @@ const URL = "https://erjb-web.github.io/";
 const TELEPHONE = ["(263) 384-3050", "+12633843050"];
 const GROUPES = [
   ["recherche", ["recherche", "approche", "conceptualisation", "publications"]],
-  ["implantation", ["implantation", "notions", "transmission"]],
+  ["implantation", ["implantation", "notions", "transmission", "outils"]],
   ["parcours", ["biographie", "parcours", "valeurs"]],
   ["engagements", ["representation", "communaute", "distinctions", "citoyen", "loisirs"]],
   ["ressources", ["litterature", "grise", "presse", "capsules", "balados"]],
@@ -28,11 +28,11 @@ const GROUPES = [
 const SALLES = GROUPES.flatMap(([, ss]) => ss);
 const NUMS = Object.fromEntries(GROUPES.flatMap(([, ss], gi) => ss.map((s, k) => [s, String(gi + 1).padStart(2, "0") + (ss.length > 1 ? "." + (k + 1) : "")])));
 const TRANSMISSION = {
-  fr: { porte: ["Transfert de connaissances et implantation", "Implantation, notions clés, enseignement et vulgarisation"], salle: ["Enseigner et vulgariser", "Enseignement, communication et vulgarisation"], surtitre: "Transmission", titre: "Enseigner, vulgariser, communiquer", intro: "Transférer les connaissances, c’est aussi les enseigner, les rendre lisibles et les partager avec celles et ceux qui les mobilisent.", groupes: ["Enseignement", "Communications scientifiques", "Vulgarisation et accessibilité", "Animation de réseaux"], affiche: ["Affiche du projet de thèse en version accessible", "Sept langues, dont l’inuktitut et l’innu-aimun (versions préliminaires), une version en facile à lire et à comprendre (FALC), et des versions adaptées au daltonisme et à la basse vision."], rdv: "Réserver un rendez-vous" },
-  en: { porte: ["Knowledge transfer and implementation", "Implementation, key concepts, teaching and outreach"], salle: ["Teaching and outreach", "Teaching, communication and outreach"], surtitre: "Sharing knowledge", titre: "Teaching, outreach, communication", intro: "Transferring knowledge also means teaching it, making it readable and sharing it with those who put it to use.", groupes: ["Teaching", "Scientific communications", "Outreach and accessibility", "Network facilitation"], affiche: ["Accessible version of the thesis project poster", "Seven languages, including Inuktitut and Innu-aimun (preliminary versions), an easy-to-read version, and versions adapted for colour blindness and low vision."], rdv: "Book a meeting" },
-  es: { porte: ["Transferencia de conocimientos e implementación", "Implementación, nociones clave, docencia y divulgación"], salle: ["Enseñar y divulgar", "Docencia, comunicación y divulgación"], surtitre: "Transmisión", titre: "Enseñar, divulgar, comunicar", intro: "Transferir conocimientos también es enseñarlos, hacerlos comprensibles y compartirlos con quienes los movilizan.", groupes: ["Docencia", "Comunicaciones científicas", "Divulgación y accesibilidad", "Animación de redes"], affiche: ["Versión accesible del póster del proyecto de tesis", "Siete idiomas, entre ellos el inuktitut y el innu-aimun (versiones preliminares), una versión de lectura fácil y versiones adaptadas al daltonismo y a la baja visión."], rdv: "Reservar una cita" },
-  zh: { porte: ["知识转化与实施", "实施、关键概念、教学与科普"], salle: ["教学与科普", "教学、传播与科普"], surtitre: "知识传递", titre: "教学、科普与传播", intro: "转化知识，也意味着教授知识、让知识易于理解，并与运用知识的人分享。", groupes: ["教学", "学术交流", "科普与无障碍", "网络组织与引导"], affiche: ["博士论文项目海报无障碍版", "共七种语言，包括因纽特语和因努语（初步版本），另有易读版，以及适合色觉障碍和低视力人士的版本。"], rdv: "预约会面" },
-  ar: { porte: ["نقل المعارف والتنفيذ", "التنفيذ والمفاهيم الأساسية والتدريس والتبسيط العلمي"], salle: ["التدريس والتبسيط", "التدريس والتواصل والتبسيط العلمي"], surtitre: "نقل المعرفة", titre: "التدريس والتبسيط والتواصل", intro: "نقل المعارف يعني أيضًا تدريسها وجعلها مفهومة ومشاركتها مع من يستخدمونها.", groupes: ["التدريس", "المداخلات العلمية", "التبسيط العلمي وإتاحة الوصول", "تنشيط الشبكات"], affiche: ["النسخة الميسّرة من ملصق مشروع الأطروحة", "سبع لغات، منها الإنكتيتوت والإينو-أيمون (نسخ أولية)، ونسخة سهلة القراءة، ونسخ مكيّفة لعمى الألوان وضعف البصر."], rdv: "حجز موعد" },
+  fr: { porte: ["Transfert de connaissances et implantation", "Implantation, notions clés, enseignement, vulgarisation et outils numériques"], salle: ["Enseigner et vulgariser", "Enseignement, communication et vulgarisation"], surtitre: "Transmission", titre: "Enseigner, vulgariser, communiquer", intro: "Transférer les connaissances, c’est aussi les enseigner, les rendre lisibles et les partager avec celles et ceux qui les mobilisent.", groupes: ["Enseignement", "Communications scientifiques", "Vulgarisation et accessibilité", "Animation de réseaux"], affiche: ["Affiche du projet de thèse en version accessible", "Sept langues, dont l’inuktitut et l’innu-aimun (versions préliminaires), une version en facile à lire et à comprendre (FALC), et des versions adaptées au daltonisme et à la basse vision."], rdv: "Réserver un rendez-vous" },
+  en: { porte: ["Knowledge transfer and implementation", "Implementation, key concepts, teaching, outreach and digital tools"], salle: ["Teaching and outreach", "Teaching, communication and outreach"], surtitre: "Sharing knowledge", titre: "Teaching, outreach, communication", intro: "Transferring knowledge also means teaching it, making it readable and sharing it with those who put it to use.", groupes: ["Teaching", "Scientific communications", "Outreach and accessibility", "Network facilitation"], affiche: ["Accessible version of the thesis project poster", "Seven languages, including Inuktitut and Innu-aimun (preliminary versions), an easy-to-read version, and versions adapted for colour blindness and low vision."], rdv: "Book a meeting" },
+  es: { porte: ["Transferencia de conocimientos e implementación", "Implementación, nociones clave, docencia, divulgación y herramientas digitales"], salle: ["Enseñar y divulgar", "Docencia, comunicación y divulgación"], surtitre: "Transmisión", titre: "Enseñar, divulgar, comunicar", intro: "Transferir conocimientos también es enseñarlos, hacerlos comprensibles y compartirlos con quienes los movilizan.", groupes: ["Docencia", "Comunicaciones científicas", "Divulgación y accesibilidad", "Animación de redes"], affiche: ["Versión accesible del póster del proyecto de tesis", "Siete idiomas, entre ellos el inuktitut y el innu-aimun (versiones preliminares), una versión de lectura fácil y versiones adaptadas al daltonismo y a la baja visión."], rdv: "Reservar una cita" },
+  zh: { porte: ["知识转化与实施", "实施、关键概念、教学、科普与数字工具"], salle: ["教学与科普", "教学、传播与科普"], surtitre: "知识传递", titre: "教学、科普与传播", intro: "转化知识，也意味着教授知识、让知识易于理解，并与运用知识的人分享。", groupes: ["教学", "学术交流", "科普与无障碍", "网络组织与引导"], affiche: ["博士论文项目海报无障碍版", "共七种语言，包括因纽特语和因努语（初步版本），另有易读版，以及适合色觉障碍和低视力人士的版本。"], rdv: "预约会面" },
+  ar: { porte: ["نقل المعارف والتنفيذ", "التنفيذ والمفاهيم الأساسية والتدريس والتبسيط العلمي والأدوات الرقمية"], salle: ["التدريس والتبسيط", "التدريس والتواصل والتبسيط العلمي"], surtitre: "نقل المعرفة", titre: "التدريس والتبسيط والتواصل", intro: "نقل المعارف يعني أيضًا تدريسها وجعلها مفهومة ومشاركتها مع من يستخدمونها.", groupes: ["التدريس", "المداخلات العلمية", "التبسيط العلمي وإتاحة الوصول", "تنشيط الشبكات"], affiche: ["النسخة الميسّرة من ملصق مشروع الأطروحة", "سبع لغات، منها الإنكتيتوت والإينو-أيمون (نسخ أولية)، ونسخة سهلة القراءة، ونسخ مكيّفة لعمى الألوان وضعف البصر."], rdv: "حجز موعد" },
 };
 const BOOKINGS = "https://bookings.cloud.microsoft/book/RDVavecEricBernier@umontreal.ca/";
 const textesTransmission = (c) => TRANSMISSION[c.lang] || TRANSMISSION.en;
@@ -144,6 +144,83 @@ function sectionNotions(c) {
 <p class="intro">${e(N.intro)}</p>
 </div>
 <div class="colonne-outils"><div class="groupes-grille">${Object.keys(N.items).map(carte).join("")}</div></div>
+</div>`;
+}
+const OUTILS = {
+  fr: { salle: ["Outils numériques", "OWNNIGHT et les Sphères"], surtitre: "Transmission", titre: "Des outils pour apprendre et prendre soin", intro: "Deux réalisations numériques prolongent mon travail de transfert des connaissances : rendre des savoirs exigeants accessibles, au rythme de chacun.", etiquettes: ["Ce que c’est", "Le but", "La lacune comblée"],
+    ownnight: { nom: "OWNNIGHT", slogan: "La science de ton sommeil, entre tes mains.", statut: "Projet entrepreneurial en cours · Android",
+      quoi: "Une application Android de bien-être et d’éducation au sommeil, en français et en anglais. Elle propose un plan individualisé qui s’ajuste aux réponses de la personne, de courtes leçons, des séances guidées, des outils pour apaiser l’esprit, un rituel du soir et des histoires lues à voix haute.",
+      but: "Rendre accessibles les principes reconnus de l’approche cognitive et comportementale du sommeil, sous une forme douce, progressive et autonome, pour que chacun reprenne la main sur ses nuits.",
+      lacune: "Les difficultés de sommeil sont fréquentes, mais l’accompagnement fondé sur les données probantes reste difficile d’accès. Beaucoup d’applications se limitent au suivi ou aux sons apaisants, sans éducation structurée, et exploitent les données personnelles : OWNNIGHT garde tout sur le téléphone, chiffré, sans compte.",
+      alts: ["Écran d’accueil d’OWNNIGHT : la soirée et le plan de la semaine", "Une leçon d’OWNNIGHT : l’horloge biologique et la pression de sommeil", "Le suivi de la semaine dans OWNNIGHT"] },
+    spheres: { nom: "Les Sphères", slogan: "Épisphère et Statosphère : comprendre l’épidémiologie et les statistiques, à son rythme.", statut: "Ordinateur, tablette et téléphone · hors ligne",
+      quoi: "Deux applications d’apprentissage sœurs, l’une pour l’épidémiologie, l’autre pour les statistiques. Elles fonctionnent hors ligne sur ordinateur, tablette et téléphone : leçons expliquées pas à pas, diapositives commentées, fiches, questions à choix multiples avec rétroaction, cartes à mémoriser, exercices corrigés et suivi des progrès, avec un tuteur intégré, Sigma.",
+      but: "Aider à comprendre les méthodes plutôt qu’à les mémoriser : chaque formule est expliquée par ce qu’elle fait, puis lue pas à pas, et chacun organise sa révision selon ses besoins.",
+      lacune: "Les méthodes quantitatives intimident souvent les personnes venues d’autres disciplines, et les ressources sont dispersées, souvent en anglais ou très techniques. Les Sphères réunissent tout au même endroit, en français, avec une progression accessible et des explications en langage clair.",
+      alts: ["Une leçon expliquée pas à pas", "Une question à choix multiples avec rétroaction", "Les cartes à mémoriser"] } },
+  en: { salle: ["Digital tools", "OWNNIGHT and the Spheres"], surtitre: "Sharing knowledge", titre: "Tools for learning and caring", intro: "Two digital projects extend my knowledge transfer work: making demanding knowledge accessible, at each person’s own pace.", etiquettes: ["What it is", "The aim", "The gap it fills"],
+    ownnight: { nom: "OWNNIGHT", slogan: "The science of your sleep, in your hands.", statut: "Entrepreneurial project in progress · Android",
+      quoi: "An Android app for sleep well-being and education, in French and English. It offers an individualised plan that adapts to each answer, short lessons, guided sessions, tools to calm the mind, an evening ritual and stories read aloud.",
+      but: "Making the recognised principles of the cognitive behavioural approach to sleep accessible in a gentle, gradual and self-directed form, so that people can take back control of their nights.",
+      lacune: "Sleep difficulties are common, yet evidence-based support remains hard to access. Many apps are limited to tracking or soothing sounds, without structured education, and exploit personal data: OWNNIGHT keeps everything on the phone, encrypted, with no account.",
+      alts: ["OWNNIGHT home screen: the evening and the week’s plan", "An OWNNIGHT lesson: the body clock and sleep pressure", "Weekly tracking in OWNNIGHT"] },
+    spheres: { nom: "The Spheres", slogan: "Episphère and Statosphère: understanding epidemiology and statistics at your own pace.", statut: "Computer, tablet and phone · offline",
+      quoi: "Two sister learning apps, one for epidemiology and the other for statistics. They work offline on computer, tablet and phone: step-by-step lessons, annotated slides, summary sheets, multiple-choice questions with feedback, flashcards, worked exercises and progress tracking, with a built-in tutor, Sigma.",
+      but: "Helping people understand methods rather than memorise them: each formula is explained by what it does, then read step by step, and everyone organises their revision around their own needs.",
+      lacune: "Quantitative methods often intimidate people from other disciplines, and resources are scattered, often in English or highly technical. The Spheres bring everything together in one place, in French, with an accessible progression and plain-language explanations.",
+      alts: ["A lesson explained step by step", "A multiple-choice question with feedback", "Flashcards"] } },
+  es: { salle: ["Herramientas digitales", "OWNNIGHT y las Esferas"], surtitre: "Transmisión", titre: "Herramientas para aprender y cuidarse", intro: "Dos proyectos digitales prolongan mi trabajo de transferencia de conocimientos: hacer accesibles saberes exigentes, al ritmo de cada persona.", etiquettes: ["Qué es", "El objetivo", "La carencia que cubre"],
+    ownnight: { nom: "OWNNIGHT", slogan: "La ciencia de tu sueño, en tus manos.", statut: "Proyecto emprendedor en curso · Android",
+      quoi: "Una aplicación Android de bienestar y educación sobre el sueño, en francés y en inglés. Ofrece un plan individualizado que se ajusta a cada respuesta, lecciones breves, sesiones guiadas, herramientas para calmar la mente, un ritual nocturno e historias leídas en voz alta.",
+      but: "Hacer accesibles los principios reconocidos del enfoque cognitivo-conductual del sueño, de forma suave, progresiva y autónoma, para que cada persona recupere el control de sus noches.",
+      lacune: "Las dificultades de sueño son frecuentes, pero el acompañamiento basado en la evidencia sigue siendo de difícil acceso. Muchas aplicaciones se limitan al seguimiento o a sonidos relajantes, sin educación estructurada, y explotan los datos personales: OWNNIGHT lo guarda todo en el teléfono, cifrado y sin cuenta.",
+      alts: ["Pantalla de inicio de OWNNIGHT: la noche y el plan de la semana", "Una lección de OWNNIGHT: el reloj biológico y la presión de sueño", "El seguimiento semanal en OWNNIGHT"] },
+    spheres: { nom: "Las Esferas", slogan: "Episphère y Statosphère: comprender la epidemiología y la estadística a tu ritmo.", statut: "Ordenador, tableta y teléfono · sin conexión",
+      quoi: "Dos aplicaciones de aprendizaje hermanas, una para la epidemiología y otra para la estadística. Funcionan sin conexión en ordenador, tableta y teléfono: lecciones explicadas paso a paso, diapositivas comentadas, fichas, preguntas de opción múltiple con retroalimentación, tarjetas para memorizar, ejercicios corregidos y seguimiento del progreso, con un tutor integrado, Sigma.",
+      but: "Ayudar a comprender los métodos en lugar de memorizarlos: cada fórmula se explica por lo que hace y luego se lee paso a paso, y cada persona organiza su repaso según sus necesidades.",
+      lacune: "Los métodos cuantitativos suelen intimidar a quienes vienen de otras disciplinas, y los recursos están dispersos, a menudo en inglés o muy técnicos. Las Esferas lo reúnen todo en un solo lugar, en francés, con una progresión accesible y explicaciones en lenguaje claro.",
+      alts: ["Una lección explicada paso a paso", "Una pregunta de opción múltiple con retroalimentación", "Las tarjetas para memorizar"] } },
+  zh: { salle: ["数字工具", "OWNNIGHT 与 Sphères"], surtitre: "知识传递", titre: "用于学习与自我照护的工具", intro: "两个数字项目延续了我的知识转化工作：让高要求的知识变得易于获取，并按照每个人的节奏进行。", etiquettes: ["是什么", "目标", "填补的空白"],
+    ownnight: { nom: "OWNNIGHT", slogan: "你的睡眠科学，掌握在你手中。", statut: "进行中的创业项目 · Android",
+      quoi: "一款关于睡眠健康与睡眠教育的 Android 应用，提供法语和英语版本。它提供根据每次回答调整的个性化计划、简短课程、引导练习、帮助平静心绪的工具、睡前仪式以及有声故事。",
+      but: "以温和、循序渐进且自主的方式，让公认的睡眠认知行为方法原则变得易于获取，帮助每个人重新掌握自己的夜晚。",
+      lacune: "睡眠困难十分常见，但基于证据的支持仍然难以获得。许多应用只提供监测或舒缓声音，缺乏系统的教育，并利用个人数据：OWNNIGHT 将所有数据加密保存在手机上，无需账户。",
+      alts: ["OWNNIGHT 主屏幕：当晚安排与本周计划", "OWNNIGHT 的一节课：生物钟与睡眠压力", "OWNNIGHT 的每周追踪"] },
+    spheres: { nom: "Sphères 系列", slogan: "Épisphère 与 Statosphère：按自己的节奏理解流行病学与统计学。", statut: "电脑、平板与手机 · 可离线使用",
+      quoi: "两款姊妹学习应用，一款面向流行病学，另一款面向统计学。它们可在电脑、平板和手机上离线使用：逐步讲解的课程、带讲解的幻灯片、知识卡片、带反馈的选择题、记忆卡、附答案的练习和进度追踪，并配有内置导师 Sigma。",
+      but: "帮助人们理解方法而不是死记硬背：每个公式都先说明它的作用，再逐步解读，每个人都可以根据自己的需要安排复习。",
+      lacune: "定量方法常常让来自其他学科的人望而却步，而相关资源分散，往往是英文或过于技术化。Sphères 将一切集中在一处，以法语呈现，循序渐进，并用通俗语言讲解。",
+      alts: ["逐步讲解的课程", "带反馈的选择题", "记忆卡"] } },
+  ar: { salle: ["الأدوات الرقمية", "OWNNIGHT وتطبيقات Sphères"], surtitre: "نقل المعرفة", titre: "أدوات للتعلّم وللعناية بالذات", intro: "مشروعان رقميان يمدّان عملي في نقل المعارف: جعل معارف متطلّبة في متناول الجميع، وفق إيقاع كل شخص.", etiquettes: ["ما هو", "الهدف", "الفجوة التي يسدّها"],
+    ownnight: { nom: "OWNNIGHT", slogan: "علم نومك بين يديك.", statut: "مشروع ريادي قيد الإنجاز · Android",
+      quoi: "تطبيق Android للعافية والتثقيف حول النوم، بالفرنسية والإنجليزية. يقدّم خطة فردية تتكيّف مع كل إجابة، ودروسًا قصيرة، وجلسات موجّهة، وأدوات لتهدئة الذهن، وطقسًا مسائيًا، وقصصًا مقروءة بصوت عالٍ.",
+      but: "إتاحة المبادئ المعترف بها للمقاربة المعرفية السلوكية للنوم بصيغة لطيفة وتدريجية ومستقلة، حتى يستعيد كل شخص زمام لياليه.",
+      lacune: "صعوبات النوم شائعة، لكن المرافقة المستندة إلى الأدلة تبقى صعبة المنال. كثير من التطبيقات تقتصر على المتابعة أو الأصوات المهدّئة، دون تثقيف منظّم، وتستغل البيانات الشخصية: أما OWNNIGHT فيحفظ كل شيء على الهاتف، مشفّرًا ومن دون حساب.",
+      alts: ["الشاشة الرئيسية لـ OWNNIGHT: المساء وخطة الأسبوع", "درس من OWNNIGHT: الساعة البيولوجية وضغط النوم", "المتابعة الأسبوعية في OWNNIGHT"] },
+    spheres: { nom: "تطبيقات Sphères", slogan: "Épisphère وStatosphère: فهم علم الأوبئة والإحصاء وفق إيقاعك.", statut: "حاسوب وجهاز لوحي وهاتف · من دون اتصال",
+      quoi: "تطبيقان تعليميان شقيقان، أحدهما لعلم الأوبئة والآخر للإحصاء. يعملان من دون اتصال على الحاسوب والجهاز اللوحي والهاتف: دروس مشروحة خطوة بخطوة، وشرائح مع تعليقات، وبطاقات ملخّصة، وأسئلة اختيار من متعدد مع تغذية راجعة، وبطاقات للحفظ، وتمارين مصحّحة، ومتابعة للتقدّم، مع مرشد مدمج اسمه Sigma.",
+      but: "المساعدة على فهم المناهج بدل حفظها: تُشرح كل معادلة بما تفعله ثم تُقرأ خطوة بخطوة، وينظّم كل شخص مراجعته وفق احتياجاته.",
+      lacune: "كثيرًا ما تُرهب المناهج الكمية القادمين من تخصصات أخرى، والموارد مبعثرة، غالبًا بالإنجليزية أو شديدة التقنية. تجمع Sphères كل شيء في مكان واحد، بالفرنسية، مع تدرّج ميسّر وشروح بلغة واضحة.",
+      alts: ["درس مشروح خطوة بخطوة", "سؤال اختيار من متعدد مع تغذية راجعة", "بطاقات للحفظ"] } },
+};
+const IMAGES_OUTILS = { ownnight: ["ownnight-accueil.jpg", "ownnight-lecon.jpg", "ownnight-semaine.jpg"], spheres: ["spheres-lecon.jpg", "spheres-qcm.jpg", "spheres-memoriser.jpg"] };
+const textesOutils = (c) => OUTILS[c.lang] || OUTILS.en;
+function sectionOutils(c) {
+  const O = textesOutils(c);
+  const img = (f, alt, cls) => `<img class="${cls}" src="${c.chemin}assets/projets/${f}?v=${empreinte("assets/projets/" + f)}" alt="${e(alt)}" loading="lazy">`;
+  const projet = (k) => {
+    const P = O[k];
+    const textes = [P.quoi, P.but, P.lacune].map((t, i) => `<div class="projet-bloc"><h4>${e(O.etiquettes[i])}</h4><p>${e(t)}</p></div>`).join("");
+    const galerie = IMAGES_OUTILS[k].map((f, i) => img(f, P.alts[i], k === "ownnight" ? "ecran-tel" : "ecran-tab")).join("");
+    return `<article class="projet projet-${k}"><div class="projet-tete"><h3>${e(P.nom)}</h3><p class="projet-slogan">${e(P.slogan)}</p><span class="projet-statut">${e(P.statut)}</span></div><div class="projet-corps"><div class="projet-textes">${textes}</div><div class="projet-galerie galerie-${k}">${galerie}</div></div></article>`;
+  };
+  return `<div class="section-corps pleine">
+<div class="colonne-texte">
+<p class="surtitre">${e(O.surtitre)}</p>
+<h2>${e(O.titre)}</h2>
+<p class="intro">${e(O.intro)}</p>
+</div>
+<div class="colonne-outils"><div class="projets">${projet("ownnight")}${projet("spheres")}</div></div>
 </div>`;
 }
 const TEXTES_GROUPES = {
@@ -301,6 +378,7 @@ const TEINTES = {
   ressources: ["#2f7f86", "#215c61"],
   transmission: ["#5f7f35", "#43592a"],
   notions: ["#7a4f9a", "#563870"],
+  outils: ["#2f3f7a", "#1c2650"],
   litterature: ["#2a6fb0", "#1d4f80"],
   grise: ["#3d7a5a", "#2a5640"],
   presse: ["#8a5a2b", "#63401e"],
@@ -897,6 +975,7 @@ function page(c) {
   };
   c.hall.portes.transmission = textesTransmission(c).salle;
   c.hall.portes.notions = textesNotions(c).salle;
+  c.hall.portes.outils = textesOutils(c).salle;
   poserSousPortes(c);
   const sections = {
     recherche: sectionRecherche(c),
@@ -904,6 +983,7 @@ function page(c) {
     implantation: sectionImplantation(c),
     transmission: sectionTransmission(c),
     notions: sectionNotions(c),
+    outils: sectionOutils(c),
     publications: sectionGroupes(c, c.publications, "", ICONES_GROUPES.publications),
     biographie: sectionBiographie(c),
     parcours: sectionParcours(c),

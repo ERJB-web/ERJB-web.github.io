@@ -1032,3 +1032,29 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 .poignee::before,.porte .poignee::before,.onglet-salle .poignee::before{width:150%}
 .vignette{inset-inline-end:28%}
 .poignee::after{width:215%}
+
+/* Outils numériques : OWNNIGHT et les Sphères */
+.projets{display:grid;gap:30px}
+.projet{border:1px solid var(--line);border-radius:22px;background:var(--white);overflow:hidden;box-shadow:0 14px 34px -22px rgba(15,49,66,.35)}
+.projet-tete{padding:24px 28px;color:#fff}
+.projet-ownnight .projet-tete{background:linear-gradient(135deg,#141c3c,#2f3f7a 60%,#5a4a9a)}
+.projet-spheres .projet-tete{background:linear-gradient(135deg,#123a4a,#1f6f86 60%,#3f8a6f)}
+.projet-tete h3{margin:0;font:400 30px/1.15 var(--serif);color:#fff}
+.projet-slogan{margin:6px 0 10px;font-size:16px;font-style:italic;opacity:.92}
+.projet-statut{display:inline-block;padding:4px 12px;border-radius:999px;background:rgba(255,255,255,.16);font-size:12.5px;font-weight:600;letter-spacing:.02em}
+.projet-corps{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:28px;padding:26px 28px;align-items:start}
+.projet-bloc+.projet-bloc{margin-top:16px}
+.projet-bloc h4{margin:0 0 4px;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.projet-bloc p{margin:0;font-size:15px;line-height:1.65}
+.galerie-ownnight{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.ecran-tel{width:100%;border-radius:22px;border:5px solid #0d1226;box-shadow:0 12px 24px -12px rgba(10,15,40,.6)}
+.galerie-spheres{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.galerie-spheres .ecran-tab:first-child{grid-column:1 / -1}
+.ecran-tab{width:100%;border-radius:12px;border:4px solid #1d2a33;box-shadow:0 10px 22px -12px rgba(10,30,40,.55)}
+@media (max-width:900px){.projet-corps{grid-template-columns:1fr}}
+/* Bouton de porte rond et doré : rosace + boule, qui tourne à l'ouverture */
+.vignette{inset-inline-end:24%}
+.poignee,.porte .poignee,.onglet-salle .poignee{top:45%;inset-inline-end:6%;width:14%;min-width:6px;height:auto;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 40% 35%,#f3dc96 0%,#c9993a 60%,#8a6512 100%);box-shadow:0 0 0 1.5px var(--c1),0 1px 2px rgba(40,25,0,.45)}
+.poignee::before,.porte .poignee::before,.onglet-salle .poignee::before{left:13%;top:13%;right:13%;bottom:13%;width:auto;height:auto;aspect-ratio:auto;transform:rotate(0deg);border-radius:50%;background:radial-gradient(circle at 30% 26%,#fffbe8 0%,#f2d474 28%,#c4922b 62%,#6e4c0c 100%);box-shadow:1px 2px 3px rgba(40,25,0,.55);transition:transform .35s var(--ease)}
+.poignee::after{display:none}
+.porte:hover .poignee::before,.porte:focus-visible .poignee::before,.porte.ouverte .poignee::before,.onglet-salle:hover .poignee::before,.onglet-salle.ouverte .poignee::before{transform:rotate(-75deg)}
