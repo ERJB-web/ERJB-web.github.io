@@ -521,6 +521,103 @@
         ]
       ]
     },
+    "methodes": {
+      "titre": "方法学专长",
+      "items": [
+        {
+          "titre": "自我中心与社会中心社会网络分析",
+          "texte": "社会网络分析关注行动者之间的关系，而不仅是其个体属性。社会中心取向考察一个有边界群体内的全部联系；自我中心取向则从一名受访者（ego）及其提名的互动对象（alters）出发。在我的博士论文中，我以 CLSC（地方社区服务中心）为起点：其一线工作人员和管理者提名各自的互动对象，后者再依次作答，从而可以交叉核对各合作方申报的联系。情境小案例（vignettes）用于呈现潜在网络，即在需要时会被求助的合作方；过去12个月的实际互动则描述现实网络。比较两者，有助于理解初级卫生保健中针对复杂社会需求的跨部门应对。",
+          "references": [
+            "Perry, B. L., Pescosolido, B. A., & Borgatti, S. P. (2018). Egocentric network analysis: Foundations, methods, and models. Cambridge University Press. https://doi.org/10.1017/9781316443255",
+            "Provan, K. G., Veazie, M. A., Staten, L. K., & Teufel-Shone, N. I. (2005). The use of network analysis to strengthen community partnerships. Public Administration Review, 65(5), 603–613. https://doi.org/10.1111/j.1540-6210.2005.00487.x",
+            "Valente, T. W., Palinkas, L. A., Czaja, S., Chu, K.-H., & Brown, C. H. (2015). Social network analysis for program implementation. PLOS ONE, 10(6), Article e0131712. https://doi.org/10.1371/journal.pone.0131712"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12913-026-15347-8/MediaObjects/12913_2026_15347_Fig1_HTML.png",
+              "page": "https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-026-15347-8",
+              "legende": "市级健康促进协调的自我中心网络：焦点行动者（ego）位于中心，与其互动对象（alters）相连。",
+              "credit": "图1，引自 Richter、Mamontova 和 Kühne（2026），BMC Health Services Research，CC BY 4.0"
+            },
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs13033-019-0328-1/MediaObjects/13033_2019_328_Fig2_HTML.png",
+              "page": "https://ijmhs.biomedcentral.com/articles/10.1186/s13033-019-0328-1",
+              "legende": "东帝汶27个精神卫生与社会服务机构的社会中心网络，依据一年内的联系频率绘制。",
+              "credit": "图2，引自 Hall 等（2019），International Journal of Mental Health Systems，CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "制图与地理信息系统",
+          "texte": "制图与地理信息系统（GIS）将数据与其空间位置相关联，用以描述服务、需求和人口在一定地域内的分布。潜在可及性测度，例如两步移动搜寻法（2SFCA），把服务供给、需求以及二者之间的距离联系起来。我通过日内瓦大学的一门慕课（MOOC）掌握了这一方法的基础。在我的博士论文中，制图可用于在 CLSC 服务辖区内定位网络中被提名的机构，并将联系结构与服务和需求的空间分布相对照。",
+          "references": [
+            "Guagliardo, M. F. (2004). Spatial accessibility of primary care: Concepts, methods and challenges. International Journal of Health Geographics, 3, Article 3. https://doi.org/10.1186/1476-072X-3-3",
+            "Luo, W., & Wang, F. (2003). Measures of spatial accessibility to health care in a GIS environment: Synthesis and a case study in the Chicago region. Environment and Planning B: Planning and Design, 30(6), 865–884. https://doi.org/10.1068/b29120",
+            "Ngui, A. N., & Apparicio, P. (2011). Optimizing the two-step floating catchment area method for measuring spatial accessibility to medical clinics in Montreal. BMC Health Services Research, 11, Article 166. https://doi.org/10.1186/1472-6963-11-166"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2F1472-6963-11-166/MediaObjects/12913_2010_Article_1671_Fig3_HTML.jpg",
+              "page": "https://bmchealthservres.biomedcentral.com/articles/10.1186/1472-6963-11-166",
+              "legende": "采用2SFCA方法（常规版与优化版）测得的蒙特利尔医疗诊所空间可及性。",
+              "credit": "图3，引自 Ngui 和 Apparicio（2011），BMC Health Services Research，CC BY 2.0"
+            },
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12942-017-0105-9/MediaObjects/12942_2017_105_Fig4_HTML.gif",
+              "page": "https://ij-healthgeographics.biomedcentral.com/articles/10.1186/s12942-017-0105-9",
+              "legende": "2015年蒙特利尔都会区卫生与社会服务机构的分布，包括 CLSC（图d）。",
+              "credit": "图4，引自 Apparicio 等（2017），International Journal of Health Geographics，CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "在 Positron 中使用 R 进行可重复编程",
+          "texte": "可重复编程是指将分析的每一步，从数据导入到图表生成，都写入可重新运行、可核查的脚本之中。我在 Posit 推出的集成开发环境 Positron 中使用 R 开展工作。tidyverse 用于数据的整理与格式化；igraph 和 statnet 用于构建网络、计算中心性、密度和凝聚性等指标，并对联系的形成进行建模；sf 用于处理矢量空间数据，并将其与机构属性进行连接。这一流程在同一个有完整记录的项目中整合网络数据、地域数据和图表，便于核查分析结果，也便于其他团队复用。",
+          "references": [
+            "Handcock, M. S., Hunter, D. R., Butts, C. T., Goodreau, S. M., & Morris, M. (2008). statnet: Software tools for the representation, visualization, analysis and simulation of network data. Journal of Statistical Software, 24(1), 1–11. https://doi.org/10.18637/jss.v024.i01",
+            "Pebesma, E. (2018). Simple features for R: Standardized support for spatial vector data. The R Journal, 10(1), 439–446. https://doi.org/10.32614/RJ-2018-009",
+            "Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D., François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M., Pedersen, T. L., Miller, E., Bache, S. M., Müller, K., Ooms, J., Robinson, D., Seidel, D. P., Spinu, V., . . . Yutani, H. (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), Article 1686. https://doi.org/10.21105/joss.01686"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12992-024-01055-7/MediaObjects/12992_2024_1055_Fig2_HTML.png",
+              "page": "https://globalizationandhealth.biomedcentral.com/articles/10.1186/s12992-024-01055-7",
+              "legende": "参与预防新发人畜共患病的机构网络，按部门着色；以 igraph 和 statnet 分析，并在 R 中用 ggraph 绘制。",
+              "credit": "图2，引自 Clifford Astbury 等（2024），Globalization and Health，CC BY 4.0"
+            },
+            {
+              "src": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/7b60/12169549/9225d6431677/pone.0325597.g001.jpg",
+              "page": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0325597",
+              "legende": "几内亚和塞拉利昂机构间互动的社会关系图（疟疾与COVID-19），在 R 中用 tidyverse、tidygraph 和 ggraph 绘制。",
+              "credit": "图1，引自 Feddern 等（2025），PLOS ONE，CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "定性主题分析与定性网络分析",
+          "texte": "主题分析通过从初始编码到主题界定的迭代过程，在访谈或文献语料中识别、组织并解释意义模式。我使用 NVivo 进行编码，记录编码树、备忘录以及逐步形成的归类。定性网络分析是这一方法的延伸：在以网络图为基础开展的访谈中，参与者阐述各项联系的内容、来历，以及使其得以建立或变得脆弱的条件。这些叙述在作为论文收尾环节的审议式工作坊之前，为所测得的网络结构赋予意义。",
+          "references": [
+            "Braun, V., & Clarke, V. (2006). Using thematic analysis in psychology. Qualitative Research in Psychology, 3(2), 77–101. https://doi.org/10.1191/1478088706qp063oa",
+            "Hogan, B., Carrasco, J. A., & Wellman, B. (2007). Visualizing personal networks: Working with participant-aided sociograms. Field Methods, 19(2), 116–144. https://doi.org/10.1177/1525822X06298589",
+            "Hollstein, B. (2024). Qualitative and mixed methods. In J. McLevey, J. Scott, & P. J. Carrington (Eds.), The Sage handbook of social network analysis (2nd ed., pp. 562–574). Sage. https://doi.org/10.4135/9781529614695.n38"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12875-026-03322-5/MediaObjects/12875_2026_3322_Fig1_HTML.png",
+              "page": "https://bmcprimcare.biomedcentral.com/articles/10.1186/s12875-026-03322-5",
+              "legende": "基于 NVivo 编码访谈的反思性主题分析所得主题图，主题为初级卫生保健的可及性。",
+              "credit": "图1，引自 Instone 等（2026），BMC Primary Care，CC BY 4.0"
+            },
+            {
+              "src": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4df6/8392189/3efc6c848b2a/ijerph-18-08372-g001.jpg",
+              "page": "https://doi.org/10.3390/ijerph18168372",
+              "legende": "访谈中手绘后数字化的网络图，出自对一个跨部门健康促进网络的定性分析。",
+              "credit": "图1，引自 Fleuren、Thiel 和 Frahsa（2021），International Journal of Environmental Research and Public Health，CC BY 4.0"
+            }
+          ]
+        }
+      ]
+    },
     "expertises": {
       "titre": "专业领域",
       "items": [

@@ -32,6 +32,9 @@ function paragraphes(html) {
   h = retirer(h, /<div class="table-tete"/, "div");
   h = retirer(h, /<div class="actions"/, "div");
   h = retirer(h, /<div class="bandeau"/, "div");
+  h = retirer(h, /<div class="rg-ensemble"/, "div");
+  h = retirer(h, /<div class="comparaison"/, "div");
+  h = retirer(h, /<div class="cycle"/, "div");
   h = retirer(h, /<a [^>]*class="carte-lien/, "a");
   h = retirer(h, /<span aria-hidden="true"/, "span");
   h = retirer(h, /<svg\b/, "svg");

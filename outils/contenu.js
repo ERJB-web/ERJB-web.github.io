@@ -453,6 +453,103 @@ const fr = {
         ]
       ]
     },
+    "methodes": {
+      "titre": "Expertises méthodologiques",
+      "items": [
+        {
+          "titre": "Analyse de réseaux sociaux égocentrée et sociocentrée",
+          "texte": "L’analyse de réseaux sociaux décrit les relations entre acteurs plutôt que leurs seuls attributs. L’approche sociocentrée examine l’ensemble des liens d’une population délimitée ; l’approche égocentrée part d’un répondant (ego) et des interlocuteurs qu’il nomme (alters). Dans ma thèse, je pars du CLSC : ses intervenants et gestionnaires nomment leurs interlocuteurs, qui répondent à leur tour, ce qui permet de croiser les liens déclarés par les partenaires. Des vignettes font apparaître le réseau potentiel, soit les partenaires qui seraient sollicités ; les interactions des 12 derniers mois décrivent le réseau réel. La comparaison des deux éclaire la réponse intersectorielle aux besoins sociaux complexes en soins primaires.",
+          "references": [
+            "Perry, B. L., Pescosolido, B. A., & Borgatti, S. P. (2018). Egocentric network analysis: Foundations, methods, and models. Cambridge University Press. https://doi.org/10.1017/9781316443255",
+            "Provan, K. G., Veazie, M. A., Staten, L. K., & Teufel-Shone, N. I. (2005). The use of network analysis to strengthen community partnerships. Public Administration Review, 65(5), 603–613. https://doi.org/10.1111/j.1540-6210.2005.00487.x",
+            "Valente, T. W., Palinkas, L. A., Czaja, S., Chu, K.-H., & Brown, C. H. (2015). Social network analysis for program implementation. PLOS ONE, 10(6), Article e0131712. https://doi.org/10.1371/journal.pone.0131712"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12913-026-15347-8/MediaObjects/12913_2026_15347_Fig1_HTML.png",
+              "page": "https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-026-15347-8",
+              "legende": "Réseau égocentré de coordination en promotion de la santé municipale : l’acteur focal (ego) au centre, relié à ses interlocuteurs (alters).",
+              "credit": "Figure 1 de Richter, Mamontova et Kühne (2026), BMC Health Services Research, CC BY 4.0"
+            },
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs13033-019-0328-1/MediaObjects/13033_2019_328_Fig2_HTML.png",
+              "page": "https://ijmhs.biomedcentral.com/articles/10.1186/s13033-019-0328-1",
+              "legende": "Réseau sociocentré de 27 organisations de santé mentale et de services sociaux au Timor-Leste, selon la fréquence des contacts sur un an.",
+              "credit": "Figure 2 de Hall et al. (2019), International Journal of Mental Health Systems, CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "Cartographie et systèmes d’information géographique",
+          "texte": "La cartographie et les systèmes d’information géographique (SIG) relient des données à leur localisation pour décrire la répartition des services, des besoins et des populations sur un territoire. Les mesures d’accessibilité potentielle, comme la méthode à deux étapes des aires de desserte flottantes (2SFCA), mettent en rapport l’offre de services, la demande et la distance qui les sépare. J’en ai acquis les bases dans un MOOC de l’Université de Genève. Dans ma thèse, la cartographie peut servir à situer sur le territoire du CLSC les organisations nommées dans le réseau et à mettre la structure des liens en regard de la répartition des services et des besoins.",
+          "references": [
+            "Guagliardo, M. F. (2004). Spatial accessibility of primary care: Concepts, methods and challenges. International Journal of Health Geographics, 3, Article 3. https://doi.org/10.1186/1476-072X-3-3",
+            "Luo, W., & Wang, F. (2003). Measures of spatial accessibility to health care in a GIS environment: Synthesis and a case study in the Chicago region. Environment and Planning B: Planning and Design, 30(6), 865–884. https://doi.org/10.1068/b29120",
+            "Ngui, A. N., & Apparicio, P. (2011). Optimizing the two-step floating catchment area method for measuring spatial accessibility to medical clinics in Montreal. BMC Health Services Research, 11, Article 166. https://doi.org/10.1186/1472-6963-11-166"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2F1472-6963-11-166/MediaObjects/12913_2010_Article_1671_Fig3_HTML.jpg",
+              "page": "https://bmchealthservres.biomedcentral.com/articles/10.1186/1472-6963-11-166",
+              "legende": "Accessibilité spatiale aux cliniques médicales de Montréal selon la méthode 2SFCA, version classique et version optimisée.",
+              "credit": "Figure 3 de Ngui et Apparicio (2011), BMC Health Services Research, CC BY 2.0"
+            },
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12942-017-0105-9/MediaObjects/12942_2017_105_Fig4_HTML.gif",
+              "page": "https://ij-healthgeographics.biomedcentral.com/articles/10.1186/s12942-017-0105-9",
+              "legende": "Localisation des services de santé et de services sociaux de la région métropolitaine de Montréal en 2015, dont les CLSC (carte d).",
+              "credit": "Figure 4 d’Apparicio et al. (2017), International Journal of Health Geographics, CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "Programmation reproductible avec R dans Positron",
+          "texte": "La programmation reproductible consiste à conduire chaque étape d’une analyse, de l’importation des données aux figures, dans des scripts qui peuvent être réexécutés et vérifiés. Je travaille en R dans Positron, l’environnement de développement de Posit. Le tidyverse structure la préparation et la mise en forme des données ; igraph et statnet servent à construire les réseaux, à calculer les mesures de centralité, de densité et de cohésion, et à modéliser la formation des liens ; sf gère les données spatiales vectorielles et leur jointure avec les attributs des organisations. Cette chaîne relie, dans un même projet documenté, les données de réseau, les données territoriales et les figures, ce qui facilite la vérification des analyses et leur reprise par d’autres équipes.",
+          "references": [
+            "Handcock, M. S., Hunter, D. R., Butts, C. T., Goodreau, S. M., & Morris, M. (2008). statnet: Software tools for the representation, visualization, analysis and simulation of network data. Journal of Statistical Software, 24(1), 1–11. https://doi.org/10.18637/jss.v024.i01",
+            "Pebesma, E. (2018). Simple features for R: Standardized support for spatial vector data. The R Journal, 10(1), 439–446. https://doi.org/10.32614/RJ-2018-009",
+            "Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D., François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M., Pedersen, T. L., Miller, E., Bache, S. M., Müller, K., Ooms, J., Robinson, D., Seidel, D. P., Spinu, V., . . . Yutani, H. (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), Article 1686. https://doi.org/10.21105/joss.01686"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12992-024-01055-7/MediaObjects/12992_2024_1055_Fig2_HTML.png",
+              "page": "https://globalizationandhealth.biomedcentral.com/articles/10.1186/s12992-024-01055-7",
+              "legende": "Réseau d’organisations engagées dans la prévention des zoonoses émergentes, coloré par secteur ; analyse avec igraph et statnet, figure produite dans R avec ggraph.",
+              "credit": "Figure 2 de Clifford Astbury et al. (2024), Globalization and Health, CC BY 4.0"
+            },
+            {
+              "src": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/7b60/12169549/9225d6431677/pone.0325597.g001.jpg",
+              "page": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0325597",
+              "legende": "Sociogrammes des interactions entre organisations en Guinée et en Sierra Leone (paludisme et COVID-19), produits dans R avec le tidyverse, tidygraph et ggraph.",
+              "credit": "Figure 1 de Feddern et al. (2025), PLOS ONE, CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "Analyse qualitative thématique et de réseaux",
+          "texte": "L’analyse thématique repère, organise et interprète des régularités de sens dans un corpus d’entretiens ou de documents, selon un processus itératif qui va du codage initial à la définition des thèmes. Je conduis ce codage dans NVivo, qui permet de documenter l’arbre de codes, les mémos et les regroupements successifs. L’analyse qualitative de réseaux prolonge cette démarche : lors d’entretiens menés à partir de la carte du réseau, les participants commentent les liens, leur contenu, leur histoire et les conditions qui les rendent possibles ou fragiles. Ces récits donnent sens aux structures mesurées avant l’atelier délibératif qui clôt la thèse.",
+          "references": [
+            "Braun, V., & Clarke, V. (2006). Using thematic analysis in psychology. Qualitative Research in Psychology, 3(2), 77–101. https://doi.org/10.1191/1478088706qp063oa",
+            "Hogan, B., Carrasco, J. A., & Wellman, B. (2007). Visualizing personal networks: Working with participant-aided sociograms. Field Methods, 19(2), 116–144. https://doi.org/10.1177/1525822X06298589",
+            "Hollstein, B. (2024). Qualitative and mixed methods. In J. McLevey, J. Scott, & P. J. Carrington (Eds.), The Sage handbook of social network analysis (2nd ed., pp. 562–574). Sage. https://doi.org/10.4135/9781529614695.n38"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12875-026-03322-5/MediaObjects/12875_2026_3322_Fig1_HTML.png",
+              "page": "https://bmcprimcare.biomedcentral.com/articles/10.1186/s12875-026-03322-5",
+              "legende": "Carte thématique issue d’une analyse thématique réflexive d’entretiens codés dans NVivo, sur l’accès aux soins primaires.",
+              "credit": "Figure 1 d’Instone et al. (2026), BMC Primary Care, CC BY 4.0"
+            },
+            {
+              "src": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4df6/8392189/3efc6c848b2a/ijerph-18-08372-g001.jpg",
+              "page": "https://doi.org/10.3390/ijerph18168372",
+              "legende": "Carte de réseau dessinée en entretien puis numérisée, dans une analyse qualitative d’un réseau intersectoriel de promotion de la santé.",
+              "credit": "Figure 1 de Fleuren, Thiel et Frahsa (2021), International Journal of Environmental Research and Public Health, CC BY 4.0"
+            }
+          ]
+        }
+      ]
+    },
     "expertises": {
       "titre": "Expertises",
       "items": [
@@ -1868,6 +1965,103 @@ const en = {
         ]
       ]
     },
+    "methodes": {
+      "titre": "Methodological expertise",
+      "items": [
+        {
+          "titre": "Egocentric and sociocentric social network analysis",
+          "texte": "Social network analysis describes the relationships between actors rather than their attributes alone. A sociocentric approach examines all ties within a bounded population; an egocentric approach starts from a respondent (ego) and the contacts this person names (alters). In my thesis, I start from the CLSC (local community service centre): its practitioners and managers name their contacts, who in turn respond, which makes it possible to cross-check the ties reported by partners. Vignettes reveal the potential network, that is, the partners who would be called upon; interactions over the past 12 months describe the actual network. Comparing the two sheds light on the intersectoral response to complex social needs in primary care.",
+          "references": [
+            "Perry, B. L., Pescosolido, B. A., & Borgatti, S. P. (2018). Egocentric network analysis: Foundations, methods, and models. Cambridge University Press. https://doi.org/10.1017/9781316443255",
+            "Provan, K. G., Veazie, M. A., Staten, L. K., & Teufel-Shone, N. I. (2005). The use of network analysis to strengthen community partnerships. Public Administration Review, 65(5), 603–613. https://doi.org/10.1111/j.1540-6210.2005.00487.x",
+            "Valente, T. W., Palinkas, L. A., Czaja, S., Chu, K.-H., & Brown, C. H. (2015). Social network analysis for program implementation. PLOS ONE, 10(6), Article e0131712. https://doi.org/10.1371/journal.pone.0131712"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12913-026-15347-8/MediaObjects/12913_2026_15347_Fig1_HTML.png",
+              "page": "https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-026-15347-8",
+              "legende": "Egocentric coordination network in municipal health promotion: the focal actor (ego) at the centre, linked to its contacts (alters).",
+              "credit": "Figure 1 from Richter, Mamontova, and Kühne (2026), BMC Health Services Research, CC BY 4.0"
+            },
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs13033-019-0328-1/MediaObjects/13033_2019_328_Fig2_HTML.png",
+              "page": "https://ijmhs.biomedcentral.com/articles/10.1186/s13033-019-0328-1",
+              "legende": "Sociocentric network of 27 mental health and social service organizations in Timor-Leste, based on frequency of contact over one year.",
+              "credit": "Figure 2 from Hall et al. (2019), International Journal of Mental Health Systems, CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "Mapping and geographic information systems",
+          "texte": "Mapping and geographic information systems (GIS) link data to their location in order to describe how services, needs and populations are distributed across a territory. Measures of potential accessibility, such as the two-step floating catchment area (2SFCA) method, relate service supply, demand and the distance between them. I acquired the foundations of this approach through a MOOC from the University of Geneva. In my thesis, mapping can be used to locate the organizations named in the network within the CLSC territory and to set the structure of ties against the distribution of services and needs.",
+          "references": [
+            "Guagliardo, M. F. (2004). Spatial accessibility of primary care: Concepts, methods and challenges. International Journal of Health Geographics, 3, Article 3. https://doi.org/10.1186/1476-072X-3-3",
+            "Luo, W., & Wang, F. (2003). Measures of spatial accessibility to health care in a GIS environment: Synthesis and a case study in the Chicago region. Environment and Planning B: Planning and Design, 30(6), 865–884. https://doi.org/10.1068/b29120",
+            "Ngui, A. N., & Apparicio, P. (2011). Optimizing the two-step floating catchment area method for measuring spatial accessibility to medical clinics in Montreal. BMC Health Services Research, 11, Article 166. https://doi.org/10.1186/1472-6963-11-166"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2F1472-6963-11-166/MediaObjects/12913_2010_Article_1671_Fig3_HTML.jpg",
+              "page": "https://bmchealthservres.biomedcentral.com/articles/10.1186/1472-6963-11-166",
+              "legende": "Spatial accessibility to medical clinics in Montreal using the 2SFCA method, conventional and optimized versions.",
+              "credit": "Figure 3 from Ngui and Apparicio (2011), BMC Health Services Research, CC BY 2.0"
+            },
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12942-017-0105-9/MediaObjects/12942_2017_105_Fig4_HTML.gif",
+              "page": "https://ij-healthgeographics.biomedcentral.com/articles/10.1186/s12942-017-0105-9",
+              "legende": "Location of health and social services in the Montreal metropolitan area in 2015, including CLSCs (map d).",
+              "credit": "Figure 4 from Apparicio et al. (2017), International Journal of Health Geographics, CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "Reproducible programming with R in Positron",
+          "texte": "Reproducible programming means carrying out every step of an analysis, from data import to figures, in scripts that can be rerun and checked. I work in R within Positron, the integrated development environment from Posit. The tidyverse structures data preparation and formatting; igraph and statnet are used to build networks, compute centrality, density and cohesion measures, and model tie formation; sf handles vector spatial data and their joins with organizational attributes. This workflow brings together network data, territorial data and figures within a single documented project, which makes the analyses easier to verify and for other teams to reuse.",
+          "references": [
+            "Handcock, M. S., Hunter, D. R., Butts, C. T., Goodreau, S. M., & Morris, M. (2008). statnet: Software tools for the representation, visualization, analysis and simulation of network data. Journal of Statistical Software, 24(1), 1–11. https://doi.org/10.18637/jss.v024.i01",
+            "Pebesma, E. (2018). Simple features for R: Standardized support for spatial vector data. The R Journal, 10(1), 439–446. https://doi.org/10.32614/RJ-2018-009",
+            "Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D., François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M., Pedersen, T. L., Miller, E., Bache, S. M., Müller, K., Ooms, J., Robinson, D., Seidel, D. P., Spinu, V., . . . Yutani, H. (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), Article 1686. https://doi.org/10.21105/joss.01686"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12992-024-01055-7/MediaObjects/12992_2024_1055_Fig2_HTML.png",
+              "page": "https://globalizationandhealth.biomedcentral.com/articles/10.1186/s12992-024-01055-7",
+              "legende": "Network of organizations involved in preventing emerging zoonoses, coloured by sector; analysed with igraph and statnet, figure produced in R with ggraph.",
+              "credit": "Figure 2 from Clifford Astbury et al. (2024), Globalization and Health, CC BY 4.0"
+            },
+            {
+              "src": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/7b60/12169549/9225d6431677/pone.0325597.g001.jpg",
+              "page": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0325597",
+              "legende": "Sociograms of interactions between organizations in Guinea and Sierra Leone (malaria and COVID-19), produced in R with the tidyverse, tidygraph and ggraph.",
+              "credit": "Figure 1 from Feddern et al. (2025), PLOS ONE, CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "Qualitative thematic and network analysis",
+          "texte": "Thematic analysis identifies, organizes and interprets patterns of meaning in a corpus of interviews or documents, through an iterative process that moves from initial coding to the definition of themes. I carry out this coding in NVivo, which documents the coding tree, memos and successive groupings. Qualitative network analysis extends this approach: in interviews conducted around the network map, participants comment on ties, their content, their history and the conditions that make them possible or fragile. These accounts give meaning to the measured structures ahead of the deliberative workshop that concludes the thesis.",
+          "references": [
+            "Braun, V., & Clarke, V. (2006). Using thematic analysis in psychology. Qualitative Research in Psychology, 3(2), 77–101. https://doi.org/10.1191/1478088706qp063oa",
+            "Hogan, B., Carrasco, J. A., & Wellman, B. (2007). Visualizing personal networks: Working with participant-aided sociograms. Field Methods, 19(2), 116–144. https://doi.org/10.1177/1525822X06298589",
+            "Hollstein, B. (2024). Qualitative and mixed methods. In J. McLevey, J. Scott, & P. J. Carrington (Eds.), The Sage handbook of social network analysis (2nd ed., pp. 562–574). Sage. https://doi.org/10.4135/9781529614695.n38"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12875-026-03322-5/MediaObjects/12875_2026_3322_Fig1_HTML.png",
+              "page": "https://bmcprimcare.biomedcentral.com/articles/10.1186/s12875-026-03322-5",
+              "legende": "Thematic map from a reflexive thematic analysis of interviews coded in NVivo, on access to primary care.",
+              "credit": "Figure 1 from Instone et al. (2026), BMC Primary Care, CC BY 4.0"
+            },
+            {
+              "src": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4df6/8392189/3efc6c848b2a/ijerph-18-08372-g001.jpg",
+              "page": "https://doi.org/10.3390/ijerph18168372",
+              "legende": "Network map drawn during an interview and then digitized, in a qualitative analysis of an intersectoral health promotion network.",
+              "credit": "Figure 1 from Fleuren, Thiel, and Frahsa (2021), International Journal of Environmental Research and Public Health, CC BY 4.0"
+            }
+          ]
+        }
+      ]
+    },
     "expertises": {
       "titre": "Expertise",
       "items": [
@@ -3281,6 +3475,103 @@ const es = {
             "Inteligencia artificial"
           ]
         ]
+      ]
+    },
+    "methodes": {
+      "titre": "Competencias metodológicas",
+      "items": [
+        {
+          "titre": "Análisis de redes sociales egocéntrico y sociocéntrico",
+          "texte": "El análisis de redes sociales describe las relaciones entre actores y no solo sus atributos. El enfoque sociocéntrico examina el conjunto de vínculos de una población delimitada; el enfoque egocéntrico parte de una persona encuestada (ego) y de los interlocutores que nombra (alters). En mi tesis parto del CLSC (centro local de servicios comunitarios): sus profesionales de intervención y sus gestores nombran a sus interlocutores, quienes responden a su vez, lo que permite contrastar los vínculos declarados por los socios. Unas viñetas revelan la red potencial, es decir, los socios a los que se recurriría; las interacciones de los últimos 12 meses describen la red real. La comparación de ambas aclara la respuesta intersectorial a las necesidades sociales complejas en atención primaria.",
+          "references": [
+            "Perry, B. L., Pescosolido, B. A., & Borgatti, S. P. (2018). Egocentric network analysis: Foundations, methods, and models. Cambridge University Press. https://doi.org/10.1017/9781316443255",
+            "Provan, K. G., Veazie, M. A., Staten, L. K., & Teufel-Shone, N. I. (2005). The use of network analysis to strengthen community partnerships. Public Administration Review, 65(5), 603–613. https://doi.org/10.1111/j.1540-6210.2005.00487.x",
+            "Valente, T. W., Palinkas, L. A., Czaja, S., Chu, K.-H., & Brown, C. H. (2015). Social network analysis for program implementation. PLOS ONE, 10(6), Article e0131712. https://doi.org/10.1371/journal.pone.0131712"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12913-026-15347-8/MediaObjects/12913_2026_15347_Fig1_HTML.png",
+              "page": "https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-026-15347-8",
+              "legende": "Red egocéntrica de coordinación en promoción de la salud municipal: el actor focal (ego) en el centro, vinculado a sus interlocutores (alters).",
+              "credit": "Figura 1 de Richter, Mamontova y Kühne (2026), BMC Health Services Research, CC BY 4.0"
+            },
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs13033-019-0328-1/MediaObjects/13033_2019_328_Fig2_HTML.png",
+              "page": "https://ijmhs.biomedcentral.com/articles/10.1186/s13033-019-0328-1",
+              "legende": "Red sociocéntrica de 27 organizaciones de salud mental y servicios sociales en Timor Oriental, según la frecuencia de contacto durante un año.",
+              "credit": "Figura 2 de Hall et al. (2019), International Journal of Mental Health Systems, CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "Cartografía y sistemas de información geográfica",
+          "texte": "La cartografía y los sistemas de información geográfica (SIG) vinculan los datos con su localización para describir la distribución de los servicios, las necesidades y las poblaciones en un territorio. Las medidas de accesibilidad potencial, como el método de áreas de captación flotantes en dos etapas (2SFCA), relacionan la oferta de servicios, la demanda y la distancia que las separa. Adquirí sus fundamentos en un MOOC de la Universidad de Ginebra. En mi tesis, la cartografía puede servir para situar en el territorio del CLSC las organizaciones nombradas en la red y para contrastar la estructura de los vínculos con la distribución de los servicios y de las necesidades.",
+          "references": [
+            "Guagliardo, M. F. (2004). Spatial accessibility of primary care: Concepts, methods and challenges. International Journal of Health Geographics, 3, Article 3. https://doi.org/10.1186/1476-072X-3-3",
+            "Luo, W., & Wang, F. (2003). Measures of spatial accessibility to health care in a GIS environment: Synthesis and a case study in the Chicago region. Environment and Planning B: Planning and Design, 30(6), 865–884. https://doi.org/10.1068/b29120",
+            "Ngui, A. N., & Apparicio, P. (2011). Optimizing the two-step floating catchment area method for measuring spatial accessibility to medical clinics in Montreal. BMC Health Services Research, 11, Article 166. https://doi.org/10.1186/1472-6963-11-166"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2F1472-6963-11-166/MediaObjects/12913_2010_Article_1671_Fig3_HTML.jpg",
+              "page": "https://bmchealthservres.biomedcentral.com/articles/10.1186/1472-6963-11-166",
+              "legende": "Accesibilidad espacial a las clínicas médicas de Montreal según el método 2SFCA, versión convencional y versión optimizada.",
+              "credit": "Figura 3 de Ngui y Apparicio (2011), BMC Health Services Research, CC BY 2.0"
+            },
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12942-017-0105-9/MediaObjects/12942_2017_105_Fig4_HTML.gif",
+              "page": "https://ij-healthgeographics.biomedcentral.com/articles/10.1186/s12942-017-0105-9",
+              "legende": "Localización de los servicios de salud y servicios sociales del área metropolitana de Montreal en 2015, incluidos los CLSC (mapa d).",
+              "credit": "Figura 4 de Apparicio et al. (2017), International Journal of Health Geographics, CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "Programación reproducible con R en Positron",
+          "texte": "La programación reproducible consiste en realizar cada etapa de un análisis, desde la importación de los datos hasta las figuras, en scripts que pueden volver a ejecutarse y verificarse. Trabajo en R dentro de Positron, el entorno de desarrollo de Posit. El tidyverse estructura la preparación y el formateo de los datos; igraph y statnet sirven para construir las redes, calcular medidas de centralidad, densidad y cohesión, y modelizar la formación de vínculos; sf gestiona los datos espaciales vectoriales y su unión con los atributos de las organizaciones. Esta cadena reúne, en un mismo proyecto documentado, los datos de red, los datos territoriales y las figuras, lo que facilita la verificación de los análisis y su reutilización por otros equipos.",
+          "references": [
+            "Handcock, M. S., Hunter, D. R., Butts, C. T., Goodreau, S. M., & Morris, M. (2008). statnet: Software tools for the representation, visualization, analysis and simulation of network data. Journal of Statistical Software, 24(1), 1–11. https://doi.org/10.18637/jss.v024.i01",
+            "Pebesma, E. (2018). Simple features for R: Standardized support for spatial vector data. The R Journal, 10(1), 439–446. https://doi.org/10.32614/RJ-2018-009",
+            "Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D., François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M., Pedersen, T. L., Miller, E., Bache, S. M., Müller, K., Ooms, J., Robinson, D., Seidel, D. P., Spinu, V., . . . Yutani, H. (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), Article 1686. https://doi.org/10.21105/joss.01686"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12992-024-01055-7/MediaObjects/12992_2024_1055_Fig2_HTML.png",
+              "page": "https://globalizationandhealth.biomedcentral.com/articles/10.1186/s12992-024-01055-7",
+              "legende": "Red de organizaciones dedicadas a la prevención de zoonosis emergentes, coloreada por sector; análisis con igraph y statnet, figura producida en R con ggraph.",
+              "credit": "Figura 2 de Clifford Astbury et al. (2024), Globalization and Health, CC BY 4.0"
+            },
+            {
+              "src": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/7b60/12169549/9225d6431677/pone.0325597.g001.jpg",
+              "page": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0325597",
+              "legende": "Sociogramas de las interacciones entre organizaciones en Guinea y Sierra Leona (malaria y COVID-19), producidos en R con el tidyverse, tidygraph y ggraph.",
+              "credit": "Figura 1 de Feddern et al. (2025), PLOS ONE, CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "Análisis cualitativo temático y de redes",
+          "texte": "El análisis temático identifica, organiza e interpreta regularidades de sentido en un corpus de entrevistas o documentos, mediante un proceso iterativo que va de la codificación inicial a la definición de los temas. Realizo esta codificación en NVivo, que permite documentar el árbol de códigos, los memos y las agrupaciones sucesivas. El análisis cualitativo de redes prolonga este enfoque: en entrevistas realizadas a partir del mapa de la red, las personas participantes comentan los vínculos, su contenido, su historia y las condiciones que los hacen posibles o frágiles. Estos relatos dan sentido a las estructuras medidas antes del taller deliberativo que cierra la tesis.",
+          "references": [
+            "Braun, V., & Clarke, V. (2006). Using thematic analysis in psychology. Qualitative Research in Psychology, 3(2), 77–101. https://doi.org/10.1191/1478088706qp063oa",
+            "Hogan, B., Carrasco, J. A., & Wellman, B. (2007). Visualizing personal networks: Working with participant-aided sociograms. Field Methods, 19(2), 116–144. https://doi.org/10.1177/1525822X06298589",
+            "Hollstein, B. (2024). Qualitative and mixed methods. In J. McLevey, J. Scott, & P. J. Carrington (Eds.), The Sage handbook of social network analysis (2nd ed., pp. 562–574). Sage. https://doi.org/10.4135/9781529614695.n38"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12875-026-03322-5/MediaObjects/12875_2026_3322_Fig1_HTML.png",
+              "page": "https://bmcprimcare.biomedcentral.com/articles/10.1186/s12875-026-03322-5",
+              "legende": "Mapa temático resultante de un análisis temático reflexivo de entrevistas codificadas en NVivo, sobre el acceso a la atención primaria.",
+              "credit": "Figura 1 de Instone et al. (2026), BMC Primary Care, CC BY 4.0"
+            },
+            {
+              "src": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4df6/8392189/3efc6c848b2a/ijerph-18-08372-g001.jpg",
+              "page": "https://doi.org/10.3390/ijerph18168372",
+              "legende": "Mapa de red dibujado durante una entrevista y luego digitalizado, en un análisis cualitativo de una red intersectorial de promoción de la salud.",
+              "credit": "Figura 1 de Fleuren, Thiel y Frahsa (2021), International Journal of Environmental Research and Public Health, CC BY 4.0"
+            }
+          ]
+        }
       ]
     },
     "expertises": {

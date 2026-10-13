@@ -521,6 +521,103 @@
         ]
       ]
     },
+    "methodes": {
+      "titre": "الخبرات المنهجية",
+      "items": [
+        {
+          "titre": "تحليل الشبكات الاجتماعية المتمركز حول الذات والمتمركز حول المجتمع",
+          "texte": "يصف تحليل الشبكات الاجتماعية العلاقات بين الفاعلين بدلًا من الاقتصار على خصائصهم. يدرس المنهج المتمركز حول المجتمع مجموع الروابط داخل جماعة محددة، بينما ينطلق المنهج المتمركز حول الذات من مستجيب (الأنا) ومن المحاورين الذين يسمّيهم (الآخرون). في أطروحتي، أنطلق من مركز الخدمات المجتمعية المحلية (CLSC): يسمّي المتدخلون والمديرون فيه محاوريهم، الذين يجيبون بدورهم، مما يتيح المقارنة بين الروابط التي يصرّح بها الشركاء. وتكشف حالات افتراضية قصيرة (vignettes) الشبكة المحتملة، أي الشركاء الذين يُلجأ إليهم عند الحاجة، في حين تصف التفاعلات خلال الأشهر الاثني عشر الأخيرة الشبكة الفعلية. وتُلقي المقارنة بينهما الضوء على الاستجابة المشتركة بين القطاعات للاحتياجات الاجتماعية المعقدة في الرعاية الأولية.",
+          "references": [
+            "Perry, B. L., Pescosolido, B. A., & Borgatti, S. P. (2018). Egocentric network analysis: Foundations, methods, and models. Cambridge University Press. https://doi.org/10.1017/9781316443255",
+            "Provan, K. G., Veazie, M. A., Staten, L. K., & Teufel-Shone, N. I. (2005). The use of network analysis to strengthen community partnerships. Public Administration Review, 65(5), 603–613. https://doi.org/10.1111/j.1540-6210.2005.00487.x",
+            "Valente, T. W., Palinkas, L. A., Czaja, S., Chu, K.-H., & Brown, C. H. (2015). Social network analysis for program implementation. PLOS ONE, 10(6), Article e0131712. https://doi.org/10.1371/journal.pone.0131712"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12913-026-15347-8/MediaObjects/12913_2026_15347_Fig1_HTML.png",
+              "page": "https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-026-15347-8",
+              "legende": "شبكة متمركزة حول الذات للتنسيق في تعزيز الصحة على المستوى البلدي: الفاعل المحوري (الأنا) في المركز، مرتبط بمحاوريه (الآخرون).",
+              "credit": "الشكل 1 من Richter وMamontova وKühne (2026)، BMC Health Services Research، رخصة CC BY 4.0"
+            },
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs13033-019-0328-1/MediaObjects/13033_2019_328_Fig2_HTML.png",
+              "page": "https://ijmhs.biomedcentral.com/articles/10.1186/s13033-019-0328-1",
+              "legende": "شبكة متمركزة حول المجتمع تضم 27 منظمة للصحة النفسية والخدمات الاجتماعية في تيمور الشرقية، بحسب تواتر الاتصال خلال سنة.",
+              "credit": "الشكل 2 من Hall وآخرين (2019)، International Journal of Mental Health Systems، رخصة CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "رسم الخرائط ونظم المعلومات الجغرافية",
+          "texte": "تربط الخرائط ونظم المعلومات الجغرافية البيانات بمواقعها لوصف توزيع الخدمات والاحتياجات والسكان على إقليم ما. وتربط مقاييس إمكانية الوصول المحتملة، مثل طريقة منطقة الاستقطاب العائمة على مرحلتين (2SFCA)، بين عرض الخدمات والطلب عليها والمسافة الفاصلة بينهما. اكتسبتُ أسس هذا المنهج من خلال مساق إلكتروني مفتوح (MOOC) من جامعة جنيف. وفي أطروحتي، يمكن توظيف الخرائط لتحديد مواقع المنظمات المذكورة في الشبكة داخل إقليم مركز الخدمات المجتمعية المحلية (CLSC)، ولمقابلة بنية الروابط بتوزيع الخدمات والاحتياجات.",
+          "references": [
+            "Guagliardo, M. F. (2004). Spatial accessibility of primary care: Concepts, methods and challenges. International Journal of Health Geographics, 3, Article 3. https://doi.org/10.1186/1476-072X-3-3",
+            "Luo, W., & Wang, F. (2003). Measures of spatial accessibility to health care in a GIS environment: Synthesis and a case study in the Chicago region. Environment and Planning B: Planning and Design, 30(6), 865–884. https://doi.org/10.1068/b29120",
+            "Ngui, A. N., & Apparicio, P. (2011). Optimizing the two-step floating catchment area method for measuring spatial accessibility to medical clinics in Montreal. BMC Health Services Research, 11, Article 166. https://doi.org/10.1186/1472-6963-11-166"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2F1472-6963-11-166/MediaObjects/12913_2010_Article_1671_Fig3_HTML.jpg",
+              "page": "https://bmchealthservres.biomedcentral.com/articles/10.1186/1472-6963-11-166",
+              "legende": "إمكانية الوصول المكاني إلى العيادات الطبية في مونتريال وفق طريقة 2SFCA، بنسختيها التقليدية والمحسّنة.",
+              "credit": "الشكل 3 من Ngui وApparicio (2011)، BMC Health Services Research، رخصة CC BY 2.0"
+            },
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12942-017-0105-9/MediaObjects/12942_2017_105_Fig4_HTML.gif",
+              "page": "https://ij-healthgeographics.biomedcentral.com/articles/10.1186/s12942-017-0105-9",
+              "legende": "مواقع الخدمات الصحية والاجتماعية في منطقة مونتريال الحضرية الكبرى سنة 2015، ومنها مراكز CLSC (الخريطة d).",
+              "credit": "الشكل 4 من Apparicio وآخرين (2017)، International Journal of Health Geographics، رخصة CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "البرمجة القابلة لإعادة الإنتاج باستخدام R في Positron",
+          "texte": "تعني البرمجة القابلة لإعادة الإنتاج تنفيذ كل مرحلة من مراحل التحليل، من استيراد البيانات إلى إعداد الأشكال، في نصوص برمجية يمكن إعادة تشغيلها والتحقق منها. أعمل بلغة R داخل Positron، بيئة التطوير المتكاملة من Posit. تُستخدم مجموعة tidyverse لتهيئة البيانات وتنسيقها، وتُستخدم igraph وstatnet لبناء الشبكات وحساب مقاييس المركزية والكثافة والتماسك ونمذجة تشكّل الروابط، بينما تعالج sf البيانات المكانية المتجهية وربطها بخصائص المنظمات. وتجمع هذه السلسلة، في مشروع واحد موثّق، بيانات الشبكة والبيانات الإقليمية والأشكال، مما ييسّر التحقق من التحليلات وإعادة استخدامها من قِبل فرق أخرى.",
+          "references": [
+            "Handcock, M. S., Hunter, D. R., Butts, C. T., Goodreau, S. M., & Morris, M. (2008). statnet: Software tools for the representation, visualization, analysis and simulation of network data. Journal of Statistical Software, 24(1), 1–11. https://doi.org/10.18637/jss.v024.i01",
+            "Pebesma, E. (2018). Simple features for R: Standardized support for spatial vector data. The R Journal, 10(1), 439–446. https://doi.org/10.32614/RJ-2018-009",
+            "Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D., François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M., Pedersen, T. L., Miller, E., Bache, S. M., Müller, K., Ooms, J., Robinson, D., Seidel, D. P., Spinu, V., . . . Yutani, H. (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), Article 1686. https://doi.org/10.21105/joss.01686"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12992-024-01055-7/MediaObjects/12992_2024_1055_Fig2_HTML.png",
+              "page": "https://globalizationandhealth.biomedcentral.com/articles/10.1186/s12992-024-01055-7",
+              "legende": "شبكة المنظمات المعنية بالوقاية من الأمراض الحيوانية المنشأ المستجدة، ملوّنة بحسب القطاع؛ حُلّلت باستخدام igraph وstatnet ورُسمت في R باستخدام ggraph.",
+              "credit": "الشكل 2 من Clifford Astbury وآخرين (2024)، Globalization and Health، رخصة CC BY 4.0"
+            },
+            {
+              "src": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/7b60/12169549/9225d6431677/pone.0325597.g001.jpg",
+              "page": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0325597",
+              "legende": "مخططات اجتماعية للتفاعلات بين المنظمات في غينيا وسيراليون (الملاريا وكوفيد-19)، أُعدّت في R باستخدام tidyverse وtidygraph وggraph.",
+              "credit": "الشكل 1 من Feddern وآخرين (2025)، PLOS ONE، رخصة CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "التحليل النوعي الموضوعاتي وتحليل الشبكات",
+          "texte": "يحدّد التحليل الموضوعاتي أنماط المعنى في مجموعة من المقابلات أو الوثائق وينظّمها ويفسّرها، عبر عملية تكرارية تمتد من الترميز الأولي إلى تعريف الموضوعات. أُجري هذا الترميز باستخدام NVivo، الذي يتيح توثيق شجرة الرموز والمذكرات والتجميعات المتتالية. ويُعدّ التحليل النوعي للشبكات امتدادًا لهذا المنهج: ففي مقابلات تُجرى انطلاقًا من خريطة الشبكة، يعلّق المشاركون على الروابط ومضمونها وتاريخها والشروط التي تجعلها ممكنة أو هشّة. وتمنح هذه الروايات معنى للبنى المقيسة قبل الورشة التداولية التي تختتم الأطروحة.",
+          "references": [
+            "Braun, V., & Clarke, V. (2006). Using thematic analysis in psychology. Qualitative Research in Psychology, 3(2), 77–101. https://doi.org/10.1191/1478088706qp063oa",
+            "Hogan, B., Carrasco, J. A., & Wellman, B. (2007). Visualizing personal networks: Working with participant-aided sociograms. Field Methods, 19(2), 116–144. https://doi.org/10.1177/1525822X06298589",
+            "Hollstein, B. (2024). Qualitative and mixed methods. In J. McLevey, J. Scott, & P. J. Carrington (Eds.), The Sage handbook of social network analysis (2nd ed., pp. 562–574). Sage. https://doi.org/10.4135/9781529614695.n38"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12875-026-03322-5/MediaObjects/12875_2026_3322_Fig1_HTML.png",
+              "page": "https://bmcprimcare.biomedcentral.com/articles/10.1186/s12875-026-03322-5",
+              "legende": "خريطة موضوعاتية ناتجة عن تحليل موضوعاتي تأملي لمقابلات رُمّزت في NVivo، حول الوصول إلى الرعاية الأولية.",
+              "credit": "الشكل 1 من Instone وآخرين (2026)، BMC Primary Care، رخصة CC BY 4.0"
+            },
+            {
+              "src": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4df6/8392189/3efc6c848b2a/ijerph-18-08372-g001.jpg",
+              "page": "https://doi.org/10.3390/ijerph18168372",
+              "legende": "خريطة شبكة رُسمت أثناء مقابلة ثم رُقمنت، ضمن تحليل نوعي لشبكة مشتركة بين القطاعات لتعزيز الصحة.",
+              "credit": "الشكل 1 من Fleuren وThiel وFrahsa (2021)، International Journal of Environmental Research and Public Health، رخصة CC BY 4.0"
+            }
+          ]
+        }
+      ]
+    },
     "expertises": {
       "titre": "مجالات الخبرة",
       "items": [

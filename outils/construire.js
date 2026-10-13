@@ -405,6 +405,8 @@ ${a.outils.groupes.map(([g, items]) => `<div class="groupe-outils"><p>${e(g)}</p
 <div class="colonne-outils">
 <h3 class="titre-bloc">${e(a.expertises.titre)}</h3>
 <div class="expertises">${a.expertises.items.map(([t, d]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p></div>`).join("")}</div>
+<h3 class="titre-bloc">${e(a.methodes.titre)}</h3>
+<div class="methodes">${a.methodes.items.map((m) => `<article class="methode"><div class="methode-texte"><h4>${e(m.titre)}</h4><p>${e(m.texte)}</p><ul class="methode-refs">${m.references.map((x) => `<li>${lienFinal(x)}</li>`).join("")}</ul></div><div class="methode-figures">${m.illustrations.map((il) => `<figure><a href="${e(il.page)}" target="_blank" rel="noopener"><img src="${e(il.src)}" alt="${e(il.legende)}" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>${e(il.legende)} <span class="source">${e(il.credit)}</span></figcaption></figure>`).join("")}</div></article>`).join("")}</div>
 <h3 class="titre-bloc">${e(a.axes.titre)}</h3>
 <ul class="puces">${a.axes.principaux.map((t) => `<li><b>${e(t)}</b></li>`).join("")}</ul>
 <p class="petit-titre">${e(a.axes.secondairesTitre)}</p>
@@ -492,6 +494,33 @@ function sectionBiographie(c) {
 <div class="vision"><h3>${e(b.vision.titre)}</h3>${b.vision.paragraphes.map((p) => `<p>${riche(p)}</p>`).join("")}</div>
 <p class="recit-fin">${e(b.conclusion)}</p>
 </div>
+</div>`;
+}
+
+const PHOTOS_ENGAGEMENTS = ["representation", "communaute", "distinctions", "citoyen", null];
+const PHOTOS_LOISIRS = ["course", "musique", "hockey"];
+const photo = (c, nom, alt = "") => `<img class="photo-groupe" src="${c.chemin}assets/photos/${nom}.jpg?v=${empreinte("assets/photos/" + nom + ".jpg")}" alt="${e(alt)}" width="800" height="457" loading="lazy">`;
+
+function sectionEngagements(c) {
+  const s = c.engagements;
+  const groupes = s.groupes
+    .map((g, k) => {
+      const tete = `<h3 class="titre-bloc titre-icone">${e(g.titre)}<span class="compte">${g.items.length}</span></h3>`;
+      if (k === s.groupes.length - 1)
+        return `${tete}<div class="loisirs">${g.items
+          .map((it, i) => `<figure class="loisir">${photo(c, PHOTOS_LOISIRS[i] || "course", it.titre)}<figcaption><span>${e(it.date)}</span><strong>${e(it.titre)}</strong>${it.detail ? `<small>${e(it.detail)}</small>` : ""}</figcaption></figure>`)
+          .join("")}</div>`;
+      return `<div class="groupe-photo">${PHOTOS_ENGAGEMENTS[k] ? photo(c, PHOTOS_ENGAGEMENTS[k]) : ""}<div>${tete}${liste(g.items)}</div></div>`;
+    })
+    .join("");
+  return `<div class="section-corps pleine">
+<div class="colonne-texte">
+<p class="surtitre">${e(s.surtitre)}</p>
+<h2>${e(s.titre)}</h2>
+<p class="intro">${e(s.intro)}</p>
+<h3 class="titre-bloc">${e(s.affiliations.titre)}</h3>${etiquettes(s.affiliations.items, "etiquettes grandes")}
+</div>
+<div class="colonne-outils">${groupes}</div>
 </div>`;
 }
 
@@ -691,12 +720,7 @@ function page(c) {
     conceptualisation: sectionConceptualisation(c),
     valeurs: sectionValeurs(c),
     ressources: sectionMedias(c),
-    engagements: sectionGroupes(
-      c,
-      c.engagements,
-      `<h3 class="titre-bloc">${e(c.engagements.affiliations.titre)}</h3>${etiquettes(c.engagements.affiliations.items, "etiquettes grandes")}`,
-      ICONES_GROUPES.engagements
-    ),
+    engagements: sectionEngagements(c),
   };
 
   return `<!doctype html>
