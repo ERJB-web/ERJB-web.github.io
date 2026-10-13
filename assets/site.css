@@ -1176,14 +1176,14 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 @media (max-width:700px){.salle-onglets{grid-template-columns:repeat(2,minmax(0,1fr))}}
 /* Hall : portes identiques et proportionnées, texte sans espaces forcés. */
 .portes{align-items:stretch;grid-auto-rows:1fr;gap:16px}
-.porte{--largeur-porte:154px;min-height:0;grid-template-columns:var(--largeur-porte) minmax(0,1fr);grid-template-rows:auto;gap:12px;padding:8px 4px;align-items:start}
+.porte{--largeur-porte:160px;min-height:0;grid-template-columns:var(--largeur-porte) minmax(0,1fr);grid-template-rows:auto;gap:12px;padding:8px 4px;align-items:start}
 .porte-texte{display:flex;flex-direction:column;gap:8px;grid-column:2;grid-row:1;align-self:stretch;padding-top:0}
 .porte .baie{position:relative;inset:auto;grid-column:1;grid-row:1;width:var(--largeur-porte);height:auto;aspect-ratio:.62;min-height:0;overflow:hidden}
 .porte .ouverture{perspective:1800px}
 .porte .plaque{min-height:0}
 .porte .sous-portes{align-self:stretch;display:grid;grid-template-columns:repeat(2,minmax(min-content,max-content));align-items:stretch;margin-top:0}
 .porte .sous-portes span{display:inline-flex;gap:2px;min-width:0;max-width:100%;justify-self:start;padding:3px;line-height:1.35;hyphens:none;overflow-wrap:normal}
-.porte .entrer{margin-top:auto}
-@media (max-width:1100px){.porte{--largeur-porte:121px}}
-@media (max-width:700px){.portes{grid-template-columns:1fr}.porte{--largeur-porte:94px}}
-@media (max-width:380px){.porte{--largeur-porte:74px;column-gap:10px;padding-inline:4px}.porte .sous-portes span{padding-inline:5px}}
+.porte .entrer{margin-top:auto;text-align:right}
+@media (max-width:1100px){.porte{--largeur-porte:126px}}
+@media (max-width:700px){.portes{grid-template-columns:1fr}.porte{--largeur-porte:98px}}
+@media (max-width:380px){.porte{--largeur-porte:77px;column-gap:10px;padding-inline:4px}.porte .sous-portes span{padding-inline:5px}}
