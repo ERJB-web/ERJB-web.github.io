@@ -761,8 +761,8 @@ function sectionBiographie(c) {
 }
 
 const PHOTOS_ENGAGEMENTS = ["representation", null, "distinctions", null, null];
-const PHOTOS_LOISIRS = ["course", "musique", null, null, null];
-const photo = (c, nom, alt = "") => `<img class="photo-groupe" src="${c.chemin}assets/photos/${nom}.jpg?v=${empreinte("assets/photos/" + nom + ".jpg")}" alt="${e(alt)}" width="800" height="457" loading="lazy">`;
+const PHOTOS_LOISIRS = ["photos/course.jpg", "photos/musique.jpg", "photos/hockey.jpg", "bandeaux/grise.jpg", "bandeaux/loisirs.jpg"];
+const photo = (c, fichier, alt = "") => `<img class="photo-groupe" src="${c.chemin}assets/${fichier}?v=${empreinte("assets/" + fichier)}"${fichier === "bandeaux/loisirs.jpg" ? ' style="object-position:right"' : ""} alt="${e(alt)}" width="800" height="457" loading="lazy">`;
 
 function sectionEngagements(c, sous) {
   const s = c.engagements;
