@@ -284,7 +284,7 @@
         },
         {
           "domaine": "卫生系统与初级保健",
-          "statut": "手稿准备中",
+          "statut": "正在投稿至 BJGP Open",
           "titre": "Potentially avoidable hospitalisations and primary care: the role of patient experience across Commonwealth countries",
           "auteurs": "Bernier, É., Algoët, A., Sourial, N., Layani, G., Vedel, I., Calafiore, M."
         },
@@ -427,28 +427,18 @@
     "intro": "促进知识在个人、实践场域与研究之间流动，进而审视它们实际能够带来哪些改变。",
     "precision": "在我的博士论文中，知识动员伴随研究进行：它既不是实施研究，也不是政策评估。",
     "formation": {
-      "etiquette": "继续教育 · 2026",
-      "titre": "MobilizeU：在研究中动员知识",
-      "texte": "Réseau Impact Recherche Canada（加拿大研究影响网络）与 York University（约克大学）。该培训聚焦知识动员框架、规划、伙伴关系、公众参与、传播以及影响评估。",
-      "themes": [
-        "理论、模型与框架",
-        "规划",
-        "伙伴关系",
-        "包容性动员",
-        "公众参与",
-        "科学传播",
-        "影响与评估"
-      ],
+      "etiquette": "已完成培训",
+      "titre": "MobilizeU，知识动员 · Research Impact Canada 与 York University（约克大学），2026",
       "lien": "https://researchimpact.ca/learning/mobilizeu/",
-      "lienTexte": "了解 MobilizeU"
+      "lienTexte": "了解更多"
     },
     "plan": {
       "titre": "在我的博士论文中：一项知识动员计划",
       "items": [
         {
           "nom": "为何、何事、面向谁、如何",
-          "texte": "Ward 框架以四个问题构建该计划。MobilizeU 的步骤对此加以补充：在选择“如何”、形式与渠道之前，先明确“何事”“为何”与“面向谁”。",
-          "ref": "Ward, 2017；Réseau Impact Recherche Canada, 2026"
+          "texte": "Ward 框架以四个问题构建该计划：在选择“如何”、形式与渠道之前，先明确“何事”“为何”与“面向谁”。",
+          "ref": "Ward, 2017"
         },
         {
           "nom": "从知识到行动",
@@ -458,7 +448,7 @@
         {
           "nom": "基于 4R 原则的伙伴关系",
           "texte": "尊重、相关性、互惠与责任指导着与患者及实践场域之间的伙伴关系，并以 IRSC（加拿大卫生研究院）的患者参与框架为依据。",
-          "ref": "Kirkness et Barnhardt, 1991；IRSC, 2014；Bowen et Graham, 2013"
+          "ref": "Kirkness & Barnhardt, 1991；IRSC, 2014；Bowen & Graham, 2013"
         },
         {
           "nom": "审议式对话",
@@ -493,7 +483,7 @@
         {
           "nom": "贡献分析方法",
           "texte": "将产出与使用相联系，再与有据可查的变化相联系，同时审视其他可能的影响因素。",
-          "ref": "Morton, 2015；Bayley et Phipps, 2019"
+          "ref": "Morton, 2015；Bayley & Phipps, 2019"
         },
         {
           "nom": "共同生产与整合式知识转化",
@@ -509,22 +499,32 @@
           "nom": "参与与审议",
           "texte": "设计并评估能够留下其影响痕迹的公众参与过程。",
           "ref": "Abelson et al., 2003；OCDE, 2022"
+        },
+        {
+          "nom": "为何需要实施",
+          "texte": "证明一项创新有效，并不足以保证它会被采纳。",
+          "ref": "Bauer & Kirchner, 2020"
+        },
+        {
+          "nom": "实施策略",
+          "texte": "ERIC 汇编提供了一套涵盖 73 项策略的共同词汇，用于描述、选择和报告所采用的策略。",
+          "ref": "Powell et al., 2015"
+        },
+        {
+          "nom": "复杂干预",
+          "texte": "实施成为一个独立的阶段，以情境、项目理论与利益相关方为核心。",
+          "ref": "Skivington et al., 2021"
+        },
+        {
+          "nom": "面向老年人的实施",
+          "texte": "在魁北克，一项促进老年人社会参与的公民陪伴项目的实施，揭示了哪些条件至关重要。",
+          "ref": "Gobeil et al., 2023"
         }
       ]
     },
     "ressources": {
       "titre": "资源",
       "items": [
-        [
-          "MobilizeU",
-          "Réseau Impact Recherche Canada（加拿大研究影响网络）",
-          "https://researchimpact.ca/learning/mobilizeu/"
-        ],
-        [
-          "York University 的 MobilizeU",
-          "知识动员",
-          "https://www.yorku.ca/research/innovation-partnerships/knowledge-mobilization/mobilizeu/"
-        ],
         [
           "知识动员术语表",
           "Instituts de recherche en santé du Canada（加拿大卫生研究院）",
@@ -542,198 +542,380 @@
         ]
       ]
     },
-    "mobilizeu": {
-      "titre": "MobilizeU 课程的八个模块",
-      "detail": "Réseau Impact Recherche Canada · 2026年",
-      "intro": "我从每个模块中获得的收获，以及课程推荐的基础读物。",
-      "lectures": "基础读物",
-      "modules": [
+    "chantiers": {
+      "titre": "知识动员的八个工作领域",
+      "intro": "每个领域都将科学文献与我的实践联系起来。",
+      "detail": "科学文献",
+      "items": [
         [
-          "模块 1",
-          "导论",
-          "动员知识",
-          "知识动员将研究与能够加以利用的人联系起来：生产、调适、分享知识，并追踪其使用。“知识到行动”模型区分了知识的创造与知识付诸行动的循环。",
+          "动员",
+          "让知识双向流动",
+          "动员，就是让知识从研究流向实践场域，也从实践场域和个人流向研究。知识转化模型描述了一个循环（生产、调适、分享、支持使用），但并不保证知识被采纳。",
           [
             "Graham et al. (2006)",
-            "Graham et al. (2024)"
+            "Grimshaw et al. (2012)",
+            "Ward et al. (2012)",
+            "Munerol et al. (2013)"
           ]
         ],
         [
-          "模块 2",
           "框架",
-          "理论、模型与框架",
-          "框架有助于明确为何动员、动员哪些知识、与谁一起以及如何动员。Ward 框架将其归纳为四个简单问题，用以指导每一项决策。",
+          "依据问题选择框架",
+          "框架使各项选择变得明确：为何动员、动员哪些知识、与谁一起以及如何动员。分类体系区分了过程模型、决定因素框架与评估框架；依据问题加以选择，可避免把它们当作核查清单来套用。",
           [
             "Ward (2017)",
-            "Dancause (2023)",
-            "Société Santé en français (2018)"
+            "Nilsen (2015)",
+            "Harvey & Kitson (2016)",
+            "Esmail et al. (2020)"
           ]
         ],
         [
-          "模块 3",
           "规划",
-          "规划知识动员",
-          "计划需明确受众、目标、信息、活动、资源、时间表与指标。起步之道：了解受众、寻求支持、让具有亲身经历的人参与、使形式多样化，并从每一次经验中学习。",
+          "从项目设计之初开始规划",
+          "动员计划需明确受众、目标、信息、活动、资源、时间表与指标。它从项目设计之初便与合作伙伴共同制定，而不是到项目结束时才着手。",
           [
+            "IRSC (2012)",
+            "Tchameni Ngamo et al. (2016)",
+            "Kwan et al. (2022)",
             "Diany et al. (2025)",
             "Dancause (2023)"
           ]
         ],
         [
-          "模块 4",
           "伙伴关系",
-          "建立伙伴关系",
-          "伙伴关系建立在相互依存与共同创造之上：从项目开始到结束，共享权力、角色与收益。",
+          "共同生产，共享权力",
+          "共同生产与整合式知识转化让研究结果的使用者参与每一个阶段。二者都需要时间、清晰的角色分工与真正的权力共享；其成本同样应当得到承认。",
           [
-            "Skipper et Pepler (2020)",
-            "Nolet et al. (2017)"
+            "Jull et al. (2017)",
+            "Boaz et al. (2018)",
+            "Hoekstra et al. (2020)",
+            "Skipper & Pepler (2020)",
+            "Oliver et al. (2019)"
           ]
         ],
         [
-          "模块 5",
           "包容",
-          "包容性动员",
-          "公平同样关乎知识的流动：谁被倾听、谁参与、谁从中受益。原住民知识要求共同建构、信任与互惠。",
+          "谁被倾听、谁参与、谁从中受益",
+          "包容性动员追问每个人所处的位置。经验知识与原住民知识并非补充：它们改变着研究问题、方法与诠释。",
           [
-            "Georgalakis (2023)",
-            "Lévesque (2022)"
+            "Plamondon et al. (2019)",
+            "Morton Ninomiya et al. (2022)",
+            "Gainforth et al. (2021)",
+            "Breton (2025)",
+            "Georgalakis (2023)"
           ]
         ],
         [
-          "模块 6",
           "受众",
-          "激发受众兴趣",
-          "依据目标（共同创造、传播、付诸实施）选择形式，明确“何事”“为何”与“面向谁”，并考虑无障碍性：物理、感官、经济、文化与语言层面。",
-          []
-        ],
-        [
-          "模块 7",
-          "传播",
-          "沟通传播",
-          "战略传播与知识转化相互交叠但并不等同：前者服务于可见度，后者服务于知识的使用。视觉艺术可以成为与经验知识共同创造的工具。",
+          "依据目标选择形式",
+          "形式服从于目标：共同创造（审议式交流、世界咖啡馆、工作坊）、传播（展览、网络研讨会、圆桌会议）或付诸实施（培训、项目会议）。无障碍性需从各个层面加以考虑（物理、感官、经济、文化、语言）：要让受众感到被接纳，而不仅仅是受到邀请。",
           [
-            "Barwick et al. (2014)",
+            "Pomey et al. (2015)",
+            "Greenhalgh et al. (2019)",
+            "Stoll et al. (2022)",
             "Courcy et al. (2022)"
           ]
         ],
         [
-          "模块 8",
-          "影响",
-          "影响与评估",
-          "评估影响，就是追踪研究对变化的贡献，而不把变化完全归功于研究：先是产出、使用，再是有据可查的成效。",
+          "传播",
+          "既追求可见度，也追求实际使用",
+          "战略传播与知识转化相互交叠但并不等同：前者服务于可见度，后者服务于使用。要为决策提供依据，需要理解政治背景、维系长期关系，并提出简短而可用的信息。",
           [
+            "Lomas (2007)",
+            "Barwick et al. (2014)",
+            "Oliver & Cairney (2019)",
+            "Oliver et al. (2026)",
+            "Fillol et al. (2026)"
+          ]
+        ],
+        [
+          "影响",
+          "追踪贡献，而非归因",
+          "评估影响，就是追踪研究对变化的贡献，而不把变化完全归功于研究：产出、覆盖范围、吸纳、有据可查的使用，进而是对服务与个人的成效。",
+          [
+            "Mayne (2012)",
             "Morton (2015)",
+            "Gervais et al. (2016)",
+            "Ziam et al. (2024)",
             "Plouffe (2015)"
           ]
         ]
-      ],
-      "suggestions": {
-        "titre": "延伸阅读",
-        "groupes": [
+      ]
+    },
+    "plusLoin": {
+      "titre": "延伸阅读",
+      "intro": "论文、指南、播客、视频与新闻报道，供进一步深入了解每个领域。",
+      "groupes": [
+        [
+          "开放获取科学论文",
           [
-            "文章与指南",
             [
-              [
-                "Perdus dans l’application des connaissances : besoin d’une carte ?",
-                "Graham et al., 2024，法文译本",
-                "https://doi.org/10.18166/tuc.2024.8.2.46"
-              ],
-              [
-                "Ten simple rules for getting started with knowledge mobilization",
-                "Diany et al., 2025，PLOS Computational Biology",
-                "https://doi.org/10.1371/journal.pcbi.1012888"
-              ],
-              [
-                "Guide pédagogique sur la mobilisation des connaissances",
-                "Dancause, 2023，Érudit",
-                "https://www.erudit.org/fr/livres/hors-collection/guide-pedagogique-sur-la-mobilisation-des-connaissances/"
-              ],
-              [
-                "L’interdépendance dans la recherche partenariale",
-                "Nolet et al., 2017，Nouvelles pratiques sociales",
-                "https://doi.org/10.7202/1043406ar"
-              ]
+              "Making sense of implementation theories, models and frameworks",
+              "Nilsen，Implementation Science，2015（英文）",
+              "https://doi.org/10.1186/s13012-015-0242-0",
+              "这一分类体系依据研究目的（指导、解释或评估），将理论、模型与框架归为五类：过程模型、决定因素框架、经典理论、实施理论与评估框架。"
+            ],
+            [
+              "Community-based participatory research and integrated knowledge translation: advancing the co-creation of knowledge",
+              "Jull、Giles 与 Graham，Implementation Science，2017（英文）",
+              "https://doi.org/10.1186/s13012-017-0696-3",
+              "将社区参与式研究与整合式知识转化并置比较，揭示二者在哪些方面交汇、在哪些方面分歧，以及各自可以从对方借鉴什么来共同建构知识。"
+            ],
+            [
+              "The dos and don’ts of influencing policy: a systematic review of advice to academics",
+              "Oliver 与 Cairney，Palgrave Communications，2019（英文）",
+              "https://doi.org/10.1057/s41599-019-0232-y",
+              "一篇系统综述，梳理了写给希望影响政策的研究者的建议：这些建议很少以数据为依据，且对参与政策过程的成本与风险避而不谈。"
+            ],
+            [
+              "Connecting knowledge with action for health equity: a critical interpretive synthesis of promising practices",
+              "Plamondon、Caxaj、Graham 与 Bottorff，International Journal for Equity in Health，2019（英文）",
+              "https://doi.org/10.1186/s12939-019-1108-x",
+              "一项批判性诠释综合研究，提炼出将知识与行动相连接、以促进公平的有前景的做法，并着重强调权力的再分配与不平等的结构性根源。"
+            ],
+            [
+              "Quel impact avons-nous ? Vers l’élaboration d’un cadre pour rendre visibles les retombées du transfert des connaissances",
+              "Gervais、Souffez 与 Ziam，Revue francophone de recherche sur le transfert et l’utilisation des connaissances，2016（法文）",
+              "https://doi.org/10.18166/tuc.2016.1.1.5",
+              "在审视 29 个概念框架的基础上，以法语奠定了一个框架的基础，用以呈现知识转化活动的成效，并回应各机构的问责要求。"
+            ],
+            [
+              "Plain language summaries: A systematic review of theory, guidelines and empirical research",
+              "Stoll、Kerwer、Lieb 与 Chasiotis，PLOS ONE，2022（英文）",
+              "https://doi.org/10.1371/journal.pone.0268789",
+              "全面梳理了关于通俗语言摘要的理论、指南与实证研究，并据此提出一个概念框架，用于撰写非专业公众能够理解的摘要。"
             ]
-          ],
+          ]
+        ],
+        [
+          "指南与工具",
           [
-            "播客",
             [
-              [
-                "David Phipps on knowledge mobilization",
-                "Technology in Human Services，第41集（英语）",
-                "https://researchimpact.ca/announcements/podcast-featuring-david-phipps-on-knowledge-mobilization/"
-              ],
-              [
-                "Exploring podcast options for knowledge mobilization",
-                "CRSP Talk，第1集，Wilfrid Laurier University（威尔弗里德·劳里埃大学）（英语）",
-                "https://exhibits.wlu.ca/s/online-exhibitions/item/5862"
-              ]
+              "Animer un processus de transfert des connaissances : bilan des connaissances et outil d’animation",
+              "Nicole Lemire、Karine Souffez 与 Marie-Claire Laurendeau，Institut national de santé publique du Québec（魁北克国家公共卫生研究院），2009（法文）",
+              "https://www.inspq.qc.ca/publications/1012",
+              "这本魁北克指南将知识转化视为一个动态过程，并提供一套引导工具和一份备忘清单，帮助与相关行动者一起规划每个步骤。"
+            ],
+            [
+              "Outil pour soutenir l’élaboration d’un plan de transfert des connaissances",
+              "Karine Souffez 与 Marie-Claire Laurendeau，Institut national de santé publique du Québec（魁北克国家公共卫生研究院），未注明日期（PDF 元数据：2011）（法文）",
+              "https://www.inspq.qc.ca/sites/default/files/publications/outil_pour_soutenir_l_elaboration_d_un_plan_de_transfert_des_connaissances.pdf",
+              "一份在项目伊始由团队共同填写的表格，用于明确知识产品、受众与需要参与的行动者，继而确定转化计划的策略、时间节点与资源。"
+            ],
+            [
+              "Guide pour accompagner l’implantation de pratiques prometteuses dans un établissement : soutien à l’implantation de pratiques prometteuses et au transfert de connaissances dans le réseau de la santé et des services sociaux",
+              "Marie Massuard 著，Julie Lane 主编，ministère de la Santé et des Services sociaux du Québec（魁北克卫生与社会服务部），2023（法文）",
+              "https://publications.msss.gouv.qc.ca/msss/fichiers/2023/23-516-04W.pdf",
+              "魁北克卫生部门发布的指南，将实施科学与整合式知识转化落实为一套具体的陪伴支持流程，供卫生与社会服务网络中的各机构使用。"
+            ],
+            [
+              "Guide pratique – Stratégie de partenariat avec les patients et le public en recherche",
+              "Geneviève David 与 Alexandre Grégoire，Unité de soutien SRAP du Québec（魁北克以患者为导向的研究策略支持单位）与 Centre d’excellence sur le partenariat avec les patients et le public（CEPPP，患者与公众伙伴关系卓越中心），2018（法文）",
+              "https://ceppp.ca/wp-content/uploads/2021/01/USSQ_Guide-pratique-SPPP-en-recherche_V1.pdf",
+              "一本由一位患者协调员参与撰写的入门指南，围绕在研究项目中让患者与公众参与的为何、谁、何时、何地、多少与如何等问题作答，并涉及评估与伦理议题。"
             ]
-          ],
+          ]
+        ],
+        [
+          "播客",
           [
-            "视频",
             [
-              [
-                "Les retombées vers les milieux : l’évaluation du transfert des connaissances est-elle possible ?",
-                "Laurence Plouffe，IRSST，2015",
-                "https://www.irsst.qc.ca/publications-et-outils/video/i/100291/n/les-retombees-vers-les-milieux-dans-quelle-mesure-l-evaluation-du-transfert-des-connaissances-est-elle-possible-"
-              ]
+              "Le pont entre la recherche et le terrain",
+              "Les humains derrière la recherche en soins palliatifs，嘉宾 Chantal Verdon（UQO），2025（法文）",
+              "https://podcasts.apple.com/ca/podcast/le-pont-entre-la-recherche-et-le-terrain/id1608211841?i=1000736634362",
+              "一位护理学研究者讲述她如何在研究与实践之间搭建桥梁，尤其是通过与护士共同组建的实践共同体。"
+            ],
+            [
+              "Season 2, Ep 1: David Chambers",
+              "That Implementation Science Podcast，由 Mike Pullmann 与 Kevin King 主持，2024（英文）",
+              "https://thatimplementationsciencepodcast.podbean.com/e/season-2-ep-1-david-chambers/",
+              "National Cancer Institute（美国国家癌症研究所）负责实施科学的副主任回顾了该领域的历史、科学的集体属性，以及一支研究团队何以高效。"
+            ],
+            [
+              "SCCM Pod-520: Implementation Science: From Evidence to Practice",
+              "SCCM Podcast（Society of Critical Care Medicine，重症医学学会），由 Marilyn N. Bulloch 主持，嘉宾 Anne E. Sales，2024（英文）",
+              "https://www.sccm.org/communications/sccm-podcast/sccm-podcast-all-episodes/sccm-pod-520-implementation-science-from-evidence-to-practice",
+              "一则通俗易懂的入门介绍：一位研究者将实施科学阐述为对组织约束下有计划的行为改变的研究，并辅以临床实例。"
             ]
-          ],
+          ]
+        ],
+        [
+          "视频",
           [
-            "新闻与博客",
             [
-              [
-                "Bâtir des ponts entre savoirs scientifiques et savoirs autochtones",
-                "Carole Lévesque，The Conversation，2022",
-                "https://theconversation.com/batir-des-ponts-entre-savoirs-scientifiques-et-savoirs-autochtones-184230"
-              ],
-              [
-                "We need to talk about equity in knowledge mobilisation",
-                "James Georgalakis，Transforming Evidence，2023（英语）",
-                "https://transforming-evidence.org/blog/we-need-to-talk-about-equity-in-knowledge-mobilisation"
-              ]
+              "Ancrage historique et évolution du courtage de connaissances",
+              "RENARD 团队，Christian Dagenais 与 Saliha Ziam 在 Acfas 第 90 届大会第 31 号研讨会上的报告，2023（法文）",
+              "https://www.youtube.com/watch?v=3uucW5ZOp-g",
+              "一场简短的报告，追溯知识经纪的起源及这一职能的演变，可作为了解知识经纪人角色的入门。"
+            ],
+            [
+              "Les compétences clés pour agir en courtage de connaissances",
+              "RENARD 团队，Esther McSween-Cadieux 在 Acfas 第 90 届大会第 31 号研讨会上的报告，2023（法文）",
+              "https://www.youtube.com/watch?v=RGVmhf9Wyzo",
+              "梳理了从事知识经纪所需的各项能力，是对有关知识经纪人角色之文献的实用补充。"
+            ],
+            [
+              "Expériences du midi: Recherche en partenariat avec une citoyenne-chercheuse",
+              "Unité de soutien SSA Québec（魁北克学习型卫生系统支持单位），网络研讨会，嘉宾 Julie Coulombe 与 Marie-Hélène Morin，2025（法文）",
+              "https://www.youtube.com/watch?v=TNwIcNyGjwY",
+              "一个与一位公民研究者合作开展研究的具体案例，主题是精神卫生领域的家属同伴支持，展示了参与式科学如何改变项目的开展方式。"
+            ],
+            [
+              "CCNMO - Prise de décisions fondée sur des données probantes",
+              "Centre de collaboration nationale des méthodes et outils（CCNMO，国家方法与工具合作中心），2016（法文）",
+              "https://www.youtube.com/watch?v=XrZjc3Flrz8",
+              "用八分钟介绍 CCNMO 模型，说明研究证据、本地情境、民众偏好与资源如何在公共卫生决策中相互结合。"
+            ],
+            [
+              "TIDIRC: Introduction to Dissemination & Implementation Science",
+              "National Cancer Institute（美国国家癌症研究所，TIDIRC OpenAccess），David Chambers 主讲，2022（英文）",
+              "https://www.youtube.com/watch?v=DO2tv7DqL3w",
+              "一场入门讲座，区分了传播研究、研究成果的传播、实施研究与实用性研究，并介绍该领域的基本概念。"
+            ],
+            [
+              "Quand l’expertise académique rencontre le vécu du terrain (Le Réverbère, mini-série sur la science citoyenne, épisode 2)",
+              "Le Réverbère，Institut du Nouveau Monde（新世界研究所）与 Fonds de recherche du Québec（魁北克研究基金会）合作，2026（法文）",
+              "https://www.youtube.com/watch?v=J6gVGWA_yhc",
+              "几组“公民—研究者”搭档讲述他们如何在一个由公民提问发起的研究项目中分担角色，同时各自保有自身的专长。"
+            ],
+            [
+              "Ép. 23 - Patient Partenaire: des alliés pour la recherche",
+              "Des femmes comme vous，Les Radieuses Magazine，嘉宾 Catherine Wilhelmy，2024（法文）",
+              "https://www.youtube.com/watch?v=27KRzWNoxAA",
+              "一位成为研究中心伙伴关系负责人的患者，向普通公众解释什么是“患者伙伴”运动，以及为何患者的亲身经历应当滋养研究与照护。"
+            ]
+          ]
+        ],
+        [
+          "新闻与杂志",
+          [
+            [
+              "Communiquer efficacement les connaissances scientifiques permet de sauver des vies",
+              "Christian Dagenais、Aurélie Hot 与 Valéry Ridde，The Conversation（加拿大版），2023（法文）",
+              "https://theconversation.com/communiquer-efficacement-les-connaissances-scientifiques-permet-de-sauver-des-vies-197191",
+              "文章主张：只有当研究结果以易于理解的形式送达决策者，且变革在资助方的支持下得到长期陪伴时，研究才能改变实践。"
+            ],
+            [
+              "Pour mieux communiquer la science, commençons par bien choisir nos mots",
+              "Valéry Ridde、Aurélie Hot 与 Christian Dagenais，The Conversation（加拿大版），2025（法文）",
+              "https://theconversation.com/pour-mieux-communiquer-la-science-commencons-par-bien-choisir-nos-mots-247661",
+              "说明大量相互竞争的术语（转移、转化、动员……）如何妨碍该领域的协作与资助，并呼吁厘清相关词汇。"
+            ],
+            [
+              "Recherche et politiques publiques : comment mieux faire circuler les savoirs ?",
+              "Mohamed Berrada，Affaires universitaires，2026（法文）",
+              "https://www.affairesuniversitaires.ca/actualites/recherche-et-politiques-publiques-comment-mieux-faire-circuler-les-savoirs/",
+              "一篇 Acfas 研讨会的纪要：大学、学院、机构与决策者共同探讨如何拉近研究与公共决策的距离，同时不牺牲研究所需的长时程。"
+            ],
+            [
+              "Au-delà de l’acceptabilité sociale, ouvrir le dialogue pour favoriser la participation citoyenne au débat sur l’utilisation des données de santé",
+              "Carole Jabet 与 Cécile Petitgand，Fonds de recherche du Québec（魁北克研究基金会），2022（法文）",
+              "https://frq.gouv.qc.ca/ouvrir-le-dialogue-pour-favoriser-la-participation-citoyenne/",
+              "本文源自一场 Acfas 研讨会，提出了地区工作组、公民论坛等审议机制，让公众参与有关健康数据使用的决策。"
+            ],
+            [
+              "Construction et hiérarchisation des données probantes en santé : savoirs scientifiques, expérientiels et contextuels",
+              "Marie-Dominique Beaulieu，Revue du CREMIS，2016（法文）",
+              "https://cremis.ca/publications/articles-et-medias/construction-et-hierarchisation-des-donnees-probantes-en-sante-savoirs-scientifiques-experientiels-et-contextuels/",
+              "回顾循证医学的兴起与证据等级体系，并主张在卫生决策中整合而非对立科学知识、经验知识与情境知识。"
+            ],
+            [
+              "Knowledge mobilization will help Canada face the next major challenge",
+              "Ursula Gobel，Policy Options / Options politiques，2021（英文）",
+              "https://policyoptions.irpp.org/magazines/february-2021/knowledge-mobilization-will-help-canada-face-the-next-major-challenge/",
+              "CRSH（加拿大社会科学与人文研究理事会）的一位副主席从疫情中得出结论：知识综合以及跨学科、跨部门的研究网络，对于在危机中为公共决策提供依据不可或缺。"
+            ],
+            [
+              "To Support Evidence-Based Policymaking, Bring Researchers and Policymakers Together",
+              "D. Max Crowley 与 J. Taylor Scott，Issues in Science and Technology，2023（英文）",
+              "https://issues.org/evidence-based-policymaking-researchers-policymakers-collaborate-crowley-scott/",
+              "两位研究者介绍了一种以信任为基础、科学家与民选官员直接合作的模式，并报告该模式提高了立法中所运用证据的数量与质量。"
             ]
           ]
         ]
-      }
+      ]
     },
     "bibliographie": {
       "titre": "参考文献（APA）",
       "items": [
         "Abelson, J., Forest, P.-G., Eyles, J., Smith, P., Martin, E., & Gauvin, F.-P. (2003). Deliberations about deliberative methods: Issues in the design and evaluation of public participation processes. Social Science & Medicine, 57(2), 239–251. https://doi.org/10.1016/S0277-9536(02)00343-X",
         "Barwick, M., Phipps, D., Myers, G., Johnny, M., & Coriandoli, R. (2014). Knowledge translation and strategic communications: Unpacking differences and similarities for scholarly and research communications. Scholarly and Research Communication, 5(3). https://doi.org/10.22230/src.2014v5n3a175",
+        "Bauer, M. S., & Kirchner, J. (2020). Implementation science: What is it and why should I care? Psychiatry Research, 283, Article 112376. https://doi.org/10.1016/j.psychres.2019.04.025",
         "Bayley, J. E., & Phipps, D. (2019). Building the concept of research impact literacy. Evidence & Policy, 15(4), 597–606. https://doi.org/10.1332/174426417X15034894876108",
+        "Beaulieu, M.-D. (2016). Construction et hiérarchisation des données probantes en santé : savoirs scientifiques, expérientiels et contextuels. Revue du CREMIS, 9(2), 9-15. https://cremis.ca/publications/articles-et-medias/construction-et-hierarchisation-des-donnees-probantes-en-sante-savoirs-scientifiques-experientiels-et-contextuels/",
+        "Berrada, M. (2026, 2 juin). Recherche et politiques publiques : comment mieux faire circuler les savoirs ? Affaires universitaires. https://www.affairesuniversitaires.ca/actualites/recherche-et-politiques-publiques-comment-mieux-faire-circuler-les-savoirs/",
+        "Boaz, A., Hanney, S., Borst, R., O’Shea, A., & Kok, M. (2018). How to engage stakeholders in research: Design principles to support improvement. Health Research Policy and Systems, 16, Article 60. https://doi.org/10.1186/s12961-018-0337-6",
         "Bowen, S. J., & Graham, I. D. (2013). From knowledge translation to engaged scholarship: Promoting research relevance and utilization. Archives of Physical Medicine and Rehabilitation, 94(1 Suppl.), S3–S8. https://doi.org/10.1016/j.apmr.2012.04.037",
         "Boyko, J. A., Lavis, J. N., Abelson, J., Dobbins, M., & Carter, N. (2012). Deliberative dialogues as a mechanism for knowledge translation and exchange in health systems decision-making. Social Science & Medicine, 75(11), 1938–1945. https://doi.org/10.1016/j.socscimed.2012.06.016",
+        "Breton, H. (2025). Savoirs expérientiels en santé : revue systématique de littérature. Santé Publique, 37(3), 241-251. https://doi.org/10.3917/spub.255.0241",
         "Brownson, R. C., Iwelunmor, J., Odeny, T. A., Proctor, E. K., & Geng, E. H. (2026). So what? Elevating the impact of implementation science. Implementation Science Communications, 7, 2. https://doi.org/10.1186/s43058-025-00831-9",
-        "Campana, M. (Animateur). (s. d.). David Phipps on knowledge mobilization (épisode 41) [Balado]. Technology in Human Services. https://researchimpact.ca/announcements/podcast-featuring-david-phipps-on-knowledge-mobilization/",
+        "Bulloch, M. N. (Animatrice). (2024, 17 juillet). SCCM Pod-520: Implementation science: From evidence to practice [Balado]. Dans SCCM Podcast. Society of Critical Care Medicine. https://www.sccm.org/communications/sccm-podcast/sccm-podcast-all-episodes/sccm-pod-520-implementation-science-from-evidence-to-practice",
+        "Centre de collaboration nationale des méthodes et outils. (2016, 4 juillet). CCNMO - Prise de décisions fondée sur des données probantes [Vidéo]. YouTube. https://www.youtube.com/watch?v=XrZjc3Flrz8",
         "Courcy, I., Bureau, A., & Grenier, G. (2022). L’art visuel comme outil de pratique en mobilisation et transfert de connaissances : retour sur un projet de cocréation d’une murale alliant la recherche, l’art et des savoirs expérientiels. Revue francophone de recherche sur le transfert et l’utilisation des connaissances, 6(3). https://doi.org/10.18166/tuc.2022.6.3.25",
+        "Crowley, D. M., & Scott, J. T. (2023). To support evidence-based policymaking, bring researchers and policymakers together. Issues in Science and Technology, 39(2), 31-35. https://issues.org/evidence-based-policymaking-researchers-policymakers-collaborate-crowley-scott/",
+        "Dagenais, C., Hot, A., & Ridde, V. (2023, 21 février). Communiquer efficacement les connaissances scientifiques permet de sauver des vies. The Conversation. https://theconversation.com/communiquer-efficacement-les-connaissances-scientifiques-permet-de-sauver-des-vies-197191",
         "Damschroder, L. J., Reardon, C. M., Widerquist, M. A. O., & Lowery, J. (2022). The updated Consolidated Framework for Implementation Research based on user feedback. Implementation Science, 17, 75. https://doi.org/10.1186/s13012-022-01245-0",
         "Dancause, L. (2023). Guide pédagogique sur la mobilisation des connaissances (L. Cardinal & J. Luckerhoff, dir.). Laboratoire interdisciplinaire de recherche sur l’enseignement supérieur. https://www.erudit.org/fr/livres/hors-collection/guide-pedagogique-sur-la-mobilisation-des-connaissances/",
+        "David, G., & Grégoire, A. (2018). Guide pratique – Stratégie de partenariat avec les patients et le public en recherche. Unité de soutien SRAP du Québec. https://ceppp.ca/wp-content/uploads/2021/01/USSQ_Guide-pratique-SPPP-en-recherche_V1.pdf",
         "Diany, R., Fitzgibbon-Collins, L. K., & Gagliano Taliun, S. A. (2025). Ten simple rules for getting started with knowledge mobilization. PLOS Computational Biology, 21(4), e1012888. https://doi.org/10.1371/journal.pcbi.1012888",
+        "Équipe RENARD. (2023, 26 mai). Ancrage historique et évolution du courtage de connaissances [Vidéo]. YouTube. https://www.youtube.com/watch?v=3uucW5ZOp-g",
+        "Équipe RENARD. (2023, 29 mai). Les compétences clés pour agir en courtage de connaissances [Vidéo]. YouTube. https://www.youtube.com/watch?v=RGVmhf9Wyzo",
+        "Esmail, R., Hanson, H. M., Holroyd-Leduc, J., Brown, S., Strifler, L., Straus, S. E., Niven, D. J., & Clement, F. M. (2020). A scoping review of full-spectrum knowledge translation theories, models, and frameworks. Implementation Science, 15, Article 11. https://doi.org/10.1186/s13012-020-0964-5",
+        "Fillol, A., Traverson, L., Zitti, T., Bars, G., Minssieux, N., Hot, A., Dagenais, C., & Ridde, V. (2026). Évaluation d’une intervention de courtage de connaissances à l’Agence régionale de santé Île-de-France. Santé Publique, 38(1), 15-34. https://doi.org/10.3917/spub.261.0015",
+        "Gainforth, H. L., Hoekstra, F., McKay, R., McBride, C. B., Sweet, S. N., Martin Ginis, K. A., Anderson, K., Chernesky, J., Clarke, T., Forwell, S., Maffin, J., McPhail, L. T., Mortenson, W. B., Scarrow, G., Schaefer, L., Sibley, K. M., Athanasopoulos, P., & Willms, R. (2021). Integrated knowledge translation guiding principles for conducting and disseminating spinal cord injury research in partnership. Archives of Physical Medicine and Rehabilitation, 102(4), 656-663. https://doi.org/10.1016/j.apmr.2020.09.393",
         "Georgalakis, J. (2023, 16 janvier). We need to talk about equity in knowledge mobilisation. Transforming Evidence. https://transforming-evidence.org/blog/we-need-to-talk-about-equity-in-knowledge-mobilisation",
+        "Gervais, M.-J., Souffez, K., & Ziam, S. (2016). Quel impact avons-nous ? Vers l’élaboration d’un cadre pour rendre visibles les retombées du transfert des connaissances. Revue francophone de recherche sur le transfert et l’utilisation des connaissances, 1(1). https://doi.org/10.18166/tuc.2016.1.1.5",
+        "Gobeil, J., Gaumond, V., Germain, S., Vézina, A., Duguay, A.-M., & Levasseur, M. (2023). Implantation de l’Accompagnement-citoyen personnalisé d’intégration communautaire (APIC) : vers l’optimisation de la mise en œuvre de cette approche novatrice visant la participation sociale des aînés. Canadian Journal on Aging / La Revue canadienne du vieillissement, 42(4), 551-564. https://doi.org/10.1017/S0714980823000132",
+        "Gobel, U. (2021, 8 février). Knowledge mobilization will help Canada face the next major challenge. Policy Options. https://policyoptions.irpp.org/magazines/february-2021/knowledge-mobilization-will-help-canada-face-the-next-major-challenge/",
         "Graham, I. D., Logan, J., Harrison, M. B., Straus, S. E., Tetroe, J., Caswell, W., & Robinson, N. (2006). Lost in knowledge translation: Time for a map? Journal of Continuing Education in the Health Professions, 26(1), 13–24. https://doi.org/10.1002/chp.47",
-        "Graham, I. D., Logan, J., Harrison, M. B., Straus, S. E., Tetroe, J., Caswell, W., & Robinson, N. (2024). Perdus dans l’application des connaissances : besoin d’une carte ? Revue francophone de recherche sur le transfert et l’utilisation des connaissances, 8(2). https://doi.org/10.18166/tuc.2024.8.2.46",
         "Graham, I. D., McCutcheon, C., & Kothari, A. (2019). Exploring the frontiers of research co-production: The Integrated Knowledge Translation Research Network concept papers. Health Research Policy and Systems, 17, 88. https://doi.org/10.1186/s12961-019-0501-7",
+        "Greenhalgh, T., Hinton, L., Finlay, T., Macfarlane, A., Fahy, N., Clyde, B., & Chant, A. (2019). Frameworks for supporting patient and public involvement in research: Systematic review and co-design pilot. Health Expectations, 22(4), 785-801. https://doi.org/10.1111/hex.12888",
         "Greenhalgh, T., Raftery, J., Hanney, S., & Glover, M. (2016). Research impact: A narrative review. BMC Medicine, 14, 78. https://doi.org/10.1186/s12916-016-0620-8",
+        "Grimshaw, J. M., Eccles, M. P., Lavis, J. N., Hill, S. J., & Squires, J. E. (2012). Knowledge translation of research findings. Implementation Science, 7, Article 50. https://doi.org/10.1186/1748-5908-7-50",
+        "Harvey, G., & Kitson, A. (2016). PARIHS revisited: From heuristic to integrated framework for the successful implementation of knowledge into practice. Implementation Science, 11, Article 33. https://doi.org/10.1186/s13012-016-0398-2",
+        "Hoekstra, F., Mrklas, K. J., Khan, M., McKay, R. C., Vis-Dunbar, M., Sibley, K. M., Nguyen, T., Graham, I. D., SCI Guiding Principles Consensus Panel, & Gainforth, H. L. (2020). A review of reviews on principles, strategies, outcomes and impacts of research partnerships approaches: A first step in synthesising the research partnership literature. Health Research Policy and Systems, 18, Article 51. https://doi.org/10.1186/s12961-020-0544-9",
+        "Institut du Nouveau Monde. (2026, 31 mars). Quand l’expertise académique rencontre le vécu du terrain (Épisode 2) [Balado]. Dans Le Réverbère : mini-série sur la science citoyenne. YouTube. https://www.youtube.com/watch?v=J6gVGWA_yhc",
+        "Instituts de recherche en santé du Canada. (2012). Guide de planification de l’application des connaissances aux IRSC : approches intégrées et de fin de subvention. https://irsc-cihr.gc.ca/f/documents/kt_lm_ktplan-fr.pdf",
         "Instituts de recherche en santé du Canada. (2014). Cadre d’engagement des patients de la Stratégie de recherche axée sur le patient. https://cihr-irsc.gc.ca/f/48413.html",
+        "Jabet, C., & Petitgand, C. (2022, 21 juillet). Au-delà de l’acceptabilité sociale, ouvrir le dialogue pour favoriser la participation citoyenne au débat sur l’utilisation des données de santé. Fonds de recherche du Québec. https://frq.gouv.qc.ca/ouvrir-le-dialogue-pour-favoriser-la-participation-citoyenne/",
+        "Jull, J., Giles, A., & Graham, I. D. (2017). Community-based participatory research and integrated knowledge translation: Advancing the co-creation of knowledge. Implementation Science, 12, Article 150. https://doi.org/10.1186/s13012-017-0696-3",
         "Kirkness, V. J., & Barnhardt, R. (1991). First Nations and higher education: The four R’s—Respect, relevance, reciprocity, responsibility. Journal of American Indian Education, 30(3), 1–15.",
         "Kislov, R., Pope, C., Martin, G. P., & Wilson, P. M. (2019). Harnessing the power of theorising in implementation science. Implementation Science, 14, 103. https://doi.org/10.1186/s13012-019-0957-4",
         "Kothari, A., Sibbald, S. L., McCutcheon, C., Berta, W., Urquhart, R., Horsley, T., Comer, L., & Graham, I. D. (2025). How does integrated knowledge translation work? A realist review. Health Research Policy and Systems, 23, 102. https://doi.org/10.1186/s12961-025-01374-0",
+        "Kwan, B. M., Brownson, R. C., Glasgow, R. E., Morrato, E. H., & Luke, D. A. (2022). Designing for dissemination and sustainability to promote equitable impacts on health. Annual Review of Public Health, 43, 331-353. https://doi.org/10.1146/annurev-publhealth-052220-112457",
         "Lavis, J. N., Boyko, J. A., Oxman, A. D., Lewin, S., & Fretheim, A. (2009). SUPPORT Tools for evidence-informed health Policymaking (STP) 14: Organising and using policy dialogues to support evidence-informed policymaking. Health Research Policy and Systems, 7(Suppl. 1), S14. https://doi.org/10.1186/1478-4505-7-S1-S14",
-        "Lévesque, C. (2022, 14 juin). Bâtir des ponts entre savoirs scientifiques et savoirs autochtones. The Conversation. https://theconversation.com/batir-des-ponts-entre-savoirs-scientifiques-et-savoirs-autochtones-184230",
+        "Lemire, N., Souffez, K., & Laurendeau, M.-C. (2009). Animer un processus de transfert des connaissances : bilan des connaissances et outil d’animation. Institut national de santé publique du Québec. https://www.inspq.qc.ca/publications/1012",
+        "Les humains derrière la recherche en soins palliatifs. (2025, 13 novembre). Le pont entre la recherche et le terrain [Balado]. Apple Podcasts. https://podcasts.apple.com/ca/podcast/le-pont-entre-la-recherche-et-le-terrain/id1608211841?i=1000736634362",
+        "Lomas, J. (2007). The in-between world of knowledge brokering. BMJ, 334(7585), 129-132. https://doi.org/10.1136/bmj.39038.593380.AE",
+        "Massuard, M. (2023). Guide pour accompagner l’implantation de pratiques prometteuses dans un établissement : soutien à l’implantation de pratiques prometteuses et au transfert de connaissances dans le réseau de la santé et des services sociaux (J. Lane, dir.). Ministère de la Santé et des Services sociaux. https://publications.msss.gouv.qc.ca/msss/fichiers/2023/23-516-04W.pdf",
+        "Mayne, J. (2012). Contribution analysis: Coming of age? Evaluation, 18(3), 270-280. https://doi.org/10.1177/1356389012451663",
+        "Morton Ninomiya, M. E., Maddox, R., Brascoupé, S., Robinson, N., Atkinson, D., Firestone, M., Ziegler, C., & Smylie, J. (2022). Knowledge translation approaches and practices in Indigenous health research: A systematic review. Social Science & Medicine, 301, Article 114898. https://doi.org/10.1016/j.socscimed.2022.114898",
         "Morton, S. (2015). Progressing research impact assessment: A “contributions” approach. Research Evaluation, 24(4), 405–419. https://doi.org/10.1093/reseval/rvv016",
-        "Nolet, A.-M., Cousineau, M.-M., Maheu, J., & Gervais, L. (2017). L’interdépendance dans la recherche partenariale. Nouvelles pratiques sociales, 29(1-2), 271–287. https://doi.org/10.7202/1043406ar",
+        "Munerol, L., Cambon, L., & Alla, F. (2013). Le courtage en connaissances, définition et mise en œuvre : une revue de la littérature. Santé Publique, 25(5), 587-597. https://doi.org/10.3917/spub.135.0587",
+        "NCI Scientific Events and Resources. (2022, 23 février). TIDIRC: Introduction to dissemination & implementation science [Vidéo]. YouTube. https://www.youtube.com/watch?v=DO2tv7DqL3w",
+        "Nilsen, P. (2015). Making sense of implementation theories, models and frameworks. Implementation Science, 10, Article 53. https://doi.org/10.1186/s13012-015-0242-0",
         "OECD. (2022). OECD guidelines for citizen participation processes. OECD Publishing. https://doi.org/10.1787/f765caf6-en",
+        "Oliver, K., & Cairney, P. (2019). The dos and don’ts of influencing policy: A systematic review of advice to academics. Palgrave Communications, 5, Article 21. https://doi.org/10.1057/s41599-019-0232-y",
         "Oliver, K., Kothari, A., & Mays, N. (2019). The dark side of coproduction: Do the costs outweigh the benefits for health research? Health Research Policy and Systems, 17, 33. https://doi.org/10.1186/s12961-019-0432-3",
+        "Oliver, K., Malin, J., Akerlof, K. L., Day, E., Grant, S., McGill, E., Lorenc, T., Martin, P., Lam, J., Williamson, L. E., Mouthaan, M., Pleguezuelo, V. C., Iqbal, S., Jaques, L., Nyanchoka, M., Cesar Alejandre, J., Lane, L., Persson, E., Forde, H., . . . Falconer, J. (2026). What factors influence evidence use in policy? An updated systematic map. Humanities and Social Sciences Communications. Publication en ligne anticipée. https://doi.org/10.1057/s41599-026-08391-6",
+        "Plamondon, K. M., Caxaj, C. S., Graham, I. D., & Bottorff, J. L. (2019). Connecting knowledge with action for health equity: A critical interpretive synthesis of promising practices. International Journal for Equity in Health, 18, Article 202. https://doi.org/10.1186/s12939-019-1108-x",
         "Plouffe, L. (2015, 20 novembre). Les retombées vers les milieux : dans quelle mesure l’évaluation du transfert des connaissances est-elle possible? [Vidéo]. Institut de recherche Robert-Sauvé en santé et en sécurité du travail. https://www.irsst.qc.ca/publications-et-outils/video/i/100291/n/les-retombees-vers-les-milieux-dans-quelle-mesure-l-evaluation-du-transfert-des-connaissances-est-elle-possible-",
+        "Pomey, M.-P., Flora, L., Karazivan, P., Dumez, V., Lebel, P., Vanier, M.-C., Débarges, B., Clavel, N., & Jouet, E. (2015). Le « Montreal model » : enjeux du partenariat relationnel entre patients et professionnels de la santé. Santé Publique, 27(1, suppl.), S41-S50. https://doi.org/10.3917/spub.150.0041",
+        "Powell, B. J., Waltz, T. J., Chinman, M. J., Damschroder, L. J., Smith, J. L., Matthieu, M. M., Proctor, E. K., & Kirchner, J. E. (2015). A refined compilation of implementation strategies: Results from the Expert Recommendations for Implementing Change (ERIC) project. Implementation Science, 10, Article 21. https://doi.org/10.1186/s13012-015-0209-1",
         "Proctor, E., Silmere, H., Raghavan, R., Hovmand, P., Aarons, G., Bunger, A., Griffey, R., & Hensley, M. (2011). Outcomes for implementation research: Conceptual distinctions, measurement challenges, and research agenda. Administration and Policy in Mental Health and Mental Health Services Research, 38(2), 65–76. https://doi.org/10.1007/s10488-010-0319-7",
-        "Réseau Impact Recherche Canada. (2026). MobilizeU : formation en mobilisation des connaissances. https://researchimpact.ca/learning/mobilizeu/",
+        "Pullmann, M., & King, K. (Animateurs). (2024, 8 juin). Season 2, Ep 1: David Chambers [Balado]. Dans That Implementation Science Podcast. Podbean. https://thatimplementationsciencepodcast.podbean.com/e/season-2-ep-1-david-chambers/",
+        "Ridde, V., Hot, A., & Dagenais, C. (2025, 16 février). Pour mieux communiquer la science, commençons par bien choisir nos mots. The Conversation. https://theconversation.com/pour-mieux-communiquer-la-science-commencons-par-bien-choisir-nos-mots-247661",
         "Skipper, Y., & Pepler, D. J. (2020). Knowledge mobilization: Stepping into interdependent and relational space using co-creation. Action Research. Publication anticipée en ligne. https://doi.org/10.1177/1476750320960810",
-        "Société Santé en français. (2018). Stratégie de mobilisation des connaissances 2018-2023. https://resefan.ca/wp-content/uploads/xx/02/5_-_strategie_mdc_ssf_18-23_finale.pdf",
+        "Skivington, K., Matthews, L., Simpson, S. A., Craig, P., Baird, J., Blazeby, J. M., Boyd, K. A., Craig, N., French, D. P., McIntosh, E., Petticrew, M., Rycroft-Malone, J., White, M., & Moore, L. (2021). A new framework for developing and evaluating complex interventions: Update of Medical Research Council guidance. BMJ, 374, Article n2061. https://doi.org/10.1136/bmj.n2061",
+        "Souffez, K., & Laurendeau, M.-C. (s. d.). Outil pour soutenir l’élaboration d’un plan de transfert des connaissances. Institut national de santé publique du Québec. https://www.inspq.qc.ca/sites/default/files/publications/outil_pour_soutenir_l_elaboration_d_un_plan_de_transfert_des_connaissances.pdf",
         "Staniszewska, S., Brett, J., Simera, I., Seers, K., Mockford, C., Goodlad, S., Altman, D. G., Moher, D., Barber, R., Denegri, S., Entwistle, A., Littlejohns, P., Morris, C., Suleman, R., Thomas, V., & Tysall, C. (2017). GRIPP2 reporting checklists: Tools to improve reporting of patient and public involvement in research. BMJ, 358, j3453. https://doi.org/10.1136/bmj.j3453",
-        "Ward, V. (2017). Why, whose, what and how? A framework for knowledge mobilisers. Evidence & Policy, 13(3), 477–497. https://doi.org/10.1332/174426416X14634763278725"
+        "Stoll, M., Kerwer, M., Lieb, K., & Chasiotis, A. (2022). Plain language summaries: A systematic review of theory, guidelines and empirical research. PLOS ONE, 17(6), Article e0268789. https://doi.org/10.1371/journal.pone.0268789",
+        "Tchameni Ngamo, S., Souffez, K., Lord, C., & Dagenais, C. (2016). Do knowledge translation (KT) plans help to structure KT practices? Health Research Policy and Systems, 14, Article 46. https://doi.org/10.1186/s12961-016-0118-z",
+        "Unité de soutien SSA Québec. (2025, 21 février). Expériences du midi: Recherche en partenariat avec une citoyenne-chercheuse [Vidéo]. YouTube. https://www.youtube.com/watch?v=TNwIcNyGjwY",
+        "Villeneuve, V., & Tousignant, C. (Animatrices). (2024, 30 septembre). Patient partenaire : des alliés pour la recherche (Épisode 23) [Balado]. Dans Des femmes comme vous. Les Radieuses Magazine. https://www.youtube.com/watch?v=27KRzWNoxAA",
+        "Ward, V. (2017). Why, whose, what and how? A framework for knowledge mobilisers. Evidence & Policy, 13(3), 477–497. https://doi.org/10.1332/174426416X14634763278725",
+        "Ward, V., Smith, S., House, A., & Hamer, S. (2012). Exploring knowledge exchange: A useful framework for practice and policy. Social Science & Medicine, 74(3), 297-304. https://doi.org/10.1016/j.socscimed.2011.09.021",
+        "Ziam, S., Lanoue, S., McSween-Cadieux, E., Gervais, M.-J., Lane, J., Gaid, D., Chouinard, L. J., Dagenais, C., Ridde, V., Jean, E., Fleury, F. C., Hong, Q. N., & Prigent, O. (2024). A scoping review of theories, models and frameworks used or proposed to evaluate knowledge mobilization strategies. Health Research Policy and Systems, 22, Article 8. https://doi.org/10.1186/s12961-023-01090-7"
       ]
     },
     "transfert": {
@@ -786,7 +968,7 @@
           ]
         ]
       ],
-      "note": "接受过知识动员培训（MobilizeU，Research Impact Canada 与 York University，2026年）。"
+      "note": "这五个阶段借鉴了“知识到行动”模型（Graham et al., 2006）与 Ward 框架（2017）。"
     }
   },
   "publications": {
@@ -948,7 +1130,7 @@
         "date": "进行中",
         "type": "entreprise",
         "titre": "创立 OWNNIGHT · 创业者",
-        "detail": "一款关于身心健康与睡眠教育的 Android 应用：个性化计划、课程与引导式练习。数据保存在手机上，无需注册账户。"
+        "detail": "一款关于身心健康与睡眠教育的 Android 应用：个性化计划、课程与引导式练习。"
       },
       {
         "date": "2025年至今",
@@ -1024,6 +1206,16 @@
             "detail": "经选举产生。"
           },
           {
+            "date": "进行中",
+            "titre": "团结互助导师计划协调人 · 公共卫生博士项目",
+            "detail": "ESPUM，Université de Montréal。"
+          },
+          {
+            "date": "进行中",
+            "titre": "公共卫生博士项目委员会学生代表",
+            "detail": "ESPUM，Université de Montréal。"
+          },
+          {
             "date": "2026年",
             "titre": "博士生代表 · DGEPS",
             "detail": "Département de gestion, d’évaluation et de politique de santé（卫生管理、评估与政策系），ESPUM。"
@@ -1063,6 +1255,11 @@
       {
         "titre": "学术共同体",
         "items": [
+          {
+            "date": "进行中",
+            "titre": "AÉÉSPUM 大会学生学术委员会",
+            "detail": "成员。"
+          },
           {
             "date": "2026年6月",
             "titre": "GFSP（法语区初级保健学会）青年学者日科学委员会",
@@ -1176,7 +1373,7 @@
     "adresse": "École de santé publique de l’Université de Montréal（蒙特利尔大学公共卫生学院）· 7101, avenue du Parc, Montréal (Québec)"
   },
   "pied": "© 2026 Éric Bernier · 本网站不使用 Cookie，亦不进行流量统计。",
-  "credits": "各扇门的图片：Unsplash 摄影作品与 Éric Bernier 的肖像；阶梯教室为生成图像，插画为本网站专门绘制。",
+  "credits": "各扇门的图片：Unsplash 摄影作品与 Éric Bernier 的肖像；阶梯教室、议事厅与参与式工作坊为本网站生成的图像，不涉及真实人物。",
   "introuvable": {
     "titre": "页面未找到",
     "texte": "该页面不存在或已被移动。",

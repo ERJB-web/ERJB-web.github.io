@@ -201,7 +201,11 @@
   const choisirVoix = (lang) => {
     const base = lang.slice(0, 2).toLowerCase();
     const candidates = voix.getVoices().filter((v) => v.lang && v.lang.toLowerCase().replace("_", "-").startsWith(base));
-    const note = (v) => (/natural|neural|online/i.test(v.name) ? 4 : 0) + (v.lang.toLowerCase() === lang.toLowerCase() ? 2 : 0) + (v.localService ? 0 : 1);
+    const note = (v) =>
+      (/natural|neural|online/i.test(v.name) ? 4 : 0) +
+      (/henri|antoine|jean|thierry|remy|guy|davis|andrew|brian|christopher|eric|roger|alvaro|jorge|dario|yunxi|yunjian|yunyang|hamed|shakir|taim/i.test(v.name) ? 3 : 0) +
+      (v.lang.toLowerCase() === lang.toLowerCase() ? 2 : 0) +
+      (v.localService ? 0 : 1);
     return candidates.sort((a, b) => note(b) - note(a))[0] || null;
   };
   const enLecture = (oui) => {
@@ -233,23 +237,67 @@
     $$("[data-sans-voix]").forEach((n) => (n.hidden = !manque));
     enLecture(voix.pending || voix.speaking);
   };
-  if (!voix) boutonsEcoute.forEach((b) => (b.hidden = true));
-  else {
-    voix.getVoices();
-    boutonsEcoute.forEach((b) =>
-      b.addEventListener("click", () => {
-        const cible = b.dataset.cible && document.getElementById(b.dataset.cible);
-        const zone = cible || (salle && salle.classList.contains("visible") ? contenu : $("main"));
-        lireZone(zone);
-        menus.forEach((m) => (m.open = false));
-      })
-    );
-    boutonsArret.forEach((b) =>
-      b.addEventListener("click", () => {
-        voix.cancel();
-        enLecture(false);
-      })
-    );
-    addEventListener("pagehide", () => voix.cancel());
-  }
+  // Voix enregistrées (voix humaine de synthèse locale) quand elles existent ; sinon, voix de l'appareil.
+  const racineSite = racine.dataset.racine || "./";
+  const dossierAudio = racine.dataset.audio;
+  let indexAudio = null;
+  if (dossierAudio)
+    fetch(`${racineSite}audio/${dossierAudio}/index.json`)
+      .then((rep) => (rep.ok ? rep.json() : null))
+      .then((idx) => (indexAudio = idx))
+      .catch(() => {});
+  const lecteur = new Audio();
+  let file = [];
+  const suivant = () => {
+    const z = file.shift();
+    if (!z) return enLecture(false);
+    lecteur.src = `${racineSite}audio/${dossierAudio}/${z}.ogg`;
+    lecteur.play().catch(() => enLecture(false));
+  };
+  lecteur.addEventListener("ended", suivant);
+  const zonesDemandees = (b) => {
+    const cible = b.dataset.cible;
+    if (cible === "contenu") return $$(".bloc-falc").map((s) => s.id);
+    if (cible) return [cible];
+    if (salle && salle.classList.contains("visible")) return [courante];
+    return ["accueil", ...ordre];
+  };
+  const arreter = () => {
+    if (voix) voix.cancel();
+    lecteur.pause();
+    file = [];
+    enLecture(false);
+  };
+  boutonsEcoute.forEach((b) =>
+    b.addEventListener("click", () => {
+      menus.forEach((m) => (m.open = false));
+      arreter();
+      const enregistrees = zonesDemandees(b).filter((z) => indexAudio && indexAudio[z]);
+      if (enregistrees.length) {
+        file = enregistrees;
+        enLecture(true);
+        suivant();
+        return;
+      }
+      if (!voix) return;
+      const cible = b.dataset.cible && document.getElementById(b.dataset.cible);
+      lireZone(cible || (salle && salle.classList.contains("visible") ? contenu : $("main")));
+    })
+  );
+  boutonsArret.forEach((b) => b.addEventListener("click", arreter));
+  addEventListener("pagehide", arreter);
+  if (voix) voix.getVoices();
+
+  // Vidéos et balados : le lecteur du service se charge seulement au clic.
+  document.addEventListener("click", (ev) => {
+    const b = ev.target.closest("[data-integrer]");
+    if (!b) return;
+    const f = document.createElement("iframe");
+    f.src = b.dataset.integrer;
+    f.title = b.dataset.titre;
+    f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    f.allowFullscreen = true;
+    f.referrerPolicy = "strict-origin-when-cross-origin";
+    b.replaceWith(f);
+  });
 })();

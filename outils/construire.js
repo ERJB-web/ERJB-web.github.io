@@ -103,8 +103,8 @@ ${terminus ? `<p class="terminus">${e(terminus)}</p>` : ""}
 
 const IMAGES_PORTES = {
   recherche: "recherche.jpg",
-  approche: "approche.svg",
-  implantation: "implantation.svg",
+  approche: "approche.jpg",
+  implantation: "implantation.jpg",
   publications: "publications.jpg",
   biographie: "biographie.jpg",
   parcours: "parcours.jpg",
@@ -205,6 +205,34 @@ ${a.outils.groupes.map(([g, items]) => `<div class="groupe-outils"><p>${e(g)}</p
 </div>`;
 }
 
+// Vidéos et balados intégrés : le lecteur du service ne se charge qu'au clic (aucun témoin avant).
+const INTEGRATION = {
+  fr: ["Lire ici", "Chargé depuis {s} au clic", "Ouvrir la source"],
+  en: ["Play here", "Loads from {s} when clicked", "Open the source"],
+  es: ["Reproducir aquí", "Se carga desde {s} al hacer clic", "Abrir la fuente"],
+  zh: ["在此播放", "点击后从 {s} 加载", "打开来源"],
+  ar: ["تشغيل هنا", "يُحمَّل من {s} عند النقر", "فتح المصدر"],
+};
+const PODBEAN = {
+  "https://thatimplementationsciencepodcast.podbean.com/e/season-2-ep-1-david-chambers/": "c6m54-1635555-pb",
+  "https://www.sccm.org/communications/sccm-podcast/sccm-podcast-all-episodes/sccm-pod-520-implementation-science-from-evidence-to-practice": "8ccjk-17862e8-pb",
+};
+function integration(href) {
+  if (PODBEAN[href]) return { src: `https://www.podbean.com/player-v2/?i=${PODBEAN[href]}&share=0&download=0&skin=1&btn-skin=7`, service: "Podbean", audio: true };
+  const yt = href.match(/youtube\.com\/watch\?v=([\w-]{11})/);
+  if (yt) return { src: `https://www.youtube-nocookie.com/embed/${yt[1]}?autoplay=1`, service: "YouTube", audio: false };
+  if (/^https:\/\/podcasts\.apple\.com\//.test(href)) return { src: href.replace("https://podcasts.apple.com/", "https://embed.podcasts.apple.com/"), service: "Apple Podcasts", audio: true };
+  return null;
+}
+function media(c, [titre, source, href, apport]) {
+  const [lire, note, ouvrir] = INTEGRATION[c.lang];
+  const i = integration(href);
+  const ecran = i
+    ? `<div class="media-ecran${i.audio ? " audio" : ""}"><button type="button" data-integrer="${e(i.src)}" data-titre="${e(titre)}"><span class="rond" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span><span>${e(lire)}</span><small>${e(note.replace("{s}", i.service))}</small></button></div>`
+    : "";
+  return `<article class="media">${ecran}<div class="media-texte"><strong>${e(titre)}</strong><small>${e(source)}</small><p>${e(apport)}</p>${lien(href, e(ouvrir) + ' <span aria-hidden="true">↗</span>')}</div></article>`;
+}
+
 function sectionImplantation(c) {
   const m = c.implantation;
   const tr = m.transfert;
@@ -214,29 +242,40 @@ function sectionImplantation(c) {
       .map((k) => `<article class="cadre"><h4>${e(k.nom)}</h4><p>${e(k.texte)}</p><p class="ref">(${e(k.ref)})</p></article>`)
       .join("")}</div>`;
   const lienDoi = (s) => e(s).replace(/(https?:\/\/\S+)$/, (u) => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`);
+  const suggestion = ([titre, source, href, apport]) =>
+    `<li>${lien(href, `<span><strong>${e(titre)}</strong><small>${e(source)}</small><small class="apport">${e(apport)}</small></span>${fleche}`)}</li>`;
   return `<div class="section-corps">
 <div class="colonne-texte">
 <p class="surtitre">${e(m.surtitre)}</p>
 <h2>${e(m.titre)}</h2>
 <p class="intro">${e(m.intro)}</p>
 <p class="precision">${e(m.precision)}</p>
-<div class="carte-formation"><p class="domaine">${e(m.formation.etiquette)}</p><h4>${e(m.formation.titre)}</h4><p>${e(m.formation.texte)}</p>${etiquettes(m.formation.themes)}${lien(m.formation.lien, e(m.formation.lienTexte) + fleche, "profil")}</div>
 <h3 class="titre-bloc">${e(m.ressources.titre)}</h3>
 <ul class="liens-contact">${m.ressources.items
     .map(([titre, detail, href]) => `<li>${lien(href, `<span><strong>${e(titre)}</strong><small>${e(detail)}</small></span>${fleche}`)}</li>`)
     .join("")}</ul>
-<h3 class="titre-bloc">${e(m.mobilizeu.suggestions.titre)}</h3>
-${m.mobilizeu.suggestions.groupes.map(([g, items]) => `<p class="petit-titre">${e(g)}</p><ul class="liens-contact compact">${items.map(([titre, detail, href]) => `<li>${lien(href, `<span><strong>${e(titre)}</strong><small>${e(detail)}</small></span>${fleche}`)}</li>`).join("")}</ul>`).join("")}
+<p class="formation-discrete"><span>${e(m.formation.etiquette)}</span>${e(m.formation.titre)} · ${lien(m.formation.lien, e(m.formation.lienTexte) + fleche)}</p>
 </div>
 <div class="colonne-outils">
 ${tableOnglets(tr.titre, tr.detail, tr.etapes.map(([verbe, titre, texte, tags]) => ["", verbe, titre, texte, tags]))}
 <p class="note">${e(tr.note)}</p>
-<p class="note note-avant">${e(m.mobilizeu.intro)}</p>
-${tableOnglets(m.mobilizeu.titre, m.mobilizeu.detail, m.mobilizeu.modules.map(([, court, titre, texte, refs]) => ["", court, titre, texte, refs]), "")}
+<p class="note note-avant">${e(m.chantiers.intro)}</p>
+${tableOnglets(m.chantiers.titre, m.chantiers.detail, m.chantiers.items.map(([court, titre, texte, refs]) => ["", court, titre, texte, refs]), "")}
 ${cartes(m.plan)}
 ${cartes(m.cadres)}
 <details class="biblio"><summary>${e(m.bibliographie.titre)}</summary><ol>${m.bibliographie.items.map((r) => `<li>${lienDoi(r)}</li>`).join("")}</ol></details>
 </div>
+</div>
+<div class="plus-loin">
+<div class="travaux-tete"><h3>${e(m.plusLoin.titre)}</h3><p>${e(m.plusLoin.intro)}</p></div>
+${m.plusLoin.groupes
+  .filter(([, items]) => items.some(([, , href]) => integration(href)))
+  .map(([g, items]) => `<p class="petit-titre">${e(g)}</p><div class="mediatheque">${items.map((it) => media(c, it)).join("")}</div>`)
+  .join("")}
+<div class="plus-loin-grille">${m.plusLoin.groupes
+    .filter(([, items]) => !items.some(([, , href]) => integration(href)))
+    .map(([g, items]) => `<div><p class="petit-titre">${e(g)}</p><ul class="liens-contact compact suggestions">${items.map(suggestion).join("")}</ul></div>`)
+    .join("")}</div>
 </div>`;
 }
 
@@ -297,14 +336,14 @@ const PREFERENCES = `<script>(function(){try{var h=document.documentElement,m=(l
 const langueHtml = (l) => (l.code === "falc" ? "fr" : l.code);
 
 function menuLangues(c, ici) {
-  const actuelle = langue(ici);
+  const actuelle = langue(ici === "falc" ? "fr" : ici);
   const lienLangue = (l) =>
     l.code === ici
       ? `<span aria-current="page" lang="${langueHtml(l)}">${drapeau(l.drapeau)}<span>${e(l.nom)}</span></span>`
       : `<a href="${c.chemin + l.dossier || "./"}" lang="${langueHtml(l)}"${l.hreflang ? ` hreflang="${l.hreflang}"` : ""}>${drapeau(l.drapeau)}<span>${e(l.nom)}</span></a>`;
   return `<details class="menu menu-langues"><summary aria-label="${e(c.ui.langue)}${deuxPoints(c)} ${e(actuelle.nom)}">${drapeau(actuelle.drapeau)}<span class="menu-libelle">${e(actuelle.libelle)}</span>${icone("chevron")}</summary>
 <div class="menu-panneau"><p class="menu-titre">${e(c.ui.langue)}</p><ul>${LANGUES.filter((l) => !l.abregee).map((l) => `<li>${lienLangue(l)}</li>`).join("")}</ul>
-<p class="menu-titre">${e(c.ui.autresLangues)}</p><ul>${LANGUES.filter((l) => l.abregee).map((l) => `<li>${lienLangue(l)}</li>`).join("")}</ul></div></details>`;
+<p class="menu-titre">${e(c.ui.autresLangues)}</p><ul>${LANGUES.filter((l) => l.abregee && l.code !== "falc").map((l) => `<li>${lienLangue(l)}</li>`).join("")}</ul></div></details>`;
 }
 
 function menuAcces(c, ici) {
@@ -319,7 +358,7 @@ function menuAcces(c, ici) {
 <button type="button" data-ecouter>${icone("casque")}<span>${e(u.ecouterPage)}</span></button>
 <button type="button" data-arreter hidden><span>${e(u.arreter)}</span></button>
 <p class="note-voix" data-sans-voix hidden>${e(u.sansVoix)}</p>
-${ici === "falc" ? "" : `<a href="${c.chemin}falc/" lang="fr">${drapeau("falc")}<span>${e(u.falc)}</span></a>`}
+${ici === "falc" ? `<span aria-current="page" lang="fr">${drapeau("falc")}<span>${e(u.falc)}</span></span>` : `<a href="${c.chemin}falc/" lang="fr">${drapeau("falc")}<span>${e(u.falc)}</span></a>`}
 </div></details>`;
 }
 
@@ -361,7 +400,7 @@ function page(c) {
   };
 
   return `<!doctype html>
-<html lang="${c.lang === "zh" ? "zh-Hans" : c.lang}"${langue(c.lang).dir ? ` dir="${langue(c.lang).dir}"` : ""} data-voix="${langue(c.lang).voix}">
+<html lang="${c.lang === "zh" ? "zh-Hans" : c.lang}"${langue(c.lang).dir ? ` dir="${langue(c.lang).dir}"` : ""} data-voix="${langue(c.lang).voix}" data-racine="${c.chemin || "./"}"${["fr", "en"].includes(c.lang) ? ` data-audio="${c.lang}"` : ""}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -458,7 +497,7 @@ ${sections[s]}
 
 function enTeteAbregee(c, code) {
   return `<!doctype html>
-<html lang="fr" data-voix="fr-CA">
+<html lang="fr" data-voix="fr-CA" data-racine="../"${code === "falc" ? ' data-audio="falc"' : ""}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -559,11 +598,20 @@ const ecrire = (dossier, html) => {
 };
 // En arabe, les flèches de direction suivent le sens de lecture.
 const miroir = (html) => html.replace(/[→←]/g, (m) => (m === "→" ? "←" : "→"));
+const { zonesPage, zonesFalc } = require("./narration");
+const lectures = {};
 for (const c of COMPLETES) {
   const l = langue(c.lang);
-  ecrire(l.dossier, l.dir === "rtl" ? miroir(page(c)) : page(c));
+  const html = page(c);
+  ecrire(l.dossier, l.dir === "rtl" ? miroir(html) : html);
+  lectures[c.lang] = zonesPage(html);
 }
-ecrire("falc/", pageFalc());
+const falcHtml = pageFalc();
+ecrire("falc/", falcHtml);
+lectures.falc = zonesFalc(falcHtml);
+// Textes que la voix de lecture enregistre (français, anglais, FALC) : rendus hors du dépôt, puis rangés dans audio/.
+fs.mkdirSync(path.join(__dirname, "narration"), { recursive: true });
+for (const cle of ["fr", "en", "falc"]) fs.writeFileSync(path.join(__dirname, "narration", cle + ".json"), JSON.stringify(lectures[cle], null, 1) + "\n");
 for (const code of ["iu", "moe"]) ecrire(langue(code).dossier, pageSalutation(code));
 fs.writeFileSync(path.join(RACINE, "404.html"), introuvable());
 console.log("pages produites : " + LANGUES.map((l) => l.dossier || "/").join(", ") + " et 404.html");
