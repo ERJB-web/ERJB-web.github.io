@@ -169,10 +169,14 @@ function sectionImplantation(c) {
 <ul class="liens-contact">${m.ressources.items
     .map(([titre, detail, href]) => `<li>${lien(href, `<span><strong>${e(titre)}</strong><small>${e(detail)}</small></span>${fleche}`)}</li>`)
     .join("")}</ul>
+<h3 class="titre-bloc">${e(m.mobilizeu.suggestions.titre)}</h3>
+${m.mobilizeu.suggestions.groupes.map(([g, items]) => `<p class="petit-titre">${e(g)}</p><ul class="liens-contact compact">${items.map(([titre, detail, href]) => `<li>${lien(href, `<span><strong>${e(titre)}</strong><small>${e(detail)}</small></span>${fleche}`)}</li>`).join("")}</ul>`).join("")}
 </div>
 <div class="colonne-outils">
 ${tableOnglets(tr.titre, tr.detail, tr.etapes.map(([verbe, titre, texte, tags]) => ["", verbe, titre, texte, tags]))}
 <p class="note">${e(tr.note)}</p>
+<p class="note note-avant">${e(m.mobilizeu.intro)}</p>
+${tableOnglets(m.mobilizeu.titre, m.mobilizeu.detail, m.mobilizeu.modules.map(([, court, titre, texte, refs]) => ["", court, titre, texte, refs]), "")}
 ${cartes(m.plan)}
 ${cartes(m.cadres)}
 <details class="biblio"><summary>${e(m.bibliographie.titre)}</summary><ol>${m.bibliographie.items.map((r) => `<li>${lienDoi(r)}</li>`).join("")}</ol></details>

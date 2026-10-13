@@ -346,16 +346,179 @@ const fr = {
         ]
       ]
     },
+    mobilizeu: {
+      "titre": "Le parcours MobilizeU en huit modules",
+      "detail": "Réseau Impact Recherche Canada · 2026",
+      "intro": "Ce que j’ai retenu de chaque module, avec les lectures de base proposées.",
+      "lectures": "Lectures de base",
+      "modules": [
+        [
+          "Module 1",
+          "Introduction",
+          "Mobiliser les connaissances",
+          "La mobilisation des connaissances relie la recherche aux personnes qui peuvent s’en servir : produire, adapter, partager et suivre l’usage des savoirs. Le modèle des connaissances à l’action distingue la création des connaissances et le cycle de leur mise en action.",
+          [
+            "Graham et al. (2006)",
+            "Graham et al. (2024)"
+          ]
+        ],
+        [
+          "Module 2",
+          "Cadres",
+          "Théories, modèles et cadres",
+          "Un cadre aide à préciser pourquoi mobiliser, quels savoirs, avec qui et comment. Le cadre de Ward en fait quatre questions simples qui orientent chaque décision.",
+          [
+            "Ward (2017)",
+            "Dancause (2023)",
+            "Société Santé en français (2018)"
+          ]
+        ],
+        [
+          "Module 3",
+          "Planification",
+          "Planifier la mobilisation",
+          "Un plan précise les publics, les objectifs, les messages, les activités, les ressources, le calendrier et les indicateurs. Pour démarrer : connaître ses publics, s’entourer, impliquer des personnes ayant une expérience vécue, diversifier les formats et apprendre de chaque expérience.",
+          [
+            "Diany et al. (2025)",
+            "Dancause (2023)"
+          ]
+        ],
+        [
+          "Module 4",
+          "Partenariats",
+          "Établir des partenariats",
+          "Un partenariat repose sur l’interdépendance et la cocréation : partager le pouvoir, les rôles et les bénéfices, du début à la fin du projet.",
+          [
+            "Skipper et Pepler (2020)",
+            "Nolet et al. (2017)"
+          ]
+        ],
+        [
+          "Module 5",
+          "Inclusion",
+          "Une mobilisation inclusive",
+          "L’équité concerne aussi la circulation des savoirs : qui est entendu, qui participe, qui en bénéficie. Les savoirs autochtones appellent la coconstruction, la confiance et la réciprocité.",
+          [
+            "Georgalakis (2023)",
+            "Lévesque (2022)"
+          ]
+        ],
+        [
+          "Module 6",
+          "Publics",
+          "Éveiller l’intérêt des publics",
+          "Choisir le format selon l’objectif (cocréer, diffuser, mettre en œuvre), préciser le quoi, le pourquoi et le qui, et penser l’accessibilité : physique, sensorielle, financière, culturelle et linguistique.",
+          []
+        ],
+        [
+          "Module 7",
+          "Communication",
+          "Communiquer",
+          "La communication stratégique et l’application des connaissances se recoupent sans se confondre : l’une soutient la visibilité, l’autre l’usage des connaissances. L’art visuel peut devenir un outil de cocréation avec les savoirs d’expérience.",
+          [
+            "Barwick et al. (2014)",
+            "Courcy et al. (2022)"
+          ]
+        ],
+        [
+          "Module 8",
+          "Impact",
+          "Impact et évaluation",
+          "Évaluer l’impact, c’est suivre la contribution de la recherche aux changements, sans les lui attribuer à elle seule : productions, usages, puis retombées documentées.",
+          [
+            "Morton (2015)",
+            "Plouffe (2015)"
+          ]
+        ]
+      ],
+      "suggestions": {
+        "titre": "Pour aller plus loin",
+        "groupes": [
+          [
+            "Articles et guides",
+            [
+              [
+                "Perdus dans l’application des connaissances : besoin d’une carte ?",
+                "Graham et al., 2024, traduction française",
+                "https://doi.org/10.18166/tuc.2024.8.2.46"
+              ],
+              [
+                "Ten simple rules for getting started with knowledge mobilization",
+                "Diany et al., 2025, PLOS Computational Biology",
+                "https://doi.org/10.1371/journal.pcbi.1012888"
+              ],
+              [
+                "Guide pédagogique sur la mobilisation des connaissances",
+                "Dancause, 2023, Érudit",
+                "https://www.erudit.org/fr/livres/hors-collection/guide-pedagogique-sur-la-mobilisation-des-connaissances/"
+              ],
+              [
+                "L’interdépendance dans la recherche partenariale",
+                "Nolet et al., 2017, Nouvelles pratiques sociales",
+                "https://doi.org/10.7202/1043406ar"
+              ]
+            ]
+          ],
+          [
+            "Balados",
+            [
+              [
+                "David Phipps on knowledge mobilization",
+                "Technology in Human Services, épisode 41 (en anglais)",
+                "https://researchimpact.ca/announcements/podcast-featuring-david-phipps-on-knowledge-mobilization/"
+              ],
+              [
+                "Exploring podcast options for knowledge mobilization",
+                "CRSP Talk, épisode 1, Université Wilfrid-Laurier (en anglais)",
+                "https://exhibits.wlu.ca/s/online-exhibitions/item/5862"
+              ]
+            ]
+          ],
+          [
+            "Vidéo",
+            [
+              [
+                "Les retombées vers les milieux : l’évaluation du transfert des connaissances est-elle possible ?",
+                "Laurence Plouffe, IRSST, 2015",
+                "https://www.irsst.qc.ca/publications-et-outils/video/i/100291/n/les-retombees-vers-les-milieux-dans-quelle-mesure-l-evaluation-du-transfert-des-connaissances-est-elle-possible-"
+              ]
+            ]
+          ],
+          [
+            "Presse et blogues",
+            [
+              [
+                "Bâtir des ponts entre savoirs scientifiques et savoirs autochtones",
+                "Carole Lévesque, The Conversation, 2022",
+                "https://theconversation.com/batir-des-ponts-entre-savoirs-scientifiques-et-savoirs-autochtones-184230"
+              ],
+              [
+                "We need to talk about equity in knowledge mobilisation",
+                "James Georgalakis, Transforming Evidence, 2023 (en anglais)",
+                "https://transforming-evidence.org/blog/we-need-to-talk-about-equity-in-knowledge-mobilisation"
+              ]
+            ]
+          ]
+        ]
+      }
+    },
     bibliographie: {
       "titre": "Bibliographie (APA)",
       "items": [
         "Abelson, J., Forest, P.-G., Eyles, J., Smith, P., Martin, E., & Gauvin, F.-P. (2003). Deliberations about deliberative methods: Issues in the design and evaluation of public participation processes. Social Science & Medicine, 57(2), 239–251. https://doi.org/10.1016/S0277-9536(02)00343-X",
+        "Barwick, M., Phipps, D., Myers, G., Johnny, M., & Coriandoli, R. (2014). Knowledge translation and strategic communications: Unpacking differences and similarities for scholarly and research communications. Scholarly and Research Communication, 5(3). https://doi.org/10.22230/src.2014v5n3a175",
         "Bayley, J. E., & Phipps, D. (2019). Building the concept of research impact literacy. Evidence & Policy, 15(4), 597–606. https://doi.org/10.1332/174426417X15034894876108",
         "Bowen, S. J., & Graham, I. D. (2013). From knowledge translation to engaged scholarship: Promoting research relevance and utilization. Archives of Physical Medicine and Rehabilitation, 94(1 Suppl.), S3–S8. https://doi.org/10.1016/j.apmr.2012.04.037",
         "Boyko, J. A., Lavis, J. N., Abelson, J., Dobbins, M., & Carter, N. (2012). Deliberative dialogues as a mechanism for knowledge translation and exchange in health systems decision-making. Social Science & Medicine, 75(11), 1938–1945. https://doi.org/10.1016/j.socscimed.2012.06.016",
         "Brownson, R. C., Iwelunmor, J., Odeny, T. A., Proctor, E. K., & Geng, E. H. (2026). So what? Elevating the impact of implementation science. Implementation Science Communications, 7, 2. https://doi.org/10.1186/s43058-025-00831-9",
+        "Campana, M. (Animateur). (s. d.). David Phipps on knowledge mobilization (épisode 41) [Balado]. Technology in Human Services. https://researchimpact.ca/announcements/podcast-featuring-david-phipps-on-knowledge-mobilization/",
+        "Courcy, I., Bureau, A., & Grenier, G. (2022). L’art visuel comme outil de pratique en mobilisation et transfert de connaissances : retour sur un projet de cocréation d’une murale alliant la recherche, l’art et des savoirs expérientiels. Revue francophone de recherche sur le transfert et l’utilisation des connaissances, 6(3). https://doi.org/10.18166/tuc.2022.6.3.25",
         "Damschroder, L. J., Reardon, C. M., Widerquist, M. A. O., & Lowery, J. (2022). The updated Consolidated Framework for Implementation Research based on user feedback. Implementation Science, 17, 75. https://doi.org/10.1186/s13012-022-01245-0",
+        "Dancause, L. (2023). Guide pédagogique sur la mobilisation des connaissances (L. Cardinal & J. Luckerhoff, dir.). Laboratoire interdisciplinaire de recherche sur l’enseignement supérieur. https://www.erudit.org/fr/livres/hors-collection/guide-pedagogique-sur-la-mobilisation-des-connaissances/",
+        "Diany, R., Fitzgibbon-Collins, L. K., & Gagliano Taliun, S. A. (2025). Ten simple rules for getting started with knowledge mobilization. PLOS Computational Biology, 21(4), e1012888. https://doi.org/10.1371/journal.pcbi.1012888",
+        "Georgalakis, J. (2023, 16 janvier). We need to talk about equity in knowledge mobilisation. Transforming Evidence. https://transforming-evidence.org/blog/we-need-to-talk-about-equity-in-knowledge-mobilisation",
         "Graham, I. D., Logan, J., Harrison, M. B., Straus, S. E., Tetroe, J., Caswell, W., & Robinson, N. (2006). Lost in knowledge translation: Time for a map? Journal of Continuing Education in the Health Professions, 26(1), 13–24. https://doi.org/10.1002/chp.47",
+        "Graham, I. D., Logan, J., Harrison, M. B., Straus, S. E., Tetroe, J., Caswell, W., & Robinson, N. (2024). Perdus dans l’application des connaissances : besoin d’une carte ? Revue francophone de recherche sur le transfert et l’utilisation des connaissances, 8(2). https://doi.org/10.18166/tuc.2024.8.2.46",
         "Graham, I. D., McCutcheon, C., & Kothari, A. (2019). Exploring the frontiers of research co-production: The Integrated Knowledge Translation Research Network concept papers. Health Research Policy and Systems, 17, 88. https://doi.org/10.1186/s12961-019-0501-7",
         "Greenhalgh, T., Raftery, J., Hanney, S., & Glover, M. (2016). Research impact: A narrative review. BMC Medicine, 14, 78. https://doi.org/10.1186/s12916-016-0620-8",
         "Instituts de recherche en santé du Canada. (2014). Cadre d’engagement des patients de la Stratégie de recherche axée sur le patient. https://cihr-irsc.gc.ca/f/48413.html",
@@ -363,11 +526,16 @@ const fr = {
         "Kislov, R., Pope, C., Martin, G. P., & Wilson, P. M. (2019). Harnessing the power of theorising in implementation science. Implementation Science, 14, 103. https://doi.org/10.1186/s13012-019-0957-4",
         "Kothari, A., Sibbald, S. L., McCutcheon, C., Berta, W., Urquhart, R., Horsley, T., Comer, L., & Graham, I. D. (2025). How does integrated knowledge translation work? A realist review. Health Research Policy and Systems, 23, 102. https://doi.org/10.1186/s12961-025-01374-0",
         "Lavis, J. N., Boyko, J. A., Oxman, A. D., Lewin, S., & Fretheim, A. (2009). SUPPORT Tools for evidence-informed health Policymaking (STP) 14: Organising and using policy dialogues to support evidence-informed policymaking. Health Research Policy and Systems, 7(Suppl. 1), S14. https://doi.org/10.1186/1478-4505-7-S1-S14",
+        "Lévesque, C. (2022, 14 juin). Bâtir des ponts entre savoirs scientifiques et savoirs autochtones. The Conversation. https://theconversation.com/batir-des-ponts-entre-savoirs-scientifiques-et-savoirs-autochtones-184230",
         "Morton, S. (2015). Progressing research impact assessment: A “contributions” approach. Research Evaluation, 24(4), 405–419. https://doi.org/10.1093/reseval/rvv016",
+        "Nolet, A.-M., Cousineau, M.-M., Maheu, J., & Gervais, L. (2017). L’interdépendance dans la recherche partenariale. Nouvelles pratiques sociales, 29(1-2), 271–287. https://doi.org/10.7202/1043406ar",
         "OECD. (2022). OECD guidelines for citizen participation processes. OECD Publishing. https://doi.org/10.1787/f765caf6-en",
         "Oliver, K., Kothari, A., & Mays, N. (2019). The dark side of coproduction: Do the costs outweigh the benefits for health research? Health Research Policy and Systems, 17, 33. https://doi.org/10.1186/s12961-019-0432-3",
+        "Plouffe, L. (2015, 20 novembre). Les retombées vers les milieux : dans quelle mesure l’évaluation du transfert des connaissances est-elle possible? [Vidéo]. Institut de recherche Robert-Sauvé en santé et en sécurité du travail. https://www.irsst.qc.ca/publications-et-outils/video/i/100291/n/les-retombees-vers-les-milieux-dans-quelle-mesure-l-evaluation-du-transfert-des-connaissances-est-elle-possible-",
         "Proctor, E., Silmere, H., Raghavan, R., Hovmand, P., Aarons, G., Bunger, A., Griffey, R., & Hensley, M. (2011). Outcomes for implementation research: Conceptual distinctions, measurement challenges, and research agenda. Administration and Policy in Mental Health and Mental Health Services Research, 38(2), 65–76. https://doi.org/10.1007/s10488-010-0319-7",
         "Réseau Impact Recherche Canada. (2026). MobilizeU : formation en mobilisation des connaissances. https://researchimpact.ca/learning/mobilizeu/",
+        "Skipper, Y., & Pepler, D. J. (2020). Knowledge mobilization: Stepping into interdependent and relational space using co-creation. Action Research. Publication anticipée en ligne. https://doi.org/10.1177/1476750320960810",
+        "Société Santé en français. (2018). Stratégie de mobilisation des connaissances 2018-2023. https://resefan.ca/wp-content/uploads/xx/02/5_-_strategie_mdc_ssf_18-23_finale.pdf",
         "Staniszewska, S., Brett, J., Simera, I., Seers, K., Mockford, C., Goodlad, S., Altman, D. G., Moher, D., Barber, R., Denegri, S., Entwistle, A., Littlejohns, P., Morris, C., Suleman, R., Thomas, V., & Tysall, C. (2017). GRIPP2 reporting checklists: Tools to improve reporting of patient and public involvement in research. BMJ, 358, j3453. https://doi.org/10.1136/bmj.j3453",
         "Ward, V. (2017). Why, whose, what and how? A framework for knowledge mobilisers. Evidence & Policy, 13(3), 477–497. https://doi.org/10.1332/174426416X14634763278725"
       ]
@@ -910,16 +1078,179 @@ const en = {
         ]
       ]
     },
+    mobilizeu: {
+      "titre": "The MobilizeU programme in eight modules",
+      "detail": "Research Impact Canada · 2026",
+      "intro": "What I took from each module, with the core readings.",
+      "lectures": "Core readings",
+      "modules": [
+        [
+          "Module 1",
+          "Introduction",
+          "Mobilising knowledge",
+          "Knowledge mobilisation links research to the people who can use it: producing, tailoring, sharing and tracking the use of knowledge. The knowledge-to-action model distinguishes knowledge creation from the cycle of putting it into action.",
+          [
+            "Graham et al. (2006)",
+            "Graham et al. (2024)"
+          ]
+        ],
+        [
+          "Module 2",
+          "Frameworks",
+          "Theories, models and frameworks",
+          "A framework helps to clarify why to mobilise, which knowledge, with whom and how. Ward’s framework turns this into four simple questions that guide each decision.",
+          [
+            "Ward (2017)",
+            "Dancause (2023)",
+            "Société Santé en français (2018)"
+          ]
+        ],
+        [
+          "Module 3",
+          "Planning",
+          "Planning mobilisation",
+          "A plan sets out audiences, goals, messages, activities, resources, timeline and indicators. To get started: know your audiences, build a team, involve people with lived experience, diversify formats and learn from each experience.",
+          [
+            "Diany et al. (2025)",
+            "Dancause (2023)"
+          ]
+        ],
+        [
+          "Module 4",
+          "Partnerships",
+          "Building partnerships",
+          "A partnership rests on interdependence and co-creation: sharing power, roles and benefits from the beginning to the end of the project.",
+          [
+            "Skipper & Pepler (2020)",
+            "Nolet et al. (2017)"
+          ]
+        ],
+        [
+          "Module 5",
+          "Inclusion",
+          "Inclusive mobilisation",
+          "Equity also concerns how knowledge circulates: who is heard, who takes part, who benefits. Indigenous knowledge calls for co-construction, trust and reciprocity.",
+          [
+            "Georgalakis (2023)",
+            "Lévesque (2022)"
+          ]
+        ],
+        [
+          "Module 6",
+          "Audiences",
+          "Engaging audiences",
+          "Choose the format according to the goal (co-create, disseminate, implement), clarify the what, the why and the who, and plan for accessibility: physical, sensory, financial, cultural and linguistic.",
+          []
+        ],
+        [
+          "Module 7",
+          "Communication",
+          "Communicating",
+          "Strategic communication and knowledge translation overlap without merging: one supports visibility, the other the use of knowledge. Visual art can become a tool for co-creation with lived experience.",
+          [
+            "Barwick et al. (2014)",
+            "Courcy et al. (2022)"
+          ]
+        ],
+        [
+          "Module 8",
+          "Impact",
+          "Impact and evaluation",
+          "Assessing impact means tracking research’s contribution to change without attributing that change to research alone: outputs, uses, then documented outcomes.",
+          [
+            "Morton (2015)",
+            "Plouffe (2015)"
+          ]
+        ]
+      ],
+      "suggestions": {
+        "titre": "Going further",
+        "groupes": [
+          [
+            "Articles and guides",
+            [
+              [
+                "Ten simple rules for getting started with knowledge mobilization",
+                "Diany et al., 2025, PLOS Computational Biology",
+                "https://doi.org/10.1371/journal.pcbi.1012888"
+              ],
+              [
+                "Why, whose, what and how? A framework for knowledge mobilisers",
+                "Ward, 2017, Evidence & Policy",
+                "https://doi.org/10.1332/174426416X14634763278725"
+              ],
+              [
+                "Perdus dans l’application des connaissances : besoin d’une carte ?",
+                "Graham et al., 2024, French translation",
+                "https://doi.org/10.18166/tuc.2024.8.2.46"
+              ],
+              [
+                "Guide pédagogique sur la mobilisation des connaissances",
+                "Dancause, 2023, Érudit (in French)",
+                "https://www.erudit.org/fr/livres/hors-collection/guide-pedagogique-sur-la-mobilisation-des-connaissances/"
+              ]
+            ]
+          ],
+          [
+            "Podcasts",
+            [
+              [
+                "David Phipps on knowledge mobilization",
+                "Technology in Human Services, episode 41",
+                "https://researchimpact.ca/announcements/podcast-featuring-david-phipps-on-knowledge-mobilization/"
+              ],
+              [
+                "Exploring podcast options for knowledge mobilization",
+                "CRSP Talk, episode 1, Wilfrid Laurier University",
+                "https://exhibits.wlu.ca/s/online-exhibitions/item/5862"
+              ]
+            ]
+          ],
+          [
+            "Video",
+            [
+              [
+                "Les retombées vers les milieux : l’évaluation du transfert des connaissances est-elle possible ?",
+                "Laurence Plouffe, IRSST, 2015 (in French)",
+                "https://www.irsst.qc.ca/publications-et-outils/video/i/100291/n/les-retombees-vers-les-milieux-dans-quelle-mesure-l-evaluation-du-transfert-des-connaissances-est-elle-possible-"
+              ]
+            ]
+          ],
+          [
+            "Press and blogs",
+            [
+              [
+                "We need to talk about equity in knowledge mobilisation",
+                "James Georgalakis, Transforming Evidence, 2023",
+                "https://transforming-evidence.org/blog/we-need-to-talk-about-equity-in-knowledge-mobilisation"
+              ],
+              [
+                "Bâtir des ponts entre savoirs scientifiques et savoirs autochtones",
+                "Carole Lévesque, The Conversation, 2022 (in French)",
+                "https://theconversation.com/batir-des-ponts-entre-savoirs-scientifiques-et-savoirs-autochtones-184230"
+              ]
+            ]
+          ]
+        ]
+      }
+    },
     bibliographie: {
       "titre": "References (APA)",
       "items": [
         "Abelson, J., Forest, P.-G., Eyles, J., Smith, P., Martin, E., & Gauvin, F.-P. (2003). Deliberations about deliberative methods: Issues in the design and evaluation of public participation processes. Social Science & Medicine, 57(2), 239–251. https://doi.org/10.1016/S0277-9536(02)00343-X",
+        "Barwick, M., Phipps, D., Myers, G., Johnny, M., & Coriandoli, R. (2014). Knowledge translation and strategic communications: Unpacking differences and similarities for scholarly and research communications. Scholarly and Research Communication, 5(3). https://doi.org/10.22230/src.2014v5n3a175",
         "Bayley, J. E., & Phipps, D. (2019). Building the concept of research impact literacy. Evidence & Policy, 15(4), 597–606. https://doi.org/10.1332/174426417X15034894876108",
         "Bowen, S. J., & Graham, I. D. (2013). From knowledge translation to engaged scholarship: Promoting research relevance and utilization. Archives of Physical Medicine and Rehabilitation, 94(1 Suppl.), S3–S8. https://doi.org/10.1016/j.apmr.2012.04.037",
         "Boyko, J. A., Lavis, J. N., Abelson, J., Dobbins, M., & Carter, N. (2012). Deliberative dialogues as a mechanism for knowledge translation and exchange in health systems decision-making. Social Science & Medicine, 75(11), 1938–1945. https://doi.org/10.1016/j.socscimed.2012.06.016",
         "Brownson, R. C., Iwelunmor, J., Odeny, T. A., Proctor, E. K., & Geng, E. H. (2026). So what? Elevating the impact of implementation science. Implementation Science Communications, 7, 2. https://doi.org/10.1186/s43058-025-00831-9",
+        "Campana, M. (Animateur). (s. d.). David Phipps on knowledge mobilization (épisode 41) [Balado]. Technology in Human Services. https://researchimpact.ca/announcements/podcast-featuring-david-phipps-on-knowledge-mobilization/",
+        "Courcy, I., Bureau, A., & Grenier, G. (2022). L’art visuel comme outil de pratique en mobilisation et transfert de connaissances : retour sur un projet de cocréation d’une murale alliant la recherche, l’art et des savoirs expérientiels. Revue francophone de recherche sur le transfert et l’utilisation des connaissances, 6(3). https://doi.org/10.18166/tuc.2022.6.3.25",
         "Damschroder, L. J., Reardon, C. M., Widerquist, M. A. O., & Lowery, J. (2022). The updated Consolidated Framework for Implementation Research based on user feedback. Implementation Science, 17, 75. https://doi.org/10.1186/s13012-022-01245-0",
+        "Dancause, L. (2023). Guide pédagogique sur la mobilisation des connaissances (L. Cardinal & J. Luckerhoff, dir.). Laboratoire interdisciplinaire de recherche sur l’enseignement supérieur. https://www.erudit.org/fr/livres/hors-collection/guide-pedagogique-sur-la-mobilisation-des-connaissances/",
+        "Diany, R., Fitzgibbon-Collins, L. K., & Gagliano Taliun, S. A. (2025). Ten simple rules for getting started with knowledge mobilization. PLOS Computational Biology, 21(4), e1012888. https://doi.org/10.1371/journal.pcbi.1012888",
+        "Georgalakis, J. (2023, 16 janvier). We need to talk about equity in knowledge mobilisation. Transforming Evidence. https://transforming-evidence.org/blog/we-need-to-talk-about-equity-in-knowledge-mobilisation",
         "Graham, I. D., Logan, J., Harrison, M. B., Straus, S. E., Tetroe, J., Caswell, W., & Robinson, N. (2006). Lost in knowledge translation: Time for a map? Journal of Continuing Education in the Health Professions, 26(1), 13–24. https://doi.org/10.1002/chp.47",
+        "Graham, I. D., Logan, J., Harrison, M. B., Straus, S. E., Tetroe, J., Caswell, W., & Robinson, N. (2024). Perdus dans l’application des connaissances : besoin d’une carte ? Revue francophone de recherche sur le transfert et l’utilisation des connaissances, 8(2). https://doi.org/10.18166/tuc.2024.8.2.46",
         "Graham, I. D., McCutcheon, C., & Kothari, A. (2019). Exploring the frontiers of research co-production: The Integrated Knowledge Translation Research Network concept papers. Health Research Policy and Systems, 17, 88. https://doi.org/10.1186/s12961-019-0501-7",
         "Greenhalgh, T., Raftery, J., Hanney, S., & Glover, M. (2016). Research impact: A narrative review. BMC Medicine, 14, 78. https://doi.org/10.1186/s12916-016-0620-8",
         "Instituts de recherche en santé du Canada. (2014). Cadre d’engagement des patients de la Stratégie de recherche axée sur le patient. https://cihr-irsc.gc.ca/f/48413.html",
@@ -927,11 +1258,16 @@ const en = {
         "Kislov, R., Pope, C., Martin, G. P., & Wilson, P. M. (2019). Harnessing the power of theorising in implementation science. Implementation Science, 14, 103. https://doi.org/10.1186/s13012-019-0957-4",
         "Kothari, A., Sibbald, S. L., McCutcheon, C., Berta, W., Urquhart, R., Horsley, T., Comer, L., & Graham, I. D. (2025). How does integrated knowledge translation work? A realist review. Health Research Policy and Systems, 23, 102. https://doi.org/10.1186/s12961-025-01374-0",
         "Lavis, J. N., Boyko, J. A., Oxman, A. D., Lewin, S., & Fretheim, A. (2009). SUPPORT Tools for evidence-informed health Policymaking (STP) 14: Organising and using policy dialogues to support evidence-informed policymaking. Health Research Policy and Systems, 7(Suppl. 1), S14. https://doi.org/10.1186/1478-4505-7-S1-S14",
+        "Lévesque, C. (2022, 14 juin). Bâtir des ponts entre savoirs scientifiques et savoirs autochtones. The Conversation. https://theconversation.com/batir-des-ponts-entre-savoirs-scientifiques-et-savoirs-autochtones-184230",
         "Morton, S. (2015). Progressing research impact assessment: A “contributions” approach. Research Evaluation, 24(4), 405–419. https://doi.org/10.1093/reseval/rvv016",
+        "Nolet, A.-M., Cousineau, M.-M., Maheu, J., & Gervais, L. (2017). L’interdépendance dans la recherche partenariale. Nouvelles pratiques sociales, 29(1-2), 271–287. https://doi.org/10.7202/1043406ar",
         "OECD. (2022). OECD guidelines for citizen participation processes. OECD Publishing. https://doi.org/10.1787/f765caf6-en",
         "Oliver, K., Kothari, A., & Mays, N. (2019). The dark side of coproduction: Do the costs outweigh the benefits for health research? Health Research Policy and Systems, 17, 33. https://doi.org/10.1186/s12961-019-0432-3",
+        "Plouffe, L. (2015, 20 novembre). Les retombées vers les milieux : dans quelle mesure l’évaluation du transfert des connaissances est-elle possible? [Vidéo]. Institut de recherche Robert-Sauvé en santé et en sécurité du travail. https://www.irsst.qc.ca/publications-et-outils/video/i/100291/n/les-retombees-vers-les-milieux-dans-quelle-mesure-l-evaluation-du-transfert-des-connaissances-est-elle-possible-",
         "Proctor, E., Silmere, H., Raghavan, R., Hovmand, P., Aarons, G., Bunger, A., Griffey, R., & Hensley, M. (2011). Outcomes for implementation research: Conceptual distinctions, measurement challenges, and research agenda. Administration and Policy in Mental Health and Mental Health Services Research, 38(2), 65–76. https://doi.org/10.1007/s10488-010-0319-7",
         "Réseau Impact Recherche Canada. (2026). MobilizeU : formation en mobilisation des connaissances. https://researchimpact.ca/learning/mobilizeu/",
+        "Skipper, Y., & Pepler, D. J. (2020). Knowledge mobilization: Stepping into interdependent and relational space using co-creation. Action Research. Publication anticipée en ligne. https://doi.org/10.1177/1476750320960810",
+        "Société Santé en français. (2018). Stratégie de mobilisation des connaissances 2018-2023. https://resefan.ca/wp-content/uploads/xx/02/5_-_strategie_mdc_ssf_18-23_finale.pdf",
         "Staniszewska, S., Brett, J., Simera, I., Seers, K., Mockford, C., Goodlad, S., Altman, D. G., Moher, D., Barber, R., Denegri, S., Entwistle, A., Littlejohns, P., Morris, C., Suleman, R., Thomas, V., & Tysall, C. (2017). GRIPP2 reporting checklists: Tools to improve reporting of patient and public involvement in research. BMJ, 358, j3453. https://doi.org/10.1136/bmj.j3453",
         "Ward, V. (2017). Why, whose, what and how? A framework for knowledge mobilisers. Evidence & Policy, 13(3), 477–497. https://doi.org/10.1332/174426416X14634763278725"
       ]
@@ -1474,16 +1810,179 @@ const es = {
         ]
       ]
     },
+    mobilizeu: {
+      "titre": "El programa MobilizeU en ocho módulos",
+      "detail": "Research Impact Canada · 2026",
+      "intro": "Lo que retuve de cada módulo, con las lecturas de base.",
+      "lectures": "Lecturas de base",
+      "modules": [
+        [
+          "Módulo 1",
+          "Introducción",
+          "Movilizar los conocimientos",
+          "La movilización de conocimientos vincula la investigación con las personas que pueden utilizarla: producir, adaptar, compartir y seguir el uso de los saberes. El modelo del conocimiento a la acción distingue la creación de conocimientos y el ciclo de su puesta en acción.",
+          [
+            "Graham et al. (2006)",
+            "Graham et al. (2024)"
+          ]
+        ],
+        [
+          "Módulo 2",
+          "Marcos",
+          "Teorías, modelos y marcos",
+          "Un marco ayuda a precisar por qué movilizar, qué saberes, con quién y cómo. El marco de Ward lo convierte en cuatro preguntas sencillas que orientan cada decisión.",
+          [
+            "Ward (2017)",
+            "Dancause (2023)",
+            "Société Santé en français (2018)"
+          ]
+        ],
+        [
+          "Módulo 3",
+          "Planificación",
+          "Planificar la movilización",
+          "Un plan precisa los públicos, los objetivos, los mensajes, las actividades, los recursos, el calendario y los indicadores. Para empezar: conocer a los públicos, rodearse de un equipo, implicar a personas con experiencia vivida, diversificar los formatos y aprender de cada experiencia.",
+          [
+            "Diany et al. (2025)",
+            "Dancause (2023)"
+          ]
+        ],
+        [
+          "Módulo 4",
+          "Alianzas",
+          "Construir alianzas",
+          "Una alianza se basa en la interdependencia y la cocreación: compartir el poder, los roles y los beneficios, de principio a fin del proyecto.",
+          [
+            "Skipper y Pepler (2020)",
+            "Nolet et al. (2017)"
+          ]
+        ],
+        [
+          "Módulo 5",
+          "Inclusión",
+          "Una movilización inclusiva",
+          "La equidad también concierne a la circulación de los saberes: quién es escuchado, quién participa, quién se beneficia. Los saberes indígenas requieren coconstrucción, confianza y reciprocidad.",
+          [
+            "Georgalakis (2023)",
+            "Lévesque (2022)"
+          ]
+        ],
+        [
+          "Módulo 6",
+          "Públicos",
+          "Despertar el interés de los públicos",
+          "Elegir el formato según el objetivo (cocrear, difundir, implementar), precisar el qué, el porqué y el quién, y pensar en la accesibilidad: física, sensorial, económica, cultural y lingüística.",
+          []
+        ],
+        [
+          "Módulo 7",
+          "Comunicación",
+          "Comunicar",
+          "La comunicación estratégica y la aplicación de conocimientos se solapan sin confundirse: una apoya la visibilidad, la otra el uso de los conocimientos. El arte visual puede convertirse en una herramienta de cocreación con los saberes de experiencia.",
+          [
+            "Barwick et al. (2014)",
+            "Courcy et al. (2022)"
+          ]
+        ],
+        [
+          "Módulo 8",
+          "Impacto",
+          "Impacto y evaluación",
+          "Evaluar el impacto es seguir la contribución de la investigación a los cambios sin atribuírselos solo a ella: producciones, usos y después efectos documentados.",
+          [
+            "Morton (2015)",
+            "Plouffe (2015)"
+          ]
+        ]
+      ],
+      "suggestions": {
+        "titre": "Para ir más lejos",
+        "groupes": [
+          [
+            "Artículos y guías",
+            [
+              [
+                "Ten simple rules for getting started with knowledge mobilization",
+                "Diany et al., 2025, PLOS Computational Biology (en inglés)",
+                "https://doi.org/10.1371/journal.pcbi.1012888"
+              ],
+              [
+                "Perdus dans l’application des connaissances : besoin d’une carte ?",
+                "Graham et al., 2024 (en francés)",
+                "https://doi.org/10.18166/tuc.2024.8.2.46"
+              ],
+              [
+                "Guide pédagogique sur la mobilisation des connaissances",
+                "Dancause, 2023, Érudit (en francés)",
+                "https://www.erudit.org/fr/livres/hors-collection/guide-pedagogique-sur-la-mobilisation-des-connaissances/"
+              ],
+              [
+                "L’interdépendance dans la recherche partenariale",
+                "Nolet et al., 2017 (en francés)",
+                "https://doi.org/10.7202/1043406ar"
+              ]
+            ]
+          ],
+          [
+            "Pódcasts",
+            [
+              [
+                "David Phipps on knowledge mobilization",
+                "Technology in Human Services, episodio 41 (en inglés)",
+                "https://researchimpact.ca/announcements/podcast-featuring-david-phipps-on-knowledge-mobilization/"
+              ],
+              [
+                "Exploring podcast options for knowledge mobilization",
+                "CRSP Talk, episodio 1, Universidad Wilfrid Laurier (en inglés)",
+                "https://exhibits.wlu.ca/s/online-exhibitions/item/5862"
+              ]
+            ]
+          ],
+          [
+            "Vídeo",
+            [
+              [
+                "Les retombées vers les milieux : l’évaluation du transfert des connaissances est-elle possible ?",
+                "Laurence Plouffe, IRSST, 2015 (en francés)",
+                "https://www.irsst.qc.ca/publications-et-outils/video/i/100291/n/les-retombees-vers-les-milieux-dans-quelle-mesure-l-evaluation-du-transfert-des-connaissances-est-elle-possible-"
+              ]
+            ]
+          ],
+          [
+            "Prensa y blogs",
+            [
+              [
+                "Bâtir des ponts entre savoirs scientifiques et savoirs autochtones",
+                "Carole Lévesque, The Conversation, 2022 (en francés)",
+                "https://theconversation.com/batir-des-ponts-entre-savoirs-scientifiques-et-savoirs-autochtones-184230"
+              ],
+              [
+                "We need to talk about equity in knowledge mobilisation",
+                "James Georgalakis, Transforming Evidence, 2023 (en inglés)",
+                "https://transforming-evidence.org/blog/we-need-to-talk-about-equity-in-knowledge-mobilisation"
+              ]
+            ]
+          ]
+        ]
+      }
+    },
     bibliographie: {
       "titre": "Referencias (APA)",
       "items": [
         "Abelson, J., Forest, P.-G., Eyles, J., Smith, P., Martin, E., & Gauvin, F.-P. (2003). Deliberations about deliberative methods: Issues in the design and evaluation of public participation processes. Social Science & Medicine, 57(2), 239–251. https://doi.org/10.1016/S0277-9536(02)00343-X",
+        "Barwick, M., Phipps, D., Myers, G., Johnny, M., & Coriandoli, R. (2014). Knowledge translation and strategic communications: Unpacking differences and similarities for scholarly and research communications. Scholarly and Research Communication, 5(3). https://doi.org/10.22230/src.2014v5n3a175",
         "Bayley, J. E., & Phipps, D. (2019). Building the concept of research impact literacy. Evidence & Policy, 15(4), 597–606. https://doi.org/10.1332/174426417X15034894876108",
         "Bowen, S. J., & Graham, I. D. (2013). From knowledge translation to engaged scholarship: Promoting research relevance and utilization. Archives of Physical Medicine and Rehabilitation, 94(1 Suppl.), S3–S8. https://doi.org/10.1016/j.apmr.2012.04.037",
         "Boyko, J. A., Lavis, J. N., Abelson, J., Dobbins, M., & Carter, N. (2012). Deliberative dialogues as a mechanism for knowledge translation and exchange in health systems decision-making. Social Science & Medicine, 75(11), 1938–1945. https://doi.org/10.1016/j.socscimed.2012.06.016",
         "Brownson, R. C., Iwelunmor, J., Odeny, T. A., Proctor, E. K., & Geng, E. H. (2026). So what? Elevating the impact of implementation science. Implementation Science Communications, 7, 2. https://doi.org/10.1186/s43058-025-00831-9",
+        "Campana, M. (Animateur). (s. d.). David Phipps on knowledge mobilization (épisode 41) [Balado]. Technology in Human Services. https://researchimpact.ca/announcements/podcast-featuring-david-phipps-on-knowledge-mobilization/",
+        "Courcy, I., Bureau, A., & Grenier, G. (2022). L’art visuel comme outil de pratique en mobilisation et transfert de connaissances : retour sur un projet de cocréation d’une murale alliant la recherche, l’art et des savoirs expérientiels. Revue francophone de recherche sur le transfert et l’utilisation des connaissances, 6(3). https://doi.org/10.18166/tuc.2022.6.3.25",
         "Damschroder, L. J., Reardon, C. M., Widerquist, M. A. O., & Lowery, J. (2022). The updated Consolidated Framework for Implementation Research based on user feedback. Implementation Science, 17, 75. https://doi.org/10.1186/s13012-022-01245-0",
+        "Dancause, L. (2023). Guide pédagogique sur la mobilisation des connaissances (L. Cardinal & J. Luckerhoff, dir.). Laboratoire interdisciplinaire de recherche sur l’enseignement supérieur. https://www.erudit.org/fr/livres/hors-collection/guide-pedagogique-sur-la-mobilisation-des-connaissances/",
+        "Diany, R., Fitzgibbon-Collins, L. K., & Gagliano Taliun, S. A. (2025). Ten simple rules for getting started with knowledge mobilization. PLOS Computational Biology, 21(4), e1012888. https://doi.org/10.1371/journal.pcbi.1012888",
+        "Georgalakis, J. (2023, 16 janvier). We need to talk about equity in knowledge mobilisation. Transforming Evidence. https://transforming-evidence.org/blog/we-need-to-talk-about-equity-in-knowledge-mobilisation",
         "Graham, I. D., Logan, J., Harrison, M. B., Straus, S. E., Tetroe, J., Caswell, W., & Robinson, N. (2006). Lost in knowledge translation: Time for a map? Journal of Continuing Education in the Health Professions, 26(1), 13–24. https://doi.org/10.1002/chp.47",
+        "Graham, I. D., Logan, J., Harrison, M. B., Straus, S. E., Tetroe, J., Caswell, W., & Robinson, N. (2024). Perdus dans l’application des connaissances : besoin d’une carte ? Revue francophone de recherche sur le transfert et l’utilisation des connaissances, 8(2). https://doi.org/10.18166/tuc.2024.8.2.46",
         "Graham, I. D., McCutcheon, C., & Kothari, A. (2019). Exploring the frontiers of research co-production: The Integrated Knowledge Translation Research Network concept papers. Health Research Policy and Systems, 17, 88. https://doi.org/10.1186/s12961-019-0501-7",
         "Greenhalgh, T., Raftery, J., Hanney, S., & Glover, M. (2016). Research impact: A narrative review. BMC Medicine, 14, 78. https://doi.org/10.1186/s12916-016-0620-8",
         "Instituts de recherche en santé du Canada. (2014). Cadre d’engagement des patients de la Stratégie de recherche axée sur le patient. https://cihr-irsc.gc.ca/f/48413.html",
@@ -1491,11 +1990,16 @@ const es = {
         "Kislov, R., Pope, C., Martin, G. P., & Wilson, P. M. (2019). Harnessing the power of theorising in implementation science. Implementation Science, 14, 103. https://doi.org/10.1186/s13012-019-0957-4",
         "Kothari, A., Sibbald, S. L., McCutcheon, C., Berta, W., Urquhart, R., Horsley, T., Comer, L., & Graham, I. D. (2025). How does integrated knowledge translation work? A realist review. Health Research Policy and Systems, 23, 102. https://doi.org/10.1186/s12961-025-01374-0",
         "Lavis, J. N., Boyko, J. A., Oxman, A. D., Lewin, S., & Fretheim, A. (2009). SUPPORT Tools for evidence-informed health Policymaking (STP) 14: Organising and using policy dialogues to support evidence-informed policymaking. Health Research Policy and Systems, 7(Suppl. 1), S14. https://doi.org/10.1186/1478-4505-7-S1-S14",
+        "Lévesque, C. (2022, 14 juin). Bâtir des ponts entre savoirs scientifiques et savoirs autochtones. The Conversation. https://theconversation.com/batir-des-ponts-entre-savoirs-scientifiques-et-savoirs-autochtones-184230",
         "Morton, S. (2015). Progressing research impact assessment: A “contributions” approach. Research Evaluation, 24(4), 405–419. https://doi.org/10.1093/reseval/rvv016",
+        "Nolet, A.-M., Cousineau, M.-M., Maheu, J., & Gervais, L. (2017). L’interdépendance dans la recherche partenariale. Nouvelles pratiques sociales, 29(1-2), 271–287. https://doi.org/10.7202/1043406ar",
         "OECD. (2022). OECD guidelines for citizen participation processes. OECD Publishing. https://doi.org/10.1787/f765caf6-en",
         "Oliver, K., Kothari, A., & Mays, N. (2019). The dark side of coproduction: Do the costs outweigh the benefits for health research? Health Research Policy and Systems, 17, 33. https://doi.org/10.1186/s12961-019-0432-3",
+        "Plouffe, L. (2015, 20 novembre). Les retombées vers les milieux : dans quelle mesure l’évaluation du transfert des connaissances est-elle possible? [Vidéo]. Institut de recherche Robert-Sauvé en santé et en sécurité du travail. https://www.irsst.qc.ca/publications-et-outils/video/i/100291/n/les-retombees-vers-les-milieux-dans-quelle-mesure-l-evaluation-du-transfert-des-connaissances-est-elle-possible-",
         "Proctor, E., Silmere, H., Raghavan, R., Hovmand, P., Aarons, G., Bunger, A., Griffey, R., & Hensley, M. (2011). Outcomes for implementation research: Conceptual distinctions, measurement challenges, and research agenda. Administration and Policy in Mental Health and Mental Health Services Research, 38(2), 65–76. https://doi.org/10.1007/s10488-010-0319-7",
         "Réseau Impact Recherche Canada. (2026). MobilizeU : formation en mobilisation des connaissances. https://researchimpact.ca/learning/mobilizeu/",
+        "Skipper, Y., & Pepler, D. J. (2020). Knowledge mobilization: Stepping into interdependent and relational space using co-creation. Action Research. Publication anticipée en ligne. https://doi.org/10.1177/1476750320960810",
+        "Société Santé en français. (2018). Stratégie de mobilisation des connaissances 2018-2023. https://resefan.ca/wp-content/uploads/xx/02/5_-_strategie_mdc_ssf_18-23_finale.pdf",
         "Staniszewska, S., Brett, J., Simera, I., Seers, K., Mockford, C., Goodlad, S., Altman, D. G., Moher, D., Barber, R., Denegri, S., Entwistle, A., Littlejohns, P., Morris, C., Suleman, R., Thomas, V., & Tysall, C. (2017). GRIPP2 reporting checklists: Tools to improve reporting of patient and public involvement in research. BMJ, 358, j3453. https://doi.org/10.1136/bmj.j3453",
         "Ward, V. (2017). Why, whose, what and how? A framework for knowledge mobilisers. Evidence & Policy, 13(3), 477–497. https://doi.org/10.1332/174426416X14634763278725"
       ]

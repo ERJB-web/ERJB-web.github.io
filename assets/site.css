@@ -183,11 +183,17 @@ h1{margin:0;color:var(--ink);font:400 clamp(40px,4vw,58px)/1 var(--serif);letter
 .valeurs>div{padding:18px;border-radius:12px;background:linear-gradient(160deg,#ffffff,#f1f6f4);border:1px solid var(--line)}
 .valeurs h4::before{content:"";display:block;width:22px;height:3px;border-radius:2px;background:var(--green);margin-bottom:10px}
 .colonne-outils>.note{margin:10px 0 0}
+.colonne-outils>.note-avant{margin:36px 0 10px}
 .bio{margin:6px 0 8px}
 .bio p{margin:0 0 14px;font-size:15.5px;line-height:1.75;color:var(--ink)}
 .bio p:first-child{font-size:17px}
 .discret{margin-top:6px!important;font-size:12.5px!important;color:var(--muted)}
 .onglets.n5{grid-template-columns:repeat(5,1fr)}
+.onglets.n8{grid-template-columns:repeat(4,1fr)}
+.onglets.n8 button:nth-child(n+5){border-top:1px solid var(--line)}
+.onglets.n8 button:nth-child(5){border-left:0}
+.liens-contact.compact a{padding:12px 16px}
+.liens-contact.compact{gap:8px;margin-bottom:6px}
 
 .boite-outils{margin-top:28px;padding:22px 22px 10px;border-radius:14px;background:var(--ink);color:#fff}
 .boite-outils h3{margin:0 0 12px;font:400 24px/1.2 var(--serif);color:#fff}
@@ -309,7 +315,7 @@ h1{margin:0;color:var(--ink);font:400 clamp(40px,4vw,58px)/1 var(--serif);letter
   .nav{gap:20px}
   .nav a{font-size:13.5px}
   .marque small{display:none}
-  .onglets,.onglets.n5{grid-template-columns:repeat(2,1fr)}
+  .onglets,.onglets.n5,.onglets.n8{grid-template-columns:repeat(2,1fr)}
   .onglets button:nth-child(odd){border-left:0}
   .onglets button:nth-child(n+3){border-top:1px solid var(--line)}
   .onglets.n5 button:last-child{grid-column:1/-1}
