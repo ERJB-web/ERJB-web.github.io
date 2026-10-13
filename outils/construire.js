@@ -152,31 +152,30 @@ ${a.outils.groupes.map(([g, items]) => `<div class="groupe-outils"><p>${e(g)}</p
 function sectionImplantation(c) {
   const m = c.implantation;
   const tr = m.transfert;
-  const cadres = m.cadres
-    ? `<h3 class="titre-bloc">${e(m.cadres.titre)}</h3><div class="cadres">${m.cadres.items
-        .map((k) => `<article class="cadre"><h4>${e(k.nom)}</h4><p>${e(k.texte)}</p><p class="ref">${k.lien ? lien(k.lien, e(k.ref) + ' <span aria-hidden="true">↗</span>') : e(k.ref)}</p></article>`)
-        .join("")}</div>`
-    : "";
-  const formation = m.formation
-    ? `<div class="carte-formation"><p class="domaine">${e(m.formation.etiquette)}</p><h4>${e(m.formation.titre)}</h4><p>${e(m.formation.texte)}</p>${m.formation.themes ? etiquettes(m.formation.themes) : ""}${m.formation.lien ? lien(m.formation.lien, e(m.formation.lienTexte) + ' <span aria-hidden="true">↗</span>', "profil") : ""}</div>`
-    : "";
-  const ressources = m.ressources
-    ? `<h3 class="titre-bloc">${e(m.ressources.titre)}</h3><ul class="liens-contact">${m.ressources.items
-        .map(([titre, detail, href]) => `<li>${lien(href, `<span><strong>${e(titre)}</strong><small>${e(detail)}</small></span><span aria-hidden="true">↗</span>`)}</li>`)
-        .join("")}</ul>`
-    : "";
+  const fleche = ' <span aria-hidden="true">↗</span>';
+  const cartes = (bloc) =>
+    `<h3 class="titre-bloc">${e(bloc.titre)}</h3><div class="cadres">${bloc.items
+      .map((k) => `<article class="cadre"><h4>${e(k.nom)}</h4><p>${e(k.texte)}</p><p class="ref">(${e(k.ref)})</p></article>`)
+      .join("")}</div>`;
+  const lienDoi = (s) => e(s).replace(/(https?:\/\/\S+)$/, (u) => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`);
   return `<div class="section-corps">
 <div class="colonne-texte">
 <p class="surtitre">${e(m.surtitre)}</p>
 <h2>${e(m.titre)}</h2>
 <p class="intro">${e(m.intro)}</p>
-${formation}
-${ressources}
+<p class="precision">${e(m.precision)}</p>
+<div class="carte-formation"><p class="domaine">${e(m.formation.etiquette)}</p><h4>${e(m.formation.titre)}</h4><p>${e(m.formation.texte)}</p>${etiquettes(m.formation.themes)}${lien(m.formation.lien, e(m.formation.lienTexte) + fleche, "profil")}</div>
+<h3 class="titre-bloc">${e(m.ressources.titre)}</h3>
+<ul class="liens-contact">${m.ressources.items
+    .map(([titre, detail, href]) => `<li>${lien(href, `<span><strong>${e(titre)}</strong><small>${e(detail)}</small></span>${fleche}`)}</li>`)
+    .join("")}</ul>
 </div>
 <div class="colonne-outils">
 ${tableOnglets(tr.titre, tr.detail, tr.etapes.map(([verbe, titre, texte, tags]) => ["", verbe, titre, texte, tags]))}
 <p class="note">${e(tr.note)}</p>
-${cadres}
+${cartes(m.plan)}
+${cartes(m.cadres)}
+<details class="biblio"><summary>${e(m.bibliographie.titre)}</summary><ol>${m.bibliographie.items.map((r) => `<li>${lienDoi(r)}</li>`).join("")}</ol></details>
 </div>
 </div>`;
 }

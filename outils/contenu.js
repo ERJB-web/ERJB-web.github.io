@@ -229,6 +229,149 @@ const fr = {
     surtitre: "03 · Implantation",
     titre: "Transfert de connaissances et implantation",
     intro: "Faire circuler les savoirs entre les personnes, les milieux de pratique et la recherche, puis examiner ce qu’ils permettent réellement de changer.",
+    precision: "Dans ma thèse, la mobilisation des connaissances accompagne la recherche : elle n’est ni une étude d’implantation ni une évaluation de politique.",
+    formation: {
+      "etiquette": "Formation continue · 2026",
+      "titre": "MobilizeU : mobiliser ses connaissances en recherche",
+      "texte": "Réseau Impact Recherche Canada et Université York. Une formation consacrée aux cadres de mobilisation des connaissances, à la planification, aux partenariats, à l’engagement des publics, à la communication et à l’évaluation des retombées.",
+      "themes": [
+        "Théories, modèles et cadres",
+        "Planification",
+        "Partenariats",
+        "Mobilisation inclusive",
+        "Engagement des publics",
+        "Communication scientifique",
+        "Impact et évaluation"
+      ],
+      "lien": "https://researchimpact.ca/learning/mobilizeu/",
+      "lienTexte": "Découvrir MobilizeU"
+    },
+    plan: {
+      "titre": "Dans ma thèse : un plan de mobilisation des connaissances",
+      "items": [
+        {
+          "nom": "Pourquoi, quoi, à qui, comment",
+          "texte": "Le cadre de Ward structure le plan en quatre questions. La séquence de MobilizeU le complète : préciser le quoi, le pourquoi et le qui avant de choisir le comment, les formats et les canaux.",
+          "ref": "Ward, 2017 ; Réseau Impact Recherche Canada, 2026"
+        },
+        {
+          "nom": "Des connaissances à l’action",
+          "texte": "Le modèle des connaissances à l’action encadre la production, l’adaptation, la communication et le suivi des connaissances, sans prétendre en assurer l’adoption durable.",
+          "ref": "Graham et al., 2006"
+        },
+        {
+          "nom": "Des partenariats fondés sur les 4R",
+          "texte": "Respect, pertinence, réciprocité et responsabilité guident les partenariats avec les patients et les milieux, en s’appuyant sur le cadre d’engagement des patients des IRSC.",
+          "ref": "Kirkness et Barnhardt, 1991 ; IRSC, 2014 ; Bowen et Graham, 2013"
+        },
+        {
+          "nom": "Un dialogue délibératif",
+          "texte": "Un atelier délibératif transforme les résultats en recommandations contextualisées, avec un retour aux participants. La participation est rapportée selon GRIPP2.",
+          "ref": "Boyko et al., 2012 ; Lavis et al., 2009 ; Staniszewska et al., 2017"
+        },
+        {
+          "nom": "Suivre la contribution, pas l’attribution",
+          "texte": "Quatre indicateurs (production, portée, appropriation, utilisation documentée) et un registre permettent d’apprécier la contribution plausible de la recherche, sans lui attribuer les changements ultérieurs.",
+          "ref": "Morton, 2015"
+        }
+      ]
+    },
+    cadres: {
+      "titre": "Repères en science de l’implantation",
+      "items": [
+        {
+          "nom": "CFIR 2.0",
+          "texte": "Examiner le contexte et les déterminants qui facilitent ou freinent l’implantation.",
+          "ref": "Damschroder et al., 2022"
+        },
+        {
+          "nom": "Résultats d’implantation",
+          "texte": "Distinguer acceptabilité, adoption, pertinence, faisabilité, fidélité, coût, pénétration et pérennité.",
+          "ref": "Proctor et al., 2011"
+        },
+        {
+          "nom": "Impact de la recherche",
+          "texte": "Les cadres d’impact cartographient surtout le chemin aller, de la recherche vers la pratique ; mes travaux interrogent aussi le chemin retour.",
+          "ref": "Greenhalgh et al., 2016 ; Brownson et al., 2026"
+        },
+        {
+          "nom": "Approche par contributions",
+          "texte": "Relier les productions aux usages, puis aux changements documentés, en examinant les autres influences possibles.",
+          "ref": "Morton, 2015 ; Bayley et Phipps, 2019"
+        },
+        {
+          "nom": "Coproduction et application intégrée",
+          "texte": "Les mécanismes de coproduction dépendent de l’infrastructure, de la clarté des rôles et du partage du pouvoir ; leurs coûts comptent aussi.",
+          "ref": "Graham et al., 2019 ; Kothari et al., 2025 ; Oliver et al., 2019"
+        },
+        {
+          "nom": "Une science de l’implantation critique",
+          "texte": "Théoriser plutôt qu’appliquer les cadres comme des listes de contrôle.",
+          "ref": "Kislov et al., 2019"
+        },
+        {
+          "nom": "Participation et délibération",
+          "texte": "Concevoir et évaluer des processus de participation publique qui laissent une trace de leur influence.",
+          "ref": "Abelson et al., 2003 ; OCDE, 2022"
+        }
+      ]
+    },
+    ressources: {
+      "titre": "Ressources",
+      "items": [
+        [
+          "MobilizeU",
+          "Réseau Impact Recherche Canada",
+          "https://researchimpact.ca/learning/mobilizeu/"
+        ],
+        [
+          "MobilizeU à l’Université York",
+          "Mobilisation des connaissances",
+          "https://www.yorku.ca/research/innovation-partnerships/knowledge-mobilization/mobilizeu/"
+        ],
+        [
+          "Glossaire de la mobilisation des connaissances",
+          "Instituts de recherche en santé du Canada",
+          "https://cihr-irsc.gc.ca/f/54014.html"
+        ],
+        [
+          "Cadre d’engagement des patients",
+          "IRSC, Stratégie de recherche axée sur le patient",
+          "https://cihr-irsc.gc.ca/f/48413.html"
+        ],
+        [
+          "Lignes directrices sur la participation citoyenne",
+          "OCDE, 2022",
+          "https://doi.org/10.1787/f765caf6-en"
+        ]
+      ]
+    },
+    bibliographie: {
+      "titre": "Bibliographie (APA)",
+      "items": [
+        "Abelson, J., Forest, P.-G., Eyles, J., Smith, P., Martin, E., & Gauvin, F.-P. (2003). Deliberations about deliberative methods: Issues in the design and evaluation of public participation processes. Social Science & Medicine, 57(2), 239–251. https://doi.org/10.1016/S0277-9536(02)00343-X",
+        "Bayley, J. E., & Phipps, D. (2019). Building the concept of research impact literacy. Evidence & Policy, 15(4), 597–606. https://doi.org/10.1332/174426417X15034894876108",
+        "Bowen, S. J., & Graham, I. D. (2013). From knowledge translation to engaged scholarship: Promoting research relevance and utilization. Archives of Physical Medicine and Rehabilitation, 94(1 Suppl.), S3–S8. https://doi.org/10.1016/j.apmr.2012.04.037",
+        "Boyko, J. A., Lavis, J. N., Abelson, J., Dobbins, M., & Carter, N. (2012). Deliberative dialogues as a mechanism for knowledge translation and exchange in health systems decision-making. Social Science & Medicine, 75(11), 1938–1945. https://doi.org/10.1016/j.socscimed.2012.06.016",
+        "Brownson, R. C., Iwelunmor, J., Odeny, T. A., Proctor, E. K., & Geng, E. H. (2026). So what? Elevating the impact of implementation science. Implementation Science Communications, 7, 2. https://doi.org/10.1186/s43058-025-00831-9",
+        "Damschroder, L. J., Reardon, C. M., Widerquist, M. A. O., & Lowery, J. (2022). The updated Consolidated Framework for Implementation Research based on user feedback. Implementation Science, 17, 75. https://doi.org/10.1186/s13012-022-01245-0",
+        "Graham, I. D., Logan, J., Harrison, M. B., Straus, S. E., Tetroe, J., Caswell, W., & Robinson, N. (2006). Lost in knowledge translation: Time for a map? Journal of Continuing Education in the Health Professions, 26(1), 13–24. https://doi.org/10.1002/chp.47",
+        "Graham, I. D., McCutcheon, C., & Kothari, A. (2019). Exploring the frontiers of research co-production: The Integrated Knowledge Translation Research Network concept papers. Health Research Policy and Systems, 17, 88. https://doi.org/10.1186/s12961-019-0501-7",
+        "Greenhalgh, T., Raftery, J., Hanney, S., & Glover, M. (2016). Research impact: A narrative review. BMC Medicine, 14, 78. https://doi.org/10.1186/s12916-016-0620-8",
+        "Instituts de recherche en santé du Canada. (2014). Cadre d’engagement des patients de la Stratégie de recherche axée sur le patient. https://cihr-irsc.gc.ca/f/48413.html",
+        "Kirkness, V. J., & Barnhardt, R. (1991). First Nations and higher education: The four R’s—Respect, relevance, reciprocity, responsibility. Journal of American Indian Education, 30(3), 1–15.",
+        "Kislov, R., Pope, C., Martin, G. P., & Wilson, P. M. (2019). Harnessing the power of theorising in implementation science. Implementation Science, 14, 103. https://doi.org/10.1186/s13012-019-0957-4",
+        "Kothari, A., Sibbald, S. L., McCutcheon, C., Berta, W., Urquhart, R., Horsley, T., Comer, L., & Graham, I. D. (2025). How does integrated knowledge translation work? A realist review. Health Research Policy and Systems, 23, 102. https://doi.org/10.1186/s12961-025-01374-0",
+        "Lavis, J. N., Boyko, J. A., Oxman, A. D., Lewin, S., & Fretheim, A. (2009). SUPPORT Tools for evidence-informed health Policymaking (STP) 14: Organising and using policy dialogues to support evidence-informed policymaking. Health Research Policy and Systems, 7(Suppl. 1), S14. https://doi.org/10.1186/1478-4505-7-S1-S14",
+        "Morton, S. (2015). Progressing research impact assessment: A “contributions” approach. Research Evaluation, 24(4), 405–419. https://doi.org/10.1093/reseval/rvv016",
+        "OECD. (2022). OECD guidelines for citizen participation processes. OECD Publishing. https://doi.org/10.1787/f765caf6-en",
+        "Oliver, K., Kothari, A., & Mays, N. (2019). The dark side of coproduction: Do the costs outweigh the benefits for health research? Health Research Policy and Systems, 17, 33. https://doi.org/10.1186/s12961-019-0432-3",
+        "Proctor, E., Silmere, H., Raghavan, R., Hovmand, P., Aarons, G., Bunger, A., Griffey, R., & Hensley, M. (2011). Outcomes for implementation research: Conceptual distinctions, measurement challenges, and research agenda. Administration and Policy in Mental Health and Mental Health Services Research, 38(2), 65–76. https://doi.org/10.1007/s10488-010-0319-7",
+        "Réseau Impact Recherche Canada. (2026). MobilizeU : formation en mobilisation des connaissances. https://researchimpact.ca/learning/mobilizeu/",
+        "Staniszewska, S., Brett, J., Simera, I., Seers, K., Mockford, C., Goodlad, S., Altman, D. G., Moher, D., Barber, R., Denegri, S., Entwistle, A., Littlejohns, P., Morris, C., Suleman, R., Thomas, V., & Tysall, C. (2017). GRIPP2 reporting checklists: Tools to improve reporting of patient and public involvement in research. BMJ, 358, j3453. https://doi.org/10.1136/bmj.j3453",
+        "Ward, V. (2017). Why, whose, what and how? A framework for knowledge mobilisers. Evidence & Policy, 13(3), 477–497. https://doi.org/10.1332/174426416X14634763278725"
+      ]
+    },
     transfert: {
       titre: "Transfert de connaissances et implantation",
       detail: "Cinq temps",
@@ -645,6 +788,149 @@ const en = {
     surtitre: "03 · Implementation",
     titre: "Knowledge translation and implementation",
     intro: "Moving knowledge between people, practice settings and research, then examining what it actually helps to change.",
+    precision: "In my thesis, knowledge mobilisation accompanies the research: it is neither an implementation study nor a policy evaluation.",
+    formation: {
+      "etiquette": "Continuing education · 2026",
+      "titre": "MobilizeU: mobilising research knowledge",
+      "texte": "Research Impact Canada and York University. Training on knowledge mobilisation frameworks, planning, partnerships, audience engagement, communication and impact assessment.",
+      "themes": [
+        "Theories, models and frameworks",
+        "Planning",
+        "Partnerships",
+        "Inclusive mobilisation",
+        "Audience engagement",
+        "Science communication",
+        "Impact and evaluation"
+      ],
+      "lien": "https://researchimpact.ca/learning/mobilizeu/",
+      "lienTexte": "Discover MobilizeU"
+    },
+    plan: {
+      "titre": "In my thesis: a knowledge mobilisation plan",
+      "items": [
+        {
+          "nom": "Why, what, to whom, how",
+          "texte": "Ward’s framework structures the plan around four questions. The MobilizeU sequence completes it: clarify the what, the why and the who before choosing the how, the formats and the channels.",
+          "ref": "Ward, 2017; Réseau Impact Recherche Canada, 2026"
+        },
+        {
+          "nom": "Knowledge to action",
+          "texte": "The knowledge-to-action model frames the production, tailoring, communication and monitoring of knowledge, without claiming to secure lasting uptake.",
+          "ref": "Graham et al., 2006"
+        },
+        {
+          "nom": "Partnerships based on the 4Rs",
+          "texte": "Respect, relevance, reciprocity and responsibility guide partnerships with patients and practice settings, drawing on the CIHR patient engagement framework.",
+          "ref": "Kirkness & Barnhardt, 1991; CIHR, 2014; Bowen & Graham, 2013"
+        },
+        {
+          "nom": "A deliberative dialogue",
+          "texte": "A deliberative workshop turns findings into contextualised recommendations, with feedback to participants. Involvement is reported using GRIPP2.",
+          "ref": "Boyko et al., 2012; Lavis et al., 2009; Staniszewska et al., 2017"
+        },
+        {
+          "nom": "Tracking contribution, not attribution",
+          "texte": "Four indicators (output, reach, uptake, documented use) and a log make it possible to assess the plausible contribution of the research without attributing later changes to it.",
+          "ref": "Morton, 2015"
+        }
+      ]
+    },
+    cadres: {
+      "titre": "Landmarks in implementation science",
+      "items": [
+        {
+          "nom": "CFIR 2.0",
+          "texte": "Examining the context and the determinants that help or hinder implementation.",
+          "ref": "Damschroder et al., 2022"
+        },
+        {
+          "nom": "Implementation outcomes",
+          "texte": "Distinguishing acceptability, adoption, appropriateness, feasibility, fidelity, cost, penetration and sustainability.",
+          "ref": "Proctor et al., 2011"
+        },
+        {
+          "nom": "Research impact",
+          "texte": "Impact frameworks mostly map the forward path, from research to practice; my work also examines the way back.",
+          "ref": "Greenhalgh et al., 2016; Brownson et al., 2026"
+        },
+        {
+          "nom": "Contribution approach",
+          "texte": "Linking outputs to uses, then to documented changes, while examining other possible influences.",
+          "ref": "Morton, 2015; Bayley & Phipps, 2019"
+        },
+        {
+          "nom": "Co-production and integrated knowledge translation",
+          "texte": "Co-production mechanisms depend on infrastructure, role clarity and power sharing; their costs matter too.",
+          "ref": "Graham et al., 2019; Kothari et al., 2025; Oliver et al., 2019"
+        },
+        {
+          "nom": "Critical implementation science",
+          "texte": "Theorising rather than applying frameworks as checklists.",
+          "ref": "Kislov et al., 2019"
+        },
+        {
+          "nom": "Participation and deliberation",
+          "texte": "Designing and evaluating public participation processes that leave a record of their influence.",
+          "ref": "Abelson et al., 2003; OECD, 2022"
+        }
+      ]
+    },
+    ressources: {
+      "titre": "Resources",
+      "items": [
+        [
+          "MobilizeU",
+          "Research Impact Canada",
+          "https://researchimpact.ca/learning/mobilizeu/"
+        ],
+        [
+          "MobilizeU at York University",
+          "Knowledge mobilization",
+          "https://www.yorku.ca/research/innovation-partnerships/knowledge-mobilization/mobilizeu/"
+        ],
+        [
+          "Knowledge mobilization glossary",
+          "Canadian Institutes of Health Research (in French)",
+          "https://cihr-irsc.gc.ca/f/54014.html"
+        ],
+        [
+          "Patient engagement framework",
+          "CIHR, Strategy for Patient-Oriented Research (in French)",
+          "https://cihr-irsc.gc.ca/f/48413.html"
+        ],
+        [
+          "Guidelines for citizen participation",
+          "OECD, 2022",
+          "https://doi.org/10.1787/f765caf6-en"
+        ]
+      ]
+    },
+    bibliographie: {
+      "titre": "References (APA)",
+      "items": [
+        "Abelson, J., Forest, P.-G., Eyles, J., Smith, P., Martin, E., & Gauvin, F.-P. (2003). Deliberations about deliberative methods: Issues in the design and evaluation of public participation processes. Social Science & Medicine, 57(2), 239–251. https://doi.org/10.1016/S0277-9536(02)00343-X",
+        "Bayley, J. E., & Phipps, D. (2019). Building the concept of research impact literacy. Evidence & Policy, 15(4), 597–606. https://doi.org/10.1332/174426417X15034894876108",
+        "Bowen, S. J., & Graham, I. D. (2013). From knowledge translation to engaged scholarship: Promoting research relevance and utilization. Archives of Physical Medicine and Rehabilitation, 94(1 Suppl.), S3–S8. https://doi.org/10.1016/j.apmr.2012.04.037",
+        "Boyko, J. A., Lavis, J. N., Abelson, J., Dobbins, M., & Carter, N. (2012). Deliberative dialogues as a mechanism for knowledge translation and exchange in health systems decision-making. Social Science & Medicine, 75(11), 1938–1945. https://doi.org/10.1016/j.socscimed.2012.06.016",
+        "Brownson, R. C., Iwelunmor, J., Odeny, T. A., Proctor, E. K., & Geng, E. H. (2026). So what? Elevating the impact of implementation science. Implementation Science Communications, 7, 2. https://doi.org/10.1186/s43058-025-00831-9",
+        "Damschroder, L. J., Reardon, C. M., Widerquist, M. A. O., & Lowery, J. (2022). The updated Consolidated Framework for Implementation Research based on user feedback. Implementation Science, 17, 75. https://doi.org/10.1186/s13012-022-01245-0",
+        "Graham, I. D., Logan, J., Harrison, M. B., Straus, S. E., Tetroe, J., Caswell, W., & Robinson, N. (2006). Lost in knowledge translation: Time for a map? Journal of Continuing Education in the Health Professions, 26(1), 13–24. https://doi.org/10.1002/chp.47",
+        "Graham, I. D., McCutcheon, C., & Kothari, A. (2019). Exploring the frontiers of research co-production: The Integrated Knowledge Translation Research Network concept papers. Health Research Policy and Systems, 17, 88. https://doi.org/10.1186/s12961-019-0501-7",
+        "Greenhalgh, T., Raftery, J., Hanney, S., & Glover, M. (2016). Research impact: A narrative review. BMC Medicine, 14, 78. https://doi.org/10.1186/s12916-016-0620-8",
+        "Instituts de recherche en santé du Canada. (2014). Cadre d’engagement des patients de la Stratégie de recherche axée sur le patient. https://cihr-irsc.gc.ca/f/48413.html",
+        "Kirkness, V. J., & Barnhardt, R. (1991). First Nations and higher education: The four R’s—Respect, relevance, reciprocity, responsibility. Journal of American Indian Education, 30(3), 1–15.",
+        "Kislov, R., Pope, C., Martin, G. P., & Wilson, P. M. (2019). Harnessing the power of theorising in implementation science. Implementation Science, 14, 103. https://doi.org/10.1186/s13012-019-0957-4",
+        "Kothari, A., Sibbald, S. L., McCutcheon, C., Berta, W., Urquhart, R., Horsley, T., Comer, L., & Graham, I. D. (2025). How does integrated knowledge translation work? A realist review. Health Research Policy and Systems, 23, 102. https://doi.org/10.1186/s12961-025-01374-0",
+        "Lavis, J. N., Boyko, J. A., Oxman, A. D., Lewin, S., & Fretheim, A. (2009). SUPPORT Tools for evidence-informed health Policymaking (STP) 14: Organising and using policy dialogues to support evidence-informed policymaking. Health Research Policy and Systems, 7(Suppl. 1), S14. https://doi.org/10.1186/1478-4505-7-S1-S14",
+        "Morton, S. (2015). Progressing research impact assessment: A “contributions” approach. Research Evaluation, 24(4), 405–419. https://doi.org/10.1093/reseval/rvv016",
+        "OECD. (2022). OECD guidelines for citizen participation processes. OECD Publishing. https://doi.org/10.1787/f765caf6-en",
+        "Oliver, K., Kothari, A., & Mays, N. (2019). The dark side of coproduction: Do the costs outweigh the benefits for health research? Health Research Policy and Systems, 17, 33. https://doi.org/10.1186/s12961-019-0432-3",
+        "Proctor, E., Silmere, H., Raghavan, R., Hovmand, P., Aarons, G., Bunger, A., Griffey, R., & Hensley, M. (2011). Outcomes for implementation research: Conceptual distinctions, measurement challenges, and research agenda. Administration and Policy in Mental Health and Mental Health Services Research, 38(2), 65–76. https://doi.org/10.1007/s10488-010-0319-7",
+        "Réseau Impact Recherche Canada. (2026). MobilizeU : formation en mobilisation des connaissances. https://researchimpact.ca/learning/mobilizeu/",
+        "Staniszewska, S., Brett, J., Simera, I., Seers, K., Mockford, C., Goodlad, S., Altman, D. G., Moher, D., Barber, R., Denegri, S., Entwistle, A., Littlejohns, P., Morris, C., Suleman, R., Thomas, V., & Tysall, C. (2017). GRIPP2 reporting checklists: Tools to improve reporting of patient and public involvement in research. BMJ, 358, j3453. https://doi.org/10.1136/bmj.j3453",
+        "Ward, V. (2017). Why, whose, what and how? A framework for knowledge mobilisers. Evidence & Policy, 13(3), 477–497. https://doi.org/10.1332/174426416X14634763278725"
+      ]
+    },
     transfert: {
       titre: "Knowledge translation and implementation",
       detail: "Five stages",
@@ -1061,6 +1347,149 @@ const es = {
     surtitre: "03 · Implementación",
     titre: "Transferencia de conocimientos e implementación",
     intro: "Hacer circular los saberes entre las personas, los entornos de práctica y la investigación, y examinar después lo que realmente permiten cambiar.",
+    precision: "En mi tesis, la movilización de conocimientos acompaña la investigación: no es un estudio de implementación ni una evaluación de políticas.",
+    formation: {
+      "etiquette": "Formación continua · 2026",
+      "titre": "MobilizeU: movilizar los conocimientos de la investigación",
+      "texte": "Research Impact Canada y Universidad York. Una formación dedicada a los marcos de movilización de conocimientos, la planificación, las alianzas, la participación de los públicos, la comunicación y la evaluación del impacto.",
+      "themes": [
+        "Teorías, modelos y marcos",
+        "Planificación",
+        "Alianzas",
+        "Movilización inclusiva",
+        "Participación de los públicos",
+        "Comunicación científica",
+        "Impacto y evaluación"
+      ],
+      "lien": "https://researchimpact.ca/learning/mobilizeu/",
+      "lienTexte": "Descubrir MobilizeU"
+    },
+    plan: {
+      "titre": "En mi tesis: un plan de movilización de conocimientos",
+      "items": [
+        {
+          "nom": "Por qué, qué, para quién, cómo",
+          "texte": "El marco de Ward estructura el plan en cuatro preguntas. La secuencia de MobilizeU lo completa: precisar el qué, el porqué y el quién antes de elegir el cómo, los formatos y los canales.",
+          "ref": "Ward, 2017; Réseau Impact Recherche Canada, 2026"
+        },
+        {
+          "nom": "Del conocimiento a la acción",
+          "texte": "El modelo del conocimiento a la acción enmarca la producción, la adaptación, la comunicación y el seguimiento de los conocimientos, sin pretender garantizar su adopción duradera.",
+          "ref": "Graham et al., 2006"
+        },
+        {
+          "nom": "Alianzas basadas en las 4R",
+          "texte": "Respeto, pertinencia, reciprocidad y responsabilidad guían las alianzas con los pacientes y los entornos de práctica, apoyándose en el marco de participación de pacientes de los IRSC.",
+          "ref": "Kirkness y Barnhardt, 1991; IRSC, 2014; Bowen y Graham, 2013"
+        },
+        {
+          "nom": "Un diálogo deliberativo",
+          "texte": "Un taller deliberativo convierte los resultados en recomendaciones contextualizadas, con un retorno a los participantes. La participación se informa según GRIPP2.",
+          "ref": "Boyko et al., 2012; Lavis et al., 2009; Staniszewska et al., 2017"
+        },
+        {
+          "nom": "Seguir la contribución, no la atribución",
+          "texte": "Cuatro indicadores (producción, alcance, apropiación, uso documentado) y un registro permiten valorar la contribución plausible de la investigación, sin atribuirle los cambios posteriores.",
+          "ref": "Morton, 2015"
+        }
+      ]
+    },
+    cadres: {
+      "titre": "Referencias en ciencia de la implementación",
+      "items": [
+        {
+          "nom": "CFIR 2.0",
+          "texte": "Examinar el contexto y los determinantes que facilitan o frenan la implementación.",
+          "ref": "Damschroder et al., 2022"
+        },
+        {
+          "nom": "Resultados de implementación",
+          "texte": "Distinguir aceptabilidad, adopción, pertinencia, factibilidad, fidelidad, costo, penetración y sostenibilidad.",
+          "ref": "Proctor et al., 2011"
+        },
+        {
+          "nom": "Impacto de la investigación",
+          "texte": "Los marcos de impacto cartografían sobre todo el camino de ida, de la investigación a la práctica; mis trabajos examinan también el camino de vuelta.",
+          "ref": "Greenhalgh et al., 2016; Brownson et al., 2026"
+        },
+        {
+          "nom": "Enfoque por contribuciones",
+          "texte": "Vincular las producciones con los usos y después con los cambios documentados, examinando otras influencias posibles.",
+          "ref": "Morton, 2015; Bayley y Phipps, 2019"
+        },
+        {
+          "nom": "Coproducción y traslación integrada",
+          "texte": "Los mecanismos de coproducción dependen de la infraestructura, de la claridad de los roles y del reparto del poder; sus costos también cuentan.",
+          "ref": "Graham et al., 2019; Kothari et al., 2025; Oliver et al., 2019"
+        },
+        {
+          "nom": "Una ciencia de la implementación crítica",
+          "texte": "Teorizar en lugar de aplicar los marcos como listas de verificación.",
+          "ref": "Kislov et al., 2019"
+        },
+        {
+          "nom": "Participación y deliberación",
+          "texte": "Diseñar y evaluar procesos de participación pública que dejen constancia de su influencia.",
+          "ref": "Abelson et al., 2003; OCDE, 2022"
+        }
+      ]
+    },
+    ressources: {
+      "titre": "Recursos",
+      "items": [
+        [
+          "MobilizeU",
+          "Research Impact Canada",
+          "https://researchimpact.ca/learning/mobilizeu/"
+        ],
+        [
+          "MobilizeU en la Universidad York",
+          "Movilización de conocimientos",
+          "https://www.yorku.ca/research/innovation-partnerships/knowledge-mobilization/mobilizeu/"
+        ],
+        [
+          "Glosario de la movilización de conocimientos",
+          "Institutos de Investigación en Salud de Canadá (en francés)",
+          "https://cihr-irsc.gc.ca/f/54014.html"
+        ],
+        [
+          "Marco de participación de pacientes",
+          "IRSC, Estrategia de investigación orientada al paciente (en francés)",
+          "https://cihr-irsc.gc.ca/f/48413.html"
+        ],
+        [
+          "Directrices sobre participación ciudadana",
+          "OCDE, 2022",
+          "https://doi.org/10.1787/f765caf6-en"
+        ]
+      ]
+    },
+    bibliographie: {
+      "titre": "Referencias (APA)",
+      "items": [
+        "Abelson, J., Forest, P.-G., Eyles, J., Smith, P., Martin, E., & Gauvin, F.-P. (2003). Deliberations about deliberative methods: Issues in the design and evaluation of public participation processes. Social Science & Medicine, 57(2), 239–251. https://doi.org/10.1016/S0277-9536(02)00343-X",
+        "Bayley, J. E., & Phipps, D. (2019). Building the concept of research impact literacy. Evidence & Policy, 15(4), 597–606. https://doi.org/10.1332/174426417X15034894876108",
+        "Bowen, S. J., & Graham, I. D. (2013). From knowledge translation to engaged scholarship: Promoting research relevance and utilization. Archives of Physical Medicine and Rehabilitation, 94(1 Suppl.), S3–S8. https://doi.org/10.1016/j.apmr.2012.04.037",
+        "Boyko, J. A., Lavis, J. N., Abelson, J., Dobbins, M., & Carter, N. (2012). Deliberative dialogues as a mechanism for knowledge translation and exchange in health systems decision-making. Social Science & Medicine, 75(11), 1938–1945. https://doi.org/10.1016/j.socscimed.2012.06.016",
+        "Brownson, R. C., Iwelunmor, J., Odeny, T. A., Proctor, E. K., & Geng, E. H. (2026). So what? Elevating the impact of implementation science. Implementation Science Communications, 7, 2. https://doi.org/10.1186/s43058-025-00831-9",
+        "Damschroder, L. J., Reardon, C. M., Widerquist, M. A. O., & Lowery, J. (2022). The updated Consolidated Framework for Implementation Research based on user feedback. Implementation Science, 17, 75. https://doi.org/10.1186/s13012-022-01245-0",
+        "Graham, I. D., Logan, J., Harrison, M. B., Straus, S. E., Tetroe, J., Caswell, W., & Robinson, N. (2006). Lost in knowledge translation: Time for a map? Journal of Continuing Education in the Health Professions, 26(1), 13–24. https://doi.org/10.1002/chp.47",
+        "Graham, I. D., McCutcheon, C., & Kothari, A. (2019). Exploring the frontiers of research co-production: The Integrated Knowledge Translation Research Network concept papers. Health Research Policy and Systems, 17, 88. https://doi.org/10.1186/s12961-019-0501-7",
+        "Greenhalgh, T., Raftery, J., Hanney, S., & Glover, M. (2016). Research impact: A narrative review. BMC Medicine, 14, 78. https://doi.org/10.1186/s12916-016-0620-8",
+        "Instituts de recherche en santé du Canada. (2014). Cadre d’engagement des patients de la Stratégie de recherche axée sur le patient. https://cihr-irsc.gc.ca/f/48413.html",
+        "Kirkness, V. J., & Barnhardt, R. (1991). First Nations and higher education: The four R’s—Respect, relevance, reciprocity, responsibility. Journal of American Indian Education, 30(3), 1–15.",
+        "Kislov, R., Pope, C., Martin, G. P., & Wilson, P. M. (2019). Harnessing the power of theorising in implementation science. Implementation Science, 14, 103. https://doi.org/10.1186/s13012-019-0957-4",
+        "Kothari, A., Sibbald, S. L., McCutcheon, C., Berta, W., Urquhart, R., Horsley, T., Comer, L., & Graham, I. D. (2025). How does integrated knowledge translation work? A realist review. Health Research Policy and Systems, 23, 102. https://doi.org/10.1186/s12961-025-01374-0",
+        "Lavis, J. N., Boyko, J. A., Oxman, A. D., Lewin, S., & Fretheim, A. (2009). SUPPORT Tools for evidence-informed health Policymaking (STP) 14: Organising and using policy dialogues to support evidence-informed policymaking. Health Research Policy and Systems, 7(Suppl. 1), S14. https://doi.org/10.1186/1478-4505-7-S1-S14",
+        "Morton, S. (2015). Progressing research impact assessment: A “contributions” approach. Research Evaluation, 24(4), 405–419. https://doi.org/10.1093/reseval/rvv016",
+        "OECD. (2022). OECD guidelines for citizen participation processes. OECD Publishing. https://doi.org/10.1787/f765caf6-en",
+        "Oliver, K., Kothari, A., & Mays, N. (2019). The dark side of coproduction: Do the costs outweigh the benefits for health research? Health Research Policy and Systems, 17, 33. https://doi.org/10.1186/s12961-019-0432-3",
+        "Proctor, E., Silmere, H., Raghavan, R., Hovmand, P., Aarons, G., Bunger, A., Griffey, R., & Hensley, M. (2011). Outcomes for implementation research: Conceptual distinctions, measurement challenges, and research agenda. Administration and Policy in Mental Health and Mental Health Services Research, 38(2), 65–76. https://doi.org/10.1007/s10488-010-0319-7",
+        "Réseau Impact Recherche Canada. (2026). MobilizeU : formation en mobilisation des connaissances. https://researchimpact.ca/learning/mobilizeu/",
+        "Staniszewska, S., Brett, J., Simera, I., Seers, K., Mockford, C., Goodlad, S., Altman, D. G., Moher, D., Barber, R., Denegri, S., Entwistle, A., Littlejohns, P., Morris, C., Suleman, R., Thomas, V., & Tysall, C. (2017). GRIPP2 reporting checklists: Tools to improve reporting of patient and public involvement in research. BMJ, 358, j3453. https://doi.org/10.1136/bmj.j3453",
+        "Ward, V. (2017). Why, whose, what and how? A framework for knowledge mobilisers. Evidence & Policy, 13(3), 477–497. https://doi.org/10.1332/174426416X14634763278725"
+      ]
+    },
     transfert: {
       titre: "Transferencia de conocimientos e implementación",
       detail: "Cinco tiempos",
