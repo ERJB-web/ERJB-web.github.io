@@ -703,7 +703,7 @@ const LECTURES = require("./lectures.json").themes;
 const LECTURES_TITRE = { fr: "Lectures", en: "Readings", es: "Lecturas", zh: "阅读文献", ar: "قراءات" };
 function sectionLectures(c, R, mode) {
   const l = LECTURES_TITRE[c.lang] ? c.lang : "en";
-  const garder = (x) => (mode === "grise") === GRISE.test(x.apa);
+  const garder = (x) => (mode === "grise") === (x.grise === true || GRISE.test(x.apa));
   const THEMES = LECTURES.map((t) => ({ ...t, lectures: t.lectures.filter(garder) })).filter((t) => t.lectures.length);
   const total = THEMES.reduce((n, t) => n + t.lectures.length, 0);
   const ref = (x) => { const t = e(x.apa); return `<li>${x.lien ? t.replace(e(x.lien), `<a href="${e(x.lien)}" rel="noopener">${e(x.lien.replace("https://doi.org/", "doi:"))}</a>`) : t}</li>`; };
