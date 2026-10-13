@@ -1174,18 +1174,16 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 /* Petites portes : au-delà de 5, deux rangées égales */
 .salle-onglets{grid-template-columns:repeat(var(--colonnes,4),minmax(0,1fr))}
 @media (max-width:700px){.salle-onglets{grid-template-columns:repeat(2,minmax(0,1fr))}}
-/* Hall : deux sous-portes par ligne, leur base alignée avec la porte. */
-.portes{align-items:stretch;grid-auto-rows:1fr}
-.porte{--largeur-porte:150px;position:relative;min-height:calc(var(--largeur-porte) / .62 + 55.5px);grid-template-columns:var(--largeur-porte) minmax(0,1fr);grid-template-rows:auto auto minmax(0,1fr) auto;gap:8px 12px;padding:12px 4px}
-.porte-texte{display:contents}
-.porte .baie{position:absolute;inset:0;grid-column:1;grid-row:1 / 4;width:var(--largeur-porte);aspect-ratio:auto;min-height:0;overflow:hidden}
+/* Hall : portes identiques et proportionnées, texte sans espaces forcés. */
+.portes{align-items:start;grid-auto-rows:auto;gap:16px}
+.porte{--largeur-porte:154px;min-height:0;grid-template-columns:var(--largeur-porte) minmax(0,1fr);grid-template-rows:auto;gap:12px;padding:8px 4px;align-items:start}
+.porte-texte{display:flex;flex-direction:column;gap:8px;grid-column:2;grid-row:1;align-self:start;padding-top:0}
+.porte .baie{position:relative;inset:auto;grid-column:1;grid-row:1;width:var(--largeur-porte);height:auto;aspect-ratio:.62;min-height:0;overflow:hidden}
 .porte .ouverture{perspective:1800px}
-.porte .plaque{grid-column:2;grid-row:1;min-height:0}
-.porte .legende{grid-column:2;grid-row:2}
-.porte .sous-portes{grid-column:2;grid-row:3;align-self:end;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:stretch;margin-top:0}
-.porte[data-salle=recherche] .sous-portes{grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr)}
-.porte .sous-portes span{display:inline-grid;grid-template-columns:8px minmax(0,1fr);gap:2px;min-width:0;max-width:100%;justify-self:start;padding:3px;line-height:1.35;hyphens:auto;overflow-wrap:anywhere}
-.porte .entrer{grid-column:2;grid-row:4;margin-top:0}
-@media (max-width:1100px){.porte{--largeur-porte:118px}}
-@media (max-width:700px){.portes{grid-template-columns:1fr}.porte{--largeur-porte:92px}}
-@media (max-width:380px){.porte{--largeur-porte:72px;column-gap:10px;padding-inline:4px}.porte .sous-portes span{padding-inline:5px}}
+.porte .plaque{min-height:0}
+.porte .sous-portes{align-self:stretch;display:grid;grid-template-columns:repeat(2,minmax(min-content,max-content));align-items:stretch;margin-top:0}
+.porte .sous-portes span{display:inline-flex;gap:2px;min-width:0;max-width:100%;justify-self:start;padding:3px;line-height:1.35;hyphens:none;overflow-wrap:normal}
+.porte .entrer{margin-top:0}
+@media (max-width:1100px){.porte{--largeur-porte:121px}}
+@media (max-width:700px){.portes{grid-template-columns:1fr}.porte{--largeur-porte:94px}}
+@media (max-width:380px){.porte{--largeur-porte:74px;column-gap:10px;padding-inline:4px}.porte .sous-portes span{padding-inline:5px}}
