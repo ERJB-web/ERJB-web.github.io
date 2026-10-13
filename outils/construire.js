@@ -17,7 +17,7 @@ const VERSION_CSS = empreinte("assets/site.css");
 const VERSION_JS = empreinte("assets/site.js");
 const URL = "https://erjb-web.github.io/";
 const TELEPHONE = ["(263) 384-3050", "+12633843050"];
-const SALLES = ["recherche", "conceptualisation", "approche", "valeurs", "implantation", "ressources", "publications", "biographie", "parcours", "engagements"];
+const SALLES = ["recherche", "conceptualisation", "publications", "approche", "implantation", "parcours", "engagements", "biographie", "valeurs", "ressources"];
 
 let typoFr = false;
 const e = (s) => {
@@ -751,7 +751,7 @@ ${LANGUES.filter((l) => l.hreflang).map((l) => `<link rel="alternate" hreflang="
 <a class="evitement" href="#contenu">${e(c.ui.evitement)}</a>
 <header class="entete">
 <a class="marque" href="${p || "./"}"><img class="marque-portrait" src="${p}assets/portrait-mini.jpg?v=${empreinte("assets/portrait-mini.jpg")}" alt="" width="44" height="44"><span><strong>Éric Bernier</strong><small>${e(c.ui.sousTitre)}</small></span></a>
-<nav class="nav" aria-label="${e(c.ui.navigation)}">${c.nav.map(([id, t]) => `<a href="#${id}">${e(t)}</a>`).join("")}</nav>
+<nav class="nav" aria-label="${e(c.ui.navigation)}">${[...SALLES, "contact"].map((id) => c.nav.find((x) => x[0] === id)).filter(Boolean).map(([id, t]) => `<a href="#${id}">${e(t)}</a>`).join("")}</nav>
 <div class="outils">
 ${menuLangues(c, c.lang)}
 ${menuAcces(c, c.lang)}
