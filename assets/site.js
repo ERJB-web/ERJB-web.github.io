@@ -186,7 +186,7 @@
     ev.preventDefault();
     entrer(id);
   });
-  if (ordre.includes(location.hash.slice(1))) entrer(location.hash.slice(1));
+  if (ordre.includes(location.hash.slice(1))) history.replaceState(null, "", location.pathname + location.search);
   $("#visite").addEventListener("click", () => entrer(ordre[0]));
   $("[data-retour]", salle).addEventListener("click", () => sortir());
   $("[data-suivante]", salle).addEventListener("click", () => {
