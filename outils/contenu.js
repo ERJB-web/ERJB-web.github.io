@@ -143,7 +143,7 @@ const fr = {
     "consigne": "Cliquez sur une porte pour entrer",
     "portes": {
       "recherche": [
-        "La recherche",
+        "Ma thèse",
         "Thèse et travaux en cours"
       ],
       "conceptualisation": [
@@ -1704,7 +1704,7 @@ const en = {
     "consigne": "Click a door to step in",
     "portes": {
       "recherche": [
-        "Research",
+        "My thesis",
         "Thesis and work in progress"
       ],
       "conceptualisation": [
@@ -3265,7 +3265,7 @@ const es = {
     "consigne": "Haga clic en una puerta para entrar",
     "portes": {
       "recherche": [
-        "La investigación",
+        "Mi tesis",
         "Tesis y trabajos en curso"
       ],
       "conceptualisation": [
