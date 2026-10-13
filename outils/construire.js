@@ -207,6 +207,7 @@ const ICONES = {
   coeur: '<path d="M12 20s-7.5-4.6-7.5-10.1A4.4 4.4 0 0 1 12 7.4a4.4 4.4 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20Z"/>',
   chemin: '<path d="M8 21 11 3M16 21 13 3M12 7v2M12 13v2"/>',
   enveloppe: '<rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/>',
+  telephone: '<path d="M6.6 3.5h2.6l1.4 3.8-1.9 1.3a11.5 11.5 0 0 0 6.7 6.7l1.3-1.9 3.8 1.4v2.6a1.8 1.8 0 0 1-2 1.8A16.5 16.5 0 0 1 4.8 5.5a1.8 1.8 0 0 1 1.8-2z"/>',
   info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/>',
   maison: '<path d="M3 11 12 3.5 21 11M5.5 9v11.5h13V9M10 20.5v-6h4v6"/>',
   argent: '<circle cx="12" cy="12" r="8.5"/><path d="M14.8 9.2c-.5-.9-1.5-1.4-2.8-1.4-1.7 0-2.8.8-2.8 2.1 0 2.9 5.6 1.5 5.6 4.3 0 1.3-1.2 2.1-2.8 2.1-1.4 0-2.5-.6-3-1.6M12 6.2v1.6M12 16.4V18"/>',
@@ -948,7 +949,7 @@ ${LANGUES.filter((l) => l.hreflang).map((l) => `<link rel="alternate" hreflang="
 <a class="evitement" href="#contenu">${e(c.ui.evitement)}</a>
 <header class="entete">
 <a class="marque" href="${p || "./"}"><img class="marque-portrait" src="${p}assets/portrait-mini.jpg?v=${empreinte("assets/portrait-mini.jpg")}" alt="" width="44" height="44"><span><strong>Éric Bernier</strong><small>${e(c.ui.sousTitre)}</small></span></a>
-<p class="coordonnees coordonnees-haut"><a href="mailto:${e(c.contact.courriel)}">${e(c.contact.courriel)}</a><a href="tel:${TELEPHONE[1]}">${TELEPHONE[0]}</a></p>
+<p class="coordonnees coordonnees-haut"><a href="mailto:${e(c.contact.courriel)}">${icone("enveloppe")}${e(c.contact.courriel)}</a><a href="tel:${TELEPHONE[1]}">${icone("telephone")}${TELEPHONE[0]}</a></p>
 <nav class="nav" aria-label="${e(c.ui.navigation)}">${GROUPES.map(([g, ss]) => `<a href="#${ss[0] || g}">${e(texteGroupe(c, g)[0])}</a>`).join("")}</nav>
 <div class="outils">
 ${menuLangues(c, c.lang)}
@@ -992,8 +993,8 @@ ${sections[s].replace(/<p class="surtitre">(\d{2} · )?/, `<p class="surtitre">$
 <h2>${e(c.contact.titre)}</h2>
 <p class="intro">${e(c.contact.intro)}</p>
 <div class="contact-actions"><a class="primaire" href="mailto:${e(c.contact.courriel)}">${e(c.contact.ecrire)} <span aria-hidden="true">→</span></a><a class="primaire secondaire" href="${BOOKINGS}" rel="noopener" target="_blank">${e(textesTransmission(c).rdv)} <span aria-hidden="true">↗</span></a></div>
-<p class="courriel"><a href="mailto:${e(c.contact.courriel)}">${e(c.contact.courriel)}</a></p>
-<p class="courriel"><a href="tel:${TELEPHONE[1]}">${TELEPHONE[0]}</a></p>
+<p class="courriel"><a href="mailto:${e(c.contact.courriel)}">${icone("enveloppe")}${e(c.contact.courriel)}</a></p>
+<p class="courriel"><a href="tel:${TELEPHONE[1]}">${icone("telephone")}${TELEPHONE[0]}</a></p>
 <p class="note">${e(c.contact.adresse)}</p>
 </div>
 <div class="colonne-outils"><ul class="liens-contact">${c.contact.liens
