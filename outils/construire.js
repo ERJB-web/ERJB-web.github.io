@@ -85,6 +85,24 @@ function liste(items) {
     .join("")}</ul>`;
 }
 
+let BIBLIO = [];
+const NOMS_INSTITUTIONS = { IRSC: "Instituts de recherche en santé du Canada", CIHR: "Instituts de recherche en santé du Canada" };
+function lierCitations(html) {
+  return html.replace(/\(([^()]*\d{4}[^()]*)\)/g, (tout, dedans) => {
+    const sep = dedans.includes("；") ? "；" : dedans.includes("؛") ? "؛ " : " ; ";
+    const parties = dedans.split(/\s*[;；؛]\s*/).map((cit) => {
+      const m = cit.match(/^(.+?)\s*[,،，]\s*(\d{4})$/);
+      if (!m) return cit;
+      const nom = m[1].replace(/\s+(et al\.|&amp;.*|et .*|and .*|y .*|和.*|و.*)$/, "").trim();
+      const cible = NOMS_INSTITUTIONS[nom] || nom;
+      const ref = BIBLIO.find((x) => x.startsWith(cible) && x.includes(`(${m[2]}`));
+      const url = ref && (ref.match(/https?:\/\/\S+$/) || [])[0];
+      return url ? `<a class="citation-lien" href="${url}" target="_blank" rel="noopener">${cit}</a>` : cit;
+    });
+    return "(" + parties.join(sep) + ")";
+  });
+}
+
 function tableOnglets(titre, detail, etapes, terminus = "") {
   return `<div class="table" data-onglets>
 <div class="table-tete"><span>${e(titre)}</span><span>${e(detail)}</span></div>
@@ -94,7 +112,7 @@ function tableOnglets(titre, detail, etapes, terminus = "") {
 ${etapes
   .map(
     ([, , titreVolet, texte, tags], i) =>
-      `<div class="volet" role="tabpanel" data-volet="${i}"${i ? " hidden" : ""}><h3>${e(titreVolet)}</h3><p>${e(texte)}</p>${etiquettes(tags)}</div>`
+      `<div class="volet" role="tabpanel" data-volet="${i}"${i ? " hidden" : ""}><h3>${e(titreVolet)}</h3><p>${lierCitations(e(texte))}</p>${etiquettes(tags)}</div>`
   )
   .join("")}
 ${terminus ? `<p class="terminus">${e(terminus)}</p>` : ""}
@@ -363,6 +381,7 @@ ${ici === "falc" ? `<span aria-current="page" lang="fr">${drapeau("falc")}<span>
 }
 
 function page(c) {
+  BIBLIO = c.implantation.bibliographie.items;
   typoFr = c.lang === "fr";
   const p = c.chemin;
   const ici = URL + LANGUES.find((l) => l.code === c.lang).dossier;
