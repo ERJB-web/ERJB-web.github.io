@@ -48,6 +48,9 @@
     const r = $(".ouverture", porte).getBoundingClientRect();
     const passage = document.createElement("div");
     passage.className = "passage";
+    const teinte = getComputedStyle(porte);
+    const g1 = teinte.getPropertyValue("--c1").trim();
+    passage.style.background = `linear-gradient(160deg, ${g1}, ${teinte.getPropertyValue("--c2").trim() || g1})`;
     Object.assign(passage.style, { left: r.left + "px", top: r.top + "px", width: r.width + "px", height: r.height + "px" });
     document.body.append(passage);
     if (!reduit && passage.animate) {
@@ -129,6 +132,8 @@
     const r = bouton.querySelector(".ouverture").getBoundingClientRect();
     const passage = document.createElement("div");
     passage.className = "passage";
+    const c1 = bouton.style.getPropertyValue("--c1").trim();
+    passage.style.background = `linear-gradient(160deg, ${c1}, color-mix(in srgb, ${c1} 70%, #000))`;
     Object.assign(passage.style, { left: r.left + "px", top: r.top + "px", width: r.width + "px", height: r.height + "px" });
     document.body.append(passage);
     if (!reduit && passage.animate) {
