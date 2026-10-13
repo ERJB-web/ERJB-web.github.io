@@ -2,7 +2,7 @@
  "fr": {
   "juriste": {
    "salle": [
-    "Droit",
+    "Expertise juridique",
     "Droit de la santé et droit social"
    ],
    "surtitre": "Parcours",
@@ -67,7 +67,7 @@
   },
   "gestionnaire": {
    "salle": [
-    "Gestion",
+    "Capacités de gestion",
     "Direction et gestion des établissements"
    ],
    "surtitre": "Parcours",
@@ -129,7 +129,7 @@
   },
   "educateur": {
    "salle": [
-    "Éducation spécialisée",
+    "Pratiques de l’éducation spécialisée",
     "Accompagnement et autodétermination"
    ],
    "surtitre": "Parcours",
@@ -262,7 +262,7 @@
  "en": {
   "juriste": {
    "salle": [
-    "Law",
+    "Legal expertise",
     "Health law and social law"
    ],
    "surtitre": "Background",
@@ -327,7 +327,7 @@
   },
   "gestionnaire": {
    "salle": [
-    "Management",
+    "Management skills",
     "Leading and managing facilities"
    ],
    "surtitre": "Background",
@@ -389,7 +389,7 @@
   },
   "educateur": {
    "salle": [
-    "Special education",
+    "Special education practices",
     "Support and self-determination"
    ],
    "surtitre": "Background",
@@ -522,7 +522,7 @@
  "es": {
   "juriste": {
    "salle": [
-    "Derecho",
+    "Experiencia jurídica",
     "Derecho de la salud y derecho social"
    ],
    "surtitre": "Trayectoria",
@@ -587,7 +587,7 @@
   },
   "gestionnaire": {
    "salle": [
-    "Gestión",
+    "Capacidades de gestión",
     "Dirección y gestión de establecimientos"
    ],
    "surtitre": "Trayectoria",
@@ -649,7 +649,7 @@
   },
   "educateur": {
    "salle": [
-    "Educación especializada",
+    "Prácticas de educación especializada",
     "Acompañamiento y autodeterminación"
    ],
    "surtitre": "Trayectoria",
@@ -782,7 +782,7 @@
  "zh": {
   "juriste": {
    "salle": [
-    "法律",
+    "法律专长",
     "卫生法与社会法"
    ],
    "surtitre": "经历",
@@ -847,7 +847,7 @@
   },
   "gestionnaire": {
    "salle": [
-    "管理",
+    "管理能力",
     "机构的领导与管理"
    ],
    "surtitre": "经历",
@@ -909,7 +909,7 @@
   },
   "educateur": {
    "salle": [
-    "特殊教育",
+    "特殊教育实践",
     "陪伴与自我决定"
    ],
    "surtitre": "经历",
@@ -1042,7 +1042,7 @@
  "ar": {
   "juriste": {
    "salle": [
-    "القانون",
+    "الخبرة القانونية",
     "قانون الصحة والقانون الاجتماعي"
    ],
    "surtitre": "المسار",
@@ -1107,7 +1107,7 @@
   },
   "gestionnaire": {
    "salle": [
-    "التسيير",
+    "القدرات الإدارية",
     "إدارة المؤسسات وتسييرها"
    ],
    "surtitre": "المسار",
@@ -1169,7 +1169,7 @@
   },
   "educateur": {
    "salle": [
-    "التربية المتخصصة",
+    "ممارسات التربية المتخصصة",
     "المرافقة وتقرير المصير"
    ],
    "surtitre": "المسار",
