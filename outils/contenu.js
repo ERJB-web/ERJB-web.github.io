@@ -58,7 +58,9 @@ const fr = {
   nav: [
     ["recherche", "Recherche"],
     ["approche", "Approche"],
+    ["implantation", "Implantation"],
     ["publications", "Publications"],
+    ["biographie", "Biographie"],
     ["parcours", "Parcours"],
     ["engagements", "Engagements"],
     ["contact", "Contact"],
@@ -69,20 +71,22 @@ const fr = {
     chapeau:
       "Une même attention aux personnes, à leurs droits et aux services qui les accompagnent. Mon parcours croise la pratique éducative, le droit public et la recherche en systèmes, organisations et politiques de santé.",
     encadrement:
-      "Thèse codirigée par Nadia Sourial et Géraldine Layani · Chaire de recherche GSK en gestion optimale des maladies chroniques · CRCHUM · Boursier FRQ (B2)",
+      "Thèse codirigée par les Dres Nadia Sourial, Ph. D., et Géraldine Layani, M.D. · Chaire de recherche GSK en gestion optimale des maladies chroniques · CRCHUM · Boursier FRQ (B2)",
     visite: "Commencer la visite",
     explorer: "Explorer librement",
     portrait: "Portrait d’Éric Bernier",
   },
   hall: {
     titre: "Le hall",
-    compte: "5 portes",
+    compte: "7 portes",
     consigne: "Cliquez sur une porte pour entrer",
     portes: {
       recherche: ["La recherche", "Thèse et travaux en cours"],
-      approche: ["L’approche", "Posture, méthodes, transfert, valeurs"],
+      approche: ["L’approche", "Posture, méthodes, axes, valeurs"],
+      implantation: ["Implantation", "Transfert de connaissances et implantation"],
       publications: ["Publications", "Communications, mémoires, outils"],
-      parcours: ["Le parcours", "Un parcours atypique"],
+      biographie: ["Biographie", "Une histoire, plusieurs vies"],
+      parcours: ["Le parcours", "Formations et expériences"],
       engagements: ["Engagements", "Représentation, enseignement, distinctions"],
     },
   },
@@ -105,8 +109,8 @@ const fr = {
       titre: "Codirection",
       profil: "Profil CRCHUM",
       personnes: [
-        { nom: "Nadia Sourial", grade: "Ph. D.", lignes: ["Professeure adjointe, Département de gestion, d’évaluation et de politique de santé, École de santé publique, Université de Montréal", "Chercheuse régulière au CRCHUM, Carrefour de l’innovation"], chaire: "Cotitulaire de la Chaire de recherche GSK en gestion optimale des maladies chroniques", lien: CRCHUM_SOURIAL },
-        { nom: "Géraldine Layani", grade: "M.D., M. Sc.", lignes: ["Médecin de famille, GMF-U Notre-Dame, Montréal", "Professeure adjointe de clinique, Département de médecine de famille et de médecine d’urgence, Université de Montréal", "Chercheuse régulière au CRCHUM, Carrefour de l’innovation"], chaire: "Cotitulaire de la Chaire de recherche GSK en gestion optimale des maladies chroniques", lien: CRCHUM_LAYANI },
+        { nom: "Dre Nadia Sourial", grade: "Ph. D.", lignes: ["Professeure adjointe, Département de gestion, d’évaluation et de politique de santé, École de santé publique, Université de Montréal", "Chercheuse régulière au CRCHUM, Carrefour de l’innovation"], chaire: "Cotitulaire de la Chaire de recherche GSK en gestion optimale des maladies chroniques", lien: CRCHUM_SOURIAL },
+        { nom: "Dre Géraldine Layani", grade: "M.D., M. Sc.", lignes: ["Médecin de famille, GMF-U Notre-Dame, Montréal", "Professeure adjointe de clinique, Département de médecine de famille et de médecine d’urgence, Université de Montréal", "Chercheuse régulière au CRCHUM, Carrefour de l’innovation"], chaire: "Cotitulaire de la Chaire de recherche GSK en gestion optimale des maladies chroniques", lien: CRCHUM_LAYANI },
       ],
     },
     affiche: ["Voir l’affiche du projet", "Version accessible : français, anglais, daltonisme, écoute", AFFICHE],
@@ -167,24 +171,28 @@ const fr = {
       ["Méthodes mixtes", "Analyses quantitatives et qualitatives intégrées : analyse de réseaux, régressions, analyse thématique, analyse documentaire et cartographie, réunies dans des tableaux d’intégration."],
       ["Pluridisciplinarité", "Santé publique, droit, gestion, sciences politiques et intervention sociale : des regards qui se répondent pour analyser un même système."],
     ],
-    outils: { titre: "Outils", items: ["Positron (R)", "NVivo", "QGIS"] },
+    outils: {
+      titre: "Boîte à outils",
+      groupes: [
+        ["Analyse de données", ["Positron (R)", "Python", "NVivo", "QGIS", "Excel"]],
+        ["Collaboration et animation", ["Miro", "Klaxoon", "Canva"]],
+        ["Bureautique et IA", ["Office 365", "Intelligence artificielle"]],
+      ],
+    },
+    expertises: {
+      titre: "Expertises",
+      items: [
+        ["Méthodologie et évaluation de projet", "Concevoir, piloter et évaluer des projets : devis, indicateurs, outils d’aide à la décision et conduite du changement."],
+        ["Handicap", "Accompagnement éducatif, autodétermination et adaptation des services, du foyer d’hébergement aux séjours adaptés."],
+        ["Autisme", "Accompagnement éducatif des personnes autistes et adaptation des services à leurs besoins."],
+        ["Accompagnement des personnes aînées", "Vieillissement, perte d’autonomie, maintien à domicile et handicap vieillissant, de la pratique à la recherche."],
+      ],
+    },
     axes: {
       titre: "Axes de travaux",
       principaux: ["Gouvernance et évaluation des politiques de santé", "Approche intersectorielle en première ligne", "Vieillissement, perte d’autonomie et politiques du maintien à domicile"],
       secondairesTitre: "Axes secondaires",
       secondaires: ["Planification juridique, analyse doctrinale et droit de la santé", "Performance, conduite du changement et pilotage des organisations", "Analyse comparée des systèmes de santé"],
-    },
-    transfert: {
-      titre: "Transfert de connaissances et implantation",
-      detail: "Cinq temps",
-      etapes: [
-        ["Écouter", "Construire la question avec les milieux", "Repérer les besoins et les décisions à éclairer. Préciser qui participe, à quel moment et avec quelle influence.", ["Besoins", "Participation"]],
-        ["Faire circuler", "Contextualiser les savoirs", "Mettre en dialogue la recherche et les savoirs d’expérience. Adapter le format, le langage et le contenu aux usages visés.", ["Savoirs d’expérience", "Formats adaptés"]],
-        ["Coconstruire", "Discuter les options et les choix", "Consulter recueille des avis ; coconstruire, c’est élaborer ensemble ; délibérer, c’est examiner des arguments et des arbitrages. Documenter l’influence réelle des contributions.", ["Coconstruction", "Délibération"]],
-        ["Implanter", "Accompagner la mise en œuvre", "Examiner le contexte, les ressources et les obstacles. Préciser les acteurs, les adaptations et les stratégies d’accompagnement, avec des cadres comme le CFIR.", ["Implantation", "CFIR"]],
-        ["Évaluer", "Distinguer produire, utiliser et changer", "Un outil diffusé est une production. Son adoption est un résultat d’implantation. Les changements pour les services et les personnes sont d’autres résultats à documenter.", ["Évaluation", "Impact"]],
-      ],
-      note: "Formé à la mobilisation des connaissances (MobilizeU, Research Impact Canada et Université York, 2026).",
     },
     valeurs: {
       titre: "Mes valeurs",
@@ -199,8 +207,25 @@ const fr = {
       ],
     },
   },
+  implantation: {
+    surtitre: "03 · Implantation",
+    titre: "Transfert de connaissances et implantation",
+    intro: "Faire circuler les savoirs entre les personnes, les milieux de pratique et la recherche, puis examiner ce qu’ils permettent réellement de changer.",
+    transfert: {
+      titre: "Transfert de connaissances et implantation",
+      detail: "Cinq temps",
+      etapes: [
+        ["Écouter", "Construire la question avec les milieux", "Repérer les besoins et les décisions à éclairer. Préciser qui participe, à quel moment et avec quelle influence.", ["Besoins", "Participation"]],
+        ["Faire circuler", "Contextualiser les savoirs", "Mettre en dialogue la recherche et les savoirs d’expérience. Adapter le format, le langage et le contenu aux usages visés.", ["Savoirs d’expérience", "Formats adaptés"]],
+        ["Coconstruire", "Discuter les options et les choix", "Consulter recueille des avis ; coconstruire, c’est élaborer ensemble ; délibérer, c’est examiner des arguments et des arbitrages. Documenter l’influence réelle des contributions.", ["Coconstruction", "Délibération"]],
+        ["Implanter", "Accompagner la mise en œuvre", "Examiner le contexte, les ressources et les obstacles. Préciser les acteurs, les adaptations et les stratégies d’accompagnement, avec des cadres comme le CFIR.", ["Implantation", "CFIR"]],
+        ["Évaluer", "Distinguer produire, utiliser et changer", "Un outil diffusé est une production. Son adoption est un résultat d’implantation. Les changements pour les services et les personnes sont d’autres résultats à documenter.", ["Évaluation", "Impact"]],
+      ],
+      note: "Formé à la mobilisation des connaissances (MobilizeU, Research Impact Canada et Université York, 2026).",
+    },
+  },
   publications: {
-    surtitre: "03 · Publications",
+    surtitre: "04 · Publications",
     titre: "Communications, mémoires et outils",
     intro: "Chaque travail garde son titre original, ses auteurs et son statut. Les manuscrits en cours sont présentés dans la salle La recherche.",
     groupes: [
@@ -229,15 +254,25 @@ const fr = {
       },
     ],
   },
-  parcours: {
-    surtitre: "04 · Le parcours",
-    titre: "Un parcours atypique",
-    sousTitre: "Du terrain aux politiques de santé",
-    bio: [
-      "Mon parcours n’a rien de linéaire : un parcours en aide sociale à l’enfance en France, une déscolarisation à 16 ans, une neuroatypie. J’ai suivi une licence en musicologie, puis travaillé dans l’animation et comme responsable de séjours adaptés.",
-      "Une remise en question de mon rapport à la société et de l’utilité sociale m’a conduit à reprendre mes études. La formation d’éducateur spécialisé m’a permis d’intégrer la santé de façon professionnelle. Mon mémoire sur l’influence des pratiques éducatives sur l’autodétermination a montré les limites de la pratique : je suis allé voir en gestion comment agir autrement.",
-      "La gestion avait aussi ses limites : planification, droit, financement. J’ai poursuivi à l’Université Paris Panthéon-Assas et à l’Agence nationale d’appui à la performance, au contact de l’organisation centrale, de la planification, du droit, des sciences politiques et de la gouvernance. Le doctorat en santé publique réunit aujourd’hui ces regards, avec une même volonté : innover et proposer. Je la prolonge en créant OWNNIGHT, comme entrepreneur.",
+  biographie: {
+    surtitre: "05 · Biographie",
+    titre: "Chaque étape est née des limites de la précédente",
+    intro: "Éducateur spécialisé, juriste et doctorant en santé publique : mon parcours n’a rien de linéaire, et c’est précisément ce qui lui donne sa cohérence.",
+    chapitres: [
+      ["Partir de l’expérience", "J’ai connu l’aide sociale à l’enfance, en France, puis j’ai quitté l’école à 16 ans. Ma neuroatypie m’a appris tôt à apprendre autrement, à chercher mes propres chemins et à ne pas renoncer. De ce point de départ, je garde une conviction qui guide encore mon travail : une politique publique se juge à ce qu’elle change concrètement dans la vie des personnes."],
+      ["La musique, puis le terrain", "Les études sont revenues par la musique, avec une licence en musicologie : l’écoute, la rigueur et la persévérance du travail patient. En parallèle, l’animation puis la responsabilité de séjours adaptés pour des personnes en situation de handicap m’ont appris à organiser, à encadrer des équipes et à partir des besoins de chaque personne."],
+      ["Le choix de l’utilité sociale", "Une remise en question est venue ensuite : quel est mon rapport à la société, et à quoi suis-je utile ? J’ai repris mes études pour devenir éducateur spécialisé et entrer dans le champ de la santé par la pratique professionnelle."],
+      ["Des limites de la pratique à la gestion", "Mon mémoire d’éducateur portait sur l’influence des pratiques éducatives sur l’autodétermination. Il m’a montré une limite : sans organisation adaptée, la meilleure pratique bute sur le cadre. Je suis donc allé voir du côté de la gestion, avec une maîtrise en direction d’établissements de santé et un diplôme universitaire en entrepreneuriat."],
+      ["Du droit à la gouvernance", "La gestion a révélé à son tour ses limites : la planification, le droit et le financement se décident souvent plus haut. J’ai poursuivi à l’Université Paris Panthéon-Assas, en droit public, droit social et droit de la santé, puis à l’Agence nationale d’appui à la performance, au plus près de l’organisation centrale, de la planification, des sciences politiques et de la gouvernance."],
+      ["Chercher pour proposer", "Le doctorat en santé publique, à Montréal, réunit aujourd’hui ces regards : le terrain, la gestion, le droit et la gouvernance. Je n’y cherche pas seulement à comprendre ; je veux innover et proposer des réponses mieux organisées pour les personnes dont les besoins traversent plusieurs secteurs. Le même élan me pousse à entreprendre, avec la création d’OWNNIGHT."],
     ],
+    conclusion: "Per aspera ad astra : par des sentiers ardus jusqu’aux étoiles.",
+  },
+  parcours: {
+    surtitre: "06 · Le parcours",
+    titre: "Formations et expériences",
+    sousTitre: "Du terrain aux politiques de santé",
+    intro: "De l’éducation spécialisée au doctorat : les diplômes, les postes et les formations qui jalonnent le parcours.",
     types: { formation: "Formation", experience: "Expérience", entreprise: "Entrepreneuriat" },
     etapes: [
       { date: "En cours", type: "entreprise", titre: "Création d’OWNNIGHT · entrepreneur", detail: "Application Android de bien-être et d’éducation au sommeil : plan individualisé, leçons et séances guidées. Les données restent sur le téléphone, sans compte." },
@@ -261,7 +296,7 @@ const fr = {
     note: "Diplômes français évalués par le MIFI (Québec) et WES Canada.",
   },
   engagements: {
-    surtitre: "05 · Engagements",
+    surtitre: "07 · Engagements",
     titre: "Représenter, enseigner, contribuer",
     intro: "Une présence dans la vie étudiante et scientifique, en continuité avec le parcours.",
     groupes: [
@@ -334,7 +369,7 @@ const fr = {
     adresse: "École de santé publique de l’Université de Montréal · 7101, avenue du Parc, Montréal (Québec)",
   },
   pied: "© 2026 Éric Bernier · Site sans témoins ni mesure d’audience.",
-  credits: "Images des portes : photographies Unsplash ; amphithéâtre et atelier participatif générés pour le site.",
+  credits: "Images des portes : photographies Unsplash et portrait d’Éric Bernier ; amphithéâtre, assemblée et atelier participatif générés pour le site.",
   introuvable: { titre: "Page introuvable", texte: "Cette page n’existe pas ou a été déplacée.", retour: "Revenir à l’accueil" },
 };
 
@@ -363,7 +398,9 @@ const en = {
   nav: [
     ["recherche", "Research"],
     ["approche", "Approach"],
+    ["implantation", "Implementation"],
     ["publications", "Publications"],
+    ["biographie", "Biography"],
     ["parcours", "Background"],
     ["engagements", "Engagement"],
     ["contact", "Contact"],
@@ -374,20 +411,22 @@ const en = {
     chapeau:
       "The same attention to people, to their rights and to the services that support them. My path brings together educational practice, public law and research on health systems, organisations and policy.",
     encadrement:
-      "Thesis co-supervised by Nadia Sourial and Géraldine Layani · GSK Research Chair in optimal management of chronic diseases · CRCHUM · FRQ doctoral scholar (B2)",
+      "Thesis co-supervised by Dr. Nadia Sourial, PhD, and Dr. Géraldine Layani, MD · GSK Research Chair in optimal management of chronic diseases · CRCHUM · FRQ doctoral scholar (B2)",
     visite: "Start the visit",
     explorer: "Browse freely",
     portrait: "Portrait of Éric Bernier",
   },
   hall: {
     titre: "The hall",
-    compte: "5 doors",
+    compte: "7 doors",
     consigne: "Click a door to step in",
     portes: {
       recherche: ["Research", "Thesis and work in progress"],
-      approche: ["Approach", "Stance, methods, knowledge translation, values"],
+      approche: ["Approach", "Stance, methods, areas, values"],
+      implantation: ["Implementation", "Knowledge translation and implementation"],
       publications: ["Publications", "Presentations, theses, tools"],
-      parcours: ["Background", "An unconventional path"],
+      biographie: ["Biography", "One story, several lives"],
+      parcours: ["Background", "Education and experience"],
       engagements: ["Engagement", "Representation, teaching, awards"],
     },
   },
@@ -410,8 +449,8 @@ const en = {
       titre: "Co-supervision",
       profil: "CRCHUM profile",
       personnes: [
-        { nom: "Nadia Sourial", grade: "PhD", lignes: ["Assistant Professor, Department of Health Management, Evaluation and Policy, School of Public Health, Université de Montréal", "Principal scientist, CRCHUM, Health Innovation and Evaluation Hub"], chaire: "Co-holder, GSK Research Chair in optimal management of chronic diseases", lien: CRCHUM_SOURIAL },
-        { nom: "Géraldine Layani", grade: "MD, MSc", lignes: ["Family physician, GMF-U Notre-Dame, Montréal", "Assistant clinical professor, Department of Family and Emergency Medicine, Université de Montréal", "Principal scientist, CRCHUM, Health Innovation and Evaluation Hub"], chaire: "Co-holder, GSK Research Chair in optimal management of chronic diseases", lien: CRCHUM_LAYANI },
+        { nom: "Dr. Nadia Sourial", grade: "PhD", lignes: ["Assistant Professor, Department of Health Management, Evaluation and Policy, School of Public Health, Université de Montréal", "Principal scientist, CRCHUM, Health Innovation and Evaluation Hub"], chaire: "Co-holder, GSK Research Chair in optimal management of chronic diseases", lien: CRCHUM_SOURIAL },
+        { nom: "Dr. Géraldine Layani", grade: "MD, MSc", lignes: ["Family physician, GMF-U Notre-Dame, Montréal", "Assistant clinical professor, Department of Family and Emergency Medicine, Université de Montréal", "Principal scientist, CRCHUM, Health Innovation and Evaluation Hub"], chaire: "Co-holder, GSK Research Chair in optimal management of chronic diseases", lien: CRCHUM_LAYANI },
       ],
     },
     affiche: ["See the project poster", "Accessible version: French, English, colour-blind friendly, audio", AFFICHE],
@@ -472,24 +511,28 @@ const en = {
       ["Mixed methods", "Integrated quantitative and qualitative analyses: network analysis, regression, thematic analysis, document analysis and mapping, brought together in joint displays."],
       ["Multidisciplinarity", "Public health, law, management, political science and social intervention: perspectives that inform one another to analyse the same system."],
     ],
-    outils: { titre: "Tools", items: ["Positron (R)", "NVivo", "QGIS"] },
+    outils: {
+      titre: "Toolbox",
+      groupes: [
+        ["Data analysis", ["Positron (R)", "Python", "NVivo", "QGIS", "Excel"]],
+        ["Collaboration and facilitation", ["Miro", "Klaxoon", "Canva"]],
+        ["Office tools and AI", ["Office 365", "Artificial intelligence"]],
+      ],
+    },
+    expertises: {
+      titre: "Expertise",
+      items: [
+        ["Project methodology and evaluation", "Designing, steering and evaluating projects: study design, indicators, decision-support tools and change management."],
+        ["Disability", "Educational support, self-determination and adapting services, from residential homes to adapted stays."],
+        ["Autism", "Educational support for autistic people and adapting services to their needs."],
+        ["Support for older adults", "Ageing, loss of autonomy, ageing in place and ageing with a disability, from practice to research."],
+      ],
+    },
     axes: {
       titre: "Areas of work",
       principaux: ["Governance and evaluation of health policy", "Intersectoral approaches in primary care", "Ageing, loss of autonomy and ageing-in-place policies"],
       secondairesTitre: "Secondary areas",
       secondaires: ["Legal planning, doctrinal analysis and health law", "Performance, change management and organisational steering", "Comparative analysis of health systems"],
-    },
-    transfert: {
-      titre: "Knowledge translation and implementation",
-      detail: "Five stages",
-      etapes: [
-        ["Listen", "Framing the question with practice settings", "Identify the needs and the decisions to inform. Specify who takes part, when, and with what influence.", ["Needs", "Participation"]],
-        ["Circulate", "Putting knowledge in context", "Bring research into dialogue with lived experience. Adapt format, language and content to the intended uses.", ["Lived experience", "Adapted formats"]],
-        ["Co-design", "Discussing options and choices", "Consultation gathers views; co-design means building together; deliberation weighs arguments and trade-offs. Document the actual influence of contributions.", ["Co-design", "Deliberation"]],
-        ["Implement", "Supporting implementation", "Examine context, resources and barriers. Specify actors, adaptations and support strategies, using frameworks such as CFIR.", ["Implementation", "CFIR"]],
-        ["Evaluate", "Telling producing, using and changing apart", "A disseminated tool is an output. Its adoption is an implementation outcome. Changes for services and people are further outcomes to document.", ["Evaluation", "Impact"]],
-      ],
-      note: "Trained in knowledge mobilisation (MobilizeU, Research Impact Canada and York University, 2026).",
     },
     valeurs: {
       titre: "My values",
@@ -504,8 +547,25 @@ const en = {
       ],
     },
   },
+  implantation: {
+    surtitre: "03 · Implementation",
+    titre: "Knowledge translation and implementation",
+    intro: "Moving knowledge between people, practice settings and research, then examining what it actually helps to change.",
+    transfert: {
+      titre: "Knowledge translation and implementation",
+      detail: "Five stages",
+      etapes: [
+        ["Listen", "Framing the question with practice settings", "Identify the needs and the decisions to inform. Specify who takes part, when, and with what influence.", ["Needs", "Participation"]],
+        ["Circulate", "Putting knowledge in context", "Bring research into dialogue with lived experience. Adapt format, language and content to the intended uses.", ["Lived experience", "Adapted formats"]],
+        ["Co-design", "Discussing options and choices", "Consultation gathers views; co-design means building together; deliberation weighs arguments and trade-offs. Document the actual influence of contributions.", ["Co-design", "Deliberation"]],
+        ["Implement", "Supporting implementation", "Examine context, resources and barriers. Specify actors, adaptations and support strategies, using frameworks such as CFIR.", ["Implementation", "CFIR"]],
+        ["Evaluate", "Telling producing, using and changing apart", "A disseminated tool is an output. Its adoption is an implementation outcome. Changes for services and people are further outcomes to document.", ["Evaluation", "Impact"]],
+      ],
+      note: "Trained in knowledge mobilisation (MobilizeU, Research Impact Canada and York University, 2026).",
+    },
+  },
   publications: {
-    surtitre: "03 · Publications",
+    surtitre: "04 · Publications",
     titre: "Presentations, theses and tools",
     intro: "Each work keeps its original title, authors and status. Manuscripts in progress are presented in the Research room.",
     groupes: [
@@ -534,15 +594,25 @@ const en = {
       },
     ],
   },
-  parcours: {
-    surtitre: "04 · Background",
-    titre: "An unconventional path",
-    sousTitre: "From frontline practice to health policy",
-    bio: [
-      "My path has been anything but linear: time in the child welfare system in France, leaving school at 16, neurodivergence. I completed a bachelor’s degree in musicology, then worked in youth and leisure programmes and as a manager of adapted stays.",
-      "Questioning my relationship to society and to social usefulness led me back to studying. Training as a special needs educator allowed me to enter the health field professionally. My thesis on how educational practices shape self-determination showed the limits of practice, so I turned to management to find other ways to act.",
-      "Management had its own limits: planning, law, funding. I went on to Université Paris Panthéon-Assas and to France’s national agency for performance support (ANAP), close to central organisation, planning, law, political science and governance. Today, the PhD in public health brings these perspectives together with the same aim: to innovate and to propose. I am extending it as an entrepreneur by creating OWNNIGHT.",
+  biographie: {
+    surtitre: "05 · Biography",
+    titre: "Each step grew out of the limits of the one before",
+    intro: "Special needs educator, jurist and PhD student in public health: my path is anything but linear, and that is precisely what makes it coherent.",
+    chapitres: [
+      ["Starting from experience", "I went through the child welfare system in France, then left school at 16. Neurodivergence taught me early on to learn differently, to find my own paths and not to give up. From that starting point I keep a conviction that still guides my work: a public policy should be judged by what it concretely changes in people’s lives."],
+      ["Music, then the field", "Studying came back through music, with a bachelor’s degree in musicology: listening, rigour and the perseverance of patient work. Alongside, youth and leisure programmes and then managing adapted stays for people with disabilities taught me to organise, to lead teams and to start from each person’s needs."],
+      ["Choosing social usefulness", "Then came a moment of questioning: what is my relationship to society, and how am I useful? I went back to school to become a special needs educator and to enter the health field through professional practice."],
+      ["From the limits of practice to management", "My educator’s thesis examined how educational practices shape self-determination. It showed me a limit: without the right organisation, even the best practice runs into the framework. So I turned to management, with a master’s in health care facility management and a university diploma in entrepreneurship."],
+      ["From law to governance", "Management in turn revealed its own limits: planning, law and funding are often decided higher up. I went on to Université Paris Panthéon-Assas, in public, social and health law, then to France’s national agency for performance support (ANAP), close to central organisation, planning, political science and governance."],
+      ["Researching in order to propose", "Today, the PhD in public health in Montréal brings these perspectives together: the field, management, law and governance. I am not only trying to understand; I want to innovate and propose better-organised responses for people whose needs cut across several sectors. The same drive leads me to entrepreneurship, with the creation of OWNNIGHT."],
     ],
+    conclusion: "Per aspera ad astra: through hardships to the stars.",
+  },
+  parcours: {
+    surtitre: "06 · Background",
+    titre: "Education and experience",
+    sousTitre: "From frontline practice to health policy",
+    intro: "From special needs education to the PhD: the degrees, positions and training that mark the path.",
     types: { formation: "Education", experience: "Experience", entreprise: "Entrepreneurship" },
     etapes: [
       { date: "Ongoing", type: "entreprise", titre: "Founding OWNNIGHT · entrepreneur", detail: "An Android app for sleep well-being and sleep education: a personalised plan, lessons and guided sessions. Data stays on the phone, with no account." },
@@ -566,7 +636,7 @@ const en = {
     note: "French degrees evaluated by the MIFI (Québec) and WES Canada.",
   },
   engagements: {
-    surtitre: "05 · Engagement",
+    surtitre: "07 · Engagement",
     titre: "Representing, teaching, contributing",
     intro: "Taking part in student and scientific life, in continuity with the path so far.",
     groupes: [
@@ -639,7 +709,7 @@ const en = {
     adresse: "School of Public Health, Université de Montréal · 7101 avenue du Parc, Montréal, Québec",
   },
   pied: "© 2026 Éric Bernier · No cookies, no analytics.",
-  credits: "Door images: Unsplash photographs; lecture hall and participatory workshop generated for this site.",
+  credits: "Door images: Unsplash photographs and a portrait of Éric Bernier; lecture hall, assembly and participatory workshop generated for this site.",
   introuvable: { titre: "Page not found", texte: "This page does not exist or has moved.", retour: "Back to the home page" },
 };
 
@@ -668,7 +738,9 @@ const es = {
   nav: [
     ["recherche", "Investigación"],
     ["approche", "Enfoque"],
+    ["implantation", "Implementación"],
     ["publications", "Publicaciones"],
+    ["biographie", "Biografía"],
     ["parcours", "Trayectoria"],
     ["engagements", "Compromisos"],
     ["contact", "Contacto"],
@@ -679,20 +751,22 @@ const es = {
     chapeau:
       "Una misma atención a las personas, a sus derechos y a los servicios que las acompañan. Mi trayectoria cruza la práctica educativa, el derecho público y la investigación en sistemas, organizaciones y políticas de salud.",
     encadrement:
-      "Tesis codirigida por Nadia Sourial y Géraldine Layani · Cátedra de investigación GSK en gestión óptima de enfermedades crónicas · CRCHUM · Becario del FRQ (B2)",
+      "Tesis codirigida por la Dra. Nadia Sourial, Ph. D., y la Dra. Géraldine Layani, M.D. · Cátedra de investigación GSK en gestión óptima de enfermedades crónicas · CRCHUM · Becario del FRQ (B2)",
     visite: "Comenzar la visita",
     explorer: "Explorar libremente",
     portrait: "Retrato de Éric Bernier",
   },
   hall: {
     titre: "El vestíbulo",
-    compte: "5 puertas",
+    compte: "7 puertas",
     consigne: "Haga clic en una puerta para entrar",
     portes: {
       recherche: ["La investigación", "Tesis y trabajos en curso"],
-      approche: ["El enfoque", "Postura, métodos, transferencia, valores"],
+      approche: ["El enfoque", "Postura, métodos, ejes, valores"],
+      implantation: ["Implementación", "Transferencia de conocimientos e implementación"],
       publications: ["Publicaciones", "Comunicaciones, memorias, herramientas"],
-      parcours: ["La trayectoria", "Una trayectoria atípica"],
+      biographie: ["Biografía", "Una historia, varias vidas"],
+      parcours: ["La trayectoria", "Formación y experiencia"],
       engagements: ["Compromisos", "Representación, docencia, distinciones"],
     },
   },
@@ -715,8 +789,8 @@ const es = {
       titre: "Codirección",
       profil: "Perfil CRCHUM",
       personnes: [
-        { nom: "Nadia Sourial", grade: "Ph. D.", lignes: ["Profesora adjunta, Departamento de Gestión, Evaluación y Política de Salud, Escuela de Salud Pública, Université de Montréal", "Investigadora del CRCHUM, Polo de innovación y evaluación en salud"], chaire: "Cotitular de la Cátedra de investigación GSK en gestión óptima de enfermedades crónicas", lien: CRCHUM_SOURIAL },
-        { nom: "Géraldine Layani", grade: "M.D., M. Sc.", lignes: ["Médica de familia, GMF-U Notre-Dame, Montreal", "Profesora adjunta clínica, Departamento de Medicina Familiar y de Urgencias, Université de Montréal", "Investigadora del CRCHUM, Polo de innovación y evaluación en salud"], chaire: "Cotitular de la Cátedra de investigación GSK en gestión óptima de enfermedades crónicas", lien: CRCHUM_LAYANI },
+        { nom: "Dra. Nadia Sourial", grade: "Ph. D.", lignes: ["Profesora adjunta, Departamento de Gestión, Evaluación y Política de Salud, Escuela de Salud Pública, Université de Montréal", "Investigadora del CRCHUM, Polo de innovación y evaluación en salud"], chaire: "Cotitular de la Cátedra de investigación GSK en gestión óptima de enfermedades crónicas", lien: CRCHUM_SOURIAL },
+        { nom: "Dra. Géraldine Layani", grade: "M.D., M. Sc.", lignes: ["Médica de familia, GMF-U Notre-Dame, Montreal", "Profesora adjunta clínica, Departamento de Medicina Familiar y de Urgencias, Université de Montréal", "Investigadora del CRCHUM, Polo de innovación y evaluación en salud"], chaire: "Cotitular de la Cátedra de investigación GSK en gestión óptima de enfermedades crónicas", lien: CRCHUM_LAYANI },
       ],
     },
     affiche: ["Ver el póster del proyecto", "Versión accesible: francés, inglés, daltonismo, audio", AFFICHE],
@@ -777,24 +851,28 @@ const es = {
       ["Métodos mixtos", "Análisis cuantitativos y cualitativos integrados: análisis de redes, regresiones, análisis temático, análisis documental y cartografía, reunidos en tablas de integración."],
       ["Pluridisciplinariedad", "Salud pública, derecho, gestión, ciencia política e intervención social: miradas que dialogan para analizar un mismo sistema."],
     ],
-    outils: { titre: "Herramientas", items: ["Positron (R)", "NVivo", "QGIS"] },
+    outils: {
+      titre: "Caja de herramientas",
+      groupes: [
+        ["Análisis de datos", ["Positron (R)", "Python", "NVivo", "QGIS", "Excel"]],
+        ["Colaboración y animación", ["Miro", "Klaxoon", "Canva"]],
+        ["Ofimática e IA", ["Office 365", "Inteligencia artificial"]],
+      ],
+    },
+    expertises: {
+      titre: "Áreas de especialización",
+      items: [
+        ["Metodología y evaluación de proyectos", "Diseñar, dirigir y evaluar proyectos: diseño, indicadores, herramientas de apoyo a la decisión y gestión del cambio."],
+        ["Discapacidad", "Acompañamiento educativo, autodeterminación y adaptación de los servicios, de la residencia a las estancias adaptadas."],
+        ["Autismo", "Acompañamiento educativo de las personas autistas y adaptación de los servicios a sus necesidades."],
+        ["Acompañamiento de personas mayores", "Envejecimiento, pérdida de autonomía, permanencia en el domicilio y discapacidad en la vejez, de la práctica a la investigación."],
+      ],
+    },
     axes: {
       titre: "Ejes de trabajo",
       principaux: ["Gobernanza y evaluación de las políticas de salud", "Enfoque intersectorial en atención primaria", "Envejecimiento, pérdida de autonomía y políticas de permanencia en el domicilio"],
       secondairesTitre: "Ejes secundarios",
       secondaires: ["Planificación jurídica, análisis doctrinal y derecho de la salud", "Desempeño, gestión del cambio y dirección de organizaciones", "Análisis comparado de sistemas de salud"],
-    },
-    transfert: {
-      titre: "Transferencia de conocimientos e implementación",
-      detail: "Cinco tiempos",
-      etapes: [
-        ["Escuchar", "Construir la pregunta con los entornos de práctica", "Identificar las necesidades y las decisiones que hay que esclarecer. Precisar quién participa, en qué momento y con qué influencia.", ["Necesidades", "Participación"]],
-        ["Hacer circular", "Contextualizar los saberes", "Poner en diálogo la investigación y los saberes de experiencia. Adaptar el formato, el lenguaje y el contenido a los usos previstos.", ["Saberes de experiencia", "Formatos adaptados"]],
-        ["Coconstruir", "Discutir las opciones y las decisiones", "Consultar recoge opiniones; coconstruir es elaborar en conjunto; deliberar es examinar argumentos y arbitrajes. Documentar la influencia real de las contribuciones.", ["Coconstrucción", "Deliberación"]],
-        ["Implementar", "Acompañar la puesta en marcha", "Examinar el contexto, los recursos y los obstáculos. Precisar los actores, las adaptaciones y las estrategias de acompañamiento, con marcos como el CFIR.", ["Implementación", "CFIR"]],
-        ["Evaluar", "Distinguir producir, utilizar y cambiar", "Una herramienta difundida es una producción. Su adopción es un resultado de implementación. Los cambios para los servicios y las personas son otros resultados que documentar.", ["Evaluación", "Impacto"]],
-      ],
-      note: "Formado en movilización de conocimientos (MobilizeU, Research Impact Canada y Universidad York, 2026).",
     },
     valeurs: {
       titre: "Mis valores",
@@ -809,8 +887,25 @@ const es = {
       ],
     },
   },
+  implantation: {
+    surtitre: "03 · Implementación",
+    titre: "Transferencia de conocimientos e implementación",
+    intro: "Hacer circular los saberes entre las personas, los entornos de práctica y la investigación, y examinar después lo que realmente permiten cambiar.",
+    transfert: {
+      titre: "Transferencia de conocimientos e implementación",
+      detail: "Cinco tiempos",
+      etapes: [
+        ["Escuchar", "Construir la pregunta con los entornos de práctica", "Identificar las necesidades y las decisiones que hay que esclarecer. Precisar quién participa, en qué momento y con qué influencia.", ["Necesidades", "Participación"]],
+        ["Hacer circular", "Contextualizar los saberes", "Poner en diálogo la investigación y los saberes de experiencia. Adaptar el formato, el lenguaje y el contenido a los usos previstos.", ["Saberes de experiencia", "Formatos adaptados"]],
+        ["Coconstruir", "Discutir las opciones y las decisiones", "Consultar recoge opiniones; coconstruir es elaborar en conjunto; deliberar es examinar argumentos y arbitrajes. Documentar la influencia real de las contribuciones.", ["Coconstrucción", "Deliberación"]],
+        ["Implementar", "Acompañar la puesta en marcha", "Examinar el contexto, los recursos y los obstáculos. Precisar los actores, las adaptaciones y las estrategias de acompañamiento, con marcos como el CFIR.", ["Implementación", "CFIR"]],
+        ["Evaluar", "Distinguir producir, utilizar y cambiar", "Una herramienta difundida es una producción. Su adopción es un resultado de implementación. Los cambios para los servicios y las personas son otros resultados que documentar.", ["Evaluación", "Impacto"]],
+      ],
+      note: "Formado en movilización de conocimientos (MobilizeU, Research Impact Canada y Universidad York, 2026).",
+    },
+  },
   publications: {
-    surtitre: "03 · Publicaciones",
+    surtitre: "04 · Publicaciones",
     titre: "Comunicaciones, memorias y herramientas",
     intro: "Cada trabajo conserva su título original, sus autores y su estado. Los manuscritos en curso se presentan en la sala La investigación.",
     groupes: [
@@ -839,15 +934,25 @@ const es = {
       },
     ],
   },
-  parcours: {
-    surtitre: "04 · La trayectoria",
-    titre: "Una trayectoria atípica",
-    sousTitre: "Del terreno a las políticas de salud",
-    bio: [
-      "Mi trayectoria no tiene nada de lineal: un paso por la protección de la infancia en Francia, la salida de la escuela a los 16 años, una neuroatipia. Cursé una licenciatura en musicología y luego trabajé en animación sociocultural y como responsable de estancias adaptadas.",
-      "Un replanteamiento de mi relación con la sociedad y con la utilidad social me llevó a retomar los estudios. La formación de educador especializado me permitió integrarme profesionalmente al ámbito de la salud. Mi memoria sobre la influencia de las prácticas educativas en la autodeterminación mostró los límites de la práctica: busqué en la gestión otras maneras de actuar.",
-      "La gestión también tenía sus límites: planificación, derecho, financiación. Continué en la Université Paris Panthéon-Assas y en la Agencia nacional francesa de apoyo al desempeño (ANAP), en contacto con la organización central, la planificación, el derecho, la ciencia política y la gobernanza. Hoy, el doctorado en salud pública reúne estas miradas con una misma voluntad: innovar y proponer. La prolongo como emprendedor creando OWNNIGHT.",
+  biographie: {
+    surtitre: "05 · Biografía",
+    titre: "Cada etapa nació de los límites de la anterior",
+    intro: "Educador especializado, jurista y doctorando en salud pública: mi trayectoria no tiene nada de lineal, y es precisamente eso lo que le da coherencia.",
+    chapitres: [
+      ["Partir de la experiencia", "Pasé por la protección de la infancia en Francia y dejé la escuela a los 16 años. Mi neuroatipia me enseñó pronto a aprender de otra manera, a buscar mis propios caminos y a no rendirme. De ese punto de partida conservo una convicción que todavía guía mi trabajo: una política pública se juzga por lo que cambia concretamente en la vida de las personas."],
+      ["La música, y luego el terreno", "Los estudios volvieron a través de la música, con una licenciatura en musicología: la escucha, el rigor y la perseverancia del trabajo paciente. Al mismo tiempo, la animación sociocultural y después la responsabilidad de estancias adaptadas para personas con discapacidad me enseñaron a organizar, a dirigir equipos y a partir de las necesidades de cada persona."],
+      ["Elegir la utilidad social", "Luego llegó un replanteamiento: ¿cuál es mi relación con la sociedad y para qué soy útil? Retomé los estudios para ser educador especializado y entrar en el ámbito de la salud a través de la práctica profesional."],
+      ["De los límites de la práctica a la gestión", "Mi memoria de educador trataba sobre la influencia de las prácticas educativas en la autodeterminación. Me mostró un límite: sin una organización adecuada, incluso la mejor práctica choca con el marco. Por eso me dirigí a la gestión, con una maestría en dirección de establecimientos de salud y un diploma universitario en emprendimiento."],
+      ["Del derecho a la gobernanza", "La gestión reveló a su vez sus propios límites: la planificación, el derecho y la financiación suelen decidirse más arriba. Continué en la Université Paris Panthéon-Assas, en derecho público, social y de la salud, y después en la Agencia nacional francesa de apoyo al desempeño (ANAP), cerca de la organización central, la planificación, la ciencia política y la gobernanza."],
+      ["Investigar para proponer", "Hoy, el doctorado en salud pública en Montreal reúne estas miradas: el terreno, la gestión, el derecho y la gobernanza. No busco solo comprender; quiero innovar y proponer respuestas mejor organizadas para las personas cuyas necesidades atraviesan varios sectores. El mismo impulso me lleva a emprender, con la creación de OWNNIGHT."],
     ],
+    conclusion: "Per aspera ad astra: a través de las dificultades hasta las estrellas.",
+  },
+  parcours: {
+    surtitre: "06 · La trayectoria",
+    titre: "Formación y experiencia",
+    sousTitre: "Del terreno a las políticas de salud",
+    intro: "De la educación especializada al doctorado: los títulos, los puestos y las formaciones que marcan la trayectoria.",
     types: { formation: "Formación", experience: "Experiencia", entreprise: "Emprendimiento" },
     etapes: [
       { date: "En curso", type: "entreprise", titre: "Creación de OWNNIGHT · emprendedor", detail: "Aplicación Android de bienestar y educación sobre el sueño: plan personalizado, lecciones y sesiones guiadas. Los datos permanecen en el teléfono, sin cuenta." },
@@ -871,7 +976,7 @@ const es = {
     note: "Títulos franceses evaluados por el MIFI (Quebec) y WES Canada.",
   },
   engagements: {
-    surtitre: "05 · Compromisos",
+    surtitre: "07 · Compromisos",
     titre: "Representar, enseñar, contribuir",
     intro: "Una presencia en la vida estudiantil y científica, en continuidad con la trayectoria.",
     groupes: [
@@ -944,7 +1049,7 @@ const es = {
     adresse: "Escuela de Salud Pública de la Université de Montréal · 7101, avenue du Parc, Montreal (Quebec)",
   },
   pied: "© 2026 Éric Bernier · Sin cookies ni medición de audiencia.",
-  credits: "Imágenes de las puertas: fotografías de Unsplash; anfiteatro y taller participativo generados para el sitio.",
+  credits: "Imágenes de las puertas: fotografías de Unsplash y retrato de Éric Bernier; anfiteatro, asamblea y taller participativo generados para el sitio.",
   introuvable: { titre: "Página no encontrada", texte: "Esta página no existe o ha sido trasladada.", retour: "Volver a la página de inicio" },
 };
 

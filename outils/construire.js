@@ -6,7 +6,7 @@ const { fr, en, es, LANGUES } = require("./contenu");
 
 const RACINE = path.join(__dirname, "..");
 const URL = "https://erjb-web.github.io/";
-const SALLES = ["recherche", "approche", "publications", "parcours", "engagements"];
+const SALLES = ["recherche", "approche", "implantation", "publications", "biographie", "parcours", "engagements"];
 
 let typoFr = false;
 const e = (s) => {
@@ -49,6 +49,8 @@ ${terminus ? `<p class="terminus">${e(terminus)}</p>` : ""}
 const TEINTES = {
   recherche: ["#245a73", "#163a4c"],
   approche: ["#8c4d58", "#63343e"],
+  implantation: ["#a0663b", "#7a4a26"],
+  biographie: ["#2f6f86", "#1f4f62"],
   publications: ["#327a66", "#1f5446"],
   parcours: ["#9a7448", "#6c4f2e"],
   engagements: ["#5d6585", "#40465f"],
@@ -119,12 +121,14 @@ function sectionApproche(c) {
 <h2>${e(a.titre)}</h2>
 <p class="intro">${e(a.intro)}</p>
 <div class="piliers">${a.piliers.map(([t, d]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p></div>`).join("")}</div>
-<h3 class="titre-bloc">${e(a.outils.titre)}</h3>
-${etiquettes(a.outils.items, "etiquettes outils-liste")}
+<div class="boite-outils">
+<h3>${e(a.outils.titre)}</h3>
+${a.outils.groupes.map(([g, items]) => `<div class="groupe-outils"><p>${e(g)}</p>${etiquettes(items, "etiquettes outils-liste")}</div>`).join("")}
+</div>
 </div>
 <div class="colonne-outils">
-${tableOnglets(a.transfert.titre, a.transfert.detail, a.transfert.etapes.map(([verbe, titre, texte, tags]) => ["", verbe, titre, texte, tags]))}
-<p class="note">${e(a.transfert.note)}</p>
+<h3 class="titre-bloc">${e(a.expertises.titre)}</h3>
+<div class="expertises">${a.expertises.items.map(([t, d]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p></div>`).join("")}</div>
 <h3 class="titre-bloc">${e(a.valeurs.titre)}</h3>
 <p class="devise"><span class="devise-libelle">${e(a.valeurs.devise[0])}</span><span class="devise-latin" lang="la">${e(a.valeurs.devise[1])}</span><span class="devise-traduction">${e(a.valeurs.devise[2])}</span></p>
 <div class="valeurs">${a.valeurs.items.map(([t, d]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p></div>`).join("")}</div>
@@ -132,6 +136,54 @@ ${tableOnglets(a.transfert.titre, a.transfert.detail, a.transfert.etapes.map(([v
 <ul class="puces">${a.axes.principaux.map((t) => `<li><b>${e(t)}</b></li>`).join("")}</ul>
 <p class="petit-titre">${e(a.axes.secondairesTitre)}</p>
 <ul class="puces secondaires">${a.axes.secondaires.map((t) => `<li>${e(t)}</li>`).join("")}</ul>
+</div>
+</div>`;
+}
+
+function sectionImplantation(c) {
+  const m = c.implantation;
+  const tr = m.transfert;
+  const cadres = m.cadres
+    ? `<h3 class="titre-bloc">${e(m.cadres.titre)}</h3><div class="cadres">${m.cadres.items
+        .map((k) => `<article class="cadre"><h4>${e(k.nom)}</h4><p>${e(k.texte)}</p><p class="ref">${k.lien ? lien(k.lien, e(k.ref) + ' <span aria-hidden="true">↗</span>') : e(k.ref)}</p></article>`)
+        .join("")}</div>`
+    : "";
+  const formation = m.formation
+    ? `<div class="carte-formation"><p class="domaine">${e(m.formation.etiquette)}</p><h4>${e(m.formation.titre)}</h4><p>${e(m.formation.texte)}</p>${m.formation.themes ? etiquettes(m.formation.themes) : ""}${m.formation.lien ? lien(m.formation.lien, e(m.formation.lienTexte) + ' <span aria-hidden="true">↗</span>', "profil") : ""}</div>`
+    : "";
+  const ressources = m.ressources
+    ? `<h3 class="titre-bloc">${e(m.ressources.titre)}</h3><ul class="liens-contact">${m.ressources.items
+        .map(([titre, detail, href]) => `<li>${lien(href, `<span><strong>${e(titre)}</strong><small>${e(detail)}</small></span><span aria-hidden="true">↗</span>`)}</li>`)
+        .join("")}</ul>`
+    : "";
+  return `<div class="section-corps">
+<div class="colonne-texte">
+<p class="surtitre">${e(m.surtitre)}</p>
+<h2>${e(m.titre)}</h2>
+<p class="intro">${e(m.intro)}</p>
+${formation}
+${ressources}
+</div>
+<div class="colonne-outils">
+${tableOnglets(tr.titre, tr.detail, tr.etapes.map(([verbe, titre, texte, tags]) => ["", verbe, titre, texte, tags]))}
+<p class="note">${e(tr.note)}</p>
+${cadres}
+</div>
+</div>`;
+}
+
+function sectionBiographie(c) {
+  const b = c.biographie;
+  return `<div class="section-corps">
+<div class="colonne-texte">
+<p class="surtitre">${e(b.surtitre)}</p>
+<h2>${e(b.titre)}</h2>
+<p class="intro">${e(b.intro)}</p>
+<img class="portrait-bio" src="${c.chemin}assets/portrait.jpg" width="720" height="900" alt="${e(c.accueil.portrait)}" loading="lazy">
+</div>
+<div class="colonne-outils">
+<ol class="recit">${b.chapitres.map(([titre, texte], i) => `<li><span class="recit-num">${num(i)}</span><div><h3>${e(titre)}</h3><p>${e(texte)}</p></div></li>`).join("")}</ol>
+<p class="recit-fin">${e(b.conclusion)}</p>
 </div>
 </div>`;
 }
@@ -155,7 +207,7 @@ function sectionParcours(c) {
 <p class="surtitre">${e(p.surtitre)}</p>
 <h2>${e(p.titre)}</h2>
 <p class="sous-titre">${e(p.sousTitre)}</p>
-<div class="bio">${p.bio.map((t) => `<p>${e(t)}</p>`).join("")}</div>
+<p class="intro">${e(p.intro)}</p>
 <h3 class="titre-bloc">${e(p.continue.titre)}</h3>
 <ul class="puces">${p.continue.items.map((t) => `<li>${e(t)}</li>`).join("")}</ul>
 <p class="note">${e(p.note)}</p>
@@ -205,7 +257,9 @@ function page(c) {
   const sections = {
     recherche: sectionRecherche(c),
     approche: sectionApproche(c),
+    implantation: sectionImplantation(c),
     publications: sectionGroupes(c, c.publications),
+    biographie: sectionBiographie(c),
     parcours: sectionParcours(c),
     engagements: sectionGroupes(
       c,
