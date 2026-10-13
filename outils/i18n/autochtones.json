@@ -1,0 +1,150 @@
+{
+ "iu": {
+  "1": {
+   "texte": "ᑐᖕᖓᓱᒋᑦ",
+   "latin": "Tunngasugit"
+  },
+  "2": {
+   "texte": "ᑭᓇᐅᕗᖓ?",
+   "latin": "Kinauvunga?"
+  },
+  "3": {
+   "texte": "ᐅᕙᖓ Éric Bernier.",
+   "latin": "Uvanga Éric Bernier."
+  },
+  "4": {
+   "texte": "ᓇᐅᓕᒫᓂᒃ ᐃᓗᓯᓕᕆᓂᕐᒥᒃ ᐃᓕᓴᕐᐳᖓ ᒪᓐᑐᕆᐊᓪ ᐃᓕᓐᓂᐊᕕᕐᔪᐊᒥ (Université de Montréal), ᑯᐯᒃᒥ.",
+   "latin": "Naulimaanik ilusilirinirmik ilisarpunga Manturial ilinniavirjuami (Université de Montréal), Kupaikmi."
+  },
+  "5": {
+   "texte": "ᖃᐅᔨᓴᕐᓂᕋ",
+   "latin": "Qaujisarnira"
+  },
+  "6": {
+   "texte": "ᐊᓐᓂᐊᓂᓕᕆᓂᕐᒧᑦ ᐃᓄᓕᕆᓂᕐᒧᓗ ᐱᒍᑦᔨᐅᑏᑦ ᐊᒻᒪᓗ ᓄᓇᓕᓐᓂ ᑎᒥᐅᔪᑦ ᖃᓄᖅ ᐱᓇᓱᖃᑎᒌᒻᒪᖔᑕ ᖃᐅᔨᓴᕐᐳᖓ.",
+   "latin": "Annianilirinirmut inulirinirmulu pigujjiutiit ammalu nunalinni timiujut qanuq pinasuqatigiimmangaata qaujisarpunga."
+  },
+  "7": {
+   "texte": "ᑐᕌᒐᕋ: ᐃᓄᓐᓂᒃ ᐃᑲᔪᕐᓯᓂᖅ, ᐃᓪᓗ, ᑮᓇᐅᔭᑦ, ᖃᓄᐃᖕᖏᓯᐊᕐᓂᖅ, ᐊᑕᐅᑦᓯᑰᕐᓗᒋᑦ.",
+   "latin": "Turaagara: inunnik ikajursiniq, illu, kiinaujat, qanuinngisiarniq, atautsikuurlugit."
+  },
+  "8": {
+   "texte": "ᐱᓇᓱᐊᕐᓂᕋ",
+   "latin": "Pinasuarnira"
+  },
+  "9": {
+   "texte": "ᐃᓅᖃᑎᒌᑦᓯᐊᕐᓂᖅ, ᐃᑲᔪᖃᑎᒌᓐᓂᖅ, ᐱᔨᑦᓯᕐᓂᖅ.",
+   "latin": "Inuuqatigiitsiarniq, ikajuqatigiinniq, pijitsirniq."
+  },
+  "10": {
+   "texte": "ᐃᓄᐃᑦ ᖃᐅᔨᒪᔭᑐᖃᖏᑦ ᐱᒻᒪᕆᐅᔪᑦ ᖃᐅᔨᓴᕐᓂᑐᑦ.",
+   "latin": "Inuit qaujimajatuqangit pimmariujut qaujisarnitut."
+  },
+  "11": {
+   "texte": "ᖃᕆᑕᐅᔭᒃᑯᑦ ᐱᑐᕝᕕᖓ",
+   "latin": "Qaritaujakkut pituvvinga"
+  },
+  "12": {
+   "texte": "ᐊᐱᕐᓲᑎᑦᓴᖃᕈᕕᑦ ᐅᖃᐅᓯᑦᓴᖃᕈᕕᓪᓘᓃᑦ:",
+   "latin": "Apirsuutitsaqaruvit uqausitsaqaruvilluuniit:"
+  },
+  "13": {
+   "texte": "ᐅᐃᕖᑎᑐᑦ",
+   "latin": "Uiviititut"
+  },
+  "14": {
+   "texte": "ᖃᓪᓗᓈᑎᑐᑦ",
+   "latin": "Qallunaatitut"
+  },
+  "15": {
+   "texte": "ᐊᑭᓐᓇᒥᐅᑕᖅ: ᖃᐅᔨᓴᕐᓂᕋ",
+   "latin": "Akinnamiutaq: qaujisarnira"
+  },
+  "16": {
+   "texte": "ᓇᑯᕐᒦᒃ",
+   "latin": "Nakurmiik"
+  },
+  "17": {
+   "texte": "ᐃᓄᑦᑎᑑᓕᕐᑎᕆᓂᖅ: ᐃᓄᑦᑎᑐᑦ ᐅᖃᐅᓯᖃᕐᑐᒧᑦ ᕿᒥᕐᕈᔭᐅᕆᐊᖃᕐᐳᖅ.",
+   "latin": "Inuttituulirtiriniq: inuttitut uqausiqartumut qimirrujauriaqarpuq."
+  },
+  "18": {
+   "texte": "Éric Bernier",
+   "latin": "Éric Bernier, ilinniati, naulimaanik ilusiliriniq"
+  }
+ },
+ "innu": {
+  "1": {
+   "texte": "Kuei ! Minu-takushinikᵘ !",
+   "latin": ""
+  },
+  "2": {
+   "texte": "Auen nin ?",
+   "latin": ""
+  },
+  "3": {
+   "texte": "Éric Bernier nitishinikashun.",
+   "latin": ""
+  },
+  "4": {
+   "texte": "Munianit nitshishkutamuakaun, anite mishta-katshishkutamatsheutshuapit (Université de Montréal), Uepishtikueiau-assit.",
+   "latin": ""
+  },
+  "5": {
+   "texte": "Ninanatuapatitshen",
+   "latin": ""
+  },
+  "6": {
+   "texte": "Ninanatuapatitshen : auenitshenat ka atusseht natukunishiutshuapit mak anite assit, mamu atusseuat a ?",
+   "latin": ""
+  },
+  "7": {
+   "texte": "Nui uitshiauat auenitshenat : mitshet animiuna aiua, mitshuap, shuniau, akushun.",
+   "latin": ""
+  },
+  "8": {
+   "texte": "Nitatusseun",
+   "latin": ""
+  },
+  "9": {
+   "texte": "Ishpitenitamun mak tipenitamun.",
+   "latin": ""
+  },
+  "10": {
+   "texte": "Tshissenitamun anite assit peikuan ishpitenitakuan.",
+   "latin": ""
+  },
+  "11": {
+   "texte": "Mashinaimuin !",
+   "latin": ""
+  },
+  "12": {
+   "texte": "Tshipa tshi mashinaimuin :",
+   "latin": ""
+  },
+  "13": {
+   "texte": "Mishtikushiu-aimun",
+   "latin": ""
+  },
+  "14": {
+   "texte": "Akaneshau-aimun",
+   "latin": ""
+  },
+  "15": {
+   "texte": "Akunikan : ninanatuapatitshen",
+   "latin": ""
+  },
+  "16": {
+   "texte": "Tshinashkumitin !",
+   "latin": ""
+  },
+  "17": {
+   "texte": "Nitashushten. Innu tshika natu-tshissenitamᵘ.",
+   "latin": ""
+  },
+  "18": {
+   "texte": "Éric Bernier",
+   "latin": ""
+  }
+ }
+}

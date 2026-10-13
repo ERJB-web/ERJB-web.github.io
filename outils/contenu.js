@@ -45,7 +45,7 @@ const fr = {
   locale: "fr_CA",
   chemin: "",
   meta: {
-    titre: "Éric Bernier — Doctorant en santé publique, ESPUM et CRCHUM",
+    titre: "Éric Bernier",
     description:
       "Éric Bernier, doctorant en santé publique (systèmes, organisations et politiques de santé) à l’ESPUM, juriste, entrepreneur et éducateur spécialisé. Recherche sur la réponse intersectorielle aux besoins sociaux complexes en soins primaires.",
   },
@@ -906,7 +906,7 @@ const fr = {
         "Je souhaite poursuivre cette exploration à l’interface des disciplines et des milieux, convaincu que les réponses aux défis contemporains de santé publique nécessitent de faire dialoguer les personnes, les savoirs et les institutions."
       ]
     },
-    "conclusion": "Ad astra per aspera — Par des sentiers ardus jusqu’aux étoiles."
+    "conclusion": "Ad astra per aspera : par des sentiers ardus jusqu’aux étoiles."
   },
   parcours: {
     surtitre: "06 · Le parcours",
@@ -1022,7 +1022,7 @@ const en = {
   locale: "en_CA",
   chemin: "../",
   meta: {
-    titre: "Éric Bernier — PhD student in public health, ESPUM and CRCHUM",
+    titre: "Éric Bernier",
     description:
       "Éric Bernier, PhD student in public health (health systems, organisations and policy) at ESPUM, Université de Montréal, trained in law and special needs education, and an entrepreneur. Research on intersectoral responses to complex social needs in primary care.",
   },
@@ -1883,7 +1883,7 @@ const en = {
         "I wish to pursue this exploration at the interface of disciplines and settings, convinced that today’s public health challenges require bringing people, knowledge and institutions into dialogue."
       ]
     },
-    "conclusion": "Ad astra per aspera — Through hardships to the stars."
+    "conclusion": "Ad astra per aspera: through hardships to the stars."
   },
   parcours: {
     surtitre: "06 · Background",
@@ -1999,7 +1999,7 @@ const es = {
   locale: "es_ES",
   chemin: "../",
   meta: {
-    titre: "Éric Bernier — Doctorando en salud pública, ESPUM y CRCHUM",
+    titre: "Éric Bernier",
     description:
       "Éric Bernier, doctorando en salud pública (sistemas, organizaciones y políticas de salud) en la ESPUM, Université de Montréal, jurista, emprendedor y educador especializado. Investigación sobre la respuesta intersectorial a las necesidades sociales complejas en atención primaria.",
   },
@@ -2860,7 +2860,7 @@ const es = {
         "Deseo continuar esta exploración en la interfaz entre disciplinas y entornos, convencido de que las respuestas a los desafíos actuales de salud pública exigen hacer dialogar a las personas, los saberes y las instituciones."
       ]
     },
-    "conclusion": "Ad astra per aspera — A través de las dificultades hasta las estrellas."
+    "conclusion": "Ad astra per aspera: a través de las dificultades hasta las estrellas."
   },
   parcours: {
     surtitre: "06 · La trayectoria",

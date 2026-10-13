@@ -9,6 +9,7 @@ const ar = lireLangue("ar");
 const COMPLETES = [fr, en, es, zh, ar];
 const langue = (code) => LANGUES.find((l) => l.code === code);
 const ABREGE = require("./contenu-abrege");
+const AUTOCHTONES = JSON.parse(fs.readFileSync(path.join(__dirname, "i18n", "autochtones.json"), "utf8"));
 
 const RACINE = path.join(__dirname, "..");
 const empreinte = (fichier) => require("crypto").createHash("sha256").update(fs.readFileSync(path.join(RACINE, fichier))).digest("hex").slice(0, 10);
@@ -572,28 +573,27 @@ ${piedAbrege()}`;
 }
 
 function pageSalutation(code) {
-  typoFr = true;
-  const a = ABREGE[langue(code).dossier.replace("/", "")];
-  const c = { ...fr, chemin: "../", titre: a.titre, description: a.description };
-  const P = ABREGE.presentation;
-  const liens = (l) =>
-    `<ul class="liens-contact compact">${ABREGE.liensCommuns[l]
-      .map(([texte, href]) => `<li>${lien(href, `<span><strong>${e(texte)}</strong></span><span aria-hidden="true">${externe(href) ? "↗" : "→"}</span>`)}</li>`)
-      .join("")}</ul>`;
-  const colonne = (l, nom) =>
-    `<section lang="${l}" aria-labelledby="titre-${l}"><h2 id="titre-${l}">${nom}</h2><p class="avis">${e(a.avis[l])}</p>${P[l].map((p) => `<p>${e(p)}</p>`).join("")}${liens(l)}</section>`;
+  typoFr = false;
+  const cle = langue(code).dossier.replace("/", "");
+  const T = AUTOCHTONES[cle];
+  const lng = code === "moe" ? "moe" : "iu";
+  const c = { ...fr, chemin: "../", titre: T["18"].texte, description: ABREGE[cle].description };
+  const ligne = (n, balise = "p", classe = "") =>
+    `<${balise}${classe ? ` class="${classe}"` : ""} lang="${lng}">${e(T[n].texte)}${T[n].latin ? `<span class="translitteration" lang="${lng}-Latn">${e(T[n].latin)}</span>` : ""}</${balise}>`;
+  const bloc = (titre, phrases, icon) =>
+    `<section class="bloc-falc"><div class="picto">${icone(icon)}</div><div>${ligne(titre, "h2")}${phrases.map((n) => ligne(n)).join("")}</div></section>`;
+  const liens = [["13", "../", false], ["14", "../en/", false], ["15", "https://erjb-web.github.io/affiche-releve/", true]];
   return `${enTeteAbregee(c, code)}
 <main id="contenu" class="abrege salutation-page">
-<p class="salutation" lang="${code}">${e(a.salutation[0])}</p>
-${a.salutation[1] ? `<p class="translitteration">${e(a.salutation[1])}</p>` : ""}
-<p class="sens">${e(a.salutation[2])}</p>
+${ligne("1", "p", "salutation")}
 <h1>Éric Bernier</h1>
-<div class="duo-langues">
-${colonne("fr", "Français")}
-${colonne("en", "English")}
-</div>
-<p class="merci"><span lang="${code}">${e(a.merci[0])}</span>${a.merci[1] ? ` <span class="translitteration">(${e(a.merci[1])})</span>` : ""} · ${e(a.merci[2])}</p>
-<p><a class="primaire" href="mailto:${e(ABREGE.COURRIEL)}">${e(ABREGE.COURRIEL)}</a></p>
+${bloc("2", ["3", "4"], "personne")}
+${bloc("5", ["6", "7"], "loupe")}
+${bloc("8", ["9", "10"], "coeur")}
+<section class="bloc-falc"><div class="picto">${icone("enveloppe")}</div><div>${ligne("11", "h2")}${ligne("12")}<p><a class="primaire" href="mailto:${e(ABREGE.COURRIEL)}">${e(ABREGE.COURRIEL)}</a></p></div></section>
+<ul class="liens-contact compact">${liens.map(([n, href, ext]) => `<li>${lien(href, `<span lang="${lng}"><strong>${e(T[n].texte)}</strong>${T[n].latin ? `<small>${e(T[n].latin)}</small>` : ""}</span><span aria-hidden="true">${ext ? "↗" : "→"}</span>`)}</li>`).join("")}</ul>
+${ligne("16", "p", "merci")}
+<p class="avis-traduction">${ligne("17", "span")}<span lang="fr">Traduction préliminaire, à faire valider par une personne locutrice.</span> <span lang="en">Preliminary translation, to be validated by a fluent speaker.</span></p>
 </main>
 ${piedAbrege()}`;
 }

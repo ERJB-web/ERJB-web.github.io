@@ -105,7 +105,7 @@ h1{margin:0;color:var(--ink);font:400 clamp(40px,4vw,58px)/1 var(--serif);letter
 .section{border-top:1px solid var(--line)}
 .section.teinte{background:linear-gradient(180deg,var(--sea),rgba(238,244,245,.4))}
 .section-corps{max-width:1220px;margin:0 auto;padding:88px var(--gouttiere);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:start}
-.colonne-texte{position:sticky;top:110px}
+.colonne-texte{position:static}
 .salle .colonne-texte{position:static}
 .section h2,.salle h2{margin:0 0 16px;color:var(--ink);font:400 clamp(30px,3.2vw,44px)/1.12 var(--serif);letter-spacing:-.015em}
 .sous-titre{margin:-4px 0 18px;color:var(--green-deep);font:italic 18px/1.5 var(--serif)}
@@ -560,3 +560,10 @@ a,button,summary{-webkit-tap-highlight-color:rgba(31,111,178,.18)}
   html{scroll-padding-top:110px}
 }
 .citation-lien{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}.citation-lien:hover{color:var(--accent);text-decoration-color:var(--accent)}
+.salutation-page .translitteration{display:block;font-size:14px;margin-top:2px}
+.salutation-page h2 .translitteration{font-size:14px;font-weight:400}
+.salutation-page p[lang]{font-size:19px;margin:0 0 12px}
+.avis-traduction{margin-top:28px;font-size:13.5px;color:var(--muted);border-inline-start:3px solid var(--line);padding-inline-start:12px}
+.avis-traduction span{display:block}
+.salutation-page p.salutation{font-size:clamp(52px,8vw,88px);margin:0}
+.salutation-page p.merci{font-size:22px}
