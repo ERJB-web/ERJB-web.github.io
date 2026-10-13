@@ -369,7 +369,7 @@ const fr = {
     adresse: "École de santé publique de l’Université de Montréal · 7101, avenue du Parc, Montréal (Québec)",
   },
   pied: "© 2026 Éric Bernier · Site sans témoins ni mesure d’audience.",
-  credits: "Images des portes : photographies Unsplash et portrait d’Éric Bernier ; amphithéâtre, assemblée et atelier participatif générés pour le site.",
+  credits: "Images des portes : photographies Unsplash et portrait d’Éric Bernier ; amphithéâtre généré et illustrations dessinées pour le site.",
   introuvable: { titre: "Page introuvable", texte: "Cette page n’existe pas ou a été déplacée.", retour: "Revenir à l’accueil" },
 };
 
@@ -709,7 +709,7 @@ const en = {
     adresse: "School of Public Health, Université de Montréal · 7101 avenue du Parc, Montréal, Québec",
   },
   pied: "© 2026 Éric Bernier · No cookies, no analytics.",
-  credits: "Door images: Unsplash photographs and a portrait of Éric Bernier; lecture hall, assembly and participatory workshop generated for this site.",
+  credits: "Door images: Unsplash photographs and a portrait of Éric Bernier; lecture hall generated and illustrations drawn for this site.",
   introuvable: { titre: "Page not found", texte: "This page does not exist or has moved.", retour: "Back to the home page" },
 };
 
@@ -1049,7 +1049,7 @@ const es = {
     adresse: "Escuela de Salud Pública de la Université de Montréal · 7101, avenue du Parc, Montreal (Quebec)",
   },
   pied: "© 2026 Éric Bernier · Sin cookies ni medición de audiencia.",
-  credits: "Imágenes de las puertas: fotografías de Unsplash y retrato de Éric Bernier; anfiteatro, asamblea y taller participativo generados para el sitio.",
+  credits: "Imágenes de las puertas: fotografías de Unsplash y retrato de Éric Bernier; anfiteatro generado e ilustraciones dibujadas para el sitio.",
   introuvable: { titre: "Página no encontrada", texte: "Esta página no existe o ha sido trasladada.", retour: "Volver a la página de inicio" },
 };
 
