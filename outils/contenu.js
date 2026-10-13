@@ -122,7 +122,7 @@ const fr = {
   ],
   accueil: {
     surtitre: "Doctorant en santé publique · ESPUM · CRCHUM",
-    roles: "Éducateur spécialisé · Juriste · Entrepreneur · Doctorant en santé publique",
+    roles: "Doctorant en santé publique (2e année) · Juriste · Entrepreneur · Éducateur spécialisé",
     chapeau: {
       "titre": "Des personnes aux politiques : une lecture intégrée des systèmes de santé",
       "paragraphes": [
@@ -1683,7 +1683,7 @@ const en = {
   ],
   accueil: {
     surtitre: "PhD student in public health · ESPUM · CRCHUM",
-    roles: "Special needs educator · Jurist · Entrepreneur · PhD student in public health",
+    roles: "PhD student in public health (2nd year) · Jurist · Entrepreneur · Special needs educator",
     chapeau: {
       "titre": "From people to policy: an integrated view of health systems",
       "paragraphes": [
@@ -3244,7 +3244,7 @@ const es = {
   ],
   accueil: {
     surtitre: "Doctorando en salud pública · ESPUM · CRCHUM",
-    roles: "Educador especializado · Jurista · Emprendedor · Doctorando en salud pública",
+    roles: "Doctorando en salud pública (2.º año) · Jurista · Emprendedor · Educador especializado",
     chapeau: {
       "titre": "De las personas a las políticas: una lectura integrada de los sistemas de salud",
       "paragraphes": [
