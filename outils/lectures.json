@@ -1736,9 +1736,29 @@
    "ar": "الرعاية الأولية وتكامل الخدمات والاستشفاء الذي يمكن تجنبه",
    "lectures": [
     {
+     "apa": "Adi, S., Bosson-Rieutort, D., Breton, M., Smithman, M. A., Laberge, M., & Sourial, N. (2026). The use of centralized waiting lists for attachment to family physicians in Quebec, Canada: predictive factors and association with non-urgent emergency department use. BMC Health Services Research, 26(1), 192. https://doi.org/10.1186/s12913-025-13941-w",
+     "langue": "en",
+     "lien": "https://doi.org/10.1186/s12913-025-13941-w"
+    },
+    {
+     "apa": "Arsenault-Lapierre, G., Bui, T., Godard-Sebillotte, C., Kang, N., Sourial, N., Rochette, L., Massamba, V., Quesnel-Vallée, A., & Vedel, I. (2024). Sex Differences in Healthcare Utilization in Persons Living with Dementia Between 2000 and 2017: A Population-Based Study in Quebec, Canada. Journal of Aging and Health, 37(3-4), 243–254. https://doi.org/10.1177/08982643241242512",
+     "langue": "en",
+     "lien": "https://doi.org/10.1177/08982643241242512"
+    },
+    {
      "apa": "Bardsley, M., Blunt, I., Davies, S., & Dixon, J. (2013). Is secondary preventive care improving? Observational study of 10-year trends in emergency admissions for conditions amenable to ambulatory care. BMJ Open, 3(1), e002007. https://doi.org/10.1136/bmjopen-2012-002007",
      "langue": "en",
      "lien": "https://doi.org/10.1136/bmjopen-2012-002007"
+    },
+    {
+     "apa": "Bonnan, D., Kröger, E., Maheu, A., Morin, M., Bélanger, L., Vedel, I., Wilchesky, M., Sirois, C., Dallaire, C., Durand, É., Couturier, Y., Sourial, N., & Guénette, L. (2026). Implementation of pharmacists' services into the care trajectory of older adults with neurocognitive disorder in multidisciplinary primary care clinics: A mixed-methods study. Exploratory Research in Clinical and Social Pharmacy, 23, 100786. https://doi.org/10.1016/j.rcsop.2026.100786",
+     "langue": "en",
+     "lien": "https://doi.org/10.1016/j.rcsop.2026.100786"
+    },
+    {
+     "apa": "Bonnan, D., Kröger, E., Maheu, A., Morin, M., Bélanger, L., Vedel, I., Wilchesky, M., Sirois, C., Dallaire, C., Durand, É., Couturier, Y., Sourial, N., Audet, A. S., Coulombe, M., Audet, M., Archambault, P., & Guénette, L. (2026). Pharmacist-led interventions to optimize the pharmacotherapy of older adults under evaluation for or living with a neurocognitive disorder in the community: A quasi-experimental study. Journal of the American Pharmacists Association, 66(3), 103053. https://doi.org/10.1016/j.japh.2026.103053",
+     "langue": "en",
+     "lien": "https://doi.org/10.1016/j.japh.2026.103053"
     },
     {
      "apa": "Breton, M., Maillet, L., Haggerty, J., & Vedel, I. (2014). Mandated local health networks across the province of Québec: A better collaboration with primary care working in the communities? London Journal of Primary Care, 6(4), 71–78. https://doi.org/10.1080/17571472.2014.11493420",
@@ -1749,6 +1769,21 @@
      "apa": "Breton, M., Pineault, R., Levesque, J.-F., Roberge, D., Da Silva, R. B., & Prud’homme, A. (2013). Reforming healthcare systems on a locally integrated basis: Is there a potential for increasing collaborations in primary healthcare? BMC Health Services Research, 13(1), 262. https://doi.org/10.1186/1472-6963-13-262",
      "langue": "en",
      "lien": "https://doi.org/10.1186/1472-6963-13-262"
+    },
+    {
+     "apa": "Brière-Dulude, S., Melgares, L., Labourot, J., Deslauriers, T., Gélinas, I., Layani, G., & Vachon, B. (2023). [Sondage sur les pratiques des médecins de famille et sur la collaboration interprofessionnelle avec des ergothérapeutes en GMF quant au dépistage des conducteurs à risque]. Canadian Journal on Aging, 43(2), 266–274. https://doi.org/10.1017/S0714980823000673",
+     "langue": "fr",
+     "lien": "https://doi.org/10.1017/S0714980823000673"
+    },
+    {
+     "apa": "Cetin-Sahin, D., Godard-Sebillotte, C., Bronskill, S. E., Seitz, D., Morgan, D. G., Maclagan, L. C., Sourial, N., Quail, J., Gruneir, A., Wilchesky, M., Rochette, L., Massamba, V. K., Youngson, E., Diong, C., Smith, E. E., Arsenault-Lapierre, G., Le Berre, M., Maxwell, C. J., Kosteniuk, J., … Vedel, I. (2025). The COVID-19 Pandemic and Dementia: a Multijurisdictional Meta-Analysis of the Impact of the First Two Pandemic Waves on Acute Health-care Utilization and Mortality in Canada. Canadian Geriatrics Journal, 28(1), 16–30. https://doi.org/10.5770/cgj.28.776",
+     "langue": "en",
+     "lien": "https://doi.org/10.5770/cgj.28.776"
+    },
+    {
+     "apa": "Cetin-Sahin, D., Sourial, N., Bronskill, S. E., Seitz, D., Maclagan, L. C., Godard-Sebillotte, C., Massamba, V. K., Rochette, L., Wilchesky, M., Feldman, S., Gruneir, A., Smith, E. E., Beuscart, J. B., Montero-Odasso, M., Diong, C., Arsenault-Lapierre, G., Kosteniuk, J., Sivananthan, S., Bosson-Rieutort, D., … Vedel, I. (2025). Family physician and specialist care for persons with dementia living in the community: through thick and thin. Family Practice, 43(1). https://doi.org/10.1093/fampra/cmaf105",
+     "langue": "en",
+     "lien": "https://doi.org/10.1093/fampra/cmaf105"
     },
     {
      "apa": "Charles, A. (2022). Integrated care systems explained: Making sense of systems, places and neighbourhoods. The King's Fund.",
@@ -1771,6 +1806,21 @@
      "lien": "https://doi.org/10.1177/20534345221122952"
     },
     {
+     "apa": "Dalsania, K. A., Ménard, A., Sundararaman, S., Rahgozar, A., de Lima, S., Lu, X., Al-Ali, A., Singh, K., Hakimjavadi, R., Yan, H., Sethuram, C., Bergman, H., LaPlante, J., McIsaac, D., Rahimi, S. A., Sourial, N., Thandi, M., Wong, S., Liddy, C., … Karunananthan, S. (2026). Use of Conventional Artificial Intelligence Methods in the Identification of Frailty: A Scoping Review. Journal of the American Geriatrics Society, 74(7), 2103–2114. https://doi.org/10.1111/jgs.70387",
+     "langue": "en",
+     "lien": "https://doi.org/10.1111/jgs.70387"
+    },
+    {
+     "apa": "Dassieu, L., Develay, E., Beauchet, O., Quesnel-Vallée, A., Godard-Sebillotte, C., Tchouaket, E., Puzhko, S., Karunananthan, S., Archambault, P., Launay, C., Holyoke, P., Sauriol, C., Galery, K., & Sourial, N. (2022). Implementing a Telehealth Support Tool for Community-Dwelling Older Adults During the COVID-19 Pandemic: A Qualitative Investigation of Provider Experiences. Journal of Aging & Social Policy, 36(6), 1200–1217. https://doi.org/10.1080/08959420.2022.2111166",
+     "langue": "en",
+     "lien": "https://doi.org/10.1080/08959420.2022.2111166"
+    },
+    {
+     "apa": "Develay, É., Dassieu, L., Beauchet, O., Galery, K., Quesnel-Vallée, A., Karunananthan, S., Godard-Sebillotte, C., Archambault, P., Launay, C., Tchouaket, É., Puzhko, S., Holyoke, P., & Sourial, N. (2024). Prioritizing Protecting Oneself Over the COVID-19 Virus Versus Other Health and Social Needs Among Older Adults Living Alone: A Qualitative Study. The Gerontologist, 64(9). https://doi.org/10.1093/geront/gnae089",
+     "langue": "en",
+     "lien": "https://doi.org/10.1093/geront/gnae089"
+    },
+    {
      "apa": "Dubuc, N., Hébert, R., Desrosiers, J., Buteau, M., & Trottier, L. (2006). Disability-based classification system for older people in integrated long-term care services: The Iso-SMAF profiles. Archives of Gerontology and Geriatrics, 42(2), 191–206. https://doi.org/10.1016/j.archger.2005.07.001",
      "langue": "en",
      "lien": "https://doi.org/10.1016/j.archger.2005.07.001"
@@ -1786,6 +1836,11 @@
      "lien": "https://doi.org/10.5334/ijic.7610"
     },
     {
+     "apa": "Fernainy, P., Godard-Sebillotte, C., Lacasse, A., Layani, G., Longo, C., Kaczorowski, J., Rodriguez, M. A., Poitras, M. E., Breton, M., Lussier, M. T., Couturier, Y., Hudon, C., & Sourial, N. (2025). Causal mediation analysis: what is it and how can it be used to inform practice and policy?. Family Practice, 42(4). https://doi.org/10.1093/fampra/cmaf043",
+     "langue": "en",
+     "lien": "https://doi.org/10.1093/fampra/cmaf043"
+    },
+    {
      "apa": "Finkelstein, A., Zhou, A., Taubman, S., & Doyle, J. (2020). Health care hotspotting — A randomized, controlled trial. New England Journal of Medicine, 382(2), 152–162. https://doi.org/10.1056/nejmsa1906848",
      "langue": "en",
      "lien": "https://doi.org/10.1056/nejmsa1906848"
@@ -1794,6 +1849,31 @@
      "apa": "FitzGerald, M., Gunja, M. Z., & Tikkanen, R. (2022). Primary care in high-income countries: How the United States compares. The Commonwealth Fund. https://doi.org/10.26099/xz8y-3042",
      "langue": "en",
      "lien": "https://doi.org/10.26099/xz8y-3042"
+    },
+    {
+     "apa": "Gaid, D., Giasson, G., Gaboury, I., Houle, L., Layani, G., Menear, M., de Tilly, V. N., Pomey, M. P., & Vachon, B. (2024). Quality priorities related to the management of type 2 diabetes in primary care: results from the COMPAS + quality improvement collaborative. BMC Primary Care, 25(1), 397. https://doi.org/10.1186/s12875-024-02641-9",
+     "langue": "en",
+     "lien": "https://doi.org/10.1186/s12875-024-02641-9"
+    },
+    {
+     "apa": "Gartner, J. B., Benharbit, B., Layani, G., Sasseville, M., Lemaire, C., Bergeron, F., Wilhelmy, C., Menear, M., & Côté, A. (2023). Implementation model for a national learning health system (IMPLEMENT-National LHS): a concept analysis and systematic review protocol. BMJ Open, 13(10), e073767. https://doi.org/10.1136/bmjopen-2023-073767",
+     "langue": "en",
+     "lien": "https://doi.org/10.1136/bmjopen-2023-073767"
+    },
+    {
+     "apa": "Gautier, L., & Layani, G. (2026). Bridging the Gap in Social Prescribing: \"Lived Territories\" as Community Pivots for Proximity-Based Health Systems. HealthcarePapers, 23(4), 49–55. https://doi.org/10.12927/hcpap.2026.27927",
+     "langue": "en",
+     "lien": "https://doi.org/10.12927/hcpap.2026.27927"
+    },
+    {
+     "apa": "Germain, N., Jémus-Gonzalez, E., Couture, V., Côté, É., Morin, M., Toulouse-Fournier, A., Bert, L., Giguère, R., Sinha, S., Sourial, N., Chartier, L. B., Witteman, H. O., Légaré, F., Samb, R., Turcotte, S., Chandavong, S., Abrougui, L., Robitaille, J., & Archambault, P. M. (2024). Caregivers' burden of care during emergency department care transitions among older adults: a mixed methods cohort study. BMC Geriatrics, 24(1), 788. https://doi.org/10.1186/s12877-024-05388-1",
+     "langue": "en",
+     "lien": "https://doi.org/10.1186/s12877-024-05388-1"
+    },
+    {
+     "apa": "Germain, N., Toulouse-Fournier, A., Samb, R., Côté, É., Couture, V., Turcotte, S., Morin, M., Couturier, Y., Chartier, L. B., Sourial, N., Sinha, S. K., Melady, D., Hardy, M. S., Fleet, R., Légaré, F., Roy, D. A., Witteman, H. O., Mercier, É., Rivard, J., … Archambault, P. M. (2025). Caregiver Burden and 30-Day Emergency Department Revisits. JAMA Network Open, 8(9), e2531166. https://doi.org/10.1001/jamanetworkopen.2025.31166",
+     "langue": "en",
+     "lien": "https://doi.org/10.1001/jamanetworkopen.2025.31166"
     },
     {
      "apa": "Habib, H. H., Zhang, C., Hill, K., Vaz, L. M. E., Rawlins, B., Tunçalp, Ö., Muzigaba, M., Brownwood, I., & Afulani, P. A. (2026). Global scoping review of key domains of patient-reported experience of care measures across life stages and healthcare technical areas. BMJ Open, 16(1), e103782. https://doi.org/10.1136/bmjopen-2025-103782",
@@ -1846,6 +1926,11 @@
      "lien": "https://doi.org/10.1001/journalofethics.2017.19.3.pfor1-1703"
     },
     {
+     "apa": "Laberge, M., Carrier, M., Breton, M., Boulanger, É., Gogovor, A., Layani, G., Landa, P., Poitras, M. E., Sourial, N., & Strumpf, E. (2026). Having or losing a family physician: a protocol for a survey-based study of patient's continuity of primary care experience in Quebec, Canada. BMJ Open, 16(7), e123562. https://doi.org/10.1136/bmjopen-2026-123562",
+     "langue": "en",
+     "lien": "https://doi.org/10.1136/bmjopen-2026-123562"
+    },
+    {
      "apa": "Lamarche, P., & Maillet, L. (2016). The performance of primary health care organizations depends on interdependences with the local environment. Journal of Health Organization and Management, 30(6), 836–854. https://doi.org/10.1108/jhom-09-2015-0150",
      "langue": "en",
      "lien": "https://doi.org/10.1108/jhom-09-2015-0150"
@@ -1854,6 +1939,16 @@
      "apa": "Latif, A. A., Lee, K. W., Phang, K., Rashid, A. A., Chan, N. N., Peh, S. C., Thilaganathan, T., & Ooi, P. B. (2022). Patient-related factors associated with medication adherence behavior in patients with end-stage renal disease: A systematic review. Tzu Chi Medical Journal, 34(4), 473–484. https://doi.org/10.4103/tcmj.tcmj_212_21",
      "langue": "en",
      "lien": "https://doi.org/10.4103/tcmj.tcmj_212_21"
+    },
+    {
+     "apa": "Layani, G., Schweitzer, A., Yapi, S. M., Balasingam, T., Berthelet, L., Pierre, M., Tremblay, A., Sourial, N., Boivin, A., Sasseville, M., Gartner, J. B., Côté, A., Bergeron, F., Lessard, L., & Vachon, B. (2025). Identifying characteristics of intersectoral health interventions between the primary care and community settings for people living with obesity: an environmental scan protocol. BMJ Open, 15(3), e091610. https://doi.org/10.1136/bmjopen-2024-091610",
+     "langue": "en",
+     "lien": "https://doi.org/10.1136/bmjopen-2024-091610"
+    },
+    {
+     "apa": "Layani, G., Tremblay, A., Lussier, M. T., Godbout, I., Bihan, H., Gosselin, C., Pierre, M., Motulsky, A., Brault, I., Rodrigues, I., Kaczorowski, J., Vanier, M. C., & Yapi, S. M. (2024). Cross-Sector Collaboration to Improve Access to Community Services for People Living With Diabetes: Contributions From Actor-Network Theory. Health Services Insights, 17, 11786329231222408. https://doi.org/10.1177/11786329231222408",
+     "langue": "en",
+     "lien": "https://doi.org/10.1177/11786329231222408"
     },
     {
      "apa": "Levesque, J.-F., Harris, M. F., & Russell, G. (2013). Patient-centred access to health care: Conceptualising access at the interface of health systems and populations. International Journal for Equity in Health, 12(1), 18. https://doi.org/10.1186/1475-9276-12-18",
@@ -1876,6 +1971,16 @@
      "lien": "https://doi.org/10.1093/intqhc/mzv074"
     },
     {
+     "apa": "Maisonneuve, H., Besson, A., Fuentes, E., Layani, G., Lentilhac, B., Haller, D. M., & Tudrej, B. (2026). [Addressing social determinants in primary care : from office to community]. Revue Medicale Suisse, 22(961), 822–827. https://doi.org/10.53738/REVMED.2026.22.961.48636",
+     "langue": "fr",
+     "lien": "https://doi.org/10.53738/REVMED.2026.22.961.48636"
+    },
+    {
+     "apa": "Mannoubi, C., Kairy, D., Menezes, K. V., Desroches, S., Layani, G., & Vachon, B. (2024). The Key Digital Tool Features of Complex Telehealth Interventions Used for Type 2 Diabetes Self-Management and Monitoring With Health Professional Involvement: Scoping Review. JMIR Medical Informatics, 12, e46699. https://doi.org/10.2196/46699",
+     "langue": "en",
+     "lien": "https://doi.org/10.2196/46699"
+    },
+    {
      "apa": "McDonald, K. M., Sundaram, V., Bravata, D. M., Lewis, R., Lin, N., Kraft, S. A., McKinnon, M., Paguntalan, H., & Owens, D. K. (2007). Closing the quality gap: A critical analysis of quality improvement strategies: Vol. 7. Care coordination (AHRQ Publication No. 04(07)-0051-7). Agency for Healthcare Research and Quality.",
      "langue": "en",
      "lien": null
@@ -1889,6 +1994,11 @@
      "apa": "Ministère de la Santé et des Services sociaux. (2026). Innover pour mieux répondre aux besoins des personnes et des communautés : politique gouvernementale sur les soins et services de première ligne. Gouvernement du Québec.",
      "langue": "fr",
      "lien": null
+    },
+    {
+     "apa": "Navani, S., Vedel, I., Arsenault-Lapierre, G., Sourial, N., Quesnel-Vallée, A., Rochette, L., Massamba, V., & Godard-Sebillotte, C. (2025). Incident dementia across neighbourhood material deprivation: Implications for underdiagnosis. Archives of Gerontology and Geriatrics, 136, 105905. https://doi.org/10.1016/j.archger.2025.105905",
+     "langue": "en",
+     "lien": "https://doi.org/10.1016/j.archger.2025.105905"
     },
     {
      "apa": "Norwegian Ministry of Health and Care Services. (2009). The coordination reform: Proper treatment – at the right place and right time (Report No. 47 to the Storting, 2008–2009).",
@@ -1916,6 +2026,11 @@
      "lien": "https://doi.org/10.1111/j.1553-2712.2011.01224.x"
     },
     {
+     "apa": "Piraux, A., Layani, G., Belche, J. L., Bourgueil, Y., Chapron, A., Cohidon, C., Dufour, I., Fiquet, L., Gautier, S., Hassenteufel, P., Lamoureux-Lamarche, C., Levaillant, M., Van Durme, T., Hudon, C., Breton, M., & Ramond-Roquin, A. (2026). [Politic(s) and primary care A retrospective on the 7symposium of the Francophone Primary Care Group]. Revue Medicale Suisse, 22(961), 1–4. https://doi.org/10.53738/REVMED.2026.22.961.e48307",
+     "langue": "fr",
+     "lien": "https://doi.org/10.53738/REVMED.2026.22.961.e48307"
+    },
+    {
      "apa": "Raîche, M., Hébert, R., & Dubois, M.-F. (2008). PRISMA-7: A case-finding tool to identify older adults with moderate to severe disabilities. Archives of Gerontology and Geriatrics, 47(1), 9–18. https://doi.org/10.1016/j.archger.2007.06.004",
      "langue": "en",
      "lien": "https://doi.org/10.1016/j.archger.2007.06.004"
@@ -1926,9 +2041,29 @@
      "lien": "https://doi.org/10.1007/s10198-020-01217-5"
     },
     {
+     "apa": "Rodriguez-Duarte, M. A., Fernainy, P., Gauvin, L., Layani, G., Poitras, M. E., Breton, M., Godard-Sebillotte, C., Hudon, C., Kaczorowski, J., Couturier, Y., Lacasse, A., Lussier, M. T., Longo, C., & Sourial, N. (2024). Development of an organizational typology of interprofessional primary care teams in Quebec, Canada: A multivariate analysis. Health Policy (Amsterdam, Netherlands), 152, 105202. https://doi.org/10.1016/j.healthpol.2024.105202",
+     "langue": "en",
+     "lien": "https://doi.org/10.1016/j.healthpol.2024.105202"
+    },
+    {
+     "apa": "Rojas-Rozo, L., Arsenault-Lapierre, G., Dumaresq, D., Trépanier, T., Lea, P., Myers Barnett, K., O'Connor, D., Fernandez Loughlin, R., Miskucza, K., Wighton, M. B., Godard-Sebillotte, C., Gruneir, A., Beuscart, J. B., Bronskill, S. E., Sourial, N., Smith, E. E., Bethell, J., & Vedel, I. (2024). Unlocking Engagement: Enhancing Participation in Research With Vulnerable Populations. International Journal of Public Health, 69, 1606705. https://doi.org/10.3389/ijph.2024.1606705",
+     "langue": "en",
+     "lien": "https://doi.org/10.3389/ijph.2024.1606705"
+    },
+    {
      "apa": "Rosano, A., Loha, C. A., Falvo, R., van der Zee, J., Ricciardi, W., Guasticchi, G., & de Belvis, A. G. (2013). The relationship between avoidable hospitalization and accessibility to primary care: A systematic review. European Journal of Public Health, 23(3), 356–360. https://doi.org/10.1093/eurpub/cks053",
      "langue": "en",
      "lien": "https://doi.org/10.1093/eurpub/cks053"
+    },
+    {
+     "apa": "Sasseville, M., Supper, W., Gartner, J. B., Layani, G., Amil, S., Sheffield, P., Gagnon, M. P., Hudon, C., Lambert, S., Attisso, E., Bureau Lagarde, V., Breton, M., Poitras, M. E., Pluye, P., Roux-Levy, P. H., Plaisimond, J., Bergeron, F., Ashcroft, R., Wong, S., … LeBlanc, A. (2023). Clinical Integration of Digital Patient-Reported Outcome Measures in Primary Health Care for Chronic Disease Management: Protocol for a Systematic Review. JMIR Research Protocols, 12, e48155. https://doi.org/10.2196/48155",
+     "langue": "en",
+     "lien": "https://doi.org/10.2196/48155"
+    },
+    {
+     "apa": "Sasseville, M., Supper, W., Gartner, J. B., Layani, G., Amil, S., Sheffield, P., Gagnon, M. P., Hudon, C., Lambert, S., Attisso, E., Ouellet, S., Breton, M., Poitras, M. E., Roux-Lévy, P. H., Plaisimond, J., Bergeron, F., Ashcroft, R., Wong, S. T., Groulx, A., … LeBlanc, A. (2025). Electronic Implementation of Patient-Reported Outcome Measures in Primary Health Care: Mixed Methods Systematic Review. Journal of Medical Internet Research, 27, e63639. https://doi.org/10.2196/63639",
+     "langue": "en",
+     "lien": "https://doi.org/10.2196/63639"
     },
     {
      "apa": "Schrijvers, G., van Hoorn, A., & Huiskes, N. (2012). The care pathway: Concepts and theories: An introduction. International Journal of Integrated Care, 12(6), e192. https://doi.org/10.5334/ijic.812",
@@ -1961,6 +2096,11 @@
      "lien": "https://doi.org/10.5334/ijic.886"
     },
     {
+     "apa": "Van Durme, T., Cohidon, C., Jamart, H., Layani, G., Ramond-Roquin, A., Senn, N., Van Maele, L., & Breton, M. (2025). [Health Promotion in Primary Care: Lessons from the 6Francophone Primary Care Group symposium]. Revue Medicale Suisse, 21(917), 975–979. https://doi.org/10.53738/REVMED.2025.21.917.47195",
+     "langue": "fr",
+     "lien": "https://doi.org/10.53738/REVMED.2025.21.917.47195"
+    },
+    {
      "apa": "van Loenen, T., van den Berg, M. J., Westert, G. P., & Faber, M. J. (2014). Organizational aspects of primary care related to avoidable hospitalization: A systematic review. Family Practice, 31(5), 502–516. https://doi.org/10.1093/fampra/cmu053",
      "langue": "en",
      "lien": "https://doi.org/10.1093/fampra/cmu053"
@@ -1969,6 +2109,11 @@
      "apa": "van Veenendaal, H., Chernova, G., Bouman, C. M., van Etten-Jamaludin, F. S., van Dieren, S., & Ubbink, D. T. (2023). Shared decision-making and the duration of medical consultations: A systematic review and meta-analysis. Patient Education and Counseling, 107, 107561. https://doi.org/10.1016/j.pec.2022.11.003",
      "langue": "en",
      "lien": "https://doi.org/10.1016/j.pec.2022.11.003"
+    },
+    {
+     "apa": "Wang, Z., Ma, X., Su, C., Zhang, Y., Zou, X., Balogun, M., Bergman, H., Liu, X., Sourial, N., & Vedel, I. (2026). Older adults' experiences of health seeking in rural areas in low- and middle-income countries: a systematic review of qualitative studies. Health Policy and Planning, 41(2), 299–313. https://doi.org/10.1093/heapol/czaf061",
+     "langue": "en",
+     "lien": "https://doi.org/10.1093/heapol/czaf061"
     },
     {
      "apa": "World Health Organization, & United Nations Children's Fund. (2018). Declaration of Astana: Global Conference on Primary Health Care.",
@@ -1989,6 +2134,21 @@
      "apa": "Wright, V., Nelson, S., & Metcalfe, K. (2026). Bridging governance and practice in cross-sector integrated care: Toward a continuum of collaboration. Frontiers in Political Science, 8, 1819648. https://doi.org/10.3389/fpos.2026.1819648",
      "langue": "en",
      "lien": "https://doi.org/10.3389/fpos.2026.1819648"
+    },
+    {
+     "apa": "Yang, D., Alkot, M., Faucher-Jabado, G., Kamyab, R., Quaiattini, A., Desmarais, P., Huang, Y. Q., Ahmad, S., Richer, C., Rouabhia, D., Pageau, F., Brown-Johnson, A., Tannou, T., Yilmaz, G., Couture, S., Morais, J., Layani, G., Chabot, J., Duque, G., & Godard-Sebillotte, C. (2026). Information Transfer Practices Between Hospitals and Primary Care for Older Adults: A Scoping Review. Journal of the American Medical Directors Association, 27(9), 106372. https://doi.org/10.1016/j.jamda.2026.106372",
+     "langue": "en",
+     "lien": "https://doi.org/10.1016/j.jamda.2026.106372"
+    },
+    {
+     "apa": "Yang, D., Alkot, M., Quaiattini, A., Lessard, S., Zaripova, A., Pavoni, C., Couture, S., Desmarais, P., Huang, Y. Q., McDonald, E. G., Richer, C., Chabot, J., Pageau, F., Tannou, T., Layani, G., Rouabhia, D., Calafiore, M., Fink, K., Yilmaz, G., … Godard-Sebillotte, C. (2024). Identifying practices of information transfer between the hospital and primary care for older adults: a scoping review protocol. BMJ Open, 14(11), e090764. https://doi.org/10.1136/bmjopen-2024-090764",
+     "langue": "en",
+     "lien": "https://doi.org/10.1136/bmjopen-2024-090764"
+    },
+    {
+     "apa": "Yapi, S. M., Poitras, M. E., Donnelly, C., Ashcroft, R., Greiver, M., Couturier, Y., Nikiema, J. N., Breton, M., Layani, G., Kaczorowski, J., Bergman, H., Lussier, M. T., Aggarwal, M., Fernainy, P., McGraw, M., Milius, D., Mehta, K., Samson, K., & Sourial, N. (2023). Identify and classify interprofessional primary care performance indicators: a scoping review protocol. BMJ Open, 13(5), e072186. https://doi.org/10.1136/bmjopen-2023-072186",
+     "langue": "en",
+     "lien": "https://doi.org/10.1136/bmjopen-2023-072186"
     }
    ]
   },
