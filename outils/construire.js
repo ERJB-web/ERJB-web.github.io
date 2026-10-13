@@ -715,7 +715,7 @@ ${bandeAccueil(c)}
 ${SALLES.map(
   (s, i) => `<section class="section${i % 2 ? " teinte" : ""}" id="${s}" data-salle="${s}" data-titre="${e(c.hall.portes[s][0])}">
 <div class="section-contenu">
-<div class="bandeau" style="--c1:${TEINTES[s][0]};--image:url(${p}assets/bandeaux/${s}.jpg?v=${empreinte("assets/bandeaux/" + s + ".jpg")})" role="img" aria-label="${e(c.hall.portes[s][0])}"><div class="bandeau-texte"><span class="bandeau-num">${num(i)}</span><span class="bandeau-titre">${e(c.hall.portes[s][0])}</span><span class="bandeau-legende">${e(c.hall.portes[s][1])}</span></div></div>
+<div class="bandeau" style="--c1:${TEINTES[s][0]};background-image:var(--degrade),url(${p}assets/bandeaux/${s}.jpg?v=${empreinte("assets/bandeaux/" + s + ".jpg")})" role="img" aria-label="${e(c.hall.portes[s][0])}"><div class="bandeau-texte"><span class="bandeau-num">${num(i)}</span><span class="bandeau-titre">${e(c.hall.portes[s][0])}</span><span class="bandeau-legende">${e(c.hall.portes[s][1])}</span></div></div>
 ${sections[s]}
 </div>
 </section>`

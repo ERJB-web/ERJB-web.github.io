@@ -318,11 +318,6 @@
 
   // Apparitions au défilement : schémas, cartes et figures entrent en douceur.
   const CIBLES = '.schema, .figure-officielle, .cycle, .cadre, .expertises > div, .liste li, .frise li, .lacune, .media, .chiffres > div, .travail, .personne, .notions > div, .cours-carte, .bandeau-texte, .trajectoire li, .valeurs > div, .piliers > div';
-  const observateur = 'IntersectionObserver' in window && !mouvementReduit
-    ? new IntersectionObserver((entrees) => entrees.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('vu'); observateur.unobserve(en.target); } }), { rootMargin: '0px 0px -8% 0px' })
-    : null;
-  const preparer = (racineZone) => { if (!observateur) return; $$(CIBLES, racineZone).forEach((el) => { el.classList.add('revele'); observateur.observe(el); }); };
+  const preparer = (racineZone) => $(CIBLES, racineZone).forEach((el) => el.classList.add('revele'));
   preparer(document);
-  // Sécurité : si le navigateur ne signale aucune apparition, tout est affiché.
-  setTimeout(() => { if (!document.querySelector(".revele.vu")) document.querySelectorAll(".revele").forEach((el) => el.classList.add("vu")); }, 1800);
 })();
