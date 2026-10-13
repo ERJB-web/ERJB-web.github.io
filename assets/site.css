@@ -1187,3 +1187,17 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 @media (max-width:1100px){.porte{--largeur-porte:126px}}
 @media (max-width:700px){.portes{grid-template-columns:1fr}.porte{--largeur-porte:98px}}
 @media (max-width:380px){.porte{--largeur-porte:77px;column-gap:10px;padding-inline:4px}.porte .sous-portes span{padding-inline:5px}}
+
+/* Modèle de porte : huisserie, vitrage et panneau mouluré, mêmes couleurs et ouverture. */
+.porte .baie,.onglet-salle .baie.mini{background:linear-gradient(90deg,#d9dedc,#fafbf7 4%,#e9ede8 8%,#e9ede8 92%,#fafbf7 96%,#c7cecb);border-radius:1px;box-shadow:0 0 0 1px #bdc6c4,0 1px 0 1px #fff,0 13px 20px -13px rgba(15,49,66,.5)}
+:is(.porte,.onglet-salle) .ouverture{inset:2.5% 3.5% 1.5%;box-shadow:inset 2px 1px 4px rgba(15,30,40,.28),inset -1px 0 2px rgba(15,30,40,.16)}
+:is(.porte,.onglet-salle) .battant{background:linear-gradient(100deg,#fcfdf9,#f3f5ef 55%,#e5e9e3);border:1px solid #b9c1bd;border-radius:1px;box-shadow:inset 1px 1px 0 #fff,inset -2px -1px 3px rgba(42,54,45,.1)}
+:is(.porte,.onglet-salle) .battant::before{content:"";position:absolute;inset-block:0;inset-inline-start:0;width:2.5%;background:linear-gradient(90deg,color-mix(in srgb,var(--c1) 75%,#182d35),var(--c1));box-shadow:1px 0 1px rgba(15,30,40,.15);pointer-events:none}
+:is(.porte,.onglet-salle) .battant::after{display:block;inset-inline-start:14%;inset-inline-end:14%;top:73%;height:18%;border:1px solid #bcc5bf;border-radius:1px;background:linear-gradient(155deg,#f7f9f3,#e8ede5);box-shadow:0 0 0 2px #f9fbf6,0 0 0 3px #d0d8cf,inset 1px 2px 4px rgba(32,46,36,.13),0 4px 5px -4px rgba(32,46,36,.3);pointer-events:none}
+:is(.porte,.onglet-salle) .vignette{inset-inline-start:13%;inset-inline-end:25%;top:9%;height:56%;border:1px solid #aeb9b7;border-radius:1px;box-shadow:0 0 0 2px #fafbf6,0 0 0 3px #c4cdc7,1px 2px 4px rgba(24,42,35,.22)}
+:is(.porte,.onglet-salle) .vignette::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.2),transparent 38%,transparent 72%,rgba(255,255,255,.08));box-shadow:inset 1px 1px 3px rgba(20,38,31,.16);pointer-events:none}
+:is(.porte,.onglet-salle) .poignee{top:53%;inset-inline-end:8%;width:3.8%;height:9%;min-width:2px;min-height:0;border-radius:1.5px;background:linear-gradient(90deg,#7e898d,#e3e8e8 42%,#bfc9cd 62%,#778388);box-shadow:1px 1px 2px rgba(15,30,40,.28)}
+:is(.porte,.onglet-salle) .poignee::before{top:38%;width:175%;height:auto;aspect-ratio:1;background:radial-gradient(circle at 35% 30%,#fff 0%,#d1d9db 48%,#88969b 78%,#59686e 100%);box-shadow:0 1px 1px rgba(15,30,40,.35)}
+:is(.porte,.onglet-salle) .poignee::after{top:38%;width:310%;height:17%;min-height:1.5px;border-radius:2px;background:linear-gradient(180deg,#fff 0%,#d3dbde 35%,#a4b2b8 60%,#68787f 100%);box-shadow:0 1px 1px rgba(15,30,40,.38)}
+.onglet-salle .battant::after{box-shadow:inset 0 1px 1px rgba(32,46,36,.13),0 0 0 1px #f9fbf6}
+.onglet-salle .vignette{box-shadow:0 0 0 1px #c4cdc7,inset 0 1px 1px rgba(24,42,35,.2)}
