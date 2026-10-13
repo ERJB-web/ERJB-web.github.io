@@ -125,7 +125,7 @@
     occupe = true;
     reduit = sansPassage();
     bouton.classList.add("ouverte");
-    await attendre(450);
+    await attendre(180);
     const r = bouton.querySelector(".ouverture").getBoundingClientRect();
     const passage = document.createElement("div");
     passage.className = "passage";
@@ -137,12 +137,12 @@
           { left: r.left + "px", top: r.top + "px", width: r.width + "px", height: r.height + "px" },
           { left: "0px", top: "0px", width: innerWidth + "px", height: innerHeight + "px" },
         ],
-        { duration: 560, easing: "cubic-bezier(.6,0,.2,1)", fill: "forwards" }
+        { duration: 280, easing: "cubic-bezier(.6,0,.2,1)", fill: "forwards" }
       );
-      await Promise.race([anim.finished, attendre(650)]);
+      await Promise.race([anim.finished, attendre(330)]);
     }
     afficher(x);
-    if (!reduit && passage.animate) await Promise.race([passage.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 320, fill: "forwards" }).finished, attendre(380)]);
+    if (!reduit && passage.animate) await Promise.race([passage.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 160, fill: "forwards" }).finished, attendre(200)]);
     passage.remove();
     occupe = false;
   }
