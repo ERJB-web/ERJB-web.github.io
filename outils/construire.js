@@ -350,7 +350,7 @@ ${terminus ? `<p class="terminus">${e(terminus)}</p>` : ""}
 </div>`;
 }
 
-const IMAGES_GROUPES = { recherche: "recherche.jpg", implantation: "expertise.jpg", parcours: "biographie.jpg", engagements: "engagements.jpg", ressources: "ressources.jpg" };
+const IMAGES_GROUPES = { recherche: "recherche.jpg", implantation: "expertise.jpg", parcours: "biographie.jpg", engagements: "engagements.jpg", ressources: "ressources.jpg", contact: "contact.jpg" };
 const TEINTES_GROUPES = { recherche: ["#1f5a8a", "#143d5e"], implantation: ["#c0612b", "#8a431c"], parcours: ["#7a4a8c", "#553263"], engagements: ["#a8343f", "#76232b"], ressources: ["#138086", "#0c5a5e"], contact: ["#4f7d2e", "#37591f"] };
 const IMAGES_PORTES = {
   recherche: "recherche.jpg",
@@ -398,7 +398,7 @@ function porte(c, [nom, sections], i) {
   const image = IMAGES_GROUPES[nom];
   const fond = image ? ` style="background-image:url(${c.chemin}assets/portes/${image}?v=${empreinte("assets/portes/" + image)})"` : "";
   return `<button class="porte${image ? "" : " porte-contact"}" type="button" data-salle="${nom}" data-sections="${sections.join(" ")}" data-titre="${e(titre)}" style="--c1:${c1};--c2:${c2}" aria-label="${num(i)}. ${e(titre)}${deuxPoints(c)} ${e(legende)}">
-<span class="baie" aria-hidden="true"><span class="ouverture"><span class="apercu">${e(c.ui.entrer)}</span><span class="battant"><span class="vignette"${fond}></span><span class="plaque-laiton">${num(i)}</span><span class="poignee"></span></span></span></span>
+<span class="baie" aria-hidden="true"><span class="ouverture"><span class="apercu">${e(c.ui.entrer)}</span><span class="battant"><span class="vignette"${fond}></span><span class="plaque-laiton"></span><span class="poignee"></span></span></span></span>
 <span class="porte-texte" aria-hidden="true"><span class="plaque"><span class="num">${num(i)}</span>${e(titre)}</span><span class="legende">${e(legende)}</span>${sections.length > 1 ? `<span class="sous-portes">${sections.map((s) => `<span data-sous="${s}" style="--c1:${TEINTES[s][0]}">${e(c.hall.portes[s][0])}</span>`).join("")}</span>` : ""}<span class="entrer">${e(c.ui.entrer)} →</span></span>
 </button>`;
 }
