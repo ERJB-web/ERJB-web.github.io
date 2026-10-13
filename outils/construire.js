@@ -74,7 +74,7 @@ function poserSousPortes(c) {
   for (const [s, P] of Object.entries(PARTIES_RESSOURCES)) c.hall.portes[s] = [S[s][0] || c.ressources.groupes[P.groupes[0]][0], S[s][1]];
   for (const [s, k] of Object.entries(INDEX_ENGAGEMENTS)) c.hall.portes[s] = [c.engagements.groupes[k].titre, c.hall.portes.engagements[0]];
 }
-const BANDEAUX = { litterature: "bandeaux/ressources.jpg", representation: "photos/representation.jpg", communaute: "bandeaux/engagements.jpg", distinctions: "photos/distinctions.jpg" };
+const BANDEAUX = { litterature: "bandeaux/ressources.jpg", representation: "photos/representation.jpg", communaute: "bandeaux/engagements.jpg", distinctions: "photos/distinctions.jpg", loisirs: "bandeaux/sports-loisirs.png" };
 const bandeau = (s) => BANDEAUX[s] || "bandeaux/" + s + ".jpg";
 // Références vérifiées (Crossref), communes à toutes les langues.
 const REFS_NOTIONS = {
