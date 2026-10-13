@@ -30,7 +30,7 @@
     marquer(nom);
     await attendre(650);
 
-    const r = $(".baie", porte).getBoundingClientRect();
+    const r = $(".ouverture", porte).getBoundingClientRect();
     const passage = document.createElement("div");
     passage.className = "passage";
     Object.assign(passage.style, { left: r.left + "px", top: r.top + "px", width: r.width + "px", height: r.height + "px" });
@@ -47,7 +47,7 @@
     }
 
     const section = $(`section[data-salle="${nom}"]`);
-    contenu.replaceChildren(section.querySelector(".section-corps").cloneNode(true));
+    contenu.replaceChildren(section.querySelector(".section-contenu").cloneNode(true));
     const i = ordre.indexOf(nom);
     $("#salle-titre").textContent = `${String(i + 1).padStart(2, "0")} / ${String(ordre.length).padStart(2, "0")} · ${section.dataset.titre}`;
     $("[data-suivante]", salle).hidden = i === ordre.length - 1;

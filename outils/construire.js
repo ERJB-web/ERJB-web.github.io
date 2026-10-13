@@ -8,7 +8,11 @@ const RACINE = path.join(__dirname, "..");
 const URL = "https://erjb-web.github.io/";
 const SALLES = ["recherche", "publications", "parcours", "engagements"];
 
-const e = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+let typoFr = false;
+const e = (s) => {
+  const t = String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  return typoFr ? t.replace(/ ([?!;])/g, " $1").replace(/ :/g, " :") : t;
+};
 const externe = (href) => /^https?:/.test(href);
 const lien = (href, texte, classe = "") =>
   `<a href="${e(href)}"${classe ? ` class="${classe}"` : ""}${externe(href) ? ' target="_blank" rel="noopener"' : ""}>${texte}</a>`;
@@ -24,11 +28,30 @@ function liste(items, c) {
     .join("")}</ul>`;
 }
 
+const TEINTES = {
+  recherche: ["#245a73", "#163a4c"],
+  publications: ["#327a66", "#1f5446"],
+  parcours: ["#9a7448", "#6c4f2e"],
+  engagements: ["#5d6585", "#40465f"],
+};
+
+const EMBLEMES = {
+  recherche: '<circle cx="6" cy="7" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><circle cx="12" cy="11" r="1.6"/><path d="M8.2 8l2.6 2.1M15.8 7l-2.7 3.1M12 12.6v3"/>',
+  publications: '<path d="M4 6.5c3-1.4 5.6-1.4 8 0v12c-2.4-1.4-5-1.4-8 0z"/><path d="M20 6.5c-3-1.4-5.6-1.4-8 0v12c2.4-1.4 5-1.4 8 0z"/>',
+  parcours: '<circle cx="5" cy="18.5" r="1.8"/><circle cx="19" cy="5.5" r="1.8"/><path d="M6.6 17.4c3.4-1.8 1.4-5.4 5.4-5.4s2-4.6 5.4-5.6"/>',
+  engagements: '<circle cx="9" cy="8" r="3"/><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/><circle cx="17" cy="9.5" r="2.3"/><path d="M15.6 14.2c2.8-.2 5 1.5 5 4.3"/>',
+};
+
 function porte(c, nom, i) {
   const [titre, legende] = c.hall.portes[nom];
-  return `<button class="porte" type="button" data-salle="${nom}" aria-label="${num(i)}. ${e(titre)} : ${e(legende)}">
+  const [c1, c2] = TEINTES[nom];
+  return `<button class="porte" type="button" data-salle="${nom}" style="--c1:${c1};--c2:${c2}" aria-label="${num(i)}. ${e(titre)} : ${e(legende)}">
 <span class="plaque"><span class="num">${num(i)}</span>${e(titre)}</span>
-<span class="baie" aria-hidden="true"><span class="lueur"></span><span class="battant"><span class="poignee"></span></span></span>
+<span class="baie" aria-hidden="true">
+<span class="imposte"></span>
+<span class="ouverture"><span class="apercu">${e(c.ui.entrer)} →</span><span class="battant"><svg class="embleme" viewBox="0 0 24 24">${EMBLEMES[nom]}</svg><span class="poignee"></span></span></span>
+<span class="reflet"></span>
+</span>
 <span class="seuil" aria-hidden="true"></span>
 <span class="legende" aria-hidden="true">${e(legende)}</span>
 </button>`;
@@ -36,14 +59,31 @@ function porte(c, nom, i) {
 
 function sectionRecherche(c) {
   const r = c.recherche;
+  const valeur = (v) => (Array.isArray(v) ? v.map((x) => `<span class="ligne">${e(x)}</span>`).join("") : e(v));
+  const travaux = `<div class="travaux">
+<div class="travaux-tete"><h3>${e(r.travaux.titre)}</h3><p>${e(r.travaux.intro)}</p></div>
+<div class="travaux-grille">${r.travaux.items
+    .map(
+      (t) => `<article class="travail${t.resume ? " vedette" : ""}">
+<p class="domaine">${e(t.domaine)}</p>
+<span class="statut-pastille">${e(t.statut)}</span>
+<h4>${e(t.titre)}</h4>
+<p class="auteurs">${e(t.auteurs)}</p>
+${t.resume ? `<p class="resume">${e(t.resume)}</p>` : ""}
+${t.etiquettes ? `<div class="etiquettes">${t.etiquettes.map((x) => `<span>${e(x)}</span>`).join("")}</div>` : ""}
+</article>`
+    )
+    .join("")}</div>
+</div>`;
   return `<div class="section-corps">
 <div class="colonne-texte">
 <p class="surtitre">${e(r.surtitre)}</p>
+<p class="badge-these">${e(r.etiquette)}</p>
 <h2>${e(r.titre)}</h2>
 <p class="sous-titre">${e(r.sousTitre)}</p>
 <p class="intro">${e(r.question)}</p>
 <p>${e(r.but)}</p>
-<ul class="faits">${r.faits.map(([k, v]) => `<li><b>${e(k)}</b><span>${e(v)}</span></li>`).join("")}</ul>
+<ul class="faits">${r.faits.map(([k, v]) => `<li><b>${e(k)}</b><span>${valeur(v)}</span></li>`).join("")}</ul>
 ${lien(r.affiche[2], `<span><strong>${e(r.affiche[0])}</strong><small>${e(r.affiche[1])}</small></span><span aria-hidden="true">↗</span>`, "carte-lien")}
 </div>
 <div class="colonne-outils">
@@ -63,11 +103,12 @@ ${r.table.etapes
 <h3 class="titre-bloc">${e(r.notions.titre)}</h3>
 <div class="notions">${r.notions.items.map(([t, d]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p></div>`).join("")}</div>
 <div class="duo">
-<div><h3 class="titre-bloc">${e(r.retombees.titre)}</h3><ul class="puces">${r.retombees.items.map(([t, d]) => `<li><b>${e(t)}</b> : ${e(d)}</li>`).join("")}</ul></div>
+<div><h3 class="titre-bloc">${e(r.retombees.titre)}</h3><ul class="puces">${r.retombees.items.map(([t, d]) => `<li><b>${e(t)}</b>${c.lang === "fr" ? " :" : ":"} ${e(d)}</li>`).join("")}</ul></div>
 <div><h3 class="titre-bloc">${e(r.axes.titre)}</h3><ul class="puces">${r.axes.items.map((t) => `<li>${e(t)}</li>`).join("")}</ul></div>
 </div>
 </div>
-</div>`;
+</div>
+${travaux}`;
 }
 
 function sectionGroupes(c, s, extra = "") {
@@ -103,6 +144,7 @@ function sectionParcours(c) {
 }
 
 function page(c) {
+  typoFr = c.lang === "fr";
   const p = c.chemin;
   const autreUrl = URL + (c.lang === "fr" ? "en/" : "");
   const ici = URL + (c.lang === "fr" ? "" : "en/");
@@ -190,7 +232,9 @@ function page(c) {
 
 ${SALLES.map(
   (s, i) => `<section class="section${i % 2 ? " teinte" : ""}" id="${s}" data-salle="${s}" data-titre="${e(c.hall.portes[s][0])}">
+<div class="section-contenu">
 ${sections[s]}
+</div>
 </section>`
 ).join("\n")}
 
@@ -228,6 +272,7 @@ ${sections[s]}
 }
 
 function introuvable() {
+  typoFr = false;
   return `<!doctype html>
 <html lang="fr">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${e(fr.introuvable.titre)} · Éric Bernier</title>

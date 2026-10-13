@@ -20,8 +20,9 @@ const fr = {
   },
   ui: {
     evitement: "Aller au contenu",
-    sousTitre: "Santé publique · Droit · Intervention sociale",
+    sousTitre: "Santé publique · Gouvernance · Gestion · Droit · Intervention sociale et intersectorialité",
     navigation: "Navigation principale",
+    entrer: "Entrer",
     langue: "Langue",
     cv: "CV",
     hall: "Le hall",
@@ -55,26 +56,65 @@ const fr = {
     compte: "4 portes",
     consigne: "Cliquez sur une porte pour entrer",
     portes: {
-      recherche: ["La recherche", "Thèse, question, devis"],
-      publications: ["Publications", "Communications, manuscrits, mémoires"],
+      recherche: ["La recherche", "Thèse et travaux en cours"],
+      publications: ["Publications", "Communications, mémoires, outils"],
       parcours: ["Le parcours", "Terrain, gestion, droit, santé publique"],
       engagements: ["Engagements", "Représentation, enseignement, distinctions"],
     },
   },
   recherche: {
     surtitre: "01 · La recherche",
+    etiquette: "Thèse de doctorat en cours",
     titre: "Organiser la réponse intersectorielle aux besoins sociaux complexes et co-occurrents en soins primaires",
     sousTitre: "Configuration des réseaux adaptés aux différents profils de patients pris en charge",
     question:
       "Comment s’organise la réponse intersectorielle aux différents profils de patients ayant des besoins sociaux complexes et co-occurrents pris en charge en soins primaires ?",
     but: "Le projet vise à relier chaque profil de besoins à une configuration de partenaires et à son coordonnateur, à l’échelle d’un territoire de CLSC.",
     faits: [
-      ["Programme", "Doctorat en santé publique, 2e année · option systèmes, organisations et politiques de santé · ESPUM"],
-      ["Codirection", "Nadia Sourial et Géraldine Layani"],
-      ["Milieu", "Chaire de recherche GSK en gestion optimale des maladies chroniques · CRCHUM"],
+      ["Programme", "Doctorat en santé publique, option systèmes, organisations et politiques de santé (SOPS) · 2e année"],
+      ["Établissement", "École de santé publique de l’Université de Montréal (ESPUM)"],
+      ["Codirection", [
+        "Nadia Sourial, professeure agrégée au Département de gestion, d’évaluation et de politique de santé (ESPUM), chercheuse au CRCHUM",
+        "Géraldine Layani, médecin de famille, professeure adjointe de clinique au Département de médecine de famille et de médecine d’urgence (Université de Montréal), chercheuse au CRCHUM",
+      ]],
+      ["Chaire", "Chaire de recherche GSK en gestion optimale des maladies chroniques"],
+      ["Centre de recherche", "Centre de recherche du CHUM (CRCHUM) · stagiaire de recherche"],
       ["Calendrier", "2026–2029 · présentation du protocole le 27 octobre 2026"],
       ["Financement", "Fonds de recherche du Québec, bourse de doctorat (B2)"],
     ],
+    travaux: {
+      titre: "Travaux en cours",
+      intro: "Articles et manuscrits en cours d’écriture, en parallèle de la thèse.",
+      items: [
+        {
+          domaine: "Épistémologie et transfert de connaissances",
+          statut: "En travaux",
+          titre: "Epistemic return in public health governance: The road back from health to science",
+          auteurs: "Bernier, É.",
+          resume:
+            "L’impact de la recherche est d’ordinaire pensé dans un seul sens, de la connaissance vers les politiques et les pratiques. L’article propose une santé publique conçue comme science réflexive de la gouvernance : il précise à quelles conditions les conséquences observées sur le terrain et les savoirs des populations concernées peuvent exiger que l’on réexamine les catégories, les indicateurs et les règles en amont. Le concept se traduit en un audit documentaire, mis à l’essai sur quatre chaînes institutionnelles.",
+          etiquettes: ["Retour épistémique", "Gouvernance réflexive", "Impact de la recherche"],
+        },
+        {
+          domaine: "Systèmes de santé et soins primaires",
+          statut: "Manuscrit en préparation",
+          titre: "Potentially avoidable hospitalisations and primary care: the role of patient experience across Commonwealth countries",
+          auteurs: "Bernier, É., Algoët, A., Sourial, N., Layani, G., Vedel, I., Calafiore, M.",
+        },
+        {
+          domaine: "Gouvernance et espace public",
+          statut: "Manuscrit en préparation",
+          titre: "Prise de parole des médecins dans l’espace public québécois lors des débats entourant le projet de loi n° 2 : une analyse qualitative du discours critique",
+          auteurs: "Bernier, É., Aïssi, F., Diene Faye, C., Boukari Abdo, S.",
+        },
+        {
+          domaine: "Droit de la santé",
+          statut: "Manuscrit en préparation",
+          titre: "Vieillir chez soi à l’épreuve du droit : l’effectivité du choix du lieu de vie en droit français et en droit québécois",
+          auteurs: "Bernier, É. · article de doctrine",
+        },
+      ],
+    },
     affiche: ["Voir l’affiche du projet", "Version accessible : français, anglais, daltonisme, écoute", AFFICHE],
     table: {
       titre: "Table d’exploration",
@@ -115,8 +155,8 @@ const fr = {
   },
   publications: {
     surtitre: "02 · Publications",
-    titre: "Communications, manuscrits et mémoires",
-    intro: "Chaque travail garde son titre original, ses auteurs et son statut.",
+    titre: "Communications, mémoires et outils",
+    intro: "Chaque travail garde son titre original, ses auteurs et son statut. Les manuscrits en cours sont présentés dans la salle La recherche.",
     groupes: [
       {
         titre: "Communications scientifiques",
@@ -124,14 +164,6 @@ const fr = {
           { date: "Juin 2026", statut: "Prix de la meilleure affiche · 3e cycle et postdoctorat", titre: "Intégration des soins et services de proximité pour soutenir l’autonomie domiciliaire des personnes aînées : une étude qualitative comparative", detail: "Bernier, É., Sourial, N., Layani, G. · Groupe francophone en soins primaires (GFSP), Montréal · présentation par affiche" },
           { date: "Mai 2026", statut: "Affiche", titre: "Integrating Care and Services to Support Aging at Home: A Comparative Analysis of Institutional, Organizational, and Professional Mechanisms in France and Quebec", detail: "Bernier, É., Sourial, N., Layani, G. · CAHSPR, Ottawa" },
           { date: "Avril 2026", statut: "Affiche et 180 secondes", titre: "Intégration des soins et services de proximité pour soutenir l’autonomie domiciliaire des personnes aînées : une étude qualitative comparative", detail: "Bernier, É., Sourial, N., Layani, G. · Réseau québécois de recherche sur le vieillissement (RQRV), Sherbrooke · affiche et vulgarisation en 180 secondes" },
-        ],
-      },
-      {
-        titre: "Manuscrits en préparation",
-        items: [
-          { date: "2026", titre: "Potentially avoidable hospitalisations and primary care: the role of patient experience across Commonwealth countries", detail: "Bernier, É., Algoët, A., Sourial, N., Layani, G., Vedel, I., Calafiore, M." },
-          { date: "2026", titre: "Prise de parole des médecins dans l’espace public québécois lors des débats entourant le projet de loi n° 2 : une analyse qualitative du discours critique", detail: "Bernier, É., Aïssi, F., Diene Faye, C., Boukari Abdo, S." },
-          { date: "2026", titre: "Vieillir chez soi à l’épreuve du droit : l’effectivité du choix du lieu de vie en droit français et en droit québécois", detail: "Bernier, É. · article de doctrine" },
         ],
       },
       {
@@ -252,8 +284,9 @@ const en = {
   },
   ui: {
     evitement: "Skip to content",
-    sousTitre: "Public health · Law · Social care",
+    sousTitre: "Public health · Governance · Management · Law · Social intervention and intersectoral action",
     navigation: "Main navigation",
+    entrer: "Step in",
     langue: "Language",
     cv: "CV",
     hall: "The hall",
@@ -287,26 +320,65 @@ const en = {
     compte: "4 doors",
     consigne: "Click a door to step in",
     portes: {
-      recherche: ["Research", "Thesis, question, design"],
-      publications: ["Publications", "Presentations, manuscripts, theses"],
+      recherche: ["Research", "Thesis and work in progress"],
+      publications: ["Publications", "Presentations, theses, tools"],
       parcours: ["Background", "Practice, management, law, public health"],
       engagements: ["Engagement", "Representation, teaching, awards"],
     },
   },
   recherche: {
     surtitre: "01 · Research",
+    etiquette: "Doctoral thesis in progress",
     titre: "Organising the intersectoral response to complex and co-occurring social needs in primary care",
     sousTitre: "Network configurations adapted to the different profiles of patients in care",
     question:
       "How is the intersectoral response organised for the different profiles of primary care patients with complex and co-occurring social needs?",
     but: "The project aims to link each needs profile to a configuration of partners and to its coordinator, at the scale of a CLSC territory (local community health and social services centre).",
     faits: [
-      ["Programme", "PhD in public health, 2nd year · health systems, organisations and policy option · ESPUM"],
-      ["Supervision", "Nadia Sourial and Géraldine Layani"],
-      ["Setting", "GSK Research Chair in optimal management of chronic diseases · CRCHUM"],
+      ["Programme", "PhD in public health, health systems, organisations and policy option (SOPS) · 2nd year"],
+      ["Institution", "School of Public Health, Université de Montréal (ESPUM)"],
+      ["Co-supervision", [
+        "Nadia Sourial, associate professor, Department of Health Management, Evaluation and Policy (ESPUM), researcher at CRCHUM",
+        "Géraldine Layani, family physician, clinical assistant professor, Department of Family and Emergency Medicine (Université de Montréal), researcher at CRCHUM",
+      ]],
+      ["Chair", "GSK Research Chair in optimal management of chronic diseases"],
+      ["Research centre", "CHUM Research Centre (CRCHUM) · research trainee"],
       ["Timeline", "2026–2029 · protocol presentation on 27 October 2026"],
       ["Funding", "Fonds de recherche du Québec, doctoral scholarship (B2)"],
     ],
+    travaux: {
+      titre: "Work in progress",
+      intro: "Articles and manuscripts being written alongside the thesis.",
+      items: [
+        {
+          domaine: "Epistemology and knowledge translation",
+          statut: "In progress",
+          titre: "Epistemic return in public health governance: The road back from health to science",
+          auteurs: "Bernier, É.",
+          resume:
+            "Research impact is usually pictured as a forward pathway, from knowledge to policy and practice. The article develops public health as a reflexive science of governance and specifies how consequences in practice and the situated knowledge of affected populations can acquire standing to require reconsideration of upstream categories, indicators and rules. The concept is translated into a documentary audit, tested on four institutional chains.",
+          etiquettes: ["Epistemic return", "Reflexive governance", "Research impact"],
+        },
+        {
+          domaine: "Health systems and primary care",
+          statut: "Manuscript in preparation",
+          titre: "Potentially avoidable hospitalisations and primary care: the role of patient experience across Commonwealth countries",
+          auteurs: "Bernier, É., Algoët, A., Sourial, N., Layani, G., Vedel, I., Calafiore, M.",
+        },
+        {
+          domaine: "Governance and the public sphere",
+          statut: "Manuscript in preparation",
+          titre: "Prise de parole des médecins dans l’espace public québécois lors des débats entourant le projet de loi n° 2 : une analyse qualitative du discours critique",
+          auteurs: "Bernier, É., Aïssi, F., Diene Faye, C., Boukari Abdo, S.",
+        },
+        {
+          domaine: "Health law",
+          statut: "Manuscript in preparation",
+          titre: "Vieillir chez soi à l’épreuve du droit : l’effectivité du choix du lieu de vie en droit français et en droit québécois",
+          auteurs: "Bernier, É. · legal scholarship article",
+        },
+      ],
+    },
     affiche: ["See the project poster", "Accessible version: French, English, colour-blind friendly, audio", AFFICHE],
     table: {
       titre: "Exploration table",
@@ -347,8 +419,8 @@ const en = {
   },
   publications: {
     surtitre: "02 · Publications",
-    titre: "Presentations, manuscripts and theses",
-    intro: "Each work keeps its original title, authors and status.",
+    titre: "Presentations, theses and tools",
+    intro: "Each work keeps its original title, authors and status. Manuscripts in progress are presented in the Research room.",
     groupes: [
       {
         titre: "Scientific presentations",
@@ -356,14 +428,6 @@ const en = {
           { date: "June 2026", statut: "Best poster award · doctoral and postdoctoral", titre: "Intégration des soins et services de proximité pour soutenir l’autonomie domiciliaire des personnes aînées : une étude qualitative comparative", detail: "Bernier, É., Sourial, N., Layani, G. · Groupe francophone en soins primaires (GFSP), Montréal · poster" },
           { date: "May 2026", statut: "Poster", titre: "Integrating Care and Services to Support Aging at Home: A Comparative Analysis of Institutional, Organizational, and Professional Mechanisms in France and Quebec", detail: "Bernier, É., Sourial, N., Layani, G. · CAHSPR, Ottawa" },
           { date: "April 2026", statut: "Poster and 180-second talk", titre: "Intégration des soins et services de proximité pour soutenir l’autonomie domiciliaire des personnes aînées : une étude qualitative comparative", detail: "Bernier, É., Sourial, N., Layani, G. · Quebec Network for Research on Aging (RQRV), Sherbrooke · poster and 180-second talk" },
-        ],
-      },
-      {
-        titre: "Manuscripts in preparation",
-        items: [
-          { date: "2026", titre: "Potentially avoidable hospitalisations and primary care: the role of patient experience across Commonwealth countries", detail: "Bernier, É., Algoët, A., Sourial, N., Layani, G., Vedel, I., Calafiore, M." },
-          { date: "2026", titre: "Prise de parole des médecins dans l’espace public québécois lors des débats entourant le projet de loi n° 2 : une analyse qualitative du discours critique", detail: "Bernier, É., Aïssi, F., Diene Faye, C., Boukari Abdo, S." },
-          { date: "2026", titre: "Vieillir chez soi à l’épreuve du droit : l’effectivité du choix du lieu de vie en droit français et en droit québécois", detail: "Bernier, É. · legal scholarship article" },
         ],
       },
       {
