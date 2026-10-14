@@ -78,7 +78,7 @@ const fr = {
   nav: [
     [
       "recherche",
-      "Recherche"
+      "Recherche et innovations"
     ],
     [
       "conceptualisation",
@@ -86,7 +86,7 @@ const fr = {
     ],
     [
       "approche",
-      "Approche"
+      "Posture et méthodes"
     ],
     [
       "valeurs",
@@ -152,8 +152,8 @@ const fr = {
         "Recherche en cours : corpus et lacunes"
       ],
       "approche": [
-        "L’approche",
-        "Posture, méthodes, axes, valeurs"
+        "Posture et méthodes",
+        "Posture scientifique, méthodes de recherche et axes de travaux"
       ],
       "valeurs": [
         "Valeurs",
@@ -406,8 +406,8 @@ const fr = {
     "note": "Le corpus a été constitué à partir d’Ovid (Embase, MEDLINE), de PubMed et de Cairn, et chaque publication a reçu une priorité selon sa pertinence pour la question de thèse."
   },
   approche: {
-    "surtitre": "02 · L’approche",
-    "titre": "Une posture pragmatique, des méthodes mixtes",
+    "surtitre": "Posture et méthodes",
+    "titre": "Posture et méthodes de recherche",
     "intro": "De la question à l’observation : chaque question appelle ses données, sa méthode d’analyse et son interprétation. Je choisis les méthodes selon ce qu’il faut éclairer, en croisant les disciplines.",
     "piliers": [
       [
@@ -454,7 +454,7 @@ const fr = {
       ]
     },
     "methodes": {
-      "titre": "Expertises méthodologiques",
+      "titre": "Méthodes de recherche mobilisées",
       "items": [
         {
           "titre": "Analyse de réseaux sociaux égocentrée et sociocentrée",
@@ -1221,7 +1221,7 @@ const fr = {
   publications: {
     "surtitre": "04 · Publications",
     "titre": "Communications, mémoires et outils",
-    "intro": "Chaque travail garde son titre original, ses auteurs et son statut. Les manuscrits en cours sont présentés avec les axes de travaux dans la salle L’approche.",
+    "intro": "Chaque travail garde son titre original, ses auteurs et son statut. Les manuscrits en cours sont présentés avec les axes de travaux dans la salle Posture et méthodes.",
     "groupes": [
       {
         "titre": "Communications scientifiques",
@@ -1639,7 +1639,7 @@ const en = {
   nav: [
     [
       "recherche",
-      "Research"
+      "Research and innovation"
     ],
     [
       "conceptualisation",
@@ -1647,7 +1647,7 @@ const en = {
     ],
     [
       "approche",
-      "Approach"
+      "Stance and methods"
     ],
     [
       "valeurs",
@@ -1713,8 +1713,8 @@ const en = {
         "Research in progress: corpus and gaps"
       ],
       "approche": [
-        "Approach",
-        "Stance, methods, areas, values"
+        "Stance and methods",
+        "Research stance, methods and research areas"
       ],
       "valeurs": [
         "Values",
@@ -1967,8 +1967,8 @@ const en = {
     "note": "The corpus was assembled from Ovid (Embase, MEDLINE), PubMed and Cairn, and each publication was assigned a priority according to its relevance to the thesis question."
   },
   approche: {
-    "surtitre": "02 · Approach",
-    "titre": "A pragmatic stance, mixed methods",
+    "surtitre": "Stance and methods",
+    "titre": "Research stance and methods",
     "intro": "From question to observation: each question calls for its own data, analytical method and interpretation. I choose methods according to what needs to be understood, drawing on several disciplines.",
     "piliers": [
       [
@@ -2015,7 +2015,7 @@ const en = {
       ]
     },
     "methodes": {
-      "titre": "Methodological expertise",
+      "titre": "Research methods in practice",
       "items": [
         {
           "titre": "Egocentric and sociocentric social network analysis",
@@ -2782,7 +2782,7 @@ const en = {
   publications: {
     "surtitre": "04 · Publications",
     "titre": "Presentations, theses and tools",
-    "intro": "Each work keeps its original title, authors and status. Manuscripts in progress are presented alongside the research areas in the Approach room.",
+    "intro": "Each work keeps its original title, authors and status. Manuscripts in progress are presented alongside the research areas in the Stance and methods room.",
     "groupes": [
       {
         "titre": "Scientific presentations",
@@ -3200,7 +3200,7 @@ const es = {
   nav: [
     [
       "recherche",
-      "Investigación"
+      "Investigación e innovación"
     ],
     [
       "conceptualisation",
@@ -3208,7 +3208,7 @@ const es = {
     ],
     [
       "approche",
-      "Enfoque"
+      "Postura y métodos"
     ],
     [
       "valeurs",
@@ -3274,8 +3274,8 @@ const es = {
         "Investigación en curso: corpus y lagunas"
       ],
       "approche": [
-        "El enfoque",
-        "Postura, métodos, ejes, valores"
+        "Postura y métodos",
+        "Postura científica, métodos y ejes de investigación"
       ],
       "valeurs": [
         "Valores",
@@ -3528,8 +3528,8 @@ const es = {
     "note": "El corpus se constituyó a partir de Ovid (Embase, MEDLINE), PubMed y Cairn, y a cada publicación se le asignó una prioridad según su pertinencia para la pregunta de tesis."
   },
   approche: {
-    "surtitre": "02 · El enfoque",
-    "titre": "Una postura pragmática, métodos mixtos",
+    "surtitre": "Postura y métodos",
+    "titre": "Postura y métodos de investigación",
     "intro": "De la pregunta a la observación: cada pregunta requiere sus datos, su método de análisis y su interpretación. Elijo los métodos según lo que haya que esclarecer, cruzando disciplinas.",
     "piliers": [
       [
@@ -3576,7 +3576,7 @@ const es = {
       ]
     },
     "methodes": {
-      "titre": "Competencias metodológicas",
+      "titre": "Métodos de investigación utilizados",
       "items": [
         {
           "titre": "Análisis de redes sociales egocéntrico y sociocéntrico",
@@ -4343,7 +4343,7 @@ const es = {
   publications: {
     "surtitre": "04 · Publicaciones",
     "titre": "Comunicaciones, memorias y herramientas",
-    "intro": "Cada trabajo conserva su título original, sus autores y su estado. Los manuscritos en curso se presentan junto a los ejes de trabajo en la sala El enfoque.",
+    "intro": "Cada trabajo conserva su título original, sus autores y su estado. Los manuscritos en curso se presentan junto a los ejes de trabajo en la sala Postura y métodos.",
     "groupes": [
       {
         "titre": "Comunicaciones científicas",

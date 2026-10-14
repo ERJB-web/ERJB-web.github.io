@@ -21,8 +21,8 @@ const VERSION_ICONE = empreinte("assets/favicon.svg");
 const URL = "https://erjb-web.github.io/";
 const TELEPHONE = ["(263) 384-3050", "+12633843050"];
 const GROUPES = [
-  ["recherche", ["recherche", "approche", "conceptualisation", "publications"]],
-  ["implantation", ["implantation", "notions", "transmission", "outils"]],
+  ["recherche", ["recherche", "approche", "conceptualisation", "publications", "outils"]],
+  ["implantation", ["implantation", "notions", "transmission"]],
   ["parcours", ["biographie", "parcours", "juriste", "gestionnaire", "educateur", "entrepreneuriat", "valeurs"]],
   ["engagements", ["representation", "communaute", "distinctions", "citoyen", "loisirs"]],
   ["ressources", ["litterature", "grise", "presse", "capsules", "balados"]],
@@ -31,11 +31,11 @@ const GROUPES = [
 const SALLES = GROUPES.flatMap(([, ss]) => ss);
 const NUMS = Object.fromEntries(GROUPES.flatMap(([, ss], gi) => ss.map((s, k) => [s, String(gi + 1).padStart(2, "0") + (ss.length > 1 ? "." + (k + 1) : "")])));
 const TRANSMISSION = {
-  fr: { porte: ["Transfert de connaissances et implantation", "Implantation, notions clés, enseignement, vulgarisation et outils numériques"], salle: ["Enseigner et vulgariser", "Enseignement, communication et vulgarisation"], surtitre: "Transmission", titre: "Enseigner, vulgariser, communiquer", intro: "Transférer les connaissances, c’est aussi les enseigner, les rendre lisibles et les partager avec celles et ceux qui les mobilisent.", groupes: ["Enseignement", "Communications scientifiques", "Vulgarisation et accessibilité", "Animation de réseaux"], affiche: ["Affiche du projet de thèse en version accessible", "Sept langues, dont l’inuktitut et l’innu-aimun (versions préliminaires), une version en facile à lire et à comprendre (FALC), et des versions adaptées au daltonisme et à la basse vision."], rdv: "Réserver un rendez-vous" },
-  en: { porte: ["Knowledge transfer and implementation", "Implementation, key concepts, teaching, outreach and digital tools"], salle: ["Teaching and outreach", "Teaching, communication and outreach"], surtitre: "Sharing knowledge", titre: "Teaching, outreach, communication", intro: "Transferring knowledge also means teaching it, making it readable and sharing it with those who put it to use.", groupes: ["Teaching", "Scientific communications", "Outreach and accessibility", "Network facilitation"], affiche: ["Accessible version of the thesis project poster", "Seven languages, including Inuktitut and Innu-aimun (preliminary versions), an easy-to-read version, and versions adapted for colour blindness and low vision."], rdv: "Book a meeting" },
-  es: { porte: ["Transferencia de conocimientos e implementación", "Implementación, nociones clave, docencia, divulgación y herramientas digitales"], salle: ["Enseñar y divulgar", "Docencia, comunicación y divulgación"], surtitre: "Transmisión", titre: "Enseñar, divulgar, comunicar", intro: "Transferir conocimientos también es enseñarlos, hacerlos comprensibles y compartirlos con quienes los movilizan.", groupes: ["Docencia", "Comunicaciones científicas", "Divulgación y accesibilidad", "Animación de redes"], affiche: ["Versión accesible del póster del proyecto de tesis", "Siete idiomas, entre ellos el inuktitut y el innu-aimun (versiones preliminares), una versión de lectura fácil y versiones adaptadas al daltonismo y a la baja visión."], rdv: "Reservar una cita" },
-  zh: { porte: ["知识转化与实施", "实施、关键概念、教学、科普与数字工具"], salle: ["教学与科普", "教学、传播与科普"], surtitre: "知识传递", titre: "教学、科普与传播", intro: "转化知识，也意味着教授知识、让知识易于理解，并与运用知识的人分享。", groupes: ["教学", "学术交流", "科普与无障碍", "网络组织与引导"], affiche: ["博士论文项目海报无障碍版", "共七种语言，包括因纽特语和因努语（初步版本），另有易读版，以及适合色觉障碍和低视力人士的版本。"], rdv: "预约会面" },
-  ar: { porte: ["نقل المعارف والتنفيذ", "التنفيذ والمفاهيم الأساسية والتدريس والتبسيط العلمي والأدوات الرقمية"], salle: ["التدريس والتبسيط", "التدريس والتواصل والتبسيط العلمي"], surtitre: "نقل المعرفة", titre: "التدريس والتبسيط والتواصل", intro: "نقل المعارف يعني أيضًا تدريسها وجعلها مفهومة ومشاركتها مع من يستخدمونها.", groupes: ["التدريس", "المداخلات العلمية", "التبسيط العلمي وإتاحة الوصول", "تنشيط الشبكات"], affiche: ["النسخة الميسّرة من ملصق مشروع الأطروحة", "سبع لغات، منها الإنكتيتوت والإينو-أيمون (نسخ أولية)، ونسخة سهلة القراءة، ونسخ مكيّفة لعمى الألوان وضعف البصر."], rdv: "حجز موعد" },
+  fr: { porte: ["Transfert de connaissances et implantation", "Implantation, notions clés, enseignement et vulgarisation"], salle: ["Enseigner et vulgariser", "Enseignement, communication et vulgarisation"], surtitre: "Transmission", titre: "Enseigner, vulgariser, communiquer", intro: "Transférer les connaissances, c’est aussi les enseigner, les rendre lisibles et les partager avec celles et ceux qui les mobilisent.", groupes: ["Enseignement", "Communications scientifiques", "Vulgarisation et accessibilité", "Animation de réseaux"], affiche: ["Affiche du projet de thèse en version accessible", "Sept langues, dont l’inuktitut et l’innu-aimun (versions préliminaires), une version en facile à lire et à comprendre (FALC), et des versions adaptées au daltonisme et à la basse vision."], rdv: "Réserver un rendez-vous" },
+  en: { porte: ["Knowledge transfer and implementation", "Implementation, key concepts, teaching and outreach"], salle: ["Teaching and outreach", "Teaching, communication and outreach"], surtitre: "Sharing knowledge", titre: "Teaching, outreach, communication", intro: "Transferring knowledge also means teaching it, making it readable and sharing it with those who put it to use.", groupes: ["Teaching", "Scientific communications", "Outreach and accessibility", "Network facilitation"], affiche: ["Accessible version of the thesis project poster", "Seven languages, including Inuktitut and Innu-aimun (preliminary versions), an easy-to-read version, and versions adapted for colour blindness and low vision."], rdv: "Book a meeting" },
+  es: { porte: ["Transferencia de conocimientos e implementación", "Implementación, nociones clave, docencia y divulgación"], salle: ["Enseñar y divulgar", "Docencia, comunicación y divulgación"], surtitre: "Transmisión", titre: "Enseñar, divulgar, comunicar", intro: "Transferir conocimientos también es enseñarlos, hacerlos comprensibles y compartirlos con quienes los movilizan.", groupes: ["Docencia", "Comunicaciones científicas", "Divulgación y accesibilidad", "Animación de redes"], affiche: ["Versión accesible del póster del proyecto de tesis", "Siete idiomas, entre ellos el inuktitut y el innu-aimun (versiones preliminares), una versión de lectura fácil y versiones adaptadas al daltonismo y a la baja visión."], rdv: "Reservar una cita" },
+  zh: { porte: ["知识转化与实施", "实施、关键概念、教学与科普"], salle: ["教学与科普", "教学、传播与科普"], surtitre: "知识传递", titre: "教学、科普与传播", intro: "转化知识，也意味着教授知识、让知识易于理解，并与运用知识的人分享。", groupes: ["教学", "学术交流", "科普与无障碍", "网络组织与引导"], affiche: ["博士论文项目海报无障碍版", "共七种语言，包括因纽特语和因努语（初步版本），另有易读版，以及适合色觉障碍和低视力人士的版本。"], rdv: "预约会面" },
+  ar: { porte: ["نقل المعارف والتنفيذ", "التنفيذ والمفاهيم الأساسية والتدريس والتبسيط العلمي"], salle: ["التدريس والتبسيط", "التدريس والتواصل والتبسيط العلمي"], surtitre: "نقل المعرفة", titre: "التدريس والتبسيط والتواصل", intro: "نقل المعارف يعني أيضًا تدريسها وجعلها مفهومة ومشاركتها مع من يستخدمونها.", groupes: ["التدريس", "المداخلات العلمية", "التبسيط العلمي وإتاحة الوصول", "تنشيط الشبكات"], affiche: ["النسخة الميسّرة من ملصق مشروع الأطروحة", "سبع لغات، منها الإنكتيتوت والإينو-أيمون (نسخ أولية)، ونسخة سهلة القراءة، ونسخ مكيّفة لعمى الألوان وضعف البصر."], rdv: "حجز موعد" },
 };
 const BOOKINGS = "https://bookings.cloud.microsoft/book/RDVavecEricBernier@umontreal.ca/";
 const textesTransmission = (c) => TRANSMISSION[c.lang] || TRANSMISSION.en;
@@ -150,7 +150,7 @@ function sectionNotions(c) {
 </div>`;
 }
 const OUTILS = {
-  fr: { salle: ["Outils numériques", "OWNNIGHT et les Sphères"], surtitre: "Transmission", titre: "Des outils pour apprendre et prendre soin", intro: "Deux réalisations numériques prolongent mon travail de transfert des connaissances : rendre des savoirs exigeants accessibles, au rythme de chacun.", etiquettes: ["Ce que c’est", "Le but", "La lacune comblée"],
+  fr: { salle: ["Innovations", "OWNNIGHT et les Sphères"], surtitre: "Recherche et innovations", titre: "Des applications pour apprendre et prendre soin", intro: "Deux projets numériques conçus à partir de besoins concrets : rendre les connaissances utiles, accessibles et mobilisables au quotidien.", etiquettes: ["Ce que c’est", "Le but", "La lacune comblée"],
     ownnight: { nom: "OWNNIGHT", slogan: "La science de ton sommeil, entre tes mains.", statut: "Projet entrepreneurial en cours · Android",
       quoi: "Une application Android de bien-être et d’éducation au sommeil, en français et en anglais. Elle propose un plan individualisé qui s’ajuste aux réponses de la personne, de courtes leçons, des séances guidées, des outils pour apaiser l’esprit, un rituel du soir et des histoires lues à voix haute.",
       but: "Donner à chacun les moyens d’agir sur son sommeil : s’autoévaluer, comprendre ce qui se joue la nuit et apprendre à en prendre soin, grâce à une éducation au sommeil fondée sur la thérapie cognitive et comportementale de l’insomnie (TCC-I).",
@@ -161,7 +161,7 @@ const OUTILS = {
       but: "Aider à comprendre les méthodes plutôt qu’à les mémoriser : chaque formule est expliquée par ce qu’elle fait, puis lue pas à pas, et chacun organise sa révision selon ses besoins.",
       lacune: "Les méthodes quantitatives intimident souvent les personnes venues d’autres disciplines, et les ressources sont dispersées, souvent en anglais ou très techniques. Les Sphères réunissent tout au même endroit, en français, avec une progression accessible et des explications en langage clair.",
       alts: ["Une leçon expliquée pas à pas", "Une question à choix multiples avec rétroaction", "Les cartes à mémoriser"] } },
-  en: { salle: ["Digital tools", "OWNNIGHT and the Spheres"], surtitre: "Sharing knowledge", titre: "Tools for learning and caring", intro: "Two digital projects extend my knowledge transfer work: making demanding knowledge accessible, at each person’s own pace.", etiquettes: ["What it is", "The aim", "The gap it fills"],
+  en: { salle: ["Innovation", "OWNNIGHT and the Spheres"], surtitre: "Research and innovation", titre: "Apps for learning and caring", intro: "Two digital projects developed from concrete needs: making knowledge useful, accessible and applicable in everyday life.", etiquettes: ["What it is", "The aim", "The gap it fills"],
     ownnight: { nom: "OWNNIGHT", slogan: "The science of your sleep, in your hands.", statut: "Entrepreneurial project in progress · Android",
       quoi: "An Android app for sleep well-being and education, in French and English. It offers an individualised plan that adapts to each answer, short lessons, guided sessions, tools to calm the mind, an evening ritual and stories read aloud.",
       but: "Empowering people to act on their own sleep: assessing it themselves, understanding what happens at night and learning to take care of it, through sleep education grounded in cognitive behavioural therapy for insomnia (CBT-I).",
@@ -172,7 +172,7 @@ const OUTILS = {
       but: "Helping people understand methods rather than memorise them: each formula is explained by what it does, then read step by step, and everyone organises their revision around their own needs.",
       lacune: "Quantitative methods often intimidate people from other disciplines, and resources are scattered, often in English or highly technical. The Spheres bring everything together in one place, in French, with an accessible progression and plain-language explanations.",
       alts: ["A lesson explained step by step", "A multiple-choice question with feedback", "Flashcards"] } },
-  es: { salle: ["Herramientas digitales", "OWNNIGHT y las Esferas"], surtitre: "Transmisión", titre: "Herramientas para aprender y cuidarse", intro: "Dos proyectos digitales prolongan mi trabajo de transferencia de conocimientos: hacer accesibles saberes exigentes, al ritmo de cada persona.", etiquettes: ["Qué es", "El objetivo", "La carencia que cubre"],
+  es: { salle: ["Innovaciones", "OWNNIGHT y las Esferas"], surtitre: "Investigación e innovación", titre: "Aplicaciones para aprender y cuidarse", intro: "Dos proyectos digitales concebidos a partir de necesidades concretas: hacer que los conocimientos sean útiles, accesibles y aplicables en la vida cotidiana.", etiquettes: ["Qué es", "El objetivo", "La carencia que cubre"],
     ownnight: { nom: "OWNNIGHT", slogan: "La ciencia de tu sueño, en tus manos.", statut: "Proyecto emprendedor en curso · Android",
       quoi: "Una aplicación Android de bienestar y educación sobre el sueño, en francés y en inglés. Ofrece un plan individualizado que se ajusta a cada respuesta, lecciones breves, sesiones guiadas, herramientas para calmar la mente, un ritual nocturno e historias leídas en voz alta.",
       but: "Dar a cada persona los medios para actuar sobre su sueño: autoevaluarse, comprender lo que ocurre por la noche y aprender a cuidarlo, gracias a una educación sobre el sueño basada en la terapia cognitivo-conductual del insomnio (TCC-I).",
@@ -183,7 +183,7 @@ const OUTILS = {
       but: "Ayudar a comprender los métodos en lugar de memorizarlos: cada fórmula se explica por lo que hace y luego se lee paso a paso, y cada persona organiza su repaso según sus necesidades.",
       lacune: "Los métodos cuantitativos suelen intimidar a quienes vienen de otras disciplinas, y los recursos están dispersos, a menudo en inglés o muy técnicos. Las Esferas lo reúnen todo en un solo lugar, en francés, con una progresión accesible y explicaciones en lenguaje claro.",
       alts: ["Una lección explicada paso a paso", "Una pregunta de opción múltiple con retroalimentación", "Las tarjetas para memorizar"] } },
-  zh: { salle: ["数字工具", "OWNNIGHT 与 Sphères"], surtitre: "知识传递", titre: "用于学习与自我照护的工具", intro: "两个数字项目延续了我的知识转化工作：让高要求的知识变得易于获取，并按照每个人的节奏进行。", etiquettes: ["是什么", "目标", "填补的空白"],
+  zh: { salle: ["创新", "OWNNIGHT 与 Sphères"], surtitre: "研究与创新", titre: "用于学习与自我照护的应用", intro: "两个从具体需求出发的数字项目：让知识变得实用、易于获取，并能应用于日常生活。", etiquettes: ["是什么", "目标", "填补的空白"],
     ownnight: { nom: "OWNNIGHT", slogan: "你的睡眠科学，掌握在你手中。", statut: "进行中的创业项目 · Android",
       quoi: "一款关于睡眠健康与睡眠教育的 Android 应用，提供法语和英语版本。它提供根据每次回答调整的个性化计划、简短课程、引导练习、帮助平静心绪的工具、睡前仪式以及有声故事。",
       but: "让每个人都有能力改善自己的睡眠：自我评估、理解夜间发生的事情，并学会照顾自己的睡眠。这一切依托于以失眠认知行为疗法（CBT-I）为基础的睡眠教育。",
@@ -194,7 +194,7 @@ const OUTILS = {
       but: "帮助人们理解方法而不是死记硬背：每个公式都先说明它的作用，再逐步解读，每个人都可以根据自己的需要安排复习。",
       lacune: "定量方法常常让来自其他学科的人望而却步，而相关资源分散，往往是英文或过于技术化。Sphères 将一切集中在一处，以法语呈现，循序渐进，并用通俗语言讲解。",
       alts: ["逐步讲解的课程", "带反馈的选择题", "记忆卡"] } },
-  ar: { salle: ["الأدوات الرقمية", "OWNNIGHT وتطبيقات Sphères"], surtitre: "نقل المعرفة", titre: "أدوات للتعلّم وللعناية بالذات", intro: "مشروعان رقميان يمدّان عملي في نقل المعارف: جعل معارف متطلّبة في متناول الجميع، وفق إيقاع كل شخص.", etiquettes: ["ما هو", "الهدف", "الفجوة التي يسدّها"],
+  ar: { salle: ["ابتكارات", "OWNNIGHT وتطبيقات Sphères"], surtitre: "البحث والابتكار", titre: "تطبيقات للتعلّم وللعناية بالذات", intro: "مشروعان رقميان انطلقا من احتياجات ملموسة: جعل المعارف مفيدة وميسّرة وقابلة للاستخدام في الحياة اليومية.", etiquettes: ["ما هو", "الهدف", "الفجوة التي يسدّها"],
     ownnight: { nom: "OWNNIGHT", slogan: "علم نومك بين يديك.", statut: "مشروع ريادي قيد الإنجاز · Android",
       quoi: "تطبيق Android للعافية والتثقيف حول النوم، بالفرنسية والإنجليزية. يقدّم خطة فردية تتكيّف مع كل إجابة، ودروسًا قصيرة، وجلسات موجّهة، وأدوات لتهدئة الذهن، وطقسًا مسائيًا، وقصصًا مقروءة بصوت عالٍ.",
       but: "تمكين كل شخص من التأثير في نومه: أن يقيّم نومه بنفسه، ويفهم ما يجري ليلًا، ويتعلّم العناية به، بفضل تثقيف حول النوم قائم على العلاج المعرفي السلوكي للأرق.",
@@ -246,11 +246,11 @@ function sectionVitrine(c, cle) {
 </div>`;
 }
 const TEXTES_GROUPES = {
-  fr: { ressources: ["Ressources","Lectures, articles, capsules et balados"], recherche: ["Recherche", "Thèse, approche, recherche en cours et publications"], parcours: ["Parcours", "Biographie, parcours, expertises et valeurs"] },
-  en: { ressources: ["Resources","Readings, articles, videos and podcasts"], recherche: ["Research", "Thesis, approach, research in progress and publications"], parcours: ["Background", "Biography, background, expertise and values"] },
-  es: { ressources: ["Recursos","Lecturas, artículos, cápsulas y pódcasts"], recherche: ["Investigación", "Tesis, enfoque, investigación en curso y publicaciones"], parcours: ["Trayectoria", "Biografía, trayectoria, pericias y valores"] },
-  zh: { ressources: ["资源","阅读文献、文章、视频与播客"], recherche: ["研究", "博士论文、研究取向、在研工作与发表成果"], parcours: ["经历", "个人简介、经历、专长与价值观"] },
-  ar: { ressources: ["الموارد","قراءات ومقالات ومقاطع فيديو وبودكاست"], recherche: ["البحث", "الأطروحة والمقاربة والبحث الجاري والمنشورات"], parcours: ["المسار", "السيرة والمسار ومجالات الخبرة والقيم"] },
+  fr: { ressources: ["Ressources","Lectures, articles, capsules et balados"], recherche: ["Recherche et innovations", "Thèse, méthodes, travaux, publications et innovations"], parcours: ["Parcours", "Biographie, parcours, expertises et valeurs"] },
+  en: { ressources: ["Resources","Readings, articles, videos and podcasts"], recherche: ["Research and innovation", "Thesis, methods, current work, publications and innovation"], parcours: ["Background", "Biography, background, expertise and values"] },
+  es: { ressources: ["Recursos","Lecturas, artículos, cápsulas y pódcasts"], recherche: ["Investigación e innovación", "Tesis, métodos, trabajos, publicaciones e innovación"], parcours: ["Trayectoria", "Biografía, trayectoria, pericias y valores"] },
+  zh: { ressources: ["资源","阅读文献、文章、视频与播客"], recherche: ["研究与创新", "博士论文、研究方法、在研工作、发表成果与创新"], parcours: ["经历", "个人简介、经历、专长与价值观"] },
+  ar: { ressources: ["الموارد","قراءات ومقالات ومقاطع فيديو وبودكاست"], recherche: ["البحث والابتكار", "الأطروحة والمنهجيات والأعمال الجارية والمنشورات والابتكار"], parcours: ["المسار", "السيرة والمسار ومجالات الخبرة والقيم"] },
 };
 const texteGroupe = (c, g) =>
   g === "implantation"
@@ -688,8 +688,6 @@ ${a.outils.groupes.map(([g, items]) => `<div class="groupe-outils"><p>${e(g)}</p
 </div>
 </div>
 <div class="colonne-outils">
-<h3 class="titre-bloc">${e(a.expertises.titre)}</h3>
-<div class="expertises">${a.expertises.items.map(([t, d]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p></div>`).join("")}</div>
 <h3 class="titre-bloc">${e(a.methodes.titre)}</h3>
 <div class="methodes">${a.methodes.items.map((m) => `<article class="methode"><div class="methode-texte"><h4>${e(m.titre)}</h4><p>${e(m.texte)}</p><ul class="methode-refs">${m.references.map((x) => `<li>${lienFinal(x)}</li>`).join("")}</ul></div><div class="methode-figures">${m.illustrations.map((il) => `<figure>${il.schema ? schemaDiscours(il.schema, il.legende) : `<a href="${e(il.page)}" target="_blank" rel="noopener"><img src="${e(il.src)}" alt="${e(il.legende)}" loading="lazy" referrerpolicy="no-referrer"></a>`}<figcaption>${e(il.legende)} <span class="source">${e(il.credit)}</span></figcaption></figure>`).join("")}</div></article>`).join("")}</div>
 <h3 class="titre-bloc">${e(a.axes.titre)}</h3>

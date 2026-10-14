@@ -54,6 +54,12 @@ for (const l of LANGUES.filter((x) => x.hreflang)) {
   const section = (id) => ((h || "").match(new RegExp(`<section[^>]+id="${id}"[\\s\\S]*?(?=<section|<footer|$)`)) || [""])[0];
   verifier(`${l.code} : travaux hors de la thèse`, !section("recherche").includes('class="travaux"'));
   verifier(`${l.code} : travaux avec les axes`, section("approche").includes('class="travaux"'));
+  const groupes = [...(h || "").matchAll(/data-salle="([a-z]+)"[^>]*data-sections="([^"]+)"/g)];
+  const sallesGroupe = (g) => (groupes.find((m) => m[1] === g) || ["", "", ""])[2].split(" ");
+  verifier(`${l.code} : innovations dans la première porte`, sallesGroupe("recherche").includes("outils") && !sallesGroupe("implantation").includes("outils"));
+  verifier(`${l.code} : applications présentes dans Innovations`, section("outils").includes('class="projet projet-ownnight"') && section("outils").includes('class="projet projet-spheres"'));
+  verifier(`${l.code} : approche centrée sur la recherche`, !section("approche").includes('class="expertises"') && section("approche").includes('class="methodes"'));
+  verifier(`${l.code} : expertises professionnelles dans Parcours`, ["juriste", "gestionnaire", "educateur", "entrepreneuriat"].every((id) => sallesGroupe("parcours").includes(id) && section(id).includes('class="vitrine-liste"')));
 }
 verifier("arabe de droite à gauche", html[path.join("ar", "index.html")].includes('dir="rtl"'));
 verifier("Nadia Sourial agrégée", html["index.html"].includes("Professeure agrégée"));
