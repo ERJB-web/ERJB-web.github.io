@@ -17,6 +17,7 @@ const MEDIATION = require("./enseignement-vulgarisation");
 const IA = require("./ia-recherche");
 const THESE = require("./these-rubriques");
 const CHIFFRES_IMPACT = require("./chiffres-parcours");
+const LOISIRS_AJOUTS = require("./loisirs-ajouts");
 
 const RACINE = path.join(__dirname, "..");
 const empreinte = (fichier) => require("crypto").createHash("sha256").update(fs.readFileSync(path.join(RACINE, fichier))).digest("hex").slice(0, 10);
@@ -885,10 +886,18 @@ function sectionEngagements(c, sous) {
   const groupes = s.groupes
     .map((g, k) => {
       if (k !== kSous) return "";
-      const tete = `<h3 class="titre-bloc titre-icone">${e(g.titre)}<span class="compte">${g.items.length}</span></h3>`;
+      // Une rubrique personnelle n’est publiée qu’avec sa véritable image.
+      const ajouts = k === s.groupes.length - 1 ? LOISIRS_AJOUTS.textes[c.lang]
+        .map((it) => ({ ...it, photo: LOISIRS_AJOUTS.photos[it.id] }))
+        .filter((it) => fs.existsSync(path.join(RACINE, "assets", it.photo))) : [];
+      const items = [...g.items, ...ajouts];
+      const tete = `<h3 class="titre-bloc titre-icone">${e(g.titre)}<span class="compte">${items.length}</span></h3>`;
       if (k === s.groupes.length - 1)
-        return `<div class="groupe-large">${tete}<div class="loisirs">${g.items
-          .map((it, i) => `<figure class="loisir${PHOTOS_LOISIRS[i] ? "" : " sans-photo"}">${PHOTOS_LOISIRS[i] ? photo(c, PHOTOS_LOISIRS[i], it.titre) : ""}<figcaption><span>${e(it.date)}</span><strong>${e(it.titre)}</strong>${it.detail ? `<small>${e(it.detail)}</small>` : ""}</figcaption></figure>`)
+        return `<div class="groupe-large">${tete}<div class="loisirs loisirs-etendus">${items
+          .map((it, i) => {
+            const fichier = it.photo || PHOTOS_LOISIRS[i];
+            return `<figure class="loisir${it.id ? " loisir-" + it.id : ""}${fichier ? "" : " sans-photo"}">${fichier ? photo(c, fichier, it.alt || it.titre) : ""}<figcaption><span>${e(it.date)}</span><strong>${e(it.titre)}</strong>${it.detail ? `<small>${e(it.detail)}</small>` : ""}</figcaption></figure>`;
+          })
           .join("")}</div></div>`;
       return `<div class="groupe-large">${tete}${liste(g.items).replace('<ul class="liste">', '<ul class="liste liste-cartes">')}</div>`;
     })
