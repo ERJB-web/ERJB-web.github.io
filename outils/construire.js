@@ -14,6 +14,8 @@ const ABREGE = require("./contenu-abrege");
 const AUTOCHTONES = JSON.parse(fs.readFileSync(path.join(__dirname, "i18n", "autochtones.json"), "utf8"));
 const METHODOLOGIE = require("./methodologie");
 const MEDIATION = require("./enseignement-vulgarisation");
+const IA = require("./ia-recherche");
+const THESE = require("./these-rubriques");
 
 const RACINE = path.join(__dirname, "..");
 const empreinte = (fichier) => require("crypto").createHash("sha256").update(fs.readFileSync(path.join(RACINE, fichier))).digest("hex").slice(0, 10);
@@ -25,7 +27,7 @@ const logoMarque = (p) => `<span class="marque-mono"><img src="${p}assets/logo.s
 const URL = "https://erjb-web.github.io/";
 const TELEPHONE = ["(263) 384-3050", "+12633843050"];
 const GROUPES = [
-  ["recherche", ["recherche", "approche", "methodes", "axes", "conceptualisation", "publications", "outils"]],
+  ["recherche", ["recherche", "axes", "approche", "methodes", "ia", "publications", "outils"]],
   ["implantation", ["implantation", "notions", "transmission", "vulgarisation"]],
   ["parcours", ["biographie", "parcours", "juriste", "gestionnaire", "educateur", "entrepreneuriat", "valeurs"]],
   ["engagements", ["representation", "communaute", "distinctions", "citoyen", "loisirs"]],
@@ -95,9 +97,9 @@ function poserSousPortes(c) {
   for (const [s, P] of Object.entries(PARTIES_RESSOURCES)) c.hall.portes[s] = [S[s][0] || c.ressources.groupes[P.groupes[0]][0], S[s][1]];
   for (const [s, k] of Object.entries(INDEX_ENGAGEMENTS)) c.hall.portes[s] = [c.engagements.groupes[k].titre, c.hall.portes.engagements[0]];
 }
-const BANDEAUX = { methodes: "bandeaux/conceptualisation.jpg", axes: "bandeaux/recherche.jpg", vulgarisation: "bandeaux/capsules.jpg", litterature: "bandeaux/ressources.jpg", representation: "photos/representation.jpg", communaute: "bandeaux/engagements.jpg", distinctions: "photos/distinctions.jpg", loisirs: "bandeaux/sports-loisirs.png" };
+const BANDEAUX = { methodes: "bandeaux/conceptualisation.jpg", axes: "bandeaux/recherche.jpg", ia: "bandeaux/grise.jpg", vulgarisation: "bandeaux/capsules.jpg", litterature: "bandeaux/ressources.jpg", representation: "photos/representation.jpg", communaute: "bandeaux/engagements.jpg", distinctions: "photos/distinctions.jpg", loisirs: "bandeaux/sports-loisirs.png" };
 const bandeau = (s) => BANDEAUX[s] || "bandeaux/" + s + ".jpg";
-const miniSalle = (s) => ({ methodes: "conceptualisation", axes: "recherche", vulgarisation: "capsules" }[s] || s);
+const miniSalle = (s) => ({ methodes: "conceptualisation", axes: "recherche", ia: "outils", vulgarisation: "capsules" }[s] || s);
 // Références vérifiées (Crossref), communes à toutes les langues.
 const REFS_NOTIONS = {
   autodetermination: [
@@ -411,6 +413,7 @@ const TEINTES = {
   approche: ["#8c4d58", "#63343e"],
   methodes: ["#466a78", "#304b56"],
   axes: ["#286d5c", "#1f5446"],
+  ia: ["#3f6f8f", "#2c5068"],
   implantation: ["#a0663b", "#7a4a26"],
   biographie: ["#2f6f86", "#1f4f62"],
   publications: ["#327a66", "#1f5446"],
@@ -673,21 +676,29 @@ const LIBELLES_FAITS_RECHERCHE = {
   ru: ["О программе PhD", "Сайт ESPUM", "Chaire GSK в LinkedIn", "Сайт CRCHUM", "Сайт FRQ"],
 };
 
+// Une navigation propre à chaque table évite que les onglets imbriqués se masquent entre eux.
+function ongletsRubriques(cle, explorer, rubriques, colonnes = 5) {
+  return `<div class="table rubriques" data-onglets data-rubriques="${cle}" style="--rubriques-colonnes:${colonnes}">
+<label class="rubriques-choix"><span>${e(explorer)}</span><select data-rubrique-select>${rubriques.map(([, nom], i) => `<option value="${i}">${e(nom)}</option>`).join("")}</select></label>
+<div class="onglets rubriques-nav" role="tablist" aria-label="${e(explorer)}">${rubriques.map(([id, nom], i) => `<button type="button" role="tab" aria-selected="${i === 0}" tabindex="${i ? -1 : 0}" data-volet="${i}" data-rubrique="${id}">${e(nom)}</button>`).join("")}</div>
+${rubriques.map(([id, , contenu], i) => `<div class="volet rubrique-corps" role="tabpanel" data-volet="${i}" data-rubrique="${id}"${i ? " hidden" : ""}>${contenu}</div>`).join("")}</div>`;
+}
+
+function referencesIA(cles = []) {
+  return cles.length ? `<p class="ref references-courtes">${cles.map((k) => lien(IA.references[k].href, e(IA.references[k].court))).join(" · ")}</p>` : "";
+}
+
+function cartesRubrique(items) {
+  return `<div class="ia-reperes">${items.map(([titre, texte, refs]) => `<article><h4>${e(titre)}</h4><p>${e(texte)}</p>${referencesIA(refs)}</article>`).join("")}</div>`;
+}
+
 function sectionRecherche(c) {
   const r = c.recherche;
   const p = METHODOLOGIE[c.lang];
+  const t = THESE.langues[c.lang];
   const langueAffiche = c.lang === "ru" ? "fr" : c.lang;
   const valeur = (v) => (Array.isArray(v) ? v.map((x) => `<span class="ligne">${e(x)}</span>`).join("") : e(v));
-  return `<div class="section-corps pleine">
-<div class="colonne-texte">
-<p class="surtitre">${e(r.surtitre)}</p>
-<p class="badge-these">${e(r.etiquette)}</p>
-<h2>${e(r.titre)}</h2>
-<p class="sous-titre">${e(r.sousTitre)}</p>
-<p class="intro">${e(r.question)}</p>
-<p>${e(r.but)}</p>
-<h3 class="titre-bloc">${e(p.objectifs.titre)}</h3>
-<div class="notions objectifs-these">${p.objectifs.items.map(([t, d]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p></div>`).join("")}</div>
+  const contexte = `<h3>${e(t.titres[1])}</h3><p>${e(t.contexte)}</p>
 <ul class="faits faits-these">${r.faits.map(([k, v], i) => `<li><b>${e(k)}</b><span class="fait-description">${valeur(v)}</span><span class="fait-liens">${lien(LIENS_FAITS_RECHERCHE[i], e(LIBELLES_FAITS_RECHERCHE[c.lang][i]))}${i === r.faits.findIndex(([, x]) => /B2/.test(x)) ? `<a href="https://doi.org/10.69777/2009461">DOI 10.69777/2009461</a>` : ""}</span></li>`).join("")}</ul>
 <figure class="logos-recherche"><img src="${c.chemin}assets/logos-recherche.png?v=${empreinte("assets/logos-recherche.png")}" alt="Chaire de recherche GSK en gestion optimale des maladies chroniques · Fonds de recherche du Québec · CRCHUM · ESPUM · Université de Montréal" loading="lazy"></figure>
 ${lien(
@@ -695,11 +706,11 @@ ${lien(
   `<img class="affiche-vignette" src="${AFFICHE}img/affiche-${langueAffiche}.png" data-std="${AFFICHE}img/affiche-${langueAffiche}.png" data-cb="${AFFICHE}img/affiche-${langueAffiche}-daltonien.png" alt="${e(c.ui.afficheAlt)}" width="2400" height="2400" loading="lazy" decoding="async"><span><strong>${e(r.affiche[0])}</strong><small>${e(r.affiche[1])}</small></span><span aria-hidden="true">↗</span>`,
   "carte-lien carte-affiche"
 )}
-</div>
-<div class="colonne-outils">
-${tableOnglets(r.table.titre, r.table.detail, r.table.etapes, r.table.terminus)}
+<h4 class="titre-bloc">${e(r.codirection.titre)}</h4>
+<div class="codirection">${r.codirection.personnes.map((pe) => `<article class="personne"><h4>${e(pe.nom)}<span class="grade">${e(pe.grade)}</span></h4><ul>${pe.lignes.map((l) => `<li>${e(l)}</li>`).join("")}</ul><p class="chaire">${e(pe.chaire)}</p>${lien(pe.lien, `${e(r.codirection.profil)} <span aria-hidden="true">↗</span>`, "profil")}</article>`).join("")}</div>`;
+  const methodes = `<h3>${e(t.titres[4])}</h3>${tableOnglets(r.table.titre, r.table.detail, r.table.etapes, r.table.terminus)}
 <div class="protocole-these">
-<h3 class="titre-bloc">${e(p.titre)}</h3>
+<h4 class="titre-bloc">${e(p.titre)}</h4>
 <p class="note-protocole">${e(p.etat)}</p>
 <h4>${e(p.devis.titre)}</h4>
 <ul class="puces">${p.devis.items.map(([t, d]) => `<li><b>${e(t)}</b>${deuxPoints(c)} ${e(d)}</li>`).join("")}</ul>
@@ -708,17 +719,29 @@ ${tableOnglets(r.table.titre, r.table.detail, r.table.etapes, r.table.terminus)}
 </div>
 <div class="comparaison">${figureClsc(c)}
 ${schemaReseau(c)}</div>
-<h3 class="titre-bloc">${e(r.notions.titre)}</h3>
-<div class="notions">${r.notions.items.map(([t, d, ref]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p>${ref ? `<p class="ref">(${e(ref)})</p>` : ""}</div>`).join("")}</div>
-<h3 class="titre-bloc">${e(r.retombees.titre)}</h3>
-<ul class="puces deux-colonnes">${r.retombees.items.map(([t, d]) => `<li><b>${e(t)}</b>${deuxPoints(c)} ${e(d)}</li>`).join("")}</ul>
-<h3 class="titre-bloc">${e(p.limites.titre)}</h3>
-<p>${e(p.limites.intro)}</p>
-<ul class="puces limites-these">${p.limites.items.map(([t, d]) => `<li><b>${e(t)}</b>${deuxPoints(c)} ${e(d)}</li>`).join("")}</ul>
-<h3 class="titre-bloc">${e(r.codirection.titre)}</h3>
-<div class="codirection">${r.codirection.personnes.map((pe) => `<article class="personne"><h4>${e(pe.nom)}<span class="grade">${e(pe.grade)}</span></h4><ul>${pe.lignes.map((l) => `<li>${e(l)}</li>`).join("")}</ul><p class="chaire">${e(pe.chaire)}</p>${lien(pe.lien, `${e(r.codirection.profil)} <span aria-hidden="true">↗</span>`, "profil")}</article>`).join("")}</div>
-</div>
-</div>`;
+<h4 class="titre-bloc">${e(r.notions.titre)}</h4>
+<div class="notions">${r.notions.items.map(([t, d, ref]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p>${ref ? `<p class="ref">(${e(ref)})</p>` : ""}</div>`).join("")}</div>`;
+  const contenus = [
+    sectionConceptualisation(c, true),
+    contexte,
+    `<h3>${e(t.titres[2])}</h3><p>${e(r.but)}</p><div class="notions objectifs-these">${p.objectifs.items.map(([nom, d]) => `<div><h4>${e(nom)}</h4><p>${e(d)}</p></div>`).join("")}</div>`,
+    `<h3>${e(t.titres[3])}</h3><p class="question-these">${e(r.question)}</p><p>${e(t.point)}</p>`,
+    methodes,
+    `<h3>${e(t.titres[5])}</h3><p>${e(t.resultats)}</p><h4 class="titre-bloc">${e(r.retombees.titre)}</h4><ul class="puces">${r.retombees.items.map(([nom, d]) => `<li><b>${e(nom)}</b>${deuxPoints(c)} ${e(d)}</li>`).join("")}</ul>`,
+    `<h3>${e(t.titres[6])}</h3><p>${e(p.limites.intro)}</p><ul class="puces limites-these">${p.limites.items.map(([nom, d]) => `<li><b>${e(nom)}</b>${deuxPoints(c)} ${e(d)}</li>`).join("")}</ul>`,
+    `<h3>${e(t.titres[7])}</h3>${cartesRubrique(t.faisabilite)}`,
+    `<h3>${e(t.titres[8])}</h3><p>${e(t.ethiqueIntro)}</p>${cartesRubrique(t.ethique)}<p class="ref">${lien(THESE.ethiqueLien, e(t.sourceEthique))}</p>`,
+    `<h3>${e(t.titres[9])}</h3>${cartesRubrique(t.transfert)}`,
+  ];
+  return `<div class="section-corps pleine these"><div class="colonne-texte"><p class="surtitre">${e(r.surtitre)}</p><p class="badge-these">${e(r.etiquette)}</p><h2>${e(r.titre)}</h2><p class="sous-titre">${e(r.sousTitre)}</p></div><div class="colonne-outils">${ongletsRubriques("these", t.explorer, contenus.map((html, i) => [THESE.cles[i], t.titres[i], html]))}</div></div>`;
+}
+
+function sectionIA(c) {
+  const s = IA.langues[c.lang];
+  const biblio = (cles) => `<ul class="methode-refs lectures-ia">${cles.map((k) => `<li>${lien(IA.references[k].href, e(IA.references[k].citation))}</li>`).join("")}</ul>`;
+  const rubriques = s.rubriques.map((r, i) => ["ia-" + i, r.nom, `<h3>${e(r.titre)}</h3><p>${e(r.intro)}</p>${referencesIA(r.refs)}${cartesRubrique(r.items)}<p class="note note-ia">${e(r.note)}</p>${referencesIA(r.noteRefs)}`]);
+  rubriques.push(["ia-lectures", s.sources, `<h3>${e(s.lectures.titre)}</h3><p>${e(s.lectures.intro)}</p>${biblio(Object.keys(IA.references))}`]);
+  return `<div class="section-corps pleine section-ia"><div class="colonne-texte"><p class="surtitre">${e(s.date)}</p><h2>${e(s.titre)}</h2><p class="intro">${e(s.intro)}</p></div><div class="colonne-outils">${ongletsRubriques("ia", s.explorer, rubriques, 4)}</div></div>`;
 }
 
 function schemaDiscours([social, discursive, texte], titre) {
@@ -895,7 +918,7 @@ ${extra}
 const RESSOURCES = JSON.parse(fs.readFileSync(path.join(__dirname, "ressources-donnees.json"), "utf8"));
 const lienFinal = (s) => e(s).replace(/(https?:\/\/\S+?)(\.?)$/, (u, url, point) => `<a href="${url}" target="_blank" rel="noopener">${url}</a>${point}`);
 
-function sectionConceptualisation(c) {
+function sectionConceptualisation(c, imbrique = false) {
   const t = c.conceptualisation;
   const D = RESSOURCES;
   const cles = ["5", "4", "3", "2", "1"];
@@ -923,10 +946,10 @@ function sectionConceptualisation(c) {
     .join("");
   const lectures = (arr) =>
     `<ol class="lectures">${arr.map((x) => `<li><span class="lecture-auteurs">${e(x.auteurs)} (${e(x.annee)})</span> ${x.lien ? lien(x.lien, e(x.titre)) : e(x.titre)} <span class="type">${e(x.type)}</span></li>`).join("")}</ol>`;
-  return `<div class="section-corps pleine">
-<div class="colonne-texte">
-<p class="surtitre">${e(t.surtitre)}</p>
-<h2>${e(t.titre)}</h2>
+  return `<div class="${imbrique ? "conceptualisation-these" : "section-corps pleine"}">
+<div class="${imbrique ? "conceptualisation-texte" : "colonne-texte"}">
+${imbrique ? "" : `<p class="surtitre">${e(t.surtitre)}</p>`}
+<${imbrique ? "h3" : "h2"}>${e(t.titre)}</${imbrique ? "h3" : "h2"}>
 <p class="intro">${e(t.intro)}</p>
 <div class="chiffres">${t.chiffres.map(([v, l]) => `<div><strong>${e(v)}</strong><span>${e(l)}</span></div>`).join("")}</div>
 <h3 class="titre-bloc">${e(t.prioritesTitre)}</h3>
@@ -935,7 +958,7 @@ function sectionConceptualisation(c) {
 ${anneau}
 <p class="note">${e(t.note)}</p>
 </div>
-<div class="colonne-outils">
+<div class="${imbrique ? "conceptualisation-outils" : "colonne-outils"}">
 <h3 class="titre-bloc">${e(t.lacunesTitre)}</h3>
 <p class="note">${e(t.lacunesIntro)}</p>
 <div class="lacunes">${lacunes}</div>
@@ -1091,6 +1114,7 @@ function page(c) {
   c.hall.portes.transmission = MEDIATION.LANGUES[c.lang].enseignement.salle;
   c.hall.portes.vulgarisation = MEDIATION.LANGUES[c.lang].vulgarisation.salle;
   c.hall.portes.axes = MEDIATION.LANGUES[c.lang].axes.salle;
+  c.hall.portes.ia = IA.langues[c.lang].salle;
   c.hall.portes.notions = textesNotions(c).salle;
   c.hall.portes.outils = textesOutils(c).salle;
   for (const k of CLES_VITRINES) c.hall.portes[k] = textesVitrine(c, k).salle;
@@ -1108,7 +1132,7 @@ function page(c) {
     publications: sectionGroupes(c, c.publications, "", ICONES_GROUPES.publications),
     biographie: sectionBiographie(c),
     parcours: sectionParcours(c),
-    conceptualisation: sectionConceptualisation(c),
+    ia: sectionIA(c),
     valeurs: sectionValeurs(c),
     juriste: sectionVitrine(c, "juriste"),
     gestionnaire: sectionVitrine(c, "gestionnaire"),
@@ -1127,7 +1151,7 @@ function page(c) {
   };
 
   return `<!doctype html>
-<html lang="${c.lang === "zh" ? "zh-Hans" : c.lang}"${langue(c.lang).dir ? ` dir="${langue(c.lang).dir}"` : ""} data-voix="${langue(c.lang).voix}" data-racine="${c.chemin || "./"}"${["fr", "en"].includes(c.lang) ? ` data-audio="${c.lang}" data-audio-exclues="recherche approche methodes axes transmission vulgarisation publications parcours loisirs"` : ""}>
+<html lang="${c.lang === "zh" ? "zh-Hans" : c.lang}"${langue(c.lang).dir ? ` dir="${langue(c.lang).dir}"` : ""} data-voix="${langue(c.lang).voix}" data-racine="${c.chemin || "./"}"${["fr", "en"].includes(c.lang) ? ` data-audio="${c.lang}" data-audio-exclues="recherche approche methodes axes ia transmission vulgarisation publications parcours loisirs"` : ""}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">

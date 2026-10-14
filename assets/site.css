@@ -1311,3 +1311,38 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
   .section-corps.pleine .faits-these{grid-template-columns:minmax(0,1fr)}
   .faits-these li{padding:16px}
 }
+
+/* Rubriques de la thèse et de l'IA : onglets sur ordinateur, sélection compacte sur mobile. */
+.rubriques .rubriques-nav{grid-template-columns:repeat(var(--rubriques-colonnes,5),minmax(0,1fr))}
+.rubriques-nav button{min-width:0;overflow-wrap:break-word;padding:15px 16px;font-weight:600}
+.rubriques[data-rubriques=ia] .rubriques-nav button:nth-child(n+5),.rubriques[data-rubriques=these] .rubriques-nav button:nth-child(n+6){border-top:1px solid var(--line)}
+.rubriques-choix{display:none;padding:16px;gap:8px}
+.rubriques-choix span{font-size:13px;font-weight:600;color:var(--ink)}
+.rubriques-choix select{width:100%;min-width:0;padding:12px;border:1px solid var(--line);border-radius:6px;background:var(--white);color:var(--ink);font:inherit;font-size:14px}
+.rubrique-corps{padding:28px}
+.rubrique-corps>h3{font-size:28px;margin-bottom:16px}
+.rubrique-corps p{text-align:start;hyphens:none;-webkit-hyphens:none;overflow-wrap:break-word}
+.rubrique-corps .titre-bloc{margin-block:26px 14px}
+.ia-reperes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-block:22px}
+.ia-reperes article{min-width:0;padding:20px;border:1px solid var(--line);border-radius:10px;background:var(--white)}
+.ia-reperes article:last-child:nth-child(odd){grid-column:1/-1}
+.ia-reperes h4{margin:0 0 10px;font:600 17px/1.4 var(--sans);color:var(--ink)}
+.ia-reperes p{margin:0;font-size:15px}
+.ia-reperes .references-courtes{margin-top:14px;font-size:12.5px}
+.references-courtes a{color:var(--accent-fonce);text-decoration:underline;text-underline-offset:3px}
+.note-ia,.question-these{padding:16px 18px;background:var(--sea);border-inline-start:3px solid var(--accent);border-radius:0 6px 6px 0}
+.conceptualisation-these{display:grid;gap:30px}
+.conceptualisation-these .intro{max-width:880px}
+.rubrique-corps .lectures-ia{overflow-wrap:break-word}
+.rubrique-corps .lectures-ia li{margin-block:10px;line-height:1.7;text-align:start}
+.these .colonne-outils,.section-ia .colonne-outils{min-width:0}
+@media(max-width:900px){.rubriques .rubriques-nav{grid-template-columns:repeat(2,minmax(0,1fr))}.rubriques-nav button:nth-child(n+3){border-top:1px solid var(--line)}}
+@media(max-width:600px){
+  .rubriques .rubriques-nav{display:none}
+  .rubriques-choix{display:grid}
+  .rubrique-corps{padding:20px 16px}
+  .rubrique-corps>h3{font-size:24px}
+  .ia-reperes{grid-template-columns:minmax(0,1fr)}
+  .ia-reperes article{padding:16px}
+  .rubrique-corps .faits-these li{padding:16px}
+}

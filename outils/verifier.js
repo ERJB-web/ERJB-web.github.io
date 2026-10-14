@@ -60,6 +60,12 @@ for (const l of LANGUES.filter((x) => x.hreflang)) {
   const sallesGroupe = (g) => (groupes.find((m) => m[1] === g) || ["", "", ""])[2].split(" ");
   verifier(`${l.code} : innovations dans la première porte`, sallesGroupe("recherche").includes("outils") && !sallesGroupe("implantation").includes("outils"));
   verifier(`${l.code} : axes dans une sous-catégorie distincte`, sallesGroupe("recherche").includes("axes"));
+  verifier(`${l.code} : axes juste après la thèse`, sallesGroupe("recherche")[1] === "axes");
+  verifier(`${l.code} : conceptualisation dans la thèse, IA dans la porte Recherche`, !sallesGroupe("recherche").includes("conceptualisation") && sallesGroupe("recherche").includes("ia") && section("recherche").includes('class="conceptualisation-these"'));
+  const rubriquesThese = [...section("recherche").matchAll(/role="tab"[^>]*data-rubrique="([^"]+)"/g)].map((m) => m[1]);
+  verifier(`${l.code} : dix rubriques de thèse`, rubriquesThese.join(" ") === "conceptualisation contexte objectifs problematique methodes resultats limites faisabilite ethique transfert");
+  verifier(`${l.code} : PAIRR et usages avancés documentés`, ["PAIRR", "Positron", "Claude", "Codex", "10.1016/j.compcom.2025.102921", "6517041"].every((x) => section("ia").includes(x)) && !section("ia").includes("Problem, AI, Interaction"));
+  verifier(`${l.code} : quatre lectures indiquées et sources de 2026`, ["PIIS2542-5196(26)00048-3", "17_0017", "fdae026", "376200", "9789240124073", "10.3389/feduc.2026.1831419"].every((x) => section("ia").includes(x)));
   verifier(`${l.code} : enseignement et vulgarisation distincts`, sallesGroupe("implantation").includes("transmission") && sallesGroupe("implantation").includes("vulgarisation") && section("transmission").includes("SPU 7001") && !section("vulgarisation").includes("SPU 7001"));
   verifier(`${l.code} : sources pédagogiques et de communication`, section("transmission").includes("10.1073/pnas.1319030111") && section("transmission").includes("udlguidelines.cast.org") && section("vulgarisation").includes("www.cdc.gov/ccindex") && section("vulgarisation").includes("www.w3.org/WAI/media/av/"));
   const icone = (h.match(/rel="icon" href="([^"]+)"/) || [])[1];

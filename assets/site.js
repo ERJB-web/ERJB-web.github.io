@@ -81,6 +81,19 @@
     const groupe = groupeDe(s);
     const section = $(`section[data-salle="${s}"]`);
     contenu.replaceChildren(section.querySelector(".section-contenu").cloneNode(true));
+    $$("[data-onglets]", contenu).forEach((table, ti) => {
+      const propres = (sel) => $$(sel, table).filter((el) => el.closest("[data-onglets]") === table);
+      propres("[role=tab]").forEach((b) => {
+        b.id = `${s}-table-${ti}-tab-${b.dataset.volet}`;
+        b.setAttribute("aria-controls", `${s}-table-${ti}-volet-${b.dataset.volet}`);
+        b.tabIndex = b.getAttribute("aria-selected") === "true" ? 0 : -1;
+      });
+      propres(".volet").forEach((v) => {
+        v.id = `${s}-table-${ti}-volet-${v.dataset.volet}`;
+        v.setAttribute("aria-labelledby", `${s}-table-${ti}-tab-${v.dataset.volet}`);
+        v.tabIndex = 0;
+      });
+    });
     contenu.querySelectorAll(".revele").forEach((el) => el.classList.remove("revele", "vu"));
     if (typeof preparer === "function") setTimeout(() => preparer(contenu), 0);
     const gi = groupes.indexOf(groupe);
@@ -241,15 +254,30 @@
     const bloc = onglet.closest(".cycle-bloc");
     if (bloc) $$(".cycle-noeud", bloc).forEach((n) => n.classList.toggle("actif", n.dataset.aller === onglet.dataset.volet));
     const table = onglet.closest("[data-onglets]");
-    $$("[role=tab]", table).forEach((b) => b.setAttribute("aria-selected", b === onglet));
-    $$(".volet", table).forEach((v) => (v.hidden = v.dataset.volet !== onglet.dataset.volet));
+    const propres = (sel) => $$(sel, table).filter((el) => el.closest("[data-onglets]") === table);
+    propres("[role=tab]").forEach((b) => {
+      b.setAttribute("aria-selected", b === onglet);
+      b.tabIndex = b === onglet ? 0 : -1;
+    });
+    propres(".volet").forEach((v) => (v.hidden = v.dataset.volet !== onglet.dataset.volet));
+    propres("[data-rubrique-select]").forEach((select) => (select.value = onglet.dataset.volet));
+  });
+
+  document.addEventListener("change", (ev) => {
+    if (!ev.target.matches("[data-rubrique-select]")) return;
+    const table = ev.target.closest("[data-onglets]");
+    const bouton = $$("[role=tab]", table).find((b) => b.closest("[data-onglets]") === table && b.dataset.volet === ev.target.value);
+    if (bouton) bouton.click();
   });
 
   document.addEventListener("keydown", (ev) => {
     const onglet = ev.target.closest && ev.target.closest(".onglets [role=tab]");
-    if (!onglet || !["ArrowLeft", "ArrowRight"].includes(ev.key)) return;
-    const tous = $$("[role=tab]", onglet.closest("[data-onglets]"));
-    const i = tous.indexOf(onglet) + (ev.key === "ArrowRight" ? 1 : -1);
+    if (!onglet || !["ArrowLeft", "ArrowRight", "Home", "End"].includes(ev.key)) return;
+    ev.preventDefault();
+    const table = onglet.closest("[data-onglets]");
+    const tous = $$("[role=tab]", table).filter((b) => b.closest("[data-onglets]") === table);
+    const sens = racine.dir === "rtl" ? -1 : 1;
+    const i = ev.key === "Home" ? 0 : ev.key === "End" ? tous.length - 1 : tous.indexOf(onglet) + (ev.key === "ArrowRight" ? sens : -sens);
     const cible = tous[(i + tous.length) % tous.length];
     cible.focus();
     cible.click();
