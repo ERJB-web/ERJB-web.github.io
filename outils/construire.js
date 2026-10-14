@@ -258,7 +258,12 @@ function sectionVitrine(c, cle) {
   const projets = cle === "entrepreneuriat"
     ? `<div class="projets-vignettes">${["ownnight-accueil.jpg", "spheres-lecon.jpg"].map((f, i) => `<img class="${i ? "ecran-tab" : "ecran-tel"} vignette-projet" src="${c.chemin}assets/projets/${f}?v=${empreinte("assets/projets/" + f)}" alt="" loading="lazy">`).join("")}</div><a class="lien-salle" href="#outils">${e(V.lien)} <span aria-hidden="true">→</span></a>`
     : "";
-  const cartes = V.blocs.map(([t, items, opt], k) => `<article class="groupe-carte carte-vitrine${opt && opt.large ? " carte-large" : ""}"><div class="groupe-corps"><h3 class="titre-bloc">${e(t)}</h3><ul class="vitrine-liste">${items.map((x) => `<li>${e(x)}</li>`).join("")}</ul>${k === V.blocs.length - 1 ? projets : ""}</div></article>`).join("");
+  const cartes = V.blocs.map(([t, items, opt], k) => {
+    const reperes = opt && opt.reperes
+      ? `<p class="cnp-introduction">${e(opt.introduction)}</p><div class="cnp-reperes">${opt.reperes.map(([titre, texte, lien]) => `<div><h4>${e(titre)}</h4><p>${e(texte)}</p><a href="${e(lien)}">${e(opt.source)}</a></div>`).join("")}</div><h4 class="cnp-competences">${e(opt.listeTitre)}</h4>`
+      : "";
+    return `<article class="groupe-carte carte-vitrine${opt && opt.large ? " carte-large" : ""}"><div class="groupe-corps"><h3 class="titre-bloc">${e(t)}</h3>${reperes}<ul class="vitrine-liste">${items.map((x) => `<li>${e(x)}</li>`).join("")}</ul>${k === V.blocs.length - 1 ? projets : ""}</div></article>`;
+  }).join("");
   return `<div class="section-corps pleine">
 <div class="colonne-texte">
 <p class="surtitre">${e(V.surtitre)}</p>
@@ -1161,7 +1166,7 @@ function page(c) {
   };
 
   return `<!doctype html>
-<html lang="${c.lang === "zh" ? "zh-Hans" : c.lang}"${langue(c.lang).dir ? ` dir="${langue(c.lang).dir}"` : ""} data-voix="${langue(c.lang).voix}" data-racine="${c.chemin || "./"}"${["fr", "en"].includes(c.lang) ? ` data-audio="${c.lang}" data-audio-exclues="recherche approche methodes axes ia transmission vulgarisation publications parcours loisirs"` : ""}>
+<html lang="${c.lang === "zh" ? "zh-Hans" : c.lang}"${langue(c.lang).dir ? ` dir="${langue(c.lang).dir}"` : ""} data-voix="${langue(c.lang).voix}" data-racine="${c.chemin || "./"}"${["fr", "en"].includes(c.lang) ? ` data-audio="${c.lang}" data-audio-exclues="recherche approche methodes axes ia transmission vulgarisation publications parcours educateur loisirs"` : ""}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">

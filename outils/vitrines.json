@@ -185,7 +185,7 @@
      ]
     ],
     [
-     "Équivalence au Québec (CNP 42203)",
+     "Correspondances professionnelles au Québec",
      [
       "Intervenir auprès de personnes aux prises avec diverses problématiques (santé mentale, dépendances, troubles du langage, régulation des émotions)",
       "Identifier les obstacles cognitifs, sociaux et affectifs",
@@ -195,7 +195,23 @@
       "Collaborer avec d’autres spécialistes (conseillers en réadaptation, orthophonistes, ergothérapeutes)"
      ],
      {
-      "large": true
+      "large": true,
+      "cnp": true,
+      "introduction": "Le rattachement d’un poste dépend des fonctions réellement exercées et du public accompagné. En hébergement de personnes en situation de handicap, les missions peuvent associer accompagnement social au quotidien et apprentissages éducatifs adaptés ; ces deux fiches permettent d’en préciser les dimensions.",
+      "reperes": [
+       [
+        "CNP 42201 · Services sociaux et communautaires",
+        "Accompagnement psychosocial, accès aux ressources, soutien dans la vie quotidienne et participation sociale. Cette catégorie comprend notamment des fonctions d’éducation spécialisée en services sociaux et communautaires et des emplois en foyers de groupe.",
+        "https://noc.esdc.gc.ca/Structure/NOCProfile?GocTemplateCulture=fr-CA&code=42201&version=2021.0"
+       ],
+       [
+        "CNP 42203 · Éducation adaptée et réadaptation",
+        "Interventions éducatives auprès de personnes ayant une déficience, centrées sur la communication, les apprentissages adaptés, les compétences sociales et pratiques, l’autonomie et la réadaptation.",
+        "https://www.quebec.ca/emploi/informer-metier-profession/explorer-metiers-professions/42203-educateurs-specialises-educatrices-specialisees"
+       ]
+      ],
+      "source": "Consulter la fiche officielle",
+      "listeTitre": "Compétences d’intervention mobilisées"
      }
     ]
    ]
@@ -445,7 +461,7 @@
      ]
     ],
     [
-     "Quebec equivalent (NOC 42203)",
+     "Occupational correspondences in Quebec",
      [
       "Intervening with people facing various issues (mental health, addiction, language disorders, emotional regulation)",
       "Identifying cognitive, social and emotional barriers",
@@ -455,7 +471,23 @@
       "Collaborating with other specialists (rehabilitation counsellors, speech therapists, occupational therapists)"
      ],
      {
-      "large": true
+      "large": true,
+      "cnp": true,
+      "introduction": "A position’s classification depends on its actual duties and the population supported. In residential disability services, duties may combine day-to-day social support with adapted educational activities; these two occupational profiles clarify those dimensions.",
+      "reperes": [
+       [
+        "NOC 42201 · Social and community service workers",
+        "Psychosocial support, access to resources, assistance in daily life and social participation. This category includes specialised educational support roles in social and community services and positions in group homes.",
+        "https://noc.esdc.gc.ca/Structure/NOCProfile?GocTemplateCulture=fr-CA&code=42201&version=2021.0"
+       ],
+       [
+        "NOC 42203 · Instructors of persons with disabilities",
+        "Adapted educational support for people with disabilities, focusing on communication, learning, social and practical skills, independence and rehabilitation.",
+        "https://www.quebec.ca/emploi/informer-metier-profession/explorer-metiers-professions/42203-educateurs-specialises-educatrices-specialisees"
+       ]
+      ],
+      "source": "View the official occupational profile",
+      "listeTitre": "Skills used in intervention"
      }
     ]
    ]
@@ -705,7 +737,7 @@
      ]
     ],
     [
-     "Equivalencia en Quebec (CNP 42203)",
+     "Correspondencias profesionales en Quebec",
      [
       "Intervenir con personas que enfrentan diversas problemáticas (salud mental, adicciones, trastornos del lenguaje, regulación emocional)",
       "Identificar los obstáculos cognitivos, sociales y afectivos",
@@ -715,7 +747,23 @@
       "Colaborar con otros especialistas (consejeros de rehabilitación, logopedas, terapeutas ocupacionales)"
      ],
      {
-      "large": true
+      "large": true,
+      "cnp": true,
+      "introduction": "La clasificación de un puesto depende de las funciones efectivamente desempeñadas y de la población atendida. En los servicios residenciales para personas con discapacidad, las tareas pueden combinar apoyo social cotidiano y aprendizajes educativos adaptados; estas dos fichas permiten precisar esas dimensiones.",
+      "reperes": [
+       [
+        "CNP 42201 · Servicios sociales y comunitarios",
+        "Acompañamiento psicosocial, acceso a recursos, apoyo en la vida diaria y participación social. Esta categoría incluye funciones de educación especializada en servicios sociales y comunitarios, así como puestos en hogares de grupo.",
+        "https://noc.esdc.gc.ca/Structure/NOCProfile?GocTemplateCulture=fr-CA&code=42201&version=2021.0"
+       ],
+       [
+        "CNP 42203 · Educación adaptada y rehabilitación",
+        "Intervenciones educativas para personas con discapacidad centradas en la comunicación, el aprendizaje adaptado, las competencias sociales y prácticas, la autonomía y la rehabilitación.",
+        "https://www.quebec.ca/emploi/informer-metier-profession/explorer-metiers-professions/42203-educateurs-specialises-educatrices-specialisees"
+       ]
+      ],
+      "source": "Consultar la ficha oficial",
+      "listeTitre": "Competencias utilizadas en la intervención"
      }
     ]
    ]
@@ -965,7 +1013,7 @@
      ]
     ],
     [
-     "魁北克对应职业（CNP 42203）",
+     "魁北克的对应职业类别",
      [
       "为面临多种问题（心理健康、成瘾、语言障碍、情绪调节）的人提供干预",
       "识别认知、社会与情感方面的障碍",
@@ -975,7 +1023,23 @@
       "与其他专业人员合作（康复顾问、言语治疗师、作业治疗师）"
      ],
      {
-      "large": true
+      "large": true,
+      "cnp": true,
+      "introduction": "岗位分类取决于实际职责及服务对象。在残障人士住宿服务中，工作可能同时涉及日常社会支持和适应性教育；以下两类职业可帮助说明这些不同侧面。",
+      "reperes": [
+       [
+        "CNP 42201 · 社会与社区服务工作者",
+        "提供心理社会支持、协助获取资源、支持日常生活和社会参与。此类别涵盖社会与社区服务中的专业教育支持岗位，以及团体居住服务中的工作。",
+        "https://noc.esdc.gc.ca/Structure/NOCProfile?GocTemplateCulture=fr-CA&code=42201&version=2021.0"
+       ],
+       [
+        "CNP 42203 · 残障人士教育与康复指导",
+        "面向残障人士的适应性教育支持，重点包括沟通、学习、社会与实用技能、自主生活及康复。",
+        "https://www.quebec.ca/emploi/informer-metier-profession/explorer-metiers-professions/42203-educateurs-specialises-educatrices-specialisees"
+       ]
+      ],
+      "source": "查看官方职业介绍",
+      "listeTitre": "服务中运用的专业能力"
      }
     ]
    ]
@@ -1225,7 +1289,7 @@
      ]
     ],
     [
-     "المعادل في كيبك (CNP 42203)",
+     "الفئات المهنية المقابلة في كيبك",
      [
       "التدخل لدى أشخاص يواجهون إشكاليات متنوعة (الصحة النفسية، الإدمان، اضطرابات اللغة، تنظيم الانفعالات)",
       "تحديد العوائق المعرفية والاجتماعية والعاطفية",
@@ -1235,7 +1299,23 @@
       "التعاون مع مختصين آخرين (مستشارو إعادة التأهيل، أخصائيو النطق، أخصائيو العلاج الوظيفي)"
      ],
      {
-      "large": true
+      "large": true,
+      "cnp": true,
+      "introduction": "يعتمد تصنيف الوظيفة على المهام الفعلية والفئة المستفيدة. في خدمات الإقامة للأشخاص ذوي الإعاقة، قد تجمع المهام بين الدعم الاجتماعي اليومي والتعلّم التربوي المكيّف؛ ويوضح هذان الملفان المهنيان هذين البعدين.",
+      "reperes": [
+       [
+        "CNP 42201 · الخدمات الاجتماعية والمجتمعية",
+        "الدعم النفسي الاجتماعي، وتيسير الوصول إلى الموارد، والمساندة في الحياة اليومية والمشاركة الاجتماعية. تشمل هذه الفئة وظائف تربوية متخصصة في الخدمات الاجتماعية والمجتمعية، ووظائف في دور الإقامة الجماعية.",
+        "https://noc.esdc.gc.ca/Structure/NOCProfile?GocTemplateCulture=fr-CA&code=42201&version=2021.0"
+       ],
+       [
+        "CNP 42203 · التعليم المكيّف والتأهيل",
+        "تدخلات تربوية للأشخاص ذوي الإعاقة تركّز على التواصل والتعلّم المكيّف والمهارات الاجتماعية والعملية والاستقلالية والتأهيل.",
+        "https://www.quebec.ca/emploi/informer-metier-profession/explorer-metiers-professions/42203-educateurs-specialises-educatrices-specialisees"
+       ]
+      ],
+      "source": "الاطلاع على الملف المهني الرسمي",
+      "listeTitre": "المهارات المستخدمة في التدخل"
      }
     ]
    ]
@@ -1485,7 +1565,7 @@
      ]
     ],
     [
-     "Соответствие профессии в Квебеке (CNP 42203)",
+     "Соответствующие профессиональные категории в Квебеке",
      [
       "Сопровождение людей с различными трудностями: психическое здоровье, зависимости, нарушения речи и эмоциональная регуляция",
       "Выявление когнитивных, социальных и эмоциональных препятствий",
@@ -1495,7 +1575,23 @@
       "Сотрудничество с другими специалистами: консультантами по реабилитации, логопедами и эрготерапевтами"
      ],
      {
-      "large": true
+      "large": true,
+      "cnp": true,
+      "introduction": "Классификация должности зависит от фактических обязанностей и группы людей, которым оказывается поддержка. В учреждениях проживания для людей с инвалидностью работа может сочетать повседневную социальную поддержку и адаптированное обучение; эти два профессиональных профиля помогают разграничить данные направления.",
+      "reperes": [
+       [
+        "CNP 42201 · Социальные и общественные службы",
+        "Психосоциальная поддержка, помощь в доступе к ресурсам, сопровождение в повседневной жизни и содействие социальному участию. Категория включает специализированные педагогические функции в социальных и общественных службах и работу в учреждениях группового проживания.",
+        "https://noc.esdc.gc.ca/Structure/NOCProfile?GocTemplateCulture=fr-CA&code=42201&version=2021.0"
+       ],
+       [
+        "CNP 42203 · Адаптированное обучение и реабилитация",
+        "Педагогическая поддержка людей с инвалидностью с акцентом на коммуникацию, адаптированное обучение, социальные и практические навыки, самостоятельность и реабилитацию.",
+        "https://www.quebec.ca/emploi/informer-metier-profession/explorer-metiers-professions/42203-educateurs-specialises-educatrices-specialisees"
+       ]
+      ],
+      "source": "Открыть официальный профессиональный профиль",
+      "listeTitre": "Навыки, используемые в работе"
      }
     ]
    ]

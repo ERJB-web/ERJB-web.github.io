@@ -1176,6 +1176,13 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 .mono-barre{position:absolute;left:50%;top:50%;width:1.3px;height:24px;border-radius:1px;background:#e3c983;transform:translate(-50%,-50%) rotate(32deg)}
 .carte-vitrine.carte-large{grid-column:1 / -1;background:linear-gradient(180deg,#f4f8fb,#fff)}
 .carte-large .vitrine-liste{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px}
+.groupe-corps>.cnp-introduction{text-align:start;hyphens:none;max-width:90ch;margin:0 0 20px}
+.cnp-reperes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-bottom:24px}
+.cnp-reperes>div{min-width:0;border-inline-start:2px solid var(--line);padding-inline-start:16px}
+.cnp-reperes h4,.cnp-competences{margin:0 0 8px;font:600 15px/1.4 var(--sans);color:var(--ink)}
+.cnp-reperes p{margin:0 0 10px;font-size:14.5px;line-height:1.55;text-align:start;hyphens:none}
+.cnp-reperes a{font-size:13.5px;color:var(--accent);text-underline-offset:3px;overflow-wrap:anywhere}
+@media(max-width:700px){.cnp-reperes{grid-template-columns:1fr;gap:18px}}
 @media (max-width:700px){.carte-large .vitrine-liste{grid-template-columns:1fr}}
 .mono-barre{width:.8px;height:19px;opacity:.6}
 .sous-portes span[data-lien]{cursor:pointer}
