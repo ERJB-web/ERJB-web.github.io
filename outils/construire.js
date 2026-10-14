@@ -694,7 +694,7 @@ ${schemaReseau(c)}</div>
     `<h3>${e(t.titres[8])}</h3><p>${e(t.ethiqueIntro)}</p>${cartesRubrique(t.ethique)}<p class="ref">${lien(THESE.ethiqueLien, e(t.sourceEthique))}</p>`,
     `<h3>${e(t.titres[9])}</h3>${cartesRubrique(t.transfert)}`,
   ];
-  return `<div class="section-corps pleine these"><div class="colonne-texte"><p class="surtitre">${e(r.surtitre)}</p><p class="badge-these">${e(r.etiquette)}</p><h2>${e(r.titre)}</h2><p class="sous-titre">${e(r.sousTitre)}</p></div><div class="colonne-outils">${ongletsRubriques("these", t.explorer, contenus.map((html, i) => [THESE.cles[i], t.titres[i], html]))}</div></div>`;
+  return `<div class="section-corps pleine these"><div class="colonne-texte"><p class="surtitre">${e(r.surtitre)}</p><p class="badge-these">${e(r.etiquette)}</p><p class="these-evolution"><strong>${e(r.avertissement)}</strong></p><h2>${e(r.titre)}</h2><p class="sous-titre">${e(r.sousTitre)}</p></div><div class="colonne-outils">${ongletsRubriques("these", t.explorer, contenus.map((html, i) => [THESE.cles[i], t.titres[i], html]))}</div></div>`;
 }
 
 function sectionIA(c) {

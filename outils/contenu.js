@@ -189,7 +189,8 @@ const fr = {
   },
   recherche: {
     surtitre: "01 · La recherche",
-    etiquette: "Thèse de doctorat en cours · sujet provisoire",
+    etiquette: "Thèse de doctorat en cours",
+    avertissement: "Sujet en cours de construction et susceptible d’évoluer",
     titre: "Organiser la réponse intersectorielle aux besoins sociaux complexes et co-occurrents en soins primaires",
     sousTitre: "Configuration des réseaux adaptés aux différents profils de patients pris en charge",
     question:
@@ -1759,7 +1760,8 @@ const en = {
   },
   recherche: {
     surtitre: "01 · Research",
-    etiquette: "Doctoral thesis in progress · provisional topic",
+    etiquette: "Doctoral thesis in progress",
+    avertissement: "Topic under development and subject to change",
     titre: "Organising the intersectoral response to complex and co-occurring social needs in primary care",
     sousTitre: "Network configurations adapted to the different profiles of patients in care",
     question:
@@ -3329,7 +3331,8 @@ const es = {
   },
   recherche: {
     surtitre: "01 · La investigación",
-    etiquette: "Tesis doctoral en curso · tema provisional",
+    etiquette: "Tesis doctoral en curso",
+    avertissement: "Tema en proceso de elaboración y sujeto a cambios",
     titre: "Organizar la respuesta intersectorial a las necesidades sociales complejas y concurrentes en atención primaria",
     sousTitre: "Configuraciones de redes adaptadas a los distintos perfiles de pacientes atendidos",
     question:

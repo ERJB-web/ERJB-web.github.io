@@ -120,6 +120,8 @@ h1{margin:0;color:var(--ink);font:400 clamp(40px,4vw,58px)/1 var(--serif);letter
 .faits .ligne+.ligne{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
 .badge-these{display:inline-flex;align-items:center;gap:8px;margin:0 0 14px;padding:5px 12px;border-radius:999px;background:var(--ink);color:#fff;font-size:12.5px;font-weight:600;letter-spacing:.02em}
 .badge-these::before{content:"";width:7px;height:7px;border-radius:50%;background:#8fd3b6;box-shadow:0 0 0 3px rgba(143,211,182,.25)}
+.these .badge-these{font-size:16px;padding:8px 14px}
+.these .these-evolution{margin-block:0 24px;padding:16px 20px;border:1px solid var(--line);border-inline-start:4px solid var(--ink);border-radius:6px;background:var(--sea);color:var(--ink);font-size:17px;line-height:1.5;text-align:start;hyphens:none}
 
 .travaux{max-width:1220px;margin:0 auto;padding:0 var(--gouttiere) 88px}
 .section-corps:has(+ .travaux){padding-bottom:40px}
