@@ -143,7 +143,7 @@ module.exports = {
       },
       "vulgarisation": {
         "salle": [
-          "Vulgarisation",
+          "Vulgarisation scientifique",
           "Grand public, réseaux sociaux, vidéos et balados"
         ],
         "titre": "Rendre la recherche compréhensible et ouvrir le dialogue",
@@ -491,7 +491,7 @@ module.exports = {
       },
       "vulgarisation": {
         "salle": [
-          "Divulgación",
+          "Divulgación científica",
           "Público general, redes sociales, vídeos y pódcasts"
         ],
         "titre": "Hacer comprensible la investigación y abrir el diálogo",
