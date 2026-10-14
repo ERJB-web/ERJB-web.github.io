@@ -689,7 +689,7 @@ html.cb .schema-reseau .n0{fill:#0072b2}html.cb .schema-reseau .n1{fill:#009e73}
 .chiffres span{display:block;margin-top:6px;font-size:13.5px;line-height:1.4;color:var(--body)}
 .chiffres-accueil>div{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.18)}
 .chiffres-accueil strong{color:#f2c14e}
-.chiffres-accueil>div:nth-child(2) strong{color:#7fd1b9}.chiffres-accueil>div:nth-child(3) strong{color:#8ec5ff}.chiffres-accueil>div:nth-child(4) strong{color:#f5a65b}
+.chiffres-accueil>div:nth-child(4n+2) strong{color:#7fd1b9}.chiffres-accueil>div:nth-child(4n+3) strong{color:#8ec5ff}.chiffres-accueil>div:nth-child(4n+4) strong{color:#f5a65b}
 .chiffres-accueil span{color:#e6f1f6}
 @media (max-width:980px){.trajectoire{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:22px}.trajectoire::before{display:none}.chiffres{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.bande-accueil{padding:24px 18px}.trajectoire{grid-template-columns:1fr 1fr}}

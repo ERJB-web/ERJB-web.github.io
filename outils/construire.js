@@ -16,6 +16,7 @@ const METHODOLOGIE = require("./methodologie");
 const MEDIATION = require("./enseignement-vulgarisation");
 const IA = require("./ia-recherche");
 const THESE = require("./these-rubriques");
+const CHIFFRES_IMPACT = require("./chiffres-parcours");
 
 const RACINE = path.join(__dirname, "..");
 const empreinte = (fichier) => require("crypto").createHash("sha256").update(fs.readFileSync(path.join(RACINE, fichier))).digest("hex").slice(0, 10);
@@ -637,7 +638,7 @@ function bandeAccueil(c) {
   return `<div class="bande-accueil">
 <p class="bande-titre">${e(B.titre)}</p>
 <ol class="trajectoire">${[...B.etapes].reverse().map(([quand, quoi, ic], i) => `<li style="--rang:${i}"><span class="trajectoire-date">${e(quand)}</span><span class="trajectoire-texte">${e(quoi)}</span></li>`).join("")}</ol>
-<div class="chiffres chiffres-accueil">${B.chiffres.map(([v, l]) => `<div><strong>${e(v)}</strong><span>${e(l)}</span></div>`).join("")}</div>
+<div class="chiffres chiffres-accueil">${[...B.chiffres, ...CHIFFRES_IMPACT[c.lang]].map(([v, l]) => `<div><strong><bdi dir="ltr">${e(v)}</bdi></strong><span>${e(l)}</span></div>`).join("")}</div>
 </div>`;
 }
 
