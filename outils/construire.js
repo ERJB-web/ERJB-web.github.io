@@ -1234,7 +1234,7 @@ ${sections[s].replace(/<p class="surtitre">(\d{2} · )?/, `<p class="surtitre">$
 </section>
 </main>
 
-<footer class="pied"><span>${e(c.pied)}<br><small>${e(c.credits)}</small></span><a href="#contenu">${e(c.ui.haut)} ↑</a></footer>
+<footer class="pied"><span>${e(c.pied)}<br><small>${e(c.credits)}<br><a href="https://commons.wikimedia.org/wiki/File:2014_Paris_Marathon_t084659.jpg">Marathon de Paris (2014) · © Marie-Lan Nguyen / Wikimedia Commons</a> · <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a></small></span><a href="#contenu">${e(c.ui.haut)} ↑</a></footer>
 
 <div class="salle" id="salle" role="dialog" aria-modal="true" aria-labelledby="salle-titre" hidden>
 <div class="salle-barre">

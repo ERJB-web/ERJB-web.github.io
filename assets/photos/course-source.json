@@ -1,13 +1,14 @@
 {
   "fichier": "course.jpg",
   "type": "photographie",
-  "titre": "Group of runners competing in a marathon race outdoors",
-  "photographe": "Justin Lagat",
-  "source": "https://unsplash.com/photos/group-of-runners-competing-in-a-marathon-race-outdoors-GKBCHlMSvrg",
-  "licence": "Unsplash License",
-  "licenceUrl": "https://unsplash.com/license",
-  "telechargement": "https://images.unsplash.com/photo-1769707948199-0ac6f2868e55?auto=format&fit=max&fm=jpg&q=85&w=1600",
-  "publieeLe": "2026-01-29",
-  "verifieeLe": "2026-10-13",
-  "traitement": "Version JPEG redimensionnée par le fournisseur à 1600 pixels de large ; aucune retouche ni génération."
+  "titre": "Start of the 2014 Paris Marathon",
+  "description": "Départ du marathon de Paris sur les Champs-Élysées, avec l’obélisque de la Concorde à l’arrière-plan. Photographie d’illustration de l’édition 2014.",
+  "photographe": "Marie-Lan Nguyen",
+  "attribution": "© Marie-Lan Nguyen / Wikimedia Commons",
+  "source": "https://commons.wikimedia.org/wiki/File:2014_Paris_Marathon_t084659.jpg",
+  "licence": "CC BY 3.0",
+  "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+  "telechargement": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/2014_Paris_Marathon_t084659.jpg/1280px-2014_Paris_Marathon_t084659.jpg",
+  "priseLe": "2014-04-06",
+  "traitement": "Version JPEG redimensionnée par Wikimedia à 1280 pixels de large ; aucune retouche ni génération. Cadrage d’affichage adapté au format de la carte."
 }
