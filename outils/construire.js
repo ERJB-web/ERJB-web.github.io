@@ -642,7 +642,7 @@ const LIBELLES_FAITS_RECHERCHE = {
 function ongletsRubriques(cle, explorer, rubriques, colonnes = 5) {
   return `<div class="table rubriques" data-onglets data-rubriques="${cle}" style="--rubriques-colonnes:${colonnes}">
 <label class="rubriques-choix"><span>${e(explorer)}</span><select data-rubrique-select>${rubriques.map(([, nom], i) => `<option value="${i}">${e(nom)}</option>`).join("")}</select></label>
-<div class="onglets rubriques-nav" role="tablist" aria-label="${e(explorer)}">${rubriques.map(([id, nom], i) => `<button type="button" role="tab" aria-selected="${i === 0}" tabindex="${i ? -1 : 0}" data-volet="${i}" data-rubrique="${id}">${cle === "these" ? `<span class="rubrique-numero" aria-hidden="true">${num(i)}</span>` : ""}<span>${e(nom)}</span></button>`).join("")}</div>
+<div class="onglets rubriques-nav" role="tablist" aria-label="${e(explorer)}">${rubriques.map(([id, nom], i) => `<button type="button" role="tab" aria-selected="${i === 0}" tabindex="${i ? -1 : 0}" data-volet="${i}" data-rubrique="${id}">${["these", "ia"].includes(cle) ? `<span class="rubrique-numero" aria-hidden="true">${num(i)}</span>` : ""}<span>${e(nom)}</span></button>`).join("")}</div>
 ${rubriques.map(([id, , contenu], i) => `<div class="volet rubrique-corps" role="tabpanel" data-volet="${i}" data-rubrique="${id}"${i ? " hidden" : ""}>${contenu}</div>`).join("")}</div>`;
 }
 
