@@ -86,8 +86,9 @@ const fr = {
     ],
     [
       "approche",
-      "Posture et méthodes"
+      "Posture de recherche"
     ],
+    ["methodes", "Méthodes de recherche"],
     [
       "valeurs",
       "Valeurs"
@@ -152,9 +153,10 @@ const fr = {
         "Recherche en cours : corpus et lacunes"
       ],
       "approche": [
-        "Posture et méthodes",
-        "Posture scientifique, méthodes de recherche et axes de travaux"
+        "Posture de recherche",
+        "Posture scientifique et axes de travaux"
       ],
+      "methodes": ["Méthodes de recherche","Analyses, outils et références méthodologiques"],
       "valeurs": [
         "Valeurs",
         "Ce qui guide ma pratique"
@@ -406,9 +408,9 @@ const fr = {
     "note": "Le corpus a été constitué à partir d’Ovid (Embase, MEDLINE), de PubMed et de Cairn, et chaque publication a reçu une priorité selon sa pertinence pour la question de thèse."
   },
   approche: {
-    "surtitre": "Posture et méthodes",
-    "titre": "Posture et méthodes de recherche",
-    "intro": "De la question à l’observation : chaque question appelle ses données, sa méthode d’analyse et son interprétation. Je choisis les méthodes selon ce qu’il faut éclairer, en croisant les disciplines.",
+    "surtitre": "Posture de recherche",
+    "titre": "Posture de recherche",
+    "intro": "Une posture pragmatique et pluridisciplinaire, qui met en dialogue la mesure des phénomènes et la compréhension des pratiques.",
     "piliers": [
       [
         "Posture pragmatique",
@@ -455,6 +457,7 @@ const fr = {
     },
     "methodes": {
       "titre": "Méthodes de recherche mobilisées",
+      "intro": "De la question à l’observation : chaque question appelle ses données, sa méthode d’analyse et son interprétation. Je choisis les méthodes selon ce qu’il faut éclairer, en croisant les disciplines.",
       "items": [
         {
           "titre": "Analyse de réseaux sociaux égocentrée et sociocentrée",
@@ -1221,7 +1224,7 @@ const fr = {
   publications: {
     "surtitre": "04 · Publications",
     "titre": "Communications, mémoires et outils",
-    "intro": "Chaque travail garde son titre original, ses auteurs et son statut. Les manuscrits en cours sont présentés avec les axes de travaux dans la salle Posture et méthodes.",
+    "intro": "Chaque travail garde son titre original, ses auteurs et son statut. Les manuscrits en cours sont présentés avec les axes de travaux dans la salle Posture de recherche.",
     "groupes": [
       {
         "titre": "Communications scientifiques",
@@ -1647,8 +1650,9 @@ const en = {
     ],
     [
       "approche",
-      "Stance and methods"
+      "Research stance"
     ],
+    ["methodes", "Research methods"],
     [
       "valeurs",
       "Values"
@@ -1713,9 +1717,10 @@ const en = {
         "Research in progress: corpus and gaps"
       ],
       "approche": [
-        "Stance and methods",
-        "Research stance, methods and research areas"
+        "Research stance",
+        "Research stance and research areas"
       ],
+      "methodes": ["Research methods","Analyses, tools and methodological references"],
       "valeurs": [
         "Values",
         "What guides my practice"
@@ -1967,9 +1972,9 @@ const en = {
     "note": "The corpus was assembled from Ovid (Embase, MEDLINE), PubMed and Cairn, and each publication was assigned a priority according to its relevance to the thesis question."
   },
   approche: {
-    "surtitre": "Stance and methods",
-    "titre": "Research stance and methods",
-    "intro": "From question to observation: each question calls for its own data, analytical method and interpretation. I choose methods according to what needs to be understood, drawing on several disciplines.",
+    "surtitre": "Research stance",
+    "titre": "Research stance",
+    "intro": "A pragmatic, multidisciplinary stance that brings together the measurement of phenomena and the understanding of practices.",
     "piliers": [
       [
         "Pragmatic stance",
@@ -2016,6 +2021,7 @@ const en = {
     },
     "methodes": {
       "titre": "Research methods in practice",
+      "intro": "From question to observation: each question calls for its own data, analytical method and interpretation. I choose methods according to what needs to be understood, drawing on several disciplines.",
       "items": [
         {
           "titre": "Egocentric and sociocentric social network analysis",
@@ -2782,7 +2788,7 @@ const en = {
   publications: {
     "surtitre": "04 · Publications",
     "titre": "Presentations, theses and tools",
-    "intro": "Each work keeps its original title, authors and status. Manuscripts in progress are presented alongside the research areas in the Stance and methods room.",
+    "intro": "Each work keeps its original title, authors and status. Manuscripts in progress are presented alongside the research areas in the Research stance room.",
     "groupes": [
       {
         "titre": "Scientific presentations",
@@ -3208,8 +3214,9 @@ const es = {
     ],
     [
       "approche",
-      "Postura y métodos"
+      "Postura de investigación"
     ],
+    ["methodes", "Métodos de investigación"],
     [
       "valeurs",
       "Valores"
@@ -3274,9 +3281,10 @@ const es = {
         "Investigación en curso: corpus y lagunas"
       ],
       "approche": [
-        "Postura y métodos",
-        "Postura científica, métodos y ejes de investigación"
+        "Postura de investigación",
+        "Postura científica y ejes de investigación"
       ],
+      "methodes": ["Métodos de investigación","Análisis, herramientas y referencias metodológicas"],
       "valeurs": [
         "Valores",
         "Lo que guía mi práctica"
@@ -3528,9 +3536,9 @@ const es = {
     "note": "El corpus se constituyó a partir de Ovid (Embase, MEDLINE), PubMed y Cairn, y a cada publicación se le asignó una prioridad según su pertinencia para la pregunta de tesis."
   },
   approche: {
-    "surtitre": "Postura y métodos",
-    "titre": "Postura y métodos de investigación",
-    "intro": "De la pregunta a la observación: cada pregunta requiere sus datos, su método de análisis y su interpretación. Elijo los métodos según lo que haya que esclarecer, cruzando disciplinas.",
+    "surtitre": "Postura de investigación",
+    "titre": "Postura de investigación",
+    "intro": "Una postura pragmática y pluridisciplinar que relaciona la medición de los fenómenos con la comprensión de las prácticas.",
     "piliers": [
       [
         "Postura pragmática",
@@ -3577,6 +3585,7 @@ const es = {
     },
     "methodes": {
       "titre": "Métodos de investigación utilizados",
+      "intro": "De la pregunta a la observación: cada pregunta requiere sus datos, su método de análisis y su interpretación. Elijo los métodos según lo que haya que esclarecer, cruzando disciplinas.",
       "items": [
         {
           "titre": "Análisis de redes sociales egocéntrico y sociocéntrico",
@@ -4343,7 +4352,7 @@ const es = {
   publications: {
     "surtitre": "04 · Publicaciones",
     "titre": "Comunicaciones, memorias y herramientas",
-    "intro": "Cada trabajo conserva su título original, sus autores y su estado. Los manuscritos en curso se presentan junto a los ejes de trabajo en la sala Postura y métodos.",
+    "intro": "Cada trabajo conserva su título original, sus autores y su estado. Los manuscritos en curso se presentan junto a los ejes de trabajo en la sala Postura de investigación.",
     "groupes": [
       {
         "titre": "Comunicaciones científicas",

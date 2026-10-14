@@ -22,7 +22,7 @@ const VERSION_ICONE = empreinte("assets/favicon.svg");
 const URL = "https://erjb-web.github.io/";
 const TELEPHONE = ["(263) 384-3050", "+12633843050"];
 const GROUPES = [
-  ["recherche", ["recherche", "approche", "conceptualisation", "publications", "outils"]],
+  ["recherche", ["recherche", "approche", "methodes", "conceptualisation", "publications", "outils"]],
   ["implantation", ["implantation", "notions", "transmission"]],
   ["parcours", ["biographie", "parcours", "juriste", "gestionnaire", "educateur", "entrepreneuriat", "valeurs"]],
   ["engagements", ["representation", "communaute", "distinctions", "citoyen", "loisirs"]],
@@ -78,7 +78,7 @@ function poserSousPortes(c) {
   for (const [s, P] of Object.entries(PARTIES_RESSOURCES)) c.hall.portes[s] = [S[s][0] || c.ressources.groupes[P.groupes[0]][0], S[s][1]];
   for (const [s, k] of Object.entries(INDEX_ENGAGEMENTS)) c.hall.portes[s] = [c.engagements.groupes[k].titre, c.hall.portes.engagements[0]];
 }
-const BANDEAUX = { litterature: "bandeaux/ressources.jpg", representation: "photos/representation.jpg", communaute: "bandeaux/engagements.jpg", distinctions: "photos/distinctions.jpg", loisirs: "bandeaux/sports-loisirs.png" };
+const BANDEAUX = { methodes: "bandeaux/conceptualisation.jpg", litterature: "bandeaux/ressources.jpg", representation: "photos/representation.jpg", communaute: "bandeaux/engagements.jpg", distinctions: "photos/distinctions.jpg", loisirs: "bandeaux/sports-loisirs.png" };
 const bandeau = (s) => BANDEAUX[s] || "bandeaux/" + s + ".jpg";
 // Références vérifiées (Crossref), communes à toutes les langues.
 const REFS_NOTIONS = {
@@ -391,6 +391,7 @@ const IMAGES_PORTES = {
 const TEINTES = {
   recherche: ["#245a73", "#163a4c"],
   approche: ["#8c4d58", "#63343e"],
+  methodes: ["#466a78", "#304b56"],
   implantation: ["#a0663b", "#7a4a26"],
   biographie: ["#2f6f86", "#1f4f62"],
   publications: ["#327a66", "#1f5446"],
@@ -696,15 +697,9 @@ function sectionApproche(c) {
 <h2>${e(a.titre)}</h2>
 <p class="intro">${e(a.intro)}</p>
 ${schemaPosture(c)}
-<div class="piliers">${a.piliers.map(([t, d]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p></div>`).join("")}</div>
-<div class="boite-outils">
-<h3>${e(a.outils.titre)}</h3>
-${a.outils.groupes.map(([g, items]) => `<div class="groupe-outils"><p>${e(g)}</p>${etiquettes(items, "etiquettes outils-liste")}</div>`).join("")}
-</div>
+<div class="piliers piliers-posture">${a.piliers.filter((_, i) => i !== 1).map(([t, d]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p></div>`).join("")}</div>
 </div>
 <div class="colonne-outils">
-<h3 class="titre-bloc">${e(a.methodes.titre)}</h3>
-<div class="methodes">${a.methodes.items.map((m) => `<article class="methode"><div class="methode-texte"><h4>${e(m.titre)}</h4><p>${e(m.texte)}</p><ul class="methode-refs">${m.references.map((x) => `<li>${lienFinal(x)}</li>`).join("")}</ul></div><div class="methode-figures">${m.illustrations.map((il) => `<figure>${il.schema ? schemaDiscours(il.schema, il.legende) : `<a href="${e(il.page)}" target="_blank" rel="noopener"><img src="${e(il.src)}" alt="${e(il.legende)}" loading="lazy" referrerpolicy="no-referrer"></a>`}<figcaption>${e(il.legende)} <span class="source">${e(il.credit)}</span></figcaption></figure>`).join("")}</div></article>`).join("")}</div>
 <h3 class="titre-bloc">${e(a.axes.titre)}</h3>
 <ul class="puces">${a.axes.principaux.map((t) => `<li><b>${e(t)}</b></li>`).join("")}</ul>
 <p class="petit-titre">${e(a.axes.secondairesTitre)}</p>
@@ -712,6 +707,25 @@ ${a.outils.groupes.map(([g, items]) => `<div class="groupe-outils"><p>${e(g)}</p
 </div>
 </div>
 ${travauxEnCours(c)}`;
+}
+
+function sectionMethodes(c) {
+  const a = c.approche;
+  return `<div class="section-corps pleine large">
+<div class="colonne-texte">
+<p class="surtitre">${e(c.hall.portes.methodes[0])}</p>
+<h2>${e(a.methodes.titre)}</h2>
+<p class="intro">${e(a.methodes.intro)}</p>
+<h3 class="titre-bloc">${e(a.piliers[1][0])}</h3><p>${e(a.piliers[1][1])}</p>
+<div class="boite-outils">
+<h3>${e(a.outils.titre)}</h3>
+${a.outils.groupes.map(([g, items]) => `<div class="groupe-outils"><p>${e(g)}</p>${etiquettes(items, "etiquettes outils-liste")}</div>`).join("")}
+</div>
+</div>
+<div class="colonne-outils">
+<div class="methodes">${a.methodes.items.map((m) => `<article class="methode"><div class="methode-texte"><h4>${e(m.titre)}</h4><p>${e(m.texte)}</p><ul class="methode-refs">${m.references.map((x) => `<li>${lienFinal(x)}</li>`).join("")}</ul></div><div class="methode-figures">${m.illustrations.map((il) => `<figure>${il.schema ? schemaDiscours(il.schema, il.legende) : `<a href="${e(il.page)}" target="_blank" rel="noopener"><img src="${e(il.src)}" alt="${e(il.legende)}" loading="lazy" referrerpolicy="no-referrer"></a>`}<figcaption>${e(il.legende)} <span class="source">${e(il.credit)}</span></figcaption></figure>`).join("")}</div></article>`).join("")}</div>
+</div>
+</div>`;
 }
 
 // Vidéos et balados intégrés : le lecteur du service ne se charge qu'au clic (aucun témoin avant).
@@ -1041,6 +1055,7 @@ function page(c) {
   const sections = {
     recherche: sectionRecherche(c),
     approche: sectionApproche(c),
+    methodes: sectionMethodes(c),
     implantation: sectionImplantation(c),
     transmission: sectionTransmission(c),
     notions: sectionNotions(c),
@@ -1124,7 +1139,7 @@ ${bandeAccueil(c)}
 
 ${SALLES.map(
   (s, i) => `<section class="section${i % 2 ? " teinte" : ""}" id="${s}" data-salle="${s}" data-titre="${e(c.hall.portes[s][0])}">
-<div class="section-contenu" data-numero="${NUMS[s]}" data-mini="${p}assets/portes-mini/${s}.jpg?v=${empreinte("assets/portes-mini/" + s + ".jpg")}">
+<div class="section-contenu" data-numero="${NUMS[s]}" data-mini="${p}assets/portes-mini/${s === "methodes" ? "conceptualisation" : s}.jpg?v=${empreinte("assets/portes-mini/" + (s === "methodes" ? "conceptualisation" : s) + ".jpg")}">
 <div class="bandeau" style="--c1:${TEINTES[s][0]};background-image:var(--degrade),url(${p}assets/${bandeau(s)}?v=${empreinte("assets/" + bandeau(s))})" role="img" aria-label="${e(c.hall.portes[s][0])}"><div class="bandeau-texte"><span class="bandeau-num">${NUMS[s]}</span><span class="bandeau-titre">${e(c.hall.portes[s][0])}</span><span class="bandeau-legende">${e(c.hall.portes[s][1])}</span></div></div>
 ${sections[s].replace(/<p class="surtitre">(\d{2} · )?/, `<p class="surtitre">${NUMS[s]} · `)}
 </div>
