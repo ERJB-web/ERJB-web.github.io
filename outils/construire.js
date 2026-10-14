@@ -16,6 +16,7 @@ const METHODOLOGIE = require("./methodologie");
 const MEDIATION = require("./enseignement-vulgarisation");
 const IA = require("./ia-recherche");
 const THESE = require("./these-rubriques");
+const CADRAGE_THESE = require("./these-cadrage");
 const CHIFFRES_IMPACT = require("./chiffres-parcours");
 const LOISIRS_AJOUTS = require("./loisirs-ajouts");
 
@@ -641,7 +642,7 @@ const LIBELLES_FAITS_RECHERCHE = {
 function ongletsRubriques(cle, explorer, rubriques, colonnes = 5) {
   return `<div class="table rubriques" data-onglets data-rubriques="${cle}" style="--rubriques-colonnes:${colonnes}">
 <label class="rubriques-choix"><span>${e(explorer)}</span><select data-rubrique-select>${rubriques.map(([, nom], i) => `<option value="${i}">${e(nom)}</option>`).join("")}</select></label>
-<div class="onglets rubriques-nav" role="tablist" aria-label="${e(explorer)}">${rubriques.map(([id, nom], i) => `<button type="button" role="tab" aria-selected="${i === 0}" tabindex="${i ? -1 : 0}" data-volet="${i}" data-rubrique="${id}">${e(nom)}</button>`).join("")}</div>
+<div class="onglets rubriques-nav" role="tablist" aria-label="${e(explorer)}">${rubriques.map(([id, nom], i) => `<button type="button" role="tab" aria-selected="${i === 0}" tabindex="${i ? -1 : 0}" data-volet="${i}" data-rubrique="${id}">${cle === "these" ? `<span class="rubrique-numero" aria-hidden="true">${num(i)}</span>` : ""}<span>${e(nom)}</span></button>`).join("")}</div>
 ${rubriques.map(([id, , contenu], i) => `<div class="volet rubrique-corps" role="tabpanel" data-volet="${i}" data-rubrique="${id}"${i ? " hidden" : ""}>${contenu}</div>`).join("")}</div>`;
 }
 
@@ -654,12 +655,14 @@ function cartesRubrique(items) {
 }
 
 function sectionRecherche(c) {
-  const r = c.recherche;
+  const f = CADRAGE_THESE.langues[c.lang];
+  const r = { ...c.recherche, titre: f.titre, question: f.question, but: f.general };
   const p = METHODOLOGIE[c.lang];
   const t = THESE.langues[c.lang];
   const langueAffiche = c.lang === "ru" ? "fr" : c.lang;
   const valeur = (v) => (Array.isArray(v) ? v.map((x) => `<span class="ligne">${e(x)}</span>`).join("") : e(v));
-  const contexte = `<h3>${e(t.titres[1])}</h3><p>${e(t.contexte)}</p>
+  const contexte = `<h3>${e(t.titres[1])}</h3><div class="these-contextes">${f.contextes.map(([nom, texte, ref]) => `<article><h4>${e(nom)}</h4><p>${e(texte)}</p><p class="ref">${lien(CADRAGE_THESE.references[ref][1], e(CADRAGE_THESE.references[ref][0]))}</p></article>`).join("")}</div><h4 class="titre-bloc">${e(f.labels.justification)}</h4><p>${e(f.justification)}</p><h4 class="titre-bloc">${e(f.labels.lacunes)}</h4><div class="these-lacunes">${f.lacunes.map((texte, i) => `<article class="objectif-carte" data-objectif="O${i + 1}"><h5><span class="objectif-code">O${i + 1}</span> ${e(f.labels.lacune)} ${i + 1}</h5><p>${lierCitations(e(texte))}</p></article>`).join("")}</div>`;
+  const institution = `<h3>${e(f.labels.cadre)}</h3>
 <ul class="faits faits-these">${r.faits.map(([k, v], i) => `<li><b>${e(k)}</b><span class="fait-description">${valeur(v)}</span><span class="fait-liens">${lien(LIENS_FAITS_RECHERCHE[i], e(LIBELLES_FAITS_RECHERCHE[c.lang][i]))}${i === r.faits.findIndex(([, x]) => /B2/.test(x)) ? `<a href="https://doi.org/10.69777/2009461">DOI 10.69777/2009461</a>` : ""}</span></li>`).join("")}</ul>
 <figure class="logos-recherche"><img src="${c.chemin}assets/logos-recherche.png?v=${empreinte("assets/logos-recherche.png")}" alt="Chaire de recherche GSK en gestion optimale des maladies chroniques · Fonds de recherche du Québec · CRCHUM · ESPUM · Université de Montréal" loading="lazy"></figure>
 ${lien(
@@ -669,13 +672,13 @@ ${lien(
 )}
 <h4 class="titre-bloc">${e(r.codirection.titre)}</h4>
 <div class="codirection">${r.codirection.personnes.map((pe) => `<article class="personne"><h4>${e(pe.nom)}<span class="grade">${e(pe.grade)}</span></h4><ul>${pe.lignes.map((l) => `<li>${e(l)}</li>`).join("")}</ul><p class="chaire">${e(pe.chaire)}</p>${lien(pe.lien, `${e(r.codirection.profil)} <span aria-hidden="true">↗</span>`, "profil")}</article>`).join("")}</div>`;
-  const methodes = `<h3>${e(t.titres[4])}</h3>${tableOnglets(r.table.titre, r.table.detail, r.table.etapes, r.table.terminus)}
+  const methodes = `<h3>${e(t.titres[4])}</h3><p class="these-fil"><span data-objectif="O1">O1</span><span aria-hidden="true">→</span><span data-objectif="O2">O2</span><span aria-hidden="true">→</span><span data-objectif="O3">O3</span><strong>${e(f.labels.articulation)}</strong></p><div class="these-methodes">${f.methodes.map((texte, i) => `<article class="objectif-carte" data-objectif="O${i + 1}"><h4><span class="objectif-code">O${i + 1}</span> ${e(f.labels.methode)}</h4><p>${e(texte)}</p></article>`).join("")}</div>
 <div class="protocole-these">
 <h4 class="titre-bloc">${e(p.titre)}</h4>
 <p class="note-protocole">${e(p.etat)}</p>
 <h4>${e(p.devis.titre)}</h4>
 <ul class="puces">${p.devis.items.map(([t, d]) => `<li><b>${e(t)}</b>${deuxPoints(c)} ${e(d)}</li>`).join("")}</ul>
-<div class="etapes-protocole">${p.etapes.map((s) => `<details class="methode-these"><summary><span class="code-methode">${e(s.code)}</span><span><strong>${e(s.titre)}</strong><small>${e(s.cible)}</small></span></summary><div class="methode-these-corps"><dl>${s.blocs.map(([t, d]) => `<dt>${e(t)}</dt><dd>${e(d)}</dd>`).join("")}</dl><p class="repere-protocole">${e(s.reperes)}</p></div></details>`).join("")}</div>
+<div class="etapes-protocole">${p.etapes.map((s) => `<details class="methode-these" data-objectif="${e(s.code)}"><summary><span class="code-methode objectif-code">${e(s.code)}</span><span><strong>${e(s.titre)}</strong><small>${e(s.cible)}</small></span></summary><div class="methode-these-corps"><dl>${s.blocs.map(([t, d]) => `<dt>${e(t)}</dt><dd>${e(d)}</dd>`).join("")}</dl><p class="repere-protocole">${e(s.reperes)}</p></div></details>`).join("")}</div>
 <h4>${e(p.integration.titre)}</h4><p>${e(p.integration.texte)}</p>
 </div>
 <div class="comparaison">${figureClsc(c)}
@@ -685,16 +688,17 @@ ${schemaReseau(c)}</div>
   const contenus = [
     sectionConceptualisation(c, true),
     contexte,
-    `<h3>${e(t.titres[2])}</h3><p>${e(r.but)}</p><div class="notions objectifs-these">${p.objectifs.items.map(([nom, d]) => `<div><h4>${e(nom)}</h4><p>${e(d)}</p></div>`).join("")}</div>`,
-    `<h3>${e(t.titres[3])}</h3><p class="question-these">${e(r.question)}</p><p>${e(t.point)}</p>`,
+    `<h3>${e(f.labels.general)}</h3><p class="these-objectif-general">${e(f.general)}</p><h4 class="titre-bloc">${e(f.labels.specifiques)}</h4><div class="these-objectifs">${f.objectifs.map((texte, i) => `<article class="objectif-carte" data-objectif="O${i + 1}"><p><strong class="objectif-code">O${i + 1}.</strong> ${e(texte)}</p></article>`).join("")}</div>`,
+    `<h3>${e(t.titres[3])}</h3><h4 class="titre-bloc">${e(f.labels.question)}</h4><p class="question-these">${e(f.question)}</p><h4 class="titre-bloc">${e(f.labels.point)}</h4><p class="these-point">${e(f.point)}</p>`,
     methodes,
     `<h3>${e(t.titres[5])}</h3><p>${e(t.resultats)}</p><h4 class="titre-bloc">${e(r.retombees.titre)}</h4><ul class="puces">${r.retombees.items.map(([nom, d]) => `<li><b>${e(nom)}</b>${deuxPoints(c)} ${e(d)}</li>`).join("")}</ul>`,
     `<h3>${e(t.titres[6])}</h3><p>${e(p.limites.intro)}</p><ul class="puces limites-these">${p.limites.items.map(([nom, d]) => `<li><b>${e(nom)}</b>${deuxPoints(c)} ${e(d)}</li>`).join("")}</ul>`,
     `<h3>${e(t.titres[7])}</h3>${cartesRubrique(t.faisabilite)}`,
     `<h3>${e(t.titres[8])}</h3><p>${e(t.ethiqueIntro)}</p>${cartesRubrique(t.ethique)}<p class="ref">${lien(THESE.ethiqueLien, e(t.sourceEthique))}</p>`,
     `<h3>${e(t.titres[9])}</h3>${cartesRubrique(t.transfert)}`,
+    institution,
   ];
-  return `<div class="section-corps pleine these"><div class="colonne-texte"><p class="surtitre">${e(r.surtitre)}</p><p class="badge-these">${e(r.etiquette)}</p><p class="these-evolution"><strong>${e(r.avertissement)}</strong></p><h2>${e(r.titre)}</h2><p class="sous-titre">${e(r.sousTitre)}</p></div><div class="colonne-outils">${ongletsRubriques("these", t.explorer, contenus.map((html, i) => [THESE.cles[i], t.titres[i], html]))}</div></div>`;
+  return `<div class="section-corps pleine these"><div class="colonne-texte"><p class="surtitre">${e(r.surtitre)}</p><p class="badge-these">${e(r.etiquette)}</p><p class="these-evolution"><strong>${e(r.avertissement)}</strong></p><p class="these-titre-label">${e(f.labels.titre)}</p><h2>${e(f.titre)}</h2></div><div class="colonne-outils">${ongletsRubriques("these", t.explorer, contenus.map((html, i) => [THESE.cles[i] || "cadre", t.titres[i] || f.labels.cadre, html]))}</div></div>`;
 }
 
 function sectionIA(c) {

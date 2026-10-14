@@ -1397,6 +1397,40 @@ html.lv .hall::before,html.lv .hall::after,html.lv .portes>.porte::before{displa
 .rubrique-corps .lectures-ia{overflow-wrap:break-word}
 .rubrique-corps .lectures-ia li{margin-block:10px;line-height:1.7;text-align:start}
 .these .colonne-outils,.section-ia .colonne-outils{min-width:0}
+.these .these-titre-label{margin-block:0 8px;font:600 14px/1.4 var(--sans);color:var(--muted)}
+.these .colonne-texte>h2{font-size:clamp(25px,2.5vw,40px);line-height:1.24}
+.rubriques[data-rubriques=these]{border:0;box-shadow:none;background:transparent;overflow:visible}
+.rubriques[data-rubriques=these] .rubriques-nav{display:flex;flex-wrap:wrap;gap:10px;padding:0 0 22px;border:0;background:transparent}
+.rubriques[data-rubriques=these] .rubriques-nav button{display:flex;align-items:center;gap:10px;flex:0 1 auto;max-width:310px;min-height:52px;padding:12px 16px;border:1px solid var(--line);border-radius:10px;background:var(--white);color:var(--ink);font-size:14px;line-height:1.4;transition:background .18s,border-color .18s,color .18s}
+.rubriques[data-rubriques=these] .rubriques-nav button:hover{background:var(--sea);border-color:var(--ink)}
+.rubriques[data-rubriques=these] .rubriques-nav button[aria-selected=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.rubrique-numero{display:grid;place-items:center;flex:0 0 25px;height:25px;border-radius:6px;background:var(--sea);color:var(--ink);font-size:11px;font-weight:700;line-height:1}
+.rubriques[data-rubriques=these] button[aria-selected=true] .rubrique-numero{background:#fff;color:var(--ink)}
+.rubriques[data-rubriques=these]>.rubrique-corps{border:1px solid var(--line);border-radius:14px;background:var(--white)}
+.these [data-objectif=O1]{--objectif:#24659b;--objectif-fond:#eef5fc}
+.these [data-objectif=O2]{--objectif:#286e5b;--objectif-fond:#edf6f1}
+.these [data-objectif=O3]{--objectif:#754d8a;--objectif-fond:#f6f0f9}
+.these-contextes,.these-lacunes,.these-objectifs,.these-methodes{display:grid;gap:18px;margin-block:18px 28px}
+.these-contextes{grid-template-columns:repeat(3,minmax(0,1fr))}
+.these-contextes article{min-width:0;padding:20px;border:1px solid var(--line);border-radius:10px;background:var(--paper)}
+.these-contextes h4,.these .objectif-carte :is(h4,h5){margin:0 0 12px;font:600 17px/1.45 var(--sans);color:var(--ink)}
+.these-contextes .ref{font-size:12px;margin-top:16px;overflow-wrap:anywhere}
+.these .objectif-carte{min-width:0;padding:22px;border:1px solid var(--line);border-inline-start:5px solid var(--objectif);border-radius:10px;background:var(--objectif-fond)}
+.these .objectif-carte p{margin:0;font-size:16px;line-height:1.7}
+.these .objectif-code{display:inline-flex;align-items:center;justify-content:center;min-width:36px;padding:4px 7px;margin-inline-end:5px;border-radius:6px;background:var(--objectif);color:#fff;font:700 13px/1.4 var(--sans);vertical-align:baseline;direction:ltr;unicode-bidi:isolate}
+.these .methode-these[data-objectif]{border-inline-start:5px solid var(--objectif)}
+.these .methode-these[data-objectif]>summary{background:var(--objectif-fond)}
+.these .these-fil{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-block:14px 22px}
+.these-fil [data-objectif]{padding:5px 10px;border-radius:6px;background:var(--objectif);color:#fff;font-size:13px;font-weight:700;direction:ltr;unicode-bidi:isolate}
+.these-fil>strong{flex-basis:100%;font-size:14px}
+.these-objectif-general,.these-point{padding:20px;border:1px solid var(--line);border-radius:10px;background:var(--sea);line-height:1.75}
+html.hc .these [data-objectif],html.lv .these [data-objectif]{--objectif:#06202d;--objectif-fond:#fff}
+@media(max-width:900px){.these-contextes{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){
+  .rubriques[data-rubriques=these] .rubriques-nav{display:none}
+  .rubriques[data-rubriques=these] .rubriques-choix{padding:0 0 18px}
+  .these .objectif-carte{padding:18px 16px}
+}
 @media(max-width:900px){.rubriques .rubriques-nav{grid-template-columns:repeat(2,minmax(0,1fr))}.rubriques-nav button:nth-child(n+3){border-top:1px solid var(--line)}}
 @media(max-width:600px){
   .rubriques .rubriques-nav{display:none}

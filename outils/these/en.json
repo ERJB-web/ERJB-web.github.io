@@ -1,0 +1,28 @@
+{
+  "titre": "Organising the intersectoral response to complex, co-occurring social needs in primary care: network configurations adapted to the different profiles of patients receiving care",
+  "question": "How is the intersectoral response organised for the different profiles of patients with complex, co-occurring social needs receiving primary care?",
+  "point": "For patients with complex, co-occurring social needs in primary care, the intersectoral response cannot be assessed by considering each need in isolation; it must be examined in terms of the correspondence between different patient profiles and the configurations of intersectoral networks capable of responding to them, including the actors involved and the relationships between those actors.",
+  "general": "Analyse how the intersectoral response is organised to address the different profiles of patients with complex, co-occurring social needs receiving primary care, in order to identify organisational improvements that would better adapt this response to those profiles.",
+  "labels": {"titre": "Provisional title", "question": "Research question", "point": "Thesis proposition", "general": "Overall objective", "specifiques": "Specific objectives", "lacunes": "Three gaps underpinning the topic", "lacune": "Gap", "methode": "Method", "cadre": "Institutional setting and funding", "articulation": "From gaps to objectives and methods", "sources": "Context sources", "justification": "Why this topic?"},
+  "contextes": [
+    ["Worldwide", "WHO highlights how living conditions and access to resources contribute to health inequities and call for coordinated action.", 0],
+    ["In Canada", "CIHI describes difficulties accessing primary care alongside gaps in coordination and communication between professionals.", 1],
+    ["In Quebec", "INSPQ documents social inequalities in health and their monitoring. This context encourages consideration of social conditions when organising responses.", 2]
+  ],
+  "justification": "The thesis connects this broader issue to a specific organisational question: how can intersectoral networks be adapted to different patient profiles, rather than to each need separately? The three gaps below structure the argument and lead respectively to O1, O2 and O3.",
+  "lacunes": [
+    "In primary care, complex, co-occurring social needs requiring an intersectoral response have rarely been identified jointly to establish patient profiles, limiting the ability to determine which distinct profiles of needs require an adapted intersectoral response. The literature has already described combinations of needs and identified some empirical profiles (Kreuter et al., 2021; Vest et al., 2025), but it does not yet provide a structured typology of these profiles.",
+    "Little is known about the configurations of intersectoral networks capable of responding to different profiles of patients with complex, co-occurring social needs in primary care, limiting the ability to determine which intersectoral network could respond to each profile.",
+    "Actors in intersectoral networks capable of caring for different profiles of patients with complex, co-occurring social needs in primary care lack operational guidance for effectively organising the response to these different profiles."
+  ],
+  "objectifs": [
+    "Identify in the literature the different profiles of patients with complex, co-occurring social needs in primary care requiring an intersectoral response.",
+    "Analyse the configurations of intersectoral networks capable of responding to the different profiles of patients with complex, co-occurring social needs receiving primary care.",
+    "Develop contextualised recommendations to guide the organisation of the intersectoral response to the different profiles of patients with complex, co-occurring social needs in primary care requiring an intersectoral response."
+  ],
+  "methodes": [
+    "Scoping review following JBI and PRISMA-ScR",
+    "Social network analysis whose boundary is defined, for each of the different profiles of patients with complex, co-occurring social needs requiring an intersectoral response in primary care, by identifying the intersectoral network capable of responding to that profile.",
+    "A multi-stakeholder deliberative workshop based on the findings of O1 and O2, bringing together patient partners, primary care professionals, community actors, private-sector actors and relevant decision-makers to develop recommendations for organising the intersectoral response."
+  ]
+}
