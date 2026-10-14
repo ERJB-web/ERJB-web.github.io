@@ -1294,3 +1294,20 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 .reperes-transmission .ref{font-size:12.5px;margin:14px 0 0;text-align:start}
 .reperes-transmission .ref a{color:var(--accent-fonce);text-decoration:underline;text-underline-offset:3px}
 .references-transmission{overflow-wrap:break-word}
+
+/* Affiliations de la thèse : titres, descriptions et liens alignés, sans justification. */
+.section-corps.pleine .faits-these{grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.faits-these li{grid-column:span 2;display:flex;flex-direction:column;gap:8px;min-width:0;padding:18px 20px}
+.faits-these li:nth-last-child(-n+2){grid-column:span 3}
+.faits-these .fait-description,.faits-these .ligne,.faits-these .fait-liens{text-align:start;hyphens:none;-webkit-hyphens:none;text-wrap:wrap;overflow-wrap:break-word}
+.faits-these .fait-liens{display:flex;flex-wrap:wrap;gap:8px 16px;margin-block-start:auto;padding-block-start:6px}
+.faits-these .fait-liens a{font-size:13px;font-weight:600;color:var(--accent-fonce);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:1000px){
+  .section-corps.pleine .faits-these{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .faits-these li,.faits-these li:nth-last-child(-n+2){grid-column:span 1}
+  .faits-these li:last-child{grid-column:1/-1}
+}
+@media(max-width:600px){
+  .section-corps.pleine .faits-these{grid-template-columns:minmax(0,1fr)}
+  .faits-these li{padding:16px}
+}

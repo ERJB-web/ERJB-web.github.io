@@ -656,6 +656,22 @@ ${t.etiquettes ? etiquettes(t.etiquettes) : ""}
 </div>`;
 }
 
+const LIENS_FAITS_RECHERCHE = [
+  "https://espum.umontreal.ca/etudes/programmes/doctorats-et-programmes-de-3e-cycle/doctorats/doctorat-en-sante-publique/",
+  "https://espum.umontreal.ca/",
+  "https://www.linkedin.com/company/chaire-glaxosmithkline-gsk-de-recherche-en-gestion-optimale-des-maladies-chroniques/",
+  "https://www.chumontreal.qc.ca/crchum",
+  "https://frq.gouv.qc.ca/",
+];
+const LIBELLES_FAITS_RECHERCHE = {
+  fr: ["Présentation du doctorat", "Site de l’ESPUM", "Chaire sur LinkedIn", "Site du CRCHUM", "Site du FRQ"],
+  en: ["PhD programme", "ESPUM website", "Chair on LinkedIn", "CRCHUM website", "FRQ website"],
+  es: ["Presentación del doctorado", "Sitio de la ESPUM", "Cátedra en LinkedIn", "Sitio del CRCHUM", "Sitio del FRQ"],
+  zh: ["博士项目介绍", "ESPUM 官网", "研究讲席 LinkedIn", "CRCHUM 官网", "FRQ 官网"],
+  ar: ["التعريف ببرنامج الدكتوراه", "موقع ESPUM", "الكرسي البحثي على LinkedIn", "موقع CRCHUM", "موقع FRQ"],
+  ru: ["О программе PhD", "Сайт ESPUM", "Chaire GSK в LinkedIn", "Сайт CRCHUM", "Сайт FRQ"],
+};
+
 function sectionRecherche(c) {
   const r = c.recherche;
   const p = METHODOLOGIE[c.lang];
@@ -671,7 +687,7 @@ function sectionRecherche(c) {
 <p>${e(r.but)}</p>
 <h3 class="titre-bloc">${e(p.objectifs.titre)}</h3>
 <div class="notions objectifs-these">${p.objectifs.items.map(([t, d]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p></div>`).join("")}</div>
-<ul class="faits">${r.faits.map(([k, v], i) => `<li><b>${e(k)}</b><span>${valeur(v)}${i === r.faits.findIndex(([, x]) => /B2/.test(x)) ? ` <a class="doi" href="https://doi.org/10.69777/2009461">DOI 10.69777/2009461</a>` : ""}</span></li>`).join("")}</ul>
+<ul class="faits faits-these">${r.faits.map(([k, v], i) => `<li><b>${e(k)}</b><span class="fait-description">${valeur(v)}</span><span class="fait-liens">${lien(LIENS_FAITS_RECHERCHE[i], e(LIBELLES_FAITS_RECHERCHE[c.lang][i]))}${i === r.faits.findIndex(([, x]) => /B2/.test(x)) ? `<a href="https://doi.org/10.69777/2009461">DOI 10.69777/2009461</a>` : ""}</span></li>`).join("")}</ul>
 <figure class="logos-recherche"><img src="${c.chemin}assets/logos-recherche.png?v=${empreinte("assets/logos-recherche.png")}" alt="Chaire de recherche GSK en gestion optimale des maladies chroniques · Fonds de recherche du Québec · CRCHUM · ESPUM · Université de Montréal" loading="lazy"></figure>
 ${lien(
   r.affiche[2],
