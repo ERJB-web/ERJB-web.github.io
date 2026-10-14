@@ -1,4 +1,4 @@
-// Produit les pages complètes (fr, en, es, zh, ar), les versions abrégées (iu, innu, falc) et 404.html à partir d'outils/contenu.js et d'outils/i18n.
+// Produit les pages complètes (fr, en, es, zh, ar, ru), les versions abrégées (iu, innu, falc) et 404.html à partir d'outils/contenu.js et d'outils/i18n.
 "use strict";
 const fs = require("fs");
 const path = require("path");
@@ -6,7 +6,9 @@ const { fr, en, es, LANGUES, AFFICHE } = require("./contenu");
 const lireLangue = (code) => JSON.parse(fs.readFileSync(path.join(__dirname, "i18n", code + ".json"), "utf8"));
 const zh = lireLangue("zh");
 const ar = lireLangue("ar");
-const COMPLETES = [fr, en, es, zh, ar];
+const ru = lireLangue("ru");
+const RU_COMPLEMENTS = lireLangue("ru-complements");
+const COMPLETES = [fr, en, es, zh, ar, ru];
 const langue = (code) => LANGUES.find((l) => l.code === code);
 const ABREGE = require("./contenu-abrege");
 const AUTOCHTONES = JSON.parse(fs.readFileSync(path.join(__dirname, "i18n", "autochtones.json"), "utf8"));
@@ -15,6 +17,7 @@ const RACINE = path.join(__dirname, "..");
 const empreinte = (fichier) => require("crypto").createHash("sha256").update(fs.readFileSync(path.join(RACINE, fichier))).digest("hex").slice(0, 10);
 const VERSION_CSS = empreinte("assets/site.css");
 const VERSION_JS = empreinte("assets/site.js");
+const VERSION_ICONE = empreinte("assets/favicon.svg");
 const URL = "https://erjb-web.github.io/";
 const TELEPHONE = ["(263) 384-3050", "+12633843050"];
 const GROUPES = [
@@ -43,7 +46,7 @@ function sectionTransmission(c) {
   const iAnap = fr.parcours.etapes.findIndex((x) => /ANAP|Agence nationale d’appui/.test(x.titre));
   const gMent = fr.engagements.groupes.findIndex((g) => g.items.some((x) => /mentorat/i.test(x.titre)));
   const iMent = gMent >= 0 ? fr.engagements.groupes[gMent].items.findIndex((x) => /mentorat/i.test(x.titre)) : -1;
-  const affiche = c.contact.liens.find((l) => /affiche|poster|póster|海报|ملصق/i.test(l[0] + l[1]));
+  const affiche = c.contact.liens.find((l) => /affiche|poster|póster|海报|ملصق|постер/i.test(l[0] + l[1]));
   const s = {
     surtitre: T.surtitre,
     titre: T.titre,
@@ -369,7 +372,7 @@ ${terminus ? `<p class="terminus">${e(terminus)}</p>` : ""}
 </div>`;
 }
 
-const IMAGES_GROUPES = { recherche: "recherche.jpg", implantation: "expertise.jpg", parcours: "biographie.jpg", engagements: "engagements.jpg", ressources: "ressources.jpg", contact: "contact.jpg" };
+const IMAGES_GROUPES = { recherche: "recherche.jpg", implantation: "conceptualisation.jpg", parcours: "parcours.jpg", engagements: "engagements.jpg", ressources: "ressources.jpg", contact: "contact.jpg" };
 const TEINTES_GROUPES = { recherche: ["#1f5a8a", "#143d5e"], implantation: ["#c0612b", "#8a431c"], parcours: ["#7a4a8c", "#553263"], engagements: ["#a8343f", "#76232b"], ressources: ["#138086", "#0c5a5e"], contact: ["#4f7d2e", "#37591f"] };
 const IMAGES_PORTES = {
   recherche: "recherche.jpg",
@@ -519,20 +522,26 @@ function figureClsc(c) {
 
 function schemaPosture(c) {
   const [g, gs, d, ds, centre, legende] = SCHEMAS[c.lang].posture;
-  const sousTexte = (texte, x) => {
+  const placerTexte = (texte, x, y, classe, maximum) => {
     const lignes = [];
-    for (const mot of texte.split(" ")) {
-      const dernier = lignes.length - 1;
-      if (dernier >= 0 && (lignes[dernier] + " " + mot).length <= 24) lignes[dernier] += " " + mot;
-      else lignes.push(mot);
+    if (c.lang === "zh") {
+      const caracteres = Array.from(texte);
+      for (let i = 0; i < caracteres.length; i += 9) lignes.push(caracteres.slice(i, i + 9).join(""));
+    } else {
+      for (const mot of texte.split(" ")) {
+        const dernier = lignes.length - 1;
+        if (dernier >= 0 && (lignes[dernier] + " " + mot).length <= maximum) lignes[dernier] += " " + mot;
+        else lignes.push(mot);
+      }
     }
-    return `<text x="${x}" y="134" text-anchor="middle" class="venn-sous">${lignes.map((ligne, i) => `<tspan x="${x}" dy="${i ? 18 : 0}">${e(ligne)}${i < lignes.length - 1 ? " " : ""}</tspan>`).join("")}</text>`;
+    const debut = classe === "venn-titre" ? y - (lignes.length - 1) * 9 : y;
+    return `<text x="${x}" y="${debut}" text-anchor="middle" class="${classe}"${c.lang === "ru" && classe === "venn-titre" ? ' style="font-size:13px"' : ""}>${lignes.map((ligne, i) => `<tspan x="${x}" dy="${i ? 18 : 0}">${e(ligne)}${i < lignes.length - 1 && c.lang !== "zh" ? " " : ""}</tspan>`).join("")}</text>`;
   };
   return `<figure class="schema schema-posture">
 <svg viewBox="0 0 560 290" role="img" aria-label="${e(centre)}">
 <circle cx="205" cy="140" r="122" class="cercle-gauche"/><circle cx="355" cy="140" r="122" class="cercle-droit"/>
-<text x="190" y="108" text-anchor="middle" class="venn-titre">${e(g)}</text>${sousTexte(gs, 190)}
-<text x="370" y="108" text-anchor="middle" class="venn-titre">${e(d)}</text>${sousTexte(ds, 370)}
+${placerTexte(g, 160, c.lang === "ru" ? 112 : 108, "venn-titre", 19)}${placerTexte(gs, 160, 144, "venn-sous", c.lang === "ru" ? 16 : 22)}
+${placerTexte(d, 400, c.lang === "ru" ? 112 : 108, "venn-titre", 19)}${placerTexte(ds, 400, 144, "venn-sous", c.lang === "ru" ? 16 : 22)}
 <rect x="192" y="188" width="176" height="44" rx="22" class="venn-pastille"/><text x="280" y="215" text-anchor="middle" class="venn-centre">${e(centre)}</text>
 </svg>
 <p class="schema-legende">${e(legende)}</p>
@@ -607,10 +616,9 @@ function bandeAccueil(c) {
 </div>`;
 }
 
-function sectionRecherche(c) {
+function travauxEnCours(c) {
   const r = c.recherche;
-  const valeur = (v) => (Array.isArray(v) ? v.map((x) => `<span class="ligne">${e(x)}</span>`).join("") : e(v));
-  const travaux = `<div class="travaux">
+  return `<div class="travaux">
 <div class="travaux-tete"><h3>${e(r.travaux.titre)}</h3><p>${e(r.travaux.intro)}</p></div>
 <div class="travaux-grille">${r.travaux.items
     .map(
@@ -625,6 +633,12 @@ ${t.etiquettes ? etiquettes(t.etiquettes) : ""}
     )
     .join("")}</div>
 </div>`;
+}
+
+function sectionRecherche(c) {
+  const r = c.recherche;
+  const langueAffiche = c.lang === "ru" ? "fr" : c.lang;
+  const valeur = (v) => (Array.isArray(v) ? v.map((x) => `<span class="ligne">${e(x)}</span>`).join("") : e(v));
   return `<div class="section-corps pleine">
 <div class="colonne-texte">
 <p class="surtitre">${e(r.surtitre)}</p>
@@ -637,7 +651,7 @@ ${t.etiquettes ? etiquettes(t.etiquettes) : ""}
 <figure class="logos-recherche"><img src="${c.chemin}assets/logos-recherche.png?v=${empreinte("assets/logos-recherche.png")}" alt="Chaire de recherche GSK en gestion optimale des maladies chroniques · Fonds de recherche du Québec · CRCHUM · ESPUM · Université de Montréal" loading="lazy"></figure>
 ${lien(
   r.affiche[2],
-  `<img class="affiche-vignette" src="${AFFICHE}img/affiche-${c.lang}.png" data-std="${AFFICHE}img/affiche-${c.lang}.png" data-cb="${AFFICHE}img/affiche-${c.lang}-daltonien.png" alt="${e(c.ui.afficheAlt)}" width="2400" height="2400" loading="lazy" decoding="async"><span><strong>${e(r.affiche[0])}</strong><small>${e(r.affiche[1])}</small></span><span aria-hidden="true">↗</span>`,
+  `<img class="affiche-vignette" src="${AFFICHE}img/affiche-${langueAffiche}.png" data-std="${AFFICHE}img/affiche-${langueAffiche}.png" data-cb="${AFFICHE}img/affiche-${langueAffiche}-daltonien.png" alt="${e(c.ui.afficheAlt)}" width="2400" height="2400" loading="lazy" decoding="async"><span><strong>${e(r.affiche[0])}</strong><small>${e(r.affiche[1])}</small></span><span aria-hidden="true">↗</span>`,
   "carte-lien carte-affiche"
 )}
 </div>
@@ -652,8 +666,7 @@ ${schemaReseau(c)}</div>
 <h3 class="titre-bloc">${e(r.codirection.titre)}</h3>
 <div class="codirection">${r.codirection.personnes.map((pe) => `<article class="personne"><h4>${e(pe.nom)}<span class="grade">${e(pe.grade)}</span></h4><ul>${pe.lignes.map((l) => `<li>${e(l)}</li>`).join("")}</ul><p class="chaire">${e(pe.chaire)}</p>${lien(pe.lien, `${e(r.codirection.profil)} <span aria-hidden="true">↗</span>`, "profil")}</article>`).join("")}</div>
 </div>
-</div>
-${travaux}`;
+</div>`;
 }
 
 function schemaDiscours([social, discursive, texte], titre) {
@@ -684,7 +697,8 @@ ${a.outils.groupes.map(([g, items]) => `<div class="groupe-outils"><p>${e(g)}</p
 <p class="petit-titre">${e(a.axes.secondairesTitre)}</p>
 <ul class="puces secondaires">${a.axes.secondaires.map((t) => `<li>${e(t)}</li>`).join("")}</ul>
 </div>
-</div>`;
+</div>
+${travauxEnCours(c)}`;
 }
 
 // Vidéos et balados intégrés : le lecteur du service ne se charge qu'au clic (aucun témoin avant).
@@ -1040,7 +1054,7 @@ function page(c) {
   };
 
   return `<!doctype html>
-<html lang="${c.lang === "zh" ? "zh-Hans" : c.lang}"${langue(c.lang).dir ? ` dir="${langue(c.lang).dir}"` : ""} data-voix="${langue(c.lang).voix}" data-racine="${c.chemin || "./"}"${["fr", "en"].includes(c.lang) ? ` data-audio="${c.lang}"` : ""}>
+<html lang="${c.lang === "zh" ? "zh-Hans" : c.lang}"${langue(c.lang).dir ? ` dir="${langue(c.lang).dir}"` : ""} data-voix="${langue(c.lang).voix}" data-racine="${c.chemin || "./"}"${["fr", "en"].includes(c.lang) ? ` data-audio="${c.lang}" data-audio-exclues="recherche approche publications parcours loisirs"` : ""}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -1051,7 +1065,7 @@ ${PREFERENCES}
 <link rel="canonical" href="${ici}">
 ${LANGUES.filter((l) => l.hreflang).map((l) => `<link rel="alternate" hreflang="${l.hreflang}" href="${URL}${l.dossier}">`).join("\n")}
 <link rel="alternate" hreflang="x-default" href="${URL}">
-<link rel="icon" href="${p}assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="${p}assets/favicon.svg?v=${VERSION_ICONE}" type="image/svg+xml">
 <link rel="stylesheet" href="${p}assets/site.css?v=${VERSION_CSS}">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="${e(c.meta.titre)}">
@@ -1151,7 +1165,7 @@ ${PREFERENCES}
 <title>${e(c.titre)}</title>
 <meta name="description" content="${e(c.description)}">
 <link rel="canonical" href="${URL}${langue(code).dossier}">
-<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon.svg?v=${VERSION_ICONE}" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/site.css?v=${VERSION_CSS}">
 <script src="../assets/site.js?v=${VERSION_JS}" defer></script>
 </head>
@@ -1232,9 +1246,9 @@ function introuvable() {
   return `<!doctype html>
 <html lang="fr">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${e(fr.introuvable.titre)} · Éric Bernier</title>
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css"></head>
+<link rel="icon" href="/assets/favicon.svg?v=${VERSION_ICONE}" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css"></head>
 <body class="page-404"><main><p class="surtitre">404</p><h1>${e(fr.introuvable.titre)}</h1><p>${e(fr.introuvable.texte)}</p><p><a class="primaire" href="/">${e(fr.introuvable.retour)} →</a></p>
-${[en, es, zh, ar].map((c) => ligne(c, langue(c.lang).dossier)).join("\n")}</main></body>
+${[en, es, zh, ar, ru].map((c) => ligne(c, langue(c.lang).dossier)).join("\n")}</main></body>
 </html>
 `;
 }
@@ -1247,6 +1261,17 @@ const ecrire = (dossier, html) => {
 const miroir = (html) => html.replace(/[→←]/g, (m) => (m === "→" ? "←" : "→"));
 const { zonesPage, zonesFalc } = require("./narration");
 const lectures = {};
+TRANSMISSION.ru = RU_COMPLEMENTS.TRANSMISSION;
+SOUS_RESSOURCES.ru = RU_COMPLEMENTS.SOUS_RESSOURCES;
+NOTIONS.ru = RU_COMPLEMENTS.NOTIONS;
+OUTILS.ru = RU_COMPLEMENTS.OUTILS;
+TEXTES_GROUPES.ru = RU_COMPLEMENTS.TEXTES_GROUPES;
+SCHEMAS.ru = RU_COMPLEMENTS.SCHEMAS;
+BANDE.ru = RU_COMPLEMENTS.BANDE;
+INTEGRATION.ru = RU_COMPLEMENTS.INTEGRATION;
+LECTURES_TITRE.ru = RU_COMPLEMENTS.LECTURES_TITRE;
+LECTURES.forEach((theme, i) => { theme.ru = RU_COMPLEMENTS.LECTURES_THEMES[i]; });
+DRAPEAUX.ru = '<svg viewBox="0 0 3 2"><path fill="#fff" d="M0 0h3v2H0z"/><path fill="#0039a6" d="M0 .667h3v.667H0z"/><path fill="#d52b1e" d="M0 1.334h3V2H0z"/></svg>';
 for (const c of COMPLETES) {
   const l = langue(c.lang);
   const html = page(c);

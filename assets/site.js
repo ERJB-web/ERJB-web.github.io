@@ -361,6 +361,7 @@
   // Voix enregistrées (voix humaine de synthèse locale) quand elles existent ; sinon, voix de l'appareil.
   const racineSite = racine.dataset.racine || "./";
   const dossierAudio = racine.dataset.audio;
+  const audioExclus = new Set((racine.dataset.audioExclues || "").split(" ").filter(Boolean));
   let indexAudio = null;
   if (dossierAudio)
     fetch(`${racineSite}audio/${dossierAudio}/index.json`)
@@ -393,8 +394,9 @@
     b.addEventListener("click", () => {
       menus.forEach((m) => (m.open = false));
       arreter();
-      const enregistrees = zonesDemandees(b).filter((z) => indexAudio && indexAudio[z]);
-      if (enregistrees.length) {
+      const zones = zonesDemandees(b);
+      const enregistrees = zones.filter((z) => indexAudio && indexAudio[z] && !audioExclus.has(z));
+      if (enregistrees.length > 0 && enregistrees.length === zones.length) {
         file = enregistrees;
         enLecture(true);
         suivant();

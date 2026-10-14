@@ -1204,11 +1204,60 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 .onglet-salle .battant::after{box-shadow:inset 0 1px 1px rgba(32,46,36,.13),0 0 0 1px #f9fbf6}
 .onglet-salle .vignette{box-shadow:0 0 0 1px #c4cdc7,inset 0 1px 1px rgba(24,42,35,.2)}
 
-/* Parcours : fichier original de l'affiche, cadré dans le vitrage rectangulaire. */
-.porte[data-salle="parcours"] .vignette{background-size:auto 145%;background-position:center 18%}
-.porte[data-salle="parcours"] .vignette::after{background:none}
-
 /* En-tête : initiales et domaines d'expertise plus lisibles. */
 .entete .marque{flex:1 1 420px;max-width:100%}
 .marque-domaines{display:block;min-width:0;color:var(--ink);font-size:14px;font-weight:500;line-height:1.4;white-space:normal;overflow-wrap:break-word;text-wrap:balance}
 @media (max-width:640px){.entete .marque{flex-basis:100%}.page-abregee .entete{flex-wrap:wrap}.marque-domaines{font-size:13px}}
+
+/* Téléphone : accès rapide aux six salles, détails dans la salle ouverte. */
+@media (max-width:700px){
+  .accueil{grid-template-columns:minmax(0,1fr);gap:24px;padding-top:22px;padding-bottom:36px}
+  .accueil .presentation{display:contents}
+  .accueil .identite{order:-2;gap:14px;min-width:0;margin:0;align-items:center}
+  .accueil .identite>div{min-width:0}
+  .accueil .portrait{width:72px}
+  .accueil h1{font-size:34px}
+  .accueil .roles{font-size:13px;line-height:1.45;margin-top:8px}
+  .accueil .identite .surtitre{font-size:10px;line-height:1.45;margin-bottom:6px;white-space:normal}
+  .accueil .hall{order:-1;min-width:0}
+  .accueil .chapeau,.accueil .encadrement,.accueil .actions{grid-column:auto;grid-row:auto;min-width:0}
+  .accueil .encadrement{margin-bottom:0}
+  .hall-tete{margin-bottom:12px}
+  .portes{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:auto;gap:10px}
+  .porte{--largeur-porte:48px;grid-template-columns:var(--largeur-porte) minmax(0,1fr);gap:8px;padding:12px 8px;min-height:0;border:1px solid var(--line);border-radius:6px;background:var(--white)}
+  .porte-texte{gap:8px;min-width:0}
+  .porte .plaque{align-items:stretch;font-size:14px;line-height:1.28;min-height:0;gap:5px;overflow-wrap:break-word}
+  .porte .num{align-self:flex-start;min-width:23px;height:23px;font-size:11px;border-radius:5px}
+  .porte .legende,.porte .sous-portes{display:none}
+  .porte .entrer{font-size:12px;line-height:1.4}
+  .hall-pied{margin-top:10px;font-size:12px}
+  .accueil .trajectoire{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .accueil .trajectoire-texte,.accueil .chiffres span{overflow-wrap:anywhere}
+  .salle-onglets{gap:8px;margin-block:12px;padding-inline:var(--gouttiere)}
+  .onglet-salle{column-gap:8px;padding:8px;row-gap:3px;border-radius:6px}
+  .onglet-salle .baie.mini{width:26px}
+  .onglet-salle .onglet-num{height:20px;font-size:10.5px}
+  .onglet-titre{font-size:12.5px;line-height:1.3;overflow-wrap:break-word}
+  .salle .salle-barre{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:7px;padding:10px var(--gouttiere)}
+  .salle-barre #salle-titre{grid-column:1 / -1;grid-row:2;font-size:12px}
+  .salle .salle-barre .salle-actions{min-width:0;gap:5px;flex-wrap:wrap;justify-content:flex-end}
+  .salle .salle-barre button[data-retour],.salle .salle-barre button[data-suivante],.salle .salle-barre button[data-contact]{padding:7px 9px;font-size:12px;line-height:1.3;gap:4px;border-radius:7px}
+  .salle .salle-barre button[data-ecouter],.salle .salle-barre button[data-arreter]{padding:6px;font-size:11px;border-radius:7px}
+  .salle-actions [data-ecouter] span{display:none}
+  .salle-progres{position:static}
+  .salle-contenu .section-corps{padding-top:28px}
+  .menu:not([open]) .menu-panneau{display:none}
+  .menu-panneau .taille span{min-width:0}
+}
+@media (max-width:640px){
+  .entete{position:relative;gap:6px;padding:10px var(--gouttiere)}
+  .entete .outils{order:2;flex-basis:100%;justify-content:flex-end;gap:8px;margin:0}
+  .entete .nav{margin:0;padding:5px 0;gap:20px}
+  .coordonnees-haut{display:none}
+}
+@media (max-width:380px){
+  .porte{--largeur-porte:42px;gap:7px;padding:10px 7px}
+  .porte .plaque{font-size:13px}
+  .accueil .portrait{width:60px}
+  .accueil h1{font-size:30px}
+}

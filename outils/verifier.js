@@ -7,12 +7,16 @@ const { fr, en, es, LANGUES } = require("./contenu");
 const RACINE = path.join(__dirname, "..");
 const zh = JSON.parse(fs.readFileSync(path.join(__dirname, "i18n", "zh.json"), "utf8"));
 const ar = JSON.parse(fs.readFileSync(path.join(__dirname, "i18n", "ar.json"), "utf8"));
+const ru = JSON.parse(fs.readFileSync(path.join(__dirname, "i18n", "ru.json"), "utf8"));
 const resultats = [];
 const verifier = (nom, ok, detail = "") => resultats.push({ nom, ok: !!ok, detail });
 
 const forme = (v) =>
   Array.isArray(v) ? "[" + v.map(forme).join(",") + "]" : v && typeof v === "object" ? "{" + Object.keys(v).sort().map((k) => k + ":" + forme(v[k])).join(",") + "}" : typeof v;
-for (const [nom, c] of Object.entries({ en, es, zh, ar })) verifier(`structure ${nom} identique au français`, forme(c) === forme(fr));
+for (const [nom, c] of Object.entries({ en, es, zh, ar, ru })) {
+  verifier(`structure ${nom} identique au français`, forme(c) === forme(fr));
+  verifier(`navigation ${nom} : identifiants conservés`, c.nav.every((x, i) => x[0] === fr.nav[i][0]));
+}
 
 const pages = LANGUES.map((l) => path.join(l.dossier, "index.html")).concat("404.html");
 const html = {};
@@ -45,8 +49,11 @@ for (const [p, h] of Object.entries(html)) {
 for (const l of LANGUES.filter((x) => x.hreflang)) {
   const h = html[path.join(l.dossier, "index.html")];
   verifier(`${l.code} : attribut lang`, h && h.includes(`<html lang="${l.code === "zh" ? "zh-Hans" : l.code}"`));
-  verifier(`${l.code} : liens hreflang vers les cinq langues`, h && LANGUES.filter((x) => x.hreflang).every((x) => h.includes(`hreflang="${x.hreflang}" href=`)));
-  verifier(`${l.code} : affiche dans sa langue`, h && h.includes(`affiche-releve/img/affiche-${l.code}.png`));
+  verifier(`${l.code} : liens hreflang vers toutes les langues`, h && LANGUES.filter((x) => x.hreflang).every((x) => h.includes(`hreflang="${x.hreflang}" href=`)));
+  verifier(`${l.code} : affiche disponible`, h && h.includes(`affiche-releve/img/affiche-${l.code === "ru" ? "fr" : l.code}.png`));
+  const section = (id) => ((h || "").match(new RegExp(`<section[^>]+id="${id}"[\\s\\S]*?(?=<section|<footer|$)`)) || [""])[0];
+  verifier(`${l.code} : travaux hors de la thèse`, !section("recherche").includes('class="travaux"'));
+  verifier(`${l.code} : travaux avec les axes`, section("approche").includes('class="travaux"'));
 }
 verifier("arabe de droite à gauche", html[path.join("ar", "index.html")].includes('dir="rtl"'));
 verifier("Nadia Sourial agrégée", html["index.html"].includes("Professeure agrégée"));

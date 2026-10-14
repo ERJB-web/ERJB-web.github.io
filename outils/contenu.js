@@ -16,6 +16,7 @@ const LANGUES = [
   { code: "es", libelle: "ES", nom: "Español", dossier: "es/", hreflang: "es", drapeau: "es", voix: "es-ES" },
   { code: "zh", libelle: "中文", nom: "中文（简体）", dossier: "zh/", hreflang: "zh-Hans", drapeau: "cn", voix: "zh-CN" },
   { code: "ar", libelle: "عربي", nom: "العربية", dossier: "ar/", hreflang: "ar", drapeau: "ar", voix: "ar", dir: "rtl" },
+  { code: "ru", libelle: "RU", nom: "Русский", dossier: "ru/", hreflang: "ru", drapeau: "ru", voix: "ru-RU" },
   { code: "iu", libelle: "ᐃᓄ", nom: "ᐃᓄᒃᑎᑐᑦ · Inuktitut", dossier: "iu/", drapeau: "iu", abregee: true },
   { code: "moe", libelle: "Innu", nom: "Innu-aimun", dossier: "innu/", drapeau: "innu", abregee: true },
   { code: "falc", libelle: "FALC", nom: "Facile à lire (FALC)", dossier: "falc/", drapeau: "falc", abregee: true },
@@ -144,7 +145,7 @@ const fr = {
     "portes": {
       "recherche": [
         "Ma thèse",
-        "Thèse et travaux en cours"
+        "Projet de doctorat"
       ],
       "conceptualisation": [
         "Conceptualisation",
@@ -1220,7 +1221,7 @@ const fr = {
   publications: {
     "surtitre": "04 · Publications",
     "titre": "Communications, mémoires et outils",
-    "intro": "Chaque travail garde son titre original, ses auteurs et son statut. Les manuscrits en cours sont présentés dans la salle La recherche.",
+    "intro": "Chaque travail garde son titre original, ses auteurs et son statut. Les manuscrits en cours sont présentés avec les axes de travaux dans la salle L’approche.",
     "groupes": [
       {
         "titre": "Communications scientifiques",
@@ -1383,7 +1384,7 @@ const fr = {
       {
         "date": "2025",
         "type": "formation",
-        "titre": "Master en droit (LL.M.)",
+        "titre": "Master en droit public spécialisé en droit de la santé et droit social",
         "detail": "Droit public, droit social et droit de la santé · Université Paris Panthéon-Assas, mention spéciale du jury."
       },
       {
@@ -1561,7 +1562,7 @@ const fr = {
           },
           {
             "date": "Culture",
-            "titre": "Culture scientifique",
+            "titre": "Réflexions et vulgarisation scientifique",
             "detail": "Sciences de la vie et de la Terre, philosophie, géopolitique, science politique, physique, astronomie."
           }
         ]
@@ -1705,7 +1706,7 @@ const en = {
     "portes": {
       "recherche": [
         "My thesis",
-        "Thesis and work in progress"
+        "Doctoral project"
       ],
       "conceptualisation": [
         "Conceptualisation",
@@ -2781,7 +2782,7 @@ const en = {
   publications: {
     "surtitre": "04 · Publications",
     "titre": "Presentations, theses and tools",
-    "intro": "Each work keeps its original title, authors and status. Manuscripts in progress are presented in the Research room.",
+    "intro": "Each work keeps its original title, authors and status. Manuscripts in progress are presented alongside the research areas in the Approach room.",
     "groupes": [
       {
         "titre": "Scientific presentations",
@@ -2944,7 +2945,7 @@ const en = {
       {
         "date": "2025",
         "type": "formation",
-        "titre": "Master of Laws (LL.M.)",
+        "titre": "Master’s in public law specialising in health law and social law",
         "detail": "Public law, social law and health law · Université Paris Panthéon-Assas, with special distinction from the jury."
       },
       {
@@ -3122,7 +3123,7 @@ const en = {
           },
           {
             "date": "Culture",
-            "titre": "Scientific culture",
+            "titre": "Scientific reflection and outreach",
             "detail": "Life and Earth sciences, philosophy, geopolitics, political science, physics, astronomy."
           }
         ]
@@ -3266,7 +3267,7 @@ const es = {
     "portes": {
       "recherche": [
         "Mi tesis",
-        "Tesis y trabajos en curso"
+        "Proyecto doctoral"
       ],
       "conceptualisation": [
         "Conceptualización",
@@ -4342,7 +4343,7 @@ const es = {
   publications: {
     "surtitre": "04 · Publicaciones",
     "titre": "Comunicaciones, memorias y herramientas",
-    "intro": "Cada trabajo conserva su título original, sus autores y su estado. Los manuscritos en curso se presentan en la sala La investigación.",
+    "intro": "Cada trabajo conserva su título original, sus autores y su estado. Los manuscritos en curso se presentan junto a los ejes de trabajo en la sala El enfoque.",
     "groupes": [
       {
         "titre": "Comunicaciones científicas",
@@ -4505,7 +4506,7 @@ const es = {
       {
         "date": "2025",
         "type": "formation",
-        "titre": "Máster en Derecho (LL.M.)",
+        "titre": "Máster en derecho público especializado en derecho de la salud y derecho social",
         "detail": "Derecho público, derecho social y derecho de la salud · Université Paris Panthéon-Assas, mención especial del jurado."
       },
       {
@@ -4683,7 +4684,7 @@ const es = {
           },
           {
             "date": "Cultura",
-            "titre": "Cultura científica",
+            "titre": "Reflexión y divulgación científica",
             "detail": "Ciencias de la vida y de la Tierra, filosofía, geopolítica, ciencia política, física, astronomía."
           }
         ]
