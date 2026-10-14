@@ -1192,6 +1192,31 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 /* Petites portes : au-delà de 5, deux rangées égales */
 .salle-onglets{grid-template-columns:repeat(var(--colonnes,4),minmax(0,1fr))}
 @media (max-width:700px){.salle-onglets{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Hall clair : murs, sol continu en perspective et lumière naturelle. */
+.hall{position:relative;isolation:isolate}
+.hall::before,.hall::after{content:"";position:absolute;inset:-14px -12px -10px;pointer-events:none}
+.hall::before{z-index:-2;background:linear-gradient(90deg,rgba(143,165,153,.08),transparent 28px,transparent calc(100% - 28px),rgba(143,165,153,.08)),linear-gradient(180deg,#e6ede7 0,#fff 5px,#eef3ec 6px,#fafcf8 70px,#f5f8f2 100%);box-shadow:inset 1px 0 rgba(134,158,143,.13),inset -1px 0 rgba(134,158,143,.13);border-radius:3px}
+.hall::after{z-index:-1;background:linear-gradient(112deg,transparent 8%,rgba(255,255,255,.8) 25%,transparent 42%,transparent 54%,rgba(255,255,255,.6) 72%,transparent 88%);animation:hall-lumiere 26s ease-in-out infinite alternate}
+.portes>.porte{position:relative;isolation:isolate;--hall-sol-position:0%}
+.portes>.porte:nth-child(3n+2){--hall-sol-position:50%}
+.portes>.porte:nth-child(3n){--hall-sol-position:100%}
+.portes>.porte::before{content:"";position:absolute;z-index:-1;pointer-events:none;inset-inline:-8px;top:calc(8px + var(--largeur-porte) / .62 - 6px);bottom:-8px;background:url("hall-sol.svg") var(--hall-sol-position) top / 300% 100% no-repeat}
+@keyframes hall-lumiere{from{transform:translate3d(-1.5%,0,0);opacity:.5}to{transform:translate3d(1.5%,0,0);opacity:.8}}
+@media(max-width:1100px){
+  .portes>.porte:nth-child(n){--hall-sol-position:0%}
+  .portes>.porte:nth-child(2n){--hall-sol-position:100%}
+  .portes>.porte::before{background-size:200% 100%}
+}
+@media(max-width:700px){
+  .hall::before,.hall::after{inset:-8px -8px -6px}
+  .hall::after{animation:none;opacity:.6}
+  .portes>.porte::before{display:none}
+}
+@media(prefers-reduced-motion:reduce){.hall::after{animation:none;transform:none;opacity:.6}}
+html.hc .hall::before,html.hc .hall::after,html.hc .portes>.porte::before,
+html.lv .hall::before,html.lv .hall::after,html.lv .portes>.porte::before{display:none}
+@media(forced-colors:active){.hall::before,.hall::after,.portes>.porte::before{display:none}}
+
 /* Hall : portes identiques et proportionnées, texte sans espaces forcés. */
 .portes{align-items:stretch;grid-auto-rows:1fr;gap:16px}
 .porte{--largeur-porte:160px;min-height:0;grid-template-columns:var(--largeur-porte) minmax(0,1fr);grid-template-rows:auto;gap:12px;padding:8px 4px;align-items:start}

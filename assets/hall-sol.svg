@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="pierre" x2="0" y2="1">
+      <stop stop-color="#f8faf6"/>
+      <stop offset="1" stop-color="#eaf0e9"/>
+    </linearGradient>
+    <linearGradient id="plinthe" x2="0" y2="1">
+      <stop stop-color="#d8e0da"/>
+      <stop offset=".25" stop-color="#ffffff"/>
+      <stop offset=".7" stop-color="#f0f4ee"/>
+      <stop offset="1" stop-color="#d5ddd7"/>
+    </linearGradient>
+    <radialGradient id="jour" cx=".28" cy="0" r=".8">
+      <stop stop-color="#ffffff" stop-opacity=".85"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path fill="url(#pierre)" d="M0 7h1200v113H0z"/>
+  <path fill="url(#plinthe)" d="M0 0h1200v8H0z"/>
+  <g fill="none" stroke="#b9c9bf" stroke-opacity=".35" stroke-width="1" vector-effect="non-scaling-stroke">
+    <path d="M0 35h1200M0 72h1200M0 119h1200"/>
+    <path d="M0 120 365 8M200 120 443 8M400 120 522 8M600 120V8M800 120 678 8M1000 120 757 8M1200 120 835 8"/>
+  </g>
+  <path fill="url(#jour)" d="M0 8h1200v112H0z"/>
+</svg>
