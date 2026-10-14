@@ -1458,7 +1458,7 @@ const fr = {
         "titre": "Représentation étudiante",
         "items": [
           {
-            "date": "2026",
+            "date": "Depuis 2026 · En cours",
             "titre": "Coordinateur au doctorat en santé publique · AÉÉSPUM",
             "detail": "Élu."
           },
@@ -1473,7 +1473,7 @@ const fr = {
             "detail": "ESPUM, Université de Montréal."
           },
           {
-            "date": "2026",
+            "date": "Depuis 2026 · En cours",
             "titre": "Représentant étudiant du doctorat · DGEPS",
             "detail": "Département de gestion, d’évaluation et de politique de santé, ESPUM."
           },
@@ -3028,7 +3028,7 @@ const en = {
         "titre": "Student representation",
         "items": [
           {
-            "date": "2026",
+            "date": "Since 2026 · Ongoing",
             "titre": "PhD coordinator in public health · AÉÉSPUM",
             "detail": "Elected."
           },
@@ -3043,7 +3043,7 @@ const en = {
             "detail": "ESPUM, Université de Montréal."
           },
           {
-            "date": "2026",
+            "date": "Since 2026 · Ongoing",
             "titre": "Doctoral student representative · DGEPS",
             "detail": "Department of Health Management, Evaluation and Policy, ESPUM."
           },
@@ -4598,7 +4598,7 @@ const es = {
         "titre": "Representación estudiantil",
         "items": [
           {
-            "date": "2026",
+            "date": "Desde 2026 · En curso",
             "titre": "Coordinador del doctorado en salud pública · AÉÉSPUM",
             "detail": "Electo."
           },
@@ -4613,7 +4613,7 @@ const es = {
             "detail": "ESPUM, Université de Montréal."
           },
           {
-            "date": "2026",
+            "date": "Desde 2026 · En curso",
             "titre": "Representante estudiantil del doctorado · DGEPS",
             "detail": "Departamento de Gestión, Evaluación y Política de Salud, ESPUM."
           },
