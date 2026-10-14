@@ -154,7 +154,7 @@ const fr = {
       ],
       "approche": [
         "Posture de recherche",
-        "Posture scientifique et axes de travaux"
+        "Posture pragmatique et regard pluridisciplinaire"
       ],
       "methodes": ["Méthodes de recherche","Analyses, outils et références méthodologiques"],
       "valeurs": [
@@ -216,7 +216,7 @@ const fr = {
       detail: "Le devis en quatre étapes",
       etapes: [
         ["Objectif 1", "Quels profils ?", "Une revue de portée", "À partir des études publiées, dégager les profils de besoins sociaux récurrents, puis les transformer en quatre à six vignettes : des situations fictives validées.", ["Revue de portée", "Vignettes"]],
-        ["Objectif 2", "Qui mobiliser ?", "Un réseau territorial délimité", "Un questionnaire identique est proposé à 40–80 organisations. Pour chaque vignette, elles désignent les partenaires à mobiliser, les types de liens et le coordonnateur souhaité. Les configurations sont ensuite comparées par profil.", ["Analyse de réseaux", "Réseau territorial"]],
+        ["Objectif 2", "Qui mobiliser ?", "Le réseau égocentré du CLSC", "Pour chaque vignette, le CLSC est au centre : on repère les partenaires qu’il mobiliserait et les liens entre ces partenaires. On obtient une configuration par profil.", ["Analyse de réseaux", "Réseau égocentré"]],
         ["Objectif 2", "Pourquoi ces choix ?", "Des entretiens sur la carte du réseau", "Les entretiens s’appuient sur la carte de chaque réseau pour expliquer les choix observés, par exemple : pourquoi ces partenaires sont-ils peu reliés ?", ["Entretiens", "Méthodes mixtes"]],
         ["Objectif 3", "Que recommander ?", "Un atelier délibératif", "Patients partenaires et acteurs des soins primaires, du communautaire, de la gouvernance locale, du municipal et du privé formulent des recommandations pour chaque profil.", ["Délibération", "Patients partenaires"]],
       ],
@@ -461,7 +461,7 @@ const fr = {
       "items": [
         {
           "titre": "Analyse de réseaux sociaux égocentrée et sociocentrée",
-          "texte": "L’analyse de réseaux sociaux décrit les relations entre acteurs plutôt que leurs seuls attributs. L’approche sociocentrée examine l’ensemble des liens d’une population délimitée ; l’approche égocentrée part d’un répondant (ego) et des interlocuteurs qu’il nomme (alters). Dans ma thèse, le réseau est délimité à l’échelle d’un territoire de CLSC : 40 à 80 organisations reçoivent les mêmes vignettes et la même liste de partenaires. Un répondant informé par organisation indique qui contacter, les types de liens et qui devrait coordonner. L’analyse compare les configurations selon les profils de besoins ; les liens sont des intentions déclarées, dont les entretiens éclairent les raisons et les conditions.",
+          "texte": "L’analyse de réseaux sociaux décrit les relations entre acteurs plutôt que leurs seuls attributs. L’approche sociocentrée examine l’ensemble des liens d’une population délimitée ; l’approche égocentrée part d’un répondant (ego) et des interlocuteurs qu’il nomme (alters). Dans ma thèse, je pars du CLSC : ses intervenants et gestionnaires nomment leurs interlocuteurs, qui répondent à leur tour, ce qui permet de croiser les liens déclarés par les partenaires. Des vignettes font apparaître le réseau potentiel, soit les partenaires qui seraient sollicités ; les interactions des 12 derniers mois décrivent le réseau réel. La comparaison des deux éclaire la réponse intersectorielle aux besoins sociaux complexes en soins primaires.",
           "references": [
             "Perry, B. L., Pescosolido, B. A., & Borgatti, S. P. (2018). Egocentric network analysis: Foundations, methods, and models. Cambridge University Press. https://doi.org/10.1017/9781316443255",
             "Provan, K. G., Veazie, M. A., Staten, L. K., & Teufel-Shone, N. I. (2005). The use of network analysis to strengthen community partnerships. Public Administration Review, 65(5), 603–613. https://doi.org/10.1111/j.1540-6210.2005.00487.x",
@@ -1224,7 +1224,7 @@ const fr = {
   publications: {
     "surtitre": "04 · Publications",
     "titre": "Communications, mémoires et outils",
-    "intro": "Chaque travail garde son titre original, ses auteurs et son statut. Les manuscrits en cours sont présentés avec les axes de travaux dans la salle Posture de recherche.",
+    "intro": "Chaque travail garde son titre original, ses auteurs et son statut. Les manuscrits en cours sont présentés avec les axes de travaux dans la salle Axes de recherche.",
     "groupes": [
       {
         "titre": "Communications scientifiques",
@@ -1718,7 +1718,7 @@ const en = {
       ],
       "approche": [
         "Research stance",
-        "Research stance and research areas"
+        "Pragmatic stance and multidisciplinary perspectives"
       ],
       "methodes": ["Research methods","Analyses, tools and methodological references"],
       "valeurs": [
@@ -1780,7 +1780,7 @@ const en = {
       detail: "The design in four steps",
       etapes: [
         ["Objective 1", "Which profiles?", "A scoping review", "Identify recurring profiles of social needs from published studies, then turn them into four to six vignettes: validated fictional situations.", ["Scoping review", "Vignettes"]],
-        ["Objective 2", "Whom to involve?", "A bounded territorial network", "The same questionnaire is offered to 40–80 organisations. For each vignette, they name the partners to involve, types of ties and desired coordinator. Configurations are then compared across profiles.", ["Network analysis", "Territorial network"]],
+        ["Objective 2", "Whom to involve?", "The CLSC ego network", "For each vignette, the CLSC sits at the centre: we identify the partners it would involve and the ties between them. The result is one configuration per profile.", ["Network analysis", "Ego network"]],
         ["Objective 2", "Why these choices?", "Interviews built on the network map", "Interviews use each network map to explain the observed choices, for instance: why are these partners so loosely connected?", ["Interviews", "Mixed methods"]],
         ["Objective 3", "What to recommend?", "A deliberative workshop", "Patient partners and actors from primary care, community organisations, local governance, municipalities and the private sector draw up recommendations for each profile.", ["Deliberation", "Patient partners"]],
       ],
@@ -2025,7 +2025,7 @@ const en = {
       "items": [
         {
           "titre": "Egocentric and sociocentric social network analysis",
-          "texte": "Social network analysis describes the relationships between actors rather than their attributes alone. A sociocentric approach examines all ties within a bounded population; an egocentric approach starts from a respondent (ego) and the contacts this person names (alters). In my thesis, the network is bounded within one CLSC territory: 40–80 organisations receive the same vignettes and partner list. One knowledgeable respondent per organisation indicates whom to contact, types of ties and who should coordinate. Analysis compares configurations across needs profiles; ties represent stated intentions, whose reasons and conditions are explored through interviews.",
+          "texte": "Social network analysis describes the relationships between actors rather than their attributes alone. A sociocentric approach examines all ties within a bounded population; an egocentric approach starts from a respondent (ego) and the contacts this person names (alters). In my thesis, I start from the CLSC (local community service centre): its practitioners and managers name their contacts, who in turn respond, which makes it possible to cross-check the ties reported by partners. Vignettes reveal the potential network, that is, the partners who would be called upon; interactions over the past 12 months describe the actual network. Comparing the two sheds light on the intersectoral response to complex social needs in primary care.",
           "references": [
             "Perry, B. L., Pescosolido, B. A., & Borgatti, S. P. (2018). Egocentric network analysis: Foundations, methods, and models. Cambridge University Press. https://doi.org/10.1017/9781316443255",
             "Provan, K. G., Veazie, M. A., Staten, L. K., & Teufel-Shone, N. I. (2005). The use of network analysis to strengthen community partnerships. Public Administration Review, 65(5), 603–613. https://doi.org/10.1111/j.1540-6210.2005.00487.x",
@@ -2788,7 +2788,7 @@ const en = {
   publications: {
     "surtitre": "04 · Publications",
     "titre": "Presentations, theses and tools",
-    "intro": "Each work keeps its original title, authors and status. Manuscripts in progress are presented alongside the research areas in the Research stance room.",
+    "intro": "Each work keeps its original title, authors and status. Manuscripts in progress are presented alongside the research areas in the Research areas room.",
     "groupes": [
       {
         "titre": "Scientific presentations",
@@ -3282,7 +3282,7 @@ const es = {
       ],
       "approche": [
         "Postura de investigación",
-        "Postura científica y ejes de investigación"
+        "Postura pragmática y mirada pluridisciplinar"
       ],
       "methodes": ["Métodos de investigación","Análisis, herramientas y referencias metodológicas"],
       "valeurs": [
@@ -3344,7 +3344,7 @@ const es = {
       detail: "El diseño en cuatro etapas",
       etapes: [
         ["Objetivo 1", "¿Qué perfiles?", "Una revisión de alcance", "A partir de los estudios publicados, identificar los perfiles recurrentes de necesidades sociales y convertirlos en cuatro a seis viñetas: situaciones ficticias validadas.", ["Revisión de alcance", "Viñetas"]],
-        ["Objetivo 2", "¿A quién movilizar?", "Una red territorial delimitada", "Se propone el mismo cuestionario a 40–80 organizaciones. Para cada viñeta, indican los socios que movilizarían, los tipos de vínculos y quién debería coordinar. Luego se comparan las configuraciones por perfil.", ["Análisis de redes", "Red territorial"]],
+        ["Objetivo 2", "¿A quién movilizar?", "La red egocéntrica del CLSC", "Para cada viñeta, el CLSC está en el centro: se identifican los socios que movilizaría y los vínculos entre ellos. Se obtiene una configuración por perfil.", ["Análisis de redes", "Red egocéntrica"]],
         ["Objetivo 2", "¿Por qué esas elecciones?", "Entrevistas sobre el mapa de la red", "Las entrevistas se apoyan en el mapa de cada red para explicar las elecciones observadas; por ejemplo: ¿por qué estos socios están poco conectados?", ["Entrevistas", "Métodos mixtos"]],
         ["Objetivo 3", "¿Qué recomendar?", "Un taller deliberativo", "Pacientes colaboradores y actores de la atención primaria, del sector comunitario, de la gobernanza local, del ámbito municipal y del sector privado formulan recomendaciones para cada perfil.", ["Deliberación", "Pacientes colaboradores"]],
       ],
@@ -3589,7 +3589,7 @@ const es = {
       "items": [
         {
           "titre": "Análisis de redes sociales egocéntrico y sociocéntrico",
-          "texte": "El análisis de redes sociales describe las relaciones entre actores y no solo sus atributos. El enfoque sociocéntrico examina el conjunto de vínculos de una población delimitada; el enfoque egocéntrico parte de una persona encuestada (ego) y de los interlocutores que nombra (alters). En mi tesis, la red se delimita en un territorio de CLSC: entre 40 y 80 organizaciones reciben las mismas viñetas y la misma lista de socios. Una persona bien informada por organización indica a quién contactar, los tipos de vínculos y quién debería coordinar. El análisis compara las configuraciones según los perfiles de necesidades; los vínculos representan intenciones declaradas cuyas razones y condiciones se exploran en las entrevistas.",
+          "texte": "El análisis de redes sociales describe las relaciones entre actores y no solo sus atributos. El enfoque sociocéntrico examina el conjunto de vínculos de una población delimitada; el enfoque egocéntrico parte de una persona encuestada (ego) y de los interlocutores que nombra (alters). En mi tesis parto del CLSC (centro local de servicios comunitarios): sus profesionales de intervención y sus gestores nombran a sus interlocutores, quienes responden a su vez, lo que permite contrastar los vínculos declarados por los socios. Unas viñetas revelan la red potencial, es decir, los socios a los que se recurriría; las interacciones de los últimos 12 meses describen la red real. La comparación de ambas aclara la respuesta intersectorial a las necesidades sociales complejas en atención primaria.",
           "references": [
             "Perry, B. L., Pescosolido, B. A., & Borgatti, S. P. (2018). Egocentric network analysis: Foundations, methods, and models. Cambridge University Press. https://doi.org/10.1017/9781316443255",
             "Provan, K. G., Veazie, M. A., Staten, L. K., & Teufel-Shone, N. I. (2005). The use of network analysis to strengthen community partnerships. Public Administration Review, 65(5), 603–613. https://doi.org/10.1111/j.1540-6210.2005.00487.x",
@@ -4352,7 +4352,7 @@ const es = {
   publications: {
     "surtitre": "04 · Publicaciones",
     "titre": "Comunicaciones, memorias y herramientas",
-    "intro": "Cada trabajo conserva su título original, sus autores y su estado. Los manuscritos en curso se presentan junto a los ejes de trabajo en la sala Postura de investigación.",
+    "intro": "Cada trabajo conserva su título original, sus autores y su estado. Los manuscritos en curso se presentan junto a los ejes de trabajo en la sala Ejes de investigación.",
     "groupes": [
       {
         "titre": "Comunicaciones científicas",

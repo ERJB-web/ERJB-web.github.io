@@ -54,11 +54,16 @@ for (const l of LANGUES.filter((x) => x.hreflang)) {
   const section = (id) => ((h || "").match(new RegExp(`<section[^>]+id="${id}"[\\s\\S]*?(?=<section|<footer|$)`)) || [""])[0];
   verifier(`${l.code} : travaux hors de la thèse`, !section("recherche").includes('class="travaux"'));
   verifier(`${l.code} : méthodologie du protocole complète`, ["40–80", "15–25", "15–20", "Covidence", "Gravity Project", "REDCap", "Framework Method", "QAP"].every((t) => section("recherche").includes(t)));
-  verifier(`${l.code} : ancien devis de thèse remplacé`, !section("recherche").includes({fr: "réseau égocentré", en: "CLSC ego network", es: "red egocéntrica", zh: "自我中心网络", ar: "شبكة متمركزة حول الذات", ru: "Эгоцентрированная сеть"}[l.code]));
-  verifier(`${l.code} : travaux avec les axes`, section("approche").includes('class="travaux"'));
+  verifier(`${l.code} : SNA égocentré sur le CLSC`, section("recherche").includes({fr: "réseau égocentré", en: "CLSC ego network", es: "red egocéntrica", zh: "自我中心网络", ar: "شبكة متمركزة حول الذات", ru: "Эгоцентрированная сеть"}[l.code]));
+  verifier(`${l.code} : travaux avec les axes, hors de la posture`, section("axes").includes('class="travaux"') && !section("approche").includes('class="travaux"'));
   const groupes = [...(h || "").matchAll(/data-salle="([a-z]+)"[^>]*data-sections="([^"]+)"/g)];
   const sallesGroupe = (g) => (groupes.find((m) => m[1] === g) || ["", "", ""])[2].split(" ");
   verifier(`${l.code} : innovations dans la première porte`, sallesGroupe("recherche").includes("outils") && !sallesGroupe("implantation").includes("outils"));
+  verifier(`${l.code} : axes dans une sous-catégorie distincte`, sallesGroupe("recherche").includes("axes"));
+  verifier(`${l.code} : enseignement et vulgarisation distincts`, sallesGroupe("implantation").includes("transmission") && sallesGroupe("implantation").includes("vulgarisation") && section("transmission").includes("SPU 7001") && !section("vulgarisation").includes("SPU 7001"));
+  verifier(`${l.code} : sources pédagogiques et de communication`, section("transmission").includes("10.1073/pnas.1319030111") && section("transmission").includes("udlguidelines.cast.org") && section("vulgarisation").includes("www.cdc.gov/ccindex") && section("vulgarisation").includes("www.w3.org/WAI/media/av/"));
+  const icone = (h.match(/rel="icon" href="([^"]+)"/) || [])[1];
+  verifier(`${l.code} : même logo pour le site et l'onglet`, !!icone && h.includes(`src="${icone}" alt="EB"`));
   verifier(`${l.code} : applications présentes dans Innovations`, section("outils").includes('class="projet projet-ownnight"') && section("outils").includes('class="projet projet-spheres"'));
   verifier(`${l.code} : posture et méthodes séparées`, sallesGroupe("recherche").includes("methodes") && !section("approche").includes('class="methodes"') && !section("approche").includes('class="boite-outils"') && section("methodes").includes('class="methodes"') && section("methodes").includes('class="boite-outils"'));
   verifier(`${l.code} : posture centrée sur la recherche`, !section("approche").includes('class="expertises"') && section("approche").includes('class="piliers piliers-posture"'));

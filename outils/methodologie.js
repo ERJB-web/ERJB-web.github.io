@@ -16,7 +16,7 @@ module.exports = {
     devis: {
       titre: "Devis et posture de recherche",
       items: [
-        ["Devis en plusieurs phases", "Une revue de portée (O1), une analyse de réseaux sociaux mixte séquentielle explicative (O2 : quantitatif puis qualitatif), puis un atelier délibératif (O3)."],
+        ["Devis en plusieurs phases", "Une revue de portée (O1), une analyse de réseaux sociaux égocentrée sur le CLSC avec un devis mixte séquentiel explicatif (O2 : quantitatif puis qualitatif), puis un atelier délibératif (O3)."],
         ["Posture pragmatique", "Choisir et articuler les méthodes pour comprendre et organiser la réponse intersectorielle : les cartes de réseaux orientent les entretiens, puis les résultats réunis alimentent l’atelier."],
       ],
     },
@@ -33,8 +33,8 @@ module.exports = {
       {
         code: "O2", titre: "Analyse de réseaux : volet quantitatif", cible: "40–80 organisations · ≥ 80 % de réponses visées",
         blocs: [
-          ["Terrain et recrutement", "Le réseau est délimité à l’échelle d’un territoire de CLSC, avec les partenaires extérieurs effectivement mobilisés. L’équipe d’organisation communautaire sert d’informateur clé et de relais d’accès ; le cadre est construit avec elle, les concertations locales et les répertoires. Un répondant informé est sollicité par organisation, avec trois relances prévues."],
-          ["Questionnaire par vignette", "Toutes les organisations reçoivent les mêmes vignettes et la même liste d’organisations. Pour chaque situation : qui contacter, pour quel lien (référence, échange d’information, planification conjointe) et qui devrait coordonner ? Le recueil est prévu dans REDCap, avec une durée cible de 30 minutes au maximum à vérifier au prétest. Deux versions de genre des vignettes sont prévues."],
+          ["Terrain et recrutement", "Le réseau est étudié à partir du CLSC (ego) et de ses partenaires. Ses intervenants et gestionnaires nomment leurs interlocuteurs, ensuite sollicités pour documenter aussi les liens entre partenaires. L’équipe d’organisation communautaire, les concertations locales et les répertoires soutiennent le repérage et l’accès au terrain. Un répondant informé par organisation est prévu, avec trois relances."],
+          ["Questionnaire par vignette", "Les vignettes décrivent le réseau potentiel : qui mobiliser, pour quel lien (référence, échange d’information, planification conjointe) et qui devrait coordonner ? Les interactions des douze derniers mois documentent le réseau réel. Une liste commune issue du repérage des partenaires permet la comparaison des profils. Le recueil est prévu dans REDCap, avec une durée cible maximale de 30 minutes à vérifier au prétest et deux versions de genre des vignettes."],
           ["Analyses prévues", "Une carte est produite par profil, puis les configurations sont comparées : secteurs mobilisés (tests de permutation), structure cœur–périphérie, fragmentation (modèles mixtes), rôle du CLSC et interaction profil × genre. La comparaison au réseau global mobilise la procédure QAP, fondée sur des permutations de matrices. La puissance est estimée par simulation. Les liens décrivent des intentions déclarées face aux vignettes."],
         ],
         reperes: "Unité de comparaison : une configuration de réseau par profil, avec le même ensemble d’organisations possibles.",
@@ -88,7 +88,7 @@ module.exports = {
     devis: {
       titre: "Design and research stance",
       items: [
-        ["Multiphase design", "A scoping review (O1), an explanatory sequential mixed-methods social network analysis (O2: quantitative then qualitative), followed by a deliberative workshop (O3)."],
+        ["Multiphase design", "A scoping review (O1), CLSC ego-centred social network analysis with an explanatory sequential mixed-methods design (O2: quantitative then qualitative), followed by a deliberative workshop (O3)."],
         ["Pragmatic stance", "Select and connect methods to understand and organise the intersectoral response: network maps guide the interviews, and the integrated findings inform the workshop."],
       ],
     },
@@ -105,8 +105,8 @@ module.exports = {
       {
         code: "O2", titre: "Network analysis: quantitative phase", cible: "40–80 organisations · target response rate ≥ 80%",
         blocs: [
-          ["Setting and recruitment", "The network is bounded within one CLSC territory, including external partners actually involved. The territorial community organising team acts as a key informant and access liaison; the sampling frame combines its input, local coordination bodies and directories. One knowledgeable respondent is approached per organisation, with three reminders planned."],
-          ["Vignette questionnaire", "All organisations receive the same vignettes and organisation list. For each situation: whom to contact, for which tie (referral, information exchange, joint planning), and who should coordinate? Data collection is planned in REDCap, with a target duration of no more than 30 minutes to be checked in pretesting. Two gender versions of the vignettes are planned."],
+          ["Setting and recruitment", "The network is studied from the CLSC (ego) and its partners. Its practitioners and managers name their contacts, who are then approached to document ties between partners as well. The community organising team, local coordination bodies and directories support identification and access. One knowledgeable respondent per organisation is planned, with three reminders."],
+          ["Vignette questionnaire", "Vignettes describe the potential network: whom to involve, for which tie (referral, information exchange, joint planning), and who should coordinate? Interactions over the past twelve months document the actual network. A shared list derived from partner identification allows comparison across profiles. Collection is planned in REDCap, with a maximum target duration of 30 minutes to check in pretesting and two gender versions of the vignettes."],
           ["Planned analyses", "A map is produced for each profile, then configurations are compared: sectors involved (permutation tests), core–periphery structure, fragmentation (mixed models), the CLSC’s role, and profile × gender interaction. Comparison with the overall network uses QAP, a matrix permutation procedure. Power is estimated through simulation. Ties describe stated intentions in response to vignettes."],
         ],
         reperes: "Unit of comparison: one network configuration per profile, with the same set of possible organisations.",
@@ -160,7 +160,7 @@ module.exports = {
     devis: {
       titre: "Diseño y postura de investigación",
       items: [
-        ["Diseño en varias fases", "Una revisión de alcance (O1), un análisis de redes sociales con métodos mixtos y diseño secuencial explicativo (O2: cuantitativo y luego cualitativo), seguido de un taller deliberativo (O3)."],
+        ["Diseño en varias fases", "Una revisión de alcance (O1), un análisis de redes sociales egocéntrico centrado en el CLSC con diseño mixto secuencial explicativo (O2: cuantitativo y luego cualitativo), seguido de un taller deliberativo (O3)."],
         ["Postura pragmática", "Elegir y articular los métodos para comprender y organizar la respuesta intersectorial: los mapas de redes orientan las entrevistas y los resultados integrados alimentan el taller."],
       ],
     },
@@ -177,8 +177,8 @@ module.exports = {
       {
         code: "O2", titre: "Análisis de redes: fase cuantitativa", cible: "40–80 organizaciones · meta de respuestas ≥ 80 %",
         blocs: [
-          ["Terreno y reclutamiento", "La red se delimita en un territorio de CLSC e incluye a los socios externos efectivamente movilizados. El equipo territorial de organización comunitaria actúa como informante clave y enlace de acceso; el marco se construye con ese equipo, las instancias locales de concertación y los directorios. Se solicita un encuestado bien informado por organización, con tres recordatorios previstos."],
-          ["Cuestionario por viñeta", "Todas las organizaciones reciben las mismas viñetas y la misma lista de organizaciones. Para cada situación: ¿a quién contactar, para qué vínculo (derivación, intercambio de información, planificación conjunta) y quién debería coordinar? La recogida se prevé en REDCap, con una duración objetivo máxima de 30 minutos que se comprobará en la prueba piloto. Se prevén dos versiones de género de las viñetas."],
+          ["Terreno y reclutamiento", "La red se estudia a partir del CLSC (ego) y de sus socios. Sus profesionales y gestores nombran a sus interlocutores, a quienes se solicita documentar también los vínculos entre socios. El equipo de organización comunitaria, las instancias locales de concertación y los directorios apoyan la identificación y el acceso. Se prevé un encuestado informado por organización y tres recordatorios."],
+          ["Cuestionario por viñeta", "Las viñetas describen la red potencial: ¿a quién movilizar, para qué vínculo (derivación, intercambio de información, planificación conjunta) y quién debería coordinar? Las interacciones de los últimos doce meses documentan la red real. Una lista común derivada de la identificación de socios permite comparar perfiles. La recogida se prevé en REDCap, con una duración objetivo máxima de 30 minutos que se comprobará en la prueba piloto y dos versiones de género de las viñetas."],
           ["Análisis previstos", "Se produce un mapa por perfil y se comparan las configuraciones: sectores movilizados (pruebas de permutación), estructura núcleo–periferia, fragmentación (modelos mixtos), papel del CLSC e interacción perfil × género. La comparación con la red global emplea QAP, un procedimiento de permutación de matrices. La potencia se estima por simulación. Los vínculos describen intenciones declaradas ante las viñetas."],
         ],
         reperes: "Unidad de comparación: una configuración de red por perfil, con el mismo conjunto de organizaciones posibles.",
@@ -232,7 +232,7 @@ module.exports = {
     devis: {
       titre: "研究设计与立场",
       items: [
-        ["多阶段设计", "范围综述（O1）、采用解释性顺序混合方法的社会网络分析（O2：先定量、后定性），以及审议式工作坊（O3）。"],
+        ["多阶段设计", "范围综述（O1）、以CLSC为ego的自我中心社会网络分析，采用解释性顺序混合方法设计（O2：先定量、后定性），以及审议式工作坊（O3）。"],
         ["实用主义立场", "根据理解和组织跨部门回应的需要选择并衔接方法：网络图指导访谈，整合后的结果再用于工作坊。"],
       ],
     },
@@ -249,8 +249,8 @@ module.exports = {
       {
         code: "O2", titre: "网络分析：定量阶段", cible: "40–80个组织 · 目标响应率≥80%",
         blocs: [
-          ["研究场域与招募", "在一个CLSC辖区内界定网络，并纳入实际参与的辖区外合作伙伴。辖区内的社区组织工作团队担任关键信息提供者及联络渠道；结合该团队、当地协调平台和名录建立抽样框。每个组织邀请一位知情答卷者，计划发送三次提醒。"],
-          ["情景案例问卷", "所有组织收到相同的案例及组织名单。针对每个情景询问：联系谁、建立何种联系（转介、信息交换、共同规划）、由谁协调？计划使用REDCap收集数据，目标答卷时间不超过30分钟，需经预试确认。案例设有两个性别版本。"],
+          ["研究场域与招募", "研究以CLSC（ego）及其合作伙伴为起点。其从业人员与管理者列出联系对象，再邀请这些对象记录合作伙伴之间的联系。社区组织工作团队、当地协调平台及名录协助识别伙伴并进入研究场域。计划每个组织由一位知情答卷者参与，并发送三次提醒。"],
+          ["情景案例问卷", "情景案例描述潜在网络：动员谁、建立何种联系（转介、信息交换、共同规划）、由谁协调？过去十二个月的互动记录实际网络。根据伙伴识别形成的共同名单，用于比较不同需求类型。计划通过REDCap收集数据，目标答卷时间最多30分钟，需经预试确认，案例设有两个性别版本。"],
           ["拟进行的分析", "为各类型生成网络图，再比较所动员的部门（置换检验）、核心—边缘结构、碎片化（混合模型）、CLSC的角色及类型×性别交互作用。与总体网络的比较采用基于矩阵置换的QAP程序。通过模拟估计统计功效。网络联系反映面对案例时申报的行动意向。"],
         ],
         reperes: "比较单位：各类型对应的网络配置，使用相同的潜在组织集合。",
@@ -304,7 +304,7 @@ module.exports = {
     devis: {
       titre: "تصميم البحث وموقفه المنهجي",
       items: [
-        ["تصميم متعدد المراحل", "مراجعة نطاقية (O1)، ثم تحليل للشبكات الاجتماعية بمنهج مختلط تتابعي تفسيري (O2: كمي ثم نوعي)، ثم ورشة تداولية (O3)."],
+        ["تصميم متعدد المراحل", "مراجعة نطاقية (O1)، وتحليل للشبكات الاجتماعية يتمركز حول CLSC بوصفه ego ضمن تصميم مختلط تتابعي تفسيري (O2: كمي ثم نوعي)، ثم ورشة تداولية (O3)."],
         ["موقف براغماتي", "اختيار المناهج وربطها لفهم الاستجابة بين القطاعات وتنظيمها: توجّه خرائط الشبكات المقابلات، ثم تغذّي النتائج المتكاملة الورشة."],
       ],
     },
@@ -321,8 +321,8 @@ module.exports = {
       {
         code: "O2", titre: "تحليل الشبكات: المرحلة الكمية", cible: "40–80 منظمة · معدل استجابة مستهدف ≥ 80٪",
         blocs: [
-          ["الميدان والاستقطاب", "تُحدّد الشبكة ضمن منطقة CLSC واحدة، مع الشركاء الخارجيين الذين يجري إشراكهم فعليًا. يعمل فريق التنظيم المجتمعي في المنطقة مصدرًا رئيسيًا للمعلومات وحلقة وصول؛ ويُبنى إطار العينة بمساهمته وبالاستعانة بهيئات التنسيق المحلية والأدلة. يُطلب مجيب مطّلع واحد لكل منظمة، مع ثلاث رسائل تذكير مقررة."],
-          ["استبيان الحالات الافتراضية", "تتلقى جميع المنظمات الحالات نفسها وقائمة المنظمات نفسها. لكل حالة: بمن تتصل، ولأي رابط (إحالة، تبادل معلومات، تخطيط مشترك)، ومن ينبغي أن ينسّق؟ يُخطط لجمع البيانات عبر REDCap بمدة مستهدفة لا تتجاوز 30 دقيقة تُراجع في الاختبار الأولي. تُعد نسختان من الحالات بحسب النوع الاجتماعي."],
+          ["الميدان والاستقطاب", "تُدرس الشبكة انطلاقًا من CLSC بوصفه الفاعل المحوري (ego) وشركائه. يسمّي ممارسوه ومديروه الجهات التي يتعاملون معها، ثم تُدعى هذه الجهات لتوثيق الروابط بين الشركاء أيضًا. يدعم فريق التنظيم المجتمعي وهيئات التنسيق المحلية والأدلة تحديد الشركاء والوصول إليهم. يُخطط لمجيب مطّلع لكل منظمة وثلاث رسائل تذكير."],
+          ["استبيان الحالات الافتراضية", "تصف الحالات الافتراضية الشبكة المحتملة: من يُشرك، ولأي رابط (إحالة، تبادل معلومات، تخطيط مشترك)، ومن ينبغي أن ينسّق؟ توثّق تفاعلات الأشهر الاثني عشر الماضية الشبكة الفعلية. تتيح قائمة مشتركة ناتجة عن تحديد الشركاء مقارنة الأنماط. يُخطط لجمع البيانات عبر REDCap بمدة مستهدفة قصوى 30 دقيقة تُراجع في الاختبار الأولي، مع نسختين للحالات بحسب النوع الاجتماعي."],
           ["التحليلات المقررة", "تُنتج خريطة لكل نمط، ثم تُقارن التكوينات: القطاعات المشاركة (اختبارات التبديل)، وبنية المركز–الأطراف، والتجزؤ (نماذج مختلطة)، ودور CLSC، وتفاعل النمط × النوع الاجتماعي. تستخدم المقارنة بالشبكة الإجمالية إجراء QAP القائم على تبديل المصفوفات. تُقدّر القوة الإحصائية بالمحاكاة. تصف الروابط نوايا مُعلنة إزاء الحالات الافتراضية."],
         ],
         reperes: "وحدة المقارنة: تكوين شبكة لكل نمط، مع المجموعة نفسها من المنظمات الممكنة.",
@@ -376,7 +376,7 @@ module.exports = {
     devis: {
       titre: "Дизайн и исследовательская позиция",
       items: [
-        ["Многоэтапный дизайн", "Обзор предметного поля (O1), анализ социальных сетей со смешанными методами в последовательном объяснительном дизайне (O2: количественный, затем качественный этап) и совещательный семинар (O3)."],
+        ["Многоэтапный дизайн", "Обзор предметного поля (O1), эгоцентрический анализ социальных сетей с CLSC в центре в последовательном объяснительном дизайне со смешанными методами (O2: количественный, затем качественный этап) и совещательный семинар (O3)."],
         ["Прагматическая позиция", "Выбирать и сочетать методы, чтобы понять и организовать межсекторальный ответ: карты сетей направляют интервью, а объединённые результаты служат основой семинара."],
       ],
     },
@@ -393,8 +393,8 @@ module.exports = {
       {
         code: "O2", titre: "Анализ сетей: количественный этап", cible: "40–80 организаций · целевая доля ответов ≥ 80%",
         blocs: [
-          ["Территория и набор", "Сеть ограничивается одной территорией CLSC и включает действительно задействованных внешних партнёров. Территориальная команда по организации работы с сообществами служит ключевым информантом и связующим звеном; рамка выборки формируется с её участием, с помощью местных координационных структур и справочников. От каждой организации приглашается один осведомлённый респондент; предусмотрены три напоминания."],
-          ["Анкета по виньеткам", "Все организации получают одинаковые виньетки и список организаций. Для каждой ситуации: к кому обратиться, для какой связи (направление, обмен информацией, совместное планирование) и кто должен координировать? Сбор данных запланирован в REDCap; целевая длительность не более 30 минут проверяется при предварительном тестировании. Предусмотрены две гендерные версии виньеток."],
+          ["Территория и набор", "Сеть изучается от CLSC как центрального участника (ego) и его партнёров. Специалисты и руководители CLSC называют свои контакты, которым затем предлагают описать также связи между партнёрами. Команда по работе с сообществами, местные координационные структуры и справочники помогают определить партнёров и установить контакт. Предусмотрен один осведомлённый респондент от организации и три напоминания."],
+          ["Анкета по виньеткам", "Виньетки описывают потенциальную сеть: кого привлечь, для какой связи (направление, обмен информацией, совместное планирование) и кто должен координировать? Взаимодействия за последние двенадцать месяцев описывают фактическую сеть. Общий список выявленных партнёров позволяет сравнивать профили. Сбор запланирован в REDCap с целевой длительностью не более 30 минут, проверяемой предварительно, и двумя гендерными версиями виньеток."],
           ["Планируемый анализ", "Для каждого профиля создаётся карта, затем сравниваются конфигурации: задействованные секторы (пермутационные тесты), структура ядро–периферия, фрагментация (смешанные модели), роль CLSC и взаимодействие профиль × гендер. Для сравнения с общей сетью используется QAP — процедура перестановки матриц. Мощность оценивается моделированием. Связи описывают заявленные намерения в ответ на виньетки."],
         ],
         reperes: "Единица сравнения: конфигурация сети для каждого профиля при одинаковом наборе возможных организаций.",

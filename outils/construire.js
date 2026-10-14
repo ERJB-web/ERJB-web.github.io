@@ -13,17 +13,19 @@ const langue = (code) => LANGUES.find((l) => l.code === code);
 const ABREGE = require("./contenu-abrege");
 const AUTOCHTONES = JSON.parse(fs.readFileSync(path.join(__dirname, "i18n", "autochtones.json"), "utf8"));
 const METHODOLOGIE = require("./methodologie");
+const MEDIATION = require("./enseignement-vulgarisation");
 
 const RACINE = path.join(__dirname, "..");
 const empreinte = (fichier) => require("crypto").createHash("sha256").update(fs.readFileSync(path.join(RACINE, fichier))).digest("hex").slice(0, 10);
 const VERSION_CSS = empreinte("assets/site.css");
 const VERSION_JS = empreinte("assets/site.js");
 const VERSION_ICONE = empreinte("assets/favicon.svg");
+const logoMarque = (p) => `<span class="marque-mono"><img src="${p}assets/favicon.svg?v=${VERSION_ICONE}" alt="EB" width="48" height="48"></span>`;
 const URL = "https://erjb-web.github.io/";
 const TELEPHONE = ["(263) 384-3050", "+12633843050"];
 const GROUPES = [
-  ["recherche", ["recherche", "approche", "methodes", "conceptualisation", "publications", "outils"]],
-  ["implantation", ["implantation", "notions", "transmission"]],
+  ["recherche", ["recherche", "approche", "methodes", "axes", "conceptualisation", "publications", "outils"]],
+  ["implantation", ["implantation", "notions", "transmission", "vulgarisation"]],
   ["parcours", ["biographie", "parcours", "juriste", "gestionnaire", "educateur", "entrepreneuriat", "valeurs"]],
   ["engagements", ["representation", "communaute", "distinctions", "citoyen", "loisirs"]],
   ["ressources", ["litterature", "grise", "presse", "capsules", "balados"]],
@@ -40,26 +42,40 @@ const TRANSMISSION = {
 };
 const BOOKINGS = "https://bookings.cloud.microsoft/book/RDVavecEricBernier@umontreal.ca/";
 const textesTransmission = (c) => TRANSMISSION[c.lang] || TRANSMISSION.en;
-// La salle reprend des éléments déjà publiés ailleurs sur le site (mêmes positions dans toutes les langues).
+// Les responsabilités et dates restent celles du parcours publié.
+function reperesMediation(bloc) {
+  return `<h3 class="titre-bloc">${e(bloc.titre)}</h3><div class="cadres reperes-transmission">${bloc.items.map(([t, d, refs]) => `<article class="cadre"><h4>${e(t)}</h4><p>${e(d)}</p><p class="ref">${refs.map((k) => lien(MEDIATION.REFERENCES[k].href, e(MEDIATION.REFERENCES[k].court))).join(" · ")}</p></article>`).join("")}</div>`;
+}
+function sourcesMediation(c, s) {
+  const cles = [...new Set([...(s.pratiques.items), ...(s.formats ? s.formats.items : [])].flatMap((x) => x[2]))];
+  return `<h3 class="titre-bloc">${e(MEDIATION.LANGUES[c.lang].references)}</h3><ul class="methode-refs references-transmission">${cles.map((k) => `<li>${lien(MEDIATION.REFERENCES[k].href, e(MEDIATION.REFERENCES[k].citation))}</li>`).join("")}</ul>`;
+}
 function sectionTransmission(c) {
-  const T = textesTransmission(c);
+  const s = MEDIATION.LANGUES[c.lang].enseignement;
   const iEns = fr.parcours.etapes.map((x, i) => (/Auxiliaire d’enseignement/.test(x.titre) ? i : -1)).filter((i) => i >= 0);
-  const iAnap = fr.parcours.etapes.findIndex((x) => /ANAP|Agence nationale d’appui/.test(x.titre));
   const gMent = fr.engagements.groupes.findIndex((g) => g.items.some((x) => /mentorat/i.test(x.titre)));
   const iMent = gMent >= 0 ? fr.engagements.groupes[gMent].items.findIndex((x) => /mentorat/i.test(x.titre)) : -1;
+  return `<div class="section-corps pleine large"><div class="colonne-texte">
+<p class="surtitre">${e(s.salle[0])}</p><h2>${e(s.titre)}</h2><p class="intro">${e(s.intro)}</p>
+<h3 class="titre-bloc">${e(s.ambition[0])}</h3><p>${e(s.ambition[1])}</p>
+<h3 class="titre-bloc">${e(s.experiences)}</h3>${liste(iEns.map((i) => c.parcours.etapes[i]))}
+${iMent >= 0 ? `<h3 class="titre-bloc">${e(s.mentorat)}</h3>${liste([c.engagements.groupes[gMent].items[iMent]])}` : ""}
+<h3 class="titre-bloc">${e(s.academique[0])}</h3><ul class="puces"><li>${lien(c.chemin + "docs/cv-academique.pdf", e(s.academique[1]))}</li><li><a href="#publications">${e(s.academique[2])}</a></li></ul>
+</div><div class="colonne-outils">${reperesMediation(s.pratiques)}
+<h3 class="titre-bloc">${e(s.application[0])}</h3><p>${e(s.application[1])}</p>
+${sourcesMediation(c, s)}</div></div>`;
+}
+function sectionVulgarisation(c) {
+  const s = MEDIATION.LANGUES[c.lang].vulgarisation;
+  const T = textesTransmission(c);
   const affiche = c.contact.liens.find((l) => /affiche|poster|póster|海报|ملصق|постер/i.test(l[0] + l[1]));
-  const s = {
-    surtitre: T.surtitre,
-    titre: T.titre,
-    intro: T.intro,
-    groupes: [
-      { titre: T.groupes[0], items: iEns.map((i) => c.parcours.etapes[i]) },
-      { titre: T.groupes[1], items: c.publications.groupes[0].items },
-      { titre: T.groupes[2], items: [{ date: "2026", titre: T.affiche[0], detail: T.affiche[1], lien: affiche && (externe(affiche[2]) ? affiche[2] : c.chemin + affiche[2]) }] },
-      { titre: T.groupes[3], items: [c.parcours.etapes[iAnap], iMent >= 0 ? c.engagements.groupes[gMent].items[iMent] : null].filter(Boolean) },
-    ],
-  };
-  return sectionGroupes(c, s);
+  return `<div class="section-corps pleine large"><div class="colonne-texte">
+<p class="surtitre">${e(s.salle[0])}</p><h2>${e(s.titre)}</h2><p class="intro">${e(s.intro)}</p>
+<h3 class="titre-bloc">${e(s.ambition[0])}</h3><p>${e(s.ambition[1])}</p>
+</div><div class="colonne-outils">${reperesMediation(s.pratiques)}${reperesMediation(s.formats)}
+<h3 class="titre-bloc">${e(s.supports)}</h3>${liste([{date:"2026",titre:T.affiche[0],detail:T.affiche[1],lien:affiche ? affiche[2] : AFFICHE}])}
+<h3 class="titre-bloc">${e(s.ressources[0])}</h3><ul class="puces"><li><a href="#capsules">${e(s.ressources[1])}</a></li><li><a href="#balados">${e(s.ressources[2])}</a></li></ul>
+${sourcesMediation(c, s)}</div></div>`;
 }
 const SOUS_RESSOURCES = {
   fr: { litterature: ["Littérature scientifique", "Articles en libre accès et lectures par thème"], grise: ["Littérature grise", "Rapports, politiques, guides et outils"], presse: [null, "Articles de presse et de magazines"], capsules: [null, "Vidéos en français et en anglais"], balados: [null, "Balados en français et en anglais"], rapports: "Rapports, politiques et cadres de référence" },
@@ -78,8 +94,9 @@ function poserSousPortes(c) {
   for (const [s, P] of Object.entries(PARTIES_RESSOURCES)) c.hall.portes[s] = [S[s][0] || c.ressources.groupes[P.groupes[0]][0], S[s][1]];
   for (const [s, k] of Object.entries(INDEX_ENGAGEMENTS)) c.hall.portes[s] = [c.engagements.groupes[k].titre, c.hall.portes.engagements[0]];
 }
-const BANDEAUX = { methodes: "bandeaux/conceptualisation.jpg", litterature: "bandeaux/ressources.jpg", representation: "photos/representation.jpg", communaute: "bandeaux/engagements.jpg", distinctions: "photos/distinctions.jpg", loisirs: "bandeaux/sports-loisirs.png" };
+const BANDEAUX = { methodes: "bandeaux/conceptualisation.jpg", axes: "bandeaux/recherche.jpg", vulgarisation: "bandeaux/capsules.jpg", litterature: "bandeaux/ressources.jpg", representation: "photos/representation.jpg", communaute: "bandeaux/engagements.jpg", distinctions: "photos/distinctions.jpg", loisirs: "bandeaux/sports-loisirs.png" };
 const bandeau = (s) => BANDEAUX[s] || "bandeaux/" + s + ".jpg";
+const miniSalle = (s) => ({ methodes: "conceptualisation", axes: "recherche", vulgarisation: "capsules" }[s] || s);
 // Références vérifiées (Crossref), communes à toutes les langues.
 const REFS_NOTIONS = {
   autodetermination: [
@@ -392,6 +409,7 @@ const TEINTES = {
   recherche: ["#245a73", "#163a4c"],
   approche: ["#8c4d58", "#63343e"],
   methodes: ["#466a78", "#304b56"],
+  axes: ["#286d5c", "#1f5446"],
   implantation: ["#a0663b", "#7a4a26"],
   biographie: ["#2f6f86", "#1f4f62"],
   publications: ["#327a66", "#1f5446"],
@@ -401,6 +419,7 @@ const TEINTES = {
   valeurs: ["#7a5a8c", "#5a4068"],
   ressources: ["#2f7f86", "#215c61"],
   transmission: ["#5f7f35", "#43592a"],
+  vulgarisation: ["#2f6f86", "#1f4f62"],
   notions: ["#7a4f9a", "#563870"],
   outils: ["#2f3f7a", "#1c2650"],
   juriste: ["#7a2e3a", "#561f28"],
@@ -431,11 +450,11 @@ function porte(c, [nom, sections], i) {
 </button>`;
 }
 
-// Schémas : exemple de réseau territorial, postures de recherche, cycle des cinq temps.
+// Schémas : réseau égocentré sur le CLSC, postures de recherche, cycle des cinq temps.
 const SCHEMAS = {
   fr: {
-    reseauTitre: "Un réseau territorial par profil",
-    reseauLegende: "Schéma fictif illustrant des liens possibles, sans résultats empiriques. Le protocole prévoit un réseau délimité de 40–80 organisations : mêmes vignettes et même liste d’organisations pour tous les répondants. Chaque profil donne lieu à une carte des partenaires, des liens déclarés et du coordonnateur souhaité. Le CLSC figuré ici est un acteur dont le rôle est étudié ; la coordination reste à identifier selon le profil.",
+    reseauTitre: "Le réseau égocentré du CLSC",
+    reseauLegende: "Dans ma thèse, l’analyse de réseau est égocentrée : elle se déroule à partir du CLSC. Ses intervenants et gestionnaires nomment leurs interlocuteurs, qui reçoivent à leur tour le questionnaire ; les liens entre partenaires sont ainsi déclarés par les partenaires eux-mêmes. Les vignettes décrivent le réseau potentiel, les interactions des douze derniers mois le réseau réel, et des entretiens sur la carte du réseau éclairent le pourquoi et le comment de ces interactions.",
     partenaires: ["Clinique","Hôpital","Pharmacie","École","Municipalité","Organisme communautaire","CPE"],
     figure: "Gouvernance locale animée par le CLSC du territoire : un milieu d’affiliation pour chaque personne, au sein d’un voisinage de soins et de services.",
     source: "Source : ministère de la Santé et des Services sociaux du Québec (2026), Politique de première ligne.",
@@ -445,8 +464,8 @@ const SCHEMAS = {
     posture: ["Lecture positiviste", "Mesurer, estimer, tester", "Lecture constructiviste", "Comprendre le sens donné aux pratiques", "Posture pragmatique", "La question décide de la méthode : des méthodes mixtes intégrées."],
   },
   en: {
-    reseauTitre: "A territorial network for each profile",
-    reseauLegende: "A fictional diagram illustrating possible ties, with no empirical findings. The protocol plans a bounded network of 40–80 organisations: the same vignettes and organisation list for all respondents. Each profile yields a map of partners, reported ties and the desired coordinator. The CLSC shown here is one actor whose role is studied; coordination remains to be identified for each profile.",
+    reseauTitre: "The CLSC’s ego-centred network",
+    reseauLegende: "In my thesis, network analysis is ego-centred: it unfolds from the CLSC. Its practitioners and managers name the people they work with, who in turn receive the questionnaire; links between partners are thus reported by the partners themselves. Vignettes describe the potential network, interactions over the past twelve months the actual network, and interviews on the network map shed light on why and how these interactions occur.",
     partenaires: ["Clinic","Hospital","Pharmacy","School","Municipality","Community organisation","Childcare centre"],
     figure: "Local governance led by the territory’s CLSC: a home base for each person, within a neighbourhood of care and services.",
     source: "Source: Quebec Ministry of Health and Social Services (2026), first-line services policy.",
@@ -456,8 +475,8 @@ const SCHEMAS = {
     posture: ["Positivist lens", "Measure, estimate, test", "Constructivist lens", "Understand the meaning given to practices", "Pragmatic stance", "The question decides the method: integrated mixed methods."],
   },
   es: {
-    reseauTitre: "Una red territorial por perfil",
-    reseauLegende: "Esquema ficticio de vínculos posibles, sin resultados empíricos. El protocolo prevé una red delimitada de 40–80 organizaciones: las mismas viñetas y la misma lista de organizaciones para todos. Cada perfil da lugar a un mapa de socios, vínculos declarados y coordinación deseada. El CLSC ilustrado es un actor cuyo papel se estudia; la coordinación se identificará según el perfil.",
+    reseauTitre: "La red egocentrada del CLSC",
+    reseauLegende: "En mi tesis, el análisis de redes es egocentrado: se despliega a partir del CLSC. Sus profesionales y gestores nombran a sus interlocutores, que a su vez reciben el cuestionario; los vínculos entre socios son así declarados por los propios socios. Las viñetas describen la red potencial, las interacciones de los últimos doce meses la red real, y entrevistas sobre el mapa de la red aclaran el porqué y el cómo de esas interacciones.",
     partenaires: ["Clínica","Hospital","Farmacia","Escuela","Municipio","Organismo comunitario","Centro de primera infancia"],
     figure: "Gobernanza local animada por el CLSC del territorio: un lugar de afiliación para cada persona, dentro de una vecindad de cuidados y servicios.",
     source: "Fuente: Ministerio de Salud y Servicios Sociales de Quebec (2026), política de primera línea.",
@@ -467,8 +486,8 @@ const SCHEMAS = {
     posture: ["Lectura positivista", "Medir, estimar, probar", "Lectura constructivista", "Comprender el sentido dado a las prácticas", "Postura pragmática", "La pregunta decide el método: métodos mixtos integrados."],
   },
   zh: {
-    reseauTitre: "各需求类型对应的区域网络",
-    reseauLegende: "本图为可能联系的虚构示意，并非实证结果。方案计划界定包含40–80个组织的网络，所有答卷者使用相同案例及组织名单。每种类型形成包含伙伴、申报联系及期望协调者的网络图。图中的CLSC是研究其角色的行动者之一；协调方式需按类型确定。",
+    reseauTitre: "以 CLSC 为中心的自我中心网络",
+    reseauLegende: "在我的博士论文中，网络分析以 CLSC 为中心展开：其从业人员和管理者列出与之合作的对象，这些对象再依次填写问卷；合作伙伴之间的联系因此由伙伴自己申报。情景案例描述潜在网络，过去十二个月的互动描述实际网络，而围绕网络图进行的访谈则阐明这些互动发生的原因与方式。",
     partenaires: ["诊所","医院","药房","学校","市政","社区组织","幼儿中心"],
     figure: "由区域内 CLSC 主导的地方治理：在照护与服务的邻里网络中，为每个人提供一个归属的服务场所。",
     source: "来源：魁北克卫生与社会服务部（2026），《第一线服务政策》。",
@@ -478,8 +497,8 @@ const SCHEMAS = {
     posture: ["实证主义视角", "测量、估计、检验", "建构主义视角", "理解行动者赋予实践的意义", "实用主义立场", "由问题决定方法：整合的混合方法。"],
   },
   ar: {
-    reseauTitre: "شبكة إقليمية لكل نمط",
-    reseauLegende: "رسم افتراضي لروابط ممكنة، وليس نتائج تجريبية. يتضمن البروتوكول شبكة محددة من 40–80 منظمة، مع الحالات وقائمة المنظمات نفسها لجميع المجيبين. تُنتج لكل نمط خريطة للشركاء والروابط المعلنة والمنسّق المرغوب. يمثل CLSC هنا فاعلًا يُدرس دوره؛ ويُحدّد التنسيق بحسب النمط.",
+    reseauTitre: "الشبكة المتمركزة حول CLSC",
+    reseauLegende: "في أطروحتي، يتمحور تحليل الشبكات حول CLSC: إذ يسمّي ممارسوه ومديروه الجهات التي يتعاملون معها، فتتلقى هذه الجهات بدورها الاستبيان؛ وبذلك يصرّح الشركاء أنفسهم بالروابط القائمة بينهم. تصف الحالات الافتراضية الشبكة المحتملة، وتصف تفاعلات الأشهر الاثني عشر الأخيرة الشبكة الفعلية، ثم توضّح المقابلات حول خريطة الشبكة أسباب هذه التفاعلات وكيفية حدوثها.",
     partenaires: ["العيادة","المستشفى","الصيدلية","المدرسة","البلدية","المنظمة المجتمعية","مركز الطفولة المبكرة"],
     figure: "حوكمة محلية يقودها CLSC في منطقته: مكان انتماء لكل شخص ضمن جوار من خدمات الرعاية والخدمات.",
     source: "المصدر: وزارة الصحة والخدمات الاجتماعية في كيبيك (2026)، سياسة خدمات الخط الأول.",
@@ -503,7 +522,7 @@ function schemaReseau(c) {
 <p class="comparaison-etiquette these">${e(S.compareThese)}</p><figcaption class="schema-titre">${e(S.reseauTitre)}</figcaption>
 <svg viewBox="0 0 640 400" role="img" aria-label="${e(S.reseauTitre)}">
 ${liens.map(([a, b]) => `<line x1="${pts[a][0].toFixed(1)}" y1="${pts[a][1].toFixed(1)}" x2="${pts[b][0].toFixed(1)}" y2="${pts[b][1].toFixed(1)}" class="lien-partenaires"/>`).join("")}
-${[0, 1, 5].map((i) => `<line x1="320" y1="200" x2="${pts[i][0].toFixed(1)}" y2="${pts[i][1].toFixed(1)}" class="lien-centre"/>`).join("")}
+${pts.map(([x, y]) => `<line x1="320" y1="200" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" class="lien-centre"/>`).join("")}
 ${pts
   .map(([x, y, cx], i) => {
     const dx = Math.abs(cx) < 0.2 ? 0 : cx > 0 ? 16 : -16;
@@ -699,14 +718,19 @@ function sectionApproche(c) {
 ${schemaPosture(c)}
 <div class="piliers piliers-posture">${a.piliers.filter((_, i) => i !== 1).map(([t, d]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p></div>`).join("")}</div>
 </div>
-<div class="colonne-outils">
-<h3 class="titre-bloc">${e(a.axes.titre)}</h3>
-<ul class="puces">${a.axes.principaux.map((t) => `<li><b>${e(t)}</b></li>`).join("")}</ul>
-<p class="petit-titre">${e(a.axes.secondairesTitre)}</p>
-<ul class="puces secondaires">${a.axes.secondaires.map((t) => `<li>${e(t)}</li>`).join("")}</ul>
-</div>
-</div>
-${travauxEnCours(c)}`;
+</div>`;
+}
+
+function sectionAxes(c) {
+  const a = c.approche.axes;
+  const t = MEDIATION.LANGUES[c.lang].axes;
+  return `<div class="section-corps pleine large"><div class="colonne-texte">
+<p class="surtitre">${e(t.salle[0])}</p><h2>${e(t.salle[0])}</h2>
+<h3 class="titre-bloc">${e(t.principaux)}</h3>
+<ul class="puces">${a.principaux.map((x) => `<li><b>${e(x)}</b></li>`).join("")}</ul>
+<h3 class="titre-bloc">${e(a.secondairesTitre)}</h3>
+<ul class="puces secondaires">${a.secondaires.map((x) => `<li>${e(x)}</li>`).join("")}</ul>
+</div></div>${travauxEnCours(c)}`;
 }
 
 function sectionMethodes(c) {
@@ -1047,7 +1071,9 @@ function page(c) {
     knowsAbout: c.approche.axes.principaux,
     sameAs: [c.contact.liens.find((l) => l[0] === "ORCID")[2]],
   };
-  c.hall.portes.transmission = textesTransmission(c).salle;
+  c.hall.portes.transmission = MEDIATION.LANGUES[c.lang].enseignement.salle;
+  c.hall.portes.vulgarisation = MEDIATION.LANGUES[c.lang].vulgarisation.salle;
+  c.hall.portes.axes = MEDIATION.LANGUES[c.lang].axes.salle;
   c.hall.portes.notions = textesNotions(c).salle;
   c.hall.portes.outils = textesOutils(c).salle;
   for (const k of CLES_VITRINES) c.hall.portes[k] = textesVitrine(c, k).salle;
@@ -1056,8 +1082,10 @@ function page(c) {
     recherche: sectionRecherche(c),
     approche: sectionApproche(c),
     methodes: sectionMethodes(c),
+    axes: sectionAxes(c),
     implantation: sectionImplantation(c),
     transmission: sectionTransmission(c),
+    vulgarisation: sectionVulgarisation(c),
     notions: sectionNotions(c),
     outils: sectionOutils(c),
     publications: sectionGroupes(c, c.publications, "", ICONES_GROUPES.publications),
@@ -1082,7 +1110,7 @@ function page(c) {
   };
 
   return `<!doctype html>
-<html lang="${c.lang === "zh" ? "zh-Hans" : c.lang}"${langue(c.lang).dir ? ` dir="${langue(c.lang).dir}"` : ""} data-voix="${langue(c.lang).voix}" data-racine="${c.chemin || "./"}"${["fr", "en"].includes(c.lang) ? ` data-audio="${c.lang}" data-audio-exclues="recherche approche publications parcours loisirs"` : ""}>
+<html lang="${c.lang === "zh" ? "zh-Hans" : c.lang}"${langue(c.lang).dir ? ` dir="${langue(c.lang).dir}"` : ""} data-voix="${langue(c.lang).voix}" data-racine="${c.chemin || "./"}"${["fr", "en"].includes(c.lang) ? ` data-audio="${c.lang}" data-audio-exclues="recherche approche methodes axes transmission vulgarisation publications parcours loisirs"` : ""}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -1108,7 +1136,7 @@ ${LANGUES.filter((l) => l.hreflang).map((l) => `<link rel="alternate" hreflang="
 <body>
 <a class="evitement" href="#contenu">${e(c.ui.evitement)}</a>
 <header class="entete">
-<a class="marque" href="${p || "./"}"><span class="marque-mono"><span class="mono-grand">EB</span></span><span class="marque-domaines">${e(c.ui.sousTitre)}</span></a>
+<a class="marque" href="${p || "./"}">${logoMarque(p)}<span class="marque-domaines">${e(c.ui.sousTitre)}</span></a>
 <p class="coordonnees coordonnees-haut"><a href="mailto:${e(c.contact.courriel)}">${icone("enveloppe")}${e(c.contact.courriel)}</a><a href="tel:${TELEPHONE[1]}">${icone("telephone")}${TELEPHONE[0]}</a></p>
 <nav class="nav" aria-label="${e(c.ui.navigation)}">${GROUPES.map(([g, ss]) => `<a href="#${ss[0] || g}">${e(texteGroupe(c, g)[0])}</a>`).join("")}</nav>
 <div class="outils">
@@ -1139,7 +1167,7 @@ ${bandeAccueil(c)}
 
 ${SALLES.map(
   (s, i) => `<section class="section${i % 2 ? " teinte" : ""}" id="${s}" data-salle="${s}" data-titre="${e(c.hall.portes[s][0])}">
-<div class="section-contenu" data-numero="${NUMS[s]}" data-mini="${p}assets/portes-mini/${s === "methodes" ? "conceptualisation" : s}.jpg?v=${empreinte("assets/portes-mini/" + (s === "methodes" ? "conceptualisation" : s) + ".jpg")}">
+<div class="section-contenu" data-numero="${NUMS[s]}" data-mini="${p}assets/portes-mini/${miniSalle(s)}.jpg?v=${empreinte("assets/portes-mini/" + miniSalle(s) + ".jpg")}">
 <div class="bandeau" style="--c1:${TEINTES[s][0]};background-image:var(--degrade),url(${p}assets/${bandeau(s)}?v=${empreinte("assets/" + bandeau(s))})" role="img" aria-label="${e(c.hall.portes[s][0])}"><div class="bandeau-texte"><span class="bandeau-num">${NUMS[s]}</span><span class="bandeau-titre">${e(c.hall.portes[s][0])}</span><span class="bandeau-legende">${e(c.hall.portes[s][1])}</span></div></div>
 ${sections[s].replace(/<p class="surtitre">(\d{2} · )?/, `<p class="surtitre">${NUMS[s]} · `)}
 </div>
@@ -1200,7 +1228,7 @@ ${PREFERENCES}
 <body class="page-abregee">
 <a class="evitement" href="#contenu">${e(fr.ui.evitement)}</a>
 <header class="entete">
-<a class="marque" href="../"><span class="marque-mono"><span class="mono-grand">EB</span></span><span class="marque-domaines">${e(fr.ui.sousTitre)}</span></a>
+<a class="marque" href="../">${logoMarque("../")}<span class="marque-domaines">${e(fr.ui.sousTitre)}</span></a>
 <div class="outils">
 ${menuLangues(c, code)}
 ${menuAcces(c, code)}
