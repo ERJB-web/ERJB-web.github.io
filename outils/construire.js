@@ -12,6 +12,7 @@ const COMPLETES = [fr, en, es, zh, ar, ru];
 const langue = (code) => LANGUES.find((l) => l.code === code);
 const ABREGE = require("./contenu-abrege");
 const AUTOCHTONES = JSON.parse(fs.readFileSync(path.join(__dirname, "i18n", "autochtones.json"), "utf8"));
+const METHODOLOGIE = require("./methodologie");
 
 const RACINE = path.join(__dirname, "..");
 const empreinte = (fichier) => require("crypto").createHash("sha256").update(fs.readFileSync(path.join(RACINE, fichier))).digest("hex").slice(0, 10);
@@ -429,60 +430,60 @@ function porte(c, [nom, sections], i) {
 </button>`;
 }
 
-// Schémas : réseau égocentré du CLSC, postures de recherche, cycle des cinq temps.
+// Schémas : exemple de réseau territorial, postures de recherche, cycle des cinq temps.
 const SCHEMAS = {
   fr: {
-    reseauTitre: "Le réseau égocentré du CLSC",
-    reseauLegende: "Dans ma thèse, l’analyse de réseau est égocentrée : elle se déroule à partir du CLSC. Ses intervenants et gestionnaires nomment leurs interlocuteurs, qui reçoivent à leur tour le questionnaire ; les liens entre partenaires sont ainsi déclarés par les partenaires eux-mêmes. Les vignettes décrivent le réseau potentiel, les interactions des douze derniers mois le réseau réel, et des entretiens sur la carte du réseau éclairent le pourquoi et le comment de ces interactions.",
+    reseauTitre: "Un réseau territorial par profil",
+    reseauLegende: "Schéma fictif illustrant des liens possibles, sans résultats empiriques. Le protocole prévoit un réseau délimité de 40–80 organisations : mêmes vignettes et même liste d’organisations pour tous les répondants. Chaque profil donne lieu à une carte des partenaires, des liens déclarés et du coordonnateur souhaité. Le CLSC figuré ici est un acteur dont le rôle est étudié ; la coordination reste à identifier selon le profil.",
     partenaires: ["Clinique","Hôpital","Pharmacie","École","Municipalité","Organisme communautaire","CPE"],
     figure: "Gouvernance locale animée par le CLSC du territoire : un milieu d’affiliation pour chaque personne, au sein d’un voisinage de soins et de services.",
     source: "Source : ministère de la Santé et des Services sociaux du Québec (2026), Politique de première ligne.",
     comparePolitique: "Ce que prévoit la politique",
-    compareThese: "Ce que la thèse observe",
+    compareThese: "Schéma de principe de la thèse",
     alt: "Schéma officiel : le CLSC anime la gouvernance locale de son territoire avec la clinique, l’hôpital, la pharmacie, l’école, la municipalité, les organismes communautaires et les CPE.",
     posture: ["Lecture positiviste", "Mesurer, estimer, tester", "Lecture constructiviste", "Comprendre le sens donné aux pratiques", "Posture pragmatique", "La question décide de la méthode : des méthodes mixtes intégrées."],
   },
   en: {
-    reseauTitre: "The CLSC’s ego-centred network",
-    reseauLegende: "In my thesis, network analysis is ego-centred: it unfolds from the CLSC. Its practitioners and managers name the people they work with, who in turn receive the questionnaire; links between partners are thus reported by the partners themselves. Vignettes describe the potential network, interactions over the past twelve months the actual network, and interviews on the network map shed light on why and how these interactions occur.",
+    reseauTitre: "A territorial network for each profile",
+    reseauLegende: "A fictional diagram illustrating possible ties, with no empirical findings. The protocol plans a bounded network of 40–80 organisations: the same vignettes and organisation list for all respondents. Each profile yields a map of partners, reported ties and the desired coordinator. The CLSC shown here is one actor whose role is studied; coordination remains to be identified for each profile.",
     partenaires: ["Clinic","Hospital","Pharmacy","School","Municipality","Community organisation","Childcare centre"],
     figure: "Local governance led by the territory’s CLSC: a home base for each person, within a neighbourhood of care and services.",
     source: "Source: Quebec Ministry of Health and Social Services (2026), first-line services policy.",
     comparePolitique: "What the policy sets out",
-    compareThese: "What the thesis observes",
+    compareThese: "Conceptual illustration of the thesis",
     alt: "Official diagram: the CLSC leads local governance in its territory with the clinic, hospital, pharmacy, school, municipality, community organisations and childcare centres.",
     posture: ["Positivist lens", "Measure, estimate, test", "Constructivist lens", "Understand the meaning given to practices", "Pragmatic stance", "The question decides the method: integrated mixed methods."],
   },
   es: {
-    reseauTitre: "La red egocentrada del CLSC",
-    reseauLegende: "En mi tesis, el análisis de redes es egocentrado: se despliega a partir del CLSC. Sus profesionales y gestores nombran a sus interlocutores, que a su vez reciben el cuestionario; los vínculos entre socios son así declarados por los propios socios. Las viñetas describen la red potencial, las interacciones de los últimos doce meses la red real, y entrevistas sobre el mapa de la red aclaran el porqué y el cómo de esas interacciones.",
+    reseauTitre: "Una red territorial por perfil",
+    reseauLegende: "Esquema ficticio de vínculos posibles, sin resultados empíricos. El protocolo prevé una red delimitada de 40–80 organizaciones: las mismas viñetas y la misma lista de organizaciones para todos. Cada perfil da lugar a un mapa de socios, vínculos declarados y coordinación deseada. El CLSC ilustrado es un actor cuyo papel se estudia; la coordinación se identificará según el perfil.",
     partenaires: ["Clínica","Hospital","Farmacia","Escuela","Municipio","Organismo comunitario","Centro de primera infancia"],
     figure: "Gobernanza local animada por el CLSC del territorio: un lugar de afiliación para cada persona, dentro de una vecindad de cuidados y servicios.",
     source: "Fuente: Ministerio de Salud y Servicios Sociales de Quebec (2026), política de primera línea.",
     comparePolitique: "Lo que prevé la política",
-    compareThese: "Lo que observa la tesis",
+    compareThese: "Esquema conceptual de la tesis",
     alt: "Esquema oficial: el CLSC anima la gobernanza local de su territorio con la clínica, el hospital, la farmacia, la escuela, el municipio, los organismos comunitarios y los centros de primera infancia.",
     posture: ["Lectura positivista", "Medir, estimar, probar", "Lectura constructivista", "Comprender el sentido dado a las prácticas", "Postura pragmática", "La pregunta decide el método: métodos mixtos integrados."],
   },
   zh: {
-    reseauTitre: "以 CLSC 为中心的自我中心网络",
-    reseauLegende: "在我的博士论文中，网络分析以 CLSC 为中心展开：其从业人员和管理者列出与之合作的对象，这些对象再依次填写问卷；合作伙伴之间的联系因此由伙伴自己申报。情景案例描述潜在网络，过去十二个月的互动描述实际网络，而围绕网络图进行的访谈则阐明这些互动发生的原因与方式。",
+    reseauTitre: "各需求类型对应的区域网络",
+    reseauLegende: "本图为可能联系的虚构示意，并非实证结果。方案计划界定包含40–80个组织的网络，所有答卷者使用相同案例及组织名单。每种类型形成包含伙伴、申报联系及期望协调者的网络图。图中的CLSC是研究其角色的行动者之一；协调方式需按类型确定。",
     partenaires: ["诊所","医院","药房","学校","市政","社区组织","幼儿中心"],
     figure: "由区域内 CLSC 主导的地方治理：在照护与服务的邻里网络中，为每个人提供一个归属的服务场所。",
     source: "来源：魁北克卫生与社会服务部（2026），《第一线服务政策》。",
     comparePolitique: "政策的规定",
-    compareThese: "论文的观察",
+    compareThese: "论文的概念示意图",
     alt: "官方示意图：CLSC 与诊所、医院、药房、学校、市政、社区组织和幼儿中心共同主导其区域的地方治理。",
     posture: ["实证主义视角", "测量、估计、检验", "建构主义视角", "理解行动者赋予实践的意义", "实用主义立场", "由问题决定方法：整合的混合方法。"],
   },
   ar: {
-    reseauTitre: "الشبكة المتمركزة حول CLSC",
-    reseauLegende: "في أطروحتي، يتمحور تحليل الشبكات حول CLSC: إذ يسمّي ممارسوه ومديروه الجهات التي يتعاملون معها، فتتلقى هذه الجهات بدورها الاستبيان؛ وبذلك يصرّح الشركاء أنفسهم بالروابط القائمة بينهم. تصف الحالات الافتراضية الشبكة المحتملة، وتصف تفاعلات الأشهر الاثني عشر الأخيرة الشبكة الفعلية، ثم توضّح المقابلات حول خريطة الشبكة أسباب هذه التفاعلات وكيفية حدوثها.",
+    reseauTitre: "شبكة إقليمية لكل نمط",
+    reseauLegende: "رسم افتراضي لروابط ممكنة، وليس نتائج تجريبية. يتضمن البروتوكول شبكة محددة من 40–80 منظمة، مع الحالات وقائمة المنظمات نفسها لجميع المجيبين. تُنتج لكل نمط خريطة للشركاء والروابط المعلنة والمنسّق المرغوب. يمثل CLSC هنا فاعلًا يُدرس دوره؛ ويُحدّد التنسيق بحسب النمط.",
     partenaires: ["العيادة","المستشفى","الصيدلية","المدرسة","البلدية","المنظمة المجتمعية","مركز الطفولة المبكرة"],
     figure: "حوكمة محلية يقودها CLSC في منطقته: مكان انتماء لكل شخص ضمن جوار من خدمات الرعاية والخدمات.",
     source: "المصدر: وزارة الصحة والخدمات الاجتماعية في كيبيك (2026)، سياسة خدمات الخط الأول.",
     comparePolitique: "ما تنصّ عليه السياسة",
-    compareThese: "ما ترصده الأطروحة",
+    compareThese: "رسم مفاهيمي للأطروحة",
     alt: "رسم رسمي: يقود CLSC الحوكمة المحلية في منطقته مع العيادة والمستشفى والصيدلية والمدرسة والبلدية والمنظمات المجتمعية ومراكز الطفولة المبكرة.",
     posture: ["المنظور الوضعي", "القياس والتقدير والاختبار", "المنظور البنائي", "فهم المعنى الذي يمنحه الفاعلون لممارساتهم", "الموقف البراغماتي", "السؤال هو الذي يحدّد المنهج: مناهج مختلطة متكاملة."],
   },
@@ -501,7 +502,7 @@ function schemaReseau(c) {
 <p class="comparaison-etiquette these">${e(S.compareThese)}</p><figcaption class="schema-titre">${e(S.reseauTitre)}</figcaption>
 <svg viewBox="0 0 640 400" role="img" aria-label="${e(S.reseauTitre)}">
 ${liens.map(([a, b]) => `<line x1="${pts[a][0].toFixed(1)}" y1="${pts[a][1].toFixed(1)}" x2="${pts[b][0].toFixed(1)}" y2="${pts[b][1].toFixed(1)}" class="lien-partenaires"/>`).join("")}
-${pts.map(([x, y]) => `<line x1="320" y1="200" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" class="lien-centre"/>`).join("")}
+${[0, 1, 5].map((i) => `<line x1="320" y1="200" x2="${pts[i][0].toFixed(1)}" y2="${pts[i][1].toFixed(1)}" class="lien-centre"/>`).join("")}
 ${pts
   .map(([x, y, cx], i) => {
     const dx = Math.abs(cx) < 0.2 ? 0 : cx > 0 ? 16 : -16;
@@ -637,6 +638,7 @@ ${t.etiquettes ? etiquettes(t.etiquettes) : ""}
 
 function sectionRecherche(c) {
   const r = c.recherche;
+  const p = METHODOLOGIE[c.lang];
   const langueAffiche = c.lang === "ru" ? "fr" : c.lang;
   const valeur = (v) => (Array.isArray(v) ? v.map((x) => `<span class="ligne">${e(x)}</span>`).join("") : e(v));
   return `<div class="section-corps pleine">
@@ -647,6 +649,8 @@ function sectionRecherche(c) {
 <p class="sous-titre">${e(r.sousTitre)}</p>
 <p class="intro">${e(r.question)}</p>
 <p>${e(r.but)}</p>
+<h3 class="titre-bloc">${e(p.objectifs.titre)}</h3>
+<div class="notions objectifs-these">${p.objectifs.items.map(([t, d]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p></div>`).join("")}</div>
 <ul class="faits">${r.faits.map(([k, v], i) => `<li><b>${e(k)}</b><span>${valeur(v)}${i === r.faits.findIndex(([, x]) => /B2/.test(x)) ? ` <a class="doi" href="https://doi.org/10.69777/2009461">DOI 10.69777/2009461</a>` : ""}</span></li>`).join("")}</ul>
 <figure class="logos-recherche"><img src="${c.chemin}assets/logos-recherche.png?v=${empreinte("assets/logos-recherche.png")}" alt="Chaire de recherche GSK en gestion optimale des maladies chroniques · Fonds de recherche du Québec · CRCHUM · ESPUM · Université de Montréal" loading="lazy"></figure>
 ${lien(
@@ -657,12 +661,23 @@ ${lien(
 </div>
 <div class="colonne-outils">
 ${tableOnglets(r.table.titre, r.table.detail, r.table.etapes, r.table.terminus)}
+<div class="protocole-these">
+<h3 class="titre-bloc">${e(p.titre)}</h3>
+<p class="note-protocole">${e(p.etat)}</p>
+<h4>${e(p.devis.titre)}</h4>
+<ul class="puces">${p.devis.items.map(([t, d]) => `<li><b>${e(t)}</b>${deuxPoints(c)} ${e(d)}</li>`).join("")}</ul>
+<div class="etapes-protocole">${p.etapes.map((s) => `<details class="methode-these"><summary><span class="code-methode">${e(s.code)}</span><span><strong>${e(s.titre)}</strong><small>${e(s.cible)}</small></span></summary><div class="methode-these-corps"><dl>${s.blocs.map(([t, d]) => `<dt>${e(t)}</dt><dd>${e(d)}</dd>`).join("")}</dl><p class="repere-protocole">${e(s.reperes)}</p></div></details>`).join("")}</div>
+<h4>${e(p.integration.titre)}</h4><p>${e(p.integration.texte)}</p>
+</div>
 <div class="comparaison">${figureClsc(c)}
 ${schemaReseau(c)}</div>
 <h3 class="titre-bloc">${e(r.notions.titre)}</h3>
 <div class="notions">${r.notions.items.map(([t, d, ref]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p>${ref ? `<p class="ref">(${e(ref)})</p>` : ""}</div>`).join("")}</div>
 <h3 class="titre-bloc">${e(r.retombees.titre)}</h3>
 <ul class="puces deux-colonnes">${r.retombees.items.map(([t, d]) => `<li><b>${e(t)}</b>${deuxPoints(c)} ${e(d)}</li>`).join("")}</ul>
+<h3 class="titre-bloc">${e(p.limites.titre)}</h3>
+<p>${e(p.limites.intro)}</p>
+<ul class="puces limites-these">${p.limites.items.map(([t, d]) => `<li><b>${e(t)}</b>${deuxPoints(c)} ${e(d)}</li>`).join("")}</ul>
 <h3 class="titre-bloc">${e(r.codirection.titre)}</h3>
 <div class="codirection">${r.codirection.personnes.map((pe) => `<article class="personne"><h4>${e(pe.nom)}<span class="grade">${e(pe.grade)}</span></h4><ul>${pe.lignes.map((l) => `<li>${e(l)}</li>`).join("")}</ul><p class="chaire">${e(pe.chaire)}</p>${lien(pe.lien, `${e(r.codirection.profil)} <span aria-hidden="true">↗</span>`, "profil")}</article>`).join("")}</div>
 </div>

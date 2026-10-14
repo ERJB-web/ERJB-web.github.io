@@ -165,6 +165,23 @@ h1{margin:0;color:var(--ink);font:400 clamp(40px,4vw,58px)/1 var(--serif);letter
 .notions>div{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:18px}
 .notions h4{margin:0 0 6px;color:var(--ink);font:400 19px/1.3 var(--serif)}
 .notions p{margin:0;font-size:14.5px}
+.protocole-these{margin:32px 0}
+.protocole-these>h4{margin:24px 0 10px;color:var(--ink);font:600 17px/1.4 var(--sans)}
+.note-protocole{padding:14px 18px;border-inline-start:3px solid var(--green);background:var(--sea);font-size:14px}
+.etapes-protocole{display:grid;gap:10px;margin:24px 0}
+.methode-these{border:1px solid var(--line);border-radius:8px;background:var(--white)}
+.methode-these>summary{display:grid;grid-template-columns:2.5rem minmax(0,1fr) 1rem;align-items:center;gap:12px;padding:16px 18px;cursor:pointer;color:var(--ink);list-style:none}
+.methode-these>summary::-webkit-details-marker{display:none}
+.methode-these>summary::after{content:"+";font-size:22px;text-align:center}
+.methode-these[open]>summary::after{content:"−"}
+.methode-these>summary strong{display:block;font:600 16px/1.4 var(--sans)}
+.methode-these>summary small{display:block;margin-top:4px;font-size:13px;color:var(--muted)}
+.code-methode{font-size:13px;font-weight:700;color:var(--green)}
+.methode-these-corps{padding:0 18px 18px;border-top:1px solid var(--line)}
+.methode-these-corps dl{margin:0}
+.methode-these-corps dt{margin:20px 0 6px;color:var(--ink);font-weight:600}
+.methode-these-corps dd{margin:0;font-size:14.5px;line-height:1.7}
+.repere-protocole{margin:18px 0 0;font-size:12.5px;color:var(--muted)}
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:32px}
 .puces{margin:0;padding:0;list-style:none}
 .puces li{position:relative;padding:8px 0 8px 18px;border-bottom:1px solid var(--line);font-size:14.5px}

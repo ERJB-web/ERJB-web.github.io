@@ -53,6 +53,8 @@ for (const l of LANGUES.filter((x) => x.hreflang)) {
   verifier(`${l.code} : affiche disponible`, h && h.includes(`affiche-releve/img/affiche-${l.code === "ru" ? "fr" : l.code}.png`));
   const section = (id) => ((h || "").match(new RegExp(`<section[^>]+id="${id}"[\\s\\S]*?(?=<section|<footer|$)`)) || [""])[0];
   verifier(`${l.code} : travaux hors de la thèse`, !section("recherche").includes('class="travaux"'));
+  verifier(`${l.code} : méthodologie du protocole complète`, ["40–80", "15–25", "15–20", "Covidence", "Gravity Project", "REDCap", "Framework Method", "QAP"].every((t) => section("recherche").includes(t)));
+  verifier(`${l.code} : ancien devis de thèse remplacé`, !section("recherche").includes({fr: "réseau égocentré", en: "CLSC ego network", es: "red egocéntrica", zh: "自我中心网络", ar: "شبكة متمركزة حول الذات", ru: "Эгоцентрированная сеть"}[l.code]));
   verifier(`${l.code} : travaux avec les axes`, section("approche").includes('class="travaux"'));
   const groupes = [...(h || "").matchAll(/data-salle="([a-z]+)"[^>]*data-sections="([^"]+)"/g)];
   const sallesGroupe = (g) => (groupes.find((m) => m[1] === g) || ["", "", ""])[2].split(" ");
