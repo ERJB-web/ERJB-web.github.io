@@ -994,7 +994,7 @@ function sectionValeurs(c) {
 <p class="devise devise-grande"><span class="devise-libelle">${e(v.devise[0])}</span><span class="devise-latin" lang="la">${e(v.devise[1])}</span><span class="devise-traduction">${e(v.devise[2])}</span></p>
 </div>
 <div class="colonne-outils"><div class="valeurs-grille">${v.items
-    .map(([t, d], i) => `<article class="valeur v${i % 6}"><span class="valeur-num">${num(i)}</span><h4>${e(t)}</h4><p>${e(d)}</p></article>`)
+    .map(([t, d, teinte], i) => `<article class="valeur v${teinte ?? i % 6}"><span class="valeur-num">${num(i)}</span><h4>${e(t)}</h4><p>${e(d)}</p></article>`)
     .join("")}</div></div>
 </div>`;
 }
@@ -1166,7 +1166,7 @@ function page(c) {
   };
 
   return `<!doctype html>
-<html lang="${c.lang === "zh" ? "zh-Hans" : c.lang}"${langue(c.lang).dir ? ` dir="${langue(c.lang).dir}"` : ""} data-voix="${langue(c.lang).voix}" data-racine="${c.chemin || "./"}"${["fr", "en"].includes(c.lang) ? ` data-audio="${c.lang}" data-audio-exclues="recherche approche methodes axes ia transmission vulgarisation publications parcours educateur loisirs"` : ""}>
+<html lang="${c.lang === "zh" ? "zh-Hans" : c.lang}"${langue(c.lang).dir ? ` dir="${langue(c.lang).dir}"` : ""} data-voix="${langue(c.lang).voix}" data-racine="${c.chemin || "./"}"${["fr", "en"].includes(c.lang) ? ` data-audio="${c.lang}" data-audio-exclues="recherche approche methodes axes ia transmission vulgarisation publications parcours educateur loisirs valeurs biographie"` : ""}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">

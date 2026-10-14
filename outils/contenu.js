@@ -641,28 +641,34 @@ const fr = {
     ],
     "items": [
       [
-        "Curiosité intellectuelle",
-        "Aller voir ailleurs : d’autres disciplines, d’autres milieux, d’autres façons de penser."
+        "Pensée critique",
+        "Explorer d’autres disciplines et façons de penser, confronter les idées et questionner les évidences, les données et les institutions, à commencer par ses propres convictions.",
+        0
       ],
       [
         "Résilience",
-        "Faire des épreuves traversées une ressource pour avancer."
+        "Faire des épreuves traversées une ressource pour avancer.",
+        1
       ],
       [
         "Autonomie",
-        "Penser par soi-même et soutenir chez chacun la capacité de choisir sa vie."
-      ],
-      [
-        "Sens critique",
-        "Interroger les évidences, les données et les institutions, à commencer par les siennes."
+        "Penser par soi-même et soutenir chez chacun la capacité de choisir sa vie.",
+        2
       ],
       [
         "Coconstruire pour le bien collectif",
-        "Faire avec les personnes, et non pour elles : une recherche à impact, menée avec et pour les gens."
+        "Faire avec les personnes, et non pour elles : une recherche à impact, menée avec et pour les gens.",
+        4
       ],
       [
-        "Audace d’entreprendre",
-        "Oser proposer, créer et mettre en œuvre de nouvelles réponses."
+        "Audace d’innover",
+        "Oser proposer, innover, créer et mettre en œuvre de nouvelles réponses.",
+        5
+      ],
+      [
+        "Équité",
+        "Permettre, autant que possible, à toutes et tous de développer pleinement leurs capacités et de concrétiser leurs volontés.",
+        3
       ]
     ]
   },
@@ -2205,28 +2211,34 @@ const en = {
     ],
     "items": [
       [
-        "Intellectual curiosity",
-        "Looking elsewhere: other disciplines, other settings, other ways of thinking."
+        "Critical thinking",
+        "Exploring other disciplines and ways of thinking, comparing ideas and questioning assumptions, data and institutions, starting with one’s own beliefs.",
+        0
       ],
       [
         "Resilience",
-        "Turning hardships into resources to move forward."
+        "Turning hardships into resources to move forward.",
+        1
       ],
       [
         "Autonomy",
-        "Thinking for oneself, and supporting everyone’s capacity to choose their own life."
-      ],
-      [
-        "Critical thinking",
-        "Questioning what seems obvious, data and institutions, starting with one’s own."
+        "Thinking for oneself, and supporting everyone’s capacity to choose their own life.",
+        2
       ],
       [
         "Co-constructing for the common good",
-        "Doing with people, not for them: impactful research carried out with and for the people it concerns."
+        "Doing with people, not for them: impactful research carried out with and for the people it concerns.",
+        4
       ],
       [
-        "Boldness to undertake",
-        "Daring to propose, create and implement new responses."
+        "Boldness to innovate",
+        "Daring to propose, innovate, create and implement new responses.",
+        5
+      ],
+      [
+        "Equity",
+        "Enabling everyone, as far as possible, to fully develop their capabilities and realise their own aspirations.",
+        3
       ]
     ]
   },
@@ -3769,28 +3781,34 @@ const es = {
     ],
     "items": [
       [
-        "Curiosidad intelectual",
-        "Mirar más allá: otras disciplinas, otros entornos, otras maneras de pensar."
+        "Pensamiento crítico",
+        "Explorar otras disciplinas y formas de pensar, contrastar ideas y cuestionar las evidencias, los datos y las instituciones, empezando por las propias convicciones.",
+        0
       ],
       [
         "Resiliencia",
-        "Hacer de las pruebas vividas un recurso para avanzar."
+        "Hacer de las pruebas vividas un recurso para avanzar.",
+        1
       ],
       [
         "Autonomía",
-        "Pensar por uno mismo y sostener en cada persona la capacidad de elegir su vida."
-      ],
-      [
-        "Sentido crítico",
-        "Interrogar las evidencias, los datos y las instituciones, empezando por las propias."
+        "Pensar por uno mismo y sostener en cada persona la capacidad de elegir su vida.",
+        2
       ],
       [
         "Coconstruir por el bien colectivo",
-        "Hacer con las personas, y no por ellas: una investigación con impacto, realizada con y para la gente."
+        "Hacer con las personas, y no por ellas: una investigación con impacto, realizada con y para la gente.",
+        4
       ],
       [
-        "Audacia para emprender",
-        "Atreverse a proponer, crear y poner en práctica nuevas respuestas."
+        "Audacia para innovar",
+        "Atreverse a proponer, innovar, crear y poner en práctica nuevas respuestas.",
+        5
+      ],
+      [
+        "Equidad",
+        "Permitir, en la medida de lo posible, que todas las personas desarrollen plenamente sus capacidades y hagan realidad sus aspiraciones.",
+        3
       ]
     ]
   },
