@@ -372,7 +372,7 @@ ${terminus ? `<p class="terminus">${e(terminus)}</p>` : ""}
 </div>`;
 }
 
-const IMAGES_GROUPES = { recherche: "recherche.jpg", implantation: "transfert-congres.jpg", parcours: "parcours-chemin.jpg", engagements: "engagements.jpg", ressources: "ressources.jpg", contact: "contact.jpg" };
+const IMAGES_GROUPES = { recherche: "recherche.jpg", implantation: "transfert-implantation-pro.jpg", parcours: "parcours-professionnel.jpg", engagements: "engagements.jpg", ressources: "ressources.jpg", contact: "contact.jpg" };
 const TEINTES_GROUPES = { recherche: ["#1f5a8a", "#143d5e"], implantation: ["#c0612b", "#8a431c"], parcours: ["#7a4a8c", "#553263"], engagements: ["#a8343f", "#76232b"], ressources: ["#138086", "#0c5a5e"], contact: ["#4f7d2e", "#37591f"] };
 const IMAGES_PORTES = {
   recherche: "recherche.jpg",
