@@ -20,7 +20,8 @@ const empreinte = (fichier) => require("crypto").createHash("sha256").update(fs.
 const VERSION_CSS = empreinte("assets/site.css");
 const VERSION_JS = empreinte("assets/site.js");
 const VERSION_ICONE = empreinte("assets/favicon.svg");
-const logoMarque = (p) => `<span class="marque-mono"><img src="${p}assets/favicon.svg?v=${VERSION_ICONE}" alt="EB" width="48" height="48"></span>`;
+const VERSION_LOGO = empreinte("assets/logo.svg");
+const logoMarque = (p) => `<span class="marque-mono"><img src="${p}assets/logo.svg?v=${VERSION_LOGO}" alt="EB" width="48" height="48"></span>`;
 const URL = "https://erjb-web.github.io/";
 const TELEPHONE = ["(263) 384-3050", "+12633843050"];
 const GROUPES = [

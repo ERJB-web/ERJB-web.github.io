@@ -63,7 +63,7 @@ for (const l of LANGUES.filter((x) => x.hreflang)) {
   verifier(`${l.code} : enseignement et vulgarisation distincts`, sallesGroupe("implantation").includes("transmission") && sallesGroupe("implantation").includes("vulgarisation") && section("transmission").includes("SPU 7001") && !section("vulgarisation").includes("SPU 7001"));
   verifier(`${l.code} : sources pédagogiques et de communication`, section("transmission").includes("10.1073/pnas.1319030111") && section("transmission").includes("udlguidelines.cast.org") && section("vulgarisation").includes("www.cdc.gov/ccindex") && section("vulgarisation").includes("www.w3.org/WAI/media/av/"));
   const icone = (h.match(/rel="icon" href="([^"]+)"/) || [])[1];
-  verifier(`${l.code} : même logo pour le site et l'onglet`, !!icone && h.includes(`src="${icone}" alt="EB"`));
+  verifier(`${l.code} : logo transparent dans l’en-tête et favicon conservé`, !!icone && icone.includes("assets/favicon.svg?v=") && /src="[^"]*assets\/logo\.svg\?v=[a-f0-9]+" alt="EB"/.test(h));
   verifier(`${l.code} : applications présentes dans Innovations`, section("outils").includes('class="projet projet-ownnight"') && section("outils").includes('class="projet projet-spheres"'));
   verifier(`${l.code} : posture et méthodes séparées`, sallesGroupe("recherche").includes("methodes") && !section("approche").includes('class="methodes"') && !section("approche").includes('class="boite-outils"') && section("methodes").includes('class="methodes"') && section("methodes").includes('class="boite-outils"'));
   verifier(`${l.code} : posture centrée sur la recherche`, !section("approche").includes('class="expertises"') && section("approche").includes('class="piliers piliers-posture"'));

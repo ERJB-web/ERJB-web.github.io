@@ -1288,7 +1288,7 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 .porte .sous-portes{grid-template-columns:repeat(2,minmax(0,1fr))}
 .porte .sous-portes span{overflow-wrap:break-word}
 
-/* Un seul dessin vectoriel pour le logo et l'icône d'onglet. */
+/* Le monogramme de l'en-tête garde les proportions de l'icône d'onglet. */
 .marque-mono{width:48px;min-width:48px;height:48px;padding:0;display:block;background:none;box-shadow:none;border-radius:12px;flex:none}
 .marque-mono img{display:block;width:100%;height:100%}
 .reperes-transmission .ref{font-size:12.5px;margin:14px 0 0;text-align:start}
