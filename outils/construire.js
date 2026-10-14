@@ -102,76 +102,30 @@ function poserSousPortes(c) {
 const BANDEAUX = { methodes: "bandeaux/conceptualisation.jpg", axes: "bandeaux/recherche.jpg", ia: "bandeaux/grise.jpg", vulgarisation: "bandeaux/capsules.jpg", litterature: "bandeaux/ressources.jpg", representation: "photos/representation.jpg", communaute: "bandeaux/engagements.jpg", distinctions: "photos/distinctions.jpg", loisirs: "bandeaux/sports-loisirs.png" };
 const bandeau = (s) => BANDEAUX[s] || "bandeaux/" + s + ".jpg";
 const miniSalle = (s) => ({ methodes: "conceptualisation", axes: "recherche", ia: "outils", vulgarisation: "capsules" }[s] || s);
-// Références vérifiées (Crossref), communes à toutes les langues.
-const REFS_NOTIONS = {
-  autodetermination: [
-    ["Wehmeyer, M. L. (2005). Self-determination and individuals with severe disabilities: Re-examining meanings and misinterpretations. Research and Practice for Persons with Severe Disabilities, 30(3), 113–120.", "https://doi.org/10.2511/rpsd.30.3.113"],
-    ["Lachapelle, Y., Wehmeyer, M. L., Haelewyck, M.-C., Courbois, Y., Keith, K. D., Schalock, R., Verdugo, M. A., & Walsh, P. N. (2005). The relationship between quality of life and self-determination: An international study. Journal of Intellectual Disability Research, 49(10), 740–744.", "https://doi.org/10.1111/j.1365-2788.2005.00743.x"],
-    ["Ryan, R. M., & Deci, E. L. (2000). Self-determination theory and the facilitation of intrinsic motivation, social development, and well-being. American Psychologist, 55(1), 68–78.", "https://doi.org/10.1037/0003-066X.55.1.68"],
-  ],
-  coconstruction: [
-    ["Jull, J., Giles, A., & Graham, I. D. (2017). Community-based participatory research and integrated knowledge translation: Advancing the co-creation of knowledge. Implementation Science, 12, 150.", "https://doi.org/10.1186/s13012-017-0696-3"],
-    ["Redman, S., Greenhalgh, T., Adedokun, L., Staniszewska, S., & Denegri, S. (2021). Co-production of knowledge: The future. BMJ, 372, n434.", "https://doi.org/10.1136/bmj.n434"],
-  ],
-  experientiels: [
-    ["Borkman, T. (1976). Experiential knowledge: A new concept for the analysis of self-help groups. Social Service Review, 50(3), 445–456.", "https://doi.org/10.1086/643401"],
-    ["Pomey, M.-P., Flora, L., Karazivan, P., Dumez, V., Lebel, P., Vanier, M.-C., Débarges, B., Clavel, N., & Jouet, E. (2015). Le « Montreal model » : enjeux du partenariat relationnel entre patients et professionnels de la santé. Santé Publique, S1(HS), 41–50.", "https://doi.org/10.3917/spub.150.0041"],
-  ],
-  epistemique: [
-    ["Fricker, M. (2007). Epistemic injustice: Power and the ethics of knowing. Oxford University Press.", "https://doi.org/10.1093/acprof:oso/9780198237907.001.0001"],
-    ["Jull, J., Giles, A., & Graham, I. D. (2017). Community-based participatory research and integrated knowledge translation: Advancing the co-creation of knowledge. Implementation Science, 12, 150.", "https://doi.org/10.1186/s13012-017-0696-3"],
-  ],
-};
-const NOTIONS = {
-  fr: { salle: ["Notions clés", "Autodétermination, coconstruction, savoirs expérientiels"], surtitre: "Transmission", titre: "« Faire avec » et non « faire pour »", intro: "Quatre notions orientent ma manière de transférer les connaissances : elles placent les personnes concernées au cœur de la production et de l’usage des savoirs.", refs: "Pour aller plus loin",
-    items: {
-      autodetermination: ["Autodétermination", "Agir comme principal agent causal de sa propre vie : faire des choix et prendre des décisions sans influence externe indue. Le modèle fonctionnel de Wehmeyer en distingue quatre composantes : l’autonomie, l’autorégulation, l’empowerment psychologique et l’autoréalisation, c’est-à-dire une connaissance juste de soi, de ses forces et de ses limites, qui permet d’agir en conséquence. La théorie de Deci et Ryan y ajoute trois besoins fondamentaux : autonomie, compétence et appartenance."],
-      coconstruction: ["Coconstruction", "Produire les connaissances avec les personnes concernées plutôt que pour elles : chercheurs, praticiens, gestionnaires, patients et citoyens partagent la définition des questions, l’interprétation des résultats et leur mise en œuvre. Faire avec augmente la pertinence des savoirs et leur appropriation par celles et ceux qui les utiliseront."],
-      experientiels: ["Savoirs expérientiels", "Savoirs issus de l’expérience vécue de la maladie, du handicap, de la vulnérabilité ou du recours aux services. Distincts des savoirs scientifiques et professionnels, ils les complètent : le partenariat patient les reconnaît comme une expertise à part entière, dans le soin, l’enseignement et la recherche."],
-      epistemique: ["Retour épistémique", "Restituer les connaissances produites aux personnes et aux communautés qui y ont contribué, sous une forme qu’elles peuvent s’approprier, et reconnaître la légitimité de leurs savoirs. C’est une exigence de justice épistémique : éviter que la parole de certains groupes soit discréditée, ou que leurs expériences restent sans mots pour être dites."],
-    } },
-  en: { salle: ["Key concepts", "Self-determination, co-construction, experiential knowledge"], surtitre: "Sharing knowledge", titre: "“Doing with”, not “doing for”", intro: "Four concepts guide the way I transfer knowledge: they place the people concerned at the heart of producing and using knowledge.", refs: "Further reading",
-    items: {
-      autodetermination: ["Self-determination", "Acting as the primary causal agent in one’s own life: making choices and decisions free from undue external influence. Wehmeyer’s functional model distinguishes four components: autonomy, self-regulation, psychological empowerment and self-realisation, that is, an accurate knowledge of oneself, one’s strengths and limits, which makes it possible to act accordingly. Deci and Ryan’s theory adds three basic needs: autonomy, competence and relatedness."],
-      coconstruction: ["Co-construction", "Producing knowledge with the people concerned rather than for them: researchers, practitioners, managers, patients and citizens share in framing the questions, interpreting the results and putting them into practice. Doing with increases the relevance of knowledge and its ownership by those who will use it."],
-      experientiels: ["Experiential knowledge", "Knowledge that comes from lived experience of illness, disability, vulnerability or service use. Distinct from scientific and professional knowledge, it complements them: patient partnership recognises it as expertise in its own right, in care, teaching and research."],
-      epistemique: ["Epistemic return", "Returning the knowledge produced to the people and communities who contributed to it, in a form they can make their own, and recognising the legitimacy of their knowledge. It is a requirement of epistemic justice: preventing some groups’ testimony from being discredited, or their experiences from lacking the words to be expressed."],
-    } },
-  es: { salle: ["Nociones clave", "Autodeterminación, coconstrucción, saberes experienciales"], surtitre: "Transmisión", titre: "«Hacer con» y no «hacer por»", intro: "Cuatro nociones orientan mi manera de transferir conocimientos: sitúan a las personas concernidas en el centro de la producción y del uso de los saberes.", refs: "Para profundizar",
-    items: {
-      autodetermination: ["Autodeterminación", "Actuar como principal agente causal de la propia vida: tomar decisiones sin influencia externa indebida. El modelo funcional de Wehmeyer distingue cuatro componentes: la autonomía, la autorregulación, el empoderamiento psicológico y la autorrealización, es decir, un conocimiento ajustado de uno mismo, de sus fortalezas y de sus límites, que permite actuar en consecuencia. La teoría de Deci y Ryan añade tres necesidades básicas: autonomía, competencia y vinculación."],
-      coconstruction: ["Coconstrucción", "Producir los conocimientos con las personas concernidas y no para ellas: investigadores, profesionales, gestores, pacientes y ciudadanos comparten la definición de las preguntas, la interpretación de los resultados y su puesta en práctica. Hacer con aumenta la pertinencia de los saberes y su apropiación por quienes los utilizarán."],
-      experientiels: ["Saberes experienciales", "Saberes nacidos de la experiencia vivida de la enfermedad, la discapacidad, la vulnerabilidad o el uso de los servicios. Distintos de los saberes científicos y profesionales, los complementan: la colaboración con pacientes los reconoce como una pericia propia, en el cuidado, la enseñanza y la investigación."],
-      epistemique: ["Retorno epistémico", "Devolver los conocimientos producidos a las personas y comunidades que contribuyeron a ellos, en una forma que puedan apropiarse, y reconocer la legitimidad de sus saberes. Es una exigencia de justicia epistémica: evitar que la palabra de algunos grupos sea desacreditada o que sus experiencias carezcan de palabras para ser dichas."],
-    } },
-  zh: { salle: ["关键概念", "自我决定、共同建构、经验性知识"], surtitre: "知识传递", titre: "“与人们一起做”，而不是“替人们做”", intro: "四个概念引导我转化知识的方式：它们让相关人士处于知识生产与运用的中心。", refs: "延伸阅读",
-    items: {
-      autodetermination: ["自我决定", "作为自己生活的主要行动者：在不受不当外部影响的情况下作出选择和决定。Wehmeyer 的功能模型区分了四个组成部分：自主、自我调节、心理赋权与自我实现，即对自身、自身优势与局限的准确认识，从而能够据此行动。Deci 与 Ryan 的理论补充了三种基本需要：自主、胜任与归属。"],
-      coconstruction: ["共同建构", "与相关人士一起而不是替他们生产知识：研究者、实践者、管理者、患者与公民共同界定问题、解读结果并付诸实施。一起做能够提高知识的相关性，也让使用知识的人更好地把握知识。"],
-      experientiels: ["经验性知识", "来自疾病、残障、脆弱处境或使用服务之亲身经历的知识。它不同于科学知识与专业知识，并与之互补：患者伙伴关系将其视为在照护、教学与研究中的独立专长。"],
-      epistemique: ["认识回馈", "把所产生的知识以对方能够掌握的形式回馈给参与其中的人们与社群，并承认他们知识的正当性。这是认识正义的要求：避免某些群体的话语遭到贬低，或其经历缺乏被表达的语言。"],
-    } },
-  ar: { salle: ["مفاهيم أساسية", "تقرير المصير والبناء المشترك والمعارف التجريبية"], surtitre: "نقل المعرفة", titre: "«العمل مع الناس» لا «العمل من أجلهم»", intro: "أربعة مفاهيم توجّه طريقتي في نقل المعارف: فهي تضع الأشخاص المعنيين في قلب إنتاج المعارف واستخدامها.", refs: "للتعمق",
-    items: {
-      autodetermination: ["تقرير المصير", "أن يكون المرء الفاعل الرئيسي في حياته: أن يختار ويقرر دون تأثير خارجي غير مبرر. يميّز النموذج الوظيفي لويمير أربعة مكوّنات: الاستقلالية، والتنظيم الذاتي، والتمكين النفسي، وتحقيق الذات، أي معرفة دقيقة بالنفس وبمواطن قوتها وحدودها تتيح التصرف وفقًا لذلك. وتضيف نظرية ديسي ورايان ثلاث حاجات أساسية: الاستقلالية والكفاءة والانتماء."],
-      coconstruction: ["البناء المشترك", "إنتاج المعارف مع الأشخاص المعنيين لا من أجلهم: يشترك الباحثون والممارسون والمديرون والمرضى والمواطنون في تحديد الأسئلة وتفسير النتائج وتطبيقها. فالعمل المشترك يزيد من ملاءمة المعارف ومن تملّكها لدى من سيستخدمونها."],
-      experientiels: ["المعارف التجريبية", "معارف نابعة من التجربة المعيشة للمرض أو الإعاقة أو الهشاشة أو اللجوء إلى الخدمات. وهي متميزة عن المعارف العلمية والمهنية ومكمّلة لها: فالشراكة مع المرضى تعترف بها خبرةً قائمة بذاتها في الرعاية والتعليم والبحث."],
-      epistemique: ["الإرجاع المعرفي", "إعادة المعارف المنتَجة إلى الأشخاص والمجتمعات التي أسهمت فيها، بصيغة يستطيعون تملّكها، والاعتراف بمشروعية معارفهم. إنه مقتضى من مقتضيات العدالة المعرفية: تجنّب أن تُستخفّ شهادة بعض الفئات، أو أن تبقى تجاربهم بلا كلمات تعبّر عنها."],
-    } },
-};
-const textesNotions = (c) => NOTIONS[c.lang] || NOTIONS.en;
+// Lexique : seize notions, quatre familles et références communes au format APA.
+const NOTIONS = require("./notions-cles");
+const textesNotions = (c) => NOTIONS.langues[c.lang] || NOTIONS.langues.en;
+function referenceNotion(r) {
+  const auteurs = r.editors ? `${e(r.authors)} (Eds.).` : `${e(r.authors)}${r.authors.endsWith(".") ? "" : "."}`;
+  const titre = r.book ? `<em>${e(r.title)}</em>` : e(r.title);
+  const ponctuation = /[.!?]$/.test(r.title) ? "" : ".";
+  const support = r.journal
+    ? `<em>${e(r.journal)}${r.volume ? ", " + e(r.volume) : ""}</em>${r.issue ? "(" + e(r.issue) + ")" : ""}${r.pages || r.article ? ", " + e(r.pages || "Article " + r.article) : ""}.`
+    : r.publisher ? e(r.publisher) + "." : "";
+  return `${auteurs} (${e(String(r.year))}). ${titre}${ponctuation} ${support} <a href="${e(r.href)}" target="_blank" rel="noopener noreferrer">${e(r.href)}</a>`;
+}
 function sectionNotions(c) {
   const N = textesNotions(c);
-  const carte = (k) => `<article class="groupe-carte carte-notion"><div class="groupe-corps"><h3 class="titre-bloc">${e(N.items[k][0])}</h3><p>${e(N.items[k][1])}</p><p class="notion-refs-titre">${e(N.refs)}</p><ul class="notion-refs">${REFS_NOTIONS[k].map(([t, u]) => `<li>${e(t)} <a href="${u}" rel="noopener">${e(u.replace("https://doi.org/", "doi:"))}</a></li>`).join("")}</ul></div></article>`;
-  return `<div class="section-corps pleine">
-<div class="colonne-texte">
-<p class="surtitre">${e(N.surtitre)}</p>
-<h2>${e(N.titre)}</h2>
-<p class="intro">${e(N.intro)}</p>
-</div>
-<div class="colonne-outils"><div class="groupes-grille">${Object.keys(N.items).map(carte).join("")}</div></div>
-</div>`;
+  const cles = NOTIONS.groupes.flat();
+  const carte = (k) => {
+    const [titre, definition, usage, precision] = N.items[k];
+    const refs = NOTIONS.appuis[k].map((r) => NOTIONS.references[r]).sort((a, b) => a.authors.localeCompare(b.authors, "en"));
+    return `<article class="groupe-carte carte-notion notion-cadre"><div class="groupe-corps"><header class="notion-entete"><span class="notion-numero" aria-hidden="true">${num(cles.indexOf(k))}</span><h4 class="titre-bloc">${e(titre)}</h4></header><p class="notion-definition">${e(definition)}</p><div class="notion-usage"><p class="notion-libelle">${e(N.usage)}</p><p>${e(usage)}</p></div><p class="notion-precision"><strong>${e(N.precision)}.</strong> ${e(precision)}</p><details class="notion-biblio"><summary>${e(k === "epistemique" ? N.appuis : N.sources)}</summary><ol class="notion-refs">${refs.map((r) => `<li>${referenceNotion(r)}</li>`).join("")}</ol></details></div></article>`;
+  };
+  const rubriques = NOTIONS.groupes.map((g, i) => [`notions-${i + 1}`, N.familles[i], `<h3 class="lexique-famille">${e(N.familles[i])}</h3><div class="lexique-grille">${g.map(carte).join("")}</div>`]);
+  return `<div class="section-corps pleine lexique"><div class="colonne-texte"><p class="surtitre">${e(N.surtitre)}</p><h2>${e(N.titre)}</h2><p class="intro">${e(N.intro)}</p></div><div class="colonne-outils">${ongletsRubriques("notions", N.explorer, rubriques, 4)}</div></div>`;
 }
+
 const OUTILS = {
   fr: { salle: ["Innovations", "OWNNIGHT et les Sphères"], surtitre: "Recherche et innovations", titre: "Des applications pour apprendre et prendre soin", intro: "Deux projets numériques conçus à partir de besoins concrets : rendre les connaissances utiles, accessibles et mobilisables au quotidien.", etiquettes: ["Ce que c’est", "Le but", "La lacune comblée"],
     ownnight: { nom: "OWNNIGHT", slogan: "La science de ton sommeil, entre tes mains.", statut: "Projet entrepreneurial en cours · Android",
@@ -1166,7 +1120,7 @@ function page(c) {
   };
 
   return `<!doctype html>
-<html lang="${c.lang === "zh" ? "zh-Hans" : c.lang}"${langue(c.lang).dir ? ` dir="${langue(c.lang).dir}"` : ""} data-voix="${langue(c.lang).voix}" data-racine="${c.chemin || "./"}"${["fr", "en"].includes(c.lang) ? ` data-audio="${c.lang}" data-audio-exclues="recherche approche methodes axes ia transmission vulgarisation publications parcours educateur loisirs valeurs biographie"` : ""}>
+<html lang="${c.lang === "zh" ? "zh-Hans" : c.lang}"${langue(c.lang).dir ? ` dir="${langue(c.lang).dir}"` : ""} data-voix="${langue(c.lang).voix}" data-racine="${c.chemin || "./"}"${["fr", "en"].includes(c.lang) ? ` data-audio="${c.lang}" data-audio-exclues="recherche approche methodes axes ia transmission vulgarisation publications parcours educateur loisirs valeurs biographie notions"` : ""}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -1375,7 +1329,6 @@ const { zonesPage, zonesFalc } = require("./narration");
 const lectures = {};
 TRANSMISSION.ru = RU_COMPLEMENTS.TRANSMISSION;
 SOUS_RESSOURCES.ru = RU_COMPLEMENTS.SOUS_RESSOURCES;
-NOTIONS.ru = RU_COMPLEMENTS.NOTIONS;
 OUTILS.ru = RU_COMPLEMENTS.OUTILS;
 TEXTES_GROUPES.ru = RU_COMPLEMENTS.TEXTES_GROUPES;
 SCHEMAS.ru = RU_COMPLEMENTS.SCHEMAS;

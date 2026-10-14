@@ -24,7 +24,7 @@ function retirer(html, ouverture, nom) {
 
 function paragraphes(html) {
   let h = html;
-  h = retirer(h, /<details class="biblio"/, "details");
+  h = retirer(h, /<details class="(?:biblio|notion-biblio)"/, "details");
   h = retirer(h, /<div class="plus-loin"/, "div");
   h = retirer(h, /<ul class="liens-contact[^"]*"/, "ul");
   h = retirer(h, /<div class="etiquettes[^"]*"/, "div");
