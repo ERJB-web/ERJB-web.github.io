@@ -1,5 +1,4 @@
 "use strict";
-// Libellés du hall ; les titres et sous-rubriques restent ceux du contenu existant.
 module.exports = {
   "fr": {
     "mode": "Vue 3D",
@@ -7,11 +6,17 @@ module.exports = {
     "precedente": "Porte précédente",
     "suivante": "Porte suivante",
     "recentrer": "Recentrer la vue",
-    "aide": "Survolez une porte pour explorer · Glissez le fond pour orienter la vue",
+    "aide": "Cliquez sur le sol pour marcher ; glissez pour regarder. L’entrée se fait uniquement par clic.",
     "aideMobile": "Faites glisser les portes ou choisissez un numéro. Touchez une porte ou une rubrique pour entrer.",
     "ouvrir": "Ouvrir cette porte",
     "rubriques": "Explorer les rubriques",
-    "selection": "Porte sélectionnée"
+    "selection": "Porte sélectionnée",
+    "deplacement": "Cliquez sur le sol pour marcher · Glissez la souris pour regarder · Flèches ou ZQSD/WASD pour avancer · Cliquez sur une porte pour entrer",
+    "avancer": "Avancer",
+    "reculer": "Reculer",
+    "gauche": "Aller à gauche",
+    "droite": "Aller à droite",
+    "reprendre": "Reprendre la lecture"
   },
   "en": {
     "mode": "3D view",
@@ -19,11 +24,17 @@ module.exports = {
     "precedente": "Previous door",
     "suivante": "Next door",
     "recentrer": "Reset the view",
-    "aide": "Hover over a door to explore · Drag the background to turn the view",
+    "aide": "Click the floor to walk and drag to look around. Click a door to enter.",
     "aideMobile": "Swipe through the doors or choose a number. Tap a door or a section to enter.",
     "ouvrir": "Open this door",
     "rubriques": "Explore the sections",
-    "selection": "Selected door"
+    "selection": "Selected door",
+    "deplacement": "Click the floor to walk · Drag to look around · Arrow keys or WASD/ZQSD to move · Click a door to enter",
+    "avancer": "Move forward",
+    "reculer": "Move backward",
+    "gauche": "Move left",
+    "droite": "Move right",
+    "reprendre": "Resume reading"
   },
   "es": {
     "mode": "Vista 3D",
@@ -31,11 +42,17 @@ module.exports = {
     "precedente": "Puerta anterior",
     "suivante": "Puerta siguiente",
     "recentrer": "Centrar la vista",
-    "aide": "Pasa el cursor sobre una puerta · Arrastra el fondo para orientar la vista",
+    "aide": "Haz clic en el suelo para caminar y arrastra para mirar. Para entrar, haz clic en una puerta.",
     "aideMobile": "Desliza las puertas o elige un número. Toca una puerta o una sección para entrar.",
     "ouvrir": "Abrir esta puerta",
     "rubriques": "Explorar las secciones",
-    "selection": "Puerta seleccionada"
+    "selection": "Puerta seleccionada",
+    "deplacement": "Haz clic en el suelo para caminar · Arrastra para mirar · Flechas o WASD/ZQSD para moverte · Haz clic en una puerta para entrar",
+    "avancer": "Avanzar",
+    "reculer": "Retroceder",
+    "gauche": "Moverse a la izquierda",
+    "droite": "Moverse a la derecha",
+    "reprendre": "Retomar la lectura"
   },
   "zh": {
     "mode": "3D 视图",
@@ -43,11 +60,17 @@ module.exports = {
     "precedente": "上一扇门",
     "suivante": "下一扇门",
     "recentrer": "重置视角",
-    "aide": "将鼠标移至门上以浏览 · 拖动背景调整视角",
+    "aide": "点击地面行走，拖动调整视角。只有点击门后才会进入。",
     "aideMobile": "滑动浏览各扇门，或选择编号。轻触门或栏目即可进入。",
     "ouvrir": "打开这扇门",
     "rubriques": "浏览栏目",
-    "selection": "当前选择的门"
+    "selection": "当前选择的门",
+    "deplacement": "点击地面行走 · 拖动鼠标调整视角 · 使用方向键或 WASD/ZQSD 移动 · 点击门后才会进入",
+    "avancer": "向前移动",
+    "reculer": "向后移动",
+    "gauche": "向左移动",
+    "droite": "向右移动",
+    "reprendre": "继续阅读"
   },
   "ar": {
     "mode": "عرض ثلاثي الأبعاد",
@@ -55,11 +78,17 @@ module.exports = {
     "precedente": "الباب السابق",
     "suivante": "الباب التالي",
     "recentrer": "إعادة ضبط المنظور",
-    "aide": "مرّر المؤشر فوق باب للاستكشاف · اسحب الخلفية لتغيير المنظور",
+    "aide": "انقر على الأرض للمشي واسحب للنظر حولك. يتم الدخول بالنقر على باب فقط.",
     "aideMobile": "اسحب لتصفّح الأبواب أو اختر رقماً. المس باباً أو قسماً للدخول.",
     "ouvrir": "فتح هذا الباب",
     "rubriques": "استكشاف الأقسام",
-    "selection": "الباب المختار"
+    "selection": "الباب المختار",
+    "deplacement": "انقر على الأرض للمشي · اسحب لتغيير زاوية النظر · استخدم الأسهم أو WASD/ZQSD للحركة · انقر على باب للدخول",
+    "avancer": "التقدم",
+    "reculer": "الرجوع",
+    "gauche": "التحرك إلى اليسار",
+    "droite": "التحرك إلى اليمين",
+    "reprendre": "استئناف القراءة"
   },
   "ru": {
     "mode": "Вид 3D",
@@ -67,10 +96,16 @@ module.exports = {
     "precedente": "Предыдущая дверь",
     "suivante": "Следующая дверь",
     "recentrer": "Вернуть исходный ракурс",
-    "aide": "Наведите курсор на дверь · Перетащите фон, чтобы повернуть вид",
+    "aide": "Нажмите на пол для движения и перетаскивайте мышью для обзора. Вход — только по нажатию на дверь.",
     "aideMobile": "Листайте двери или выберите номер. Нажмите на дверь или раздел, чтобы войти.",
     "ouvrir": "Открыть эту дверь",
     "rubriques": "Перейти к разделам",
-    "selection": "Выбранная дверь"
+    "selection": "Выбранная дверь",
+    "deplacement": "Нажмите на пол, чтобы идти · Перетаскивайте мышью, чтобы осмотреться · Стрелки или WASD/ZQSD для движения · Нажмите на дверь, чтобы войти",
+    "avancer": "Двигаться вперёд",
+    "reculer": "Двигаться назад",
+    "gauche": "Двигаться влево",
+    "droite": "Двигаться вправо",
+    "reprendre": "Продолжить чтение"
   }
 };

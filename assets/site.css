@@ -1914,6 +1914,40 @@ html:is(.hc,.lv) .rubriques[data-navigation=atelier] :is(.rubriques-console,.rub
 .audience-info [data-audience-refuser]{min-height:44px;padding:9px 13px;border:1px solid var(--line);border-radius:8px;background:var(--white);color:var(--ink);text-align:start}
 .audience-info [data-audience-refuser][aria-pressed=true]{border-color:var(--green);background:var(--sage)}
 .audience-info .audience-etat{margin-top:10px;font-size:11px;color:var(--muted)}
+
+/* Seul un clic ouvre une porte. Le déplacement ne change jamais de rubrique. */
+.hall .porte:not(.ouverte) .battant{transform:none!important}
+.hall .porte:not(.ouverte):hover .apercu{opacity:0}
+.hall-aide-deplacement,.hall-personnage,.hall-cible,.hall-marche-commandes{display:none}
+.hall-reprise{display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;width:fit-content;max-width:100%;min-height:44px;margin:0 0 14px;padding:11px 16px;border:1px solid #a6c4b4;border-radius:10px;background:#f0f7f2;color:var(--ink);text-align:start;font-size:12px;line-height:1.5}
+.hall-reprise strong{font-weight:600;overflow-wrap:anywhere}
+.hall-reprise>span:last-child{margin-inline-start:auto;color:var(--green)}
+@media(min-width:1000px){
+ .hall.en-volume.en-promenade .hall-univers{top:52%;transition:none}
+ .hall.en-volume .hall-aide-deplacement{display:block;margin:0 0 14px;color:var(--muted);font-size:12px;line-height:1.7;text-align:start}
+ .hall.en-volume .hall-espace{height:650px;touch-action:pan-y;user-select:none}
+ .hall.en-volume .hall-espace:focus-visible{outline:2px solid var(--green);outline-offset:4px}
+ .hall.en-volume .hall-personnage{display:block;position:absolute;top:490px;left:790px;width:120px;height:180px;transform-origin:50% 100%;transform-style:preserve-3d;pointer-events:none;transition:opacity .16s}
+ .hall-personnage::before{content:"";position:absolute;left:19%;bottom:19px;width:62%;height:22px;border-radius:50%;background:radial-gradient(ellipse,rgba(35,45,30,.3),transparent 70%);transform:rotateX(70deg);transform-origin:center bottom}
+ .hall-personnage-sprite{display:block;position:absolute;inset:0;background-image:url("personnage-hall.png");background-repeat:no-repeat;background-size:300% 200%;background-position:0 0;filter:drop-shadow(2px 2px 2px rgba(35,45,30,.08));transform-origin:50% 100%}
+ .en-deplacement .hall-personnage-sprite{animation:pas-hall .64s steps(1,end) infinite}
+ .hall-personnage.marche-recul .hall-personnage-sprite{background-position-y:92%}
+ .hall-personnage.vers-gauche .hall-personnage-sprite{transform:scaleX(-1)}
+ .hall.en-volume .hall-cible{display:block;position:absolute;top:650px;width:42px;height:42px;border:2px solid #3c8373;border-radius:50%;background:rgba(75,140,115,.12);transform-origin:center;pointer-events:none;box-shadow:0 0 0 6px rgba(245,255,247,.35)}
+ .hall.en-volume .hall-marche-commandes{display:grid;grid-template-columns:repeat(3,38px);grid-template-rows:repeat(2,38px);gap:4px;position:absolute;left:16px;bottom:16px;padding:6px;border:1px solid #cfdbd0;border-radius:14px;background:rgba(255,255,255,.9);box-shadow:0 6px 16px rgba(25,50,35,.06);direction:ltr}
+ .hall-marche-commandes button{display:grid;place-items:center;min-width:38px;min-height:38px;border:1px solid #d6e1d9;border-radius:8px;background:#fff;color:var(--ink);font-size:18px;touch-action:none}
+ .hall-marche-commandes button:active{background:#e8f2eb;border-color:var(--green)}
+ .hall-marche-commandes [data-hall-marcher=avant]{grid-column:2;grid-row:1}
+ .hall-marche-commandes [data-hall-marcher=gauche]{grid-column:1;grid-row:2}
+ .hall-marche-commandes [data-hall-marcher=arriere]{grid-column:2;grid-row:2}
+ .hall-marche-commandes [data-hall-marcher=droite]{grid-column:3;grid-row:2}
+ .hall.en-volume.en-marche .hall-personnage,.hall.en-volume.en-marche .hall-marche-commandes{opacity:0;pointer-events:none}
+ .hall.en-volume .panneau-hall{user-select:text}
+ .hall.en-volume .hall-espace.en-glissement{cursor:grabbing}
+}
+@keyframes pas-hall{0%,100%{background-position-x:0}33.334%{background-position-x:50%}66.667%{background-position-x:100%}}
+@media(max-width:999px){.hall.en-mobile .hall-reprise{order:0;width:100%;font-size:12px}}
+@media(prefers-reduced-motion:reduce){.en-deplacement .hall-personnage-sprite{animation:none}.hall-personnage{transition:none}}
 .edition-linguistique{max-width:1224px;margin:24px auto 0;padding:20px 24px;border:1px solid var(--line);border-inline-start:3px solid var(--green);border-radius:8px;background:var(--white);color:var(--body)}
 .edition-linguistique-tete{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:12px}
 .edition-linguistique h2{margin:0;color:var(--ink);font:500 23px/1.5 var(--sans)}

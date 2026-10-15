@@ -17,7 +17,7 @@
   let courante = null;
   let occupe = false;
   const cleNavigation = 'eb-navigation-v1:' + location.pathname;
-  let memoirePrete = false, repriseEnCours = false, minuterieMemoire = 0;
+  let memoirePrete = false, repriseEnCours = false, minuterieMemoire = 0, lectureAReprendre = null;
 
   // L'état reste dans cet onglet et dans son entrée d'historique.
   function lireNavigation() {
@@ -48,6 +48,7 @@
     const etat = {
       version:1, chemin:location.pathname, fragment:location.hash,
       salle:courante, libre:racine.classList.contains('libre'), page:scrollY,
+      hall:hallVolume?.etat?.(), reprise:courante ? null : lectureAReprendre,
       lecture:salle && courante ? salle.scrollTop : 0,
       porte:Number(($('.station-hall.selectionnee') || {}).dataset?.hallStation) || 0,
       simple:!!$('[data-hall-mode][aria-pressed="false"]:not([hidden])'),
@@ -76,14 +77,13 @@
     racine.classList.toggle('libre',!!etat.libre);
     const mode=$('[data-hall-mode]');
     if(mode && !mode.hidden && (mode.getAttribute('aria-pressed')==='false')!==!!etat.simple)mode.click();
-    if(Number.isInteger(etat.porte) && etat.porte>=0 && etat.porte<groupes.length)$('[data-hall-choix="' + etat.porte + '"]')?.click();
+    hallVolume?.retablir?.({...etat.hall,selection:etat.hall?.selection ?? etat.porte ?? 0});
     if(salle && ordre.includes(etat.salle) && !etat.libre){
       afficher(etat.salle);
       salle.hidden=false;
       salle.classList.add('visible');
       document.body.classList.add('salle-ouverte');
       document.querySelectorAll('body > main, body > header, body > footer').forEach(el=>{el.inert=true;});
-      groupeDe(etat.salle).porte.classList.add('ouverte');
       marquer(etat.salle);
       $('[data-retour]',salle).focus({preventScroll:true});
     }
@@ -264,7 +264,12 @@
     ev.preventDefault();
     ouvrirDestinationAxe(lien.getAttribute('href').slice(1));
   });
-  addEventListener('popstate', () => ouvrirDestinationAxe(location.hash.slice(1), false));
+  addEventListener('popstate', () => {
+    if(!memoirePrete || !courante)return;
+    const fragment=location.hash.slice(1);
+    if(ordre.includes(fragment.split('/')[0]))ouvrirDestinationAxe(fragment,false);
+    else sortir();
+  });
 
 
   const onglets = salle && $(".salle-onglets", salle);
@@ -330,6 +335,9 @@
     $("[data-contact]", salle).hidden = i !== ordre.length - 1;
     salle.scrollTop = 0;
     courante = s;
+    lectureAReprendre=null;
+    const reprise=$('[data-reprendre-lecture]');
+    if(reprise)reprise.hidden=true;
     $$('[data-navigation="atelier"]',contenu).forEach(synchroniserRubriques);
     signalerAudience();
     demanderMemoire();
@@ -377,6 +385,7 @@
     salle.hidden = true;
     contenu.replaceChildren();
     document.body.classList.remove("salle-ouverte");
+    hallVolume?.redessiner?.();
     document.querySelectorAll("body > main, body > header, body > footer").forEach(el => { el.inert = false; });
     const porte = groupeDe(nom).porte;
     setTimeout(() => porte.classList.remove("ouverte"), reduit ? 0 : 200);
@@ -450,6 +459,7 @@
     const aideMobile = $('[data-hall-aide-mobile]',hall), positionMobile = $('[data-hall-position]',hall);
     const large = matchMedia('(min-width:1000px)'), calme = matchMedia('(prefers-reduced-motion:reduce)'), forcees = matchMedia('(forced-colors:active)');
     let selection = 0, simple = false, vueLarge = false, regardX = 0, regardY = 0, glissement = null, image = 0;
+    let marche = null;
     let mobile = false, imageDefilement = 0, cibleMobile = null, minuterieMobile = 0, largeurMobile = 0;
     const hauteurMobile = () => {
       if (!mobile) return;
@@ -489,6 +499,7 @@
       image = 0;
       if (mobile) { hauteurMobile(); return; }
       if (!hall.classList.contains('en-volume') || occupe) return;
+      if(marche){marche.dessiner();return;}
       monde.style.transform = vueLarge ? panorama() : camera(selection);
     };
     const demander = () => { if (!image) image = requestAnimationFrame(dessiner); };
@@ -505,6 +516,7 @@
       vueLarge = false; regardX = 0; regardY = 0;
       marquerChoix(); demander();
       defilerMobile();
+      if(!mobile && marche)marche.choisir(selection);
     };
     const actualiser = () => {
       const accessible = /(^| )(lv|hc|t[123])( |$)/.test(racine.className) || forcees.matches;
@@ -519,6 +531,7 @@
       [reperes,commandes].forEach(el=>el.hidden=!(actif || mobile));
       if (aideMobile) aideMobile.hidden=!mobile;
       if (hallVolume) { hallVolume.actif=actif || mobile; hallVolume.mobile=mobile; }
+      if(marche)marche.activer(actif);
       if (!actif) monde.style.removeProperty('transform');
       if (!mobile) rail.style.removeProperty('height');
       if (!mobile) {clearTimeout(minuterieMobile);cibleMobile=null;}
@@ -528,10 +541,18 @@
     };
     hallVolume = {
       actif:false, scene,
+      etat(){return {...(marche?.etat() || {}),selection};},
+      redessiner(){demander();},
+      retablir(etat){
+        if(Number.isInteger(etat?.selection))selection=Math.max(0,Math.min(stations.length-1,etat.selection));
+        if(marche)marche.retablir(etat);
+        marquerChoix();if(mobile)defilerMobile(true);demander();
+      },
       async approcher(porte) {
         if (!this.actif) return null;
         const i = groupes.findIndex(g=>g.porte===porte);
         if (i<0) return null;
+        if(!mobile && marche)marche.arreter();
         selection=i; vueLarge=false; regardX=0; regardY=0; marquerChoix();
         if (mobile) {
           defilerMobile(true);
@@ -563,10 +584,10 @@
           attendre(460).then(()=>porte.classList.add('ouverte')),
           Promise.race([animation.finished.catch(()=>{}),attendre(1020)])
         ]);
-        return ()=>{animation.cancel();hall.classList.remove('en-marche');};
+        return ()=>{animation.cancel();hall.classList.remove('en-marche');if(marche)marche.placerDevant(i);demander();};
       }
     };
-    stations.forEach((station,i)=>station.addEventListener('focusin',()=>{if(hallVolume.actif && selection!==i && !occupe)choisir(i);}));
+    stations.forEach((station,i)=>station.addEventListener('focusin',()=>{if(mobile && hallVolume.actif && selection!==i && !occupe)choisir(i);}));
     rail.addEventListener('scroll',()=>{
       if (!mobile || occupe || imageDefilement) return;
       if(cibleMobile!==null){
@@ -605,14 +626,14 @@
     $$('[data-hall-entrer]',hall).forEach(b=>b.addEventListener('click',()=>entrer(groupes[+b.dataset.hallEntrer].sections[0]||groupes[+b.dataset.hallEntrer].nom)));
     $('[data-hall-precedente]',hall).addEventListener('click',()=>choisir(selection-1));
     $('[data-hall-suivante]',hall).addEventListener('click',()=>choisir(selection+1));
-    $('[data-hall-recentrer]',hall).addEventListener('click',()=>{if(occupe)return;vueLarge=true;regardX=0;regardY=0;demander();});
+    $('[data-hall-recentrer]',hall).addEventListener('click',()=>{if(occupe)return;if(marche){marche.recentrer();return;}vueLarge=true;regardX=0;regardY=0;demander();});
     scene.addEventListener('pointerdown',ev=>{
-      if(mobile||ev.pointerType!=='mouse'||ev.button!==0||ev.target.closest('button,a')||!hallVolume.actif||calme.matches||occupe)return;
+      if(marche||mobile||ev.pointerType!=='mouse'||ev.button!==0||ev.target.closest('button,a')||!hallVolume.actif||calme.matches||occupe)return;
       glissement={x:ev.clientX,y:ev.clientY};
       scene.classList.add('en-glissement');scene.setPointerCapture(ev.pointerId);ev.preventDefault();
     });
     scene.addEventListener('pointermove',ev=>{
-      if(mobile||ev.pointerType!=='mouse'||!hallVolume.actif||calme.matches||occupe||vueLarge||(salle&&!salle.hidden))return;
+      if(marche||mobile||ev.pointerType!=='mouse'||!hallVolume.actif||calme.matches||occupe||vueLarge||(salle&&!salle.hidden))return;
       const r=scene.getBoundingClientRect();
       regardX=glissement?Math.max(-7,Math.min(7,(ev.clientX-glissement.x)*.035)):((ev.clientX-r.left)/r.width-.5)*1.4;
       regardY=glissement?Math.max(-2,Math.min(2,(ev.clientY-glissement.y)*.015)):((ev.clientY-r.top)/r.height-.5)*.8;
@@ -631,6 +652,7 @@
     }
     else addEventListener('resize',demander,{passive:true});
     new MutationObserver(actualiser).observe(racine,{attributes:true,attributeFilter:['class']});
+    if(window.creerMarcheHall)marche=window.creerMarcheHall({hall,scene,monde,stations,surSelection:i=>{selection=i;marquerChoix();}});
     marquerChoix();actualiser();
   }
   initialiserHallVolume();
@@ -879,13 +901,38 @@
   $$('[data-navigation="atelier"]').forEach(synchroniserRubriques);
 
   document.addEventListener('scroll',demanderMemoire,{capture:true,passive:true});
+  document.addEventListener('eb:hallposition',demanderMemoire);
   ['click','change','toggle'].forEach(n=>document.addEventListener(n,demanderMemoire,true));
   addEventListener('pagehide',memoriserNavigation);
   document.addEventListener('visibilitychange',()=>{if(document.hidden)memoriserNavigation();});
   requestAnimationFrame(async()=>{
-    if(navigationInitiale){reprendreNavigation(navigationInitiale);return;}
+    const proposer=etat=>{
+      if(!etat || !ordre.includes(etat.salle))return;
+      lectureAReprendre={...etat,reprise:null};
+      const bouton=$('[data-reprendre-lecture]');
+      if(!bouton)return;
+      bouton.hidden=false;
+      $('[data-reprise-nom]',bouton).textContent=$('section[data-salle="'+etat.salle+'"]').dataset.titre;
+      bouton.onclick=()=>{
+        const sauvegarde=lectureAReprendre;
+        if(!sauvegarde)return;
+        bouton.hidden=true;lectureAReprendre=null;
+        reprendreNavigation(sauvegarde);
+        if(sauvegarde.destination)requestAnimationFrame(()=>ouvrirDestinationAxe(sauvegarde.destination,false));
+      };
+    };
+    if(navigationInitiale){
+      reprendreNavigation({...navigationInitiale,salle:null,tables:[],details:[],libre:!!navigationInitiale.libre});
+      proposer(ordre.includes(navigationInitiale.salle)?navigationInitiale:navigationInitiale.reprise);
+      return;
+    }
     const fragment=location.hash.slice(1);
-    if(ordre.includes(fragment.split('/')[0]))await ouvrirDestinationAxe(fragment,false);
+    const destination=fragment.split('/')[0];
+    if(ordre.includes(destination)){
+      const index=groupes.indexOf(groupeDe(destination));
+      hallVolume?.retablir?.({selection:index});
+      proposer({salle:destination,porte:index,libre:false,page:scrollY,lecture:0,destination:fragment});
+    }
     memoirePrete=true;
     demanderMemoire();
   });
