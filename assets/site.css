@@ -1571,3 +1571,41 @@ html.hc .these [data-objectif],html.lv .these [data-objectif]{--objectif:#06202d
 @media(max-width:430px){.vul-relations>div,.vul-parcours{grid-template-columns:minmax(0,1fr)}.vul-parcours li+li::before{content:"↓";inset-inline-start:25px;top:-18px}.vul-parcours li:nth-child(3)::before{content:"↓"}.vul-parcours h4{margin-top:12px}.vul-frequences>div{padding:9px}}
 
 .vul-galerie>figcaption{font-size:14px;font-weight:600;line-height:1.5;margin-bottom:14px;color:var(--ink)}
+
+/* Axes de recherche : six cartes, travaux associés et destinations précises. */
+.section-corps.axes-recherche{display:block;max-width:1360px;padding-bottom:44px}
+.axes-introduction{max-width:850px;margin-bottom:38px}
+.axes-introduction .intro{max-width:780px;margin-bottom:0;text-align:start;hyphens:none}
+.axes-famille+ .axes-famille{margin-top:38px}
+.axes-famille>header{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.axes-famille>header h3{margin:0;color:var(--ink);font:600 17px/1.4 var(--sans);letter-spacing:0;text-transform:none}
+.axes-famille>header>span{display:inline-grid;place-items:center;width:25px;height:25px;border:1px solid var(--line);border-radius:50%;color:var(--muted);font-size:11px}
+.axes-cartes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:stretch}
+.axe-carte{min-width:0;display:flex;flex-direction:column;padding:25px 25px 0;border:1px solid var(--line);border-top:3px solid var(--axe);border-radius:15px;background:var(--white);box-shadow:0 5px 18px rgba(23,63,82,.035);transition:box-shadow .18s,border-color .18s,transform .18s}
+.axe-carte:hover{border-color:var(--axe);box-shadow:0 10px 25px rgba(23,63,82,.085);transform:translateY(-2px)}
+.axe-carte-tete{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:20px;color:var(--axe)}
+.axe-numero{font:700 11px/1.4 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.axe-carte-tete>svg{display:block;width:44px;height:44px;padding:8px;border-radius:11px;background:var(--sea);flex:none}
+.axe-carte h4{margin:0 0 16px;color:var(--ink);font:600 21px/1.32 var(--sans);letter-spacing:-.025em;text-wrap:pretty}
+.axe-carte h4>a{display:flex;align-items:flex-start;gap:12px;text-decoration:none}
+.axe-carte h4>a>span{min-width:0}
+.axe-carte h4>a>svg{width:19px;height:19px;flex:none;margin-top:4px;color:var(--axe)}
+.axe-carte h4 a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.axe-description{margin:0 0 24px;color:var(--muted);font-size:14px;line-height:1.7;text-align:start;hyphens:none}
+.axe-associations{margin-top:auto;border-top:1px solid var(--line);padding-top:18px}
+.axe-libelle{margin:0 0 10px;font-size:10px;line-height:1.5;font-weight:600;letter-spacing:.055em;text-transform:uppercase;color:var(--axe);text-align:start}
+.axe-associations ul{list-style:none;margin:0;padding:0}
+.axe-associations li+li{border-top:1px solid var(--line)}
+.axe-associations a{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 0 18px;text-decoration:none}
+.axe-associations a>span:first-child{min-width:0}
+.axe-associations strong{display:block;color:var(--ink);font-size:13px;font-weight:600;line-height:1.5}
+.axe-associations small{display:block;margin-top:6px;color:var(--muted);font-size:11px;line-height:1.5}
+.axe-associations a:hover strong{text-decoration:underline;text-underline-offset:3px}
+.axe-lien-fleche{flex:none;font-size:18px;color:var(--axe)}
+[data-axe-cible]{scroll-margin-top:155px}
+.axe-destination{outline:2px solid var(--accent-fonce);outline-offset:7px;border-radius:8px}
+html.cb .axe-carte{--axe:var(--ink)!important}
+html.lv .axes-cartes{grid-template-columns:1fr}
+@media(max-width:1100px){.axes-cartes{grid-template-columns:repeat(2,minmax(0,1fr))}.axe-carte{padding:23px 23px 0}}
+@media(max-width:700px){.axes-cartes{grid-template-columns:minmax(0,1fr);gap:18px}.axes-introduction{margin-bottom:28px}.axe-carte{padding:21px 21px 0}.axe-carte-tete{margin-bottom:14px}.axe-carte h4{font-size:20px}.axes-famille+ .axes-famille{margin-top:30px}.axe-description{font-size:14px;margin-bottom:20px}.axe-associations a{min-height:64px}}
+@media(prefers-reduced-motion:reduce){.axe-carte{transition:none}.axe-carte:hover{transform:none}}

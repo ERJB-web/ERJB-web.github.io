@@ -76,6 +76,59 @@
     occupe = false;
   }
 
+
+// Les axes relient une salle et, au besoin, un travail ou un onglet précis.
+  async function ouvrirDestinationAxe(fragment, memoriser = true) {
+    const parties = fragment.split('/');
+    const destination = parties[0];
+    const repere = parties[1] || '';
+    if (!ordre.includes(destination) || parties.length > 2 || (repere && !/^[a-z0-9-]+$/.test(repere)) || occupe) return;
+    const depart = courante;
+    const libre = racine.classList.contains('libre');
+    if (!libre) {
+      await entrer(destination);
+      if (courante !== destination) return;
+    }
+    const zone = libre ? $('section[data-salle="' + destination + '"]') : contenu;
+    if (!zone) return;
+    const cible = repere
+      ? zone.querySelector('[data-axe-cible="' + repere + '"], .rubrique-corps[data-rubrique="' + repere + '"]')
+      : zone;
+    if (cible) {
+      const parents = [];
+      let volet = cible.closest('.volet');
+      while (volet && zone.contains(volet)) {
+        parents.unshift(volet);
+        volet = volet.parentElement && volet.parentElement.closest('.volet');
+      }
+      parents.forEach(panneau => {
+        const table = panneau.closest('[data-onglets]');
+        const bouton = table && $$('[role=tab]', table).find(b => b.closest('[data-onglets]') === table && b.dataset.volet === panneau.dataset.volet);
+        if (bouton) bouton.click();
+      });
+      if (repere) {
+        cible.tabIndex = -1;
+        cible.classList.add('axe-destination');
+        cible.addEventListener('blur', () => cible.classList.remove('axe-destination'), { once: true });
+        cible.focus({ preventScroll: true });
+      }
+      if (repere || libre) cible.scrollIntoView({ block: 'start', behavior: sansPassage() ? 'auto' : 'smooth' });
+    }
+    if (memoriser && location.hash !== '#' + fragment) {
+      if (depart && location.hash.split('/')[0] !== '#' + depart) history.replaceState(null, '', '#' + depart);
+      history.pushState(null, '', '#' + fragment);
+    }
+  }
+
+  document.addEventListener('click', ev => {
+    const lien = ev.target.closest('a[data-axe-lien]');
+    if (!lien || ev.button !== 0 || ev.ctrlKey || ev.metaKey || ev.shiftKey || ev.altKey) return;
+    ev.preventDefault();
+    ouvrirDestinationAxe(lien.getAttribute('href').slice(1));
+  });
+  addEventListener('popstate', () => ouvrirDestinationAxe(location.hash.slice(1), false));
+
+
   const onglets = salle && $(".salle-onglets", salle);
   function afficher(s) {
     const groupe = groupeDe(s);
@@ -199,7 +252,7 @@
   // Les liens vers une salle (menu, « Explorer ») ouvrent sa porte
   document.addEventListener("click", (ev) => {
     const a = ev.target.closest('a[href^="#"]');
-    if (!a || salle.contains(a)) return;
+    if (!a || a.hasAttribute("data-axe-lien") || salle.contains(a)) return;
     const id = a.getAttribute("href").slice(1);
     if (!ordre.includes(id)) return;
     if (a.closest(".actions")) racine.classList.add("libre");
@@ -207,7 +260,7 @@
     ev.preventDefault();
     entrer(id);
   });
-  if (ordre.includes(location.hash.slice(1))) history.replaceState(null, "", location.pathname + location.search);
+  if (ordre.includes(location.hash.slice(1).split("/")[0])) requestAnimationFrame(() => ouvrirDestinationAxe(location.hash.slice(1), false));
   $("#visite").addEventListener("click", () => entrer(ordre[0]));
   $("[data-retour]", salle).addEventListener("click", () => sortir());
   $("[data-suivante]", salle).addEventListener("click", () => {

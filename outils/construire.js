@@ -15,6 +15,7 @@ const AUTOCHTONES = JSON.parse(fs.readFileSync(path.join(__dirname, "i18n", "aut
 const METHODOLOGIE = require("./methodologie");
 const METHODES_AJOUTS = require("./methodes-ajouts");
 const POSTURE = require("./posture-recherche");
+const AXES = require("./axes-recherche");
 const MEDIATION = require("./enseignement-vulgarisation");
 const ENSEIGNEMENT = require("./enseignement-vision");
 const COMMUNICATION = require("./communication-visuelle");
@@ -260,7 +261,7 @@ function sectionVitrine(c, cle) {
     const reperes = opt && opt.reperes
       ? `<p class="cnp-introduction">${e(opt.introduction)}</p><div class="cnp-reperes">${opt.reperes.map(([titre, texte, lien]) => `<div><h4>${e(titre)}</h4><p>${e(texte)}</p><a href="${e(lien)}">${e(opt.source)}</a></div>`).join("")}</div><h4 class="cnp-competences">${e(opt.listeTitre)}</h4>`
       : "";
-    return `<article class="groupe-carte carte-vitrine${opt && opt.large ? " carte-large" : ""}"><div class="groupe-corps"><h3 class="titre-bloc">${e(t)}</h3>${reperes}<ul class="vitrine-liste">${items.map((x) => `<li>${e(x)}</li>`).join("")}</ul>${k === V.blocs.length - 1 ? projets : ""}</div></article>`;
+    return `<article class="groupe-carte carte-vitrine${opt && opt.large ? " carte-large" : ""}"><div class="groupe-corps"><h3 class="titre-bloc">${e(t)}</h3>${reperes}<ul class="vitrine-liste">${items.map((x, j) => `<li${cle === "gestionnaire" && k === V.blocs.length - 1 && j === 2 ? ' data-axe-cible="experience-anap"' : ""}>${e(x)}</li>`).join("")}</ul>${k === V.blocs.length - 1 ? projets : ""}</div></article>`;
   }).join("");
   return `<div class="section-corps pleine">
 <div class="colonne-texte">
@@ -357,7 +358,7 @@ const icone = (nom) =>
 function liste(items) {
   return `<ul class="liste">${items
     .map(
-      (it) => `<li><span class="date">${e(it.date)}</span><div>${it.statut ? `<span class="statut">${e(it.statut)}</span>` : ""}<h4>${
+      (it) => `<li${it.cible ? ` data-axe-cible="${e(it.cible)}"` : ""}><span class="date">${e(it.date)}</span><div>${it.statut ? `<span class="statut">${e(it.statut)}</span>` : ""}<h4>${
         it.lien ? lien(it.lien, e(it.titre) + ' <span aria-hidden="true">↗</span>') : e(it.titre)
       }</h4>${it.detail ? `<p>${e(it.detail)}</p>` : ""}</div></li>`
     )
@@ -652,7 +653,7 @@ function travauxEnCours(c) {
 <div class="travaux-tete"><h3>${e(r.travaux.titre)}</h3><p>${e(r.travaux.intro)}</p></div>
 <div class="travaux-grille">${r.travaux.items
     .map(
-      (t) => `<article class="travail${t.resume ? " vedette" : ""}">
+      (t, i) => `<article class="travail${t.resume ? " vedette" : ""}" data-axe-cible="${["travail-epistemique", "travail-hospitalisations", "travail-pl2", "travail-droit"][i]}">
 <p class="domaine">${e(t.domaine)}</p>
 <span class="statut-pastille">${e(t.statut)}</span>
 <h4>${e(t.titre)}</h4>
@@ -778,15 +779,13 @@ function sectionApproche(c) {
 function sectionAxes(c) {
   const a = c.approche.axes;
   const t = MEDIATION.LANGUES[c.lang].axes;
-  return `<div class="section-corps pleine large"><div class="colonne-texte">
-<p class="surtitre">${e(t.salle[0])}</p><h2>${e(t.salle[0])}</h2>
-<h3 class="titre-bloc">${e(t.principaux)}</h3>
-<ul class="puces">${a.principaux.map((x) => `<li><b>${e(x)}</b></li>`).join("")}</ul>
-<h3 class="titre-bloc">${e(a.secondairesTitre)}</h3>
-<ul class="puces secondaires">${a.secondaires.map((x) => `<li>${e(x)}</li>`).join("")}</ul>
-</div></div>${travauxEnCours(c)}`;
+  const v = AXES.langues[c.lang];
+  const titres = [...a.principaux, ...a.secondaires];
+  const statut = x => typeof x === 'number' ? c.recherche.travaux.items[x].statut : v[x];
+  const carte = i => '<article class="axe-carte" style="--axe:' + AXES.couleurs[i] + '"><div class="axe-carte-tete"><span class="axe-numero">' + e(v.axe) + ' ' + num(i) + '</span><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' + AXES.icones[i] + '</svg></div><h4><a href="#' + AXES.principales[i] + '" data-axe-lien><span>' + e(titres[i]) + '</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a></h4><p class="axe-description">' + e(v.items[i][0]) + '</p><div class="axe-associations"><p class="axe-libelle">' + e(v.appuis) + '</p><ul>' + v.items[i][1].map((texte, j) => '<li><a href="#' + AXES.destinations[i][j] + '" data-axe-lien><span><strong>' + e(texte) + '</strong><small>' + e(statut(AXES.statuts[i][j])) + '</small></span><span class="axe-lien-fleche" aria-hidden="true">→</span></a></li>').join('') + '</ul></div></article>';
+  const groupe = (titre, indices) => '<section class="axes-famille"><header><h3>' + e(titre) + '</h3><span aria-hidden="true">' + indices.length + '</span></header><div class="axes-cartes">' + indices.map(carte).join('') + '</div></section>';
+  return '<div class="section-corps pleine axes-recherche"><div class="axes-introduction"><p class="surtitre">' + e(t.salle[0]) + '</p><h2>' + e(t.salle[0]) + '</h2><p class="intro">' + e(v.intro) + '</p></div>' + groupe(t.principaux, [0,1,2]) + groupe(a.secondairesTitre, [3,4,5]) + '</div>' + travauxEnCours(c);
 }
-
 function sectionMethodes(c) {
   const a = c.approche;
   const complement = METHODES_AJOUTS[c.lang];
@@ -962,7 +961,7 @@ function sectionGroupes(c, s, extra = "", icones = []) {
 <p class="intro">${e(s.intro)}</p>
 ${extra}
 </div>
-<div class="colonne-outils"><div class="groupes-grille">${s.groupes.map((g) => `<article class="groupe-carte"><div class="groupe-corps"><h3 class="titre-bloc titre-icone">${e(g.titre)}<span class="compte">${g.items.length}</span></h3>${liste(g.items)}</div></article>`).join("")}</div></div>
+<div class="colonne-outils"><div class="groupes-grille">${s.groupes.map((g, gi) => `<article class="groupe-carte"><div class="groupe-corps"><h3 class="titre-bloc titre-icone">${e(g.titre)}<span class="compte">${g.items.length}</span></h3>${liste(s === c.publications && gi === 1 ? g.items.map((it, j) => ({ ...it, cible: ["memoire-domicile", "memoire-ehpad"][j] })) : g.items)}</div></article>`).join("")}</div></div>
 </div>`;
 }
 
