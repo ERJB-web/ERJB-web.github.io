@@ -1306,6 +1306,7 @@ ${baliseAudience(p)}
 ${menuLangues(c, edition)}
 ${menuAcces(c, c.lang)}
 <a class="bouton-cv" href="${p}docs/cv-academique.pdf">${e(c.ui.cv)} <span aria-hidden="true">↓</span></a>
+<a class="bouton-cv" href="${e(c.recherche.affiche[2])}" target="_blank" rel="noopener">${e(({fr:"Affiche",en:"Poster",es:"Póster",zh:"海报",ar:"الملصق",ru:"Постер"})[c.lang] || "Affiche")} <span aria-hidden="true">↗</span></a>
 </div>
 </header>
 

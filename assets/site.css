@@ -39,6 +39,7 @@ p{text-wrap:pretty}
 @media(hover:hover){.entete .nav a:hover::before{transform:scale(1.35)}}
 @media(forced-colors:active){.nav{border-color:CanvasText}.nav a::before{background:LinkText}.entete .nav a:focus-visible{outline-color:Highlight}}
 .outils{display:flex;align-items:center;gap:10px;flex:none;margin-inline-start:auto}
+.entete .outils{flex-wrap:wrap;max-width:100%}
 .bouton-cv{font-size:13.5px;padding:7px 14px;border:1px solid var(--ink);border-radius:999px;color:var(--ink);text-decoration:none;white-space:nowrap;transition:background .2s,color .2s}
 .bouton-cv:hover{background:var(--ink);color:#fff}
 
