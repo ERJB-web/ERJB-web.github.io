@@ -35,12 +35,14 @@
     reduit = sansPassage();
     const porte = groupe.porte;
     if (salle.classList.contains("visible")) await sortir(false);
-    const r0 = porte.getBoundingClientRect();
+    const zoneEntree = hallVolume && hallVolume.actif ? hallVolume.scene : porte;
+    const r0 = zoneEntree.getBoundingClientRect();
     if (r0.top < 70 || r0.bottom > innerHeight) {
-      porte.scrollIntoView({ block: "center", behavior: reduit ? "auto" : "smooth" });
+      zoneEntree.scrollIntoView({ block: "center", behavior: reduit ? "auto" : "smooth" });
       await attendre(300);
     }
     $$(".porte.ouverte").forEach((p) => p.classList.remove("ouverte"));
+    const restaurerHall = hallVolume && hallVolume.actif ? await hallVolume.approcher(porte) : null;
     porte.classList.add("ouverte");
     marquer(nom);
     await attendre(400);
@@ -72,6 +74,7 @@
     salle.classList.add("visible");
     await attendre(220);
     passage.remove();
+    if (restaurerHall) restaurerHall();
     $("[data-retour]", salle).focus({ preventScroll: true });
     occupe = false;
   }
@@ -291,6 +294,125 @@
       }
     }
   });
+
+  let hallVolume = null;
+  function initialiserHallVolume() {
+    const hall = $('[data-hall-volume]');
+    if (!hall) return;
+    const scene = $('[data-hall-espace]',hall), monde = $('.hall-univers',hall);
+    const stations = $$('[data-hall-station]',hall), choix = $$('[data-hall-choix]',hall);
+    const mode = $('[data-hall-mode]',hall), reperes = $('[data-hall-reperes]',hall), commandes = $('[data-hall-commandes]',hall);
+    const large = matchMedia('(min-width:1000px)'), calme = matchMedia('(prefers-reduced-motion:reduce)'), forcees = matchMedia('(forced-colors:active)');
+    let selection = 0, simple = false, vueLarge = false, regardX = 0, regardY = 0, glissement = null, image = 0;
+    const angleDe = station => parseFloat(getComputedStyle(station).getPropertyValue('--station-angle')) || 0;
+    const camera = (index, entrer = false, profondeur = 50) => {
+      const station = stations[index], porte = groupes[index].porte, panneau = $('.panneau-hall',station);
+      const a = angleDe(station) * Math.PI / 180;
+      const localX = entrer ? porte.offsetLeft + porte.offsetWidth / 2 : (porte.offsetLeft + panneau.offsetLeft + panneau.offsetWidth) / 2;
+      const localY = entrer ? porte.offsetTop + porte.offsetHeight / 2 : 420;
+      const dx = station.offsetLeft + Math.cos(a) * localX - monde.offsetWidth / 2;
+      const dy = localY - monde.offsetHeight / 2;
+      const dz = parseFloat(getComputedStyle(station).getPropertyValue('--station-z')) - Math.sin(a) * localX;
+      const rotation = -angleDe(station) + (entrer ? 0 : regardX);
+      const pitch = entrer ? 0 : regardY;
+      const ry = rotation * Math.PI / 180, rx = pitch * Math.PI / 180;
+      const x = dx * Math.cos(ry) + dz * Math.sin(ry);
+      const z = -dx * Math.sin(ry) + dz * Math.cos(ry);
+      const y = dy * Math.cos(rx) - z * Math.sin(rx);
+      const zFinal = dy * Math.sin(rx) + z * Math.cos(rx);
+      const s = Math.min(1.04, Math.max(.82, scene.clientWidth / 1180));
+      const tx = -s*x, ty = scene.clientHeight*.52 - monde.offsetTop - s*y, tz = profondeur - s*zFinal;
+      return 'translate(-50%,-50%) translate3d('+tx.toFixed(2)+'px,'+ty.toFixed(2)+'px,'+tz.toFixed(2)+'px) scale('+s.toFixed(3)+') rotateX('+pitch.toFixed(2)+'deg) rotateY('+rotation.toFixed(2)+'deg)';
+    };
+    const panorama = () => 'translate(-50%,-50%) translate3d(0px,48px,-160px) scale(' + Math.min(.72, scene.clientWidth/1900).toFixed(3) + ') rotateX(-5deg) rotateY(0deg)';
+    const dessiner = () => {
+      image = 0;
+      if (!hall.classList.contains('en-volume') || occupe) return;
+      monde.style.transform = vueLarge ? panorama() : camera(selection);
+    };
+    const demander = () => { if (!image) image = requestAnimationFrame(dessiner); };
+    const marquerChoix = () => {
+      choix.forEach((b,i)=>b.setAttribute('aria-pressed',String(i===selection)));
+      stations.forEach((s,i)=>s.classList.toggle('selectionnee',i===selection));
+    };
+    const choisir = index => {
+      if (occupe) return;
+      selection = (index+stations.length)%stations.length;
+      vueLarge = false; regardX = 0; regardY = 0;
+      marquerChoix(); demander();
+    };
+    const actualiser = () => {
+      const accessible = /(^| )(lv|hc|t[123])( |$)/.test(racine.className) || forcees.matches;
+      const possible = large.matches && !accessible && typeof CSS!=='undefined' && CSS.supports('transform-style','preserve-3d');
+      mode.hidden = !possible;
+      const actif = possible && !simple;
+      hall.classList.toggle('en-volume',actif);
+      mode.setAttribute('aria-pressed',String(actif));
+      [reperes,commandes].forEach(el=>el.hidden=!actif);
+      if (hallVolume) hallVolume.actif=actif;
+      demander();
+    };
+    hallVolume = {
+      actif:false, scene,
+      async approcher(porte) {
+        if (!this.actif || reduit || !monde.animate) return null;
+        const i = groupes.findIndex(g=>g.porte===porte);
+        if (i<0) return null;
+        selection=i; vueLarge=false; regardX=0; regardY=0; marquerChoix();
+        const depart = getComputedStyle(monde).transform;
+        monde.style.transform = camera(i);
+        hall.classList.add('en-marche');
+        const animation = monde.animate([
+          {transform:depart,offset:0},
+          {transform:camera(i,false,100),offset:.48},
+          {transform:camera(i,true,720),offset:1}
+        ],{duration:950,easing:'cubic-bezier(.42,0,.18,1)',fill:'forwards'});
+        await Promise.all([
+          attendre(460).then(()=>porte.classList.add('ouverte')),
+          Promise.race([animation.finished.catch(()=>{}),attendre(1020)])
+        ]);
+        return ()=>{animation.cancel();hall.classList.remove('en-marche');};
+      }
+    };
+    stations.forEach((station,i)=>station.addEventListener('focusin',()=>{if(hallVolume.actif && selection!==i && !occupe)choisir(i);}));
+    mode.addEventListener('click',()=>{simple=!simple;actualiser();});
+    choix.forEach((b,i)=>{
+      b.addEventListener('click',()=>choisir(i));
+      b.addEventListener('keydown',ev=>{
+        if (!['ArrowLeft','ArrowRight','Home','End'].includes(ev.key))return;
+        ev.preventDefault();
+        const sens=racine.dir==='rtl'?-1:1;
+        const n=ev.key==='Home'?0:ev.key==='End'?choix.length-1:(i+(ev.key==='ArrowRight'?sens:-sens)+choix.length)%choix.length;
+        choisir(n);choix[n].focus();
+      });
+    });
+    $$('[data-hall-sous]',hall).forEach(b=>b.addEventListener('click',()=>entrer(b.dataset.hallSous)));
+    $$('[data-hall-entrer]',hall).forEach(b=>b.addEventListener('click',()=>entrer(groupes[+b.dataset.hallEntrer].sections[0]||groupes[+b.dataset.hallEntrer].nom)));
+    $('[data-hall-precedente]',hall).addEventListener('click',()=>choisir(selection-1));
+    $('[data-hall-suivante]',hall).addEventListener('click',()=>choisir(selection+1));
+    $('[data-hall-recentrer]',hall).addEventListener('click',()=>{if(occupe)return;vueLarge=true;regardX=0;regardY=0;demander();});
+    scene.addEventListener('pointerdown',ev=>{
+      if(ev.pointerType!=='mouse'||ev.button!==0||ev.target.closest('button,a')||!hallVolume.actif||calme.matches||occupe)return;
+      glissement={x:ev.clientX,y:ev.clientY};
+      scene.classList.add('en-glissement');scene.setPointerCapture(ev.pointerId);ev.preventDefault();
+    });
+    scene.addEventListener('pointermove',ev=>{
+      if(ev.pointerType!=='mouse'||!hallVolume.actif||calme.matches||occupe||vueLarge||(salle&&!salle.hidden))return;
+      const r=scene.getBoundingClientRect();
+      regardX=glissement?Math.max(-7,Math.min(7,(ev.clientX-glissement.x)*.035)):((ev.clientX-r.left)/r.width-.5)*1.4;
+      regardY=glissement?Math.max(-2,Math.min(2,(ev.clientY-glissement.y)*.015)):((ev.clientY-r.top)/r.height-.5)*.8;
+      demander();
+    },{passive:true});
+    const finir=()=>{glissement=null;scene.classList.remove('en-glissement');};
+    ['pointerup','pointercancel','lostpointercapture'].forEach(n=>scene.addEventListener(n,finir));
+    scene.addEventListener('pointerleave',()=>{if(!glissement){regardX=0;regardY=0;demander();}});
+    [large,calme,forcees].forEach(m=>m.addEventListener('change',actualiser));
+    if(typeof ResizeObserver!=='undefined')new ResizeObserver(demander).observe(scene);
+    else addEventListener('resize',demander,{passive:true});
+    new MutationObserver(actualiser).observe(racine,{attributes:true,attributeFilter:['class']});
+    marquerChoix();actualiser();
+  }
+  initialiserHallVolume();
 
   // Cycle des cinq temps : chaque étape ouvre l'onglet correspondant.
   document.addEventListener("click", (ev) => {
