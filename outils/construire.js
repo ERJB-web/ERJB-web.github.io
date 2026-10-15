@@ -30,7 +30,7 @@ const LOISIRS_AJOUTS = require("./loisirs-ajouts");
 const NAV_RUBRIQUES = require("./navigation-rubriques");
 const AUDIENCE = require("./audience.json");
 const AUDIENCE_LIBELLES = require("./audience-libelles");
-if(AUDIENCE.endpoint && !/^https:\/\/[a-z0-9][a-z0-9-]*\.goatcounter\.com\/count$/.test(AUDIENCE.endpoint))throw new Error("Adresse GoatCounter invalide");
+if(AUDIENCE.websiteId && !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(AUDIENCE.websiteId))throw new Error("Identifiant Umami invalide");
 
 const RACINE = path.join(__dirname, "..");
 const empreinte = (fichier) => require("crypto").createHash("sha256").update(fs.readFileSync(path.join(RACINE, fichier))).digest("hex").slice(0, 10);
@@ -701,12 +701,12 @@ const LIBELLES_FAITS_RECHERCHE = {
 
 // Une navigation propre à chaque table évite que les onglets imbriqués se masquent entre eux.
 function baliseAudience(prefixe) {
-  return AUDIENCE.endpoint ? `<script src="${prefixe}assets/audience.js?v=${VERSION_AUDIENCE}" data-audience-endpoint="${e(AUDIENCE.endpoint)}" data-audience-domaines="${e(AUDIENCE.domaines.join(' '))}" defer></script>` : '';
+  return AUDIENCE.websiteId ? `<script src="${prefixe}assets/audience.js?v=${VERSION_AUDIENCE}" data-audience-website-id="${e(AUDIENCE.websiteId)}" data-audience-domaines="${e(AUDIENCE.domaines.join(' '))}" defer></script>` : '';
 }
 
 function confidentialiteAudience(code) {
   const t=AUDIENCE_LIBELLES[code] || AUDIENCE_LIBELLES.fr;
-  return `<details class="audience-info"><summary>${e(t.titre)}</summary><div><p>${e(AUDIENCE.endpoint ? t.actif : t.inactif)}</p><p>${e(t.local)}</p>${AUDIENCE.endpoint ? `<p><a href="https://www.goatcounter.com/help/privacy" target="_blank" rel="noopener noreferrer">${e(t.service)} ↗</a></p><button type="button" data-audience-refuser aria-pressed="false">${e(t.refuser)}</button><p class="audience-etat" data-audience-etat data-autorisee="${e(t.autorisee)}" data-refusee="${e(t.refusee)}" data-navigateur="${e(t.navigateur)}"></p>` : ''}</div></details>`;
+  return `<details class="audience-info"><summary>${e(t.titre)}</summary><div><p>${e(AUDIENCE.websiteId ? t.actif : t.inactif)}</p><p>${e(t.local)}</p>${AUDIENCE.websiteId ? `<p><a href="https://umami.is/privacy" target="_blank" rel="noopener noreferrer">${e(t.service)} ↗</a></p><button type="button" data-audience-refuser aria-pressed="false">${e(t.refuser)}</button><p class="audience-etat" data-audience-etat data-autorisee="${e(t.autorisee)}" data-refusee="${e(t.refusee)}" data-navigateur="${e(t.navigateur)}"></p>` : ''}</div></details>`;
 }
 
 function ongletsRubriques(c, cle, explorer, rubriques, colonnes = 5) {

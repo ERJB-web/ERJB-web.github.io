@@ -1,9 +1,9 @@
 "use strict";
 (() => {
   const configuration=document.currentScript;
-  const endpoint=configuration?.dataset.audienceEndpoint;
+  const websiteId=configuration?.dataset.audienceWebsiteId;
   const domaines=(configuration?.dataset.audienceDomaines || '').split(' ');
-  if(!endpoint || !domaines.includes(location.hostname) || navigator.webdriver)return;
+  if(!websiteId || !domaines.includes(location.hostname) || navigator.webdriver)return;
   const cle='eb-audience-refusee';
   const racine=document.documentElement;
   let refuse=false, charge=false, chargement=false, minuterie=0, dernierChemin='';
@@ -32,11 +32,11 @@
     if(bloque() || !charge || document.visibilityState==='prerender')return;
     const path=route();
     if(path===dernierChemin)return;
-    const api=window.goatcounter;
-    if(!api?.count || api.filter?.())return;
+    const api=window.umami;
+    if(!api?.track)return;
     dernierChemin=path;
     const nom=document.querySelector('#salle-titre')?.textContent;
-    api.count({path,title:racine.dataset.audienceSalle && nom?nom:document.title,referrer:provenance()});
+    api.track({website:websiteId,hostname:location.hostname,language:racine.lang,url:path,title:racine.dataset.audienceSalle && nom?nom:document.title,referrer:provenance()});
   };
   const programmer=()=>{
     clearTimeout(minuterie);
@@ -46,11 +46,16 @@
     if(bloque() || charge || chargement)return;
     chargement=true;
     const script=document.createElement('script');
-    script.src='https://gc.zgo.at/count.js';
+    script.src='https://cloud.umami.is/script.js';
     script.async=true;
     script.referrerPolicy='strict-origin';
-    script.dataset.goatcounter=endpoint;
-    script.dataset.goatcounterSettings=JSON.stringify({no_onload:true,no_events:true});
+    script.dataset.websiteId=websiteId;
+    script.dataset.autoPageview='false';
+    script.dataset.performance='false';
+    script.dataset.excludeSearch='true';
+    script.dataset.doNotTrack='true';
+    script.dataset.domains=domaines.join(',');
+    script.dataset.beforeSend='ebFiltrerAudience';
     script.onload=()=>{charge=true;chargement=false;programmer();};
     script.onerror=()=>{chargement=false;};
     document.head.append(script);
@@ -71,9 +76,10 @@
     if(!lien)return;
     const href=lien.getAttribute('href');
     const action=href.includes('cv-academique.pdf')?'cv-academique':href.includes('cv-professionnel.pdf')?'cv-professionnel':href.startsWith('mailto:')?'contact-courriel':href.startsWith('tel:')?'contact-telephone':href.includes('bookings.cloud.microsoft')?'rendez-vous':null;
-    if(!action || window.goatcounter?.filter?.())return;
-    window.goatcounter?.count?.({path:'action:'+racine.lang+':'+action,title:action,event:true,referrer:''});
+    if(!action)return;
+    window.umami?.track?.({website:websiteId,hostname:location.hostname,language:racine.lang,url:route(),title:document.title,name:'action:'+racine.lang+':'+action,referrer:''});
   });
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)programmer();});
+  window.ebFiltrerAudience=(type,payload)=>bloque()?false:payload;
   actualiser();installer();
 })();

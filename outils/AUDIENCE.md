@@ -1,13 +1,16 @@
 # Activer la mesure d’audience
 
-L’intégration est prête mais reste inactive tant que `outils/audience.json` contient `"endpoint": null`. Aucun appel à GoatCounter n’est alors ajouté aux pages.
+L’intégration Umami est prête mais reste inactive tant que `outils/audience.json` contient `"websiteId": null`. Aucun appel au service de statistiques n’est alors ajouté aux pages.
 
-1. Créer le compte gratuit sur https://www.goatcounter.com/signup avec son propre courriel. Utiliser `https://erjb-web.github.io/` comme adresse du site et conserver le tableau de bord privé.
-2. Relever l’adresse attribuée, par exemple `https://nom-du-site.goatcounter.com`.
-3. Remplacer `endpoint` par `https://nom-du-site.goatcounter.com/count`, régénérer les pages avec `node outils/construire.js`, puis publier. Aucun mot de passe ni jeton privé n’entre dans le dépôt.
+1. Créer son compte sur https://cloud.umami.is/signup et sélectionner l’offre gratuite Hobby. Confirmer son adresse de courriel et choisir sa région de données.
+2. Ajouter le site `erjb-web.github.io` dans Settings → Websites, puis ouvrir son code de suivi.
+3. Copier la valeur publique `data-website-id` du script. Aucun mot de passe, code de confirmation ou jeton privé n’est nécessaire.
+4. Renseigner `websiteId`, régénérer les pages avec `node outils/construire.js`, puis publier.
 
-Les vues des salles et rubriques sont comptées comme des vues virtuelles. Les téléchargements des deux CV et les clics de contact ou de rendez-vous sont des événements distincts. Les paramètres d’URL, la position de lecture, les préférences d’accessibilité et les coordonnées des visiteurs ne sont pas transmis par cette intégration. Les provenances sont limitées à leur origine (domaine).
+Les salles et rubriques sont des vues virtuelles ; les téléchargements des deux CV et les clics de contact ou de rendez-vous sont des événements distincts. Les paramètres d’URL, la reprise de lecture et les préférences d’accessibilité ne sont pas transmis. Les provenances sont limitées à leur domaine. Aucun identifiant individuel n’est ajouté par le site et aucune fonction identify n’est utilisée.
 
-Les demandes Do Not Track et Global Privacy Control, ainsi que le refus exprimé dans le pied de page, empêchent le chargement et les envois. Les visites sur localhost et les domaines absents de la configuration sont exclues. Un blocage par le navigateur peut réduire les chiffres ; aucun contournement n’est prévu.
+Les demandes Do Not Track et Global Privacy Control et le refus dans le pied de page empêchent le chargement et les envois. Les statistiques automatiques de navigation et de performance sont désactivées : seuls les envois explicitement définis par le site sont utilisés. Les domaines absents de la configuration, dont localhost, sont exclus.
 
-Documentation officielle : https://www.goatcounter.com/help/js · https://www.goatcounter.com/help/spa · https://www.goatcounter.com/help/privacy
+Documentation : https://docs.umami.is/docs/cloud/sign-up · https://docs.umami.is/docs/cloud/faq · https://docs.umami.is/docs/tracker-functions · https://docs.umami.is/docs/tracker-configuration
+
+Le service GoatCounter initialement proposé n’a pas pu être joint en HTTPS depuis cet environnement lors de la préparation. Il n’est ni chargé ni utilisé.
