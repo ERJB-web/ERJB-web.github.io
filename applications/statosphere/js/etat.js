@@ -1,9 +1,9 @@
 /* Ce que l'élève a fait, gardé sur l'appareil (localStorage) : progression (QCM, Mémoriser, leçons lues, diapos vues,
    exercices, journal des activités), plan de révision, réglages, jeux, tutoriel R, favoris. Même forme que la version Windows. */
-import { jour, jourDe, maintenant, decaler, jourSemaine } from "./outils.js";
+import { jour, jourDe, maintenant, decaler, jourSemaine } from "./outils.js?v=autonome2";
 
-const CLES = { progression: "eb-public-statosphere.progression", plan: "eb-public-statosphere.plan", reglages: "eb-public-statosphere.reglages", jeux: "eb-public-statosphere.jeux",
-  tutoriel: "eb-public-statosphere.tutoriel", favoris: "eb-public-statosphere.favoris", positions: "eb-public-statosphere.positions" };
+const CLES = { progression: "eb-public-statosphere-v2.progression", plan: "eb-public-statosphere-v2.plan", reglages: "eb-public-statosphere-v2.reglages", jeux: "eb-public-statosphere-v2.jeux",
+  tutoriel: "eb-public-statosphere-v2.tutoriel", favoris: "eb-public-statosphere-v2.favoris", positions: "eb-public-statosphere-v2.positions" };
 function lire(cle, defaut) {
   try { const v = localStorage.getItem(cle); return v ? Object.assign(defaut, JSON.parse(v)) : defaut; } catch (e) { return defaut; }
 }
@@ -161,7 +161,7 @@ export function importer(donnees) {
 export function effacerTout() {
   try {
     const cles = Object.values(CLES).filter(c => c !== CLES.reglages);
-    for (let i = localStorage.length - 1; i >= 0; i--) { const k = localStorage.key(i); if (k && k.startsWith("eb-public-statosphere.qcm.")) cles.push(k); }
+    for (let i = localStorage.length - 1; i >= 0; i--) { const k = localStorage.key(i); if (k && k.startsWith("eb-public-statosphere-v2.qcm.")) cles.push(k); }
     for (const c of cles) localStorage.removeItem(c);
   } catch (e) { /* rien */ }
 }

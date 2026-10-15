@@ -1,15 +1,15 @@
 /* Le chat du tuteur Sigma (port de ConversationSigma) : ouverture (salut, chose à faire, conseil de l'écran), intentions
    (merci, salut, que faire, autre conseil, reprendre, mes erreurs, prochaine échéance, où j'en suis, plus loin, soutien, à propos),
-   et les questions sur la matière au moteur local du cours. Aucun appel réseau. */
-import * as M from "./modele.js";
-import * as E from "./etat.js";
-import * as T from "./tuteur.js";
-import { C } from "./modele.js";
-import { mots, developper, Correcteur, repondeur, couperTexte } from "./moteur.js";
-import { tete } from "./dessins.js";
-import { ico, icoPlein } from "./icones.js";
-import { md, inl, carteFormule } from "./rendu.js";
-import { esc, jour, ecart, dateLongue, insecables } from "./outils.js";
+   et les questions sur la matière au moteur local du parcours. Aucun appel réseau. */
+import * as M from "./modele.js?v=autonome2";
+import * as E from "./etat.js?v=autonome2";
+import * as T from "./tuteur.js?v=autonome2";
+import { C } from "./modele.js?v=autonome2";
+import { mots, developper, Correcteur, repondeur, couperTexte } from "./moteur.js?v=autonome2";
+import { tete } from "./dessins.js?v=autonome2";
+import { ico, icoPlein } from "./icones.js?v=autonome2";
+import { md, inl, carteFormule } from "./rendu.js?v=autonome2";
+import { esc, jour, ecart, dateLongue, insecables } from "./outils.js?v=autonome2";
 
 export const QUE_FAIRE = "Que faire maintenant ?", AUTRE_CONSEIL = "Autre conseil", REPRENDRE = "Reprendre", MES_ERREURS = "Mes erreurs",
   PROCHAINE_ECHEANCE = "Prochaine échéance", OU_J_EN_SUIS = "Où j'en suis ?", PLUS_LOIN = "Pour aller plus loin", AIDE = "Que sais-tu faire ?";
@@ -21,10 +21,10 @@ const MOTS_OUTILS = new Set(decoupe("le la les l un une des du de d au aux ce ce
   "est es suis sont ai as ont etait etaient sera seront que qu quoi qui quel quelle quels quelles ne n pas oui ok bon alors donc euh " +
   "maintenant aujourd hui etais veux voudrais aimerais peux pourrais peut avoir donne donner montre montrer dis " +
   "stp svp plait please merci bonjour salut sigma professeur prof"));
-const MOTS_D_EXAMEN = ["examen", "examens", "intra", "final", "finale", "mi session"];
+const MOTS_D_EXAMEN = ["bilan", "bilans", "intra", "final", "finale", "mi session"];
 const MOTS_DE_PREPARATION = ["preparer", "prepare", "preparation", "reviser", "revision", "revisions", "etudier", "conseil", "conseils", "aide", "besoin", "comment"];
 const MOTS_DU_SOUTIEN = new Set(decoupe("trop vraiment tellement super completement totalement beaucoup peu plus jamais encore tout tous toute rien truc chose choses " +
-  "cours matiere stats stat statistique statistiques r examen examens intra final finale quiz qcm seance seances temps moment jour jours semaine semaines fois envie fin vais va fait rend"));
+  "cours matiere stats stat statistique statistiques r bilan bilans intra final finale quiz qcm seance seances temps moment jour jours semaine semaines fois envie fin vais va fait rend"));
 const contient = (phrase, m) => ` ${phrase} `.includes(` ${m} `);
 class Regle {
   constructor(intention, declencheurs, vocabulaire, o = {}) {
@@ -47,7 +47,7 @@ const REGLES = [
   new Regle("quefaire", "faire, fais, fait, conseil, conseils, conseille, conseilles, commencer, reviser, etudier, travailler, et maintenant, et apres, ensuite, la suite, comment faire", "dois doit devrais faut puis sais ensuite"),
   new Regle("erreurs", "erreurs, erreur, fautes, faute, ratees, rate, ratee, rates", "question questions revoir voir refaire reprendre reviser travailler corriger qcm quiz serie fait",
     { requis: "mes mon ma j ratees rate ratee rates revoir refaire corriger questions" }),
-  new Regle("echeance", "examen, examens, intra, final, finale, mi session, quiz, quizz, echeance, echeances, seance, seances, prochain cours, prochain qcm",
+  new Regle("echeance", "bilan, bilans, intra, final, finale, mi session, quiz, quizz, echeance, echeances, seance, seances, prochain cours, prochain qcm",
     "quand date jour jours heure prochain prochaine lieu combien temps reste classe porte matiere preparer prepare preparation reviser revision revisions " +
     "etudier conseil conseils aide besoin comment semaine semaines demain bientot deja mois dois doit devrais faut"),
   new Regle("parcours", "j en suis, en suis je, progression, progres, avancement, bilan, parcours, suis rendu, resultats", "cours voir rendu"),
@@ -131,7 +131,7 @@ class Conversation {
         if (!lignes.length) { l = [bulle("Tu n'as encore rien commencé : la première séance t'attend.")]; break; }
         const der = E.P.qcm.slice().sort((a, b) => (a.date < b.date ? 1 : -1))[0];
         const seance = der && M.trouver(der.seance) ? der.seance : (M.prochaine(j) || {}).cle;
-        l = [bulle("Où tu en es dans le cours :\n" + lignes.map(x => `${x.libelle} : ${x.faits} sur ${x.total}`).join("\n"),
+        l = [bulle("Où tu en es dans le parcours :\n" + lignes.map(x => `${x.libelle} : ${x.faits} sur ${x.total}`).join("\n"),
           [{ titre: "Tes progrès en graphiques", detail: "Ta maîtrise au fil du temps et séance par séance, d'après tes QCM.", cible: E.cible("reviser", { seance, onglet: "progres" }), bouton: "Ouvrir" }])];
         break;
       }
@@ -139,12 +139,12 @@ class Conversation {
         const c = T.conseiller(j, 20).find(x => x.genre === "plusloin");
         if (c) { l = [bulle("Pour aller plus loin, si tu veux :", [this.montrer(c)])]; break; }
         const fac = M.facultatives();
-        l = fac.length ? [bulle("Les séances facultatives, à faire quand ton cours est à jour :", fac.map(s => ({ titre: `${s.court} · ${s.titre}`, detail: "Séance facultative", cible: E.cible("reviser", { seance: s.cle, onglet: "lecons" }), bouton: "Ouvrir" })))]
+        l = fac.length ? [bulle("Les séances facultatives, à faire quand ton cours est à jour :", fac.map(s => ({ titre: `${s.court} · ${s.titre}`, detail: "Module facultative", cible: E.cible("reviser", { seance: s.cle, onglet: "lecons" }), bouton: "Ouvrir" })))]
           : [bulle("Il n'y a pas de séance facultative.")];
         break;
       }
       case "soutien": l = this.soutenir(p, j); break;
-      case "apropos": l = [bulle("Je suis le tuteur Sigma, ton tuteur pour ce cours. Je fonctionne entièrement sur ton appareil, hors ligne : rien de ce que tu m'écris n'en sort. Je réponds à partir du cours : ses leçons, ses diapos, ses fiches et ses notions. Pose-moi une question sur une notion, ou choisis une réponse ci-dessous.", [], [...this.suggestions(j), AIDE])]; break;
+      case "apropos": l = [bulle("Je suis le tuteur Sigma, ton tuteur pour ce cours. Je fonctionne entièrement sur ton appareil, hors ligne : rien de ce que tu m'écris n'en sort. Je réponds à partir du parcours : ses leçons, ses diapos, ses fiches et ses notions. Pose-moi une question sur une notion, ou choisis une réponse ci-dessous.", [], [...this.suggestions(j), AIDE])]; break;
       default: {
         const b = repondeur().repondre(message.trim(), this.fil);
         l = [{ deSigma: true, ...b, passages: b.passages || [], suggestions: (b.passages || []).length ? [] : [...this.suggestions(j), AIDE] }];
@@ -163,10 +163,10 @@ class Conversation {
     const prochainExamen = M.datees().find(s => s.estExamen && s.jour >= j);
     if (nomme && (!prochainExamen || nomme.cle !== prochainExamen.cle)) return [bulle(`${nomme.titre} : ${minusculeSi(M.longueSeance(nomme))}.`)];
     const e = nomme || (MOTS_D_EXAMEN.some(m => contient(p, m)) ? prochainExamen : M.prochaine(j));
-    if (!e) return [bulle(M.prochaine(j) ? "Il n'y a plus d'examen à venir." : "La session est terminée : il n'y a plus de quiz ni d'examen à venir.")];
+    if (!e) return [bulle(M.prochaine(j) ? "Il n'y a plus d'bilan à venir." : "La session est terminée : il n'y a plus de quiz ni d'bilan à venir.")];
     const txt = e.estExamen ? `${M.longueSeance(e)} · ${e.titre}` : `${M.longueSeance(e)} · ${e.titre} · ${M.textesChapitres(e)}`;
-    const texte = `${e.estExamen ? "Prochain examen" : "Prochain quiz"} : ${minusculeSi(txt)}.`;
-    const prep = T.conseiller(j, 20).find(c => (c.genre === "preparer" && c.cible.seance === e.cle) || (c.genre === "examen" && e.estExamen && c.cible.seance && e.couvre.includes(c.cible.seance)));
+    const texte = `${e.estExamen ? "Prochain bilan" : "Prochain quiz"} : ${minusculeSi(txt)}.`;
+    const prep = T.conseiller(j, 20).find(c => (c.genre === "preparer" && c.cible.seance === e.cle) || (c.genre === "bilan" && e.estExamen && c.cible.seance && e.couvre.includes(c.cible.seance)));
     if (prep) return [bulle(`${texte} Pour t'y préparer :`, [this.montrer(prep)])];
     const chose = MOTS_DE_PREPARATION.some(m => contient(p, m)) ? this.choseAFaire(j) : null;
     return chose ? [bulle(`${texte} Pour t'y préparer, commence par ceci :`, [this.montrer(chose)])] : [bulle(texte)];
@@ -268,7 +268,7 @@ async function dire(texte) {
   await new Promise(r => setTimeout(r, 60));
   let bulles;
   try { bulles = conversation.repondre(texte); }
-  catch (e) { console.error(e); bulles = [bulle("Je n'ai pas réussi à chercher dans le cours. Réessaie avec d'autres mots.")]; }
+  catch (e) { console.error(e); bulles = [bulle("Je n'ai pas réussi à chercher dans le parcours. Réessaie avec d'autres mots.")]; }
   await new Promise(r => setTimeout(r, 380));
   indicateur.remove();
   ecrit = false;

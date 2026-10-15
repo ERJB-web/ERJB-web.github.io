@@ -1,10 +1,10 @@
 /* 07 · Réglages : thème, données de l'élève (exporter, importer, effacer), cours hors ligne, mot de passe sur cet appareil, à propos. */
-import * as E from "../etat.js";
-import * as Contenu from "../contenu.js";
-import { ico } from "../icones.js";
-import { entete } from "../ui.js";
-import { esc, jour } from "../outils.js";
-import { verrouiller, preparerHorsLigne } from "../app.js";
+import * as E from "../etat.js?v=autonome2";
+import * as Contenu from "../contenu.js?v=autonome2";
+import { ico } from "../icones.js?v=autonome2";
+import { entete } from "../ui.js?v=autonome2";
+import { esc, jour } from "../outils.js?v=autonome2";
+import { verrouiller, preparerHorsLigne } from "../app.js?v=autonome2";
 
 const THEMES = [["clair", "Clair"], ["sombre", "Sombre"], ["systeme", "Comme le système"]];
 const mo = n => `${(n / 1048576).toLocaleString("fr-CA", { maximumFractionDigits: n >= 10485760 ? 0 : 1 })} Mo`;
@@ -37,7 +37,7 @@ export default async function reglages(r, API) {
       const etat = main.querySelector("[data-etat-hl]");
       (async () => {
         const e = await Contenu.etatHorsLigne();
-        let t = !e.total ? "Ce navigateur ne garde pas le cours hors ligne." : !e.manquants.length ? `Tout le cours est prêt hors ligne (${mo(e.total)}).` : `${Math.floor((e.fait / e.total) * 100)} % du cours est prêt hors ligne (${mo(e.fait)} sur ${mo(e.total)}).`;
+        let t = !e.total ? "Ce navigateur ne garde pas le parcours hors ligne." : !e.manquants.length ? `Tout le parcours est prêt hors ligne (${mo(e.total)}).` : `${Math.floor((e.fait / e.total) * 100)} % du parcours est prêt hors ligne (${mo(e.fait)} sur ${mo(e.total)}).`;
         try { if (navigator.storage && navigator.storage.persisted && await navigator.storage.persisted()) t += " Gardé durablement."; } catch (x) { /* rien */ }
         if (etat) etat.textContent = t;
       })();
@@ -66,7 +66,7 @@ export default async function reglages(r, API) {
         E.effacerTout(); location.reload();
       });
       main.querySelector("[data-verrouiller]")?.addEventListener("click", () => {
-        if (!confirm("Le mot de passe du cours sera retiré de cet appareil. Ton avancement reste.\n\nVerrouiller ?")) return;
+        if (!confirm("Le mot de passe du parcours sera retiré de cet appareil. Ton avancement reste.\n\nVerrouiller ?")) return;
         verrouiller();
       });
     },

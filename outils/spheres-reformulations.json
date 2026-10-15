@@ -1,0 +1,47 @@
+[
+  {
+    "motif": "^Les diapos du chapitre \\d+ ont nommé le V de Cramér",
+    "flags": "",
+    "texte": "Pour un tableau 2 × 2, le V de Cramér est la valeur absolue du coefficient phi. Il mesure une intensité d’association et reste non négatif. Pour comprendre le sens d’une différence, examine les proportions conditionnelles et le contexte du tableau."
+  },
+  {
+    "motif": "^La situation où une association.*Une diapo du chapitre",
+    "flags": "s",
+    "texte": "Une association observée dans l’ensemble d’une population peut changer de sens après stratification. Cette inversion peut résulter de la composition des groupes et des relations entre les variables. Avant d’interpréter un tableau ajusté, précise le rôle causal supposé de la variable de stratification."
+  },
+  {
+    "motif": "^Quatre pièges\\..*diapo",
+    "flags": "s",
+    "texte": "Quatre points à vérifier : un découpage plus détaillé ne révèle pas automatiquement une vérité causale ; une inversion d’association peut concerner des variables quantitatives ; une relation entre groupes ne s’applique pas nécessairement aux individus ; la stratification doit être justifiée par la question et les relations supposées entre variables."
+  },
+  {
+    "motif": "^Un élève progresse après des cours de soutien",
+    "flags": "",
+    "texte": "Après un accompagnement fictif, un score de bien-être augmente. Ce changement pourrait aussi refléter une évolution spontanée, une modification de la mesure ou d’autres événements. Pour discuter un effet du programme, il faut un contraste crédible avec ce qui se serait produit sans lui."
+  },
+  {
+    "motif": "^\\*\\*Une variable ordinale.*Une diapo",
+    "flags": "s",
+    "texte": "**Une variable ordinale : score ou indicatrices ?** Coder les catégories par un score unique impose une forme particulière à leur relation avec l’issue. On peut comparer ce modèle à un modèle plus souple par indicatrices, si les modèles sont emboîtés et les hypothèses du test adaptées. Un test de cette contrainte évalue la relation statistique observée ; il ne démontre pas que les distances entre catégories représentent des écarts réels identiques."
+  },
+  {
+    "motif": "^Des élèves d'une même classe, qui partagent le même enseignant",
+    "flags": "",
+    "texte": "Des personnes suivies dans un même service peuvent partager des influences communes. Le devis et le modèle doivent tenir compte de cette dépendance : selon la question, on peut envisager des modèles hiérarchiques ou des variances adaptées aux regroupements. Un test de normalité ne démontre pas l’indépendance."
+  },
+  {
+    "motif": "^La diapo de la prévalence de période",
+    "flags": "",
+    "texte": "Pour une prévalence de période, identifie les personnes ayant présenté l’état au moins une fois durant l’intervalle et définis une population de référence adaptée. Une même personne n’est comptée qu’une fois au numérateur. Le dénominateur et la période doivent être explicités."
+  },
+  {
+    "motif": "^le taux de la strate j, noté.*diapo",
+    "flags": "s",
+    "texte": "le taux de la strate j ; vérifier si la notation désigne le taux observé ou celui de la population de référence avant de calculer ({resultat})"
+  },
+  {
+    "motif": "^Un enseignant juge la difficulté de son examen",
+    "flags": "",
+    "texte": "Un service évalue la satisfaction seulement auprès des personnes ayant terminé l’accompagnement. Si les personnes qui ont quitté le dispositif ont une expérience différente, cette sélection peut fausser le résultat présenté. Décrire les sorties aide à discuter le biais sans présumer de son ampleur."
+  }
+]

@@ -1,10 +1,10 @@
-/* 01 · Raccourcis : les symboles du cours à copier d'un toucher, les codes « ;code » et un champ pour les essayer. */
-import { C } from "../modele.js";
-import { ico } from "../icones.js";
-import { entete, piste } from "../ui.js";
-import { esc, normaliser } from "../outils.js";
-import { listeEtapes } from "../rendu.js";
-import { telecharger, surTactile } from "../positron.js";
+/* 01 · Raccourcis : les symboles du parcours à copier d'un toucher, les codes « ;code » et un champ pour les essayer. */
+import { C } from "../modele.js?v=autonome2";
+import { ico } from "../icones.js?v=autonome2";
+import { entete, piste } from "../ui.js?v=autonome2";
+import { esc, normaliser } from "../outils.js?v=autonome2";
+import { listeEtapes } from "../rendu.js?v=autonome2";
+import { telecharger, surTactile } from "../positron.js?v=autonome2";
 
 const FAMILLES = ["Lettres grecques", "Opérateurs, relations et flèches", "Variables, estimés et espérances"];
 const COULEURS = ["#0A6FB8", "#16A6A1", "#5BAE3F"];

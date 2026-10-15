@@ -1,8 +1,8 @@
 /* 03 · Outils : fraction pour Word, exposants, indices et accents, formule libre (LaTeX vers Word ou texte Unicode). */
-import { ico } from "../icones.js";
-import { entete } from "../ui.js";
-import { esc } from "../outils.js";
-import { mathml } from "./catalogue.js";
+import { ico } from "../icones.js?v=autonome2";
+import { entete } from "../ui.js?v=autonome2";
+import { esc } from "../outils.js?v=autonome2";
+import { mathml } from "./catalogue.js?v=autonome2";
 
 const MOT_WORD = "Copiée pour Word : colle-la dans ton document, elle devient une équation.";
 const GRECS = { α: "alpha", β: "beta", γ: "gamma", δ: "delta", ε: "varepsilon", ζ: "zeta", η: "eta", θ: "theta", ι: "iota", κ: "kappa", λ: "lambda", μ: "mu", ν: "nu", ξ: "xi", π: "pi", ρ: "rho", σ: "sigma", τ: "tau", υ: "upsilon", φ: "varphi", χ: "chi", ψ: "psi", ω: "omega", Γ: "Gamma", Δ: "Delta", Θ: "Theta", Λ: "Lambda", Ξ: "Xi", Π: "Pi", Σ: "Sigma", Φ: "Phi", Ψ: "Psi", Ω: "Omega" };
@@ -40,7 +40,7 @@ function versLatex(texte) {
 }
 const operande = s => { const t = String(s || "").trim(); return /[\s+\-−·×=]/.test(t) && !/^\(.*\)$/.test(t) ? `(${t})` : t; };
 
-/** LaTeX vers texte Unicode, pour les formules simples du cours. */
+/** LaTeX vers texte Unicode, pour les formules simples du parcours. */
 function versUnicode(latex) {
   let s = String(latex || "");
   const groupe = "\\{((?:[^{}]|\\{[^{}]*\\})*)\\}";

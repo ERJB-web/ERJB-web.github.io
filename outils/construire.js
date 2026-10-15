@@ -42,6 +42,13 @@ const VERSION_JS = empreinte("assets/site.js");
 const VERSION_MARCHE = empreinte("assets/hall-marche.js");
 const VERSION_AUDIENCE = empreinte("assets/audience.js");
 const VERSION_ICONE = empreinte("assets/favicon.svg");
+const PUBLICATION_SITE = require("./site-publication.json");
+function copyrightSite(code="fr") {
+  const libelles={fr:"Dernière mise à jour",en:"Last updated",es:"Última actualización",zh:"最后更新",ar:"آخر تحديث",ru:"Последнее обновление"};
+  const langue=libelles[code]?code:"fr",date=PUBLICATION_SITE.date;
+  const lisible=new Intl.DateTimeFormat(langue,{day:"numeric",month:"long",year:"numeric",timeZone:"UTC"}).format(new Date(date+"T12:00:00Z"));
+  return '<span>© '+date.slice(0,4)+' Éric Bernier · '+e(libelles[langue])+' : <time datetime="'+date+'">'+e(lisible)+'</time></span>';
+}
 const URL = "https://erjb-web.github.io/";
 const TELEPHONE = ["(263) 384-3050", "+12633843050"];
 const GROUPES = [
@@ -169,9 +176,9 @@ function poserSousPortes(c) {
   for (const [s, P] of Object.entries(PARTIES_RESSOURCES)) c.hall.portes[s] = [S[s][0] || c.ressources.groupes[P.groupes[0]][0], S[s][1]];
   for (const [s, k] of Object.entries(INDEX_ENGAGEMENTS)) c.hall.portes[s] = [c.engagements.groupes[k].titre, c.hall.portes.engagements[0]];
 }
-const BANDEAUX = { logiciels:"bandeaux/outils.jpg", methodes: "bandeaux/conceptualisation.jpg", axes: "bandeaux/recherche.jpg", ia: "bandeaux/grise.jpg", vulgarisation: "bandeaux/capsules.jpg", litterature: "bandeaux/ressources.jpg", representation: "photos/representation.jpg", communaute: "bandeaux/engagements.jpg", distinctions: "photos/distinctions.jpg", loisirs: "bandeaux/sports-loisirs.png" };
+const BANDEAUX = { logiciels:"bandeaux/logiciels.svg", methodes: "bandeaux/conceptualisation.jpg", axes: "bandeaux/recherche.jpg", ia: "bandeaux/grise.jpg", vulgarisation: "bandeaux/capsules.jpg", litterature: "bandeaux/ressources.jpg", representation: "photos/representation.jpg", communaute: "bandeaux/engagements.jpg", distinctions: "photos/distinctions.jpg", loisirs: "bandeaux/sports-loisirs.png" };
 const bandeau = (s) => BANDEAUX[s] || "bandeaux/" + s + ".jpg";
-const miniSalle = (s) => ({ logiciels:"outils", methodes: "conceptualisation", axes: "recherche", ia: "outils", vulgarisation: "capsules" }[s] || s);
+const miniSalle = (s) => ({ logiciels:"logiciels", methodes: "conceptualisation", axes: "recherche", ia: "outils", vulgarisation: "capsules" }[s] || s);
 // Lexique : seize notions, quatre familles et références communes au format APA.
 const NOTIONS = require("./notions-cles");
 const textesNotions = (c) => NOTIONS.langues[c.lang] || NOTIONS.langues.en;
@@ -1320,7 +1327,7 @@ ${bandeAccueil(c)}
 
 ${SALLES.map(
   (s, i) => `<section class="section${i % 2 ? " teinte" : ""}" id="${s}" data-salle="${s}" data-titre="${e(c.hall.portes[s][0])}">
-<div class="section-contenu" data-numero="${NUMS[s]}" data-mini="${p}assets/portes-mini/${miniSalle(s)}.jpg?v=${empreinte("assets/portes-mini/" + miniSalle(s) + ".jpg")}">
+<div class="section-contenu" data-numero="${NUMS[s]}" data-mini="${p}assets/portes-mini/${miniSalle(s)}.${s==="logiciels"?"svg":"jpg"}?v=${empreinte("assets/portes-mini/" + miniSalle(s) + (s==="logiciels"?".svg":".jpg"))}">
 <div class="bandeau" style="--c1:${TEINTES[s][0]};background-image:var(--degrade),url(${p}assets/${bandeau(s)}?v=${empreinte("assets/" + bandeau(s))})" role="img" aria-label="${e(c.hall.portes[s][0])}"><div class="bandeau-texte"><span class="bandeau-num">${NUMS[s]}</span><span class="bandeau-titre">${e(c.hall.portes[s][0])}</span><span class="bandeau-legende">${e(c.hall.portes[s][1])}</span></div></div>
 ${sections[s].replace(/<p class="surtitre">(\d{2} · )?/, `<p class="surtitre">${NUMS[s]} · `)}
 </div>
@@ -1345,7 +1352,7 @@ ${sections[s].replace(/<p class="surtitre">(\d{2} · )?/, `<p class="surtitre">$
 </section>
 </main>
 
-<footer class="pied"><div class="pied-informations"><span>© 2026 Éric Bernier</span>${confidentialiteAudience(c.lang)}<small>${e(c.credits)}</small></div><a href="#contenu">${e(c.ui.haut)} ↑</a></footer>
+<footer class="pied"><div class="pied-informations">${copyrightSite(c.lang)}${confidentialiteAudience(c.lang)}<small>${e(c.credits)}</small></div><a href="#contenu">${e(c.ui.haut)} ↑</a></footer>
 
 <div class="salle" id="salle" role="dialog" aria-modal="true" aria-labelledby="salle-titre" hidden>
 <div class="salle-barre">
@@ -1391,7 +1398,7 @@ ${menuAcces(c, code)}
 </header>`;
 }
 
-const piedAbrege = () => `<footer class="pied"><div class="pied-informations"><span>© 2026 Éric Bernier</span>${confidentialiteAudience("fr")}</div><a href="#contenu">${e(fr.ui.haut)} ↑</a></footer>
+const piedAbrege = () => `<footer class="pied"><div class="pied-informations">${copyrightSite("fr")}${confidentialiteAudience("fr")}</div><a href="#contenu">${e(fr.ui.haut)} ↑</a></footer>
 </body>
 </html>
 `;

@@ -16,23 +16,23 @@
 <meta name="format-detection" content="telephone=no">
 <meta name="version" content="__VERSION__">
 <link rel="stylesheet" href="/statosphere/lib/katex/katex.min.css">
-<link rel="stylesheet" href="css/jetons.css">
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/coquille.css">
-<link rel="stylesheet" href="css/composants.css">
-<link rel="stylesheet" href="css/ecrans.css">
-<link rel="stylesheet" href="css/reviser.css">
-<link rel="stylesheet" href="css/plan.css">
-<link rel="stylesheet" href="css/autres.css">
+<link rel="stylesheet" href="css/jetons.css?v=autonome2">
+<link rel="stylesheet" href="css/base.css?v=autonome2">
+<link rel="stylesheet" href="css/coquille.css?v=autonome2">
+<link rel="stylesheet" href="css/composants.css?v=autonome2">
+<link rel="stylesheet" href="css/ecrans.css?v=autonome2">
+<link rel="stylesheet" href="css/reviser.css?v=autonome2">
+<link rel="stylesheet" href="css/plan.css?v=autonome2">
+<link rel="stylesheet" href="css/autres.css?v=autonome2">
 <script>
   (function () {
     var t = "systeme";
-    try { t = (JSON.parse(localStorage.getItem("statosphere.reglages") || "{}").theme) || "systeme"; } catch (e) {}
+    try { t = (JSON.parse(localStorage.getItem("eb-public-episphere-v2.reglages") || "{}").theme) || "systeme"; } catch (e) {}
     if (t === "clair" || t === "sombre") document.documentElement.setAttribute("data-theme", t);
   })();
 </script>
 <script src="/statosphere/lib/katex/katex.min.js" defer></script>
-<script type="module" src="js/app.js"></script>
+<script type="module" src="js/app.js?v=autonome2"></script>
 </head>
 <body>
 <a class="retour-site" href="../../#logiciels">← Éric Bernier · Ressources</a>

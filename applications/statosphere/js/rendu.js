@@ -1,10 +1,10 @@
-/* Rendu du texte balisé du cours : **gras**, `code`, $formule$, $$formule$$, listes, tableaux ; lecture littérale (« Se lit ») de chaque
+/* Rendu du texte balisé du parcours : **gras**, `code`, $formule$, $$formule$$, listes, tableaux ; lecture littérale (« Se lit ») de chaque
    formule symbolique que le texte ne lit pas lui-même, comme la version Windows (LecturesDuTexte) ; blocs de leçon, formules décortiquées. */
-import { esc, insecables } from "./outils.js";
-import { ico } from "./icones.js";
-import { C } from "./modele.js";
-import * as Contenu from "./contenu.js";
-import { boutonCode } from "./positron.js";
+import { esc, insecables } from "./outils.js?v=autonome2";
+import { ico } from "./icones.js?v=autonome2";
+import { C } from "./modele.js?v=autonome2";
+import * as Contenu from "./contenu.js?v=autonome2";
+import { boutonCode } from "./positron.js?v=autonome2";
 
 /* ---------- Formules ---------- */
 const cacheTex = new Map();

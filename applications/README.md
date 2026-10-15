@@ -1,16 +1,21 @@
-# Les Sphères — éditions publiques
+# Les Sphères — éditions publiques autonomes
 
-Deux copies autonomes, accessibles directement dans le navigateur :
+Deux copies web distinctes des applications personnelles :
 
-- `statosphere/` : 24 chapitres, 1 549 QCM, dont 483 applications numériques renouvelées.
-- `episphere/` : 20 chapitres, 2 100 QCM, dont 538 applications numériques renouvelées.
+- Statosphère : 27 chapitres, 1 544 QCM commentés et 477 applications numériques.
+- Épisphère : 20 chapitres, 2 100 QCM commentés et 538 applications numériques.
+- Dans chaque application : 20 ateliers originaux de R avec Positron, comprenant exemples, exercices, solutions et scripts autonomes téléchargeables.
 
-Le moteur est adapté de la version web existante de Statosphère. Les domaines, les leçons et les banques de questions proviennent des applications de l’auteur. Les exercices numériques ont été transposés avec de nouvelles valeurs fictives ; les calculs ont été exécutés avec R 4.6.1. Lorsqu’une situation comportait des contraintes difficiles à transposer automatiquement, une application numérique explicite de la même notion est proposée. Les exemples historiques transposés sont signalés comme fictifs.
+La refonte du 15 octobre 2026 remplace entièrement le texte, l’ordre, les exemples et les données du tutoriel antérieur. Le jeu fictif de seize personnes, les consignes et les interprétations sont propres à cette édition. Les 46 sorties d’exemples, solutions et nouveaux chapitres ont été calculées avec R 4.6.1. Les paquets supplémentaires restent facultatifs dans les ateliers qui proposent aussi une solution en R de base.
 
-Aucun PowerPoint, image de diapositive, support de cours, fichier de corrigé institutionnel, nom de cours ou nom d’enseignant n’est inclus. Les références à des notions, à des travaux scientifiques et à l’histoire des disciplines sont conservées. Les fichiers `contenu.json.gz` contiennent uniquement le corpus de l’édition publique, et non les données chiffrées du dépôt d’origine.
+Les domaines scientifiques et les contenus rédigés pour les applications de l’auteur sont conservés. Les chapitres sont réordonnés et renumérotés ; les liens, fiches, banques de questions et jeux sont raccordés aux nouveaux modules. Les anciens questionnaires formels sont remplacés par des questions originales. Le calendrier et ses examens sont remplacés par un plan personnel sans échéance imposée.
 
-Les applications d’origine et le dépôt `ERJB-web/statosphere` ne sont pas modifiés. Les préférences et les progrès des copies publiques utilisent des clés locales distinctes. Le tuteur Sigma utilise le moteur documentaire local ; il n’envoie pas les questions à un modèle externe. Les exemples de R peuvent être lus ou téléchargés ; le navigateur n’exécute pas R.
+Trois chapitres originaux complètent Statosphère : échantillonnage et précision, comparaison de moyennes et de proportions, lecture critique de résultats quantitatifs. Les notions générales sont exposées avec de nouveaux exemples fictifs. Elles ne constituent pas une reproduction ou une présentation d’un enseignement institutionnel.
 
-Les polices et KaTeX sont chargés depuis les ressources publiques du dépôt web existant. Aucun contenu protégé de ce dépôt n’est déchiffré ou chargé. Ces éditions ne nécessitent pas de mot de passe et n’utilisent pas son service worker.
+Aucun PowerPoint, diapositive, fichier d’enseignant, nom de cours, calendrier universitaire ni texte de l’ancien tutoriel R n’est chargé. Les références scientifiques et les noms de méthodes sont conservés. Le tuteur Sigma recherche dans ce corpus local et ne transmet pas les questions à un modèle externe. Le navigateur présente les scripts R et leurs sorties ; l’exécution des scripts se fait dans une installation locale de R et Positron.
 
-Le fichier `outils/spheres-publication.json` décrit le périmètre et la provenance. Les statistiques Umami du site ne reçoivent pas la progression, les réponses aux QCM ni les questions adressées au tuteur.
+Les applications personnelles, leurs fichiers et le dépôt d’origine ne sont pas modifiés. Les nouvelles clés de progression sont distinctes ; les anciennes clés ne sont pas supprimées. Le site ne collecte pas la progression ni les réponses pédagogiques dans ses mesures d’audience.
+
+Sources de méthode : documentation du R Core Team (https://cran.r-project.org/manuals.html), documentation de Positron (https://positron.posit.co/guide-r.html). Les formules et résultats doivent être interprétés selon le devis, les unités et les hypothèses. Les données inventées ne décrivent aucune population réelle.
+
+Le fichier outils/spheres-publication.json décrit la version diffusée. Les fichiers outils/spheres-originales.js et outils/spheres-reformulations.json conservent les rédactions originales ajoutées.

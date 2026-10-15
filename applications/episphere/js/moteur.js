@@ -1,8 +1,8 @@
 /* Le moteur local du tuteur Sigma, sans réseau (port de Core/Tutorat/Moteur) : découpage du texte, français écrit vite,
-   correction des fautes de frappe, racinisation (Snowball français), lexique du cours, index BM25 sur trois champs, analyse de la
+   correction des fautes de frappe, racinisation (Snowball français), lexique du parcours, index BM25 sur trois champs, analyse de la
    question, choix du passage qui répond, réponse rédigée et documents pour aller plus loin. */
-import * as M from "./modele.js";
-import { C } from "./modele.js";
+import * as M from "./modele.js?v=autonome2";
+import { C } from "./modele.js?v=autonome2";
 
 /* ===================== Découpage ===================== */
 const GRECQUES = new Set(["alpha", "beta", "gamma", "delta", "epsilon", "varepsilon", "zeta", "eta", "theta", "kappa", "lambda", "mu", "nu", "xi", "pi", "rho",
@@ -76,7 +76,7 @@ const ABREVIATIONS = {
   pcq: "parce que", pcque: "parce que", psk: "parce que", paske: "parce que", qqch: "quelque chose",
   qqc: "quelque chose", tt: "tout", ms: "mais", vrm: "vraiment", dsl: "desole",
   diff: "difference", diffs: "differences", ex: "exemple", exs: "exemples", nb: "nombre",
-  exam: "examen", exams: "examens", exo: "exercice", exos: "exercices", qcms: "qcm",
+  exam: "bilan", exams: "bilans", exo: "exercice", exos: "exercices", qcms: "qcm",
   slt: "salut", bjr: "bonjour", bsr: "bonsoir", cc: "coucou", mrc: "merci", mrci: "merci", mci: "merci",
   thx: "merci", thanks: "merci", merki: "merci", dac: "d accord", dacc: "d accord", dak: "d accord",
   daccord: "d accord", oki: "ok", okk: "ok", okay: "ok", okey: "ok", oke: "ok",
@@ -333,7 +333,7 @@ export class Lexique {
   }
 }
 
-/* ===================== Documents du cours ===================== */
+/* ===================== Documents du parcours ===================== */
 function couper(texte, longueur) {
   if (texte.length <= longueur) return texte;
   let phrase = null, espace = null, dollars = 0, gras = 0;
@@ -765,13 +765,13 @@ export class Repondeur {
     switch (q.genre) {
       case "incomprehension": return une("Pas de panique, reprenons simplement :", "Je t'explique autrement :", "Reprenons pas à pas :");
       case "interpretation": return une("Voici comment l'interpréter :", "Pour l'interpréter, retiens ceci :");
-      case "formule": return !p.formule ? "Le cours ne donne pas de formule pour cela ; voici ce qu'il en dit :" : q.suite ? "Voici sa formule, et comment la lire :" : une("Voici la formule, et comment la lire :", "La formule, décortiquée :");
-      case "calcul": return !p.formule && !p.etapes.length ? "Le cours ne détaille pas ce calcul ; voici ce qu'il en dit :" : une("Voici comment on calcule, pas à pas :", "Le calcul, étape par étape :");
-      case "exemple": return !p.etapes.length ? "Voici un exemple tiré du cours :" : une("Voici un exemple chiffré :", "Un exemple concret, pas à pas :");
+      case "formule": return !p.formule ? "Le parcours ne donne pas de formule pour cela ; voici ce qu'il en dit :" : q.suite ? "Voici sa formule, et comment la lire :" : une("Voici la formule, et comment la lire :", "La formule, décortiquée :");
+      case "calcul": return !p.formule && !p.etapes.length ? "Le parcours ne détaille pas ce calcul ; voici ce qu'il en dit :" : une("Voici comment on calcule, pas à pas :", "Le calcul, étape par étape :");
+      case "exemple": return !p.etapes.length ? "Voici un exemple tiré du parcours :" : une("Voici un exemple chiffré :", "Un exemple concret, pas à pas :");
       case "pourquoi": return une("Bonne question ; voici la raison :", "Voici pourquoi :");
-      case "coder": return !p.code ? "Le cours ne montre pas de code R pour cela ; voici ce qu'il en dit :" : une("Voici comment faire dans R :", "Dans R, ça s'écrit ainsi :");
+      case "coder": return !p.code ? "Le parcours ne montre pas de code R pour cela ; voici ce qu'il en dit :" : une("Voici comment faire dans R :", "Dans R, ça s'écrit ainsi :");
       case "difference": return une("Les deux se ressemblent, mais ne disent pas la même chose :", "Voici ce qui les distingue :");
-      default: return q.suite ? "Voici ce qu'en dit le cours :" : une("Voici ce que dit le cours :", "Voici l'idée, en clair :", "Bonne question. Voici la définition :");
+      default: return q.suite ? "Voici ce qu'en dit le parcours :" : une("Voici ce que dit le parcours :", "Voici l'idée, en clair :", "Bonne question. Voici la définition :");
     }
   }
   static extrait(d) {
@@ -803,8 +803,8 @@ export class Repondeur {
     const vus = new Set();
     const proches = trouves.filter(t => t.couverture > 0.3).map(t => t.document).filter(d => { const k = JSON.stringify(d.cible); if (vus.has(k)) return false; vus.add(k); return true; }).slice(0, CARTES_MAX).map(d => this.carte(d));
     return proches.length
-      ? { texte: `Je n'ai rien trouvé dans le cours qui réponde exactement à « ${quoi} ». Voici les notions les plus proches :`, cartes: proches, suggestions: [] }
-      : { texte: `Je n'ai rien trouvé dans le cours sur « ${quoi} ». Essaie un autre mot, ou demande-moi quoi faire.`, cartes: [], suggestions: [] };
+      ? { texte: `Je n'ai rien trouvé dans le parcours qui réponde exactement à « ${quoi} ». Voici les notions les plus proches :`, cartes: proches, suggestions: [] }
+      : { texte: `Je n'ai rien trouvé dans le parcours sur « ${quoi} ». Essaie un autre mot, ou demande-moi quoi faire.`, cartes: [], suggestions: [] };
   }
   retenir(fil, q, doc) { fil.derniere = q; fil.document = doc.id; fil.montres.add(doc.id); fil.reponses++; }
   repondre(question, fil) {
@@ -860,6 +860,6 @@ export class Repondeur {
   }
 }
 let instance = null;
-/** Le répondeur, construit une fois (l'index du cours) à la première question sur la matière. */
+/** Le répondeur, construit une fois (l'index du parcours) à la première question sur la matière. */
 export function repondeur() { if (!instance) instance = new Repondeur(); return instance; }
 export const pret = () => !!instance;

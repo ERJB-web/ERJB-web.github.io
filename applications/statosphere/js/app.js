@@ -1,15 +1,15 @@
-/* Statosphère pour Safari (iPhone, iPad, Mac) : mot de passe du cours, coquille (barre latérale ou barre d'onglets), routeur,
+/* Statosphère pour Safari (iPhone, iPad, Mac) : mot de passe du parcours, coquille (barre latérale ou barre d'onglets), routeur,
    panneau de Sigma, préparation hors ligne et mise à jour. */
-import * as Contenu from "./contenu.js";
-import * as M from "./modele.js";
-import * as E from "./etat.js";
-import { C } from "./modele.js";
-import { logo, tete } from "./dessins.js";
-import { ico } from "./icones.js";
-import { esc, jour, attendre } from "./outils.js";
-import { hydrater } from "./rendu.js";
-import { agirScript } from "./positron.js";
-import * as Sigma from "./sigma.js";
+import * as Contenu from "./contenu.js?v=autonome2";
+import * as M from "./modele.js?v=autonome2";
+import * as E from "./etat.js?v=autonome2";
+import { C } from "./modele.js?v=autonome2";
+import { logo, tete } from "./dessins.js?v=autonome2";
+import { ico } from "./icones.js?v=autonome2";
+import { esc, jour, attendre } from "./outils.js?v=autonome2";
+import { hydrater } from "./rendu.js?v=autonome2";
+import { agirScript } from "./positron.js?v=autonome2";
+import * as Sigma from "./sigma.js?v=autonome2";
 
 export const NAV = [
   { num: "00", id: "accueil", libelle: "Accueil", route: "#/accueil" },
@@ -20,14 +20,14 @@ export const NAV = [
   { num: "05", id: "reviser", libelle: "Réviser", route: "#/reviser" },
   { num: "06", id: "coder-r", libelle: "Apprendre à coder avec R (Positron)", court: "Coder avec R", route: "#/coder-r" },
   { num: "07", id: "reglages", libelle: "Réglages", route: "#/reglages" },
-  { num: "08", id: "plan", libelle: "Plan de révision", court: "Plan", route: "#/plan" },
+  { num: "08", id: "plan", libelle: "Plan personnel", court: "Plan", route: "#/plan" },
   { num: "09", id: "jeux", libelle: "Jeux", route: "#/jeux" },
 ];
 const ONGLETS_BAS = ["accueil", "pratiquer", "reviser", "plan"];
 const ECRANS = {
-  accueil: () => import("./ecrans/accueil.js"), raccourcis: () => import("./ecrans/raccourcis.js"), catalogue: () => import("./ecrans/catalogue.js"),
-  outils: () => import("./ecrans/outils.js"), pratiquer: () => import("./ecrans/pratiquer.js"), reviser: () => import("./ecrans/reviser.js"),
-  "coder-r": () => import("./ecrans/coder-r.js"), reglages: () => import("./ecrans/reglages.js"), plan: () => import("./ecrans/plan.js"), jeux: () => import("./ecrans/jeux.js"),
+  accueil: () => import("./ecrans/accueil.js?v=autonome2"), raccourcis: () => import("./ecrans/raccourcis.js?v=autonome2"), catalogue: () => import("./ecrans/catalogue.js?v=autonome2"),
+  outils: () => import("./ecrans/outils.js?v=autonome2"), pratiquer: () => import("./ecrans/pratiquer.js?v=autonome2"), reviser: () => import("./ecrans/reviser.js?v=autonome2"),
+  "coder-r": () => import("./ecrans/coder-r.js?v=autonome2"), reglages: () => import("./ecrans/reglages.js?v=autonome2"), plan: () => import("./ecrans/plan.js?v=autonome2"), jeux: () => import("./ecrans/jeux.js?v=autonome2"),
 };
 const racine = document.getElementById("app");
 let vue = null, suite = null, sensEntree = 0, jeton = 0;
@@ -282,7 +282,7 @@ function ecranVerrou(message) {
   document.title = "Statosphère — mot de passe";
   racine.className = "verrou";
   racine.innerHTML = `<div class="boite apparait">${logo("logo")}<h1>Statosphère</h1><div class="sous">Analyse causale et méthodes quantitatives avec R</div>
-<form id="form-mdp" autocomplete="off"><label for="mdp">Mot de passe du cours</label>
+<form id="form-mdp" autocomplete="off"><label for="mdp">Mot de passe du parcours</label>
 <input class="champ" id="mdp" name="mdp" type="password" autocomplete="current-password" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="go" required>
 <button class="bouton" type="submit">${ico("cadenas", 2)}Ouvrir</button><div class="message" id="message-mdp" role="status">${esc(message || "")}</div></form></div>`;
   const f = document.getElementById("form-mdp"), champ = document.getElementById("mdp"), msg = document.getElementById("message-mdp");
@@ -311,7 +311,7 @@ function bandeau(html, classe = "") {
 export async function preparerHorsLigne(force = false) {
   if (preparation || !("caches" in window)) return;
   const etat = await Contenu.etatHorsLigne();
-  if (!etat.manquants.length) { if (force) toast("Tout le cours est déjà disponible hors ligne."); return; }
+  if (!etat.manquants.length) { if (force) toast("Tout le parcours est déjà disponible hors ligne."); return; }
   if (!navigator.onLine) return;
   try { if (navigator.storage && navigator.storage.persist) await navigator.storage.persist(); } catch (e) { /* rien */ }
   const arret = new AbortController();
@@ -322,7 +322,7 @@ export async function preparerHorsLigne(force = false) {
   };
   const ok = await Contenu.preparerHorsLigne(maj, arret.signal);
   preparation = null;
-  if (ok) { bandeau(`${ico("coche", 2.4)}<div class="jauge">Prêt hors ligne : tout le cours est sur cet appareil.</div>`); setTimeout(() => bandeau(""), 3500); }
+  if (ok) { bandeau(`${ico("coche", 2.4)}<div class="jauge">Prêt hors ligne : tout le parcours est sur cet appareil.</div>`); setTimeout(() => bandeau(""), 3500); }
   else bandeau(`${ico("alerte", 2)}<div class="jauge">Préparation hors ligne interrompue.</div><button class="bouton" id="reprendre-prep">Reprendre</button><button class="fermer" aria-label="Fermer" id="fermer-prep">${ico("croix", 2)}</button>`);
   const r = document.getElementById("reprendre-prep"); if (r) r.onclick = () => { bandeau(""); preparerHorsLigne(true); };
   const fe = document.getElementById("fermer-prep"); if (fe) fe.onclick = () => bandeau("");
@@ -361,12 +361,12 @@ async function enregistrerSW() {
 /* ---------- Démarrage ---------- */
 async function demarrer() {
   racine.className = "chargement";
-  racine.innerHTML = `<div class="ouverture">${tete("normal", { anime: true })}<div>Ouverture du cours…</div></div>`;
+  racine.innerHTML = `<div class="ouverture">${tete("normal", { anime: true })}<div>Ouverture du parcours…</div></div>`;
   const t0 = performance.now();
   try { await M.charger(); console.info(`Cours ouvert en ${Math.round(performance.now() - t0)} ms`); }
   catch (e) {
     console.error(e);
-    racine.innerHTML = `<div class="ouverture">${tete("reflechit")}<div>Le cours ne s'ouvre pas : ${navigator.onLine ? "réessaie dans un instant." : "connecte-toi à Internet une première fois pour le préparer."}</div><button class="bouton" onclick="location.reload()">Réessayer</button></div>`;
+    racine.innerHTML = `<div class="ouverture">${tete("reflechit")}<div>Le parcours ne s'ouvre pas : ${navigator.onLine ? "réessaie dans un instant." : "connecte-toi à Internet une première fois pour le préparer."}</div><button class="bouton" onclick="location.reload()">Réessayer</button></div>`;
     return;
   }
   document.title = "Statosphère";

@@ -1,19 +1,19 @@
 /* 00 · Accueil : tableau de bord (bandeau de Sigma, anneaux de progression, conseil de Sigma, prochaines échéances, carte « Aujourd'hui »). */
-import * as M from "../modele.js";
-import * as E from "../etat.js";
-import * as T from "../tuteur.js";
-import * as Plan from "../plan.js";
-import { tete } from "../dessins.js";
-import { ico, icoPlein } from "../icones.js";
-import { anneau, barre } from "../ui.js";
-import { esc, jour, dateLongue, dateCourte, ecart, insecables, S } from "../outils.js";
+import * as M from "../modele.js?v=autonome2";
+import * as E from "../etat.js?v=autonome2";
+import * as T from "../tuteur.js?v=autonome2";
+import * as Plan from "../plan.js?v=autonome2";
+import { tete } from "../dessins.js?v=autonome2";
+import { ico, icoPlein } from "../icones.js?v=autonome2";
+import { anneau, barre } from "../ui.js?v=autonome2";
+import { esc, jour, dateLongue, dateCourte, ecart, insecables, S } from "../outils.js?v=autonome2";
 
 const COULEURS = { Diapos: "var(--sarcelle)", Questions: "var(--orange)", Cartes: "var(--vert)", Exercices: "var(--violet)" };
 const PALETTE_PLAN = ["var(--bleu)", "var(--sarcelle)", "var(--vert)", "var(--orange)", "var(--bleu-profond)", "var(--ampoule)"];
 export const couleurPlan = n => (n <= 0 ? "var(--erreur)" : PALETTE_PLAN[(n - 1) % PALETTE_PLAN.length]);
 export const duree = m => (m < 60 ? `${m} min` : m % 60 === 0 ? `${m / 60} h` : `${Math.floor(m / 60)} h ${String(m % 60).padStart(2, "0")}`);
 export function quand(j, auj) { const n = ecart(auj, j); return n <= 0 ? "aujourd'hui" : n === 1 ? "demain" : n < 14 ? `dans ${n} jours` : `dans ${Math.floor(n / 7)} semaines`; }
-export function nomExamen(ex) { let n = ex.titre.startsWith("Examen ") ? ex.titre.slice(7) : ex.titre; n = n.toLowerCase(); return /^[aeiouyéèêh]/.test(n) ? `l'${n}` : `le ${n}`; }
+export function nomExamen(ex) { let n = ex.titre.startsWith("Bilan ") ? ex.titre.slice(7) : ex.titre; n = n.toLowerCase(); return /^[aeiouyéèêh]/.test(n) ? `l'${n}` : `le ${n}`; }
 
 /** Ciel étoilé (graine fixe : le même ciel à chaque affichage). */
 export function ciel(densite = 2.6, graine = 11, largeur = 1200, hauteur = 260) {
@@ -34,13 +34,13 @@ export function carteAujourdhui(c, jp, API, o = {}) {
   const resume = jp.taches.length ? `${faites} tâche${S(faites)} sur ${jp.taches.length} faite${S(faites)} · ${duree(minutesFaites)} sur ${duree(Math.max(minutes, c.donnees.minutesParJour))}` : "";
   const vide = jp.taches.length ? "" : messageVide(jp);
   const lignes = jp.taches.map(t => {
-    const s = M.trouver(t.seance || ""); const sous = s ? (s.estExamen ? `${s.titre} · ${dateLongue(s.jour).toLowerCase()}` : `Séance ${Plan.numeroCours(s)} · ${s.titre}`) : "";
+    const s = M.trouver(t.seance || ""); const sous = s ? (s.estExamen ? `${s.titre} · ${dateLongue(s.jour).toLowerCase()}` : `Module ${Plan.numeroCours(s)} · ${s.titre}`) : "";
     return `<li class="tache-courte${t.faite ? " faite" : ""}"><button class="coche${t.faite ? " cochee" : ""}" data-cocher='${esc(JSON.stringify({ id: t.id, jour: t.jour }))}' aria-pressed="${!!t.faite}" aria-label="${esc(t.titre)}${t.faite ? ", faite" : ""}">${ico("coche", 3)}</button>
 <a class="tache-lien" href="${t.cible ? API.routeDe(t.serieQcm != null ? { ...t.cible, serieQcm: t.serieQcm } : t.cible) : "#/plan"}" title="${esc(t.raison || "")}"><i class="trait" style="background:${couleurPlan(t.numero)}"></i><span><b>${esc(insecables(t.titre))}</b><small>${esc(insecables(sous))}</small></span></a><span class="duree">${duree(t.minutes || 0)}</span></li>`;
   }).join("");
   return `<section class="carte accueil carte-aujourdhui${o.classe ? " " + o.classe : ""}">
 <div class="aujourdhui-tete"><div><div class="etiquette-section">AUJOURD'HUI</div><div class="date-jour">${esc(dateLongue(c.aujourdhui))}</div>
-${ex ? `<div class="examen-ligne">${esc(insecables(`${ex.titre} · ${dateLongue(ex.jour).toLowerCase()} · ${quand(ex.jour, c.aujourdhui)}`))}</div>` : ""}</div>
+${ex ? `<div class="bilan-ligne">${esc(insecables(`${ex.titre} · ${dateLongue(ex.jour).toLowerCase()} · ${quand(ex.jour, c.aujourdhui)}`))}</div>` : ""}</div>
 ${anneau(pret ? pret.pourcent / 100 : 1, { couleur: "var(--sarcelle)", taille: 78, epaisseur: 8, texte: pret ? pret.pourcent + " %" : "✓", sous: "prête", taillePolice: 17 })}</div>
 ${lignes ? `<ul class="taches-courtes">${lignes}</ul>` : `<p class="attenue petit">${esc(vide)}</p>`}
 ${jp.taches.length ? barre(minutes ? minutesFaites / minutes : 0, "succes") : ""}
@@ -48,7 +48,7 @@ ${jp.taches.length ? barre(minutes ? minutesFaites / minutes : 0, "succes") : ""
 }
 export function messageVide(jp) {
   if (jp.taches.length) return "";
-  if (jp.evenements.some(e => e.genre === "examen")) return "Jour d'examen : bonne chance !";
+  if (jp.evenements.some(e => e.genre === "bilan")) return "Jour d'bilan : bonne chance !";
   if (jp.repos) return "Jour de repos : rien de prévu, profites-en.";
   if (jp.passe) return "Rien de coché ce jour-là.";
   const dernier = M.C.seances.filter(s => s.estExamen).pop();

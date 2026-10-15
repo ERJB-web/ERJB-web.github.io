@@ -50,7 +50,7 @@
 a.frise-point:hover { background: var(--teinte-neutre); }
 .frise-point b { font-size: 13px; font-weight: 900; height: 20px; white-space: nowrap; }
 .frise-point i { width: 18px; height: 18px; border-radius: 50%; background: var(--surface); border: 4px solid var(--bleu); box-shadow: 0 0 0 4px color-mix(in srgb, var(--bleu) 18%, transparent); }
-.frise-point.examen i { background: var(--orange); border-color: var(--orange); box-shadow: 0 0 0 4px color-mix(in srgb, var(--orange) 20%, transparent); }
+.frise-point.bilan i { background: var(--orange); border-color: var(--orange); box-shadow: 0 0 0 4px color-mix(in srgb, var(--orange) 20%, transparent); }
 .frise-point.aujourdhui i { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent); }
 .frise-point .t { font-size: 12.5px; font-weight: 700; margin-top: 8px; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .frise-point .q { font-size: 11.5px; color: var(--attenue); margin-top: 2px; }
@@ -58,7 +58,7 @@ a.frise-point:hover { background: var(--teinte-neutre); }
 .echeances-liste li a { display: grid; grid-template-columns: 14px 64px 1fr; grid-template-rows: auto auto; column-gap: 10px; align-items: center; padding: 9px 4px; color: var(--encre); text-decoration: none; border-bottom: 1px solid var(--ligne); }
 .echeances-liste li:last-child a { border-bottom: 0; }
 .echeances-liste i { grid-row: span 2; width: 12px; height: 12px; border-radius: 50%; border: 3px solid var(--bleu); background: var(--surface); }
-.echeances-liste li.examen i { background: var(--orange); border-color: var(--orange); }
+.echeances-liste li.bilan i { background: var(--orange); border-color: var(--orange); }
 .echeances-liste b { grid-row: span 2; font-size: 14px; }
 .echeances-liste span { font-weight: 700; font-size: 14px; line-height: 1.3; }
 .echeances-liste small { color: var(--attenue); font-size: 12.5px; }
@@ -66,7 +66,7 @@ a.frise-point:hover { background: var(--teinte-neutre); }
 .aujourdhui-tete { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
 .aujourdhui-tete > div:first-child { flex: 1; min-width: 0; }
 .date-jour { font-size: 19px; font-weight: 900; margin-top: 1px; }
-.examen-ligne { font-size: 12.5px; font-weight: 700; color: var(--texte-orange); margin-top: 3px; }
+.bilan-ligne { font-size: 12.5px; font-weight: 700; color: var(--texte-orange); margin-top: 3px; }
 .taches-courtes { list-style: none; margin: 0; padding: 0; }
 .tache-courte { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
 .coche { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--contour-neutre); background: transparent; color: transparent; display: grid; place-items: center; flex-shrink: 0; padding: 0; }
@@ -167,7 +167,7 @@ a.frise-point:hover { background: var(--teinte-neutre); }
 .pe-prec { left: calc(14px + var(--sa-gauche)); top: 50%; margin-top: -26px; }
 .pe-suiv { right: calc(14px + var(--sa-droite)); top: 50%; margin-top: -26px; }
 .pe-num { position: absolute; bottom: calc(14px + var(--sa-bas)); left: 50%; transform: translateX(-50%); color: #fff; background: rgba(0,0,0,.55); padding: 6px 14px; border-radius: 14px; font-weight: 700; font-size: 14px; }
-/* Exercices de la séance */
+/* Exercices de le module */
 .exercices-seance { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 20px; align-items: start; }
 .liste-devoirs { border: 1px solid var(--ligne); border-radius: 12px; padding: 10px; background: var(--surface); position: sticky; top: 60px; }
 .devoir { display: block; border: 1px solid var(--ligne); border-radius: 8px; padding: 8px 10px; margin-bottom: 6px; color: var(--encre); text-decoration: none; }

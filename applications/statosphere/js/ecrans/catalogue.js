@@ -1,12 +1,12 @@
-/* 02 · Catalogue : les notions du cours, avec leurs formules (recherche sans accents, chapitres, séance, favoris, tri),
+/* 02 · Catalogue : les notions du parcours, avec leurs formules (recherche sans accents, chapitres, séance, favoris, tri),
    et chaque notion décortiquée (ce que ça fait, comment la lire, chaque symbole, explication, en clair, exemple pas à pas, à retenir). */
-import * as M from "../modele.js";
-import * as E from "../etat.js";
-import { C } from "../modele.js";
-import { ico } from "../icones.js";
-import { entete } from "../ui.js";
-import { md, inl, tex, carteFormule, listeEtapes, encadre } from "../rendu.js";
-import { esc, normaliser, insecables } from "../outils.js";
+import * as M from "../modele.js?v=autonome2";
+import * as E from "../etat.js?v=autonome2";
+import { C } from "../modele.js?v=autonome2";
+import { ico } from "../icones.js?v=autonome2";
+import { entete } from "../ui.js?v=autonome2";
+import { md, inl, tex, carteFormule, listeEtapes, encadre } from "../rendu.js?v=autonome2";
+import { esc, normaliser, insecables } from "../outils.js?v=autonome2";
 
 export function nomChapitre(ch) {
   if (ch == null) return "Notes de cours";
@@ -77,12 +77,12 @@ export default async function catalogue(r, API) {
 <select class="champ" data-filtre="ch" aria-label="Chapitre"><option value="">Chapitres : Tous</option>${chapitres.map(c => `<option value="${c}"${String(c) === chap ? " selected" : ""}>${String(c).padStart(2, "0")} ${esc(nomChapitre(c))}</option>`).join("")}<option value="notes"${chap === "notes" ? " selected" : ""}>Notes de cours</option></select>
 <select class="champ" data-filtre="s" aria-label="Séance"><option value="">Toutes les séances</option>${C.seances.filter(s => !s.estExamen).map(s => `<option value="${esc(s.cle)}"${s.cle === seance ? " selected" : ""}>${esc(`${M.dateCourteSeance(s)} · ${s.titre}`)}</option>`).join("")}</select>
 <button class="puce${fav ? " actif" : ""}" data-fav aria-pressed="${fav}">★ Favoris</button>
-<select class="champ tri" data-filtre="tri" aria-label="Tri"><option value="utilises"${tri === "utilises" ? " selected" : ""}>Plus utilisés</option><option value="cours"${tri === "cours" ? " selected" : ""}>Ordre du cours</option><option value="az"${tri === "az" ? " selected" : ""}>A → Z</option></select></div>`;
+<select class="champ tri" data-filtre="tri" aria-label="Tri"><option value="utilises"${tri === "utilises" ? " selected" : ""}>Plus utilisés</option><option value="cours"${tri === "cours" ? " selected" : ""}>Ordre du parcours</option><option value="az"${tri === "az" ? " selected" : ""}>A → Z</option></select></div>`;
   const compte = resultats.length && resultats.length !== entrees.length ? `<div class="attenue petit compte">${resultats.length === 1 ? "1 résultat" : `${resultats.length} résultats`}</div>` : "";
   const liste = resultats.length ? `<ul class="liste-notions">${resultats.map(e => `<li><a class="item-notion${choisie && e.id === choisie.id ? " courant" : ""}" href="${lienNotion(e)}" data-remplacer>
 <span class="badge-chap">${e.chapitre != null ? String(e.chapitre).padStart(2, "0") : "NC"}</span><span class="item-texte"><b>${esc(e.terme)}</b><span class="formule-ligne">${esc(e.unicode)}</span><small>${esc(e.categorie)}</small></span></a></li>`).join("")}</ul>`
     : `<div class="carte message"><div>Aucune notion ne correspond. Essaie un autre mot, un autre chapitre, une autre séance, ou retire le filtre des favoris.</div></div>`;
-  const tete = entete({ surtitre: "CATALOGUE · 02", titre: "Les notions du cours, avec leurs formules" });
+  const tete = entete({ surtitre: "CATALOGUE · 02", titre: "Les notions du parcours, avec leurs formules" });
   const mobileDetail = !!(id && choisie);
   const html = `${mobileDetail ? "" : ""}<div class="catalogue${mobileDetail ? " avec-detail" : ""}">${tete}${filtres}${compte}<div class="catalogue-corps"><div class="colonne-liste">${liste}</div><div class="colonne-detail">${choisie ? detail(choisie, API) : ""}</div></div></div>`;
   return {

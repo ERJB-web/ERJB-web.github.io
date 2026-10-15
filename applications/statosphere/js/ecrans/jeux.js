@@ -1,18 +1,18 @@
 /* 09 · Jeux : Paires, Quelle commande R ?, Calcul éclair, Vrai ou faux éclair ; niveau, série de jours, records et badges.
-   Le contenu des jeux est tiré du cours à la construction, avec les mêmes règles que la version Windows. */
-import * as M from "../modele.js";
-import * as E from "../etat.js";
-import { C } from "../modele.js";
-import { ico } from "../icones.js";
-import { tete } from "../dessins.js";
-import { entete, anneau, barre } from "../ui.js";
-import { md, inl, tex } from "../rendu.js";
-import { esc, jour, decaler, melanger, S, insecables } from "../outils.js";
+   Le contenu des jeux est tiré du parcours à la construction, avec les mêmes règles que la version Windows. */
+import * as M from "../modele.js?v=autonome2";
+import * as E from "../etat.js?v=autonome2";
+import { C } from "../modele.js?v=autonome2";
+import { ico } from "../icones.js?v=autonome2";
+import { tete } from "../dessins.js?v=autonome2";
+import { entete, anneau, barre } from "../ui.js?v=autonome2";
+import { md, inl, tex } from "../rendu.js?v=autonome2";
+import { esc, jour, decaler, melanger, S, insecables } from "../outils.js?v=autonome2";
 
 const JEUX = [
   { id: "paires", titre: "Paires", texte: "Retourne les cartes et associe chaque notion à sa formule.", duree: "2 min", icone: "cartes" },
   { id: "commande", titre: "Quelle commande R ?", texte: "Une tâche à faire dans R : choisis la bonne commande.", duree: "3 min", icone: "code" },
-  { id: "calcul", titre: "Calcul éclair", texte: "Un calcul du cours à faire de tête ou sur papier, arrondi comme à l'examen.", duree: "5 min", icone: "calcul" },
+  { id: "calcul", titre: "Calcul éclair", texte: "Un calcul du parcours à faire de tête ou sur papier, arrondi comme à l'bilan.", duree: "5 min", icone: "calcul" },
   { id: "vrai-faux", titre: "Vrai ou faux éclair", texte: "60 secondes pour juger le plus d'affirmations possible.", duree: "1 min", icone: "etincelle" },
 ];
 const PAIRES_PAR_PARTIE = 6, SITUATIONS_PAR_PARTIE = 8, CALCULS_PAR_PARTIE = 5, AFFIRMATIONS_PAR_PARTIE = 60, DUREE_VF = 60;
@@ -30,7 +30,7 @@ function serieJours(j) { const s = new Set(J().jours); let d = s.has(j) ? j : de
 function badges(contenu) {
   return [...BADGES_FIXES.map(([id, titre, texte, icone]) => ({ id, titre, texte, icone })),
     ...contenu.calculsParSeance.map(s => {
-      const nom = s.pastille.startsWith("Séance ") ? "la séance " + s.pastille.slice(7) : s.pastille;
+      const nom = s.pastille.startsWith("Module ") ? "le module " + s.pastille.slice(7) : s.pastille;
       return { id: "calculs-" + s.cle, titre: `Tous les calculs de ${nom}`, texte: `Calcule juste chaque calcul de ${nom} au calcul éclair.`, icone: "calcul", pastille: s.pastille };
     })];
 }
@@ -144,20 +144,20 @@ function terminer(p, contenu, extra = {}) {
 function vueAccueil(contenu, API, porteeId) {
   const d = J(), n = niveau(d.points), serie = serieJours(jour());
   const portees = contenu.portees;
-  const groupes = [["Examens", portees.filter(p => !p.plusLoin && p.seances.length > 1)], ["Séances", portees.filter(p => !p.plusLoin && p.seances.length <= 1)], ["Pour aller plus loin", portees.filter(p => p.plusLoin)]];
+  const groupes = [["Bilans", portees.filter(p => !p.plusLoin && p.seances.length > 1)], ["Séances", portees.filter(p => !p.plusLoin && p.seances.length <= 1)], ["Pour aller plus loin", portees.filter(p => p.plusLoin)]];
   const portee = portees.find(p => p.id === porteeId) || portees[0];
   const tous = badges(contenu), obtenus = new Set(d.badges.map(b => b.id));
-  const dispo = j2 => j2 === "paires" ? [portee.paires.length >= 3, "Pas assez de formules pour cette séance : essaie « Tout l'intra »."] : j2 === "commande" ? [portee.situations.length >= 4, "Pas assez de commandes R pour cette séance : essaie « Tout l'intra »."]
-    : j2 === "calcul" ? [portee.calculs.length > 0, "Pas de calcul pour cette séance : essaie « Tout l'intra »."] : [portee.affirmations.length > 0, "Pas encore d'affirmations pour cette séance."];
+  const dispo = j2 => j2 === "paires" ? [portee.paires.length >= 3, "Pas assez de formules pour ce module : essaie « Toutes les notions »."] : j2 === "commande" ? [portee.situations.length >= 4, "Pas assez de commandes R pour ce module : essaie « Toutes les notions »."]
+    : j2 === "calcul" ? [portee.calculs.length > 0, "Pas de calcul pour ce module : essaie « Toutes les notions »."] : [portee.affirmations.length > 0, "Pas encore d'affirmations pour ce module."];
   const tuiles = JEUX.map(x => {
     const [ok, manque] = dispo(x.id), rec = d.records[`${x.id}|${portee.id}`];
     return `<section class="carte tuile-jeu"><div class="tuile-jeu-tete"><span class="icone-jeu">${ico(x.icone, 2)}</span><span class="duree-jeu">${ico("horloge", 2)}${x.duree}</span></div><h3>${esc(x.titre)}</h3><p class="attenue">${esc(x.texte)}</p>
 <div class="tuile-jeu-pied"><span class="attenue petit">${esc(!ok ? manque : rec ? `Record : ${rec.score} points` : "Pas encore joué")}</span><a class="bouton${ok ? "" : " desactive"}" ${ok ? `href="${API.lien("jeux", x.id)}?portee=${encodeURIComponent(portee.id)}"` : 'aria-disabled="true"'}>Jouer</a></div></section>`;
   }).join("");
-  return `${entete({ surtitre: "JEUX · 09", titre: "Révise en jouant" })}<p class="chapeau">Des parties de 1 à 5 minutes, sur une séance ou sur tout l'intra.</p>
+  return `${entete({ surtitre: "JEUX · 09", titre: "Révise en jouant" })}<p class="chapeau">Des parties de 1 à 5 minutes, sur un module ou sur tout l'intra.</p>
 <div class="jeux-haut"><section class="carte niveau-jeux">${anneau(n.acquis / n.requis, { couleur: "var(--violet)", taille: 92, epaisseur: 9, texte: String(n.niveau), sous: "niveau", taillePolice: 30 })}<div><div class="titre-carte">Niveau ${n.niveau}</div><p class="attenue petit">${d.points} points · encore ${n.requis - n.acquis} pour le niveau ${n.niveau + 1}</p></div></section>
 <section class="carte serie-jeux"><div class="etiquette-section">SÉRIE</div><div class="titre-carte">${ico("flamme", 2)}${esc(serie === 0 ? "Joue aujourd'hui pour lancer ta série" : serie === 1 ? "1 jour de suite" : `${serie} jours de suite`)}</div></section>
-<section class="carte badges-jeux"><div class="etiquette-section">BADGES · ${obtenus.size} / ${tous.length}</div><div class="badges-grille">${tous.map(b => `<span class="badge-jeu${obtenus.has(b.id) ? " obtenu" : ""}" title="${esc(b.titre + " · " + b.texte)}">${b.pastille ? `<small>${esc(b.pastille.replace("Séance ", "S"))}</small>` : ico(b.icone, 2)}</span>`).join("")}</div></section></div>
+<section class="carte badges-jeux"><div class="etiquette-section">BADGES · ${obtenus.size} / ${tous.length}</div><div class="badges-grille">${tous.map(b => `<span class="badge-jeu${obtenus.has(b.id) ? " obtenu" : ""}" title="${esc(b.titre + " · " + b.texte)}">${b.pastille ? `<small>${esc(b.pastille.replace("Module ", "S"))}</small>` : ico(b.icone, 2)}</span>`).join("")}</div></section></div>
 <label class="portee-jeux"><span class="etiquette-section">SUR QUOI JOUER</span><select class="champ" data-portee>${groupes.filter(g => g[1].length).map(([lib, l]) => `<optgroup label="${esc(lib)}">${l.map(p => `<option value="${esc(p.id)}"${p === portee ? " selected" : ""}>${esc(p.detail ? `${p.libelle} · ${p.detail}` : p.libelle)}</option>`).join("")}</optgroup>`).join("")}</select></label>
 <div class="grille-jeux">${tuiles}</div>`;
 }
@@ -194,7 +194,7 @@ ${p.verdict ? `<div class="verdict-jeu ${p.verdict.juste ? "bon" : "faux"}"><b>$
     corps = `<div class="carte situation"><div class="etiquette-section">CALCULE</div><div class="enonce-jeu">${md(q.enonce)}</div>
 <form class="saisie-calcul" data-calcul><input class="champ" inputmode="decimal" autocomplete="off" placeholder="Ta réponse" value="${esc(p.saisie)}"${p.verdict ? " disabled" : ""}>${q.unite ? `<span class="unite">${esc(q.unite)}</span>` : ""}<button class="bouton" type="submit"${p.verdict ? " disabled" : ""}>Vérifier</button></form>
 <p class="attenue petit">Arrondis à la fin seulement, avec un ou deux chiffres après la virgule, ou écris la fraction.</p>${p.message ? `<p class="message-calcul">${esc(p.message)}</p>` : ""}</div>
-${p.verdict ? `<div class="verdict-jeu ${p.verdict === "juste" ? "bon" : "faux"}"><b>${esc(p.verdict === "juste" ? `Juste ! ${q.reponse}${q.unite ? " " + q.unite : ""}` : `Pas tout à fait : la réponse est ${q.reponse}${q.unite ? " " + q.unite : ""}`)}</b><div class="attenue petit">À l'examen : ${esc(q.admises.join(" ou "))}</div><div class="etiquette-section" style="margin-top:8px">CORRIGÉ PAS À PAS</div>${md(q.explication)}</div>
+${p.verdict ? `<div class="verdict-jeu ${p.verdict === "juste" ? "bon" : "faux"}"><b>${esc(p.verdict === "juste" ? `Juste ! ${q.reponse}${q.unite ? " " + q.unite : ""}` : `Pas tout à fait : la réponse est ${q.reponse}${q.unite ? " " + q.unite : ""}`)}</b><div class="attenue petit">À l'bilan : ${esc(q.admises.join(" ou "))}</div><div class="etiquette-section" style="margin-top:8px">CORRIGÉ PAS À PAS</div>${md(q.explication)}</div>
 <div class="rangee fin"><button class="bouton" data-suivant>${p.i + 1 >= p.problemes.length ? "Voir le bilan" : "Calcul suivant"}${ico("droite", 2)}</button></div>` : ""}`;
   } else {
     const a = p.affirmations[p.i];

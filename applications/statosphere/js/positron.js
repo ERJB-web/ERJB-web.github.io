@@ -1,9 +1,9 @@
 /* « Ouvrir dans Positron » : le code à pratiquer devient un script .R téléchargé (et copié) sur Mac ;
    sur iPhone et iPad, qui n'ont pas Positron, le bouton copie le code. */
-import * as Contenu from "./contenu.js";
-import * as E from "./etat.js";
-import { ico } from "./icones.js";
-import { normaliser } from "./outils.js";
+import * as Contenu from "./contenu.js?v=autonome2";
+import * as E from "./etat.js?v=autonome2";
+import { ico } from "./icones.js?v=autonome2";
+import { normaliser } from "./outils.js?v=autonome2";
 
 /** iPhone, iPad (même en mode « ordinateur ») et Android : pas de Positron. */
 export function surTactile() {
@@ -65,15 +65,15 @@ const lettre = r => (r > 1 ? "-" + String.fromCharCode(96 + r) : "");
 export function scriptsSujet(s) {
   const t = sansMarques(s.titre);
   return scriptsDeSerie(s.blocs, {
-    entete: (genre, p, tp, b) => ["# Statosphère · tutoriel R du cours", `# Sujet ${s.numero} : ${t}${genre === "exercice" ? ` · exercice « ${b.exercice.nom} »` : " · exemple"}`],
+    entete: (genre, p, tp, b) => ["# Statosphère · atelier R avec Positron", `# Sujet ${s.numero} : ${t}${genre === "exercice" ? ` · exercice « ${b.exercice.nom} »` : " · exemple"}`],
     nom: (genre, p, rp, rg, b) => `statosphere-tutoriel-${pad(s.numero)}-${genre}-${genre === "exercice" ? slug(b.exercice.nom) : rg}.R`,
   });
 }
-/** Un devoir de la séance. */
+/** Un devoir de le module. */
 export function scriptsDevoir(d) {
   const n = d.sujet.numero;
   return scriptsDeSerie(d.sujet.blocs, {
-    entete: (genre, p, tp) => ["# Statosphère · exercices de la séance", `# ${sansMarques(d.titre)}${p ? ` · partie ${p}${tp ? " : " + tp : ""}` : ""}`],
+    entete: (genre, p, tp) => ["# Statosphère · exercices de le module", `# ${sansMarques(d.titre)}${p ? ` · partie ${p}${tp ? " : " + tp : ""}` : ""}`],
     nom: (genre, p, rp) => `statosphere-${genre}-${pad(n)}${p ? "-partie-" + p : ""}${lettre(rp)}.R`,
   });
 }
@@ -87,7 +87,7 @@ export function scriptsLecon({ numero, titre, partie, titrePartie }) {
       k++;
       prise.set(b, {
         fichier: `statosphere-lecon-${pad(numero)}-partie-${partie}-code-${k}.R`,
-        entete: ["# Statosphère · leçon du cours", `# ${sansMarques(titre)} · partie ${partie} : ${sansMarques(titrePartie)}`],
+        entete: ["# Statosphère · leçon du parcours", `# ${sansMarques(titre)} · partie ${partie} : ${sansMarques(titrePartie)}`],
         etiquette: "Exemple :", prep: b.preparation ? [b.preparation] : [], code: b.code, affiche: b.code,
       });
     }
@@ -103,14 +103,14 @@ async function construire(spec) {
   const remplacer = t => t.replace(JETON, (m, q, f) => `file.path(donnees, '${f}')`);
   const L = [...spec.entete, `# Exécute une ligne ou une sélection avec ${mac ? "Cmd" : "Ctrl"}+Entrée.`, ""];
   if (noms.length) {
-    L.push("# Données du cours, écrites dans un dossier temporaire :", 'donnees <- file.path(tempdir(), "donnees-statosphere")', "dir.create(donnees, showWarnings = FALSE)");
+    L.push("# Données du parcours, écrites dans un dossier temporaire :", 'donnees <- file.path(tempdir(), "donnees-statosphere")', "dir.create(donnees, showWarnings = FALSE)");
     noms.forEach((f, i) => { if (csv[i]) L.push(`writeLines(r"---(${csv[i].replace(/\r/g, "").trimEnd()})---", file.path(donnees, "${f}"))`); });
     L.push("");
   }
   const prep = spec.prep.map(remplacer), code = remplacer(spec.code).replace(/\s+$/, "");
   const utile = prep.concat([code]).join("\n");
   const avant = [];
-  if (TIDYVERSE.test(utile)) avant.push("library(tidyverse)");
+  if (TIDYVERSE.test(utile) && !/requireNamespace|(?:dplyr|tidyr|ggplot2)::/.test(utile)) avant.push('if (!requireNamespace("tidyverse", quietly = TRUE)) stop("Installer tidyverse pour cet atelier optionnel, puis relancer le script.")', "library(tidyverse)");
   avant.push(...prep);
   if (avant.length) L.push("# Préparation, comme dans Statosphère :", ...avant, "");
   L.push("# " + spec.etiquette.replace(/ :$/, "") + " :", code);

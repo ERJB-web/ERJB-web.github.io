@@ -1,14 +1,14 @@
 /* 05 · Réviser : séance par séance, onglets Leçons, Fiches, QCM, Mémoriser et Progrès (mêmes règles que la version Windows). */
-import * as M from "../modele.js";
-import * as E from "../etat.js";
-import * as T from "../tuteur.js";
-import { C } from "../modele.js";
-import { ico } from "../icones.js";
-import { tete } from "../dessins.js";
-import { entete, piste, selecteurSeance, lierSelecteurs, anneau, barre, courbe, legende } from "../ui.js";
-import { md, inl, inlLu, tex, blocLecon, carteFormule, tableau, lectureDe, hydrater } from "../rendu.js";
-import { scriptsLecon } from "../positron.js";
-import { esc, jour, S, insecables, melanger, distinct, trierPar, maintenant, jourDe, dateCourte } from "../outils.js";
+import * as M from "../modele.js?v=autonome2";
+import * as E from "../etat.js?v=autonome2";
+import * as T from "../tuteur.js?v=autonome2";
+import { C } from "../modele.js?v=autonome2";
+import { ico } from "../icones.js?v=autonome2";
+import { tete } from "../dessins.js?v=autonome2";
+import { entete, piste, selecteurSeance, lierSelecteurs, anneau, barre, courbe, legende } from "../ui.js?v=autonome2";
+import { md, inl, inlLu, tex, blocLecon, carteFormule, tableau, lectureDe, hydrater } from "../rendu.js?v=autonome2";
+import { scriptsLecon } from "../positron.js?v=autonome2";
+import { esc, jour, S, insecables, melanger, distinct, trierPar, maintenant, jourDe, dateCourte } from "../outils.js?v=autonome2";
 
 const ONGLETS = [
   { id: "lecons", libelle: "Leçons", icone: "livre" }, { id: "fiches", libelle: "Fiches", icone: "feuillets" }, { id: "qcm", libelle: "QCM", icone: "listeCochee" },
@@ -31,7 +31,7 @@ const cartesMessage = (icone, texte) => `<div class="carte message"><div class="
 /* ===================== Leçons ===================== */
 function ongletLecons(s, r, API, ctx) {
   const chapitres = M.chapitresDe(s).filter(ch => C.lecons[ch]);
-  if (!M.chapitresDe(s).length) return { html: cartesMessage("livre", "Aucun chapitre pour cette séance.") };
+  if (!M.chapitresDe(s).length) return { html: cartesMessage("livre", "Aucun chapitre pour ce module.") };
   if (!chapitres.length) return { html: cartesMessage("livre", "Pas de leçon pour ce chapitre.") };
   const [, , chArg, partieArg] = r.segments;
   const memo = E.position("lecon.chapitre." + s.cle);
@@ -113,7 +113,7 @@ ${(b.regles || []).length ? `<ul class="regles">${b.regles.map(x => `<li>${inlLu
 }
 function ongletFiches(s, r, API) {
   const chapitres = M.chapitresDe(s).filter(ch => C.fiches[ch]);
-  if (!chapitres.length) return { html: cartesMessage("feuillets", M.chapitresDe(s).length ? "Pas de fiche pour ce chapitre." : "Aucun chapitre pour cette séance.") };
+  if (!chapitres.length) return { html: cartesMessage("feuillets", M.chapitresDe(s).length ? "Pas de fiche pour ce chapitre." : "Aucun chapitre pour ce module.") };
   const [, , chArg, vueArg, iArg] = r.segments;
   const memo = E.position("fiche.chapitre." + s.cle);
   const ch = chapitres.includes(+chArg) ? +chArg : chapitres.includes(memo) ? memo : chapitres[0];
@@ -150,7 +150,7 @@ function ongletFiches(s, r, API) {
 
 /* ===================== QCM ===================== */
 const sessions = new Map(); // séance → session en cours
-const CLE_SESSION = "eb-public-episphere.qcm.";
+const CLE_SESSION = "eb-public-episphere-v2.qcm.";
 function sauverSession(cle, s) { try { if (s) localStorage.setItem(CLE_SESSION + cle, JSON.stringify(s)); else localStorage.removeItem(CLE_SESSION + cle); } catch (e) { /* rien */ } }
 function lireSession(cle) {
   if (sessions.has(cle)) return sessions.get(cle);
@@ -174,7 +174,7 @@ function lancer(s, demande) {
   const taille = s.estExamen || !pool.length ? M.TOUTES : pool.length;
   const lib = {
     serie20: ["SÉRIE ALÉATOIRE", "Série de 20"], toutes: [`LES ${taille}`, `Les ${taille}`], serie: [`SÉRIE ${demande.serie}`, `Série ${demande.serie}`],
-    chapitre: [M.Chap.etiquette(demande.chapitre).toUpperCase(), `Ce chapitre (${M.Chap.etiquette(demande.chapitre).toLowerCase()})`], quiz: ["QUIZ DU COURS", "Quiz du cours"], erreurs: ["MES ERREURS", "Mes erreurs"],
+    chapitre: [M.Chap.etiquette(demande.chapitre).toUpperCase(), `Ce chapitre (${M.Chap.etiquette(demande.chapitre).toLowerCase()})`], quiz: ["QUIZ DU COURS", "Quiz du parcours"], erreurs: ["MES ERREURS", "Mes erreurs"],
   }[demande.format];
   const code = demande.format === "serie20" && demande.priorite ? "serie20-erreurs" : CODE_SERIE[demande.format];
   E.noter("qcm", E.cible("reviser", { seance: s.cle, onglet: "qcm", chapitre: demande.chapitre, serie: code }), `QCM · ${lib[1]} · commencé`);
@@ -207,8 +207,8 @@ function choixQcm(s, r, API) {
   const faibles = E.faibles(), nErreurs = pool.filter(q => faibles.has(q.id)).length;
   const taille = s.estExamen || !pool.length ? M.TOUTES : pool.length;
   let texte;
-  if (s.estExamen) texte = M.couvertes(s).some(c => M.banque(c.cle)) ? "Les questions viennent de toutes les séances que couvre l'examen." : "Pas de QCM pour cet examen.";
-  else texte = pool.length ? "Choisis comment t'entraîner : une série au hasard, une série numérotée ou un seul chapitre." : "Pas de QCM pour cette séance.";
+  if (s.estExamen) texte = M.couvertes(s).some(c => M.banque(c.cle)) ? "Les questions viennent de toutes les séances que couvre l'bilan." : "Pas de QCM pour cet bilan.";
+  else texte = pool.length ? "Choisis comment t'entraîner : une série au hasard, une série numérotée ou un seul chapitre." : "Pas de QCM pour ce module.";
   const scores = E.meilleursScores(E.tentatives(s.cle));
   let h = `<section class="carte formats-qcm"><p>${esc(texte)}</p>`;
   if (pool.length) h += `<div class="rangee"><button class="bouton" data-lancer="serie20">${ico("etincelle")}Série de 20 au hasard</button><button class="bouton secondaire" data-lancer="toutes">${ico("listeCochee")}Les ${taille}</button>
@@ -217,7 +217,7 @@ ${nErreurs ? `<button class="bouton secondaire" data-lancer="erreurs">${ico("ret
 <label class="case"><input type="checkbox" data-priorite> Priorité à mes erreurs (les questions ratées d'abord)</label>`;
   h += `</section>`;
   if (chapitres.length) h += `<section class="carte"><div class="etiquette-section icone">${ico("cible", 2)}CE CHAPITRE : 20 QUESTIONS D'UN SEUL CHAPITRE</div><div class="puces">${chapitres.map(c => `<button class="puce teintee" style="--teinte:${M.teinte(M.numeroDuChapitre(c))}" data-lancer="chapitre" data-chapitre="${c}"><span class="point"></span>${esc(libelleChap(c))}</button>`).join("")}</div></section>`;
-  if (quiz) h += `<section class="carte quiz-cours"><div class="tuile-quiz">${ico("trophee", 2)}</div><div class="espace"><div class="etiquette-section orange">QUIZ DU COURS</div><div class="gras">${esc(insecables(`${quiz.titre} · ${quiz.questions.length} questions, dans l'ordre du quiz fait en classe, avec le corrigé.`))}</div></div><button class="bouton" data-lancer="quiz">${ico("drapeau")}Faire le quiz du cours</button></section>`;
+  if (quiz) h += `<section class="carte quiz-cours"><div class="tuile-quiz">${ico("trophee", 2)}</div><div class="espace"><div class="etiquette-section orange">QUIZ DU COURS</div><div class="gras">${esc(insecables(`${quiz.titre} · ${quiz.questions.length} questions, dans l'ordre du quiz fait en classe, avec le corrigé.`))}</div></div><button class="bouton" data-lancer="quiz">${ico("drapeau")}Faire le quiz du parcours</button></section>`;
   if (scores.length) h += `<section class="carte"><div class="etiquette-section">TES RÉSULTATS</div><table class="scores">${scores.map(m => `<tr><td>${esc(m.format)}</td><td class="attenue">${esc(`dernière ${m.derniere} % · meilleure ${m.meilleure} % · ${m.essais} tentative${S(m.essais)}`)}</td></tr>`).join("")}</table></section>`;
   return h;
 }
@@ -411,7 +411,7 @@ function ongletProgres(s, r, API) {
   const teinte = M.teinteSeance(s);
   const banque = distinct(M.pool(s).map(q => q.id));
   const banqueCours = distinct(M.datees().filter(x => !x.estExamen).flatMap(x => (M.banque(x.cle) || { questions: [] }).questions.map(q => q.id)));
-  const series = [{ nom: s.estExamen ? "Cet examen" : "Cette séance", couleur: teinte, points: E.serieMaitrise(banque) }, { nom: "Ensemble du cours", couleur: "var(--encre)", points: E.serieMaitrise(banqueCours), etiquette: false }];
+  const series = [{ nom: s.estExamen ? "Cet bilan" : "Cette séance", couleur: teinte, points: E.serieMaitrise(banque) }, { nom: "Ensemble du parcours", couleur: "var(--encre)", points: E.serieMaitrise(banqueCours), etiquette: false }];
   const lignes = [];
   for (const x of M.datees().filter(x => !x.estExamen)) lignes.push({ lib: M.dateCourteSeance(x), part: E.part((M.banque(x.cle) || { questions: [] }).questions.map(q => q.id)), teinte: M.teinteSeance(x) });
   lignes.push({ lib: "Ensemble", part: E.part(banqueCours), total: true });
@@ -430,7 +430,7 @@ function ongletProgres(s, r, API) {
     return `<li><span class="puce-point" style="background:var(--orange)"></span><span class="t">${esc(`${M.Chap.etiquette(p.lecon.chapitre)} · ${p.lecon.parties[p.index].titre}`)}</span><span class="badge-erreurs">${n} question${S(n)}</span><a class="lien" href="${API.lien("reviser", "lecons", (sd || s).cle, p.lecon.chapitre, id)}">Revoir</a></li>`;
   }).join("");
   const html = `<div class="grille-progres">
-<section class="carte"><div class="etiquette-section icone">${ico("trophee", 2)}MEILLEURS SCORES</div>${scores.length ? scores.map(m => `<div class="score-ligne-progres"><span class="badge-score" style="--teinte:${teinte}">${m.meilleure} %</span><div><b>${esc(m.format)}</b><small class="attenue">le ${+m.date.slice(8)}/${+m.date.slice(5, 7)} · ${m.essais} essai${S(m.essais)} · dernier ${m.derniere} %</small></div></div>`).join("") : `<p class="attenue">Fais un premier QCM de cette séance : tes meilleurs scores s'affichent ici.</p>`}</section>
+<section class="carte"><div class="etiquette-section icone">${ico("trophee", 2)}MEILLEURS SCORES</div>${scores.length ? scores.map(m => `<div class="score-ligne-progres"><span class="badge-score" style="--teinte:${teinte}">${m.meilleure} %</span><div><b>${esc(m.format)}</b><small class="attenue">le ${+m.date.slice(8)}/${+m.date.slice(5, 7)} · ${m.essais} essai${S(m.essais)} · dernier ${m.derniere} %</small></div></div>`).join("") : `<p class="attenue">Fais un premier QCM de ce module : tes meilleurs scores s'affichent ici.</p>`}</section>
 <section class="carte"><div class="etiquette-section icone">${ico("graphique", 2)}TA MAÎTRISE AU FIL DU TEMPS</div>${legende(series)}${courbe(series)}</section>
 <section class="carte"><div class="etiquette-section icone">${ico("cible", 2)}MAÎTRISE PAR SÉANCE</div><div class="barres-maitrise">${lignes.map(l => l.entete ? `<div class="entete-barres">${esc(l.entete)}</div>`
     : `<div class="ligne-maitrise${l.total ? " total" : ""}"><span class="puce-point" style="background:${l.total ? "var(--encre)" : l.teinte}"></span><span class="lib">${esc(l.lib)}</span><div class="piste-barre"><i style="width:${Math.round(l.part * 100)}%;background:${l.total ? "var(--encre)" : l.teinte}"></i></div><b>${Math.round(l.part * 100)} %</b></div>`).join("")}</div></section>
@@ -447,7 +447,7 @@ export default async function reviser(r, API) {
   E.retenirPosition("reviser.onglet", onglet);
   const teinte = M.teinteSeance(s);
   const onglets = piste(ONGLETS.map(o => ({ ...o, href: API.lien("reviser", o.id, s.cle) })), onglet, { classe: "onglets-reviser", remplacer: true });
-  const tete = entete({ icone: "livre", teinte, surtitre: "RÉVISER · 05", titre: "Révise séance par séance", droite: onglets });
+  const tete = entete({ icone: "livre", teinte, surtitre: "RÉVISER · 05", titre: "Explore les modules à ton rythme", droite: onglets });
   const routeSeance = x => API.lien("reviser", onglet, x.cle);
   const detail = x => (x.estExamen ? x.court : x.estFacultative ? "séance facultative" : x.court);
   const exercices = s.devoirs.includes(M.DEVOIR_TUTORIEL) ? `<a class="lien" href="#/coder-r">${ico("crayon", 1.9)}Exercices</a>` : M.devoirsDe(s).length ? `<a class="lien" href="${API.lien("diapos", s.cle, "exercices")}">${ico("crayon", 1.9)}Exercices</a>` : "";

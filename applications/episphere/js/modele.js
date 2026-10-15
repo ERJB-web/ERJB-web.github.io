@@ -1,14 +1,14 @@
-/* Le cours chargé en mémoire : calendrier des séances, leçons, fiches, banques de QCM, diapos, devoirs, catalogue, tutoriel R.
+/* Le parcours chargé en mémoire : calendrier des séances, leçons, fiches, banques de QCM, diapos, devoirs, catalogue, tutoriel R.
    Mêmes règles que la version Windows (SeanceCalendar, RevisionContent, DiaposContent, DevoirsContent, MemorizeDeck, Maitrise…). */
-import * as Contenu from "./contenu.js";
-import { dateCourte, dateLongue, trierPar, distinct } from "./outils.js";
+import * as Contenu from "./contenu.js?v=autonome2";
+import { dateCourte, dateLongue, trierPar, distinct } from "./outils.js?v=autonome2";
 
 export const C = {
   seances: [], lecons: {}, fiches: {}, banques: {}, quiz: {}, jeux: {}, devoirs: {}, catalogue: null, tutoriel: null, ajouts: null,
   conseils: null, lexique: null, lectures: {}, jeuxContenu: null, pret: false,
 };
 export const DEVOIR_TUTORIEL = "20_R";
-export const PREMIER_FACULTATIF = 31;
+export const PREMIER_FACULTATIF = 1000;
 export const SERIE = 20, TOUTES = 100;
 
 /* ---------- Chargement ---------- */
@@ -18,7 +18,7 @@ export async function charger() {
   const seances = (brutes && brutes.seances) || [];
   for (const s of seances) {
     s.type = s.type || "seance"; s.chapitres = s.chapitres || []; s.diapos = s.diapos || []; s.devoirs = s.devoirs || []; s.couvre = s.couvre || []; s.court = s.court || "";
-    s.cle = s.date || s.id || ""; s.estExamen = s.type === "examen"; s.estFacultative = s.type === "facultative"; s.jour = s.date || null;
+    s.cle = s.date || s.id || ""; s.estExamen = s.type === "bilan"; s.estFacultative = s.type === "facultative"; s.jour = s.date || null;
   }
   C.seances = trierPar(seances.filter(s => !s.estFacultative), s => s.date || "").concat(seances.filter(s => s.estFacultative));
   const fichiers = Contenu.liste("");
@@ -56,16 +56,16 @@ export const datees = () => C.seances.filter(s => !s.estFacultative);
 export const facultatives = () => C.seances.filter(s => s.estFacultative);
 export const trouver = cle => C.seances.find(s => s.cle === cle) || null;
 export const seanceDuChapitre = ch => C.seances.find(s => !s.estExamen && s.chapitres.includes(ch)) || null;
-/** Numéro de séance : 1 à n pour les séances du plan de cours, puis les séances facultatives à la suite ; 0 pour un examen. */
+/** Numéro de séance : 1 à n pour les séances du parcours d’apprentissage, puis les séances facultatives à la suite ; 0 pour un bilan. */
 export function numero(s) { if (!s || s.estExamen) return 0; return C.seances.filter(x => !x.estExamen).indexOf(s) + 1; }
 export const numeroDuChapitre = ch => { const s = seanceDuChapitre(ch); return s ? numero(s) : 0; };
-/** Première séance ou premier examen datés à partir du jour (la séance du jour reste la prochaine jusqu'à minuit). */
+/** Première séance ou premier bilan datés à partir du jour (le module du jour reste la prochaine jusqu'à minuit). */
 export const prochaine = j => datees().find(s => s.jour >= j) || null;
-export const couvertes = examen => examen.couvre.map(trouver).filter(Boolean);
-/** « 28 sept » ; le nom court d'une séance facultative (« Plus loin 1 »). */
+export const couvertes = bilan => bilan.couvre.map(trouver).filter(Boolean);
+/** « 28 sept » ; le nom court d'un module facultative (« Plus loin 1 »). */
 export const dateCourteSeance = s => (s.jour ? dateCourte(s.jour) : s.court);
 export const longueSeance = s => (s.jour ? dateLongue(s.jour) : s.court);
-export const nomDeSeance = s => (s.estFacultative ? `la séance ${s.court}` : `la séance du ${dateCourteSeance(s)}`);
+export const nomDeSeance = s => "le module " + numero(s);
 /** « chapitres 3 et 4 », « chapitres 8 à 13 et 17 », « introduction et chapitre 1 », « séance facultative ». */
 export function textesChapitres(s) {
   if (s.estFacultative) return "séance facultative";
@@ -86,12 +86,7 @@ function chapitres(c, sources) {
   return "chapitres " + (morceaux.length === 1 ? morceaux[0] : morceaux.slice(0, -1).join(", ") + " et " + morceaux[morceaux.length - 1]);
 }
 /** Encart de la barre latérale : étiquette et texte de la prochaine échéance. */
-export function encart(j) {
-  if (!datees().length) return { lib: "", txt: "" };
-  const s = prochaine(j);
-  if (!s) return { lib: "SESSION TERMINÉE", txt: "L'examen final est passé : bonne fin de session." };
-  return { lib: s.estExamen ? "PROCHAIN EXAMEN" : "PROCHAIN QUIZ", txt: s.estExamen ? `${longueSeance(s)} · ${s.titre}` : `${longueSeance(s)} · ${s.titre} · ${textesChapitres(s)}` };
-}
+export function encart() {return {lib:"À VOTRE RYTHME",txt:Object.keys(C.lecons).length+" modules autonomes · R avec Positron"};}
 
 /* ---------- Noms de chapitre ---------- */
 const estFacultatif = ch => ch >= PREMIER_FACULTATIF;
@@ -100,7 +95,7 @@ export const Chap = {
   etiquette: ch => (ch === 0 ? "Introduction" : estFacultatif(ch) ? plusLoin(ch) : `Ch. ${ch}`),
   long: ch => (ch === 0 ? "Introduction" : estFacultatif(ch) ? plusLoin(ch) : `Chapitre ${ch}`),
   court: ch => (ch === 0 ? "l'introduction" : estFacultatif(ch) ? plusLoin(ch) : `ch. ${ch}`),
-  de: ch => (ch === 0 ? "de l'introduction" : estFacultatif(ch) ? `de la séance ${plusLoin(ch)}` : `du ch. ${ch}`),
+  de: ch => (ch === 0 ? "de l'introduction" : estFacultatif(ch) ? `de le module ${plusLoin(ch)}` : `du ch. ${ch}`),
 };
 
 /* ---------- Leçons, fiches, banques ---------- */
@@ -113,7 +108,7 @@ export function partie(id) {
 }
 export const banque = cle => C.banques[cle] || null;
 export const quizCours = cle => C.quiz[cle] || null;
-/** Questions d'une séance, ou de toutes les séances couvertes par un examen. */
+/** Questions d'un module, ou de toutes les séances couvertes par un bilan. */
 export function pool(s) { return s.estExamen ? couvertes(s).flatMap(x => (banque(x.cle) || { questions: [] }).questions) : (banque(s.cle) || { questions: [] }).questions; }
 
 /* ---------- Mémoriser : chaque cadre de fiche qui a une formule devient une carte ---------- */
@@ -155,6 +150,6 @@ export const TYPES_PARTIE = { calcul: "CALCUL", concept: "CONCEPT", "r-donnees":
 export const etiquettesDevoir = d => distinct((d.parties || []).flatMap(p => p.types || [])).map(t => TYPES_PARTIE[t] || t.toUpperCase());
 
 /* ---------- Teintes des séances ---------- */
-/** Variable CSS de la teinte d'une séance (une teinte par numéro ; la treizième reprend la première ; examen à part). */
-export function teinte(n) { return n <= 0 ? "var(--seance-examen)" : `var(--seance-${((n - 1) % 12) + 1})`; }
-export const teinteSeance = s => (s && s.estExamen ? "var(--seance-examen)" : teinte(numero(s)));
+/** Variable CSS de la teinte d'un module (une teinte par numéro ; la treizième reprend la première ; bilan à part). */
+export function teinte(n) { return n <= 0 ? "var(--seance-bilan)" : `var(--seance-${((n - 1) % 12) + 1})`; }
+export const teinteSeance = s => (s && s.estExamen ? "var(--seance-bilan)" : teinte(numero(s)));

@@ -1,9 +1,9 @@
 /* Le tuteur (port de Core/Tutorat/Tuteur.cs) : reprendre la dernière activité, conseiller la suite, rappeler et encourager.
    Des règles explicables, sans réseau. */
-import * as M from "./modele.js";
-import * as E from "./etat.js";
-import { C } from "./modele.js";
-import { S, jourDe, decaler, ecart, dans, distinct, trierPar } from "./outils.js";
+import * as M from "./modele.js?v=autonome2";
+import * as E from "./etat.js?v=autonome2";
+import { C } from "./modele.js?v=autonome2";
+import { S, jourDe, decaler, ecart, dans, distinct, trierPar } from "./outils.js?v=autonome2";
 
 const { cible } = E;
 export const SEUIL_FAIBLE = 0.6;
@@ -40,7 +40,7 @@ export function serie(j) {
   for (let d = auj ? j : decaler(j, -1); jours.has(d); d = decaler(d, -1)) n++;
   return { jours: n, aujourdhui: auj };
 }
-/** Où en est l'élève dans tout le cours (séances datées hors examens). */
+/** Où en est l'élève dans tout le parcours (séances datées hors bilans). */
 export function parcours() {
   const seances = M.datees().filter(s => !s.estExamen);
   const av = seances.map(avancement);
@@ -125,7 +125,7 @@ function reprendreLecon(c) {
   if (s) for (const nom of s.diapos) {
     const j = M.jeu(nom); if (!j) continue;
     for (let k = 1; k <= j.count; k++) if (!E.estVue(j.id(k)))
-      return conseil("reprendre", `Passe aux diapos : ${j.libelle}`, "Tu as lu la leçon et fait le test ; les diapos de la séance la reprennent autrement.", cible("diapos", { seance: s.cle, jeu: j.nom, diapo: k }), RepriseP);
+      return conseil("reprendre", `Passe aux diapos : ${j.libelle}`, "Tu as lu la leçon et fait le test ; les diapos de le module la reprennent autrement.", cible("diapos", { seance: s.cle, jeu: j.nom, diapo: k }), RepriseP);
   }
   return null;
 }
@@ -147,7 +147,7 @@ function reprendreDiapos(c) {
       return conseil("reprendre", `Passe aux diapos suivantes : ${autre.libelle}`, `Tu as vu les diapos : ${j.libelle}.`, cible("diapos", { seance: s.cle, jeu: autre.nom, diapo: k }), RepriseP);
   }
   const d = devoirAFaire(s);
-  if (d) return conseil("reprendre", "Passe aux exercices de la séance", `Tu as vu les diapos : ${j.libelle}. Mets-les en pratique.`, cible("diapos", { seance: s.cle, onglet: "exercices", devoir: d.devoir }), RepriseP);
+  if (d) return conseil("reprendre", "Passe aux exercices de le module", `Tu as vu les diapos : ${j.libelle}. Mets-les en pratique.`, cible("diapos", { seance: s.cle, onglet: "exercices", devoir: d.devoir }), RepriseP);
   return qcmDeLaSeance(s, `Tu as vu les diapos : ${j.libelle}.`);
 }
 function reprendreDevoir(c) {
@@ -162,7 +162,7 @@ function reprendreDevoir(c) {
 }
 function qcmDeLaSeance(s, fait) {
   return M.banque(s.cle) && E.tentatives(s.cle).length === 0
-    ? conseil("reprendre", "Teste-toi sur la séance", `${fait} Vérifie ce que tu en as retenu avec 20 questions.`, cible("reviser", { seance: s.cle, onglet: "qcm", serie: "serie20" }), RepriseP)
+    ? conseil("reprendre", "Teste-toi sur le module", `${fait} Vérifie ce que tu en as retenu avec 20 questions.`, cible("reviser", { seance: s.cle, onglet: "qcm", serie: "serie20" }), RepriseP)
     : null;
 }
 function reprendreCartes(c) {
@@ -177,7 +177,7 @@ function reprendreQcm(der) {
   const f = E.faibles();
   const ratees = M.pool(s).filter(q => f.has(q.id)).length;
   return ratees === 0 ? null : conseil("reprendre", "Refais tes questions ratées",
-    `Ta dernière série : ${der.libelle}. ${ratees} question${S(ratees)} de la séance attend${ratees > 1 ? "ent" : ""} une bonne réponse.`,
+    `Ta dernière série : ${der.libelle}. ${ratees} question${S(ratees)} de le module attend${ratees > 1 ? "ent" : ""} une bonne réponse.`,
     cible("reviser", { seance: s.cle, onglet: "qcm", serie: "erreurs" }), RepriseP);
 }
 function ramener(der) {
@@ -190,7 +190,7 @@ function ramener(der) {
 /* ---------- Conseiller ---------- */
 export function conseiller(j, nombre = 3) {
   const rep = reprendre(), reprise = rep && rep.cible;
-  const candidats = [...erreurs(), ...cartes(), ...devoirsARevoir(), ...preparer(j), ...examen(j), ...faiblesSeances()];
+  const candidats = [...erreurs(), ...cartes(), ...devoirsARevoir(), ...preparer(j), ...bilan(j), ...faiblesSeances()];
   if (rienFait()) { const p = commencer(); if (p) candidats.push(p); }
   else candidats.push(...avancer(), ...plusLoin(j));
   const vus = new Set(), r = [];
@@ -217,7 +217,7 @@ function erreurs() {
       cible("reviser", { seance: sd ? sd.cle : pire.seance.cle, onglet: "lecons", chapitre: pt.lecon.chapitre, partie: pt.lecon.parties[pt.index].id }), ErreursP + n));
   }
   const ratees = pire.pool.filter(q => f.has(q.id)).length, serie = Math.min(ratees, M.SERIE);
-  r.push(conseil("erreurs", `Refais tes questions ratées (${ratees})`, `Une série de ${serie} question${S(serie)} : celles que tu as ratées ou pas encore faites dans cette séance.`,
+  r.push(conseil("erreurs", `Refais tes questions ratées (${ratees})`, `Une série de ${serie} question${S(serie)} : celles que tu as ratées ou pas encore faites dans ce module.`,
     cible("reviser", { seance: pire.seance.cle, onglet: "qcm", serie: "erreurs" }), SerieErreursP));
   return r;
 }
@@ -243,9 +243,9 @@ function preparer(j) {
   const s = M.prochaine(j);
   if (!s || s.estExamen || !s.jour || ecart(j, s.jour) > 7) return [];
   const p = pas(s); if (!p) return [];
-  return [conseil("preparer", `Prépare la séance du ${M.dateCourteSeance(s)}`, `Elle a lieu ${dans(ecart(j, s.jour))} ; ${p.quoi}.`, p.cible, PreparerP)];
+  return [conseil("preparer", `Prépare le module du ${M.dateCourteSeance(s)}`, `Elle a lieu ${dans(ecart(j, s.jour))} ; ${p.quoi}.`, p.cible, PreparerP)];
 }
-function examen(j) {
+function bilan(j) {
   const ex = M.datees().find(s => s.estExamen && s.jour >= j && ecart(j, s.jour) <= 14);
   if (!ex) return [];
   let pire = null;
@@ -254,11 +254,11 @@ function examen(j) {
     if (!pire || p < pire.part) pire = { seance: s, part: p };
   }
   if (!pire) return [];
-  const quand = `L'examen a lieu ${dans(ecart(j, ex.jour))}`;
+  const quand = `L'bilan a lieu ${dans(ecart(j, ex.jour))}`;
   const pourquoi = E.tentatives(pire.seance.cle).length === 0
-    ? `${quand} ; tu n'as encore fait aucun QCM sur la séance du ${M.dateCourteSeance(pire.seance)}.`
-    : `${quand} ; c'est la séance du ${M.dateCourteSeance(pire.seance)} que tu maîtrises le moins (${pct(pire.part)} %).`;
-  return [conseil("examen", `Prépare l'${ex.titre.toLowerCase()}`, pourquoi, cible("reviser", { seance: pire.seance.cle, onglet: "qcm", serie: "serie20" }), ExamenP)];
+    ? `${quand} ; tu n'as encore fait aucun QCM sur le module du ${M.dateCourteSeance(pire.seance)}.`
+    : `${quand} ; c'est le module du ${M.dateCourteSeance(pire.seance)} que tu maîtrises le moins (${pct(pire.part)} %).`;
+  return [conseil("bilan", `Prépare l'${ex.titre.toLowerCase()}`, pourquoi, cible("reviser", { seance: pire.seance.cle, onglet: "qcm", serie: "serie20" }), ExamenP)];
 }
 function faiblesSeances() {
   const dern = E.dernieres();
@@ -269,14 +269,14 @@ function faiblesSeances() {
     if (rep.length >= 10 && taux < SEUIL_FAIBLE && (!pire || taux < pire.taux)) pire = { s, taux };
   }
   if (!pire) return [];
-  return [conseil("faible", `Consolide la séance du ${M.dateCourteSeance(pire.s)}`, `Tu y réussis ${pct(pire.taux)} % des questions : une série de 20, en commençant par tes erreurs.`,
+  return [conseil("faible", `Consolide le module du ${M.dateCourteSeance(pire.s)}`, `Tu y réussis ${pct(pire.taux)} % des questions : une série de 20, en commençant par tes erreurs.`,
     cible("reviser", { seance: pire.s.cle, onglet: "qcm", serie: "serie20-erreurs" }), FaibleP)];
 }
 function avancer() {
   const r = []; let rang = 0;
   for (const s of M.datees().filter(s => !s.estExamen)) {
     const p = pas(s); if (!p) continue;
-    r.push(conseil("avancer", `Avance dans la séance du ${M.dateCourteSeance(s)}`, `${s.titre} : ${p.quoi}.`, p.cible, AvancerP - rang));
+    r.push(conseil("avancer", `Avance dans le module du ${M.dateCourteSeance(s)}`, `${s.titre} : ${p.quoi}.`, p.cible, AvancerP - rang));
     if (++rang === 2) break;
   }
   return r;
@@ -293,11 +293,11 @@ function plusLoin(j) {
   if (!passees.length || passees.some(s => pas(s))) return [];
   const fac = M.facultatives().map(s => ({ s, p: pas(s) })).filter(x => x.p);
   const enCours = fac.find(x => commencee(x.s));
-  if (enCours) return [conseil("plusloin", `Continue la séance facultative : ${enCours.s.titre}`, `Ton cours est à jour ; dans cette séance pour aller plus loin, ${enCours.p.quoi}.`, enCours.p.cible, PlusLoinP)];
-  if (fac.length) return [conseil("plusloin", `Pour aller plus loin, si tu veux : ${fac[0].s.titre}`, "Séance facultative : ton cours est à jour, et celle-ci va au-delà de ce que le cours demande.", fac[0].p.cible, PlusLoinP)];
+  if (enCours) return [conseil("plusloin", `Continue le module facultative : ${enCours.s.titre}`, `Ton cours est à jour ; dans ce module pour aller plus loin, ${enCours.p.quoi}.`, enCours.p.cible, PlusLoinP)];
+  if (fac.length) return [conseil("plusloin", `Pour aller plus loin, si tu veux : ${fac[0].s.titre}`, "Module facultative : ton cours est à jour, et celle-ci va au-delà de ce que le parcours demande.", fac[0].p.cible, PlusLoinP)];
   return [];
 }
-/** Ce qui reste à faire dans une séance. */
+/** Ce qui reste à faire dans un module. */
 export function pas(s) {
   for (const ch of s.chapitres) {
     const l = C.lecons[ch]; if (!l) continue;
@@ -332,7 +332,7 @@ function commencer() {
 export function rappels(j) {
   const r = [];
   const s = M.prochaine(j);
-  if (s) { const d = M.longueSeance(s); r.push(`${s.estExamen ? "Prochain examen" : "Prochaine séance"} : ${d[0].toLowerCase() + d.slice(1)} · ${s.titre}`); }
+  if (s) { const d = M.longueSeance(s); r.push(`${s.estExamen ? "Prochain bilan" : "Prochaine séance"} : ${d[0].toLowerCase() + d.slice(1)} · ${s.titre}`); }
   const n = Object.values(E.P.memoriser).filter(v => v === 1).length;
   if (n > 0) r.push(`${n} carte${S(n)} à revoir dans Mémoriser`);
   const c = Object.values(C.devoirs).reduce((x, d) => x + evaluations(d).filter(v => v === false).length, 0);

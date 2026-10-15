@@ -1,12 +1,12 @@
-/* 06 · Apprendre à coder avec R (Positron) : le tutoriel R du cours, sujet par sujet, avec les exemples, leurs sorties et les exercices. */
-import { C } from "../modele.js";
-import * as E from "../etat.js";
-import { ico } from "../icones.js";
-import { entete } from "../ui.js";
-import { inl } from "../rendu.js";
-import { blocExercice } from "../rendu.js";
-import { esc } from "../outils.js";
-import { scriptsSujet } from "../positron.js";
+/* 06 · Apprendre à coder avec R (Positron) : les ateliers R avec Positron, sujet par sujet, avec les exemples, leurs sorties et les exercices. */
+import { C } from "../modele.js?v=autonome2";
+import * as E from "../etat.js?v=autonome2";
+import { ico } from "../icones.js?v=autonome2";
+import { entete } from "../ui.js?v=autonome2";
+import { inl } from "../rendu.js?v=autonome2";
+import { blocExercice } from "../rendu.js?v=autonome2";
+import { esc } from "../outils.js?v=autonome2";
+import { scriptsSujet } from "../positron.js?v=autonome2";
 
 export default async function coderR(r, API) {
   const t = C.tutoriel;
@@ -19,7 +19,7 @@ export default async function coderR(r, API) {
   const titre = x => x.titre.replace(/`/g, "");
   const ctx = { dossier: "tutoriel-r", devoir: "tutoriel", evaluation: id => E.autoevaluation(id), script: scriptsSujet(s) };
   const liste = `<nav class="sujets-r" aria-label="Sujets"><div class="etiquette-section">SUJETS · ${termines} SUR ${total} TERMINÉS</div>${t.sujets.map(x =>
-    `${x.ajout ? `<div class="etiquette-section separateur-r">DEVOIR DU COURS · CH. 21</div>` : ""}<a class="sujet-r${x.estExercices ? " retrait" : ""}${x.numero === n ? " courant" : ""}${E.estTermine(x.numero) ? " termine" : ""}" href="${API.lien("coder-r", x.numero)}" data-remplacer>
+    `${x.ajout ? `<div class="etiquette-section separateur-r">MISE EN PRATIQUE AUTONOME</div>` : ""}<a class="sujet-r${x.estExercices ? " retrait" : ""}${x.numero === n ? " courant" : ""}${E.estTermine(x.numero) ? " termine" : ""}" href="${API.lien("coder-r", x.numero)}" data-remplacer>
 <span class="rond-sujet">${E.estTermine(x.numero) ? ico("coche", 2.6) : x.numero}</span><span>${inl(x.titre)}</span></a>`).join("")}</nav>`;
   const prec = n > 1 ? n - 1 : null, suiv = n < total ? n + 1 : null;
   const contenu = `<article class="sujet-contenu carte"><div class="surtitre">${esc(s.ajout ? `Sujet ${n} sur ${total} · devoir` : `Sujet ${n} sur ${total}`)}</div><h2 class="titre-sujet">${inl(s.titre)}</h2>
@@ -27,7 +27,7 @@ ${s.blocs.map(b => blocExercice(b, ctx)).join("")}
 <div class="rangee fin-sujet"><button class="bouton${E.estTermine(n) ? " secondaire" : ""}" data-terminer aria-pressed="${E.estTermine(n)}">${ico("coche", 2.4)}${E.estTermine(n) ? "Terminé" : "Marquer comme terminé"}</button></div></article>
 <div class="barre-suite"><a class="bouton secondaire" ${prec ? `href="${API.lien("coder-r", prec)}"` : 'aria-disabled="true"'}>${ico("gauche", 2)}<span>${esc(prec ? titre(t.sujets[prec - 1]) : "Début")}</span></a>
 <a class="bouton" ${suiv ? `href="${API.lien("coder-r", suiv)}"` : 'aria-disabled="true"'}><span>${esc(suiv ? titre(t.sujets[suiv - 1]) : "Fin")}</span>${ico("droite", 2)}</a></div>`;
-  const html = `${entete({ surtitre: "APPRENDRE À CODER AVEC R (POSITRON) · 06", titre: "Le tutoriel R du cours" })}
+  const html = `${entete({ surtitre: "APPRENDRE À CODER AVEC R (POSITRON) · 06", titre: "Ateliers R avec Positron" })}
 <details class="sommaire-mobile sujets-mobile"><summary>${esc(`Sujet ${n} : ${titre(s)}`)}</summary>${liste}</details>
 <div class="coder-r">${liste}<div class="colonne-sujet">${contenu}</div></div>`;
   return {

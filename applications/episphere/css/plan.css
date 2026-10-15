@@ -1,9 +1,9 @@
 /* 08 · Plan de révision */
 .entete-plan { margin-bottom: 16px; }
-.chips-examens { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-.chip-examen { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 10px; background: var(--piste); font-weight: 700; font-size: 13.5px; }
-.chip-examen svg { width: 16px; height: 16px; }
-.chip-examen.prochain { background: var(--teinte-orange); color: var(--texte-orange); }
+.chips-bilans { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.chip-bilan { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 10px; background: var(--piste); font-weight: 700; font-size: 13.5px; }
+.chip-bilan svg { width: 16px; height: 16px; }
+.chip-bilan.prochain { background: var(--teinte-orange); color: var(--texte-orange); }
 .plan-haut { display: grid; grid-template-columns: minmax(0, 2fr) minmax(220px, 0.9fr) minmax(200px, 0.8fr); gap: 18px; margin-bottom: 18px; }
 .plan-haut .carte { border-radius: 18px; padding: 20px 22px; }
 .conseils-tete { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
@@ -51,7 +51,7 @@
 .jour-plan.aujourdhui .jour-tete span { color: #fff; }
 .jour-evenements { display: flex; flex-wrap: wrap; gap: 4px; padding: 6px 10px 0; }
 .evt { font-style: normal; font-size: 10.5px; font-weight: 900; border-radius: 6px; padding: 1px 6px; background: var(--teinte-bleue); color: var(--bleu-profond); }
-.evt.examen { background: var(--teinte-orange); color: var(--texte-orange); }
+.evt.bilan { background: var(--teinte-orange); color: var(--texte-orange); }
 .jour-taches { display: flex; flex-direction: column; gap: 6px; padding: 8px 8px 0; flex: 1; }
 .mini-tache { display: flex; align-items: center; justify-content: space-between; gap: 4px; border-left: 3px solid var(--c); background: color-mix(in srgb, var(--c) 16%, var(--surface)); border-radius: 6px; padding: 5px 7px; font-size: 12px; font-weight: 700; white-space: nowrap; overflow: hidden; }
 .mini-tache svg { width: 12px; height: 12px; color: var(--succes); flex-shrink: 0; }

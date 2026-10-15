@@ -1,7 +1,7 @@
 /* Composants d'écran communs : en-tête de page, anneau de progression, barre d'avancement, sélecteur de séance, graphiques. */
-import { esc, dateCourte } from "./outils.js";
-import { ico } from "./icones.js";
-import * as M from "./modele.js";
+import { esc, dateCourte } from "./outils.js?v=autonome2";
+import { ico } from "./icones.js?v=autonome2";
+import * as M from "./modele.js?v=autonome2";
 
 /** En-tête d'une page : tuile d'icône (teinte), surtitre « RÉVISER · 05 », titre, et à droite les onglets. */
 export function entete({ icone, teinte, surtitre, titre, droite = "", classe = "" }) {
@@ -25,7 +25,7 @@ ${p > 0 ? `<circle cx="50" cy="50" r="${r}" fill="none" stroke="${couleur}" stro
 }
 export function barre(part, classe = "") { return `<div class="avancement ${classe}"><i style="width:${Math.round(Math.max(0, Math.min(1, part || 0)) * 100)}%"></i></div>`; }
 
-/** Nom d'une séance dans un menu : « 26 oct · Régression linéaire », « Plus loin 1 · … », « 2 nov · Examen intra ». */
+/** Nom d'un module dans un menu : « 26 oct · Régression linéaire », « Plus loin 1 · … », « 2 nov · Bilan intra ». */
 export function nomMenu(s) { return `${M.dateCourteSeance(s)} · ${s.titre}`; }
 /**
  * Sélecteur de séance : ◀ [menu déroulant] ▶. seances : liste ; actuelle ; routeDe(s) → lien. Les séances facultatives sont groupées.
@@ -34,17 +34,17 @@ export function selecteurSeance(seances, actuelle, routeDe, o = {}) {
   const i = seances.indexOf(actuelle);
   const prec = i > 0 ? seances[i - 1] : null, suiv = i >= 0 && i < seances.length - 1 ? seances[i + 1] : null;
   const fleche = (s, dir) => s
-    ? `<a class="fleche-seance" href="${routeDe(s)}" data-remplacer data-sens="${dir}" aria-label="${dir < 0 ? "Séance précédente" : "Séance suivante"} : ${esc(nomMenu(s))}">${ico(dir < 0 ? "chevronGauche" : "chevronDroit", 2.4)}</a>`
+    ? `<a class="fleche-seance" href="${routeDe(s)}" data-remplacer data-sens="${dir}" aria-label="${dir < 0 ? "Module précédent" : "Module suivant"} : ${esc(nomMenu(s))}">${ico(dir < 0 ? "chevronGauche" : "chevronDroit", 2.4)}</a>`
     : `<span class="fleche-seance inactive" aria-hidden="true">${ico(dir < 0 ? "chevronGauche" : "chevronDroit", 2.4)}</span>`;
   const options = (liste) => liste.map(s => `<option value="${esc(routeDe(s))}"${s === actuelle ? " selected" : ""}>${esc(nomMenu(s))}</option>`).join("");
   const datees = seances.filter(s => !s.estFacultative), fac = seances.filter(s => s.estFacultative);
   const droite = o.detail ? o.detail(actuelle) : (actuelle ? actuelle.court : "");
   return `<div class="selecteur-seance">${fleche(prec, -1)}
-<label class="menu-seance"><span class="vh">Séance</span><span class="menu-texte"><b>${esc(actuelle ? nomMenu(actuelle) : "")}</b><span class="menu-detail">${esc(droite || "")}</span>${ico("chevronBas", 2.2)}</span>
-<select data-route-select aria-label="Choisir une séance">${options(datees)}${fac.length ? `<optgroup label="Pour aller plus loin">${options(fac)}</optgroup>` : ""}</select></label>
+<label class="menu-seance"><span class="vh">Module</span><span class="menu-texte"><b>${esc(actuelle ? nomMenu(actuelle) : "")}</b><span class="menu-detail">${esc(droite || "")}</span>${ico("chevronBas", 2.2)}</span>
+<select data-route-select aria-label="Choisir un module">${options(datees)}${fac.length ? `<optgroup label="Pour aller plus loin">${options(fac)}</optgroup>` : ""}</select></label>
 ${fleche(suiv, 1)}</div>`;
 }
-/** Liens « Diapos » et « Exercices » d'une séance. */
+/** Liens « Diapos » et « Exercices » d'un module. */
 export function liensSeance(s, API) {
   if (!s || s.estExamen) return "";
   const l = [];

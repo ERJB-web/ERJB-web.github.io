@@ -55,7 +55,7 @@
   --ciel-bas: #17496B;
   --seance-1: #1565C0; --seance-2: #00796B; --seance-3: #7B1FA2; --seance-4: #C1440E; --seance-5: #2E7D32; --seance-6: #AD1457;
   --seance-7: #3949AB; --seance-8: #8D6E00; --seance-9: #007C89; --seance-10: #6D4C41; --seance-11: #C62828; --seance-12: #455A64;
-  --seance-examen: #263238;
+  --seance-bilan: #263238;
   --succes-sur-encre: #8FD694;
   --fond-figure: #FFFFFF;
   --violet: #7652D6;
@@ -80,7 +80,7 @@
     --barre-survol: #14222E; --succes: #5CC264; --teinte-succes: #16301A; --erreur: #FF6B6B; --teinte-erreur: #3A1A1A; --fond-code: #13202A;
     --texte-sur-pastille: #0F1923; --surface: #17232D; --surface-elevee: #1D2B38; --barre: #0A1219; --accent: #1F78C1; --accent-survol: #1862A0;
     --accent-presse: #144F84; --anneau-focus: #7DBDF0; --selection: #E4EDF3; --texte-selection: #0F1923; --texte-barre: #B8C7D2;
-    --seance-3: #8E3BC0; --seance-6: #C2185B; --seance-7: #5062C0; --seance-10: #8D6E63; --seance-12: #5A7684; --seance-examen: #546E7A;
+    --seance-3: #8E3BC0; --seance-6: #C2185B; --seance-7: #5062C0; --seance-10: #8D6E63; --seance-12: #5A7684; --seance-bilan: #546E7A;
     --violet: #A58BF2; --teinte-violette: #231D38; --ciel-haut: #040B13; --ciel-bas: #0D2638;
     --degrade-bandeau: linear-gradient(135deg, #0B2133 0%, #0D3550 55%, #0B5552 100%);
     --degrade-avancement: linear-gradient(90deg, #2FB9B3, #3B95D9);
@@ -97,7 +97,7 @@
   --barre-survol: #14222E; --succes: #5CC264; --teinte-succes: #16301A; --erreur: #FF6B6B; --teinte-erreur: #3A1A1A; --fond-code: #13202A;
   --texte-sur-pastille: #0F1923; --surface: #17232D; --surface-elevee: #1D2B38; --barre: #0A1219; --accent: #1F78C1; --accent-survol: #1862A0;
   --accent-presse: #144F84; --anneau-focus: #7DBDF0; --selection: #E4EDF3; --texte-selection: #0F1923; --texte-barre: #B8C7D2;
-  --seance-3: #8E3BC0; --seance-6: #C2185B; --seance-7: #5062C0; --seance-10: #8D6E63; --seance-12: #5A7684; --seance-examen: #546E7A;
+  --seance-3: #8E3BC0; --seance-6: #C2185B; --seance-7: #5062C0; --seance-10: #8D6E63; --seance-12: #5A7684; --seance-bilan: #546E7A;
   --violet: #A58BF2; --teinte-violette: #231D38; --ciel-haut: #040B13; --ciel-bas: #0D2638;
   --degrade-bandeau: linear-gradient(135deg, #0B2133 0%, #0D3550 55%, #0B5552 100%);
   --degrade-avancement: linear-gradient(90deg, #2FB9B3, #3B95D9);

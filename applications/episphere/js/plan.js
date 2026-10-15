@@ -1,10 +1,10 @@
 /* Plan de révision (port de Core/Planification) : bilan de chaque séance, tâches de chaque jour (répétition espacée J+1, J+3, J+7, J+14,
-   activité prioritaire, examen blanc), conseils du jour, préparation à l'examen, série de jours. */
-import * as M from "./modele.js";
-import * as E from "./etat.js";
-import { C } from "./modele.js";
-import { evaluations } from "./tuteur.js";
-import { S, jour as aujourdhuiJour, jourDe, decaler, ecart, jourSemaine, dateCourte, dateLongue, distinct, trierPar } from "./outils.js";
+   activité prioritaire, bilan blanc), conseils du jour, préparation à l'bilan, série de jours. */
+import * as M from "./modele.js?v=autonome2";
+import * as E from "./etat.js?v=autonome2";
+import { C } from "./modele.js?v=autonome2";
+import { evaluations } from "./tuteur.js?v=autonome2";
+import { S, jour as aujourdhuiJour, jourDe, decaler, ecart, jourSemaine, dateCourte, dateLongue, distinct, trierPar } from "./outils.js?v=autonome2";
 
 const { cible } = E;
 export const INTERVALLES = [1, 3, 7, 14];
@@ -15,10 +15,10 @@ const RATEES_POUR_ERREURS = 5;
 const POIDS = { qcm: 0.4, lecon: 0.15, diapos: 0.15, cartes: 0.15, exercices: 0.15 };
 const pct = p => Math.round(p * 100);
 
-/* ---------- Séances du cours ---------- */
+/* ---------- Séances du parcours ---------- */
 export const seancesDuCours = () => M.datees().filter(s => !s.estExamen);
 export function numeroCours(s) { const l = seancesDuCours(); const i = l.findIndex(x => x.cle === s.cle); return i + 1; }
-/** La séance du cours (ni examen ni séance facultative) d'une cible. */
+/** La séance du parcours (ni bilan ni séance facultative) d'une cible. */
 export function seanceDe(c) {
   if (!c) return null;
   if (c.seance != null) { const s = M.trouver(c.seance); if (s) return s.estExamen || s.estFacultative ? null : s.cle; }
@@ -26,7 +26,7 @@ export function seanceDe(c) {
   return null;
 }
 
-/* ---------- Bilan d'une séance ---------- */
+/* ---------- Bilan d'un module ---------- */
 function score(b) {
   const m = [];
   if (b.questions > 0) m.push([POIDS.qcm, b.qcm || 0]);
@@ -77,7 +77,7 @@ export function bilans() {
   return r;
 }
 
-/* ---------- Activités possibles d'une séance ---------- */
+/* ---------- Activités possibles d'un module ---------- */
 const act = (genre, titre, minutes, c, poids, o = {}) => ({ genre, titre, minutes, cible: c, poids, poidsAvantExamen: o.poidsAvantExamen ?? null, prioritaire: !!o.prioritaire, serieQcm: o.serieQcm ?? null });
 export function serieAConseiller(series) {
   if (!series.length) return null;
@@ -106,11 +106,11 @@ function sujet(b) {
     const reste = b.diapos - b.diaposVues;
     a.push(act("diapos", b.diaposVues === 0 ? "Regarde les diapos" : `Termine les diapos (${reste} à voir)`, MIN.diapos, cible("diapos", { seance: b.id, jeu: b.jeuNonVu, diapo: b.diapoNonVue }), 1 - b.diaposVues / b.diapos));
   }
-  if (b.cartes > 0) a.push(act("cartes", b.cartesARevoir > 0 ? `Révise tes ${b.cartesARevoir} carte${S(b.cartesARevoir)} à revoir` : b.cartesSues < b.cartes ? "Apprends les cartes de la séance" : "Repasse les cartes de la séance",
+  if (b.cartes > 0) a.push(act("cartes", b.cartesARevoir > 0 ? `Révise tes ${b.cartesARevoir} carte${S(b.cartesARevoir)} à revoir` : b.cartesSues < b.cartes ? "Apprends les cartes de le module" : "Repasse les cartes de le module",
     MIN.cartes, cible("reviser", { seance: b.id, onglet: "memoriser", chapitre: b.chapitre }), 1 - b.cartesSues / b.cartes + (b.cartesARevoir > 0 ? 0.3 : 0)));
   if (b.exercices > 0 && b.devoir) {
     const aFaire = b.exercices - b.exercicesReussis - b.exercicesARevoir, part = b.exercicesReussis / b.exercices;
-    a.push(act("exercices", b.exercicesARevoir > 0 ? "Refais les exercices à revoir" : aFaire === b.exercices ? "Fais les exercices de la séance" : aFaire > 0 ? "Termine les exercices de la séance" : "Refais un exercice de la séance",
+    a.push(act("exercices", b.exercicesARevoir > 0 ? "Refais les exercices à revoir" : aFaire === b.exercices ? "Fais les exercices de le module" : aFaire > 0 ? "Termine les exercices de le module" : "Refais un exercice de le module",
       MIN.exercices, cible("diapos", { seance: b.id, onglet: "exercices", devoir: b.devoir }), 1 - part + (b.exercicesARevoir > 0 ? 0.3 : 0)));
   }
   if (b.tutoriel > 0) {
@@ -123,20 +123,20 @@ function sujet(b) {
   return { id: b.id, numero: b.numero, cours: b.seance.jour, score: b.score, commence: b.commencee, travail: b.travail, cible: cible("reviser", { seance: b.id }), activites: a };
 }
 export function libelleExamenBlanc(ex) {
-  const nom = ex.titre.startsWith("Examen ") ? ex.titre.slice(7) : ex.titre;
-  return ex.court ? `Examen blanc : ${nom} (${ex.court})` : `Examen blanc : ${nom}`;
+  const nom = ex.titre.startsWith("Bilan ") ? ex.titre.slice(7) : ex.titre;
+  return ex.court ? `Bilan blanc : ${nom} (${ex.court})` : `Bilan blanc : ${nom}`;
 }
 function echeances(bs) {
   return C.seances.filter(s => s.estExamen && s.jour).map(s => ({
-    id: s.cle, jour: s.jour, titre: s.titre, genre: "examen", couvre: s.couvre,
-    examenBlanc: bs.some(b => s.couvre.includes(b.id) && b.questions > 0) ? act("examen-blanc", libelleExamenBlanc(s), MIN.examenBlanc, cible("reviser", { seance: s.cle, onglet: "qcm", serie: "toutes" }), 1) : null,
+    id: s.cle, jour: s.jour, titre: s.titre, genre: "bilan", couvre: s.couvre,
+    examenBlanc: bs.some(b => s.couvre.includes(b.id) && b.questions > 0) ? act("bilan-blanc", libelleExamenBlanc(s), MIN.examenBlanc, cible("reviser", { seance: s.cle, onglet: "qcm", serie: "toutes" }), 1) : null,
   }));
 }
 export function evenements(j) {
   const l = [];
   for (const s of M.datees().filter(s => s.jour === j)) {
-    if (s.estExamen) { l.push({ genre: "examen", texte: s.titre }); continue; }
-    l.push({ genre: "seance", texte: `Séance ${numeroCours(s)} : ${s.titre}` }, { genre: "quiz", texte: "Quiz en classe" });
+    if (s.estExamen) { l.push({ genre: "bilan", texte: s.titre }); continue; }
+    l.push({ genre: "seance", texte: `Module ${numeroCours(s)} : ${s.titre}` }, { genre: "quiz", texte: "Quiz en classe" });
   }
   return l;
 }
@@ -162,7 +162,7 @@ export function contexte(j = aujourdhuiJour()) {
 function passe(c, j) {
   const cochees = c.donnees.cochees.filter(t => t.jour === j);
   const travailles = c.sujets.filter(s => s.travail.includes(j) && !cochees.some(t => t.seance === s.id)).map(s => ({
-    id: `travail:${s.id}`, jour: j, genre: "travail", titre: "Séance travaillée", seance: s.id, numero: s.numero, cible: s.cible, faite: true, minutes: 0, raison: "",
+    id: `travail:${s.id}`, jour: j, genre: "travail", titre: "Module travaillée", seance: s.id, numero: s.numero, cible: s.cible, faite: true, minutes: 0, raison: "",
   }));
   return { jour: j, repos: c.donnees.joursDeRepos.includes(jourSemaine(j)), passe: true, aujourdhui: false, evenements: evenements(j), taches: [...cochees, ...travailles] };
 }
@@ -203,23 +203,23 @@ function simulation(c) {
     const sujetsDuJour = new Set([...taches.map(t => t.seance), ...parties.map(r => r.tache.seance)].filter(Boolean));
     for (const t of taches) travailler(t, j);
     const repos = d.joursDeRepos.includes(jourSemaine(j)), aujourdhui = j === c.aujourdhui;
-    const examen = trierPar(c.echeances.filter(e => e.genre === "examen" && e.jour >= j), e => e.jour)[0];
-    if (repos || !examen || examen.jour === j) return { jour: j, repos, passe: false, aujourdhui, evenements: ev, taches };
+    const bilan = trierPar(c.echeances.filter(e => e.genre === "bilan" && e.jour >= j), e => e.jour)[0];
+    if (repos || !bilan || bilan.jour === j) return { jour: j, repos, passe: false, aujourdhui, evenements: ev, taches };
     let capacite = d.minutesParJour - taches.reduce((x, t) => x + (t.minutes || 0), 0);
     const nouvelles = [];
     const rien = () => !taches.length && !nouvelles.length;
     const plein = () => taches.length + nouvelles.length >= TACHES_PAR_JOUR_MAX || (capacite <= 0 && !rien());
     const ajouter = t => { nouvelles.push(t); capacite -= t.minutes; ids.add(t.id); if (t.seance) sujetsDuJour.add(t.seance); travailler(t, j); };
-    const avant = ecart(j, examen.jour);
+    const avant = ecart(j, bilan.jour);
     const placer = (s, raison, enRetard = false) => {
       const o = options(s, avant).filter(t => !ids.has(t.id));
       const choix = o.find(t => t.minutes <= capacite) || (rien() ? o[0] : null);
       if (choix) ajouter({ ...choix, jour: j, raison, enRetard });
     };
-    const couverts = new Set(examen.couvre);
-    const blanc = examen.examenBlanc;
-    if (blanc && joursExamenBlanc(d.minutesParJour).includes(avant) && !ids.has(`${blanc.genre}:${examen.id}`))
-      ajouter({ id: `${blanc.genre}:${examen.id}`, jour: j, genre: blanc.genre, titre: blanc.titre, seance: examen.id, numero: 0, minutes: blanc.minutes, raison: `Examen dans ${avant} jours`, cible: blanc.cible });
+    const couverts = new Set(bilan.couvre);
+    const blanc = bilan.examenBlanc;
+    if (blanc && joursExamenBlanc(d.minutesParJour).includes(avant) && !ids.has(`${blanc.genre}:${bilan.id}`))
+      ajouter({ id: `${blanc.genre}:${bilan.id}`, jour: j, genre: blanc.genre, titre: blanc.titre, seance: bilan.id, numero: 0, minutes: blanc.minutes, raison: `Bilan dans ${avant} jours`, cible: blanc.cible });
     const candidats = sujets.filter(s => couverts.has(s.id) && !sujetsDuJour.has(s.id) && (s.cours <= j || travail[s.id].size > 0 || ecart(j, s.cours) <= JOURS_PREPARATION));
     const repetitions = trierPar(candidats.map(s => ({ s, e: prochaineRepetition([...travail[s.id]]) })).filter(x => x.e && x.e.jour <= j), x => x.s.score, x => x.s.id);
     for (const { s, e } of repetitions) {
@@ -232,17 +232,17 @@ function simulation(c) {
     for (const s of trierPar(candidats, s => (aPreparer(s) ? 0 : 1), s => (travail[s.id].has(hier) ? 1 : 0), s => s.score, s => s.id)) {
       if (plein()) break;
       if (sujetsDuJour.has(s.id)) continue;
-      placer(s, aPreparer(s) ? `Cours le ${dateCourte(s.cours)}` : !s.commence && travail[s.id].size === 0 ? "À commencer" : s.score < SEUIL_FAIBLE ? `Séance faible · ${pct(s.score)} %` : `En vue de l'${examen.titre.toLowerCase()}`);
+      placer(s, aPreparer(s) ? `Cours le ${dateCourte(s.cours)}` : !s.commence && travail[s.id].size === 0 ? "À commencer" : s.score < SEUIL_FAIBLE ? `Module faible · ${pct(s.score)} %` : `En vue de l'${bilan.titre.toLowerCase()}`);
     }
     return { jour: j, repos: false, passe: false, aujourdhui, evenements: ev, taches: [...taches, ...nouvelles] };
   };
 }
 export const minutesDuJour = jp => jp.taches.reduce((x, t) => x + (t.minutes || 0), 0);
 
-/** Tâches de QCM et d'examen blanc du jour pas encore cochées dont une série a été faite ce jour-là. */
+/** Tâches de QCM et d'bilan blanc du jour pas encore cochées dont une série a été faite ce jour-là. */
 export function faitesAujourdhui(jp) {
   const seances = new Set(E.P.qcm.filter(t => jourDe(t.date) === jp.jour).map(t => t.seance));
-  return jp.taches.filter(t => !t.faite && (t.genre === "qcm" || t.genre === "examen-blanc") && t.seance && seances.has(t.seance));
+  return jp.taches.filter(t => !t.faite && (t.genre === "qcm" || t.genre === "bilan-blanc") && t.seance && seances.has(t.seance));
 }
 /** Le jour d'aujourd'hui, après avoir coché d'office les QCM faits. */
 export function aujourdhui(c) {
@@ -263,7 +263,7 @@ export function conseilsDuJour(c, jp, serieDeJours, nombre = 3) {
   const k = (texte, action, cib, serieQcm, priorite, seance) => ({ texte, action, cible: cib, serieQcm, priorite, seance });
   const premiere = c.bilans.find(b => b.parties > 0);
   if (c.bilans.every(b => !b.commencee) && !c.donnees.cochees.length && premiere)
-    cand.push(k(`Commence par la leçon de la séance ${premiere.numero} : sa première partie se lit en quelques minutes.`, "Lire la leçon",
+    cand.push(k(`Commence par la leçon de le module ${premiere.numero} : sa première partie se lit en quelques minutes.`, "Lire la leçon",
       cible("reviser", { seance: premiere.id, onglet: "lecons", chapitre: premiere.chapitreNonLu, partie: premiere.partieNonLue }), null, 95, premiere.id));
   const faible = trierPar(bs.filter(b => b.qcm != null), b => b.qcm, b => b.id)[0];
   if (faible && faible.qcm < 0.8) {
@@ -273,24 +273,24 @@ export function conseilsDuJour(c, jp, serieDeJours, nombre = 3) {
       : k(`La séance ${faible.numero} est ta plus faible (${pct(faible.qcm)} % de questions réussies) : refais une série de 20, tes erreurs d'abord.`, "Faire la série", cible("reviser", { seance: faible.id, onglet: "qcm", serie: "serie20-erreurs" }), null, 90, faible.id));
   } else if (bs.length && bs.every(b => b.qcm == null)) {
     const sansQcm = bs.find(b => b.questions > 0 && b.commencee);
-    if (sansQcm) cand.push(k(`Tu n'as encore fait aucun QCM : commence par la série 1 de la séance ${sansQcm.numero}.`, "Faire la série 1", cible("reviser", { seance: sansQcm.id, onglet: "qcm", serie: "serie" }), 1, 85, sansQcm.id));
+    if (sansQcm) cand.push(k(`Tu n'as encore fait aucun QCM : commence par la série 1 de le module ${sansQcm.numero}.`, "Faire la série 1", cible("reviser", { seance: sansQcm.id, onglet: "qcm", serie: "serie" }), 1, 85, sansQcm.id));
   }
   const crt = trierPar(bs.filter(b => b.cartesARevoir > 0), b => -b.cartesARevoir, b => b.id)[0];
-  if (crt) cand.push(k(`${crt.cartesARevoir} carte${S(crt.cartesARevoir)} de la séance ${crt.numero} ${crt.cartesARevoir > 1 ? "sont" : "est"} à revoir : 10 minutes dans Mémoriser suffisent.`, "Réviser les cartes",
+  if (crt) cand.push(k(`${crt.cartesARevoir} carte${S(crt.cartesARevoir)} de le module ${crt.numero} ${crt.cartesARevoir > 1 ? "sont" : "est"} à revoir : 10 minutes dans Mémoriser suffisent.`, "Réviser les cartes",
     cible("reviser", { seance: crt.id, onglet: "memoriser", chapitre: crt.chapitre }), null, 80, crt.id));
   const lec = ex ? trierPar(bs.filter(b => b.partieNonLue && b.partiesLues > 0), b => b.id)[0] : null;
-  if (lec) { const reste = lec.parties - lec.partiesLues; cand.push(k(`Il te reste ${reste} partie${S(reste)} de la leçon de la séance ${lec.numero} à lire avant l'${nom}.`, "Continuer la leçon", cible("reviser", { seance: lec.id, onglet: "lecons", chapitre: lec.chapitreNonLu, partie: lec.partieNonLue }), null, 75, lec.id)); }
+  if (lec) { const reste = lec.parties - lec.partiesLues; cand.push(k(`Il te reste ${reste} partie${S(reste)} de la leçon de le module ${lec.numero} à lire avant l'${nom}.`, "Continuer la leçon", cible("reviser", { seance: lec.id, onglet: "lecons", chapitre: lec.chapitreNonLu, partie: lec.partieNonLue }), null, 75, lec.id)); }
   if (ex) { const j = ecart(c.aujourdhui, ex.jour); if (j > 0 && j <= 21) cand.push(conseilExamen(c, ex, nom, j)); }
   const exo = trierPar(bs.filter(b => b.exercicesARevoir > 0), b => b.id)[0];
-  if (exo) cand.push(k(`${exo.exercicesARevoir} correction${S(exo.exercicesARevoir)} de la séance ${exo.numero} ${exo.exercicesARevoir > 1 ? "sont marquées" : "est marquée"} « À revoir » : refais ces exercices.`, "Refaire les exercices",
+  if (exo) cand.push(k(`${exo.exercicesARevoir} correction${S(exo.exercicesARevoir)} de le module ${exo.numero} ${exo.exercicesARevoir > 1 ? "sont marquées" : "est marquée"} « À revoir » : refais ces exercices.`, "Refaire les exercices",
     cible("diapos", { seance: exo.id, onglet: "exercices", devoir: exo.devoir }), null, 70, exo.id));
   const rep = jp.taches.find(t => !t.faite && (t.raison || "").startsWith("Répétition"));
   const revue = rep && c.bilans.find(b => b.id === rep.seance);
   if (revue && revue.travail.length) {
     const avant = revue.travail.filter(x => x < c.aujourdhui);
     const depuis = avant.length ? ecart(avant[avant.length - 1], c.aujourdhui) : 0;
-    cand.push(k(depuis > 0 ? `Tu as travaillé la séance ${revue.numero} il y a ${depuis} jour${S(depuis)} : revois-la aujourd'hui pour bien la retenir.` : `Revois la séance ${revue.numero} aujourd'hui pour bien la retenir.`,
-      "Revoir la séance", rep.cible, rep.serieQcm, 65, revue.id));
+    cand.push(k(depuis > 0 ? `Tu as travaillé le module ${revue.numero} il y a ${depuis} jour${S(depuis)} : revois-la aujourd'hui pour bien la retenir.` : `Revois le module ${revue.numero} aujourd'hui pour bien la retenir.`,
+      "Revoir le module", rep.cible, rep.serieQcm, 65, revue.id));
   }
   if (serieDeJours >= 2) { const t = jp.taches.find(x => !x.faite); cand.push(k(`${serieDeJours} jours d'affilée : une tâche aujourd'hui prolonge ta série.`, "Voir la tâche", t ? t.cible : null, t ? t.serieQcm : null, 50)); }
   const choisis = [];
@@ -304,8 +304,8 @@ function conseilExamen(c, ex, nom, j) {
   const cib = cible("reviser", { seance: ex.cle, onglet: "qcm", serie: "toutes" });
   const blancs = joursExamenBlanc(c.donnees.minutesParJour).map(x => decaler(ex.jour, -x)).sort();
   const prochain = blancs.find(x => x >= c.aujourdhui);
-  if (prochain === c.aujourdhui) return { texte: `Aujourd'hui, examen blanc : ${M.TOUTES} questions tirées des séances de l'${nom}.`, action: "Faire l'examen blanc", cible: cib, serieQcm: null, priorite: 72 };
-  if (prochain) { const d = dateLongue(prochain); return { texte: `L'${nom} a lieu dans ${j} jour${S(j)} : ton ${prochain === blancs[0] ? "premier" : "prochain"} examen blanc est prévu ${d[0].toLowerCase() + d.slice(1)}.`, action: "Voir l'examen blanc", cible: cib, serieQcm: null, priorite: 72 }; }
+  if (prochain === c.aujourdhui) return { texte: `Aujourd'hui, bilan blanc : ${M.TOUTES} questions tirées des séances de l'${nom}.`, action: "Faire l'bilan blanc", cible: cib, serieQcm: null, priorite: 72 };
+  if (prochain) { const d = dateLongue(prochain); return { texte: `L'${nom} a lieu dans ${j} jour${S(j)} : ton ${prochain === blancs[0] ? "premier" : "prochain"} bilan blanc est prévu ${d[0].toLowerCase() + d.slice(1)}.`, action: "Voir l'bilan blanc", cible: cib, serieQcm: null, priorite: 72 }; }
   return { texte: j === 1 ? `L'${nom} a lieu demain : relis tes fiches et repose-toi.` : `L'${nom} a lieu dans ${j} jours : relis tes fiches et tes formules.`, action: "Voir les fiches", cible: cible("reviser", { seance: ex.cle, onglet: "fiches" }), serieQcm: null, priorite: 72 };
 }
 
@@ -315,7 +315,7 @@ export function pretPour(c, j = c.aujourdhui) {
   const couv = new Set(ex.couvre), ss = c.bilans.filter(b => couv.has(b.id));
   if (!ss.length) return null;
   const p = Math.round(ss.reduce((x, b) => x + b.score, 0) / ss.length * 100);
-  return { examen: ex, pourcent: p, joursRestants: ecart(j, ex.jour),
+  return { bilan: ex, pourcent: p, joursRestants: ecart(j, ex.jour),
     explication: `Moyenne de tes ${ss.length} séance${S(ss.length)} : questions réussies (40 %), leçon lue, diapos vues, cartes sues et exercices réussis (15 % chacun).` };
 }
 export function joursActifs() {
