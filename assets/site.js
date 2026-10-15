@@ -81,9 +81,9 @@
       const x = dx * Math.cos(a) + dz * Math.sin(a);
       const distance = -dx * Math.sin(a) + dz * Math.cos(a);
       const tx = -echelle * x;
-      const ty = scene.clientHeight * .48 - monde.offsetTop - monde.offsetHeight / 2 - echelle * dy;
+      const ty = scene.clientHeight * .48 - monde.offsetTop - echelle * dy;
       const tz = profondeur - echelle * distance;
-      return 'translateX(-50%) translate3d(' + tx.toFixed(2) + 'px,' + ty.toFixed(2) + 'px,' + tz.toFixed(2) + 'px) scale(' + echelle + ') rotateX(0deg) rotateY(' + rotation + 'deg)';
+      return 'translate(-50%,-50%) translate3d(' + tx.toFixed(2) + 'px,' + ty.toFixed(2) + 'px,' + tz.toFixed(2) + 'px) scale(' + echelle + ') rotateX(0deg) rotateY(' + rotation + 'deg)';
     };
     hall.classList.add('en-approche');
     const animation = monde.animate([
@@ -368,80 +368,32 @@
     const scene = $('[data-hall-scene]', hall);
     const mode = $('[data-hall-mode]', hall);
     const reperes = $('[data-hall-reperes]', hall);
-    const panneau = $('[data-hall-detail]', hall);
-    const titre = $('[data-hall-titre]', hall);
-    const description = $('[data-hall-description]', hall);
-    const numero = $('[data-hall-numero]', hall);
-    const rubriques = $('[data-hall-rubriques]', hall);
     const choix = $$('[data-hall-choix]', hall);
+    const fiches = $$('[data-hall-fiche]', hall);
     const commande = $('[data-hall-commandes]', hall);
     const geste = $('[data-hall-geste]', hall);
-    const etiquette = numero.textContent;
     const large = matchMedia('(min-width:1000px)');
     const calme = matchMedia('(prefers-reduced-motion: reduce)');
     const couleursForcees = matchMedia('(forced-colors: active)');
-    const support = typeof CSS !== 'undefined' && CSS.supports('transform-style', 'preserve-3d') && CSS.supports('perspective', '1100px');
-    let actif = 0;
-    let simple = false;
-    let baseYaw = 0;
-    let yaw = 0;
-    let pitch = 0;
-    let sourisX = 0;
-    let sourisY = 0;
+    const support = typeof CSS !== 'undefined' && CSS.supports('transform-style', 'preserve-3d');
+    let actif = 0, simple = false, sourisX = 0, sourisY = 0, imageEnAttente = 0;
     let glissement = null;
-    let imageEnAttente = 0;
     const orienter = () => {
       imageEnAttente = 0;
-      if (!hall.classList.contains('en-3d')) return;
-      hall.style.setProperty('--hall-rotation-y', (calme.matches ? 0 : baseYaw + yaw + sourisX * 2).toFixed(2) + 'deg');
-      hall.style.setProperty('--hall-rotation-x', (calme.matches ? -4 : -4 + pitch - sourisY).toFixed(2) + 'deg');
+      if (!hall.classList.contains('en-3d') || occupe) return;
+      hall.style.setProperty('--hall-rotation-y', (calme.matches ? 0 : sourisX * 1.15).toFixed(2) + 'deg');
+      hall.style.setProperty('--hall-rotation-x', (calme.matches ? 0 : -sourisY * .6).toFixed(2) + 'deg');
     };
-    const demanderVue = () => {
-      if (!imageEnAttente) imageEnAttente = requestAnimationFrame(orienter);
-    };
+    const demanderVue = () => { if (!imageEnAttente) imageEnAttente = requestAnimationFrame(orienter); };
     const dimensionner = () => {
-      if (hall.classList.contains('en-3d')) hall.style.setProperty('--hall-echelle', Math.min(1, Math.max(.5, (scene.clientWidth - 30) / 1160)).toFixed(3));
+      if (hall.classList.contains('en-3d')) hall.style.setProperty('--hall-echelle', (scene.clientWidth / 1600).toFixed(4));
     };
-    const choisir = (index, tourner = true) => {
-      if (occupe && hall.classList.contains('en-approche')) return;
-      const i = (index + groupes.length) % groupes.length;
-      const changement = i !== actif || !titre.textContent;
-      actif = i;
-      const g = groupes[i];
-      groupes.forEach((x, j) => x.porte.classList.toggle('choisie', j === i));
-      choix.forEach((b, j) => {
-        b.setAttribute('aria-selected', String(j === i));
-        b.tabIndex = j === i ? 0 : -1;
-      });
-      panneau.setAttribute('aria-labelledby', choix[i].id);
-      hall.style.setProperty('--hall-teinte', g.porte.style.getPropertyValue('--c1'));
-      if (changement) {
-        titre.textContent = g.porte.dataset.titre;
-        description.textContent = $('.legende', g.porte).textContent;
-        numero.textContent = etiquette + ' · ' + String(i + 1).padStart(2, '0');
-        const liens = $$('.sous-portes > span', g.porte).map(s => {
-          const externe = s.dataset.lien;
-          const element = document.createElement(externe ? 'a' : 'button');
-          element.style.setProperty('--rubrique-couleur', s.style.getPropertyValue('--c1') || g.porte.style.getPropertyValue('--c1')); 
-          if (externe) {
-            element.href = externe;
-            if (s.hasAttribute('data-nouvel')) { element.target = '_blank'; element.rel = 'noopener noreferrer'; }
-          } else {
-            element.type = 'button';
-            element.addEventListener('click', () => entrer(s.dataset.sous));
-          }
-          const texte = document.createElement('span');
-          texte.textContent = s.textContent;
-          const fleche = document.createElement('span');
-          fleche.textContent = externe ? '↗' : (racine.dir === 'rtl' ? '←' : '→');
-          fleche.setAttribute('aria-hidden', 'true');
-          element.append(texte, fleche);
-          return element;
-        });
-        rubriques.replaceChildren(...liens);
-      }
-      if (tourner) { baseYaw = [-7, -4, 0, 0, 4, 7][i]; yaw = 0; pitch = 0; }
-      demanderVue();
+    const choisir = index => {
+      if (occupe) return;
+      actif = (index + groupes.length) % groupes.length;
+      groupes.forEach((g, i) => g.porte.classList.toggle('choisie', i === actif));
+      fiches.forEach((f, i) => f.classList.toggle('choisie', i === actif));
+      hall.style.setProperty('--hall-teinte', groupes[actif].porte.style.getPropertyValue('--c1'));
     };
     const actualiserMode = () => {
       const lectureSimple = /(^| )(lv|hc|t[123])( |$)/.test(racine.className) || couleursForcees.matches;
@@ -450,13 +402,15 @@
       mode.hidden = !disponible;
       mode.setAttribute('aria-pressed', String(relief));
       hall.classList.toggle('en-3d', relief);
-      [reperes, panneau, commande, geste].forEach(el => { el.hidden = !relief; });
+      [reperes, commande, geste].forEach(el => { el.hidden = !relief; });
       dimensionner();
       demanderVue();
     };
     mode.addEventListener('click', () => { simple = !simple; actualiserMode(); });
     choix.forEach((b, i) => {
-      b.addEventListener('click', () => choisir(i));
+      b.addEventListener('click', () => { choisir(i); entrer(groupes[i].sections[0] || groupes[i].nom); });
+      b.addEventListener('pointerenter', () => choisir(i));
+      b.addEventListener('focus', () => choisir(i));
       b.addEventListener('keydown', ev => {
         if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(ev.key)) return;
         ev.preventDefault();
@@ -466,53 +420,43 @@
         choix[prochain].focus();
       });
     });
+    fiches.forEach((fiche, i) => {
+      fiche.addEventListener('pointerenter', () => choisir(i));
+      fiche.addEventListener('focusin', () => choisir(i));
+    });
     groupes.forEach((g, i) => {
-      g.porte.addEventListener('pointerenter', ev => {
-        if (ev.pointerType === 'mouse' && hall.classList.contains('en-3d') && !occupe) choisir(i);
-      });
-      g.porte.addEventListener('focus', () => {
-        if (hall.classList.contains('en-3d') && !occupe) choisir(i);
-      });
+      g.porte.addEventListener('pointerenter', () => { if (hall.classList.contains('en-3d')) choisir(i); });
+      g.porte.addEventListener('focus', () => { if (hall.classList.contains('en-3d')) choisir(i); });
     });
-    $('[data-hall-precedente]', hall).addEventListener('click', () => choisir(actif - 1));
-    $('[data-hall-suivante]', hall).addEventListener('click', () => choisir(actif + 1));
-    $('[data-hall-ouvrir]', hall).addEventListener('click', () => entrer(groupes[actif].sections[0] || groupes[actif].nom));
-    $('[data-hall-recentrer]', hall).addEventListener('click', () => {
-      baseYaw = 0; yaw = 0; pitch = 0; sourisX = 0; sourisY = 0;
-      demanderVue();
-    });
+    $('[data-hall-precedente]', hall).addEventListener('click', () => { choisir(actif - 1); choix[actif].focus({ preventScroll:true }); });
+    $('[data-hall-suivante]', hall).addEventListener('click', () => { choisir(actif + 1); choix[actif].focus({ preventScroll:true }); });
+    $('[data-hall-recentrer]', hall).addEventListener('click', () => { sourisX = 0; sourisY = 0; demanderVue(); });
     scene.addEventListener('pointerdown', ev => {
       if (ev.pointerType !== 'mouse' || ev.button !== 0 || ev.target.closest('button,a') || !hall.classList.contains('en-3d') || calme.matches || occupe) return;
-      glissement = { x: ev.clientX, y: ev.clientY, yaw, pitch };
+      glissement = { x:ev.clientX, y:ev.clientY };
       scene.classList.add('en-glissement');
       scene.setPointerCapture(ev.pointerId);
       ev.preventDefault();
     });
     scene.addEventListener('pointermove', ev => {
       if (ev.pointerType !== 'mouse' || !hall.classList.contains('en-3d') || calme.matches || occupe || (salle && !salle.hidden)) return;
-      if (glissement) {
-        yaw = Math.max(-14, Math.min(14, glissement.yaw + (ev.clientX - glissement.x) * .045));
-        pitch = Math.max(-3, Math.min(3, glissement.pitch - (ev.clientY - glissement.y) * .025));
-        sourisX = 0; sourisY = 0;
-      } else {
-        const r = scene.getBoundingClientRect();
-        sourisX = ((ev.clientX - r.left) / r.width - .5) * 2;
-        sourisY = ((ev.clientY - r.top) / r.height - .5) * 2;
-      }
+      const r = scene.getBoundingClientRect();
+      sourisX = Math.max(-1, Math.min(1, glissement ? (ev.clientX - glissement.x) / 180 : ((ev.clientX - r.left) / r.width - .5) * 2));
+      sourisY = Math.max(-1, Math.min(1, glissement ? (ev.clientY - glissement.y) / 140 : ((ev.clientY - r.top) / r.height - .5) * 2));
       demanderVue();
-    }, { passive: true });
-    const terminerGlissement = () => { glissement = null; scene.classList.remove('en-glissement'); };
-    scene.addEventListener('pointerup', terminerGlissement);
-    scene.addEventListener('pointercancel', terminerGlissement);
-    scene.addEventListener('lostpointercapture', terminerGlissement);
+    }, {passive:true});
+    const terminer = () => { glissement = null; scene.classList.remove('en-glissement'); };
+    scene.addEventListener('pointerup', terminer);
+    scene.addEventListener('pointercancel', terminer);
+    scene.addEventListener('lostpointercapture', terminer);
     scene.addEventListener('pointerleave', () => { if (!glissement) { sourisX = 0; sourisY = 0; demanderVue(); } });
     large.addEventListener('change', actualiserMode);
     calme.addEventListener('change', actualiserMode);
     couleursForcees.addEventListener('change', actualiserMode);
     if (typeof ResizeObserver !== 'undefined') new ResizeObserver(dimensionner).observe(scene);
-    else addEventListener('resize', dimensionner, { passive: true });
-    new MutationObserver(actualiserMode).observe(racine, { attributes: true, attributeFilter: ['class'] });
-    choisir(0, false);
+    else addEventListener('resize', dimensionner, {passive:true});
+    new MutationObserver(actualiserMode).observe(racine, {attributes:true, attributeFilter:['class']});
+    choisir(0);
     actualiserMode();
   }
   initialiserHall3D();
