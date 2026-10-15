@@ -1648,9 +1648,9 @@ html.lv .axes-cartes{grid-template-columns:1fr}
  .hall.en-volume .hall-espace.en-glissement{cursor:grabbing}
  .hall.en-volume .hall-espace:focus-visible{outline:2px solid var(--green);outline-offset:4px}
  .hall.en-volume .hall-univers{position:absolute;inset:0;width:100%;height:100%;transform:none;transform-style:preserve-3d;pointer-events:none}
- .hall.en-volume .architecture-hall{display:block;position:absolute;inset:0;pointer-events:none;transform:translateZ(-100px) scale(1.056);transform-origin:50% 48%;background:linear-gradient(180deg,#ffffff08,#fdfef809 80%,#c3cabf20),url("photos/hall-architecture.webp") var(--hall-lumiere,50%) 45%/cover}
+ .hall.en-volume .architecture-hall{display:block;position:absolute;inset:0;pointer-events:none;transform:translateZ(-100px) scale(1.056);transform-origin:50% 48%;background-color:#edece4;background-image:linear-gradient(180deg,#ffffff05,#fdfef805),url("photos/hall-atrium.webp");background-repeat:no-repeat;background-position:center top,var(--hall-lumiere,50%) top;background-size:100% 100%,auto calc(126.6% - 40.5px)}
  .hall.en-volume .paroi-hall,.hall.en-volume .plafond-hall,.hall.en-volume .verriere-hall{display:none}
- .hall.en-volume .dallage-hall{position:absolute;left:0;right:0;bottom:0;height:32px;background:linear-gradient(110deg,#ffffff55,transparent 60%),repeating-linear-gradient(100deg,transparent 0 150px,#9ba29322 151px 152px),linear-gradient(#d8dcd3,#eef0e8);border-top:5px solid #d4d9ce;box-shadow:0 -1px #adb7a2,inset 0 3px 10px #6b776820}
+ .hall.en-volume .dallage-hall{position:absolute;left:0;right:0;bottom:0;height:32px;background:linear-gradient(180deg,#ffffff05,transparent);border:0;box-shadow:none}
  .hall.en-volume .portes{position:absolute;inset:0;display:block;margin:0;padding:0;transform-style:preserve-3d;pointer-events:none}
  .hall.en-volume .station-hall{display:block;position:absolute;left:0;top:auto;bottom:32px;width:430px;height:298px;transform-origin:50% 100%;transform:translateX(var(--panorama-x,28px)) translateZ(var(--panorama-z,0px)) rotateY(var(--panorama-angle,0deg));transform-style:preserve-3d;backface-visibility:hidden;pointer-events:none}
  .hall.en-volume .station-hall .porte{position:absolute;left:8px;right:auto;top:auto;bottom:0;display:block;width:124px;height:250px;--largeur-porte:124px;min-height:0;margin:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;isolation:auto;transform:translateZ(3px);transform-style:preserve-3d;transition:none;pointer-events:auto}
@@ -1661,6 +1661,7 @@ html.lv .axes-cartes{grid-template-columns:1fr}
  .hall.en-volume .porte .ouverture{overflow:visible;transform-style:preserve-3d}
  .hall.en-volume .porte .battant{transform-style:preserve-3d;transition:transform .55s var(--ease)}
  .hall.en-volume .porte .porte-texte{display:none}
+ .hall.en-volume .porte:not(.ouverte):focus-visible .battant{transform:rotateY(-34deg)}
  .hall.en-volume .porte.ouverte .battant{transform:rotateY(-82deg)}
  .hall.en-volume .porte:focus-visible .baie{outline:3px solid var(--c1);outline-offset:5px}
  .hall.en-volume .panneau-hall{position:absolute;display:block;left:150px;top:8px;width:270px;max-height:284px;overflow:auto;padding:14px;border:1px solid #d4d9ce;border-top:2px solid color-mix(in srgb,var(--c1) 45%,#fff);border-radius:5px;background:#fffffbef;box-shadow:1px 3px 6px #303d241a,inset 0 1px #fff;transform:translateZ(5px);backface-visibility:hidden;pointer-events:auto;text-align:start;scrollbar-width:thin}
@@ -1711,7 +1712,7 @@ html.lv .axes-cartes{grid-template-columns:1fr}
  .hall.en-mobile .portes{position:relative;display:flex;align-items:flex-start;gap:12px;min-width:0;margin:0;padding:12px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:12px;overscroll-behavior-x:contain;scrollbar-width:none;direction:ltr;transition:height .22s ease}
  .hall.en-mobile .portes::-webkit-scrollbar{display:none}
  .hall.en-mobile .station-hall{position:relative;display:grid;grid-template-columns:clamp(92px,26vw,170px) minmax(0,1fr);align-items:end;gap:14px;flex:0 0 100%;min-width:0;min-height:330px;padding:24px 14px 54px;border:1px solid #d9e0d6;border-radius:10px;scroll-snap-align:start;scroll-snap-stop:always;background:linear-gradient(100deg,#e5ebe0,#fcfdf8 14% 75%,#e9eee5);isolation:isolate;perspective:1100px;direction:ltr}
- .hall.en-mobile .station-hall::before{content:"";position:absolute;z-index:-1;inset:0 0 43px;pointer-events:none;background:linear-gradient(100deg,rgba(70,89,56,.09),rgba(255,255,255,.87) 5% 92%,rgba(70,89,56,.08)),url("photos/hall-architecture.webp") center 25%/cover;box-shadow:inset 0 10px 20px -20px #47613a,inset 0 -5px 0 #e0e6d9,inset 0 -6px 0 #c7d1be}
+ .hall.en-mobile .station-hall::before{content:"";position:absolute;z-index:-1;inset:0 0 43px;pointer-events:none;background:linear-gradient(100deg,rgba(70,89,56,.09),rgba(255,255,255,.87) 5% 92%,rgba(70,89,56,.08)),url("photos/hall-atrium.webp") center 25%/cover;box-shadow:inset 0 10px 20px -20px #47613a,inset 0 -5px 0 #e0e6d9,inset 0 -6px 0 #c7d1be}
  .hall.en-mobile .station-hall::after{content:"";position:absolute;z-index:-1;inset:auto 0 0;height:43px;pointer-events:none;background:linear-gradient(110deg,rgba(255,255,255,.8),transparent 55%),repeating-linear-gradient(90deg,transparent 0 70px,rgba(140,154,130,.12) 71px 72px),linear-gradient(#d8e0d0,#f3f5ed);box-shadow:inset 0 10px 15px -15px #526545}
  .hall.en-mobile .station-hall .porte{position:relative;display:block;align-self:end;grid-column:1;grid-row:2;width:100%;height:clamp(190px,52vw,334px);min-width:0;min-height:0;margin:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;transform:none;transition:none;isolation:auto}
  .hall.en-mobile .station-hall .porte:hover,.hall.en-mobile .station-hall .porte:focus-visible{background:transparent;border:0;box-shadow:none;transform:none}
@@ -1906,9 +1907,7 @@ html:is(.hc,.lv) .rubriques[data-navigation=atelier] :is(.rubriques-console,.rub
 .audience-info [data-audience-refuser][aria-pressed=true]{border-color:var(--green);background:var(--sage)}
 .audience-info .audience-etat{margin-top:10px;font-size:11px;color:var(--muted)}
 
-/* Seul un clic ouvre une porte. Le déplacement ne change jamais de rubrique. */
-.hall .porte:not(.ouverte) .battant{transform:none!important}
-.hall .porte:not(.ouverte):hover .apercu{opacity:0}
+/* Entrée au clic ; entrebâillement visuel au survol et au clavier. */
 .hall-aide-deplacement{display:none}
 .hall-reprise{display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;width:fit-content;max-width:100%;min-height:44px;margin:0 0 14px;padding:11px 16px;border:1px solid #a6c4b4;border-radius:10px;background:#f0f7f2;color:var(--ink);text-align:start;font-size:12px;line-height:1.5}
 .hall-reprise strong{font-weight:600;overflow-wrap:anywhere}
@@ -1948,3 +1947,8 @@ html:is(.hc,.lv) .rubriques[data-navigation=atelier] :is(.rubriques-console,.rub
 /* Hall mobile compact : sélection sur une ligne, sous-catégories toujours accessibles. */
 @media(max-width:999px){.hall.en-mobile .hall-reperes{display:flex;gap:7px;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;overscroll-behavior-x:contain}.hall.en-mobile .hall-reperes>button{flex:0 0 auto;max-width:185px;min-height:44px;scroll-snap-align:center}.hall.en-mobile .station-hall{min-height:280px;padding:16px 12px 44px;gap:10px}.hall.en-mobile .sous-portes-murales{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}.hall.en-mobile .sous-portes-murales>button,.hall.en-mobile .sous-portes-murales>a{padding:6px;font-size:11.5px;min-height:44px}.hall.en-mobile .sous-portes-murales>:last-child:nth-child(odd){grid-column:1/-1}.hall.en-mobile .station-hall .porte{height:clamp(180px,45vw,265px)}.hall.en-mobile .hall-guide-mobile{margin:6px 2px 8px}.hall.en-mobile .portes{transition:height .16s ease}}
 @media(prefers-reduced-motion:reduce){.hall.en-mobile .portes{transition:none}}
+
+@media(hover:hover) and (pointer:fine){
+ .hall .station-hall:hover .porte:not(.ouverte) .battant{transform:rotateY(-34deg);box-shadow:12px 0 18px rgba(15,49,66,.16)}
+ .hall .station-hall:hover .porte:not(.ouverte) .apercu{opacity:1}
+}
