@@ -1,52 +1,152 @@
 {
-  "titre": "Understanding the world, finding one’s place and answering for what one transforms",
-  "intro": "My research stance connects the pursuit of knowledge with responsibility towards people and the worlds they inhabit. It develops through field experience, self-determination, equity and critical dialogue between philosophical traditions.",
-  "explorer": "Explore my research stance", "apport": "For my research", "sources": "Philosophical references",
+  "titre": "Situated, critical and reflexive research",
+  "intro": "My research stance concerns how problems are framed, analytical categories are constructed and knowledge is produced that remains open to discussion and revision. It brings together a relational understanding of health situations, the examination of institutions and researcher reflexivity.",
+  "explorer": "Explore my research stance",
+  "apport": "For my research",
+  "sources": "Philosophical references",
   "sourcesIntro": "These works open questions and inform connections. Their authors defend different positions: I bring them into dialogue to clarify my own responsibility, without presenting a unified doctrine. First-person statements express this research orientation.",
   "rubriques": [
     {
-      "nom": "My place in the world", "titre": "A singular, relational and situated existence",
+      "nom": "Researcher positioning",
+      "titre": "Situating the perspective, explaining the choices",
       "paragraphes": [
         "I understand people as singular beings embedded in relationships, histories and the social, material and living environments on which they depend. Each person may have their own aspirations; opportunities to fulfil them also arise through living conditions, available resources and relationships. This tension between individuality and interdependence shapes my understanding of health.",
         "My place as a researcher is within that same world. My experience with people with disabilities, law, management and public health shapes the problems I notice. I treat this position as a starting point to examine: making my choices visible, welcoming disagreement and allowing inquiry to change my categories.",
-        "I wish to contribute to conditions in which more people can choose their lives, receive recognition and participate in decisions affecting them. Research consequently has descriptive, critical and practical dimensions: understanding what happens, examining what makes situations possible and illuminating what could change.",
-        "This orientation makes room for doubt, finitude and uncertainty. Action requires decisions based on partial knowledge, followed by responsibility for their effects. I combine epistemic modesty with an ambition for justice, autonomy and the common good."
-      ], "items": []
+        "Reflexivity involves examining how the research question, selected categories, included actors and conditions of inquiry shape the knowledge produced. I make these choices, competing interpretations and the limits of conclusions explicit so that the reasoning can be discussed."
+      ],
+      "items": []
     },
     {
-      "nom": "Knowledge and truth", "titre": "Situated, reasoned and revisable knowledge",
-      "paragraphes": ["I distinguish what inquiry can observe, the interpretations proposed and the purposes I defend. Robust knowledge requires examinable evidence, explicit reasoning and opportunities to discuss disagreements. Concepts and measures are constructed to study realities whose consequences affect lives."],
+      "nom": "Knowledge and truth",
+      "titre": "Situated, reasoned and revisable knowledge",
+      "paragraphes": [
+        "I distinguish what inquiry can observe, the interpretations proposed and the purposes I defend. Robust knowledge requires examinable evidence, explicit reasoning and opportunities to discuss disagreements. Concepts and measures are constructed to study realities whose consequences affect lives."
+      ],
       "items": [
-        ["Investigating rather than fixing certainties", "Dewey’s pragmatism connects inquiry with encountered problems and their consequences.", "I favour precise questions, knowledge open to challenge and revisable conclusions. A finding’s usefulness also concerns what it helps us understand and its effects in a situation.", ["dewey"]],
-        ["Putting my own categories to the test", "Foucault examines processes through which people become objects of knowledge and subjects.", "I question how I define a need, population or complex situation. My categories must be confronted with the experiences they describe and what they render less visible.", ["foucault"]],
-        ["Making room for lived knowledge", "Fricker examines injustices affecting the credibility of speech and the resources available to understand experience.", "I take seriously the conditions enabling people to tell their story, be heard and contribute to interpretation. Participation involves influence over questions and conclusions.", ["fricker"]]
+        [
+          "Investigating rather than fixing certainties",
+          "Dewey’s pragmatism connects inquiry with encountered problems and their consequences.",
+          "I favour precise questions, knowledge open to challenge and revisable conclusions. A finding’s usefulness also concerns what it helps us understand and its effects in a situation.",
+          [
+            "dewey"
+          ]
+        ],
+        [
+          "Putting my own categories to the test",
+          "Foucault examines processes through which people become objects of knowledge and subjects.",
+          "I question how I define a need, population or complex situation. My categories must be confronted with the experiences they describe and what they render less visible.",
+          [
+            "foucault"
+          ]
+        ],
+        [
+          "Making room for lived knowledge",
+          "Fricker examines injustices affecting the credibility of speech and the resources available to understand experience.",
+          "I take seriously the conditions enabling people to tell their story, be heard and contribute to interpretation. Participation involves influence over questions and conclusions.",
+          [
+            "fricker"
+          ]
+        ]
       ]
     },
     {
-      "nom": "Power and institutions", "titre": "Questioning what classifies, organises and makes lives visible",
-      "paragraphes": ["Institutions enable protection, cooperation and access to resources. Their rules and categories also distribute opportunities for action. My stance is to examine these effects, their justifications and opportunities to challenge them in concrete settings."],
+      "nom": "Power and institutions",
+      "titre": "Questioning what classifies, organises and makes lives visible",
+      "paragraphes": [
+        "Institutions enable protection, cooperation and access to resources. Their rules and categories also distribute opportunities for action. My stance is to examine these effects, their justifications and opportunities to challenge them in concrete settings."
+      ],
       "items": [
-        ["Foucault · Power in relationships", "Power operates through people’s possibilities for action; it extends beyond orders imposed from above.", "In services, I question access rules, classifications and professional roles: what do they enable, who can challenge them and what room remains for self-determination?", ["foucault"]],
-        ["Fassin · The unequal value of lives", "Fassin connects the proclaimed value of life with the unequal treatment of lives.", "I examine how apparently ordinary decisions allocate attention, protection, time and resources. Average improvements must also be considered in relation to those they reach and those they leave at a distance.", ["fassin"]],
-        ["Fricker · Justice in knowledge production", "Inequality can affect the possibility of being recognised as a person who knows.", "I examine patients’, relatives’ and community actors’ roles in defining problems. Working with people requires opportunities to reshape the discussion and express disagreement.", ["fricker"]]
+        [
+          "Foucault · Power in relationships",
+          "Power operates through people’s possibilities for action; it extends beyond orders imposed from above.",
+          "In services, I question access rules, classifications and professional roles: what do they enable, who can challenge them and what room remains for self-determination?",
+          [
+            "foucault"
+          ]
+        ],
+        [
+          "Fassin · The unequal value of lives",
+          "Fassin connects the proclaimed value of life with the unequal treatment of lives.",
+          "I examine how apparently ordinary decisions allocate attention, protection, time and resources. Average improvements must also be considered in relation to those they reach and those they leave at a distance.",
+          [
+            "fassin"
+          ]
+        ],
+        [
+          "Fricker · Justice in knowledge production",
+          "Inequality can affect the possibility of being recognised as a person who knows.",
+          "I examine patients’, relatives’ and community actors’ roles in defining problems. Working with people requires opportunities to reshape the discussion and express disagreement.",
+          [
+            "fricker"
+          ]
+        ]
       ]
     },
     {
-      "nom": "Freedom and recognition", "titre": "Supporting agency under real conditions",
-      "paragraphes": ["Autonomy takes meaning in concrete situations, through supportive relationships and genuinely accessible possibilities. This orientation extends my support experience: recognising aspirations, discussing constraints and improving the conditions that make choices practicable."],
+      "nom": "Freedom and recognition",
+      "titre": "Supporting agency under real conditions",
+      "paragraphes": [
+        "Autonomy takes meaning in concrete situations, through supportive relationships and genuinely accessible possibilities. This orientation extends my support experience: recognising aspirations, discussing constraints and improving the conditions that make choices practicable."
+      ],
       "items": [
-        ["Hegel · Recognition and contradictions", "For Hegel, self-consciousness develops through relations with others, involving recognition and conflict.", "I treat tensions between protection and autonomy, common rules and singular situations as research questions. Understanding an organisation requires following its history, relationships and transformations.", ["hegel"]],
-        ["Sartre · Freedom entails commitment", "Sartrean existentialism connects responsibility with the choices through which an existence takes shape.", "I draw from this a requirement to explain my choices. In public health research, I confront it with social constraints and available resources, understanding situated responsibility rather than attributing difficulties solely to individuals.", ["sartre", "sen"]],
-        ["Sen · Effective opportunities to choose", "The capability approach examines real freedoms to lead lives that people have reason to value.", "Equity leads me to consider what people can actually do: access services, understand decisions, participate and pursue their aspirations. Means must be assessed in their conditions of use.", ["sen"]]
+        [
+          "Hegel · Recognition and contradictions",
+          "For Hegel, self-consciousness develops through relations with others, involving recognition and conflict.",
+          "I treat tensions between protection and autonomy, common rules and singular situations as research questions. Understanding an organisation requires following its history, relationships and transformations.",
+          [
+            "hegel"
+          ]
+        ],
+        [
+          "Sartre · Freedom entails commitment",
+          "Sartrean existentialism connects responsibility with the choices through which an existence takes shape.",
+          "I draw from this a requirement to explain my choices. In public health research, I confront it with social constraints and available resources, understanding situated responsibility rather than attributing difficulties solely to individuals.",
+          [
+            "sartre",
+            "sen"
+          ]
+        ],
+        [
+          "Sen · Effective opportunities to choose",
+          "The capability approach examines real freedoms to lead lives that people have reason to value.",
+          "I examine what people can actually do: access services, understand decisions, participate and pursue their aspirations. Available resources and their conditions of use help analyse gaps between formal rights and real opportunities.",
+          [
+            "sen"
+          ]
+        ]
       ]
     },
     {
-      "nom": "Acting and answering for it", "titre": "Transforming with people, attentive to consequences",
-      "paragraphes": ["My research seeks knowledge that can enter collective deliberation. Recommendations and innovations involve societal choices: who benefits, what burdens a change creates and how those affected can discuss its effects."],
+      "nom": "Acting and answering for it",
+      "titre": "Transforming with people, attentive to consequences",
+      "paragraphes": [
+        "My research seeks knowledge that can enter collective deliberation. Recommendations and innovations involve societal choices: who benefits, what burdens a change creates and how those affected can discuss its effects."
+      ],
       "items": [
-        ["Camus · Revolt and limits", "Camus examines revolt affirming common dignity while questioning the limits of action and its justifications.", "I wish to combine resistance to injustice with attention to those affected by change. A desirable purpose also requires examining the means employed and their consequences.", ["camus"]],
-        ["Dewey · Inquiry with affected publics", "Dewey connects the formation of a public with shared consequences of activities and their collective handling.", "I draw attention to affected actors, deliberation and feedback from practice to knowledge. Findings must be open to discussion, contextualisation and revision when their consequences require it.", ["dewey"]],
-        ["Ricœur · Solicitude and just institutions", "Ricœur connects the aspiration to a fulfilled life, attention to others and institutional justice.", "I relate the quality of support relationships to the organisational and political conditions enabling them. My responsibility concerns both the person encountered and the collective frameworks my work helps illuminate.", ["ricoeur"]]
+        [
+          "Camus · Revolt and limits",
+          "Camus examines revolt affirming common dignity while questioning the limits of action and its justifications.",
+          "I wish to combine resistance to injustice with attention to those affected by change. A desirable purpose also requires examining the means employed and their consequences.",
+          [
+            "camus"
+          ]
+        ],
+        [
+          "Dewey · Inquiry with affected publics",
+          "Dewey connects the formation of a public with shared consequences of activities and their collective handling.",
+          "I draw attention to affected actors, deliberation and feedback from practice to knowledge. Findings must be open to discussion, contextualisation and revision when their consequences require it.",
+          [
+            "dewey"
+          ]
+        ],
+        [
+          "Ricœur · Solicitude and just institutions",
+          "Ricœur connects the aspiration to a fulfilled life, attention to others and institutional justice.",
+          "I relate the quality of support relationships to the organisational and political conditions enabling them. My responsibility concerns both the person encountered and the collective frameworks my work helps illuminate.",
+          [
+            "ricoeur"
+          ]
+        ]
       ]
     }
   ]

@@ -1,19 +1,18 @@
 {
-  "titre": "Comprendre le monde, y prendre place et répondre de ce que l’on transforme",
-  "intro": "Ma posture de recherche relie une exigence de connaissance à une responsabilité envers les personnes et les mondes qu’elles habitent. Elle se construit à partir du terrain, de l’autodétermination, de l’équité et d’un dialogue critique entre plusieurs traditions philosophiques.",
+  "titre": "Une recherche située, critique et réflexive",
+  "intro": "Ma posture de recherche porte sur la manière de poser les problèmes, de construire les catégories d’analyse et de produire des connaissances discutables et révisables. Elle articule une lecture relationnelle des situations de santé, l’examen des institutions et la réflexivité du chercheur.",
   "explorer": "Explorer ma posture de recherche",
   "apport": "Pour ma recherche",
   "sources": "Références philosophiques",
   "sourcesIntro": "Ces ouvrages ouvrent des questions et nourrissent des rapprochements. Leurs auteurs défendent des positions différentes : je les mets en dialogue pour préciser ma propre responsabilité, sans les présenter comme une doctrine unifiée. Les propositions formulées à la première personne expriment cette orientation de recherche.",
   "rubriques": [
     {
-      "nom": "Ma place dans le monde",
-      "titre": "Une existence singulière, relationnelle et située",
+      "nom": "Positionnement du chercheur",
+      "titre": "Situer le regard, expliciter les choix",
       "paragraphes": [
         "Je conçois les personnes comme des êtres singuliers, inscrits dans des relations, une histoire et des milieux sociaux, matériels et vivants dont elles dépendent. Chacun peut avoir des aspirations propres ; les possibilités de les réaliser se construisent aussi dans les conditions de vie, les ressources disponibles et les rapports aux autres. Cette tension entre singularité et interdépendance traverse ma manière de comprendre la santé.",
         "Ma place de chercheur se situe dans ce même monde. Mon parcours auprès de personnes en situation de handicap, en droit, en gestion et en santé publique oriente les problèmes auxquels je suis attentif. J’assume cette situation comme un point de départ à examiner : rendre visibles mes choix, accueillir la contradiction et laisser l’enquête déplacer mes catégories.",
-        "Je souhaite contribuer à des conditions dans lesquelles davantage de personnes puissent choisir leur vie, être reconnues et prendre part aux décisions qui les concernent. La recherche a ici une portée à la fois descriptive, critique et pratique : comprendre ce qui se passe, examiner ce qui rend certaines situations possibles et éclairer ce qui pourrait être transformé.",
-        "Cette orientation laisse une place au doute, à la finitude et à l’incertitude. Agir exige de décider avec des connaissances toujours partielles, puis de répondre des effets de ses décisions. Je tiens ensemble cette modestie dans la connaissance et une ambition de justice, d’autonomie et de bien collectif."
+        "La réflexivité consiste à examiner comment la question posée, les catégories retenues, les acteurs inclus et les conditions de l’enquête orientent les connaissances produites. J’explicite ces choix, les interprétations concurrentes et les limites des conclusions, afin que le raisonnement puisse être discuté."
       ],
       "items": []
     },
@@ -24,9 +23,30 @@
         "Je distingue ce que l’enquête permet d’observer, les interprétations proposées et les finalités que je défends. La solidité d’une connaissance repose sur des preuves examinables, une argumentation explicite et la possibilité de discuter les désaccords. Les concepts et les mesures sont construits pour étudier des réalités dont les conséquences, elles, engagent des vies."
       ],
       "items": [
-        ["Enquêter plutôt que figer ses certitudes", "Le pragmatisme de Dewey relie l’enquête aux problèmes rencontrés et à leurs conséquences.", "Je privilégie des questions précises, des connaissances discutables et des conclusions révisables. L’utilité d’un résultat se juge aussi à ce qu’il aide à comprendre et à ses effets dans une situation.", ["dewey"]],
-        ["Mettre mes propres catégories à l’épreuve", "Foucault interroge les processus par lesquels des personnes deviennent des objets de savoir et des sujets.", "Je questionne la manière dont je définis un besoin, une population ou une situation complexe. Mes catégories doivent pouvoir être confrontées aux expériences qu’elles décrivent et à ce qu’elles rendent moins visible.", ["foucault"]],
-        ["Faire place aux savoirs vécus", "Fricker analyse les injustices qui affectent la crédibilité d’une parole et les ressources permettant de comprendre une expérience.", "Je prends au sérieux les conditions dans lesquelles une personne peut raconter, être entendue et contribuer à l’interprétation. La participation implique une influence sur les questions et les conclusions.", ["fricker"]]
+        [
+          "Enquêter plutôt que figer ses certitudes",
+          "Le pragmatisme de Dewey relie l’enquête aux problèmes rencontrés et à leurs conséquences.",
+          "Je privilégie des questions précises, des connaissances discutables et des conclusions révisables. L’utilité d’un résultat se juge aussi à ce qu’il aide à comprendre et à ses effets dans une situation.",
+          [
+            "dewey"
+          ]
+        ],
+        [
+          "Mettre mes propres catégories à l’épreuve",
+          "Foucault interroge les processus par lesquels des personnes deviennent des objets de savoir et des sujets.",
+          "Je questionne la manière dont je définis un besoin, une population ou une situation complexe. Mes catégories doivent pouvoir être confrontées aux expériences qu’elles décrivent et à ce qu’elles rendent moins visible.",
+          [
+            "foucault"
+          ]
+        ],
+        [
+          "Faire place aux savoirs vécus",
+          "Fricker analyse les injustices qui affectent la crédibilité d’une parole et les ressources permettant de comprendre une expérience.",
+          "Je prends au sérieux les conditions dans lesquelles une personne peut raconter, être entendue et contribuer à l’interprétation. La participation implique une influence sur les questions et les conclusions.",
+          [
+            "fricker"
+          ]
+        ]
       ]
     },
     {
@@ -36,9 +56,30 @@
         "Les institutions rendent possibles la protection, la coopération et l’accès à des ressources. Leurs règles et leurs catégories distribuent aussi des possibilités d’action. Ma posture consiste à examiner concrètement ces effets, leurs justifications et les possibilités de les discuter."
       ],
       "items": [
-        ["Foucault · Le pouvoir dans les relations", "Le pouvoir s’exerce notamment sur les possibilités d’action des personnes ; il ne se réduit pas à un ordre imposé d’en haut.", "Dans les services, je m’interroge sur les règles d’accès, les classements et les rôles professionnels : que permettent-ils, qui peut les discuter et quelles marges d’autodétermination laissent-ils ?", ["foucault"]],
-        ["Fassin · La valeur inégale des vies", "Fassin met en relation la valeur proclamée de la vie et le traitement inégal des existences.", "J’examine la manière dont des décisions apparemment ordinaires répartissent attention, protection, temps et ressources. Une amélioration moyenne doit aussi être discutée au regard des personnes qu’elle atteint et de celles qu’elle laisse à distance.", ["fassin"]],
-        ["Fricker · La justice dans la production des savoirs", "Les inégalités peuvent affecter la possibilité d’être reconnu comme une personne qui sait.", "Je m’intéresse à la place des patients, des proches et des acteurs communautaires dans la définition des problèmes. Faire avec suppose de pouvoir infléchir le cadre de la discussion et exprimer un désaccord.", ["fricker"]]
+        [
+          "Foucault · Le pouvoir dans les relations",
+          "Le pouvoir s’exerce notamment sur les possibilités d’action des personnes ; il ne se réduit pas à un ordre imposé d’en haut.",
+          "Dans les services, je m’interroge sur les règles d’accès, les classements et les rôles professionnels : que permettent-ils, qui peut les discuter et quelles marges d’autodétermination laissent-ils ?",
+          [
+            "foucault"
+          ]
+        ],
+        [
+          "Fassin · La valeur inégale des vies",
+          "Fassin met en relation la valeur proclamée de la vie et le traitement inégal des existences.",
+          "J’examine la manière dont des décisions apparemment ordinaires répartissent attention, protection, temps et ressources. Une amélioration moyenne doit aussi être discutée au regard des personnes qu’elle atteint et de celles qu’elle laisse à distance.",
+          [
+            "fassin"
+          ]
+        ],
+        [
+          "Fricker · La justice dans la production des savoirs",
+          "Les inégalités peuvent affecter la possibilité d’être reconnu comme une personne qui sait.",
+          "Je m’intéresse à la place des patients, des proches et des acteurs communautaires dans la définition des problèmes. Faire avec suppose de pouvoir infléchir le cadre de la discussion et exprimer un désaccord.",
+          [
+            "fricker"
+          ]
+        ]
       ]
     },
     {
@@ -48,9 +89,31 @@
         "L’autonomie prend sens dans des situations concrètes, avec des relations de soutien et des possibilités effectivement accessibles. Cette orientation prolonge mon expérience d’accompagnement : reconnaître des aspirations, discuter les contraintes et travailler les conditions qui rendent un choix praticable."
       ],
       "items": [
-        ["Hegel · La reconnaissance et les contradictions", "Chez Hegel, la conscience de soi se développe dans des rapports à autrui, traversés par la reconnaissance et le conflit.", "Je considère les tensions entre protection et autonomie, règles communes et situations singulières comme des objets d’enquête. Comprendre une organisation demande de suivre son histoire, ses relations et ses transformations.", ["hegel"]],
-        ["Sartre · La liberté engage", "L’existentialisme sartrien rattache la responsabilité aux choix par lesquels une existence se construit.", "J’en retiens une exigence d’explicitation de mes choix. Dans la recherche en santé publique, je la confronte aux contraintes sociales et aux ressources disponibles, pour penser une responsabilité située plutôt qu’attribuer les difficultés aux seuls individus.", ["sartre", "sen"]],
-        ["Sen · Les possibilités effectives de choisir", "L’approche par les capabilités examine les libertés réelles de mener les vies auxquelles les personnes accordent de la valeur.", "L’équité m’invite à regarder ce qu’une personne peut effectivement faire : accéder à un service, comprendre une décision, participer et poursuivre ses propres aspirations. Les moyens doivent être appréciés dans leur contexte d’usage.", ["sen"]]
+        [
+          "Hegel · La reconnaissance et les contradictions",
+          "Chez Hegel, la conscience de soi se développe dans des rapports à autrui, traversés par la reconnaissance et le conflit.",
+          "Je considère les tensions entre protection et autonomie, règles communes et situations singulières comme des objets d’enquête. Comprendre une organisation demande de suivre son histoire, ses relations et ses transformations.",
+          [
+            "hegel"
+          ]
+        ],
+        [
+          "Sartre · La liberté engage",
+          "L’existentialisme sartrien rattache la responsabilité aux choix par lesquels une existence se construit.",
+          "J’en retiens une exigence d’explicitation de mes choix. Dans la recherche en santé publique, je la confronte aux contraintes sociales et aux ressources disponibles, pour penser une responsabilité située plutôt qu’attribuer les difficultés aux seuls individus.",
+          [
+            "sartre",
+            "sen"
+          ]
+        ],
+        [
+          "Sen · Les possibilités effectives de choisir",
+          "L’approche par les capabilités examine les libertés réelles de mener les vies auxquelles les personnes accordent de la valeur.",
+          "J’examine ce qu’une personne peut effectivement faire : accéder à un service, comprendre une décision, participer et poursuivre ses propres aspirations. Les ressources disponibles et leurs conditions d’usage permettent d’analyser les écarts entre droits formels et possibilités réelles.",
+          [
+            "sen"
+          ]
+        ]
       ]
     },
     {
@@ -60,9 +123,30 @@
         "Ma recherche vise des connaissances capables d’entrer dans une délibération collective. Les recommandations et les innovations engagent des choix de société : qui bénéficie d’un changement, quelles charges il crée et comment les personnes concernées peuvent en discuter les effets."
       ],
       "items": [
-        ["Camus · La révolte et la mesure", "Camus examine une révolte qui affirme une dignité commune tout en interrogeant les limites de l’action et ses justifications.", "Je souhaite maintenir ensemble le refus de situations injustes et l’attention aux personnes que la transformation peut affecter. Une finalité souhaitable demande aussi d’examiner les moyens employés et leurs conséquences.", ["camus"]],
-        ["Dewey · Enquêter avec les publics concernés", "Dewey relie la constitution d’un public aux conséquences partagées des activités et à leur prise en charge collective.", "J’en tire une attention aux acteurs concernés, à la délibération et au retour du terrain vers la connaissance. Les résultats doivent pouvoir être discutés, contextualisés et repris lorsque leurs conséquences l’exigent.", ["dewey"]],
-        ["Ricœur · Sollicitude et institutions justes", "Ricœur articule le projet d’une vie accomplie, l’attention à autrui et la justice des institutions.", "Je relie la qualité d’une relation d’accompagnement aux conditions organisationnelles et politiques qui la rendent possible. Ma responsabilité porte à la fois sur la personne rencontrée et sur les cadres collectifs que mes travaux contribuent à éclairer.", ["ricoeur"]]
+        [
+          "Camus · La révolte et la mesure",
+          "Camus examine une révolte qui affirme une dignité commune tout en interrogeant les limites de l’action et ses justifications.",
+          "Je souhaite maintenir ensemble le refus de situations injustes et l’attention aux personnes que la transformation peut affecter. Une finalité souhaitable demande aussi d’examiner les moyens employés et leurs conséquences.",
+          [
+            "camus"
+          ]
+        ],
+        [
+          "Dewey · Enquêter avec les publics concernés",
+          "Dewey relie la constitution d’un public aux conséquences partagées des activités et à leur prise en charge collective.",
+          "J’en tire une attention aux acteurs concernés, à la délibération et au retour du terrain vers la connaissance. Les résultats doivent pouvoir être discutés, contextualisés et repris lorsque leurs conséquences l’exigent.",
+          [
+            "dewey"
+          ]
+        ],
+        [
+          "Ricœur · Sollicitude et institutions justes",
+          "Ricœur articule le projet d’une vie accomplie, l’attention à autrui et la justice des institutions.",
+          "Je relie la qualité d’une relation d’accompagnement aux conditions organisationnelles et politiques qui la rendent possible. Ma responsabilité porte à la fois sur la personne rencontrée et sur les cadres collectifs que mes travaux contribuent à éclairer.",
+          [
+            "ricoeur"
+          ]
+        ]
       ]
     }
   ]
