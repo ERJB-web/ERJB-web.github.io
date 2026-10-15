@@ -1,0 +1,465 @@
+{
+  "titre": "Partager les connaissances, donner des prises et ouvrir le dialogue",
+  "intro": "Je souhaite faire de la vulgarisation scientifique un espace où chacun peut comprendre une question, examiner les raisons d’une affirmation et participer à la discussion. Mon parcours en éducation spécialisée, en droit, en gestion et en santé publique nourrit une même attention : relier des connaissances exigeantes aux situations vécues, sans effacer les incertitudes ni la diversité des points de vue. Cette rubrique rassemble une vision, des explications visuelles, des exemples de formats et des ressources pour passer à la pratique.",
+  "explorer": "Explorer la vulgarisation scientifique",
+  "onglets": [
+    "Vision et publics",
+    "Lire une étude et ses chiffres",
+    "Atelier de communication",
+    "Carrousels, vidéos et balados",
+    "Dialogue et responsabilité",
+    "Fiches à réutiliser",
+    "Ressources commentées"
+  ],
+  "labels": {
+    "appuis": "Pour approfondir",
+    "exemple": "Exemple de conception",
+    "structure": "Fil conducteur",
+    "accessibilite": "Accessibilité à prévoir",
+    "question": "Question au public",
+    "source": "Ouvrir la ressource",
+    "apport": "Ce qu’elle apporte",
+    "usage": "Comment l’utiliser",
+    "limite": "Portée et limites",
+    "telecharger": "Télécharger le canevas",
+    "fiche": "Canevas de préparation",
+    "grille": "Grille de lecture d’une information scientifique",
+    "repere": "Repère",
+    "examiner": "À examiner",
+    "indicateur": "Ce que l’on cherche à observer",
+    "recueil": "Une manière de le documenter",
+    "prudence": "Ce qu’on ne peut pas conclure"
+  },
+  "vision": {
+    "titre": "Rendre la science discutable et utile dans la vie collective",
+    "sections": [
+      [
+        "Comprendre, se situer et pouvoir participer",
+        "L’accès à une information ne donne pas automatiquement les moyens de l’interpréter. Je souhaite expliquer comment un savoir est construit, ce qu’il change dans la compréhension d’un problème et ce qu’il laisse ouvert. Mon ambition est que les personnes puissent poser une question plus précise, reconnaître une limite et situer une décision. La curiosité peut ouvrir la rencontre ; la possibilité de retrouver les sources et de discuter les raisons lui donne une profondeur."
+      ],
+      [
+        "Faire avec les publics",
+        "Mon expérience d’éducateur spécialisé m’invite à partir des capacités, des contraintes et des projets des personnes. Un proche aidant, un étudiant ou une personne engagée dans une association peuvent rencontrer le même sujet avec des questions différentes. Je souhaite faire place à ces expériences pour choisir le point d’entrée et rendre visibles des problèmes que le langage institutionnel laisse parfois de côté. Ce dialogue demande du temps, une écoute et une réponse sur ce qui a été retenu."
+      ],
+      [
+        "Une responsabilité de mise en relation",
+        "Communiquer sur la santé engage des données, des expériences et des choix collectifs. Je souhaite distinguer ces registres : un témoignage éclaire une expérience située ; une étude répond à une question dans certaines conditions ; une décision mobilise aussi des valeurs et des contraintes. Les faire dialoguer aide à comprendre les désaccords. Cela demande de préciser mon rôle, les sources utilisées et les éventuels intérêts en jeu, puis de rendre une correction visible lorsqu’elle devient nécessaire."
+      ]
+    ],
+    "modesTitre": "Quatre formes de relation avec les publics",
+    "modes": [
+      [
+        "Expliquer",
+        "Mettre une connaissance à disposition.",
+        "Une capsule explique ce qu’est un besoin social co-occurrent."
+      ],
+      [
+        "Dialoguer",
+        "Faire circuler questions, savoirs et objections.",
+        "Un échange fait émerger les difficultés rencontrées entre plusieurs services."
+      ],
+      [
+        "Coconstruire",
+        "Partager des choix sur le contenu ou la démarche.",
+        "Des personnes concernées contribuent à choisir les exemples et les questions à traiter."
+      ],
+      [
+        "Délibérer",
+        "Examiner ensemble des options et leurs conséquences.",
+        "Un atelier confronte plusieurs réponses possibles à un problème d’organisation."
+      ]
+    ],
+    "note": "Ces formes répondent à des objectifs différents et peuvent se combiner. Inviter des commentaires ne suffit pas à partager une décision : il faut préciser ce qui est réellement ouvert à la participation.",
+    "refs": [
+      "publics",
+      "dialogue",
+      "scienceouverte"
+    ]
+  },
+  "preuve": {
+    "titre": "Du résultat scientifique à une explication fidèle",
+    "intro": "Avant d’écrire une accroche, il faut reconstruire le chemin entre la question étudiée et la conclusion proposée. Le schéma ci-dessous est une grille de lecture, pas une hiérarchie automatique des méthodes.",
+    "chaine": [
+      [
+        "Question",
+        "Quel problème ? Quelle population ? Quel contexte ?"
+      ],
+      [
+        "Méthode",
+        "Comment les personnes, données et comparaisons ont-elles été choisies ?"
+      ],
+      [
+        "Résultats",
+        "Qu’a-t-on observé, avec quelle ampleur et quelle incertitude ?"
+      ],
+      [
+        "Interprétation",
+        "Que peut-on en tirer ici ? Que faut-il encore examiner ?"
+      ]
+    ],
+    "fiches": [
+      [
+        "Décrire le statut du travail",
+        "Préciser s’il s’agit d’un protocole, d’une prépublication, d’un article évalué ou d’une synthèse. Ce statut renseigne sur le processus de production ; il ne remplace pas l’examen du contenu. Pour ma thèse, les objectifs et méthodes décrivent un projet en cours, sans résultats disponibles."
+      ],
+      [
+        "Respecter ce que la méthode permet",
+        "Une association observée ne suffit pas à attribuer un effet causal. Un entretien peut approfondir une expérience et ses significations sans estimer sa fréquence dans toute une population. Une synthèse hérite des limites des travaux inclus. La formulation du message doit rester cohérente avec la question et le devis."
+      ],
+      [
+        "Rendre l’incertitude intelligible",
+        "Indiquer ce qui manque, ce qui varie et ce qui pourrait changer la conclusion. Une estimation, sa plage d’incertitude et la pertinence concrète de l’effet répondent à des questions différentes. Les expériences de van der Bles et de ses collègues éclairent certaines formulations de l’incertitude ; elles ne garantissent pas la confiance dans tous les contextes."
+      ]
+    ],
+    "refs": [
+      "incertitude",
+      "cochrane"
+    ]
+  },
+  "chiffres": {
+    "titre": "Les mêmes chiffres, deux lectures complémentaires",
+    "intro": "Exemple entièrement fictif : on compare un événement observé chez 20 personnes sur 100 dans un groupe et chez 10 sur 100 dans un autre, pendant la même période. Aucun de ces chiffres ne provient de ma recherche.",
+    "groupes": [
+      "Groupe A",
+      "Groupe B"
+    ],
+    "frequences": [
+      "20 personnes sur 100",
+      "10 personnes sur 100"
+    ],
+    "legende": "Chaque point représente une personne ; les points pleins correspondent à l’événement.",
+    "mesures": [
+      [
+        "Différence absolue",
+        "10 points",
+        "20 % − 10 % = 10 points de pourcentage ; soit 10 événements de moins pour 100 personnes."
+      ],
+      [
+        "Différence relative",
+        "50 %",
+        "(20 − 10) ÷ 20 = 50 % d’événements en moins relativement au groupe A."
+      ],
+      [
+        "Base de comparaison",
+        "100 personnes",
+        "Même dénominateur, même événement et même durée : ces repères rendent la comparaison interprétable."
+      ]
+    ],
+    "conclusion": "Ces deux présentations décrivent la même différence. Elles ne prouvent pas pourquoi les groupes diffèrent. Pour juger la portée d’un résultat réel, il faut aussi connaître le recrutement, le devis, l’incertitude et les effets importants pour les personnes.",
+    "refs": [
+      "cochrane",
+      "clarte"
+    ]
+  },
+  "formats": {
+    "titre": "Choisir une forme qui aide à penser",
+    "intro": "Ces maquettes sont des propositions éditoriales à développer. Elles montrent comment décliner une question sans fabriquer de résultats ni donner l’impression qu’un épisode a déjà été publié.",
+    "items": [
+      {
+        "titre": "Un carrousel qui fait progresser une question",
+        "objectif": "Exemple : « Pourquoi faut-il parfois plusieurs services pour une même situation ? » Une suite de cinq cartes peut rendre le raisonnement visible et laisser une trace consultable.",
+        "structure": [
+          [
+            "Une question située",
+            "Partir d’une situation reconnaissable, sans exposer une personne réelle."
+          ],
+          [
+            "Une idée à comprendre",
+            "Expliquer la coexistence de besoins de logement, de revenu ou d’accompagnement."
+          ],
+          [
+            "Un schéma utile",
+            "Montrer les acteurs et les liens nécessaires ; préciser ce que le dessin simplifie."
+          ],
+          [
+            "Une nuance essentielle",
+            "Plus d’acteurs ne signifie pas automatiquement une meilleure coordination."
+          ],
+          [
+            "Une ouverture documentée",
+            "Proposer une question et donner accès à la source et à sa date."
+          ]
+        ],
+        "accessibilite": "Conserver le texte essentiel dans la publication, décrire le schéma, numéroter les cartes et éviter une information portée uniquement par la couleur.",
+        "question": "« Quelle étape d’un parcours entre services mériterait d’être mieux expliquée ? »",
+        "refs": [
+          "social",
+          "clarte",
+          "images"
+        ]
+      },
+      {
+        "titre": "Une vidéo qui montre un mécanisme",
+        "objectif": "Exemple : expliquer comment une information peut se perdre entre deux services. L’image doit aider à comprendre le mécanisme, tandis que la narration en nomme les éléments.",
+        "structure": [
+          [
+            "Poser la question",
+            "Ouvrir sur une difficulté concrète et annoncer l’idée explorée."
+          ],
+          [
+            "Faire apparaître les relations",
+            "Animer progressivement un petit réseau, avec une légende et des acteurs nommés."
+          ],
+          [
+            "Introduire une autre possibilité",
+            "Comparer un passage d’information coordonné et un passage interrompu, comme scénarios illustratifs."
+          ],
+          [
+            "Revenir aux connaissances",
+            "Expliquer ce que l’exemple montre, ses limites et les sources à consulter."
+          ]
+        ],
+        "accessibilite": "Prévoir des sous-titres relus, une transcription et une description orale des informations visuelles nécessaires. Une musique ne doit pas masquer la parole.",
+        "question": "« Quel lien manque-t-il dans cette représentation pour refléter votre expérience ? »",
+        "refs": [
+          "clarte",
+          "accessibilite",
+          "images"
+        ]
+      },
+      {
+        "titre": "Un balado qui laisse une place au désaccord",
+        "objectif": "Exemple : un entretien sur les conditions d’une coopération entre secteurs. La préparation doit aider à comparer les perspectives et à expliquer les termes, sans mettre en scène un consensus artificiel.",
+        "structure": [
+          [
+            "Situer la question et les voix",
+            "Présenter les interlocuteurs, leurs rôles et leur lien avec le sujet."
+          ],
+          [
+            "Partir d’une expérience",
+            "Inviter un récit situé et faire préciser les mots importants."
+          ],
+          [
+            "Confronter les explications",
+            "Demander ce qui soutient une affirmation, ce qui fait débat et quelles voix manquent."
+          ],
+          [
+            "Proposer une synthèse ouverte",
+            "Distinguer les points d’accord, les divergences et les questions à reprendre."
+          ]
+        ],
+        "accessibilite": "Publier une transcription structurée, des repères d’écoute et des notes d’épisode avec les références et leurs limites. Obtenir l’accord sur les modalités d’enregistrement et de diffusion.",
+        "question": "« Sur quel point souhaiteriez-vous entendre une autre perspective ? »",
+        "refs": [
+          "dialogue",
+          "accessibilite"
+        ]
+      }
+    ]
+  },
+  "dialogue": {
+    "titre": "Informer dans un espace traversé par les rapports de confiance",
+    "intro": "La qualité d’une communication se joue aussi dans la relation qu’elle organise : qui peut intervenir, qui reste à distance et ce que deviennent les contributions.",
+    "sections": [
+      [
+        "Accueillir les questions et rendre le désaccord travaillable",
+        "Je souhaite reformuler une question avant d’y répondre, distinguer la contestation d’un résultat de la critique d’une institution et reconnaître une expérience sans lui attribuer une portée générale. Des règles de discussion explicites doivent protéger les personnes et permettre de discuter les arguments. Une consultation prend sens lorsqu’on explique ce qu’elle peut modifier et lorsqu’on restitue les suites données."
+      ],
+      [
+        "Répondre à une information trompeuse avec une explication",
+        "Une correction utile présente le point établi, indique précisément ce qui pose problème et explique les raisons de la rectification avec une source accessible. Je souhaite éviter l’humiliation et la répétition spectaculaire d’une affirmation trompeuse. En santé, une réponse publique doit aussi reconnaître les limites de ce qu’un échange en ligne permet de traiter et préserver la confidentialité."
+      ],
+      [
+        "IA, images et responsabilité éditoriale",
+        "Je peux mobiliser des outils d’IA pour préparer une structure ou explorer une illustration, en gardant la responsabilité des affirmations, des sources et du montage. Une image générée doit être identifiable comme illustration lorsqu’une confusion avec une scène réelle est possible. Une voix, une citation ou un témoignage ne doivent pas être inventés pour rendre un contenu plus convaincant. Je souhaite conserver la provenance des éléments et ne pas confier de données sensibles à un outil sans cadre approprié."
+      ]
+    ],
+    "boucleTitre": "Une boucle de dialogue qui laisse des traces",
+    "boucle": [
+      [
+        "Écouter",
+        "Recueillir les questions sans solliciter des détails identifiants."
+      ],
+      [
+        "Comprendre",
+        "Regrouper les besoins, les objections et les points d’incertitude."
+      ],
+      [
+        "Répondre",
+        "Adapter l’explication et indiquer ce qui demeure ouvert."
+      ],
+      [
+        "Restituer",
+        "Montrer les modifications, les corrections et la suite proposée."
+      ]
+    ],
+    "evaluationTitre": "Apprécier l’utilité au-delà de la visibilité",
+    "evaluation": [
+      [
+        "Diffusion",
+        "Documenter le nombre de consultations lorsque cette mesure existe.",
+        "Une consultation ne prouve pas la lecture ni la compréhension."
+      ],
+      [
+        "Compréhension",
+        "Inviter une reformulation ou demander quelle distinction a été retenue.",
+        "Une réponse immédiate ne suffit pas à établir une compréhension durable."
+      ],
+      [
+        "Participation",
+        "Examiner les questions, la diversité des contributions et les obstacles signalés.",
+        "Les personnes qui répondent ne représentent pas nécessairement l’ensemble du public."
+      ],
+      [
+        "Utilité",
+        "Demander comment le contenu a aidé à se repérer ou à poursuivre une démarche.",
+        "Une utilité déclarée ne démontre pas un effet causal sur la santé ou les décisions."
+      ]
+    ],
+    "note": "Ces pistes décrivent des façons d’apprendre d’un projet. Elles n’annoncent pas la mise en place d’un suivi individuel : le site reste sans témoins ni mesure d’audience.",
+    "refs": [
+      "dialogue",
+      "evaluation",
+      "ethique"
+    ]
+  },
+  "outils": {
+    "titre": "Deux canevas pour préparer ou discuter un contenu",
+    "intro": "Des fiches courtes à réutiliser dans un projet, un atelier ou une discussion. Elles donnent une structure au travail ; elles ne constituent pas des instruments validés ni une certification de qualité.",
+    "preparation": [
+      [
+        "Public et situation",
+        "À qui s’adresse-t-on ? Quelles questions et contraintes faut-il comprendre ?"
+      ],
+      [
+        "Intention et message",
+        "Que doit permettre le contenu ? Quelle idée principale doit pouvoir être reformulée ?"
+      ],
+      [
+        "Connaissances mobilisées",
+        "Quelles sources primaires, dates, méthodes et limites soutiennent le message ?"
+      ],
+      [
+        "Forme et accès",
+        "Quel support aide à comprendre ? Quelles alternatives textuelles, sonores ou visuelles prévoir ?"
+      ],
+      [
+        "Dialogue et responsabilité",
+        "Quelle participation proposer ? Quelles règles, quels accords et quelle procédure de correction ?"
+      ],
+      [
+        "Retour et révision",
+        "Quelles questions poser pour comprendre l’utilité du contenu ? Que modifier ensuite ?"
+      ]
+    ],
+    "lecture": [
+      [
+        "Provenance",
+        "Qui parle, avec quel rôle, quelle source et quels intérêts déclarés ?"
+      ],
+      [
+        "Question",
+        "Quelle population, quel contexte et quel problème sont réellement étudiés ?"
+      ],
+      [
+        "Méthode",
+        "Comment l’observation a-t-elle été produite ? Quelle comparaison est pertinente ?"
+      ],
+      [
+        "Ampleur",
+        "Quelle différence absolue et relative ? Quelle période et quel dénominateur ?"
+      ],
+      [
+        "Incertitude",
+        "Quelles limites peuvent modifier l’interprétation ? Que manque-t-il ?"
+      ],
+      [
+        "Conclusion",
+        "Le message reste-t-il dans ce que les résultats permettent d’affirmer ?"
+      ]
+    ],
+    "refs": [
+      "clarte",
+      "cochrane",
+      "images"
+    ]
+  },
+  "ressources": {
+    "titre": "Une bibliothèque pour comprendre et concevoir",
+    "intro": "Chaque ressource est reliée à une tâche précise. Les articles de recherche, rapports et guides ont des fonctions différentes ; leurs exemples demandent une adaptation au public et au contexte.",
+    "items": {
+      "publics": [
+        "Rapport de recherche · EN",
+        "Comprendre les objectifs, les publics et les conditions de la communication scientifique.",
+        "Lire le chapitre 2 pour clarifier ce qu’une démarche cherche à rendre possible.",
+        "Un agenda de recherche, sans recette garantissant l’adhésion."
+      ],
+      "clarte": [
+        "Outil de conception · EN / ES",
+        "Structurer le message, les nombres et les actions attendues.",
+        "Utiliser les questions de cadrage avant de rédiger, puis discuter les critères avec des relecteurs.",
+        "Une grille de clarté ne remplace pas l’examen scientifique ni les retours du public."
+      ],
+      "dialogue": [
+        "Guide de pratique · EN",
+        "Préparer un engagement avec les publics et ses conditions.",
+        "Préciser le but de la participation et les suites qui seront données aux contributions.",
+        "L’engagement demande des moyens et une adaptation locale."
+      ],
+      "incertitude": [
+        "Article de recherche · EN",
+        "Examiner expérimentalement certains effets de formulations de l’incertitude sur la confiance.",
+        "Comparer les formulations et lire les contextes étudiés avant d’en tirer une règle.",
+        "Les résultats ne garantissent pas un effet identique pour chaque public ou sujet."
+      ],
+      "accessibilite": [
+        "Guide technique · EN",
+        "Préparer sous-titres, transcription et description des informations audiovisuelles.",
+        "Intégrer les alternatives au scénario et aux notes d’épisode.",
+        "Les besoins et les obligations varient selon le média."
+      ],
+      "evaluation": [
+        "Guide de pratique · EN",
+        "Distinguer productions, effets recherchés et impacts dans l’engagement public.",
+        "Relier une question d’évaluation à un moyen réaliste de recueillir un retour.",
+        "Un indicateur isolé ne démontre pas une causalité."
+      ],
+      "social": [
+        "Synthèse de pratique · EN",
+        "Réfléchir à l’engagement public sur les réseaux sociaux.",
+        "Utiliser les questions de stratégie et de relation avec les publics.",
+        "Publié en 2018 : les usages et les plateformes ont évolué."
+      ],
+      "cochrane": [
+        "Manuel méthodologique · EN",
+        "Interpréter l’ampleur des effets et leur incertitude.",
+        "Consulter les sections sur les effets absolus et relatifs pour expliquer un chiffre.",
+        "Un chapitre centré sur les synthèses d’interventions ; adapter son emploi aux autres devis."
+      ],
+      "images": [
+        "Guide technique · EN",
+        "Choisir une alternative textuelle selon la fonction d’un visuel.",
+        "Préparer la description complète d’un graphique ou d’un schéma.",
+        "La description doit restituer l’information utile dans son contexte."
+      ],
+      "ethique": [
+        "Guide institutionnel · EN",
+        "Penser l’éthique de l’écoute sociale et les droits des personnes.",
+        "Examiner finalité, proportionnalité et protection des données avant un recueil.",
+        "Guide élaboré pour les urgences de santé publique."
+      ],
+      "scienceouverte": [
+        "Recommandation internationale · multilingue",
+        "Situer le partage des savoirs dans une vision d’ouverture et de participation.",
+        "Relier l’accès aux connaissances au dialogue avec la société.",
+        "Un cadre normatif international, pas une mesure de l’efficacité d’un format."
+      ]
+    },
+    "suite": "Poursuivre dans les sélections du site",
+    "liens": [
+      "Littérature scientifique",
+      "Rapports et guides",
+      "Vidéos scientifiques",
+      "Balados"
+    ],
+    "bibliographie": "Références bibliographiques"
+  },
+  "galerie": {
+    "titre": "Des formats complémentaires pour une même exigence",
+    "legendes": [
+      "Carrousel : organiser une progression visuelle",
+      "Vidéo : rendre un mécanisme visible",
+      "Balado : faire dialoguer des perspectives"
+    ]
+  }
+}

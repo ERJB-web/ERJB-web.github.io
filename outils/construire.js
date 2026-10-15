@@ -18,6 +18,7 @@ const POSTURE = require("./posture-recherche");
 const MEDIATION = require("./enseignement-vulgarisation");
 const ENSEIGNEMENT = require("./enseignement-vision");
 const COMMUNICATION = require("./communication-visuelle");
+const VULGARISATION = require("./vulgarisation-ressources");
 const IA = require("./ia-recherche");
 const THESE = require("./these-rubriques");
 const CADRAGE_THESE = require("./these-cadrage");
@@ -98,15 +99,32 @@ function sectionTransmission(c) {
 }
 function sectionVulgarisation(c) {
   const s = MEDIATION.LANGUES[c.lang].vulgarisation;
+  const v = VULGARISATION.langues[c.lang];
+  const L = v.labels;
   const T = textesTransmission(c);
-  const affiche = c.contact.liens.find((l) => /affiche|poster|póster|海报|ملصق|постер/i.test(l[0] + l[1]));
-  return `<div class="section-corps pleine large"><div class="colonne-texte">
-<p class="surtitre">${e(s.salle[0])}</p><h2>${e(s.titre)}</h2><p class="intro">${e(s.intro)}</p>
-<h3 class="titre-bloc">${e(s.ambition[0])}</h3><p>${e(s.ambition[1])}</p>
-</div><div class="colonne-outils">${communicationVisuelle(c, s.pratiques)}${reperesMediation(s.formats)}
-<h3 class="titre-bloc">${e(s.supports)}</h3>${liste([{date:"2026",titre:T.affiche[0],detail:T.affiche[1],lien:affiche ? affiche[2] : AFFICHE}])}
-<h3 class="titre-bloc">${e(s.ressources[0])}</h3><ul class="puces"><li><a href="#capsules">${e(s.ressources[1])}</a></li><li><a href="#balados">${e(s.ressources[2])}</a></li></ul>
-${sourcesMediation(c, s)}</div></div>`;
+  const affiche = c.contact.liens.find(l => /affiche|poster|póster|海报|ملصق|постер/i.test(l[0] + l[1]));
+  const refs = cles => '<p class="ref vul-appuis">' + e(L.appuis) + ' : ' + cles.map(k => lien(VULGARISATION.references[k].href, e(VULGARISATION.references[k].court))).join(' · ') + '</p>';
+  const sections = parties => parties.map(([titre, texte]) => '<section class="vul-texte"><h4>' + e(titre) + '</h4><p>' + e(texte) + '</p></section>').join('');
+  const chaine = (items, classe) => '<ol class="vul-parcours ' + classe + '">' + items.map(([titre, texte], i) => '<li><span aria-hidden="true">' + num(i) + '</span><h4>' + e(titre) + '</h4><p>' + e(texte) + '</p></li>').join('') + '</ol>';
+  const image = i => '<img src="' + c.chemin + 'assets/illustrations/vulgarisation-' + ['carrousel','video','balado'][i] + '.svg" alt="" width="480" height="260" loading="lazy">';
+  const vision = '<h3>' + e(v.vision.titre) + '</h3>' + sections(v.vision.sections) + '<figure class="vul-relations"><figcaption>' + e(v.vision.modesTitre) + '</figcaption><div>' + v.vision.modes.map(([titre, texte, ex], i) => '<article><span class="vul-mode" aria-hidden="true">' + ['→','↔','◇','◎'][i] + '</span><h4>' + e(titre) + '</h4><p>' + e(texte) + '</p><p class="vul-exemple">' + e(ex) + '</p></article>').join('') + '</div><p>' + e(v.vision.note) + '</p></figure>' + refs(v.vision.refs);
+  const grillePoints = n => '<svg class="vul-pictogramme" viewBox="0 0 192 192" aria-hidden="true" focusable="false">' + Array.from({length:100}, (_, i) => '<circle cx="' + (15 + i % 10 * 18) + '" cy="' + (15 + Math.floor(i / 10) * 18) + '" r="5.5" fill="' + (i < n ? '#256d68' : '#e1e8eb') + '"' + (i < n ? '' : ' stroke="#a2b5bc" stroke-width=".7"') + '/>').join('') + '</svg>';
+  const chiffres = '<figure class="vul-chiffres"><figcaption>' + e(v.chiffres.titre) + '</figcaption><p>' + e(v.chiffres.intro) + '</p><div class="vul-frequences">' + [20,10].map((n,i) => '<div><h4>' + e(v.chiffres.groupes[i]) + '</h4>' + grillePoints(n) + '<p><strong>' + e(v.chiffres.frequences[i]) + '</strong></p></div>').join('') + '</div><p class="vul-legende">' + e(v.chiffres.legende) + '</p><div class="vul-mesures">' + v.chiffres.mesures.map(([t,n,d]) => '<div><h4>' + e(t) + '</h4><strong>' + e(n) + '</strong><p>' + e(d) + '</p></div>').join('') + '</div><p class="vul-note">' + e(v.chiffres.conclusion) + '</p></figure>' + refs(v.chiffres.refs);
+  const preuve = '<h3>' + e(v.preuve.titre) + '</h3><p class="vul-texte">' + e(v.preuve.intro) + '</p>' + chaine(v.preuve.chaine, 'vul-chaine-preuve') + sections(v.preuve.fiches) + refs(v.preuve.refs) + chiffres;
+  const formats = '<h3>' + e(v.formats.titre) + '</h3><p class="vul-texte">' + e(v.formats.intro) + '</p><div class="vul-formats">' + v.formats.items.map((f, i) => '<article><div class="vul-format-entete"><div>' + image(i) + '</div><div><p class="surtitre">' + e(L.exemple) + ' ' + num(i) + '</p><h4>' + e(f.titre) + '</h4><p>' + e(f.objectif) + '</p></div></div><h5>' + e(L.structure) + '</h5><ol class="vul-storyboard">' + f.structure.map(([titre, texte], j) => '<li><span aria-hidden="true">' + num(j) + '</span><h5>' + e(titre) + '</h5><p>' + e(texte) + '</p></li>').join('') + '</ol><div class="vul-format-suite"><div><h5>' + e(L.accessibilite) + '</h5><p>' + e(f.accessibilite) + '</p></div><aside><h5>' + e(L.question) + '</h5><p>' + e(f.question) + '</p></aside></div>' + refs(f.refs) + '</article>').join('') + '</div>';
+  const dialogue = '<h3>' + e(v.dialogue.titre) + '</h3><p class="vul-texte">' + e(v.dialogue.intro) + '</p>' + sections(v.dialogue.sections) + '<h4 class="titre-bloc">' + e(v.dialogue.boucleTitre) + '</h4>' + chaine(v.dialogue.boucle, 'vul-boucle') + '<h4 class="titre-bloc">' + e(v.dialogue.evaluationTitre) + '</h4><div class="vul-evaluation">' + v.dialogue.evaluation.map(([t,d,l], i) => '<article><span aria-hidden="true">' + num(i) + '</span><h5>' + e(t) + '</h5><p class="vul-petit-titre">' + e(L.recueil) + '</p><p>' + e(d) + '</p><p class="vul-petit-titre">' + e(L.prudence) + '</p><p>' + e(l) + '</p></article>').join('') + '</div><p class="vul-note">' + e(v.dialogue.note) + '</p>' + refs(v.dialogue.refs);
+  const fiche = (nom, titre, items) => {
+    const fichier = 'docs/vulgarisation-' + nom + '-' + c.lang + '.md';
+    fs.writeFileSync(path.join(RACINE, fichier), '# ' + titre + '\n\n' + v.outils.intro + '\n\n' + items.map(([t, d], i) => '## ' + (i + 1) + '. ' + t + '\n\n' + d + '\n\n…\n').join('\n') + '\n' + L.appuis + '\n\n' + v.outils.refs.map(k => VULGARISATION.references[k].citation + '\n' + VULGARISATION.references[k].href).join('\n\n') + '\n');
+    return '<section class="vul-fiche"><header><h4>' + e(titre) + '</h4><a href="' + c.chemin + fichier + '" download>' + e(L.telecharger) + ' ↓</a></header><dl>' + items.map(([t,d]) => '<div><dt>' + e(t) + '</dt><dd>' + e(d) + '</dd></div>').join('') + '</dl></section>';
+  };
+  const outils = '<h3>' + e(v.outils.titre) + '</h3><p class="vul-texte">' + e(v.outils.intro) + '</p><div class="vul-fiches">' + fiche('preparation', L.fiche, v.outils.preparation) + fiche('lecture', L.grille, v.outils.lecture) + '</div>' + refs(v.outils.refs);
+  const ressources = '<h3>' + e(v.ressources.titre) + '</h3><p class="vul-texte">' + e(v.ressources.intro) + '</p><div class="vul-bibliotheque">' + Object.entries(v.ressources.items).map(([k,[type,apport,usage,limite]]) => {
+    const r = VULGARISATION.references[k];
+    return '<article><p class="vul-type">' + e(type) + '</p><h4>' + e(r.court) + '</h4><p>' + e(apport) + '</p><details><summary>' + e(L.usage) + '</summary><p>' + e(usage) + '</p><p><strong>' + e(L.limite) + '.</strong> ' + e(limite) + '</p><p class="vul-citation">' + e(r.citation) + '</p></details><p class="vul-source">' + lien(r.href, e(L.source) + ' ↗') + '</p></article>';
+  }).join('') + '</div><h4 class="titre-bloc">' + e(v.ressources.suite) + '</h4><div class="vul-liens">' + ['litterature','grise','capsules','balados'].map((k,i) => '<a href="#' + k + '">' + e(v.ressources.liens[i]) + ' →</a>').join('') + '</div><h4 class="titre-bloc">' + e(s.supports) + '</h4>' + liste([{date:'2026',titre:T.affiche[0],detail:T.affiche[1],lien:affiche ? affiche[2] : AFFICHE}]);
+  const contenus = [vision, preuve, communicationVisuelle(c, s.pratiques), formats, dialogue, outils, ressources];
+  return '<div class="section-corps pleine vulgarisation"><div class="colonne-texte"><p class="surtitre">' + e(s.salle[0]) + '</p><h2>' + e(v.titre) + '</h2><p class="intro">' + e(v.intro) + '</p></div><figure class="vul-galerie"><figcaption>' + e(v.galerie.titre) + '</figcaption><div>' + v.galerie.legendes.map((legende,i) => '<div>' + image(i) + '<p>' + e(legende) + '</p></div>').join('') + '</div></figure><div class="colonne-outils">' + ongletsRubriques('vulgarisation', v.explorer, v.onglets.map((t,i) => ['vulgarisation-' + i,t,contenus[i]]), 4) + '</div></div>';
 }
 const SOUS_RESSOURCES = {
   fr: { litterature: ["Littérature scientifique", "Articles en libre accès et lectures par thème"], grise: ["Littérature grise", "Rapports, politiques, guides et outils"], presse: [null, "Articles de presse et de magazines"], capsules: [null, "Vidéos en français et en anglais"], balados: [null, "Balados en français et en anglais"], rapports: "Rapports, politiques et cadres de référence" },
@@ -667,7 +685,7 @@ const LIBELLES_FAITS_RECHERCHE = {
 function ongletsRubriques(cle, explorer, rubriques, colonnes = 5) {
   return `<div class="table rubriques" data-onglets data-rubriques="${cle}" style="--rubriques-colonnes:${colonnes}">
 <label class="rubriques-choix"><span>${e(explorer)}</span><select data-rubrique-select>${rubriques.map(([, nom], i) => `<option value="${i}">${e(nom)}</option>`).join("")}</select></label>
-<div class="onglets rubriques-nav" role="tablist" aria-label="${e(explorer)}">${rubriques.map(([id, nom], i) => `<button type="button" role="tab" aria-selected="${i === 0}" tabindex="${i ? -1 : 0}" data-volet="${i}" data-rubrique="${id}">${["these", "ia", "posture", "enseignement"].includes(cle) ? `<span class="rubrique-numero" aria-hidden="true">${num(i)}</span>` : ""}<span>${e(nom)}</span></button>`).join("")}</div>
+<div class="onglets rubriques-nav" role="tablist" aria-label="${e(explorer)}">${rubriques.map(([id, nom], i) => `<button type="button" role="tab" aria-selected="${i === 0}" tabindex="${i ? -1 : 0}" data-volet="${i}" data-rubrique="${id}">${["these", "ia", "posture", "enseignement", "vulgarisation"].includes(cle) ? `<span class="rubrique-numero" aria-hidden="true">${num(i)}</span>` : ""}<span>${e(nom)}</span></button>`).join("")}</div>
 ${rubriques.map(([id, , contenu], i) => `<div class="volet rubrique-corps" role="tabpanel" data-volet="${i}" data-rubrique="${id}"${i ? " hidden" : ""}>${contenu}</div>`).join("")}</div>`;
 }
 
