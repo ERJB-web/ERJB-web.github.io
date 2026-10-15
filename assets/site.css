@@ -463,7 +463,7 @@ html:lang(ar) .surtitre,html:lang(ar) .menu-titre,html:lang(ar) .statut,html:lan
 .chapeau p{margin-bottom:10px}
 
 /* Texte justifié (le FALC et la basse vision restent alignés à gauche, plus faciles à lire) */
-main p,.salle-contenu p{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+main p,.salle-contenu p{text-align:start;hyphens:auto;-webkit-hyphens:auto}
 .falc p,html.lv main p,html.lv .salle-contenu p,.menu-panneau p,.encadrement,.surtitre,.petit-titre,.ref{text-align:start;hyphens:manual;-webkit-hyphens:manual}
 
 /* Survol et clic bien visibles */
@@ -1224,7 +1224,7 @@ html.hc .lexique .notion-usage,html.lv .lexique .notion-usage{background:var(--w
 .mono-barre{width:.8px;height:19px;opacity:.6}
 .sous-portes span[data-lien]{cursor:pointer}
 /* Textes descriptifs justifiés, avec césure, partout */
-.section-corps .colonne-texte>p:not(.surtitre):not(.badge-these),.section-corps .intro,.groupe-corps>p,.carte-notion .groupe-corps>p:not(.notion-refs-titre),.projet-bloc p,.liste p,.chapeau p,.presentation p:not(.surtitre):not(.roles):not(.encadrement),.travaux p,.lacunes p,.notions p,.cadres p,.valeurs-grille p,.faits span,.carte-entreprendre p,.rg .apport,.suggestions small.apport{text-align:justify;hyphens:auto;-webkit-hyphens:auto;text-wrap:pretty}
+.section-corps .colonne-texte>p:not(.surtitre):not(.badge-these),.section-corps .intro,.groupe-corps>p,.carte-notion .groupe-corps>p:not(.notion-refs-titre),.projet-bloc p,.liste p,.chapeau p,.presentation p:not(.surtitre):not(.roles):not(.encadrement),.travaux p,.lacunes p,.notions p,.cadres p,.valeurs-grille p,.faits span,.carte-entreprendre p,.rg .apport,.suggestions small.apport{text-align:start;hyphens:auto;-webkit-hyphens:auto;text-wrap:pretty}
 .section-corps .colonne-texte>h2,.groupe-corps h3,.vitrine-liste li,.lectures-liste li,.notion-refs li{text-align:start}
 .porte{align-items:start}.porte-texte{padding-top:6px}.portes{align-items:start}
 @media (max-width:700px){.salle-onglets{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -1702,3 +1702,41 @@ html.hc .bande-epuree,html.lv .bande-epuree{background:transparent;color:var(--i
 }
 @media(min-width:1000px) and (max-width:1120px){.hall.en-volume .hall-reperes{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){.hall.en-volume .hall-univers{transition:none}}
+
+/* Lisibilité et retours à la ligne dans toutes les écritures. */
+.conceptualisation-these{grid-template-columns:minmax(0,1fr)}
+.conceptualisation-these>*{min-width:0;max-width:100%}
+.conceptualisation-outils,.lacunes,.lacune{min-width:0;max-width:100%}
+.lacune-tete{flex-wrap:wrap;align-items:flex-start}
+.lacune .niveau{white-space:normal;max-width:100%;overflow-wrap:anywhere}
+.chiffres>div,.chiffres span,.chiffres small{min-width:0;overflow-wrap:anywhere;hyphens:auto}
+.salle-barre>*{min-width:0}
+.salle-barre #salle-titre{overflow-wrap:anywhere;line-height:1.4}
+.salle-onglets,.rubriques,.rubrique-corps,.volet,.cadre,.ia-reperes>article{min-width:0}
+.rubriques-choix select{min-width:0;max-width:100%;width:100%}
+.ref,.references-courtes,.methode-refs,.references-transmission,.ia-references{overflow-wrap:anywhere}
+[dir=rtl] .coordonnees a[href^="mailto:"],[dir=rtl] a[href^="tel:"],[dir=rtl] .doi{direction:ltr;unicode-bidi:isolate}
+:lang(iu),:lang(iu-Latn){font-family:"Gadugi","Euphemia","Noto Sans Canadian Aboriginal",var(--sans);line-height:1.75;overflow-wrap:anywhere}
+:lang(moe){overflow-wrap:anywhere;hyphens:none}
+.langue-statut{display:block;color:var(--muted);font-size:10px;line-height:1.4;font-weight:400}
+.edition-linguistique{max-width:1224px;margin:24px auto 0;padding:20px 24px;border:1px solid var(--line);border-inline-start:3px solid var(--green);border-radius:8px;background:var(--white);color:var(--body)}
+.edition-linguistique-tete{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:12px}
+.edition-linguistique h2{margin:0;color:var(--ink);font:500 23px/1.5 var(--sans)}
+.edition-linguistique h2 small{font-size:12px}
+.edition-statut{padding:4px 8px;border-radius:4px;background:var(--sage);color:var(--green-deep);font-size:11px;font-weight:600}
+.edition-linguistique>p{font-size:13px;line-height:1.65;margin:0 0 12px;text-align:start}
+.edition-linguistique summary{cursor:pointer;color:var(--ink);font-size:13px;line-height:1.5}
+.edition-limite{margin-top:14px!important;color:var(--muted)}
+.edition-presentation{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px;padding:20px 0 0}
+.edition-presentation>div{min-width:0}
+.edition-presentation h3{color:var(--ink);font-size:18px;line-height:1.5;margin:0 0 12px}
+.edition-presentation p{font-size:14px;line-height:1.8;text-align:start}
+.edition-presentation p[lang=fr]{color:var(--muted);font-size:12px}
+.edition-actions{display:flex;flex-wrap:wrap;gap:8px 20px;border-top:1px solid var(--line);padding-top:12px}
+.edition-actions a{font-size:12px;line-height:1.55;text-underline-offset:3px;color:var(--ink)}
+@media(max-width:1320px){.edition-linguistique{margin-inline:var(--gouttiere)}}
+@media(max-width:700px){.edition-linguistique{padding:16px;margin-top:18px}.edition-presentation{grid-template-columns:minmax(0,1fr);gap:14px}.edition-linguistique h2{font-size:21px}.edition-actions{display:grid;gap:12px}.edition-linguistique-tete{gap:8px}.salle-barre button{white-space:normal}}
+
+@media(min-width:701px){.salle .salle-barre{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr) minmax(0,1fr)}.salle .salle-barre .salle-actions{min-width:0;flex-wrap:wrap;justify-content:flex-end}}
+.menu-panneau [aria-current] .langue-statut{color:rgba(255,255,255,.8)}
+.menu-panneau a>span:last-child,.menu-panneau [aria-current]>span:last-child{min-width:0;overflow-wrap:anywhere}

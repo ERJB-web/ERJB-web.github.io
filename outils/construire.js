@@ -1,4 +1,4 @@
-// Produit les pages complètes (fr, en, es, zh, ar, ru), les versions abrégées (iu, innu, falc) et 404.html à partir d'outils/contenu.js et d'outils/i18n.
+// Produit six traductions complètes, deux éditions autochtones à traduction partielle avec accès intégral, la version FALC et 404.html.
 "use strict";
 const fs = require("fs");
 const path = require("path");
@@ -11,6 +11,7 @@ const RU_COMPLEMENTS = lireLangue("ru-complements");
 const COMPLETES = [fr, en, es, zh, ar, ru];
 const langue = (code) => LANGUES.find((l) => l.code === code);
 const ABREGE = require("./contenu-abrege");
+const EDITIONS_AUTOCHTONES = require("./editions-autochtones");
 const AUTOCHTONES = JSON.parse(fs.readFileSync(path.join(__dirname, "i18n", "autochtones.json"), "utf8"));
 const METHODOLOGIE = require("./methodologie");
 const METHODES_AJOUTS = require("./methodes-ajouts");
@@ -690,7 +691,7 @@ const LIBELLES_FAITS_RECHERCHE = {
   es: ["Presentación del doctorado", "Sitio de la ESPUM", "Cátedra en LinkedIn", "Sitio del CRCHUM", "Sitio del FRQ"],
   zh: ["博士项目介绍", "ESPUM 官网", "研究讲席 LinkedIn", "CRCHUM 官网", "FRQ 官网"],
   ar: ["التعريف ببرنامج الدكتوراه", "موقع ESPUM", "الكرسي البحثي على LinkedIn", "موقع CRCHUM", "موقع FRQ"],
-  ru: ["О программе PhD", "Сайт ESPUM", "Chaire GSK в LinkedIn", "Сайт CRCHUM", "Сайт FRQ"],
+  ru: ["О программе PhD", "Сайт ESPUM", "Кафедра GSK в LinkedIn", "Сайт CRCHUM", "Сайт FRQ"],
 };
 
 // Une navigation propre à chaque table évite que les onglets imbriqués se masquent entre eux.
@@ -1123,10 +1124,12 @@ const langueHtml = (l) => (l.code === "falc" ? "fr" : l.code);
 
 function menuLangues(c, ici) {
   const actuelle = langue(ici === "falc" ? "fr" : ici);
+  const partielle = { fr: "Traduction partielle", en: "Partial translation", es: "Traducción parcial", zh: "部分翻译", ar: "ترجمة جزئية", ru: "Частичный перевод" }[c.lang] || "Traduction partielle";
+  const nomLangue = l => e(l.nom) + (["iu", "moe"].includes(l.code) ? `<small class="langue-statut" lang="${c.lang}">${e(partielle)}</small>` : "");
   const lienLangue = (l) =>
     l.code === ici
-      ? `<span aria-current="page" lang="${langueHtml(l)}">${drapeau(l.drapeau)}<span>${e(l.nom)}</span></span>`
-      : `<a href="${c.chemin + l.dossier || "./"}" lang="${langueHtml(l)}"${l.hreflang ? ` hreflang="${l.hreflang}"` : ""}>${drapeau(l.drapeau)}<span>${e(l.nom)}</span></a>`;
+      ? `<span aria-current="page" lang="${langueHtml(l)}">${drapeau(l.drapeau)}<span>${nomLangue(l)}</span></span>`
+      : `<a href="${c.chemin + l.dossier || "./"}" lang="${langueHtml(l)}"${l.hreflang ? ` hreflang="${l.hreflang}"` : ""}>${drapeau(l.drapeau)}<span>${nomLangue(l)}</span></a>`;
   return `<details class="menu menu-langues"><summary aria-label="${e(c.ui.langue)}${deuxPoints(c)} ${e(actuelle.nom)}">${drapeau(actuelle.drapeau)}<span class="menu-libelle">${e(actuelle.libelle)}</span>${icone("chevron")}</summary>
 <div class="menu-panneau"><p class="menu-titre">${e(c.ui.langue)}</p><ul>${LANGUES.filter((l) => !l.abregee).map((l) => `<li>${lienLangue(l)}</li>`).join("")}</ul>
 <p class="menu-titre">${e(c.ui.autresLangues)}</p><ul>${LANGUES.filter((l) => l.abregee && l.code !== "falc").map((l) => `<li>${lienLangue(l)}</li>`).join("")}</ul></div></details>`;
@@ -1148,11 +1151,12 @@ ${ici === "falc" ? `<span aria-current="page" lang="fr"><img class="logo-falc" s
 </div></details>`;
 }
 
-function page(c) {
+function page(c, options = {}) {
   BIBLIO = c.implantation.bibliographie.items;
   typoFr = c.lang === "fr";
   const p = c.chemin;
-  const ici = URL + LANGUES.find((l) => l.code === c.lang).dossier;
+  const edition = options.edition || c.lang;
+  const ici = URL + langue(edition).dossier;
   const personne = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -1212,12 +1216,12 @@ function page(c) {
   };
 
   return `<!doctype html>
-<html lang="${c.lang === "zh" ? "zh-Hans" : c.lang}"${langue(c.lang).dir ? ` dir="${langue(c.lang).dir}"` : ""} data-voix="${langue(c.lang).voix}" data-racine="${c.chemin || "./"}"${["fr", "en"].includes(c.lang) ? ` data-audio="${c.lang}" data-audio-exclues="recherche approche methodes axes ia transmission vulgarisation publications parcours educateur loisirs valeurs biographie notions representation"` : ""}>
+<html lang="${c.lang === "zh" ? "zh-Hans" : c.lang}"${langue(c.lang).dir ? ` dir="${langue(c.lang).dir}"` : ""} data-voix="${langue(c.lang).voix}" data-racine="${c.chemin || "./"}"${options.edition ? ` data-edition="${options.edition}" data-traduction="partielle"` : ""}${!options.edition && ["fr", "en"].includes(c.lang) ? ` data-audio="${c.lang}" data-audio-exclues="recherche approche methodes axes ia transmission vulgarisation publications parcours educateur loisirs valeurs biographie notions representation"` : ""}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 ${PREFERENCES}
-<title>${e(c.meta.titre)}</title>
+<title translate="no">${e(c.meta.titre)}</title>
 <meta name="description" content="${e(c.meta.description)}">
 <meta name="theme-color" content="#fcfdfb">
 <link rel="canonical" href="${ici}">
@@ -1242,18 +1246,19 @@ ${LANGUES.filter((l) => l.hreflang).map((l) => `<link rel="alternate" hreflang="
 <p class="coordonnees coordonnees-haut"><a href="mailto:${e(c.contact.courriel)}">${icone("enveloppe")}${e(c.contact.courriel)}</a><a href="tel:${TELEPHONE[1]}">${icone("telephone")}${TELEPHONE[0]}</a></p>
 <nav class="nav" aria-label="${e(c.ui.navigation)}">${GROUPES.map(([g, ss]) => `<a href="#${ss[0] || g}">${e(texteGroupe(c, g)[0])}</a>`).join("")}</nav>
 <div class="outils">
-${menuLangues(c, c.lang)}
+${menuLangues(c, edition)}
 ${menuAcces(c, c.lang)}
 <a class="bouton-cv" href="${p}docs/cv-academique.pdf">${e(c.ui.cv)} <span aria-hidden="true">↓</span></a>
 </div>
 </header>
 
 <main id="contenu">
+${options.edition ? accueilAutochtone(options.edition) : ""}
 <section class="accueil" aria-labelledby="nom">
 <div class="presentation">
 <div class="identite">
 <img class="portrait" src="${p}assets/portrait.jpg?v=${empreinte("assets/portrait.jpg")}" width="900" height="900" alt="${e(c.accueil.portrait)}">
-<div><p class="surtitre">${e(c.accueil.surtitre)}</p><h1 id="nom">Éric Bernier</h1><p class="roles">${e(c.accueil.roles)}</p></div>
+<div><p class="surtitre">${e(c.accueil.surtitre)}</p><h1 id="nom" translate="no">Éric Bernier</h1><p class="roles">${e(c.accueil.roles)}</p></div>
 </div>
 <div class="chapeau"><h2>${e(c.accueil.chapeau.titre)}</h2>${c.accueil.chapeau.paragraphes.map((x) => `<p>${riche(x)}</p>`).join("")}</div>
 <p class="encadrement">${e(c.accueil.encadrement)}</p>
@@ -1296,7 +1301,7 @@ ${sections[s].replace(/<p class="surtitre">(\d{2} · )?/, `<p class="surtitre">$
 <div class="salle-barre">
 <button type="button" data-retour>← ${e(c.ui.hall)}</button>
 <span id="salle-titre"></span>
-<div class="salle-actions"><button type="button" data-ecouter>${icone("casque")}<span>${e(c.ui.ecouter)}</span></button><button type="button" data-arreter hidden>${e(c.ui.arreter)}</button>
+<div class="salle-actions"><button type="button" data-ecouter aria-label="${e(c.ui.ecouter)}">${icone("casque")}<span>${e(c.ui.ecouter)}</span></button><button type="button" data-arreter aria-label="${e(c.ui.arreter)}" hidden>${e(c.ui.arreter)}</button>
 <button type="button" data-suivante>${e(c.ui.suivante)} →</button>
 <button type="button" data-contact hidden>${e(c.ui.contact)} →</button></div>
 </div>
@@ -1368,30 +1373,19 @@ ${a.blocs.map(bloc).join("\n")}
 ${piedAbrege()}`;
 }
 
-function pageSalutation(code) {
-  typoFr = false;
-  const cle = langue(code).dossier.replace("/", "");
+function accueilAutochtone(code) {
+  const a = EDITIONS_AUTOCHTONES[code], cle = code === "moe" ? "innu" : "iu";
   const T = AUTOCHTONES[cle];
-  const lng = code === "moe" ? "moe" : "iu";
-  const c = { ...fr, chemin: "../", titre: T["18"].texte, description: ABREGE[cle].description };
-  const ligne = (n, balise = "p", classe = "") =>
-    `<${balise}${classe ? ` class="${classe}"` : ""} lang="${lng}">${e(T[n].texte)}${T[n].latin ? `<span class="translitteration" lang="${lng}-Latn">${e(T[n].latin)}</span>` : ""}</${balise}>`;
-  const bloc = (titre, phrases, icon) =>
-    `<section class="bloc-falc"><div class="picto">${icone(icon)}</div><div>${ligne(titre, "h2")}${phrases.map((n) => ligne(n)).join("")}</div></section>`;
-  const liens = [["13", "../", false], ["14", "../en/", false], ["15", "https://erjb-web.github.io/affiche-releve/", true]];
-  return `${enTeteAbregee(c, code)}
-<main id="contenu" class="abrege salutation-page">
-${ligne("1", "p", "salutation")}
-<h1>Éric Bernier</h1>
-${bloc("2", ["3", "4"], "personne")}
-${bloc("5", ["6", "7"], "loupe")}
-${bloc("8", ["9", "10"], "coeur")}
-<section class="bloc-falc"><div class="picto">${icone("enveloppe")}</div><div>${ligne("11", "h2")}${ligne("12")}<p><a class="primaire" href="mailto:${e(ABREGE.COURRIEL)}">${e(ABREGE.COURRIEL)}</a></p></div></section>
-<ul class="liens-contact compact">${liens.map(([n, href, ext]) => `<li>${lien(href, `<span lang="${lng}"><strong>${e(T[n].texte)}</strong>${T[n].latin ? `<small>${e(T[n].latin)}</small>` : ""}</span><span aria-hidden="true">${ext ? "↗" : "→"}</span>`)}</li>`).join("")}</ul>
-${ligne("16", "p", "merci")}
-<p class="avis-traduction">${ligne("17", "span")}<span lang="fr">Traduction préliminaire, à faire valider par une personne locutrice.</span> <span lang="en">Preliminary translation, to be validated by a fluent speaker.</span></p>
-</main>
-${piedAbrege()}`;
+  const natif = n => '<span lang="' + code + '">' + e(T[n].texte) + '</span>' + (T[n].latin ? '<small class="translitteration" lang="iu-Latn">' + e(T[n].latin) + '</small>' : '');
+  return '<aside class="edition-linguistique" aria-labelledby="edition-titre" lang="fr"><div class="edition-linguistique-tete"><h2 id="edition-titre">' + natif("1") + '</h2><span class="edition-statut">Traduction partielle</span></div><p>' + e(a.introduction) + '</p><details><summary>Présentation commencée en ' + e(a.langue.toLowerCase()) + '</summary><div class="edition-presentation"><div><h3>' + natif("2") + '</h3><p>' + natif("3") + '</p><p>' + natif("4") + '</p><p lang="fr">' + e(ABREGE.presentation.fr[0]) + '</p></div><div><h3>' + natif("5") + '</h3><p>' + natif("6") + '</p><p>' + natif("7") + '</p><p lang="fr">' + e(ABREGE.presentation.fr[1]) + '</p></div><div><h3>' + natif("11") + '</h3><p>' + natif("12") + '</p><p><a href="mailto:' + e(ABREGE.COURRIEL) + '" translate="no">' + e(ABREGE.COURRIEL) + '</a></p><p>' + natif("16") + '</p></div></div></details><p class="edition-limite">' + e(a.limite) + '</p><nav class="edition-actions" aria-label="Accès aux contenus et ressources linguistiques"><a href="#hall">Explorer les 28 rubriques en français</a><a href="../en/">Read the full site in English</a>' + (a.automatique ? '<a href="' + a.automatique + '" target="_blank" rel="noopener noreferrer">Traduction automatique complète en inuktut ↗</a>' : '') + '<a href="' + a.source + '" target="_blank" rel="noopener noreferrer">' + e(a.sourceNom) + ' ↗</a></nav></aside>';
+}
+
+function pageAutochtone(code) {
+  const a = EDITIONS_AUTOCHTONES[code], c = JSON.parse(JSON.stringify(fr));
+  c.chemin = "../";
+  c.meta.description = a.langue + " · Toutes les rubriques du site d’Éric Bernier ; présentation préliminaire et contenu français accessible en intégralité.";
+  c.meta.titre = "Éric Bernier · " + a.langue;
+  return page(c, { edition: code });
 }
 
 function introuvable() {
@@ -1407,9 +1401,11 @@ ${[en, es, zh, ar, ru].map((c) => ligne(c, langue(c.lang).dossier)).join("\n")}<
 `;
 }
 
+const protegerCoordonnees = html => html.replace(/<a\b([^>]*href="(?:mailto:|tel:|https:\/\/orcid\.org\/)[^>]*?)>/g, (balise, attributs) => /translate=/.test(attributs) ? balise : '<a' + attributs + ' translate="no">');
+
 const ecrire = (dossier, html) => {
   fs.mkdirSync(path.join(RACINE, dossier), { recursive: true });
-  fs.writeFileSync(path.join(RACINE, dossier, "index.html"), html);
+  fs.writeFileSync(path.join(RACINE, dossier, "index.html"), protegerCoordonnees(html));
 };
 // En arabe, les flèches de direction suivent le sens de lecture.
 const miroir = (html) => html.replace(/[→←]/g, (m) => (m === "→" ? "←" : "→"));
@@ -1437,6 +1433,6 @@ lectures.falc = zonesFalc(falcHtml);
 // Textes que la voix de lecture enregistre (français, anglais, FALC) : rendus hors du dépôt, puis rangés dans audio/.
 fs.mkdirSync(path.join(__dirname, "narration"), { recursive: true });
 for (const cle of ["fr", "en", "falc"]) fs.writeFileSync(path.join(__dirname, "narration", cle + ".json"), JSON.stringify(lectures[cle], null, 1) + "\n");
-for (const code of ["iu", "moe"]) ecrire(langue(code).dossier, pageSalutation(code));
+for (const code of ["iu", "moe"]) ecrire(langue(code).dossier, pageAutochtone(code));
 fs.writeFileSync(path.join(RACINE, "404.html"), introuvable());
 console.log("pages produites : " + LANGUES.map((l) => l.dossier || "/").join(", ") + " et 404.html");

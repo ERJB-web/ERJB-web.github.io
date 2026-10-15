@@ -72,6 +72,7 @@
     document.body.classList.add("salle-ouverte");
     void salle.offsetWidth;
     salle.classList.add("visible");
+    document.querySelectorAll("body > main, body > header, body > footer").forEach(el => { el.inert = true; });
     await attendre(220);
     passage.remove();
     if (restaurerHall) restaurerHall();
@@ -234,6 +235,7 @@
     salle.hidden = true;
     contenu.replaceChildren();
     document.body.classList.remove("salle-ouverte");
+    document.querySelectorAll("body > main, body > header, body > footer").forEach(el => { el.inert = false; });
     const porte = groupeDe(nom).porte;
     setTimeout(() => porte.classList.remove("ouverte"), reduit ? 0 : 200);
     marquer(null);
