@@ -1611,7 +1611,8 @@ html.lv .axes-cartes{grid-template-columns:1fr}
 @media(prefers-reduced-motion:reduce){.axe-carte{transition:none}.axe-carte:hover{transform:none}}
 
 /* Parcours : palette et frise d’origine, douze indicateurs organisés par thème. */
-.bande-restauree .impact-ensembles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;padding-top:26px;border-top:1px solid rgba(255,255,255,.22)}
+.bande-parcours .trajectoire{margin-bottom:0}
+.bande-restauree .impact-ensembles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
 .bande-restauree .impact-ensemble{min-width:0}
 .bande-restauree .impact-ensemble+.impact-ensemble{padding-inline-start:26px;border-inline-start:1px solid rgba(255,255,255,.22)}
 .bande-restauree .impact-ensemble h3{margin:0 0 24px;color:#e6f1f6;font:600 12px/1.5 var(--sans);letter-spacing:.04em;text-wrap:pretty}

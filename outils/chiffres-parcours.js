@@ -1,5 +1,5 @@
 "use strict";
-// Indicateurs fournis par l’auteur : 12 chiffres, trois ensembles, libellés sans première personne.
+// Indicateurs fournis par l’auteur : 12 chiffres organisés en trois ensembles.
 // Répit estimé ; participations cumulées, sans supposer des personnes distinctes.
 module.exports = {
   "fr": {
@@ -65,7 +65,8 @@ module.exports = {
       "Réseau médico-social : contribution à l’animation du réseau d’experts.",
       "Webinaires et communautés de pratique : animation et modération ; audience cumulée de gestionnaires et de professionnels de santé.",
       "Santé mentale : conception et pilotage d’une enquête régionale auprès d’étudiants."
-    ]
+    ],
+    "titre": "Le parcours en chiffres"
   },
   "en": {
     "groupes": [
@@ -130,7 +131,8 @@ module.exports = {
       "Health and social care network: contribution to facilitating the expert network.",
       "Webinars and communities of practice: facilitation and moderation; cumulative attendances by managers and health professionals.",
       "Mental health: design and leadership of a regional student survey."
-    ]
+    ],
+    "titre": "Career in figures"
   },
   "es": {
     "groupes": [
@@ -195,7 +197,8 @@ module.exports = {
       "Red médico-social: contribución a la dinamización de la red de expertos.",
       "Seminarios web y comunidades de práctica: animación y moderación; participaciones acumuladas de gestores y profesionales de salud.",
       "Salud mental: diseño y dirección de una encuesta regional entre estudiantes."
-    ]
+    ],
+    "titre": "La trayectoria en cifras"
   },
   "zh": {
     "groupes": [
@@ -260,7 +263,8 @@ module.exports = {
       "医疗社会服务网络：参与专家网络的组织与交流工作。",
       "网络研讨会与实践共同体：组织交流并主持讨论；管理者与卫生专业人员的累计参与人次。",
       "心理健康：设计并主持一项面向学生的区域性调查。"
-    ]
+    ],
+    "titre": "经历数据概览"
   },
   "ar": {
     "groupes": [
@@ -325,7 +329,8 @@ module.exports = {
       "الشبكة الطبية الاجتماعية: مساهمة في تنشيط شبكة الخبراء.",
       "الندوات الإلكترونية ومجتمعات الممارسة: تنشيط وإدارة النقاش؛ مشاركات تراكمية لمديرين ومهنيين صحيين.",
       "الصحة النفسية: تصميم مسح إقليمي بين الطلاب وقيادته."
-    ]
+    ],
+    "titre": "المسار بالأرقام"
   },
   "ru": {
     "groupes": [
@@ -390,6 +395,7 @@ module.exports = {
       "Медико-социальная сеть: участие в организации работы экспертной сети.",
       "Вебинары и сообщества практики: ведение и модерация; совокупные участия руководителей и специалистов здравоохранения.",
       "Психическое здоровье: разработка и руководство региональным исследованием среди студентов."
-    ]
+    ],
+    "titre": "Профессиональный путь в цифрах"
   }
 };

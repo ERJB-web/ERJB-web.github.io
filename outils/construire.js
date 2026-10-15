@@ -682,7 +682,9 @@ const BANDE = {
 function bandeAccueil(c) {
   const B = BANDE[c.lang];
   const I = CHIFFRES_IMPACT[c.lang];
-  return '<div class="bande-accueil bande-restauree"><p class="bande-titre">' + e(B.titre) + '</p><ol class="trajectoire">' + [...B.etapes].reverse().map(([quand, quoi], i) => '<li style="--rang:' + i + '"><span class="trajectoire-date">' + e(quand) + '</span><span class="trajectoire-texte">' + e(quoi) + '</span></li>').join('') + '</ol><div class="impact-ensembles">' + I.groupes.map((titre, i) => '<section class="impact-ensemble"><h3>' + e(titre) + '</h3><dl>' + I.chiffres.slice(i * 4, i * 4 + 4).map(([valeur, libelle]) => '<div><dt>' + e(libelle) + '</dt><dd><bdi dir="ltr">' + e(valeur) + '</bdi></dd></div>').join('') + '</dl></section>').join('') + '</div><details class="impact-precisions"><summary>' + e(I.details) + '</summary><ul>' + I.notes.map(t => '<li>' + e(t) + '</li>').join('') + '</ul></details></div>';
+  const frise = '<section class="bande-accueil bande-parcours" aria-labelledby="parcours-apercu-titre"><h2 class="bande-titre" id="parcours-apercu-titre">' + e(B.titre) + '</h2><ol class="trajectoire">' + [...B.etapes].reverse().map(([quand, quoi], i) => '<li style="--rang:' + i + '"><span class="trajectoire-date">' + e(quand) + '</span><span class="trajectoire-texte">' + e(quoi) + '</span></li>').join('') + '</ol></section>';
+  const chiffres = '<section class="bande-accueil bande-restauree" aria-labelledby="parcours-chiffres-titre"><h2 class="bande-titre" id="parcours-chiffres-titre">' + e(I.titre) + '</h2><div class="impact-ensembles">' + I.groupes.map((titre, i) => '<section class="impact-ensemble"><h3>' + e(titre) + '</h3><dl>' + I.chiffres.slice(i * 4, i * 4 + 4).map(([valeur, libelle]) => '<div><dt>' + e(libelle) + '</dt><dd><bdi dir="ltr">' + e(valeur) + '</bdi></dd></div>').join('') + '</dl></section>').join('') + '</div><details class="impact-precisions"><summary>' + e(I.details) + '</summary><ul>' + I.notes.map(t => '<li>' + e(t) + '</li>').join('') + '</ul></details></section>';
+  return frise + chiffres;
 }
 
 function travauxEnCours(c) {
