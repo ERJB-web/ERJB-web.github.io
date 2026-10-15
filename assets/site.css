@@ -2090,3 +2090,11 @@ html[dir=rtl] .bande-parcours .trajectoire{direction:rtl}
 .hall.en-mobile[data-moment="nuit"] .station-hall::before{background-image:radial-gradient(circle at 15% 10%,#fff 0 1px,transparent 2px),radial-gradient(circle at 57% 7%,#fff 0 1px,transparent 2px),radial-gradient(circle at 81% 14%,#e2ecff 0 1px,transparent 2px),linear-gradient(180deg,rgba(8,24,44,.77),rgba(20,32,46,.55)),url("photos/hall-atrium.webp")}
 .hall.en-mobile[data-moment="nuit"] .station-hall{background:linear-gradient(110deg,#c5ccc4,#e2e7dd 30% 76%,#c9d2c9)}
 @media(prefers-reduced-motion:reduce){.hall.en-volume .architecture-hall,.hall.en-volume .architecture-hall::before,.hall.en-volume .architecture-hall::after{transition:none}}
+
+
+/* Correctif 2026-10-15 : ne jamais laisser le contenu déroulant étirer la grille principale. */
+.accueil{grid-template-columns:minmax(0,1fr);width:100%;min-width:0}
+.accueil>*{min-width:0;max-width:100%}
+.bande-parcours{min-width:0;max-width:100%;overflow:hidden}
+.bande-parcours .trajectoire{width:100%;max-width:100%;min-width:0}
+.hall,.hall-espace,.hall-reperes{min-width:0;max-width:100%}
