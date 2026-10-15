@@ -328,6 +328,20 @@ const lien = (href, texte, classe = "") =>
   `<a href="${e(href)}"${classe ? ` class="${classe}"` : ""}${externe(href) ? ' target="_blank" rel="noopener"' : ""}>${texte}</a>`;
 const num = (i) => String(i + 1).padStart(2, "0");
 const etiquettes = (tags, classe = "etiquettes") => `<div class="${classe}">${tags.map((t) => `<span>${e(t)}</span>`).join("")}</div>`;
+// Liens institutionnels intégrés, sans modifier la typographie générale de l'encadrement.
+function encadrementLiens(texte) {
+  const ancre = (url, titre) => lien(url, titre, "encadrement-lien");
+  const elements = e(texte)
+    .replace(/Nadia Sourial/g, ancre("https://www.chumontreal.qc.ca/crchum/chercheurs/nadia-sourial", "Nadia Sourial"))
+    .replace(/Géraldine Layani/g, ancre("https://www.chumontreal.qc.ca/crchum/chercheurs/geraldine-layani", "Géraldine Layani"))
+    .split(" · ");
+  return elements.map(element => {
+    if (element.includes("GSK")) return ancre("https://www.linkedin.com/company/chaire-glaxosmithkline-gsk-de-recherche-en-gestion-optimale-des-maladies-chroniques/", element);
+    if (element.includes("FRQ") && element.includes("B2")) return ancre("https://doi.org/10.69777/2009461", element);
+    if (element.trim() === "CRCHUM") return ancre("https://www.chumontreal.qc.ca/crchum", element);
+    return element;
+  }).join(" · ");
+}
 const riche = (s) => e(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*(.+?)\*/g, "<em>$1</em>");
 const deuxPoints = (c) => (c.lang === "fr" ? " :" : c.lang === "zh" ? "：" : ":");
 const etoile = (cx, cy, r) => {
@@ -656,31 +670,31 @@ const ICONES_TYPES = { formation: "chapeau", experience: "mallette", entreprise:
 const BANDE = {
   fr: {
     titre: "Le parcours en un coup d’œil",
-    etapes: [["2016–2024","Séjours adaptés et de répit","coeur"],["2020–2023","Éducateur spécialisé, Adapei 35","personne"],["2024","Maîtrise en direction des structures médico-sociales, UBO","mallette"],["2024–2025","Chargé de mission, ANAP","reseau"],["2025","Master en droit public spécialisé en droit de la santé et droit social, Paris-Panthéon-Assas","balance"],["Depuis 2025","Doctorat en santé publique, ESPUM et CRCHUM","loupe"]],
+    etapes: [["2016–2024","Responsable de séjours de vacances adaptés et de séjours de répit (France)","coeur"],["2020–2023","Éducateur spécialisé, Adapei 35","personne"],["2024","Maîtrise en direction des structures médico-sociales · Université de Bretagne Occidentale (UBO, France)","mallette"],["2024–2025","Chargé de mission médico-sociale · Agence nationale de la performance sanitaire et médico-sociale (ANAP, France)","reseau"],["2025","Master en droit public spécialisé en droit de la santé et droit social, Paris-Panthéon-Assas","balance"],["Depuis 2025","Doctorat en santé publique · École de santé publique de l’Université de Montréal (ESPUM) et Centre de recherche du CHUM (CRCHUM, Canada)","loupe"]],
     chiffres: [["10","années auprès de personnes en situation de handicap"],["4","charges d’auxiliaire d’enseignement à l’Université de Montréal"],["3","mentions spéciales du jury"],["1","prix de la meilleure affiche, 3e cycle (GFSP, 2026)"]],
 
   },
   en: {
     titre: "The path at a glance",
-    etapes: [["2016–2024","Adapted and respite holidays","coeur"],["2020–2023","Special needs educator, Adapei 35","personne"],["2024","Master’s-level degree in managing social care services, UBO","mallette"],["2024–2025","Project manager, ANAP","reseau"],["2025","Master’s in public law specialising in health law and social law, Paris-Panthéon-Assas","balance"],["Since 2025","PhD in public health, ESPUM and CRCHUM","loupe"]],
+    etapes: [["2016–2024","Head of adapted holiday stays and respite stays (France)","coeur"],["2020–2023","Special needs educator, Adapei 35","personne"],["2024","Degree in management of medico-social facilities · Université de Bretagne Occidentale (UBO, France)","mallette"],["2024–2025","Medico-social project officer · French National Agency for Health and Social Care Performance (ANAP, France)","reseau"],["2025","Master’s in public law specialising in health law and social law, Paris-Panthéon-Assas","balance"],["Since 2025","PhD in public health · Université de Montréal School of Public Health (ESPUM) and CHUM Research Centre (CRCHUM, Canada)","loupe"]],
     chiffres: [["10","years supporting people with disabilities"],["4","teaching assistantships at Université de Montréal"],["3","special distinctions from the jury"],["1","best poster award, doctoral level (GFSP, 2026)"]],
 
   },
   es: {
     titre: "La trayectoria de un vistazo",
-    etapes: [["2016–2024","Estancias adaptadas y de respiro","coeur"],["2020–2023","Educador especializado, Adapei 35","personne"],["2024","Maestría en dirección de estructuras médico-sociales, UBO","mallette"],["2024–2025","Encargado de misión, ANAP","reseau"],["2025","Máster en derecho público especializado en derecho de la salud y derecho social, Paris-Panthéon-Assas","balance"],["Desde 2025","Doctorado en salud pública, ESPUM y CRCHUM","loupe"]],
+    etapes: [["2016–2024","Responsable de vacaciones adaptadas y estancias de respiro (Francia)","coeur"],["2020–2023","Educador especializado, Adapei 35","personne"],["2024","Maestría en dirección de estructuras médico-sociales · Universidad de Bretaña Occidental (UBO, Francia)","mallette"],["2024–2025","Responsable de proyectos médico-sociales · ANAP (Francia)","reseau"],["2025","Máster en derecho público especializado en derecho de la salud y derecho social, Paris-Panthéon-Assas","balance"],["Desde 2025","Doctorado en salud pública · Escuela de Salud Pública de la Universidad de Montreal (ESPUM) y Centro de Investigación del CHUM (CRCHUM, Canadá)","loupe"]],
     chiffres: [["10","años junto a personas en situación de discapacidad"],["4","ayudantías de docencia en la Université de Montréal"],["3","menciones especiales del jurado"],["1","premio al mejor póster, doctorado (GFSP, 2026)"]],
 
   },
   zh: {
     titre: "经历一览",
-    etapes: [["2016–2024","适应性度假与喘息服务","coeur"],["2020–2023","特殊教育工作者，Adapei 35","personne"],["2024","医疗社会服务机构管理硕士级文凭（Maîtrise），UBO","mallette"],["2024–2025","项目专员，ANAP","reseau"],["2025","公法硕士，专攻卫生法与社会法，巴黎-先贤祠-阿萨斯大学","balance"],["2025 年起","公共卫生博士，ESPUM 与 CRCHUM","loupe"]],
+    etapes: [["2016–2024","适应性度假与喘息度假项目负责人（法国）","coeur"],["2020–2023","特殊教育工作者，Adapei 35","personne"],["2024","医社服务机构管理硕士 · 西布列塔尼大学（UBO，法国）","mallette"],["2024–2025","医社服务项目专员 · ANAP（法国）","reseau"],["2025","公法硕士，专攻卫生法与社会法，巴黎-先贤祠-阿萨斯大学","balance"],["2025 年起","公共卫生博士 · 蒙特利尔大学公共卫生学院（ESPUM）与蒙特利尔大学医院研究中心（CRCHUM，加拿大）","loupe"]],
     chiffres: [["10","年陪伴残障人士"],["4","次在蒙特利尔大学担任助教"],["3","次获评审团特别嘉许"],["1","项最佳海报奖，博士阶段（GFSP，2026）"]],
 
   },
   ar: {
     titre: "المسار في لمحة",
-    etapes: [["2016–2024","إقامات مكيّفة وإقامات راحة","coeur"],["2020–2023","مربٍّ متخصص، Adapei 35","personne"],["2024","ماجستير مهني (Maîtrise) في إدارة المؤسسات الطبية الاجتماعية، UBO","mallette"],["2024–2025","مكلّف بمهمة، ANAP","reseau"],["2025","ماجستير في القانون العام، تخصص قانون الصحة والقانون الاجتماعي، باريس-بانتيون-أساس","balance"],["منذ 2025","دكتوراه في الصحة العامة، ESPUM وCRCHUM","loupe"]],
+    etapes: [["2016–2024","مسؤول عن العطلات المكيّفة وإقامات الراحة المؤقتة (فرنسا)","coeur"],["2020–2023","مربٍّ متخصص، Adapei 35","personne"],["2024","ماجستير في إدارة المؤسسات الطبية الاجتماعية · جامعة بريتاني الغربية (UBO، فرنسا)","mallette"],["2024–2025","مكلّف بمهمة في القطاع الطبي الاجتماعي · ANAP (فرنسا)","reseau"],["2025","ماجستير في القانون العام، تخصص قانون الصحة والقانون الاجتماعي، باريس-بانتيون-أساس","balance"],["منذ 2025","دكتوراه في الصحة العامة · مدرسة الصحة العامة بجامعة مونتريال (ESPUM) ومركز أبحاث CHUM (CRCHUM، كندا)","loupe"]],
     chiffres: [["10","سنوات إلى جانب الأشخاص ذوي الإعاقة"],["4","مهام مساعد تدريس في جامعة مونتريال"],["3","تنويهات خاصة من لجنة التحكيم"],["1","جائزة أفضل ملصق، مرحلة الدكتوراه (GFSP، 2026)"]],
 
   },
@@ -700,7 +714,7 @@ function travauxEnCours(c) {
 <div class="travaux-tete"><h3>${e(r.travaux.titre)}</h3><p>${e(r.travaux.intro)}</p></div>
 <div class="travaux-grille">${r.travaux.items
     .map(
-      (t, i) => `<article class="travail${t.resume ? " vedette" : ""}" data-axe-cible="${["travail-epistemique", "travail-hospitalisations", "travail-pl2", "travail-droit"][i]}">
+      (t, i) => `<article class="travail${t.resume ? " vedette" : ""}" data-axe-cible="${["travail-hospitalisations", "travail-epistemique", "travail-pl2", "travail-droit"][i]}">
 <p class="domaine">${e(t.domaine)}</p>
 <span class="statut-pastille">${e(t.statut)}</span>
 <h4>${e(t.titre)}</h4>
@@ -1319,7 +1333,7 @@ ${options.edition ? accueilAutochtone(options.edition) : ""}
 <div><p class="surtitre">${e(c.accueil.surtitre)}</p><h1 id="nom" translate="no">Éric Bernier</h1><p class="roles">${e(c.accueil.roles)}</p></div>
 </div>
 <div class="chapeau"><h2>${e(c.accueil.chapeau.titre)}</h2>${c.accueil.chapeau.paragraphes.map((x) => `<p>${riche(x)}</p>`).join("")}</div>
-<p class="encadrement">${e(c.accueil.encadrement)}</p>
+<p class="encadrement">${encadrementLiens(c.accueil.encadrement)}</p>
 <div class="actions"><button class="primaire" type="button" id="visite">${e(c.accueil.visite)} <span aria-hidden="true">→</span></button><a class="lien" href="#recherche">${e(c.accueil.explorer)}</a></div>
 </div>
 ${hallEnVolume(c)}
