@@ -297,9 +297,15 @@
       ]
     },
     "travaux": {
-      "titre": "أعمال جارية",
+      "titre": "مخطوطات مقدّمة وقيد الإعداد",
       "intro": "مقالات ومخطوطات قيد الكتابة، بالتوازي مع الأطروحة.",
       "items": [
+        {
+          "domaine": "الأنظمة الصحية والرعاية الأولية",
+          "statut": "مقدّم إلى BJGP Open",
+          "titre": "Potentially avoidable hospitalisations and primary care: the role of patient experience across Commonwealth countries",
+          "auteurs": "Éric Bernier (LL.M, PhD student), Nadia Sourial (PhD), Isabelle Vedel (PhD), Géraldine Layani (MD, M.Sc), Aurélien Algoet (MD), Matthieu Calafiore (MD, PhD)"
+        },
         {
           "domaine": "الإبستمولوجيا ونقل المعارف",
           "statut": "قيد الإعداد",
@@ -311,12 +317,6 @@
             "الحوكمة الانعكاسية",
             "أثر البحث"
           ]
-        },
-        {
-          "domaine": "الأنظمة الصحية والرعاية الأولية",
-          "statut": "قيد التقديم إلى BJGP Open",
-          "titre": "Potentially avoidable hospitalisations and primary care: the role of patient experience across Commonwealth countries",
-          "auteurs": "Bernier, É., Algoët, A., Sourial, N., Layani, G., Vedel, I., Calafiore, M."
         },
         {
           "domaine": "الحوكمة والفضاء العام",
@@ -1474,7 +1474,7 @@
       {
         "date": "2024–2025",
         "type": "experience",
-        "titre": "مكلّف بمهمة · Agence nationale d’appui à la performance (الوكالة الوطنية لدعم الأداء)",
+        "titre": "مكلّف بمهمة في القطاع الطبي الاجتماعي · ANAP (فرنسا)",
         "detail": "باريس. المشاركة في قيادة شبكة الخبراء، وتنشيط الندوات عبر الإنترنت، وجمع البيانات وتحليلها، وتنشيط جلسات مجتمعات الممارسة وبنائها المشترك."
       },
       {
@@ -1484,15 +1484,15 @@
         "detail": "Université de Bretagne Occidentale (جامعة بريتاني الغربية)، مع تنويه خاص من لجنة التحكيم."
       },
       {
-        "date": "2023",
+        "date": "2024",
         "type": "experience",
-        "titre": "تدريب إداري في مؤسسة EHPAD",
-        "detail": "مؤسسة إيواء للمسنين المعتمدين على الغير، تعادل CHSLD في كيبيك: تدريب لدى الإدارة."
+        "titre": "تدريب في إدارة مؤسسة لإيواء المسنين المعتمدين على الغير (EHPAD، ما يعادل CHSLD)",
+        "detail": "Fondation Ildys في لاندرنو (فرنسا): تدريب لدى إدارة EHPAD، المعادل لمؤسسة CHSLD في كيبيك."
       },
       {
-        "date": "2023",
+        "date": "2024",
         "type": "formation",
-        "titre": "دبلوم جامعي في ريادة الأعمال",
+        "titre": "دبلوم جامعي في ريادة الأعمال والإدارة",
         "detail": "Institut d’administration des entreprises (IAE) de Brest (معهد إدارة الأعمال في بريست)، مع تنويه خاص من لجنة التحكيم."
       },
       {
@@ -1510,7 +1510,7 @@
       {
         "date": "2016–2024",
         "type": "experience",
-        "titre": "مسؤول عن إقامات الراحة المؤقتة",
+        "titre": "مسؤول عن إقامات العطلات المكيّفة وإقامات الراحة المؤقتة",
         "detail": "إقامات مكيّفة للأشخاص ذوي الإعاقة، بريست: البناء المشترك للمشروع التربوي، والمرافقة الاجتماعية التربوية، وأنشطة الترفيه، ومتابعة العلاجات؛ والتأطير، ومشاريع الخدمة، وإدارة الفرق والميزانية والخدمات اللوجستية."
       }
     ],
