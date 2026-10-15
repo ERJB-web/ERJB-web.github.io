@@ -1047,11 +1047,19 @@ ${extra}
 </div>`;
 }
 
+const PUBLICATION_LABELS = {"fr":["Articles scientifiques","Affiches de congrès","Communications orales","Mémoires et thèse","Aucune communication orale répertoriée pour le moment.","Le projet doctoral est présenté séparément dans « Ma thèse ».","Voir ma thèse","Explorer les publications"],"en":["Research articles","Conference posters","Oral presentations","Dissertations and PhD","No oral presentations are listed at present.","The doctoral project is described separately under “My PhD”.","View my PhD","Explore publications"],"es":["Artículos científicos","Pósteres de congresos","Presentaciones orales","Memorias y tesis","Por el momento no hay presentaciones orales registradas.","El proyecto doctoral está presentado en « Mi tesis ».","Ver mi tesis","Explorar publicaciones"],"zh":["研究文章","会议海报","口头报告","学位论文与博士研究","目前尚未列出口头报告。","正在进行的博士研究项目另见“我的博士论文”栏目。","查看博士研究","浏览研究成果"],"ar":["المقالات العلمية","ملصقات المؤتمرات","العروض الشفوية","المذكرات وأطروحة الدكتوراه","لا توجد عروض شفوية مدرجة حالياً.","يمكن الاطلاع على مشروع الدكتوراه الجاري في قسم «أطروحتي».","عرض المشروع","استكشاف المنشورات"],"ru":["Научные статьи","Конференционные постеры","Устные доклады","Дипломные работы и диссертация","Устные доклады пока не указаны.","Докторский проект представлен отдельно в разделе «Моя диссертация».","Посмотреть проект","Публикации"]};
 function sectionPublications(c) {
-  // Garder les manuscrits en tête de rubrique, puis les communications et les mémoires.
-  const groupes = sectionGroupes(c, c.publications, "", ICONES_GROUPES.publications);
-  return groupes.replace('<div class="section-corps pleine">', '<div class="section-corps pleine publications-page">')
-    .replace('<div class="colonne-outils">', travauxEnCours(c) + '\n<div class="colonne-outils">');
+ const s=c.publications, l=PUBLICATION_LABELS[c.lang]||PUBLICATION_LABELS.fr;
+ const ids=['publication-articles','publication-affiches','publication-oraux','publication-memoires'], colors=['#327a66','#1f5a8a','#a0663b','#7a4a8c'];
+ const nav='<nav class="publications-portes" aria-label="'+e(l[7])+'">'+l.slice(0,4).map((v,i)=>'<button type="button" class="publication-porte" style="--pub-c:'+colors[i]+'" data-publications-cible="'+ids[i]+'"><span class="publication-porte-mini" aria-hidden="true"><span class="publication-porte-vitre"></span><span class="publication-porte-soubassement"></span></span><span class="publication-porte-texte"><bdi>'+num(i)+'</bdi><strong>'+e(v)+'</strong></span></button>').join('')+'</nav>';
+ const block=(id,html)=>'<section class="publication-bloc" id="'+id+'" tabindex="-1">'+html+'</section>';
+ const group=(g,items)=>'<article class="groupe-carte"><div class="groupe-corps"><h3 class="titre-bloc titre-icone">'+e(g.titre)+'<span class="compte">'+items.length+'</span></h3>'+liste(items)+'</div></article>';
+ const posters=s.groupes[0],memos=s.groupes[1],memItems=memos.items.map((it,j)=>j<2?{...it,cible:['memoire-domicile','memoire-ehpad'][j]}:it);
+ return '<div class="section-corps pleine publications-page"><div class="colonne-texte"><p class="surtitre">'+e(s.surtitre)+'</p><h2>'+e(s.titre)+'</h2><p class="intro">'+e(s.intro)+'</p></div>'+nav+
+ block(ids[0],travauxEnCours(c))+
+ block(ids[1],'<h3 class="publication-titre">'+e(l[1])+'</h3><div class="groupes-grille">'+group(posters,posters.items)+'</div>')+
+ block(ids[2],'<h3 class="publication-titre">'+e(l[2])+'</h3><p class="publication-vide">'+e(l[4])+'</p>')+
+ block(ids[3],'<h3 class="publication-titre">'+e(l[3])+'</h3><div class="groupes-grille">'+group(memos,memItems)+'</div><p class="publication-these-note">'+e(l[5])+' <a href="#recherche">'+e(l[6])+' <span aria-hidden="true">→</span></a></p>')+'</div>';
 }
 
 const RESSOURCES = JSON.parse(fs.readFileSync(path.join(__dirname, "ressources-donnees.json"), "utf8"));
