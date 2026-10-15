@@ -52,7 +52,8 @@ module.exports = {
       ],
       [
         "2 000+",
-        "participations cumulées"
+        "participations cumulées aux webinaires et communautés de pratique",
+        "Gestionnaires et professionnels de santé"
       ],
       [
         "1 000",
@@ -118,7 +119,8 @@ module.exports = {
       ],
       [
         "2,000+",
-        "cumulative attendances"
+        "cumulative attendances at webinars and communities of practice",
+        "Managers and health professionals"
       ],
       [
         "1,000",
@@ -184,7 +186,8 @@ module.exports = {
       ],
       [
         "2 000+",
-        "participaciones acumuladas"
+        "participaciones acumuladas en seminarios web y comunidades de práctica",
+        "Responsables de gestión y profesionales de la salud"
       ],
       [
         "1 000",
@@ -250,7 +253,8 @@ module.exports = {
       ],
       [
         "2 000+",
-        "累计参与人次"
+        "网络研讨会和实践共同体活动累计参与人次",
+        "管理人员与卫生专业人员"
       ],
       [
         "1 000",
@@ -316,7 +320,8 @@ module.exports = {
       ],
       [
         "2 000+",
-        "مشاركة تراكمية"
+        "مشاركات تراكمية في الندوات عبر الإنترنت ومجتمعات الممارسة",
+        "مديرون ومهنيون صحيون"
       ],
       [
         "1 000",
@@ -382,7 +387,8 @@ module.exports = {
       ],
       [
         "2 000+",
-        "совокупных участий"
+        "участий в вебинарах и сообществах практики суммарно",
+        "Руководители и специалисты здравоохранения"
       ],
       [
         "1 000",
