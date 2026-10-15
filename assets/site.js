@@ -21,61 +21,137 @@
     points.forEach((p, i) => p.classList.toggle("actif", ordre[i] === nom));
   }
 
+
+  function couleurDestination(nom, porte) {
+    const sous = porte.querySelector('[data-sous="' + nom + '"]');
+    const section = document.querySelector('section[data-salle="' + nom + '"] .bandeau');
+    return (sous && sous.style.getPropertyValue('--c1')) || (section && section.style.getPropertyValue('--c1')) || getComputedStyle(porte).getPropertyValue('--c1').trim() || '#286d5c';
+  }
+
+  function creerPassage(rect, couleur) {
+    const passage = document.createElement('div');
+    passage.className = 'passage passage-immersion';
+    passage.setAttribute('aria-hidden', 'true');
+    passage.style.setProperty('--passage-couleur', couleur);
+    Object.assign(passage.style, { left: rect.left + 'px', top: rect.top + 'px', width: rect.width + 'px', height: rect.height + 'px' });
+    ['sol', 'plafond', 'gauche', 'droite', 'fond'].forEach(nom => {
+      const plan = document.createElement('span');
+      plan.className = 'passage-plan passage-' + nom;
+      passage.append(plan);
+    });
+    return passage;
+  }
+
+  async function traverserPassage(passage, duree = 560) {
+    if (reduit || !passage.animate) return;
+    const r = passage.getBoundingClientRect();
+    const animation = passage.animate([
+      { left: r.left + 'px', top: r.top + 'px', width: r.width + 'px', height: r.height + 'px', borderRadius: '1px' },
+      { left: '0px', top: '0px', width: innerWidth + 'px', height: innerHeight + 'px', borderRadius: '0px' }
+    ], { duration: duree, easing: 'cubic-bezier(.45,0,.15,1)', fill: 'forwards' });
+    await Promise.race([animation.finished.catch(() => {}), attendre(duree + 80)]);
+  }
+
+  async function effacerPassage(passage) {
+    if (reduit || !passage.animate) return;
+    const animation = passage.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 180, fill: 'forwards' });
+    await Promise.race([animation.finished.catch(() => {}), attendre(220)]);
+  }
+
+  async function avancerVersPorte(porte) {
+    const hall = porte.closest('.hall.en-3d');
+    const monde = hall && $('.hall-monde', hall);
+    const scene = hall && $('[data-hall-scene]', hall);
+    if (!hall || !monde || !scene || reduit || !monde.animate) {
+      porte.classList.add('ouverte');
+      await attendre(300);
+      return null;
+    }
+    const style = getComputedStyle(porte);
+    const angle = parseFloat(style.getPropertyValue('--ha')) || 0;
+    const z = parseFloat(style.getPropertyValue('--hz')) || 0;
+    const echelle = parseFloat(getComputedStyle(hall).getPropertyValue('--hall-echelle')) || 1;
+    const radians = angle * Math.PI / 180;
+    const dx = porte.offsetLeft + Math.cos(radians) * porte.offsetWidth / 2 - monde.offsetWidth / 2;
+    const dy = porte.offsetTop + porte.offsetHeight / 2 - monde.offsetHeight / 2;
+    const dz = z - Math.sin(radians) * porte.offsetWidth / 2;
+    const depart = getComputedStyle(monde).transform;
+    const vue = (rotation, profondeur) => {
+      const a = rotation * Math.PI / 180;
+      const x = dx * Math.cos(a) + dz * Math.sin(a);
+      const distance = -dx * Math.sin(a) + dz * Math.cos(a);
+      const tx = -echelle * x;
+      const ty = scene.clientHeight * .48 - monde.offsetTop - monde.offsetHeight / 2 - echelle * dy;
+      const tz = profondeur - echelle * distance;
+      return 'translateX(-50%) translate3d(' + tx.toFixed(2) + 'px,' + ty.toFixed(2) + 'px,' + tz.toFixed(2) + 'px) scale(' + echelle + ') rotateX(0deg) rotateY(' + rotation + 'deg)';
+    };
+    hall.classList.add('en-approche');
+    const animation = monde.animate([
+      { transform: depart, offset: 0 },
+      { transform: vue(-angle * .78, 130), offset: .58 },
+      { transform: vue(-angle, 500), offset: 1 }
+    ], { duration: 900, easing: 'cubic-bezier(.45,0,.18,1)', fill: 'forwards' });
+    await Promise.all([
+      attendre(260).then(() => porte.classList.add('ouverte')),
+      Promise.race([animation.finished.catch(() => {}), attendre(1000)])
+    ]);
+    return () => { animation.cancel(); hall.classList.remove('en-approche'); };
+  }
+
   async function entrer(nom) {
     const groupe = groupeDe(nom);
     if (!groupe) return;
-    if (!groupe.sections.length) {
-      $("#" + groupe.nom).scrollIntoView({ behavior: sansPassage() ? "auto" : "smooth" });
-      return;
-    }
-    const cible = groupe.sections.includes(nom) ? nom : groupe.sections[0];
-    if (courante && groupeDe(courante) === groupe) return passerSous(cible);
+    const contact = !groupe.sections.length;
+    const cible = contact ? groupe.nom : groupe.sections.includes(nom) ? nom : groupe.sections[0];
+    if (!contact && courante && groupeDe(courante) === groupe) return passerSous(cible);
     if (occupe) return;
     occupe = true;
     reduit = sansPassage();
     const porte = groupe.porte;
-    if (salle.classList.contains("visible")) await sortir(false);
-    const r0 = porte.getBoundingClientRect();
-    if (r0.top < 70 || r0.bottom > innerHeight) {
-      porte.scrollIntoView({ block: "center", behavior: reduit ? "auto" : "smooth" });
-      await attendre(300);
+    let passage = null;
+    let restaurerVue = null;
+    try {
+      if (salle.classList.contains('visible')) await sortir(false);
+      const hall = porte.closest('.hall.en-3d');
+      const zone = hall ? $('[data-hall-scene]', hall) : porte;
+      const r0 = zone.getBoundingClientRect();
+      if (r0.top < 110 || r0.bottom > innerHeight - 20) {
+        zone.scrollIntoView({ block: 'center', behavior: reduit ? 'auto' : 'smooth' });
+        await attendre(280);
+      }
+      $$('.porte.ouverte').forEach(p => p.classList.remove('ouverte'));
+      const couleur = couleurDestination(cible, porte);
+      porte.style.setProperty('--porte-interieur', couleur);
+      marquer(cible);
+      restaurerVue = await avancerVersPorte(porte);
+      const r = $('.ouverture', porte).getBoundingClientRect();
+      passage = creerPassage(r, couleur);
+      document.body.append(passage);
+      await traverserPassage(passage);
+      if (contact) {
+        $('#' + groupe.nom).scrollIntoView({ behavior: 'auto', block: 'start' });
+        const titreContact = $('#' + groupe.nom + ' h2');
+        if (titreContact) { titreContact.tabIndex = -1; titreContact.focus({ preventScroll: true }); }
+        await effacerPassage(passage);
+      } else {
+        afficher(cible);
+        salle.hidden = false;
+        salle.scrollTop = 0;
+        document.body.classList.add('salle-ouverte');
+        void salle.offsetWidth;
+        salle.classList.add('visible');
+        await attendre(150);
+        await effacerPassage(passage);
+        $('[data-retour]', salle).focus({ preventScroll: true });
+      }
+    } finally {
+      if (passage) passage.remove();
+      if (restaurerVue) restaurerVue();
+      porte.style.removeProperty('--porte-interieur');
+      if (contact) porte.classList.remove('ouverte');
+      occupe = false;
     }
-    $$(".porte.ouverte").forEach((p) => p.classList.remove("ouverte"));
-    porte.classList.add("ouverte");
-    marquer(nom);
-    await attendre(400);
-
-    const r = $(".ouverture", porte).getBoundingClientRect();
-    const passage = document.createElement("div");
-    passage.className = "passage";
-    const teinte = getComputedStyle(porte);
-    const g1 = teinte.getPropertyValue("--c1").trim();
-    passage.style.background = `radial-gradient(120% 70% at 50% 75%, color-mix(in srgb, ${g1} 12%, rgba(255,255,255,.78)) 0%, color-mix(in srgb, ${g1} 32%, rgba(255,255,255,.55)) 100%)`;
-    Object.assign(passage.style, { left: r.left + "px", top: r.top + "px", width: r.width + "px", height: r.height + "px" });
-    document.body.append(passage);
-    if (!reduit && passage.animate) {
-      const anim = passage.animate(
-        [
-          { left: r.left + "px", top: r.top + "px", width: r.width + "px", height: r.height + "px" },
-          { left: "0px", top: "0px", width: innerWidth + "px", height: innerHeight + "px" },
-        ],
-        { duration: 420, easing: "cubic-bezier(.6,0,.2,1)", fill: "forwards" }
-      );
-      await Promise.race([anim.finished, attendre(480)]);
-    }
-
-    afficher(cible);
-    salle.hidden = false;
-    salle.scrollTop = 0;
-    document.body.classList.add("salle-ouverte");
-    void salle.offsetWidth;
-    salle.classList.add("visible");
-    await attendre(220);
-    passage.remove();
-    $("[data-retour]", salle).focus({ preventScroll: true });
-    occupe = false;
   }
-
 
 // Les axes relient une salle et, au besoin, un travail ou un onglet précis.
   async function ouvrirDestinationAxe(fragment, memoriser = true) {
@@ -193,33 +269,26 @@
   // Petite porte : même transition que les grandes (la porte s’ouvre, on passe à travers).
   async function passerSous(x) {
     if (occupe || x === courante) return;
-    const bouton = onglets.querySelector(`[data-sous="${x}"]`);
+    const bouton = onglets.querySelector('[data-sous="' + x + '"]');
     if (!bouton) return afficher(x);
     occupe = true;
     reduit = sansPassage();
-    bouton.classList.add("ouverte");
-    await attendre(180);
-    const r = bouton.querySelector(".ouverture").getBoundingClientRect();
-    const passage = document.createElement("div");
-    passage.className = "passage";
-    const c1 = bouton.style.getPropertyValue("--c1").trim();
-    passage.style.background = `radial-gradient(120% 70% at 50% 75%, color-mix(in srgb, ${c1} 12%, rgba(255,255,255,.78)) 0%, color-mix(in srgb, ${c1} 32%, rgba(255,255,255,.55)) 100%)`;
-    Object.assign(passage.style, { left: r.left + "px", top: r.top + "px", width: r.width + "px", height: r.height + "px" });
-    document.body.append(passage);
-    if (!reduit && passage.animate) {
-      const anim = passage.animate(
-        [
-          { left: r.left + "px", top: r.top + "px", width: r.width + "px", height: r.height + "px" },
-          { left: "0px", top: "0px", width: innerWidth + "px", height: innerHeight + "px" },
-        ],
-        { duration: 280, easing: "cubic-bezier(.6,0,.2,1)", fill: "forwards" }
-      );
-      await Promise.race([anim.finished, attendre(330)]);
+    let passage = null;
+    try {
+      bouton.classList.add('ouverte');
+      await attendre(160);
+      const rect = bouton.querySelector('.ouverture').getBoundingClientRect();
+      const couleur = bouton.style.getPropertyValue('--c1').trim() || '#286d5c';
+      passage = creerPassage(rect, couleur);
+      document.body.append(passage);
+      await traverserPassage(passage, 420);
+      afficher(x);
+      await attendre(100);
+      await effacerPassage(passage);
+    } finally {
+      if (passage) passage.remove();
+      occupe = false;
     }
-    afficher(x);
-    if (!reduit && passage.animate) await Promise.race([passage.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 160, fill: "forwards" }).finished, attendre(200)]);
-    passage.remove();
-    occupe = false;
   }
 
   async function sortir(rendreFocus = true) {
@@ -334,6 +403,7 @@
       if (hall.classList.contains('en-3d')) hall.style.setProperty('--hall-echelle', Math.min(1, Math.max(.5, (scene.clientWidth - 30) / 1160)).toFixed(3));
     };
     const choisir = (index, tourner = true) => {
+      if (occupe && hall.classList.contains('en-approche')) return;
       const i = (index + groupes.length) % groupes.length;
       const changement = i !== actif || !titre.textContent;
       actif = i;
@@ -352,6 +422,7 @@
         const liens = $$('.sous-portes > span', g.porte).map(s => {
           const externe = s.dataset.lien;
           const element = document.createElement(externe ? 'a' : 'button');
+          element.style.setProperty('--rubrique-couleur', s.style.getPropertyValue('--c1') || g.porte.style.getPropertyValue('--c1')); 
           if (externe) {
             element.href = externe;
             if (s.hasAttribute('data-nouvel')) { element.target = '_blank'; element.rel = 'noopener noreferrer'; }

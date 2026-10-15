@@ -1691,3 +1691,66 @@ html.lv .axes-cartes{grid-template-columns:1fr}
 .hall-tete-outils>span{color:var(--muted)}
 
 .hall-reperes button>span,.hall-detail-rubriques>button>span:first-child,.hall-detail-rubriques>a>span:first-child{min-width:0;overflow-wrap:anywhere}
+
+/* Parcours en un coup d’œil : douze repères sobres, sans douze cadres. */
+.bande-accueil.bande-epuree{padding:30px 0 8px;border-radius:0;border-top:1px solid var(--line);background:transparent;color:var(--ink)}
+.bande-epuree .bande-titre{margin-bottom:24px;color:var(--muted);font-size:11px;letter-spacing:.1em}
+.bande-epuree .trajectoire{margin-bottom:34px}
+.bande-epuree .trajectoire::before{height:1px;top:5px;background:var(--line)}
+.bande-epuree .trajectoire li{padding-top:23px}
+.bande-epuree .trajectoire li:nth-child(n)::before{width:11px;height:11px;border:2px solid var(--green);background:var(--paper)}
+.bande-epuree .trajectoire-date{font-size:12px;color:var(--ink)}
+.bande-epuree .trajectoire-texte{font-size:12px;line-height:1.5;color:var(--muted)}
+.impact-ensembles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;padding-top:26px;border-top:1px solid var(--line)}
+.impact-ensemble{min-width:0}
+.impact-ensemble+ .impact-ensemble{padding-inline-start:26px;border-inline-start:1px solid var(--line)}
+.impact-ensemble h3{margin:0 0 22px;color:var(--green-deep);font:600 12px/1.5 var(--sans);letter-spacing:.02em;text-wrap:pretty}
+.impact-ensemble dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:22px;row-gap:24px;margin:0}
+.impact-ensemble dl>div{display:flex;flex-direction:column;min-width:0;gap:8px}
+.impact-ensemble dt{font-size:12px;line-height:1.5;color:var(--muted);max-width:180px;overflow-wrap:break-word}
+.impact-ensemble dd{order:-1;margin:0;color:var(--ink);font:600 clamp(28px,2.8vw,35px)/1.05 var(--sans);letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.impact-precisions{margin-top:26px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;line-height:1.7}
+.impact-precisions summary{cursor:pointer;width:fit-content;font-size:11px;text-decoration:underline;text-underline-offset:3px}
+.impact-precisions ul{padding-inline-start:20px;margin:14px 0 0;max-width:900px}
+.impact-precisions li+li{margin-top:6px}
+@media(max-width:900px){.impact-ensembles{grid-template-columns:minmax(0,1fr);gap:24px}.impact-ensemble+ .impact-ensemble{padding-inline-start:0;border-inline-start:0;border-top:1px solid var(--line);padding-top:22px}.impact-ensemble dl{grid-template-columns:repeat(4,minmax(0,1fr))}.impact-ensemble h3{margin-bottom:18px}}
+@media(max-width:600px){.impact-ensemble dl{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:20px}.impact-ensemble dt{font-size:12px}.impact-ensemble dd{font-size:30px}.bande-accueil.bande-epuree{padding:24px 0 0}.bande-epuree .trajectoire{margin-bottom:25px}}
+html.hc .bande-epuree,html.lv .bande-epuree{background:transparent;color:var(--ink)}
+
+/* Sous-rubriques du hall : teintes propres aux salles, lisibles avec leur libellé. */
+.hall-detail-rubriques>button,.hall-detail-rubriques>a{--rubrique-couleur:var(--hall-teinte);border-inline-start:3px solid var(--rubrique-couleur);background:color-mix(in srgb,var(--rubrique-couleur) 5%,var(--white));border-radius:7px}
+.hall-detail-rubriques>button:hover,.hall-detail-rubriques>a:hover{border-color:var(--rubrique-couleur);background:color-mix(in srgb,var(--rubrique-couleur) 11%,var(--white))}
+.hall-detail-rubriques>button>span:last-child,.hall-detail-rubriques>a>span:last-child{color:var(--rubrique-couleur)}
+
+/* Matières et détails architecturaux du hall existant. */
+@media(min-width:1000px){
+ .hall.en-3d .hall-scene{background:radial-gradient(ellipse at 50% 22%,#fff 0%,#f4f6f2 52%,#e4ebe7 100%);box-shadow:inset 0 1px #fff,0 10px 30px -26px rgba(26,49,37,.4)}
+ .hall.en-3d .hall-mur{box-shadow:inset 0 3px 9px -6px rgba(58,76,62,.35),inset 0 -16px 20px -20px rgba(58,76,62,.3)}
+ .hall.en-3d .hall-mur-gauche{background:linear-gradient(90deg,rgba(46,68,53,.11),transparent 34% 88%,rgba(46,68,53,.06)),repeating-linear-gradient(0deg,rgba(67,85,62,.012) 0 1px,transparent 1px 4px),linear-gradient(90deg,#e9eee8,#fafbf7 40%,#eef2eb)}
+ .hall.en-3d .hall-mur-droite{background:linear-gradient(90deg,rgba(46,68,53,.06),transparent 15% 65%,rgba(46,68,53,.1)),repeating-linear-gradient(0deg,rgba(67,85,62,.012) 0 1px,transparent 1px 4px),linear-gradient(90deg,#eef2eb,#fafbf7 60%,#e8eee8)}
+ .hall.en-3d .hall-mur-fond{background:linear-gradient(90deg,rgba(65,86,66,.08),transparent 5% 95%,rgba(65,86,66,.08)),repeating-linear-gradient(0deg,rgba(67,85,62,.012) 0 1px,transparent 1px 4px),linear-gradient(90deg,#edf1e9,#fdfef9 25%,#f3f6ef 50%,#fdfef9 75%,#edf1e9)}
+ .hall.en-3d .hall-sol{background:linear-gradient(90deg,rgba(87,106,88,.085) 0 1px,rgba(255,255,255,.7) 1px 2px,transparent 2px) 0 0/196px 100%,linear-gradient(rgba(87,106,88,.085) 0 1px,rgba(255,255,255,.7) 1px 2px,transparent 2px) 0 0/100% 150px,radial-gradient(ellipse at 45% 30%,rgba(255,255,255,.8),transparent 65%),linear-gradient(155deg,#e5e9e1,#f4f6ed 52%,#e0e7df);box-shadow:inset 0 16px 24px -16px rgba(44,68,53,.3)}
+ .hall.en-3d .hall-sol::after{background:linear-gradient(112deg,transparent 24%,rgba(255,255,255,.42) 26% 42%,transparent 44% 48%,rgba(255,255,255,.3) 50% 61%,transparent 63%);filter:blur(4px)}
+ .hall.en-3d .hall-verriere{border-color:#dde5dc;box-shadow:inset 0 0 14px rgba(121,153,143,.15),0 0 55px rgba(255,255,255,.7)}
+ .hall.en-3d .porte::after{height:125px;opacity:.65;background:radial-gradient(ellipse at 45% 0,rgba(29,45,32,.28),rgba(29,45,32,.08) 38%,transparent 73%)}
+ .hall.en-3d .porte .baie::before{content:"";position:absolute;left:0;top:2px;width:10px;height:calc(100% - 2px);transform-origin:0 50%;transform:rotateY(90deg);background:linear-gradient(90deg,#aebbb0,#e6ece2);pointer-events:none}
+ .hall.en-3d .porte .baie::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:10px;transform-origin:50% 100%;transform:rotateX(90deg);background:linear-gradient(#d4ddd1,#f7f9f1);pointer-events:none}
+ .hall.en-3d .porte .ouverture{background:radial-gradient(ellipse at 45% 38%,color-mix(in srgb,var(--porte-interieur,var(--c1)) 9%,#fff),color-mix(in srgb,var(--porte-interieur,var(--c1)) 37%,#e5eee5));box-shadow:inset 4px 2px 8px rgba(18,38,26,.28),inset -2px 0 4px rgba(18,38,26,.18)}
+ .hall.en-3d .porte.choisie .baie{outline:1px solid color-mix(in srgb,var(--c1) 32%,transparent);outline-offset:3px}
+ .hall.en-3d .porte .poignee{box-shadow:1px 1px 2px rgba(15,30,40,.35),-1px 0 1px rgba(255,255,255,.7)}
+ .hall.en-approche .hall-monde{transition:none}
+ .hall.en-approche .hall-commandes,.hall.en-approche .hall-geste{opacity:0;transition:opacity .15s;pointer-events:none}
+ .hall.en-approche .hall-reperes,.hall.en-approche .hall-detail{pointer-events:none}
+ .hall.en-approche .porte .plaque .num{opacity:.5;transition:opacity .25s}
+}
+
+/* Franchissement : parois colorées et fond qui s'approche pendant l'entrée. */
+.passage.passage-immersion{overflow:hidden;isolation:isolate;background:var(--passage-couleur);box-shadow:0 0 0 5px #e6ece2,0 12px 35px rgba(9,36,26,.25),inset 0 0 60px rgba(7,31,32,.16);border-radius:1px}
+.passage-plan{position:absolute;inset:0;display:block;pointer-events:none}
+.passage-sol{clip-path:polygon(0 100%,100% 100%,88% 86%,12% 86%);background:linear-gradient(0deg,color-mix(in srgb,var(--passage-couleur) 75%,#fff),var(--passage-couleur))}
+.passage-plafond{clip-path:polygon(0 0,100% 0,88% 14%,12% 14%);background:linear-gradient(color-mix(in srgb,var(--passage-couleur) 52%,#fff),var(--passage-couleur))}
+.passage-gauche{clip-path:polygon(0 0,12% 14%,12% 86%,0 100%);background:linear-gradient(90deg,color-mix(in srgb,var(--passage-couleur) 80%,#092f42),var(--passage-couleur))}
+.passage-droite{clip-path:polygon(100% 0,88% 14%,88% 86%,100% 100%);background:linear-gradient(90deg,var(--passage-couleur),color-mix(in srgb,var(--passage-couleur) 85%,#092f42))}
+.passage-fond{inset:14% 12%;border:1px solid rgba(255,255,255,.25);background:radial-gradient(ellipse at 50% 35%,color-mix(in srgb,var(--passage-couleur) 65%,#fff),var(--passage-couleur) 85%);animation:seuil-avance .62s cubic-bezier(.45,0,.15,1) both}
+@keyframes seuil-avance{from{transform:scale(1);opacity:1}to{transform:scale(1.6);opacity:.9}}
+@media(prefers-reduced-motion:reduce){.passage-fond{animation:none}}
