@@ -1413,7 +1413,7 @@ const fr = {
         "date": "2024",
         "type": "experience",
         "titre": "Stage en direction d’EHPAD · Fondation Ildys",
-        "detail": "Fondation Ildys, Landerneau (France). Établissement d’hébergement pour personnes âgées dépendantes (EHPAD), équivalent d’un centre d’hébergement et de soins de longue durée (CHSLD) au Québec : stage auprès de la direction."
+        "detail": "Fondation Ildys, Landerneau (France). Stage auprès de la direction."
       },
       {
         "date": "2024",
@@ -1436,7 +1436,7 @@ const fr = {
       {
         "date": "2016–2024",
         "type": "experience",
-        "titre": "Responsable de séjours de vacances adaptés et de séjours de répit",
+        "titre": "Directeur de séjours pour adultes en situation de handicap",
         "detail": "Séjours de vacances adaptés et séjours de répit pour personnes en situation de handicap, Brest (France) : coconstruction du projet pédagogique, accompagnement socioéducatif, activités de loisirs et suivi des traitements ; gestion des équipes, du budget et de la logistique."
       }
     ],
@@ -2984,7 +2984,7 @@ const en = {
         "date": "2024",
         "type": "experience",
         "titre": "Management internship in an EHPAD · Fondation Ildys",
-        "detail": "Fondation Ildys, Landerneau (France). EHPAD (établissement d’hébergement pour personnes âgées dépendantes), a French residential care home for dependent older adults, comparable to a Quebec CHSLD (long-term care centre); internship with the management team."
+        "detail": "Fondation Ildys, Landerneau (France). Internship with the management team."
       },
       {
         "date": "2024",
@@ -3007,7 +3007,7 @@ const en = {
       {
         "date": "2016–2024",
         "type": "experience",
-        "titre": "Manager of adapted holiday and respite stays",
+        "titre": "Director of stays for adults with disabilities",
         "detail": "Adapted holidays and respite stays for people with disabilities, Brest (France): co-designing educational programmes, providing socio-educational support and supervising teams, budgets and logistics."
       }
     ],
@@ -4555,7 +4555,7 @@ const es = {
         "date": "2024",
         "type": "experience",
         "titre": "Prácticas de dirección en EHPAD · Fondation Ildys",
-        "detail": "Fondation Ildys, Landerneau (Francia). Établissement d’hébergement pour personnes âgées dépendantes (EHPAD), residencia francesa para personas mayores dependientes, equivalente a un CHSLD (centro de cuidados de larga duración) en Quebec; prácticas de dirección."
+        "detail": "Fondation Ildys, Landerneau (Francia). Prácticas con el equipo directivo."
       },
       {
         "date": "2024",
@@ -4578,7 +4578,7 @@ const es = {
       {
         "date": "2016–2024",
         "type": "experience",
-        "titre": "Responsable de vacaciones adaptadas y estancias de respiro",
+        "titre": "Director de estancias para adultos con discapacidad",
         "detail": "Vacaciones adaptadas y estancias de respiro para personas con discapacidad, Brest (Francia): proyectos pedagógicos, acompañamiento socioeducativo, dirección de equipos, presupuestos y logística."
       }
     ],
