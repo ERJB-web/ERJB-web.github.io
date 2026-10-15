@@ -35,7 +35,7 @@ const TITRES_ORIGINAUX = {
 };
 const AUTEURS = {
   trio: "Bernier, É., Sourial, N., Layani, G.",
-  hospit: "Bernier, É., Algoët, A., Sourial, N., Layani, G., Vedel, I., Calafiore, M.",
+  hospit: "Éric Bernier (LL.M, PhD student), Nadia Sourial (PhD), Isabelle Vedel (PhD), Géraldine Layani (MD, M.Sc), Aurélien Algoet (MD), Matthieu Calafiore (MD, PhD)",
   pl2: "Bernier, É., Aïssi, F., Diene Faye, C., Boukari Abdo, S.",
 };
 
@@ -134,7 +134,7 @@ const fr = {
       ]
     },
     encadrement:
-      "Thèse codirigée par les Dres Nadia Sourial, Ph. D., et Géraldine Layani, M.D. · Chaire de recherche GSK en gestion optimale des maladies chroniques · CRCHUM · Boursier FRQ (B2)",
+      "Thèse de doctorat en cours de conceptualisation, codirigée par les Dres Nadia Sourial, Ph. D., et Géraldine Layani, M.D. · Chaire de recherche GSK en gestion optimale des maladies chroniques · CRCHUM · Boursier FRQ (B2)",
     visite: "Commencer la visite",
     explorer: "Explorer librement",
     portrait: "Portrait d’Éric Bernier",
@@ -241,9 +241,10 @@ const fr = {
       ],
     },
     travaux: {
-      titre: "Travaux en cours",
-      intro: "Articles et manuscrits en cours d’écriture, en parallèle de la thèse.",
+      titre: "Manuscrits soumis et en préparation",
+      intro: "Manuscrits distingués selon leur statut éditorial : soumis à une revue ou en préparation.",
       items: [
+        { domaine: "Systèmes de santé et soins primaires", statut: "Soumis à BJGP Open", titre: TITRES_ORIGINAUX.hospit, auteurs: AUTEURS.hospit },
         {
           domaine: "Épistémologie et transfert de connaissances",
           statut: "En travaux",
@@ -253,7 +254,6 @@ const fr = {
             "L’impact de la recherche est d’ordinaire pensé dans un seul sens, de la connaissance vers les politiques et les pratiques. L’article propose une santé publique conçue comme science réflexive de la gouvernance : il précise à quelles conditions les conséquences observées sur le terrain et les savoirs des populations concernées peuvent exiger que l’on réexamine les catégories, les indicateurs et les règles en amont. Le concept se traduit en un audit documentaire, mis à l’essai sur quatre chaînes institutionnelles.",
           etiquettes: ["Retour épistémique", "Gouvernance réflexive", "Impact de la recherche"],
         },
-        { domaine: "Systèmes de santé et soins primaires", statut: "En cours de soumission à BJGP Open", titre: TITRES_ORIGINAUX.hospit, auteurs: AUTEURS.hospit },
         { domaine: "Gouvernance et espace public", statut: "Manuscrit en préparation", titre: TITRES_ORIGINAUX.pl2, auteurs: AUTEURS.pl2 },
         { domaine: "Droit de la santé", statut: "Manuscrit en préparation", titre: TITRES_ORIGINAUX.droit, auteurs: "Bernier, É. · article de doctrine" },
       ],
@@ -580,7 +580,7 @@ const fr = {
       "items": [
         [
           "Direction des établissements sanitaires, sociaux et médico-sociaux",
-          "Ma maîtrise en direction des structures médico-sociales et de services aux personnes (Université de Bretagne Occidentale, 2024, mention spéciale du jury) couvre la gestion budgétaire et financière (CPOM, EPRD), la comptabilité, la gestion des ressources humaines et le droit du travail, le management, la théorie et la sociologie des organisations, la philosophie et le projet d’établissement. Responsable de séjours de répit et de séjours adaptés de 2016 à 2024, j’en ai assuré la gestion des équipes, du budget et de la logistique."
+          "Ma maîtrise en direction des structures médico-sociales et de services aux personnes (Université de Bretagne Occidentale, 2024, mention spéciale du jury) couvre la gestion budgétaire et financière (CPOM, EPRD), la comptabilité, la gestion des ressources humaines et le droit du travail, le management, la théorie et la sociologie des organisations, la philosophie et le projet d’établissement. Responsable de séjours de vacances adaptés et de séjours de répit de 2016 à 2024, j’en ai assuré la gestion des équipes, du budget et de la logistique."
         ],
         [
           "Droit sanitaire, social et médico-social",
@@ -588,7 +588,7 @@ const fr = {
         ],
         [
           "Transformation de l’offre et appui à la performance",
-          "Chargé de mission à l’Agence nationale d’appui à la performance (ANAP, Paris) en 2024–2025, j’ai accompagné la transformation de l’offre en santé et en services sociaux : copilotage du réseau des experts, animation de webinaires, recueil et analyse de données, animation et coconstruction de séances de communautés de pratique."
+          "Chargé de mission médico-sociale à l’Agence nationale de la performance sanitaire et médico-sociale (ANAP, Paris) en 2024–2025, j’ai accompagné la transformation de l’offre en santé et en services sociaux : copilotage du réseau des experts, animation de webinaires, recueil et analyse de données, animation et coconstruction de séances de communautés de pratique."
         ],
         [
           "Vieillissement, autonomie et EHPAD",
@@ -612,7 +612,7 @@ const fr = {
         ],
         [
           "Entrepreneuriat et management",
-          "Formé à l’entrepreneuriat et au management (diplôme universitaire, IAE de Brest, 2023), j’ai entrepris la création d’OWNNIGHT, une application de bien-être et d’éducation au sommeil. Mon approche du management s’appuie sur la clinique des organisations et le développement de l’activité d’une structure, étudiés en master, ainsi que sur le leadership de proximité exercé comme responsable de séjours adaptés."
+          "Formé à l’entrepreneuriat et au management (diplôme universitaire, IAE de Brest, 2024), j’ai entrepris la création d’OWNNIGHT, une application de bien-être et d’éducation au sommeil. Mon approche du management s’appuie sur la clinique des organisations et le développement de l’activité d’une structure, étudiés en master, ainsi que sur le leadership de proximité exercé comme responsable de séjours de vacances adaptés et de séjours de répit."
         ]
       ]
     },
@@ -1326,7 +1326,7 @@ const fr = {
         "Du fonctionnement des institutions à la gouvernance des systèmes de santé",
         [
           "L’étude des organisations m’a amené à explorer les mécanismes qui orientent leurs décisions : les cadres juridiques, les politiques publiques, la planification, les dispositifs de financement et les modalités de gouvernance.",
-          "J’ai poursuivi cette réflexion à l’Université Paris-Panthéon-Assas, en droit public, sanitaire et social, pour dépasser les problématiques gestionnaires et adopter une approche multiniveau du système de santé et des instruments juridiques de la solidarité nationale, puis comme chargé de projets à l’Agence nationale d’appui à la performance (ANAP).",
+          "J’ai poursuivi cette réflexion à l’Université Paris-Panthéon-Assas, en droit public, sanitaire et social, pour dépasser les problématiques gestionnaires et adopter une approche multiniveau du système de santé et des instruments juridiques de la solidarité nationale, puis comme chargé de mission médico-sociale à l’Agence nationale de la performance sanitaire et médico-sociale (ANAP).",
           "Cette expérience m’a permis de travailler à l’articulation entre orientations nationales et réalités opérationnelles, en traduisant ces orientations en dispositifs concrets, au contact des enjeux rencontrés par les gestionnaires, les professionnels et les usagers du système de santé.",
           "Elle a renforcé mon intérêt pour les difficultés de mise en œuvre des politiques publiques, particulièrement lorsque les réponses à apporter supposent de dépasser les frontières entre organisations et secteurs d’intervention. Consolidée par un mémoire de recherche, cette immersion a révélé les difficultés de mise en œuvre des modèles de soins et services intégrés, et la nécessité d’une approche intersectorielle et interdisciplinaire face aux pratiques en silos. J’ai alors sollicité plusieurs chercheurs québécois en leur présentant mes constats et un projet de mise en contraste des systèmes de santé, pour trouver des réponses aux difficultés de mise en œuvre du maintien à domicile."
         ]
@@ -1400,7 +1400,7 @@ const fr = {
       {
         "date": "2024–2025",
         "type": "experience",
-        "titre": "Chargé de mission · Agence nationale d’appui à la performance",
+        "titre": "Chargé de mission médico-sociale · Agence nationale de la performance sanitaire et médico-sociale (ANAP, France)",
         "detail": "Paris. Copilotage du réseau des experts, animation de webinaires, recueil et analyse de données, animation et coconstruction de séances de communautés de pratique."
       },
       {
@@ -1410,15 +1410,15 @@ const fr = {
         "detail": "Université de Bretagne Occidentale, mention spéciale du jury."
       },
       {
-        "date": "2023",
+        "date": "2024",
         "type": "experience",
-        "titre": "Stage de direction en EHPAD",
-        "detail": "Établissement d’hébergement pour personnes âgées dépendantes, l’équivalent d’un CHSLD au Québec : stage auprès de la direction."
+        "titre": "Stage en direction d’un établissement d’hébergement pour personnes âgées dépendantes (EHPAD, équivalent CHSLD)",
+        "detail": "Fondation Ildys, Landerneau (France) : stage auprès de la direction d’un EHPAD, équivalent québécois d’un CHSLD."
       },
       {
-        "date": "2023",
+        "date": "2024",
         "type": "formation",
-        "titre": "Diplôme universitaire en entrepreneuriat",
+        "titre": "Diplôme universitaire en entrepreneuriat et management",
         "detail": "Institut d’administration des entreprises (IAE) de Brest, mention spéciale du jury."
       },
       {
@@ -1436,7 +1436,7 @@ const fr = {
       {
         "date": "2016–2024",
         "type": "experience",
-        "titre": "Responsable de séjours de répit",
+        "titre": "Responsable de séjours de vacances adaptés et de séjours de répit",
         "detail": "Séjours adaptés pour personnes en situation de handicap, Brest : coconstruction du projet pédagogique, accompagnement socioéducatif, activités de loisirs et suivi des traitements ; encadrement, projets de service, gestion des équipes, du budget et de la logistique."
       }
     ],
@@ -1812,9 +1812,10 @@ const en = {
       ],
     },
     travaux: {
-      titre: "Work in progress",
-      intro: "Articles and manuscripts being written alongside the thesis.",
+      titre: "Submitted and in-preparation manuscripts",
+      intro: "Manuscripts distinguished by editorial status: submitted to a journal or in preparation.",
       items: [
+        { domaine: "Health systems and primary care", statut: "Submitted to BJGP Open", titre: TITRES_ORIGINAUX.hospit, auteurs: AUTEURS.hospit },
         {
           domaine: "Epistemology and knowledge translation",
           statut: "In progress",
@@ -1824,7 +1825,6 @@ const en = {
             "Research impact is usually pictured as a forward pathway, from knowledge to policy and practice. The article develops public health as a reflexive science of governance and specifies how consequences in practice and the situated knowledge of affected populations can acquire standing to require reconsideration of upstream categories, indicators and rules. The concept is translated into a documentary audit, tested on four institutional chains.",
           etiquettes: ["Epistemic return", "Reflexive governance", "Research impact"],
         },
-        { domaine: "Health systems and primary care", statut: "Being submitted to BJGP Open", titre: TITRES_ORIGINAUX.hospit, auteurs: AUTEURS.hospit },
         { domaine: "Governance and the public sphere", statut: "Manuscript in preparation", titre: TITRES_ORIGINAUX.pl2, auteurs: AUTEURS.pl2 },
         { domaine: "Health law", statut: "Manuscript in preparation", titre: TITRES_ORIGINAUX.droit, auteurs: "Bernier, É. · legal scholarship article" },
       ],
@@ -2183,7 +2183,7 @@ const en = {
         ],
         [
           "Entrepreneurship and management",
-          "Trained in entrepreneurship and management (university diploma, IAE de Brest, 2023), I have embarked on the creation of OWNNIGHT, a well-being and sleep education application. My approach to management draws on the clinical approach to organisations and on developing an organisation’s activity, both studied at master’s level, as well as on the hands-on leadership I exercised as manager of adapted stays."
+          "Trained in entrepreneurship and management (university diploma, IAE de Brest, 2024), I have embarked on the creation of OWNNIGHT, a well-being and sleep education application. My approach to management draws on the clinical approach to organisations and on developing an organisation’s activity, both studied at master’s level, as well as on the hands-on leadership I exercised as manager of adapted stays."
         ]
       ]
     },
@@ -2971,7 +2971,7 @@ const en = {
       {
         "date": "2024–2025",
         "type": "experience",
-        "titre": "Project manager · French national agency for performance support (ANAP)",
+        "titre": "Medico-social project officer · French National Agency for Health and Social Care Performance (ANAP, France)",
         "detail": "Paris. Co-leading the expert network, hosting webinars, collecting and analysing data, facilitating and co-designing community of practice sessions."
       },
       {
@@ -2981,15 +2981,15 @@ const en = {
         "detail": "Université de Bretagne Occidentale, with special distinction from the jury."
       },
       {
-        "date": "2023",
+        "date": "2024",
         "type": "experience",
-        "titre": "Management internship in an EHPAD",
-        "detail": "French long-term care home for dependent older adults, the equivalent of a CHSLD in Quebec: internship with the management team."
+        "titre": "Management internship at a French residential care home for dependent older adults (EHPAD, equivalent to a CHSLD)",
+        "detail": "Fondation Ildys, Landerneau (France): management internship at an EHPAD, the French equivalent of a Québec CHSLD."
       },
       {
-        "date": "2023",
+        "date": "2024",
         "type": "formation",
-        "titre": "University diploma in entrepreneurship",
+        "titre": "University diploma in entrepreneurship and management",
         "detail": "Institut d’administration des entreprises (IAE) de Brest, with special distinction from the jury."
       },
       {
@@ -3383,9 +3383,10 @@ const es = {
       ],
     },
     travaux: {
-      titre: "Trabajos en curso",
-      intro: "Artículos y manuscritos en redacción, en paralelo a la tesis.",
+      titre: "Manuscritos enviados y en preparación",
+      intro: "Manuscritos clasificados por estado editorial: enviados a una revista o en preparación.",
       items: [
+        { domaine: "Sistemas de salud y atención primaria", statut: "Enviado a BJGP Open", titre: TITRES_ORIGINAUX.hospit, auteurs: AUTEURS.hospit },
         {
           domaine: "Epistemología y transferencia de conocimientos",
           statut: "En elaboración",
@@ -3395,7 +3396,6 @@ const es = {
             "El impacto de la investigación suele pensarse en un solo sentido, del conocimiento hacia las políticas y las prácticas. El artículo propone una salud pública concebida como ciencia reflexiva de la gobernanza: precisa en qué condiciones las consecuencias observadas en el terreno y los saberes de las poblaciones afectadas pueden exigir que se reexaminen las categorías, los indicadores y las reglas de origen. El concepto se traduce en una auditoría documental, puesta a prueba en cuatro cadenas institucionales.",
           etiquettes: ["Retorno epistémico", "Gobernanza reflexiva", "Impacto de la investigación"],
         },
-        { domaine: "Sistemas de salud y atención primaria", statut: "En proceso de envío a BJGP Open", titre: TITRES_ORIGINAUX.hospit, auteurs: AUTEURS.hospit },
         { domaine: "Gobernanza y espacio público", statut: "Manuscrito en preparación", titre: TITRES_ORIGINAUX.pl2, auteurs: AUTEURS.pl2 },
         { domaine: "Derecho de la salud", statut: "Manuscrito en preparación", titre: TITRES_ORIGINAUX.droit, auteurs: "Bernier, É. · artículo de doctrina" },
       ],
@@ -3754,7 +3754,7 @@ const es = {
         ],
         [
           "Emprendimiento y gestión",
-          "Formado en emprendimiento y gestión (diploma universitario, IAE de Brest, 2023), he iniciado la creación de OWNNIGHT, una aplicación de bienestar y educación del sueño. Mi enfoque de la gestión se apoya en la clínica de las organizaciones y en el desarrollo de la actividad de una estructura, estudiados en el máster, así como en el liderazgo de proximidad ejercido como responsable de estancias adaptadas."
+          "Formado en emprendimiento y gestión (diploma universitario, IAE de Brest, 2024), he iniciado la creación de OWNNIGHT, una aplicación de bienestar y educación del sueño. Mi enfoque de la gestión se apoya en la clínica de las organizaciones y en el desarrollo de la actividad de una estructura, estudiados en el máster, así como en el liderazgo de proximidad ejercido como responsable de estancias adaptadas."
         ]
       ]
     },
@@ -4552,15 +4552,15 @@ const es = {
         "detail": "Université de Bretagne Occidentale, mención especial del jurado."
       },
       {
-        "date": "2023",
+        "date": "2024",
         "type": "experience",
-        "titre": "Prácticas de dirección en un EHPAD",
-        "detail": "Residencia para personas mayores dependientes, equivalente a un CHSLD en Quebec: prácticas junto a la dirección."
+        "titre": "Prácticas de dirección en un establecimiento residencial para mayores dependientes (EHPAD, equivalente al CHSLD)",
+        "detail": "Fondation Ildys, Landerneau (Francia): prácticas de dirección en un EHPAD, equivalente al CHSLD de Quebec."
       },
       {
-        "date": "2023",
+        "date": "2024",
         "type": "formation",
-        "titre": "Diploma universitario en emprendimiento",
+        "titre": "Diploma universitario en emprendimiento y gestión",
         "detail": "Institut d’administration des entreprises (IAE) de Brest, mención especial del jurado."
       },
       {
@@ -4578,7 +4578,7 @@ const es = {
       {
         "date": "2016–2024",
         "type": "experience",
-        "titre": "Responsable de estancias de respiro",
+        "titre": "Responsable de estancias vacacionales adaptadas y estancias de respiro",
         "detail": "Estancias adaptadas para personas en situación de discapacidad, Brest: coconstrucción del proyecto pedagógico, acompañamiento socioeducativo, actividades de ocio y seguimiento de los tratamientos; encuadre, proyectos de servicio, gestión de equipos, presupuesto y logística."
       }
     ],
