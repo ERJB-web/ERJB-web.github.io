@@ -1696,11 +1696,11 @@ html.lv .axes-cartes{grid-template-columns:1fr}
  .hall-commandes>button{display:flex;align-items:center;justify-content:center;gap:6px;min-width:30px;min-height:25px;padding:3px 8px;border-radius:20px;font-size:10px;line-height:1.3}
  .hall-commandes>button:hover{background:var(--sea)}
  .hall.en-volume .hall-position-mobile{display:inline-block;min-width:40px;font-size:10px;text-align:center;direction:ltr}
- .hall.en-volume .hall-reperes{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin-top:9px}
- .hall-reperes>button{display:flex;align-items:center;gap:7px;min-width:0;min-height:44px;padding:7px 9px;text-align:start;border:1px solid var(--line);border-radius:7px;background:var(--white);color:var(--ink);font-size:11.5px;line-height:1.35}
- .hall-reperes>button bdi{display:grid;place-items:center;flex:none;width:23px;height:23px;border-radius:4px;background:var(--sea);color:var(--c1);font-size:10px;font-weight:600}
+ .hall.en-volume .hall-reperes{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px;margin-top:12px;padding:6px;border:1px solid #e4ebe8;border-radius:16px;background:#f0f4f2}
+ .hall-reperes>button{display:flex;align-items:center;gap:9px;min-width:0;min-height:48px;padding:9px 11px;text-align:start;border:1px solid transparent;border-radius:11px;background:rgba(255,255,255,.7);color:var(--ink);font-size:12px;font-weight:550;line-height:1.4;transition:background .22s var(--ease),border-color .22s var(--ease),box-shadow .22s var(--ease),transform .22s var(--ease)}
+ .hall-reperes>button bdi{display:grid;place-items:center;flex:none;width:28px;height:28px;border-radius:8px;background:color-mix(in srgb,var(--c1) 9%,white);color:var(--c1);font-size:11px;font-weight:650;font-variant-numeric:tabular-nums;transition:background .22s,color .22s}
  .hall-reperes>button span{min-width:0;overflow-wrap:break-word}
- .hall-reperes>button[aria-pressed=true]{border-color:var(--c1);box-shadow:inset 0 -2px var(--c1)}
+ .hall-reperes>button[aria-pressed=true]{border-color:color-mix(in srgb,var(--c1) 40%,white);background:color-mix(in srgb,var(--c1) 7%,white);box-shadow:0 2px 7px rgba(23,63,82,.07)}
  .hall-reperes>button[aria-pressed=true] bdi{background:var(--c1);color:#fff}
  .hall.en-volume .hall-aide-deplacement{display:block;margin:0 0 8px;color:var(--muted);font-size:11.5px;line-height:1.6;text-align:start}
  .hall.en-volume .hall-pied{display:none}
@@ -1713,15 +1713,19 @@ html.lv .axes-cartes{grid-template-columns:1fr}
 
 /* Hall tactile : une alcôve à la fois, navigation native et panneaux à côté des portes. */
 .hall-position-mobile{display:none}
+.hall .hall-reperes>button:focus-visible{outline:2px solid var(--c1);outline-offset:-2px}
+@media(hover:hover) and (pointer:fine){.hall .hall-reperes>button:hover{background:color-mix(in srgb,var(--c1) 5%,white);border-color:color-mix(in srgb,var(--c1) 30%,white);transform:translateY(-1px);box-shadow:0 3px 9px rgba(23,63,82,.07)}}
+@media(forced-colors:active){.hall .hall-reperes>button{border-color:ButtonText}.hall .hall-reperes>button[aria-pressed=true]{border-color:Highlight;outline:2px solid Highlight;outline-offset:-2px}}
 @media(max-width:999px){
  .hall.en-mobile{display:flex;flex-direction:column;min-width:0;max-width:760px;width:100%;margin-inline:auto}
  .hall.en-mobile::before,.hall.en-mobile::after{content:none;animation:none}
  .hall.en-mobile .hall-tete{order:0;margin-bottom:12px}
- .hall.en-mobile .hall-reperes{order:1;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px;margin:0}
- .hall.en-mobile .hall-reperes>button{position:relative;display:grid;place-items:center;min-width:0;min-height:44px;padding:0;border:1px solid var(--line);border-radius:9px;background:var(--white);color:var(--c1);transition:background .18s,border-color .18s,box-shadow .18s;touch-action:manipulation}
- .hall.en-mobile .hall-reperes>button bdi{display:grid;place-items:center;width:100%;font:600 13px/1 var(--sans);font-variant-numeric:tabular-nums}
- .hall.en-mobile .hall-reperes>button span{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
- .hall.en-mobile .hall-reperes>button[aria-pressed=true]{border-color:var(--c1);background:color-mix(in srgb,var(--c1) 8%,var(--white));box-shadow:inset 0 -3px var(--c1)}
+ .hall.en-mobile .hall-reperes{order:1;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px;margin:0;padding:5px;border:1px solid #e4ebe8;border-radius:14px;background:#f0f4f2}
+ .hall.en-mobile .hall-reperes>button{position:relative;display:flex;align-items:center;gap:8px;min-width:0;min-height:44px;padding:8px 10px;border:1px solid transparent;border-radius:10px;background:rgba(255,255,255,.7);color:var(--ink);font:550 11.5px/1.4 var(--sans);text-align:start;transition:background .2s,border-color .2s,box-shadow .2s;touch-action:manipulation}
+ .hall.en-mobile .hall-reperes>button bdi{display:grid;place-items:center;flex:none;width:26px;height:26px;border-radius:7px;background:color-mix(in srgb,var(--c1) 9%,white);color:var(--c1);font:650 10.5px/1 var(--sans);font-variant-numeric:tabular-nums}
+ .hall.en-mobile .hall-reperes>button span{min-width:0;overflow-wrap:break-word}
+ .hall.en-mobile .hall-reperes>button[aria-pressed=true]{border-color:color-mix(in srgb,var(--c1) 40%,white);background:color-mix(in srgb,var(--c1) 7%,white);box-shadow:0 2px 6px rgba(23,63,82,.07)}
+ .hall.en-mobile .hall-reperes>button[aria-pressed=true] bdi{background:var(--c1);color:#fff}
  .hall.en-mobile .hall-guide-mobile{order:2;margin:10px 2px 12px;color:var(--muted);font-size:12px;line-height:1.5;text-align:start;hyphens:none}
  .hall.en-mobile .hall-espace{order:3;position:relative;min-width:0;overflow:hidden;border:1px solid #d7dfd7;border-radius:16px;background:linear-gradient(150deg,#f7f9f3,#e9eee7);box-shadow:0 14px 30px -25px rgba(25,50,37,.3)}
  .hall.en-mobile .hall-univers{position:relative;min-width:0;will-change:auto}
