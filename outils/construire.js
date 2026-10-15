@@ -387,12 +387,12 @@ const ICONES = {
 const icone = (nom) =>
   `<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICONES[nom]}</svg>`;
 
-function liste(items) {
+function liste(items, afficherThemes = false) {
   return `<ul class="liste">${items
     .map(
       (it) => `<li${it.cible ? ` data-axe-cible="${e(it.cible)}"` : ""}><span class="date">${e(it.date)}</span><div>${it.statut ? `<span class="statut">${e(it.statut)}</span>` : ""}<h4>${
         it.lien ? lien(it.lien, e(it.titre) + ' <span aria-hidden="true">↗</span>') : e(it.titre)
-      }</h4>${it.detail ? `<p>${e(it.detail)}</p>` : ""}</div></li>`
+      }</h4>${it.detail ? `<p>${e(it.detail)}</p>` : ""}${afficherThemes && it.etiquettes?.length ? etiquettes(it.etiquettes, "etiquettes publication-themes") : ""}</div></li>`
     )
     .join("")}</ul>`;
 }
@@ -713,6 +713,7 @@ function encadrementAvecLiens(c) {
 
 function travauxEnCours(c) {
   const r = c.recherche;
+  const themes = (THEMES_PUBLICATIONS[c.lang] || THEMES_PUBLICATIONS.fr).articles;
   return `<div class="travaux">
 <div class="travaux-tete"><h3>${e(r.travaux.titre)}</h3><p>${e(r.travaux.intro)}</p></div>
 <div class="travaux-grille">${r.travaux.items
@@ -723,7 +724,7 @@ function travauxEnCours(c) {
 <h4>${e(t.titre)}</h4>
 <p class="auteurs">${e(t.auteurs)}</p>
 ${t.resume ? `<p class="resume">${e(t.resume)}</p>` : ""}
-${t.etiquettes ? etiquettes(t.etiquettes) : ""}
+${etiquettes(t.etiquettes?.length ? t.etiquettes : (themes[i] || [t.domaine]))}
 </article>`
     )
     .join("")}</div>
@@ -1048,16 +1049,110 @@ ${extra}
 }
 
 const PUBLICATION_LABELS = {"fr":["Articles scientifiques","Affiches de congrès","Communications orales","Mémoires et thèse","Aucune communication orale répertoriée pour le moment.","Le projet doctoral est présenté séparément dans « Ma thèse ».","Voir ma thèse","Explorer les publications"],"en":["Research articles","Conference posters","Oral presentations","Dissertations and PhD","No oral presentations are listed at present.","The doctoral project is described separately under “My PhD”.","View my PhD","Explore publications"],"es":["Artículos científicos","Pósteres de congresos","Presentaciones orales","Memorias y tesis","Por el momento no hay presentaciones orales registradas.","El proyecto doctoral está presentado en « Mi tesis ».","Ver mi tesis","Explorar publicaciones"],"zh":["研究文章","会议海报","口头报告","学位论文与博士研究","目前尚未列出口头报告。","正在进行的博士研究项目另见“我的博士论文”栏目。","查看博士研究","浏览研究成果"],"ar":["المقالات العلمية","ملصقات المؤتمرات","العروض الشفوية","المذكرات وأطروحة الدكتوراه","لا توجد عروض شفوية مدرجة حالياً.","يمكن الاطلاع على مشروع الدكتوراه الجاري في قسم «أطروحتي».","عرض المشروع","استكشاف المنشورات"],"ru":["Научные статьи","Конференционные постеры","Устные доклады","Дипломные работы и диссертация","Устные доклады пока не указаны.","Докторский проект представлен отдельно в разделе «Моя диссертация».","Посмотреть проект","Публикации"]};
+
+/* Thèmes scientifiques harmonisés pour toutes les notices de publications.
+   Les titres, statuts et auteurs sont conservés dans les données sources ;
+   le manuscrit sur le retour épistémique garde ses mots-clés existants. */
+const THEMES_PUBLICATIONS = {
+  fr: {
+    articles: [
+      ["Hospitalisations évitables", "Expérience des patients", "Soins primaires"],
+      null,
+      ["Prise de parole médicale", "Débat public", "Politiques de santé"],
+      ["Droit de la santé", "Vieillissement à domicile", "Choix du lieu de vie"]
+    ],
+    affiches: ["Intégration des soins", "Vieillissement à domicile", "France–Québec"],
+    memoires: [
+      ["Vieillissement à domicile", "Politiques publiques", "Droit comparé"],
+      ["Handicap et vieillissement", "Adaptation des établissements", "Accompagnement"],
+      ["Autodétermination", "Pratiques éducatives", "Parcours de vie"]
+    ]
+  },
+  en: {
+    articles: [
+      ["Avoidable hospitalisations", "Patient experience", "Primary care"],
+      null,
+      ["Physicians' public voices", "Public debate", "Health policy"],
+      ["Health law", "Ageing at home", "Choice of residence"]
+    ],
+    affiches: ["Integrated care", "Ageing at home", "France–Quebec"],
+    memoires: [
+      ["Ageing at home", "Public policy", "Comparative law"],
+      ["Disability and ageing", "Care facility adaptation", "Support services"],
+      ["Self-determination", "Educational practices", "Life course"]
+    ]
+  },
+  es: {
+    articles: [
+      ["Hospitalizaciones evitables", "Experiencia del paciente", "Atención primaria"],
+      null,
+      ["Voz pública de los médicos", "Debate público", "Políticas de salud"],
+      ["Derecho sanitario", "Envejecer en casa", "Elección del lugar de vida"]
+    ],
+    affiches: ["Atención integrada", "Envejecimiento en casa", "Francia–Quebec"],
+    memoires: [
+      ["Envejecer en casa", "Políticas públicas", "Derecho comparado"],
+      ["Discapacidad y envejecimiento", "Adaptación institucional", "Acompañamiento"],
+      ["Autodeterminación", "Prácticas educativas", "Trayectorias vitales"]
+    ]
+  },
+  zh: {
+    articles: [
+      ["可避免住院", "患者体验", "初级卫生保健"],
+      null,
+      ["医生公共发声", "公共辩论", "卫生政策"],
+      ["卫生法", "居家养老", "居住地选择"]
+    ],
+    affiches: ["整合照护", "居家养老", "法国与魁北克"],
+    memoires: [
+      ["居家养老", "公共政策", "比较法"],
+      ["残障与老龄化", "机构服务适应", "支持服务"],
+      ["自我决定", "教育实践", "生命历程"]
+    ]
+  },
+  ar: {
+    articles: [
+      ["الاستشفاء الممكن تجنّبه", "تجربة المرضى", "الرعاية الأولية"],
+      null,
+      ["صوت الأطباء في المجال العام", "النقاش العام", "السياسات الصحية"],
+      ["القانون الصحي", "الشيخوخة في المنزل", "اختيار مكان العيش"]
+    ],
+    affiches: ["تكامل الرعاية", "الشيخوخة في المنزل", "فرنسا وكيبيك"],
+    memoires: [
+      ["الشيخوخة في المنزل", "السياسات العامة", "القانون المقارن"],
+      ["الإعاقة والتقدم في السن", "تكييف المؤسسات", "الدعم والمرافقة"],
+      ["تقرير المصير", "الممارسات التربوية", "مسار الحياة"]
+    ]
+  },
+  ru: {
+    articles: [
+      ["Предотвратимые госпитализации", "Опыт пациентов", "Первичная помощь"],
+      null,
+      ["Публичные выступления врачей", "Общественные дебаты", "Политика здравоохранения"],
+      ["Медицинское право", "Старение дома", "Выбор места проживания"]
+    ],
+    affiches: ["Интеграция помощи", "Старение дома", "Франция и Квебек"],
+    memoires: [
+      ["Старение дома", "Государственная политика", "Сравнительное право"],
+      ["Инвалидность и старение", "Адаптация учреждений", "Поддержка"],
+      ["Самоопределение", "Педагогические практики", "Жизненный путь"]
+    ]
+  }
+};
+
 function sectionPublications(c) {
  const s=c.publications, l=PUBLICATION_LABELS[c.lang]||PUBLICATION_LABELS.fr;
+ const themes=THEMES_PUBLICATIONS[c.lang]||THEMES_PUBLICATIONS.fr;
  const ids=['publication-articles','publication-affiches','publication-oraux','publication-memoires'], colors=['#327a66','#1f5a8a','#a0663b','#7a4a8c'];
  const nav='<nav class="publications-portes" aria-label="'+e(l[7])+'">'+l.slice(0,4).map((v,i)=>'<button type="button" class="publication-porte" style="--pub-c:'+colors[i]+'" data-publications-cible="'+ids[i]+'"><span class="publication-porte-mini" aria-hidden="true"><span class="publication-porte-vitre"></span><span class="publication-porte-soubassement"></span></span><span class="publication-porte-texte"><bdi>'+num(i)+'</bdi><strong>'+e(v)+'</strong></span></button>').join('')+'</nav>';
  const block=(id,html)=>'<section class="publication-bloc" id="'+id+'" tabindex="-1">'+html+'</section>';
- const group=(g,items)=>'<article class="groupe-carte"><div class="groupe-corps"><h3 class="titre-bloc titre-icone">'+e(g.titre)+'<span class="compte">'+items.length+'</span></h3>'+liste(items)+'</div></article>';
- const posters=s.groupes[0],memos=s.groupes[1],memItems=memos.items.map((it,j)=>j<2?{...it,cible:['memoire-domicile','memoire-ehpad'][j]}:it);
+ const group=(g,items)=>'<article class="groupe-carte"><div class="groupe-corps"><h3 class="titre-bloc titre-icone">'+e(g.titre)+'<span class="compte">'+items.length+'</span></h3>'+liste(items, true)+'</div></article>';
+ const posters=s.groupes[0],memos=s.groupes[1];
+ const posterItems=posters.items.map(it=>({...it,etiquettes:themes.affiches}));
+ const memItems=memos.items.map((it,j)=>({...it,...(j<2?{cible:['memoire-domicile','memoire-ehpad'][j]}:{}),etiquettes:themes.memoires[j]||[]}));
  return '<div class="section-corps pleine publications-page"><div class="colonne-texte"><p class="surtitre">'+e(s.surtitre)+'</p><h2>'+e(s.titre)+'</h2><p class="intro">'+e(s.intro)+'</p></div>'+nav+
  block(ids[0],travauxEnCours(c))+
- block(ids[1],'<h3 class="publication-titre">'+e(l[1])+'</h3><div class="groupes-grille">'+group(posters,posters.items)+'</div>')+
+ block(ids[1],'<h3 class="publication-titre">'+e(l[1])+'</h3><div class="groupes-grille">'+group(posters,posterItems)+'</div>')+
  block(ids[2],'<h3 class="publication-titre">'+e(l[2])+'</h3><p class="publication-vide">'+e(l[4])+'</p>')+
  block(ids[3],'<h3 class="publication-titre">'+e(l[3])+'</h3><div class="groupes-grille">'+group(memos,memItems)+'</div><p class="publication-these-note">'+e(l[5])+' <a href="#recherche">'+e(l[6])+' <span aria-hidden="true">→</span></a></p>')+'</div>';
 }
