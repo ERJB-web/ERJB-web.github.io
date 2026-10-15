@@ -178,7 +178,7 @@
     const restaurerHall = hallVolume && hallVolume.actif ? await hallVolume.approcher(porte) : null;
     porte.classList.add("ouverte");
     marquer(nom);
-    await attendre(400);
+    await attendre(restaurerHall ? 80 : 400);
 
     const r = $(".ouverture", porte).getBoundingClientRect();
     const passage = document.createElement("div");
@@ -512,6 +512,10 @@
       choix.forEach((b,i)=>b.setAttribute('aria-pressed',String(i===selection)));
       stations.forEach((s,i)=>{s.classList.toggle('selectionnee',i===selection);s.inert=mobile && i!==selection;});
       if (positionMobile) positionMobile.textContent = String(selection+1).padStart(2,'0') + ' / ' + String(stations.length).padStart(2,'0');
+      if(mobile && reperes && choix[selection]){
+        const cadre=reperes.getBoundingClientRect(), bouton=choix[selection].getBoundingClientRect();
+        if(bouton.left<cadre.left || bouton.right>cadre.right)reperes.scrollBy({left:bouton.left-cadre.left-(cadre.width-bouton.width)/2,behavior:calme.matches?'instant':'smooth'});
+      }
       hauteurMobile();
       demanderMemoire();
     };
