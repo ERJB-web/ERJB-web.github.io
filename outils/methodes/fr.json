@@ -1,0 +1,77 @@
+{
+  "intro": "Construire un devis, recueillir des données et choisir une stratégie d’analyse sont des décisions liées à la question de recherche. Les approches présentées ci-dessous en précisent les possibilités, les exigences et les limites.",
+  "items": [
+    {
+      "titre": "Études de cas : comprendre une organisation dans son contexte",
+      "texte": "L’étude de cas examine en profondeur un phénomène situé : organisation, territoire, politique ou dispositif. Le devis peut porter sur un cas, plusieurs cas ou des unités imbriquées ; sa force tient à l’articulation du phénomène et de son contexte.",
+      "reperes": [
+        ["Délimiter et sélectionner", "Expliciter l’unité d’analyse, les frontières temporelles et organisationnelles et la raison du choix des cas : cas typique, contrasté ou particulièrement informatif."],
+        ["Croiser les matériaux", "Articuler entretiens, documents, observations et données chiffrées. Construire une analyse de chaque cas, puis une comparaison transversale si le devis comporte plusieurs cas."],
+        ["Portée des conclusions", "Conserver une chaîne de preuves, examiner les explications rivales et décrire le contexte. La transférabilité repose sur le raisonnement analytique, sans présumer une représentativité statistique."]
+      ],
+      "etapes": ["Délimiter le cas", "Croiser les sources", "Analyser les mécanismes", "Discuter la transférabilité"],
+      "legende": "Une enquête contextualisée, avec des unités et une logique de comparaison explicites.",
+      "references": ["cas"]
+    },
+    {
+      "titre": "Entretiens qualitatifs : expériences, pratiques et logiques d’action",
+      "texte": "Les entretiens, notamment semi-dirigés, explorent le sens des expériences, les décisions et les pratiques. Un guide ouvert organise les thèmes tout en laissant place aux relances, aux imprévus et aux contradictions.",
+      "reperes": [
+        ["Échantillonnage raisonné", "Rechercher des perspectives pertinentes et contrastées. Ajuster le recrutement à la richesse informative, à la spécificité de l’échantillon et à la qualité du dialogue, plutôt qu’à un effectif universel."],
+        ["Recueil et analyse", "Prétester le guide, recueillir le consentement, documenter les conditions d’entretien et organiser transcription et pseudonymisation. Relier le codage aux extraits, par exemple dans une matrice de la Framework Method."],
+        ["Réflexivité et transparence", "Expliciter la position du chercheur, les relations d’enquête et les choix interprétatifs. COREQ soutient la transparence du compte rendu ; un entretien ne permet pas d’estimer une prévalence."]
+      ],
+      "etapes": ["Choisir les perspectives", "Conduire et documenter", "Coder et interpréter", "Discuter les contre-exemples"],
+      "legende": "Le matériau est produit dans une interaction : contexte et réflexivité font partie de l’analyse.",
+      "references": ["entretiens", "cadre", "coreq"]
+    },
+    {
+      "titre": "Conception et mise en œuvre de questionnaires",
+      "texte": "Une enquête par questionnaire traduit une question de recherche en mesures comparables. Elle articule population cible, stratégie d’échantillonnage, choix des questions et modalités d’administration, en ligne, par téléphone ou en présence.",
+      "reperes": [
+        ["Construire les mesures", "Définir les concepts, privilégier des items adaptés et préciser les périodes de référence. Pour une échelle nouvelle, examiner validité de contenu, structure et fidélité ; un questionnaire n’est pas automatiquement une échelle psychométrique."],
+        ["Prétester puis déployer", "Utiliser des entretiens cognitifs pour comprendre l’interprétation des questions, puis un pilote. Prévoir accessibilité, langues, durée, consentement, confidentialité et relances adaptées."],
+        ["Qualifier les estimations", "Documenter couverture, participation, non-réponse et données manquantes. Appliquer les pondérations lorsque le plan l’exige ; un grand effectif ne corrige pas à lui seul un biais de sélection."]
+      ],
+      "etapes": ["Définir et échantillonner", "Construire et prétester", "Administrer et suivre", "Analyser la qualité"],
+      "legende": "La qualité se construit avant, pendant et après l’administration du questionnaire.",
+      "references": ["questionnaires", "cognitif"]
+    },
+    {
+      "titre": "Analyse de données secondaires",
+      "texte": "L’analyse secondaire réutilise des données existantes — enquêtes, cohortes, données administratives ou bases institutionnelles — pour répondre à une question définie. Elle exige de comprendre pourquoi, auprès de qui et comment ces données ont été produites.",
+      "reperes": [
+        ["Adéquation des données", "Examiner population couverte, unité d’observation, calendrier, dictionnaire de variables et comparabilité. Distinguer un indicateur administratif d’une mesure directe du besoin ou de l’expérience."],
+        ["Préparation reproductible", "Documenter accès autorisé, nettoyage, recodages, appariements et exclusions. Tenir compte du plan d’enquête et des changements de définition ; tracer les transformations dans des scripts."],
+        ["Biais et transparence", "Examiner erreurs de mesure, données manquantes, sélection et confusion. RECORD précise le compte rendu des données de santé courantes ; leur disponibilité ne garantit ni représentativité ni identification causale."]
+      ],
+      "etapes": ["Évaluer l’adéquation", "Documenter la provenance", "Harmoniser et analyser", "Tester la robustesse"],
+      "legende": "Partir de la question et des conditions de production des données, puis expliciter les transformations.",
+      "references": ["secondaires", "record"]
+    },
+    {
+      "titre": "Inférence causale et évaluation quasi expérimentale",
+      "texte": "L’inférence causale vise l’effet d’une intervention ou d’une exposition par rapport à une alternative définie. Elle distingue la question causale de l’association observée et articule population, intervention, comparaison, temporalité et résultat.",
+      "reperes": [
+        ["Définir l’effet recherché", "Préciser l’estimand et le temps zéro ; expliciter les relations supposées dans un graphe causal (DAG). Selon la question, définir l’essai cible que les données permettraient d’émuler."],
+        ["Choisir une stratégie d’identification", "Discuter échangeabilité, positivité et cohérence. Standardisation, pondération ou autres ajustements dépendent des données ; les différences de différences exigent notamment des tendances parallèles plausibles."],
+        ["Examiner les alternatives", "Une série temporelle interrompue demande d’examiner tendance, saisonnalité, autocorrélation et événements concomitants. Analyses de sensibilité et limites de confusion résiduelle accompagnent l’interprétation."]
+      ],
+      "etapes": ["Formuler l’effet causal", "Expliciter les hypothèses", "Identifier et estimer", "Éprouver la sensibilité"],
+      "legende": "Une estimation causale dépend d’un devis et d’hypothèses défendables ; le modèle statistique intervient dans ce cadre.",
+      "references": ["causal", "series"]
+    },
+    {
+      "titre": "Analyse comparative des systèmes de santé : MSSD et MDSD",
+      "texte": "La comparaison met en relation gouvernance, financement, ressources, organisation des services et résultats. Les travaux de Carsten Anckar éclairent deux logiques de sélection des cas : most similar systems design (MSSD) et most different systems design (MDSD).",
+      "reperes": [
+        ["MSSD · Systèmes les plus similaires", "Comparer des systèmes proches sur des dimensions de contexte, mais différents sur le résultat étudié, afin d’examiner les différences organisationnelles ou politiques susceptibles de l’éclairer."],
+        ["MDSD · Systèmes les plus différents", "Comparer des systèmes contrastés présentant un résultat commun pour explorer les facteurs partagés susceptibles d’y contribuer. Ces logiques orientent la sélection ; elles ne constituent pas une randomisation."],
+        ["Comparer ce qui est comparable", "Justifier les pays ou territoires, harmoniser concepts, périodes et indicateurs, puis analyser mécanismes et trajectoires. Prendre en compte les différences internes, l’histoire des réformes et les limites d’une inférence à partir d’un petit nombre de systèmes."]
+      ],
+      "etapes": ["Définir le résultat", "Justifier MSSD ou MDSD", "Harmoniser les indicateurs", "Comparer les mécanismes"],
+      "legende": "La sélection raisonnée des systèmes sert une question explicative, au-delà d’un classement de performances.",
+      "references": ["comparaison", "systemes"]
+    }
+  ]
+}

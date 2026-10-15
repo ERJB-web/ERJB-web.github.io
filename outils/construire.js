@@ -13,6 +13,7 @@ const langue = (code) => LANGUES.find((l) => l.code === code);
 const ABREGE = require("./contenu-abrege");
 const AUTOCHTONES = JSON.parse(fs.readFileSync(path.join(__dirname, "i18n", "autochtones.json"), "utf8"));
 const METHODOLOGIE = require("./methodologie");
+const METHODES_AJOUTS = require("./methodes-ajouts");
 const MEDIATION = require("./enseignement-vulgarisation");
 const IA = require("./ia-recherche");
 const THESE = require("./these-rubriques");
@@ -740,11 +741,14 @@ function sectionAxes(c) {
 
 function sectionMethodes(c) {
   const a = c.approche;
+  const complement = METHODES_AJOUTS[c.lang];
+  const methodes = [...a.methodes.items, ...complement.items];
   return `<div class="section-corps pleine large">
 <div class="colonne-texte">
 <p class="surtitre">${e(c.hall.portes.methodes[0])}</p>
 <h2>${e(a.methodes.titre)}</h2>
 <p class="intro">${e(a.methodes.intro)}</p>
+<p class="methodes-intro">${e(complement.intro)}</p>
 <h3 class="titre-bloc">${e(a.piliers[1][0])}</h3><p>${e(a.piliers[1][1])}</p>
 <div class="boite-outils">
 <h3>${e(a.outils.titre)}</h3>
@@ -752,7 +756,7 @@ ${a.outils.groupes.map(([g, items]) => `<div class="groupe-outils"><p>${e(g)}</p
 </div>
 </div>
 <div class="colonne-outils">
-<div class="methodes">${a.methodes.items.map((m) => `<article class="methode"><div class="methode-texte"><h4>${e(m.titre)}</h4><p>${e(m.texte)}</p><ul class="methode-refs">${m.references.map((x) => `<li>${lienFinal(x)}</li>`).join("")}</ul></div><div class="methode-figures">${m.illustrations.map((il) => `<figure>${il.schema ? schemaDiscours(il.schema, il.legende) : `<a href="${e(il.page)}" target="_blank" rel="noopener"><img src="${e(il.src)}" alt="${e(il.legende)}" loading="lazy" referrerpolicy="no-referrer"></a>`}<figcaption>${e(il.legende)} <span class="source">${e(il.credit)}</span></figcaption></figure>`).join("")}</div></article>`).join("")}</div>
+<div class="methodes">${methodes.map((m) => `<article class="methode${m.etapes ? " methode-etendue" : ""}"><div class="methode-texte"><h4>${e(m.titre)}</h4><p>${e(m.texte)}</p>${m.reperes ? `<dl class="methode-reperes">${m.reperes.map(([titre, texte]) => `<dt>${e(titre)}</dt><dd>${e(texte)}</dd>`).join("")}</dl>` : ""}<ul class="methode-refs">${m.references.map((x) => `<li>${lienFinal(x)}</li>`).join("")}</ul></div><div class="methode-figures${m.etapes ? " methode-parcours" : ""}">${m.etapes ? `<figure><ol class="methode-etapes">${m.etapes.map((texte, i) => `<li><span aria-hidden="true">${num(i)}</span><strong>${e(texte)}</strong></li>`).join("")}</ol><figcaption>${e(m.legende)}</figcaption></figure>` : m.illustrations.map((il) => `<figure>${il.schema ? schemaDiscours(il.schema, il.legende) : `<a href="${e(il.page)}" target="_blank" rel="noopener"><img src="${e(il.src)}" alt="${e(il.legende)}" loading="lazy" referrerpolicy="no-referrer"></a>`}<figcaption>${e(il.legende)} <span class="source">${e(il.credit)}</span></figcaption></figure>`).join("")}</div></article>`).join("")}</div>
 </div>
 </div>`;
 }
