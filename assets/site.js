@@ -16,28 +16,19 @@
   const points = $$(".points span");
   let courante = null;
   let occupe = false;
-  const cleNavigation = 'eb-navigation-v1:' + location.pathname;
+  // Une entrée d’historique décrit une seule adresse et sa rubrique réelle.
+  try { sessionStorage.removeItem('eb-navigation-v1:' + location.pathname); } catch {}
+  if ('scrollRestoration' in history) history.scrollRestoration='manual';
   let memoirePrete = false, repriseEnCours = false, minuterieMemoire = 0, lectureAReprendre = null;
+  let numeroReprise=0, adresseEnAttente=false, minuterieAdresse=0;
 
-  // L'état reste dans cet onglet et dans son entrée d'historique.
+  // L’URL décide de la salle ; une sauvegarde d’une autre adresse est ignorée.
   function lireNavigation() {
-    const valide = etat => etat && etat.version === 1 && etat.chemin === location.pathname && etat.fragment === location.hash;
-    const entree = history.state && history.state.ebNavigation;
-    const navigation = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
-    if(navigation?.type==='reload'){
-      try {
-        const etat=JSON.parse(sessionStorage.getItem(cleNavigation));
-        if(valide(etat))return etat;
-      } catch {}
-    }
-    if (valide(entree)) return entree;
-    if(navigation?.type==='back_forward'){
-      try {
-        const etat=JSON.parse(sessionStorage.getItem(cleNavigation));
-        if(valide(etat))return etat;
-      } catch {}
-    }
-    return null;
+    const etat=history.state?.ebNavigation;
+    const destination=location.hash.slice(1).split('/')[0];
+    if(!etat || etat.version!==2 || etat.chemin!==location.pathname || etat.fragment!==location.hash)return null;
+    if(etat.libre)return etat.salle ? null : etat;
+    return ordre.includes(destination) ? (etat.salle===destination ? etat : null) : (!etat.salle ? etat : null);
   }
   const navigationInitiale = lireNavigation();
   const zoneNavigation = () => courante && salle && !salle.hidden ? contenu : racine.classList.contains('libre') ? $('main') : null;
@@ -46,7 +37,7 @@
     if (!memoirePrete || repriseEnCours || occupe) return;
     const zone = zoneNavigation();
     const etat = {
-      version:1, chemin:location.pathname, fragment:location.hash,
+      version:2, chemin:location.pathname, fragment:location.hash,
       salle:courante, libre:racine.classList.contains('libre'), page:scrollY,
       hall:hallVolume?.etat?.(), reprise:courante ? null : lectureAReprendre,
       lecture:salle && courante ? salle.scrollTop : 0,
@@ -60,7 +51,6 @@
       }) : [],
       details:zone ? $$('details:not(.menu)',zone).map(d=>d.open) : []
     };
-    try { sessionStorage.setItem(cleNavigation,JSON.stringify(etat)); } catch {}
     try {
       const precedent=history.state && typeof history.state==='object' ? history.state : {};
       history.replaceState({...precedent,ebNavigation:etat},'');
@@ -72,7 +62,43 @@
     minuterieMemoire=setTimeout(memoriserNavigation,160);
   }
 
+
+  // Inscrire la destination avant l’animation rend même un rechargement immédiat fiable.
+  function reserverNavigation(fragment, destination=fragment) {
+    numeroReprise++;repriseEnCours=false;
+    memoriserNavigation();
+    const hash=fragment ? '#'+fragment : '';
+    const precedent=history.state?.ebNavigation || {};
+    const etat={...precedent,version:2,chemin:location.pathname,fragment:hash,
+      salle:ordre.includes(destination)?destination:null,libre:false,page:scrollY,lecture:0,
+      menu:0,tables:[],details:[],reprise:null};
+    try {
+      history[location.hash===hash?'replaceState':'pushState']({ebNavigation:etat},'',location.pathname+location.search+hash);
+    } catch {}
+  }
+  function terminerNavigation() {
+    if(adresseEnAttente){adresseEnAttente=false;suivreAdresse();}
+    else memoriserNavigation();
+  }
+  function suivreAdresse() {
+    clearTimeout(minuterieAdresse);
+    if(occupe){adresseEnAttente=true;return;}
+    const etat=lireNavigation();
+    const [destination,repere]=location.hash.slice(1).split('/');
+    if(etat){reprendreNavigation(etat);return;}
+    const libre=racine.classList.contains('libre') && !courante;
+    reprendreNavigation({
+      salle:!libre && ordre.includes(destination)?destination:null,libre,
+      page:scrollY,lecture:0,ancre:libre?destination:repere || (!ordre.includes(destination)?destination:'')
+    });
+  }
+  function demanderAdresse() {
+    clearTimeout(minuterieAdresse);
+    minuterieAdresse=setTimeout(suivreAdresse,0);
+  }
+
   function reprendreNavigation(etat) {
+    const reprise=++numeroReprise;
     repriseEnCours=true;
     racine.classList.toggle('libre',!!etat.libre);
     const mode=$('[data-hall-mode]');
@@ -86,6 +112,13 @@
       document.querySelectorAll('body > main, body > header, body > footer').forEach(el=>{el.inert=true;});
       marquer(etat.salle);
       $('[data-retour]',salle).focus({preventScroll:true});
+    } else {
+      courante=null;
+      if(salle){salle.hidden=true;salle.classList.remove('visible');contenu.replaceChildren();}
+      document.body.classList.remove('salle-ouverte');
+      document.querySelectorAll('body > main, body > header, body > footer').forEach(el=>{el.inert=false;});
+      document.querySelectorAll('.porte.ouverte').forEach(p=>p.classList.remove('ouverte'));
+      marquer(null);hallVolume?.redessiner?.();signalerAudience();
     }
     const zone=zoneNavigation();
     const tables=zone ? $$('[data-onglets]',zone) : [];
@@ -96,6 +129,17 @@
       const bouton=propres(table).find(b=>sauve.rubrique ? b.dataset.rubrique===sauve.rubrique : b.dataset.volet===sauve.volet);
       if(bouton)bouton.click();
     });
+    const repere=location.hash.slice(1).split('/')[1];
+    const cibleRepere=repere && zone ? $$('.volet[data-rubrique],[data-axe-cible]',zone).find(el=>el.dataset.rubrique===repere || el.dataset.axeCible===repere) : null;
+    if(cibleRepere){
+      const parents=[];let panneau=cibleRepere.closest('.volet');
+      while(panneau && zone.contains(panneau)){parents.unshift(panneau);panneau=panneau.parentElement?.closest('.volet');}
+      parents.forEach(p=>{
+        const table=p.closest('[data-onglets]');
+        const bouton=table && $$('[role=tab]',table).find(b=>b.closest('[data-onglets]')===table && b.dataset.volet===p.dataset.volet);
+        bouton?.click();
+      });
+    }
     if(zone && Array.isArray(etat.details))$$('details:not(.menu)',zone).forEach((d,i)=>{if(typeof etat.details[i]==='boolean')d.open=etat.details[i];});
     let interrompue=false;
     const interrompre=ev=>{if(ev.isTrusted)interrompue=true;};
@@ -103,10 +147,14 @@
     gestes.forEach(n=>document.addEventListener(n,interrompre,{capture:true,passive:true}));
     const nombre=v=>Number.isFinite(v) ? Math.max(0,v) : 0;
     const placer=()=>{
-      if(interrompue)return;
+      if(interrompue || reprise!==numeroReprise)return;
       window.scrollTo({top:nombre(etat.page),left:0,behavior:'instant'});
       if(salle && courante)salle.scrollTo({top:nombre(etat.lecture),left:0,behavior:'instant'});
       if(onglets && Number.isFinite(etat.menu))onglets.scrollLeft=etat.menu;
+      if(etat.ancre){
+        const ancre=cibleRepere || document.getElementById(etat.ancre);
+        ancre?.scrollIntoView({block:'start',behavior:'instant'});
+      }
       if(Array.isArray(etat.tables))etat.tables.forEach((sauve,i)=>{
         const nav=tables[i] && $('.onglets',tables[i]);
         if(nav && Number.isFinite(sauve?.defilement))nav.scrollLeft=sauve.defilement;
@@ -114,7 +162,10 @@
     };
     requestAnimationFrame(()=>{
       placer();
-      requestAnimationFrame(()=>{placer();repriseEnCours=false;memoirePrete=true;demanderMemoire();});
+      requestAnimationFrame(()=>{
+        if(reprise!==numeroReprise)return;
+        placer();repriseEnCours=false;memoirePrete=true;memoriserNavigation();
+      });
     });
     if(document.fonts)document.fonts.ready.then(placer);
     addEventListener('load',placer,{once:true});
@@ -164,10 +215,11 @@
     const cible = groupe.sections.includes(nom) ? nom : groupe.sections[0];
     if (courante && groupeDe(courante) === groupe) return passerSous(cible);
     if (occupe) return;
+    reserverNavigation(cible);
     occupe = true;
     reduit = sansPassage();
     const porte = groupe.porte;
-    if (salle.classList.contains("visible")) await sortir(false);
+    if (salle.classList.contains("visible")) await sortir(false,false);
     const zoneEntree = hallVolume && hallVolume.actif ? hallVolume.scene : porte;
     const r0 = zoneEntree.getBoundingClientRect();
     if (r0.top < 70 || r0.bottom > innerHeight) {
@@ -211,7 +263,7 @@
     if (restaurerHall) restaurerHall();
     $("[data-retour]", salle).focus({ preventScroll: true });
     occupe = false;
-    demanderMemoire();
+    terminerNavigation();
   }
 
 
@@ -221,7 +273,6 @@
     const destination = parties[0];
     const repere = parties[1] || '';
     if (!ordre.includes(destination) || parties.length > 2 || (repere && !/^[a-z0-9-]+$/.test(repere)) || occupe) return;
-    const depart = courante;
     const libre = racine.classList.contains('libre');
     if (!libre) {
       await entrer(destination);
@@ -253,8 +304,8 @@
       if (repere || libre) cible.scrollIntoView({ block: 'start', behavior: sansPassage() ? 'auto' : 'smooth' });
     }
     if (memoriser && location.hash !== '#' + fragment) {
-      if (depart && location.hash.split('/')[0] !== '#' + depart) history.replaceState(null, '', '#' + depart);
-      history.pushState(null, '', '#' + fragment);
+      history.replaceState(history.state,'','#'+fragment);
+      memoriserNavigation();
     }
   }
 
@@ -264,18 +315,8 @@
     ev.preventDefault();
     ouvrirDestinationAxe(lien.getAttribute('href').slice(1));
   });
-  addEventListener('popstate', () => {
-    if(!memoirePrete || occupe)return;
-    const etat=history.state?.ebNavigation;
-    const destination=location.hash.slice(1).split('/')[0];
-    if(etat && etat.fragment===location.hash){
-      if(!ordre.includes(etat.salle) && courante)sortir(false).then(()=>reprendreNavigation(etat));
-      else reprendreNavigation(etat);
-      return;
-    }
-    if(ordre.includes(destination))reprendreNavigation({salle:destination,libre:false,page:scrollY,lecture:0});
-    else if(courante)sortir();
-  });
+  addEventListener('popstate',demanderAdresse);
+  addEventListener('hashchange',demanderAdresse);
 
   const onglets = salle && $(".salle-onglets", salle);
   function afficher(s) {
@@ -351,8 +392,9 @@
   // Petite porte : même transition que les grandes (la porte s’ouvre, on passe à travers).
   async function passerSous(x) {
     if (occupe || x === courante) return;
+    reserverNavigation(x);
     const bouton = onglets.querySelector(`[data-sous="${x}"]`);
-    if (!bouton) return afficher(x);
+    if (!bouton) {afficher(x);terminerNavigation();return;}
     occupe = true;
     reduit = sansPassage();
     bouton.classList.add("ouverte");
@@ -378,11 +420,13 @@
     if (!reduit && passage.animate) await Promise.race([passage.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 160, fill: "forwards" }).finished, attendre(200)]);
     passage.remove();
     occupe = false;
-    demanderMemoire();
+    terminerNavigation();
   }
 
-  async function sortir(rendreFocus = true) {
-    if (!courante) return;
+  async function sortir(rendreFocus = true, changerAdresse = true) {
+    if (!courante || (occupe && changerAdresse)) return;
+    if(changerAdresse)reserverNavigation('hall',null);
+    const dejaOccupe=occupe;occupe=true;
     const nom = courante;
     courante = null;
     salle.classList.remove("visible");
@@ -397,7 +441,8 @@
     marquer(null);
     if (rendreFocus) porte.focus({ preventScroll: true });
     if(rendreFocus)signalerAudience();
-    demanderMemoire();
+    occupe=dejaOccupe;
+    if(changerAdresse)terminerNavigation();
   }
 
   if (salle) {
@@ -431,8 +476,9 @@
     salle.scrollTop = 0;
   });
   $("[data-contact]", salle).addEventListener("click", async () => {
-    await sortir(false);
-    location.hash = "contact";
+    await sortir(false,false);
+    reserverNavigation("contact",null);
+    suivreAdresse();
   });
 
   }
@@ -689,6 +735,10 @@
     propres(".volet").forEach((v) => (v.hidden = v.dataset.volet !== onglet.dataset.volet));
     propres("[data-rubrique-select]").forEach((select) => (select.value = onglet.dataset.volet));
     synchroniserRubriques(table);
+    if(!repriseEnCours && courante && contenu.contains(onglet)){
+      if(onglet.dataset.rubrique)history.replaceState(history.state,'','#'+courante+'/'+onglet.dataset.rubrique);
+      memoriserNavigation();
+    }
     signalerAudience();
     const panneau=propres('.volet').find(v=>!v.hidden);
     if(table.dataset.navigation==='atelier' && panneau && panneau.animate && !sansPassage() && !repriseEnCours){
@@ -917,17 +967,8 @@
   requestAnimationFrame(async()=>{
     document.querySelectorAll('.porte.ouverte').forEach(p=>p.classList.remove('ouverte'));
     document.querySelectorAll('.passage').forEach(p=>p.remove());
-    if(navigationInitiale){
-      const cible=location.hash.slice(1).split('/')[0];
-      const sauvegarde=navigationInitiale.salle ? navigationInitiale : ordre.includes(cible) ? (navigationInitiale.reprise?.salle===cible ? navigationInitiale.reprise : {...navigationInitiale,salle:cible,tables:[],details:[]}) : {...navigationInitiale,reprise:null};
-      reprendreNavigation(sauvegarde);
-      return;
-    }
-    const fragment=location.hash.slice(1), destination=fragment.split('/')[0];
-    if(ordre.includes(destination)){
-      reprendreNavigation({salle:destination,libre:false,page:scrollY,lecture:0,porte:groupes.indexOf(groupeDe(destination))});
-      return;
-    }
+    if(navigationInitiale){reprendreNavigation(navigationInitiale);return;}
+    if(location.hash){suivreAdresse();return;}
     memoirePrete=true;
     demanderMemoire();
   });
