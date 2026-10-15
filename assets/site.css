@@ -1610,30 +1610,25 @@ html.lv .axes-cartes{grid-template-columns:1fr}
 @media(max-width:700px){.axes-cartes{grid-template-columns:minmax(0,1fr);gap:18px}.axes-introduction{margin-bottom:28px}.axe-carte{padding:21px 21px 0}.axe-carte-tete{margin-bottom:14px}.axe-carte h4{font-size:20px}.axes-famille+ .axes-famille{margin-top:30px}.axe-description{font-size:14px;margin-bottom:20px}.axe-associations a{min-height:64px}}
 @media(prefers-reduced-motion:reduce){.axe-carte{transition:none}.axe-carte:hover{transform:none}}
 
-/* Parcours en un coup d’œil : douze repères sobres, sans douze cadres. */
-.bande-accueil.bande-epuree{padding:30px 0 8px;border-radius:0;border-top:1px solid var(--line);background:transparent;color:var(--ink)}
-.bande-epuree .bande-titre{margin-bottom:24px;color:var(--muted);font-size:11px;letter-spacing:.1em}
-.bande-epuree .trajectoire{margin-bottom:34px}
-.bande-epuree .trajectoire::before{height:1px;top:5px;background:var(--line)}
-.bande-epuree .trajectoire li{padding-top:23px}
-.bande-epuree .trajectoire li:nth-child(n)::before{width:11px;height:11px;border:2px solid var(--green);background:var(--paper)}
-.bande-epuree .trajectoire-date{font-size:12px;color:var(--ink)}
-.bande-epuree .trajectoire-texte{font-size:12px;line-height:1.5;color:var(--muted)}
-.impact-ensembles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;padding-top:26px;border-top:1px solid var(--line)}
-.impact-ensemble{min-width:0}
-.impact-ensemble+ .impact-ensemble{padding-inline-start:26px;border-inline-start:1px solid var(--line)}
-.impact-ensemble h3{margin:0 0 22px;color:var(--green-deep);font:600 12px/1.5 var(--sans);letter-spacing:.02em;text-wrap:pretty}
-.impact-ensemble dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:22px;row-gap:24px;margin:0}
-.impact-ensemble dl>div{display:flex;flex-direction:column;min-width:0;gap:8px}
-.impact-ensemble dt{font-size:12px;line-height:1.5;color:var(--muted);max-width:180px;overflow-wrap:break-word}
-.impact-ensemble dd{order:-1;margin:0;color:var(--ink);font:600 clamp(28px,2.8vw,35px)/1.05 var(--sans);letter-spacing:-.05em;font-variant-numeric:tabular-nums}
-.impact-precisions{margin-top:26px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;line-height:1.7}
-.impact-precisions summary{cursor:pointer;width:fit-content;font-size:11px;text-decoration:underline;text-underline-offset:3px}
-.impact-precisions ul{padding-inline-start:20px;margin:14px 0 0;max-width:900px}
-.impact-precisions li+li{margin-top:6px}
-@media(max-width:900px){.impact-ensembles{grid-template-columns:minmax(0,1fr);gap:24px}.impact-ensemble+ .impact-ensemble{padding-inline-start:0;border-inline-start:0;border-top:1px solid var(--line);padding-top:22px}.impact-ensemble dl{grid-template-columns:repeat(4,minmax(0,1fr))}.impact-ensemble h3{margin-bottom:18px}}
-@media(max-width:600px){.impact-ensemble dl{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:20px}.impact-ensemble dt{font-size:12px}.impact-ensemble dd{font-size:30px}.bande-accueil.bande-epuree{padding:24px 0 0}.bande-epuree .trajectoire{margin-bottom:25px}}
-html.hc .bande-epuree,html.lv .bande-epuree{background:transparent;color:var(--ink)}
+/* Parcours : palette et frise d’origine, douze indicateurs organisés par thème. */
+.bande-restauree .impact-ensembles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;padding-top:26px;border-top:1px solid rgba(255,255,255,.22)}
+.bande-restauree .impact-ensemble{min-width:0}
+.bande-restauree .impact-ensemble+.impact-ensemble{padding-inline-start:26px;border-inline-start:1px solid rgba(255,255,255,.22)}
+.bande-restauree .impact-ensemble h3{margin:0 0 24px;color:#e6f1f6;font:600 12px/1.5 var(--sans);letter-spacing:.04em;text-wrap:pretty}
+.bande-restauree .impact-ensemble dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:22px;row-gap:26px;margin:0}
+.bande-restauree .impact-ensemble dl>div{display:flex;flex-direction:column;min-width:0;gap:9px}
+.bande-restauree .impact-ensemble dt{font-size:13px;line-height:1.5;color:#e6f1f6;max-width:190px;overflow-wrap:break-word}
+.bande-restauree .impact-ensemble dd{order:-1;margin:0;color:#f2c14e;font:400 clamp(32px,3vw,42px)/1.05 var(--serif);font-variant-numeric:tabular-nums}
+.bande-restauree .impact-ensemble dl>div:nth-child(4n+2) dd{color:#7fd1b9}
+.bande-restauree .impact-ensemble dl>div:nth-child(4n+3) dd{color:#8ec5ff}
+.bande-restauree .impact-ensemble dl>div:nth-child(4n+4) dd{color:#f5a65b}
+.bande-restauree .impact-precisions{margin-top:26px;padding-top:16px;border-top:1px solid rgba(255,255,255,.22);color:#dcecf3;font-size:12px;line-height:1.7}
+.bande-restauree .impact-precisions summary{cursor:pointer;width:fit-content;font-size:12px;text-decoration:underline;text-underline-offset:3px;color:#e6f1f6}
+.bande-restauree .impact-precisions ul{padding-inline-start:20px;margin:14px 0 0;max-width:900px}
+.bande-restauree .impact-precisions li+li{margin-top:6px}
+@media(max-width:900px){.bande-restauree .impact-ensembles{grid-template-columns:minmax(0,1fr);gap:24px}.bande-restauree .impact-ensemble+.impact-ensemble{padding-inline-start:0;border-inline-start:0;border-top:1px solid rgba(255,255,255,.22);padding-top:22px}.bande-restauree .impact-ensemble dl{grid-template-columns:repeat(4,minmax(0,1fr))}.bande-restauree .impact-ensemble h3{margin-bottom:18px}}
+@media(max-width:600px){.bande-restauree .impact-ensemble dl{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:22px}.bande-restauree .impact-ensemble dt{font-size:12px}.bande-restauree .impact-ensemble dd{font-size:34px}}
+
 
 
 /* Hall en volume : architecture continue, panneaux muraux et portes d'origine. */
