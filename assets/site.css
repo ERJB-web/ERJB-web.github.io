@@ -1641,62 +1641,58 @@ html.lv .axes-cartes{grid-template-columns:1fr}
 .hall-mode[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
 @media(min-width:1000px){
  .hall.en-volume::before,.hall.en-volume::after{content:none;animation:none}
- .hall.en-volume .hall-espace{position:relative;height:clamp(540px,52vw,650px);overflow:hidden;border:1px solid #d4dcd3;border-radius:14px;background:radial-gradient(ellipse at 50% 30%,#fafbf5,#e6eae0);perspective:1600px;perspective-origin:50% 52%;cursor:grab;touch-action:pan-y;box-shadow:0 15px 35px -30px rgba(32,47,32,.3)}
- .hall.en-volume .hall-univers{position:absolute;left:50%;top:50%;width:1580px;height:650px;transform-style:preserve-3d;transform:translate(-50%,-50%) translateZ(-160px) scale(.6);transition:transform .85s cubic-bezier(.25,.75,.2,1);pointer-events:none}
- .hall.en-volume .hall-espace.en-glissement .hall-univers,.hall.en-volume.en-marche .hall-univers{transition:none}
- .hall.en-volume .architecture-hall{display:block;position:absolute;inset:0;transform-style:preserve-3d;pointer-events:none}
- .hall.en-volume .paroi-hall{position:absolute;top:0;height:650px;backface-visibility:hidden;border:1px solid #d5dace;background-image:linear-gradient(180deg,rgba(255,255,255,.1),rgba(245,247,238,.08) 60%,rgba(102,117,92,.1)),url("photos/hall-architecture.webp");background-size:100% 100%,100% 220%;background-position:center,center 35%;box-shadow:inset 0 18px 24px -24px rgba(58,65,43,.4)}
- .hall.en-volume .paroi-hall::after{content:"";position:absolute;left:0;right:0;bottom:0;height:12px;background:linear-gradient(#b5c0ac 0 1px,#eef0e6 1px 7px,#cbd3c2);box-shadow:0 -1px 0 rgba(255,255,255,.7)}
- .hall.en-volume .paroi-fond{left:0;width:1580px;transform:translateZ(-560px)}
- .hall.en-volume .paroi-gauche{left:0;width:1240px;transform-origin:0 50%;transform:translateZ(680px) rotateY(90deg)}
- .hall.en-volume .paroi-droite{left:1580px;width:1240px;transform-origin:0 50%;transform:translateZ(-560px) rotateY(-90deg)}
- .hall.en-volume .dallage-hall{position:absolute;left:0;top:650px;width:1580px;height:1240px;transform-origin:50% 0;transform:translateZ(-560px) rotateX(90deg);backface-visibility:hidden;background-image:linear-gradient(180deg,rgba(130,144,112,.1),rgba(255,255,255,.14) 40%,rgba(130,144,112,.07)),url("photos/hall-architecture.webp");background-size:100% 100%,100% 500%;background-position:center,center bottom;box-shadow:inset 0 20px 30px -20px rgba(55,66,41,.35)}
- .hall.en-volume .dallage-hall::after{content:"";position:absolute;inset:0;background:linear-gradient(112deg,transparent 18%,rgba(255,255,255,.4) 23% 41%,transparent 46% 51%,rgba(255,255,255,.23) 56% 70%,transparent 76%);pointer-events:none}
- .hall.en-volume .plafond-hall{position:absolute;left:0;top:0;width:1580px;height:1240px;transform-origin:50% 0;transform:translateZ(680px) rotateX(-90deg);backface-visibility:hidden;background:linear-gradient(90deg,#e1e7da,#fcfdf5 23% 77%,#e1e7da);border:3px solid #d6dfce;box-shadow:inset 0 0 30px rgba(90,106,77,.08)}
- .hall.en-volume .verriere-hall{position:absolute;left:500px;top:2px;width:580px;height:1000px;transform-origin:50% 0;transform:translateZ(550px) rotateX(-90deg);backface-visibility:hidden;background:repeating-linear-gradient(0deg,transparent 0 188px,#d4e1d4 188px 196px),linear-gradient(90deg,#e3eee5,#fff 20% 80%,#e3eee5);border:10px solid #e3e9db;box-shadow:0 0 90px rgba(255,255,255,.85),inset 0 0 22px rgba(164,188,172,.17)}
- .hall.en-volume .portes{position:absolute;inset:0;display:block;transform-style:preserve-3d;pointer-events:none}
- .hall.en-volume .station-hall{position:absolute;display:block;left:var(--station-x);top:0;width:575px;height:650px;transform-origin:0 50%;transform:translateZ(var(--station-z)) rotateY(var(--station-angle));transform-style:preserve-3d;backface-visibility:hidden;pointer-events:none}
- .hall.en-volume .porte{position:absolute;left:20px;right:auto;top:250px;display:block;--largeur-porte:204px;width:204px;height:400px;min-height:0;margin:0;padding:0;border:0;border-radius:1px;background:transparent;box-shadow:none;isolation:auto;transform-style:preserve-3d;transform:translateZ(3px);transition:none;pointer-events:auto}
+ .hall.en-volume .hall-espace{position:relative;height:clamp(330px,42svh,370px);overflow:hidden;border:1px solid #d1d9d2;border-radius:12px;background:#eceee7;perspective:1800px;perspective-origin:50% 48%;cursor:grab;touch-action:pan-y;user-select:none;isolation:isolate;box-shadow:0 12px 30px -25px #2c3b3038}
+ .hall.en-volume .hall-espace::before,.hall.en-volume .hall-espace::after{content:"";position:absolute;z-index:3;top:0;bottom:0;width:16px;pointer-events:none}
+ .hall.en-volume .hall-espace::before{left:0;background:linear-gradient(90deg,#b3b8af50,transparent)}
+ .hall.en-volume .hall-espace::after{right:0;background:linear-gradient(-90deg,#b3b8af50,transparent)}
+ .hall.en-volume .hall-espace.en-glissement{cursor:grabbing}
+ .hall.en-volume .hall-espace:focus-visible{outline:2px solid var(--green);outline-offset:4px}
+ .hall.en-volume .hall-univers{position:absolute;inset:0;width:100%;height:100%;transform:none;transform-style:preserve-3d;pointer-events:none}
+ .hall.en-volume .architecture-hall{display:block;position:absolute;inset:0;pointer-events:none;transform:translateZ(-100px) scale(1.056);transform-origin:50% 48%;background:linear-gradient(180deg,#ffffff08,#fdfef809 80%,#c3cabf20),url("photos/hall-architecture.webp") var(--hall-lumiere,50%) 45%/cover}
+ .hall.en-volume .paroi-hall,.hall.en-volume .plafond-hall,.hall.en-volume .verriere-hall{display:none}
+ .hall.en-volume .dallage-hall{position:absolute;left:0;right:0;bottom:0;height:32px;background:linear-gradient(110deg,#ffffff55,transparent 60%),repeating-linear-gradient(100deg,transparent 0 150px,#9ba29322 151px 152px),linear-gradient(#d8dcd3,#eef0e8);border-top:5px solid #d4d9ce;box-shadow:0 -1px #adb7a2,inset 0 3px 10px #6b776820}
+ .hall.en-volume .portes{position:absolute;inset:0;display:block;margin:0;padding:0;transform-style:preserve-3d;pointer-events:none}
+ .hall.en-volume .station-hall{display:block;position:absolute;left:0;top:auto;bottom:32px;width:430px;height:298px;transform-origin:50% 100%;transform:translateX(var(--panorama-x,28px)) translateZ(var(--panorama-z,0px)) rotateY(var(--panorama-angle,0deg));transform-style:preserve-3d;backface-visibility:hidden;pointer-events:none}
+ .hall.en-volume .station-hall .porte{position:absolute;left:8px;right:auto;top:auto;bottom:0;display:block;width:124px;height:250px;--largeur-porte:124px;min-height:0;margin:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;isolation:auto;transform:translateZ(3px);transform-style:preserve-3d;transition:none;pointer-events:auto}
  .hall.en-volume .porte:hover,.hall.en-volume .porte:focus-visible{background:transparent;border:0;box-shadow:none;transform:translateZ(3px)}
  .hall.en-volume .porte::before{content:none}
- .hall.en-volume .porte::after{content:"";position:absolute;left:0;top:100%;width:204px;height:90px;transform-origin:50% 0;transform:rotateX(90deg);background:radial-gradient(ellipse at 45% 0,rgba(45,54,33,.25),transparent 76%);pointer-events:none}
- .hall.en-volume .porte .baie{position:relative;display:block;inset:auto;width:204px;height:400px;aspect-ratio:auto;overflow:visible;transform-style:preserve-3d;box-shadow:inset 1px 1px #fff,inset -1px -1px #a7b3a2,0 0 0 1px #aab5a6,3px 2px 7px rgba(44,56,32,.22)}
- .hall.en-volume .porte .baie::before{content:"";position:absolute;left:0;top:1px;width:10px;height:399px;transform-origin:0 50%;transform:rotateY(90deg);background:linear-gradient(90deg,#acb8a6,#edf1e6)}
+ .hall.en-volume .porte::after{content:"";position:absolute;left:0;top:100%;width:100%;height:20px;background:radial-gradient(ellipse at 50% 0,#2c362f40,transparent 73%);pointer-events:none}
+ .hall.en-volume .porte .baie{position:relative;display:block;inset:auto;width:100%;height:100%;aspect-ratio:auto;overflow:visible;transform-style:preserve-3d;box-shadow:inset 1px 1px #fff,inset -1px -1px #a7b3a2,0 0 0 1px #aab5a6,3px 2px 6px #2c382b36}
  .hall.en-volume .porte .ouverture{overflow:visible;transform-style:preserve-3d}
- .hall.en-volume .porte .battant{transform-style:preserve-3d}
+ .hall.en-volume .porte .battant{transform-style:preserve-3d;transition:transform .55s var(--ease)}
  .hall.en-volume .porte .porte-texte{display:none}
- .hall.en-volume .porte:hover:not(.ouverte) .battant{transform:rotateY(-12deg)}
  .hall.en-volume .porte.ouverte .battant{transform:rotateY(-82deg)}
- .hall.en-volume .porte:focus-visible .baie{outline:3px solid var(--c1);outline-offset:7px}
- .hall.en-volume .panneau-hall{position:absolute;display:block;left:260px;top:220px;width:300px;max-height:425px;overflow:auto;padding:20px;border:1px solid #d5dcd1;border-radius:5px;background:rgba(253,254,250,.97);box-shadow:2px 3px 5px rgba(48,61,36,.15),inset 0 1px #fff;transform:translateZ(8px);backface-visibility:hidden;pointer-events:auto;text-align:start;scrollbar-width:thin}
- .hall.en-volume .panneau-hall h3{margin:0 0 12px;color:var(--ink);font:600 19px/1.3 var(--sans);text-wrap:pretty}
- .hall.en-volume .panneau-hall h3 button{display:flex;align-items:flex-start;gap:9px;width:100%;font:inherit;text-align:start}
- .hall.en-volume .panneau-hall h3 bdi{display:inline-grid;place-items:center;flex:none;min-width:27px;height:27px;border-radius:6px;background:var(--c1);color:#fff;font:600 12px/1 var(--sans)}
+ .hall.en-volume .porte:focus-visible .baie{outline:3px solid var(--c1);outline-offset:5px}
+ .hall.en-volume .panneau-hall{position:absolute;display:block;left:150px;top:8px;width:270px;max-height:284px;overflow:auto;padding:14px;border:1px solid #d4d9ce;border-top:2px solid color-mix(in srgb,var(--c1) 45%,#fff);border-radius:5px;background:#fffffbef;box-shadow:1px 3px 6px #303d241a,inset 0 1px #fff;transform:translateZ(5px);backface-visibility:hidden;pointer-events:auto;text-align:start;scrollbar-width:thin}
+ .hall.en-volume .panneau-hall h3{margin:0 0 9px;color:var(--ink);font:600 15px/1.3 var(--sans);text-wrap:pretty}
+ .hall.en-volume .panneau-hall h3 button{display:flex;align-items:flex-start;gap:8px;width:100%;font:inherit;text-align:start}
+ .hall.en-volume .panneau-hall h3 bdi{display:grid;place-items:center;flex:none;width:24px;height:25px;border-radius:5px;background:var(--c1);color:#fff;font:600 11px/1 var(--sans)}
  .hall.en-volume .panneau-hall h3 span{min-width:0;overflow-wrap:break-word}
- .hall.en-volume .panneau-hall>p{margin:0 0 14px;color:var(--muted);font-size:13px;line-height:1.5;text-align:start;hyphens:none}
- .hall.en-volume .sous-portes-murales{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;min-width:0}
- .hall.en-volume .sous-portes-murales>button,.hall.en-volume .sous-portes-murales>a{display:flex;align-items:center;gap:4px;min-width:0;min-height:32px;padding:4px 5px;border:1px solid var(--line);border-radius:2px;background:var(--white);color:var(--ink);font-size:13px;font-weight:500;line-height:1.35;text-align:start;text-decoration:none;overflow-wrap:break-word}
- .hall.en-volume .sous-portes-murales>button::before,.hall.en-volume .sous-portes-murales>a::before{content:"";flex:none;width:2px;height:12px;border-radius:1px;background:var(--c1)}
+ .hall.en-volume .panneau-hall>p{margin:0 0 10px;color:var(--muted);font-size:11.5px;line-height:1.5;text-align:start;hyphens:none}
+ .hall.en-volume .sous-portes-murales{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;min-width:0}
+ .hall.en-volume .sous-portes-murales>button,.hall.en-volume .sous-portes-murales>a{display:flex;align-items:center;gap:5px;min-width:0;min-height:34px;padding:5px 6px;border:1px solid var(--line);border-radius:3px;background:#fff;color:var(--ink);font:500 11.5px/1.35 var(--sans);text-align:start;text-decoration:none;overflow-wrap:break-word}
+ .hall.en-volume .sous-portes-murales>button::before,.hall.en-volume .sous-portes-murales>a::before{content:"";flex:none;width:2px;height:13px;border-radius:1px;background:var(--c1)}
  .hall.en-volume .sous-portes-murales>:last-child:nth-child(odd){grid-column:1/-1}
- .hall.en-volume .sous-portes-murales>button:hover,.hall.en-volume .sous-portes-murales>a:hover{border-color:var(--c1)}
+ .hall.en-volume .sous-portes-murales>button:hover,.hall.en-volume .sous-portes-murales>a:hover{border-color:var(--c1);background:color-mix(in srgb,var(--c1) 5%,#fff)}
  .hall.en-volume .sous-portes-murales>:focus-visible{outline-color:var(--c1)}
- .hall.en-volume .hall-commandes{display:flex;align-items:center;gap:8px;position:absolute;left:50%;bottom:15px;transform:translateX(-50%);padding:5px;background:rgba(255,255,255,.92);border:1px solid #d3ddcf;border-radius:25px;box-shadow:0 3px 12px rgba(32,55,28,.07)}
- .hall-commandes>button{display:flex;align-items:center;justify-content:center;gap:7px;min-width:32px;min-height:32px;padding:5px 10px;border-radius:20px;font-size:11px;line-height:1.3}
+ .hall.en-volume .hall-commandes{display:flex;align-items:center;gap:5px;position:absolute;right:12px;bottom:4px;padding:2px 4px;border:1px solid #c7d1c3;border-radius:20px;background:#fffffff0;box-shadow:0 2px 6px #1e392512}
+ .hall-commandes>button{display:flex;align-items:center;justify-content:center;gap:6px;min-width:30px;min-height:25px;padding:3px 8px;border-radius:20px;font-size:10px;line-height:1.3}
  .hall-commandes>button:hover{background:var(--sea)}
- .hall.en-volume .hall-reperes{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin-top:13px}
- .hall-reperes>button{display:flex;align-items:center;gap:8px;min-width:0;min-height:54px;padding:10px;text-align:start;border:1px solid var(--line);border-radius:8px;background:var(--white);color:var(--ink);font-size:12px;line-height:1.4}
+ .hall.en-volume .hall-position-mobile{display:inline-block;min-width:40px;font-size:10px;text-align:center;direction:ltr}
+ .hall.en-volume .hall-reperes{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin-top:9px}
+ .hall-reperes>button{display:flex;align-items:center;gap:7px;min-width:0;min-height:44px;padding:7px 9px;text-align:start;border:1px solid var(--line);border-radius:7px;background:var(--white);color:var(--ink);font-size:11.5px;line-height:1.35}
  .hall-reperes>button bdi{display:grid;place-items:center;flex:none;width:23px;height:23px;border-radius:4px;background:var(--sea);color:var(--c1);font-size:10px;font-weight:600}
  .hall-reperes>button span{min-width:0;overflow-wrap:break-word}
  .hall-reperes>button[aria-pressed=true]{border-color:var(--c1);box-shadow:inset 0 -2px var(--c1)}
  .hall-reperes>button[aria-pressed=true] bdi{background:var(--c1);color:#fff}
+ .hall.en-volume .hall-aide-deplacement{display:block;margin:0 0 8px;color:var(--muted);font-size:11.5px;line-height:1.6;text-align:start}
  .hall.en-volume .hall-pied{display:none}
- .hall.en-volume.en-marche .hall-commandes{opacity:0;pointer-events:none;transition:opacity .15s}
+ .hall.en-volume.en-marche .hall-commandes{opacity:0;pointer-events:none}
  .hall.en-volume.en-marche .hall-reperes{pointer-events:none}
  html[dir=rtl] .hall-univers{direction:ltr}
  html[dir=rtl] .panneau-hall{direction:rtl}
 }
 @media(min-width:1000px) and (max-width:1120px){.hall.en-volume .hall-reperes{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(prefers-reduced-motion:reduce){.hall.en-volume .hall-univers{transition:none}}
 
 /* Hall tactile : une alcôve à la fois, navigation native et panneaux à côté des portes. */
 .hall-position-mobile{display:none}
@@ -1913,36 +1909,11 @@ html:is(.hc,.lv) .rubriques[data-navigation=atelier] :is(.rubriques-console,.rub
 /* Seul un clic ouvre une porte. Le déplacement ne change jamais de rubrique. */
 .hall .porte:not(.ouverte) .battant{transform:none!important}
 .hall .porte:not(.ouverte):hover .apercu{opacity:0}
-.hall-aide-deplacement,.hall-personnage,.hall-cible,.hall-marche-commandes{display:none}
+.hall-aide-deplacement{display:none}
 .hall-reprise{display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;width:fit-content;max-width:100%;min-height:44px;margin:0 0 14px;padding:11px 16px;border:1px solid #a6c4b4;border-radius:10px;background:#f0f7f2;color:var(--ink);text-align:start;font-size:12px;line-height:1.5}
 .hall-reprise strong{font-weight:600;overflow-wrap:anywhere}
 .hall-reprise>span:last-child{margin-inline-start:auto;color:var(--green)}
-@media(min-width:1000px){
- .hall.en-volume.en-promenade .hall-univers{top:52%;transition:none}
- .hall.en-volume .hall-aide-deplacement{display:block;margin:0 0 14px;color:var(--muted);font-size:12px;line-height:1.7;text-align:start}
- .hall.en-volume .hall-espace{height:650px;touch-action:pan-y;user-select:none}
- .hall.en-volume .hall-espace:focus-visible{outline:2px solid var(--green);outline-offset:4px}
- .hall.en-volume .hall-personnage{display:block;position:absolute;top:490px;left:790px;width:120px;height:180px;transform-origin:50% 100%;transform-style:preserve-3d;pointer-events:none;transition:opacity .16s}
- .hall-personnage::before{content:"";position:absolute;left:19%;bottom:19px;width:62%;height:22px;border-radius:50%;background:radial-gradient(ellipse,rgba(35,45,30,.3),transparent 70%);transform:rotateX(70deg);transform-origin:center bottom}
- .hall-personnage-sprite{display:block;position:absolute;inset:0;background-image:url("personnage-hall.png");background-repeat:no-repeat;background-size:300% 200%;background-position:0 0;filter:drop-shadow(2px 2px 2px rgba(35,45,30,.08));transform-origin:50% 100%}
- .en-deplacement .hall-personnage-sprite{animation:pas-hall .64s steps(1,end) infinite}
- .hall-personnage.marche-recul .hall-personnage-sprite{background-position-y:92%}
- .hall-personnage.vers-gauche .hall-personnage-sprite{transform:scaleX(-1)}
- .hall.en-volume .hall-cible{display:block;position:absolute;top:650px;width:42px;height:42px;border:2px solid #3c8373;border-radius:50%;background:rgba(75,140,115,.12);transform-origin:center;pointer-events:none;box-shadow:0 0 0 6px rgba(245,255,247,.35)}
- .hall.en-volume .hall-marche-commandes{display:grid;grid-template-columns:repeat(3,38px);grid-template-rows:repeat(2,38px);gap:4px;position:absolute;left:16px;bottom:16px;padding:6px;border:1px solid #cfdbd0;border-radius:14px;background:rgba(255,255,255,.9);box-shadow:0 6px 16px rgba(25,50,35,.06);direction:ltr}
- .hall-marche-commandes button{display:grid;place-items:center;min-width:38px;min-height:38px;border:1px solid #d6e1d9;border-radius:8px;background:#fff;color:var(--ink);font-size:18px;touch-action:none}
- .hall-marche-commandes button:active{background:#e8f2eb;border-color:var(--green)}
- .hall-marche-commandes [data-hall-marcher=avant]{grid-column:2;grid-row:1}
- .hall-marche-commandes [data-hall-marcher=gauche]{grid-column:1;grid-row:2}
- .hall-marche-commandes [data-hall-marcher=arriere]{grid-column:2;grid-row:2}
- .hall-marche-commandes [data-hall-marcher=droite]{grid-column:3;grid-row:2}
- .hall.en-volume.en-marche .hall-personnage,.hall.en-volume.en-marche .hall-marche-commandes{opacity:0;pointer-events:none}
- .hall.en-volume .panneau-hall{user-select:text}
- .hall.en-volume .hall-espace.en-glissement{cursor:grabbing}
-}
-@keyframes pas-hall{0%,100%{background-position-x:0}33.334%{background-position-x:50%}66.667%{background-position-x:100%}}
 @media(max-width:999px){.hall.en-mobile .hall-reprise{order:0;width:100%;font-size:12px}}
-@media(prefers-reduced-motion:reduce){.en-deplacement .hall-personnage-sprite{animation:none}.hall-personnage{transition:none}}
 .edition-linguistique{max-width:1224px;margin:24px auto 0;padding:20px 24px;border:1px solid var(--line);border-inline-start:3px solid var(--green);border-radius:8px;background:var(--white);color:var(--body)}
 .edition-linguistique-tete{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:12px}
 .edition-linguistique h2{margin:0;color:var(--ink);font:500 23px/1.5 var(--sans)}
@@ -1965,35 +1936,6 @@ html:is(.hc,.lv) .rubriques[data-navigation=atelier] :is(.rubriques-console,.rub
 .menu-panneau [aria-current] .langue-statut{color:rgba(255,255,255,.8)}
 .menu-panneau a>span:last-child,.menu-panneau [aria-current]>span:last-child{min-width:0;overflow-wrap:anywhere}
 
-/* Hall guidé : cadrage stable, signalétique lisible et commandes bornées. */
-@media(min-width:1000px){
- .hall.en-volume.en-promenade .hall-espace{height:clamp(340px,50svh,430px);perspective:1600px;perspective-origin:50% 50%;background:#eef1ed;overflow:hidden;isolation:isolate}
- .hall.en-volume.en-promenade .hall-univers{inset:0;left:0;top:0;width:100%;height:100%;transform:none;transition:transform .36s}
- .hall.en-volume.en-promenade .architecture-hall{inset:0;background:linear-gradient(90deg,rgba(240,244,239,.22),rgba(255,255,255,.1)),url('photos/hall-architecture.webp') center 46%/cover}
- .hall.en-volume.en-promenade .paroi-hall,.hall.en-volume.en-promenade .plafond-hall,.hall.en-volume.en-promenade .verriere-hall{display:none}
- .hall.en-volume.en-promenade .dallage-hall{left:0;top:auto;bottom:0;width:100%;height:68px;transform:none;background:linear-gradient(180deg,#d8ded5,#f1f3ed);box-shadow:inset 0 1px #b9c4b4}
- .hall.en-volume.en-promenade .station-hall{left:50%;top:auto;bottom:68px;width:620px;height:330px;transform-origin:50% 100%;transform:translateX(-50%) translateX(var(--promenade-x)) translateZ(var(--promenade-z)) rotateY(var(--promenade-angle)) scale(var(--promenade-echelle));transition:transform .28s cubic-bezier(.2,.7,.2,1);opacity:1}
- .hall.en-volume.en-promenade.en-deplacement .station-hall,.hall.en-volume.en-promenade.en-glissement .station-hall{transition:none}
- .hall.en-volume.en-promenade .station-hall .porte{top:30px;left:18px;width:153px;height:300px;--largeur-porte:153px}
- .hall.en-volume.en-promenade .porte .baie{width:100%;height:100%}
- .hall.en-volume.en-promenade .porte .baie::before{height:calc(100% - 1px)}
- .hall.en-volume.en-promenade .porte::after{width:100%;height:60px}
- .hall.en-volume.en-promenade .panneau-hall{left:210px;top:12px;width:390px;max-height:316px;padding:16px;border-radius:9px;background:rgba(255,255,253,.97);box-shadow:0 3px 12px #243b2320}
- .hall.en-volume.en-promenade .hall-personnage{position:absolute;left:49%;top:auto;bottom:8px;width:56px;height:84px;transform:none!important;z-index:6;filter:drop-shadow(0 6px 3px #26382018)}
- .hall.en-volume.en-promenade .hall-personnage::before{bottom:0}
- .hall.en-volume.en-promenade .hall-marche-commandes{bottom:16px;left:18px}
- .hall.en-volume.en-promenade .hall-commandes{left:auto;right:16px;bottom:16px;transform:none}
- .hall.en-volume.en-promenade .hall-position-mobile{display:inline;font-size:12px;min-width:45px;text-align:center}
- .hall.en-volume.en-promenade .hall-cible{display:none!important}
- .hall.en-volume.en-promenade .hall-aide-deplacement{margin-bottom:8px}
- .hall.en-volume.en-promenade .hall-reperes{gap:6px;margin-top:9px}
- .hall.en-volume.en-promenade .hall-reperes>button{min-height:44px;padding:7px 9px;font-size:11.5px}
- .hall.en-volume.en-promenade .hall-marche-commandes{grid-template-columns:repeat(3,32px);grid-template-rows:repeat(2,32px);gap:3px;padding:4px}
- .hall.en-volume.en-promenade .hall-marche-commandes button{min-width:32px;min-height:32px;font-size:16px}
- .hall.en-volume.en-promenade .panneau-hall h3{font-size:18px;margin-bottom:9px}
- .hall.en-volume.en-promenade .panneau-hall>p{font-size:12px;margin-bottom:10px}
-}
-
 /* Ateliers documentés : lecture progressive, schémas de raisonnement et cas interactifs. */
 .atelier-pratique{--accent:#28796b;max-width:1060px;margin:auto;text-align:start}.atelier-ia{--accent:#3f6f8f}.atelier-enseignement{--accent:#67823e}.atelier-pratique>header{padding:28px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(125deg,color-mix(in srgb,var(--accent) 9%,white),#fff)}.atelier-pratique h3{font-size:clamp(26px,3vw,36px);line-height:1.2}.atelier-pratique p{line-height:1.8;text-wrap:pretty;hyphens:none}.atelier-telecharger{display:inline-block;margin-top:10px;font-size:14px;color:var(--accent)}
 .atelier-chaine{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:0;margin:28px 0}.atelier-chaine li{position:relative;min-width:0;padding:20px 16px;border-top:3px solid var(--accent);background:color-mix(in srgb,var(--accent) 6%,white);border-radius:3px 3px 12px 12px}.atelier-chaine li:not(:last-child)::after{content:'→';position:absolute;right:-14px;top:20px;color:var(--accent);z-index:1}.atelier-chaine li>span{font-size:12px;letter-spacing:.12em;color:var(--accent)}.atelier-chaine h4{font:600 17px/1.4 var(--sans);margin:13px 0 7px}.atelier-chaine p{font-size:14px;margin:0}
@@ -2005,4 +1947,4 @@ html:is(.hc,.lv) .rubriques[data-navigation=atelier] :is(.rubriques-console,.rub
 
 /* Hall mobile compact : sélection sur une ligne, sous-catégories toujours accessibles. */
 @media(max-width:999px){.hall.en-mobile .hall-reperes{display:flex;gap:7px;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;overscroll-behavior-x:contain}.hall.en-mobile .hall-reperes>button{flex:0 0 auto;max-width:185px;min-height:44px;scroll-snap-align:center}.hall.en-mobile .station-hall{min-height:280px;padding:16px 12px 44px;gap:10px}.hall.en-mobile .sous-portes-murales{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}.hall.en-mobile .sous-portes-murales>button,.hall.en-mobile .sous-portes-murales>a{padding:6px;font-size:11.5px;min-height:44px}.hall.en-mobile .sous-portes-murales>:last-child:nth-child(odd){grid-column:1/-1}.hall.en-mobile .station-hall .porte{height:clamp(180px,45vw,265px)}.hall.en-mobile .hall-guide-mobile{margin:6px 2px 8px}.hall.en-mobile .portes{transition:height .16s ease}}
-@media(prefers-reduced-motion:reduce){.hall.en-volume.en-promenade .station-hall,.hall.en-volume.en-promenade .hall-univers,.hall.en-mobile .portes{transition:none}}
+@media(prefers-reduced-motion:reduce){.hall.en-mobile .portes{transition:none}}

@@ -521,7 +521,7 @@
     };
     const choisir = index => {
       if (occupe) return;
-      selection = (index+stations.length)%stations.length;
+      selection = Math.max(0,Math.min(stations.length-1,index));
       vueLarge = false; regardX = 0; regardY = 0;
       marquerChoix(); demander();
       defilerMobile();
