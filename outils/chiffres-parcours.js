@@ -30,8 +30,8 @@ module.exports = {
       "séjours adaptés dirigés pour des personnes en situation de handicap"
     ],
     [
-      "≈30",
-      "rapports et outils professionnels ANAP auxquels j’ai contribué"
+      "30",
+      "membres experts du réseau médico-social auquel j’ai contribué"
     ],
     [
       "1 000",
@@ -64,8 +64,8 @@ module.exports = {
       "adapted holiday stays directed for people with disabilities"
     ],
     [
-      "≈30",
-      "ANAP professional reports and tools to which I contributed"
+      "30",
+      "expert members of the medico-social network to which I contributed"
     ],
     [
       "1,000",
@@ -98,8 +98,8 @@ module.exports = {
       "estancias adaptadas dirigidas para personas con discapacidad"
     ],
     [
-      "≈30",
-      "informes y herramientas profesionales de ANAP a los que contribuí"
+      "30",
+      "miembros expertos de la red médico-social a la que contribuí"
     ],
     [
       "1 000",
@@ -132,8 +132,8 @@ module.exports = {
       "次面向残障人士的适应性度假活动，由我负责组织管理"
     ],
     [
-      "≈30",
-      "份我参与编制的 ANAP 专业报告与工具"
+      "30",
+      "位我参与建设的医疗社会服务网络专家成员"
     ],
     [
       "1 000",
@@ -166,8 +166,8 @@ module.exports = {
       "إقامة مكيّفة للأشخاص ذوي الإعاقة تولّيت إدارتها"
     ],
     [
-      "≈30",
-      "تقريرًا وأداة مهنية لوكالة ANAP ساهمت في إعدادها"
+      "30",
+      "عضوًا خبيرًا في الشبكة الطبية الاجتماعية التي ساهمت فيها"
     ],
     [
       "1 000",
@@ -200,8 +200,8 @@ module.exports = {
       "адаптированных программ отдыха для людей с инвалидностью под моим руководством"
     ],
     [
-      "≈30",
-      "профессиональных отчётов и инструментов ANAP, в создании которых я участвовал"
+      "30",
+      "экспертных участников медико-социальной сети, в работу которой я внёс вклад"
     ],
     [
       "1 000",
