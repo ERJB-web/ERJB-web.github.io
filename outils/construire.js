@@ -32,8 +32,6 @@ const empreinte = (fichier) => require("crypto").createHash("sha256").update(fs.
 const VERSION_CSS = empreinte("assets/site.css");
 const VERSION_JS = empreinte("assets/site.js");
 const VERSION_ICONE = empreinte("assets/favicon.svg");
-const VERSION_LOGO = empreinte("assets/logo.svg");
-const logoMarque = (p) => `<span class="marque-mono"><img src="${p}assets/logo.svg?v=${VERSION_LOGO}" alt="EB" width="48" height="48"></span>`;
 const URL = "https://erjb-web.github.io/";
 const TELEPHONE = ["(263) 384-3050", "+12633843050"];
 const GROUPES = [
@@ -1237,7 +1235,7 @@ ${LANGUES.filter((l) => l.hreflang).map((l) => `<link rel="alternate" hreflang="
 <body>
 <a class="evitement" href="#contenu">${e(c.ui.evitement)}</a>
 <header class="entete">
-<a class="marque" href="${p || "./"}">${logoMarque(p)}<span class="marque-domaines">${e(c.ui.sousTitre)}</span></a>
+<a class="marque" href="${p || "./"}"><span class="marque-domaines">${e(c.ui.sousTitre)}</span></a>
 <p class="coordonnees coordonnees-haut"><a href="mailto:${e(c.contact.courriel)}">${icone("enveloppe")}${e(c.contact.courriel)}</a><a href="tel:${TELEPHONE[1]}">${icone("telephone")}${TELEPHONE[0]}</a></p>
 <nav class="nav" aria-label="${e(c.ui.navigation)}">${GROUPES.map(([g, ss]) => `<a href="#${ss[0] || g}">${e(texteGroupe(c, g)[0])}</a>`).join("")}</nav>
 <div class="outils">
@@ -1325,7 +1323,7 @@ ${PREFERENCES}
 <body class="page-abregee">
 <a class="evitement" href="#contenu">${e(fr.ui.evitement)}</a>
 <header class="entete">
-<a class="marque" href="../">${logoMarque("../")}<span class="marque-domaines">${e(fr.ui.sousTitre)}</span></a>
+<a class="marque" href="../"><span class="marque-domaines">${e(fr.ui.sousTitre)}</span></a>
 <div class="outils">
 ${menuLangues(c, code)}
 ${menuAcces(c, code)}
