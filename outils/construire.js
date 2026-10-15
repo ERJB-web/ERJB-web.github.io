@@ -14,6 +14,7 @@ const ABREGE = require("./contenu-abrege");
 const AUTOCHTONES = JSON.parse(fs.readFileSync(path.join(__dirname, "i18n", "autochtones.json"), "utf8"));
 const METHODOLOGIE = require("./methodologie");
 const METHODES_AJOUTS = require("./methodes-ajouts");
+const POSTURE = require("./posture-recherche");
 const MEDIATION = require("./enseignement-vulgarisation");
 const IA = require("./ia-recherche");
 const THESE = require("./these-rubriques");
@@ -643,7 +644,7 @@ const LIBELLES_FAITS_RECHERCHE = {
 function ongletsRubriques(cle, explorer, rubriques, colonnes = 5) {
   return `<div class="table rubriques" data-onglets data-rubriques="${cle}" style="--rubriques-colonnes:${colonnes}">
 <label class="rubriques-choix"><span>${e(explorer)}</span><select data-rubrique-select>${rubriques.map(([, nom], i) => `<option value="${i}">${e(nom)}</option>`).join("")}</select></label>
-<div class="onglets rubriques-nav" role="tablist" aria-label="${e(explorer)}">${rubriques.map(([id, nom], i) => `<button type="button" role="tab" aria-selected="${i === 0}" tabindex="${i ? -1 : 0}" data-volet="${i}" data-rubrique="${id}">${["these", "ia"].includes(cle) ? `<span class="rubrique-numero" aria-hidden="true">${num(i)}</span>` : ""}<span>${e(nom)}</span></button>`).join("")}</div>
+<div class="onglets rubriques-nav" role="tablist" aria-label="${e(explorer)}">${rubriques.map(([id, nom], i) => `<button type="button" role="tab" aria-selected="${i === 0}" tabindex="${i ? -1 : 0}" data-volet="${i}" data-rubrique="${id}">${["these", "ia", "posture"].includes(cle) ? `<span class="rubrique-numero" aria-hidden="true">${num(i)}</span>` : ""}<span>${e(nom)}</span></button>`).join("")}</div>
 ${rubriques.map(([id, , contenu], i) => `<div class="volet rubrique-corps" role="tabpanel" data-volet="${i}" data-rubrique="${id}"${i ? " hidden" : ""}>${contenu}</div>`).join("")}</div>`;
 }
 
@@ -716,14 +717,20 @@ function schemaDiscours([social, discursive, texte], titre) {
 
 function sectionApproche(c) {
   const a = c.approche;
-  return `<div class="section-corps pleine large">
+  const s = POSTURE.langues[c.lang];
+  const refs = (cles) => `<p class="ref posture-refs">${cles.map(cle => lien(POSTURE.references[cle].href, e(POSTURE.references[cle].court))).join(" · ")}</p>`;
+  const cartes = (items) => items.length ? `<div class="posture-perspectives">${items.map(([titre, lecture, apport, sources]) => `<article><h4>${e(titre)}</h4><p class="posture-lecture">${e(lecture)}</p><div class="posture-apport"><h5>${e(s.apport)}</h5><p>${e(apport)}</p></div>${refs(sources)}</article>`).join("")}</div>` : "";
+  const epistemologie = `${schemaPosture(c)}<div class="piliers piliers-posture">${a.piliers.filter((_, i) => i !== 1).map(([titre, texte]) => `<div><h4>${e(titre)}</h4><p>${e(texte)}</p></div>`).join("")}</div>`;
+  const rubriques = s.rubriques.map((r, i) => [`posture-${i}`, r.nom, `<div class="posture-essai"><h3>${e(r.titre)}</h3>${r.paragraphes.map(p => `<p>${e(p)}</p>`).join("")}</div>${i === 1 ? epistemologie : ""}${cartes(r.items)}`]);
+  rubriques.push(["posture-references", s.sources, `<h3>${e(s.sources)}</h3><p>${e(s.sourcesIntro)}</p><ul class="methode-refs posture-bibliographie">${Object.values(POSTURE.references).sort((x, y) => x.citation.localeCompare(y.citation, "fr")).map(r => `<li>${lien(r.href, e(r.citation))}</li>`).join("")}</ul>`]);
+  return `<div class="section-corps pleine large posture-philosophique">
 <div class="colonne-texte">
 <p class="surtitre">${e(a.surtitre)}</p>
 <h2>${e(a.titre)}</h2>
-<p class="intro">${e(a.intro)}</p>
-${schemaPosture(c)}
-<div class="piliers piliers-posture">${a.piliers.filter((_, i) => i !== 1).map(([t, d]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p></div>`).join("")}</div>
+<p class="intro">${e(s.titre)}</p>
+<p>${e(s.intro)}</p>
 </div>
+<div class="colonne-outils">${ongletsRubriques("posture", s.explorer, rubriques, 3)}</div>
 </div>`;
 }
 

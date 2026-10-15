@@ -1388,7 +1388,7 @@ html.lv .hall::before,html.lv .hall::after,html.lv .portes>.porte::before{displa
 /* Rubriques de la thèse et de l'IA : onglets sur ordinateur, sélection compacte sur mobile. */
 .rubriques .rubriques-nav{grid-template-columns:repeat(var(--rubriques-colonnes,5),minmax(0,1fr))}
 .rubriques-nav button{min-width:0;overflow-wrap:break-word;padding:15px 16px;font-weight:600}
-.rubriques[data-rubriques=ia] .rubriques-nav button:nth-child(n+5),.rubriques:is([data-rubriques=these],[data-rubriques=ia]) .rubriques-nav button:nth-child(n+6){border-top:1px solid var(--line)}
+.rubriques[data-rubriques=ia] .rubriques-nav button:nth-child(n+5),.rubriques:is([data-rubriques=these],[data-rubriques=ia],[data-rubriques=posture]) .rubriques-nav button:nth-child(n+6){border-top:1px solid var(--line)}
 .rubriques-choix{display:none;padding:16px;gap:8px}
 .rubriques-choix span{font-size:13px;font-weight:600;color:var(--ink)}
 .rubriques-choix select{width:100%;min-width:0;padding:12px;border:1px solid var(--line);border-radius:6px;background:var(--white);color:var(--ink);font:inherit;font-size:14px}
@@ -1409,16 +1409,31 @@ html.lv .hall::before,html.lv .hall::after,html.lv .portes>.porte::before{displa
 .rubrique-corps .lectures-ia{overflow-wrap:break-word}
 .rubrique-corps .lectures-ia li{margin-block:10px;line-height:1.7;text-align:start}
 .these .colonne-outils,.section-ia .colonne-outils{min-width:0}
+.posture-philosophique .colonne-outils{min-width:0}
+.posture-essai{max-width:880px;margin:20px auto 28px}
+.posture-essai h3{font-size:28px;margin:0 0 20px}
+.posture-essai p{font-size:17px;line-height:1.85;margin-block:0 20px}
+.posture-perspectives{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-block:28px}
+.posture-perspectives article{min-width:0;padding:24px;border:1px solid var(--line);border-radius:12px;background:var(--white)}
+.posture-perspectives article:last-child:nth-child(odd){grid-column:1/-1}
+.posture-perspectives h4{margin:0 0 14px;font:600 18px/1.4 var(--sans);color:var(--ink)}
+.posture-lecture{font-size:16px;line-height:1.7}
+.posture-apport{margin-block:18px;padding:16px 18px;border-inline-start:3px solid var(--green);border-radius:4px;background:var(--sea)}
+.posture-apport h5{margin:0 0 8px;font:600 13px/1.4 var(--sans);color:var(--green-deep)}
+.posture-apport p{margin:0;font-size:15px;line-height:1.75}
+.posture-refs a{color:var(--accent-fonce);text-decoration:underline;text-underline-offset:3px}
+.posture-bibliographie{margin-block:26px;gap:18px;font-size:14px;line-height:1.75;overflow-wrap:anywhere}
+@media(max-width:760px){.posture-perspectives{grid-template-columns:minmax(0,1fr)}.posture-perspectives article{padding:20px}.posture-essai p{font-size:16px}}
 .these .these-titre-label{margin-block:0 8px;font:600 14px/1.4 var(--sans);color:var(--muted)}
 .these .colonne-texte>h2{font-size:clamp(25px,2.5vw,40px);line-height:1.24}
-.rubriques:is([data-rubriques=these],[data-rubriques=ia]){border:0;box-shadow:none;background:transparent;overflow:visible}
-.rubriques:is([data-rubriques=these],[data-rubriques=ia]) .rubriques-nav{display:flex;flex-wrap:wrap;gap:10px;padding:0 0 22px;border:0;background:transparent}
-.rubriques:is([data-rubriques=these],[data-rubriques=ia]) .rubriques-nav button{display:flex;align-items:center;gap:10px;flex:0 1 auto;max-width:310px;min-height:52px;padding:12px 16px;border:1px solid var(--line);border-radius:10px;background:var(--white);color:var(--ink);font-size:14px;line-height:1.4;transition:background .18s,border-color .18s,color .18s}
-.rubriques:is([data-rubriques=these],[data-rubriques=ia]) .rubriques-nav button:hover{background:var(--sea);border-color:var(--ink)}
-.rubriques:is([data-rubriques=these],[data-rubriques=ia]) .rubriques-nav button[aria-selected=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.rubriques:is([data-rubriques=these],[data-rubriques=ia],[data-rubriques=posture]){border:0;box-shadow:none;background:transparent;overflow:visible}
+.rubriques:is([data-rubriques=these],[data-rubriques=ia],[data-rubriques=posture]) .rubriques-nav{display:flex;flex-wrap:wrap;gap:10px;padding:0 0 22px;border:0;background:transparent}
+.rubriques:is([data-rubriques=these],[data-rubriques=ia],[data-rubriques=posture]) .rubriques-nav button{display:flex;align-items:center;gap:10px;flex:0 1 auto;max-width:310px;min-height:52px;padding:12px 16px;border:1px solid var(--line);border-radius:10px;background:var(--white);color:var(--ink);font-size:14px;line-height:1.4;transition:background .18s,border-color .18s,color .18s}
+.rubriques:is([data-rubriques=these],[data-rubriques=ia],[data-rubriques=posture]) .rubriques-nav button:hover{background:var(--sea);border-color:var(--ink)}
+.rubriques:is([data-rubriques=these],[data-rubriques=ia],[data-rubriques=posture]) .rubriques-nav button[aria-selected=true]{background:var(--ink);border-color:var(--ink);color:#fff}
 .rubrique-numero{display:grid;place-items:center;flex:0 0 25px;height:25px;border-radius:6px;background:var(--sea);color:var(--ink);font-size:11px;font-weight:700;line-height:1}
-.rubriques:is([data-rubriques=these],[data-rubriques=ia]) button[aria-selected=true] .rubrique-numero{background:#fff;color:var(--ink)}
-.rubriques:is([data-rubriques=these],[data-rubriques=ia])>.rubrique-corps{border:1px solid var(--line);border-radius:14px;background:var(--white)}
+.rubriques:is([data-rubriques=these],[data-rubriques=ia],[data-rubriques=posture]) button[aria-selected=true] .rubrique-numero{background:#fff;color:var(--ink)}
+.rubriques:is([data-rubriques=these],[data-rubriques=ia],[data-rubriques=posture])>.rubrique-corps{border:1px solid var(--line);border-radius:14px;background:var(--white)}
 .these [data-objectif=O1]{--objectif:#24659b;--objectif-fond:#eef5fc}
 .these [data-objectif=O2]{--objectif:#286e5b;--objectif-fond:#edf6f1}
 .these [data-objectif=O3]{--objectif:#754d8a;--objectif-fond:#f6f0f9}
@@ -1439,8 +1454,8 @@ html.lv .hall::before,html.lv .hall::after,html.lv .portes>.porte::before{displa
 html.hc .these [data-objectif],html.lv .these [data-objectif]{--objectif:#06202d;--objectif-fond:#fff}
 @media(max-width:900px){.these-contextes{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:600px){
-  .rubriques:is([data-rubriques=these],[data-rubriques=ia]) .rubriques-nav{display:none}
-  .rubriques:is([data-rubriques=these],[data-rubriques=ia]) .rubriques-choix{padding:0 0 18px}
+  .rubriques:is([data-rubriques=these],[data-rubriques=ia],[data-rubriques=posture]) .rubriques-nav{display:none}
+  .rubriques:is([data-rubriques=these],[data-rubriques=ia],[data-rubriques=posture]) .rubriques-choix{padding:0 0 18px}
   .these .objectif-carte{padding:18px 16px}
 }
 @media(max-width:900px){.rubriques .rubriques-nav{grid-template-columns:repeat(2,minmax(0,1fr))}.rubriques-nav button:nth-child(n+3){border-top:1px solid var(--line)}}
