@@ -994,3 +994,14 @@
     demanderMemoire();
   });
 })();
+
+
+/* Les quatre mini portes de Publications défilent dans la salle, sans changer son URL. */
+document.addEventListener("click",function(event){
+ const bouton=event.target.closest("[data-publications-cible]");if(!bouton)return;
+ const racine=bouton.closest(".publications-page");
+ const cible=racine&&racine.querySelector("#"+bouton.dataset.publicationsCible);
+ if(!cible)return;
+ cible.focus({preventScroll:true});
+ cible.scrollIntoView({block:"start",behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
+});
