@@ -1,0 +1,238 @@
+{
+  "titre": "AI: programming, producing knowledge and examining its effects on society",
+  "intro": "My use of AI combines advanced assisted programming, tool development and reflection on research, learning and public health. I connect this experience with scientific work on the benefits, limitations and social transformations of these technologies.",
+  "date": "Documentary synthesis · 14 October 2026",
+  "usage": {
+    "nom": "My advanced practice",
+    "titre": "From assisted programming to tool design",
+    "intro": "I use AI-assisted Positron, Claude and Codex iteratively: defining a need, building a solution, reading and changing code, resolving difficulties and developing the tool further. This practice spans my digital projects, research environment and accessible presentation of knowledge.",
+    "items": [
+      [
+        "Programming and coding with assistants",
+        "I use AI to develop and revise code, explore alternative solutions and turn intentions into features. The work includes framing the problem, breaking down tasks and examining proposals, beyond generating an initial script.",
+        []
+      ],
+      [
+        "Creating interfaces and tools",
+        "My digital projects, including OWNNIGHT and the Spheres, make prototyping, interaction and user experience concrete. Assisted programming supports creation and iteration; the purposes and trade-offs remain mine.",
+        []
+      ],
+      [
+        "Positron: working with code and data",
+        "AI-assisted Positron is part of my scientific working environment. I distinguish support for writing a script from analytical choices and interpretation: producing code is insufficient to justify a method or finding.",
+        [
+          "posit"
+        ]
+      ],
+      [
+        "Claude and Codex: context and iteration",
+        "I use them to develop tools, understand or revise code and discuss solutions. Quality depends on the context supplied: the goal, relevant files, constraints, expected behaviour and acceptance criteria.",
+        []
+      ],
+      [
+        "Connecting technology and accessibility",
+        "Development also involves readability, languages, navigation and dissemination formats. I am interested in making knowledge or a tool more accessible, beyond technical sophistication alone.",
+        []
+      ],
+      [
+        "Identifiable scientific responsibility",
+        "I remain responsible for decisions, data protection and published content. AI contributions should be describable; references and interpretations must be examined in their scientific context.",
+        [
+          "icmje"
+        ]
+      ]
+    ],
+    "note": "My practice concerns development, scientific work and tool creation. Planned research uses remain subject to the protocol, consent and institutional rules."
+  },
+  "programmation": {
+    "nom": "Programming and agents",
+    "titre": "Directing assisted development",
+    "intro": "A conversational assistant proposes an answer; an agent can chain file reading, modifications and tool execution. This changes work organisation: permitted actions must be specified, a record retained and the resulting solution assessed.",
+    "items": [
+      [
+        "From need to specification",
+        "Define users, necessary data, expected features and accessibility constraints. Breaking changes into understandable units makes it possible to discuss a solution and resume work without losing its logic.",
+        []
+      ],
+      [
+        "Project context and architecture",
+        "A tool’s consistency depends on its files, dependencies, data structures and previous decisions. Locally plausible code may not fit the rest of the project: the assistant needs this context.",
+        []
+      ],
+      [
+        "Debugging, revision and maintenance",
+        "Read an error, reproduce the problem, explain its cause and correct the relevant part. Maintainability matters alongside immediate functionality: explicit names, documentation, versions and the ability to undo a change.",
+        []
+      ],
+      [
+        "Controlling agent autonomy",
+        "Match access rights, actions and decision points to the stakes. An agent acting on files, data or services requires more supervision than a text suggestion.",
+        [
+          "safety2026"
+        ]
+      ],
+      [
+        "Reliable scientific code",
+        "Examine units, missing values, transformations and assumptions. Known examples, targeted checks and reproducibility help assess both program behaviour and the scientific meaning of its outputs.",
+        []
+      ],
+      [
+        "Measuring the value produced",
+        "Productivity depends on the task, experience and tool. METR’s 2025 study and 2026 methodological update encourage distinguishing perceived speed, quality and measured gains.",
+        [
+          "metr2025",
+          "metr2026"
+        ]
+      ]
+    ],
+    "note": "Generated line counts are a poor indicator. My interest is in useful, understandable, accessible tools that can evolve."
+  },
+  "rechercheIntro": "AI now enters question formulation, literature exploration, programming, analysis and dissemination. The scientific challenge is to connect these capabilities with explicit methods, plural forms of knowledge and responsibility that remains human.",
+  "rechercheAjouts": [
+    [
+      "Questioning the problem before automating",
+      "In my thesis, the relationship between patient profiles and intersectoral network configurations guides methodological choices. AI can help explore a formulation or prepare code; it does not determine the research object, network boundary or validity of an indicator for me.",
+      []
+    ],
+    [
+      "Coding and interpreting materials",
+      "For planned use with qualitative materials, distinguish suggested categories, documented coding and interpretation. Excerpts, counterexamples and memos must remain examinable; any data transfer must respect authorisations and confidentiality.",
+      [
+        "oms2026"
+      ]
+    ],
+    [
+      "Productivity and scientific diversity",
+      "Hao and colleagues (2026) associate AI adoption with individual advantages and a collective narrowing of research topics. This observational analysis raises questions about diversity without establishing universal causation.",
+      [
+        "focus2026"
+      ]
+    ],
+    [
+      "Discovery with specialised models",
+      "AlphaFold 3 predicts structures of biomolecular complexes. This advance illustrates a different use from conversational assistance: scientific contribution depends on a defined task and appropriate evaluation, followed by comparison with experimental knowledge.",
+      [
+        "alphafold"
+      ]
+    ]
+  ],
+  "santeIntro": "Work by Pranav Rajpurkar, Eric Topol and other teams demonstrates the breadth of possibilities in medicine. Public health also asks about service organisation, population effects, relationships of care and the distribution of benefits.",
+  "santeAjouts": [
+    [
+      "Technical performance and the human–AI team",
+      "Goh and colleagues’ trial (2024) found no significant improvement in physicians’ diagnostic reasoning with the assistant. Model performance alone therefore does not predict the performance of human–AI work.",
+      [
+        "goh",
+        "topol"
+      ]
+    ],
+    [
+      "AMIE: advances and scope of findings",
+      "Studies by Tu (2025) and Liévin (2026) assess diagnostic dialogue and management in simulated consultations. They open possibilities without demonstrating clinical benefits for patients in routine practice.",
+      [
+        "amie2025",
+        "amie2026"
+      ]
+    ],
+    [
+      "Mental health and human relationships",
+      "Moore and colleagues (2025) document stigma and inappropriate responses in the systems studied. Their findings question using these models as substitutes for therapeutic relationships and professional responsibility.",
+      [
+        "mental2025"
+      ]
+    ],
+    [
+      "An indicator can produce injustice",
+      "Obermeyer and colleagues (2019) show that a cost indicator can misrepresent health needs. This lesson extends beyond generative AI: the chosen target and previous access to care shape outcomes.",
+      [
+        "biais"
+      ]
+    ]
+  ],
+  "societe": {
+    "nom": "Society and governance",
+    "titre": "Who decides, who benefits and who can challenge?",
+    "intro": "AI is also economic and political infrastructure. Its development concerns work, resources, languages, service access and our collective capacity to choose desirable transformations.",
+    "items": [
+      [
+        "Work: exposure and transformation",
+        "ILO and NASK (2025) examine task exposure to generative AI. Potential exposure does not mean actual job elimination: organisation, training and the distribution of gains remain decisive.",
+        [
+          "travail"
+        ]
+      ],
+      [
+        "Sovereignty and concentrated power",
+        "Who controls models, data and infrastructure? I examine institutional dependencies, the ability to change providers and affected people’s participation in adoption decisions.",
+        [
+          "ethique",
+          "safety2026"
+        ]
+      ],
+      [
+        "Preserving knowledge and languages",
+        "Data and tool availability can favour particular languages, disciplines and populations. Automatic translation does not replace attention to contexts, lived experience and disagreements.",
+        [
+          "education",
+          "comprehension"
+        ]
+      ],
+      [
+        "Planetary health and infrastructure costs",
+        "The assessment should include energy, resources and expected benefits. Connecting AI with collective well-being means asking which uses deserve these resources and how benefits and burdens should be shared.",
+        [
+          "energie",
+          "pickett",
+          "bienetre"
+        ]
+      ]
+    ],
+    "note": "Equity and agency are my guiding thread: designing and discussing transformations with people, while making decisions open to challenge."
+  },
+  "debats": {
+    "nom": "Current scientific debates",
+    "titre": "Discussing the research beyond announcements",
+    "intro": "I bring together trials, simulation studies, observational analyses and synthesis reports. They address different questions: technical capability, actual benefit, work transformation or governance. Their status is indicated in the references.",
+    "items": [
+      [
+        "2026 · Bengio and advanced-system safety",
+        "The international report led by Yoshua Bengio synthesises capabilities, risks and safeguards. It encourages distinguishing documented harms, emerging risks and uncertainty, rather than treating all projections as established facts.",
+        [
+          "safety2026"
+        ]
+      ],
+      [
+        "2026 · International scientific cooperation",
+        "The Singapore consensus proposes safety research priorities. This collective preprint contributes to discussion of evaluation, oversight and international cooperation; it does not settle scientific disagreements.",
+        [
+          "singapore2026"
+        ]
+      ],
+      [
+        "2026 · More productive science, narrower questions?",
+        "Hao, Xu, Li and Evans extend questions raised by Messeri and Crockett about scientific uniformity. My concern is preserving field experience, criticism and problems that resist standardisation.",
+        [
+          "focus2026",
+          "comprehension"
+        ]
+      ],
+      [
+        "2025–2026 · Agent gains require context",
+        "METR observed a slowdown among the developers studied in 2025; its 2026 update highlights selection effects. This cannot establish a single effect for every developer and model.",
+        [
+          "metr2025",
+          "metr2026"
+        ]
+      ],
+      [
+        "2026 · Real-world implementation remains a research question",
+        "AMIE’s simulated management studies strengthen interest in health agents. The debate now concerns real-world evaluation, accountability, inequalities and organisational conditions of use.",
+        [
+          "amie2026",
+          "oms2026"
+        ]
+      ]
+    ],
+    "note": "Selection current to 14 October 2026. Personal proposals, empirical evidence and institutional recommendations are distinguished; earlier readings remain together in the bibliography."
+  }
+}

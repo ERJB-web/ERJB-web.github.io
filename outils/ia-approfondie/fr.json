@@ -1,0 +1,238 @@
+{
+  "titre": "IA : programmer, produire des connaissances et penser ses effets sur la société",
+  "intro": "Mon usage de l’IA associe une pratique avancée de programmation assistée, la création d’outils et une réflexion sur la recherche, l’apprentissage et la santé publique. J’articule cette expérience aux travaux scientifiques sur les bénéfices, les limites et les transformations sociales de ces technologies.",
+  "date": "Synthèse documentaire · 14 octobre 2026",
+  "usage": {
+    "nom": "Ma pratique avancée",
+    "titre": "De la programmation assistée à la conception d’outils",
+    "intro": "Je mobilise Positron avec assistance IA, Claude et Codex dans un travail itératif : préciser un besoin, construire une solution, lire et modifier le code, résoudre les difficultés et faire évoluer l’outil. Cette pratique traverse mes projets numériques, mon environnement de recherche et la mise en forme accessible des connaissances.",
+    "items": [
+      [
+        "Programmer et coder avec des assistants",
+        "J’utilise l’IA pour développer et reprendre du code, explorer différentes solutions et transformer une intention en fonctionnalités. Le travail comprend la formulation du problème, le découpage des tâches et l’examen des propositions, au-delà de la seule génération d’un premier script.",
+        []
+      ],
+      [
+        "Créer des interfaces et des outils",
+        "Mes projets numériques, dont OWNNIGHT et les Sphères, donnent une place concrète au prototypage, aux interactions et à l’expérience des utilisateurs. La programmation assistée soutient cette capacité de création et d’itération ; les finalités et les arbitrages restent les miens.",
+        []
+      ],
+      [
+        "Positron : travailler avec le code et les données",
+        "Positron assisté s’inscrit dans mon environnement de travail scientifique. Je distingue l’aide à l’écriture d’un script, les choix d’analyse et l’interprétation : produire du code ne suffit pas à justifier une méthode ni un résultat.",
+        [
+          "posit"
+        ]
+      ],
+      [
+        "Claude et Codex : contextualiser et itérer",
+        "Je les mobilise pour développer des outils, comprendre ou réviser un code et discuter des solutions. La qualité du travail dépend du contexte fourni : objectif, fichiers pertinents, contraintes, comportement attendu et critères d’acceptation.",
+        []
+      ],
+      [
+        "Relier technique et accessibilité",
+        "Le développement comprend aussi la lisibilité, les langues, la navigation et les supports de diffusion. Je m’intéresse à la possibilité de rendre une connaissance ou un outil plus accessible, plutôt qu’à la seule sophistication technique.",
+        []
+      ],
+      [
+        "Une responsabilité scientifique identifiable",
+        "Je conserve la responsabilité des choix, de la protection des données et des contenus diffusés. Les contributions de l’IA doivent pouvoir être décrites ; les références et les interprétations doivent être examinées dans leur contexte scientifique.",
+        [
+          "icmje"
+        ]
+      ]
+    ],
+    "note": "Ma pratique porte sur le développement, le travail scientifique et la création d’outils. Les usages de recherche envisagés restent soumis au protocole, au consentement et aux règles institutionnelles."
+  },
+  "programmation": {
+    "nom": "Programmation et agents",
+    "titre": "Piloter un travail de développement assisté",
+    "intro": "Un assistant conversationnel propose une réponse ; un agent peut enchaîner lecture de fichiers, modifications et exécution d’outils. Cette capacité change l’organisation du travail : il faut spécifier ce qu’il peut faire, conserver une trace et évaluer la solution produite.",
+    "items": [
+      [
+        "Du besoin à une spécification",
+        "Définir les utilisateurs, les données nécessaires, les fonctions attendues et les contraintes d’accessibilité. Décomposer les changements en unités compréhensibles permet de discuter une solution et de reprendre le travail sans perdre sa logique.",
+        []
+      ],
+      [
+        "Contexte du projet et architecture",
+        "La cohérence d’un outil dépend des fichiers, des dépendances, de la structure des données et des choix déjà faits. Un code plausible localement peut être inadapté au reste du projet : l’assistant doit travailler avec ce contexte.",
+        []
+      ],
+      [
+        "Débogage, reprise et maintenance",
+        "Lire une erreur, reproduire le problème, expliquer sa cause et corriger la partie concernée. La maintenabilité compte autant que le fonctionnement immédiat : noms explicites, documentation, versions et possibilité de revenir sur une modification.",
+        []
+      ],
+      [
+        "Contrôler l’autonomie des agents",
+        "Adapter les droits d’accès, les actions et les points de décision à l’enjeu. Un agent qui agit sur des fichiers, des données ou des services demande davantage de supervision qu’une suggestion de texte.",
+        [
+          "safety2026"
+        ]
+      ],
+      [
+        "Fiabilité du code scientifique",
+        "Examiner les unités, les valeurs manquantes, les transformations et les hypothèses. Des exemples connus, des contrôles ciblés et la reproductibilité servent à évaluer le comportement du programme et le sens scientifique de ses sorties.",
+        []
+      ],
+      [
+        "Mesurer la valeur produite",
+        "La productivité dépend de la tâche, de l’expérience et de l’outil. Les études METR de 2025 et leur mise à jour méthodologique de 2026 invitent à distinguer impression de rapidité, qualité et gain réellement mesuré.",
+        [
+          "metr2025",
+          "metr2026"
+        ]
+      ]
+    ],
+    "note": "Le nombre de lignes générées est un indicateur pauvre. Ce qui m’intéresse : un outil utile, compréhensible, accessible et que l’on peut faire évoluer."
+  },
+  "rechercheIntro": "L’IA intervient désormais dans la formulation des questions, l’exploration documentaire, la programmation, l’analyse et la diffusion. L’enjeu scientifique est d’articuler ces capacités à des méthodes explicites, à la pluralité des savoirs et à une responsabilité qui reste humaine.",
+  "rechercheAjouts": [
+    [
+      "Questionner le problème avant d’automatiser",
+      "Dans ma thèse, le lien entre profils de patients et configurations des réseaux intersectoriels guide le choix des méthodes. L’IA peut aider à explorer une formulation ou préparer du code ; elle ne détermine pas à ma place l’objet, la frontière du réseau ou la validité d’un indicateur.",
+      []
+    ],
+    [
+      "Codage et interprétation des matériaux",
+      "Pour un usage envisagé sur des matériaux qualitatifs, distinguer suggestion de catégories, codage documenté et interprétation. Les extraits, contre-exemples et mémos doivent rester examinables ; toute transmission de données doit respecter les autorisations et la confidentialité.",
+      [
+        "oms2026"
+      ]
+    ],
+    [
+      "Productivité et diversité scientifique",
+      "Hao et ses collègues (2026) associent l’adoption de l’IA à des avantages individuels et à un rétrécissement collectif des sujets étudiés. Cette analyse observationnelle interroge la diversité des questions, sans établir une causalité universelle.",
+      [
+        "focus2026"
+      ]
+    ],
+    [
+      "Découvrir avec des modèles spécialisés",
+      "AlphaFold 3 prédit la structure de complexes biomoléculaires. Ce progrès illustre une autre famille d’usages que l’assistant conversationnel : la contribution scientifique tient à une tâche définie et à des évaluations adaptées, puis à sa confrontation aux connaissances expérimentales.",
+      [
+        "alphafold"
+      ]
+    ]
+  ],
+  "santeIntro": "Les travaux de Pranav Rajpurkar, Eric Topol et d’autres équipes montrent l’étendue des possibilités en médecine. Pour la santé publique, la question porte aussi sur l’organisation des services, les effets sur les populations, la relation de soin et la répartition des bénéfices.",
+  "santeAjouts": [
+    [
+      "Performance technique et bénéfice du binôme",
+      "L’essai de Goh et ses collègues (2024) n’a pas montré d’amélioration significative du raisonnement diagnostique des médecins avec l’assistant. La performance du modèle seul ne prédit donc pas celle du travail humain–IA.",
+      [
+        "goh",
+        "topol"
+      ]
+    ],
+    [
+      "AMIE : avancées et portée des résultats",
+      "Les travaux de Tu (2025) puis Liévin (2026) évaluent le dialogue diagnostique et la prise en charge dans des consultations simulées. Ils ouvrent des perspectives, sans démontrer un bénéfice clinique auprès de patients en pratique courante.",
+      [
+        "amie2025",
+        "amie2026"
+      ]
+    ],
+    [
+      "Santé mentale et relation humaine",
+      "Moore et ses collègues (2025) documentent stigmatisation et réponses inadaptées dans les systèmes étudiés. Leurs résultats interrogent l’usage de ces modèles comme substituts à une relation thérapeutique et à une responsabilité professionnelle.",
+      [
+        "mental2025"
+      ]
+    ],
+    [
+      "Le choix de l’indicateur peut produire une injustice",
+      "Obermeyer et ses collègues (2019) montrent qu’un indicateur de coût peut mal représenter les besoins de santé. Cette leçon dépasse l’IA générative : la cible choisie et l’accès antérieur aux soins influencent les résultats.",
+      [
+        "biais"
+      ]
+    ]
+  ],
+  "societe": {
+    "nom": "Société et gouvernance",
+    "titre": "Qui décide, qui bénéficie et qui peut contester ?",
+    "intro": "L’IA est aussi une infrastructure économique et politique. Son développement concerne le travail, les ressources, les langues, l’accès aux services et la capacité collective à choisir les transformations souhaitables.",
+    "items": [
+      [
+        "Travail : exposition et transformation",
+        "L’OIT et NASK (2025) étudient l’exposition des tâches à l’IA générative. Une exposition potentielle ne signifie pas une suppression effective d’emploi : l’organisation, la formation et le partage des gains restent décisifs.",
+        [
+          "travail"
+        ]
+      ],
+      [
+        "Souveraineté et concentration du pouvoir",
+        "Qui maîtrise les modèles, les données et les infrastructures ? Je m’intéresse aux dépendances des établissements, à la possibilité de changer de fournisseur et à la participation des personnes concernées aux décisions d’adoption.",
+        [
+          "ethique",
+          "safety2026"
+        ]
+      ],
+      [
+        "Des savoirs et des langues à préserver",
+        "La disponibilité des données et des outils peut favoriser certaines langues, disciplines et populations. La traduction automatique ne remplace pas la prise en compte des contextes, des expériences vécues et des désaccords.",
+        [
+          "education",
+          "comprehension"
+        ]
+      ],
+      [
+        "Santé planétaire et coût de l’infrastructure",
+        "Le bilan doit inclure énergie, ressources et bénéfices attendus. Relier l’IA au bien-être collectif conduit à demander quels usages méritent ces moyens et comment en répartir les bénéfices et les charges.",
+        [
+          "energie",
+          "pickett",
+          "bienetre"
+        ]
+      ]
+    ],
+    "note": "Mon fil conducteur est celui de l’équité et du pouvoir d’agir : concevoir et discuter les transformations avec les personnes, en rendant les choix contestables."
+  },
+  "debats": {
+    "nom": "Débats scientifiques actuels",
+    "titre": "Des travaux à mettre en discussion, au-delà des annonces",
+    "intro": "Je rapproche essais, études en simulation, analyses observationnelles et rapports de synthèse. Ils répondent à des questions différentes : capacité technique, bénéfice réel, transformation du travail ou gouvernance. Leur statut est indiqué dans les références.",
+    "items": [
+      [
+        "2026 · Bengio et la sécurité des systèmes avancés",
+        "Le rapport international dirigé par Yoshua Bengio synthétise capacités, risques et mesures de sécurité. Il invite à distinguer dommages documentés, risques émergents et incertitudes, plutôt qu’à traiter toutes les projections comme des faits établis.",
+        [
+          "safety2026"
+        ]
+      ],
+      [
+        "2026 · Coopération scientifique internationale",
+        "Le consensus de Singapour propose des priorités de recherche sur la sécurité. Ce document collectif, diffusé en prépublication, nourrit la discussion sur l’évaluation, la supervision et la coopération internationale ; il ne clôt pas les désaccords scientifiques.",
+        [
+          "singapore2026"
+        ]
+      ],
+      [
+        "2026 · Science plus productive, questions plus étroites ?",
+        "Les travaux de Hao, Xu, Li et Evans prolongent les questions de Messeri et Crockett sur l’uniformisation scientifique. Mon enjeu : conserver la place du terrain, de la critique et des problèmes qui résistent à la standardisation.",
+        [
+          "focus2026",
+          "comprehension"
+        ]
+      ],
+      [
+        "2025–2026 · Le gain des agents doit être situé",
+        "METR a observé un ralentissement chez les développeurs étudiés en 2025 ; sa mise à jour de 2026 souligne des effets de sélection. On ne peut en déduire un effet unique pour tout développeur et tout modèle.",
+        [
+          "metr2025",
+          "metr2026"
+        ]
+      ],
+      [
+        "2026 · Le passage au terrain reste une question scientifique",
+        "Les études AMIE sur la prise en charge simulée renforcent l’intérêt des agents en santé. Le débat porte maintenant sur leur évaluation en situation réelle, la responsabilité, les inégalités et les conditions organisationnelles de leur usage.",
+        [
+          "amie2026",
+          "oms2026"
+        ]
+      ]
+    ],
+    "note": "Sélection arrêtée au 14 octobre 2026. Les propositions personnelles, les données empiriques et les recommandations institutionnelles sont distinguées ; les lectures antérieures restent réunies dans la bibliographie."
+  }
+}

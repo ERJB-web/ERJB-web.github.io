@@ -361,3 +361,4 @@ module.exports = {
 };
 
 for (const code of ["en", "es", "zh", "ar", "ru"]) module.exports.langues[code] = require("./ia-" + code);
+require("./ia-approfondissement")(module.exports);
