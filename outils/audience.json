@@ -1,5 +1,7 @@
 {
   "fournisseur": "umami",
-  "websiteId": null,
-  "domaines": ["erjb-web.github.io"]
+  "websiteId": "782c7df7-c2cf-4578-bddc-fa02662324af",
+  "domaines": [
+    "erjb-web.github.io"
+  ]
 }

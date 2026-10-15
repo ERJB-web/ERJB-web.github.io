@@ -27,6 +27,9 @@ const THESE = require("./these-rubriques");
 const CADRAGE_THESE = require("./these-cadrage");
 const CHIFFRES_IMPACT = require("./chiffres-parcours");
 const LOISIRS_AJOUTS = require("./loisirs-ajouts");
+const ATELIERS = require("./ateliers");
+const LOGICIELS = require("./logiciels");
+const SPHERES_PUBLIC = require("./spheres-publication.json");
 const NAV_RUBRIQUES = require("./navigation-rubriques");
 const AUDIENCE = require("./audience.json");
 const AUDIENCE_LIBELLES = require("./audience-libelles");
@@ -46,7 +49,7 @@ const GROUPES = [
   ["implantation", ["implantation", "notions", "transmission", "vulgarisation"]],
   ["parcours", ["biographie", "parcours", "juriste", "gestionnaire", "educateur", "entrepreneuriat", "valeurs"]],
   ["engagements", ["representation", "communaute", "distinctions", "citoyen", "loisirs"]],
-  ["ressources", ["litterature", "grise", "presse", "capsules", "balados"]],
+  ["ressources", ["logiciels", "litterature", "grise", "presse", "capsules", "balados"]],
   ["contact", []],
 ];
 const SALLES = GROUPES.flatMap(([, ss]) => ss);
@@ -86,6 +89,21 @@ function sourcesMediation(c, s) {
   const cles = [...new Set([...(s.pratiques.items), ...(s.formats ? s.formats.items : [])].flatMap((x) => x[2]))];
   return `<h3 class="titre-bloc">${e(MEDIATION.LANGUES[c.lang].references)}</h3><ul class="methode-refs references-transmission">${cles.map((k) => `<li>${lien(MEDIATION.REFERENCES[k].href, e(MEDIATION.REFERENCES[k].citation))}</li>`).join("")}</ul>`;
 }
+
+function sectionLogiciels(c,compact=false){
+ const L=LOGICIELS[c.lang];
+ const visuel=i=>i===0?'<svg viewBox="0 0 460 170" aria-hidden="true"><path d="M45 15v125h380" fill="none" stroke="#b5d0d5" stroke-width="2"/><path d="M55 128 405 36" stroke="#216b8a" stroke-width="3"/><g fill="#168990">'+Array.from({length:23},(_,n)=>'<circle cx="'+(60+n*15)+'" cy="'+(126-n*3.9+Math.sin(n*4)*18)+'" r="5" opacity=".7"/>').join('')+'</g></svg>':'<svg viewBox="0 0 460 170" aria-hidden="true"><g stroke="#5b94a7" stroke-width="2"><path d="M80 45 225 120 380 45M80 45 380 45M225 120 225 45"/></g><g fill="#e2f0ee" stroke="#287a6c" stroke-width="2"><circle cx="80" cy="45" r="24"/><circle cx="225" cy="120" r="24"/><circle cx="380" cy="45" r="24"/></g><circle cx="225" cy="45" r="18" fill="#d9e8f2" stroke="#276a91" stroke-width="2"/></svg>';
+ return '<section class="section-corps pleine logiciels-publics"><header><p class="surtitre">'+e(L.salle[0])+'</p><h2>'+e(L.titre)+'</h2><p class="intro">'+e(L.intro)+'</p></header><div class="logiciels-cartes">'+['statosphere','episphere'].map((s,i)=>{const B=SPHERES_PUBLIC.bilan[s];return '<article>'+visuel(i)+'<div><h3>'+e(i?'Épisphère':'Statosphère')+'</h3><p>'+e(L.items[i])+'</p><p class="logiciels-chiffres"><span><b>'+B.lecons+'</b> '+e(L.chapitres)+'</span><span><b>'+B.qcm.toLocaleString(c.lang)+'</b> '+e(L.questions)+'</span></p><a class="bouton" href="'+c.chemin+'applications/'+s+'/">'+e(L.lancer)+' ↗</a></div></article>';}).join('')+'</div><ol class="logiciels-parcours">'+L.etapes.map((t,i)=>'<li><b>'+num(i)+'</b>'+e(t)+'</li>').join('')+'</ol><p class="note">'+e(L.note)+'</p></section>';
+}
+function atelierPratique(c,cle){
+ const A=ATELIERS.textes(c.lang,cle),L=A.labels;
+ const lignes=A.chaine.map(([t,d],i)=>'<li><span aria-hidden="true">'+num(i)+'</span><h4>'+e(t)+'</h4><p>'+e(d)+'</p></li>').join('');
+ const refs=A.refs.map(k=>ATELIERS.references[k]);
+ const fichier='docs/atelier-'+cle+'-'+c.lang+'.md';
+ fs.writeFileSync(path.join(RACINE,fichier),'# '+A.titre+'\n\n'+A.intro+'\n\n'+A.chaine.map(([t,d],i)=>'## '+(i+1)+'. '+t+'\n\n'+d).join('\n\n')+'\n\n## '+L.exemple+'\n\n'+A.cas+'\n\n'+A.options.map(x=>'### '+x.nom+'\n\n'+L.raisonnement+' : '+x.raisonnement+'\n\n'+L.livrable+' : '+x.livrable+'\n\n'+L.vigilance+' : '+x.vigilance).join('\n\n')+'\n\n## '+L.questions+'\n\n'+A.questions.map(x=>'- '+x).join('\n')+'\n\n## '+L.sources+'\n\n'+A.portee+'\n\n'+refs.map(r=>r.citation).join('\n\n')+'\n');
+ return '<section class="atelier-pratique atelier-'+cle+'"><figure class="atelier-figure"><img src="'+c.chemin+'assets/atelier-'+cle+'.svg" alt="'+e(A.chaine.map(x=>x[0]).join(' → '))+'" loading="lazy" width="600" height="300"></figure><header><p class="surtitre">'+e(L.atelier)+'</p><h3>'+e(A.titre)+'</h3><p>'+e(A.intro)+'</p><a class="atelier-telecharger" href="'+c.chemin+fichier+'" download>'+e(L.telecharger)+' ↓</a></header><ol class="atelier-chaine">'+lignes+'</ol><div class="atelier-essais">'+A.essai.map(([t,d])=>'<section><h4>'+e(t)+'</h4><p>'+e(d)+'</p></section>').join('')+'</div><div class="atelier-cas"><p class="surtitre">'+e(L.exemple)+'</p><p>'+e(A.cas)+'</p><div data-onglets><div class="onglets atelier-choix" role="tablist" aria-label="'+e(L.choisir)+'">'+A.options.map((x,i)=>'<button type="button" role="tab" data-volet="'+i+'" aria-selected="'+(i===0)+'" tabindex="'+(i===0?0:-1)+'">'+e(x.nom)+'</button>').join('')+'</div>'+A.options.map((x,i)=>'<div class="volet atelier-reponse" role="tabpanel" data-volet="'+i+'"'+(i?' hidden':'')+'><h4>'+e(x.nom)+'</h4><div><section><h5>'+e(L.raisonnement)+'</h5><p>'+e(x.raisonnement)+'</p></section><section><h5>'+e(L.livrable)+'</h5><p>'+e(x.livrable)+'</p></section></div><aside><h5>'+e(L.vigilance)+'</h5><p>'+e(x.vigilance)+'</p></aside></div>').join('')+'</div></div><details class="atelier-biblio"><summary>'+e(L.sources)+'</summary><p>'+e(A.portee)+'</p><ol>'+refs.map(r=>'<li>'+e(r.citation)+' '+lien(r.href,'↗')+'</li>').join('')+'</ol></details></section>';
+}
+
 function sectionTransmission(c) {
   const s = MEDIATION.LANGUES[c.lang].enseignement;
   const p = ENSEIGNEMENT.langues[c.lang];
@@ -102,7 +120,8 @@ function sectionTransmission(c) {
   const avenir = essai(p.avenir) + '<p class="enseignement-lien"><a href="#ia">' + e(p.suiteIA) + ' →</a></p>';
   const sources = '<div class="enseignement-essai"><h3>' + e(p.sources.titre) + '</h3><p>' + e(p.sources.intro) + '</p></div><ul class="methode-refs references-transmission enseignement-references">' + Object.values(ENSEIGNEMENT.references).sort((a,b) => a.citation.localeCompare(b.citation, 'en')).map(r => '<li>' + e(r.citation) + ' ' + lien(r.href, e(r.href)) + '</li>').join('') + '</ul>';
   const contenus = [essai(p.vision), pont, pratique, valeurs, apprendre, avenir, sources];
-  return '<div class="section-corps pleine enseignement"><div class="colonne-texte"><p class="surtitre">' + e(s.salle[0]) + '</p><h2>' + e(p.titre) + '</h2><p class="intro">' + e(p.intro) + '</p></div><div class="colonne-outils">' + ongletsRubriques(c, 'enseignement', p.explorer, p.onglets.map((titre, i) => ['enseignement-' + i, titre, contenus[i]]), 4) + '</div></div>';
+  const titresEns=[...p.onglets];titresEns.splice(5,0,ATELIERS.textes(c.lang,'enseignement').labels.atelier);contenus.splice(5,0,atelierPratique(c,'enseignement'));
+  return '<div class="section-corps pleine enseignement"><div class="colonne-texte"><p class="surtitre">' + e(s.salle[0]) + '</p><h2>' + e(p.titre) + '</h2><p class="intro">' + e(p.intro) + '</p></div><div class="colonne-outils">' + ongletsRubriques(c, 'enseignement', p.explorer, titresEns.map((titre, i) => ['enseignement-' + i, titre, contenus[i]]), 4) + '</div></div>';
 }
 function sectionVulgarisation(c) {
   const s = MEDIATION.LANGUES[c.lang].vulgarisation;
@@ -150,9 +169,9 @@ function poserSousPortes(c) {
   for (const [s, P] of Object.entries(PARTIES_RESSOURCES)) c.hall.portes[s] = [S[s][0] || c.ressources.groupes[P.groupes[0]][0], S[s][1]];
   for (const [s, k] of Object.entries(INDEX_ENGAGEMENTS)) c.hall.portes[s] = [c.engagements.groupes[k].titre, c.hall.portes.engagements[0]];
 }
-const BANDEAUX = { methodes: "bandeaux/conceptualisation.jpg", axes: "bandeaux/recherche.jpg", ia: "bandeaux/grise.jpg", vulgarisation: "bandeaux/capsules.jpg", litterature: "bandeaux/ressources.jpg", representation: "photos/representation.jpg", communaute: "bandeaux/engagements.jpg", distinctions: "photos/distinctions.jpg", loisirs: "bandeaux/sports-loisirs.png" };
+const BANDEAUX = { logiciels:"bandeaux/outils.jpg", methodes: "bandeaux/conceptualisation.jpg", axes: "bandeaux/recherche.jpg", ia: "bandeaux/grise.jpg", vulgarisation: "bandeaux/capsules.jpg", litterature: "bandeaux/ressources.jpg", representation: "photos/representation.jpg", communaute: "bandeaux/engagements.jpg", distinctions: "photos/distinctions.jpg", loisirs: "bandeaux/sports-loisirs.png" };
 const bandeau = (s) => BANDEAUX[s] || "bandeaux/" + s + ".jpg";
-const miniSalle = (s) => ({ methodes: "conceptualisation", axes: "recherche", ia: "outils", vulgarisation: "capsules" }[s] || s);
+const miniSalle = (s) => ({ logiciels:"outils", methodes: "conceptualisation", axes: "recherche", ia: "outils", vulgarisation: "capsules" }[s] || s);
 // Lexique : seize notions, quatre familles et références communes au format APA.
 const NOTIONS = require("./notions-cles");
 const textesNotions = (c) => NOTIONS.langues[c.lang] || NOTIONS.langues.en;
@@ -279,11 +298,11 @@ function sectionVitrine(c, cle) {
 </div>`;
 }
 const TEXTES_GROUPES = {
-  fr: { ressources: ["Ressources","Lectures, articles, capsules et balados"], recherche: ["Recherche et innovations", "Thèse, méthodes, travaux, publications et innovations"], parcours: ["Parcours", "Biographie, parcours, expertises et valeurs"] },
-  en: { ressources: ["Resources","Readings, articles, videos and podcasts"], recherche: ["Research and innovation", "Thesis, methods, current work, publications and innovation"], parcours: ["Background", "Biography, background, expertise and values"] },
-  es: { ressources: ["Recursos","Lecturas, artículos, cápsulas y pódcasts"], recherche: ["Investigación e innovación", "Tesis, métodos, trabajos, publicaciones e innovación"], parcours: ["Trayectoria", "Biografía, trayectoria, pericias y valores"] },
-  zh: { ressources: ["资源","阅读文献、文章、视频与播客"], recherche: ["研究与创新", "博士论文、研究方法、在研工作、发表成果与创新"], parcours: ["经历", "个人简介、经历、专长与价值观"] },
-  ar: { ressources: ["الموارد","قراءات ومقالات ومقاطع فيديو وبودكاست"], recherche: ["البحث والابتكار", "الأطروحة والمنهجيات والأعمال الجارية والمنشورات والابتكار"], parcours: ["المسار", "السيرة والمسار ومجالات الخبرة والقيم"] },
+  fr: { ressources: ["Ressources","Logiciels, lectures, vidéos et balados"], recherche: ["Recherche et innovations", "Thèse, méthodes, travaux, publications et innovations"], parcours: ["Parcours", "Biographie, parcours, expertises et valeurs"] },
+  en: { ressources: ["Resources","Learning software, readings, videos and podcasts"], recherche: ["Research and innovation", "Thesis, methods, current work, publications and innovation"], parcours: ["Background", "Biography, background, expertise and values"] },
+  es: { ressources: ["Recursos","Programas educativos, lecturas, vídeos y pódcasts"], recherche: ["Investigación e innovación", "Tesis, métodos, trabajos, publicaciones e innovación"], parcours: ["Trayectoria", "Biografía, trayectoria, pericias y valores"] },
+  zh: { ressources: ["资源","学习软件、文献、视频与播客"], recherche: ["研究与创新", "博士论文、研究方法、在研工作、发表成果与创新"], parcours: ["经历", "个人简介、经历、专长与价值观"] },
+  ar: { ressources: ["الموارد","برمجيات تعليمية وقراءات وفيديو وبودكاست"], recherche: ["البحث والابتكار", "الأطروحة والمنهجيات والأعمال الجارية والمنشورات والابتكار"], parcours: ["المسار", "السيرة والمسار ومجالات الخبرة والقيم"] },
 };
 const texteGroupe = (c, g) =>
   g === "implantation"
@@ -438,6 +457,7 @@ const TEINTES = {
   vulgarisation: ["#2f6f86", "#1f4f62"],
   notions: ["#7a4f9a", "#563870"],
   outils: ["#2f3f7a", "#1c2650"],
+  logiciels: ["#138086", "#0c5a5e"],
   juriste: ["#7a2e3a", "#561f28"],
   gestionnaire: ["#46507a", "#2f3656"],
   educateur: ["#4f8a5b", "#37633f"],
@@ -779,6 +799,7 @@ function sectionIA(c) {
   const s = IA.langues[c.lang];
   const biblio = (cles) => `<ul class="methode-refs lectures-ia">${cles.map((k) => `<li>${lien(IA.references[k].href, e(IA.references[k].citation))}</li>`).join("")}</ul>`;
   const rubriques = s.rubriques.map((r, i) => ["ia-" + i, r.nom, `<h3>${e(r.titre)}</h3><p>${e(r.intro)}</p>${referencesIA(r.refs)}${cartesRubrique(r.items)}<p class="note note-ia">${e(r.note)}</p>${referencesIA(r.noteRefs)}`]);
+  rubriques.splice(2,0,["ia-atelier",ATELIERS.textes(c.lang,"ia").labels.atelier,atelierPratique(c,"ia")]);
   rubriques.push(["ia-lectures", s.sources, `<h3>${e(s.lectures.titre)}</h3><p>${e(s.lectures.intro)}</p>${biblio(Object.keys(IA.references))}`]);
   return `<div class="section-corps pleine section-ia"><div class="colonne-texte"><p class="surtitre">${e(s.date)}</p><h2>${e(s.titre)}</h2><p class="intro">${e(s.intro)}</p></div><div class="colonne-outils">${ongletsRubriques(c, "ia", s.explorer, rubriques, 4)}</div></div>`;
 }
@@ -866,7 +887,7 @@ function media(c, [titre, source, href, apport]) {
   return `<article class="media">${ecran}<div class="media-texte"><strong>${e(titre)}</strong><small>${e(source)}</small><p>${e(apport)}</p>${lien(href, e(ouvrir) + ' <span aria-hidden="true">↗</span>')}</div></article>`;
 }
 
-function sectionImplantation(c) {
+function sectionImplantationHistorique(c) {
   const m = c.implantation;
   const tr = m.transfert;
   const fleche = ' <span aria-hidden="true">↗</span>';
@@ -901,6 +922,11 @@ ${cartes(m.cadres)}
 </div>
 </div>
 `;
+}
+
+function sectionImplantation(c) {
+ const m=c.implantation,A=ATELIERS.textes(c.lang,"implantation");
+ return `<div class="section-corps pleine implantation-approfondie"><div class="colonne-texte"><p class="surtitre">${e(m.surtitre)}</p><h2>${e(m.titre)}</h2><p class="intro">${e(m.intro)}</p></div><div class="colonne-outils">${ongletsRubriques(c,"implantation",A.labels.choisir,[["implantation-atelier",A.labels.atelier,atelierPratique(c,"implantation")],["implantation-reperes",m.transfert.titre,sectionImplantationHistorique(c)]],2)}</div></div>`;
 }
 
 function sectionBiographie(c) {
@@ -1201,6 +1227,7 @@ function page(c, options = {}) {
   c.hall.portes.notions = textesNotions(c).salle;
   c.hall.portes.outils = textesOutils(c).salle;
   for (const k of CLES_VITRINES) c.hall.portes[k] = textesVitrine(c, k).salle;
+  c.hall.portes.logiciels=LOGICIELS[c.lang].salle;
   poserSousPortes(c);
   const sections = {
     recherche: sectionRecherche(c),
@@ -1211,7 +1238,8 @@ function page(c, options = {}) {
     transmission: sectionTransmission(c),
     vulgarisation: sectionVulgarisation(c),
     notions: sectionNotions(c),
-    outils: sectionOutils(c),
+    outils: sectionOutils(c)+sectionLogiciels(c,true),
+    logiciels: sectionLogiciels(c),
     publications: sectionGroupes(c, c.publications, "", ICONES_GROUPES.publications),
     biographie: sectionBiographie(c),
     parcours: sectionParcours(c),
@@ -1234,7 +1262,7 @@ function page(c, options = {}) {
   };
 
   return `<!doctype html>
-<html lang="${c.lang === "zh" ? "zh-Hans" : c.lang}"${langue(c.lang).dir ? ` dir="${langue(c.lang).dir}"` : ""} data-voix="${langue(c.lang).voix}" data-racine="${c.chemin || "./"}"${options.edition ? ` data-edition="${options.edition}" data-traduction="partielle"` : ""}${!options.edition && ["fr", "en"].includes(c.lang) ? ` data-audio="${c.lang}" data-audio-exclues="recherche approche methodes axes ia transmission vulgarisation publications parcours educateur loisirs valeurs biographie notions representation"` : ""}>
+<html lang="${c.lang === "zh" ? "zh-Hans" : c.lang}"${langue(c.lang).dir ? ` dir="${langue(c.lang).dir}"` : ""} data-voix="${langue(c.lang).voix}" data-racine="${c.chemin || "./"}"${options.edition ? ` data-edition="${options.edition}" data-traduction="partielle"` : ""}${!options.edition && ["fr", "en"].includes(c.lang) ? ` data-audio="${c.lang}" data-audio-exclues="implantation logiciels recherche approche methodes axes ia transmission vulgarisation publications parcours educateur loisirs valeurs biographie notions representation"` : ""}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">

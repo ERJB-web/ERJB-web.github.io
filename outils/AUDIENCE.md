@@ -1,6 +1,6 @@
 # Activer la mesure d’audience
 
-L’intégration Umami est prête mais reste inactive tant que `outils/audience.json` contient `"websiteId": null`. Aucun appel au service de statistiques n’est alors ajouté aux pages.
+L’intégration Umami est configurée avec l’identifiant public fourni le 15 octobre 2026 : `782c7df7-c2cf-4578-bddc-fa02662324af`. Le script est activé sur le domaine public après publication, sous réserve des préférences de confidentialité décrites ci-dessous. Le tableau de bord appartient au compte Umami du propriétaire du site.
 
 1. Créer son compte sur https://cloud.umami.is/signup et sélectionner l’offre gratuite Hobby. Confirmer son adresse de courriel et choisir sa région de données.
 2. Ajouter le site `erjb-web.github.io` dans Settings → Websites, puis ouvrir son code de suivi.

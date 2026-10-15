@@ -265,12 +265,17 @@
     ouvrirDestinationAxe(lien.getAttribute('href').slice(1));
   });
   addEventListener('popstate', () => {
-    if(!memoirePrete || !courante)return;
-    const fragment=location.hash.slice(1);
-    if(ordre.includes(fragment.split('/')[0]))ouvrirDestinationAxe(fragment,false);
-    else sortir();
+    if(!memoirePrete || occupe)return;
+    const etat=history.state?.ebNavigation;
+    const destination=location.hash.slice(1).split('/')[0];
+    if(etat && etat.fragment===location.hash){
+      if(!ordre.includes(etat.salle) && courante)sortir(false).then(()=>reprendreNavigation(etat));
+      else reprendreNavigation(etat);
+      return;
+    }
+    if(ordre.includes(destination))reprendreNavigation({salle:destination,libre:false,page:scrollY,lecture:0});
+    else if(courante)sortir();
   });
-
 
   const onglets = salle && $(".salle-onglets", salle);
   function afficher(s) {
@@ -552,7 +557,7 @@
         if (!this.actif) return null;
         const i = groupes.findIndex(g=>g.porte===porte);
         if (i<0) return null;
-        if(!mobile && marche)marche.arreter();
+        if(!mobile && marche)return marche.approcher(i);
         selection=i; vueLarge=false; regardX=0; regardY=0; marquerChoix();
         if (mobile) {
           defilerMobile(true);
@@ -906,32 +911,18 @@
   addEventListener('pagehide',memoriserNavigation);
   document.addEventListener('visibilitychange',()=>{if(document.hidden)memoriserNavigation();});
   requestAnimationFrame(async()=>{
-    const proposer=etat=>{
-      if(!etat || !ordre.includes(etat.salle))return;
-      lectureAReprendre={...etat,reprise:null};
-      const bouton=$('[data-reprendre-lecture]');
-      if(!bouton)return;
-      bouton.hidden=false;
-      $('[data-reprise-nom]',bouton).textContent=$('section[data-salle="'+etat.salle+'"]').dataset.titre;
-      bouton.onclick=()=>{
-        const sauvegarde=lectureAReprendre;
-        if(!sauvegarde)return;
-        bouton.hidden=true;lectureAReprendre=null;
-        reprendreNavigation(sauvegarde);
-        if(sauvegarde.destination)requestAnimationFrame(()=>ouvrirDestinationAxe(sauvegarde.destination,false));
-      };
-    };
+    document.querySelectorAll('.porte.ouverte').forEach(p=>p.classList.remove('ouverte'));
+    document.querySelectorAll('.passage').forEach(p=>p.remove());
     if(navigationInitiale){
-      reprendreNavigation({...navigationInitiale,salle:null,tables:[],details:[],libre:!!navigationInitiale.libre});
-      proposer(ordre.includes(navigationInitiale.salle)?navigationInitiale:navigationInitiale.reprise);
+      const cible=location.hash.slice(1).split('/')[0];
+      const sauvegarde=navigationInitiale.salle ? navigationInitiale : ordre.includes(cible) ? (navigationInitiale.reprise?.salle===cible ? navigationInitiale.reprise : {...navigationInitiale,salle:cible,tables:[],details:[]}) : {...navigationInitiale,reprise:null};
+      reprendreNavigation(sauvegarde);
       return;
     }
-    const fragment=location.hash.slice(1);
-    const destination=fragment.split('/')[0];
+    const fragment=location.hash.slice(1), destination=fragment.split('/')[0];
     if(ordre.includes(destination)){
-      const index=groupes.indexOf(groupeDe(destination));
-      hallVolume?.retablir?.({selection:index});
-      proposer({salle:destination,porte:index,libre:false,page:scrollY,lecture:0,destination:fragment});
+      reprendreNavigation({salle:destination,libre:false,page:scrollY,lecture:0,porte:groupes.indexOf(groupeDe(destination))});
+      return;
     }
     memoirePrete=true;
     demanderMemoire();

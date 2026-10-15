@@ -1,0 +1,23 @@
+{
+  "origineWeb": "https://github.com/ERJB-web/statosphere",
+  "commitSource": "f88c67a48b1d0dca07028ec052fb37311a1ec5ca",
+  "date": "2026-10-15",
+  "copiesDistinctes": true,
+  "langueContenu": "fr",
+  "supportsInclus": false,
+  "coursNominatifsInclus": false,
+  "bilan": {
+    "statosphere": {
+      "lecons": 24,
+      "qcm": 1549,
+      "calculs": 483,
+      "exemplesRenouveles": 441
+    },
+    "episphere": {
+      "lecons": 20,
+      "qcm": 2100,
+      "calculs": 538,
+      "exemplesRenouveles": 518
+    }
+  }
+}
