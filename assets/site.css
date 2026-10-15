@@ -2140,3 +2140,12 @@ html[dir=rtl] .bande-parcours .trajectoire{direction:rtl}
 @media(max-width:1000px){.publications-portes{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.publications-portes{grid-template-columns:1fr;gap:8px;margin:12px 0 18px}.publication-porte{min-height:72px;padding:9px 12px}.publication-porte-mini{width:32px;height:50px}.publication-porte-vitre{inset:4px 4px auto;height:31px}.publication-porte-soubassement{inset:auto 4px 3px;height:5px}.publication-porte-texte strong{font-size:15px}.publication-bloc{padding:15px 13px 19px}}
 html[dir=rtl] .publications-portes,html[dir=rtl] .publication-porte{direction:rtl}
+
+
+/* Hall : une plus grande surface de verrière au-dessus des portes.
+   Le volume grandit vers le haut, portes et panneaux restent ancrés au sol. */
+@media(min-width:1000px){
+ .hall.en-volume .hall-espace{height:clamp(410px,52svh,470px)}
+ .hall.en-volume .station-hall{height:322px}
+ .hall.en-volume .panneau-hall{top:65px;max-height:calc(100% - 69px)}
+}
