@@ -90,7 +90,7 @@
         "我的志向是**在这些彼此相邻却未必相互理解的领域之间打开大门**，打破视角之间的壁垒，拉近研究与行动的距离，以促进自主决定、为集体决策提供依据，并为建设一个更公正、更健康的社会贡献力量。"
       ]
     },
-    "encadrement": "博士论文由 Nadia Sourial 博士（Ph.D.）与 Géraldine Layani 博士（M.D.）联合指导 · Chaire de recherche GSK en gestion optimale des maladies chroniques（GSK 慢性病优化管理研究讲席）· CRCHUM · FRQ 奖学金获得者（B2）",
+    "encadrement": "正在构思阶段的公共卫生博士研究，由 Nadia Sourial 博士（Ph.D.）与 Géraldine Layani 博士（M.D.）联合指导 · Chaire de recherche GSK en gestion optimale des maladies chroniques（GSK 慢性病优化管理研究讲席） · CRCHUM · FRQ 奖学金获得者（B2）",
     "visite": "开始参观",
     "explorer": "自由浏览",
     "portrait": "Éric Bernier 的肖像"
@@ -297,13 +297,13 @@
       ]
     },
     "travaux": {
-      "titre": "已投稿及筹备中的手稿",
-      "intro": "与博士论文并行撰写中的文章与手稿。",
+      "titre": "已提交与准备中的学术论文",
+      "intro": "已提交的文章及正在撰写的手稿，与博士研究同步推进。",
       "items": [
         {
           "domaine": "卫生系统与初级保健",
           "statut": "已提交至 BJGP Open",
-          "titre": "Potentially avoidable hospitalisations and primary care: the role of patient experience across Commonwealth countries",
+          "titre": "Potentially avoidable hospitalisations and their association with patient-reported experience in primary care: an exploratory ecological study across 12 OECD countries",
           "auteurs": "Éric Bernier (LL.M, PhD student), Nadia Sourial (PhD), Isabelle Vedel (PhD), Géraldine Layani (MD, M.Sc), Aurélien Algoet (MD), Matthieu Calafiore (MD, PhD)"
         },
         {
@@ -686,7 +686,7 @@
         ],
         [
           "创业与管理",
-          "我接受过创业与管理方面的训练（大学文凭，布雷斯特企业管理学院IAE de Brest，2023年），目前已着手创建OWNNIGHT，这是一款关于身心健康与睡眠教育的应用程序。我的管理方法借鉴了硕士阶段所学的组织临床研究与机构业务发展，以及担任适应性度假项目负责人期间践行的贴近一线的领导力。"
+          "我接受过创业与管理方面的训练（大学文凭，布雷斯特企业管理学院IAE de Brest，2024年），目前已着手创建OWNNIGHT，这是一款关于身心健康与睡眠教育的应用程序。我的管理方法借鉴了硕士阶段所学的组织临床研究与机构业务发展，以及担任适应性度假项目负责人期间践行的贴近一线的领导力。"
         ]
       ]
     },
@@ -1391,7 +1391,7 @@
         "理解组织以变革实践",
         [
           "这一追问促使我将思考扩展到组织本身。",
-          "我继续修读卫生与医疗社会机构领导与管理课程，并于2023年在 IAE de Brest（布雷斯特企业管理学院）获得创业学大学文凭。",
+          "我继续修读卫生与医疗社会机构领导与管理课程，并于2024年在 IAE de Brest（布雷斯特企业管理学院）获得创业学大学文凭。",
           "我在其中深入研究了管理、筹资、协调、人力资源与变革管理等议题，并发现机构所面临的困难——从筹资到伙伴协作再到人员招聘——在很大程度上受制于公共卫生政策。",
           "我尤其致力于理解哪些条件能够使专业人员将其意图转化为切实的实践，并使组织能够兼顾自身约束与个人需求。"
         ]
@@ -1449,8 +1449,8 @@
       {
         "date": "2025年至今",
         "type": "formation",
-        "titre": "公共卫生博士 · ESPUM",
-        "detail": "卫生系统、组织与政策方向（SOPS），二年级。CRCHUM 研究实习生：初级保健政策、跨部门协作以及医疗与服务整合。",
+        "titre": "公共卫生博士 · ESPUM（加拿大）",
+        "detail": "加拿大蒙特利尔大学公共卫生学院（École de santé publique de l’Université de Montréal，ESPUM），卫生系统、组织与政策方向；蒙特利尔大学医院研究中心（Centre de recherche du CHUM，CRCHUM）研究实习生。",
         "discret": "累计平均绩点：4.1"
       },
       {
@@ -1474,26 +1474,26 @@
       {
         "date": "2024–2025年",
         "type": "experience",
-        "titre": "医社服务项目专员 · ANAP（法国国家卫生及医社服务绩效署，法国）",
-        "detail": "巴黎。共同主持专家网络，主持网络研讨会，收集与分析数据，组织并共同设计实践社群活动。"
+        "titre": "医疗社会服务项目专员 · ANAP（法国）",
+        "detail": "法国国家绩效支持署（Agence nationale d’appui à la performance，ANAP），巴黎（法国）。共同主持专家网络、网络研讨会、数据分析和实践社群活动。"
       },
       {
         "date": "2024年",
         "type": "formation",
-        "titre": "卫生机构管理硕士",
-        "detail": "Université de Bretagne Occidentale（西布列塔尼大学），获评审委员会特别嘉许。"
+        "titre": "医疗社会服务机构管理硕士级文凭 · UBO（法国）",
+        "detail": "法国西布列塔尼大学（Université de Bretagne Occidentale，UBO），获评审团特别嘉许。"
       },
       {
         "date": "2024年",
         "type": "experience",
-        "titre": "法国失能老年人照护机构（EHPAD，魁北克 CHSLD 的对应机构）管理实习",
-        "detail": "法国朗代诺 Fondation Ildys：在 EHPAD 管理层实习，相当于魁北克的 CHSLD。"
+        "titre": "EHPAD 管理实习 · Fondation Ildys",
+        "detail": "Fondation Ildys，法国朗代诺（Landerneau）。EHPAD（établissement d’hébergement pour personnes âgées dépendantes），即法国失能老人住宿照护机构，相当于魁北克长期照护中心 CHSLD；参与管理实习。"
       },
       {
         "date": "2024年",
         "type": "formation",
         "titre": "创业与管理大学文凭",
-        "detail": "Institut d’administration des entreprises de Brest（IAE de Brest，布雷斯特企业管理学院），获评审委员会特别嘉许。"
+        "detail": "法国布雷斯特 IAE（Institut d’administration des entreprises de Brest），获评审委员会特别嘉许。"
       },
       {
         "date": "2023年",
@@ -1510,8 +1510,8 @@
       {
         "date": "2016–2024年",
         "type": "experience",
-        "titre": "适应性度假与喘息度假项目负责人",
-        "detail": "布雷斯特，面向残障人士的适应性度假：共同制定教育方案、社会教育陪伴、休闲活动与用药跟进；团队督导、服务项目，以及人员、预算与后勤管理。"
+        "titre": "适应性度假及喘息服务项目负责人",
+        "detail": "法国布雷斯特：为残障人士组织适应性度假及喘息服务，负责教育项目、社会教育陪伴、团队、预算与后勤管理。"
       }
     ],
     "continue": {

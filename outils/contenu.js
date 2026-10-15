@@ -26,7 +26,7 @@ const TITRES_ORIGINAUX = {
   gfsp: "Intégration des soins et services de proximité pour soutenir l’autonomie domiciliaire des personnes aînées : une étude qualitative comparative",
   cahspr: "Integrating Care and Services to Support Aging at Home: A Comparative Analysis of Institutional, Organizational, and Professional Mechanisms in France and Quebec",
   epistemic: "Epistemic return in public health governance: The road back from health to science",
-  hospit: "Potentially avoidable hospitalisations and primary care: the role of patient experience across Commonwealth countries",
+  hospit: "Potentially avoidable hospitalisations and their association with patient-reported experience in primary care: an exploratory ecological study across 12 OECD countries",
   pl2: "Prise de parole des médecins dans l’espace public québécois lors des débats entourant le projet de loi n° 2 : une analyse qualitative du discours critique",
   droit: "Vieillir chez soi à l’épreuve du droit : l’effectivité du choix du lieu de vie en droit français et en droit québécois",
   memoireDroit: "Vieillir chez soi : réalités et mise en œuvre du virage domiciliaire. Une étude comparée France / Québec",
@@ -242,7 +242,7 @@ const fr = {
     },
     travaux: {
       titre: "Manuscrits soumis et en préparation",
-      intro: "Manuscrits distingués selon leur statut éditorial : soumis à une revue ou en préparation.",
+      intro: "Articles soumis ou en cours de rédaction, parallèlement à la thèse.",
       items: [
         { domaine: "Systèmes de santé et soins primaires", statut: "Soumis à BJGP Open", titre: TITRES_ORIGINAUX.hospit, auteurs: AUTEURS.hospit },
         {
@@ -588,7 +588,7 @@ const fr = {
         ],
         [
           "Transformation de l’offre et appui à la performance",
-          "Chargé de mission médico-sociale à l’Agence nationale de la performance sanitaire et médico-sociale (ANAP, Paris) en 2024–2025, j’ai accompagné la transformation de l’offre en santé et en services sociaux : copilotage du réseau des experts, animation de webinaires, recueil et analyse de données, animation et coconstruction de séances de communautés de pratique."
+          "Chargé de mission médico-sociale à l’Agence nationale d’appui à la performance (ANAP, Paris) en 2024–2025, j’ai accompagné la transformation de l’offre en santé et en services sociaux : copilotage du réseau des experts, animation de webinaires, recueil et analyse de données, animation et coconstruction de séances de communautés de pratique."
         ],
         [
           "Vieillissement, autonomie et EHPAD",
@@ -1317,7 +1317,7 @@ const fr = {
         "Comprendre les organisations pour transformer les pratiques",
         [
           "Cette interrogation m’a conduit à élargir ma réflexion aux organisations elles-mêmes.",
-          "J’ai poursuivi une formation en direction et gestion des établissements sanitaires et médico-sociaux, ainsi qu’un diplôme universitaire en entrepreneuriat à l’IAE de Brest, obtenu en 2023.",
+          "J’ai poursuivi une formation en direction et gestion des établissements sanitaires et médico-sociaux, ainsi qu’un diplôme universitaire en entrepreneuriat à l’IAE de Brest, obtenu en 2024.",
           "J’y ai approfondi les enjeux de management, de financement, de coordination, de ressources humaines et de conduite du changement. J’y ai constaté que les difficultés des structures, du financement au travail partenarial et au recrutement, étaient largement conditionnées par les politiques publiques de santé.",
           "J’ai surtout cherché à comprendre les conditions qui permettent aux professionnels de traduire leurs intentions en pratiques effectives, et aux organisations de concilier leurs contraintes avec les besoins des personnes."
         ]
@@ -1326,7 +1326,7 @@ const fr = {
         "Du fonctionnement des institutions à la gouvernance des systèmes de santé",
         [
           "L’étude des organisations m’a amené à explorer les mécanismes qui orientent leurs décisions : les cadres juridiques, les politiques publiques, la planification, les dispositifs de financement et les modalités de gouvernance.",
-          "J’ai poursuivi cette réflexion à l’Université Paris-Panthéon-Assas, en droit public, sanitaire et social, pour dépasser les problématiques gestionnaires et adopter une approche multiniveau du système de santé et des instruments juridiques de la solidarité nationale, puis comme chargé de mission médico-sociale à l’Agence nationale de la performance sanitaire et médico-sociale (ANAP).",
+          "J’ai poursuivi cette réflexion à l’Université Paris-Panthéon-Assas, en droit public, sanitaire et social, pour dépasser les problématiques gestionnaires et adopter une approche multiniveau du système de santé et des instruments juridiques de la solidarité nationale, puis comme chargé de projets à l’Agence nationale d’appui à la performance (ANAP).",
           "Cette expérience m’a permis de travailler à l’articulation entre orientations nationales et réalités opérationnelles, en traduisant ces orientations en dispositifs concrets, au contact des enjeux rencontrés par les gestionnaires, les professionnels et les usagers du système de santé.",
           "Elle a renforcé mon intérêt pour les difficultés de mise en œuvre des politiques publiques, particulièrement lorsque les réponses à apporter supposent de dépasser les frontières entre organisations et secteurs d’intervention. Consolidée par un mémoire de recherche, cette immersion a révélé les difficultés de mise en œuvre des modèles de soins et services intégrés, et la nécessité d’une approche intersectorielle et interdisciplinaire face aux pratiques en silos. J’ai alors sollicité plusieurs chercheurs québécois en leur présentant mes constats et un projet de mise en contraste des systèmes de santé, pour trouver des réponses aux difficultés de mise en œuvre du maintien à domicile."
         ]
@@ -1375,8 +1375,8 @@ const fr = {
       {
         "date": "Depuis 2025",
         "type": "formation",
-        "titre": "Doctorat en santé publique · ESPUM",
-        "detail": "Option systèmes, organisations et politiques de santé (SOPS), 2e année. Stagiaire de recherche au CRCHUM : politiques de soins primaires, intersectorialité et intégration des soins et services.",
+        "titre": "Doctorat en santé publique · ESPUM (Canada)",
+        "detail": "École de santé publique de l’Université de Montréal (ESPUM), Canada. Option systèmes, organisations et politiques de santé (SOPS), 2e année. Stagiaire de recherche au Centre de recherche du CHUM (CRCHUM), Canada : soins primaires et intersectorialité.",
         "discret": "Moyenne cumulative : 4,1"
       },
       {
@@ -1400,26 +1400,26 @@ const fr = {
       {
         "date": "2024–2025",
         "type": "experience",
-        "titre": "Chargé de mission médico-sociale · Agence nationale de la performance sanitaire et médico-sociale (ANAP, France)",
-        "detail": "Paris. Copilotage du réseau des experts, animation de webinaires, recueil et analyse de données, animation et coconstruction de séances de communautés de pratique."
+        "titre": "Chargé de mission médico-sociale · ANAP (France)",
+        "detail": "Agence nationale d’appui à la performance (ANAP), Paris (France). Copilotage du réseau des experts, animation de webinaires, recueil et analyse de données, animation et coconstruction de séances de communautés de pratique."
       },
       {
         "date": "2024",
         "type": "formation",
-        "titre": "Maîtrise en direction d’établissements de santé",
-        "detail": "Université de Bretagne Occidentale, mention spéciale du jury."
+        "titre": "Maîtrise en direction d’établissements de santé · UBO (France)",
+        "detail": "Université de Bretagne Occidentale (UBO), France, mention spéciale du jury."
       },
       {
         "date": "2024",
         "type": "experience",
-        "titre": "Stage en direction d’un établissement d’hébergement pour personnes âgées dépendantes (EHPAD, équivalent CHSLD)",
-        "detail": "Fondation Ildys, Landerneau (France) : stage auprès de la direction d’un EHPAD, équivalent québécois d’un CHSLD."
+        "titre": "Stage en direction d’EHPAD · Fondation Ildys",
+        "detail": "Fondation Ildys, Landerneau (France). Établissement d’hébergement pour personnes âgées dépendantes (EHPAD), équivalent d’un centre d’hébergement et de soins de longue durée (CHSLD) au Québec : stage auprès de la direction."
       },
       {
         "date": "2024",
         "type": "formation",
         "titre": "Diplôme universitaire en entrepreneuriat et management",
-        "detail": "Institut d’administration des entreprises (IAE) de Brest, mention spéciale du jury."
+        "detail": "IAE de Brest, Institut d’administration des entreprises (France), mention spéciale du jury."
       },
       {
         "date": "2023",
@@ -1437,7 +1437,7 @@ const fr = {
         "date": "2016–2024",
         "type": "experience",
         "titre": "Responsable de séjours de vacances adaptés et de séjours de répit",
-        "detail": "Séjours adaptés pour personnes en situation de handicap, Brest : coconstruction du projet pédagogique, accompagnement socioéducatif, activités de loisirs et suivi des traitements ; encadrement, projets de service, gestion des équipes, du budget et de la logistique."
+        "detail": "Séjours de vacances adaptés et séjours de répit pour personnes en situation de handicap, Brest (France) : coconstruction du projet pédagogique, accompagnement socioéducatif, activités de loisirs et suivi des traitements ; gestion des équipes, du budget et de la logistique."
       }
     ],
     "continue": {
@@ -1705,7 +1705,7 @@ const en = {
       ]
     },
     encadrement:
-      "Thesis co-supervised by Dr. Nadia Sourial, PhD, and Dr. Géraldine Layani, MD · GSK Research Chair in optimal management of chronic diseases · CRCHUM · FRQ doctoral scholar (B2)",
+      "PhD research currently being conceptualised, co-supervised by Nadia Sourial (PhD) and Géraldine Layani (MD) · GSK Research Chair in optimal management of chronic diseases · CRCHUM · FRQ doctoral scholar (B2)",
     visite: "Start the visit",
     explorer: "Browse freely",
     portrait: "Portrait of Éric Bernier",
@@ -1812,8 +1812,8 @@ const en = {
       ],
     },
     travaux: {
-      titre: "Submitted and in-preparation manuscripts",
-      intro: "Manuscripts distinguished by editorial status: submitted to a journal or in preparation.",
+      titre: "Submitted manuscripts and works in preparation",
+      intro: "Submitted papers and manuscripts being prepared alongside the thesis.",
       items: [
         { domaine: "Health systems and primary care", statut: "Submitted to BJGP Open", titre: TITRES_ORIGINAUX.hospit, auteurs: AUTEURS.hospit },
         {
@@ -2183,7 +2183,7 @@ const en = {
         ],
         [
           "Entrepreneurship and management",
-          "Trained in entrepreneurship and management (university diploma, IAE de Brest, 2024), I have embarked on the creation of OWNNIGHT, a well-being and sleep education application. My approach to management draws on the clinical approach to organisations and on developing an organisation’s activity, both studied at master’s level, as well as on the hands-on leadership I exercised as manager of adapted stays."
+          "Trained in entrepreneurship and management (university diploma, IAE de Brest, 2024), I have embarked on the creation of OWNNIGHT, a well-being and sleep education application. My approach to management draws on the clinical approach to organisations and on developing an organisation’s activity, both studied at master’s level, as well as on the hands-on leadership I exercised as manager of adapted holiday and respite stays."
         ]
       ]
     },
@@ -2888,7 +2888,7 @@ const en = {
         "Understanding organisations to transform practice",
         [
           "This question led me to widen my reflection to organisations themselves.",
-          "I completed training in the management of health and medico-social facilities, as well as a university diploma in entrepreneurship at IAE Brest, obtained in 2023.",
+          "I completed training in the management of health and medico-social facilities, as well as a university diploma in entrepreneurship at IAE Brest, obtained in 2024.",
           "There I deepened issues of management, funding, coordination, human resources and change management, and observed that the facilities’ difficulties, from funding to partnership work and recruitment, were largely conditioned by health policy.",
           "Above all, I sought to understand the conditions that allow professionals to turn their intentions into effective practice, and organisations to reconcile their constraints with people’s needs."
         ]
@@ -2946,8 +2946,8 @@ const en = {
       {
         "date": "Since 2025",
         "type": "formation",
-        "titre": "PhD in public health · ESPUM",
-        "detail": "Health systems, organisations and policy option (SOPS), 2nd year. Research trainee at CRCHUM: primary care policy, intersectoral action and integration of care and services.",
+        "titre": "PhD in public health · ESPUM (Canada)",
+        "detail": "École de santé publique de l’Université de Montréal (ESPUM), Canada. Health systems, organisations and policy (SOPS), second year; research trainee at the Centre de recherche du CHUM (CRCHUM), Canada.",
         "discret": "Cumulative GPA: 4.1"
       },
       {
@@ -2971,26 +2971,26 @@ const en = {
       {
         "date": "2024–2025",
         "type": "experience",
-        "titre": "Medico-social project officer · French National Agency for Health and Social Care Performance (ANAP, France)",
-        "detail": "Paris. Co-leading the expert network, hosting webinars, collecting and analysing data, facilitating and co-designing community of practice sessions."
+        "titre": "Health and social care project officer · ANAP (France)",
+        "detail": "Agence nationale d’appui à la performance (ANAP), Paris (France). Co-leading the expert network, hosting webinars, collecting and analysing data, and facilitating communities of practice."
       },
       {
         "date": "2024",
         "type": "formation",
-        "titre": "Master’s in health care facility management",
-        "detail": "Université de Bretagne Occidentale, with special distinction from the jury."
+        "titre": "Master’s in health care facility management · UBO (France)",
+        "detail": "Université de Bretagne Occidentale (UBO), France, with special distinction from the jury."
       },
       {
         "date": "2024",
         "type": "experience",
-        "titre": "Management internship at a French residential care home for dependent older adults (EHPAD, equivalent to a CHSLD)",
-        "detail": "Fondation Ildys, Landerneau (France): management internship at an EHPAD, the French equivalent of a Québec CHSLD."
+        "titre": "Management internship in an EHPAD · Fondation Ildys",
+        "detail": "Fondation Ildys, Landerneau (France). EHPAD (établissement d’hébergement pour personnes âgées dépendantes), a French residential care home for dependent older adults, comparable to a Quebec CHSLD (long-term care centre); internship with the management team."
       },
       {
         "date": "2024",
         "type": "formation",
         "titre": "University diploma in entrepreneurship and management",
-        "detail": "Institut d’administration des entreprises (IAE) de Brest, with special distinction from the jury."
+        "detail": "IAE de Brest (Institut d’administration des entreprises), France, with special distinction from the jury."
       },
       {
         "date": "2023",
@@ -3007,8 +3007,8 @@ const en = {
       {
         "date": "2016–2024",
         "type": "experience",
-        "titre": "Respite stay manager",
-        "detail": "Adapted holidays for people with disabilities, Brest: co-designing the educational project, socio-educational support, leisure activities and medication follow-up; supervision, service projects, management of teams, budget and logistics."
+        "titre": "Manager of adapted holiday and respite stays",
+        "detail": "Adapted holidays and respite stays for people with disabilities, Brest (France): co-designing educational programmes, providing socio-educational support and supervising teams, budgets and logistics."
       }
     ],
     "continue": {
@@ -3276,7 +3276,7 @@ const es = {
       ]
     },
     encadrement:
-      "Tesis codirigida por la Dra. Nadia Sourial, Ph. D., y la Dra. Géraldine Layani, M.D. · Cátedra de investigación GSK en gestión óptima de enfermedades crónicas · CRCHUM · Becario del FRQ (B2)",
+      "Tesis doctoral en fase de conceptualización, codirigida por Nadia Sourial (PhD) y Géraldine Layani (MD) · Cátedra de investigación GSK en gestión óptima de enfermedades crónicas · CRCHUM · Becario del FRQ (B2)",
     visite: "Comenzar la visita",
     explorer: "Explorar libremente",
     portrait: "Retrato de Éric Bernier",
@@ -3384,7 +3384,7 @@ const es = {
     },
     travaux: {
       titre: "Manuscritos enviados y en preparación",
-      intro: "Manuscritos clasificados por estado editorial: enviados a una revista o en preparación.",
+      intro: "Artículos enviados y manuscritos en preparación, en paralelo a la tesis.",
       items: [
         { domaine: "Sistemas de salud y atención primaria", statut: "Enviado a BJGP Open", titre: TITRES_ORIGINAUX.hospit, auteurs: AUTEURS.hospit },
         {
@@ -3754,7 +3754,7 @@ const es = {
         ],
         [
           "Emprendimiento y gestión",
-          "Formado en emprendimiento y gestión (diploma universitario, IAE de Brest, 2024), he iniciado la creación de OWNNIGHT, una aplicación de bienestar y educación del sueño. Mi enfoque de la gestión se apoya en la clínica de las organizaciones y en el desarrollo de la actividad de una estructura, estudiados en el máster, así como en el liderazgo de proximidad ejercido como responsable de estancias adaptadas."
+          "Formado en emprendimiento y gestión (diploma universitario, IAE de Brest, 2023), he iniciado la creación de OWNNIGHT, una aplicación de bienestar y educación del sueño. Mi enfoque de la gestión se apoya en la clínica de las organizaciones y en el desarrollo de la actividad de una estructura, estudiados en el máster, así como en el liderazgo de proximidad ejercido como responsable de estancias adaptadas."
         ]
       ]
     },
@@ -4459,7 +4459,7 @@ const es = {
         "Comprender las organizaciones para transformar las prácticas",
         [
           "Esta pregunta me llevó a ampliar mi reflexión a las propias organizaciones.",
-          "Cursé una formación en dirección y gestión de establecimientos sanitarios y sociosanitarios, así como un diploma universitario en emprendimiento en el IAE de Brest, obtenido en 2023.",
+          "Cursé una formación en dirección y gestión de establecimientos sanitarios y sociosanitarios, así como un diploma universitario en emprendimiento en el IAE de Brest, obtenido en 2024.",
           "Allí profundicé en los retos de la gestión, la financiación, la coordinación, los recursos humanos y la conducción del cambio, y comprobé que las dificultades de las estructuras, desde la financiación hasta el trabajo en red y la contratación, dependían en gran medida de las políticas públicas de salud.",
           "Sobre todo, busqué comprender las condiciones que permiten a los profesionales traducir sus intenciones en prácticas efectivas, y a las organizaciones conciliar sus limitaciones con las necesidades de las personas."
         ]
@@ -4517,8 +4517,8 @@ const es = {
       {
         "date": "Desde 2025",
         "type": "formation",
-        "titre": "Doctorado en salud pública · ESPUM",
-        "detail": "Opción sistemas, organizaciones y políticas de salud (SOPS), 2.º año. Investigador en prácticas en el CRCHUM: políticas de atención primaria, intersectorialidad e integración de cuidados y servicios.",
+        "titre": "Doctorado en salud pública · ESPUM (Canadá)",
+        "detail": "École de santé publique de l’Université de Montréal (ESPUM), Canadá. Opción de sistemas, organizaciones y políticas sanitarias (SOPS); investigador en prácticas en el Centre de recherche du CHUM (CRCHUM), Canadá.",
         "discret": "Promedio acumulado: 4,1"
       },
       {
@@ -4542,26 +4542,26 @@ const es = {
       {
         "date": "2024–2025",
         "type": "experience",
-        "titre": "Encargado de misión · Agencia nacional francesa de apoyo al desempeño (ANAP)",
-        "detail": "París. Copilotaje de la red de expertos, animación de seminarios web, recopilación y análisis de datos, animación y coconstrucción de sesiones de comunidades de práctica."
+        "titre": "Encargado de misión médico-social · ANAP (Francia)",
+        "detail": "Agence nationale d’appui à la performance (ANAP), París (Francia). Copilotaje de la red de expertos, seminarios web, análisis de datos y comunidades de práctica."
       },
       {
         "date": "2024",
         "type": "formation",
-        "titre": "Maestría en dirección de establecimientos de salud",
-        "detail": "Université de Bretagne Occidentale, mención especial del jurado."
+        "titre": "Maestría en dirección de establecimientos de salud · UBO (Francia)",
+        "detail": "Université de Bretagne Occidentale (UBO), Francia, mención especial del jurado."
       },
       {
         "date": "2024",
         "type": "experience",
-        "titre": "Prácticas de dirección en un establecimiento residencial para mayores dependientes (EHPAD, equivalente al CHSLD)",
-        "detail": "Fondation Ildys, Landerneau (Francia): prácticas de dirección en un EHPAD, equivalente al CHSLD de Quebec."
+        "titre": "Prácticas de dirección en EHPAD · Fondation Ildys",
+        "detail": "Fondation Ildys, Landerneau (Francia). Établissement d’hébergement pour personnes âgées dépendantes (EHPAD), residencia francesa para personas mayores dependientes, equivalente a un CHSLD (centro de cuidados de larga duración) en Quebec; prácticas de dirección."
       },
       {
         "date": "2024",
         "type": "formation",
         "titre": "Diploma universitario en emprendimiento y gestión",
-        "detail": "Institut d’administration des entreprises (IAE) de Brest, mención especial del jurado."
+        "detail": "IAE de Brest (Institut d’administration des entreprises), Francia, mención especial del jurado."
       },
       {
         "date": "2023",
@@ -4578,8 +4578,8 @@ const es = {
       {
         "date": "2016–2024",
         "type": "experience",
-        "titre": "Responsable de estancias vacacionales adaptadas y estancias de respiro",
-        "detail": "Estancias adaptadas para personas en situación de discapacidad, Brest: coconstrucción del proyecto pedagógico, acompañamiento socioeducativo, actividades de ocio y seguimiento de los tratamientos; encuadre, proyectos de servicio, gestión de equipos, presupuesto y logística."
+        "titre": "Responsable de vacaciones adaptadas y estancias de respiro",
+        "detail": "Vacaciones adaptadas y estancias de respiro para personas con discapacidad, Brest (Francia): proyectos pedagógicos, acompañamiento socioeducativo, dirección de equipos, presupuestos y logística."
       }
     ],
     "continue": {

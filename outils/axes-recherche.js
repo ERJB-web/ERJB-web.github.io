@@ -328,7 +328,7 @@ module.exports = {
 },
  destinations: [["publications/travail-epistemique","publications/travail-pl2"],["recherche/objectifs","recherche/methodes"],["publications/memoire-domicile","publications/travail-droit"],["publications/memoire-domicile","publications/travail-droit"],["gestionnaire/experience-anap","publications/memoire-ehpad"],["publications/travail-hospitalisations","publications/memoire-domicile"]],
  principales: ["publications/travail-epistemique","recherche/objectifs","publications/travail-droit","juriste","gestionnaire/experience-anap","publications/travail-hospitalisations"],
- statuts: [[0,2],["these","methode"],["memoire2025",3],["memoire2025",3],["anap","memoire2024"],[1,"memoire2025"]],
+ statuts: [[1,2],["these","methode"],["memoire2025",3],["memoire2025",3],["anap","memoire2024"],[0,"memoire2025"]],
  couleurs: ["#266489","#287263","#795675","#98652c","#465e8e","#277780"],
  icones: [
  '<path d="M4 20h20M7 20V10m5 10V10m5 10V10m5 10V10M4 8l10-5 10 5H4Z"/>',

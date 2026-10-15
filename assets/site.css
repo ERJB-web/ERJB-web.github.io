@@ -1973,21 +1973,47 @@ html:is(.hc,.lv) .rubriques[data-navigation=atelier] :is(.rubriques-console,.rub
  .hall .station-hall:hover .porte:not(.ouverte) .battant{transform:rotateY(-34deg);box-shadow:12px 0 18px rgba(15,49,66,.16)}
  .hall .station-hall:hover .porte:not(.ouverte) .apercu{opacity:1}
 }
-/* Lisibilité de l'en-tête et des rubriques – octobre 2026. */
-.entete{background:linear-gradient(180deg,rgba(245,249,249,.97),rgba(250,252,251,.95));border-bottom:1px solid #b7cdd1;box-shadow:0 6px 22px rgba(23,63,82,.085)}
-.entete .marque strong{font-weight:700}
-.entete .nav{margin-top:15px;padding:7px;gap:7px;background:linear-gradient(125deg,#e6efef,#f3f7f6);border:1px solid #bed0d1;box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 3px 12px rgba(23,63,82,.07)}
-.entete .nav a{min-height:44px;padding:10px 15px;font-size:15.5px;font-weight:650;letter-spacing:.003em}
-.entete .nav a::before{width:6px;height:6px}
-.entete .nav a:hover,.entete .nav a:focus-visible{background:#fff;box-shadow:0 3px 10px rgba(23,63,82,.10)}
-.entete + main{padding-block-start:20px}
-.encadrement .encadrement-lien{color:#225a6b;text-decoration:underline;text-decoration-color:rgba(34,90,107,.32);text-underline-offset:3px;text-decoration-thickness:1px;transition:color .2s,text-decoration-color .2s}
-.encadrement .encadrement-lien:hover,.encadrement .encadrement-lien:focus-visible{color:#174257;text-decoration-color:currentColor}
-.travail[data-axe-cible="travail-hospitalisations"]{border-color:#7fa9a6;border-inline-start:4px solid var(--green);background:linear-gradient(150deg,#fff,#f1f7f5)}
-.bande-parcours .trajectoire{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:16px;row-gap:14px}
+
+/* Retouches éditoriales 2026-10 : navigation plus lisible, accents discrets. */
+.entete{background:rgba(248,251,250,.97);border-bottom-color:#d5e0de;box-shadow:0 5px 18px rgba(24,59,70,.065)}
+.entete .nav{gap:6px;padding:6px;border-color:#cededc;border-radius:16px;background:linear-gradient(115deg,#e7f0ee 0%,#f1f5f4 60%,#eaf1ed 100%);box-shadow:inset 0 1px rgba(255,255,255,.88),0 3px 9px rgba(28,68,77,.055)}
+.entete .nav a{font-size:clamp(14px,.96vw,15.5px);font-weight:650;padding:9px 14px;border-radius:10px}
+.entete .nav a::before{width:7px;height:7px;opacity:.95}
+.entete .nav a:hover,.entete .nav a:focus-visible{background:#fff;border-color:#bfcfce;box-shadow:0 3px 10px rgba(28,68,77,.10)}
+.entete + main{padding-block-start:13px}
+.accueil{padding-top:34px}
+.encadrement{line-height:1.8}
+.encadrement .encadrement-lien{color:var(--ink);font-weight:600;text-decoration:none;text-underline-offset:3px;text-decoration-thickness:1px;border-bottom:1px solid color-mix(in srgb,var(--green) 40%,transparent);transition:color .2s,border-color .2s}
+.encadrement .encadrement-lien:hover,.encadrement .encadrement-lien:focus-visible{color:var(--green);border-color:currentColor}
+.encadrement .encadrement-lien:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:2px}
+.encadrement-separateur{padding-inline:3px;color:#86979d}
+.publications-page{grid-template-columns:minmax(0,1fr);gap:28px;align-items:start}
+.publications-page>.colonne-texte{max-width:100%;position:static}
+.publications-page>.travaux{width:100%;max-width:none;padding:0}
+.publications-page>.colonne-outils{grid-column:1;min-width:0}
+.publications-page .groupes-grille{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.publications-page .travaux-tete{padding-top:22px;margin-bottom:18px}
+.publications-page .travail[data-axe-cible="travail-hospitalisations"]{border-color:#9cc3b7;background:linear-gradient(135deg,#fff,#f2f8f5);box-shadow:inset 4px 0 #327a66}
+.publications-page .travail[data-axe-cible="travail-hospitalisations"] .statut-pastille{color:#1d624b;font-weight:750}
+.bande-parcours .trajectoire{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px 22px}
 .bande-parcours .trajectoire::before{display:none}
-.bande-parcours .trajectoire li{padding:30px 12px 8px 0;min-width:0}
-.bande-parcours .trajectoire-texte{font-size:14px;line-height:1.5;overflow-wrap:anywhere}
-@media(max-width:860px){.entete .nav a{font-size:15px}}
-@media(max-width:640px){.entete .nav{padding:5px;gap:5px;margin-top:8px}.entete .nav a{font-size:14.5px;min-height:44px;padding:9px 12px}.entete + main{padding-block-start:12px}.bande-parcours .trajectoire{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
-@media(max-width:420px){.bande-parcours .trajectoire{grid-template-columns:1fr}.bande-parcours .trajectoire li{padding-bottom:4px}}
+.bande-parcours .trajectoire li{min-width:0;padding:28px 9px 6px 0;border-top:2px solid rgba(236,248,251,.47)}
+.bande-parcours .trajectoire li::before{top:-12px}
+.bande-parcours .trajectoire-date{font-size:15px}
+.bande-parcours .trajectoire-texte{font-size:14px;line-height:1.55;overflow-wrap:break-word}
+@media(max-width:999px){
+ .hall.en-mobile .hall-reperes{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;padding:7px;border:1px solid #cddfdb;border-radius:17px;background:linear-gradient(120deg,#e9f1ee,#f0f5f3);box-shadow:0 4px 15px rgba(26,73,76,.075)}
+ .hall.en-mobile .hall-reperes>button{min-height:66px;max-width:none;gap:10px;padding:12px 10px;font:650 13.5px/1.38 var(--sans);border:1px solid #e1eae7;border-radius:12px;background:#fff;box-shadow:0 2px 5px rgba(24,64,74,.045)}
+ .hall.en-mobile .hall-reperes>button bdi{width:31px;height:31px;border-radius:8px;font:700 12px/1 var(--sans)}
+ .hall.en-mobile .hall-reperes>button:hover,.hall.en-mobile .hall-reperes>button:focus-visible{border-color:color-mix(in srgb,var(--c1) 50%,white);background:color-mix(in srgb,var(--c1) 5%,white);box-shadow:0 4px 11px rgba(24,64,74,.09)}
+ .hall.en-mobile .hall-reperes>button[aria-pressed=true]{border-color:color-mix(in srgb,var(--c1) 45%,white);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c1) 10%,white),0 3px 10px rgba(24,64,74,.07)}
+}
+@media(max-width:850px){.publications-page .groupes-grille{grid-template-columns:1fr}.bande-parcours .trajectoire{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){
+ .entete + main{padding-block-start:8px}
+ .accueil{padding-top:26px}
+ .hall.en-mobile .hall-reperes{display:flex;gap:7px;overflow-x:auto}
+ .hall.en-mobile .hall-reperes>button{flex:0 0 auto;min-width:156px;max-width:208px;min-height:58px}
+ .entete .nav a{font-size:14px;padding:8px 11px}
+}
+@media(max-width:520px){.bande-parcours .trajectoire{grid-template-columns:1fr;gap:13px}.bande-parcours .trajectoire li{padding-top:23px}.bande-parcours .trajectoire li::before{top:-12px}}
