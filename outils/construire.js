@@ -16,6 +16,7 @@ const METHODOLOGIE = require("./methodologie");
 const METHODES_AJOUTS = require("./methodes-ajouts");
 const POSTURE = require("./posture-recherche");
 const AXES = require("./axes-recherche");
+const HALL_3D = require("./hall-3d");
 const MEDIATION = require("./enseignement-vulgarisation");
 const ENSEIGNEMENT = require("./enseignement-vision");
 const COMMUNICATION = require("./communication-visuelle");
@@ -458,6 +459,18 @@ function porte(c, [nom, sections], i) {
 <span class="baie" aria-hidden="true"><span class="ouverture"><span class="apercu">${e(c.ui.entrer)}</span><span class="battant"><span class="vignette"${fond}></span><span class="poignee"></span></span></span></span>
 <span class="porte-texte" aria-hidden="true"><span class="plaque"><span class="num">${num(i)}</span>${e(titre)}</span><span class="legende">${e(legende)}</span>${sections.length > 1 ? `<span class="sous-portes">${sections.map((s) => `<span data-sous="${s}" style="--c1:${TEINTES[s][0]}">${e(c.hall.portes[s][0])}</span>`).join("")}</span>` : nom === "contact" ? `<span class="sous-portes"><span data-lien="mailto:${e(c.contact.courriel)}" style="--c1:${c1}">${e(c.contact.ecrire)}</span><span data-lien="${BOOKINGS}" data-nouvel="1" style="--c1:${c1}">${e(textesTransmission(c).rdv)}</span></span>` : ""}<span class="entrer">${e(c.ui.entrer)} →</span></span>
 </button>`;
+}
+
+function hallInteractif(c) {
+  const h = HALL_3D[c.lang];
+  const cube = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3 9 5v8l-9 5-9-5V8l9-5Zm0 10 9-5m-9 5-9-5m9 5v8m-4.5-15.5 9 5"/></svg>';
+  const fleche = sens => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="' + (sens < 0 ? 'm14 6-6 6 6 6' : 'm10 6 6 6-6 6') + '"/></svg>';
+  return '<div class="hall" id="hall" role="group" aria-label="' + e(c.hall.titre) + '" data-hall>' +
+  '<div class="hall-tete"><span>' + e(c.hall.titre) + '</span><div class="hall-tete-outils"><span>' + e(c.hall.compte.replace(/\d+/, GROUPES.length)) + '</span><button type="button" class="hall-mode" data-hall-mode aria-pressed="false" hidden>' + cube + '<span>' + e(h.mode) + '</span></button></div></div>' +
+  '<div class="hall-scene" data-hall-scene><div class="hall-monde"><div class="hall-decor" aria-hidden="true"><span class="hall-mur hall-mur-fond"></span><span class="hall-mur hall-mur-gauche"></span><span class="hall-mur hall-mur-droite"></span><span class="hall-plafond"></span><span class="hall-sol"></span><span class="hall-verriere"></span></div><div class="portes">' + GROUPES.map((g, i) => porte(c, g, i)).join('') + '</div></div><p class="hall-geste" data-hall-geste hidden>' + e(h.aide) + '</p><div class="hall-commandes" data-hall-commandes hidden><button type="button" data-hall-precedente aria-label="' + e(h.precedente) + '">' + fleche(-1) + '</button><button type="button" data-hall-recentrer>' + cube + '<span>' + e(h.recentrer) + '</span></button><button type="button" data-hall-suivante aria-label="' + e(h.suivante) + '">' + fleche(1) + '</button></div></div>' +
+  '<div class="hall-reperes" data-hall-reperes role="tablist" aria-label="' + e(h.navigation) + '" hidden>' + GROUPES.map(([nom], i) => '<button type="button" role="tab" id="hall-onglet-' + c.lang + '-' + i + '" aria-controls="hall-detail-' + c.lang + '" aria-selected="' + (i === 0) + '" tabindex="' + (i ? -1 : 0) + '" data-hall-choix="' + i + '" style="--porte-teinte:' + (TEINTES_GROUPES[nom] || TEINTES[nom])[0] + '"><bdi dir="ltr">' + num(i) + '</bdi><span>' + e(texteGroupe(c, nom)[0]) + '</span></button>').join('') + '</div>' +
+  '<section class="hall-detail" id="hall-detail-' + c.lang + '" data-hall-detail role="tabpanel" aria-labelledby="hall-onglet-' + c.lang + '-0" hidden><div class="hall-detail-intro"><p class="surtitre" data-hall-numero>' + e(h.selection) + '</p><h3 data-hall-titre aria-live="polite"></h3><p data-hall-description></p><button type="button" class="hall-ouvrir" data-hall-ouvrir>' + e(h.ouvrir) + ' <span aria-hidden="true">→</span></button></div><nav class="hall-detail-rubriques" aria-label="' + e(h.rubriques) + '" data-hall-rubriques></nav></section>' +
+  '<div class="hall-pied"><span>' + e(c.hall.consigne) + '</span></div></div>';
 }
 
 // Schémas : réseau égocentré sur le CLSC, postures de recherche, cycle des cinq temps.
@@ -1248,11 +1261,7 @@ ${menuAcces(c, c.lang)}
 <p class="encadrement">${e(c.accueil.encadrement)}</p>
 <div class="actions"><button class="primaire" type="button" id="visite">${e(c.accueil.visite)} <span aria-hidden="true">→</span></button><a class="lien" href="#recherche">${e(c.accueil.explorer)}</a></div>
 </div>
-<div class="hall" role="group" aria-label="${e(c.hall.titre)}">
-<div class="hall-tete"><span>${e(c.hall.titre)}</span><span>${e(c.hall.compte.replace(/\d+/, GROUPES.length))}</span></div>
-<div class="portes">${GROUPES.map((g, i) => porte(c, g, i)).join("")}</div>
-<div class="hall-pied"><span>${e(c.hall.consigne)}</span></div>
-</div>
+${hallInteractif(c)}
 ${bandeAccueil(c)}
 </section>
 

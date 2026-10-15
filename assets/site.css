@@ -1609,3 +1609,85 @@ html.lv .axes-cartes{grid-template-columns:1fr}
 @media(max-width:1100px){.axes-cartes{grid-template-columns:repeat(2,minmax(0,1fr))}.axe-carte{padding:23px 23px 0}}
 @media(max-width:700px){.axes-cartes{grid-template-columns:minmax(0,1fr);gap:18px}.axes-introduction{margin-bottom:28px}.axe-carte{padding:21px 21px 0}.axe-carte-tete{margin-bottom:14px}.axe-carte h4{font-size:20px}.axes-famille+ .axes-famille{margin-top:30px}.axe-description{font-size:14px;margin-bottom:20px}.axe-associations a{min-height:64px}}
 @media(prefers-reduced-motion:reduce){.axe-carte{transition:none}.axe-carte:hover{transform:none}}
+
+/* Hall en volume : plans architecturaux CSS, six portes existantes et accès direct. */
+.hall-tete-outils{display:flex;align-items:center;gap:16px}
+.hall-mode{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border:1px solid var(--line);border-radius:20px;font-size:12px;line-height:1.4;letter-spacing:0;text-transform:none;background:var(--white)}
+.hall-mode svg{width:16px;height:16px}
+.hall-mode[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.hall-mode[aria-pressed=true] span{color:#fff}
+.hall-decor{display:none}
+.hall-scene,.hall-monde{min-width:0}
+.hall-reperes,.hall-detail,.hall-commandes,.hall-geste{display:none}
+@media(min-width:1000px){
+ .hall.en-3d::before,.hall.en-3d::after{content:none;animation:none}
+ .hall.en-3d{--hall-echelle:.9;--hall-rotation-x:-4deg;--hall-rotation-y:0deg}
+ .hall.en-3d .hall-scene{position:relative;height:440px;overflow:hidden;border:1px solid #d4dfe0;border-radius:18px;background:radial-gradient(ellipse at 50% 30%,#fff 0%,#f3f6f4 60%,#e6edeb 100%);perspective:1100px;perspective-origin:50% 48%;cursor:grab;touch-action:pan-y}
+ .hall.en-3d .hall-scene.en-glissement{cursor:grabbing}
+ .hall.en-3d .hall-monde{position:absolute;left:50%;top:28px;width:980px;height:340px;transform-style:preserve-3d;transform:translateX(-50%) scale(var(--hall-echelle)) rotateX(var(--hall-rotation-x)) rotateY(var(--hall-rotation-y));transform-origin:50% 50%;transition:transform .65s cubic-bezier(.2,.75,.25,1);pointer-events:none}
+ .hall.en-3d .hall-scene.en-glissement .hall-monde{transition:none}
+ .hall.en-3d .hall-decor{display:block;position:absolute;inset:0;transform-style:preserve-3d;pointer-events:none}
+ .hall.en-3d .hall-mur{position:absolute;top:0;height:340px;backface-visibility:visible;background:#f4f6f2;border:1px solid #d7dfdb}
+ .hall.en-3d .hall-mur::after{content:"";position:absolute;inset-inline:0;bottom:0;height:10px;background:linear-gradient(#aebcb7 0 1px,#edf1ec 1px 4px,#fff 4px 6px,#c9d2cd 100%);box-shadow:0 -1px #fff}
+ .hall.en-3d .hall-mur-fond{left:0;width:980px;transform:translateZ(-320px);background:linear-gradient(90deg,#e8ede8,#fcfdf9 22%,#f1f5ee 50%,#fcfdf9 78%,#e8ede8);box-shadow:inset 0 14px 24px -24px #5e766a}
+ .hall.en-3d .hall-mur-fond::before{content:"";position:absolute;left:460px;top:24px;width:60px;height:270px;border:1px solid #dae2d9;background:linear-gradient(90deg,#eef3eb,#fff 45%,#eff4ed);box-shadow:inset 2px 0 6px #e0e7de}
+ .hall.en-3d .hall-mur-gauche{left:0;width:600px;transform-origin:0 50%;transform:translateZ(280px) rotateY(90deg);background:linear-gradient(90deg,#e5ece8,#f6f9f4 38%,#edf2ec)}
+ .hall.en-3d .hall-mur-droite{left:980px;width:600px;transform-origin:0 50%;transform:translateZ(-320px) rotateY(-90deg);background:linear-gradient(90deg,#eef3ec,#f8faf5 60%,#e6ede8)}
+ .hall.en-3d .hall-sol{position:absolute;left:0;top:340px;width:980px;height:600px;transform-origin:50% 0;transform:translateZ(-320px) rotateX(90deg);background:linear-gradient(90deg,rgba(95,120,110,.13) 1px,transparent 1px) 0 0/140px 100%,linear-gradient(rgba(95,120,110,.13) 1px,transparent 1px) 0 0/100% 120px,linear-gradient(180deg,#e4eae3,#f8faf4 55%,#e4ebe4);box-shadow:inset 0 18px 28px -16px rgba(44,68,53,.25)}
+ .hall.en-3d .hall-sol::after{content:"";position:absolute;inset:0;background:linear-gradient(112deg,transparent 25%,rgba(255,255,255,.7) 26% 43%,transparent 44% 47%,rgba(255,255,255,.5) 48% 61%,transparent 62%);pointer-events:none}
+ .hall.en-3d .hall-plafond{position:absolute;left:0;top:0;width:980px;height:600px;transform-origin:50% 0;transform:translateZ(-320px) rotateX(90deg);background:linear-gradient(90deg,#e1e8e2,#f9fbf7 28% 72%,#e1e8e2);box-shadow:inset 0 0 0 3px #d3ddd3}
+ .hall.en-3d .hall-verriere{position:absolute;left:340px;top:1px;width:300px;height:430px;transform-origin:50% 0;transform:translateZ(-260px) rotateX(90deg);background:repeating-linear-gradient(180deg,transparent 0 100px,#d4e0db 100px 106px),linear-gradient(90deg,#e5efed,#fff 20% 80%,#e5efed);border:6px solid #e1e9e2;box-shadow:0 0 50px rgba(255,255,255,.9)}
+ .hall.en-3d .portes{position:absolute;inset:0;display:block;transform-style:preserve-3d;pointer-events:none}
+ .hall.en-3d .porte{--largeur-porte:124px;--hx:0px;--hz:140px;--ha:90deg;position:absolute;left:var(--hx);right:auto;top:140px;width:124px;height:200px;min-height:0;display:block;grid-template-columns:none;grid-template-rows:none;gap:0;margin:0;padding:0;border:0;border-radius:1px;background:transparent;box-shadow:none;isolation:auto;transform-style:preserve-3d;transform-origin:0 50%;transform:translateZ(var(--hz)) rotateY(var(--ha));transition:none;pointer-events:auto;cursor:pointer}
+ .hall.en-3d .porte:nth-child(2){--hz:-95px}
+ .hall.en-3d .porte:nth-child(3){--hx:300px;--hz:-319px;--ha:0deg}
+ .hall.en-3d .porte:nth-child(4){--hx:556px;--hz:-319px;--ha:0deg}
+ .hall.en-3d .porte:nth-child(5){--hx:980px;--hz:-219px;--ha:-90deg}
+ .hall.en-3d .porte:nth-child(6){--hx:980px;--hz:16px;--ha:-90deg}
+ .hall.en-3d .porte:hover,.hall.en-3d .porte:focus-visible{background:transparent;border:0;box-shadow:none;transform:translateZ(var(--hz)) rotateY(var(--ha))}
+ .hall.en-3d .porte::before{content:none}
+ .hall.en-3d .porte::after{content:"";position:absolute;left:0;top:100%;width:124px;height:100px;transform-origin:50% 0;transform:rotateX(90deg);background:linear-gradient(180deg,rgba(39,61,46,.22),rgba(39,61,46,.05) 60%,transparent);pointer-events:none}
+ .hall.en-3d .porte .baie{display:block;position:relative;inset:auto;width:124px;height:200px;aspect-ratio:.62;overflow:visible;transform-style:preserve-3d}
+ .hall.en-3d .porte .ouverture{overflow:visible;transform-style:preserve-3d;perspective:850px;background:radial-gradient(ellipse at 50% 40%,#fff 0%,color-mix(in srgb,var(--c1) 13%,#edf2e8) 100%)}
+ .hall.en-3d .porte .battant{transform-style:preserve-3d;transition:transform .65s var(--ease),box-shadow .65s var(--ease)}
+ .hall.en-3d .porte.choisie .baie{outline:2px solid color-mix(in srgb,var(--c1) 55%,transparent);outline-offset:4px}
+ .hall.en-3d .porte.choisie:not(.ouverte) .battant,.hall.en-3d .porte:hover:not(.ouverte) .battant,.hall.en-3d .porte:focus-visible:not(.ouverte) .battant{transform:rotateY(-24deg);box-shadow:10px 0 20px rgba(15,49,66,.12)}
+ .hall.en-3d .porte.ouverte .battant{transform:rotateY(-78deg)}
+ .hall.en-3d .porte .porte-texte{position:absolute;left:0;right:auto;top:-36px;display:block;width:124px;padding:0;grid-column:auto;grid-row:auto;transform:translateZ(3px)}
+ .hall.en-3d .porte .plaque{display:block;min-height:0;font-size:0;line-height:0;text-align:center}
+ .hall.en-3d .porte .plaque .num{display:inline-grid;min-width:34px;height:26px;border-radius:5px;font-size:13px;line-height:1.4}
+ .hall.en-3d .porte .legende,.hall.en-3d .porte .sous-portes,.hall.en-3d .porte .entrer,.hall.en-3d .porte .apercu{display:none}
+ .hall.en-3d .hall-geste{display:block;position:absolute;left:20px;right:20px;top:15px;margin:0;text-align:center;font-size:11px;line-height:1.5;color:#536d69;pointer-events:none;letter-spacing:.02em}
+ .hall.en-3d .hall-commandes{display:flex;align-items:center;gap:8px;position:absolute;bottom:15px;left:50%;transform:translateX(-50%);padding:6px;background:rgba(255,255,255,.95);border:1px solid #d1dcda;border-radius:30px;box-shadow:0 4px 15px rgba(23,63,82,.06)}
+ .hall-commandes button{display:flex;align-items:center;justify-content:center;gap:7px;min-width:34px;min-height:34px;border-radius:20px;padding:6px 10px;font-size:11px;line-height:1.4;white-space:nowrap}
+ .hall-commandes button:hover{background:var(--sea)}
+ .hall-commandes svg{width:17px;height:17px;flex:none}
+ .hall.en-3d .hall-reperes{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-top:16px}
+ .hall-reperes button{display:flex;align-items:center;gap:9px;min-width:0;min-height:60px;padding:11px 12px;text-align:start;border:1px solid var(--line);border-radius:10px;background:var(--white);color:var(--ink);font-size:12px;line-height:1.4}
+ .hall-reperes button>bdi{display:inline-grid;place-items:center;flex:none;width:25px;height:25px;border-radius:6px;background:var(--sea);font-size:10px;font-weight:700;color:var(--porte-teinte)}
+ .hall-reperes button[aria-selected=true]{border-color:var(--porte-teinte);box-shadow:inset 0 -3px var(--porte-teinte);background:color-mix(in srgb,var(--porte-teinte) 5%,#fff)}
+ .hall-reperes button[aria-selected=true]>bdi{background:var(--porte-teinte);color:#fff}
+ .hall.en-3d .hall-detail{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.3fr);gap:32px;margin-top:18px;padding:25px 28px;border:1px solid var(--line);border-radius:14px;background:var(--white)}
+ .hall-detail-intro{min-width:0}
+ .hall-detail h3{margin:0 0 10px;color:var(--ink);font:600 22px/1.3 var(--sans);letter-spacing:-.02em;text-wrap:pretty}
+ .hall-detail-intro>p:not(.surtitre){margin:0 0 16px;color:var(--muted);font-size:13px;line-height:1.65;text-align:start;hyphens:none}
+ .hall-detail .surtitre{font-size:10px;letter-spacing:.1em}
+ .hall-ouvrir{display:inline-flex;align-items:center;gap:12px;padding:9px 14px;border-radius:8px;background:var(--ink);color:#fff;font-size:12px;font-weight:600;line-height:1.5}
+ .hall-ouvrir:hover{background:var(--green-deep)}
+ .hall-detail-rubriques{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:center;gap:9px;min-width:0}
+ .hall-detail-rubriques>button,.hall-detail-rubriques>a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;min-height:39px;padding:8px 11px;border:1px solid var(--line);border-radius:7px;background:var(--paper);font-size:12px;line-height:1.45;text-align:start;text-decoration:none;color:var(--ink)}
+ .hall-detail-rubriques>button:hover,.hall-detail-rubriques>a:hover{border-color:var(--hall-teinte);background:var(--sea)}
+ .hall-detail-rubriques>button>span:last-child,.hall-detail-rubriques>a>span:last-child{color:var(--hall-teinte);flex:none}
+ .hall-detail-rubriques>:last-child:nth-child(odd){grid-column:1/-1}
+ .hall.en-3d .hall-pied{display:none}
+ html[dir=rtl] .hall-monde{direction:ltr}
+ html[dir=rtl] .hall-monde .porte{direction:rtl}
+ html[dir=rtl] .hall-commandes>button:first-child,html[dir=rtl] .hall-commandes>button:last-child{transform:scaleX(-1)}
+}
+@media(min-width:1000px) and (max-width:1150px){.hall.en-3d .hall-reperes{grid-template-columns:repeat(3,minmax(0,1fr))}.hall.en-3d .hall-scene{height:390px}.hall.en-3d .hall-detail{gap:22px;padding:22px}}
+@media(prefers-reduced-motion:reduce){.hall.en-3d .hall-monde,.hall.en-3d .porte .battant{transition:none}}
+@media(forced-colors:active){.hall-mode{display:none!important}}
+
+.hall-tete-outils>span{color:var(--muted)}
+
+.hall-reperes button>span,.hall-detail-rubriques>button>span:first-child,.hall-detail-rubriques>a>span:first-child{min-width:0;overflow-wrap:anywhere}
