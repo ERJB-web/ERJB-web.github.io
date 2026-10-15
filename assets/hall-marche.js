@@ -103,10 +103,14 @@ window.creerMarcheHall=({hall,scene,monde,stations,surSelection})=>{
  scene.addEventListener('pointerleave',()=>{vitesseBord=0;if(!geste)demander();});
  scene.addEventListener('click',e=>{if(performance.now()<ignorer){e.preventDefault();e.stopImmediatePropagation();}},true);
  scene.addEventListener('wheel',e=>{
-  if(!actif||bloque()||(!e.shiftKey&&Math.abs(e.deltaX)<=Math.abs(e.deltaY)))return;
-  const dx=(e.deltaX||e.deltaY)*(e.deltaMode===1?18:1);
+  if(!actif||e.ctrlKey||(!e.shiftKey&&Math.abs(e.deltaX)<=Math.abs(e.deltaY)))return;
+  // Retenir aussi le geste aux deux extrémités, pour éviter le retour du navigateur.
+  e.preventDefault();vitesseBord=0;
+  if(bloque())return;
+  const delta=e.shiftKey&&Math.abs(e.deltaY)>Math.abs(e.deltaX)?e.deltaY:e.deltaX;
+  const dx=delta*(e.deltaMode===1?18:e.deltaMode===2?largeurVue:1);
   const suivant=borner(cible+dx,0,maximum);
-  if(suivant!==cible){e.preventDefault();vitesseBord=0;cible=suivant;manuel=true;demander();}
+  if(suivant!==cible){cible=suivant;manuel=true;demander();}
  },{passive:false});
  scene.addEventListener('keydown',e=>{
   if(!actif||bloque()||e.target!==scene)return;

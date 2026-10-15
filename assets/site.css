@@ -10,7 +10,8 @@
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
-html{scroll-behavior:smooth;scroll-padding-top:128px}
+html{scroll-behavior:smooth;scroll-padding-top:128px;overscroll-behavior-x:none}
+body{overscroll-behavior-x:none}
 body{margin:0;background:var(--paper);color:var(--body);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 body.salle-ouverte{overflow:hidden}
 img{max-width:100%;display:block}
