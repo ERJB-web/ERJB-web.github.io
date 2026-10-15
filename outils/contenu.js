@@ -596,7 +596,7 @@ const fr = {
         ],
         [
           "Handicap et autodétermination",
-          "Éducateur spécialisé en foyer d’hébergement (Adapei 35, Saint-Malo, 2020–2023), j’ai évalué les besoins des personnes accompagnées, coconstruit leurs projets individualisés et coordonné une équipe pluridisciplinaire. Mon mémoire de 2023 porte sur l’influence des pratiques éducatives sur l’autodétermination. De 2016 à 2024, j’ai également été responsable de séjours de répit et de séjours adaptés pour personnes en situation de handicap."
+          "Éducateur spécialisé en foyer d’hébergement (Adapei 35, Saint-Malo, 2020–2023), j’ai évalué les besoins des personnes accompagnées, coconstruit leurs projets individualisés et coordonné une équipe pluridisciplinaire. Mon mémoire de 2023 porte sur l’influence des pratiques éducatives sur l’autodétermination. De 2016 à 2024, j’ai également été responsable de séjours de vacances adaptés et de séjours de répit pour personnes en situation de handicap."
         ],
         [
           "Autisme",
