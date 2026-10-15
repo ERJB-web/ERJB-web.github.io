@@ -16,6 +16,7 @@ const METHODOLOGIE = require("./methodologie");
 const METHODES_AJOUTS = require("./methodes-ajouts");
 const POSTURE = require("./posture-recherche");
 const MEDIATION = require("./enseignement-vulgarisation");
+const COMMUNICATION = require("./communication-visuelle");
 const IA = require("./ia-recherche");
 const THESE = require("./these-rubriques");
 const CADRAGE_THESE = require("./these-cadrage");
@@ -54,6 +55,24 @@ const textesTransmission = (c) => TRANSMISSION[c.lang] || TRANSMISSION.en;
 function reperesMediation(bloc) {
   return `<h3 class="titre-bloc">${e(bloc.titre)}</h3><div class="cadres reperes-transmission">${bloc.items.map(([t, d, refs]) => `<article class="cadre"><h4>${e(t)}</h4><p>${e(d)}</p><p class="ref">${refs.map((k) => lien(MEDIATION.REFERENCES[k].href, e(MEDIATION.REFERENCES[k].court))).join(" · ")}</p></article>`).join("")}</div>`;
 }
+function communicationVisuelle(c, bloc) {
+  const s = COMMUNICATION.langues[c.lang];
+  const icone = (i) => `<svg viewBox="-2 -2 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${COMMUNICATION.icones[i]}</svg>`;
+  const identifiant = (type, i) => `communication-${type}-${c.lang}-${i}`;
+  return `<section class="communication-visuelle" data-onglets aria-labelledby="communication-titre-${c.lang}">
+<header class="comm-entete"><h3 id="communication-titre-${c.lang}">${e(bloc.titre)}</h3><p>${e(s.intro)}</p></header>
+<div class="onglets comm-nav" role="tablist" aria-label="${e(s.navigation)}">${s.etapes.map((etape, i) => `<button type="button" role="tab" id="${identifiant("onglet", i)}" aria-controls="${identifiant("panneau", i)}" aria-selected="${i === 0}" tabindex="${i ? -1 : 0}" data-volet="${i}"><span class="comm-num" aria-hidden="true">${num(i)}</span><span class="comm-icone">${icone(i)}</span><strong>${e(etape.court)}</strong></button>`).join("")}</div>
+${s.etapes.map((etape, i) => {
+  const [titre, texte, sources] = bloc.items[i];
+  return `<div class="volet comm-panel" role="tabpanel" id="${identifiant("panneau", i)}" aria-labelledby="${identifiant("onglet", i)}" data-volet="${i}"${i ? " hidden" : ""}>
+<div class="comm-panel-entete"><h4>${e(titre)}</h4><p>${e(texte)}</p></div>
+<div class="comm-atelier"><div class="comm-pratique"><h5>${e(s.pratique)}</h5><ol>${etape.actions.map(([titre, detail]) => `<li><strong>${e(titre)}</strong><p>${e(detail)}</p></li>`).join("")}</ol></div><aside class="comm-exemple"><h5>${e(s.exemple)}</h5><p class="comm-formulation">${e(etape.exemple)}</p><div class="comm-livrable"><h5>${e(s.livrable)}</h5><p>${e(etape.livrable)}</p></div></aside></div>
+<div class="comm-vigilance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 10v7m0-10v1"/></svg><div><h5>${e(s.vigilance)}</h5><p>${e(etape.vigilance)}</p></div></div>
+<p class="ref comm-sources">${sources.map(k => lien(MEDIATION.REFERENCES[k].href, e(MEDIATION.REFERENCES[k].court))).join(" · ")}</p></div>`;
+}).join("")}
+<p class="comm-boucle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 8a8 8 0 1 0 0 9M20 3v5h-5"/></svg><span>${e(s.boucle)}</span></p>
+</section>`;
+}
 function sourcesMediation(c, s) {
   const cles = [...new Set([...(s.pratiques.items), ...(s.formats ? s.formats.items : [])].flatMap((x) => x[2]))];
   return `<h3 class="titre-bloc">${e(MEDIATION.LANGUES[c.lang].references)}</h3><ul class="methode-refs references-transmission">${cles.map((k) => `<li>${lien(MEDIATION.REFERENCES[k].href, e(MEDIATION.REFERENCES[k].citation))}</li>`).join("")}</ul>`;
@@ -80,7 +99,7 @@ function sectionVulgarisation(c) {
   return `<div class="section-corps pleine large"><div class="colonne-texte">
 <p class="surtitre">${e(s.salle[0])}</p><h2>${e(s.titre)}</h2><p class="intro">${e(s.intro)}</p>
 <h3 class="titre-bloc">${e(s.ambition[0])}</h3><p>${e(s.ambition[1])}</p>
-</div><div class="colonne-outils">${reperesMediation(s.pratiques)}${reperesMediation(s.formats)}
+</div><div class="colonne-outils">${communicationVisuelle(c, s.pratiques)}${reperesMediation(s.formats)}
 <h3 class="titre-bloc">${e(s.supports)}</h3>${liste([{date:"2026",titre:T.affiche[0],detail:T.affiche[1],lien:affiche ? affiche[2] : AFFICHE}])}
 <h3 class="titre-bloc">${e(s.ressources[0])}</h3><ul class="puces"><li><a href="#capsules">${e(s.ressources[1])}</a></li><li><a href="#balados">${e(s.ressources[2])}</a></li></ul>
 ${sourcesMediation(c, s)}</div></div>`;
