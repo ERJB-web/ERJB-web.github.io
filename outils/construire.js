@@ -609,31 +609,31 @@ const BANDE = {
   fr: {
     titre: "Le parcours en un coup d’œil",
     etapes: [["2016–2024","Séjours adaptés et de répit","coeur"],["2020–2023","Éducateur spécialisé, Adapei 35","personne"],["2024","Maîtrise en direction des structures médico-sociales, UBO","mallette"],["2024–2025","Chargé de mission, ANAP","reseau"],["2025","Master en droit public spécialisé en droit de la santé et droit social, Paris-Panthéon-Assas","balance"],["Depuis 2025","Doctorat en santé publique, ESPUM et CRCHUM","loupe"]],
-    chiffres: [["8","années auprès de personnes en situation de handicap"],["4","charges d’auxiliaire d’enseignement à l’Université de Montréal"],["3","mentions spéciales du jury"],["1","prix de la meilleure affiche, 3e cycle (GFSP, 2026)"]],
+    chiffres: [["10","années auprès de personnes en situation de handicap"],["4","charges d’auxiliaire d’enseignement à l’Université de Montréal"],["3","mentions spéciales du jury"],["1","prix de la meilleure affiche, 3e cycle (GFSP, 2026)"]],
 
   },
   en: {
     titre: "The path at a glance",
     etapes: [["2016–2024","Adapted and respite holidays","coeur"],["2020–2023","Special needs educator, Adapei 35","personne"],["2024","Master’s-level degree in managing social care services, UBO","mallette"],["2024–2025","Project manager, ANAP","reseau"],["2025","Master’s in public law specialising in health law and social law, Paris-Panthéon-Assas","balance"],["Since 2025","PhD in public health, ESPUM and CRCHUM","loupe"]],
-    chiffres: [["8","years supporting people with disabilities"],["4","teaching assistantships at Université de Montréal"],["3","special distinctions from the jury"],["1","best poster award, doctoral level (GFSP, 2026)"]],
+    chiffres: [["10","years supporting people with disabilities"],["4","teaching assistantships at Université de Montréal"],["3","special distinctions from the jury"],["1","best poster award, doctoral level (GFSP, 2026)"]],
 
   },
   es: {
     titre: "La trayectoria de un vistazo",
     etapes: [["2016–2024","Estancias adaptadas y de respiro","coeur"],["2020–2023","Educador especializado, Adapei 35","personne"],["2024","Maestría en dirección de estructuras médico-sociales, UBO","mallette"],["2024–2025","Encargado de misión, ANAP","reseau"],["2025","Máster en derecho público especializado en derecho de la salud y derecho social, Paris-Panthéon-Assas","balance"],["Desde 2025","Doctorado en salud pública, ESPUM y CRCHUM","loupe"]],
-    chiffres: [["8","años junto a personas en situación de discapacidad"],["4","ayudantías de docencia en la Université de Montréal"],["3","menciones especiales del jurado"],["1","premio al mejor póster, doctorado (GFSP, 2026)"]],
+    chiffres: [["10","años junto a personas en situación de discapacidad"],["4","ayudantías de docencia en la Université de Montréal"],["3","menciones especiales del jurado"],["1","premio al mejor póster, doctorado (GFSP, 2026)"]],
 
   },
   zh: {
     titre: "经历一览",
     etapes: [["2016–2024","适应性度假与喘息服务","coeur"],["2020–2023","特殊教育工作者，Adapei 35","personne"],["2024","医疗社会服务机构管理硕士级文凭（Maîtrise），UBO","mallette"],["2024–2025","项目专员，ANAP","reseau"],["2025","公法硕士，专攻卫生法与社会法，巴黎-先贤祠-阿萨斯大学","balance"],["2025 年起","公共卫生博士，ESPUM 与 CRCHUM","loupe"]],
-    chiffres: [["8","年陪伴残障人士"],["4","次在蒙特利尔大学担任助教"],["3","次获评审团特别嘉许"],["1","项最佳海报奖，博士阶段（GFSP，2026）"]],
+    chiffres: [["10","年陪伴残障人士"],["4","次在蒙特利尔大学担任助教"],["3","次获评审团特别嘉许"],["1","项最佳海报奖，博士阶段（GFSP，2026）"]],
 
   },
   ar: {
     titre: "المسار في لمحة",
     etapes: [["2016–2024","إقامات مكيّفة وإقامات راحة","coeur"],["2020–2023","مربٍّ متخصص، Adapei 35","personne"],["2024","ماجستير مهني (Maîtrise) في إدارة المؤسسات الطبية الاجتماعية، UBO","mallette"],["2024–2025","مكلّف بمهمة، ANAP","reseau"],["2025","ماجستير في القانون العام، تخصص قانون الصحة والقانون الاجتماعي، باريس-بانتيون-أساس","balance"],["منذ 2025","دكتوراه في الصحة العامة، ESPUM وCRCHUM","loupe"]],
-    chiffres: [["8","سنوات إلى جانب الأشخاص ذوي الإعاقة"],["4","مهام مساعد تدريس في جامعة مونتريال"],["3","تنويهات خاصة من لجنة التحكيم"],["1","جائزة أفضل ملصق، مرحلة الدكتوراه (GFSP، 2026)"]],
+    chiffres: [["10","سنوات إلى جانب الأشخاص ذوي الإعاقة"],["4","مهام مساعد تدريس في جامعة مونتريال"],["3","تنويهات خاصة من لجنة التحكيم"],["1","جائزة أفضل ملصق، مرحلة الدكتوراه (GFSP، 2026)"]],
 
   },
 };
@@ -936,7 +936,7 @@ function sectionEngagements(c, sous) {
         return `<div class="groupe-large">${tete}<div class="loisirs loisirs-etendus">${items
           .map((it, i) => {
             const fichier = it.photo || PHOTOS_LOISIRS[i];
-            return `<figure class="loisir${it.id ? " loisir-" + it.id : ""}${fichier ? "" : " sans-photo"}">${fichier ? photo(c, fichier, i === 0 ? MARATHON_ILLUSTRATION[c.lang][0] : it.alt || it.titre) : ""}<figcaption><span>${e(it.date)}</span><strong>${e(it.titre)}</strong>${it.detail ? `<small>${e(it.detail)}</small>` : ""}${i === 0 ? `<small class="credit-image">${e(MARATHON_ILLUSTRATION[c.lang][1])}</small>` : ""}</figcaption></figure>`;
+            return `<figure class="loisir${it.id ? " loisir-" + it.id : ""}${fichier ? "" : " sans-photo"}">${fichier ? photo(c, fichier, i === 0 ? MARATHON_ILLUSTRATION[c.lang][0] : it.alt || it.titre) : ""}<figcaption><span>${e(it.date)}</span><strong>${e(it.titre)}</strong>${it.detail ? `<small>${e(it.detail)}</small>` : ""}${i === 0 ? `<small class="credit-image">${e(MARATHON_ILLUSTRATION[c.lang][1])}</small>` : ""}${it.credit ? `<small class="credit-image">${e(it.credit)}</small>` : ""}</figcaption></figure>`;
           })
           .join("")}</div></div>`;
       return `<div class="groupe-large">${tete}${liste(g.items).replace('<ul class="liste">', '<ul class="liste liste-cartes">')}</div>`;
