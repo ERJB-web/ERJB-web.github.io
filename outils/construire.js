@@ -16,6 +16,7 @@ const METHODOLOGIE = require("./methodologie");
 const METHODES_AJOUTS = require("./methodes-ajouts");
 const POSTURE = require("./posture-recherche");
 const MEDIATION = require("./enseignement-vulgarisation");
+const ENSEIGNEMENT = require("./enseignement-vision");
 const COMMUNICATION = require("./communication-visuelle");
 const IA = require("./ia-recherche");
 const THESE = require("./these-rubriques");
@@ -79,18 +80,21 @@ function sourcesMediation(c, s) {
 }
 function sectionTransmission(c) {
   const s = MEDIATION.LANGUES[c.lang].enseignement;
+  const p = ENSEIGNEMENT.langues[c.lang];
   const iEns = fr.parcours.etapes.map((x, i) => (/Auxiliaire d’enseignement/.test(x.titre) ? i : -1)).filter((i) => i >= 0);
   const gMent = fr.engagements.groupes.findIndex((g) => g.items.some((x) => /mentorat/i.test(x.titre)));
   const iMent = gMent >= 0 ? fr.engagements.groupes[gMent].items.findIndex((x) => /mentorat/i.test(x.titre)) : -1;
-  return `<div class="section-corps pleine large"><div class="colonne-texte">
-<p class="surtitre">${e(s.salle[0])}</p><h2>${e(s.titre)}</h2><p class="intro">${e(s.intro)}</p>
-<h3 class="titre-bloc">${e(s.ambition[0])}</h3><p>${e(s.ambition[1])}</p>
-<h3 class="titre-bloc">${e(s.experiences)}</h3>${liste(iEns.map((i) => c.parcours.etapes[i]))}
-${iMent >= 0 ? `<h3 class="titre-bloc">${e(s.mentorat)}</h3>${liste([c.engagements.groupes[gMent].items[iMent]])}` : ""}
-<h3 class="titre-bloc">${e(s.academique[0])}</h3><ul class="puces"><li>${lien(c.chemin + "docs/cv-academique.pdf", e(s.academique[1]))}</li><li><a href="#publications">${e(s.academique[2])}</a></li></ul>
-</div><div class="colonne-outils">${reperesMediation(s.pratiques)}
-<h3 class="titre-bloc">${e(s.application[0])}</h3><p>${e(s.application[1])}</p>
-${sourcesMediation(c, s)}</div></div>`;
+  const paragraphes = textes => textes.map(t => '<p>' + e(t) + '</p>').join('');
+  const appuis = cles => '<p class="ref enseignement-appuis"><strong>' + e(p.appuis) + ' :</strong> ' + cles.map(k => lien(ENSEIGNEMENT.references[k].href, e(ENSEIGNEMENT.references[k].court))).join(' · ') + '</p>';
+  const essai = bloc => '<div class="enseignement-essai"><h3>' + e(bloc.titre) + '</h3>' + bloc.sections.map(partie => '<section><h4>' + e(partie.titre) + '</h4>' + paragraphes(partie.paragraphes) + '</section>').join('') + appuis(bloc.refs) + '</div>';
+  const pont = '<div class="enseignement-essai"><h3>' + e(p.pont.titre) + '</h3>' + paragraphes(p.pont.paragraphes) + '</div><div class="enseignement-ponts">' + p.pont.liens.map(([origine, suite], i) => '<article><span class="enseignement-repere" aria-hidden="true">' + num(i) + '</span><div><p class="enseignement-libelle">' + e(p.pontLibelles[0]) + '</p><h4>' + e(origine) + '</h4><p class="enseignement-libelle">' + e(p.pontLibelles[1]) + '</p><p>' + e(suite) + '</p></div></article>').join('') + '</div>' + appuis(p.pont.refs);
+  const pratique = '<div class="enseignement-essai"><h3>' + e(p.pratique.titre) + '</h3>' + paragraphes(p.pratique.paragraphes) + '</div><div class="enseignement-experiences"><section><h4>' + e(s.experiences) + '</h4>' + liste(iEns.map(i => c.parcours.etapes[i])) + '</section>' + (iMent >= 0 ? '<section><h4>' + e(s.mentorat) + '</h4>' + liste([c.engagements.groupes[gMent].items[iMent]]) + '</section>' : '') + '</div><h4 class="titre-bloc">' + e(s.academique[0]) + '</h4><ul class="puces"><li>' + lien(c.chemin + 'docs/cv-academique.pdf', e(s.academique[1])) + '</li><li><a href="#publications">' + e(s.academique[2]) + '</a></li></ul>' + appuis(p.pratique.refs);
+  const valeurs = '<div class="enseignement-essai"><h3>' + e(p.valeurs.titre) + '</h3><p>' + e(p.valeurs.intro) + '</p></div><div class="enseignement-valeurs">' + p.valeurs.items.map((texte, i) => '<article style="--valeur:' + ['#24659b','#754d8a','#286e5b','#a77a26','#48588e','#a74440'][c.valeurs.items[i][2]] + '"><span class="enseignement-repere" aria-hidden="true">' + num(i) + '</span><h4>' + e(c.valeurs.items[i][0]) + '</h4><p>' + e(texte) + '</p></article>').join('') + '</div>';
+  const apprendre = '<div class="enseignement-essai"><h3>' + e(p.apprendre.titre) + '</h3>' + paragraphes(p.apprendre.paragraphes) + '</div><section class="enseignement-sequence"><header><p class="surtitre">' + e(p.apprendre.scenarioTitre) + '</p><p>' + e(p.apprendre.scenarioIntro) + '</p></header><ol>' + p.apprendre.etapes.map(([titre, texte], i) => '<li><span class="enseignement-repere" aria-hidden="true">' + num(i) + '</span><div><h4>' + e(titre) + '</h4><p>' + e(texte) + '</p></div></li>').join('') + '</ol></section>' + appuis(p.apprendre.refs);
+  const avenir = essai(p.avenir) + '<p class="enseignement-lien"><a href="#ia">' + e(p.suiteIA) + ' →</a></p>';
+  const sources = '<div class="enseignement-essai"><h3>' + e(p.sources.titre) + '</h3><p>' + e(p.sources.intro) + '</p></div><ul class="methode-refs references-transmission enseignement-references">' + Object.values(ENSEIGNEMENT.references).sort((a,b) => a.citation.localeCompare(b.citation, 'en')).map(r => '<li>' + e(r.citation) + ' ' + lien(r.href, e(r.href)) + '</li>').join('') + '</ul>';
+  const contenus = [essai(p.vision), pont, pratique, valeurs, apprendre, avenir, sources];
+  return '<div class="section-corps pleine enseignement"><div class="colonne-texte"><p class="surtitre">' + e(s.salle[0]) + '</p><h2>' + e(p.titre) + '</h2><p class="intro">' + e(p.intro) + '</p></div><div class="colonne-outils">' + ongletsRubriques('enseignement', p.explorer, p.onglets.map((titre, i) => ['enseignement-' + i, titre, contenus[i]]), 4) + '</div></div>';
 }
 function sectionVulgarisation(c) {
   const s = MEDIATION.LANGUES[c.lang].vulgarisation;
@@ -663,7 +667,7 @@ const LIBELLES_FAITS_RECHERCHE = {
 function ongletsRubriques(cle, explorer, rubriques, colonnes = 5) {
   return `<div class="table rubriques" data-onglets data-rubriques="${cle}" style="--rubriques-colonnes:${colonnes}">
 <label class="rubriques-choix"><span>${e(explorer)}</span><select data-rubrique-select>${rubriques.map(([, nom], i) => `<option value="${i}">${e(nom)}</option>`).join("")}</select></label>
-<div class="onglets rubriques-nav" role="tablist" aria-label="${e(explorer)}">${rubriques.map(([id, nom], i) => `<button type="button" role="tab" aria-selected="${i === 0}" tabindex="${i ? -1 : 0}" data-volet="${i}" data-rubrique="${id}">${["these", "ia", "posture"].includes(cle) ? `<span class="rubrique-numero" aria-hidden="true">${num(i)}</span>` : ""}<span>${e(nom)}</span></button>`).join("")}</div>
+<div class="onglets rubriques-nav" role="tablist" aria-label="${e(explorer)}">${rubriques.map(([id, nom], i) => `<button type="button" role="tab" aria-selected="${i === 0}" tabindex="${i ? -1 : 0}" data-volet="${i}" data-rubrique="${id}">${["these", "ia", "posture", "enseignement"].includes(cle) ? `<span class="rubrique-numero" aria-hidden="true">${num(i)}</span>` : ""}<span>${e(nom)}</span></button>`).join("")}</div>
 ${rubriques.map(([id, , contenu], i) => `<div class="volet rubrique-corps" role="tabpanel" data-volet="${i}" data-rubrique="${id}"${i ? " hidden" : ""}>${contenu}</div>`).join("")}</div>`;
 }
 
