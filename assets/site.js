@@ -187,6 +187,10 @@
         return bouton;
       })
     );
+    if (matchMedia('(max-width:999px)').matches) {
+      const actif = $('.onglet-salle.actif',onglets);
+      if (actif) onglets.scrollLeft += actif.getBoundingClientRect().left - onglets.getBoundingClientRect().left - (onglets.clientWidth-actif.offsetWidth)/2;
+    }
     const i = ordre.indexOf(s);
     $("[data-suivante]", salle).hidden = i === ordre.length - 1;
     $("[data-contact]", salle).hidden = i !== ordre.length - 1;
@@ -301,11 +305,26 @@
   function initialiserHallVolume() {
     const hall = $('[data-hall-volume]');
     if (!hall) return;
-    const scene = $('[data-hall-espace]',hall), monde = $('.hall-univers',hall);
+    const scene = $('[data-hall-espace]',hall), monde = $('.hall-univers',hall), rail = $('.portes',hall);
     const stations = $$('[data-hall-station]',hall), choix = $$('[data-hall-choix]',hall);
     const mode = $('[data-hall-mode]',hall), reperes = $('[data-hall-reperes]',hall), commandes = $('[data-hall-commandes]',hall);
+    const aideMobile = $('[data-hall-aide-mobile]',hall), positionMobile = $('[data-hall-position]',hall);
     const large = matchMedia('(min-width:1000px)'), calme = matchMedia('(prefers-reduced-motion:reduce)'), forcees = matchMedia('(forced-colors:active)');
     let selection = 0, simple = false, vueLarge = false, regardX = 0, regardY = 0, glissement = null, image = 0;
+    let mobile = false, imageDefilement = 0, cibleMobile = null, minuterieMobile = 0, largeurMobile = 0;
+    const hauteurMobile = () => {
+      if (!mobile) return;
+      const hauteur = stations[selection].offsetHeight + 24;
+      if (rail.style.height !== hauteur + 'px') rail.style.height = hauteur + 'px';
+    };
+    const defilerMobile = (instant = false) => {
+      if (!mobile) return;
+      const cible = stations[selection].getBoundingClientRect().left - rail.getBoundingClientRect().left + rail.scrollLeft - 12;
+      clearTimeout(minuterieMobile);
+      cibleMobile=instant || calme.matches ? null : selection;
+      if(cibleMobile!==null)minuterieMobile=setTimeout(()=>{cibleMobile=null;},800);
+      rail.scrollTo({left:cible,behavior:instant || calme.matches ? 'instant' : 'smooth'});
+    };
     const angleDe = station => parseFloat(getComputedStyle(station).getPropertyValue('--station-angle')) || 0;
     const camera = (index, entrer = false, profondeur = 50) => {
       const station = stations[index], porte = groupes[index].porte, panneau = $('.panneau-hall',station);
@@ -329,38 +348,69 @@
     const panorama = () => 'translate(-50%,-50%) translate3d(0px,48px,-160px) scale(' + Math.min(.72, scene.clientWidth/1900).toFixed(3) + ') rotateX(-5deg) rotateY(0deg)';
     const dessiner = () => {
       image = 0;
+      if (mobile) { hauteurMobile(); return; }
       if (!hall.classList.contains('en-volume') || occupe) return;
       monde.style.transform = vueLarge ? panorama() : camera(selection);
     };
     const demander = () => { if (!image) image = requestAnimationFrame(dessiner); };
     const marquerChoix = () => {
       choix.forEach((b,i)=>b.setAttribute('aria-pressed',String(i===selection)));
-      stations.forEach((s,i)=>s.classList.toggle('selectionnee',i===selection));
+      stations.forEach((s,i)=>{s.classList.toggle('selectionnee',i===selection);s.inert=mobile && i!==selection;});
+      if (positionMobile) positionMobile.textContent = String(selection+1).padStart(2,'0') + ' / ' + String(stations.length).padStart(2,'0');
+      hauteurMobile();
     };
     const choisir = index => {
       if (occupe) return;
       selection = (index+stations.length)%stations.length;
       vueLarge = false; regardX = 0; regardY = 0;
       marquerChoix(); demander();
+      defilerMobile();
     };
     const actualiser = () => {
       const accessible = /(^| )(lv|hc|t[123])( |$)/.test(racine.className) || forcees.matches;
       const possible = large.matches && !accessible && typeof CSS!=='undefined' && CSS.supports('transform-style','preserve-3d');
       mode.hidden = !possible;
       const actif = possible && !simple;
+      const ancienMobile = mobile;
+      mobile = !large.matches && !accessible;
       hall.classList.toggle('en-volume',actif);
+      hall.classList.toggle('en-mobile',mobile);
       mode.setAttribute('aria-pressed',String(actif));
-      [reperes,commandes].forEach(el=>el.hidden=!actif);
-      if (hallVolume) hallVolume.actif=actif;
+      [reperes,commandes].forEach(el=>el.hidden=!(actif || mobile));
+      if (aideMobile) aideMobile.hidden=!mobile;
+      if (hallVolume) { hallVolume.actif=actif || mobile; hallVolume.mobile=mobile; }
+      if (!actif) monde.style.removeProperty('transform');
+      if (!mobile) rail.style.removeProperty('height');
+      if (!mobile) {clearTimeout(minuterieMobile);cibleMobile=null;}
+      marquerChoix();
+      if (mobile && !ancienMobile) requestAnimationFrame(()=>defilerMobile(true));
       demander();
     };
     hallVolume = {
       actif:false, scene,
       async approcher(porte) {
-        if (!this.actif || reduit || !monde.animate) return null;
+        if (!this.actif) return null;
         const i = groupes.findIndex(g=>g.porte===porte);
         if (i<0) return null;
         selection=i; vueLarge=false; regardX=0; regardY=0; marquerChoix();
+        if (mobile) {
+          defilerMobile(true);
+          if (reduit || !monde.animate) return null;
+          const cadre = monde.getBoundingClientRect(), entree = $('.baie',porte).getBoundingClientRect();
+          const x = entree.left + entree.width/2 - cadre.left, y = entree.top + entree.height/2 - cadre.top;
+          monde.style.transformOrigin = x + 'px ' + y + 'px';
+          hall.classList.add('en-marche');
+          const animation = monde.animate([
+            {transform:'translate3d(0,0,0) scale(1)'},
+            {transform:'translate3d(' + (cadre.width/2-x).toFixed(1) + 'px,' + (cadre.height/2-y).toFixed(1) + 'px,0) scale(2.5)'}
+          ],{duration:520,easing:'cubic-bezier(.4,0,.2,1)',fill:'forwards'});
+          await Promise.all([
+            attendre(180).then(()=>porte.classList.add('ouverte')),
+            Promise.race([animation.finished.catch(()=>{}),attendre(580)])
+          ]);
+          return ()=>{animation.cancel();monde.style.removeProperty('transform-origin');hall.classList.remove('en-marche');};
+        }
+        if (reduit || !monde.animate) return null;
         const depart = getComputedStyle(monde).transform;
         monde.style.transform = camera(i);
         hall.classList.add('en-marche');
@@ -377,6 +427,29 @@
       }
     };
     stations.forEach((station,i)=>station.addEventListener('focusin',()=>{if(hallVolume.actif && selection!==i && !occupe)choisir(i);}));
+    rail.addEventListener('scroll',()=>{
+      if (!mobile || occupe || imageDefilement) return;
+      if(cibleMobile!==null){
+        if(Math.abs(stations[cibleMobile].getBoundingClientRect().left-rail.getBoundingClientRect().left-12)>2)return;
+        clearTimeout(minuterieMobile);cibleMobile=null;
+      }
+      imageDefilement=requestAnimationFrame(()=>{
+        imageDefilement=0;
+        if(!mobile || occupe || cibleMobile!==null)return;
+        const centre=rail.getBoundingClientRect().left+rail.clientWidth/2;
+        let plusProche=selection, distance=Infinity;
+        stations.forEach((station,i)=>{
+          const r=station.getBoundingClientRect(), ecart=Math.abs(r.left+r.width/2-centre);
+          if(ecart<distance){distance=ecart;plusProche=i;}
+        });
+        if(plusProche!==selection){selection=plusProche;marquerChoix();}
+      });
+    },{passive:true});
+    rail.addEventListener('pointerdown',()=>{if(mobile){clearTimeout(minuterieMobile);cibleMobile=null;}},{passive:true});
+    rail.addEventListener('keydown',ev=>{
+      if(!mobile || ev.target.closest('button,a') || !['ArrowLeft','ArrowRight'].includes(ev.key))return;
+      ev.preventDefault();choisir(selection+(ev.key==='ArrowRight'?1:-1));
+    });
     mode.addEventListener('click',()=>{simple=!simple;actualiser();});
     choix.forEach((b,i)=>{
       b.addEventListener('click',()=>choisir(i));
@@ -394,12 +467,12 @@
     $('[data-hall-suivante]',hall).addEventListener('click',()=>choisir(selection+1));
     $('[data-hall-recentrer]',hall).addEventListener('click',()=>{if(occupe)return;vueLarge=true;regardX=0;regardY=0;demander();});
     scene.addEventListener('pointerdown',ev=>{
-      if(ev.pointerType!=='mouse'||ev.button!==0||ev.target.closest('button,a')||!hallVolume.actif||calme.matches||occupe)return;
+      if(mobile||ev.pointerType!=='mouse'||ev.button!==0||ev.target.closest('button,a')||!hallVolume.actif||calme.matches||occupe)return;
       glissement={x:ev.clientX,y:ev.clientY};
       scene.classList.add('en-glissement');scene.setPointerCapture(ev.pointerId);ev.preventDefault();
     });
     scene.addEventListener('pointermove',ev=>{
-      if(ev.pointerType!=='mouse'||!hallVolume.actif||calme.matches||occupe||vueLarge||(salle&&!salle.hidden))return;
+      if(mobile||ev.pointerType!=='mouse'||!hallVolume.actif||calme.matches||occupe||vueLarge||(salle&&!salle.hidden))return;
       const r=scene.getBoundingClientRect();
       regardX=glissement?Math.max(-7,Math.min(7,(ev.clientX-glissement.x)*.035)):((ev.clientX-r.left)/r.width-.5)*1.4;
       regardY=glissement?Math.max(-2,Math.min(2,(ev.clientY-glissement.y)*.015)):((ev.clientY-r.top)/r.height-.5)*.8;
@@ -409,7 +482,13 @@
     ['pointerup','pointercancel','lostpointercapture'].forEach(n=>scene.addEventListener(n,finir));
     scene.addEventListener('pointerleave',()=>{if(!glissement){regardX=0;regardY=0;demander();}});
     [large,calme,forcees].forEach(m=>m.addEventListener('change',actualiser));
-    if(typeof ResizeObserver!=='undefined')new ResizeObserver(demander).observe(scene);
+    if(typeof ResizeObserver!=='undefined'){
+      const observation=new ResizeObserver(()=>{
+        demander();
+        if(mobile&&!occupe&&largeurMobile!==rail.clientWidth){largeurMobile=rail.clientWidth;defilerMobile(true);}
+      });
+      observation.observe(scene);stations.forEach(station=>observation.observe(station));
+    }
     else addEventListener('resize',demander,{passive:true});
     new MutationObserver(actualiser).observe(racine,{attributes:true,attributeFilter:['class']});
     marquerChoix();actualiser();

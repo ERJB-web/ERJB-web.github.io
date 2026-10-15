@@ -1703,6 +1703,75 @@ html.hc .bande-epuree,html.lv .bande-epuree{background:transparent;color:var(--i
 @media(min-width:1000px) and (max-width:1120px){.hall.en-volume .hall-reperes{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){.hall.en-volume .hall-univers{transition:none}}
 
+/* Hall tactile : une alcôve à la fois, navigation native et panneaux à côté des portes. */
+.hall-position-mobile{display:none}
+@media(max-width:999px){
+ .hall.en-mobile{display:flex;flex-direction:column;min-width:0;max-width:760px;width:100%;margin-inline:auto}
+ .hall.en-mobile::before,.hall.en-mobile::after{content:none;animation:none}
+ .hall.en-mobile .hall-tete{order:0;margin-bottom:12px}
+ .hall.en-mobile .hall-reperes{order:1;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px;margin:0}
+ .hall.en-mobile .hall-reperes>button{position:relative;display:grid;place-items:center;min-width:0;min-height:44px;padding:0;border:1px solid var(--line);border-radius:9px;background:var(--white);color:var(--c1);transition:background .18s,border-color .18s,box-shadow .18s;touch-action:manipulation}
+ .hall.en-mobile .hall-reperes>button bdi{display:grid;place-items:center;width:100%;font:600 13px/1 var(--sans);font-variant-numeric:tabular-nums}
+ .hall.en-mobile .hall-reperes>button span{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+ .hall.en-mobile .hall-reperes>button[aria-pressed=true]{border-color:var(--c1);background:color-mix(in srgb,var(--c1) 8%,var(--white));box-shadow:inset 0 -3px var(--c1)}
+ .hall.en-mobile .hall-guide-mobile{order:2;margin:10px 2px 12px;color:var(--muted);font-size:12px;line-height:1.5;text-align:start;hyphens:none}
+ .hall.en-mobile .hall-espace{order:3;position:relative;min-width:0;overflow:hidden;border:1px solid #d7dfd7;border-radius:16px;background:linear-gradient(150deg,#f7f9f3,#e9eee7);box-shadow:0 14px 30px -25px rgba(25,50,37,.3)}
+ .hall.en-mobile .hall-univers{position:relative;min-width:0;will-change:auto}
+ .hall.en-mobile .portes{position:relative;display:flex;align-items:flex-start;gap:12px;min-width:0;margin:0;padding:12px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:12px;overscroll-behavior-x:contain;scrollbar-width:none;direction:ltr;transition:height .22s ease}
+ .hall.en-mobile .portes::-webkit-scrollbar{display:none}
+ .hall.en-mobile .station-hall{position:relative;display:grid;grid-template-columns:clamp(92px,26vw,170px) minmax(0,1fr);align-items:end;gap:14px;flex:0 0 100%;min-width:0;min-height:330px;padding:24px 14px 54px;border:1px solid #d9e0d6;border-radius:10px;scroll-snap-align:start;scroll-snap-stop:always;background:linear-gradient(100deg,#e5ebe0,#fcfdf8 14% 75%,#e9eee5);isolation:isolate;perspective:1100px;direction:ltr}
+ .hall.en-mobile .station-hall::before{content:"";position:absolute;z-index:-1;inset:0 0 43px;pointer-events:none;background:linear-gradient(100deg,rgba(70,89,56,.09),rgba(255,255,255,.87) 5% 92%,rgba(70,89,56,.08)),url("photos/hall-architecture.webp") center 25%/cover;box-shadow:inset 0 10px 20px -20px #47613a,inset 0 -5px 0 #e0e6d9,inset 0 -6px 0 #c7d1be}
+ .hall.en-mobile .station-hall::after{content:"";position:absolute;z-index:-1;inset:auto 0 0;height:43px;pointer-events:none;background:linear-gradient(110deg,rgba(255,255,255,.8),transparent 55%),repeating-linear-gradient(90deg,transparent 0 70px,rgba(140,154,130,.12) 71px 72px),linear-gradient(#d8e0d0,#f3f5ed);box-shadow:inset 0 10px 15px -15px #526545}
+ .hall.en-mobile .station-hall .porte{position:relative;display:block;align-self:end;grid-column:1;grid-row:2;width:100%;height:clamp(190px,52vw,334px);min-width:0;min-height:0;margin:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;transform:none;transition:none;isolation:auto}
+ .hall.en-mobile .station-hall .porte:hover,.hall.en-mobile .station-hall .porte:focus-visible{background:transparent;border:0;box-shadow:none;transform:none}
+ .hall.en-mobile .station-hall .porte::before,.hall.en-mobile .station-hall .porte::after{content:none}
+ .hall.en-mobile .porte .baie{display:block;width:100%;height:100%;aspect-ratio:auto;overflow:visible;transform:rotateY(-3deg);transform-origin:100% 50%;box-shadow:inset 1px 1px #fff,inset -1px -1px #a7b3a2,0 0 0 1px #aab5a6,5px 2px 9px rgba(44,56,32,.2),0 13px 15px -12px rgba(32,50,34,.45)}
+ .hall.en-mobile .porte .ouverture{perspective:1100px}
+ .hall.en-mobile .porte .battant{transition:transform .55s cubic-bezier(.3,.7,.2,1),box-shadow .55s}
+ .hall.en-mobile .porte:hover:not(:focus-visible):not(.ouverte) .battant{transform:none}
+ .hall.en-mobile .porte.ouverte .battant{transform:rotateY(-82deg)}
+ .hall.en-mobile .porte .porte-texte{position:absolute;inset:100% 0 auto;display:block;padding:10px 0 0;text-align:center}
+ .hall.en-mobile .porte .porte-texte>*{display:none}
+ .hall.en-mobile .porte .porte-texte>.entrer{display:block;margin:0;font-size:12px;line-height:1.4;text-align:center;color:var(--ink)}
+ .hall.en-mobile .porte:focus-visible{outline:3px solid var(--c1);outline-offset:5px}
+ .hall.en-mobile .panneau-hall{display:contents;text-align:start}
+ .hall.en-mobile .panneau-hall h3{grid-column:1/-1;grid-row:1;align-self:start;min-width:0;margin:0;font:600 17px/1.32 var(--sans);color:var(--ink);text-wrap:pretty}
+ .hall.en-mobile .panneau-hall h3 button{display:flex;align-items:center;gap:10px;min-height:44px;width:100%;padding:0;text-align:start;font:inherit;overflow-wrap:anywhere}
+ .hall.en-mobile .panneau-hall h3 bdi{display:grid;place-items:center;flex:none;width:29px;height:29px;border-radius:6px;background:var(--c1);color:white;font:600 11px/1 var(--sans)}
+ .hall.en-mobile .panneau-hall h3 span{min-width:0}
+ .hall.en-mobile .panneau-hall>p{display:none}
+ .hall.en-mobile .sous-portes-murales{display:grid;grid-column:2;grid-row:2;align-self:start;grid-template-columns:minmax(0,1fr);gap:6px;min-width:0}
+ .hall.en-mobile .sous-portes-murales>button,.hall.en-mobile .sous-portes-murales>a{display:flex;align-items:center;gap:7px;min-width:0;min-height:44px;padding:8px;border:1px solid #cbd8d5;border-radius:5px;background:rgba(255,255,255,.94);color:var(--ink);font:500 12px/1.35 var(--sans);text-align:start;text-decoration:none;overflow-wrap:anywhere;hyphens:none;touch-action:manipulation;box-shadow:0 2px 3px -3px rgba(30,50,36,.18)}
+ .hall.en-mobile .sous-portes-murales>button::before,.hall.en-mobile .sous-portes-murales>a::before{content:"";flex:none;width:2px;height:15px;background:var(--c1);border-radius:1px}
+ .hall.en-mobile .sous-portes-murales>:active{background:color-mix(in srgb,var(--c1) 8%,white);border-color:var(--c1)}
+ .hall.en-mobile .sous-portes-murales>:focus-visible{outline:2px solid var(--c1);outline-offset:2px}
+ .hall.en-mobile .hall-commandes{position:relative;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:6px 12px 10px;background:rgba(255,255,255,.5)}
+ .hall.en-mobile .hall-commandes>button{display:grid;place-items:center;min-width:44px;min-height:44px;padding:8px;border:1px solid #cbd8d0;border-radius:50%;background:var(--white);color:var(--ink);font-size:19px;touch-action:manipulation}
+ .hall.en-mobile .hall-commandes>[data-hall-recentrer]{display:none}
+ .hall.en-mobile .hall-position-mobile{display:block;order:0;color:var(--muted);font:500 12px/1 var(--sans);font-variant-numeric:tabular-nums;letter-spacing:.08em;direction:ltr}
+ .hall.en-mobile .hall-pied{display:none}
+ .hall.en-mobile.en-marche .portes{overflow-x:hidden;scroll-snap-type:none}
+ .hall.en-mobile.en-marche .panneau-hall>*{opacity:.22;transition:opacity .2s}
+ .hall.en-mobile.en-marche .hall-reperes,.hall.en-mobile.en-marche .hall-commandes{pointer-events:none;opacity:.4}
+ html[dir=rtl] .hall.en-mobile .panneau-hall{direction:rtl}
+ .salle .salle-onglets{display:flex;gap:8px;min-width:0;margin:0;padding:12px var(--gouttiere);overflow-x:auto;scroll-snap-type:x proximity;overscroll-behavior-x:contain;scrollbar-width:thin;direction:ltr}
+ .salle .salle-onglets .onglet-salle{display:flex;align-items:center;gap:7px;flex:0 0 auto;min-width:0;max-width:210px;min-height:48px;padding:8px 12px;scroll-snap-align:center;border-radius:8px}
+ .salle .salle-onglets .baie.mini{display:none}
+ .salle .salle-onglets .onglet-num{flex:none;font-size:11px}
+ .salle .salle-onglets .onglet-titre{min-width:0;font-size:12px;line-height:1.35;text-align:start}
+ html[dir=rtl] .salle .onglet-salle{direction:rtl}
+}
+@media(min-width:540px) and (max-width:999px){
+ .hall.en-mobile .station-hall{gap:25px;padding:30px 28px 54px;min-height:360px}
+ .hall.en-mobile .sous-portes-murales{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .hall.en-mobile .sous-portes-murales>:last-child:nth-child(odd){grid-column:1/-1}
+ .hall.en-mobile .panneau-hall h3{font-size:21px}
+ .hall.en-mobile .sous-portes-murales>button,.hall.en-mobile .sous-portes-murales>a{font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){
+ .hall.en-mobile .portes,.hall.en-mobile .porte .battant,.hall.en-mobile .hall-reperes>button,.hall.en-mobile.en-marche .panneau-hall{transition:none}
+}
+
 /* Lisibilité et retours à la ligne dans toutes les écritures. */
 .conceptualisation-these{grid-template-columns:minmax(0,1fr)}
 .conceptualisation-these>*{min-width:0;max-width:100%}
