@@ -11,6 +11,7 @@
   const sansPassage = () => mouvementReduit || /(^| )(lv|t[123])( |$)/.test(racine.className);
   let reduit = mouvementReduit;
   const attendre = (ms) => new Promise((r) => setTimeout(r, reduit ? 0 : ms));
+  const mobileTactile=matchMedia('(max-width:999px) and (pointer:coarse)');
   const salle = $("#salle");
   const contenu = salle && $(".salle-contenu", salle);
   const points = $$(".points span");
@@ -130,7 +131,7 @@
       if(bouton)bouton.click();
     });
     const repere=location.hash.slice(1).split('/')[1];
-    const cibleRepere=repere && zone ? $('.volet[data-rubrique],[data-axe-cible],.publication-bloc[id]',zone).find(el=>el.dataset.rubrique===repere || el.dataset.axeCible===repere || el.id===repere) : null;
+    const cibleRepere=repere && zone ? $$('.volet[data-rubrique],[data-axe-cible],.publication-bloc[id]',zone).find(el=>el.dataset.rubrique===repere || el.dataset.axeCible===repere || el.id===repere) : null;
     if(cibleRepere){
       const pub=cibleRepere.closest('.publication-bloc');
       if(pub)selectionnerPublication(pub.closest('.publications-page'),pub.id);
@@ -232,7 +233,7 @@
     const restaurerHall = hallVolume && hallVolume.actif ? await hallVolume.approcher(porte) : null;
     porte.classList.add("ouverte");
     marquer(nom);
-    await attendre(restaurerHall ? 80 : 400);
+    await attendre(restaurerHall ? 80 : mobileTactile.matches ? 210 : 400);
 
     const r = $(".ouverture", porte).getBoundingClientRect();
     const passage = document.createElement("div");
@@ -248,9 +249,9 @@
           { left: r.left + "px", top: r.top + "px", width: r.width + "px", height: r.height + "px" },
           { left: "0px", top: "0px", width: innerWidth + "px", height: innerHeight + "px" },
         ],
-        { duration: 420, easing: "cubic-bezier(.6,0,.2,1)", fill: "forwards" }
+        { duration: mobileTactile.matches ? 250 : 420, easing: "cubic-bezier(.6,0,.2,1)", fill: "forwards" }
       );
-      await Promise.race([anim.finished, attendre(480)]);
+      await Promise.race([anim.finished, attendre(mobileTactile.matches ? 310 : 480)]);
     }
 
     afficher(cible);
@@ -260,7 +261,7 @@
     void salle.offsetWidth;
     salle.classList.add("visible");
     document.querySelectorAll("body > main, body > header, body > footer").forEach(el => { el.inert = true; });
-    await attendre(220);
+    await attendre(mobileTactile.matches ? 110 : 220);
     passage.remove();
     if (restaurerHall) restaurerHall();
     $("[data-retour]", salle).focus({ preventScroll: true });
@@ -323,13 +324,20 @@
   addEventListener('hashchange',demanderAdresse);
 
   const onglets = salle && $(".salle-onglets", salle);
+  if(salle){
+    const barre=$(".salle-barre",salle);
+    const actualiserHauteur=()=>{const h=barre?.getBoundingClientRect().height||0;if(h>0)salle.style.setProperty('--salle-barre-hauteur',Math.ceil(h)+'px');};
+    if(barre && typeof ResizeObserver!=='undefined')new ResizeObserver(actualiserHauteur).observe(barre);
+    else addEventListener('resize',actualiserHauteur,{passive:true});
+    actualiserHauteur();
+  }
 
   function selectionnerPublication(root,id,options={}) {
     if(!root)return;
-    const panels=$('.publication-bloc',root),active=panels.find(p=>p.id===id);
+    const panels=$$('.publication-bloc',root),active=panels.find(p=>p.id===id);
     if(!active)return;
     panels.forEach(p=>p.hidden=p!==active);
-    const tabs=$('[data-publications-cible]',root);
+    const tabs=$$('[data-publications-cible]',root);
     tabs.forEach(b=>{const chosen=b.dataset.publicationsCible===id;b.setAttribute('aria-selected',String(chosen));b.tabIndex=chosen?0:-1;b.classList.toggle('est-actif',chosen);});
     const label=$('[data-publications-annonce]',root),tab=tabs.find(b=>b.dataset.publicationsCible===id);
     if(label&&tab)label.textContent=tab.querySelector('strong')?.textContent||'';
@@ -338,9 +346,9 @@
     if(options.defiler)active.scrollIntoView({block:'nearest',behavior:sansPassage()?'auto':'smooth'});
   }
   function initialiserPublications(zone=document) {
-    $('.publications-page',zone).forEach(root=>{
-      const frag=location.hash.slice(1).split('/')[1],panels=$('.publication-bloc',root);
-      const target=panels.find(p=>p.id===frag)||$('[data-axe-cible]',root).find(el=>el.dataset.axeCible===frag)?.closest('.publication-bloc');
+    $$('.publications-page',zone).forEach(root=>{
+      const frag=location.hash.slice(1).split('/')[1],panels=$$('.publication-bloc',root);
+      const target=panels.find(p=>p.id===frag)||$$('[data-axe-cible]',root).find(el=>el.dataset.axeCible===frag)?.closest('.publication-bloc');
       selectionnerPublication(root,target?.id||'publication-articles');
     });
   }
@@ -351,7 +359,7 @@
   document.addEventListener('keydown',ev=>{
     const b=ev.target.closest('.pub-format[role="tab"]'),root=b?.closest('.publications-page');
     if(!root)return;
-    const tabs=$('[data-publications-cible]',root),i=tabs.indexOf(b),before=document.dir==='rtl'?'ArrowRight':'ArrowLeft',after=document.dir==='rtl'?'ArrowLeft':'ArrowRight';
+    const tabs=$$('[data-publications-cible]',root),i=tabs.indexOf(b),before=document.dir==='rtl'?'ArrowRight':'ArrowLeft',after=document.dir==='rtl'?'ArrowLeft':'ArrowRight';
     let chosen;
     if(ev.key===before)chosen=tabs[(i+tabs.length-1)%tabs.length];
     else if(ev.key===after)chosen=tabs[(i+1)%tabs.length];
@@ -429,6 +437,15 @@
     $$('[data-navigation="atelier"]',contenu).forEach(synchroniserRubriques);
     signalerAudience();
     demanderMemoire();
+    if(!matchMedia('(min-width:1000px)').matches){
+      requestAnimationFrame(()=>{
+        if(!onglets?.isConnected)return;
+        const tab=$('.onglet-salle.actif',onglets);
+        if(!tab || !tab.getBoundingClientRect().width)return;
+        const a=tab.getBoundingClientRect(),b=onglets.getBoundingClientRect();
+        onglets.scrollLeft+=a.left-b.left-(b.width-a.width)/2;
+      });
+    }
   }
 
   // Petite porte : même transition que les grandes (la porte s’ouvre, on passe à travers).
@@ -440,7 +457,7 @@
     occupe = true;
     reduit = sansPassage();
     bouton.classList.add("ouverte");
-    await attendre(180);
+    await attendre(mobileTactile.matches ? 95 : 180);
     const r = bouton.querySelector(".ouverture").getBoundingClientRect();
     const passage = document.createElement("div");
     passage.className = "passage";
@@ -454,12 +471,12 @@
           { left: r.left + "px", top: r.top + "px", width: r.width + "px", height: r.height + "px" },
           { left: "0px", top: "0px", width: innerWidth + "px", height: innerHeight + "px" },
         ],
-        { duration: 280, easing: "cubic-bezier(.6,0,.2,1)", fill: "forwards" }
+        { duration: mobileTactile.matches ? 170 : 280, easing: "cubic-bezier(.6,0,.2,1)", fill: "forwards" }
       );
-      await Promise.race([anim.finished, attendre(330)]);
+      await Promise.race([anim.finished, attendre(mobileTactile.matches ? 210 : 330)]);
     }
     afficher(x);
-    if (!reduit && passage.animate) await Promise.race([passage.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 160, fill: "forwards" }).finished, attendre(200)]);
+    if (!reduit && passage.animate) await Promise.race([passage.animate([{ opacity: 1 }, { opacity: 0 }], { duration: mobileTactile.matches ? 100 : 160, fill: "forwards" }).finished, attendre(mobileTactile.matches ? 130 : 200)]);
     passage.remove();
     occupe = false;
     terminerNavigation();
@@ -480,7 +497,7 @@
     document.querySelectorAll("body > main, body > header, body > footer").forEach(el => { el.inert = false; });
     const porte = groupeDe(nom).porte;
     porte.classList.remove("ouverte");
-    $(".salle-onglets .onglet-salle.ouverte").forEach(p=>p.classList.remove("ouverte"));
+    $$(".salle-onglets .onglet-salle.ouverte").forEach(p=>p.classList.remove("ouverte"));
     marquer(null);
     if (rendreFocus) porte.focus({ preventScroll: true });
     if(rendreFocus)signalerAudience();
@@ -576,6 +593,8 @@
     let selection = 0, simple = false, vueLarge = false, regardX = 0, regardY = 0, glissement = null, image = 0;
     let marche = null;
     let mobile = false, imageDefilement = 0, cibleMobile = null, minuterieMobile = 0, largeurMobile = 0;
+    const boutonMobilePrecedent=$('[data-hall-precedente]',hall);
+    const boutonMobileSuivant=$('[data-hall-suivante]',hall);
     const hauteurMobile = () => {
       if (!mobile) return;
       const hauteur = stations[selection].offsetHeight + 24;
@@ -621,6 +640,8 @@
     const marquerChoix = () => {
       choix.forEach((b,i)=>b.setAttribute('aria-pressed',String(i===selection)));
       stations.forEach((s,i)=>{s.classList.toggle('selectionnee',i===selection);s.inert=mobile && i!==selection;});
+      if(boutonMobilePrecedent)boutonMobilePrecedent.disabled=selection===0;
+      if(boutonMobileSuivant)boutonMobileSuivant.disabled=selection===stations.length-1;
       if (positionMobile) positionMobile.textContent = String(selection+1).padStart(2,'0') + ' / ' + String(stations.length).padStart(2,'0');
       if(mobile && reperes && choix[selection]){
         const cadre=reperes.getBoundingClientRect(), bouton=choix[selection].getBoundingClientRect();
@@ -675,7 +696,8 @@
         selection=i; vueLarge=false; regardX=0; regardY=0; marquerChoix();
         if (mobile) {
           defilerMobile(true);
-          if (reduit || !monde.animate) return null;
+          // Transition tactile légère, sans coûteux zoom 3D.
+          if (mobileTactile.matches || reduit || !monde.animate) return null;
           const cadre = monde.getBoundingClientRect(), entree = $('.baie',porte).getBoundingClientRect();
           const x = entree.left + entree.width/2 - cadre.left, y = entree.top + entree.height/2 - cadre.top;
           monde.style.transformOrigin = x + 'px ' + y + 'px';
@@ -1022,7 +1044,7 @@
   const preparer = (racineZone) => $$(CIBLES, racineZone).forEach((el) => el.classList.add('revele'));
   preparer(document);
   initialiserPublications(document);
-  $('[data-navigation="atelier"]').forEach(synchroniserRubriques);
+  $$('[data-navigation="atelier"]').forEach(synchroniserRubriques);
 
   document.addEventListener('scroll',demanderMemoire,{capture:true,passive:true});
   document.addEventListener('eb:hallposition',demanderMemoire);
