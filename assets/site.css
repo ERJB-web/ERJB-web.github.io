@@ -2098,3 +2098,45 @@ html[dir=rtl] .bande-parcours .trajectoire{direction:rtl}
 .bande-parcours{min-width:0;max-width:100%;overflow:hidden}
 .bande-parcours .trajectoire{width:100%;max-width:100%;min-width:0}
 .hall,.hall-espace,.hall-reperes{min-width:0;max-width:100%}
+
+
+/* Mise à jour des portes miniatures et de la navigation du hall. */
+@media(min-width:1000px){
+ .salle .salle-onglets{display:grid;grid-template-columns:repeat(var(--colonnes,4),minmax(0,1fr));max-width:1460px;gap:10px;margin-top:12px;margin-bottom:14px}
+ .salle .salle-onglets .onglet-salle{display:grid;grid-template-columns:35px minmax(0,1fr);grid-template-rows:auto auto;column-gap:12px;row-gap:3px;width:100%;min-width:0;max-width:none;min-height:81px;padding:11px 12px;border-radius:12px}
+ .salle .salle-onglets .baie.mini{display:block;grid-column:1;grid-row:1/3;width:34px;align-self:center}
+ .salle .salle-onglets .onglet-num{grid-column:2;grid-row:1;justify-self:start;min-width:42px;height:23px;font-size:11px}
+ .salle .salle-onglets .onglet-titre{grid-column:2;grid-row:2;align-self:start;font-size:15px;line-height:1.25;font-weight:650;overflow-wrap:anywhere}
+ .hall.en-volume .panneau-hall{top:30px;max-height:calc(100% - 34px)}
+}
+.hall .porte .vignette{inset-inline-start:10%;inset-inline-end:17%;top:6%;height:66%;background-position:center;background-size:cover}
+.hall .hall-reperes>button{min-height:75px;padding:12px 13px;gap:11px;font-size:15px;font-weight:720;line-height:1.33}
+.hall .hall-reperes>button bdi{width:34px;height:34px;font-size:13px;font-weight:750}
+.hall .hall-reperes>button span{font-size:inherit;line-height:inherit;overflow-wrap:break-word}
+@media(max-width:999px){.hall.en-mobile .hall-reperes>button{min-height:71px;padding:11px 12px;font-size:14px}.hall.en-mobile .hall-reperes>button bdi{width:32px;height:32px;font-size:12px}}
+@media(max-width:700px){.hall.en-mobile .hall-reperes>button{min-width:178px;max-width:234px;min-height:66px}}
+/* Quatre portes de publications et des contenus séparés par format. */
+.publications-page{display:flex;flex-direction:column;gap:0;min-width:0}
+.publications-page>.colonne-texte{width:100%;max-width:none;margin-bottom:6px}
+.publications-portes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;width:100%;margin:16px 0 24px}
+.publication-porte{display:flex;align-items:center;gap:14px;min-width:0;min-height:91px;padding:12px 14px;border:1px solid #bed4d0;border-radius:13px;background:linear-gradient(135deg,#fff,#f7fbf9);text-align:start;box-shadow:0 5px 18px rgba(27,69,76,.06);transition:transform .2s,border-color .2s,box-shadow .2s}
+.publication-porte:hover,.publication-porte:focus-visible{border-color:var(--pub-c);box-shadow:0 7px 22px rgba(27,69,76,.12);transform:translateY(-2px)}
+.publication-porte-mini{position:relative;display:block;flex:none;width:40px;height:65px;border:3px solid #f8faf7;border-radius:2px;background:linear-gradient(100deg,#e4ece8,#fafcf8);box-shadow:0 0 0 1px #a9bcb7,2px 5px 8px rgba(18,54,60,.16)}
+.publication-porte-vitre{position:absolute;inset:5px 5px auto;height:41px;border:1px solid #a8b9b8;background:linear-gradient(135deg,color-mix(in srgb,var(--pub-c) 32%,#eef6f7),#d0e0e5);box-shadow:inset 4px 4px 9px rgba(255,255,255,.55)}
+.publication-porte-soubassement{position:absolute;inset:auto 5px 4px;height:7px;border:1px solid #b9c8c2;background:#f6faf6}
+.publication-porte-texte{display:flex;flex-direction:column;gap:4px;min-width:0;color:var(--ink)}
+.publication-porte-texte bdi{align-self:flex-start;padding:2px 8px;border-radius:7px;background:var(--pub-c);color:#fff;font-size:11px;font-weight:750;line-height:1.3}
+.publication-porte-texte strong{font-size:16px;line-height:1.25;font-weight:700;overflow-wrap:anywhere}
+.publication-bloc{width:100%;min-width:0;margin:0 0 21px;padding:20px 22px 24px;border:1px solid #d9e4df;border-radius:16px;background:#fff;scroll-margin-top:22px}
+.publication-bloc:focus{outline:none}
+.publication-bloc:focus-visible{outline:2px solid #327a66;outline-offset:4px}
+.publication-bloc .travaux{width:100%;max-width:none;padding:0}
+.publication-bloc .travaux-tete{padding-top:0}
+.publication-bloc .groupes-grille{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+.publication-titre{margin:0 0 15px;color:var(--ink);font-size:21px;line-height:1.3}
+.publication-vide{margin:0;color:var(--muted);font-size:15px;line-height:1.5}
+.publication-these-note{margin:14px 0 0;padding:12px 14px;border-inline-start:3px solid #327a66;background:#eff6f3;font-size:15px}
+.publication-these-note a{font-weight:750;color:#1c6653;text-underline-offset:3px}
+@media(max-width:1000px){.publications-portes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.publications-portes{grid-template-columns:1fr;gap:8px;margin:12px 0 18px}.publication-porte{min-height:72px;padding:9px 12px}.publication-porte-mini{width:32px;height:50px}.publication-porte-vitre{inset:4px 4px auto;height:31px}.publication-porte-soubassement{inset:auto 4px 3px;height:5px}.publication-porte-texte strong{font-size:15px}.publication-bloc{padding:15px 13px 19px}}
+html[dir=rtl] .publications-portes,html[dir=rtl] .publication-porte{direction:rtl}
