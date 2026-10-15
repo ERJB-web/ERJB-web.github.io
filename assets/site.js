@@ -130,8 +130,10 @@
       if(bouton)bouton.click();
     });
     const repere=location.hash.slice(1).split('/')[1];
-    const cibleRepere=repere && zone ? $$('.volet[data-rubrique],[data-axe-cible]',zone).find(el=>el.dataset.rubrique===repere || el.dataset.axeCible===repere) : null;
+    const cibleRepere=repere && zone ? $('.volet[data-rubrique],[data-axe-cible],.publication-bloc[id]',zone).find(el=>el.dataset.rubrique===repere || el.dataset.axeCible===repere || el.id===repere) : null;
     if(cibleRepere){
+      const pub=cibleRepere.closest('.publication-bloc');
+      if(pub)selectionnerPublication(pub.closest('.publications-page'),pub.id);
       const parents=[];let panneau=cibleRepere.closest('.volet');
       while(panneau && zone.contains(panneau)){parents.unshift(panneau);panneau=panneau.parentElement?.closest('.volet');}
       parents.forEach(p=>{
@@ -284,6 +286,8 @@
       ? zone.querySelector('[data-axe-cible="' + repere + '"], .rubrique-corps[data-rubrique="' + repere + '"]')
       : zone;
     if (cible) {
+      const pub=cible.closest('.publication-bloc');
+      if(pub)selectionnerPublication(pub.closest('.publications-page'),pub.id);
       const parents = [];
       let volet = cible.closest('.volet');
       while (volet && zone.contains(volet)) {
@@ -319,10 +323,48 @@
   addEventListener('hashchange',demanderAdresse);
 
   const onglets = salle && $(".salle-onglets", salle);
+
+  function selectionnerPublication(root,id,options={}) {
+    if(!root)return;
+    const panels=$('.publication-bloc',root),active=panels.find(p=>p.id===id);
+    if(!active)return;
+    panels.forEach(p=>p.hidden=p!==active);
+    const tabs=$('[data-publications-cible]',root);
+    tabs.forEach(b=>{const chosen=b.dataset.publicationsCible===id;b.setAttribute('aria-selected',String(chosen));b.tabIndex=chosen?0:-1;b.classList.toggle('est-actif',chosen);});
+    const label=$('[data-publications-annonce]',root),tab=tabs.find(b=>b.dataset.publicationsCible===id);
+    if(label&&tab)label.textContent=tab.querySelector('strong')?.textContent||'';
+    if(options.adresse&&courante==='publications'){history.replaceState(history.state,'','#publications/'+id);memoriserNavigation();}
+    if(options.focus&&tab)tab.focus({preventScroll:true});
+    if(options.defiler)active.scrollIntoView({block:'nearest',behavior:sansPassage()?'auto':'smooth'});
+  }
+  function initialiserPublications(zone=document) {
+    $('.publications-page',zone).forEach(root=>{
+      const frag=location.hash.slice(1).split('/')[1],panels=$('.publication-bloc',root);
+      const target=panels.find(p=>p.id===frag)||$('[data-axe-cible]',root).find(el=>el.dataset.axeCible===frag)?.closest('.publication-bloc');
+      selectionnerPublication(root,target?.id||'publication-articles');
+    });
+  }
+  document.addEventListener('click',ev=>{
+    const b=ev.target.closest('[data-publications-cible]'),root=b?.closest('.publications-page');
+    if(root)selectionnerPublication(root,b.dataset.publicationsCible,{adresse:true,defiler:true});
+  });
+  document.addEventListener('keydown',ev=>{
+    const b=ev.target.closest('.pub-format[role="tab"]'),root=b?.closest('.publications-page');
+    if(!root)return;
+    const tabs=$('[data-publications-cible]',root),i=tabs.indexOf(b),before=document.dir==='rtl'?'ArrowRight':'ArrowLeft',after=document.dir==='rtl'?'ArrowLeft':'ArrowRight';
+    let chosen;
+    if(ev.key===before)chosen=tabs[(i+tabs.length-1)%tabs.length];
+    else if(ev.key===after)chosen=tabs[(i+1)%tabs.length];
+    else if(ev.key==='Home')chosen=tabs[0];
+    else if(ev.key==='End')chosen=tabs[tabs.length-1];
+    if(chosen){ev.preventDefault();selectionnerPublication(root,chosen.dataset.publicationsCible,{adresse:true,focus:true});}
+  });
+
   function afficher(s) {
     const groupe = groupeDe(s);
     const section = $(`section[data-salle="${s}"]`);
     contenu.replaceChildren(section.querySelector(".section-contenu").cloneNode(true));
+    initialiserPublications(contenu);
     $$("[data-onglets]", contenu).forEach((table, ti) => {
       const propres = (sel) => $$(sel, table).filter((el) => el.closest("[data-onglets]") === table);
       propres("[role=tab]").forEach((b) => {
@@ -365,7 +407,7 @@
         d.setAttribute("aria-hidden", "true");
         d.innerHTML = "<span class=\"ouverture\"><span class=\"battant\"><span class=\"vignette\"></span><span class=\"poignee\"></span></span></span>";
         const mini = sx.querySelector(".section-contenu").dataset.mini;
-        if (mini) d.querySelector(".vignette").style.backgroundImage = `url("${mini}")`;
+        if (mini) d.querySelector(".vignette").style.setProperty("background-image", `url("${mini}")`, "important");
         bouton.append(d, n, t);
         bouton.dataset.sous = x;
         bouton.addEventListener("click", () => passerSous(x));
@@ -437,7 +479,8 @@
     hallVolume?.redessiner?.();
     document.querySelectorAll("body > main, body > header, body > footer").forEach(el => { el.inert = false; });
     const porte = groupeDe(nom).porte;
-    setTimeout(() => porte.classList.remove("ouverte"), reduit ? 0 : 200);
+    porte.classList.remove("ouverte");
+    $(".salle-onglets .onglet-salle.ouverte").forEach(p=>p.classList.remove("ouverte"));
     marquer(null);
     if (rendreFocus) porte.focus({ preventScroll: true });
     if(rendreFocus)signalerAudience();
@@ -978,7 +1021,8 @@
   const CIBLES = '.schema, .figure-officielle, .cycle, .cadre, .expertises > div, .liste li, .frise li, .lacune, .media, .chiffres > div, .travail, .personne, .notions > div, .cours-carte, .bandeau-texte, .trajectoire li, .valeurs > div, .piliers > div';
   const preparer = (racineZone) => $$(CIBLES, racineZone).forEach((el) => el.classList.add('revele'));
   preparer(document);
-  $$('[data-navigation="atelier"]').forEach(synchroniserRubriques);
+  initialiserPublications(document);
+  $('[data-navigation="atelier"]').forEach(synchroniserRubriques);
 
   document.addEventListener('scroll',demanderMemoire,{capture:true,passive:true});
   document.addEventListener('eb:hallposition',demanderMemoire);
@@ -996,12 +1040,3 @@
 })();
 
 
-/* Les quatre mini portes de Publications défilent dans la salle, sans changer son URL. */
-document.addEventListener("click",function(event){
- const bouton=event.target.closest("[data-publications-cible]");if(!bouton)return;
- const racine=bouton.closest(".publications-page");
- const cible=racine&&racine.querySelector("#"+bouton.dataset.publicationsCible);
- if(!cible)return;
- cible.focus({preventScroll:true});
- cible.scrollIntoView({block:"start",behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
-});

@@ -2115,32 +2115,56 @@ html[dir=rtl] .bande-parcours .trajectoire{direction:rtl}
 .hall .hall-reperes>button span{font-size:inherit;line-height:inherit;overflow-wrap:break-word}
 @media(max-width:999px){.hall.en-mobile .hall-reperes>button{min-height:71px;padding:11px 12px;font-size:14px}.hall.en-mobile .hall-reperes>button bdi{width:32px;height:32px;font-size:12px}}
 @media(max-width:700px){.hall.en-mobile .hall-reperes>button{min-width:178px;max-width:234px;min-height:66px}}
-/* Quatre portes de publications et des contenus séparés par format. */
+
+/* Publications : atlas visuel, sans portes secondaires. */
 .publications-page{display:flex;flex-direction:column;gap:0;min-width:0}
-.publications-page>.colonne-texte{width:100%;max-width:none;margin-bottom:6px}
-.publications-portes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;width:100%;margin:16px 0 24px}
-.publication-porte{display:flex;align-items:center;gap:14px;min-width:0;min-height:91px;padding:12px 14px;border:1px solid #bed4d0;border-radius:13px;background:linear-gradient(135deg,#fff,#f7fbf9);text-align:start;box-shadow:0 5px 18px rgba(27,69,76,.06);transition:transform .2s,border-color .2s,box-shadow .2s}
-.publication-porte:hover,.publication-porte:focus-visible{border-color:var(--pub-c);box-shadow:0 7px 22px rgba(27,69,76,.12);transform:translateY(-2px)}
-.publication-porte-mini{position:relative;display:block;flex:none;width:40px;height:65px;border:3px solid #f8faf7;border-radius:2px;background:linear-gradient(100deg,#e4ece8,#fafcf8);box-shadow:0 0 0 1px #a9bcb7,2px 5px 8px rgba(18,54,60,.16)}
-.publication-porte-vitre{position:absolute;inset:5px 5px auto;height:41px;border:1px solid #a8b9b8;background:linear-gradient(135deg,color-mix(in srgb,var(--pub-c) 32%,#eef6f7),#d0e0e5);box-shadow:inset 4px 4px 9px rgba(255,255,255,.55)}
-.publication-porte-soubassement{position:absolute;inset:auto 5px 4px;height:7px;border:1px solid #b9c8c2;background:#f6faf6}
-.publication-porte-texte{display:flex;flex-direction:column;gap:4px;min-width:0;color:var(--ink)}
-.publication-porte-texte bdi{align-self:flex-start;padding:2px 8px;border-radius:7px;background:var(--pub-c);color:#fff;font-size:11px;font-weight:750;line-height:1.3}
-.publication-porte-texte strong{font-size:16px;line-height:1.25;font-weight:700;overflow-wrap:anywhere}
-.publication-bloc{width:100%;min-width:0;margin:0 0 21px;padding:20px 22px 24px;border:1px solid #d9e4df;border-radius:16px;background:#fff;scroll-margin-top:22px}
+.publications-page>.colonne-texte{width:100%;max-width:none;margin-bottom:10px}
+.pub-explorateur{width:100%;min-width:0}
+.pub-hero{position:relative;isolation:isolate;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;min-height:235px;padding:34px clamp(24px,4vw,50px);overflow:hidden;border-radius:21px;background:#204e55;color:#fff;box-shadow:0 18px 42px -30px #123a41}
+.pub-hero>img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;opacity:.34}
+.pub-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(108deg,rgba(18,49,67,.96),rgba(25,80,78,.85))}
+.pub-kicker{display:block;margin-bottom:14px;color:#cae5df;font-size:11px;font-weight:850;letter-spacing:.15em}
+.pub-hero h3{margin:0 0 13px;color:#fff;font-size:clamp(26px,3vw,37px);font-weight:800;letter-spacing:-.035em;line-height:1.12}
+.pub-hero p{max-width:630px;margin:0;color:#e7f3f1;font-size:15px;line-height:1.65}
+.pub-parcours{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0;padding:0;list-style:none}
+.pub-parcours li{display:flex;align-items:center;gap:12px;min-width:0;padding:12px 13px;border-radius:11px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.085);font-weight:700;font-size:13px;color:#fff;backdrop-filter:blur(7px)}
+.pub-parcours b{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:8px;background:#e7f1ed;color:#265e60;font-size:12px}
+.pub-formats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin:22px 0 12px}
+.pub-format{display:flex;flex-direction:column;min-width:0;min-height:249px;overflow:hidden;padding:0;border:1px solid #d5e2dd;border-radius:17px;background:#fff;text-align:start;color:#183d47;cursor:pointer;box-shadow:0 6px 20px -15px rgba(20,61,64,.45);transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.pub-format:hover,.pub-format:focus-visible{transform:translateY(-4px);border-color:var(--pub-c);box-shadow:0 17px 32px -18px rgba(17,56,67,.48)}
+.pub-format:focus-visible{outline:3px solid var(--pub-c);outline-offset:3px}
+.pub-format.est-actif{border-color:var(--pub-c);box-shadow:0 14px 30px -18px rgba(18,58,65,.5),inset 0 -4px 0 var(--pub-c)}
+.pub-format-visuel{display:grid;place-items:center;min-height:121px;padding:7px;background:linear-gradient(160deg,color-mix(in srgb,var(--pub-c) 12%,#fff),#f6faf7);border-bottom:1px solid #e1eae5}
+.pub-format-visuel svg{display:block;width:min(100%,235px);height:110px;filter:drop-shadow(0 4px 7px rgba(23,65,55,.09));transition:transform .3s ease}
+.pub-format:hover svg,.pub-format:focus-visible svg{transform:translateY(-3px) scale(1.04)}
+.pub-format-corps{display:flex;flex:1;flex-direction:column;align-items:flex-start;gap:8px;min-width:0;padding:16px 17px 17px}
+.pub-format small{color:var(--pub-c);font-size:11px;font-weight:800;letter-spacing:.12em}
+.pub-format strong{font-size:17px;font-weight:780;line-height:1.25;letter-spacing:-.015em;overflow-wrap:anywhere;text-wrap:balance}
+.pub-format-bas{display:flex;align-items:baseline;gap:8px;width:100%;margin-top:auto;padding-top:9px;border-top:1px solid #e3ebe7;font-size:12px;color:#567074}
+.pub-format-bas b{color:var(--pub-c);font-size:18px;font-variant-numeric:tabular-nums}
+.pub-en-cours{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:13px 0 19px;padding:0 4px;font-size:13px;color:#60777b}
+.pub-en-cours i{width:8px;height:8px;border-radius:50%;background:#2f846f;box-shadow:0 0 0 4px #ddefe8}
+.pub-en-cours strong{color:#234c52;font-weight:800}
+.publication-bloc{width:100%;min-width:0;margin:0 0 22px;padding:clamp(18px,3vw,30px);border:1px solid #d9e6e0;border-radius:19px;background:linear-gradient(180deg,#fff,#fbfdfb);scroll-margin-top:25px}
+.publication-bloc[hidden]{display:none!important}
 .publication-bloc:focus{outline:none}
 .publication-bloc:focus-visible{outline:2px solid #327a66;outline-offset:4px}
 .publication-bloc .travaux{width:100%;max-width:none;padding:0}
 .publication-bloc .travaux-tete{padding-top:0}
 .publication-bloc .groupes-grille{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
-.publication-titre{margin:0 0 15px;color:var(--ink);font-size:21px;line-height:1.3}
+.publication-titre{margin:0 0 16px;font-size:clamp(21px,2.4vw,27px);color:var(--ink)}
 .publication-vide{margin:0;color:var(--muted);font-size:15px;line-height:1.5}
-.publication-these-note{margin:14px 0 0;padding:12px 14px;border-inline-start:3px solid #327a66;background:#eff6f3;font-size:15px}
-.publication-these-note a{font-weight:750;color:#1c6653;text-underline-offset:3px}
-@media(max-width:1000px){.publications-portes{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:560px){.publications-portes{grid-template-columns:1fr;gap:8px;margin:12px 0 18px}.publication-porte{min-height:72px;padding:9px 12px}.publication-porte-mini{width:32px;height:50px}.publication-porte-vitre{inset:4px 4px auto;height:31px}.publication-porte-soubassement{inset:auto 4px 3px;height:5px}.publication-porte-texte strong{font-size:15px}.publication-bloc{padding:15px 13px 19px}}
-html[dir=rtl] .publications-portes,html[dir=rtl] .publication-porte{direction:rtl}
-
+.publication-these-note{margin:17px 0 0;padding:14px 17px;border-inline-start:3px solid #327a66;background:#eff6f3;font-size:15px}
+.publication-these-note a{font-weight:800;color:#1c6653}
+.onglet-salle.actif:not(.ouverte) .battant{transform:rotateY(0deg)!important}
+.onglet-salle.actif:not(.ouverte):hover .battant,.onglet-salle.actif:not(.ouverte):focus-visible .battant{transform:rotateY(-25deg)!important}
+.onglet-salle .vignette{background-position:center!important;background-size:cover!important}
+@media(max-width:1150px){.pub-formats{grid-template-columns:repeat(2,minmax(0,1fr))}.pub-format{min-height:215px}.pub-format-visuel{min-height:100px}.pub-format-visuel svg{height:94px}}
+@media(max-width:760px){.pub-hero{grid-template-columns:1fr;padding:26px 23px;gap:23px}.pub-parcours{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.pub-parcours li{flex-direction:column;text-align:center;gap:7px;padding:10px 5px;font-size:10.5px}.pub-parcours b{width:28px;height:28px;font-size:10px}.pub-format strong{font-size:15.5px}.pub-format-corps{padding:13px}}
+@media(max-width:520px){.pub-formats{gap:9px}.pub-format{min-height:192px;border-radius:13px}.pub-format-visuel{min-height:79px;padding:4px}.pub-format-visuel svg{height:76px}.pub-format-corps{padding:10px;gap:6px}.pub-format strong{font-size:14.5px}.pub-format small{font-size:9px}.pub-format-bas{font-size:11px}.pub-format-bas b{font-size:15px}.pub-hero{border-radius:14px}.pub-hero h3{font-size:26px}.pub-hero p{font-size:13.5px}.publication-bloc{padding:16px 13px}}
+@media(prefers-reduced-motion:reduce){.pub-format,.pub-format svg{transition:none}.pub-format:hover,.pub-format:hover svg,.pub-format:focus-visible,.pub-format:focus-visible svg{transform:none}}
+@media(forced-colors:active){.pub-format.est-actif{outline:2px solid Highlight}}
+html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
 
 /* Hall : une plus grande surface de verrière au-dessus des portes.
    Le volume grandit vers le haut, portes et panneaux restent ancrés au sol. */

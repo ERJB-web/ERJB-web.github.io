@@ -52,7 +52,7 @@ function copyrightSite(code="fr") {
 const URL = "https://erjb-web.github.io/";
 const TELEPHONE = ["(263) 384-3050", "+12633843050"];
 const GROUPES = [
-  ["recherche", ["recherche", "axes", "approche", "methodes", "ia", "publications", "outils"]],
+  ["recherche", ["recherche", "axes", "publications", "approche", "methodes", "ia", "outils"]],
   ["implantation", ["implantation", "notions", "transmission", "vulgarisation"]],
   ["parcours", ["biographie", "parcours", "juriste", "gestionnaire", "educateur", "entrepreneuriat", "valeurs"]],
   ["engagements", ["representation", "communaute", "distinctions", "citoyen", "loisirs"]],
@@ -1140,21 +1140,28 @@ const THEMES_PUBLICATIONS = {
   }
 };
 
+const PUB_META={"fr":["BIBLIOTHÈQUE SCIENTIFIQUE","Explorer les travaux par format","Manuscrits, affiches, communications et mémoires : quatre chemins pour parcourir les travaux scientifiques.",["Questionner","Écrire","Présenter","Partager"],["travaux","affiches","présentations","documents"],"Collection sélectionnée"],"en":["RESEARCH LIBRARY","Explore research by format","Manuscripts, posters, presentations and academic work: four clear ways to explore research.",["Explore","Write","Present","Share"],["works","posters","presentations","documents"],"Selected collection"],"es":["BIBLIOTECA DE INVESTIGACIÓN","Explorar por tipo de trabajo","Manuscritos, pósteres, presentaciones y memorias en cuatro secciones intuitivas.",["Investigar","Escribir","Presentar","Compartir"],["trabajos","pósteres","presentaciones","documentos"],"Colección seleccionada"],"zh":["研究成果资料库","按成果类型浏览","研究手稿、会议海报、口头报告与学位论文，四类作品清晰呈现。",["研究","写作","展示","传播"],["项研究","份海报","场报告","份文档"],"当前分类"],"ar":["مكتبة البحث العلمي","استكشاف الأعمال حسب النوع","مخطوطات وملصقات وعروض وأعمال جامعية في أربعة أقسام واضحة.",["البحث","الكتابة","العرض","المشاركة"],["أعمال","ملصقات","عروض","وثائق"],"المجموعة المحددة"],"ru":["НАУЧНАЯ БИБЛИОТЕКА","Выбрать тип научной работы","Рукописи, постеры, выступления и академические работы в четырёх разделах.",["Исследовать","Написать","Представить","Поделиться"],["работы","постера","выступлений","документа"],"Выбрана коллекция"]};
+const PUB_IDS=["publication-articles","publication-affiches","publication-oraux","publication-memoires"];
+const PUB_ICONS=["<svg viewBox=\"0 0 230 110\" aria-hidden=\"true\"><rect x=\"42\" y=\"6\" width=\"140\" height=\"98\" rx=\"5\" fill=\"#fffdf7\" stroke=\"#7fa79e\" stroke-width=\"2\"/><rect x=\"56\" y=\"22\" width=\"109\" height=\"9\" rx=\"2\" fill=\"#277669\"/><path d=\"M56 41h109M56 49h109M56 57h73\" stroke=\"#acc3bc\" stroke-width=\"3\" stroke-linecap=\"round\"/><rect x=\"56\" y=\"67\" width=\"46\" height=\"24\" rx=\"2\" fill=\"#d4e9e2\"/><path d=\"m63 85 11-10 10 5 10-8\" stroke=\"#367e70\" stroke-width=\"3\" fill=\"none\"/><path d=\"M115 69h50M115 77h50M115 85h36\" stroke=\"#acc3bc\" stroke-width=\"3\"/></svg>","<svg viewBox=\"0 0 230 110\" aria-hidden=\"true\"><rect x=\"35\" y=\"10\" width=\"160\" height=\"88\" rx=\"4\" fill=\"#fffdf8\" stroke=\"#779bac\" stroke-width=\"2\"/><rect x=\"46\" y=\"20\" width=\"138\" height=\"13\" rx=\"2\" fill=\"#2c6882\"/><path d=\"M48 44h57M48 52h44\" stroke=\"#9eb7c0\" stroke-width=\"3\"/><rect x=\"47\" y=\"62\" width=\"66\" height=\"23\" rx=\"2\" fill=\"#dbeaf0\"/><path d=\"m53 81 13-9 13 4 11-11 16 8\" stroke=\"#46879b\" fill=\"none\" stroke-width=\"3\"/><rect x=\"132\" y=\"58\" width=\"11\" height=\"27\" fill=\"#b57b49\"/><rect x=\"149\" y=\"48\" width=\"11\" height=\"37\" fill=\"#478a99\"/><rect x=\"166\" y=\"66\" width=\"11\" height=\"19\" fill=\"#91b5a5\"/></svg>","<svg viewBox=\"0 0 230 110\" aria-hidden=\"true\"><rect x=\"64\" y=\"65\" width=\"104\" height=\"34\" rx=\"4\" fill=\"#f5e9d7\" stroke=\"#b98f66\" stroke-width=\"2\"/><rect x=\"88\" y=\"46\" width=\"56\" height=\"19\" rx=\"2\" fill=\"#fff5e8\" stroke=\"#ba8e61\" stroke-width=\"2\"/><path d=\"M112 22v23M124 31v14\" stroke=\"#b1774e\" stroke-width=\"4\" stroke-linecap=\"round\"/><circle cx=\"112\" cy=\"18\" r=\"9\" fill=\"#ce966c\"/><path d=\"M20 39c9-9 17-9 26 0s17 9 26 0m98 0c9-9 17-9 26 0s17 9 26 0\" stroke=\"#c88e5c\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M78 76h75M78 84h75\" stroke=\"#c9ab8c\" stroke-width=\"3\"/></svg>","<svg viewBox=\"0 0 230 110\" aria-hidden=\"true\"><path d=\"M48 12h95l19 19v66H48z\" fill=\"#fffcf7\" stroke=\"#8b7aab\" stroke-width=\"2\"/><path d=\"M143 12v19h19\" fill=\"#e2d9f0\" stroke=\"#8b7aab\" stroke-width=\"2\"/><rect x=\"62\" y=\"42\" width=\"84\" height=\"9\" rx=\"2\" fill=\"#80659e\"/><path d=\"M62 64h84M62 72h84M62 80h58\" stroke=\"#bab0cb\" stroke-width=\"3\" stroke-linecap=\"round\"/><rect x=\"165\" y=\"38\" width=\"24\" height=\"59\" rx=\"2\" fill=\"#b6a8d0\"/><rect x=\"191\" y=\"29\" width=\"22\" height=\"68\" rx=\"2\" fill=\"#e7cc9d\"/><path d=\"M176 47v42m26-49v49\" stroke=\"#fff\" stroke-width=\"3\" opacity=\".75\"/></svg>"];
+function navigationPublications(lang,names,counts,prefix){
+ const t=PUB_META[lang]||PUB_META.fr,h=x=>String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+ const stages='<ol class="pub-parcours" aria-label="'+h(t[1])+'">'+t[3].map((s,i)=>'<li><b>'+String(i+1).padStart(2,"0")+'</b><span>'+h(s)+'</span></li>').join('')+'</ol>';
+ const cards=names.map((n,i)=>'<button type="button" role="tab" id="publication-tab-'+PUB_IDS[i].slice(12)+'" aria-controls="'+PUB_IDS[i]+'" aria-selected="'+(i===0)+'" tabindex="'+(i===0?'0':'-1')+'" class="pub-format'+(i===0?' est-actif':'')+'" style="--pub-c:'+["#286f68","#286881","#aa7044","#755a8d"][i]+'" data-publications-cible="'+PUB_IDS[i]+'"><span class="pub-format-visuel">'+PUB_ICONS[i]+'</span><span class="pub-format-corps"><small>'+String(i+1).padStart(2,"0")+' / 04</small><strong>'+h(n)+'</strong><span class="pub-format-bas"><b>'+String(counts[i]).padStart(2,"0")+'</b>'+h(t[4][i])+'</span></span></button>').join('');
+ return '<div class="pub-explorateur"><div class="pub-hero"><img src="'+h(prefix)+'assets/bandeaux/publications.jpg" alt="" width="1200" height="450" loading="lazy"><div class="pub-hero-texte"><span class="pub-kicker">'+h(t[0])+'</span><h3>'+h(t[1])+'</h3><p>'+h(t[2])+'</p></div>'+stages+'</div><nav class="pub-formats" role="tablist" aria-label="'+h(t[1])+'">'+cards+'</nav><div class="pub-en-cours"><i aria-hidden="true"></i><span>'+h(t[5])+' :</span><strong data-publications-annonce aria-live="polite">'+h(names[0])+'</strong></div></div>';
+}
+
 function sectionPublications(c) {
- const s=c.publications, l=PUBLICATION_LABELS[c.lang]||PUBLICATION_LABELS.fr;
- const themes=THEMES_PUBLICATIONS[c.lang]||THEMES_PUBLICATIONS.fr;
- const ids=['publication-articles','publication-affiches','publication-oraux','publication-memoires'], colors=['#327a66','#1f5a8a','#a0663b','#7a4a8c'];
- const nav='<nav class="publications-portes" aria-label="'+e(l[7])+'">'+l.slice(0,4).map((v,i)=>'<button type="button" class="publication-porte" style="--pub-c:'+colors[i]+'" data-publications-cible="'+ids[i]+'"><span class="publication-porte-mini" aria-hidden="true"><span class="publication-porte-vitre"></span><span class="publication-porte-soubassement"></span></span><span class="publication-porte-texte"><bdi>'+num(i)+'</bdi><strong>'+e(v)+'</strong></span></button>').join('')+'</nav>';
- const block=(id,html)=>'<section class="publication-bloc" id="'+id+'" tabindex="-1">'+html+'</section>';
- const group=(g,items)=>'<article class="groupe-carte"><div class="groupe-corps"><h3 class="titre-bloc titre-icone">'+e(g.titre)+'<span class="compte">'+items.length+'</span></h3>'+liste(items, true)+'</div></article>';
- const posters=s.groupes[0],memos=s.groupes[1];
- const posterItems=posters.items.map(it=>({...it,etiquettes:themes.affiches}));
- const memItems=memos.items.map((it,j)=>({...it,...(j<2?{cible:['memoire-domicile','memoire-ehpad'][j]}:{}),etiquettes:themes.memoires[j]||[]}));
+ const s=c.publications,l=PUBLICATION_LABELS[c.lang]||PUBLICATION_LABELS.fr;
+ const ids=['publication-articles','publication-affiches','publication-oraux','publication-memoires'],posters=s.groupes[0],memoires=s.groupes[1];
+ const nav=navigationPublications(c.lang,l.slice(0,4),[c.recherche.travaux.items.length,posters.items.length,0,memoires.items.length],c.chemin);
+ const bloc=(id,content,i)=>'<section class="publication-bloc" role="tabpanel" id="'+id+'" aria-labelledby="publication-tab-'+id.slice(12)+'" tabindex="-1"'+(i?' hidden':'')+'>'+content+'</section>';
+ const group=(g,items)=>'<article class="groupe-carte"><div class="groupe-corps"><h3 class="titre-bloc titre-icone">'+e(g.titre)+'<span class="compte">'+items.length+'</span></h3>'+liste(items)+'</div></article>';
+ const memItems=memoires.items.map((it,i)=>i<2?{...it,cible:['memoire-domicile','memoire-ehpad'][i]}:it);
  return '<div class="section-corps pleine publications-page"><div class="colonne-texte"><p class="surtitre">'+e(s.surtitre)+'</p><h2>'+e(s.titre)+'</h2><p class="intro">'+e(s.intro)+'</p></div>'+nav+
- block(ids[0],travauxEnCours(c))+
- block(ids[1],'<h3 class="publication-titre">'+e(l[1])+'</h3><div class="groupes-grille">'+group(posters,posterItems)+'</div>')+
- block(ids[2],'<h3 class="publication-titre">'+e(l[2])+'</h3><p class="publication-vide">'+e(l[4])+'</p>')+
- block(ids[3],'<h3 class="publication-titre">'+e(l[3])+'</h3><div class="groupes-grille">'+group(memos,memItems)+'</div><p class="publication-these-note">'+e(l[5])+' <a href="#recherche">'+e(l[6])+' <span aria-hidden="true">→</span></a></p>')+'</div>';
+ bloc(ids[0],travauxEnCours(c),0)+
+ bloc(ids[1],'<h3 class="publication-titre">'+e(l[1])+'</h3><div class="groupes-grille">'+group(posters,posters.items)+'</div>',1)+
+ bloc(ids[2],'<h3 class="publication-titre">'+e(l[2])+'</h3><p class="publication-vide">'+e(l[4])+'</p>',2)+
+ bloc(ids[3],'<h3 class="publication-titre">'+e(l[3])+'</h3><div class="groupes-grille">'+group(memoires,memItems)+'</div><p class="publication-these-note">'+e(l[5])+' <a href="#recherche">'+e(l[6])+' <span aria-hidden="true">→</span></a></p>',3)+'</div>';
 }
 
 const RESSOURCES = JSON.parse(fs.readFileSync(path.join(__dirname, "ressources-donnees.json"), "utf8"));
