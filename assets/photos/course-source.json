@@ -1,14 +1,9 @@
 {
-  "fichier": "course.jpg",
-  "type": "photographie",
-  "titre": "Start of the 2014 Paris Marathon",
-  "description": "Départ du marathon de Paris sur les Champs-Élysées, avec l’obélisque de la Concorde à l’arrière-plan. Photographie d’illustration de l’édition 2014.",
-  "photographe": "Marie-Lan Nguyen",
-  "attribution": "© Marie-Lan Nguyen / Wikimedia Commons",
-  "source": "https://commons.wikimedia.org/wiki/File:2014_Paris_Marathon_t084659.jpg",
-  "licence": "CC BY 3.0",
-  "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
-  "telechargement": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/2014_Paris_Marathon_t084659.jpg/1280px-2014_Paris_Marathon_t084659.jpg",
-  "priseLe": "2014-04-06",
-  "traitement": "Version JPEG redimensionnée par Wikimedia à 1280 pixels de large ; aucune retouche ni génération. Cadrage d’affichage adapté au format de la carte."
+  "type": "ai-generated",
+  "tool": "imagegen (built-in)",
+  "generated": "2026-10-14",
+  "subject": "Illustration photoréaliste d’un marathon à Paris, avec des personnes fictives. Ne documente pas une édition réelle.",
+  "prompt": "Use case: photorealistic-natural. Asset type: landscape photograph-style illustration for the marathon card on a professional personal website. Create an original, highly photorealistic candid scene of an amateur marathon in Paris in daylight. A natural group of adult recreational runners, different ages and genders, running along a wide Parisian avenue with the Arc de Triomphe clearly recognisable in the distance and understated Haussmann buildings. View from street level slightly to one side of the runners, medium-wide framing, believable running strides and hands, modest effort and concentration, varied spacing, ordinary plain unbranded running clothes. Soft overcast spring daylight, true-to-life colours, subtle photographic grain, realistic fabric folds and skin, natural imperfections. Documentary feel, 50mm lens, no cinematic haze, no fantasy, no exaggerated bokeh, no artificial golden glow, no polished stock-photo posing. Landscape 3:2 composition designed to crop cleanly to a website card around 1.75:1 with runners and Paris landmark inside the central safe area. All people fictitious, do not resemble a specific real person. No reference photo, no copying an existing photograph. No sponsor branding, sports logos, event logos, medals with brands, text, signage, visible bib lettering, watermarks, or signatures. No claim of documenting an actual edition of the Paris Marathon.",
+  "asset": "assets/photos/course.jpg",
+  "disclosure": "Illustration générée par IA · Paris"
 }

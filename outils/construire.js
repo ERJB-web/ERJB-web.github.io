@@ -892,6 +892,32 @@ function sectionBiographie(c) {
 }
 
 const PHOTOS_ENGAGEMENTS = ["representation", null, "distinctions", null, null];
+const MARATHON_ILLUSTRATION = {
+  "fr": [
+    "Illustration générée par IA de coureurs fictifs à Paris, avec l’Arc de Triomphe en arrière-plan",
+    "Illustration générée par IA · Paris"
+  ],
+  "en": [
+    "AI-generated illustration of fictional runners in Paris, with the Arc de Triomphe in the background",
+    "AI-generated illustration · Paris"
+  ],
+  "es": [
+    "Ilustración generada por IA de corredores ficticios en París, con el Arco del Triunfo al fondo",
+    "Ilustración generada por IA · París"
+  ],
+  "zh": [
+    "AI 生成插图：虚构跑者在巴黎跑步，背景为凯旋门",
+    "AI 生成插图 · 巴黎"
+  ],
+  "ar": [
+    "رسم مولد بالذكاء الاصطناعي لعدائين خياليين في باريس وقوس النصر في الخلفية",
+    "صورة توضيحية مولدة بالذكاء الاصطناعي · باريس"
+  ],
+  "ru": [
+    "Созданная ИИ иллюстрация вымышленных бегунов в Париже с Триумфальной аркой на заднем плане",
+    "Иллюстрация, созданная ИИ · Париж"
+  ]
+};
 const PHOTOS_LOISIRS = ["photos/course.jpg", "photos/musique.jpg", "photos/hockey.jpg", "bandeaux/grise.jpg", "bandeaux/loisirs.jpg"];
 const photo = (c, fichier, alt = "") => `<img class="photo-groupe" src="${c.chemin}assets/${fichier}?v=${empreinte("assets/" + fichier)}"${fichier === "bandeaux/loisirs.jpg" ? ' style="object-position:right"' : ""} alt="${e(alt)}" width="800" height="457" loading="lazy">`;
 
@@ -911,7 +937,7 @@ function sectionEngagements(c, sous) {
         return `<div class="groupe-large">${tete}<div class="loisirs loisirs-etendus">${items
           .map((it, i) => {
             const fichier = it.photo || PHOTOS_LOISIRS[i];
-            return `<figure class="loisir${it.id ? " loisir-" + it.id : ""}${fichier ? "" : " sans-photo"}">${fichier ? photo(c, fichier, it.alt || it.titre) : ""}<figcaption><span>${e(it.date)}</span><strong>${e(it.titre)}</strong>${it.detail ? `<small>${e(it.detail)}</small>` : ""}</figcaption></figure>`;
+            return `<figure class="loisir${it.id ? " loisir-" + it.id : ""}${fichier ? "" : " sans-photo"}">${fichier ? photo(c, fichier, i === 0 ? MARATHON_ILLUSTRATION[c.lang][0] : it.alt || it.titre) : ""}<figcaption><span>${e(it.date)}</span><strong>${e(it.titre)}</strong>${it.detail ? `<small>${e(it.detail)}</small>` : ""}${i === 0 ? `<small class="credit-image">${e(MARATHON_ILLUSTRATION[c.lang][1])}</small>` : ""}</figcaption></figure>`;
           })
           .join("")}</div></div>`;
       return `<div class="groupe-large">${tete}${liste(g.items).replace('<ul class="liste">', '<ul class="liste liste-cartes">')}</div>`;
@@ -1258,7 +1284,7 @@ ${sections[s].replace(/<p class="surtitre">(\d{2} · )?/, `<p class="surtitre">$
 </section>
 </main>
 
-<footer class="pied"><span>${e(c.pied)}<br><small>${e(c.credits)}<br><a href="https://commons.wikimedia.org/wiki/File:2014_Paris_Marathon_t084659.jpg">Marathon de Paris (2014) · © Marie-Lan Nguyen / Wikimedia Commons</a> · <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a></small></span><a href="#contenu">${e(c.ui.haut)} ↑</a></footer>
+<footer class="pied"><span>${e(c.pied)}<br><small>${e(c.credits)}</small></span><a href="#contenu">${e(c.ui.haut)} ↑</a></footer>
 
 <div class="salle" id="salle" role="dialog" aria-modal="true" aria-labelledby="salle-titre" hidden>
 <div class="salle-barre">
