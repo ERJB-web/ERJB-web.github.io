@@ -1973,3 +1973,21 @@ html:is(.hc,.lv) .rubriques[data-navigation=atelier] :is(.rubriques-console,.rub
  .hall .station-hall:hover .porte:not(.ouverte) .battant{transform:rotateY(-34deg);box-shadow:12px 0 18px rgba(15,49,66,.16)}
  .hall .station-hall:hover .porte:not(.ouverte) .apercu{opacity:1}
 }
+/* Lisibilité de l'en-tête et des rubriques – octobre 2026. */
+.entete{background:linear-gradient(180deg,rgba(245,249,249,.97),rgba(250,252,251,.95));border-bottom:1px solid #b7cdd1;box-shadow:0 6px 22px rgba(23,63,82,.085)}
+.entete .marque strong{font-weight:700}
+.entete .nav{margin-top:15px;padding:7px;gap:7px;background:linear-gradient(125deg,#e6efef,#f3f7f6);border:1px solid #bed0d1;box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 3px 12px rgba(23,63,82,.07)}
+.entete .nav a{min-height:44px;padding:10px 15px;font-size:15.5px;font-weight:650;letter-spacing:.003em}
+.entete .nav a::before{width:6px;height:6px}
+.entete .nav a:hover,.entete .nav a:focus-visible{background:#fff;box-shadow:0 3px 10px rgba(23,63,82,.10)}
+.entete + main{padding-block-start:20px}
+.encadrement .encadrement-lien{color:#225a6b;text-decoration:underline;text-decoration-color:rgba(34,90,107,.32);text-underline-offset:3px;text-decoration-thickness:1px;transition:color .2s,text-decoration-color .2s}
+.encadrement .encadrement-lien:hover,.encadrement .encadrement-lien:focus-visible{color:#174257;text-decoration-color:currentColor}
+.travail[data-axe-cible="travail-hospitalisations"]{border-color:#7fa9a6;border-inline-start:4px solid var(--green);background:linear-gradient(150deg,#fff,#f1f7f5)}
+.bande-parcours .trajectoire{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:16px;row-gap:14px}
+.bande-parcours .trajectoire::before{display:none}
+.bande-parcours .trajectoire li{padding:30px 12px 8px 0;min-width:0}
+.bande-parcours .trajectoire-texte{font-size:14px;line-height:1.5;overflow-wrap:anywhere}
+@media(max-width:860px){.entete .nav a{font-size:15px}}
+@media(max-width:640px){.entete .nav{padding:5px;gap:5px;margin-top:8px}.entete .nav a{font-size:14.5px;min-height:44px;padding:9px 12px}.entete + main{padding-block-start:12px}.bande-parcours .trajectoire{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+@media(max-width:420px){.bande-parcours .trajectoire{grid-template-columns:1fr}.bande-parcours .trajectoire li{padding-bottom:4px}}
