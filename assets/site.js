@@ -500,6 +500,27 @@
     }
   });
 
+
+  // Éclairage en fonction de l'heure locale du navigateur, sans géolocalisation.
+  function actualiserLumiereHall() {
+    const hall = document.querySelector('[data-hall-volume]');
+    if (!hall) return;
+    const maintenant = new Date();
+    const annee = maintenant.getFullYear();
+    const jour = Math.floor((Date.UTC(annee,maintenant.getMonth(),maintenant.getDate())-Date.UTC(annee,0,1))/86400000)+1;
+    // Horaires saisonniers indicatifs, sans prétendre calculer l'aube astronomique.
+    const saison = Math.cos(2*Math.PI*(jour-172)/365.2425);
+    const lever = 420 - 75*saison, coucher = 1140 + 90*saison;
+    const minutes = maintenant.getHours()*60 + maintenant.getMinutes();
+    const moment = minutes < lever-45 || minutes >= coucher+50 ? 'nuit' :
+      minutes < lever+50 ? 'aube' :
+      minutes >= coucher-55 ? 'crepuscule' : 'jour';
+    if (hall.dataset.moment !== moment) hall.dataset.moment = moment;
+  }
+  actualiserLumiereHall();
+  setInterval(actualiserLumiereHall, 60000);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)actualiserLumiereHall();});
+
   let hallVolume = null;
   function initialiserHallVolume() {
     const hall = $('[data-hall-volume]');

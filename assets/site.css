@@ -2017,3 +2017,43 @@ html:is(.hc,.lv) .rubriques[data-navigation=atelier] :is(.rubriques-console,.rub
  .entete .nav a{font-size:14px;padding:8px 11px}
 }
 @media(max-width:520px){.bande-parcours .trajectoire{grid-template-columns:1fr;gap:13px}.bande-parcours .trajectoire li{padding-top:23px}.bande-parcours .trajectoire li::before{top:-12px}}
+
+
+/* Frise du parcours : une seule rangée, défilement horizontal sur tous les écrans. */
+.bande-parcours .trajectoire{display:flex;flex-wrap:nowrap;grid-template-columns:none;gap:13px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:#91d4ce rgba(255,255,255,.16);padding:9px 2px 17px;margin:0}
+.bande-parcours .trajectoire::before{display:none}
+.bande-parcours .trajectoire li{position:relative;flex:0 0 clamp(178px,12.2vw,218px);min-width:0;min-height:204px;margin-top:12px;padding:40px 13px 15px;border:1px solid rgba(215,238,241,.2);border-radius:13px;background:linear-gradient(155deg,rgba(255,255,255,.10),rgba(255,255,255,.025));box-shadow:inset 0 1px rgba(255,255,255,.08);scroll-snap-align:start}
+.bande-parcours .trajectoire li::before{top:10px;inset-inline-start:13px;z-index:2;box-shadow:0 0 0 3px rgba(255,255,255,.09)}
+.bande-parcours .trajectoire li::after{content:"";position:absolute;top:20px;inset-inline-start:26px;width:calc(100% + 1px);height:2px;background:rgba(202,233,235,.54);pointer-events:none}
+.bande-parcours .trajectoire-date{font-size:15px;line-height:1.3;margin:0 0 9px}
+.bande-parcours .trajectoire-texte{font-size:13.4px;line-height:1.48;overflow-wrap:break-word}
+@media(max-width:850px){.bande-parcours .trajectoire{display:flex;grid-template-columns:none}.bande-parcours .trajectoire li{flex-basis:210px}}
+@media(max-width:520px){.bande-parcours .trajectoire{display:flex;grid-template-columns:none;gap:12px}.bande-parcours .trajectoire li{flex-basis:205px;min-height:192px;padding-top:40px}.bande-parcours .trajectoire li::before{top:10px}}
+html[dir=rtl] .bande-parcours .trajectoire{direction:rtl}
+
+/* Sélecteur des six portes, accentuation de l'état actif et grandes zones cliquables. */
+.hall.en-volume .hall-reperes,.hall.en-mobile .hall-reperes{gap:9px;margin-top:18px;padding:10px;border:1px solid #b4d1d0;border-radius:21px;background:linear-gradient(125deg,#d9eae9,#e8f3f1 48%,#d9e8ed);box-shadow:inset 0 1px rgba(255,255,255,.95),0 10px 26px rgba(18,63,73,.14)}
+.hall .hall-reperes>button{position:relative;min-height:66px;padding:13px 12px;border:1px solid #d4e1e1;border-radius:14px;background:linear-gradient(155deg,#fff,#f7fbfa);color:#173f52;font-weight:680;font-size:13px;line-height:1.4;box-shadow:inset 0 3px 0 var(--c1),0 3px 9px rgba(21,65,73,.075);transition:transform .2s ease,background .2s ease,box-shadow .2s ease,border-color .2s ease}
+.hall .hall-reperes>button bdi{flex:0 0 auto;width:34px;height:34px;border-radius:11px;font-size:12px;font-weight:750;background:color-mix(in srgb,var(--c1) 12%,#fff)}
+.hall .hall-reperes>button[aria-pressed=true]{background:linear-gradient(150deg,#fff,color-mix(in srgb,var(--c1) 9%,#fff));border-color:color-mix(in srgb,var(--c1) 55%,#d8e3e1);box-shadow:inset 0 4px 0 var(--c1),0 6px 15px rgba(22,60,73,.15);transform:translateY(-2px)}
+.hall .hall-reperes>button:hover,.hall .hall-reperes>button:focus-visible{border-color:var(--c1);box-shadow:inset 0 4px 0 var(--c1),0 8px 15px rgba(24,64,74,.14)}
+@media(max-width:999px){.hall.en-mobile .hall-reperes>button{min-height:66px;padding:11px 12px}}
+@media(max-width:700px){.hall.en-mobile .hall-reperes{display:flex;overflow-x:auto;scroll-snap-type:x proximity}.hall.en-mobile .hall-reperes>button{flex:0 0 175px;max-width:210px;min-height:67px}}
+@media(min-width:1000px){.hall.en-volume .panneau-hall{top:23px;max-height:calc(100% - 27px);padding:15px 15px 16px;border-radius:10px;box-shadow:0 8px 18px rgba(29,54,58,.13),inset 0 1px #fff}.hall.en-volume .panneau-hall h3{margin-bottom:15px;padding-bottom:10px;border-bottom:1px solid #e3e9e6}.hall.en-volume .sous-portes-murales{gap:7px}.hall.en-volume .sous-portes-murales>button,.hall.en-volume .sous-portes-murales>a{min-height:37px;border-radius:6px}}
+@media(max-width:999px){.hall.en-mobile .station-hall{padding-top:26px;row-gap:19px}.hall.en-mobile .panneau-hall h3{margin-bottom:6px}}
+
+/* Le hall conserve sa photographie architecturale et suit l'heure locale. */
+.hall.en-volume .architecture-hall{isolation:isolate;transition:filter 1.8s ease}
+.hall.en-volume .architecture-hall::before,.hall.en-volume .architecture-hall::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity 1.8s ease}
+.hall.en-volume[data-moment="aube"] .architecture-hall{background-image:linear-gradient(125deg,rgba(246,174,102,.18),rgba(248,201,132,.07) 55%,rgba(190,197,229,.19)),url("photos/hall-atrium.webp")}
+.hall.en-volume[data-moment="crepuscule"] .architecture-hall{background-image:linear-gradient(115deg,rgba(244,162,96,.23),rgba(222,133,137,.14) 62%,rgba(67,95,148,.29)),url("photos/hall-atrium.webp")}
+.hall.en-volume[data-moment="aube"] .architecture-hall::after,.hall.en-volume[data-moment="crepuscule"] .architecture-hall::after{opacity:1;background:radial-gradient(ellipse at 80% 11%,rgba(255,190,105,.50),transparent 39%),radial-gradient(ellipse at 25% 87%,rgba(255,223,171,.27),transparent 50%)}
+.hall.en-volume[data-moment="nuit"] .architecture-hall{background-image:linear-gradient(180deg,rgba(8,25,43,.77),rgba(13,34,50,.59) 63%,rgba(21,36,50,.48)),url("photos/hall-atrium.webp")}
+.hall.en-volume[data-moment="nuit"] .architecture-hall::before{opacity:.93;inset:0 0 auto;height:27%;background:radial-gradient(circle at 12% 29%,#fff 0 1px,transparent 2px),radial-gradient(circle at 23% 61%,#d9edff 0 1.2px,transparent 2.5px),radial-gradient(circle at 41% 17%,#fffbd9 0 1px,transparent 2.5px),radial-gradient(circle at 55% 55%,#e4eeff 0 1.5px,transparent 2.5px),radial-gradient(circle at 73% 23%,#fff 0 1px,transparent 2.5px),radial-gradient(circle at 89% 60%,#fff5dc 0 1.2px,transparent 2.5px),linear-gradient(180deg,rgba(7,22,48,.95),rgba(13,37,65,.34));-webkit-mask-image:linear-gradient(#000 20%,rgba(0,0,0,.65) 72%,transparent);mask-image:linear-gradient(#000 20%,rgba(0,0,0,.65) 72%,transparent)}
+.hall.en-volume[data-moment="nuit"] .architecture-hall::after{opacity:1;background:radial-gradient(ellipse at 30% 78%,rgba(255,205,129,.30),transparent 36%),radial-gradient(ellipse at 76% 75%,rgba(255,209,142,.30),transparent 41%),linear-gradient(180deg,transparent 50%,rgba(248,191,112,.10))}
+.hall.en-volume[data-moment="nuit"] .verriere-hall{display:block;position:absolute;right:0;top:33%;width:12%;height:46%;pointer-events:none;background:radial-gradient(circle at 38% 18%,#fcf6d7 0 1px,transparent 2px),radial-gradient(circle at 72% 47%,#fff 0 1.2px,transparent 2.3px),linear-gradient(105deg,rgba(4,20,48,.26),rgba(12,33,62,.67));opacity:.84;mix-blend-mode:multiply}
+.hall.en-mobile[data-moment="aube"] .station-hall::before{background-image:linear-gradient(110deg,rgba(255,222,169,.17),rgba(247,178,119,.29)),url("photos/hall-atrium.webp")}
+.hall.en-mobile[data-moment="crepuscule"] .station-hall::before{background-image:linear-gradient(110deg,rgba(232,142,120,.28),rgba(72,91,144,.30)),url("photos/hall-atrium.webp")}
+.hall.en-mobile[data-moment="nuit"] .station-hall::before{background-image:radial-gradient(circle at 15% 10%,#fff 0 1px,transparent 2px),radial-gradient(circle at 57% 7%,#fff 0 1px,transparent 2px),radial-gradient(circle at 81% 14%,#e2ecff 0 1px,transparent 2px),linear-gradient(180deg,rgba(8,24,44,.77),rgba(20,32,46,.55)),url("photos/hall-atrium.webp")}
+.hall.en-mobile[data-moment="nuit"] .station-hall{background:linear-gradient(110deg,#c5ccc4,#e2e7dd 30% 76%,#c9d2c9)}
+@media(prefers-reduced-motion:reduce){.hall.en-volume .architecture-hall,.hall.en-volume .architecture-hall::before,.hall.en-volume .architecture-hall::after{transition:none}}
