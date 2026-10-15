@@ -129,6 +129,31 @@
     points.forEach((p, i) => p.classList.toggle("actif", ordre[i] === nom));
   }
 
+  function synchroniserRubriques(table) {
+    if (!table || table.dataset.navigation!=='atelier') return;
+    const boutons=$$('[role=tab]',table).filter(b=>b.closest('[data-onglets]')===table);
+    const actif=boutons.find(b=>b.getAttribute('aria-selected')==='true');
+    const index=Math.max(0,boutons.indexOf(actif)), nav=$('.rubriques-nav',table);
+    const compteur=$('[data-rubrique-compteur]',table), progression=$('[data-rubrique-progression]',table);
+    if(compteur)compteur.textContent=String(index+1).padStart(2,'0')+' / '+String(boutons.length).padStart(2,'0');
+    if(progression)progression.style.width=(100*(index+1)/boutons.length)+'%';
+    if(nav){
+      const horizontal=matchMedia('(max-width:1099px)').matches;
+      nav.setAttribute('aria-orientation',horizontal?'horizontal':'vertical');
+      if(actif && horizontal)nav.scrollLeft+=actif.getBoundingClientRect().left-nav.getBoundingClientRect().left-(nav.clientWidth-actif.offsetWidth)/2;
+      else if(actif)nav.scrollTop+=actif.getBoundingClientRect().top-nav.getBoundingClientRect().top-(nav.clientHeight-actif.offsetHeight)/2;
+    }
+  }
+
+  function signalerAudience() {
+    const table=contenu && $('[data-navigation="atelier"]',contenu);
+    const actif=table && $$('[role=tab]',table).find(b=>b.closest('[data-onglets]')===table && b.getAttribute('aria-selected')==='true');
+    const etat={salle:courante || '',rubrique:actif?.dataset.rubrique || ''};
+    racine.dataset.audienceSalle=etat.salle;
+    racine.dataset.audienceRubrique=etat.rubrique;
+    document.dispatchEvent(new CustomEvent('eb:page',{detail:etat}));
+  }
+
   async function entrer(nom) {
     const groupe = groupeDe(nom);
     if (!groupe) return;
@@ -305,6 +330,8 @@
     $("[data-contact]", salle).hidden = i !== ordre.length - 1;
     salle.scrollTop = 0;
     courante = s;
+    $$('[data-navigation="atelier"]',contenu).forEach(synchroniserRubriques);
+    signalerAudience();
     demanderMemoire();
   }
 
@@ -355,6 +382,7 @@
     setTimeout(() => porte.classList.remove("ouverte"), reduit ? 0 : 200);
     marquer(null);
     if (rendreFocus) porte.focus({ preventScroll: true });
+    if(rendreFocus)signalerAudience();
     demanderMemoire();
   }
 
@@ -629,6 +657,29 @@
     });
     propres(".volet").forEach((v) => (v.hidden = v.dataset.volet !== onglet.dataset.volet));
     propres("[data-rubrique-select]").forEach((select) => (select.value = onglet.dataset.volet));
+    synchroniserRubriques(table);
+    signalerAudience();
+    const panneau=propres('.volet').find(v=>!v.hidden);
+    if(table.dataset.navigation==='atelier' && panneau && panneau.animate && !sansPassage() && !repriseEnCours){
+      panneau.animate([{opacity:.35,transform:'translateY(8px)'},{opacity:1,transform:'translateY(0)'}],{duration:210,easing:'cubic-bezier(.2,.7,.2,1)'});
+    }
+  });
+
+  document.addEventListener('click',ev=>{
+    const pas=ev.target.closest('[data-rubrique-pas]');
+    const renvoi=ev.target.closest('[data-these-vers]');
+    if(!pas && !renvoi)return;
+    const table=(pas || renvoi).closest('[data-onglets]') || (renvoi && renvoi.closest('.these')?.querySelector('[data-rubriques="these"]'));
+    if(!table)return;
+    const boutons=$$('[role=tab]',table).filter(b=>b.closest('[data-onglets]')===table);
+    const actuel=boutons.findIndex(b=>b.getAttribute('aria-selected')==='true');
+    const cible=renvoi ? boutons.find(b=>b.dataset.rubrique===renvoi.dataset.theseVers) : boutons[actuel+Number(pas.dataset.rubriquePas)];
+    if(!cible)return;
+    cible.click();
+    const panneau=$$('.volet',table).find(v=>v.closest('[data-onglets]')===table && !v.hidden);
+    const article=renvoi?.dataset.theseObjectif && panneau ? $$('article[data-objectif]',panneau).find(a=>a.dataset.objectif===renvoi.dataset.theseObjectif) : null;
+    const destination=article || panneau;
+    if(destination){destination.tabIndex=-1;destination.focus({preventScroll:true});destination.scrollIntoView({block:'start',behavior:sansPassage()?'instant':'smooth'});}
   });
 
   document.addEventListener("change", (ev) => {
@@ -640,12 +691,13 @@
 
   document.addEventListener("keydown", (ev) => {
     const onglet = ev.target.closest && ev.target.closest(".onglets [role=tab]");
-    if (!onglet || !["ArrowLeft", "ArrowRight", "Home", "End"].includes(ev.key)) return;
+    if (!onglet || !["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End"].includes(ev.key)) return;
     ev.preventDefault();
     const table = onglet.closest("[data-onglets]");
     const tous = $$("[role=tab]", table).filter((b) => b.closest("[data-onglets]") === table);
     const sens = racine.dir === "rtl" ? -1 : 1;
-    const i = ev.key === "Home" ? 0 : ev.key === "End" ? tous.length - 1 : tous.indexOf(onglet) + (ev.key === "ArrowRight" ? sens : -sens);
+    const delta=ev.key==='ArrowDown'?1:ev.key==='ArrowUp'?-1:ev.key==='ArrowRight'?sens:-sens;
+    const i = ev.key === "Home" ? 0 : ev.key === "End" ? tous.length - 1 : tous.indexOf(onglet) + delta;
     const cible = tous[(i + tous.length) % tous.length];
     cible.focus();
     cible.click();
@@ -824,6 +876,7 @@
   const CIBLES = '.schema, .figure-officielle, .cycle, .cadre, .expertises > div, .liste li, .frise li, .lacune, .media, .chiffres > div, .travail, .personne, .notions > div, .cours-carte, .bandeau-texte, .trajectoire li, .valeurs > div, .piliers > div';
   const preparer = (racineZone) => $$(CIBLES, racineZone).forEach((el) => el.classList.add('revele'));
   preparer(document);
+  $$('[data-navigation="atelier"]').forEach(synchroniserRubriques);
 
   document.addEventListener('scroll',demanderMemoire,{capture:true,passive:true});
   ['click','change','toggle'].forEach(n=>document.addEventListener(n,demanderMemoire,true));

@@ -27,11 +27,16 @@ const THESE = require("./these-rubriques");
 const CADRAGE_THESE = require("./these-cadrage");
 const CHIFFRES_IMPACT = require("./chiffres-parcours");
 const LOISIRS_AJOUTS = require("./loisirs-ajouts");
+const NAV_RUBRIQUES = require("./navigation-rubriques");
+const AUDIENCE = require("./audience.json");
+const AUDIENCE_LIBELLES = require("./audience-libelles");
+if(AUDIENCE.endpoint && !/^https:\/\/[a-z0-9][a-z0-9-]*\.goatcounter\.com\/count$/.test(AUDIENCE.endpoint))throw new Error("Adresse GoatCounter invalide");
 
 const RACINE = path.join(__dirname, "..");
 const empreinte = (fichier) => require("crypto").createHash("sha256").update(fs.readFileSync(path.join(RACINE, fichier))).digest("hex").slice(0, 10);
 const VERSION_CSS = empreinte("assets/site.css");
 const VERSION_JS = empreinte("assets/site.js");
+const VERSION_AUDIENCE = empreinte("assets/audience.js");
 const VERSION_ICONE = empreinte("assets/favicon.svg");
 const URL = "https://erjb-web.github.io/";
 const TELEPHONE = ["(263) 384-3050", "+12633843050"];
@@ -96,7 +101,7 @@ function sectionTransmission(c) {
   const avenir = essai(p.avenir) + '<p class="enseignement-lien"><a href="#ia">' + e(p.suiteIA) + ' →</a></p>';
   const sources = '<div class="enseignement-essai"><h3>' + e(p.sources.titre) + '</h3><p>' + e(p.sources.intro) + '</p></div><ul class="methode-refs references-transmission enseignement-references">' + Object.values(ENSEIGNEMENT.references).sort((a,b) => a.citation.localeCompare(b.citation, 'en')).map(r => '<li>' + e(r.citation) + ' ' + lien(r.href, e(r.href)) + '</li>').join('') + '</ul>';
   const contenus = [essai(p.vision), pont, pratique, valeurs, apprendre, avenir, sources];
-  return '<div class="section-corps pleine enseignement"><div class="colonne-texte"><p class="surtitre">' + e(s.salle[0]) + '</p><h2>' + e(p.titre) + '</h2><p class="intro">' + e(p.intro) + '</p></div><div class="colonne-outils">' + ongletsRubriques('enseignement', p.explorer, p.onglets.map((titre, i) => ['enseignement-' + i, titre, contenus[i]]), 4) + '</div></div>';
+  return '<div class="section-corps pleine enseignement"><div class="colonne-texte"><p class="surtitre">' + e(s.salle[0]) + '</p><h2>' + e(p.titre) + '</h2><p class="intro">' + e(p.intro) + '</p></div><div class="colonne-outils">' + ongletsRubriques(c, 'enseignement', p.explorer, p.onglets.map((titre, i) => ['enseignement-' + i, titre, contenus[i]]), 4) + '</div></div>';
 }
 function sectionVulgarisation(c) {
   const s = MEDIATION.LANGUES[c.lang].vulgarisation;
@@ -125,7 +130,7 @@ function sectionVulgarisation(c) {
     return '<article><p class="vul-type">' + e(type) + '</p><h4>' + e(r.court) + '</h4><p>' + e(apport) + '</p><details><summary>' + e(L.usage) + '</summary><p>' + e(usage) + '</p><p><strong>' + e(L.limite) + '.</strong> ' + e(limite) + '</p><p class="vul-citation">' + e(r.citation) + '</p></details><p class="vul-source">' + lien(r.href, e(L.source) + ' ↗') + '</p></article>';
   }).join('') + '</div><h4 class="titre-bloc">' + e(v.ressources.suite) + '</h4><div class="vul-liens">' + ['litterature','grise','capsules','balados'].map((k,i) => '<a href="#' + k + '">' + e(v.ressources.liens[i]) + ' →</a>').join('') + '</div><h4 class="titre-bloc">' + e(s.supports) + '</h4>' + liste([{date:'2026',titre:T.affiche[0],detail:T.affiche[1],lien:affiche ? affiche[2] : AFFICHE}]);
   const contenus = [vision, preuve, communicationVisuelle(c, s.pratiques), formats, dialogue, outils, ressources];
-  return '<div class="section-corps pleine vulgarisation"><div class="colonne-texte"><p class="surtitre">' + e(s.salle[0]) + '</p><h2>' + e(v.titre) + '</h2><p class="intro">' + e(v.intro) + '</p></div><figure class="vul-galerie"><figcaption>' + e(v.galerie.titre) + '</figcaption><div>' + v.galerie.legendes.map((legende,i) => '<div>' + image(i) + '<p>' + e(legende) + '</p></div>').join('') + '</div></figure><div class="colonne-outils">' + ongletsRubriques('vulgarisation', v.explorer, v.onglets.map((t,i) => ['vulgarisation-' + i,t,contenus[i]]), 4) + '</div></div>';
+  return '<div class="section-corps pleine vulgarisation"><div class="colonne-texte"><p class="surtitre">' + e(s.salle[0]) + '</p><h2>' + e(v.titre) + '</h2><p class="intro">' + e(v.intro) + '</p></div><figure class="vul-galerie"><figcaption>' + e(v.galerie.titre) + '</figcaption><div>' + v.galerie.legendes.map((legende,i) => '<div>' + image(i) + '<p>' + e(legende) + '</p></div>').join('') + '</div></figure><div class="colonne-outils">' + ongletsRubriques(c, 'vulgarisation', v.explorer, v.onglets.map((t,i) => ['vulgarisation-' + i,t,contenus[i]]), 4) + '</div></div>';
 }
 const SOUS_RESSOURCES = {
   fr: { litterature: ["Littérature scientifique", "Articles en libre accès et lectures par thème"], grise: ["Littérature grise", "Rapports, politiques, guides et outils"], presse: [null, "Articles de presse et de magazines"], capsules: [null, "Vidéos en français et en anglais"], balados: [null, "Balados en français et en anglais"], rapports: "Rapports, politiques et cadres de référence" },
@@ -168,7 +173,7 @@ function sectionNotions(c) {
     return `<article class="groupe-carte carte-notion notion-cadre"><div class="groupe-corps"><header class="notion-entete"><span class="notion-numero" aria-hidden="true">${num(cles.indexOf(k))}</span><h4 class="titre-bloc">${e(titre)}</h4></header><p class="notion-definition">${e(definition)}</p><div class="notion-usage"><p class="notion-libelle">${e(N.usage)}</p><p>${e(usage)}</p></div><p class="notion-precision"><strong>${e(N.precision)}.</strong> ${e(precision)}</p><details class="notion-biblio"><summary>${e(k === "epistemique" ? N.appuis : N.sources)}</summary><ol class="notion-refs">${refs.map((r) => `<li>${referenceNotion(r)}</li>`).join("")}</ol></details></div></article>`;
   };
   const rubriques = NOTIONS.groupes.map((g, i) => [`notions-${i + 1}`, N.familles[i], `<h3 class="lexique-famille">${e(N.familles[i])}</h3><div class="lexique-grille">${g.map(carte).join("")}</div>`]);
-  return `<div class="section-corps pleine lexique"><div class="colonne-texte"><p class="surtitre">${e(N.surtitre)}</p><h2>${e(N.titre)}</h2><p class="intro">${e(N.intro)}</p></div><div class="colonne-outils">${ongletsRubriques("notions", N.explorer, rubriques, 4)}</div></div>`;
+  return `<div class="section-corps pleine lexique"><div class="colonne-texte"><p class="surtitre">${e(N.surtitre)}</p><h2>${e(N.titre)}</h2><p class="intro">${e(N.intro)}</p></div><div class="colonne-outils">${ongletsRubriques(c, "notions", N.explorer, rubriques, 4)}</div></div>`;
 }
 
 const OUTILS = {
@@ -695,11 +700,23 @@ const LIBELLES_FAITS_RECHERCHE = {
 };
 
 // Une navigation propre à chaque table évite que les onglets imbriqués se masquent entre eux.
-function ongletsRubriques(cle, explorer, rubriques, colonnes = 5) {
-  return `<div class="table rubriques" data-onglets data-rubriques="${cle}" style="--rubriques-colonnes:${colonnes}">
-<label class="rubriques-choix"><span>${e(explorer)}</span><select data-rubrique-select>${rubriques.map(([, nom], i) => `<option value="${i}">${e(nom)}</option>`).join("")}</select></label>
-<div class="onglets rubriques-nav" role="tablist" aria-label="${e(explorer)}">${rubriques.map(([id, nom], i) => `<button type="button" role="tab" aria-selected="${i === 0}" tabindex="${i ? -1 : 0}" data-volet="${i}" data-rubrique="${id}">${["these", "ia", "posture", "enseignement", "vulgarisation"].includes(cle) ? `<span class="rubrique-numero" aria-hidden="true">${num(i)}</span>` : ""}<span>${e(nom)}</span></button>`).join("")}</div>
-${rubriques.map(([id, , contenu], i) => `<div class="volet rubrique-corps" role="tabpanel" data-volet="${i}" data-rubrique="${id}"${i ? " hidden" : ""}>${contenu}</div>`).join("")}</div>`;
+function baliseAudience(prefixe) {
+  return AUDIENCE.endpoint ? `<script src="${prefixe}assets/audience.js?v=${VERSION_AUDIENCE}" data-audience-endpoint="${e(AUDIENCE.endpoint)}" data-audience-domaines="${e(AUDIENCE.domaines.join(' '))}" defer></script>` : '';
+}
+
+function confidentialiteAudience(code) {
+  const t=AUDIENCE_LIBELLES[code] || AUDIENCE_LIBELLES.fr;
+  return `<details class="audience-info"><summary>${e(t.titre)}</summary><div><p>${e(AUDIENCE.endpoint ? t.actif : t.inactif)}</p><p>${e(t.local)}</p>${AUDIENCE.endpoint ? `<p><a href="https://www.goatcounter.com/help/privacy" target="_blank" rel="noopener noreferrer">${e(t.service)} ↗</a></p><button type="button" data-audience-refuser aria-pressed="false">${e(t.refuser)}</button><p class="audience-etat" data-audience-etat data-autorisee="${e(t.autorisee)}" data-refusee="${e(t.refusee)}" data-navigateur="${e(t.navigateur)}"></p>` : ''}</div></details>`;
+}
+
+function ongletsRubriques(c, cle, explorer, rubriques, colonnes = 5) {
+  const n = NAV_RUBRIQUES.langues[c.lang];
+  const fleche = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>';
+  return `<div class="table rubriques" data-onglets data-rubriques="${cle}" data-navigation="atelier" style="--rubriques-colonnes:${colonnes}">
+<aside class="rubriques-console"><div class="rubriques-console-tete"><span>${e(n.parcours)}</span><span data-rubrique-compteur aria-live="polite" aria-atomic="true">01 / ${num(rubriques.length - 1)}</span></div><div class="rubriques-progression" aria-hidden="true"><span data-rubrique-progression style="width:${100 / rubriques.length}%"></span></div>
+<label class="rubriques-choix"><span>${e(n.aller)}</span><select data-rubrique-select aria-label="${e(explorer)}">${rubriques.map(([, nom], i) => `<option value="${i}">${num(i)} · ${e(nom)}</option>`).join("")}</select></label>
+<div class="onglets rubriques-nav" role="tablist" aria-label="${e(explorer)}" aria-orientation="vertical">${rubriques.map(([id, nom], i) => `<button type="button" role="tab" id="rubrique-${c.lang}-${cle}-onglet-${i}" aria-controls="rubrique-${c.lang}-${cle}-panneau-${i}" aria-selected="${i === 0}" tabindex="${i ? -1 : 0}" data-volet="${i}" data-rubrique="${id}"><span class="rubrique-icone">${icone((NAV_RUBRIQUES.icones[cle] || [])[i] || "papiers")}</span><span class="rubrique-libelle"><span class="rubrique-etape" aria-hidden="true">${num(i)}</span><strong>${e(nom)}</strong></span><span class="rubrique-direction">${fleche}</span></button>`).join("")}</div></aside>
+${rubriques.map(([id, , contenu], i) => `<div class="volet rubrique-corps" role="tabpanel" id="rubrique-${c.lang}-${cle}-panneau-${i}" aria-labelledby="rubrique-${c.lang}-${cle}-onglet-${i}" data-volet="${i}" data-rubrique="${id}"${i ? " hidden" : ""}><div class="rubrique-entete"><bdi dir="ltr">${num(i)}</bdi><span>${e(rubriques[i][1])}</span></div><div class="rubrique-contenu">${contenu}</div><nav class="rubriques-pagination" aria-label="${e(n.parcours)}">${i ? `<button type="button" data-rubrique-pas="-1"><span class="rubrique-precedente">${fleche}</span><span><small>${e(n.precedent)}</small><strong>${e(rubriques[i-1][1])}</strong></span></button>` : '<span></span>'}${i < rubriques.length - 1 ? `<button type="button" data-rubrique-pas="1"><span><small>${e(n.suivant)}</small><strong>${e(rubriques[i+1][1])}</strong></span>${fleche}</button>` : '<span></span>'}</nav></div>`).join("")}</div>`;
 }
 
 function referencesIA(cles = []) {
@@ -712,6 +729,7 @@ function cartesRubrique(items) {
 
 function sectionRecherche(c) {
   const f = CADRAGE_THESE.langues[c.lang];
+  const n = NAV_RUBRIQUES.langues[c.lang];
   const r = { ...c.recherche, titre: f.titre, question: f.question, but: f.general };
   const p = METHODOLOGIE[c.lang];
   const t = THESE.langues[c.lang];
@@ -728,23 +746,22 @@ ${lien(
 )}
 <h4 class="titre-bloc">${e(r.codirection.titre)}</h4>
 <div class="codirection">${r.codirection.personnes.map((pe) => `<article class="personne"><h4>${e(pe.nom)}<span class="grade">${e(pe.grade)}</span></h4><ul>${pe.lignes.map((l) => `<li>${e(l)}</li>`).join("")}</ul><p class="chaire">${e(pe.chaire)}</p>${lien(pe.lien, `${e(r.codirection.profil)} <span aria-hidden="true">↗</span>`, "profil")}</article>`).join("")}</div>`;
-  const methodes = `<h3>${e(t.titres[4])}</h3><p class="these-fil"><span data-objectif="O1">O1</span><span aria-hidden="true">→</span><span data-objectif="O2">O2</span><span aria-hidden="true">→</span><span data-objectif="O3">O3</span><strong>${e(f.labels.articulation)}</strong></p><div class="these-methodes">${f.methodes.map((texte, i) => `<article class="objectif-carte" data-objectif="O${i + 1}"><h4><span class="objectif-code">O${i + 1}</span> ${e(f.labels.methode)}</h4><p>${e(texte)}</p></article>`).join("")}</div>
-<div class="protocole-these">
-<h4 class="titre-bloc">${e(p.titre)}</h4>
+  const methodes = `<h3>${e(t.titres[4])}</h3><p class="these-fil"><span data-objectif="O1">O1</span><span aria-hidden="true">→</span><span data-objectif="O2">O2</span><span aria-hidden="true">→</span><span data-objectif="O3">O3</span><strong>${e(f.labels.articulation)}</strong></p><div class="these-methodes">${f.methodes.map((texte, i) => `<article class="objectif-carte" data-objectif="O${i + 1}"><h4><span class="objectif-code">O${i + 1}</span> ${e(n.etapes[i])}</h4><p class="these-formulation">${e(texte)}</p><button class="these-renvoi" type="button" data-these-vers="objectifs" data-these-objectif="O${i + 1}">${e(n.objectif)} <span aria-hidden="true">↗</span></button></article>`).join("")}</div>
+<details class="protocole-these these-protocole-detail"><summary>${e(p.titre)}</summary>
 <p class="note-protocole">${e(p.etat)}</p>
 <h4>${e(p.devis.titre)}</h4>
 <ul class="puces">${p.devis.items.map(([t, d]) => `<li><b>${e(t)}</b>${deuxPoints(c)} ${e(d)}</li>`).join("")}</ul>
 <div class="etapes-protocole">${p.etapes.map((s) => `<details class="methode-these" data-objectif="${e(s.code)}"><summary><span class="code-methode objectif-code">${e(s.code)}</span><span><strong>${e(s.titre)}</strong><small>${e(s.cible)}</small></span></summary><div class="methode-these-corps"><dl>${s.blocs.map(([t, d]) => `<dt>${e(t)}</dt><dd>${e(d)}</dd>`).join("")}</dl><p class="repere-protocole">${e(s.reperes)}</p></div></details>`).join("")}</div>
 <h4>${e(p.integration.titre)}</h4><p>${e(p.integration.texte)}</p>
-</div>
+</details>
 <div class="comparaison">${figureClsc(c)}
 ${schemaReseau(c)}</div>
 <h4 class="titre-bloc">${e(r.notions.titre)}</h4>
 <div class="notions">${r.notions.items.map(([t, d, ref]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p>${ref ? `<p class="ref">(${e(ref)})</p>` : ""}</div>`).join("")}</div>`;
   const contenus = [
-    sectionConceptualisation(c, true),
+    `<h3>${e(t.titres[0])}</h3><p class="these-concept-label">${e(f.labels.point)}</p><p class="these-point these-formulation">${e(f.point)}</p><div class="these-concept-sequence">${n.etapes.map((nom,i)=>`<button type="button" data-these-vers="objectifs" data-these-objectif="O${i+1}" data-objectif="O${i+1}"><span class="objectif-code">O${i+1}</span><strong>${e(nom)}</strong><span aria-hidden="true">${i<2?'→':'↗'}</span></button>`).join('')}</div><details class="these-fondements"><summary>${icone('papiers')}<span>${e(n.fondements)}</span></summary><p>${e(n.fondementsIntro)}</p>${sectionConceptualisation(c, true)}</details>`,
     contexte,
-    `<h3>${e(f.labels.general)}</h3><p class="these-objectif-general">${e(f.general)}</p><h4 class="titre-bloc">${e(f.labels.specifiques)}</h4><div class="these-objectifs">${f.objectifs.map((texte, i) => `<article class="objectif-carte" data-objectif="O${i + 1}"><p><strong class="objectif-code">O${i + 1}.</strong> ${e(texte)}</p></article>`).join("")}</div>`,
+    `<h3>${e(f.labels.general)}</h3><p class="these-objectif-general these-formulation">${e(f.general)}</p><h4 class="titre-bloc">${e(f.labels.specifiques)}</h4><div class="these-objectifs">${f.objectifs.map((texte, i) => `<article class="objectif-carte" data-objectif="O${i + 1}"><h4><span class="objectif-code">O${i + 1}</span> ${e(n.etapes[i])}</h4><p class="these-formulation">${e(texte)}</p><details class="objectif-lacune"><summary>${e(n.lacune)}</summary><p>${lierCitations(e(f.lacunes[i]))}</p></details><button class="these-renvoi" type="button" data-these-vers="methodes" data-these-objectif="O${i + 1}">${e(n.methode)} <span aria-hidden="true">↗</span></button></article>`).join("")}</div>`,
     `<h3>${e(t.titres[3])}</h3><h4 class="titre-bloc">${e(f.labels.question)}</h4><p class="question-these">${e(f.question)}</p><h4 class="titre-bloc">${e(f.labels.point)}</h4><p class="these-point">${e(f.point)}</p>`,
     methodes,
     `<h3>${e(t.titres[5])}</h3><p>${e(t.resultats)}</p><h4 class="titre-bloc">${e(r.retombees.titre)}</h4><ul class="puces">${r.retombees.items.map(([nom, d]) => `<li><b>${e(nom)}</b>${deuxPoints(c)} ${e(d)}</li>`).join("")}</ul>`,
@@ -754,7 +771,7 @@ ${schemaReseau(c)}</div>
     `<h3>${e(t.titres[9])}</h3>${cartesRubrique(t.transfert)}`,
     institution,
   ];
-  return `<div class="section-corps pleine these"><div class="colonne-texte"><p class="surtitre">${e(r.surtitre)}</p><p class="badge-these">${e(r.etiquette)}</p><p class="these-evolution"><strong>${e(r.avertissement)}</strong></p><p class="these-titre-label">${e(f.labels.titre)}</p><h2>${e(f.titre)}</h2></div><div class="colonne-outils">${ongletsRubriques("these", t.explorer, contenus.map((html, i) => [THESE.cles[i] || "cadre", t.titres[i] || f.labels.cadre, html]))}</div></div>`;
+  return `<div class="section-corps pleine these"><div class="colonne-texte these-introduction"><div class="these-statut"><p class="badge-these">${e(r.etiquette)}</p><p class="these-evolution"><strong>${e(r.avertissement)}</strong></p></div><p class="these-titre-label">${e(f.labels.titre)}</p><h2>${e(f.titre)}</h2><div class="these-question-principale"><span>${e(f.labels.question)}</span><p class="these-formulation">${e(f.question)}</p></div><nav class="these-parcours" aria-label="${e(n.fil)}">${n.etapes.map((nom,i)=>`<button type="button" data-these-vers="objectifs" data-these-objectif="O${i+1}" data-objectif="O${i+1}"><bdi dir="ltr">O${i+1}</bdi><span>${e(nom)}</span><span aria-hidden="true">↗</span></button>`).join("")}</nav></div><div class="colonne-outils">${ongletsRubriques(c, "these", t.explorer, contenus.map((html, i) => [THESE.cles[i] || "cadre", t.titres[i] || f.labels.cadre, html]))}</div></div>`;
 }
 
 function sectionIA(c) {
@@ -762,7 +779,7 @@ function sectionIA(c) {
   const biblio = (cles) => `<ul class="methode-refs lectures-ia">${cles.map((k) => `<li>${lien(IA.references[k].href, e(IA.references[k].citation))}</li>`).join("")}</ul>`;
   const rubriques = s.rubriques.map((r, i) => ["ia-" + i, r.nom, `<h3>${e(r.titre)}</h3><p>${e(r.intro)}</p>${referencesIA(r.refs)}${cartesRubrique(r.items)}<p class="note note-ia">${e(r.note)}</p>${referencesIA(r.noteRefs)}`]);
   rubriques.push(["ia-lectures", s.sources, `<h3>${e(s.lectures.titre)}</h3><p>${e(s.lectures.intro)}</p>${biblio(Object.keys(IA.references))}`]);
-  return `<div class="section-corps pleine section-ia"><div class="colonne-texte"><p class="surtitre">${e(s.date)}</p><h2>${e(s.titre)}</h2><p class="intro">${e(s.intro)}</p></div><div class="colonne-outils">${ongletsRubriques("ia", s.explorer, rubriques, 4)}</div></div>`;
+  return `<div class="section-corps pleine section-ia"><div class="colonne-texte"><p class="surtitre">${e(s.date)}</p><h2>${e(s.titre)}</h2><p class="intro">${e(s.intro)}</p></div><div class="colonne-outils">${ongletsRubriques(c, "ia", s.explorer, rubriques, 4)}</div></div>`;
 }
 
 function schemaDiscours([social, discursive, texte], titre) {
@@ -784,7 +801,7 @@ function sectionApproche(c) {
 <p class="intro">${e(s.titre)}</p>
 <p>${e(s.intro)}</p>
 </div>
-<div class="colonne-outils">${ongletsRubriques("posture", s.explorer, rubriques, 3)}</div>
+<div class="colonne-outils">${ongletsRubriques(c, "posture", s.explorer, rubriques, 3)}</div>
 </div>`;
 }
 
@@ -1238,6 +1255,7 @@ ${LANGUES.filter((l) => l.hreflang).map((l) => `<link rel="alternate" hreflang="
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">${JSON.stringify(personne)}</script>
 <script src="${p}assets/site.js?v=${VERSION_JS}" defer></script>
+${baliseAudience(p)}
 </head>
 <body>
 <a class="evitement" href="#contenu">${e(c.ui.evitement)}</a>
@@ -1295,7 +1313,7 @@ ${sections[s].replace(/<p class="surtitre">(\d{2} · )?/, `<p class="surtitre">$
 </section>
 </main>
 
-<footer class="pied"><span>${e(c.pied)}<br><small>${e(c.credits)}</small></span><a href="#contenu">${e(c.ui.haut)} ↑</a></footer>
+<footer class="pied"><div class="pied-informations"><span>© 2026 Éric Bernier</span>${confidentialiteAudience(c.lang)}<small>${e(c.credits)}</small></div><a href="#contenu">${e(c.ui.haut)} ↑</a></footer>
 
 <div class="salle" id="salle" role="dialog" aria-modal="true" aria-labelledby="salle-titre" hidden>
 <div class="salle-barre">
@@ -1327,6 +1345,7 @@ ${PREFERENCES}
 <link rel="icon" href="../assets/favicon.svg?v=${VERSION_ICONE}" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/site.css?v=${VERSION_CSS}">
 <script src="../assets/site.js?v=${VERSION_JS}" defer></script>
+${baliseAudience("../")}
 </head>
 <body class="page-abregee">
 <a class="evitement" href="#contenu">${e(fr.ui.evitement)}</a>
@@ -1339,7 +1358,7 @@ ${menuAcces(c, code)}
 </header>`;
 }
 
-const piedAbrege = () => `<footer class="pied"><span>${e(fr.pied)}</span><a href="#contenu">${e(fr.ui.haut)} ↑</a></footer>
+const piedAbrege = () => `<footer class="pied"><div class="pied-informations"><span>© 2026 Éric Bernier</span>${confidentialiteAudience("fr")}</div><a href="#contenu">${e(fr.ui.haut)} ↑</a></footer>
 </body>
 </html>
 `;
