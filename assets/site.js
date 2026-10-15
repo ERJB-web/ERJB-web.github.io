@@ -16,6 +16,114 @@
   const points = $$(".points span");
   let courante = null;
   let occupe = false;
+  const cleNavigation = 'eb-navigation-v1:' + location.pathname;
+  let memoirePrete = false, repriseEnCours = false, minuterieMemoire = 0;
+
+  // L'état reste dans cet onglet et dans son entrée d'historique.
+  function lireNavigation() {
+    const valide = etat => etat && etat.version === 1 && etat.chemin === location.pathname && etat.fragment === location.hash;
+    const entree = history.state && history.state.ebNavigation;
+    const navigation = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+    if(navigation?.type==='reload'){
+      try {
+        const etat=JSON.parse(sessionStorage.getItem(cleNavigation));
+        if(valide(etat))return etat;
+      } catch {}
+    }
+    if (valide(entree)) return entree;
+    if(navigation?.type==='back_forward'){
+      try {
+        const etat=JSON.parse(sessionStorage.getItem(cleNavigation));
+        if(valide(etat))return etat;
+      } catch {}
+    }
+    return null;
+  }
+  const navigationInitiale = lireNavigation();
+  const zoneNavigation = () => courante && salle && !salle.hidden ? contenu : racine.classList.contains('libre') ? $('main') : null;
+  function memoriserNavigation() {
+    clearTimeout(minuterieMemoire);
+    if (!memoirePrete || repriseEnCours || occupe) return;
+    const zone = zoneNavigation();
+    const etat = {
+      version:1, chemin:location.pathname, fragment:location.hash,
+      salle:courante, libre:racine.classList.contains('libre'), page:scrollY,
+      lecture:salle && courante ? salle.scrollTop : 0,
+      porte:Number(($('.station-hall.selectionnee') || {}).dataset?.hallStation) || 0,
+      simple:!!$('[data-hall-mode][aria-pressed="false"]:not([hidden])'),
+      menu:onglets ? onglets.scrollLeft : 0,
+      tables:zone ? $$('[data-onglets]',zone).map(table=>{
+        const actif=$$('[role=tab]',table).find(b=>b.closest('[data-onglets]')===table && b.getAttribute('aria-selected')==='true');
+        const nav=$('.onglets',table);
+        return {rubrique:actif?.dataset.rubrique || '',volet:actif?.dataset.volet || '0',defilement:nav ? nav.scrollLeft : 0};
+      }) : [],
+      details:zone ? $$('details:not(.menu)',zone).map(d=>d.open) : []
+    };
+    try { sessionStorage.setItem(cleNavigation,JSON.stringify(etat)); } catch {}
+    try {
+      const precedent=history.state && typeof history.state==='object' ? history.state : {};
+      history.replaceState({...precedent,ebNavigation:etat},'');
+    } catch {}
+  }
+  function demanderMemoire() {
+    if (!memoirePrete || repriseEnCours) return;
+    clearTimeout(minuterieMemoire);
+    minuterieMemoire=setTimeout(memoriserNavigation,160);
+  }
+
+  function reprendreNavigation(etat) {
+    repriseEnCours=true;
+    racine.classList.toggle('libre',!!etat.libre);
+    const mode=$('[data-hall-mode]');
+    if(mode && !mode.hidden && (mode.getAttribute('aria-pressed')==='false')!==!!etat.simple)mode.click();
+    if(Number.isInteger(etat.porte) && etat.porte>=0 && etat.porte<groupes.length)$('[data-hall-choix="' + etat.porte + '"]')?.click();
+    if(salle && ordre.includes(etat.salle) && !etat.libre){
+      afficher(etat.salle);
+      salle.hidden=false;
+      salle.classList.add('visible');
+      document.body.classList.add('salle-ouverte');
+      document.querySelectorAll('body > main, body > header, body > footer').forEach(el=>{el.inert=true;});
+      groupeDe(etat.salle).porte.classList.add('ouverte');
+      marquer(etat.salle);
+      $('[data-retour]',salle).focus({preventScroll:true});
+    }
+    const zone=zoneNavigation();
+    const tables=zone ? $$('[data-onglets]',zone) : [];
+    if(Array.isArray(etat.tables))etat.tables.forEach((sauve,i)=>{
+      if(!sauve || !tables[i])return;
+      const propres=table=>$$('[role=tab]',table).filter(b=>b.closest('[data-onglets]')===table);
+      const table=sauve.rubrique ? tables.find(t=>propres(t).some(b=>b.dataset.rubrique===sauve.rubrique)) || tables[i] : tables[i];
+      const bouton=propres(table).find(b=>sauve.rubrique ? b.dataset.rubrique===sauve.rubrique : b.dataset.volet===sauve.volet);
+      if(bouton)bouton.click();
+    });
+    if(zone && Array.isArray(etat.details))$$('details:not(.menu)',zone).forEach((d,i)=>{if(typeof etat.details[i]==='boolean')d.open=etat.details[i];});
+    let interrompue=false;
+    const interrompre=ev=>{if(ev.isTrusted)interrompue=true;};
+    const gestes=['pointerdown','touchstart','wheel','keydown'];
+    gestes.forEach(n=>document.addEventListener(n,interrompre,{capture:true,passive:true}));
+    const nombre=v=>Number.isFinite(v) ? Math.max(0,v) : 0;
+    const placer=()=>{
+      if(interrompue)return;
+      window.scrollTo({top:nombre(etat.page),left:0,behavior:'instant'});
+      if(salle && courante)salle.scrollTo({top:nombre(etat.lecture),left:0,behavior:'instant'});
+      if(onglets && Number.isFinite(etat.menu))onglets.scrollLeft=etat.menu;
+      if(Array.isArray(etat.tables))etat.tables.forEach((sauve,i)=>{
+        const nav=tables[i] && $('.onglets',tables[i]);
+        if(nav && Number.isFinite(sauve?.defilement))nav.scrollLeft=sauve.defilement;
+      });
+    };
+    requestAnimationFrame(()=>{
+      placer();
+      requestAnimationFrame(()=>{placer();repriseEnCours=false;memoirePrete=true;demanderMemoire();});
+    });
+    if(document.fonts)document.fonts.ready.then(placer);
+    addEventListener('load',placer,{once:true});
+    setTimeout(()=>{
+      interrompue=true;
+      gestes.forEach(n=>document.removeEventListener(n,interrompre,true));
+      removeEventListener('load',placer);
+    },1800);
+  }
 
   function marquer(nom) {
     points.forEach((p, i) => p.classList.toggle("actif", ordre[i] === nom));
@@ -78,6 +186,7 @@
     if (restaurerHall) restaurerHall();
     $("[data-retour]", salle).focus({ preventScroll: true });
     occupe = false;
+    demanderMemoire();
   }
 
 
@@ -196,6 +305,7 @@
     $("[data-contact]", salle).hidden = i !== ordre.length - 1;
     salle.scrollTop = 0;
     courante = s;
+    demanderMemoire();
   }
 
   // Petite porte : même transition que les grandes (la porte s’ouvre, on passe à travers).
@@ -228,6 +338,7 @@
     if (!reduit && passage.animate) await Promise.race([passage.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 160, fill: "forwards" }).finished, attendre(200)]);
     passage.remove();
     occupe = false;
+    demanderMemoire();
   }
 
   async function sortir(rendreFocus = true) {
@@ -244,6 +355,7 @@
     setTimeout(() => porte.classList.remove("ouverte"), reduit ? 0 : 200);
     marquer(null);
     if (rendreFocus) porte.focus({ preventScroll: true });
+    demanderMemoire();
   }
 
   if (salle) {
@@ -269,7 +381,6 @@
     ev.preventDefault();
     entrer(id);
   });
-  if (ordre.includes(location.hash.slice(1).split("/")[0])) requestAnimationFrame(() => ouvrirDestinationAxe(location.hash.slice(1), false));
   $("#visite").addEventListener("click", () => entrer(ordre[0]));
   $("[data-retour]", salle).addEventListener("click", () => sortir());
   $("[data-suivante]", salle).addEventListener("click", () => {
@@ -358,6 +469,7 @@
       stations.forEach((s,i)=>{s.classList.toggle('selectionnee',i===selection);s.inert=mobile && i!==selection;});
       if (positionMobile) positionMobile.textContent = String(selection+1).padStart(2,'0') + ' / ' + String(stations.length).padStart(2,'0');
       hauteurMobile();
+      demanderMemoire();
     };
     const choisir = index => {
       if (occupe) return;
@@ -712,4 +824,16 @@
   const CIBLES = '.schema, .figure-officielle, .cycle, .cadre, .expertises > div, .liste li, .frise li, .lacune, .media, .chiffres > div, .travail, .personne, .notions > div, .cours-carte, .bandeau-texte, .trajectoire li, .valeurs > div, .piliers > div';
   const preparer = (racineZone) => $$(CIBLES, racineZone).forEach((el) => el.classList.add('revele'));
   preparer(document);
+
+  document.addEventListener('scroll',demanderMemoire,{capture:true,passive:true});
+  ['click','change','toggle'].forEach(n=>document.addEventListener(n,demanderMemoire,true));
+  addEventListener('pagehide',memoriserNavigation);
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)memoriserNavigation();});
+  requestAnimationFrame(async()=>{
+    if(navigationInitiale){reprendreNavigation(navigationInitiale);return;}
+    const fragment=location.hash.slice(1);
+    if(ordre.includes(fragment.split('/')[0]))await ouvrirDestinationAxe(fragment,false);
+    memoirePrete=true;
+    demanderMemoire();
+  });
 })();
