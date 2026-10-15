@@ -26,7 +26,7 @@ const TITRES_ORIGINAUX = {
   gfsp: "Intégration des soins et services de proximité pour soutenir l’autonomie domiciliaire des personnes aînées : une étude qualitative comparative",
   cahspr: "Integrating Care and Services to Support Aging at Home: A Comparative Analysis of Institutional, Organizational, and Professional Mechanisms in France and Quebec",
   epistemic: "Epistemic return in public health governance: The road back from health to science",
-  hospit: "Potentially avoidable hospitalisations and their association with patient-reported experience in primary care: an exploratory ecological study across 12 OECD countries",
+  hospit: "Patient experience and potentially avoidable hospitalisations across OECD countries: exploratory ecological study",
   pl2: "Prise de parole des médecins dans l’espace public québécois lors des débats entourant le projet de loi n° 2 : une analyse qualitative du discours critique",
   droit: "Vieillir chez soi à l’épreuve du droit : l’effectivité du choix du lieu de vie en droit français et en droit québécois",
   memoireDroit: "Vieillir chez soi : réalités et mise en œuvre du virage domiciliaire. Une étude comparée France / Québec",
