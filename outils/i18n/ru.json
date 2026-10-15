@@ -300,9 +300,15 @@
       ]
     },
     "travaux": {
-      "titre": "Текущие исследования",
+      "titre": "Поданные и готовящиеся рукописи",
       "intro": "Параллельно с диссертацией пишутся статьи и рукописи.",
       "items": [
+        {
+          "domaine": "Системы здравоохранения и первичная медико-санитарная помощь",
+          "statut": "Подано в BJGP Open",
+          "titre": "Potentially avoidable hospitalisations and primary care: the role of patient experience across Commonwealth countries",
+          "auteurs": "Éric Bernier (LL.M, PhD student), Nadia Sourial (PhD), Isabelle Vedel (PhD), Géraldine Layani (MD, M.Sc), Aurélien Algoet (MD), Matthieu Calafiore (MD, PhD)"
+        },
         {
           "domaine": "Эпистемология и передача знаний",
           "statut": "В работе",
@@ -314,12 +320,6 @@
             "Рефлексивное управление",
             "Влияние исследований"
           ]
-        },
-        {
-          "domaine": "Системы здравоохранения и первичная медико-санитарная помощь",
-          "statut": "В процессе подачи в BJGP Open",
-          "titre": "Potentially avoidable hospitalisations and primary care: the role of patient experience across Commonwealth countries",
-          "auteurs": "Bernier, É., Algoët, A., Sourial, N., Layani, G., Vedel, I., Calafiore, M."
         },
         {
           "domaine": "Управление и общественное пространство",
@@ -1477,7 +1477,7 @@
       {
         "date": "2024–2025",
         "type": "experience",
-        "titre": "Координатор проектов · Agence nationale d’appui à la performance",
+        "titre": "Координатор медико-социальных проектов · ANAP (Франция)",
         "detail": "Париж. Совместное руководство сетью экспертов, проведение вебинаров, сбор и анализ данных, организация и совместная разработка встреч сообществ практики."
       },
       {
@@ -1487,15 +1487,15 @@
         "detail": "Université de Bretagne Occidentale, особое признание комиссии."
       },
       {
-        "date": "2023",
+        "date": "2024",
         "type": "experience",
-        "titre": "Управленческая стажировка в EHPAD",
-        "detail": "Учреждение проживания для пожилых людей, нуждающихся в постоянном уходе, аналог CHSLD в Квебеке: стажировка в администрации."
+        "titre": "Стажировка в руководстве дома для пожилых людей, нуждающихся в уходе (EHPAD, аналог CHSLD)",
+        "detail": "Fondation Ildys, Ландерно (Франция): стажировка в руководстве EHPAD, аналога CHSLD в Квебеке."
       },
       {
-        "date": "2023",
+        "date": "2024",
         "type": "formation",
-        "titre": "Диплом университета в сфере предпринимательства",
+        "titre": "Университетский диплом по предпринимательству и менеджменту",
         "detail": "Institut d’administration des entreprises (IAE) de Brest, особое признание комиссии."
       },
       {
@@ -1513,7 +1513,7 @@
       {
         "date": "2016–2024",
         "type": "experience",
-        "titre": "Руководитель поездок для отдыха и временной поддержки",
+        "titre": "Руководитель адаптированных отпускных поездок и поездок для временного отдыха",
         "detail": "Адаптированные поездки для людей с инвалидностью, Брест: совместная разработка педагогического проекта, социально-педагогическое сопровождение, организация досуга и контроль лечения; руководство, проекты службы, управление командами, бюджетом и логистикой."
       }
     ],
