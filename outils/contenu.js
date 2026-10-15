@@ -1230,8 +1230,8 @@ const fr = {
   },
   publications: {
     "surtitre": "04 · Publications",
-    "titre": "Communications, mémoires et outils",
-    "intro": "Chaque travail garde son titre original, ses auteurs et son statut. Les manuscrits en cours sont présentés avec les axes de travaux dans la salle Axes de recherche.",
+    "titre": "Publications et travaux en cours",
+    "intro": "Communications scientifiques, mémoires soutenus et manuscrits en cours sont présentés ici avec leurs titres, auteurs et statuts respectifs.",
     "groupes": [
       {
         "titre": "Communications scientifiques",
@@ -2801,8 +2801,8 @@ const en = {
   },
   publications: {
     "surtitre": "04 · Publications",
-    "titre": "Presentations, theses and tools",
-    "intro": "Each work keeps its original title, authors and status. Manuscripts in progress are presented alongside the research areas in the Research areas room.",
+    "titre": "Publications and work in progress",
+    "intro": "Scientific presentations, defended theses and manuscripts in progress are presented here with their original titles, authors and respective statuses.",
     "groupes": [
       {
         "titre": "Scientific presentations",
@@ -4372,8 +4372,8 @@ const es = {
   },
   publications: {
     "surtitre": "04 · Publicaciones",
-    "titre": "Comunicaciones, memorias y herramientas",
-    "intro": "Cada trabajo conserva su título original, sus autores y su estado. Los manuscritos en curso se presentan junto a los ejes de trabajo en la sala Ejes de investigación.",
+    "titre": "Publicaciones y trabajos en curso",
+    "intro": "Aquí se presentan comunicaciones científicas, memorias defendidas y manuscritos en curso, con sus títulos originales, autores y estados respectivos.",
     "groupes": [
       {
         "titre": "Comunicaciones científicas",

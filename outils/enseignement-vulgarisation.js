@@ -238,7 +238,7 @@ module.exports = {
       "axes": {
         "salle": [
           "Axes de recherche",
-          "Axes principaux, axes secondaires et travaux en cours"
+          "Axes principaux et axes secondaires"
         ],
         "principaux": "Axes principaux"
       }
@@ -412,7 +412,7 @@ module.exports = {
       "axes": {
         "salle": [
           "Research areas",
-          "Main areas, secondary areas and current work"
+          "Main and secondary research areas"
         ],
         "principaux": "Main research areas"
       }
@@ -586,7 +586,7 @@ module.exports = {
       "axes": {
         "salle": [
           "Ejes de investigación",
-          "Ejes principales, secundarios y trabajos en curso"
+          "Ejes principales y secundarios"
         ],
         "principaux": "Ejes principales"
       }
@@ -760,7 +760,7 @@ module.exports = {
       "axes": {
         "salle": [
           "研究方向",
-          "主要方向、次要方向与在研项目"
+          "主要与次要研究方向"
         ],
         "principaux": "主要研究方向"
       }
@@ -934,7 +934,7 @@ module.exports = {
       "axes": {
         "salle": [
           "محاور البحث",
-          "المحاور الرئيسية والثانوية والأعمال الجارية"
+          "المحاور البحثية الرئيسية والثانوية"
         ],
         "principaux": "المحاور الرئيسية"
       }
@@ -1108,7 +1108,7 @@ module.exports = {
       "axes": {
         "salle": [
           "Направления исследований",
-          "Основные и дополнительные направления, текущие работы"
+          "undefined"
         ],
         "principaux": "Основные направления"
       }

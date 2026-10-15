@@ -844,7 +844,7 @@ function sectionAxes(c) {
   const statut = x => typeof x === 'number' ? c.recherche.travaux.items[x].statut : v[x];
   const carte = i => '<article class="axe-carte" style="--axe:' + AXES.couleurs[i] + '"><div class="axe-carte-tete"><span class="axe-numero">' + e(v.axe) + ' ' + num(i) + '</span><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' + AXES.icones[i] + '</svg></div><h4><a href="#' + AXES.principales[i] + '" data-axe-lien><span>' + e(titres[i]) + '</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a></h4><p class="axe-description">' + e(v.items[i][0]) + '</p><div class="axe-associations"><p class="axe-libelle">' + e(v.appuis) + '</p><ul>' + v.items[i][1].map((texte, j) => '<li><a href="#' + AXES.destinations[i][j] + '" data-axe-lien><span><strong>' + e(texte) + '</strong><small>' + e(statut(AXES.statuts[i][j])) + '</small></span><span class="axe-lien-fleche" aria-hidden="true">→</span></a></li>').join('') + '</ul></div></article>';
   const groupe = (titre, indices) => '<section class="axes-famille"><header><h3>' + e(titre) + '</h3><span aria-hidden="true">' + indices.length + '</span></header><div class="axes-cartes">' + indices.map(carte).join('') + '</div></section>';
-  return '<div class="section-corps pleine axes-recherche"><div class="axes-introduction"><p class="surtitre">' + e(t.salle[0]) + '</p><h2>' + e(t.salle[0]) + '</h2><p class="intro">' + e(v.intro) + '</p></div>' + groupe(t.principaux, [0,1,2]) + groupe(a.secondairesTitre, [3,4,5]) + '</div>' + travauxEnCours(c);
+  return '<div class="section-corps pleine axes-recherche"><div class="axes-introduction"><p class="surtitre">' + e(t.salle[0]) + '</p><h2>' + e(t.salle[0]) + '</h2><p class="intro">' + e(v.intro) + '</p></div>' + groupe(t.principaux, [0,1,2]) + groupe(a.secondairesTitre, [3,4,5]) + '</div>';
 }
 function sectionMethodes(c) {
   const a = c.approche;
@@ -1249,7 +1249,7 @@ function page(c, options = {}) {
     notions: sectionNotions(c),
     outils: sectionOutils(c)+sectionLogiciels(c,true),
     logiciels: sectionLogiciels(c),
-    publications: sectionGroupes(c, c.publications, "", ICONES_GROUPES.publications),
+    publications: sectionGroupes(c, c.publications, "", ICONES_GROUPES.publications) + travauxEnCours(c),
     biographie: sectionBiographie(c),
     parcours: sectionParcours(c),
     ia: sectionIA(c),

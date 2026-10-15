@@ -326,8 +326,8 @@ module.exports = {
     ]
   }
 },
- destinations: [["axes/travail-epistemique","axes/travail-pl2"],["recherche/objectifs","recherche/methodes"],["publications/memoire-domicile","axes/travail-droit"],["publications/memoire-domicile","axes/travail-droit"],["gestionnaire/experience-anap","publications/memoire-ehpad"],["axes/travail-hospitalisations","publications/memoire-domicile"]],
- principales: ["axes/travail-epistemique","recherche/objectifs","axes/travail-droit","juriste","gestionnaire/experience-anap","axes/travail-hospitalisations"],
+ destinations: [["publications/travail-epistemique","publications/travail-pl2"],["recherche/objectifs","recherche/methodes"],["publications/memoire-domicile","publications/travail-droit"],["publications/memoire-domicile","publications/travail-droit"],["gestionnaire/experience-anap","publications/memoire-ehpad"],["publications/travail-hospitalisations","publications/memoire-domicile"]],
+ principales: ["publications/travail-epistemique","recherche/objectifs","publications/travail-droit","juriste","gestionnaire/experience-anap","publications/travail-hospitalisations"],
  statuts: [[0,2],["these","methode"],["memoire2025",3],["memoire2025",3],["anap","memoire2024"],[1,"memoire2025"]],
  couleurs: ["#266489","#287263","#795675","#98652c","#465e8e","#277780"],
  icones: [
