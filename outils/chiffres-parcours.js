@@ -12,7 +12,7 @@ module.exports = {
     "chiffres": [
       [
         "10",
-        "ans d’accompagnement dans le handicap"
+        "ans auprès de personnes en situation de handicap"
       ],
       [
         "100+",
@@ -20,19 +20,20 @@ module.exports = {
       ],
       [
         "1 000",
-        "bénéficiaires de vacances hors institution"
+        "personnes ayant bénéficié de vacances hors institution"
       ],
       [
         "≈200",
-        "familles bénéficiaires de répit"
+        "familles ayant bénéficié de temps de répit"
       ],
       [
         "4",
-        "diplômes de second cycle"
+        "diplômes universitaires de second cycle"
       ],
       [
         "4",
-        "charges d’auxiliaire d’enseignement"
+        "charges d’auxiliaire d’enseignement",
+        "Université de Montréal"
       ],
       [
         "3",
@@ -40,7 +41,8 @@ module.exports = {
       ],
       [
         "1",
-        "prix de la meilleure affiche"
+        "prix de la meilleure affiche",
+        "GFSP 2026 · 3e cycle"
       ],
       [
         "3 000",
@@ -48,7 +50,8 @@ module.exports = {
       ],
       [
         "30",
-        "experts du réseau médico-social"
+        "experts du réseau médico-social",
+        "Contribution à l’animation du réseau"
       ],
       [
         "2 000+",
@@ -57,7 +60,8 @@ module.exports = {
       ],
       [
         "1 000",
-        "étudiants dans l’enquête en santé mentale"
+        "étudiants dans l’enquête régionale sur la santé mentale",
+        "Conception et pilotage de l’enquête"
       ]
     ],
     "notes": [
@@ -79,7 +83,7 @@ module.exports = {
     "chiffres": [
       [
         "10",
-        "years in disability support"
+        "years supporting people with disabilities"
       ],
       [
         "100+",
@@ -91,15 +95,16 @@ module.exports = {
       ],
       [
         "≈200",
-        "families benefiting from respite"
+        "families benefiting from respite stays"
       ],
       [
         "4",
-        "graduate-level qualifications"
+        "graduate-level university qualifications"
       ],
       [
         "4",
-        "teaching assistantships"
+        "teaching assistantships",
+        "Université de Montréal"
       ],
       [
         "3",
@@ -107,7 +112,8 @@ module.exports = {
       ],
       [
         "1",
-        "best poster award"
+        "best poster award",
+        "GFSP 2026 · doctoral category"
       ],
       [
         "3,000",
@@ -115,7 +121,8 @@ module.exports = {
       ],
       [
         "30",
-        "experts in the health and social care network"
+        "experts in the health and social care network",
+        "Contribution to facilitating the network"
       ],
       [
         "2,000+",
@@ -124,7 +131,8 @@ module.exports = {
       ],
       [
         "1,000",
-        "students in the mental health survey"
+        "students in the regional mental health survey",
+        "Survey design and leadership"
       ]
     ],
     "notes": [
@@ -146,7 +154,7 @@ module.exports = {
     "chiffres": [
       [
         "10",
-        "años de acompañamiento en discapacidad"
+        "años de acompañamiento a personas con discapacidad"
       ],
       [
         "100+",
@@ -154,19 +162,20 @@ module.exports = {
       ],
       [
         "1 000",
-        "beneficiarios de vacaciones fuera de instituciones"
+        "personas beneficiarias de vacaciones fuera de instituciones"
       ],
       [
         "≈200",
-        "familias beneficiarias de respiro"
+        "familias beneficiarias de períodos de respiro"
       ],
       [
         "4",
-        "títulos de segundo ciclo"
+        "títulos universitarios de segundo ciclo"
       ],
       [
         "4",
-        "ayudantías de docencia"
+        "ayudantías de docencia",
+        "Université de Montréal"
       ],
       [
         "3",
@@ -174,7 +183,8 @@ module.exports = {
       ],
       [
         "1",
-        "premio al mejor póster"
+        "premio al mejor póster",
+        "GFSP 2026 · doctorado"
       ],
       [
         "3 000",
@@ -182,7 +192,8 @@ module.exports = {
       ],
       [
         "30",
-        "expertos de la red médico-social"
+        "expertos de la red médico-social",
+        "Contribución a la dinamización de la red"
       ],
       [
         "2 000+",
@@ -191,7 +202,8 @@ module.exports = {
       ],
       [
         "1 000",
-        "estudiantes en la encuesta de salud mental"
+        "estudiantes en la encuesta regional de salud mental",
+        "Diseño y dirección de la encuesta"
       ]
     ],
     "notes": [
@@ -213,7 +225,7 @@ module.exports = {
     "chiffres": [
       [
         "10",
-        "年残障支持经历"
+        "年支持残障人士的经历"
       ],
       [
         "100+",
@@ -233,7 +245,8 @@ module.exports = {
       ],
       [
         "4",
-        "项助教工作"
+        "项助教工作",
+        "蒙特利尔大学"
       ],
       [
         "3",
@@ -241,7 +254,8 @@ module.exports = {
       ],
       [
         "1",
-        "项最佳海报奖"
+        "项最佳海报奖",
+        "GFSP 2026 · 博士组"
       ],
       [
         "3 000",
@@ -249,7 +263,8 @@ module.exports = {
       ],
       [
         "30",
-        "位医疗社会服务网络专家"
+        "位医疗社会服务网络专家",
+        "参与网络的组织与交流工作"
       ],
       [
         "2 000+",
@@ -258,7 +273,8 @@ module.exports = {
       ],
       [
         "1 000",
-        "名心理健康调查参与学生"
+        "名区域心理健康调查参与学生",
+        "设计并主持该调查"
       ]
     ],
     "notes": [
@@ -288,11 +304,11 @@ module.exports = {
       ],
       [
         "1 000",
-        "مستفيد من عطلات خارج المؤسسات"
+        "شخص استفاد من عطلات خارج المؤسسات"
       ],
       [
         "≈200",
-        "أسرة استفادت من الإراحة"
+        "أسرة استفادت من فترات إراحة"
       ],
       [
         "4",
@@ -300,7 +316,8 @@ module.exports = {
       ],
       [
         "4",
-        "تكليفات بالمساعدة في التدريس"
+        "تكليفات بالمساعدة في التدريس",
+        "جامعة مونتريال"
       ],
       [
         "3",
@@ -308,7 +325,8 @@ module.exports = {
       ],
       [
         "1",
-        "جائزة أفضل ملصق"
+        "جائزة أفضل ملصق",
+        "GFSP 2026 · فئة الدكتوراه"
       ],
       [
         "3 000",
@@ -316,7 +334,8 @@ module.exports = {
       ],
       [
         "30",
-        "خبيرًا في الشبكة الطبية الاجتماعية"
+        "خبيرًا في الشبكة الطبية الاجتماعية",
+        "مساهمة في تنشيط الشبكة"
       ],
       [
         "2 000+",
@@ -325,7 +344,8 @@ module.exports = {
       ],
       [
         "1 000",
-        "طالب في مسح الصحة النفسية"
+        "طالب في المسح الإقليمي للصحة النفسية",
+        "تصميم المسح وقيادته"
       ]
     ],
     "notes": [
@@ -355,7 +375,7 @@ module.exports = {
       ],
       [
         "1 000",
-        "участников отдыха вне учреждений"
+        "человек, отдохнувших вне учреждений"
       ],
       [
         "≈200",
@@ -367,7 +387,8 @@ module.exports = {
       ],
       [
         "4",
-        "назначения ассистентом преподавателя"
+        "назначения ассистентом преподавателя",
+        "Монреальский университет"
       ],
       [
         "3",
@@ -375,7 +396,8 @@ module.exports = {
       ],
       [
         "1",
-        "награда за лучший постер"
+        "награда за лучший постер",
+        "GFSP 2026 · докторантура"
       ],
       [
         "3 000",
@@ -383,7 +405,8 @@ module.exports = {
       ],
       [
         "30",
-        "экспертов медико-социальной сети"
+        "экспертов медико-социальной сети",
+        "Участие в организации работы сети"
       ],
       [
         "2 000+",
@@ -392,7 +415,8 @@ module.exports = {
       ],
       [
         "1 000",
-        "студентов в исследовании психического здоровья"
+        "студентов в региональном исследовании психического здоровья",
+        "Разработка и руководство исследованием"
       ]
     ],
     "notes": [
