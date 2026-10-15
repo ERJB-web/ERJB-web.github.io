@@ -1653,22 +1653,20 @@ html.lv .axes-cartes{grid-template-columns:1fr}
  .hall-commandes button{display:flex;align-items:center;justify-content:center;gap:7px;min-width:30px;min-height:30px;border-radius:20px;padding:5px 9px;font-size:10px;line-height:1.4;white-space:nowrap}
  .hall-commandes button:hover{background:var(--sea)}
  .hall-commandes svg{width:16px;height:16px;flex:none}
- .hall.en-3d .hall-annuaire{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;margin-top:23px;align-items:start}
- .hall-fiche{min-width:0;padding:0 12px}
- .hall-fiche:first-child{padding-inline-start:0}
- .hall-fiche:last-child{padding-inline-end:0}
- .hall-fiche+.hall-fiche{border-inline-start:1px solid var(--line)}
- .hall-fiche h3{margin:0 0 13px;min-height:78px;text-wrap:pretty}
- .hall-fiche h3 button{display:flex;align-items:flex-start;gap:7px;min-width:0;min-height:70px;width:100%;padding:12px 0 0;border-top:2px solid color-mix(in srgb,var(--porte-teinte) 48%,#fff);text-align:start;color:var(--ink);font:600 13px/1.4 var(--sans);transition:border-color .2s}
- .hall-fiche h3 bdi{display:inline-grid;place-items:center;flex:none;min-width:22px;height:22px;border-radius:4px;background:color-mix(in srgb,var(--porte-teinte) 9%,#fff);color:var(--porte-teinte);font:600 10px/1 var(--sans)}
+ .hall.en-3d .hall-annuaire{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:23px;align-items:start}
+ .hall-fiche{min-width:0}
+ .hall-fiche h3{margin:0 0 10px;min-height:52px;text-wrap:pretty}
+ .hall-fiche h3 button{display:flex;align-items:flex-start;gap:9px;min-width:0;width:100%;padding:0;text-align:start;color:var(--ink);font:600 17px/1.35 var(--sans)}
+ .hall-fiche h3 bdi{display:inline-grid;place-items:center;flex:none;min-width:26px;height:26px;border-radius:7px;background:var(--porte-teinte);color:#fff;font:600 12px/1 var(--sans)}
  .hall-fiche h3 button>span{min-width:0;overflow-wrap:break-word}
- .hall-fiche.choisie h3 button,.hall-fiche h3 button:hover{border-top-color:var(--porte-teinte)}
- .hall-fiche.choisie h3 bdi{background:var(--porte-teinte);color:#fff}
- .hall-fiche-rubriques{display:grid;gap:6px;min-width:0}
- .hall-fiche-rubriques>a{display:flex;align-items:center;justify-content:space-between;gap:5px;min-width:0;min-height:35px;padding:7px 7px 7px 8px;border-inline-start:3px solid var(--rubrique-couleur);border-radius:5px;background:color-mix(in srgb,var(--rubrique-couleur) 6%,#fff);color:var(--ink);font-size:11px;line-height:1.4;text-decoration:none;text-align:start;transition:background .18s}
+ .hall-fiche h3 button:hover>span{text-decoration:underline;text-underline-offset:3px}
+ .hall-fiche-rubriques{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;min-width:0}
+ .hall-fiche-rubriques>a{display:flex;align-items:center;gap:4px;min-width:0;min-height:32px;padding:4px 5px;border:1px solid var(--line);border-radius:2px;background:var(--white);color:var(--ink);font-size:13px;font-weight:500;line-height:1.35;text-decoration:none;text-align:start;transition:border-color .2s}
+ .hall-fiche-rubriques>a::before{content:"";flex:none;width:2px;height:12px;border-radius:1px;background:var(--rubrique-couleur)}
+ .hall-fiche-rubriques>a:last-child:nth-child(odd){grid-column:1/-1}
  .hall-fiche-rubriques>a>span:first-child{min-width:0;overflow-wrap:break-word}
- .hall-fiche-rubriques>a>span:last-child{color:var(--rubrique-couleur);flex:none}
- .hall-fiche-rubriques>a:hover{background:color-mix(in srgb,var(--rubrique-couleur) 13%,#fff)}
+ .hall-fiche-rubriques>a>span:last-child{display:none}
+ .hall-fiche-rubriques>a:hover{border-color:var(--rubrique-couleur)}
  .hall-fiche-rubriques>a:focus-visible{outline-color:var(--rubrique-couleur)}
  .hall.en-3d .hall-pied{display:none}
  .hall.en-approche .hall-monde{transition:none}
@@ -1678,7 +1676,6 @@ html.lv .axes-cartes{grid-template-columns:1fr}
  html[dir=rtl] .hall-monde .porte{direction:rtl}
  html[dir=rtl] .hall-commandes>button:first-child,html[dir=rtl] .hall-commandes>button:last-child{transform:scaleX(-1)}
 }
-@media(min-width:1000px) and (max-width:1180px){.hall-fiche{padding-inline:9px}.hall-fiche h3{min-height:100px}.hall-fiche h3 button{font-size:12px}.hall-fiche-rubriques>a{padding-inline:6px;font-size:10.5px}}
 @media(prefers-reduced-motion:reduce){.hall.en-3d .hall-monde,.hall.en-3d .porte .battant{transition:none}}
 @media(forced-colors:active){.hall-mode{display:none!important}}
 
@@ -1707,15 +1704,3 @@ html.lv .axes-cartes{grid-template-columns:1fr}
 @media(max-width:600px){.impact-ensemble dl{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:20px}.impact-ensemble dt{font-size:12px}.impact-ensemble dd{font-size:30px}.bande-accueil.bande-epuree{padding:24px 0 0}.bande-epuree .trajectoire{margin-bottom:25px}}
 html.hc .bande-epuree,html.lv .bande-epuree{background:transparent;color:var(--ink)}
 
-/* Franchissement : parois colorées et fond qui s'approche pendant l'entrée. */
-.passage.passage-immersion{overflow:hidden;isolation:isolate;background:var(--passage-couleur);box-shadow:0 0 0 5px #e6ece2,0 12px 35px rgba(9,36,26,.25),inset 0 0 60px rgba(7,31,32,.16);border-radius:1px}
-.passage-plan{position:absolute;inset:0;display:block;pointer-events:none}
-.passage-sol{clip-path:polygon(0 100%,100% 100%,88% 86%,12% 86%);background:linear-gradient(0deg,color-mix(in srgb,var(--passage-couleur) 75%,#fff),var(--passage-couleur))}
-.passage-plafond{clip-path:polygon(0 0,100% 0,88% 14%,12% 14%);background:linear-gradient(color-mix(in srgb,var(--passage-couleur) 52%,#fff),var(--passage-couleur))}
-.passage-gauche{clip-path:polygon(0 0,12% 14%,12% 86%,0 100%);background:linear-gradient(90deg,color-mix(in srgb,var(--passage-couleur) 80%,#092f42),var(--passage-couleur))}
-.passage-droite{clip-path:polygon(100% 0,88% 14%,88% 86%,100% 100%);background:linear-gradient(90deg,var(--passage-couleur),color-mix(in srgb,var(--passage-couleur) 85%,#092f42))}
-.passage-fond{inset:14% 12%;border:1px solid rgba(255,255,255,.25);background:radial-gradient(ellipse at 50% 35%,color-mix(in srgb,var(--passage-couleur) 65%,#fff),var(--passage-couleur) 85%);animation:seuil-avance .62s cubic-bezier(.45,0,.15,1) both}
-@keyframes seuil-avance{from{transform:scale(1);opacity:1}to{transform:scale(1.6);opacity:.9}}
-@media(prefers-reduced-motion:reduce){.passage-fond{animation:none}}
-
-@supports(grid-template-rows:subgrid){@media(min-width:1000px){.hall.en-3d .hall-annuaire{grid-template-rows:auto auto;row-gap:13px;align-items:stretch}.hall-fiche{display:grid;grid-template-rows:subgrid;grid-row:span 2;row-gap:13px}.hall-fiche h3{margin:0}.hall-fiche-rubriques{align-content:start}}}
