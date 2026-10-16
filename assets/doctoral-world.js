@@ -529,6 +529,8 @@ const cast=[
    onSave:stats=>{paintScore(hockey.status().score,stats.saves);opts.onHockeyEvent?.("save",stats);opts.onNarrate?.("ARRÊT DU GARDIEN ! Reprends la rondelle.");},
    onShot:stats=>opts.onHockeyEvent?.("shot",stats),
    onBoard:()=>opts.onHockeyEvent?.("board",{}),
+   onCheck:stats=>{opts.onHockeyEvent?.("fall",stats);opts.onNarrate?.("MISE EN ÉCHEC ! Débarrasse-toi des défenseurs.");},
+   onIntercept:stats=>{opts.onHockeyEvent?.("save",stats);opts.onNarrate?.("INTERCEPTION ! Récupère la rondelle.");},
    onFall:stats=>{skate.falls=stats.falls;opts.onHockeyEvent?.("fall",stats);opts.onNarrate?.("Éric chute ! Relève-toi et reprends la rondelle.");},
    onWin:stats=>{skate.completed=true;opts.onHockeyWin?.(stats);}
   });
