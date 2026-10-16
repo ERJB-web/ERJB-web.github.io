@@ -30,6 +30,7 @@ try{
  await page.keyboard.down("w");await page.waitForTimeout(700);await page.keyboard.up("w");
  const result=await page.evaluate(()=>({
   actor:document.querySelector("#career")?.getAttribute("data-human-model"),
+  humanSource:document.querySelector("#career")?.getAttribute("data-human-source"),
   room:document.querySelector("#career")?.getAttribute("data-environment"),
   sceneStatus:document.querySelector("#career")?.getAttribute("data-environment-status"),
   place:document.querySelector("#stationLabel")?.textContent,
