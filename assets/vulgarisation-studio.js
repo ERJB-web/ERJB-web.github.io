@@ -213,6 +213,33 @@
     $('.vs-bars').setAttribute('aria-label',t.groupA+': 20 / 100; '+t.groupB+': '+n+' / 100');
   });
   if ($('.vs-bars')) $('.vs-bars').setAttribute('aria-label',t.groupA+': 20 / 100; '+t.groupB+': 10 / 100');
+  // Vector chart with a real 0–100 scale; the underlying data remain fictitious.
+  if($('.vs-bars')){
+    const x=n=>160+Math.min(100,Math.max(0,n))*6.2;
+    const diagram=h('figure','vs-risk-chart');
+    diagram.setAttribute('aria-label',t.riskTitle);
+    diagram.innerHTML='<svg viewBox="0 0 920 278" role="img" aria-label="'+escape(t.groupA)+': 20/100; '+escape(t.groupB)+': 10/100" xmlns="http://www.w3.org/2000/svg">'+
+      '<g class="vs-chart-grid">'+[0,20,40,60,80,100].map(n=>'<line x1="'+x(n)+'" x2="'+x(n)+'" y1="27" y2="222"/><text x="'+x(n)+'" y="254" text-anchor="middle">'+n+' %</text>').join('')+'</g>'+
+      '<g class="vs-chart-labels"><text x="8" y="101">'+escape(t.groupA)+'</text><text x="8" y="184">'+escape(t.groupB)+'</text></g>'+
+      '<line class="vs-chart-range-a" x1="'+x(0)+'" x2="'+x(20)+'" y1="94" y2="94"/>'+
+      '<circle class="vs-chart-point-a" cx="'+x(20)+'" cy="94" r="12"/>'+
+      '<line class="vs-chart-range-b" x1="'+x(0)+'" x2="'+x(10)+'" y1="177" y2="177"/>'+
+      '<circle class="vs-chart-point-b" cx="'+x(10)+'" cy="177" r="12"/>'+
+      '<text class="vs-chart-number-a" x="'+(x(20)+25)+'" y="101">20 %</text>'+
+      '<text class="vs-chart-number-b" x="'+(x(10)+25)+'" y="184">10 %</text></svg>';
+    $('.vs-bars').after(diagram);
+    const updateChart=()=>{
+      const n=Number(slider.value);
+      const svg=diagram.querySelector('svg');
+      svg.setAttribute('aria-label',t.groupA+': 20/100; '+t.groupB+': '+n+'/100');
+      diagram.querySelector('.vs-chart-range-b').setAttribute('x2',String(x(n)));
+      diagram.querySelector('.vs-chart-point-b').setAttribute('cx',String(x(n)));
+      const label=diagram.querySelector('.vs-chart-number-b');
+      label.setAttribute('x',String(x(n)+25));
+      label.textContent=n+' %';
+    };
+    slider.addEventListener('input',updateChart);
+  }
 
   const studio = h('section','vs-studio','<header class="vs-head"><span class="vs-kicker">02 / STORYBOARD</span><h4>' + escape(t.stageTitle) + '</h4><p>' + escape(t.stageSub) + '</p></header><div class="vs-screen"><div class="vs-screen-art" aria-hidden="true"><div class="vs-scene vs-scene-0"><span>+</span><span>+</span><span>+</span><i></i></div></div><div class="vs-screen-copy" aria-live="polite" aria-atomic="true"><small id="vs-slide-number"></small><h5 id="vs-slide-title"></h5><p id="vs-slide-text"></p></div></div><div class="vs-stage-bottom"><button type="button" class="vs-stage-prev">' + escape(t.previous) + '</button><div class="vs-stage-dots" aria-hidden="true">' + t.slides.map((_,i)=>'<span data-dot="' + i + '"></span>').join('') + '</div><button type="button" class="vs-stage-next">' + escape(t.next) + ' →</button></div><p class="vs-micro">' + escape(t.stageHint) + '</p>');
   if (panel(3)) panel(3).insertBefore(studio,panel(3).firstChild);
