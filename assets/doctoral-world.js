@@ -147,7 +147,7 @@ const cast=[
   ball(.27,mat(0x302824),0,2.25,.05,body).scale.y=.35;
   for(const side of [-1,1]){cube(.16,.90,.22,jacket,side*.43,1.30,0,body);cube(.23,.83,.24,M.black,side*.15,.47,0,body);}
   const dialogueSet=cast[dialogueByRoom[room]||0],position=actors.length%3;
-  const name=dialogueSet[position*3],line=dialogueSet[position*3+1];
+  const name=dialogueSet[position*2],line=dialogueSet[position*2+1];
   const nameTag=sign(name,0,3.02,0,2.65,.42,body);
   actors.push({body,x,z,move,sway:Math.random()*5,name,line,nameTag,met:false});
  }
