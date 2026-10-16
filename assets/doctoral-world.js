@@ -581,7 +581,7 @@ const cast=[
   visit("university",true);resize();
   if(renderer.setAnimationLoop){renderer.xr.enabled=true;renderer.xr.setReferenceSpaceType?.("local-floor");renderer.setAnimationLoop(tick);}else requestAnimationFrame(tick);
   if(typeof window!=="undefined")import("./doctoral-environments.js?v=1").then(m=>m.createImmersiveLocations(T,{})).then(layer=>{worldScenery=layer;layer.visit(room,group,architecturalMeshes);}).catch(err=>console.warn("Additional 3D environment unavailable",err));
-  if(typeof window!=="undefined")import("./doctoral-reality.js?v=3").then(m=>m.installLivingWorld(T,{player,renderer,notify:opts.onNarrate})).then(layer=>{worldReality=layer;layer.syncCast(actors);}).catch(err=>{console.warn("Human asset unavailable",err);opts.onNarrate?.("Modèles 3D externes indisponibles : secours local activé.");});
+  if(typeof window!=="undefined")import("./doctoral-reality.js?v=7").then(m=>m.installLivingWorld(T,{player,renderer,notify:opts.onNarrate})).then(layer=>{worldReality=layer;layer.syncCast(actors);}).catch(err=>{console.warn("Human asset unavailable",err);opts.onNarrate?.("Modèles 3D externes indisponibles : secours local activé.");});
   canvas.addEventListener("contextmenu",ev=>ev.preventDefault());
   canvas.addEventListener("pointerdown",ev=>{
    if(ev.button===2||ev.shiftKey){dragView={x:ev.clientX,y:ev.clientY};canvas.setPointerCapture?.(ev.pointerId);return;}
@@ -620,7 +620,7 @@ const cast=[
    if(near.type==="portal"){visit(near.id);return;}
    if(near.type==="exit"){visit("university");return;}
    if(near.type==="activity"){
-    busy=true;opts.onActivity?.(room,near.id,near.label);
+    busy=true;worldReality?.pulse?.(.35,45);opts.onActivity?.(room,near.id,near.label);
     setTimeout(()=>{busy=false;},1050);
    }
   }
@@ -696,7 +696,7 @@ const cast=[
     npc.body.rotation.y=Math.sin(clock*.75+npc.sway)*.22;
     npc.nameTag.quaternion.copy(camera.quaternion);npc.nameTag.rotation.x=0;npc.nameTag.rotation.z=0;
     if(!npc.met&&Math.hypot(modelX-npc.body.position.x,modelZ-npc.body.position.z)<2.0){
-      npc.met=true;opts.onNpc?.(npc.name,npc.line,room);
+      npc.met=true;worldReality?.pulse?.(.16,25);opts.onNpc?.(npc.name,npc.line,room);
     }
    }
    for(const target of targets){
@@ -711,7 +711,7 @@ const cast=[
     item.group.position.y=1.12+Math.sin(ts*.0025+item.x)*.2;
     item.t.quaternion.copy(camera.quaternion);item.t.rotation.x=0;item.t.rotation.z=0;
     if(Math.hypot(modelX-item.x,modelZ-item.z)<1.15){
-      item.taken=true;item.group.visible=false;
+      item.taken=true;item.group.visible=false;worldReality?.pulse?.(.20,22);
       opts.onEvidence?.(item.id,item.label,room);
     }
    }
