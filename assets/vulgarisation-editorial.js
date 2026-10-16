@@ -114,6 +114,12 @@
     bound.add(section);
     const find=(q)=>section.querySelector(q);
     const panel=n=>section.querySelector('[data-rubriques="vulgarisation"] > [data-volet="'+n+'"] .rubrique-contenu');
+    const heroArt=find('.vs-hero-art');
+    if(heroArt){
+      const orbit=heroArt.querySelector('.vs-art-orbit');if(orbit)orbit.remove();
+      const heroPhoto=h('figure','ve-hero-image','<img src="https://images.unsplash.com/photo-1766853042063-e7fbaccb42c2?auto=format&fit=crop&w=1300&q=80" loading="lazy" decoding="async" width="900" height="620" alt="'+escape(t.photos[0])+'"><figcaption>Giorgio Tomassetti · Unsplash</figcaption>');
+      heroArt.prepend(heroPhoto);
+    }
     const gallery=find('.vul-galerie');
     if(gallery){
       gallery.classList.add('ve-gallery');
