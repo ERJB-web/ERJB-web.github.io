@@ -41,7 +41,7 @@ const T={
  WebGLRenderer:class{constructor(){this.shadowMap={};}setPixelRatio(){}setSize(){}render(){}},
  DoubleSide:2,SRGBColorSpace:2,ACESFilmicToneMapping:1,PCFSoftShadowMap:1,RepeatWrapping:1
 };
-for(const n of ["BoxGeometry","SphereGeometry","CylinderGeometry","PlaneGeometry","TorusGeometry","CircleGeometry","ConeGeometry","OctahedronGeometry","IcosahedronGeometry"])T[n]=Geometry;
+for(const n of ["BoxGeometry","SphereGeometry","CylinderGeometry","PlaneGeometry","TorusGeometry","CircleGeometry","ConeGeometry","OctahedronGeometry","IcosahedronGeometry","CapsuleGeometry"])T[n]=Geometry;
 class TestImage{set src(value){}get naturalWidth(){return 0;}}
 const createAvatar=new Function("document","Image",avatar+";return createEricAvatar")(document,TestImage);
 const a=createAvatar(T,{portraitUrl:"../assets/portrait.jpg"});
