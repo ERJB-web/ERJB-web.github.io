@@ -47,5 +47,35 @@ for(const code of codes){
  if(!pages[code].includes("#0055a4"))erreurs.push(code+": drapeau français absent");
 }
 
+
+/* Garde-fous complémentaires : les marqueurs techniques ne sont jamais des traductions. */
+for (const code of codes) {
+  const markup = pages[code]
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "")
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, "");
+  const marqueurs=[...markup.matchAll(/(?:>\s*(?:undefined|null|NaN|\[object Object\])\s*<|=\s*["'](?:undefined|null|NaN|\[object Object\])["'])/g)];
+  if(marqueurs.length)erreurs.push(code+": valeur de traduction manquante ou invalide ("+marqueurs.length+")");
+}
+const legendeAxes={
+  fr:"Axes principaux et axes secondaires",
+  en:"Main and secondary research areas",
+  es:"Ejes principales y secundarios",
+  zh:"主要与次要研究方向",
+  ar:"المحاور البحثية الرئيسية والثانوية",
+  ru:"Основные и дополнительные направления исследований"
+};
+for(const [code,label] of Object.entries(legendeAxes)){
+  const html=pages[code],debut=html.indexOf('id="axes" data-salle="axes"');
+  const panneau=debut>=0?html.slice(debut,debut+1500):"";
+  if(!panneau.includes('<span class="bandeau-legende">'+label+'</span>'))
+    erreurs.push(code+": sous-titre des axes de recherche absent ou incorrect");
+}
+for (const code of ["fr","iu","innu","falc"]) {
+  if (!pages[code].includes('data-voix="fr-FR"'))
+    erreurs.push(code+": synthèse vocale française non configurée pour la France");
+}
+if (!pages.fr.includes('property="og:locale" content="fr_FR"'))
+  erreurs.push("fr: locale de la version française incorrecte");
+
 console.log(JSON.stringify({versions:rapport,erreurs,traductionsRestantACompleter:["inuktitut","innu-aimun"]},null,2));
 process.exitCode=erreurs.length?1:0;
