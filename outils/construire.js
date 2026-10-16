@@ -20,6 +20,8 @@ const AXES = require("./axes-recherche");
 const HALL_3D = require("./hall-3d");
 const MEDIATION = require("./enseignement-vulgarisation");
 const ENSEIGNEMENT = require("./enseignement-vision");
+const DISPOSITIFS_PEDAGOGIQUES = require("./enseignement-dispositifs.json");
+const RENDU_PEDAGOGIQUE = require("./enseignement-dispositifs");
 const COMMUNICATION = require("./communication-visuelle");
 const VULGARISATION = require("./vulgarisation-ressources");
 const IA = require("./ia-recherche");
@@ -123,12 +125,12 @@ function sectionTransmission(c) {
   const essai = bloc => '<div class="enseignement-essai"><h3>' + e(bloc.titre) + '</h3>' + bloc.sections.map(partie => '<section><h4>' + e(partie.titre) + '</h4>' + paragraphes(partie.paragraphes) + '</section>').join('') + appuis(bloc.refs) + '</div>';
   const pont = '<div class="enseignement-essai"><h3>' + e(p.pont.titre) + '</h3>' + paragraphes(p.pont.paragraphes) + '</div><div class="enseignement-ponts">' + p.pont.liens.map(([origine, suite], i) => '<article><span class="enseignement-repere" aria-hidden="true">' + num(i) + '</span><div><p class="enseignement-libelle">' + e(p.pontLibelles[0]) + '</p><h4>' + e(origine) + '</h4><p class="enseignement-libelle">' + e(p.pontLibelles[1]) + '</p><p>' + e(suite) + '</p></div></article>').join('') + '</div>' + appuis(p.pont.refs);
   const pratique = '<div class="enseignement-essai"><h3>' + e(p.pratique.titre) + '</h3>' + paragraphes(p.pratique.paragraphes) + '</div><div class="enseignement-experiences"><section><h4>' + e(s.experiences) + '</h4>' + liste(iEns.map(i => c.parcours.etapes[i])) + '</section>' + (iMent >= 0 ? '<section><h4>' + e(s.mentorat) + '</h4>' + liste([c.engagements.groupes[gMent].items[iMent]]) + '</section>' : '') + '</div><h4 class="titre-bloc">' + e(s.academique[0]) + '</h4><ul class="puces"><li>' + lien(c.chemin + 'docs/cv-academique.pdf', e(s.academique[1])) + '</li><li><a href="#publications">' + e(s.academique[2]) + '</a></li></ul>' + appuis(p.pratique.refs);
-  const valeurs = '<div class="enseignement-essai"><h3>' + e(p.valeurs.titre) + '</h3><p>' + e(p.valeurs.intro) + '</p></div><div class="enseignement-valeurs">' + p.valeurs.items.map((texte, i) => '<article style="--valeur:' + ['#24659b','#754d8a','#286e5b','#a77a26','#48588e','#a74440'][c.valeurs.items[i][2]] + '"><span class="enseignement-repere" aria-hidden="true">' + num(i) + '</span><h4>' + e(c.valeurs.items[i][0]) + '</h4><p>' + e(texte) + '</p></article>').join('') + '</div>';
+  const valeurs = RENDU_PEDAGOGIQUE(c, DISPOSITIFS_PEDAGOGIQUES[c.lang], e, ENSEIGNEMENT.references);
   const apprendre = '<div class="enseignement-essai"><h3>' + e(p.apprendre.titre) + '</h3>' + paragraphes(p.apprendre.paragraphes) + '</div><section class="enseignement-sequence"><header><p class="surtitre">' + e(p.apprendre.scenarioTitre) + '</p><p>' + e(p.apprendre.scenarioIntro) + '</p></header><ol>' + p.apprendre.etapes.map(([titre, texte], i) => '<li><span class="enseignement-repere" aria-hidden="true">' + num(i) + '</span><div><h4>' + e(titre) + '</h4><p>' + e(texte) + '</p></div></li>').join('') + '</ol></section>' + appuis(p.apprendre.refs);
   const avenir = essai(p.avenir) + '<p class="enseignement-lien"><a href="#ia">' + e(p.suiteIA) + ' →</a></p>';
   const sources = '<div class="enseignement-essai"><h3>' + e(p.sources.titre) + '</h3><p>' + e(p.sources.intro) + '</p></div><ul class="methode-refs references-transmission enseignement-references">' + Object.values(ENSEIGNEMENT.references).sort((a,b) => a.citation.localeCompare(b.citation, 'en')).map(r => '<li>' + e(r.citation) + ' ' + lien(r.href, e(r.href)) + '</li>').join('') + '</ul>';
   const contenus = [essai(p.vision), pont, pratique, valeurs, apprendre, avenir, sources];
-  const titresEns=[...p.onglets];titresEns.splice(5,0,ATELIERS.textes(c.lang,'enseignement').labels.atelier);contenus.splice(5,0,atelierPratique(c,'enseignement'));
+  const titresEns=[...p.onglets];titresEns[3]=DISPOSITIFS_PEDAGOGIQUES[c.lang].onglet;titresEns.splice(5,0,ATELIERS.textes(c.lang,'enseignement').labels.atelier);contenus.splice(5,0,atelierPratique(c,'enseignement'));
   return '<div class="section-corps pleine enseignement"><div class="colonne-texte"><p class="surtitre">' + e(s.salle[0]) + '</p><h2>' + e(p.titre) + '</h2><p class="intro">' + e(p.intro) + '</p></div><div class="colonne-outils">' + ongletsRubriques(c, 'enseignement', p.explorer, titresEns.map((titre, i) => ['enseignement-' + i, titre, contenus[i]]), 4) + '</div></div>';
 }
 function sectionVulgarisation(c) {
