@@ -1,7 +1,21 @@
 import {milestones,initialCareerState,availableMilestones,assessDesign,checkDefense} from "./doctoral-life-data.js";
 import {playMission,methods} from "./doctoral-life-challenges.js";
+import {createAdventureWorld,PLACES} from "./doctoral-world.js";
+import {createScore} from "./doctoral-sound.js";
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const KEY="doctoral-life-four-year-v1";
+const score=createScore();
+let worldController=null;
+const kindToWorld=(t)=>{const k=typeof t==="string"?t:t?.kind;
+ if(k==="admin")return "university";
+ if(k==="course"||k==="exam")return t?.id==="preDefense"?"auditorium":"classroom";
+ if(k==="literature")return "library";
+ if(k==="design"||k==="analysis"||k==="ethics")return "laboratory";
+ if(k==="funding"||k==="social"||k==="writing")return "office";
+ if(k==="work")return "home";
+ if(k==="publication")return "conference";
+ if(k==="field")return "field";
+ if(k==="defense")return "auditorium";return "university";};
 const locations=[
 ["admin","Administration",-18,0,0x8bc7ee],["course","École doctorale",-10,-13,0xeac998],
 ["literature","Bibliothèque",0,-20,0xbca9fc],["design","Laboratoire des méthodes",12,-13,0x8ef3d3],
@@ -22,13 +36,16 @@ function close(){modal=false;$("dialog").hidden=true;}
 const api={open,close,toast:alertGame,save:persist,finish:finish};
 function start(newGame){
  st=newGame?initialCareerState():read()||initialCareerState();st.journal ||= [];st.attempts ||= {};
- $("intro").hidden=true;persist();update();if(webgl)drawScene();
+ st.difficulty="doctorale"; $("intro").hidden=true;persist();update();
+ worldController?.visit("university");
+ score.start().then(ok=>{if(!ok)alertGame("Le son nécessite une autorisation du navigateur : utilise Musique.");updateMusicButton();});
+ alertGame("Éric est sur le campus. Dirige-toi vers un bâtiment ou choisis un lieu !");
 }
 function update(){
  if(!st)return;
  const year=Math.min(4,Math.floor(st.week/52)+1);
- $("yearLabel").textContent="ANNÉE "+String(year).padStart(2,"0")+" / 04";
- $("weekLabel").textContent="Semaine "+(st.week+1)+" / 208";
+ $("yearLabel").textContent="CAMPAGNE · DIFFICULTÉ DOCTORALE";
+ $("weekLabel").textContent="Chrono fictif : sem. "+(st.week+1)+" / 208";
  $("yearProgress").style.width=Math.min(100,st.week/208*100)+"%";
  for(const k of ["rigor","energy","trust","stress","budget","proof"])$(k).textContent=st[k];
  $("completeCount").textContent=st.completed.length+" / "+milestones.length+" étapes";
@@ -38,6 +55,10 @@ function update(){
 }
 function select(id){
  const task=openTasks().find(t=>t.id===id);if(!task)return;chosen=id;update();
+ if(worldController){
+  const zone=kindToWorld(task);worldController.visit(zone);
+  worldController.goToHotspot();alertGame("Mission : "+task.title+" · "+PLACES.find(p=>p.id===zone)?.name);return;
+ }
  if(!webgl){playMission(task,st,api);return;}
  travel=area(task.kind);entered=null;alertGame("Guidage vers "+travel[1]);
 }
@@ -186,12 +207,71 @@ document.querySelectorAll("[data-move]").forEach(el=>{
 });
 window.addEventListener("keydown",ev=>{if(!modal&&["ArrowUp","ArrowDown","ArrowLeft","ArrowRight","KeyW","KeyA","KeyS","KeyD","KeyQ","KeyZ"].includes(ev.code))ev.preventDefault();if(!modal)pressed.add(ev.code);if(ev.key==="Escape"&&modal)close();});
 window.addEventListener("keyup",ev=>pressed.delete(ev.code));window.addEventListener("blur",()=>pressed.clear());
-$("startBtn").onclick=()=>start(true);$("resumeBtn").onclick=()=>start(false);
-$("resumeBtn").hidden=!read();
+$("startBtn").onclick=()=>start(false);
+$("resumeBtn").hidden=true; // One visible entry point: Éric, mode doctoral, play.
+function updateMusicButton(){
+ const b=$("musicBtn");b.textContent=score.enabled?"♫ Musique":"♪ Coupée";
+ b.setAttribute("aria-pressed",String(score.enabled));
+ b.setAttribute("aria-label",score.enabled?"Désactiver la musique":"Réactiver la musique");
+}
+updateMusicButton();
+$("musicBtn").onclick=async()=>{await score.toggle();updateMusicButton();alertGame(score.enabled?"Musique activée":"Musique désactivée");};
+function showPlaceButtons(current){
+ const panel=$("worldPlaces");if(!panel)return;
+ panel.innerHTML=PLACES.map(p=>'<button type="button" data-world="'+p.id+'" class="'+(p.id===current?"current":"")+'" title="'+esc(p.sub)+'">'+esc(p.name)+'</button>').join("");
+ for(const btn of panel.querySelectorAll("[data-world]"))btn.onclick=()=>{if(!st)return;worldController?.visit(btn.dataset.world);};
+}
+function doActivity(zone,action,label){
+ if(!st||modal)return;
+ // Physical interactions first; task forms are invoked from a reached work station, not from the start menu.
+ if(zone==="home"&&action==="rest"){
+  st.energy=clamp(st.energy+18);st.stress=clamp(st.stress-12);st.week+=1;
+  st.journal.unshift({week:st.week,task:"Une vraie soirée à la maison",note:"Repos assumé : énergie et recul récupérés, une semaine fictive consommée.",risky:false});
+  persist();update();alertGame("Éric a récupéré. Il faudra cependant rendre le prochain livrable.");return;
+ }
+ if(zone==="rink")return;
+ const missions=openTasks().filter(t=>kindToWorld(t)===zone);
+ const task=missions.find(t=>t.id===chosen)||missions[0];
+ if(task){chosen=task.id;playMission(task,st,api);return;}
+ const root=open('<span class="kicker">INTERACTION · '+esc(PLACES.find(p=>p.id===zone)?.name||"Campus")+'</span><h2>'+esc(label)+'</h2><p>Éric explore cet endroit. Les activités associées seront débloquées à mesure que son dossier progressera.</p><div class="action-row"><button class="primary" data-return>Reprendre l’exploration</button></div>');
+ root.querySelector("[data-return]").onclick=close;
+}
+function skatingSuccess(result){
+ if(!st)return;
+ st.skateSessions=(st.skateSessions||0)+1;
+ if(st.skateSessions===1){st.energy=clamp(st.energy+10);st.stress=clamp(st.stress-10);st.rigor=clamp(st.rigor+2);}
+ st.journal.unshift({week:st.week,task:"Épreuve de hockey : équilibre sur glace",note:"Parcours réussi en "+result.seconds+" secondes. Chutes : "+result.falls+".",risky:false});
+ persist();update();alertGame("ÉQUILIBRE MAÎTRISÉ ! "+result.falls+" chute(s) · Énergie +10."); 
+}
+function bootNewWorld(){
+ worldController=createAdventureWorld(THREE,$("scene3d"),{
+ keys:pressed,
+ isPaused:()=>modal||!st||!$("intro").hidden||Boolean(st?.ending),
+ onVisit:(zone,p)=>{score.setZone(zone);$("stationLabel").textContent=p.name;$("stationHint").textContent=p.sub+" · Approche les marqueurs lumineux pour agir.";showPlaceButtons(zone);$("rinkHud").hidden=zone!=="rink";},
+ onActivity:doActivity,
+ onNarrate:alertGame,
+ onSkate:skatingSuccess,
+ onBalance:(balance,progress,falls)=>{
+  $("rinkNeedle").style.left=(50+balance*46)+"%";
+  $("rinkTime").textContent=Math.round(progress*23)+" / 23 s";
+  $("rinkTips").textContent="ZQSD : glisser · A/D : diriger · Espace : stabiliser · Chutes : "+falls;
+ }
+ });
+ webgl=true;window.addEventListener("resize",()=>worldController?.resize());
+ showPlaceButtons("university");
+}
 $("planBtn").onclick=()=>{if(st)roadmap();};$("designBtn").onclick=()=>{if(st)dossier();};
 $("notebookBtn").onclick=()=>{if(st)notebook();};
 $("closeDialog").onclick=close;$("dialog").querySelector(".dialog-back").onclick=close;
 $("resetBtn").onclick=()=>{if(confirm("Recommencer les quatre années ?")){localStorage.removeItem(KEY);close();start(true);}};
-$("fastTravel").onclick=()=>{const task=openTasks().find(t=>t.id===chosen)||openTasks()[0];if(task)select(task.id);};
-$("interactBtn").onclick=()=>{if(!st||modal)return;const near=locations.reduce((a,b)=>Math.hypot(px-a[2],pz-a[3])<Math.hypot(px-b[2],pz-b[3])?a:b);if(Math.hypot(px-near[2],pz-near[3])<6)atPlace(near);else alertGame("Rejoins un bâtiment pour interagir.");};
-try{THREE=await import("https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js");init3D();}catch(err){console.warn("3D unavailable, 2D career board enabled",err);alertGame("Sans WebGL, le journal permet de jouer les missions.");}
+$("fastTravel").onclick=()=>{const task=openTasks().find(t=>t.id===chosen)||openTasks()[0];if(task)select(task.id);else alertGame("Explore les bâtiments pour découvrir une activité.");};
+$("interactBtn").onclick=()=>{if(!st||modal)return;if(worldController){worldController.goToHotspot();return;}
+ const near=locations.reduce((a,b)=>Math.hypot(px-a[2],pz-a[3])<Math.hypot(px-b[2],pz-b[3])?a:b);
+ if(Math.hypot(px-near[2],pz-near[3])<6)atPlace(near);else alertGame("Rejoins un bâtiment pour interagir.");};
+try{
+ THREE=await import("https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js");
+ bootNewWorld();
+}catch(err){
+ console.warn("3D unavailable, 2D career board enabled",err);
+ alertGame("La 3D n'est pas disponible ici. Les missions restent accessibles depuis le journal.");
+}
