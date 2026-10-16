@@ -1,8 +1,8 @@
 import {milestones,initialCareerState,availableMilestones,assessDesign,checkDefense} from "./doctoral-life-data.js";
 import {playMission,methods} from "./doctoral-life-challenges.js";
-import {createAdventureWorld,PLACES} from "./doctoral-world.js?v=20";
+import {createAdventureWorld,PLACES} from "./doctoral-world.js?v=24";
 import {createScore} from "./doctoral-sound.js";
-import {createHockeySfx} from "./hockey-sfx.js?v=20";
+import {createHockeySfx} from "./hockey-sfx.js?v=24";
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const KEY="doctoral-life-four-year-v1";
 const score=createScore();
