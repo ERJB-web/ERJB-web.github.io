@@ -2947,3 +2947,192 @@ html.hc .implantation-portail-liens a{border-color:currentColor}
 .logiciels-jeu-lien:hover{background:#0b434e;transform:translateY(-2px)}
 .logiciels-jeu-lien:focus-visible{outline:3px solid #277f85;outline-offset:3px}
 @media(max-width:750px){.logiciels-jeu{flex-direction:column;align-items:stretch;gap:20px}.logiciels-jeu-lien{width:100%}}
+
+
+/* ENSEIGNEMENT : refonte éditoriale du 16 octobre 2026
+ * Retirer l'effet catalogue de cartes et les pictogrammes sans valeur informative.
+ * Seuls les sélecteurs de la salle Enseignement sont modifiés. */
+.enseignement,.enseignement .colonne-outils,.enseignement .rubriques,.enseignement .rubrique-corps,.enseignement .rubrique-contenu{min-width:0;max-width:100%;overflow-wrap:normal}
+.enseignement .rubriques[data-navigation=atelier]{grid-template-columns:minmax(182px,210px) minmax(0,1fr);column-gap:clamp(22px,2.5vw,40px);width:100%;container-type:normal}
+.enseignement .rubriques[data-navigation=atelier] .rubriques-console{border:0;border-right:1px solid #d8e3de;border-radius:0;box-shadow:none;background:none;padding:11px 13px 18px 0;top:92px}
+.enseignement .rubriques[data-navigation=atelier] .rubriques-console-tete{padding:0 5px;font-size:10px}
+.enseignement .rubriques[data-navigation=atelier] .rubriques-progression{height:2px;margin:14px 5px 14px}
+.enseignement .rubriques[data-navigation=atelier] .rubriques-nav{max-height:none;overflow-y:visible;gap:0;padding:0}
+.enseignement .rubriques[data-navigation=atelier] .rubriques-nav button,
+.enseignement .rubriques[data-navigation=atelier] .rubriques-nav button[aria-selected=true],
+.enseignement .rubriques[data-navigation=atelier] .rubriques-nav button:hover{display:flex;gap:9px;min-height:44px;height:auto;width:100%;padding:10px 5px;border:0;border-top:0;border-radius:0;background:transparent;box-shadow:none;transform:none}
+.enseignement .rubriques[data-navigation=atelier] .rubriques-nav button{border-bottom:1px solid #e4ebe7}
+.enseignement .rubriques[data-navigation=atelier] .rubriques-nav button:hover{background:#eef4f2}
+.enseignement .rubriques[data-navigation=atelier] .rubriques-nav button[aria-selected=true]{border-bottom:1px solid #9bbab0;box-shadow:inset 2px 0 #2d756f;color:#143f52;background:#eaf2ee}
+.enseignement .rubriques[data-navigation=atelier] .rubriques-nav button .rubrique-icone,
+.enseignement .rubriques[data-navigation=atelier] .rubriques-nav button .rubrique-direction{display:none}
+.enseignement .rubriques[data-navigation=atelier] .rubrique-etape{font-size:10px;letter-spacing:.08em;color:#638079}
+.enseignement .rubriques[data-navigation=atelier] .rubrique-libelle strong{font-size:12.5px;font-weight:560;line-height:1.45;hyphens:none;overflow-wrap:break-word}
+.enseignement .rubriques[data-navigation=atelier]>.rubrique-corps{min-width:0;max-width:100%;padding:clamp(15px,2.3vw,32px);border:0;border-radius:0;background:#fff;box-shadow:none}
+.enseignement .rubrique-entete{padding-bottom:14px;margin-bottom:30px;border-color:#d9e3e1}
+.enseignement .rubrique-entete bdi{border:0;background:transparent;color:#27695f;width:auto;padding:0 5px}
+.enseignement .rubriques-pagination>button{background:transparent!important;border:0;border-radius:0;box-shadow:none;padding:10px 0}
+.enseignement .rubriques-pagination>button:hover{text-decoration:underline;background:none}
+.enseignement .rubriques-pagination{border-color:#dce5e0}
+.enseignement .rubrique-contenu,.enseignement .rubrique-contenu>*,.enseignement .atelier-pratique,.enseignement .pedago-vitrine{width:100%;max-width:100%;min-width:0}
+.enseignement .rubrique-contenu p,.enseignement .rubrique-contenu li,.enseignement .rubrique-contenu td,.enseignement .rubrique-contenu th{text-align:start!important;text-justify:auto!important;word-spacing:normal!important;hyphens:none;overflow-wrap:break-word}
+.enseignement .rubrique-contenu p{line-height:1.72}
+.enseignement .rubrique-contenu .enseignement-essai{max-width:830px}
+.enseignement .enseignement-essai p{font-size:clamp(15px,1.15vw,17px);line-height:1.82}
+.enseignement .enseignement-ponts{grid-template-columns:1fr;gap:0;max-width:930px}
+.enseignement .enseignement-ponts article{background:transparent;border:0;border-top:1px solid var(--line);border-radius:0;padding:19px 0}
+.enseignement .enseignement-ponts .enseignement-repere,.enseignement .enseignement-sequence .enseignement-repere{display:none}
+.enseignement .enseignement-sequence{border:0;border-radius:0}
+.enseignement .enseignement-sequence header{background:#edf3f0;color:var(--ink);padding:24px}
+.enseignement .enseignement-sequence header .surtitre{color:#256d62}
+.enseignement .enseignement-sequence ol{grid-template-columns:repeat(2,minmax(0,1fr));border-inline-start:1px solid var(--line)}
+.enseignement .enseignement-sequence li{padding:18px 23px;border-bottom:1px solid var(--line);border-top:0}
+.enseignement .enseignement-sequence li:nth-child(2n){border-inline-start:0}
+
+/* Atelier 06 : quatre blocs compressés à l'origine => prose ample, progression lisible. */
+.enseignement .atelier-pratique{max-width:920px;margin-inline:0}
+.enseignement .atelier-pratique>.atelier-figure{display:none}
+.enseignement .atelier-pratique>header{border:0;border-block:1px solid #d3e2dc;border-radius:0;background:#f7faf8;padding:25px 18px}
+.enseignement .atelier-chaine{grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin:28px 0 48px;border-top:1px solid #bed2c9}
+.enseignement .atelier-chaine li{border:0;border-bottom:1px solid #bed2c9;border-radius:0;background:transparent;padding:20px 24px 24px 0}
+.enseignement .atelier-chaine li:nth-child(2n){padding-inline-start:24px;border-inline-start:1px solid #bed2c9}
+.enseignement .atelier-chaine li::after{display:none}
+.enseignement .atelier-chaine li>span{font:500 12px/1.4 var(--sans)}
+.enseignement .atelier-chaine h4{font:600 18px/1.4 var(--serif);margin:10px 0 7px}
+.enseignement .atelier-chaine p{font-size:15px;line-height:1.68;margin:0;max-width:42ch}
+.enseignement .atelier-essais{gap:0;max-width:830px}
+.enseignement .atelier-essais>section{padding:22px 0;border-inline-start:0;border-bottom:1px solid var(--line)}
+.enseignement .atelier-essais h4{font:400 clamp(23px,2.3vw,29px)/1.3 var(--serif)}
+.enseignement .atelier-essais p{font-size:clamp(15px,1.15vw,17px)}
+.enseignement .atelier-cas{border:1px solid #d3e2de;border-radius:0;padding:clamp(18px,2vw,28px);background:#fff}
+.enseignement .atelier-choix{border-bottom:1px solid #cadbd5;gap:15px}
+.enseignement .atelier-choix button,.enseignement .atelier-choix button[aria-selected=true]{border:0;border-radius:0;box-shadow:none;background:transparent;color:var(--ink);padding:12px 0;flex-basis:155px;font-weight:550}
+.enseignement .atelier-choix button[aria-selected=true]{border-bottom:3px solid #286d5c;font-weight:700}
+.enseignement .atelier-reponse>div{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+/* Document de lecture : photographie sourcée et véritable typographie éditoriale. */
+.enseignement .pedago-edition-2026{--ped-vert:#276b61;max-width:1100px;margin:0 auto}
+.enseignement .pedago-edition-2026 .pedago-introduction{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);align-items:start;gap:clamp(24px,3vw,42px);margin:0 0 42px}
+.enseignement .pedago-edition-2026 .pedago-introduction-texte{padding:12px 0 0}
+.enseignement .pedago-edition-2026 .pedago-introduction h3{font:400 clamp(30px,3vw,43px)/1.15 var(--serif);letter-spacing:-.025em;color:#143e50;margin:12px 0 22px}
+.enseignement .pedago-metadata{font-size:11px;letter-spacing:.11em;font-weight:700;color:#286b60}
+.enseignement .pedago-introduction-texte>p:not(.pedago-metadata){max-width:67ch;font-size:15.5px;line-height:1.8}
+.enseignement .pedago-precision{padding:15px 0;border-top:1px solid #ccdcd7;color:#56736f;font-size:13px!important;margin-top:20px}
+.enseignement .pedago-photo{margin:0;min-width:0}
+.enseignement .pedago-photo img{width:100%;height:auto;aspect-ratio:1.36;object-fit:cover;object-position:center;border-radius:0;box-shadow:none}
+.enseignement .pedago-photo figcaption{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 18px;margin:10px 0 0;color:#5b7377;font-size:11px;line-height:1.5}
+.enseignement .pedago-photo figcaption span:first-child{max-width:50ch}
+.enseignement .pedago-photo figcaption a{color:inherit}
+.enseignement .pedago-principes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;border-block:1px solid #cadbd5;padding:25px 0;margin:30px 0 8px}
+.enseignement .pedago-principes section{border:0;border-inline-start:1px solid #cadbd5;padding:0 14px 0 20px;background:transparent}
+.enseignement .pedago-principes section:first-child{border-inline-start:0;padding-inline-start:0}
+.enseignement .pedago-principes h4{margin:0 0 6px;font:600 18px/1.3 var(--serif)}
+.enseignement .pedago-principes p{font-size:14px;margin:0}
+.enseignement .pedago-edition{border:0;border-top:1px solid #d9e3de;padding:48px 0 54px;max-width:100%}
+.enseignement .pedago-chapitre-entete{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:start;margin:0 0 18px}
+.enseignement .pedago-chapitre-index{font:500 12px/2 var(--sans);color:#567870;padding-top:6px}
+.enseignement .pedago-chapitre-entete h3{font:400 clamp(25px,2.6vw,34px)/1.2 var(--serif);max-width:30ch;margin:0;letter-spacing:-.014em}
+.enseignement .pedago-edition>p{max-width:78ch;font-size:clamp(15px,1.15vw,17px)}
+.enseignement .pedago-processus{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;margin:30px 0 0;padding:0;border-block:1px solid #bad2cc}
+.enseignement .pedago-processus li{display:block;padding:19px 15px 18px 0;border:0;border-inline-start:1px solid #d7e5e0;background:transparent;border-radius:0}
+.enseignement .pedago-processus li:first-child{border-inline-start:0}
+.enseignement .pedago-processus li:not(:first-child){padding-inline-start:15px}
+.enseignement .pedago-processus-ordre{display:block;color:#467b70;font-size:12px;margin-bottom:15px}
+.enseignement .pedago-processus h4{font:600 17px/1.3 var(--serif)}
+.enseignement .pedago-processus p{font-size:13px;line-height:1.58;margin:0}
+.enseignement .pedago-table-scroll{border:0;border-block:1px solid #cadbd5;border-radius:0}
+.enseignement .pedago-table{min-width:700px;font-size:13px}
+.enseignement .pedago-table thead{background:#eaf1ee;color:#174558}
+.enseignement .pedago-table thead th{color:#174558;border-bottom:1px solid #b5cec4;font-size:12px}
+.enseignement .pedago-table th,.enseignement .pedago-table td{padding:16px 13px}
+.enseignement .pedago-table tbody tr:nth-child(even){background:#f6f9f7}
+.enseignement .pedago-choix{grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-bottom:1px solid #bccfc7}
+.enseignement .pedago-choix button,.enseignement .pedago-choix button[aria-selected=true]{min-height:58px;border:0;border-radius:0;box-shadow:none;background:transparent;color:#244957;padding:14px 10px;font-weight:550}
+.enseignement .pedago-choix button[aria-selected=true]{color:#174e48;border-bottom:3px solid #2c7466;font-weight:700}
+.enseignement .pedago-choix button:not([aria-selected=true]):hover{background:#f1f6f4}
+.enseignement .pedago-cas-panel{grid-template-columns:repeat(3,minmax(0,1fr));border:0;border-radius:0;background:#fff}
+.enseignement .pedago-cas-panel section{padding:23px 20px;border-block:0;border-inline-start:1px solid #dce6e1}
+.enseignement .pedago-cas-panel section:first-child{padding-inline-start:0;border-inline-start:0}
+.enseignement .pedago-cas-panel section:last-child{border-bottom:0}
+.enseignement .pedago-cas-panel h4{font:650 12px/1.5 var(--sans);color:#33685e;text-transform:uppercase;letter-spacing:.05em}
+.enseignement .pedago-cas-panel p{font-size:14px}
+.enseignement .pedago-resultats{background:#f6f9f8;padding:36px clamp(14px,2.5vw,32px);margin:12px 0 20px;border:0}
+.enseignement .pedago-nombres{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:24px 0 28px;padding:0}
+.enseignement .pedago-nombres p{margin:0;padding:0 14px 0 0;background:transparent;border:0}
+.enseignement .pedago-nombres strong{display:block;font:400 clamp(27px,3vw,42px)/1.1 var(--serif);color:#154456;margin:0 0 6px}
+.enseignement .pedago-nombres span{font-size:12px;color:#5c7676;display:block;max-width:22ch}
+.enseignement .pedago-graphique{margin:0;padding:22px 0 0;border:0;border-top:1px solid #cbded5;background:transparent}
+.enseignement .pedago-graphique figcaption{font-weight:650;margin-bottom:18px}
+.enseignement .pedago-graph-ligne{display:grid;grid-template-columns:minmax(110px,1.1fr) minmax(120px,2fr) 35px;gap:14px;align-items:center;margin-bottom:14px;font-size:13px}
+.enseignement .pedago-graph-piste{height:18px;background:#dfeae6;overflow:hidden;position:relative}
+.enseignement .pedago-graph-piste span{display:block;width:calc(var(--val)*100%);height:100%;background:#3e7874}
+.enseignement .pedago-graph-ligne:nth-child(2) .pedago-graph-piste span{background:#aa865a}
+.enseignement .pedago-graph-ligne strong{font-size:13px}
+.enseignement .pedago-legende{font-size:12px;border-top:1px solid #d1e1dc;padding-top:13px;margin:18px 0 0}
+.enseignement .pedago-cadres-editoriaux{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:23px;margin:25px 0}
+.enseignement .pedago-cadres-editoriaux section{border-inline-start:1px solid #d1dfda;padding-inline-start:18px}
+.enseignement .pedago-cadres-editoriaux h4{font:600 19px/1.4 var(--serif)}
+.enseignement .pedago-cadres-editoriaux p{font-size:14px}
+.enseignement .pedago-source{font-size:12px!important;color:#5c726e;line-height:1.6!important;overflow-wrap:anywhere}
+.enseignement .pedago-source a,.enseignement .pedago-publication-source a,.enseignement .pedago-references a{color:#246e64;text-decoration:underline;text-underline-offset:3px}
+.enseignement .pedago-publications{border-top:1px solid #d0e0d9;margin-top:27px}
+.enseignement .pedago-publications article{display:grid;grid-template-columns:minmax(170px,.75fr) minmax(0,1.25fr);gap:22px;border-bottom:1px solid #d0e0d9;padding:24px 0}
+.enseignement .pedago-publications article:nth-child(2n){background:#f8faf9}
+.enseignement .pedago-publication-source h4{font:600 18px/1.3 var(--serif)}
+.enseignement .pedago-publication-source p{font-size:12px}
+.enseignement .pedago-publications article>div:nth-child(2)>p{margin:0 0 12px;font-size:14px}
+.enseignement .pedago-publications .pedago-reserve{border-inline-start:2px solid #b5a081;padding-inline-start:13px;font-size:12px!important;color:#627570}
+.enseignement .pedago-correspondances{border-block:1px solid #c6d8d0;margin:24px 0}
+.enseignement .pedago-correspondances section{display:grid;grid-template-columns:minmax(155px,1fr) minmax(0,1.4fr) minmax(0,1.2fr);gap:18px;padding:17px 0;border-bottom:1px solid #dce7e1}
+.enseignement .pedago-correspondances section:last-child{border-bottom:0}
+.enseignement .pedago-correspondances h4{font:600 17px/1.4 var(--serif);margin:0}
+.enseignement .pedago-correspondances p{font-size:13px;margin:0}
+.enseignement .pedago-preuve-observable{font-weight:600;color:#38675f}
+.enseignement .pedago-progression-editoriale{list-style:none;padding:0;margin:24px 0;border-block:1px solid #c5dad2}
+.enseignement .pedago-progression-editoriale li{display:grid;grid-template-columns:34px minmax(100px,1fr) minmax(0,2fr);gap:16px;align-items:start;padding:20px 0;border-bottom:1px solid #dce6e2}
+.enseignement .pedago-progression-editoriale li:last-child{border-bottom:0}
+.enseignement .pedago-progression-editoriale li>span{font-size:12px;color:#5e8175}
+.enseignement .pedago-progression-editoriale h4{font:600 19px/1.3 var(--serif);margin:0}
+.enseignement .pedago-progression-editoriale p{font-size:14px;margin:0}
+.enseignement .pedago-limites-editoriales{columns:2;column-gap:37px;border-top:1px solid #cedfd7;padding-top:25px;margin-top:23px}
+.enseignement .pedago-limites-editoriales section{break-inside:avoid;margin-bottom:24px}
+.enseignement .pedago-limites-editoriales h4{font:600 18px/1.3 var(--serif);margin-bottom:6px}
+.enseignement .pedago-limites-editoriales p{font-size:14px}
+.enseignement .pedago-references{font-size:12px;line-height:1.8;padding-top:18px;border-top:1px solid var(--line);overflow-wrap:anywhere}
+@media(max-width:1290px){
+ .enseignement .rubriques[data-navigation=atelier]{grid-template-columns:minmax(176px,190px) minmax(0,1fr);gap:15px}
+ .enseignement .pedago-edition-2026 .pedago-introduction{grid-template-columns:minmax(0,1fr)}
+ .enseignement .pedago-photo img{aspect-ratio:2/1;max-height:410px}
+ .enseignement .pedago-processus{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .enseignement .pedago-processus li:nth-child(4){border-inline-start:0;padding-inline-start:0}
+ .enseignement .pedago-processus li{border-bottom:1px solid #d7e5e0}
+ .enseignement .pedago-correspondances section{grid-template-columns:minmax(0,.8fr) minmax(0,1fr)}
+ .enseignement .pedago-correspondances section .pedago-preuve-observable{grid-column:2}
+}
+@media(max-width:1099px){
+ .enseignement .rubriques[data-navigation=atelier]{display:block;max-width:100%}
+ .enseignement .rubriques[data-navigation=atelier] .rubriques-console{position:relative;top:auto;margin-bottom:16px;border:0;border-bottom:1px solid var(--line);padding:10px 0 14px}
+ .enseignement .rubriques[data-navigation=atelier] .rubriques-nav{display:flex;flex-direction:row;flex-wrap:nowrap;max-height:none;overflow-x:auto;overflow-y:hidden;gap:5px}
+ .enseignement .rubriques[data-navigation=atelier] .rubriques-nav button{flex:0 0 168px;max-width:168px;min-height:48px;padding:9px}
+ .enseignement .rubriques[data-navigation=atelier]>.rubrique-corps{padding:18px 2px}
+ .enseignement .rubriques[data-navigation=atelier] .rubriques-nav button[aria-selected=true]{border-bottom:2px solid #30786b}
+}
+@media(max-width:720px){
+ .enseignement .pedago-principes,.enseignement .pedago-processus,.enseignement .pedago-cadres-editoriaux,.enseignement .pedago-nombres{grid-template-columns:1fr}
+ .enseignement .pedago-principes{gap:13px}
+ .enseignement .pedago-principes section{border-inline:0;border-bottom:1px solid var(--line);padding:0 0 12px}
+ .enseignement .pedago-processus li{border-inline-start:0;padding-inline-start:0}
+ .enseignement .pedago-choix{grid-template-columns:1fr}
+ .enseignement .pedago-cas-panel{grid-template-columns:1fr}
+ .enseignement .pedago-cas-panel section{padding:15px 0;border:0;border-bottom:1px solid var(--line)}
+ .enseignement .pedago-publications article,.enseignement .pedago-correspondances section{grid-template-columns:1fr;gap:9px}
+ .enseignement .pedago-correspondances section .pedago-preuve-observable{grid-column:1}
+ .enseignement .pedago-progression-editoriale li{grid-template-columns:26px 1fr;gap:7px}
+ .enseignement .pedago-progression-editoriale li p{grid-column:2}
+ .enseignement .pedago-limites-editoriales{columns:1}
+ .enseignement .atelier-chaine{grid-template-columns:1fr}
+ .enseignement .atelier-chaine li:nth-child(2n){padding-inline-start:0;border-inline-start:0}
+ .enseignement .atelier-reponse>div{grid-template-columns:1fr}
+ .enseignement .enseignement-sequence ol{grid-template-columns:1fr}
+}
+@media(forced-colors:active){.enseignement .rubriques[data-navigation=atelier] button[aria-selected=true]{outline:2px solid Highlight}}
