@@ -20,7 +20,7 @@ const color={orange:0xf36633,cream:0xf0efed,ink:0x151515,teal:0x286d5c,stone:0x7
 export function createAdventureWorld(T,canvas,opts={}){
  const choose=key=>PLACES.find(p=>p.id===key)||PLACES[0];
  let room="university",scene,camera,renderer,group,player,eric;
- let last=0,lastNavigation=0,clock=0,modelX=0,modelZ=7,busy=false,auto=null,actors=[],targets=[],clickables=[],particles=[],chasers=[],collectibles=[],hitCooldown=0,activeTarget=null,controls=opts.keys||new Set();
+ let last=0,lastNavigation=0,clock=0,modelX=0,modelZ=7,cameraYaw=0,cameraPitch=.28,cameraDistance=8.3,dragView=null,busy=false,auto=null,actors=[],targets=[],clickables=[],particles=[],chasers=[],collectibles=[],hitCooldown=0,activeTarget=null,controls=opts.keys||new Set();
  let skate={balance:0,clock:0,falls:0,completed:false,started:false,lastReport:0,gateIndex:0,gates:[],velocityX:0,velocityZ:0};
  const mat=(hex,metal=.05,rough=.65,glow=0)=>new T.MeshStandardMaterial({color:hex,metalness:metal,roughness:rough,emissive:glow?hex:0,emissiveIntensity:glow});
  // Art-directed PBR surface maps, generated deterministically in-browser.
@@ -508,9 +508,11 @@ const cast=[
   renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;
   scene=new T.Scene();camera=new T.PerspectiveCamera(62,1,.1,145);
   eric=createEricAvatar(T,{portraitUrl:"../assets/portrait.jpg",onReady:()=>opts.onAvatarReady?.()});
-  player=eric.group;scene.add(player);
+  player=eric.group;player.rotation.y=Math.PI;scene.add(player);
   visit("university",true);resize();requestAnimationFrame(tick);
+  canvas.addEventListener("contextmenu",ev=>ev.preventDefault());
   canvas.addEventListener("pointerdown",ev=>{
+   if(ev.button===2){dragView={x:ev.clientX,y:ev.clientY};canvas.setPointerCapture?.(ev.pointerId);return;}
    if(opts.isPaused?.())return;
    const bounds=canvas.getBoundingClientRect(),v=new T.Vector2((ev.clientX-bounds.left)/bounds.width*2-1,-(ev.clientY-bounds.top)/bounds.height*2+1),ray=new T.Raycaster();ray.setFromCamera(v,camera);
    const hits=ray.intersectObjects(targets.map(t=>t.ring),true);
@@ -519,7 +521,15 @@ const cast=[
    while(g&&!targets.find(t=>t.ring===g))g=g.parent;
    const target=targets.find(t=>t.ring===g);if(target)auto={x:target.x,z:target.z};
   });
-  canvas.addEventListener("webglcontextlost",ev=>{ev.preventDefault();opts.onNarrate?.("Le moteur graphique a été interrompu. Recharge la page pour réessayer.");});
+  canvas.addEventListener("pointermove",ev=>{
+   if(!dragView)return;
+   cameraYaw+=(ev.clientX-dragView.x)*.0044;
+   cameraPitch=Math.max(.10,Math.min(.56,cameraPitch+(ev.clientY-dragView.y)*.0022));
+   dragView={x:ev.clientX,y:ev.clientY};
+  });
+  for(const name of ["pointerup","pointercancel","lostpointercapture"])canvas.addEventListener(name,()=>{dragView=null;});
+  canvas.addEventListener("wheel",ev=>{ev.preventDefault();cameraDistance=Math.max(4.8,Math.min(12.8,cameraDistance+Math.sign(ev.deltaY)*.60));},{passive:false});
+    canvas.addEventListener("webglcontextlost",ev=>{ev.preventDefault();opts.onNarrate?.("Le moteur graphique a été interrompu. Recharge la page pour réessayer.");});
  }
  function resize(){if(!renderer)return;const w=canvas.clientWidth,h=canvas.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);camera.aspect=w/h;camera.fov=w<600?69:62;camera.updateProjectionMatrix();}
  function goToHotspot(){
@@ -547,7 +557,10 @@ const cast=[
    let dx=Number(controls.has("ArrowRight")||controls.has("KeyD"))-Number(controls.has("ArrowLeft")||controls.has("KeyA")||controls.has("KeyQ"));
    let dz=Number(controls.has("ArrowDown")||controls.has("KeyS"))-Number(controls.has("ArrowUp")||controls.has("KeyW")||controls.has("KeyZ"));
    if(auto&&!dx&&!dz){dx=auto.x-modelX;dz=auto.z-modelZ;if(Math.hypot(dx,dz)<.78){dx=dz=0;auto=null;}}
-   else if(dx||dz)auto=null;
+   else if(dx||dz){auto=null;
+    const right=dx,forward=dz;dx=right*Math.cos(cameraYaw)+forward*Math.sin(cameraYaw);
+    dz=-right*Math.sin(cameraYaw)+forward*Math.cos(cameraYaw);
+   }
    const d=Math.hypot(dx,dz),run=controls.has("ShiftLeft")||controls.has("ShiftRight");
    let moveVX=0,moveVZ=0;
    if(room==="rink"){
@@ -572,8 +585,12 @@ const cast=[
    const walking=Math.hypot(moveVX,moveVZ)>.14;
    eric.setPosition(modelX,0,modelZ);
    eric.update(dt,ts,{x:moveVX,z:moveVZ},room);
-   camera.position.lerp(new T.Vector3(modelX,room==="rink"?5.7:5.7,modelZ+10.5),Math.min(1,dt*3.7));
-   camera.lookAt(modelX,1.5,modelZ-3.4);
+   // Third-person pursuit camera; the player remains readable while the next section of the arena stays visible.
+   const lookAhead=room==="rink"?5.8:4.1;
+   const followX=modelX+Math.sin(cameraYaw)*cameraDistance,followZ=modelZ+Math.cos(cameraYaw)*cameraDistance;
+   const centerX=modelX-Math.sin(cameraYaw)*lookAhead,centerZ=modelZ-Math.cos(cameraYaw)*lookAhead;
+   camera.position.lerp(new T.Vector3(followX,1.75+Math.sin(cameraPitch)*cameraDistance,followZ),Math.min(1,dt*5.8));
+   camera.lookAt(centerX,1.30,centerZ);
    
    for(const npc of actors){
     npc.body.position.x=npc.x+Math.sin(clock*.72+npc.sway)*npc.move*.46;
@@ -657,5 +674,5 @@ const cast=[
   renderer.render(scene,camera);
  }
  boot();
- return {visit,resize,goToHotspot,setPaused:()=>{},get room(){return room;},get skate(){return {...skate};},get targets(){return targets.map(t=>({id:t.id,label:t.label}));},get ready(){return true;}};
+ return {visit,resize,goToHotspot,resetCamera:()=>{cameraYaw=0;cameraPitch=.28;cameraDistance=8.3;},setPaused:()=>{},get room(){return room;},get skate(){return {...skate};},get targets(){return targets.map(t=>({id:t.id,label:t.label}));},get ready(){return true;}};
 }
