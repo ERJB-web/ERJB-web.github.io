@@ -179,6 +179,23 @@
   };
   if ($('.vs-screen')){updateSlide();$('.vs-stage-prev').addEventListener('click',()=>{slide=Math.max(0,slide-1);updateSlide();});$('.vs-stage-next').addEventListener('click',()=>{slide=Math.min(4,slide+1);updateSlide();});}
 
+  /* Vidéo officielle : chargement différé et déclenché par l'utilisateur. */
+  const watchLabel={fr:'Regarder cette vidéo',en:'Watch this video',es:'Ver este vídeo',zh:'观看视频',ar:'مشاهدة الفيديو',ru:'Посмотреть видео'};
+  const watchNote={fr:'OMS, Science in 5, « Future of Health » (2022). Le lecteur YouTube n’est chargé qu’après votre clic. Les sous-titres disponibles sont gérés par YouTube.',en:'WHO, Science in 5, “Future of Health” (2022). The YouTube player loads only after you click; captions are managed by YouTube.',es:'OMS, Science in 5, « Future of Health » (2022). El reproductor de YouTube se carga al pulsar; los subtítulos dependen de YouTube.',zh:'世界卫生组织 Science in 5《Future of Health》（2022）。点击后才加载 YouTube 播放器；字幕由 YouTube 提供。',ar:'منظمة الصحة العالمية، Science in 5، «Future of Health» (2022). لا يُحمَّل مشغّل يوتيوب إلا بعد النقر، وتدير يوتيوب الترجمات.',ru:'ВОЗ, Science in 5, «Future of Health» (2022). Проигрыватель YouTube загружается только после нажатия; субтитры доступны на YouTube.'};
+  const youtubeUrl='https://www.youtube.com/watch?v=J4tTzjFEECE';
+  const videoShell=h('section','vs-video','<div class="vs-video-copy"><span class="vs-kicker">05 / VIDEO</span><h4>WHO · Science in 5</h4><p>'+escape(t.media[0][2])+'</p><p class="vs-micro">'+escape(watchNote[lang]||watchNote.fr)+'</p><button type="button" class="vs-video-play">'+escape(watchLabel[lang]||watchLabel.fr)+' ▶</button><a href="'+youtubeUrl+'" target="_blank" rel="noopener noreferrer">YouTube ↗</a></div><div class="vs-video-preview"><div class="vs-video-poster" aria-hidden="true"><span>▶</span><b>WORLD HEALTH ORGANIZATION</b><small>Science in 5 · Future of Health</small></div></div>');
+  if(panel(3)&&$('.vs-studio')){
+    $('.vs-studio').after(videoShell);
+    $('.vs-video-play').addEventListener('click',()=>{
+      const frame=document.createElement('iframe');
+      frame.src='https://www.youtube-nocookie.com/embed/J4tTzjFEECE?rel=0';
+      frame.title='WHO Science in 5: Future of Health (2022)';
+      frame.loading='lazy';frame.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';frame.allowFullscreen=true;
+      $('.vs-video-preview').replaceChildren(frame);
+      $('.vs-video-play').disabled=true;
+    });
+  }
+
   const trust = h('section','vs-trust','<h4>' + escape(t.trustTitle) + '</h4><div>' + t.trustSteps.map((v,i)=>'<article><b>0'+(i+1)+'</b><strong>'+escape(v)+'</strong><p>'+escape(t.trustNotes[i])+'</p></article>').join('')+'</div>');
   if(panel(4))panel(4).append(trust);
 
