@@ -70,7 +70,7 @@ export function createHockeyGame(T, stage, eric, hooks={}){
   const piece=mesh(stage,new T.IcosahedronGeometry(.026+(i%3)*.010,0),white,0,-20,0);
   snow.push({piece,life:0,vx:0,vy:0,vz:0});
  }
- let checks=0,interceptions=0;
+ let checks=0,interceptions=0,lastCarve=0;
  let p={x:0,z:-2,vx:0,vz:0,y:.16,vy:0,spin:0,owned:false},gl={x:0,target:0,pose:0,saveTime:0,saveSide:1},score=0,shots=0,saves=0,misses=0,clock=0,charge=0,shotHeld=false,goalPause=0,fallTime=0,fallCount=0,completed=false,status="ENGAGEMENT",recovery=0,hitTimer=0,active=true;
  const PUCK_R=.13,GOAL_Z=-26.45;
  function emitSnow(x,z,count=10,power=1){
@@ -117,6 +117,10 @@ export function createHockeyGame(T, stage, eric, hooks={}){
   if(!active)return statusHud();
   dt=clamp(dt,0,.055);clock+=dt;
   const speed=Math.hypot(player.vx||0,player.vz||0);
+  if(speed>4.2&&fallTime<=0&&clock-lastCarve>.115){
+   lastCarve=clock;
+   emitSnow(player.x-.16,player.z+.26,speed>7?5:3,Math.min(1.1,speed/9));
+  }
   if(fallTime>0){fallTime=Math.max(0,fallTime-dt);eric.setFall?.(fallTime/1.8);if(fallTime<=0){status="DEBOUT · REPRENDS LA RONDELLE";}}
   else eric.setFall?.(0);
   if(recovery>0)recovery=Math.max(0,recovery-dt);
