@@ -93,7 +93,7 @@ export function createAdventureWorld(T,canvas,opts={}){
   shape(new T.IcosahedronGeometry(.35,1),mat([color.orange,0xa3e4c1,0x9fd7e8][index%3],.4,.22,.65),0,0,0,g);
   const tor=shape(new T.TorusGeometry(.57,.046,8,32),M.white,0,-.35,0,g);tor.rotation.x=Math.PI/2;
   const t=sign(label,0,1.03,0,2.6,.43,g);
-  collectibles.push({id:room+"-"+index,label,group:g,x,z,taken:false});
+  collectibles.push({id:room+"-"+index,label,group:g,x,z,t,taken:false});
 }
 function pursuer(name,x,z,speed=2.7){
   const g=new T.Group();g.position.set(x,0,z);group.add(g);
