@@ -68,12 +68,19 @@ function choiceStage(c){
  resolution(ok,tr(o.why),o.delta,o.flags);
  };
 }
+function networkGraph(chosen){
+ const points=[[38,138],[150,45],[260,93],[366,187],[250,252]];
+ const titles=["AÎNÉS","CLSC","OC","ORG.","RÉPERT."];
+ const pairs=[[0,1],[1,2],[2,3],[1,4],[0,4]];
+ const edges=[...chosen].map(i=>{const [a,b]=pairs[i];return '<line x1="'+points[a][0]+'" y1="'+points[a][1]+'" x2="'+points[b][0]+'" y2="'+points[b][1]+'" stroke="'+(i<3?"#96ffde":"#ff9c91")+'" stroke-width="5" stroke-linecap="round" opacity=".85"/>';}).join("");
+ return '<div class="network-box"><svg viewBox="0 0 410 290" role="img" aria-label="'+msg("Réseau interactif : les lignes apparaissent quand les relations sont sélectionnées.","Interactive network: lines appear as relationships are selected.")+'"><defs><radialGradient id="netHalo"><stop stop-color="#336c79"/><stop offset="1" stop-color="#112333"/></radialGradient></defs><g id="diagramLines">'+edges+'</g>'+points.map(([xx,yy],i)=>'<g><circle cx="'+xx+'" cy="'+yy+'" r="30" fill="url(#netHalo)" stroke="#b1ffe4" stroke-width="2"/><circle cx="'+xx+'" cy="'+yy+'" r="23" fill="#173448" stroke="#ffffff40" stroke-width="1"/><text x="'+xx+'" y="'+(yy+4)+'" fill="#e4fff9" font-size="10" font-family="sans-serif" font-weight="bold" text-anchor="middle">'+titles[i]+'</text></g>').join("")+'</svg></div>';
+}
 function multiStage(c){
  const chosen=new Set();
  const details=(title,text)=>'<strong>'+safe(title)+'</strong><span>'+safe(text)+'</span>';
- show(msg("ENQUÊTE & SÉLECTION","INVESTIGATION & SELECTION"),'<h2>'+safe(tr(c.title))+'</h2><p class="lead">'+safe(tr(c.prompt))+'</p><div class="cards-grid">'+c.items.map((v,i)=>'<button type="button" class="source-card" data-item="'+i+'" aria-pressed="false"><em>'+String(i+1).padStart(2,"0")+'</em>'+details(tr(v[0]),tr(v[1]))+'</button>').join("")+'</div><p class="micro" id="chosenCount">0 / '+c.correct+'</p>');
+ show(msg("ENQUÊTE & SÉLECTION","INVESTIGATION & SELECTION"),'<h2>'+safe(tr(c.title))+'</h2><p class="lead">'+safe(tr(c.prompt))+'</p>'+(c.zone==="network"?networkGraph(chosen):"") + '<div class="cards-grid">'+c.items.map((v,i)=>'<button type="button" class="source-card" data-item="'+i+'" aria-pressed="false"><em>'+String(i+1).padStart(2,"0")+'</em>'+details(tr(v[0]),tr(v[1]))+'</button>').join("")+'</div><p class="micro" id="chosenCount">0 / '+c.correct+'</p>');
  for(const b of el("modalContent").querySelectorAll("[data-item]"))b.onclick=()=>{
- const n=+b.dataset.item;if(chosen.has(n))chosen.delete(n);else if(chosen.size<c.correct)chosen.add(n);else{notify(msg("Trois dossiers maximum.","Select three files maximum."));return;}b.classList.toggle("selected",chosen.has(n));b.setAttribute("aria-pressed",String(chosen.has(n)));el("chosenCount").textContent=chosen.size+" / "+c.correct;
+ const n=+b.dataset.item;if(chosen.has(n))chosen.delete(n);else if(chosen.size<c.correct)chosen.add(n);else{notify(msg("Trois dossiers maximum.","Select three files maximum."));return;}b.classList.toggle("selected",chosen.has(n));b.setAttribute("aria-pressed",String(chosen.has(n)));el("chosenCount").textContent=chosen.size+" / "+c.correct;if(c.zone==="network"){const wrap=el("modalContent").querySelector(".network-box");if(wrap)wrap.outerHTML=networkGraph(chosen);}
  };
  buttons([[msg("Valider les dossiers","Check selected files"),()=>{
  if(chosen.size!==c.correct){notify(msg("Il faut exactement trois choix.","Select exactly three options."));return;}
