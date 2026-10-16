@@ -77,3 +77,10 @@ body{background:#101719;color:#f0efed}
  .intro h1{font-size:clamp(41px,10vw,62px)}
  .bar-actions #musicBtn{min-width:76px}
 }
+
+
+.touch #balanceBtn{display:none}
+@media(max-width:710px){
+ .touch #balanceBtn{display:block;width:auto;min-width:128px;height:39px;margin:8px 0 0 0;padding:5px 10px;background:#245a6a;color:#fff;border:1px solid #cff2ff;border-radius:10px;font:700 11px 'Space Grotesk'}
+ .touch #balanceBtn:active,.touch #balanceBtn.pressed{background:#f36633;color:#151515}
+}
