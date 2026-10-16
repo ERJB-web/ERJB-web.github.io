@@ -19,8 +19,8 @@ export const PLACES=[
 const color={orange:0xf36633,cream:0xf0efed,ink:0x151515,teal:0x286d5c,stone:0x73868a};
 export function createAdventureWorld(T,canvas,opts={}){
  const choose=key=>PLACES.find(p=>p.id===key)||PLACES[0];
- let room="university",scene,camera,renderer,group,player,eric,actorPlane,atlasImage,spriteCanvas,spriteTex;
- let last=0,clock=0,frame=-1,modelX=0,modelZ=7,busy=false,auto=null,actors=[],targets=[],clickables=[],particles=[],chasers=[],collectibles=[],hitCooldown=0,activeTarget=null,controls=opts.keys||new Set();
+ let room="university",scene,camera,renderer,group,player,eric;
+ let last=0,clock=0,modelX=0,modelZ=7,busy=false,auto=null,actors=[],targets=[],clickables=[],particles=[],chasers=[],collectibles=[],hitCooldown=0,activeTarget=null,controls=opts.keys||new Set();
  let skate={balance:0,clock:0,falls:0,completed:false,started:false,lastReport:0};
  const mat=(hex,metal=.05,rough=.65,glow=0)=>new T.MeshStandardMaterial({color:hex,metalness:metal,roughness:rough,emissive:glow?hex:0,emissiveIntensity:glow});
  const M={
@@ -303,7 +303,7 @@ function desk(x,z,width=2.3,screen=false){
  function visit(id,initial=false){
   const next=choose(id).id;
   room=next;busy=false;auto=null;modelX=0;modelZ=9;actors=[];targets=[];clickables=[];particles=[];chasers=[];collectibles=[];hitCooldown=0;activeTarget=null;
-  if(group){scene.remove(group);group.traverse(o=>{if(o.isMesh&&o.geometry&&o!==actorPlane)o.geometry.dispose();});}
+  if(group){scene.remove(group);group.traverse(o=>{if(o.isMesh&&o.geometry&&o!==player)o.geometry.dispose();});}
   group=new T.Group();scene.add(group);
   // Studio lighting colors adapt to each location.
   const groundLight=new T.HemisphereLight(0xe7f3ef,0x153b50,2.55);group.add(groundLight);
@@ -314,14 +314,6 @@ function desk(x,z,width=2.3,screen=false){
   eric.setPosition(0,0,9);eric.setEquipment(next==="rink"?"hockey":"casual");skate.lastReport=0;
   opts.onVisit?.(next,choose(next));
   if(!initial)opts.onNarrate?.("Nouveau lieu · "+choose(next).name);
- }
- function updateSprite(walking,ts,dz){
-  if(!atlasImage?.naturalWidth)return;
-  const dir=dz>0.35?1:0;
-  const n=walking?Math.floor(ts/170)%3:1;
-  const id=dir*3+n;if(id===frame)return;frame=id;
-  const w=atlasImage.naturalWidth/3,h=atlasImage.naturalHeight/2,g=spriteCanvas.getContext("2d");
-  g.clearRect(0,0,384,580);g.drawImage(atlasImage,n*w,dir*h,w,h,0,0,384,580);spriteTex.needsUpdate=true;
  }
  function boot(){
   renderer=new T.WebGLRenderer({canvas,antialias:true,powerPreference:"high-performance"});
