@@ -1665,11 +1665,12 @@ export const methodology={
 };
 
 export function initialCareerState(){
- return {version:1,week:0,budget:45,energy:85,stress:12,rigor:32,trust:48,proof:0,completed:[],attempts:{},journal:[],family:"mixed",design:"séquentiel exploratoire",data:"données administratives et entretiens",analysis:"intégration séquentielle",paradigm:"pragmatique",theme:"Relations interorganisationnelles",population:"Personnes aînées à domicile",setting:"deux territoires contrastés",sampling:"raisonné",objectives:4,format:"Thèse par articles",articleTarget:3,novelty:false,access:false,programArticlesRequired:true,articles:0,approved:false,ending:null,repairs:0};
+ return {version:1,week:0,budget:45,energy:85,stress:12,rigor:32,trust:48,proof:0,completed:[],attempts:{},journal:[],family:"mixed",design:"séquentiel exploratoire",data:"données administratives et entretiens",analysis:"intégration séquentielle",paradigm:"pragmatique",theme:"Relations interorganisationnelles",question:"Comment les liens interorganisationnels mobilisés répondent-ils aux besoins sociaux concomitants des personnes aînées à domicile ?",population:"Personnes aînées à domicile",setting:"deux territoires contrastés",sampling:"raisonné",objectives:4,format:"Thèse par articles",articleTarget:3,novelty:false,access:false,programArticlesRequired:true,articles:0,approved:false,ending:null,repairs:0};
 }
 export function availableMilestones(st){const complete=new Set(st.completed);return milestones.filter(t=>!complete.has(t.id)&&t.requires.every(k=>complete.has(k)));}
 export function assessDesign(st){
  const fam=methodology.families.find(f=>f.id===st.family);const blockers=[],warnings=[];
+ if(!st.question||st.question.trim().length<40)blockers.push("Question de recherche trop courte ou insuffisamment délimitée.");
  if(!fam||!fam.designs.includes(st.design)||!fam.data.includes(st.data)||!fam.analysis.includes(st.analysis)||!fam.paradigms.includes(st.paradigm))blockers.push("Le paradigme, le devis, les données et les analyses doivent être articulés.");
  if(st.objectives>=6)blockers.push("Six objectifs substantiels dépassent le calendrier doctoral fictif de quatre ans.");
  else if(st.objectives>=5)warnings.push("Cinq objectifs demandent une justification des moyens et du calendrier.");
