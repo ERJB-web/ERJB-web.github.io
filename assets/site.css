@@ -2289,10 +2289,8 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
 @media(hover:none) and (pointer:coarse){.pub-format:hover,.pub-format:hover svg{transform:none}}
 @media(prefers-reduced-motion:reduce){.salle .salle-onglets,.hall.en-mobile .hall-reperes,.entete .nav{scroll-behavior:auto}}
 
-/* 2026-10-15 — Rééquilibrage du hall panoramique.
-   Une seule échelle architecturale : verrière 32 %, portes et panneaux au même
-   niveau (32 %), seuil à 86,5 %, sol visible réduit à 13,5 %.
-   Les stations conservent leur largeur et leur pas pour préserver la navigation. */
+/* Hall panoramique : rééquilibrage des dimensions uniquement.
+   Station 430px et défilement latéral inchangés. */
 @media(min-width:1000px){
   .hall.en-volume{--eb-hall-hauteur:clamp(410px,52svh,470px)}
   .hall.en-volume .hall-espace{height:var(--eb-hall-hauteur)}
@@ -2317,21 +2315,23 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
   }
   .hall.en-volume .station-hall{
     width:430px;
-    height:calc(var(--eb-hall-hauteur) * .75);
+    height:calc(var(--eb-hall-hauteur) * .78);
     bottom:calc(var(--eb-hall-hauteur) * .135);
   }
   .hall.en-volume .station-hall .porte{
-    left:10px;
-    width:148px;
-    --largeur-porte:148px;
-    height:calc(var(--eb-hall-hauteur) * .545);
+    left:12px;
+    width:176px;
+    --largeur-porte:176px;
+    height:calc(var(--eb-hall-hauteur) * .63);
   }
   .hall.en-volume .panneau-hall{
-    left:173px;
-    top:calc(var(--eb-hall-hauteur) * .205);
-    width:244px;
-    max-height:calc(var(--eb-hall-hauteur) * .535);
-    padding:12px;
+    left:200px;
+    top:calc(var(--eb-hall-hauteur) * .15);
+    bottom:auto;
+    width:214px;
+    max-height:none;
+    overflow:visible;
+    padding:10px;
     border:1px solid #c3d3cb;
     border-top:3px solid color-mix(in srgb,var(--c1) 55%,white);
     border-radius:9px;
@@ -2340,22 +2340,23 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
     backdrop-filter:blur(5px);
   }
   .hall.en-volume .panneau-hall h3{
-    margin:0 0 10px;
-    font-size:13.5px;
-    line-height:1.3;
+    margin:0 0 8px;
+    font-size:12.5px;
+    line-height:1.27;
   }
-  .hall.en-volume .panneau-hall h3 button{align-items:center;min-height:27px}
-  .hall.en-volume .panneau-hall h3 bdi{width:23px;height:23px;flex:none}
-  .hall.en-volume .sous-portes-murales{gap:6px}
+  .hall.en-volume .panneau-hall h3 button{align-items:center;min-height:26px}
+  .hall.en-volume .panneau-hall h3 bdi{width:22px;height:22px;flex:none}
+  .hall.en-volume .sous-portes-murales{gap:5px}
   .hall.en-volume .sous-portes-murales>button,
   .hall.en-volume .sous-portes-murales>a{
-    min-height:37px;
-    padding:6px 7px;
+    min-height:34px;
+    padding:4px 6px;
     border:1px solid #d5e2dc;
     border-radius:6px;
     background:rgba(255,255,255,.95);
-    font-size:11px;
-    line-height:1.32;
+    font-size:10.8px;
+    line-height:1.28;
+    overflow-wrap:anywhere;
     transition:background .18s,border-color .18s,box-shadow .18s;
   }
   .hall.en-volume .sous-portes-murales>button:hover,
