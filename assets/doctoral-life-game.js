@@ -2,7 +2,7 @@ import {milestones,initialCareerState,availableMilestones,assessDesign,checkDefe
 import {playMission,methods} from "./doctoral-life-challenges.js";
 import {createAdventureWorld,PLACES} from "./doctoral-world.js?v=14";
 import {createScore} from "./doctoral-sound.js";
-import {createHockeySfx} from "./hockey-sfx.js";
+import {createHockeySfx} from "./hockey-sfx.js?v=12";
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const KEY="doctoral-life-four-year-v1";
 const score=createScore();
