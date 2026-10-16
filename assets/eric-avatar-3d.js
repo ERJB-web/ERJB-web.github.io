@@ -138,7 +138,8 @@ export function createEricAvatar(T,options={}){
  let hasRealStick=false;
  const equipmentMounts={helmet:helmetMount,stick,leftSkate:legs[0].foot,rightSkate:legs[1].foot,
    leftGlove:arms[0].elbow,rightGlove:arms[1].elbow};
- function useStickModel(model){
+ function resetHockeyGear(){shaft.visible=true;paddle.visible=true;hasRealStick=false;}
+  function useStickModel(model){
    if(!model)return;
    shaft.visible=false;paddle.visible=false;hasRealStick=true;
    stick.add(model);model.position.set(0,-1.18,0);model.rotation.set(0,Math.PI/2,0);
@@ -182,7 +183,7 @@ export function createEricAvatar(T,options={}){
   function setPosition(x,y,z){root.position.set(x,y,z);}
  function setEquipment(equipment){stick.visible=equipment==="hockey";for(const leg of legs)leg.blade.visible=equipment==="hockey";}
  function dispose(){for(const m of meshes){m.geometry?.dispose?.();}for(const mat of [skin,dark,eyes,denim,boot,sole,metal,shirt,seam])mat.dispose?.();shirtTexture.dispose?.();faceTexture.dispose?.();}
- return {group:root,update,setPosition,setFall,setEquipment,equipmentMounts,useStickModel,dispose,get motion(){return motion;},get true3D(){return true;},get reference(){return "assets/portrait.jpg"}};
+ return {group:root,update,setPosition,setFall,setEquipment,equipmentMounts,useStickModel,resetHockeyGear,dispose,get motion(){return motion;},get true3D(){return true;},get reference(){return "assets/portrait.jpg"}};
 }
 function makeShirtTexture(T){
  const c=document.createElement("canvas");c.width=512;c.height=512;
