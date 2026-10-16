@@ -23,10 +23,58 @@ export function createAdventureWorld(T,canvas,opts={}){
  let last=0,lastNavigation=0,clock=0,modelX=0,modelZ=7,busy=false,auto=null,actors=[],targets=[],clickables=[],particles=[],chasers=[],collectibles=[],hitCooldown=0,activeTarget=null,controls=opts.keys||new Set();
  let skate={balance:0,clock:0,falls:0,completed:false,started:false,lastReport:0,gateIndex:0,gates:[],velocityX:0,velocityZ:0};
  const mat=(hex,metal=.05,rough=.65,glow=0)=>new T.MeshStandardMaterial({color:hex,metalness:metal,roughness:rough,emissive:glow?hex:0,emissiveIntensity:glow});
+ // Art-directed PBR surface maps, generated deterministically in-browser.
+ const materialMap=(kind)=>{
+  const seed=(x,y)=>{let n=(Math.imul(x+11,374761393)+Math.imul(y+17,668265263))|0;
+   n=Math.imul(n^(n>>>13),1274126177);return (n^(n>>>16))>>>0;};
+  const t=tex(512,512,(g,w,h)=>{
+   if(kind==="wood"){
+    g.fillStyle="#ab8060";g.fillRect(0,0,w,h);
+    for(let y=0;y<h;y++){
+     const wave=Math.sin(y*.044)*8+Math.sin(y*.009)*15,noise=seed(y,8)%35;
+     g.strokeStyle="rgba(62,35,21,"+(.04+noise/950)+")";g.lineWidth=1+(y%17===0?1:0);
+     g.beginPath();g.moveTo(-8,y);g.bezierCurveTo(130,y+wave,320,y-wave/2,520,y+wave);g.stroke();
+    }
+    for(let x=0;x<w;x+=128){g.strokeStyle="#4f342e4a";g.lineWidth=3;g.beginPath();g.moveTo(x,0);g.lineTo(x,h);g.stroke();}
+   }else if(kind==="brick"){
+    g.fillStyle="#655b58";g.fillRect(0,0,w,h);
+    for(let y=0;y<h;y+=57){let offset=(y/57)%2===0?0:-68;
+     for(let x=-140+offset;x<w+140;x+=136){
+      const tone=seed(x,y)%20;g.fillStyle="rgb("+(143+tone)+","+(101+tone/2)+","+(85+tone/3)+")";
+      g.fillRect(x+3,y+3,131,51);
+      g.strokeStyle="#f5d5bb12";g.lineWidth=1;g.strokeRect(x+6,y+6,125,46);
+     }
+    }
+   }else if(kind==="wall"){
+    g.fillStyle="#536a73";g.fillRect(0,0,w,h);
+    for(let i=0;i<12000;i++){
+     const x=seed(i,1)%w,y=seed(i,2)%h;
+     g.fillStyle=i%3===0?"#d0d4cb0e":"#081a2517";g.fillRect(x,y,1+(i%3),1+(i%2));
+    }
+    for(let x=0;x<w;x+=256){g.strokeStyle="#d3e4d32f";g.lineWidth=3;g.beginPath();g.moveTo(x,0);g.lineTo(x,h);g.stroke();}
+   }else if(kind==="ice"){
+    g.fillStyle="#d0ebf3";g.fillRect(0,0,w,h);
+    for(let i=0;i<1100;i++){
+     const x=seed(i,3)%w,y=seed(i,4)%h,len=7+seed(i,5)%55;
+     g.strokeStyle=i%4===0?"#6ba6b822":"#ffffff56";g.lineWidth=.7;
+     g.beginPath();g.moveTo(x,y);g.lineTo(x+len,y+(i%2?2:-3));g.stroke();
+    }
+   }
+  });
+  t.wrapS=t.wrapT=T.RepeatWrapping;t.repeat.set(2,2);
+  t.anisotropy=8;return t;
+ };
+ const woodMap=materialMap("wood"),brickMap=materialMap("brick"),wallMap=materialMap("wall"),iceMap=materialMap("ice");
+ const PBR={
+  brick:new T.MeshStandardMaterial({color:0xffffff,map:brickMap,bumpMap:brickMap,bumpScale:.012,roughness:.86,metalness:.03}),
+  wood:new T.MeshStandardMaterial({color:0xffffff,map:woodMap,bumpMap:woodMap,bumpScale:.006,roughness:.64,metalness:.03}),
+  wall:new T.MeshStandardMaterial({color:0xffffff,map:wallMap,bumpMap:wallMap,bumpScale:.007,roughness:.82,metalness:.07}),
+  ice:new T.MeshPhysicalMaterial({color:0xffffff,map:iceMap,roughness:.16,metalness:.18,clearcoat:.65,clearcoatRoughness:.08})
+ };
  const M={
-  white:mat(color.cream),dark:mat(0x18313f),wall:mat(0x30495a),blue:mat(0x17455c),wood:mat(0x9d7051),metal:mat(0x657987,.65,.27),
+  white:mat(color.cream),dark:mat(0x18313f),wall:PBR.wall,blue:mat(0x17455c),wood:PBR.wood,metal:mat(0x657987,.65,.27),
   glass:new T.MeshPhysicalMaterial({color:0x76aec1,transparent:true,opacity:.34,metalness:.1,roughness:.11,side:T.DoubleSide}),
-  neon:mat(color.orange,.3,.26,.6),green:mat(color.teal,.18,.46,.3),black:mat(0x19252c),ice:mat(0xd5eff4,.18,.18)
+  neon:mat(color.orange,.3,.26,.6),green:mat(color.teal,.18,.46,.3),black:mat(0x19252c),ice:PBR.ice
  };
  function shape(geo,material,x=0,y=0,z=0,parent=group){
   const mesh=new T.Mesh(geo,material);mesh.position.set(x,y,z);mesh.castShadow=true;mesh.receiveShadow=true;parent.add(mesh);return mesh;
@@ -165,7 +213,7 @@ const cast=[
  }}
  function university(){
   scene.background=new T.Color(0x152e43);scene.fog=new T.FogExp2(0x152e43,.012);
-  const grass=mat(0x3e6252),stone=mat(0x8b999e),brick=mat(0x9b7768);
+  const grass=mat(0x3e6252),stone=mat(0x8b999e),brick=PBR.brick;
   cube(95,.12,95,grass,0,-.1,-5);cube(12,.14,65,stone,0,0,-8);
   for(let x of [-25,25]){
    cube(15,11,19,brick,x,5.5,-17);
