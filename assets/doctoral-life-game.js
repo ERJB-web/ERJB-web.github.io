@@ -477,6 +477,17 @@ function bootNewWorld(){
  webgl=true;window.addEventListener("resize",()=>worldController?.resize());
  showPlaceButtons("university");
 }
+const fullscreenButton=$("fullScreenBtn");
+if(fullscreenButton){
+ fullscreenButton.onclick=async()=>{
+   try{if(document.fullscreenElement)await document.exitFullscreen();else await $("career").requestFullscreen();}
+   catch(e){alertGame("Le plein écran n'est pas autorisé par ce navigateur.");}
+ };
+ document.addEventListener("fullscreenchange",()=>{
+   fullscreenButton.textContent=document.fullscreenElement?"⛶ Quitter":"⛶ Plein écran";
+   worldController?.resize();
+ });
+}
 $("planBtn").onclick=()=>{if(st)roadmap();};$("designBtn").onclick=()=>{if(st)dossier();};
 $("notebookBtn").onclick=()=>{if(st)notebook();};
 $("closeDialog").onclick=close;$("dialog").querySelector(".dialog-back").onclick=close;
