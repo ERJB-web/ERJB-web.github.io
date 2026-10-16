@@ -30,27 +30,15 @@ p{text-wrap:pretty}
 .monogramme{width:40px;height:40px;flex:none;border-radius:10px;background:var(--ink);color:#fff;display:grid;place-items:center;font:600 15px var(--sans);letter-spacing:.02em}
 .marque strong{display:block;color:var(--ink);font:600 17px/1.2 var(--sans)}
 .marque small{display:block;color:var(--muted);font-size:12.5px;white-space:nowrap}
-/* Signalétique : plaques en relief et seuils numérotés, dans le prolongement du hall. */
-.nav{order:3;flex-basis:100%;min-width:0;display:grid;grid-template-columns:1.35fr 1.75fr .85fr 1fr .95fr .8fr;gap:9px;margin:14px 0 0;padding:3px 1px 6px;border:0;background:transparent;overscroll-behavior-inline:contain;scroll-padding-inline:2px;scrollbar-width:none}
+.nav{order:3;flex-basis:100%;min-width:0;display:flex;gap:10px;margin:14px 0 0;padding:10px 0 0;border:0;border-top:1px solid var(--line);border-radius:0;background:transparent;overflow-x:auto;overscroll-behavior-inline:contain;scroll-padding-inline:2px;scrollbar-width:none;white-space:nowrap}
 .nav::-webkit-scrollbar{display:none}
-.nav a{--nav-ton:color-mix(in srgb,var(--nav-accent) 12%,#fff);position:relative;isolation:isolate;display:grid;grid-template-columns:28px minmax(0,1fr) 10px;align-items:center;gap:11px;min-width:0;min-height:76px;padding:12px 13px;border:1px solid #d9e3e4;border-radius:9px;background:linear-gradient(125deg,#fff 40%,#f3f7f5);box-shadow:inset 0 1px 0 #fff,0 2px 0 #dce5e4,0 5px 11px -7px rgba(23,63,82,.3);font-size:14px;line-height:1.4;font-weight:400;text-decoration:none;color:var(--ink);text-align:start;transition:background .22s ease,border-color .22s ease,box-shadow .22s ease,transform .22s ease}
+.nav a{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 14px;border:1px solid #d6e0e3;border-radius:6px;background:#fff;font-size:14px;line-height:1.4;font-weight:400;text-decoration:none;color:var(--ink);transition:background .18s ease,color .18s ease,border-color .18s ease}
 .nav a::before{content:none}
-.nav-seuil{position:relative;display:grid;place-items:center;align-self:center;width:28px;height:38px;border:1px solid color-mix(in srgb,var(--nav-accent) 45%,#d3dfe0);border-bottom-width:3px;border-radius:2px 2px 0 0;background:var(--nav-ton);box-shadow:inset 2px 2px 3px rgba(23,63,82,.06);color:var(--nav-accent);perspective:100px}
-.nav-seuil::before{content:"";position:absolute;inset:2px 2px 0;border:1px solid color-mix(in srgb,var(--nav-accent) 22%,#fff);border-bottom:0;background:linear-gradient(135deg,#fff,var(--nav-ton));box-shadow:1px 0 2px rgba(23,63,82,.08);transform-origin:left center;transition:transform .28s var(--ease)}
-.nav-seuil::after{content:"";position:absolute;inset-inline-end:5px;top:18px;width:2px;height:4px;border-radius:1px;background:var(--nav-accent);opacity:.65}
-.nav-seuil bdi{position:relative;z-index:1;font:500 10px/1 var(--sans);letter-spacing:.04em}
-.nav-libelle{min-width:0;overflow-wrap:break-word;text-wrap:pretty}
-.nav-fleche{color:#7e959e;font-size:14px;font-weight:400;transition:color .22s ease,transform .22s ease}
-.entete .nav a:hover,.entete .nav a:focus-visible,.entete .nav a[aria-current=page]{border-color:color-mix(in srgb,var(--nav-accent) 42%,#d9e3e4);background:linear-gradient(125deg,#fff 30%,var(--nav-ton));box-shadow:inset 0 1px 0 #fff,0 2px 0 color-mix(in srgb,var(--nav-accent) 32%,#dce5e4),0 7px 17px -10px rgba(23,63,82,.38)}
-.entete .nav a:hover,.entete .nav a:focus-visible{transform:translateY(-2px)}
-.entete .nav a:hover .nav-seuil::before,.entete .nav a:focus-visible .nav-seuil::before{transform:rotateY(-22deg)}
-.entete .nav a:hover .nav-fleche,.entete .nav a:focus-visible .nav-fleche{color:var(--nav-accent);transform:translateX(2px)}
-.entete .nav a:focus-visible{outline:2px solid var(--nav-accent);outline-offset:3px}
-.entete .nav a:active{transform:translateY(1px);box-shadow:inset 0 1px 3px rgba(23,63,82,.08)}
+.entete .nav a:hover,.entete .nav a:focus-visible{background:#f0f5f6;color:var(--ink-deep);border-color:#9eb5bf;box-shadow:none}
+.entete .nav a:focus-visible{outline-color:var(--ink);outline-offset:-2px;border-radius:6px}
+.entete .nav a:active{transform:none;background:#e6eef1;color:var(--ink-deep);box-shadow:none}
 .entete + main{padding-block-start:6px}
-html[dir=rtl] .nav-fleche{transform:scaleX(-1)}
-html[dir=rtl] .nav-seuil::before{transform-origin:right center}
-@media(forced-colors:active){.nav a,.nav-seuil,.nav-seuil::before{border-color:ButtonText;background:Canvas;box-shadow:none}.entete .nav a:focus-visible,.entete .nav a[aria-current=page]{outline:2px solid Highlight}.nav-fleche,.nav-seuil{color:LinkText}}
+@media(forced-colors:active){.nav{border-color:CanvasText}.entete .nav a:focus-visible{outline-color:Highlight}}
 .outils{display:flex;align-items:center;gap:10px;flex:none;margin-inline-start:auto}
 .entete .outils{flex-wrap:wrap;max-width:100%}
 .bouton-cv{font-size:13.5px;padding:7px 14px;border:1px solid var(--ink);border-radius:999px;color:var(--ink);text-decoration:none;white-space:nowrap;transition:background .2s,color .2s}
@@ -554,7 +542,7 @@ a,button,summary{-webkit-tap-highlight-color:rgba(31,111,178,.18)}
 
 @media (max-width:1080px){
   :root{--gouttiere:28px}
-  .nav{display:flex;gap:9px;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}.nav a{flex:0 0 auto;width:max-content;max-width:280px;min-height:70px;scroll-snap-align:start}.nav-libelle{max-width:190px}
+  .nav{gap:9px}
   .accueil{gap:32px;padding-top:36px}
   .presentation{grid-template-columns:1fr}
   .presentation .identite{grid-row:auto;margin-bottom:24px}
@@ -1374,8 +1362,8 @@ html.lv .hall::before,html.lv .hall::after,html.lv .portes>.porte::before{displa
 @media (max-width:640px){
   .entete{position:relative;gap:6px;padding:10px var(--gouttiere)}
   .entete .outils{order:2;flex-basis:100%;justify-content:flex-end;gap:8px;margin:0}
-  .entete .nav{margin:4px 0 0;padding:3px 1px 7px;gap:8px}
-  .entete .nav a{min-height:64px;padding:10px 12px;border-radius:8px}
+  .entete .nav{margin:4px 0 0;padding:7px 0 0;gap:8px;border-radius:0}
+  .entete .nav a{min-height:44px;padding:9px 12px;border-radius:6px}
   .coordonnees-haut{display:none}
 }
 @media (max-width:380px){
@@ -2188,7 +2176,7 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
 @media(max-width:999px){
  :root{--gouttiere:clamp(14px,3.9vw,28px)}
  .entete .nav{scroll-snap-type:x proximity;scroll-padding-inline:9px;-webkit-overflow-scrolling:touch;max-width:100%}
- .entete .nav a{min-height:66px;scroll-snap-align:start;touch-action:manipulation}
+ .entete .nav a{min-height:46px;scroll-snap-align:start;touch-action:manipulation}
  .hall.en-mobile .hall-reperes{scroll-snap-type:x proximity;scroll-padding-inline:8px;-webkit-overflow-scrolling:touch}
  .hall.en-mobile .hall-reperes>button{min-height:60px;scroll-snap-align:start;touch-action:manipulation}
  .hall.en-mobile .station-hall{border-radius:15px;overflow:hidden}
@@ -2224,8 +2212,8 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
  .entete .coordonnees-haut{display:none}
  .entete .outils{order:1;flex:1 1 100%;margin:0;justify-content:flex-start;gap:8px}
  .entete .outils .bouton-cv{min-height:41px;display:inline-flex;align-items:center;justify-content:center;padding:7px 12px}
- .entete .nav{order:2;flex:1 1 100%;margin:3px 0 0;gap:8px;padding:3px 1px 7px}
- .entete .nav a{min-height:64px;max-width:260px;font-size:13px;padding:10px 12px;gap:10px}.entete .nav-seuil{width:26px;height:35px}.entete .nav-libelle{max-width:176px}
+ .entete .nav{order:2;flex:1 1 100%;margin:3px 0 0;gap:8px;padding:8px 0 0;border-radius:0}
+ .entete .nav a{min-height:44px;font-size:13.5px;padding:9px 12px}
  .accueil{padding-block:23px 35px;gap:23px}
  .accueil .identite{gap:13px;align-items:center}
  .accueil .portrait{width:clamp(74px,22vw,95px);border-radius:11px}
