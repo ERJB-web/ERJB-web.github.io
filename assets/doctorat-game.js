@@ -42,7 +42,7 @@ function introduction(){
  a.push([msg("Commencer · Parcours doctoral","Start · PhD journey"),()=>start("normal")],[msg("Découverte · Plus accessible","Discovery · Easier"),()=>start("easy"),true],[msg("Comité de 17 personnes · Difficile","17-member committee · Hard"),()=>start("hard"),true]);buttons(a);
 }
 function start(mode){st=state(mode);checkpoint=null;store();hide();enter(0);}
-function resume(){st=read(SAVE)||state("normal");checkpoint=read(CHECK);hide();if(st.ending){if(st.ending==="win")ending();else gameover(st.reason||"defense");return;}enter(st.chapter);}
+function resume(){st=read(SAVE)||state("normal");checkpoint=read(CHECK);st.encounters ||= {};st.dossier ||= [];hide();if(st.ending){if(st.ending==="win")ending();else gameover(st.reason||"defense");return;}enter(st.chapter);}
 function reset(){try{localStorage.removeItem(SAVE);localStorage.removeItem(CHECK);}catch{}st=null;checkpoint=null;introduction();}
 
 const actorPoints=[[-3.1,4],[3.1,-4],[-3.1,-11]];
@@ -245,6 +245,17 @@ function dodge(){
 el("dodgeBtn")?.addEventListener("click",dodge);
 el("photoBtn")?.addEventListener("click",()=>{photoMode=!photoMode;cameraYaw=photoMode?Math.PI:0;el("photoBtn").setAttribute("aria-pressed",String(photoMode));notify(photoMode?msg("Caméra portrait : admire le personnage de face.","Portrait camera: view the character from the front."):msg("Caméra de suivi rétablie.","Follow camera restored."));});
 el("autoWalk").onclick=()=>{if(st&&!modalOpen){auto=true;notify(msg("Guidage vers le prochain objectif.","Guidance to the next objective."));}};
+el("world").addEventListener("pointerdown",e=>{
+ if(!THREE||!st||modalOpen||st.ending)return;
+ const pointer=new THREE.Vector2(e.clientX/innerWidth*2-1,-e.clientY/innerHeight*2+1);
+ const ray=new THREE.Raycaster();ray.setFromCamera(pointer,camera);
+ const hit=ray.intersectObjects(actors.map(a=>a.group),true)[0];if(!hit)return;
+ let item=hit.object;while(item&&!Number.isInteger(item.userData?.actor))item=item.parent;
+ const i=item?.userData.actor;if(i===undefined||visited()[i])return;
+ if(Math.hypot(x-actorPoints[i][0],z-actorPoints[i][1])<2.0)meetActor(i);
+ else{guidedActor=i;auto=true;}
+});
+
 el("modalClose").onclick=()=>{if(st&&!st.ending){paused=false;hide();}};
 function pauseMenu(){if(!st||modalOpen)return;paused=true;show(msg("PAUSE DOCTORALE","DOCTORAL BREAK"),'<h2>'+msg("Une pause n'est pas un échec.","A break is not a failure.")+'</h2><p class="lead">'+msg("La progression est automatiquement enregistrée sur cet appareil.","Progress is saved locally on your device.")+'</p>');buttons([[msg("Reprendre","Resume"),()=>{paused=false;hide();}],[msg("Nouvelle partie","New game"),reset,true],[msg("Revenir au site","Back to website"),()=>location.href="../",true]]);}
 el("pauseBtn").onclick=pauseMenu;
@@ -373,21 +384,55 @@ function tick(ts){
  requestAnimationFrame(tick);const dt=Math.min(.046,((ts-last)||16)/1000);last=ts;
  if(!THREE||!renderer)return;
  if(st&&!st.ending&&!modalOpen&&!paused&&!document.hidden){
- const dx=Number(keyset.has("ArrowRight")||keyset.has("KeyD"))-Number(keyset.has("ArrowLeft")||keyset.has("KeyA")||keyset.has("KeyQ"));
- const dz=Number(keyset.has("ArrowDown")||keyset.has("KeyS"))-Number(keyset.has("ArrowUp")||keyset.has("KeyW")||keyset.has("KeyZ"));
- let vx=dx,vz=dz;
- if(auto&&dx===0&&dz===0){vx=-x;vz=-15-z;if(distance()<2.5){auto=false;vx=vz=0;notify(msg("Tu peux interagir.","You can interact."));}}
- else if(dx||dz)auto=false;
- const d=Math.hypot(vx,vz),walk=d>.01;if(walk){x=bound(x+vx/d*6.4*dt,-5.2,5.2);z=bound(z+vz/d*6.4*dt,-16,18);avatar.rotation.y+=(Math.atan2(-vx,-vz)-avatar.rotation.y)*Math.min(1,7*dt);}
- avatar.position.set(x,(walk?Math.sin(ts*.011)*.05:0),z);
- arms.forEach((a,i)=>a.rotation.x=walk?Math.sin(ts*.012+i*Math.PI)*-.48:0);legs.forEach((a,i)=>a.rotation.x=walk?Math.sin(ts*.012+i*Math.PI)*.54:0);
- for(const p of collectibles){p.group.rotation.y+=dt*1.4;p.group.position.y=1.1+Math.sin(ts*.002+p.x)*.15;
- if(p.group.visible&&Math.hypot(x-p.x,z-p.z)<1.28){p.group.visible=false;st.collected ||= {};st.collected[p.key]=true;change(p.delta);notify(p.label);sound(true);}}
- const target=new THREE.Vector3(x,5.3,z+9.4);camera.position.lerp(target,Math.min(1,dt*4));camera.lookAt(x,1.5,z-4);
- portal.rotation.z=Math.sin(ts*.0006)*.06;portal.children[1].rotation.z+=dt*.25;
- el("distance").textContent=Math.round(distance())+" m";el("markerDistance").textContent=Math.round(distance())+" m";el("actionBtn").disabled=distance()>3;
- const p=portal.position.clone().add(new THREE.Vector3(0,1.7,0)).project(camera),mark=el("questMarker");
- mark.style.opacity=p.z<1&&Math.abs(p.x)<1&&Math.abs(p.y)<1?"1":"0";mark.style.left=((p.x+1)*.5*innerWidth)+"px";mark.style.top=((-p.y+1)*.5*innerHeight-35)+"px";
+  invulnerable=Math.max(0,invulnerable-dt);dodgeCooldown=Math.max(0,dodgeCooldown-dt);
+  const dx=Number(keyset.has("ArrowRight")||keyset.has("KeyD"))-Number(keyset.has("ArrowLeft")||keyset.has("KeyA")||keyset.has("KeyQ"));
+  const dz=Number(keyset.has("ArrowDown")||keyset.has("KeyS"))-Number(keyset.has("ArrowUp")||keyset.has("KeyW")||keyset.has("KeyZ"));
+  let vx=dx,vz=dz;
+  if(auto&&dx===0&&dz===0){
+   const t=guidedActor===null?targetPoint():actorPoints[guidedActor];
+   vx=t[0]-x;vz=t[1]-z;
+   if(Math.hypot(vx,vz)<1.4){auto=false;guidedActor=null;vx=vz=0;}
+  }else if(dx||dz){auto=false;guidedActor=null;}
+  const d=Math.hypot(vx,vz),walk=d>.01;
+  const sprint=(keyset.has("ShiftLeft")||keyset.has("ShiftRight"))&&st.energy>12;
+  const speed=sprint?9.7:6.4;
+  if(walk){x=bound(x+vx/d*speed*dt,-5.15,5.15);z=bound(z+vz/d*speed*dt,-16,18);avatar.rotation.y+=(Math.atan2(-vx,-vz)-avatar.rotation.y)*Math.min(1,8*dt);}
+  avatar.position.set(x,walk?Math.sin(ts*.011)*.055:0,z);
+  arms.forEach((a,i)=>a.rotation.x=walk?Math.sin(ts*.013*(sprint?1.4:1)+i*Math.PI)*-.50:0);
+  legs.forEach((a,i)=>a.rotation.x=walk?Math.sin(ts*.013*(sprint?1.4:1)+i*Math.PI)*.59:0);
+  for(const p of collectibles){
+   p.group.rotation.y+=dt*1.4;p.group.position.y=1.1+Math.sin(ts*.002+p.x)*.15;
+   if(p.group.visible&&Math.hypot(x-p.x,z-p.z)<1.26){p.group.visible=false;st.collected ||= {};st.collected[p.key]=true;change(p.delta);notify(p.label);sound(true);}
+  }
+  for(const a of actors){
+   a.group.position.x=a.px+Math.sin(ts*.00059+a.index*2)*.32;
+   a.group.position.z=a.pz+Math.cos(ts*.00052+a.index)*.26;
+   a.group.rotation.y=Math.sin(ts*.0007+a.index)*.19;
+   a.label.quaternion.copy(camera.quaternion);
+   a.label.visible=!visited()[a.index];a.ring.visible=!visited()[a.index];
+   if(!visited()[a.index]&&performance.now()>encounterLock&&Math.hypot(x-a.group.position.x,z-a.group.position.z)<1.57){meetActor(a.index);break;}
+  }
+  for(let i=0;i<hazards.length;i++){
+   const h=hazards[i];
+   h.group.position.x=h.px+Math.sin(ts*.0008+i)*1.4;
+   h.group.position.z=h.pz+Math.cos(ts*.0005+i)*.8;
+   h.group.rotation.y+=dt;
+   if(invulnerable<=0&&Math.hypot(x-h.group.position.x,z-h.group.position.z)<1.08){
+    invulnerable=2.4;change({stress:7,energy:-3});sound(false);
+    notify(msg("⚠ Dossier hostile : stress +7. Espace pour esquiver !","⚠ Hostile paperwork: stress +7. Dodge with Space!"));
+   }
+  }
+  if(!modalOpen&&seenCount()>=2&&distance()<2.28&&performance.now()>encounterLock)stage();
+  const offset=new THREE.Vector3(Math.sin(cameraYaw)*9.4,5.15,Math.cos(cameraYaw)*9.4);
+  camera.position.lerp(new THREE.Vector3(x,0,z).add(offset),Math.min(1,dt*4));
+  camera.lookAt(x,photoMode?1.65:1.5,photoMode?z:z-3.6);
+  portal.rotation.z=Math.sin(ts*.0006)*.06;portal.children[1].rotation.z+=dt*.25;
+  const point=targetPoint(),dd=Math.hypot(x-point[0],z-point[1]);
+  el("distance").textContent=Math.round(dd)+" m";el("markerDistance").textContent=Math.round(dd)+" m";
+  el("actionBtn").disabled=seenCount()<2||distance()>2.5;
+  const projected=new THREE.Vector3(point[0],seenCount()>=2?3.65:3.4,point[1]).project(camera),mark=el("questMarker");
+  mark.style.opacity=projected.z<1&&Math.abs(projected.x)<1&&Math.abs(projected.y)<1?"1":"0";
+  mark.style.left=((projected.x+1)*.5*innerWidth)+"px";mark.style.top=((-projected.y+1)*.5*innerHeight-35)+"px";
  }
  if(!document.hidden)renderer.render(scene,camera);
 }
