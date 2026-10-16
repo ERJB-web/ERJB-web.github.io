@@ -514,6 +514,7 @@ const cast=[
    onGoal:stats=>{opts.onHockeyEvent?.("goal",stats);opts.onNarrate?.("BUUUUT ! "+stats.goals+" / 3");},
    onSave:stats=>{opts.onHockeyEvent?.("save",stats);opts.onNarrate?.("ARRÊT DU GARDIEN ! Reprends la rondelle.");},
    onShot:stats=>opts.onHockeyEvent?.("shot",stats),
+   onBoard:()=>opts.onHockeyEvent?.("board",{}),
    onFall:stats=>{skate.falls=stats.falls;opts.onHockeyEvent?.("fall",stats);opts.onNarrate?.("Éric chute ! Relève-toi et reprends la rondelle.");},
    onWin:stats=>{skate.completed=true;opts.onHockeyWin?.(stats);}
   });
@@ -709,6 +710,7 @@ const cast=[
     if(modelZ< -24&&Math.abs(modelX)<2.4&&speed>5&&prev.fallTime<=0)hockey.fall(player,"collision avec le gardien");
     if(hockey.status().fallTime>0){skate.velocityX*=Math.pow(.91,dt*60);skate.velocityZ*=Math.pow(.91,dt*60);}
     const current=hockey.step(dt,player,controls);
+    if(speed>.9&&current.fallTime<=0)opts.onHockeyEvent?.(controls.has("Space")&&speed>2?"edge":"skate",{speed});
     skate.clock=current.clock;skate.falls=current.falls;
     skate.balance+=dx*dt*.25+Math.sin(clock*2.7)*dt*.08+(Math.abs(turn)>3?Math.sign(turn)*dt*.22:0);
     if(controls.has("Space"))skate.balance*=Math.max(0,1-3.5*dt);
