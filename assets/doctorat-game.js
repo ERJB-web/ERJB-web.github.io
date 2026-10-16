@@ -268,7 +268,7 @@ try{
  scene=new THREE.Scene();camera=new THREE.PerspectiveCamera(58,innerWidth/innerHeight,.1,160);
  scene.add(new THREE.HemisphereLight(0xcce7ff,0x162339,2.35));
  const sun=new THREE.DirectionalLight(0xffe1bd,3.5);sun.position.set(-12,25,14);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);sun.shadow.camera.left=-25;sun.shadow.camera.right=25;sun.shadow.camera.top=35;sun.shadow.camera.bottom=-35;scene.add(sun);
- buildWorld();resize();addEventListener("resize",resize,{passive:true});requestAnimationFrame(tick);
+ resize();addEventListener("resize",resize,{passive:true});requestAnimationFrame(tick);
 }catch(error){
  console.warn("WebGL unavailable — narrative-only mode",error);flat=true;el("game").classList.add("flat-mode");el("autoWalk").hidden=true;el("actionBtn").disabled=false;
  el("missionPanel").insertAdjacentHTML("afterend",'<div class="flat-scene"><h2>'+msg("Campus narratif","Story-mode campus")+'</h2><p>'+msg("La 3D n'est pas disponible ici, mais toutes les épreuves restent jouables.","3D rendering is unavailable, but every challenge remains playable.")+'</p></div>');
