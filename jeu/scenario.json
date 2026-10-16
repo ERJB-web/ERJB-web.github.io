@@ -1,0 +1,1159 @@
+{
+  "version": 1,
+  "title": {
+    "fr": "PROTOCOLE : LA THÈSE IMPOSSIBLE",
+    "en": "PROTOCOL: THE IMPOSSIBLE THESIS"
+  },
+  "chapters": [
+    {
+      "act": 1,
+      "zone": "campus",
+      "title": {
+        "fr": "La rentrée des hypothèses",
+        "en": "The hypothesis campus"
+      },
+      "goal": {
+        "fr": "Traverse le campus vers la première décision.",
+        "en": "Explore the campus and reach the first decision."
+      },
+      "quip": {
+        "fr": "Un sujet de thèse tient en une phrase. Le mien a besoin d'un organigramme.",
+        "en": "A thesis fits in one sentence. Mine needs an organizational chart."
+      },
+      "type": "choice",
+      "prompt": {
+        "fr": "Trois sujets possibles. Quel fil conducteur choisis-tu ? Aucun n'est parfait, tous impliquent des arbitrages.",
+        "en": "Three possible topics. Which focus do you choose? Each comes with trade-offs."
+      },
+      "opts": [
+        {
+          "title": {
+            "fr": "Les réseaux intersectoriels",
+            "en": "Intersectoral networks"
+          },
+          "detail": {
+            "fr": "Étudier les relations réellement mobilisées autour de besoins sociaux concomitants.",
+            "en": "Study actual relationships around co-occurring social needs."
+          },
+          "why": {
+            "fr": "Les frontières du réseau et les relations observées deviennent centrales.",
+            "en": "Network boundaries and actual relationships become central."
+          },
+          "delta": {
+            "rigor": 10,
+            "trust": 5
+          },
+          "flags": {
+            "topic": "network"
+          }
+        },
+        {
+          "title": {
+            "fr": "Les ressources des territoires",
+            "en": "Territorial resources"
+          },
+          "detail": {
+            "fr": "Examiner les écarts entre besoins et ressources potentielles sur deux territoires.",
+            "en": "Examine gaps between needs and available services in two areas."
+          },
+          "why": {
+            "fr": "Une carte n'est pas une preuve de recours ; ta question doit le reconnaître.",
+            "en": "A resource map does not measure uptake; your design must recognize that."
+          },
+          "delta": {
+            "rigor": 9,
+            "proof": 1
+          },
+          "flags": {
+            "topic": "territory"
+          }
+        },
+        {
+          "title": {
+            "fr": "Les recommandations avec les partenaires",
+            "en": "Co-design recommendations"
+          },
+          "detail": {
+            "fr": "Croiser profils, réseaux et ressources dans un atelier délibératif.",
+            "en": "Combine profiles, networks and resources in a deliberative workshop."
+          },
+          "why": {
+            "fr": "L'atelier ne remplace pas le travail empirique préalable.",
+            "en": "Deliberation does not replace the empirical research."
+          },
+          "delta": {
+            "rigor": 8,
+            "trust": 8
+          },
+          "flags": {
+            "topic": "design"
+          }
+        }
+      ]
+    },
+    {
+      "act": 1,
+      "zone": "library",
+      "title": {
+        "fr": "Le donjon bibliographique",
+        "en": "The literature dungeon"
+      },
+      "goal": {
+        "fr": "Rejoins l'archiviste des 847 PDF.",
+        "en": "Meet the archivist of 847 PDFs."
+      },
+      "quip": {
+        "fr": "847 PDF. Trois ont un nom de fichier compréhensible.",
+        "en": "847 PDFs. Three have readable filenames."
+      },
+      "type": "multi",
+      "prompt": {
+        "fr": "L'Archiviste : « Retrouve exactement trois sources pertinentes et traçables pour poser ta problématique. »",
+        "en": "The archivist: “Choose exactly three relevant, traceable sources.”"
+      },
+      "items": [
+        [
+          {
+            "fr": "Revue de portée des besoins sociaux",
+            "en": "Scoping review of social needs"
+          },
+          {
+            "fr": "Synthèse des concepts et lacunes",
+            "en": "Maps concepts and gaps"
+          },
+          1
+        ],
+        [
+          {
+            "fr": "Étude empirique des réseaux de soins",
+            "en": "Empirical study of care networks"
+          },
+          {
+            "fr": "Unité d'analyse et relations explicitées",
+            "en": "Defines network ties and units"
+          },
+          1
+        ],
+        [
+          {
+            "fr": "Blog : 10 secrets de thèse",
+            "en": "Blog: 10 PhD secrets"
+          },
+          {
+            "fr": "Pas de méthode ni de sources",
+            "en": "No methods or sources"
+          },
+          0
+        ],
+        [
+          {
+            "fr": "Entretiens auprès de personnes aînées",
+            "en": "Interviews with older adults"
+          },
+          {
+            "fr": "Analyse qualitative des trajectoires",
+            "en": "Qualitative pathways study"
+          },
+          1
+        ],
+        [
+          {
+            "fr": "Annuaire de services non daté",
+            "en": "Undated service directory"
+          },
+          {
+            "fr": "Fiabilité et actualité non vérifiées",
+            "en": "Unverified, potentially outdated"
+          },
+          0
+        ],
+        [
+          {
+            "fr": "La causalité est prouvée, promis !",
+            "en": "Causality is proven, promise!"
+          },
+          {
+            "fr": "Résultat sans devis explicite",
+            "en": "Claim without a study design"
+          },
+          0
+        ]
+      ],
+      "correct": 3,
+      "win": {
+        "fr": "Tu as construit un début de problématique avec des preuves de nature différente.",
+        "en": "You have the beginnings of a research problem grounded in different kinds of evidence."
+      },
+      "lose": {
+        "fr": "La pertinence, la méthode et la traçabilité comptent davantage qu'un titre séduisant.",
+        "en": "Methods, relevance and traceability matter more than a catchy title."
+      },
+      "reward": {
+        "rigor": 14,
+        "proof": 3
+      },
+      "penalty": {
+        "rigor": -12,
+        "stress": 12
+      }
+    },
+    {
+      "act": 1,
+      "zone": "committee",
+      "title": {
+        "fr": "Le tribunal de la direction",
+        "en": "The supervisor tribunal"
+      },
+      "goal": {
+        "fr": "Présente ton protocole sans créer trois doctorats.",
+        "en": "Pitch one feasible PhD rather than three."
+      },
+      "quip": {
+        "fr": "Votre idée est passionnante. Et si on la réduisait de 87 % ?",
+        "en": "Fascinating idea. Could we cut it by 87%?"
+      },
+      "type": "choice",
+      "prompt": {
+        "fr": "La direction : « Délimitez le terrain, la population et les objectifs. Quel compromis proposez-vous ? »",
+        "en": "Your supervisors: “Define the setting, population and aims. What tradeoff do you propose?”"
+      },
+      "opts": [
+        {
+          "title": {
+            "fr": "Définir une question et des objectifs cohérents",
+            "en": "Define a question and coherent aims"
+          },
+          "detail": {
+            "fr": "Clarifier population, unité d'analyse, méthodes et calendrier.",
+            "en": "Clarify population, analysis unit, methods and timeline."
+          },
+          "why": {
+            "fr": "La rigueur exige de choisir ce que l'on ne fera pas.",
+            "en": "Rigor means deciding what you will not do."
+          },
+          "delta": {
+            "rigor": 15,
+            "trust": 15
+          },
+          "flags": {
+            "scope": true
+          }
+        },
+        {
+          "title": {
+            "fr": "Ajouter une expérimentation et 14 pays",
+            "en": "Add an experiment and 14 countries"
+          },
+          "detail": {
+            "fr": "Un système entier à analyser. En trois ans.",
+            "en": "Analyze the whole system. In three years."
+          },
+          "why": {
+            "fr": "L'accumulation d'objectifs mine la faisabilité.",
+            "en": "Adding aims without justification undermines feasibility."
+          },
+          "delta": {
+            "rigor": -20,
+            "trust": -25,
+            "stress": 18,
+            "time": -3
+          },
+          "flags": {
+            "overScope": true
+          }
+        },
+        {
+          "title": {
+            "fr": "Supprimer le terrain sans reformuler la question",
+            "en": "Drop fieldwork without revising the question"
+          },
+          "detail": {
+            "fr": "Il restera de très belles flèches sur PowerPoint.",
+            "en": "There will still be lovely PowerPoint arrows."
+          },
+          "why": {
+            "fr": "Une question empirique réclame des observations adéquates.",
+            "en": "Empirical questions require appropriate observation."
+          },
+          "delta": {
+            "rigor": -10,
+            "trust": -13
+          },
+          "flags": {
+            "overScope": true
+          }
+        }
+      ]
+    },
+    {
+      "act": 1,
+      "zone": "data",
+      "title": {
+        "fr": "Les serveurs du néant",
+        "en": "The servers of nothingness"
+      },
+      "goal": {
+        "fr": "Vérifie les permissions d'accès aux données.",
+        "en": "Verify data access and permissions."
+      },
+      "quip": {
+        "fr": "Le jeu de données est disponible. Les permissions, en 2034.",
+        "en": "The dataset exists. Permissions arrive in 2034."
+      },
+      "type": "choice",
+      "prompt": {
+        "fr": "Le registre idéal n'est pas accessible et le terrain n'est pas garanti. Ton protocole survit-il ?",
+        "en": "The ideal dataset is inaccessible and field access is uncertain. Can your protocol survive?"
+      },
+      "opts": [
+        {
+          "title": {
+            "fr": "Vérifier les accès et prévoir un plan B",
+            "en": "Verify access and plan a fallback"
+          },
+          "detail": {
+            "fr": "Rencontrer les responsables et documenter les conditions d'accès.",
+            "en": "Meet data stewards and document access requirements."
+          },
+          "why": {
+            "fr": "La faisabilité se vérifie avant la collecte.",
+            "en": "Feasibility must be checked before collection."
+          },
+          "delta": {
+            "rigor": 13,
+            "proof": 2,
+            "trust": 5,
+            "budget": -3
+          },
+          "flags": {
+            "data": true
+          }
+        },
+        {
+          "title": {
+            "fr": "Dire que tout est disponible",
+            "en": "Claim all data are available"
+          },
+          "detail": {
+            "fr": "Un graphique vert constitue une preuve, non ?",
+            "en": "A green slide proves access, right?"
+          },
+          "why": {
+            "fr": "Les données imaginées ne passent pas devant un comité.",
+            "en": "Imaginary data will not survive committee review."
+          },
+          "delta": {
+            "rigor": -25,
+            "trust": -27,
+            "stress": 18
+          },
+          "flags": {
+            "bluff": true
+          }
+        },
+        {
+          "title": {
+            "fr": "Adapter les objectifs aux sources accessibles",
+            "en": "Refine aims around accessible data"
+          },
+          "detail": {
+            "fr": "Garder la question pertinente et documenter les compromis.",
+            "en": "Keep the question relevant and document trade-offs."
+          },
+          "why": {
+            "fr": "Réviser honnêtement un protocole est une force.",
+            "en": "Transparent redesign is a strength."
+          },
+          "delta": {
+            "rigor": 10,
+            "trust": 8,
+            "proof": 1,
+            "time": -1
+          },
+          "flags": {
+            "data": true
+          }
+        }
+      ]
+    },
+    {
+      "act": 2,
+      "zone": "methods",
+      "title": {
+        "fr": "Le labyrinthe des méthodes",
+        "en": "The methods maze"
+      },
+      "goal": {
+        "fr": "Associe quatre objectifs à quatre méthodes.",
+        "en": "Match four objectives to four methods."
+      },
+      "quip": {
+        "fr": "J'ai ajouté une méthode mixte à ma méthode mixte.",
+        "en": "I added a mixed method to my mixed method."
+      },
+      "type": "match",
+      "prompt": {
+        "fr": "Associe une méthode principale à chaque objectif de cet exercice. Plusieurs devis existent dans la vraie vie, mais chaque objectif exige une logique d'observation.",
+        "en": "Match a suitable method to each aim in this exercise. Real designs can vary, but each aim needs an observation strategy."
+      },
+      "rows": [
+        {
+          "fr": "O1. Profils de besoins co-occurrents",
+          "en": "O1. Co-occurring needs profiles"
+        },
+        {
+          "fr": "O2. Relations organisationnelles mobilisées",
+          "en": "O2. Actual organizational ties"
+        },
+        {
+          "fr": "O3. Ressources territoriales disponibles",
+          "en": "O3. Available territorial resources"
+        },
+        {
+          "fr": "O4. Recommandations contextualisées",
+          "en": "O4. Contextualized recommendations"
+        }
+      ],
+      "methods": [
+        {
+          "fr": "Profils / personas",
+          "en": "Profiles / personas"
+        },
+        {
+          "fr": "Analyse de réseaux sociaux égocentrée",
+          "en": "Egocentric social network analysis"
+        },
+        {
+          "fr": "Cartographie spatiale",
+          "en": "Spatial mapping"
+        },
+        {
+          "fr": "Atelier délibératif",
+          "en": "Deliberative workshop"
+        }
+      ],
+      "win": {
+        "fr": "Les sources et les méthodes correspondent aux objectifs, sans confondre réseau mobilisé et offre disponible.",
+        "en": "Methods and data align with each aim, without conflating actual ties with available services."
+      },
+      "lose": {
+        "fr": "Une carte ne mesure pas directement la coordination ; une analyse de réseaux ne décrit pas à elle seule toute l'offre territoriale.",
+        "en": "A map does not directly measure coordination; network analysis alone cannot map all service availability."
+      },
+      "reward": {
+        "rigor": 16,
+        "proof": 2
+      },
+      "penalty": {
+        "rigor": -13,
+        "stress": 15
+      }
+    },
+    {
+      "act": 2,
+      "zone": "network",
+      "title": {
+        "fr": "La carte n'est pas le territoire",
+        "en": "The map is not the territory"
+      },
+      "goal": {
+        "fr": "Reconstitue les relations vraiment observées.",
+        "en": "Reconstruct the ties actually observed."
+      },
+      "quip": {
+        "fr": "Sur la carte, tout est connecté. Sur le terrain, le téléphone sonne dans le vide.",
+        "en": "On the map everything connects. In reality nobody picks up."
+      },
+      "type": "multi",
+      "prompt": {
+        "fr": "Données fictives : les entretiens ont confirmé trois liens. Sélectionne trois relations effectivement documentées, pas les services simplement inscrits à l'annuaire.",
+        "en": "Fictional interviews confirmed three ties. Select the documented relationships, not merely listed services."
+      },
+      "items": [
+        [
+          {
+            "fr": "Personnes aînées ↔ équipe CLSC",
+            "en": "Older adults ↔ CLSC team"
+          },
+          {
+            "fr": "Lien documenté en entretien",
+            "en": "Interview-confirmed tie"
+          },
+          1
+        ],
+        [
+          {
+            "fr": "Équipe CLSC ↔ organisateur communautaire",
+            "en": "CLSC team ↔ community organizer"
+          },
+          {
+            "fr": "Coordination observée",
+            "en": "Observed coordination"
+          },
+          1
+        ],
+        [
+          {
+            "fr": "Organisateur communautaire ↔ organisme local",
+            "en": "Organizer ↔ community organization"
+          },
+          {
+            "fr": "Action conjointe documentée",
+            "en": "Documented joint work"
+          },
+          1
+        ],
+        [
+          {
+            "fr": "CLSC ↔ tous les organismes répertoriés",
+            "en": "CLSC ↔ all directory entries"
+          },
+          {
+            "fr": "Présence dans un répertoire uniquement",
+            "en": "Only listed in a directory"
+          },
+          0
+        ],
+        [
+          {
+            "fr": "Personnes aînées ↔ chaque service de la ville",
+            "en": "Older adults ↔ every service"
+          },
+          {
+            "fr": "Inférence à partir d'une carte",
+            "en": "Inference from a map"
+          },
+          0
+        ]
+      ],
+      "correct": 3,
+      "win": {
+        "fr": "Un lien documenté et une ressource disponible ne sont pas la même chose : tu peux désormais les comparer.",
+        "en": "An observed tie and an available resource are not the same thing; now you can compare them."
+      },
+      "lose": {
+        "fr": "Attention à l'erreur : l'existence d'une ressource ne suffit pas à déduire son utilisation.",
+        "en": "Service availability is not evidence of uptake."
+      },
+      "reward": {
+        "rigor": 15,
+        "proof": 2,
+        "trust": 5
+      },
+      "penalty": {
+        "rigor": -14,
+        "stress": 15
+      }
+    },
+    {
+      "act": 2,
+      "zone": "ethics",
+      "title": {
+        "fr": "Le couloir de l'éthique",
+        "en": "The ethics corridor"
+      },
+      "goal": {
+        "fr": "Protège les participants et leurs données.",
+        "en": "Protect participants and their information."
+      },
+      "quip": {
+        "fr": "Le formulaire fait 32 pages. Le consentement, lui, reste une conversation.",
+        "en": "The form is 32 pages. Consent is still a conversation."
+      },
+      "type": "choice",
+      "prompt": {
+        "fr": "Dans un petit réseau, l'identification indirecte des personnes peut être possible. Que fais-tu ?",
+        "en": "People may be indirectly identifiable in small networks. What do you do?"
+      },
+      "opts": [
+        {
+          "title": {
+            "fr": "Consentement, minimisation et sécurité",
+            "en": "Consent, minimization and safeguards"
+          },
+          "detail": {
+            "fr": "Vérifier les risques d'identification et les permissions.",
+            "en": "Assess re-identification risks and consent."
+          },
+          "why": {
+            "fr": "La protection des personnes fait partie du devis.",
+            "en": "Participant protection is part of the design."
+          },
+          "delta": {
+            "rigor": 14,
+            "trust": 7,
+            "proof": 1
+          },
+          "flags": {
+            "ethics": true
+          }
+        },
+        {
+          "title": {
+            "fr": "Publier toutes les identités au nom de la science ouverte",
+            "en": "Publish all identities in the name of open science"
+          },
+          "detail": {
+            "fr": "La transparence suffit, selon une rumeur.",
+            "en": "Transparency is enough, according to a rumor."
+          },
+          "why": {
+            "fr": "Une divulgation injustifiée peut constituer un incident éthique majeur.",
+            "en": "Unjustified disclosure can create serious ethical risks."
+          },
+          "delta": {
+            "rigor": -30,
+            "trust": -32,
+            "stress": 27
+          },
+          "flags": {
+            "ethicsIncident": true
+          }
+        },
+        {
+          "title": {
+            "fr": "Remplacer le consentement par 32 pages de formulaire",
+            "en": "Replace consent with a 32-page form"
+          },
+          "detail": {
+            "fr": "Aucune discussion, beaucoup de signatures.",
+            "en": "No conversation, lots of signatures."
+          },
+          "why": {
+            "fr": "L'information doit être intelligible, le consentement libre et continu.",
+            "en": "Consent must be informed, free and ongoing."
+          },
+          "delta": {
+            "rigor": -12,
+            "trust": -10,
+            "stress": 9
+          },
+          "flags": {
+            "ethics": false
+          }
+        }
+      ]
+    },
+    {
+      "act": 2,
+      "zone": "calendar",
+      "title": {
+        "fr": "Le semestre impossible",
+        "en": "The impossible semester"
+      },
+      "goal": {
+        "fr": "Organise une semaine de 40 heures soutenable.",
+        "en": "Plan a sustainable 40-hour week."
+      },
+      "quip": {
+        "fr": "43 heures dans une semaine de 40 ? Avec une police plus petite, peut-être.",
+        "en": "43 hours in a 40-hour week? Maybe use a smaller font."
+      },
+      "type": "schedule",
+      "prompt": {
+        "fr": "Alloue au maximum 40 heures entre cours, terrain, lecture, rédaction et récupération. Chaque domaine possède un minimum nécessaire.",
+        "en": "Allocate no more than 40 hours to courses, fieldwork, reading, writing and recovery. Each category has a minimum."
+      },
+      "tasks": [
+        [
+          {
+            "fr": "Cours et formations",
+            "en": "Courses and training"
+          },
+          5,
+          9
+        ],
+        [
+          {
+            "fr": "Terrain et partenaires",
+            "en": "Fieldwork and partners"
+          },
+          8,
+          16
+        ],
+        [
+          {
+            "fr": "Lecture et analyse",
+            "en": "Reading and analysis"
+          },
+          5,
+          10
+        ],
+        [
+          {
+            "fr": "Écriture et articles",
+            "en": "Writing and papers"
+          },
+          7,
+          8
+        ],
+        [
+          {
+            "fr": "Repos et marge",
+            "en": "Recovery and buffer"
+          },
+          7,
+          0
+        ]
+      ],
+      "win": {
+        "fr": "Une semaine viable n'exige pas de supprimer les besoins humains. Le repos protège aussi la recherche.",
+        "en": "A sustainable week protects recovery and research quality."
+      },
+      "lose": {
+        "fr": "La surcharge ou l'absence de récupération fragilisent la thèse. Les heures ne sont pas extensibles.",
+        "en": "Overloading the week or eliminating recovery threatens the project."
+      },
+      "reward": {
+        "rigor": 8,
+        "energy": 17,
+        "stress": -18
+      },
+      "penalty": {
+        "energy": -22,
+        "stress": 23,
+        "rigor": -8
+      }
+    },
+    {
+      "act": 3,
+      "zone": "congress",
+      "title": {
+        "fr": "Le congrès des badges hors de prix",
+        "en": "The overpriced-badge conference"
+      },
+      "goal": {
+        "fr": "Présente un protocole sans inventer de résultat.",
+        "en": "Present the research without inventing results."
+      },
+      "quip": {
+        "fr": "Badge à 350 $. Café gratuit jusqu'à 8 h 03.",
+        "en": "Badge: $350. Free coffee until 8:03."
+      },
+      "type": "choice",
+      "prompt": {
+        "fr": "Le public te demande : « Votre projet a-t-il déjà démontré que l'intersectorialité sauve tout le monde ? »",
+        "en": "Someone asks: “Has your research proven that intersectorality solves everything?”"
+      },
+      "opts": [
+        {
+          "title": {
+            "fr": "Présenter question, méthodes et limites",
+            "en": "Present aims, methods and limitations"
+          },
+          "detail": {
+            "fr": "Distinguer protocole, résultats futurs et incertitudes.",
+            "en": "Separate protocol, future results and uncertainty."
+          },
+          "why": {
+            "fr": "Une présentation honnête rend le dialogue possible.",
+            "en": "An honest presentation enables constructive discussion."
+          },
+          "delta": {
+            "rigor": 9,
+            "trust": 9,
+            "proof": 1,
+            "budget": -5
+          },
+          "flags": {
+            "poster": true
+          }
+        },
+        {
+          "title": {
+            "fr": "Annoncer des effets causaux non mesurés",
+            "en": "Announce unmeasured causal effects"
+          },
+          "detail": {
+            "fr": "Le résultat principal est un gros graphique vide.",
+            "en": "The main result is a large empty chart."
+          },
+          "why": {
+            "fr": "Un protocole ne contient pas automatiquement des résultats.",
+            "en": "A protocol doesn't automatically contain results."
+          },
+          "delta": {
+            "rigor": -19,
+            "trust": -15,
+            "stress": 12
+          },
+          "flags": {
+            "poster": false
+          }
+        },
+        {
+          "title": {
+            "fr": "Montrer un schéma de réseaux et ce qu'il ne montre pas",
+            "en": "Show a network diagram and what it cannot show"
+          },
+          "detail": {
+            "fr": "Expliquer la contribution attendue au public.",
+            "en": "Explain the expected contribution to the audience."
+          },
+          "why": {
+            "fr": "Un bon schéma ne remplace pas une bonne méthode, mais éclaire ses limites.",
+            "en": "A diagram cannot replace sound methods, but can clarify them."
+          },
+          "delta": {
+            "rigor": 11,
+            "proof": 2,
+            "budget": -4
+          },
+          "flags": {
+            "poster": true
+          }
+        }
+      ]
+    },
+    {
+      "act": 3,
+      "zone": "review",
+      "title": {
+        "fr": "Reviewer 2 : le retour",
+        "en": "Reviewer 2 strikes back"
+      },
+      "goal": {
+        "fr": "Corrige trois erreurs scientifiques dans ton article.",
+        "en": "Correct three scientific problems in your paper."
+      },
+      "quip": {
+        "fr": "Reviewer 2 propose une nouvelle étude. Dans un autre continent.",
+        "en": "Reviewer 2 suggests another study. On another continent."
+      },
+      "type": "review",
+      "prompt": {
+        "fr": "Trois phrases ont été surlignées. Choisis pour chacune la correction qui renforce la rigueur scientifique.",
+        "en": "Three sentences are highlighted. Choose a scientifically appropriate revision for each."
+      },
+      "rounds": [
+        {
+          "claim": {
+            "fr": "« Les réseaux réduisent nécessairement les hospitalisations. »",
+            "en": "“Networks necessarily reduce admissions.”"
+          },
+          "options": [
+            {
+              "fr": "Distinguer résultat, hypothèse et limites causales",
+              "en": "Separate findings, hypotheses and causal limits"
+            },
+            {
+              "fr": "Ajouter trois références sans modifier la phrase",
+              "en": "Add citations without revising the claim"
+            },
+            {
+              "fr": "Remplacer « réduisent » par « révolutionnent »",
+              "en": "Replace reduce with revolutionize"
+            }
+          ],
+          "correct": 0,
+          "why": {
+            "fr": "L'inférence causale exige un devis adapté.",
+            "en": "Causal claims require appropriate research designs."
+          }
+        },
+        {
+          "claim": {
+            "fr": "« Toutes les ressources cartographiées ont été utilisées. »",
+            "en": "“All mapped services were used.”"
+          },
+          "options": [
+            {
+              "fr": "Se fier au logiciel SIG",
+              "en": "Trust the GIS software"
+            },
+            {
+              "fr": "Distinguer disponibilité et recours observé",
+              "en": "Separate available services from observed uptake"
+            },
+            {
+              "fr": "Supprimer toute représentation cartographique",
+              "en": "Remove all maps"
+            }
+          ],
+          "correct": 1,
+          "why": {
+            "fr": "Une carte d'offre de services n'est pas une mesure de recours.",
+            "en": "Mapping service availability does not measure use."
+          }
+        },
+        {
+          "claim": {
+            "fr": "« Nous parlerons des limites si le reviewer en trouve. »",
+            "en": "“We'll mention limitations if the reviewer spots any.”"
+          },
+          "options": [
+            {
+              "fr": "Ne pas donner de mauvaises idées au reviewer",
+              "en": "Don't give the reviewer ideas"
+            },
+            {
+              "fr": "Écrire que Reviewer 2 est la seule limite",
+              "en": "Say Reviewer 2 is the only limitation"
+            },
+            {
+              "fr": "Décrire biais, échantillon et transférabilité",
+              "en": "Discuss bias, sampling and transferability"
+            }
+          ],
+          "correct": 2,
+          "why": {
+            "fr": "Les limites expliquées honnêtement renforcent la transparence.",
+            "en": "Honest limitations support research transparency."
+          }
+        }
+      ],
+      "win": {
+        "fr": "Reviewer 2 est silencieux. Pendant quatre secondes.",
+        "en": "Reviewer 2 is silent. For four whole seconds."
+      },
+      "lose": {
+        "fr": "Une interprétation honnête a plus de valeur qu'une promesse spectaculaire.",
+        "en": "An honest interpretation is worth more than a spectacular overclaim."
+      },
+      "reward": {
+        "rigor": 13,
+        "proof": 1
+      },
+      "penalty": {
+        "rigor": -10,
+        "stress": 18
+      }
+    },
+    {
+      "act": 3,
+      "zone": "seminar",
+      "title": {
+        "fr": "La pré-soutenance fantôme",
+        "en": "The phantom pre-defense"
+      },
+      "goal": {
+        "fr": "Prépare le raisonnement pour le comité.",
+        "en": "Prepare your argument for the committee."
+      },
+      "quip": {
+        "fr": "82 diapositives. La question est sur la 64e.",
+        "en": "82 slides. The research question is on slide 64."
+      },
+      "type": "choice",
+      "prompt": {
+        "fr": "« Dites-nous ce que chaque objectif apporte, avec quelles sources, et quelles limites. Cinq minutes. »",
+        "en": "“Explain how each aim advances your question, using which sources, and with what limitations. Five minutes.”"
+      },
+      "opts": [
+        {
+          "title": {
+            "fr": "Question → objectifs → données → limites",
+            "en": "Question → aims → data → limitations"
+          },
+          "detail": {
+            "fr": "Rendre explicites les arbitrages et la contribution.",
+            "en": "Make trade-offs and contribution explicit."
+          },
+          "why": {
+            "fr": "Un protocole cohérent se défend aussi simplement.",
+            "en": "A coherent design can be explained simply."
+          },
+          "delta": {
+            "rigor": 12,
+            "trust": 12,
+            "energy": 6
+          },
+          "flags": {
+            "prepared": true
+          }
+        },
+        {
+          "title": {
+            "fr": "82 diapositives et 51 annexes",
+            "en": "82 slides and 51 appendices"
+          },
+          "detail": {
+            "fr": "On commence par l'histoire des soins depuis 1750.",
+            "en": "Begin with healthcare history since 1750."
+          },
+          "why": {
+            "fr": "La concision rend visible le raisonnement.",
+            "en": "Concision makes the reasoning visible."
+          },
+          "delta": {
+            "rigor": -9,
+            "energy": -18,
+            "stress": 20
+          },
+          "flags": {
+            "prepared": false
+          }
+        },
+        {
+          "title": {
+            "fr": "Promettre aucune incertitude",
+            "en": "Promise there is no uncertainty"
+          },
+          "detail": {
+            "fr": "Ni biais, ni recrutement difficile, ni changement.",
+            "en": "No bias, no recruitment issues, no change."
+          },
+          "why": {
+            "fr": "Énoncer les limites est une force, pas un aveu de faiblesse.",
+            "en": "Stating limitations is a strength, not an admission of defeat."
+          },
+          "delta": {
+            "rigor": -13,
+            "trust": -11
+          },
+          "flags": {
+            "prepared": false
+          }
+        }
+      ]
+    },
+    {
+      "act": 3,
+      "zone": "defense",
+      "title": {
+        "fr": "Le grand oral : boss final",
+        "en": "The final defense: boss fight"
+      },
+      "goal": {
+        "fr": "Affronte les cinq questions du comité.",
+        "en": "Face the committee's five questions."
+      },
+      "quip": {
+        "fr": "Il n'est pas nécessaire de tout savoir. Mais il faut savoir ce qui manque.",
+        "en": "You needn't know everything, but you need to know what you don't know."
+      },
+      "type": "boss",
+      "prompt": {
+        "fr": "Le jury a lu le dossier. Cinq questions, un capital de crédibilité. Les erreurs passées modifient tes chances de résister aux objections.",
+        "en": "The committee has read your dossier. Five questions, limited credibility. Earlier decisions affect your chances."
+      },
+      "rounds": [
+        {
+          "claim": {
+            "fr": "Comment votre question de recherche est-elle délimitée ?",
+            "en": "How is your research question bounded?"
+          },
+          "options": [
+            {
+              "fr": "Population, phénomène, contexte et objectifs observables",
+              "en": "Population, phenomenon, setting and observable aims"
+            },
+            {
+              "fr": "Tout étudier partout simultanément",
+              "en": "Study everything everywhere"
+            },
+            {
+              "fr": "Promettre un résultat positif",
+              "en": "Promise positive results"
+            }
+          ],
+          "correct": 0,
+          "why": {
+            "fr": "La délimitation rend la question étudiable.",
+            "en": "Scope makes a question researchable."
+          }
+        },
+        {
+          "claim": {
+            "fr": "Avez-vous réellement accès aux données ?",
+            "en": "Do you really have access to your data?"
+          },
+          "options": [
+            {
+              "fr": "Le dossier de données porte un joli nom",
+              "en": "The dataset has a nice name"
+            },
+            {
+              "fr": "Permissions, sources et solution de repli vérifiées",
+              "en": "Documented permissions, sources and contingency"
+            },
+            {
+              "fr": "Nous réglerons cela après la soutenance",
+              "en": "We'll solve that after the defense"
+            }
+          ],
+          "correct": 1,
+          "why": {
+            "fr": "Les accès et les autorisations doivent être vérifiés.",
+            "en": "Data access and approvals must be verified."
+          }
+        },
+        {
+          "claim": {
+            "fr": "Comment articulez-vous profils, réseaux et territoires ?",
+            "en": "How do you align profiles, networks and territories?"
+          },
+          "options": [
+            {
+              "fr": "La même méthode suffit pour tout",
+              "en": "One method can answer everything"
+            },
+            {
+              "fr": "Une carte prouve les relations causales",
+              "en": "A map proves causal relationships"
+            },
+            {
+              "fr": "Profils, liens documentés, ressources et délibération",
+              "en": "Profiles, documented ties, resources and deliberation"
+            }
+          ],
+          "correct": 2,
+          "why": {
+            "fr": "Les méthodes répondent à des objets différents, mais articulables.",
+            "en": "Methods answer distinct but related research questions."
+          }
+        },
+        {
+          "claim": {
+            "fr": "Comment protégez-vous les personnes dans de petits réseaux ?",
+            "en": "How will you protect people in small networks?"
+          },
+          "options": [
+            {
+              "fr": "Consentement, minimisation et prévention de l'identification",
+              "en": "Consent, minimization and re-identification safeguards"
+            },
+            {
+              "fr": "Supprimer les prénoms et tout publier",
+              "en": "Delete first names and publish everything"
+            },
+            {
+              "fr": "Reporter l'éthique après les analyses",
+              "en": "Postpone ethics until analysis"
+            }
+          ],
+          "correct": 0,
+          "why": {
+            "fr": "L'identifiabilité indirecte doit être anticipée.",
+            "en": "Indirect identifiability must be anticipated."
+          }
+        },
+        {
+          "claim": {
+            "fr": "Que pourrez-vous réellement conclure ?",
+            "en": "What can you legitimately conclude?"
+          },
+          "options": [
+            {
+              "fr": "Que la thèse guérira tous les systèmes",
+              "en": "That the thesis will cure all systems"
+            },
+            {
+              "fr": "Des observations interprétées selon les limites du devis",
+              "en": "Findings interpreted within study limitations"
+            },
+            {
+              "fr": "Que les partenariats marchent toujours",
+              "en": "That partnerships always work"
+            }
+          ],
+          "correct": 1,
+          "why": {
+            "fr": "L'inférence doit rester compatible avec le devis.",
+            "en": "Claims must fit the research design."
+          }
+        }
+      ]
+    }
+  ]
+}
