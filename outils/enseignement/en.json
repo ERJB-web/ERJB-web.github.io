@@ -6,7 +6,7 @@
     "Educational vision",
     "From specialised education to university",
     "Experience and support",
-    "Values in practice",
+    "Teaching methods and learning formats",
     "Learning and assessment",
     "Educating for tomorrow",
     "References"
@@ -75,18 +75,6 @@
     ],
     "refs": [
       "carless"
-    ]
-  },
-  "valeurs": {
-    "titre": "Six values expressed as concrete pedagogical commitments",
-    "intro": "My values take shape in the working conditions I want to provide and the capabilities I aim to support.",
-    "items": [
-      "Open up disciplinary perspectives, distinguish facts, interpretations and value judgments, then ask students to justify a position and consider what could challenge it. Critical thinking also examines one’s own reasoning.",
-      "Make an analysed error an opportunity to progress: revisit an argument, use feedback and recognise an achievement. This requires support and sustainable conditions; individual effort alone cannot remove institutional barriers.",
-      "Provide guidance, choices and opportunities for self-assessment, then adjust support. I want students to learn when to investigate further, check a source or seek expertise.",
-      "Organise work in which everyone contributes, disagreements are examined and the knowledge of people affected has a place. Cooperation requires explicit roles and individual responsibility within the group.",
-      "Enable exploration of new responses, including digital ones, while asking what problem they address, for whom and with what consequences. A teaching innovation should be judged by the learning it makes possible.",
-      "Anticipate barriers to access and participation, make expectations clear and offer appropriate routes towards shared objectives. Equity means attending to people’s actual means of learning and demonstrating what they know."
     ]
   },
   "apprendre": {
