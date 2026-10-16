@@ -39,6 +39,7 @@ export function createAdventureWorld(T,canvas,opts={}){
   const t=new T.CanvasTexture(c);t.colorSpace=T.SRGBColorSpace;t.anisotropy=4;return t;
  }
  function sign(text,x,y,z,w=5,h=.9,parent=group,orange=false){
+  if(typeof parent==="boolean"){orange=parent;parent=group;}
   const map=tex(900,160,(c,W,H)=>{
    c.fillStyle=orange?"#f36633":"#0d2a3c";c.fillRect(0,0,W,H);
    c.strokeStyle=orange?"#fff3e8":"#a4e7ce";c.lineWidth=7;c.strokeRect(5,5,W-10,H-10);
@@ -339,7 +340,7 @@ export function createAdventureWorld(T,canvas,opts={}){
    const d=Math.hypot(dx,dz),walking=d>.07;
    const run=controls.has("ShiftLeft")||controls.has("ShiftRight");
    const speed=room==="rink"?(run?10:7.6):(run?10:6.7);
-   if(walking){modelX=Math.max(-13,Math.min(13,modelX+dx/d*speed*dt));
+   if(walking){modelX=Math.max(room==="university"?-27:-13,Math.min(room==="university"?27:13,modelX+dx/d*speed*dt));
     modelZ=Math.max(-25,Math.min(13,modelZ+dz/d*speed*dt));
    }
    player.position.set(modelX,walking?Math.sin(ts*.010)*.025:0,modelZ);
@@ -359,7 +360,11 @@ export function createAdventureWorld(T,canvas,opts={}){
    checkTarget();
    if(room==="rink"){
     if(walking&&!skate.completed){skate.started=true;skate.clock+=dt;
-     skate.balance+=dx*dt*.43+Math.sin(clock*3.2)*dt*.14;
+     skate.balance+=dx*dt*.38+Math.sin(clock*2.9)*dt*.18+Math.sin(clock*1.7+.7)*dt*.14;
+     if(Math.abs(modelX)>7)skate.balance+=Math.sign(modelX)*dt*.25;
+     for(let k=0;k<8;k++){const coneX=k%2?-5:5,coneZ=-18+k*3.2;
+      if(Math.hypot(modelX-coneX,modelZ-coneZ)<.78){skate.balance+=Math.sign(modelX||1)*dt*.9;}}
+     
      if(controls.has("Space"))skate.balance*=Math.max(0,1-2.8*dt);
      skate.balance*=Math.max(0,1-.13*dt);
      if(Math.abs(skate.balance)>1.0){
