@@ -28,3 +28,28 @@ jobs:
         run: node jeu/test-runtime.mjs
       - name: Verify playable hockey: pickup, slapshot, goalie, falls and scoring
         run: node jeu/test-hockey.mjs
+
+  browser:
+    name: Render 3D character and real-world scenes in Chromium
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser automation
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install chromium
+      - name: Play actual WebGL scene, GLB animations and VR interface
+        run: |
+          python3 -m http.server 8080 --bind 127.0.0.1 >/tmp/doctoral-http.log 2>&1 &
+          node jeu/test-browser.mjs
+      - name: Archive rendered browser screenshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: doctoral-browser-smoke
+          path: jeu/browser-game-smoke.png
+          if-no-files-found: ignore
