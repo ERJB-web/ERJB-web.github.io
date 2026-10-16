@@ -6,6 +6,8 @@
  * Three.js example Soldier: see https://github.com/mrdoob/three.js/tree/dev/examples/models/gltf
  */
 const MODEL_URLS = [
+ // MakeHuman-derived realistic adult in business clothes, CC0, skinned walk clip.
+ "https://www.innerscene.com/api/library/relaxed-walk-jordan-3d-person-animated-7ab9479d/download",
  "https://cdn.3dassets.dev/assets/32901/v1/model.glb",
  "https://threejs.org/examples/models/gltf/Soldier.glb"
 ];
@@ -45,7 +47,7 @@ function humanController(T, base, clips, targetHeight, parent) {
   rig,model,
   update(dt,mode="idle",velocity=0){
    transition(mode);
-   if(current)current.timeScale = mode==="walk"?Math.max(.62,velocity/3.0):mode==="run"?Math.max(.85,velocity/6):1;
+   if(current)current.timeScale = mode==="walk"?Math.max(.62,velocity/3.0):mode==="run"?Math.max(.85,velocity/6):mode==="idle"&&!available.idle?0:1;
    mixer.update(dt);
    fall=Math.max(0,fall-dt);
    rig.rotation.z = fall>0 ? Math.sin((1-fall)*Math.PI)*1.05 : T.MathUtils.damp(rig.rotation.z,0,8,dt);
