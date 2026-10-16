@@ -124,9 +124,9 @@ function manuscript(t,s,api){
  root.querySelector('[data-action="submit"]').onclick=()=>{
  if(sequence.length!==5){api.toast("Place les cinq sections du dossier.");return;}
  const valid=sequence.every((v,i)=>v===i);let article=String(t.id).match(/^article([1-3])Submit$/);
- if(valid&&article)s.articles=Math.max(s.articles,+article[1]);
+ // Publication credit is granted by the persistent campaign engine after a valid submission.
  api.finish(t,{rigor:valid?8:-9,trust:valid?2:-3,proof:valid?2:0},
- valid?"La structure argumentative explicite la question, les méthodes, les constats et leurs limites.":"La construction ne permet pas au lecteur de suivre les preuves et la discussion.",{risky:!valid});
+ valid?"La structure argumentative explicite la question, les méthodes, les constats et leurs limites.":"La construction ne permet pas au lecteur de suivre les preuves et la discussion.",{risky:!valid,articleAccepted:valid&&!!article});
  };
  };render();
 }
