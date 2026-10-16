@@ -234,6 +234,35 @@ function showPlaceButtons(current){
 }
 function doActivity(zone,action,label){
  if(!st||modal)return;
+ // The early progression is a physical collect-and-deliver quest, not a dialog quiz.
+ if(zone==="university"&&action==="admission"){
+  const needed=["university-0","university-1","university-2"];
+  const collected=needed.filter(id=>st.worldClues?.[id]).length;
+  if(collected<needed.length){
+   alertGame("MISSION ADMISSION · Documents recueillis : "+collected+"/3. Parcours le campus pour trouver les trois pièces.");
+   return;
+  }
+  const mission=openTasks().find(t=>t.id==="admission");
+  if(mission){
+   chosen=mission.id;
+   finish(mission,{rigor:5,trust:3,proof:1},"Éric a rassemblé les trois pièces sur le campus et déposé son dossier à l'administration. La candidature ouvre réellement le parcours doctoral.");
+   return;
+  }
+  alertGame("Dossier d'admission déjà déposé. Explore maintenant les autres bâtiments.");return;
+ }
+ if(zone==="library"&&(action==="bibliography"||action==="concept")){
+  const ids=["library-0","library-1","library-2"];
+  const n=ids.filter(id=>st.worldClues?.[id]).length;
+  if(n<3){alertGame("ENQUÊTE DOCUMENTAIRE : récupère les trois références de la bibliothèque ("+n+"/3).");return;}
+ }
+ if(zone==="conference"&&action==="talk"){
+  const n=["conference-0","conference-1","conference-2"].filter(id=>st.worldClues?.[id]).length;
+  if(n<2){alertGame("AVANT DE MONTER SUR SCÈNE : trouve deux éléments d'affiche scientifique ("+n+"/2).");return;}
+ }
+ if(zone==="laboratory"&&action==="data"){
+  const n=["laboratory-0","laboratory-1","laboratory-2"].filter(id=>st.worldClues?.[id]).length;
+  if(n<2){alertGame("LABORATOIRE : examine au moins deux dossiers de données avant l'analyse ("+n+"/2).");return;}
+ }
  // Physical interactions first; task forms are invoked from a reached work station, not from the start menu.
  if(zone==="home"&&action==="rest"){
   st.energy=clamp(st.energy+18);st.stress=clamp(st.stress-12);st.week+=1;
