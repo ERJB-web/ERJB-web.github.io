@@ -2158,7 +2158,8 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
 @media(min-width:1000px){
  .hall.en-volume .hall-espace{height:clamp(410px,52svh,470px)}
  .hall.en-volume .station-hall{height:322px}
- .hall.en-volume .panneau-hall{top:65px;max-height:calc(100% - 69px)}
+ /* Cadres calés sur la jonction vitres/mur de la photographie, pour toute la plage de hauteur du hall. */
+ .hall.en-volume .panneau-hall{top:clamp(44.14px,calc(343.67px - 33.14svh),82.38px);max-height:calc(100% - 69px)}
 }
 
 /* Adaptations tactiles : navigation fluide, surfaces de clic et lisibilité. */
