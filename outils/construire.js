@@ -177,9 +177,9 @@ function poserSousPortes(c) {
   for (const [s, P] of Object.entries(PARTIES_RESSOURCES)) c.hall.portes[s] = [S[s][0] || c.ressources.groupes[P.groupes[0]][0], S[s][1]];
   for (const [s, k] of Object.entries(INDEX_ENGAGEMENTS)) c.hall.portes[s] = [c.engagements.groupes[k].titre, c.hall.portes.engagements[0]];
 }
-const BANDEAUX = { logiciels:"bandeaux/logiciels.svg", methodes: "bandeaux/conceptualisation.jpg", axes: "bandeaux/recherche.jpg", ia: "bandeaux/grise.jpg", vulgarisation: "bandeaux/capsules.jpg", litterature: "bandeaux/ressources.jpg", representation: "photos/representation.jpg", communaute: "bandeaux/engagements.jpg", distinctions: "photos/distinctions.jpg", loisirs: "bandeaux/sports-loisirs.png" };
+const BANDEAUX = { logiciels:"bandeaux/logiciels.svg", methodes: "bandeaux/conceptualisation.jpg", axes: "bandeaux/recherche.jpg", ia: "bandeaux/grise.jpg", vulgarisation: "photos/ecriture.jpg", litterature: "bandeaux/ressources.jpg", representation: "photos/representation.jpg", communaute: "bandeaux/engagements.jpg", distinctions: "photos/distinctions.jpg", loisirs: "bandeaux/sports-loisirs.png" };
 const bandeau = (s) => BANDEAUX[s] || "bandeaux/" + s + ".jpg";
-const miniSalle = (s) => ({ logiciels:"logiciels", methodes: "conceptualisation", axes: "recherche", ia: "outils", vulgarisation: "capsules" }[s] || s);
+const miniSalle = (s) => ({ logiciels:"logiciels", methodes: "conceptualisation", axes: "recherche", ia: "outils", vulgarisation: "presse" }[s] || s);
 // Lexique : seize notions, quatre familles et références communes au format APA.
 const NOTIONS = require("./notions-cles");
 const textesNotions = (c) => NOTIONS.langues[c.lang] || NOTIONS.langues.en;

@@ -1593,8 +1593,8 @@ const fr = {
   },
   contact: {
     surtitre: "Contact",
-    titre: "Échanger sur un travail",
-    intro: "Une question, une lecture à partager, un projet à discuter : écrivez-moi.",
+    titre: "Échanger des idées et des perspectives",
+    intro: "Une idée, une lecture, une expérience à partager ou un projet à imaginer ? Je serai heureux d’en discuter avec vous.",
     courriel: COURRIEL,
     ecrire: "Écrire un courriel",
     liens: [
@@ -1606,7 +1606,7 @@ const fr = {
     adresse: "École de santé publique de l’Université de Montréal · 7101, avenue du Parc, Montréal (Québec)",
   },
   pied: "© 2026 Éric Bernier",
-  credits: "Images : portrait d’Éric Bernier, photographies Unsplash et images générées localement pour le site, sans personne réelle. Lecture à voix haute : Kyutai TTS (CC BY 4.0), voix de référence CML-TTS (Oliveira et al., 2023) et Alba MacKenna (CC BY 4.0).",
+  credits: "Images : portrait d’Éric Bernier, photographies Unsplash et illustrations numériques représentant des scènes fictives, non documentaires. Lecture à voix haute : Kyutai TTS (CC BY 4.0), voix de référence CML-TTS (Oliveira et al., 2023) et Alba MacKenna (CC BY 4.0).",
   introuvable: { titre: "Page introuvable", texte: "Cette page n’existe pas ou a été déplacée.", retour: "Revenir à l’accueil" },
 };
 
@@ -3164,8 +3164,8 @@ const en = {
   },
   contact: {
     surtitre: "Contact",
-    titre: "Let’s talk about your work",
-    intro: "A question, a reading to share, a project to discuss: write to me.",
+    titre: "Let’s share ideas and perspectives",
+    intro: "Have an idea, an interesting reading, an experience to share or a project to explore? I would be glad to hear from you.",
     courriel: COURRIEL,
     ecrire: "Send an email",
     liens: [
@@ -3177,7 +3177,7 @@ const en = {
     adresse: "School of Public Health, Université de Montréal · 7101 avenue du Parc, Montréal, Québec",
   },
   pied: "© 2026 Éric Bernier",
-  credits: "Images: a portrait of Éric Bernier, Unsplash photographs and images generated locally for this site, depicting no real people. Read-aloud voices: Kyutai TTS (CC BY 4.0), reference voices CML-TTS (Oliveira et al., 2023) and Alba MacKenna (CC BY 4.0).",
+  credits: "Images: a portrait of Éric Bernier, Unsplash photographs and digital illustrations depicting fictional scenes, not documentary photographs. Read-aloud voices: Kyutai TTS (CC BY 4.0), reference voices CML-TTS (Oliveira et al., 2023) and Alba MacKenna (CC BY 4.0).",
   introuvable: { titre: "Page not found", texte: "This page does not exist or has moved.", retour: "Back to the home page" },
 };
 
@@ -4735,8 +4735,8 @@ const es = {
   },
   contact: {
     surtitre: "Contacto",
-    titre: "Conversar sobre un trabajo",
-    intro: "Una pregunta, una lectura para compartir, un proyecto que discutir: escríbame.",
+    titre: "Compartamos ideas y perspectivas",
+    intro: "¿Tiene alguna idea, lectura, experiencia o proyecto que le gustaría compartir? Será un placer conversar.",
     courriel: COURRIEL,
     ecrire: "Escribir un correo",
     liens: [
@@ -4748,7 +4748,7 @@ const es = {
     adresse: "Escuela de Salud Pública de la Université de Montréal · 7101, avenue du Parc, Montreal (Quebec)",
   },
   pied: "© 2026 Éric Bernier",
-  credits: "Imágenes: retrato de Éric Bernier, fotografías de Unsplash e imágenes generadas localmente para el sitio, sin personas reales. Lectura en voz alta: Kyutai TTS (CC BY 4.0), voces de referencia CML-TTS (Oliveira et al., 2023) y Alba MacKenna (CC BY 4.0).",
+  credits: "Imágenes: retrato de Éric Bernier, fotografías de Unsplash e ilustraciones digitales de escenas ficticias, no documentales. Lectura en voz alta: Kyutai TTS (CC BY 4.0), voces de referencia CML-TTS (Oliveira et al., 2023) y Alba MacKenna (CC BY 4.0).",
   introuvable: { titre: "Página no encontrada", texte: "Esta página no existe o ha sido trasladada.", retour: "Volver a la página de inicio" },
 };
 

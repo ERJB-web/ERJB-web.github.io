@@ -1,11 +1,10 @@
 {
   "type": "Décor architectural généré par IA",
-  "outil": "image_gen.imagegen (outil intégré)",
   "date": "2026-10-15",
   "usage": "Fond du hall panoramique compact ; portes et rubriques interactives en HTML/CSS",
-  "prompt": "Use case: photorealistic-natural. Asset type: panoramic background photograph for a compact interactive professional website hall. Create one ultra-wide landscape architectural photograph, around 3:1 aspect ratio, of a welcoming modern university research institute entrance atrium, clearly a spacious open reception hall rather than a narrow corridor. Eye-level camera, straight verticals, subtle natural wide-angle perspective. The central broad wall faces the viewer almost frontally, in pale warm limestone or ivory plaster, at human scale; six real interactive doors and their wall plaques will be composited in code across this wall, so this central wall must be bare, uninterrupted, and empty, with absolutely no existing doors, signs or frames. It occupies the central 84 percent of image width and from about 18 percent to 83 percent of image height. Its lower edge meets a broad pale natural-stone floor at a straight level horizontal line around 83 percent height. At the outermost left and right 8 percent edges, elegant full-height architectural openings reveal a genuinely deep bright double-height atrium with a glazed facade, a discreet open mezzanine, pale timber ceiling accents, and just one distant green indoor plant: these peripheral glimpses make the space an open public hall, never a tunnel. At top, a believable skylight and slender structural beams admitting soft daylight, with realistic bounce light and subtle tactile materials. Understated contemporary public institution, clean, serene, realistic architectural photography with nuanced textures, restrained ivory, sage grey, light oak. Optical realism, physically coherent shadows and glazing, no surreal geometry, no shiny luxury CGI look, no overexposure. No people or characters, no letters, text, logos, screens or watermark. Keep the image intentionally uncluttered. This is just an architectural photographic backdrop, NOT a website screenshot or diagram. Important panoramic banner use: all important features must remain legible inside the wide central horizontal crop.",
   "source": "exec-3810b7f3-e905-4ef5-af98-a822a2752a90.png",
   "fichier": "hall-atrium.webp",
   "format": "WebP, 2167 × 726 px",
-  "composition": "Atrium lumineux, verrière, ouvertures latérales ; mur central destiné aux portes interactives"
+  "composition": "Atrium lumineux, verrière, ouvertures latérales ; mur central destiné aux portes interactives",
+  "nature": "Illustration numérique fictive, non photographique au sens documentaire."
 }

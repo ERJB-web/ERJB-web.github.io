@@ -2288,3 +2288,74 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
 @media(max-height:530px) and (max-width:999px){.salle .salle-onglets{position:relative;top:auto}}
 @media(hover:none) and (pointer:coarse){.pub-format:hover,.pub-format:hover svg{transform:none}}
 @media(prefers-reduced-motion:reduce){.salle .salle-onglets,.hall.en-mobile .hall-reperes,.entete .nav{scroll-behavior:auto}}
+
+/* 2026-10-15 — cadrage du panorama, sans modifier la navigation ni l'intérieur. */
+@media(min-width:1000px){
+  .hall.en-volume{--eb-hall-hauteur:clamp(410px,52svh,470px)}
+  .hall.en-volume .hall-espace{height:var(--eb-hall-hauteur)}
+  .hall.en-volume .architecture-hall{
+    transform:translateZ(-100px) scale(1.025);
+    background-color:#eeeee8;
+    background-image:linear-gradient(180deg,rgba(249,250,247,.04),rgba(246,247,240,.03)),url("photos/hall-atrium-verriere.webp");
+    background-size:100% 100%,auto 100%;
+  }
+  .hall.en-volume .architecture-hall::before{
+    background-size:auto 100%;
+    -webkit-mask-size:auto 100%;
+    mask-size:auto 100%;
+  }
+  .hall.en-volume .station-hall{
+    height:calc(var(--eb-hall-hauteur) * .70);
+    bottom:calc(var(--eb-hall-hauteur) * .215);
+  }
+  .hall.en-volume .station-hall .porte{
+    height:calc(var(--eb-hall-hauteur) * .50);
+  }
+  .hall.en-volume .panneau-hall{
+    top:calc(var(--eb-hall-hauteur) * .20);
+    max-height:calc(var(--eb-hall-hauteur) * .50);
+    border-color:#cbd6d0;
+    border-top-color:color-mix(in srgb,var(--c1) 55%,white);
+    background:rgba(255,255,251,.96);
+    box-shadow:0 3px 12px rgba(30,58,55,.1);
+  }
+  .hall.en-volume .dallage-hall{height:calc(var(--eb-hall-hauteur) * .215);background:linear-gradient(180deg,transparent,rgba(243,244,236,.05))}
+}
+/* Recalage natif de proximité, jamais forcé, séparé entre page et salle. */
+@supports(scroll-snap-type:y proximity){
+  html:not(.lv):not(.hc){scroll-snap-type:y proximity;scroll-padding-top:clamp(85px,11svh,136px)}
+  html:not(.lv):not(.hc) main>.accueil,
+  html:not(.lv):not(.hc) main>.section{scroll-snap-align:start;scroll-snap-stop:normal}
+  .salle:not([hidden]){scroll-snap-type:y proximity;scroll-padding-top:calc(var(--salle-barre-hauteur,78px) + 16px)}
+  .salle:not([hidden]) .salle-contenu .bandeau,
+  .salle:not([hidden]) .salle-contenu .section-corps,
+  .salle:not([hidden]) .salle-contenu .rubrique-corps{
+    scroll-snap-align:start;scroll-snap-stop:normal;
+    scroll-margin-top:calc(var(--salle-barre-hauteur,78px) + 18px);
+  }
+  @media(prefers-reduced-motion:reduce){html,.salle{scroll-snap-type:none}}
+  @media(max-width:640px){html{scroll-padding-top:84px}.salle{scroll-padding-top:calc(var(--salle-barre-hauteur,70px) + 10px)}}
+}
+/* Accents légers bleu/vert de la chaire, sans écraser les codes thématiques. */
+:root{--gsk-bleu:#237a9a;--gsk-vert:#65a946}
+.rubriques[data-navigation=atelier] .rubriques-progression>span{
+  background:linear-gradient(90deg,var(--gsk-bleu),var(--gsk-vert));
+}
+.rubriques[data-navigation=atelier] .rubriques-console{
+  border-color:#d1e2dc;
+  background:linear-gradient(130deg,#f5fafb,#f2f8f2);
+}
+.rubriques[data-navigation=atelier] .rubriques-nav button{
+  border-top:3px solid color-mix(in srgb,var(--c1,var(--gsk-bleu)) 65%,white);
+}
+.rubriques[data-navigation=atelier] .rubriques-nav button[aria-selected=true]{
+  border-top-color:var(--c1,var(--gsk-bleu));
+  box-shadow:inset 0 -3px var(--gsk-vert),0 5px 17px -14px #214a50;
+}
+.rubriques[data-navigation=atelier]>.rubrique-corps{background:linear-gradient(180deg,#fff,#fdfefd)}
+@media(forced-colors:active){.rubriques[data-navigation=atelier] .rubriques-nav button[aria-selected=true]{outline:2px solid Highlight}}
+/* La vulgarisation montre une vraie photographie éditoriale, sans portrait de faux intervenant. */
+.section[data-salle=vulgarisation] .bandeau{
+  background-position:center,center 48%;
+  background-size:cover;
+}

@@ -1670,8 +1670,8 @@
   },
   "contact": {
     "surtitre": "Контакты",
-    "titre": "Обсудить работу или проект",
-    "intro": "Есть вопрос, интересный материал или проект для обсуждения? Напишите мне.",
+    "titre": "Обменяться идеями и опытом",
+    "intro": "Есть идея, интересная публикация, опыт или проект, которыми вы хотели бы поделиться? Буду рад общению.",
     "courriel": "eric.bernier.1@umontreal.ca",
     "ecrire": "Написать письмо",
     "liens": [
@@ -1699,7 +1699,7 @@
     "adresse": "École de santé publique de l’Université de Montréal · 7101, avenue du Parc, Montréal (Québec)"
   },
   "pied": "© 2026 Éric Bernier",
-  "credits": "Изображения: портрет Éric Bernier, фотографии Unsplash и изображения, созданные локально для сайта, без реальных людей. Озвучивание: Kyutai TTS (CC BY 4.0), референсные голоса CML-TTS (Oliveira et al., 2023) и Alba MacKenna (CC BY 4.0).",
+  "credits": "Изображения: портрет Éric Bernier, фотографии Unsplash и цифровые иллюстрации вымышленных сцен, не являющиеся документальными снимками. Озвучивание: Kyutai TTS (CC BY 4.0), референсные голоса CML-TTS (Oliveira et al., 2023) и Alba MacKenna (CC BY 4.0).",
   "introuvable": {
     "titre": "Страница не найдена",
     "texte": "Эта страница не существует или была перемещена.",
