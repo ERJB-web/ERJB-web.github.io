@@ -52,7 +52,7 @@ export async function loadHockeyAssets(T,stage,eric,hockey,isActive=()=>true,pro
   if(item.id==="stick"){
    eric.useStickModel(model);
   }else if(item.id==="helmet"){
-   const pivot=eric.equipmentMounts?.helmet||stageRoot;pivot.add(model);
+   const pivot=eric.equipmentMounts?.helmet||stageRoot;pivot.add(model);eric.useHelmetModel?.(model);
    model.position.set(0,-.19,.055);model.scale.setScalar(.91);
   }else if(item.id==="skates"){
    for(const [index,key] of ["leftSkate","rightSkate"].entries()){
