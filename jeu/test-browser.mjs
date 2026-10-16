@@ -42,7 +42,8 @@ try{
  assert.equal(result.actor,"loaded");
  assert.equal(result.humanSource,"civilian-human","The playable character must be the locally hosted civilian, not the soldier backup");
  assert.equal(result.room,"classroom");
- assert.ok(["detailed-glb","procedural-fallback"].includes(result.sceneStatus),"Scene must render even if GLB provider is offline");
+ assert.ok(["detailed-glb","detailed-props","procedural-fallback"].includes(result.sceneStatus),"Scene must render even if GLB provider is offline");
+ assert.equal(result.sceneStatus,"detailed-props","The classroom must contain real locally hosted PBR 3D furniture, not boxes");
  if(result.sceneStatus==="procedural-fallback"){
   console.warn("DEGRADED: The detailed scene GLB provider is unreachable in this browser; interactive 3D fallback is active.");
   if(process.env.E2E_REQUIRE_3D_ASSETS==="1")throw Error("Detailed GLB assets must load in strict rendering QA");
