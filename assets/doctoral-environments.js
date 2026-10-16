@@ -47,8 +47,14 @@ export async function createImmersiveLocations(T,api={}){
    }
    stage.add(scene);
    document.getElementById("career")?.setAttribute("data-environment",name);
+   document.getElementById("career")?.setAttribute("data-environment-status","detailed-glb");
    api.onLoaded?.(name);
   }catch(err){
+   // The built-in navigable 3D room remains visible if a GLB host is offline.
+   if(active.number===request && stage.parent){
+    document.getElementById("career")?.setAttribute("data-environment",name);
+    document.getElementById("career")?.setAttribute("data-environment-status","procedural-fallback");
+   }
    api.onFailed?.(name,err);
   }
  }
