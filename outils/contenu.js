@@ -247,7 +247,7 @@ const fr = {
         { domaine: "Systèmes de santé et soins primaires", statut: "Soumis à BJGP Open", titre: TITRES_ORIGINAUX.hospit, auteurs: AUTEURS.hospit },
         {
           domaine: "Épistémologie et transfert de connaissances",
-          statut: "En travaux",
+          statut: "En construction · En attente de collaboration",
           titre: TITRES_ORIGINAUX.epistemic,
           auteurs: "Bernier, É.",
           resume:
@@ -1818,7 +1818,7 @@ const en = {
         { domaine: "Health systems and primary care", statut: "Submitted to BJGP Open", titre: TITRES_ORIGINAUX.hospit, auteurs: AUTEURS.hospit },
         {
           domaine: "Epistemology and knowledge translation",
-          statut: "In progress",
+          statut: "Under development · Awaiting collaboration",
           titre: TITRES_ORIGINAUX.epistemic,
           auteurs: "Bernier, É.",
           resume:
@@ -3389,7 +3389,7 @@ const es = {
         { domaine: "Sistemas de salud y atención primaria", statut: "Enviado a BJGP Open", titre: TITRES_ORIGINAUX.hospit, auteurs: AUTEURS.hospit },
         {
           domaine: "Epistemología y transferencia de conocimientos",
-          statut: "En elaboración",
+          statut: "En construcción · En espera de colaboración",
           titre: TITRES_ORIGINAUX.epistemic,
           auteurs: "Bernier, É.",
           resume:
