@@ -22,6 +22,7 @@ const color={orange:0xf36633,cream:0xf0efed,ink:0x151515,teal:0x286d5c,stone:0x7
 export function createAdventureWorld(T,canvas,opts={}){
  const choose=key=>PLACES.find(p=>p.id===key)||PLACES[0];
  let room="university",scene,camera,renderer,group,player,eric;
+ let worldReality=null,walkVX=0,walkVZ=0,jumpY=0,jumpVel=0,jumpHeld=false,xrTriggerHeld=false,obstacles=[];
  let last=0,lastNavigation=0,clock=0,modelX=0,modelZ=7,cameraYaw=0,cameraPitch=.28,cameraDistance=8.3,dragView=null,busy=false,auto=null,actors=[],targets=[],clickables=[],particles=[],chasers=[],collectibles=[],hitCooldown=0,activeTarget=null,controls=opts.keys||new Set();
  let skate={balance:0,clock:0,falls:0,completed:false,started:false,lastReport:0,gateIndex:0,gates:[],velocityX:0,velocityZ:0};
  let hockey=null,hockeySession=0,lastHeading=Math.PI;
@@ -83,7 +84,7 @@ export function createAdventureWorld(T,canvas,opts={}){
  function releaseScene(root){
   const released=new Set();
   root.traverse(o=>{
-   if(!o.isMesh)return;
+   if(!o.isMesh||o.userData?.externalGLTF)return;
    o.geometry?.dispose?.();
    for(const m of (Array.isArray(o.material)?o.material:[o.material])){
     if(!m||sharedMaterials.has(m)||released.has(m))continue;
@@ -189,6 +190,7 @@ function desk(x,z,width=2.3,screen=false){
   for(const a of [-1,1])for(const b of [-1,1])cube(.10,1.09,.1,M.metal,x+a*(width*.43),.54,z+b*.48);
   if(screen){cube(1.26,.74,.09,M.black,x,1.86,z-.27);cube(1.15,.58,.01,mat(0x429e9b,.35,.29,.5),x,1.86,z-.328);cube(.50,.06,.23,M.metal,x,1.38,z-.27);}
   cube(.62,.08,.3,M.black,x,1.28,z+.32);
+  obstacles.push({x,z,rx:width*.52+.23,rz:.87});
  }
  function chair(x,z){cube(.66,.15,.7,M.dark,x,.62,z);cube(.65,.88,.13,M.dark,x,1.06,z+.35);cyl(.06,.56,M.metal,x,.28,z);}
  function lamp(x,z){cyl(.10,3,M.metal,x,1.5,z);const shade=cyl(.46,.38,M.white,x,3.14,z);shade.material=M.neon;ball(.3,M.white,x,3.28,z);}
@@ -518,7 +520,7 @@ const cast=[
  function visit(id,initial=false){
   const next=choose(id).id;
   if(hockey){hockey.dispose();hockey=null;}++hockeySession;
-  room=next;busy=false;auto=null;modelX=0;modelZ=9;actors=[];targets=[];clickables=[];particles=[];chasers=[];collectibles=[];hitCooldown=0;activeTarget=null;
+  room=next;busy=false;auto=null;modelX=0;modelZ=9;walkVX=0;walkVZ=0;jumpY=0;jumpVel=0;obstacles=[];actors=[];targets=[];clickables=[];particles=[];chasers=[];collectibles=[];hitCooldown=0;activeTarget=null;
   if(group){scene.remove(group);releaseScene(group);}
   group=new T.Group();scene.add(group);
   // Studio lighting colors adapt to each location.
@@ -526,6 +528,7 @@ const cast=[
   const sun=new T.DirectionalLight(0xffdec0,2.65);sun.position.set(-11,15,14);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);sun.shadow.camera.left=-32;sun.shadow.camera.right=32;sun.shadow.camera.top=30;sun.shadow.camera.bottom=-30;group.add(sun);
   ({university,classroom,laboratory,library,office,home,conference,field,auditorium,rink}[room]||university)();
   decoratePlay();
+  worldReality?.syncCast(actors);
   // Keep Eric separate from rebuildable environment.
   eric.setPosition(0,0,9);eric.setEquipment(next==="rink"?"hockey":"casual");skate.lastReport=0;
   opts.onVisit?.(next,choose(next));
@@ -539,14 +542,16 @@ const cast=[
   scene=new T.Scene();camera=new T.PerspectiveCamera(62,1,.1,145);
   eric=createEricAvatar(T,{portraitUrl:"../assets/portrait.jpg",onReady:()=>opts.onAvatarReady?.()});
   player=eric.group;player.rotation.y=Math.PI;scene.add(player);
-  visit("university",true);resize();requestAnimationFrame(tick);
+  visit("university",true);resize();
+  if(renderer.setAnimationLoop){renderer.xr.enabled=true;renderer.xr.setReferenceSpaceType?.("local-floor");renderer.setAnimationLoop(tick);}else requestAnimationFrame(tick);
+  if(typeof window!=="undefined")import("./doctoral-reality.js?v=3").then(m=>m.installLivingWorld(T,{player,renderer,notify:opts.onNarrate})).then(layer=>{worldReality=layer;layer.syncCast(actors);}).catch(err=>{console.warn("Human asset unavailable",err);opts.onNarrate?.("Modèles 3D externes indisponibles : secours local activé.");});
   canvas.addEventListener("contextmenu",ev=>ev.preventDefault());
   canvas.addEventListener("pointerdown",ev=>{
-   if(ev.button===2){dragView={x:ev.clientX,y:ev.clientY};canvas.setPointerCapture?.(ev.pointerId);return;}
+   if(ev.button===2||ev.pointerType==="touch"||ev.shiftKey){dragView={x:ev.clientX,y:ev.clientY};canvas.setPointerCapture?.(ev.pointerId);return;}
    if(opts.isPaused?.())return;
    const bounds=canvas.getBoundingClientRect(),v=new T.Vector2((ev.clientX-bounds.left)/bounds.width*2-1,-(ev.clientY-bounds.top)/bounds.height*2+1),ray=new T.Raycaster();ray.setFromCamera(v,camera);
    const hits=ray.intersectObjects(targets.map(t=>t.ring),true);
-   if(!hits.length)return;
+   if(!hits.length){dragView={x:ev.clientX,y:ev.clientY};canvas.setPointerCapture?.(ev.pointerId);return;}
    let g=hits[0].object;
    while(g&&!targets.find(t=>t.ring===g))g=g.parent;
    const target=targets.find(t=>t.ring===g);if(target)auto={x:target.x,z:target.z};
@@ -581,11 +586,12 @@ const cast=[
   if(!near)activeTarget=null;
  }
  function tick(ts){
-  requestAnimationFrame(tick);if(!renderer)return;
+  if(!renderer?.setAnimationLoop)requestAnimationFrame(tick);if(!renderer)return;
   const dt=Math.min(.055,(ts-last||16)/1000);last=ts;clock+=dt;
   if(!opts.isPaused?.()){
    let dx=Number(controls.has("ArrowRight")||controls.has("KeyD"))-Number(controls.has("ArrowLeft")||controls.has("KeyA")||controls.has("KeyQ"));
    let dz=Number(controls.has("ArrowDown")||controls.has("KeyS"))-Number(controls.has("ArrowUp")||controls.has("KeyW")||controls.has("KeyZ"));
+   const xr=worldReality?.xrAxes();if(xr){dx+=xr.x;dz+=xr.z;if(xr.interact&&!xrTriggerHeld)goToHotspot();xrTriggerHeld=xr.interact;}
    if(auto&&!dx&&!dz){dx=auto.x-modelX;dz=auto.z-modelZ;if(Math.hypot(dx,dz)<.78){dx=dz=0;auto=null;}}
    else if(dx||dz){auto=null;
     const right=dx,forward=dz;dx=right*Math.cos(cameraYaw)+forward*Math.sin(cameraYaw);
@@ -615,12 +621,13 @@ const cast=[
    const walking=Math.hypot(moveVX,moveVZ)>.14;
    eric.setPosition(modelX,0,modelZ);
    eric.update(dt,ts,{x:moveVX,z:moveVZ},room);
+   worldReality?.update(dt,moveVX,moveVZ,room);
    // Third-person pursuit camera; the player remains readable while the next section of the arena stays visible.
-   const lookAhead=room==="rink"?5.8:4.1;
+   const lookAhead=worldReality?.inVR?0:room==="rink"?5.8:4.1;
    const followX=modelX+Math.sin(cameraYaw)*cameraDistance,followZ=modelZ+Math.cos(cameraYaw)*cameraDistance;
    const centerX=modelX-Math.sin(cameraYaw)*lookAhead,centerZ=modelZ-Math.cos(cameraYaw)*lookAhead;
-   camera.position.lerp(new T.Vector3(followX,1.75+Math.sin(cameraPitch)*cameraDistance,followZ),Math.min(1,dt*5.8));
-   camera.lookAt(centerX,1.30,centerZ);
+   if(worldReality?.inVR)camera.position.set(modelX,1.72+jumpY,modelZ);
+   else{camera.position.lerp(new T.Vector3(followX,1.75+Math.sin(cameraPitch)*cameraDistance,followZ),Math.min(1,dt*5.8));camera.lookAt(centerX,1.30,centerZ);}
    
    for(const npc of actors){
     npc.body.position.x=npc.x+Math.sin(clock*.72+npc.sway)*npc.move*.46;
