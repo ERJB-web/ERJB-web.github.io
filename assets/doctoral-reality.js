@@ -116,6 +116,19 @@ export async function installLivingWorld(T,api){
    }catch(err){api.notify?.("Impossible de démarrer la VR : "+(err?.message||"session refusée"));}
   });
  }
+ function tactilePulse(intensity=.35,duration=40){
+  // Gamepad haptics are optional; never required for play or VR entry.
+  if(xrSession){
+   for(const input of xrSession.inputSources||[]){
+    const pad=input.gamepad;
+    const rumble=pad?.vibrationActuator||pad?.hapticActuators?.[0];
+    if(typeof rumble?.pulse==="function")rumble.pulse(intensity,duration).catch?.(()=>{});
+    else if(typeof rumble?.playEffect==="function")rumble.playEffect("dual-rumble",{duration,strongMagnitude:intensity,weakMagnitude:intensity*.6}).catch?.(()=>{});
+   }
+  }else if(typeof navigator!=="undefined"&&typeof navigator.vibrate==="function"){
+   navigator.vibrate(duration);
+  }
+ }
  function xrAxes(){
   if(!xrSession)return null;
   let dx=0,dz=0,interact=false;
@@ -130,5 +143,5 @@ export async function installLivingWorld(T,api){
  }
  document.getElementById("career")?.setAttribute("data-human-model","loaded");
  api.notify?.("Personnages humains 3D chargés. Marche, course et animations squelettiques activées.");
- return {syncCast,update,fall:()=>hero.tumble(),xrAxes,get inVR(){return !!xrSession;},source};
+ return {syncCast,update,fall:()=>{hero.tumble();tactilePulse(.72,160);},pulse:tactilePulse,xrAxes,get inVR(){return !!xrSession;},source};
 }
