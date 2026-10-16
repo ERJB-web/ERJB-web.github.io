@@ -1,4 +1,6 @@
-import {createEricAvatar} from "./eric-avatar-3d.js?v=8";
+import {createEricAvatar} from "./eric-avatar-3d.js?v=9";
+import {createHockeyGame} from "./hockey-game.js";
+import {loadHockeyAssets} from "./hockey-assets.js";
 /*
  * Immersive, procedural Three.js environments for the doctoral game.
  * Entirely original geometry with Eric's articulated 3D avatar.
@@ -22,6 +24,7 @@ export function createAdventureWorld(T,canvas,opts={}){
  let room="university",scene,camera,renderer,group,player,eric;
  let last=0,lastNavigation=0,clock=0,modelX=0,modelZ=7,cameraYaw=0,cameraPitch=.28,cameraDistance=8.3,dragView=null,busy=false,auto=null,actors=[],targets=[],clickables=[],particles=[],chasers=[],collectibles=[],hitCooldown=0,activeTarget=null,controls=opts.keys||new Set();
  let skate={balance:0,clock:0,falls:0,completed:false,started:false,lastReport:0,gateIndex:0,gates:[],velocityX:0,velocityZ:0};
+ let hockey=null,hockeySession=0,lastHeading=Math.PI;
  const mat=(hex,metal=.05,rough=.65,glow=0)=>new T.MeshStandardMaterial({color:hex,metalness:metal,roughness:rough,emissive:glow?hex:0,emissiveIntensity:glow});
  // Art-directed PBR surface maps, generated deterministically in-browser.
  const materialMap=(kind)=>{
@@ -497,8 +500,20 @@ const cast=[
    checkpoint.rotation.x=-Math.PI/2;checkpoint.castShadow=false;
    const beacon=shape(new T.IcosahedronGeometry(.16),M.neon,0,1.28,0,g);beacon.castShadow=false;
    sign("PORTE "+(i+1),0,1.85,0,2.1,.36,g);
-   g.visible=i===0;skate.gates[i].indicator=g;
+   g.visible=false;skate.gates[i].indicator=g;
   });
+  // Shooting and defensive AI run independently of arena decoration.
+  const session=++hockeySession;
+  hockey=createHockeyGame(T,group,eric,{
+   onGoal:stats=>{opts.onHockeyEvent?.("goal",stats);opts.onNarrate?.("BUUUUT ! "+stats.goals+" / 3");},
+   onSave:stats=>{opts.onHockeyEvent?.("save",stats);opts.onNarrate?.("ARRÊT DU GARDIEN ! Reprends la rondelle.");},
+   onShot:stats=>opts.onHockeyEvent?.("shot",stats),
+   onFall:stats=>{skate.falls=stats.falls;opts.onHockeyEvent?.("fall",stats);opts.onNarrate?.("Éric chute ! Relève-toi et reprends la rondelle.");},
+   onWin:stats=>{skate.completed=true;opts.onHockeyWin?.(stats);}
+  });
+  loadHockeyAssets(T,group,eric,hockey,()=>session===hockeySession&&room==="rink",(id,ok)=>opts.onHockeyAsset?.(id,ok))
+   .catch(error=>console.warn("Hockey 3D model loading failed, gameplay still available",error));
+  opts.onHockeyEvent?.("start",hockey.status());
  }
  function visit(id,initial=false){
   const next=choose(id).id;
