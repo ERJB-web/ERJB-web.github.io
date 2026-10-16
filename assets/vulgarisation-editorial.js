@@ -120,6 +120,32 @@
       const heroPhoto=h('figure','ve-hero-image','<img src="https://images.unsplash.com/photo-1766853042063-e7fbaccb42c2?auto=format&fit=crop&w=1300&q=80" loading="lazy" decoding="async" width="900" height="620" alt="'+escape(t.photos[0])+'"><figcaption>Giorgio Tomassetti · Unsplash</figcaption>');
       heroArt.prepend(heroPhoto);
     }
+    // Replace the initial icon-based format templates and rudimentary storyboard art.
+    const formatPhotos=[
+      'https://images.unsplash.com/photo-1758873269117-d5845126928a?auto=format&fit=crop&w=1100&q=80',
+      'https://images.unsplash.com/photo-1775559052522-2f7a4abbce8e?auto=format&fit=crop&w=1100&q=80',
+      photos[2].url
+    ];
+    section.querySelectorAll('.vul-format-entete img').forEach((img,i)=>{
+      if(i>=formatPhotos.length)return;
+      img.src=formatPhotos[i];img.alt=t.photos[i];img.width=1000;img.height=650;
+      img.classList.add('ve-format-photo');
+    });
+    const stageArt=find('.vs-screen-art');
+    if(stageArt){
+      const old=stageArt.querySelector('.vs-scene');if(old)old.remove();
+      const stagePhoto=h('img','ve-stage-photo');
+      stagePhoto.alt='';stagePhoto.loading='lazy';stagePhoto.decoding='async';
+      stageArt.append(stagePhoto);
+      const frames=[formatPhotos[0],formatPhotos[1],photos[0].url,'https://images.unsplash.com/photo-1766853042063-e7fbaccb42c2?auto=format&fit=crop&w=1100&q=80',photos[2].url];
+      const syncStage=()=>{
+        const label=find('#vs-slide-number');
+        const num=Number(label?.textContent.match(/\d+/)?.[0]||1);
+        stagePhoto.src=frames[Math.min(4,Math.max(0,num-1))];
+      };
+      section.querySelectorAll('.vs-stage-prev,.vs-stage-next').forEach(button=>button.addEventListener('click',syncStage));
+      syncStage();
+    }
     const gallery=find('.vul-galerie');
     if(gallery){
       gallery.classList.add('ve-gallery');
