@@ -46,6 +46,7 @@ export async function createImmersiveLocations(T,api={}){
     if(o?.isMesh && o.position.y>.14 && !o.userData.externalGLTF)o.visible=false;
    }
    stage.add(scene);
+   document.getElementById("career")?.setAttribute("data-environment",name);
    api.onLoaded?.(name);
   }catch(err){
    api.onFailed?.(name,err);
