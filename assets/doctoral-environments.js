@@ -1,62 +1,92 @@
 /**
- * PROTOCOLE — modular, real-world-scale glTF environments.
- * Locations use published CC0 3DAssets.dev scene packs with PBR materials.
- * They are streamed only when entering the corresponding level.
- * If CDN download fails, the playable procedural environment remains intact.
+ * PROTOCOLE — scientific settings furnished in licensed realistic PBR glTF.
+ * Assets are served from /assets/jeu on the SAME origin as the game (GitHub Pages):
+ * see FURNISHINGS.md for seven individually verified CC0 source entries.
+ * Actual geometry has real-world dimensions; repeated props share GPU geometries.
+ * The original collision/gameplay environments remain underneath as a safety net.
  */
-const SCENES={
- classroom:{id:34781,scale:1.18,x:0,z:-14},
- laboratory:{id:37185,scale:1.08,x:0,z:-15},
- library:{id:30951,scale:1.12,x:0,z:-14},
- office:{id:26326,scale:1.48,x:0,z:-13},
- home:{id:38818,scale:1.58,x:0,z:-12},
- conference:{id:35232,scale:1.17,x:0,z:-14},
- auditorium:{id:34781,scale:1.25,x:0,z:-14}
+const WORLD_FURNITURE={
+ classroom: [
+  ...Array.from({length:5},(_,row)=>[-7.5,-2.5,2.5,7.5].map(x=>({
+   file:"classroom-desk",x,z:-19+row*4.5+.15,scale:1.0,
+   hide:{x,z:-19+row*4.5,rx:1.65,rz:1.85}
+  }))).flat()
+ ],
+ laboratory: [-9,-3,3,9].flatMap(x=>[-12,-20].map(z=>({
+  file:"lab-bench",x,z,scale:1.0,hide:{x,z,rx:1.65,rz:1.2}
+ }))),
+ library: [-12,-8,8,12].flatMap(x=>[-23,-17,-11,-5,1].map(z=>({
+  file:"library-shelf",x,z,scale:1.08,ry:Math.PI/2,
+  hide:{x,z,rx:1.6,rz:2.3}
+ }))).concat([-4,0,4].map(x=>({file:"study-books",x,z:-10,y:1.20,scale:1.0}))),
+ office: [-10,7].flatMap(x=>[-20,-13].map(z=>({
+  file:"office-desk",x,z,scale:1,hide:{x,z,rx:2.1,rz:2.3}
+ }))),
+ home: [
+  {file:"home-sofa",x:-7,z:-14.9,scale:1,hide:{x:-7,z:-15,rx:4,rz:2.8}},
+  {file:"study-books",x:8,z:-13.8,y:1.28,scale:1},
+  {file:"study-books",x:-5,z:-9,y:.75,scale:1}
+ ],
+ conference:[
+  {file:"conference-table",x:0,z:-14,scale:1.0},
+  {file:"study-books",x:-8,z:-19,y:1.17,scale:1}
+ ],
+ auditorium:[
+  {file:"conference-table",x:0,z:-23,scale:1.0,hide:{x:0,z:-23,rx:5.6,rz:1.2}}
+ ],
+ university:[
+  {file:"study-books",x:-8,z:-2,y:.56,scale:1},
+  {file:"study-books",x:8,z:-2,y:.56,scale:1}
+ ]
 };
 export async function createImmersiveLocations(T,api={}){
  const {GLTFLoader}=await import("three/addons/loaders/GLTFLoader.js");
  const loader=new GLTFLoader();
  const cache=new Map();
- const active={name:null,number:0};
+ let visitToken=0;
+ const pathname=filename=>"../assets/jeu/"+filename+".glb";
  function fetchGLB(id){
-  if(!cache.has(id))cache.set(id,loader.loadAsync("https://cdn.3dassets.dev/assets/"+id+"/v1/model.glb")
-    .catch(error=>{cache.delete(id);throw error;}));
+  if(!cache.has(id))cache.set(id,loader.loadAsync(pathname(id)).catch(err=>{cache.delete(id);throw err;}));
   return cache.get(id);
  }
  async function visit(name,stage,decor=[]){
-  const spec=SCENES[name];const request=++active.number;active.name=name;
-  if(!spec||!stage)return;
-  try{
-   const gltf=await fetchGLB(spec.id);
-   if(active.number!==request||!stage.parent)return;
-   const scene=gltf.scene.clone(true),bbox=new T.Box3().setFromObject(scene);
-   const sx=(bbox.min.x+bbox.max.x)*.5,sz=(bbox.min.z+bbox.max.z)*.5,sy=bbox.min.y;
-   scene.scale.setScalar(spec.scale);
-   scene.position.set(spec.x-sx*spec.scale,-sy*spec.scale,spec.z-sz*spec.scale);
-   scene.traverse(o=>{
-    if(o.isMesh){
-     o.userData.externalGLTF=true;
-     o.castShadow=o.geometry?.attributes?.position?.count<10000;
-     o.receiveShadow=true;
-     o.frustumCulled=true;
+  const token=++visitToken;
+  const specs=WORLD_FURNITURE[name]||[];
+  if(!stage||!specs.length)return;
+  const unique=[...new Set(specs.map(s=>s.file))];
+  const statuses=await Promise.all(unique.map(async id=>{
+   try{return [id,await fetchGLB(id)];}
+   catch(err){api.onFailed?.(name,err);return [id,null];}
+  }));
+  if(token!==visitToken||!stage.parent)return;
+  const models=new Map(statuses),group=new T.Group(),hidden=new Set();
+  let ready=0;
+  for(const prop of specs){
+   const src=models.get(prop.file);if(!src?.scene)continue;
+   const mesh=src.scene.clone(true),bounds=new T.Box3().setFromObject(mesh);
+   const centerX=(bounds.min.x+bounds.max.x)*.5;
+   const centerZ=(bounds.min.z+bounds.max.z)*.5;
+   const floor=bounds.min.y;
+   mesh.scale.setScalar(prop.scale||1);
+   mesh.position.set((prop.x||0)-centerX*(prop.scale||1), (prop.y||0)-floor*(prop.scale||1),(prop.z||0)-centerZ*(prop.scale||1));
+   mesh.rotation.y=prop.ry||0;
+   mesh.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;o.userData.externalGLTF=true;}});
+   group.add(mesh);ready++;
+   if(prop.hide)for(const o of decor){
+    if(hidden.has(o)||!o?.isMesh||o.position.y<.14||o.position.y>2.65)continue;
+    if(Math.abs(o.position.x-prop.hide.x)<prop.hide.rx&&Math.abs(o.position.z-prop.hide.z)<prop.hide.rz){
+     hidden.add(o);
     }
-   });
-   // Preserve gameplay markers, actors and floor; replace primitive room furnishings.
-   for(const o of decor){
-    if(o?.isMesh && o.position.y>.14 && !o.userData.externalGLTF)o.visible=false;
    }
-   stage.add(scene);
-   document.getElementById("career")?.setAttribute("data-environment",name);
-   document.getElementById("career")?.setAttribute("data-environment-status","detailed-glb");
-   api.onLoaded?.(name);
-  }catch(err){
-   // The built-in navigable 3D room remains visible if a GLB host is offline.
-   if(active.number===request && stage.parent){
-    document.getElementById("career")?.setAttribute("data-environment",name);
-    document.getElementById("career")?.setAttribute("data-environment-status","procedural-fallback");
-   }
-   api.onFailed?.(name,err);
   }
+  if(ready){
+   // Hide primitive desk replacements only after every replacement has actually loaded.
+   for(const old of hidden)old.visible=false;
+   stage.add(group);
+   document.getElementById("career")?.setAttribute("data-environment-status","detailed-props");
+  }else document.getElementById("career")?.setAttribute("data-environment-status","procedural-fallback");
+  document.getElementById("career")?.setAttribute("data-environment",name);
+  api.onLoaded?.(name,ready);
  }
  return {visit,cache};
 }
