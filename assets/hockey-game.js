@@ -41,11 +41,36 @@ export function createHockeyGame(T, stage, eric, hooks={}){
  stickLine.rotation.z=.16;
  const blade=shape(new T.BoxGeometry(.43,.14,.10),white,-.12,-1.23,.02,goalieStick);
  // Ice dust splashes after falls, shots and body contact.
+ // Defensive line: AI skaters genuinely pursue the puck carrier and body-check if rushed.
+ const opponents=[];
+ for(let i=0;i<2;i++){
+  const g=new T.Group();stage.add(g);
+  const jerseyMat=mat(i?0x284d73:0x4a5d72,.14,.60),padMat=mat(0xe1ebee,.06,.70);
+  const torso=mesh(g,new T.CapsuleGeometry(.37,.62,8,18),jerseyMat,0,1.44,0);
+  const helmet=mesh(g,new T.SphereGeometry(.265,24,16),red,0,2.22,-.045);
+  const cage=mesh(g,new T.SphereGeometry(.22,12,9),chrome,0,2.15,.17);
+  cage.material=new T.MeshStandardMaterial({color:0xcad8df,metalness:.72,roughness:.3,wireframe:true});
+  const shoulderA=mesh(g,new T.SphereGeometry(.19,16,12),padMat,-.41,1.79,0),shoulderB=mesh(g,new T.SphereGeometry(.19,16,12),padMat,.41,1.79,0);
+  const legsRig=[];
+  for(const side of [-1,1]){
+   const leg=new T.Group();leg.position.set(side*.19,1.07,.01);g.add(leg);
+   mesh(leg,new T.CapsuleGeometry(.15,.62,6,12),jerseyMat,0,-.47,0);
+   const skate=mesh(leg,new T.CapsuleGeometry(.125,.10,6,12),black,0,-.92,.14);
+   mesh(leg,new T.BoxGeometry(.2,.025,.56),chrome,0,-1.03,.16);
+   legsRig.push(leg);
+  }
+  const stick=new T.Group();g.add(stick);stick.position.set(.48,1.40,.23);stick.rotation.z=-.3;
+  mesh(stick,new T.CylinderGeometry(.026,.03,1.55,10),black,0,-.67,0);
+  mesh(stick,new T.BoxGeometry(.31,.075,.11),black,-.14,-1.44,.03);
+  const x=i===0?-5:5,z=i===0?-13:-18;
+  g.position.set(x,0,z);opponents.push({group:g,legsRig,x,z,originX:x,originZ:z,speed:i?2.4:2.75,turn:i*2.3,cooldown:0});
+ }
  const snow=[];
  for(let i=0;i<32;i++){
   const piece=mesh(stage,new T.IcosahedronGeometry(.026+(i%3)*.010,0),white,0,-20,0);
   snow.push({piece,life:0,vx:0,vy:0,vz:0});
  }
+ let checks=0,interceptions=0;
  let p={x:0,z:-2,vx:0,vz:0,y:.16,vy:0,spin:0,owned:false},gl={x:0,target:0,pose:0,saveTime:0,saveSide:1},score=0,shots=0,saves=0,misses=0,clock=0,charge=0,shotHeld=false,goalPause=0,fallTime=0,fallCount=0,completed=false,status="ENGAGEMENT",recovery=0,hitTimer=0,active=true;
  const PUCK_R=.13,GOAL_Z=-26.45;
  function emitSnow(x,z,count=10,power=1){
@@ -87,7 +112,7 @@ export function createHockeyGame(T, stage, eric, hooks={}){
   emitSnow(player.x,player.z,27,2.5);
   hooks.onFall?.({reason,falls:fallCount});
  }
- function statusHud(){return {score,shots,saves,misses,clock,charge:charge/1.65,goalieX:gl.x,owned:p.owned,fallTime,falls:fallCount,status,finished:completed,puckX:p.x,puckZ:p.z};}
+ function statusHud(){return {score,shots,saves,misses,checks,interceptions,clock,charge:charge/1.65,goalieX:gl.x,owned:p.owned,fallTime,falls:fallCount,status,finished:completed,puckX:p.x,puckZ:p.z};}
  function step(dt,player,keys){
   if(!active)return statusHud();
   dt=clamp(dt,0,.055);clock+=dt;
@@ -126,6 +151,36 @@ export function createHockeyGame(T, stage, eric, hooks={}){
    if(p.z>12.9){p.z=12.9;p.vz*=-.73;hooks.onBoard?.();}
    if(p.z< -27.15 && Math.abs(p.x)>2.15){p.z=-27.15;p.vz=Math.abs(p.vz)*.65;}
   }
+  // Physical opponents: defenders turn, pursue, steal and can knock Eric onto the ice.
+  hitTimer=Math.max(0,hitTimer-dt);
+  for(const d of opponents){
+   d.cooldown=Math.max(0,d.cooldown-dt);
+   const tx=(p.owned?player.x:p.x),tz=(p.owned?player.z:p.z),distance=Math.hypot(tx-d.x,tz-d.z);
+   const targetX=goalPause>0?d.originX:distance<15?tx:d.originX+Math.sin(clock*.7+d.turn)*2;
+   const targetZ=goalPause>0?d.originZ:distance<15?tz:d.originZ+Math.cos(clock*.6+d.turn)*2;
+   const vx=targetX-d.x,vz=targetZ-d.z,len=Math.hypot(vx,vz)||1;
+   const movement=Math.min(d.speed*dt,len);
+   if(fallTime===0){d.x+=vx/len*movement;d.z+=vz/len*movement;}
+   d.x=clamp(d.x,-11.8,11.8);d.z=clamp(d.z,-22.6,10);
+   d.group.position.set(d.x,Math.abs(Math.sin(clock*9+d.turn))*.04,d.z);
+   d.group.rotation.y=Math.atan2(vx,vz);
+   d.legsRig[0].rotation.x=Math.sin(clock*10+d.turn)*.35;
+   d.legsRig[1].rotation.x=-Math.sin(clock*10+d.turn)*.35;
+   const contact=Math.hypot(d.x-player.x,d.z-player.z);
+   if(contact<1.03&&hitTimer<=0&&d.cooldown<=0&&goalPause<=0&&fallTime<=0&&speed>1.8){
+    checks++;d.cooldown=4.2;hitTimer=1.8;
+    const nx=(player.x-d.x)/(contact||1),nz=(player.z-d.z)/(contact||1);
+    p.owned=false;p.vx=nx*4+d.speed*.6;p.vz=nz*3+5;
+    fall(player,"mise en échec par un défenseur");
+    status="CONTACT ! DÉFENSEUR · "+checks;
+    hooks.onCheck?.({checks,interceptions});
+   }else if(!p.owned&&Math.hypot(d.x-p.x,d.z-p.z)<.62&&Math.hypot(p.vx,p.vz)<8&&d.cooldown<=0&&goalPause<=0){
+    interceptions++;d.cooldown=2.5;
+    p.vx+=(d.x<0?-1:1)*5;p.vz+=7;p.owned=false;
+    status="INTERCEPTION ! RECONQUIERS LA RONDELLE";
+    hooks.onIntercept?.({interceptions});
+   }
+  }
   // Goalkeeper is intelligent enough to anticipate, follow and butterfly dive.
   const predict=clamp(p.x+(p.vz< -1?p.vx*((gl.x?gl.x:GOAL_Z)-p.z)/Math.min(-.2,p.vz)*.07:0),-1.22,1.22);
   gl.target=p.z< -12?predict:Math.sin(clock*.85)*.32;
@@ -159,7 +214,7 @@ export function createHockeyGame(T, stage, eric, hooks={}){
   for(const s of snow){if(s.life<=0){s.piece.visible=false;continue;}s.life-=dt;s.piece.position.x+=s.vx*dt;s.piece.position.y+=s.vy*dt;s.piece.position.z+=s.vz*dt;s.vy-=3.2*dt;s.piece.scale.setScalar(Math.max(.01,s.life*1.4));}
   return statusHud();
  }
- function reset(player={x:0,z:7}){score=0;shots=0;saves=0;misses=0;clock=0;fallTime=0;fallCount=0;completed=false;active=true;faceoff(player);}
+ function reset(player={x:0,z:7}){score=0;shots=0;saves=0;misses=0;checks=0;interceptions=0;clock=0;fallTime=0;fallCount=0;completed=false;active=true;faceoff(player);}
  function dispose(){active=false;stage.remove(goalie,puck,ring,shadow);/* stage geometries disposed by scene cleanup */}
  reset();
  return {step,shot,fall,reset,setPuck,status:statusHud,dispose,goalie,get goalZ(){return GOAL_Z}};
