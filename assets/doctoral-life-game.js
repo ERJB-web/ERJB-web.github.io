@@ -310,10 +310,10 @@ function bootNewWorld(){
  onSkate:skatingSuccess,
  onEvidence:earnClue,
  onDamage:reviewerAttack,
- onBalance:(balance,progress,falls)=>{
-  $("rinkNeedle").style.left=(50+balance*46)+"%";
-  $("rinkTime").textContent=Math.round(progress*23)+" / 23 s";
-  $("rinkTips").textContent="ZQSD : glisser · A/D : diriger · Espace : stabiliser · Chutes : "+falls;
+ onBalance:(balance,progress,falls,gates,total)=>{
+  $("rinkNeedle").style.left=(50+Math.max(-1,Math.min(1,balance))*46)+"%";
+  $("rinkTime").textContent=gates+" / "+total+" portes";
+  $("rinkTips").textContent="ZQSD : prendre de l'élan · Espace : freiner et stabiliser · Chutes : "+falls;
  }
  });
  webgl=true;window.addEventListener("resize",()=>worldController?.resize());
