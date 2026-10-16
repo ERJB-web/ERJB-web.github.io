@@ -293,6 +293,14 @@ function reviewerAttack(who,zone){
   view.querySelector("[data-recover]").onclick=()=>{st.ending=null;st.week+=2;st.stress=45;st.energy=55;st.budget=Math.max(0,st.budget-4);persist();close();update();worldController?.visit("home");};
  }
 }
+function meetCharacter(name,line,room){
+ if(!st)return;
+ st.charactersMet ||= {};
+ const key=room+"::"+name,first=!st.charactersMet[key];
+ if(first){st.charactersMet[key]=true;st.trust=clamp(st.trust+1);
+  st.journal.unshift({week:st.week,task:"Rencontre · "+name,note:line,risky:false});persist();update();}
+ alertGame(name+" : « "+line+" »");
+}
 function skatingSuccess(result){
  if(!st)return;
  st.skateSessions=(st.skateSessions||0)+1;
@@ -310,6 +318,7 @@ function bootNewWorld(){
  onSkate:skatingSuccess,
  onEvidence:earnClue,
  onDamage:reviewerAttack,
+ onNpc:meetCharacter,
  onBalance:(balance,progress,falls,gates,total)=>{
   $("rinkNeedle").style.left=(50+Math.max(-1,Math.min(1,balance))*46)+"%";
   $("rinkTime").textContent=gates+" / "+total+" portes";
