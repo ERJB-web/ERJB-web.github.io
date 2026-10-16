@@ -327,12 +327,56 @@ function reviewerAttack(who,zone){
  }
 }
 function meetCharacter(name,line,room){
- if(!st)return;
- st.charactersMet ||= {};
+ if(!st||modal)return;
+ st.charactersMet ||= {};st.dialogueChoices ||= {};
  const key=room+"::"+name,first=!st.charactersMet[key];
  if(first){st.charactersMet[key]=true;st.trust=clamp(st.trust+1);
   st.journal.unshift({week:st.week,task:"Rencontre · "+name,note:line,risky:false});persist();update();}
- alertGame(name+" : « "+line+" »");
+ const advice={
+  university:"Avant toute candidature, formule un sujet réalisable, un périmètre et des questions précises.",
+  classroom:"Identifie la population, les variables et les principaux biais avant de choisir ton modèle.",
+  laboratory:"Documente la provenance, la qualité et les conditions d'utilisation de chaque jeu de données.",
+  library:"Compare des sources originales et examine ce que chacune démontre vraiment.",
+  office:"La direction attend des arbitrages. Ce qui est faisable vaut mieux que dix objectifs flous.",
+  home:"Équilibre la charge de travail, le sommeil et tes autres engagements.",
+  conference:"Choisis un message central, puis prépare-toi à défendre ses limites.",
+  rink:"L'équilibre et la précision comptent plus que la vitesse.",
+  field:"Les partenaires doivent pouvoir discuter et transformer le projet, pas seulement le valider.",
+  auditorium:"Réponds précisément. Reconnaître une limite méthodologique n'invalide pas tout le travail."
+ }[room]||"Une bonne décision demande des raisons et une discussion critique.";
+ const nameSafe=esc(name),lineSafe=esc(line),keySafe=esc(key);
+ const root=open('<span class="kicker">RENCONTRE · '+esc(PLACES.find(p=>p.id===room)?.name||room)+'</span>'+
+  '<h2>'+nameSafe+'</h2><p class="npc-dialogue-quote">« '+lineSafe+' »</p>'+
+  '<p>Comment veux-tu répondre ?</p>'+
+  '<div class="action-row npc-dialogue-actions">'+
+  '<button class="primary" data-converse="ask">Demander un conseil méthodologique</button>'+
+  '<button class="secondary" data-converse="challenge">Discuter les limites de cette idée</button>'+
+  '<button class="secondary" data-converse="leave">Remercier et poursuivre</button></div>'+
+  '<div class="action-row"><button class="secondary" data-voice>▶ Écouter la réplique</button></div>');
+ root.querySelector('[data-voice]').onclick=()=>{
+  if(!('speechSynthesis' in window)){alertGame("Synthèse vocale indisponible.");return;}
+  speechSynthesis.cancel();const phrase=new SpeechSynthesisUtterance(line);phrase.lang="fr-CA";phrase.rate=.96;
+  speechSynthesis.speak(phrase);
+ };
+ root.querySelector('[data-converse="leave"]').onclick=close;
+ for(const type of ["ask","challenge"]){
+  root.querySelector('[data-converse="'+type+'"]').onclick=()=>{
+   const answered=Boolean(st.dialogueChoices[key]);
+   if(!answered){
+    st.dialogueChoices[key]=type;st.rigor=clamp(st.rigor+(type==="ask"?2:3));
+    st.trust=clamp(st.trust+(type==="ask"?1:0));st.stress=clamp(st.stress+(type==="challenge"?1:0));
+    st.journal.unshift({week:st.week,task:"Dialogue scientifique · "+name,
+     note:type==="ask"?advice:"Éric a questionné les hypothèses et les limites de cette proposition.",risky:false});
+    persist();update();
+   }
+   const response=type==="ask"?advice:
+    "C'est une bonne objection. Pour répondre, distingue la plausibilité de l'hypothèse, la force du devis et les limites des données. Il faut être capable de justifier chaque inférence.";
+   root.innerHTML='<span class="kicker">DIALOGUE · '+nameSafe+'</span><h2>'+esc(type==="ask"?"Un conseil à mettre en pratique":"Une discussion contradictoire")+'</h2>'+
+    '<p class="npc-dialogue-quote">« '+esc(response)+' »</p><p>'+esc(answered?"Cet échange a déjà été consigné.":"Échange ajouté au carnet. Le raisonnement scientifique progresse.")+'</p>'+
+    '<div class="action-row"><button class="primary" data-continue>Reprendre l’exploration →</button></div>';
+   root.querySelector("[data-continue]").onclick=close;
+  };
+ }
 }
 function skatingSuccess(result){
  if(!st)return;
