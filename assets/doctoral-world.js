@@ -556,7 +556,7 @@ const cast=[
   if(typeof window!=="undefined")import("./doctoral-reality.js?v=3").then(m=>m.installLivingWorld(T,{player,renderer,notify:opts.onNarrate})).then(layer=>{worldReality=layer;layer.syncCast(actors);}).catch(err=>{console.warn("Human asset unavailable",err);opts.onNarrate?.("Modèles 3D externes indisponibles : secours local activé.");});
   canvas.addEventListener("contextmenu",ev=>ev.preventDefault());
   canvas.addEventListener("pointerdown",ev=>{
-   if(ev.button===2||ev.pointerType==="touch"||ev.shiftKey){dragView={x:ev.clientX,y:ev.clientY};canvas.setPointerCapture?.(ev.pointerId);return;}
+   if(ev.button===2||ev.shiftKey){dragView={x:ev.clientX,y:ev.clientY};canvas.setPointerCapture?.(ev.pointerId);return;}
    if(opts.isPaused?.())return;
    if(room==="rink"&&ev.button===0){controls.add("MouseLeft");canvas.setPointerCapture?.(ev.pointerId);return;}
    const bounds=canvas.getBoundingClientRect(),v=new T.Vector2((ev.clientX-bounds.left)/bounds.width*2-1,-(ev.clientY-bounds.top)/bounds.height*2+1),ray=new T.Raycaster();ray.setFromCamera(v,camera);
