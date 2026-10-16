@@ -545,9 +545,18 @@ const cast=[
  function boot(){
   renderer=new T.WebGLRenderer({canvas,antialias:true,powerPreference:"high-performance"});
   renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.85));renderer.setSize(canvas.clientWidth||innerWidth,canvas.clientHeight||innerHeight,false);
-  renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.72;renderer.outputColorSpace=T.SRGBColorSpace;
+  renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.36;renderer.outputColorSpace=T.SRGBColorSpace;
   renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;
   scene=new T.Scene();camera=new T.PerspectiveCamera(62,1,.1,145);
+  // Photographed CC0 HDRI from Poly Haven for image-based specular/reflection lighting.
+  // Kept separate from scene.background so the campus and arena remain visible.
+  if(typeof window!=="undefined")import("three/addons/loaders/RGBELoader.js").then(({RGBELoader})=>{
+   new RGBELoader().load(
+    "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/studio_small_08_1k.hdr",
+    texture=>{texture.mapping=T.EquirectangularReflectionMapping;scene.environment=texture;scene.environmentIntensity=.42;},
+    undefined,err=>console.warn("Photographic HDRI unavailable; standard PBR lighting retained",err)
+   );
+  }).catch(()=>{});
   eric=createEricAvatar(T,{portraitUrl:"../assets/portrait.jpg",onReady:()=>opts.onAvatarReady?.()});
   player=eric.group;player.rotation.y=Math.PI;scene.add(player);
   visit("university",true);resize();
