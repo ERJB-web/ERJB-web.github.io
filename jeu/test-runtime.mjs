@@ -13,14 +13,9 @@ const avatar=src("assets/eric-avatar-3d.js").replace(/^export /gm,"");
 const world=src("assets/doctoral-world.js").replace(/^import .*$/gm,"").replace(/^export /gm,"");
 new Function(avatar);new Function(world);
 const noop=()=>{};
-// The smoke runner strips ES imports; use a minimal adapter for the independently
-// verified hockey integration so ten-room navigation remains testable in Node.
-const createHockeyGame=()=>({
- status:()=>({fallTime:0,goals:0,saves:0,shots:0}),
- step:()=>({fallTime:0,goals:0,saves:0,shots:0}),
- fall:noop,dispose:noop,shot:noop,reset:noop
-});
-const loadHockeyAssets=()=>Promise.resolve();
+// Execute the actual hockey physics module, not a fake return object.
+const createHockeyGame=new Function(src("assets/hockey-game.js").replace(/^export /gm,"")+";return createHockeyGame")();
+const loadHockeyAssets=()=>Promise.resolve({loaded:0,dispose:noop});
 
 const ctx=new Proxy({createRadialGradient:()=>({addColorStop:noop})},{get:(o,k)=>o[k]??noop});
 const canvas=()=>({width:512,height:512,clientWidth:1200,clientHeight:750,getContext:()=>ctx,addEventListener:noop,getBoundingClientRect:()=>({left:0,top:0,width:1200,height:750})});
@@ -69,6 +64,9 @@ const game=createWorld(T,canvas(),{keys,isPaused:()=>false,onVisit:(id)=>events.
 const step=n=>{for(let i=0;i<n;i++){assert.equal(typeof raf,"function");raf(++frames*17);}};
 const zones=["university","classroom","laboratory","library","office","home","conference","rink","field","auditorium"];
 for(const zone of zones){game.visit(zone);assert.equal(game.room,zone);assert.ok(game.targets.length>0,zone+" has no playable target");step(15);}
+game.visit("rink");step(20);
+assert.equal(typeof game.hockey?.score,"number","Live puck/goalkeeper must expose a score");
+assert.equal(typeof game.hockey?.puckZ,"number","Puck physics must run in the 3D stage");
 game.visit("university");
 keys.add("KeyW");step(200);keys.delete("KeyW");
 assert.ok(events.some(x=>x[0]==="activity"&&x[2]==="admission"),"Walking to administration must open the admission encounter automatically");
