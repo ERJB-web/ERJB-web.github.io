@@ -295,7 +295,7 @@ function desk(x,z,width=2.3,screen=false){
   }
   for(const x of [-18,18]){cube(5,2,36,mat(0x384957),x,1,-5);for(let z=-20;z<13;z+=2)npc(x,-20+(z+20),0x7a8790);}
   sign("HOCKEY · ÉQUILIBRE SUR GLACE",0,9,-27,12,1.2,true);
-  hotspot("exit","Retour au campus",0,16.5,"exit");
+  hotspot("exit","Retour au campus",0,12.2,"exit");
   skate={balance:0,clock:0,falls:0,completed:false,started:false,lastReport:0};
  }
  function visit(id,initial=false){
