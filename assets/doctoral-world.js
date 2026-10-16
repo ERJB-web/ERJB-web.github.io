@@ -22,7 +22,7 @@ const color={orange:0xf36633,cream:0xf0efed,ink:0x151515,teal:0x286d5c,stone:0x7
 export function createAdventureWorld(T,canvas,opts={}){
  const choose=key=>PLACES.find(p=>p.id===key)||PLACES[0];
  let room="university",scene,camera,renderer,group,player,eric;
- let worldReality=null,walkVX=0,walkVZ=0,jumpY=0,jumpVel=0,jumpHeld=false,xrTriggerHeld=false,obstacles=[];
+ let worldScenery=null,architecturalMeshes=[];let worldReality=null,walkVX=0,walkVZ=0,jumpY=0,jumpVel=0,jumpHeld=false,xrTriggerHeld=false,obstacles=[];
  let last=0,lastNavigation=0,clock=0,modelX=0,modelZ=7,cameraYaw=0,cameraPitch=.28,cameraDistance=8.3,dragView=null,busy=false,auto=null,actors=[],targets=[],clickables=[],particles=[],chasers=[],collectibles=[],hitCooldown=0,activeTarget=null,controls=opts.keys||new Set();
  let skate={balance:0,clock:0,falls:0,completed:false,started:false,lastReport:0,gateIndex:0,gates:[],velocityX:0,velocityZ:0};
  let hockey=null,hockeyModels=null,hockeySession=0,lastHeading=Math.PI,aimX=0,aimIndicator=null;
@@ -95,7 +95,7 @@ export function createAdventureWorld(T,canvas,opts={}){
   });
  }
   function shape(geo,material,x=0,y=0,z=0,parent=group){
-  const mesh=new T.Mesh(geo,material);mesh.position.set(x,y,z);mesh.castShadow=true;mesh.receiveShadow=true;parent.add(mesh);return mesh;
+  const mesh=new T.Mesh(geo,material);mesh.position.set(x,y,z);mesh.castShadow=true;mesh.receiveShadow=true;parent.add(mesh);if(parent===group)architecturalMeshes.push(mesh);return mesh;
  }
  const cube=(a,b,c,material,x,y,z,parent)=>shape(new T.BoxGeometry(a,b,c),material,x,y,z,parent);
  const ball=(r,material,x,y,z,parent)=>shape(new T.SphereGeometry(r,16,12),material,x,y,z,parent);
@@ -526,7 +526,7 @@ const cast=[
   const next=choose(id).id;
   hockeyModels?.dispose?.();hockeyModels=null;
   if(hockey){hockey.dispose();hockey=null;}++hockeySession;
-  room=next;busy=false;auto=null;modelX=0;modelZ=9;walkVX=0;walkVZ=0;jumpY=0;jumpVel=0;obstacles=[];actors=[];targets=[];clickables=[];particles=[];chasers=[];collectibles=[];hitCooldown=0;activeTarget=null;
+  room=next;busy=false;auto=null;modelX=0;modelZ=9;walkVX=0;walkVZ=0;jumpY=0;jumpVel=0;obstacles=[];architecturalMeshes=[];actors=[];targets=[];clickables=[];particles=[];chasers=[];collectibles=[];hitCooldown=0;activeTarget=null;
   if(group){scene.remove(group);releaseScene(group);}
   group=new T.Group();scene.add(group);
   // Studio lighting colors adapt to each location.
@@ -535,6 +535,7 @@ const cast=[
   ({university,classroom,laboratory,library,office,home,conference,field,auditorium,rink}[room]||university)();
   decoratePlay();
   worldReality?.syncCast(actors);
+  worldScenery?.visit(room,group,architecturalMeshes);
   // Keep Eric separate from rebuildable environment.
   eric.setPosition(0,0,9);eric.setEquipment(next==="rink"?"hockey":"casual");skate.lastReport=0;
   opts.onVisit?.(next,choose(next));
@@ -550,6 +551,7 @@ const cast=[
   player=eric.group;player.rotation.y=Math.PI;scene.add(player);
   visit("university",true);resize();
   if(renderer.setAnimationLoop){renderer.xr.enabled=true;renderer.xr.setReferenceSpaceType?.("local-floor");renderer.setAnimationLoop(tick);}else requestAnimationFrame(tick);
+  if(typeof window!=="undefined")import("./doctoral-environments.js?v=1").then(m=>m.createImmersiveLocations(T,{})).then(layer=>{worldScenery=layer;layer.visit(room,group,architecturalMeshes);}).catch(err=>console.warn("Additional 3D environment unavailable",err));
   if(typeof window!=="undefined")import("./doctoral-reality.js?v=3").then(m=>m.installLivingWorld(T,{player,renderer,notify:opts.onNarrate})).then(layer=>{worldReality=layer;layer.syncCast(actors);}).catch(err=>{console.warn("Human asset unavailable",err);opts.onNarrate?.("Modèles 3D externes indisponibles : secours local activé.");});
   canvas.addEventListener("contextmenu",ev=>ev.preventDefault());
   canvas.addEventListener("pointerdown",ev=>{
