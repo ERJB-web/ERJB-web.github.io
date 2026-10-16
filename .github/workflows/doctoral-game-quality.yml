@@ -4,6 +4,7 @@ on:
     paths:
       - 'assets/doctoral-*.js'
       - 'assets/eric-avatar-3d.js'
+      - 'assets/hockey-*.js'
       - 'jeu/**'
       - '.github/workflows/doctoral-game-quality.yml'
   pull_request:
@@ -25,3 +26,5 @@ jobs:
         run: node jeu/verifier-carriere.mjs
       - name: Execute avatar, zones and first interaction
         run: node jeu/test-runtime.mjs
+      - name: Verify playable hockey: pickup, slapshot, goalie, falls and scoring
+        run: node jeu/test-hockey.mjs
