@@ -650,8 +650,8 @@ const cast=[
    const lookAhead=worldReality?.inVR?0:room==="rink"?5.8:4.1;
    const followX=modelX+Math.sin(cameraYaw)*cameraDistance,followZ=modelZ+Math.cos(cameraYaw)*cameraDistance;
    const centerX=modelX-Math.sin(cameraYaw)*lookAhead,centerZ=modelZ-Math.cos(cameraYaw)*lookAhead;
-   if(worldReality?.inVR)camera.position.set(modelX,1.72+jumpY,modelZ);
-   else{camera.position.lerp(new T.Vector3(followX,1.75+Math.sin(cameraPitch)*cameraDistance,followZ),Math.min(1,dt*5.8));camera.lookAt(centerX,1.30,centerZ);}
+   if(worldReality?.inVR){player.visible=false;camera.position.set(modelX,1.72+jumpY,modelZ);}
+   else{player.visible=true;camera.position.lerp(new T.Vector3(followX,1.75+Math.sin(cameraPitch)*cameraDistance,followZ),Math.min(1,dt*5.8));camera.lookAt(centerX,1.30,centerZ);}
    
    for(const npc of actors){
     npc.body.position.x=npc.x+Math.sin(clock*.72+npc.sway)*npc.move*.46;
