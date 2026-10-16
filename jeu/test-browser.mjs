@@ -27,7 +27,7 @@ try{
  await page.click("#placesToggle");
  await page.click('[data-world="classroom"]');
  await page.waitForSelector('#career[data-environment="classroom"]',{timeout:30000});
- await page.keyboard.down("KeyW");await page.waitForTimeout(700);await page.keyboard.up("KeyW");
+ await page.keyboard.down("w");await page.waitForTimeout(700);await page.keyboard.up("w");
  const result=await page.evaluate(()=>({
   actor:document.querySelector("#career")?.getAttribute("data-human-model"),
   room:document.querySelector("#career")?.getAttribute("data-environment"),
