@@ -120,14 +120,41 @@ function choiceStage(c){
  resolution(ok,tr(o.why),o.delta,o.flags);
  };
 }
-function networkGraph(chosen){
- const points=[[38,138],[150,45],[260,93],[366,187],[250,252]];
- const titles=["AÎNÉS","CLSC","OC","ORG.","RÉPERT."];
+function networkGraph(chosen,active=-1){
+ const pts=[[55,162],[172,55],[297,98],[421,203],[295,293]],names=loc==="en"?["OLDER ADULTS","CLSC","COMMUNITY","AGENCY","DIRECTORY"]:["AÎNÉS","CLSC","INTERV.","ORG.","ANNUAIRE"];
  const pairs=[[0,1],[1,2],[2,3],[1,4],[0,4]];
- const edges=[...chosen].map(i=>{const [a,b]=pairs[i];return '<line x1="'+points[a][0]+'" y1="'+points[a][1]+'" x2="'+points[b][0]+'" y2="'+points[b][1]+'" stroke="'+(i<3?"#96ffde":"#ff9c91")+'" stroke-width="5" stroke-linecap="round" opacity=".85"/>';}).join("");
- return '<div class="network-box"><svg viewBox="0 0 410 290" role="img" aria-label="'+msg("Réseau interactif : les lignes apparaissent quand les relations sont sélectionnées.","Interactive network: lines appear as relationships are selected.")+'"><defs><radialGradient id="netHalo"><stop stop-color="#336c79"/><stop offset="1" stop-color="#112333"/></radialGradient></defs><g id="diagramLines">'+edges+'</g>'+points.map(([xx,yy],i)=>'<g><circle cx="'+xx+'" cy="'+yy+'" r="30" fill="url(#netHalo)" stroke="#b1ffe4" stroke-width="2"/><circle cx="'+xx+'" cy="'+yy+'" r="23" fill="#173448" stroke="#ffffff40" stroke-width="1"/><text x="'+xx+'" y="'+(yy+4)+'" fill="#e4fff9" font-size="10" font-family="sans-serif" font-weight="bold" text-anchor="middle">'+titles[i]+'</text></g>').join("")+'</svg></div>';
+ const edges=[...chosen].map(i=>{const [a,b]=pairs[i];return '<line x1="'+pts[a][0]+'" y1="'+pts[a][1]+'" x2="'+pts[b][0]+'" y2="'+pts[b][1]+'" stroke="#abffeb" stroke-width="7" stroke-linecap="round" opacity=".92"/>';}).join("");
+ return '<div class="network-box network-play"><svg viewBox="0 0 475 350" role="group" aria-label="'+msg("Construis le réseau en reliant deux nœuds à la fois","Build the network by connecting pairs of nodes")+'"><defs><radialGradient id="netHalo"><stop stop-color="#3c7682"/><stop offset="1" stop-color="#0c283c"/></radialGradient></defs>'+edges+pts.map(([xx,yy],i)=>'<g class="network-node '+(i===active?'node-active':'')+'" role="button" tabindex="0" data-node="'+i+'" aria-label="'+safe(names[i])+'"><circle cx="'+xx+'" cy="'+yy+'" r="37" fill="url(#netHalo)" stroke="'+(i===active?"#ffe8a0":"#a7ffe5")+'" stroke-width="'+(i===active?5:2)+'"/><circle cx="'+xx+'" cy="'+yy+'" r="28" fill="#173549" stroke="#ffffff43"/><text x="'+xx+'" y="'+(yy+4)+'" text-anchor="middle" font-size="10" fill="#ebfff9" font-family="sans-serif" font-weight="bold">'+names[i]+'</text></g>').join("")+'</svg><p class="micro">'+msg("Clique sur deux acteurs pour tracer ou effacer leur lien. Les liens de l'annuaire ne sont pas nécessairement observés.","Click two actors to draw or erase their tie. Directory listings are not necessarily observed collaborations.")+'</p></div>';
+}
+function networkPlayStage(c){
+ const chosen=new Set(),pairs=[[0,1],[1,2],[2,3],[1,4],[0,4]];
+ let active=-1;
+ const render=()=>{
+  show(msg("CARTOGRAPHIE DES RELATIONS","NETWORK FIELD MAPPING"),'<h2>'+safe(tr(c.title))+'</h2><p class="lead">'+safe(tr(c.prompt))+'</p><div class="network-lab">'+networkGraph(chosen,active)+'<aside class="evidence-board"><span class="workshop-tag">'+msg("EXTRAITS DU CARNET","FIELD NOTES")+'</span>'+c.items.map((it,i)=>'<article class="evidence-note"><small>0'+(i+1)+'</small><b>'+safe(tr(it[0]))+'</b><span>'+safe(tr(it[1]))+'</span></article>').join("")+'</aside></div><p class="mini-brief">'+msg("Liens tracés","Ties drawn")+" : "+chosen.size+" / "+c.correct+'</p>');
+  for(const node of el("modalContent").querySelectorAll("[data-node]")){
+   const choose=()=>{
+    const n=+node.dataset.node;
+    if(active===-1){active=n;render();return;}
+    if(n===active){active=-1;render();return;}
+    const pair=pairs.findIndex(p=>(p[0]===active&&p[1]===n)||(p[1]===active&&p[0]===n));active=-1;
+    if(pair<0){notify(msg("Ce lien ne figure pas dans les observations disponibles.","This tie was not described in the field notes."));render();return;}
+    if(chosen.has(pair))chosen.delete(pair);else if(chosen.size<c.correct)chosen.add(pair);
+    else notify(msg("Trois relations maximum : efface un lien pour le remplacer.","Only three ties: remove one to add another."));
+    render();
+   };
+   node.addEventListener("click",choose);
+   node.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();choose();}});
+  }
+  buttons([[msg("Valider la carte","Validate network"),()=>{
+   if(chosen.size!==c.correct){notify(msg("Trace exactement trois relations.","Draw exactly three ties."));return;}
+   const n=[...chosen].filter(i=>c.items[i][2]===1).length,ok=n===c.correct;
+   resolution(ok,ok?tr(c.win):tr(c.lose),ok?c.reward:{...c.penalty,proof:n},{network:ok});
+  }]]);
+ };
+ render();
 }
 function multiStage(c){
+ if(c.zone==="network"){networkPlayStage(c);return;}
  const chosen=new Set();
  const details=(title,text)=>'<strong>'+safe(title)+'</strong><span>'+safe(text)+'</span>';
  show(msg("ENQUÊTE & SÉLECTION","INVESTIGATION & SELECTION"),'<h2>'+safe(tr(c.title))+'</h2><p class="lead">'+safe(tr(c.prompt))+'</p>'+(c.zone==="network"?networkGraph(chosen):"") + '<div class="cards-grid">'+c.items.map((v,i)=>'<button type="button" class="source-card" data-item="'+i+'" aria-pressed="false"><em>'+String(i+1).padStart(2,"0")+'</em>'+details(tr(v[0]),tr(v[1]))+'</button>').join("")+'</div><p class="micro" id="chosenCount">0 / '+c.correct+'</p>');
