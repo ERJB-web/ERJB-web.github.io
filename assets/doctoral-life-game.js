@@ -1,6 +1,6 @@
 import {milestones,initialCareerState,availableMilestones,assessDesign,checkDefense} from "./doctoral-life-data.js";
 import {playMission,methods} from "./doctoral-life-challenges.js";
-import {createAdventureWorld,PLACES} from "./doctoral-world.js?v=8";
+import {createAdventureWorld,PLACES} from "./doctoral-world.js?v=14";
 import {createScore} from "./doctoral-sound.js";
 import {createHockeySfx} from "./hockey-sfx.js";
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
