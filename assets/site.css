@@ -2309,6 +2309,27 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
     -webkit-mask-size:auto 110.5%;
     mask-size:auto 110.5%;
   }
+  /* La limite du mur est exactement à la hauteur du sommet des portes :
+     100 % - 13,5 % (sol) - 63 % (porte) = 23,5 %.
+     On ne déplace pas la photographie entière, ce qui agrandirait le sol.
+     La bande couvre uniquement le vitrage central au-dessus de l'ancien mur. */
+  .hall.en-volume .architecture-hall::after{
+    content:"";
+    display:block;
+    position:absolute;
+    top:23.5%;
+    left:50%;
+    width:min(100%,calc(var(--eb-hall-hauteur) * 2.403));
+    height:calc(var(--eb-hall-hauteur) * .105);
+    transform:translateX(-50%);
+    pointer-events:none;
+    border-top:2px solid rgba(171,185,174,.7);
+    background:linear-gradient(180deg,
+      rgba(236,238,230,.99) 0%,
+      rgba(237,239,233,.99) 68%,
+      rgba(237,239,233,0) 100%);
+    box-shadow:inset 0 3px 4px -4px rgba(57,79,65,.18);
+  }
   .hall.en-volume .dallage-hall{
     height:calc(var(--eb-hall-hauteur) * .135);
     background:linear-gradient(180deg,transparent,rgba(243,244,236,.045));
