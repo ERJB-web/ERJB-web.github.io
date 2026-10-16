@@ -1,4 +1,4 @@
-import {createEricAvatar} from "./eric-avatar-3d.js?v=6";
+import {createEricAvatar} from "./eric-avatar-3d.js?v=7";
 /*
  * Immersive, procedural Three.js environments for the doctoral game.
  * Entirely original geometry with Eric's articulated 3D avatar.
