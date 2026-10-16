@@ -82,7 +82,7 @@ export function createEricAvatar(T,options={}){
    const u=xi/nx,xx=(u-.5)*.646*ellipse;
    const normalized=ellipse?xx/(.327*ellipse):0;
    const normalizedY=y/.414,normalizedX=xx/.327;
-   const z=.01+.31*Math.sqrt(Math.max(.025,1-normalizedX*normalizedX-normalizedY*normalizedY))+.016;
+   const z=.01+.334*Math.sqrt(Math.max(.025,1-normalizedX*normalizedX-normalizedY*normalizedY))+.013;
    vertices.push(xx,2.555+y,z);
    uvs.push(u,v);
   }
