@@ -49,7 +49,7 @@ export function createEricAvatar(T,options={}){
  cylinder(rig,skin,0,2.17,.005,.16,.18,.26);
  // Volumetric head, jaw and ears.
  const head=sphere(rig,skin,0,2.55,.01,.327,.414,.332,40);
- head.scale.z=.31; // z is actual depth: keep a proper 3-D rounded skull
+ head.scale.z=.332; // anatomically rounded skull
  sphere(rig,skin,0,2.335,.035,.275,.19,.273,32);
  for(let side of [-1,1]){
   const ear=sphere(rig,skin,side*.329,2.54,.03,.078,.133,.067,20);
@@ -81,7 +81,8 @@ export function createEricAvatar(T,options={}){
   for(let xi=0;xi<=nx;xi++){
    const u=xi/nx,xx=(u-.5)*.646*ellipse;
    const normalized=ellipse?xx/(.327*ellipse):0;
-   const z=.267*Math.sqrt(Math.max(.07,1-(xx/.41)**2))+.025-.05*Math.pow(Math.abs(normalized),4);
+   const normalizedY=y/.414,normalizedX=xx/.327;
+   const z=.01+.31*Math.sqrt(Math.max(.025,1-normalizedX*normalizedX-normalizedY*normalizedY))+.016;
    vertices.push(xx,2.555+y,z);
    uvs.push(u,v);
   }
@@ -110,13 +111,13 @@ export function createEricAvatar(T,options={}){
   sphere(elbow,skin,0,-.595,0,.106,.13,.105,20);
   for(let j=0;j<4;j++)sphere(elbow,skin,(j-1.5)*.044,-.686,.025,.027,.072,.035,10);
   arms.push({shoulder,elbow,side});
-  const pelvis=new T.Group();pelvis.position.set(side*.215,1.02,0);hip.add(pelvis);
+  const pelvis=new T.Group();pelvis.position.set(side*.215,0,0);hip.add(pelvis);
   cylinder(pelvis,denim,0,-.285,0,.186,.160,.58);
   sphere(pelvis,denim,0,-.58,0,.166,.14,.165);
   const knee=new T.Group();knee.position.set(0,-.58,0);pelvis.add(knee);
   cylinder(knee,denim,0,-.275,0,.159,.125,.55);
   cylinder(knee,seam,0,-.535,0,.126,.126,.033);
-  const foot=new T.Group();foot.position.set(0,-.64,.058);knee.add(foot);
+  const foot=new T.Group();foot.position.set(0,-.37,.058);knee.add(foot);
   const upper=sphere(foot,boot,0,-.025,.10,.174,.14,.31,20);
   sphere(foot,boot,0,-.05,.30,.174,.09,.196,20);
   const shoeSole=box(foot,sole,0,-.126,.145,.355,.067,.55);
