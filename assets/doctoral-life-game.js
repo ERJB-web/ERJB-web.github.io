@@ -227,10 +227,16 @@ function updateMusicButton(){
 }
 updateMusicButton();
 $("musicBtn").onclick=async()=>{await score.toggle();updateMusicButton();alertGame(score.enabled?"Musique activée":"Musique désactivée");};
+const placesToggle=$("placesToggle");
+if(placesToggle)placesToggle.onclick=()=>{
+ const list=$("worldPlaces"),open=!list.classList.contains("open");
+ list.classList.toggle("open",open);placesToggle.setAttribute("aria-expanded",String(open));
+ placesToggle.innerHTML=open?"⌖ Fermer les destinations <span>▴</span>":"⌖ Explorer un autre lieu <span>▾</span>";
+};
 function showPlaceButtons(current){
  const panel=$("worldPlaces");if(!panel)return;
  panel.innerHTML=PLACES.map(p=>'<button type="button" data-world="'+p.id+'" class="'+(p.id===current?"current":"")+'" title="'+esc(p.sub)+'">'+esc(p.name)+'</button>').join("");
- for(const btn of panel.querySelectorAll("[data-world]"))btn.onclick=()=>{if(!st)return;worldController?.visit(btn.dataset.world);};
+ for(const btn of panel.querySelectorAll("[data-world]"))btn.onclick=()=>{if(!st)return;panel.classList.remove("open");placesToggle?.setAttribute("aria-expanded","false");if(placesToggle)placesToggle.innerHTML="⌖ Explorer un autre lieu <span>▾</span>";worldController?.visit(btn.dataset.world);};
 }
 function doActivity(zone,action,label){
  if(!st||modal)return;
