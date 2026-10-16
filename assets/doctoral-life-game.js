@@ -36,7 +36,7 @@ function close(){modal=false;$("dialog").hidden=true;}
 const api={open,close,toast:alertGame,save:persist,finish:finish};
 function start(newGame){
  st=newGame?initialCareerState():read()||initialCareerState();st.journal ||= [];st.attempts ||= {};
- st.difficulty="doctorale"; $("intro").hidden=true;persist();update();
+ if(st.ending)st=initialCareerState();st.difficulty="doctorale"; $("intro").hidden=true;persist();update();
  worldController?.visit("university");
  score.start().then(ok=>{if(!ok)alertGame("Le son nécessite une autorisation du navigateur : utilise Musique.");updateMusicButton();});
  alertGame("Éric est sur le campus. Dirige-toi vers un bâtiment ou choisis un lieu !");
@@ -236,6 +236,23 @@ function doActivity(zone,action,label){
  const root=open('<span class="kicker">INTERACTION · '+esc(PLACES.find(p=>p.id===zone)?.name||"Campus")+'</span><h2>'+esc(label)+'</h2><p>Éric explore cet endroit. Les activités associées seront débloquées à mesure que son dossier progressera.</p><div class="action-row"><button class="primary" data-return>Reprendre l’exploration</button></div>');
  root.querySelector("[data-return]").onclick=close;
 }
+function earnClue(id,label,zone){
+ if(!st)return;st.worldClues ||= {};
+ if(st.worldClues[id]){alertGame("Indice déjà consigné : "+label);return;}
+ st.worldClues[id]=true;st.proof=(st.proof||0)+1;st.rigor=clamp(st.rigor+1);
+ st.journal.unshift({week:st.week,task:"Indice · "+label,note:"Découvert en explorant "+zone+". Les observations doivent ensuite être discutées dans le protocole.",risky:false});
+ persist();update();alertGame("✦ INDICE TROUVÉ : "+label+" · Preuve +1");
+}
+function reviewerAttack(who,zone){
+ if(!st)return;
+ st.energy=clamp(st.energy-6);st.stress=clamp(st.stress+10);st.trust=clamp(st.trust-1);
+ persist();update();alertGame("⚠ "+who+" te poursuit ! Énergie −6, stress +10. Cours avec Maj.");
+ if(st.energy===0||st.stress===100){
+  st.ending="burnout";persist();
+  const view=open('<span class="kicker">ÉCHEC · LE PROTOCOLE DÉBORDE</span><h2>Éric doit reprendre la main.</h2><p>Fatigue et stress ont fini par déséquilibrer la recherche. Une pause et un périmètre réaliste valent mieux qu’une course sans fin.</p><div class="action-row"><button class="primary" data-recover>Récupérer à la maison et reprendre</button></div>');
+  view.querySelector("[data-recover]").onclick=()=>{st.ending=null;st.week+=2;st.stress=45;st.energy=55;st.budget=Math.max(0,st.budget-4);persist();close();update();worldController?.visit("home");};
+ }
+}
 function skatingSuccess(result){
  if(!st)return;
  st.skateSessions=(st.skateSessions||0)+1;
@@ -251,6 +268,8 @@ function bootNewWorld(){
  onActivity:doActivity,
  onNarrate:alertGame,
  onSkate:skatingSuccess,
+ onEvidence:earnClue,
+ onDamage:reviewerAttack,
  onBalance:(balance,progress,falls)=>{
   $("rinkNeedle").style.left=(50+balance*46)+"%";
   $("rinkTime").textContent=Math.round(progress*23)+" / 23 s";
