@@ -479,7 +479,21 @@ const cast=[
    }
   }
   cube(10,3.1,3.8,jumbotron,0,12.0,-5);
-  sign("ÉRIC   0 : 0   REVIEWER 2",0,12.6,-2.96,9.1,1.25,group,true);
+  const scoreFace=tex(1200,210,(g,w,h)=>{g.fillStyle="#081522";g.fillRect(0,0,w,h);});
+  const scoreCanvas=scoreFace.image,scoreContext=scoreCanvas.getContext("2d");
+  const paintScore=(goals,saves)=>{
+    const g=scoreContext,w=scoreCanvas.width,h=scoreCanvas.height;
+    g.fillStyle="#071926";g.fillRect(0,0,w,h);
+    g.strokeStyle="#e9ad85";g.lineWidth=6;g.strokeRect(4,4,w-8,h-8);
+    g.font="700 42px Arial";g.textAlign="left";g.fillStyle="#d4e6ec";g.fillText("ÉRIC BERNIER",38,60);
+    g.textAlign="right";g.fillText("GARDIEN",w-38,60);
+    g.textAlign="center";g.font="900 88px Arial";g.fillStyle="#fff9ee";g.fillText(goals+" : "+saves,w/2,152);
+    g.font="600 28px Arial";g.fillStyle="#f36633";g.fillText("TROISIÈME PÉRIODE · THÈSE EN JEU",w/2,h-20);
+    scoreFace.needsUpdate=true;
+  };
+  paintScore(0,0);
+  const scoreboard=shape(new T.PlaneGeometry(9.3,1.8),new T.MeshBasicMaterial({map:scoreFace,side:T.DoubleSide}),0,12.55,-2.96);
+  scoreboard.castShadow=false;
   sign("PÉRIODE 3   •   LA THÈSE",0,11.25,-2.96,8.2,.72,group);
   sign("DÉFI HOCKEY · PASSE LES PORTES",0,6.6,backZ+.7,13.0,.90,group,true);
   // Opposing skaters under the floodlights.
@@ -511,8 +525,8 @@ const cast=[
   aimIndicator.rotation.x=Math.PI/2;aimIndicator.castShadow=false;
   hockey=createHockeyGame(T,group,eric,{
    getAim:()=>aimX,
-   onGoal:stats=>{opts.onHockeyEvent?.("goal",stats);opts.onNarrate?.("BUUUUT ! "+stats.goals+" / 3");},
-   onSave:stats=>{opts.onHockeyEvent?.("save",stats);opts.onNarrate?.("ARRÊT DU GARDIEN ! Reprends la rondelle.");},
+   onGoal:stats=>{paintScore(stats.goals,hockey.status().saves);opts.onHockeyEvent?.("goal",stats);opts.onNarrate?.("BUUUUT ! "+stats.goals+" / 3");},
+   onSave:stats=>{paintScore(hockey.status().score,stats.saves);opts.onHockeyEvent?.("save",stats);opts.onNarrate?.("ARRÊT DU GARDIEN ! Reprends la rondelle.");},
    onShot:stats=>opts.onHockeyEvent?.("shot",stats),
    onBoard:()=>opts.onHockeyEvent?.("board",{}),
    onFall:stats=>{skate.falls=stats.falls;opts.onHockeyEvent?.("fall",stats);opts.onNarrate?.("Éric chute ! Relève-toi et reprends la rondelle.");},
