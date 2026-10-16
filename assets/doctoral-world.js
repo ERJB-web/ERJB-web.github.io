@@ -1,6 +1,6 @@
-import {createEricAvatar} from "./eric-avatar-3d.js?v=12";
-import {createHockeyGame} from "./hockey-game.js?v=12";
-import {loadHockeyAssets} from "./hockey-assets.js?v=12";
+import {createEricAvatar} from "./eric-avatar-3d.js?v=20";
+import {createHockeyGame} from "./hockey-game.js?v=20";
+import {loadHockeyAssets} from "./hockey-assets.js?v=20";
 /*
  * Immersive, procedural Three.js environments for the doctoral game.
  * Entirely original geometry with Eric's articulated 3D avatar.
