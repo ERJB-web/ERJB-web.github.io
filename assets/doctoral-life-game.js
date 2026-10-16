@@ -49,8 +49,11 @@ function update(){
  $("yearProgress").style.width=Math.min(100,st.week/208*100)+"%";
  for(const k of ["rigor","energy","trust","stress","budget","proof"])$(k).textContent=st[k];
  $("completeCount").textContent=st.completed.length+" / "+milestones.length+" étapes";
- const available=openTasks();$("missionCount").textContent=available.length;
- $("missionItems").innerHTML=available.length?available.slice(0,30).map(t=>'<button class="mission-card '+(chosen===t.id?"active":"")+'" data-task="'+esc(t.id)+'"><span class="meta"><span>'+esc(t.station)+'</span><span>'+t.weeks+' sem.</span></span><strong>'+esc(t.title)+'</strong><small>'+esc(t.priority==="main"?"Étape structurante":"Mission facultative")+' · Année conseillée '+t.year+'</small></button>').join(""):'<p>Aucune nouvelle mission. Vérifie ton dossier et les prérequis.</p>';
+ const allMissions=openTasks(),currentRoom=worldController?.room||"university";
+ const localMissions=allMissions.filter(t=>kindToWorld(t)===currentRoom);
+ const available=(localMissions.length?localMissions:allMissions).slice(0,7);
+ $("missionCount").textContent=allMissions.length;
+ $("missionItems").innerHTML=available.length?available.map(t=>'<button class="mission-card '+(chosen===t.id?"active":"")+'" data-task="'+esc(t.id)+'"><span class="meta"><span>'+esc(t.station)+'</span><span>'+t.weeks+' sem.</span></span><strong>'+esc(t.title)+'</strong><small>'+esc(t.priority==="main"?"Étape structurante":"Mission facultative")+' · Année conseillée '+t.year+'</small></button>').join(""):'<p>Aucune nouvelle mission. Vérifie ton dossier et les prérequis.</p>';
  for(const b of document.querySelectorAll("[data-task]"))b.onclick=()=>select(b.dataset.task);
 }
 function select(id){
@@ -272,7 +275,7 @@ function bootNewWorld(){
  worldController=createAdventureWorld(THREE,$("scene3d"),{
  keys:pressed,
  isPaused:()=>modal||!st||!$("intro").hidden||Boolean(st?.ending),
- onVisit:(zone,p)=>{score.setZone(zone);$("stationLabel").textContent=p.name;$("stationHint").textContent=p.sub+" · Approche les marqueurs lumineux pour agir.";showPlaceButtons(zone);$("rinkHud").hidden=zone!=="rink";},
+ onVisit:(zone,p)=>{score.setZone(zone);$("stationLabel").textContent=p.name;$("stationHint").textContent=p.sub+" · Approche les marqueurs lumineux pour agir.";showPlaceButtons(zone);$("rinkHud").hidden=zone!=="rink";if(st)update();},
  onActivity:doActivity,
  onNarrate:alertGame,
  onSkate:skatingSuccess,
