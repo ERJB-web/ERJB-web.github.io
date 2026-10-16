@@ -566,10 +566,14 @@
     const hall = document.querySelector('[data-hall-volume]');
     if (!hall) return;
     const maintenant = new Date();
+    const zone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    const sud = /^(Australia\/|Pacific\/(Auckland|Chatham|Fiji|Tahiti)|America\/(Argentina\/|Santiago|Sao_Paulo|Montevideo|Asuncion)|Africa\/(Johannesburg|Windhoek|Maputo|Harare)|Indian\/(Mauritius|Reunion|Antananarivo))/.test(zone);
+    const moisSaison = (maintenant.getMonth() + (sud ? 6 : 0)) % 12;
+    hall.dataset.saison = moisSaison < 2 || moisSaison === 11 ? 'hiver' : moisSaison < 5 ? 'printemps' : moisSaison < 8 ? 'ete' : 'automne';
     const annee = maintenant.getFullYear();
     const jour = Math.floor((Date.UTC(annee,maintenant.getMonth(),maintenant.getDate())-Date.UTC(annee,0,1))/86400000)+1;
     // Horaires saisonniers indicatifs, sans prétendre calculer l'aube astronomique.
-    const saison = Math.cos(2*Math.PI*(jour-172)/365.2425);
+    const saison = Math.cos(2*Math.PI*(jour-172)/365.2425) * (sud ? -1 : 1);
     const lever = 420 - 75*saison, coucher = 1140 + 90*saison;
     const minutes = maintenant.getHours()*60 + maintenant.getMinutes();
     const moment = minutes < lever-45 || minutes >= coucher+50 ? 'nuit' :

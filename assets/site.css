@@ -2019,26 +2019,27 @@ html:is(.hc,.lv) .rubriques[data-navigation=atelier] :is(.rubriques-console,.rub
 @media(max-width:520px){.bande-parcours .trajectoire{grid-template-columns:1fr;gap:13px}.bande-parcours .trajectoire li{padding-top:23px}.bande-parcours .trajectoire li::before{top:-12px}}
 
 
-/* Ajustement compact : conserver le design d'origine sans grossir la frise ni les portes. */
+/* Frise entièrement visible : huit étapes, sans rail horizontal. */
 .bande-parcours .trajectoire{
- display:flex;flex-wrap:nowrap;grid-template-columns:none;gap:14px;
- margin:0;padding:12px 0 10px;overflow-x:auto;overflow-y:hidden;
- scroll-snap-type:x proximity;overscroll-behavior-x:contain;
- scrollbar-width:thin;scrollbar-color:#9dcfc9 rgba(255,255,255,.15);
+ display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:25px 22px;
+ margin:0;padding:3px 0 0;overflow:visible;
 }
 .bande-parcours .trajectoire::before{display:none}
 .bande-parcours .trajectoire li{
- flex:0 0 clamp(166px,12.1vw,196px);min-width:0;min-height:0;
- margin:9px 0 0;padding:27px 5px 5px 0;
- border:0;border-top:2px solid rgba(236,248,251,.47);border-radius:0;
- background:transparent;box-shadow:none;scroll-snap-align:start;
+ --etape:#f2c14e;--suite:#f5a65b;min-width:0;min-height:0;
+ margin:0;padding:30px 6px 0 0;border:0;border-radius:0;
+ background:transparent;box-shadow:none;
 }
-.bande-parcours .trajectoire li::before{top:-12px;inset-inline-start:0;box-shadow:none}
-.bande-parcours .trajectoire li::after{content:none}
-.bande-parcours .trajectoire-date{font-size:15px;line-height:1.35;margin-bottom:6px}
+.bande-parcours .trajectoire li:nth-child(4n+2){--etape:#f5a65b;--suite:#7fd1b9}
+.bande-parcours .trajectoire li:nth-child(4n+3){--etape:#7fd1b9;--suite:#8ec5ff}
+.bande-parcours .trajectoire li:nth-child(4n+4){--etape:#8ec5ff;--suite:#8ec5ff}
+.bande-parcours .trajectoire li::before{top:0;inset-inline-start:0;z-index:1;border-color:var(--etape);background:#fff;box-shadow:none}
+.bande-parcours .trajectoire li::after{content:"";position:absolute;top:9px;inset-inline:0 -22px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--etape),var(--suite));opacity:.8}
+.bande-parcours .trajectoire li:nth-child(4n)::after,.bande-parcours .trajectoire li:last-child::after{inset-inline-end:0}
+.bande-parcours .trajectoire-date{font-size:14px;line-height:1.35;margin-bottom:5px}
 .bande-parcours .trajectoire-texte{font-size:13px;line-height:1.5;overflow-wrap:break-word}
-@media(max-width:850px){.bande-parcours .trajectoire{display:flex;grid-template-columns:none}.bande-parcours .trajectoire li{flex-basis:187px}}
-@media(max-width:520px){.bande-parcours .trajectoire{display:flex;grid-template-columns:none;gap:13px}.bande-parcours .trajectoire li{flex-basis:178px;min-height:0;padding-top:27px}.bande-parcours .trajectoire li::before{top:-12px}}
+@media(max-width:850px){.bande-parcours .trajectoire{grid-template-columns:repeat(2,minmax(0,1fr))}.bande-parcours .trajectoire li:nth-child(2n)::after{inset-inline-end:0}}
+@media(max-width:520px){.bande-parcours .trajectoire{grid-template-columns:minmax(0,1fr);gap:0}.bande-parcours .trajectoire li{padding:0 0 22px;padding-inline-start:32px}.bande-parcours .trajectoire li::before{top:1px;width:18px;height:18px;border-width:4px}.bande-parcours .trajectoire li::after{inset-inline:8px auto!important;top:17px;bottom:-3px;width:2px;height:auto;background:linear-gradient(var(--etape),var(--suite))}.bande-parcours .trajectoire li:last-child{padding-bottom:0}.bande-parcours .trajectoire li:last-child::after{display:none}}
 html[dir=rtl] .bande-parcours .trajectoire{direction:rtl}
 
 /* Barre des six portes plus nette, dimensions inchangées à quelques pixels près. */
@@ -2075,21 +2076,19 @@ html[dir=rtl] .bande-parcours .trajectoire{direction:rtl}
 }
 @media(max-width:999px){.hall.en-mobile .station-hall{padding-top:24px;row-gap:14px}.hall.en-mobile .panneau-hall h3{margin-bottom:4px}}
 
-/* Le hall conserve sa photographie architecturale et suit l'heure locale. */
-.hall.en-volume .architecture-hall{isolation:isolate;transition:filter 1.8s ease}
-.hall.en-volume .architecture-hall::before,.hall.en-volume .architecture-hall::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity 1.8s ease}
-.hall.en-volume[data-moment="aube"] .architecture-hall{background-image:linear-gradient(125deg,rgba(246,174,102,.18),rgba(248,201,132,.07) 55%,rgba(190,197,229,.19)),url("photos/hall-atrium.webp")}
-.hall.en-volume[data-moment="crepuscule"] .architecture-hall{background-image:linear-gradient(115deg,rgba(244,162,96,.23),rgba(222,133,137,.14) 62%,rgba(67,95,148,.29)),url("photos/hall-atrium.webp")}
-.hall.en-volume[data-moment="aube"] .architecture-hall::after,.hall.en-volume[data-moment="crepuscule"] .architecture-hall::after{opacity:1;background:radial-gradient(ellipse at 80% 11%,rgba(255,190,105,.50),transparent 39%),radial-gradient(ellipse at 25% 87%,rgba(255,223,171,.27),transparent 50%)}
-.hall.en-volume[data-moment="nuit"] .architecture-hall{background-image:linear-gradient(180deg,rgba(8,25,43,.77),rgba(13,34,50,.59) 63%,rgba(21,36,50,.48)),url("photos/hall-atrium.webp")}
-.hall.en-volume[data-moment="nuit"] .architecture-hall::before{opacity:.93;inset:0 0 auto;height:27%;background:radial-gradient(circle at 12% 29%,#fff 0 1px,transparent 2px),radial-gradient(circle at 23% 61%,#d9edff 0 1.2px,transparent 2.5px),radial-gradient(circle at 41% 17%,#fffbd9 0 1px,transparent 2.5px),radial-gradient(circle at 55% 55%,#e4eeff 0 1.5px,transparent 2.5px),radial-gradient(circle at 73% 23%,#fff 0 1px,transparent 2.5px),radial-gradient(circle at 89% 60%,#fff5dc 0 1.2px,transparent 2.5px),linear-gradient(180deg,rgba(7,22,48,.95),rgba(13,37,65,.34));-webkit-mask-image:linear-gradient(#000 20%,rgba(0,0,0,.65) 72%,transparent);mask-image:linear-gradient(#000 20%,rgba(0,0,0,.65) 72%,transparent)}
-.hall.en-volume[data-moment="nuit"] .architecture-hall::after{opacity:1;background:radial-gradient(ellipse at 30% 78%,rgba(255,205,129,.30),transparent 36%),radial-gradient(ellipse at 76% 75%,rgba(255,209,142,.30),transparent 41%),linear-gradient(180deg,transparent 50%,rgba(248,191,112,.10))}
-.hall.en-volume[data-moment="nuit"] .verriere-hall{display:block;position:absolute;right:0;top:33%;width:12%;height:46%;pointer-events:none;background:radial-gradient(circle at 38% 18%,#fcf6d7 0 1px,transparent 2px),radial-gradient(circle at 72% 47%,#fff 0 1.2px,transparent 2.3px),linear-gradient(105deg,rgba(4,20,48,.26),rgba(12,33,62,.67));opacity:.84;mix-blend-mode:multiply}
-.hall.en-mobile[data-moment="aube"] .station-hall::before{background-image:linear-gradient(110deg,rgba(255,222,169,.17),rgba(247,178,119,.29)),url("photos/hall-atrium.webp")}
-.hall.en-mobile[data-moment="crepuscule"] .station-hall::before{background-image:linear-gradient(110deg,rgba(232,142,120,.28),rgba(72,91,144,.30)),url("photos/hall-atrium.webp")}
-.hall.en-mobile[data-moment="nuit"] .station-hall::before{background-image:radial-gradient(circle at 15% 10%,#fff 0 1px,transparent 2px),radial-gradient(circle at 57% 7%,#fff 0 1px,transparent 2px),radial-gradient(circle at 81% 14%,#e2ecff 0 1px,transparent 2px),linear-gradient(180deg,rgba(8,24,44,.77),rgba(20,32,46,.55)),url("photos/hall-atrium.webp")}
-.hall.en-mobile[data-moment="nuit"] .station-hall{background:linear-gradient(110deg,#c5ccc4,#e2e7dd 30% 76%,#c9d2c9)}
-@media(prefers-reduced-motion:reduce){.hall.en-volume .architecture-hall,.hall.en-volume .architecture-hall::before,.hall.en-volume .architecture-hall::after{transition:none}}
+/* L'extérieur suit l'heure et la saison ; le mur, le sol et les portes restent clairs. */
+.hall{--hall-exterieur:url("photos/hall-atrium.webp");--hall-filtre-saison:brightness(1);--hall-filtre-heure:brightness(1)}
+.hall[data-moment="nuit"]{--hall-exterieur:url("photos/hall-atrium-nuit.webp")}
+.hall[data-moment="aube"]{--hall-filtre-heure:sepia(.12) saturate(1.1)}
+.hall[data-moment="crepuscule"]{--hall-filtre-heure:sepia(.16) saturate(1.12) brightness(.88)}
+.hall[data-saison="printemps"]{--hall-filtre-saison:saturate(1.13)}
+.hall[data-saison="automne"]{--hall-filtre-saison:sepia(.24) saturate(1.13)}
+.hall[data-saison="hiver"]{--hall-filtre-saison:grayscale(.45) saturate(.7) brightness(1.07)}
+.hall.en-volume .architecture-hall{isolation:isolate}
+.hall.en-volume .architecture-hall::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:var(--hall-exterieur);background-repeat:no-repeat;background-position:var(--hall-lumiere,50%) top;background-size:auto calc(126.6% - 40.5px);-webkit-mask:url("hall-vitrages.svg") var(--hall-lumiere,50%) top / auto calc(126.6% - 40.5px) no-repeat;mask:url("hall-vitrages.svg") var(--hall-lumiere,50%) top / auto calc(126.6% - 40.5px) no-repeat;filter:var(--hall-filtre-saison) var(--hall-filtre-heure)}
+.hall.en-volume .architecture-hall::after{content:none}
+.hall.en-volume .verriere-hall{display:none}
+.hall.en-mobile .station-hall::before{background-image:linear-gradient(100deg,rgba(70,89,56,.06),transparent 5% 92%,rgba(70,89,56,.06)),var(--hall-exterieur)}
 
 
 /* Correctif 2026-10-15 : ne jamais laisser le contenu déroulant étirer la grille principale. */
