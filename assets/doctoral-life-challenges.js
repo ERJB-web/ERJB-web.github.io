@@ -10,6 +10,8 @@ export function playMission(t,s,api){
  if(t.kind==="field")return network(t,s,api);
  if(["funding","work","analysis"].includes(t.kind))return resources(t,s,api);
  if(t.kind==="defense")return defense(t,s,api);
+ if(t.kind==="writing"||t.kind==="publication")return manuscript(t,s,api);
+ if(t.kind==="ethics")return ethicalReview(t,s,api);
  return negotiate(t,s,api);
 }
 export function methods(t,s,api){
@@ -75,6 +77,44 @@ function negotiate(t,s,api){
  root.querySelector('[data-action="submit"]').onclick=()=>{if(total!==10){api.toast("Répartis dix unités.");return;}const risky=effort.depth<3||effort.speed>5;api.finish(t,{rigor:risky?-9:5,trust:effort.partners>=3?4:-5,stress:risky?8:-1},risky?"Le raccourci crée un défaut difficile à rattraper.":"Démarche documentée et négociée.",{risky});};
  }draw();
 }
+function manuscript(t,s,api){
+ const pieces=[["PROBLÈME","Quel enjeu et quelle lacune?"],["DEVIS","Quel phénomène, quelles données et quelles limites?"],["CONSTATS","Résultats réels ou plan de résultats clairement hypothétique."],["INTERPRÉTATION","Portée des résultats et incertitudes."],["LIMITES","Biais, transférabilité et pistes de recherche."]];
+ let sequence=[];
+ const render=()=>{
+ const root=api.open(head(t,"Construis une argumentation scientifique, section par section. Les manuscrits, dossiers et présentations ne peuvent pas faire passer des hypothèses pour des résultats.")+
+ '<div class="evidence-grid">'+pieces.map((p,i)=>'<button data-piece="'+i+'" '+(sequence.includes(i)?"disabled":"")+' class="'+(sequence.includes(i)?"marked":"")+'"><b>'+p[0]+'</b><small>'+p[1]+'</small></button>').join("")+'</div>'+
+ '<div class="assessment"><h3>Plan construit</h3><p>'+(sequence.length?sequence.map((i,j)=>(j+1)+". "+pieces[i][0]).join(" → "):"Aucune section placée pour le moment.")+'</p></div>'+
+ '<div class="action-row">'+b("Valider le manuscrit","submit")+'<button class="secondary" data-action="reset">Réinitialiser le plan</button></div>');
+ for(const node of root.querySelectorAll("[data-piece]"))node.onclick=()=>{sequence.push(+node.dataset.piece);render();};
+ root.querySelector('[data-action="reset"]').onclick=()=>{sequence=[];render();};
+ root.querySelector('[data-action="submit"]').onclick=()=>{
+ if(sequence.length!==5){api.toast("Place les cinq sections du dossier.");return;}
+ const valid=sequence.every((v,i)=>v===i);let article=String(t.id).match(/^article([1-3])Submit$/);
+ if(valid&&article)s.articles=Math.max(s.articles,+article[1]);
+ api.finish(t,{rigor:valid?8:-9,trust:valid?2:-3,proof:valid?2:0},
+ valid?"La structure argumentative explicite la question, les méthodes, les constats et leurs limites.":"La construction ne permet pas au lecteur de suivre les preuves et la discussion.",{risky:!valid});
+ };
+ };render();
+}
+function ethicalReview(t,s,api){
+ const safeguards={consent:4,privacy:4,security:2},title={consent:"Consentement et participation libre",privacy:"Risques de réidentification",security:"Accès et sécurisation des fichiers"};
+ const render=()=>{
+ const sum=Object.values(safeguards).reduce((a,b)=>a+b,0);
+ const root=api.open(head(t,"Ton étude implique des données et des personnes. Répartis dix unités de préparation éthique. Un consentement vague ou un petit réseau identifiable peut compromettre toute la recherche.")+
+ '<div class="ledger">'+Object.entries(safeguards).map(([k,v])=>'<label>'+title[k]+'<input type="range" data-ethic="'+k+'" min="0" max="10" step="1" value="'+v+'"><strong>'+v+'</strong></label>').join("")+'</div>'+
+ '<p class="ledger-note">'+sum+' / 10 unités de précaution</p><div class="assessment"><p>Ces arbitrages constituent un exercice de fiction : en recherche réelle, chaque exigence applicable doit être satisfaite sans compensation par une autre.</p></div>'+
+ '<div class="action-row">'+b("Transmettre au comité","submit")+'</div>');
+ for(const input of root.querySelectorAll("[data-ethic]"))input.oninput=()=>{safeguards[input.dataset.ethic]=+input.value;render();};
+ root.querySelector('[data-action="submit"]').onclick=()=>{
+ if(sum!==10){api.toast("Répartis dix unités.");return;}
+ const valid=safeguards.consent>=3&&safeguards.privacy>=3&&safeguards.security>=2;
+ if(t.id==="ethicsApproved")s.approved=valid;
+ api.finish(t,{rigor:valid?6:-9,trust:valid?3:-6,stress:valid?0:9},
+ valid?"Le dossier éthique fictif documente les trois protections essentielles.":"Dossier renvoyé : consentement, confidentialité ou sécurité insuffisamment garantis.",{risky:!valid});
+ };
+ };render();
+}
+
 function defense(t,s,api){
  const r=checkDefense(s);
  const root=api.open(head(t,"Le jury confronte les engagements du dossier aux travaux, à la méthodologie, aux articles et aux autorisations.")+'<div class="assessment"><h3>'+r.missing.length+' réserves principales</h3><ul>'+r.missing.map(m=>'<li>⚠ '+e(m)+'</li>').join("")+'</ul></div>'+buttons(b("Soutenir maintenant","submit")));
