@@ -31,6 +31,7 @@ try{
  const result=await page.evaluate(()=>({
   actor:document.querySelector("#career")?.getAttribute("data-human-model"),
   room:document.querySelector("#career")?.getAttribute("data-environment"),
+  sceneStatus:document.querySelector("#career")?.getAttribute("data-environment-status"),
   place:document.querySelector("#stationLabel")?.textContent,
   vrButton:!!document.getElementById("xrModeBtn"),
   missions:document.querySelectorAll(".mission-card").length,
@@ -39,11 +40,16 @@ try{
  console.log("BROWSER RENDER: "+JSON.stringify(result));
  assert.equal(result.actor,"loaded");
  assert.equal(result.room,"classroom");
+ assert.ok(["detailed-glb","procedural-fallback"].includes(result.sceneStatus),"Scene must render even if GLB provider is offline");
+ if(result.sceneStatus==="procedural-fallback"){
+  console.warn("DEGRADED: The detailed scene GLB provider is unreachable in this browser; interactive 3D fallback is active.");
+  if(process.env.E2E_REQUIRE_3D_ASSETS==="1")throw Error("Detailed GLB assets must load in strict rendering QA");
+ }
  assert.ok(result.vrButton,"WebXR entry must exist");
  assert.ok(result.missions>0,"Playthrough must show available missions");
  await page.screenshot({path:"jeu/browser-game-smoke.png",fullPage:true});
  if(errors.length)throw Error("Browser page errors: "+errors.join(" | "));
- console.log("PASS: WebGL scene, rigged human, CC0 location, movement, WebXR entry and mission UI.");
+ console.log("PASS: WebGL scene, skinned human, scene or disclosed fallback, movement, WebXR entry and mission UI.");
 } catch(error){
  console.error("BROWSER FAILURE",error.message);
  console.error("PAGE ERRORS",errors.slice(0,14));
