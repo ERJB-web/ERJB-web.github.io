@@ -466,6 +466,8 @@ html:lang(ar) .surtitre,html:lang(ar) .menu-titre,html:lang(ar) .statut,html:lan
 .presentation .portrait{width:128px}
 .presentation h1{font-size:clamp(38px,3.4vw,52px)}
 .presentation .identite .surtitre{white-space:normal}
+@media(min-width:1081px){.accueil>.presentation{min-block-size:var(--presentation-min,0px);align-content:center}}
+.accueil>.hall{padding-top:18px;border-top:1px solid #e4ebe8}
 .chapeau{font-size:16px;line-height:1.66}
 .chapeau h2{font-size:clamp(23px,2.1vw,29px);margin-bottom:12px}
 .chapeau p{margin-bottom:10px}

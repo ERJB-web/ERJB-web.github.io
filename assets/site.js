@@ -3,6 +3,21 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const racine = document.documentElement;
+  // Le hall commence après le premier écran, sans tronquer son en-tête.
+  const presentationAccueil = $('.accueil > .presentation');
+  const enteteAccueil = $('body > .entete');
+  const accueilLarge = matchMedia('(min-width:1081px)');
+  function ajusterJonctionAccueil() {
+    if (!presentationAccueil) return;
+    if (!accueilLarge.matches) { presentationAccueil.style.removeProperty('--presentation-min'); return; }
+    const haut = presentationAccueil.getBoundingClientRect().top + scrollY;
+    const intervalle = parseFloat(getComputedStyle(presentationAccueil.parentElement).rowGap) || 0;
+    presentationAccueil.style.setProperty('--presentation-min', Math.max(0, innerHeight - haut - intervalle + 12) + 'px');
+  }
+  ajusterJonctionAccueil();
+  addEventListener('resize', ajusterJonctionAccueil, { passive:true });
+  if (enteteAccueil && 'ResizeObserver' in window) new ResizeObserver(ajusterJonctionAccueil).observe(enteteAccueil);
+  document.fonts?.ready.then(ajusterJonctionAccueil);
   const groupes = $$(".porte").map((p) => ({ nom: p.dataset.salle, porte: p, sections: (p.dataset.sections || "").split(" ").filter(Boolean) }));
   const ordre = groupes.flatMap((g) => g.sections);
   const groupeDe = (s) => groupes.find((g) => g.nom === s || g.sections.includes(s));
