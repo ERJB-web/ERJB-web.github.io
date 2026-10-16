@@ -31,7 +31,7 @@
         ['Un risque passe de 20 sur 100 à 10 sur 100. Quelle formulation est juste ?', ['Une baisse de 10 points de pourcentage, soit 50 % en relatif.','Une baisse de 50 points de pourcentage.','Une baisse de 10 % en relatif.'],0,'Le passage de 20 % à 10 % correspond à 10 points en valeur absolue et à la moitié du risque initial.'],
         ['Pour rendre une vidéo scientifique accessible, que faut-il prévoir ?', ['Seulement un visuel plus attrayant.','Uniquement une musique moins forte.','Des sous-titres vérifiés, une transcription et la description des éléments visuels nécessaires.'],2,'Une transcription, des sous-titres et une description adaptée rendent l’information utilisable par davantage de personnes.']
       ],
-      validate:'Vérifier la réponse',continue:'Question suivante',restart:'Recommencer',right:'Bonne réponse',wrong:'À revoir',score:'Résultat',scoreEnd:'bonnes réponses sur 3',quizSource:'Pour aller plus loin : Cochrane Evidence Essentials et les recommandations du W3C.'
+      validate:'Vérifier la réponse',continue:'Question suivante',restart:'Recommencer',right:'Bonne réponse',wrong:'À revoir',score:'Résultat',scoreEnd:'réponses correctes',quizSource:'Pour aller plus loin : Cochrane Evidence Essentials et les recommandations du W3C.'
     },
     en: {
       eyebrow:'SCIENCE COMMUNICATION LAB',hero:'One idea, many ways to understand it',sub:'Examine findings, put numbers into context, test a format and return to the sources. These are educational demonstrations, not results from my research.',
@@ -50,7 +50,7 @@
       trustTitle:'Disagree without losing the dialogue',trustSteps:['Listen','Verify','Acknowledge limits','Respond and correct'],trustNotes:['Avoid collecting private information.','Return to methods and original sources.','Distinguish findings, interpretations and choices.','Make corrections accessible and visible.'],
       quizTitle:'Check your critical reading',quizIntro:'Three scenarios with explanations. No data collected.',
       questions:[['Two variables are associated in an observational study. What follows?',['One causes the other.','An association is observed; causality is not established.','It applies to everyone.'],1,'An association alone cannot rule out confounding or alternative explanations.'],['A risk falls from 20 in 100 to 10 in 100. What is correct?',['10 percentage points, or 50% relatively.','50 percentage points.','10% relatively.'],0,'It is a 10-point absolute difference and half the baseline risk.'],['What helps make a scientific video accessible?',['Only attractive visuals.','Only quieter music.','Reviewed captions, a transcript and descriptions of necessary visual content.'],2,'Multiple alternatives help different audiences access the content.']],
-      validate:'Check answer',continue:'Next question',restart:'Try again',right:'Correct',wrong:'Review this',score:'Your score',scoreEnd:'correct out of 3',quizSource:'Further reading: Cochrane Evidence Essentials and W3C guidance.'
+      validate:'Check answer',continue:'Next question',restart:'Try again',right:'Correct',wrong:'Review this',score:'Your score',scoreEnd:'correct answers',quizSource:'Further reading: Cochrane Evidence Essentials and W3C guidance.'
     },
     es: {
       eyebrow:'LABORATORIO DE DIVULGACIÓN',hero:'Una idea, distintas formas de comprenderla',sub:'Examinar resultados, contextualizar cifras, probar un formato y consultar las fuentes. Son demostraciones didácticas, no resultados de mi investigación.',
@@ -69,7 +69,7 @@
       trustTitle:'Dialogar a pesar del desacuerdo',trustSteps:['Escuchar','Verificar','Mostrar límites','Responder y corregir'],trustNotes:['Proteger datos personales.','Consultar métodos y fuentes.','Separar hechos y decisiones.','Hacer visibles las correcciones.'],
       quizTitle:'Pon a prueba tu lectura crítica',quizIntro:'Tres preguntas comentadas, sin recopilar datos.',
       questions:[['Dos variables se asocian en un estudio observacional. ¿Qué implica?',['Una causa la otra.','Existe una asociación; no se demuestra causalidad.','Se aplica a todas las personas.'],1,'Una asociación no excluye factores de confusión.'],['Un riesgo baja de 20 de cada 100 a 10 de cada 100.',['Baja 10 puntos porcentuales, un 50 % relativo.','Baja 50 puntos porcentuales.','Baja 10 % relativo.'],0,'La diferencia absoluta es de 10 puntos; la relativa es la mitad del riesgo inicial.'],['¿Qué requiere un vídeo accesible?',['Solo mejores imágenes.','Solo bajar la música.','Subtítulos revisados, transcripción y descripciones visuales pertinentes.'],2,'Las alternativas ofrecen acceso a públicos diversos.']],
-      validate:'Comprobar',continue:'Siguiente pregunta',restart:'Reiniciar',right:'Correcto',wrong:'Para revisar',score:'Resultado',scoreEnd:'aciertos de 3',quizSource:'Recursos: Cochrane Evidence Essentials y W3C.'
+      validate:'Comprobar',continue:'Siguiente pregunta',restart:'Reiniciar',right:'Correcto',wrong:'Para revisar',score:'Resultado',scoreEnd:'respuestas correctas',quizSource:'Recursos: Cochrane Evidence Essentials y W3C.'
     },
     zh: {
       eyebrow:'科学传播互动实验室',hero:'一个观点，多种理解方式',sub:'解读研究结果、理解数据、体验传播形式，并查阅原始来源。以下均为教学示例，不代表本人的研究结果。',
@@ -88,7 +88,7 @@
       trustTitle:'保留分歧，继续对话',trustSteps:['倾听','核实','说明局限','回应与更正'],trustNotes:['保护个人隐私。','核对方法和原始来源。','区分事实和选择。','公开提供更正。'],
       quizTitle:'检验科学阅读能力',quizIntro:'三道附解释的练习题，不收集数据。',
       questions:[['观察性研究发现两个变量有关联，可以得出什么结论？',['前者导致后者。','观察到关联，但不能据此确定因果。','结果适用于所有人。'],1,'相关性不能排除混杂因素。'],['风险从每100人20例降至10例，哪项正确？',['下降10个百分点，相对下降50%。','下降50个百分点。','相对下降10%。'],0,'绝对差为10个百分点，相对差为原风险的一半。'],['什么有助于视频无障碍？',['只增加精美画面。','只降低背景音乐。','校对字幕、文字稿及必要的视觉描述。'],2,'多种呈现方式可满足不同人群的需要。']],
-      validate:'核对答案',continue:'下一题',restart:'重新开始',right:'回答正确',wrong:'请再思考',score:'成绩',scoreEnd:'题正确（共3题）',quizSource:'延伸阅读：Cochrane Evidence Essentials 与 W3C 指南。'
+      validate:'核对答案',continue:'下一题',restart:'重新开始',right:'回答正确',wrong:'请再思考',score:'成绩',scoreEnd:'道正确',quizSource:'延伸阅读：Cochrane Evidence Essentials 与 W3C 指南。'
     },
     ar: {
       eyebrow:'مختبر التواصل العلمي',hero:'فكرة واحدة، وطرق متعددة لفهمها',sub:'استكشاف النتائج ووضع الأرقام في سياقها وتجربة أساليب العرض والعودة إلى المصادر. هذه أمثلة تعليمية وليست نتائج من أبحاثي.',
@@ -107,7 +107,7 @@
       trustTitle:'حوار يحترم الاختلاف',trustSteps:['الاستماع','التحقق','بيان الحدود','الرد والتصحيح'],trustNotes:['حماية الخصوصية.','مراجعة المنهج والمصادر.','الفصل بين النتائج والاختيارات.','إظهار التصحيحات للجميع.'],
       quizTitle:'اختبر قراءتك النقدية',quizIntro:'ثلاثة أسئلة مع الشرح، دون جمع بيانات.',
       questions:[['وجدت دراسة رصدية ارتباطاً بين متغيرين. ما الاستنتاج؟',['أحدهما يسبب الآخر.','توجد علاقة، لكن السببية غير مثبتة.','تنطبق النتائج على الجميع.'],1,'لا يكفي الارتباط لاستبعاد العوامل المربكة.'],['انخفض خطر من 20 إلى 10 من كل 100. ما الصحيح؟',['انخفاض 10 نقاط مئوية، أو 50٪ نسبياً.','انخفاض 50 نقطة مئوية.','انخفاض نسبي 10٪.'],0,'الفرق المطلق 10 نقاط والنسبـي نصف الخطر الأولي.'],['كيف نجعل الفيديو العلمي متاحاً؟',['بتحسين الصور فقط.','بخفض الموسيقى فقط.','بتوفير ترجمة نصية مراجعة وتفريغ ووصف بصري عند الحاجة.'],2,'تدعم البدائل الوصول لفئات مختلفة.']],
-      validate:'تحقق',continue:'السؤال التالي',restart:'ابدأ من جديد',right:'إجابة صحيحة',wrong:'للمراجعة',score:'النتيجة',scoreEnd:'إجابات صحيحة من 3',quizSource:'للمزيد: Cochrane Evidence Essentials وإرشادات W3C.'
+      validate:'تحقق',continue:'السؤال التالي',restart:'ابدأ من جديد',right:'إجابة صحيحة',wrong:'للمراجعة',score:'النتيجة',scoreEnd:'إجابات صحيحة',quizSource:'للمزيد: Cochrane Evidence Essentials وإرشادات W3C.'
     },
     ru: {
       eyebrow:'ЛАБОРАТОРИЯ НАУЧНОЙ КОММУНИКАЦИИ',hero:'Одна идея — много способов понять её',sub:'Исследуйте результаты, сопоставляйте числа, пробуйте форматы и обращайтесь к источникам. Это учебные примеры, а не результаты моей работы.',
@@ -126,10 +126,56 @@
       trustTitle:'Диалог с уважением к разногласиям',trustSteps:['Слушать','Проверять','Признавать границы','Отвечать и исправлять'],trustNotes:['Беречь личные данные.','Проверять методы и первоисточники.','Разделять выводы и решения.','Показывать исправления открыто.'],
       quizTitle:'Проверьте критическое мышление',quizIntro:'Три задачи с пояснениями, без сбора данных.',
       questions:[['В наблюдательном исследовании найдена связь переменных. Что верно?',['Одна вызывает другую.','Обнаружена связь, но причинность не установлена.','Вывод применим ко всем.'],1,'Связь сама по себе не исключает смешивающие факторы.'],['Риск снизился с 20 до 10 на 100. Что верно?',['На 10 процентных пунктов, или на 50% относительно.','На 50 процентных пунктов.','На 10% относительно.'],0,'Абсолютная разница — 10 пунктов, относительная — половина исходного риска.'],['Что нужно для доступного научного видео?',['Только красивые иллюстрации.','Только тихая музыка.','Проверенные субтитры, расшифровка и описание нужной визуальной информации.'],2,'Альтернативные форматы делают информацию доступнее.']],
-      validate:'Проверить',continue:'Следующий вопрос',restart:'Начать снова',right:'Верно',wrong:'Проверьте ещё раз',score:'Результат',scoreEnd:'верных ответов из 3',quizSource:'Подробнее: Cochrane Evidence Essentials и рекомендации W3C.'
+      validate:'Проверить',continue:'Следующий вопрос',restart:'Начать снова',right:'Верно',wrong:'Проверьте ещё раз',score:'Результат',scoreEnd:'правильных ответов',quizSource:'Подробнее: Cochrane Evidence Essentials и рекомендации W3C.'
     }
   };
   const t = tr[lang] || tr.fr;
+  // Beyond recognition questions: application of evidence, equity and public dialogue.
+  const extension={
+    fr:[
+      ['Une comparaison entre douze pays montre deux indicateurs associés. Quelle limite est essentielle ?',['Le lien est nécessairement valable pour chaque patient.','Une corrélation agrégée ne démontre pas un mécanisme individuel.','Le résultat prouve l’efficacité d’une politique.'],1,'Le risque d’erreur écologique existe : des relations observées entre pays ne sont pas automatiquement valables au niveau des individus.'],
+      ['Un intervalle d’incertitude est large autour d’une estimation. Quelle phrase privilégier ?',['« L’effet exact est démontré. »','« Il n’y a aucun effet. »','« L’estimation reste imprécise ; plusieurs valeurs sont compatibles avec les données. »'],2,'L’incertitude mérite d’être expliquée, sans faire croire que toutes les hypothèses sont également probables.'],
+      ['Une affiche mentionne « 80 % d’amélioration ». Que rechercher d’abord ?',['La définition de l’amélioration, les effectifs et le point de départ.','La couleur du graphique.','Le nombre de partages sur les réseaux sociaux.'],0,'Une variation relative sans dénominateur ni point de comparaison peut être trompeuse.'],
+      ['Une personne conteste un message de santé en rapportant une expérience vécue. Quelle réponse convient ?',['Écarter son expérience comme non scientifique.','Reconnaître l’expérience, clarifier la portée des résultats et accueillir la question.','Présenter le témoignage comme preuve d’un effet général.'],1,'La discussion peut accueillir les expériences tout en distinguant témoignage, observation scientifique et décision.'],
+      ['Une vidéo utilise une photo créée par IA représentant une scène réelle. Que faire ?',['La présenter comme documentaire.','Omettre toute mention si elle est esthétique.','La signaler comme illustration et vérifier la justesse des faits associés.'],2,'Une illustration ne doit pas créer de confusion sur l’existence d’une scène, d’une personne ou de données réelles.']
+    ],
+    en:[
+      ['Twelve countries show a country-level association. What limitation matters?',['It necessarily holds for every patient.','An aggregate correlation does not establish individual-level mechanisms.','It proves a policy is effective.'],1,'Ecological bias is a risk: country-level patterns do not automatically apply to individuals.'],
+      ['An estimate has a wide uncertainty interval. What should you say?',['“The exact effect is proven.”','“There is no effect.”','“The estimate is imprecise; several values are compatible with the data.”'],2,'Uncertainty should be made understandable without implying that every explanation is equally likely.'],
+      ['A poster claims “80% improvement.” What do you examine first?',['What improved, the starting point and group sizes.','The chart colours.','Its number of shares.'],0,'Relative changes without a baseline or denominator are easily misread.'],
+      ['Someone challenges a public-health message using lived experience. Your response?',['Dismiss the experience.','Acknowledge it, clarify evidence limits and listen to the question.','Treat the experience as proof of a general effect.'],1,'Lived experience informs dialogue but has a different role from population-level evidence.'],
+      ['A video uses an AI-generated photo that looks documentary. What is needed?',['Label it as real documentary footage.','Say nothing if it looks good.','Disclose it as an illustration and verify related claims.'],2,'Illustrations should not falsely suggest that people, scenes or evidence existed.']
+    ],
+    es:[
+      ['Hay una asociación entre indicadores de doce países. ¿Qué límite importa?',['Se aplica a cada paciente.','Una correlación agregada no demuestra mecanismos individuales.','Prueba el efecto de una política.'],1,'Las asociaciones entre países no se trasladan automáticamente a individuos.'],
+      ['El intervalo de incertidumbre es amplio. ¿Qué decir?',['« El efecto exacto está demostrado ».','« No hay ningún efecto ».','« La estimación es imprecisa; los datos admiten varios valores ».'],2,'La incertidumbre debe comunicarse con claridad.'],
+      ['Un cartel anuncia « 80 % de mejora ». ¿Qué examinar primero?',['La definición, el punto de partida y las muestras.','El color del gráfico.','El número de compartidos.'],0,'Sin denominador ni referencia, un cambio relativo puede engañar.'],
+      ['Una persona cuestiona un mensaje a partir de su experiencia. ¿Qué hacer?',['Ignorarla.','Reconocer su experiencia, distinguir las pruebas y dialogar.','Generalizar su testimonio.'],1,'Experiencia y evidencia científica ofrecen perspectivas distintas.'],
+      ['Una foto creada con IA parece documental. ¿Qué hacer?',['Presentarla como real.','No indicar nada.','Identificarla como ilustración y verificar las afirmaciones.'],2,'No se debe inventar una escena real con apariencia documental.']
+    ],
+    zh:[
+      ['比较十二个国家发现指标有关联。重要局限是什么？',['一定适用于每位患者。','国家层面的相关性不能确定个人机制。','证明某项政策有效。'],1,'国家层面的关系不能自动推广到个人。'],
+      ['一项估计的不确定区间较宽，如何表达？',['“准确效应已得到证明。”','“肯定没有效应。”','“估计尚不精确，多种数值与数据相符。”'],2,'应当解释不确定性，而非掩盖它。'],
+      ['一张海报写着“改善80%”，先检查什么？',['改善的定义、基线和样本人数。','图表颜色。','社交媒体转发量。'],0,'缺乏基线的相对变化容易误导。'],
+      ['有人以亲身经历质疑公共卫生建议，如何回应？',['否定其经历。','尊重经历、说明证据边界并倾听问题。','将一例经历当作普遍证据。'],1,'个人经验和研究结果承担不同的解释功能。'],
+      ['视频用AI生成的照片模拟真实现场，如何处理？',['称之为纪实照片。','无需说明。','标注为插图，并核实相关事实。'],2,'不可让插图伪装成真实场景或证据。']
+    ],
+    ar:[
+      ['تظهر علاقة بين مؤشرين في اثنتي عشرة دولة. ما القيد الأساسي؟',['تنطبق بالضرورة على كل مريض.','العلاقة بين الدول لا تثبت آلية على مستوى الأفراد.','تثبت فعالية سياسة معينة.'],1,'قد تنتج مغالطة بيئية عند تعميم العلاقات المجمعة على الأفراد.'],
+      ['مجال عدم اليقين حول تقدير واسع. ما التفسير الصحيح؟',['« ثبت التأثير الدقيق ».','« لا يوجد أي تأثير ».','« التقدير غير دقيق وهناك عدة قيم متوافقة مع البيانات ».'],2,'ينبغي شرح عدم اليقين بدلاً من إخفائه.'],
+      ['يشير ملصق إلى « تحسن بنسبة 80٪ ». ماذا نفحص أولاً؟',['التعريف وخط الأساس وحجم المجموعة.','ألوان الرسم.','عدد المشاركات.'],0,'قد يضلل التغير النسبي دون خط أساس أو مقام.'],
+      ['اعترض شخص على رسالة صحية استناداً إلى تجربته. ماذا تفعل؟',['تجاهل التجربة.','احترام التجربة وشرح حدود الدليل وفتح الحوار.','اعتبار التجربة دليلاً عاماً.'],1,'الخبرة المعيشة والدليل العلمي لهما أدوار مختلفة.'],
+      ['صورة مولدة بالذكاء الاصطناعي تبدو وثائقية. ماذا يلزم؟',['عرضها كصورة واقعية.','عدم التصريح بشيء.','توضيح أنها رسم توضيحي والتحقق من الوقائع.'],2,'لا ينبغي اختلاق مشاهد واقعية أو أدلة مصورة.']
+    ],
+    ru:[
+      ['Обнаружена связь показателей двенадцати стран. Какое ограничение важно?',['Она обязательно действует для каждого пациента.','Связь на уровне стран не доказывает механизм у отдельных людей.','Она доказывает эффективность политики.'],1,'Агрегированные зависимости не обязательно действуют на индивидуальном уровне.'],
+      ['Интервал неопределённости широк. Как верно описать?',['«Точный эффект доказан».','«Эффекта нет».','«Оценка неточна: с данными совместимы разные значения».'],2,'Неопределённость нужно объяснять, а не скрывать.'],
+      ['Плакат обещает «улучшение на 80%». Что проверить?',['Определение, исходный уровень и численность групп.','Цвет графика.','Количество репостов.'],0,'Относительные изменения без исходного уровня вводят в заблуждение.'],
+      ['Человек оспаривает совет, опираясь на личный опыт. Что делать?',['Игнорировать опыт.','Признать опыт, пояснить пределы данных и выслушать вопрос.','Считать один случай универсальным доказательством.'],1,'Личный опыт и научные данные играют разные роли.'],
+      ['Сгенерированное ИИ фото выглядит документальным. Как поступить?',['Назвать настоящим.','Не сообщать об этом.','Указать, что это иллюстрация, и проверить утверждения.'],2,'Иллюстрация не должна выдавать вымышленную сцену за реальную.']
+    ]
+  };
+  t.questions = [...t.questions,...(extension[lang]||extension.fr)];
   const $ = (q, root = section) => root.querySelector(q);
   const h = (tag, className, html) => {
     const el = document.createElement(tag);
@@ -208,7 +254,7 @@
     $('.vs-quiz-field').disabled=false;answered=false;choice=-1;
   };
   const finish=()=>{
-    $('.vs-quiz-body').innerHTML='<div class="vs-quiz-result"><strong>'+score+' / '+t.questions.length+'</strong><p>'+escape(t.score)+': '+score+' '+escape(t.scoreEnd)+'</p><button type="button" class="vs-quiz-restart">'+escape(t.restart)+'</button></div>';
+    $('.vs-quiz-body').innerHTML='<div class="vs-quiz-result"><strong>'+score+' / '+t.questions.length+'</strong><p>'+escape(t.score)+': '+score+' / '+t.questions.length+' — '+escape(t.scoreEnd)+'</p><button type="button" class="vs-quiz-restart">'+escape(t.restart)+'</button></div>';
     $('.vs-quiz-restart').addEventListener('click',()=>{qi=0;score=0;answered=false;choice=-1;$('.vs-quiz-body').replaceWith(h('div','vs-quiz-body','<p class="vs-quiz-step"></p><fieldset class="vs-quiz-field"><legend class="vs-quiz-question"></legend><div class="vs-quiz-options"></div></fieldset><p class="vs-quiz-feedback" hidden></p><button type="button" class="vs-quiz-action"></button>'));initQuiz();});
   };
   const quizAction=()=>{
