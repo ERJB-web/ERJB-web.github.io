@@ -128,6 +128,7 @@ export async function installLivingWorld(T,api){
   }
   return {x:Math.max(-1,Math.min(1,dx)),z:Math.max(-1,Math.min(1,dz)),interact};
  }
+ document.getElementById("career")?.setAttribute("data-human-model","loaded");
  api.notify?.("Personnages humains 3D chargés. Marche, course et animations squelettiques activées.");
  return {syncCast,update,fall:()=>hero.tumble(),xrAxes,get inVR(){return !!xrSession;},source};
 }
