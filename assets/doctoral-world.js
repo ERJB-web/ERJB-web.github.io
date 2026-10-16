@@ -127,13 +127,29 @@ function desk(x,z,width=2.3,screen=false){
  }
  function chair(x,z){cube(.66,.15,.7,M.dark,x,.62,z);cube(.65,.88,.13,M.dark,x,1.06,z+.35);cyl(.06,.56,M.metal,x,.28,z);}
  function lamp(x,z){cyl(.10,3,M.metal,x,1.5,z);const shade=cyl(.46,.38,M.white,x,3.14,z);shade.material=M.neon;ball(.3,M.white,x,3.28,z);}
+const cast=[
+  ["La doyenne","Ton inscription est une étape. Le plus dur sera de garder une question cohérente.", "Sam, chercheur","Un objectif de moins vaut parfois un article de plus.", "Responsable de programme","Le calendrier est une métaphore, pas une course contre une date réelle."],
+  ["Prof de biostat","Définis d'abord ton estimand, ensuite seulement ton modèle.", "Doctorante","Évaluer la confusion n'est pas facultatif.", "Prof de méthodes","Ce qui n'est pas mesuré ne devient pas vrai par magie."],
+  ["Bibliothécaire","Retrouve les sources primaires. Un DOI inventé ne passera pas.", "Collègue","Cet article ressemble à ton sujet. Voilà une vraie lacune à construire.", "Archiviste","Ta revue de littérature a besoin d'une stratégie explicite."],
+  ["Méthodologue","Observation transversale ne veut pas dire causalité.", "Data manager","As-tu les droits d'utiliser ces données ?", "Biostatisticienne","Regarde les données manquantes avant d'ajuster le modèle."],
+  ["Direction de thèse","Quatre objectifs ? Et le cinquième, tu le gardes pour la retraite ?", "Collègue","Un doctorat n'est pas un championnat de diapositives.", "Éric du futur","Le manuscrit attend. Le café aussi."],
+  ["Amie","Une soirée sans corriger un manuscrit reste autorisée.", "Éric du futur","Fais du sommeil un élément de ton protocole.", "Voisin","Même la revue systématique peut attendre demain."],
+  ["Organisatrice","Tu as 10 minutes. Pas trois thèses entières à raconter.", "Partenaire","Que vais-je pouvoir faire de tes résultats ?", "Reviewer 2","Très intéressant… et qu'en est-il de la validité externe ?"],
+  ["Entraîneur","Trouve ton équilibre : les deux patins doivent coopérer.", "Gardien","Ne tire pas sur la barre… même si Reviewer 2 insiste.", "Coéquipier","Une chute vaut une bonne histoire au laboratoire."],
+  ["Maya, intervenante","Le nom d'un service dans l'annuaire n'est pas une collaboration.", "Partenaire communautaire","Demande aux personnes ce qui leur est réellement accessible.", "Coordonnatrice","Sur le terrain, l'organigramme ne raconte pas tout."],
+  ["Présidente du jury","Dites-nous ce que vos données peuvent établir, et ce qu'elles ne peuvent pas.", "Évaluateur externe","Vous avez choisi ce devis. Pourquoi pas un autre ?", "Reviewer 2","J'ai seulement dix-sept petites questions."]
+ ];
+ const dialogueByRoom={university:0,classroom:1,laboratory:3,library:2,office:4,home:5,conference:6,rink:7,field:8,auditorium:9};
  function npc(x,z,shirt=0x36576d,move=0){
   const body=new T.Group();group.add(body);body.position.set(x,0,z);
   const jacket=mat(shirt);cyl(.33,1.05,jacket,0,1.25,0,body);
   ball(.27,mat(0xd1a389),0,2.05,0,body);
   ball(.27,mat(0x302824),0,2.25,.05,body).scale.y=.35;
   for(const side of [-1,1]){cube(.16,.90,.22,jacket,side*.43,1.30,0,body);cube(.23,.83,.24,M.black,side*.15,.47,0,body);}
-  actors.push({body,x,z,move,sway:Math.random()*5});
+  const dialogueSet=cast[dialogueByRoom[room]||0],position=actors.length%3;
+  const name=dialogueSet[position*3],line=dialogueSet[position*3+1];
+  const nameTag=sign(name,0,3.02,0,2.65,.42,body);
+  actors.push({body,x,z,move,sway:Math.random()*5,name,line,nameTag,met:false});
  }
  function plant(x,z){cyl(.5,.72,M.wood,x,.33,z);for(let j=0;j<5;j++){const a=j*Math.PI*2/5;const foliage=ball(.55,M.green,x+Math.sin(a)*.37,1.27+Math.cos(a)*.14,z+Math.cos(a)*.37);foliage.scale.y=1.7;}}
  function windowFrame(x,y,z,w=2.6,h=3.4){cube(w,h,.07,M.glass,x,y,z);for(const u of [-1,1])cube(.07,h,.15,M.metal,x+u*w/2,y,z);cube(w,.08,.13,M.metal,x,y,z);}
@@ -402,6 +418,10 @@ function desk(x,z,width=2.3,screen=false){
     npc.body.position.x=npc.x+Math.sin(clock*.72+npc.sway)*npc.move*.46;
     npc.body.position.z=npc.z+Math.cos(clock*.6+npc.sway)*npc.move*.30;
     npc.body.rotation.y=Math.sin(clock*.75+npc.sway)*.22;
+    npc.nameTag.quaternion.copy(camera.quaternion);npc.nameTag.rotation.x=0;npc.nameTag.rotation.z=0;
+    if(!npc.met&&Math.hypot(modelX-npc.body.position.x,modelZ-npc.body.position.z)<2.0){
+      npc.met=true;opts.onNpc?.(npc.name,npc.line,room);
+    }
    }
    for(const target of targets){
     target.gem.position.y=1.75+Math.sin(ts*.002+target.x)*.24;
