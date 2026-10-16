@@ -329,14 +329,8 @@ function desk(x,z,width=2.3,screen=false){
   renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.72;renderer.outputColorSpace=T.SRGBColorSpace;
   renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;
   scene=new T.Scene();camera=new T.PerspectiveCamera(62,1,.1,145);
-  player=new T.Group();scene.add(player);
-  spriteCanvas=document.createElement("canvas");spriteCanvas.width=384;spriteCanvas.height=580;
-  spriteTex=new T.CanvasTexture(spriteCanvas);spriteTex.colorSpace=T.SRGBColorSpace;
-  actorPlane=new T.Mesh(new T.PlaneGeometry(2.25,3.18),new T.MeshBasicMaterial({map:spriteTex,side:T.DoubleSide,transparent:true,depthWrite:false,alphaTest:.07}));
-  actorPlane.position.set(0,1.58,0);actorPlane.renderOrder=9;player.add(actorPlane);
-  const shadow=new T.Mesh(new T.CircleGeometry(.68,25),new T.MeshBasicMaterial({color:0x030b12,transparent:true,opacity:.32,depthWrite:false,side:T.DoubleSide}));
-  shadow.rotation.x=-Math.PI/2;shadow.position.y=.02;player.add(shadow);
-  atlasImage=new Image();atlasImage.decoding="async";atlasImage.onload=()=>updateSprite(false,0,0);atlasImage.src="../assets/personnage-hall.png";
+  eric=createEricAvatar(T,{portraitUrl:"../assets/portrait.jpg",onReady:()=>opts.onAvatarReady?.()});
+  player=eric.group;scene.add(player);
   visit("university",true);resize();requestAnimationFrame(tick);
   canvas.addEventListener("pointerdown",ev=>{
    if(opts.isPaused?.())return;
