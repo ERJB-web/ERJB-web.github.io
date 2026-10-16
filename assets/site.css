@@ -2341,7 +2341,9 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
     left:12px;
     width:176px;
     --largeur-porte:176px;
-    height:calc(var(--eb-hall-hauteur) * .56);
+    /* La base reste fixée au rail. Corriger exclusivement le sommet :
+       0,02 hauteur de hall plus bas, pour rejoindre le haut du mur. */
+    height:calc(var(--eb-hall-hauteur) * .54);
   }
   .hall.en-volume .panneau-hall{
     left:200px;
