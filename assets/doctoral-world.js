@@ -341,36 +341,149 @@ const cast=[
   hotspot("defense","Soutenir devant le jury",0,-20);
  }
  function rink(){
-  scene.background=new T.Color(0x183e55);scene.fog=new T.FogExp2(0x183e55,.014);
-  const w=27,d=47;
-  cube(w,.4,d,M.ice,0,-.15,-5);
-  const ice=mat(0xbbeaf2,.4,.14);cube(w-.9,.02,d-1,ice,0,.071,-5);
-  const red=mat(0xd24151),blue=mat(0x326ec1);
-  for(const z of [-22,-5,12])cube(w-.9,.026,.22,z===-5?red:blue,0,.087,z);
-  const center=shape(new T.TorusGeometry(3.8,.10,8,70),red,0,.10,-5);center.rotation.x=Math.PI/2;
-  for(const z of [-19,8]){const c=shape(new T.TorusGeometry(2.1,.08,8,66),blue,-7,.10,z);c.rotation.x=Math.PI/2;
-    const cc=shape(new T.TorusGeometry(2.1,.08,8,66),blue,7,.10,z);cc.rotation.x=Math.PI/2;}
-  for(const x of [-13.8,13.8])for(let z=-28;z<19;z+=2){
-   cube(.18,1.3,2.2,mat(0xf0f4f2),x,.65,z);
-   cube(.06,2.2,2.2,M.glass,x,2.4,z);
+  // Canadian indoor rink: mapped ice, real board proportions, transparent safety glass,
+  // spectator stands, trusses and lit scoreboard. The player can complete a skating course.
+  scene.background=new T.Color(0x101d2c);
+  scene.fog=new T.FogExp2(0x101d2c,.008);
+  const W=27.0,D=46.0,frontZ=18,backZ=-28;
+  const boards=mat(0xf4f6f5,.07,.5),red=mat(0xbb3345,.06,.45),blue=mat(0x265fa7,.06,.46);
+  const barrier=mat(0xd4e2e8,.7,.28),seat=mat(0x253f55,.18,.65),seatAlt=mat(0x344e62,.16,.6);
+  const jumbotron=mat(0x0b1c2c,.6,.36),orange=mat(0xf36633,.15,.35,.3);
+  cube(60,.5,75,mat(0x1a2632),0,-.33,-5);
+  cube(W+.7,.1,D+.7,mat(0xfafafa,.15,.32),0,.01,-5);
+  // High resolution markings are physically on the ice; torus pieces never float above it.
+  const iceArtwork=tex(1024,1750,(g,cw,ch)=>{
+   const x=u=>u*cw,y=v=>v*ch;
+   const paint=(clr,px1,py1,px2,py2,line=8)=>{g.strokeStyle=clr;g.lineWidth=line;g.beginPath();g.moveTo(x(px1),y(py1));g.lineTo(x(px2),y(py2));g.stroke();};
+   g.fillStyle="#d8eff5";g.fillRect(0,0,cw,ch);
+   // Blue tinted ice with long, quiet scratches from skating.
+   for(let i=0;i<3400;i++){
+    const a=Math.sin(i*84.3)*337.3,b=Math.sin(i*17.91)*157.7;
+    const xx=Math.abs(a-Math.trunc(a))*cw,yy=Math.abs(b-Math.trunc(b))*ch;
+    const len=7+(i*17)%90;
+    g.strokeStyle=i%4===0?"#fcffff9c":"#7da7b222";g.lineWidth=.5+(i%3)*.32;
+    g.beginPath();g.moveTo(xx,yy);g.lineTo(xx+len,yy+(i%4)-2);g.stroke();
+   }
+   g.strokeStyle="#bd4351";g.lineWidth=9;
+   g.strokeRect(x(.045),y(.038),x(.91),y(.925));
+   paint("#b32f44",.05,.49,.95,.49,18);
+   for(let zz of [.23,.75])paint("#316fae",.05,zz,.95,zz,19);
+   // Faceoff circles and dots.
+   for(const z of [.18,.82])for(const u of [.25,.75]){
+    g.beginPath();g.arc(x(u),y(z),x(.106),0,Math.PI*2);g.strokeStyle="#b9374a";g.lineWidth=9;g.stroke();
+    g.fillStyle="#bd3448";g.beginPath();g.arc(x(u),y(z),8,0,Math.PI*2);g.fill();
+    paint("#b9374a",u-.015,z-.065,u+.015,z-.065,4);
+    paint("#b9374a",u-.015,z+.065,u+.015,z+.065,4);
+   }
+   g.strokeStyle="#2d699f";g.lineWidth=11;g.beginPath();g.arc(x(.5),y(.49),x(.103),0,Math.PI*2);g.stroke();
+   g.fillStyle="#b93647";g.beginPath();g.arc(x(.5),y(.49),9,0,Math.PI*2);g.fill();
+   // Goal creases
+   for(let z of [.063,.935]){
+    g.fillStyle="#9ac7e650";g.strokeStyle="#b9354a";g.lineWidth=7;
+    g.beginPath();g.ellipse(x(.5),y(z),x(.073),y(.027),0,0,Math.PI*2);g.fill();g.stroke();
+   }
+   g.textAlign="center";g.font="900 72px Arial";g.fillStyle="#1f556a1b";
+   g.save();g.translate(x(.5),y(.49));g.rotate(-Math.PI/2);g.fillText("PROTOCOLE • ÉRIC",0,0);g.restore();
+  });
+  iceArtwork.colorSpace=T.SRGBColorSpace;iceArtwork.anisotropy=8;
+  const iceMaterial=new T.MeshPhysicalMaterial({map:iceArtwork,metalness:.12,roughness:.18,clearcoat:.90,clearcoatRoughness:.13,reflectivity:.6});
+  const iceSurface=shape(new T.PlaneGeometry(W,D),iceMaterial,0,.082,-5);iceSurface.rotation.x=-Math.PI/2;iceSurface.castShadow=false;
+  const thinBlue=mat(0x1d4f77),kick=mat(0xf6c833);
+  // Proper boards with a yellow kick plate and horizontal red handrail.
+  for(const x of [-W/2,W/2]){
+   cube(.27,1.24,D,boards,x,.65,-5);
+   cube(.30,.10,D,kick,x,.10,-5);cube(.36,.13,D,red,x,1.30,-5);
+   for(let z=backZ+2;z<frontZ;z+=4){
+    cube(.03,1.07,.04,barrier,x+Math.sign(x)*.165,.75,z);
+    cube(.09,2.25,.08,barrier,x+Math.sign(x)*.16,2.55,z);
+    cube(.07,2.2,3.93,M.glass,x+Math.sign(x)*.18,2.55,z+1.9).castShadow=false;
+   }
   }
-  for(const z of [-28.8,18.8]){cube(w,1.28,.19,M.white,0,.65,z);cube(w,1,.04,M.glass,0,2.3,z);}
-  for(const z of [-26.4,16.4]){cube(4,.13,.17,red,0,.8,z);for(const x of [-2,2])cube(.13,1.7,.12,red,x,.85,z);}
-  for(let k=0;k<8;k++){const x=(k%2?-5:5),z=-18+k*3.2;
-   const cone=shape(new T.ConeGeometry(.25,.66,12),M.neon,x,.36,z);cone.castShadow=false;
+  for(const z of [backZ,frontZ]){
+   cube(W,1.24,.27,boards,0,.65,z);cube(W,.10,.30,kick,0,.10,z);
+   cube(W,.13,.36,red,0,1.30,z);
+   for(let x=-W/2+1;x<W/2;x+=4){cube(.08,2.25,.1,barrier,x,2.55,z);cube(3.95,2.2,.07,M.glass,x+1.9,2.55,z).castShadow=false;}
   }
-  for(const x of [-18,18]){cube(5,2,36,mat(0x384957),x,1,-5);for(let z=-20;z<13;z+=2)npc(x,-20+(z+20),0x7a8790);}
-  sign("HOCKEY · ÉQUILIBRE SUR GLACE",0,9,-27,12,1.2,true);
-  hotspot("exit","Retour au campus",0,12.2,"exit");
+  // Team benches and an ice-level opening onto the tunnel.
+  for(let x of [-18.2,18.2]){
+   cube(6,.18,6,seat,x,.30,-6);
+   for(let row=0;row<4;row++){
+    cube(6,.20,1.05,row%2?seat:seatAlt,x,.7+row*.38,-8+row*1.6);
+   }
+  }
+  // Arena seating, with texture-based audience silhouettes for fast rendering.
+  const crowdMap=tex(1024,512,(g,w,h)=>{
+   g.fillStyle="#1d303e";g.fillRect(0,0,w,h);
+   for(let row=0;row<10;row++){
+    let yy=40+row*43;
+    g.fillStyle=row%2?"#243c4d":"#314959";g.fillRect(0,yy,w,30);
+    for(let j=0;j<32;j++){
+     const px=14+j*33+(row%2)*11,shift=((j*23+row*17)%11);
+     g.fillStyle=["#55788c","#edb17b","#a3adba","#ac664c","#2d6265"][shift%5];
+     g.fillRect(px,yy+17,20,18);
+     g.beginPath();g.arc(px+10,yy+10,7,0,Math.PI*2);g.fill();
+    }
+   }
+  });
+  const crowd=new T.MeshBasicMaterial({map:crowdMap,side:T.DoubleSide});
+  for(const x of [-23,23]){
+   const grandstand=shape(new T.PlaneGeometry(53,8),crowd,x,5.8,-5);
+   grandstand.rotation.y=x>0?-Math.PI/2:Math.PI/2;grandstand.castShadow=false;
+   for(let row=0;row<5;row++)cube(3,.65,D,seatAlt,x+Math.sign(x)*(row*.42),1.3+row*.68,-5);
+  }
+  for(const z of [backZ-8,frontZ+7]){
+   const grand=shape(new T.PlaneGeometry(W+16,8),crowd,0,5.9,z);grand.castShadow=false;
+   if(z>frontZ)grand.rotation.y=Math.PI;
+   for(let row=0;row<5;row++)cube(W+12,.55,2,seat,0,1.2+row*.72,z+Math.sign(z)*row*.54);
+  }
+  // Red goal frames, mesh netting and posts, at both ends.
+  function goal(z,flip){
+   const g=new T.Group();g.position.set(0,.14,z);g.rotation.y=flip?Math.PI:0;group.add(g);
+   const post=(x)=>cube(.095,1.15,.095,red,x,.60,0,g);
+   post(-1.75);post(1.75);cube(3.65,.095,.095,red,0,1.16,0,g);
+   for(let i=0;i<=12;i++)for(let j=0;j<=5;j++){
+    if(i===0||j===0||i===12||j===5){
+     const gnet=mat(0xd8eef3,.1,.92);
+     const net=cube(.015,.018,1.0,gnet,-1.7+i*.285,.17+j*.19,-.63,g);
+     net.castShadow=false;
+    }
+   }
+   cube(3.55,.045,1.3,mat(0xddeced,.1,.95),0,.20,-.69,g);
+  }
+  goal(-26.4,false);goal(16.25,true);
+  // Steel trusses, electronic scoreboard and cold arena floodlights.
+  for(let z=-25;z<=16;z+=8){
+   cube(W+10,.28,.27,M.metal,0,12.8,z);
+   for(const x of [-15,0,15]){
+    const flood=cube(2.8,.16,1.4,mat(0xe8f1f7),x,12.32,z);
+    const l=new T.PointLight(0xe5f4ff,2.1,26);l.position.set(x,10.9,z);group.add(l);
+   }
+  }
+  cube(10,3.1,3.8,jumbotron,0,12.0,-5);
+  sign("ÉRIC   0 : 0   REVIEWER 2",0,12.6,-2.96,9.1,1.25,group,true);
+  sign("PÉRIODE 3   •   LA THÈSE",0,11.25,-2.96,8.2,.72,group);
+  sign("DÉFI HOCKEY · PASSE LES PORTES",0,6.6,backZ+.7,13.0,.90,group,true);
+  // Opposing skaters under the floodlights.
+  for(let i=0;i<8;i++){
+   const x=(i%2?-9:9)+(i%3)*.6,z=-20+i*5.0;
+   npc(x,z,i%3===0?0xdedfe7:0x2d5879,.75);
+  }
+  // Discrete cones and puck near the neutral zone.
+  for(let i=0;i<7;i++){
+   const x=i%2?-6:6,z=-18+i*4;
+   shape(new T.ConeGeometry(.21,.52,12),orange,x,.34,z);
+  }
+  cyl(.23,.12,mat(0x161922,.24,.85),.9,.17,-3.2);
+  hotspot("exit","Sortie de la patinoire",0,12.4,"exit");
   skate={balance:0,clock:0,falls:0,completed:false,started:false,lastReport:0,gateIndex:0,velocityX:0,velocityZ:0,
    gates:[[-5,2],[5,-4],[-5,-10],[5,-16],[0,-23],[-5,-11],[0,6]]};
   skate.gates.forEach(([gx,gz],i)=>{
-   const t=new T.Group();t.position.set(gx,.11,gz);group.add(t);
-   const ring=shape(new T.TorusGeometry(1.2,.10,9,44),i===0?M.neon:M.green,0,0,0,t);ring.rotation.x=Math.PI/2;
-   const post=shape(new T.CylinderGeometry(.075,.075,1.5,8),M.metal,0,.73,0,t);
-   sign("PORTE "+(i+1),0,1.91,0,2.35,.42,t);
-   t.visible=i===0;
-   skate.gates[i].indicator=t;
+   const g=new T.Group();g.position.set(gx,.13,gz);group.add(g);
+   const checkpoint=shape(new T.TorusGeometry(1.14,.065,12,48),i===0?M.neon:M.green,0,0,0,g);
+   checkpoint.rotation.x=-Math.PI/2;checkpoint.castShadow=false;
+   const beacon=shape(new T.IcosahedronGeometry(.16),M.neon,0,1.28,0,g);beacon.castShadow=false;
+   sign("PORTE "+(i+1),0,1.85,0,2.1,.36,g);
+   g.visible=i===0;skate.gates[i].indicator=g;
   });
  }
  function visit(id,initial=false){
