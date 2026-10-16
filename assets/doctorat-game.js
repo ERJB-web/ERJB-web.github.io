@@ -1,18 +1,19 @@
 "use strict";
+import {scenes,subjectTracks,territorySets,evidenceStrategies} from "./doctorat-adventure.js";
 (async function(){
 const el=id=>document.getElementById(id),loc=new URLSearchParams(location.search).get("lang")==="en"?"en":"fr",tr=o=>typeof o==="string"?o:o?.[loc]??o?.fr??"",safe=t=>String(t??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 document.documentElement.lang=loc;
 const msg=(fr,en)=>loc==="en"?en:fr;
 const dict={
- brandSmall:["L'odyssée doctorale","The doctoral odyssey"],heroRank:["Doctorant • Niveau 01","PhD student • Level 01"],rigor:["Rigueur","Rigor"],energy:["Énergie","Energy"],stress:["Stress","Stress"],direction:["Direction","Supervision"],weeks:["semaines","weeks"],proofs:["preuves","evidence"],credits:["crédits","credits"],currentObjective:["OBJECTIF ACTUEL","CURRENT OBJECTIVE"],toObjective:["jusqu'à l'objectif","to objective"],moveHint:["ZQSD / WASD / flèches · E pour interagir","WASD / arrows · E to interact"],autoWalk:["⇢ Rejoindre l'objectif","⇢ Walk to objective"],interact:["Interagir","Interact"],loadTxt:["Le comité prépare déjà des questions.","The committee is already drafting questions."]
+ brandSmall:["L'odyssée doctorale","The doctoral odyssey"],heroRank:["Doctorant • Niveau 01","PhD student • Level 01"],rigor:["Rigueur","Rigor"],energy:["Énergie","Energy"],stress:["Stress","Stress"],direction:["Direction","Supervision"],weeks:["semaines","weeks"],proofs:["preuves","evidence"],credits:["crédits","credits"],currentObjective:["OBJECTIF ACTUEL","CURRENT OBJECTIVE"],toObjective:["jusqu'à l'objectif","to objective"],moveHint:["ZQSD / WASD / flèches · Maj courir · Espace esquiver","WASD / arrows · Shift sprint · Space dodge"],autoWalk:["⇢ Rejoindre l'objectif","⇢ Walk to objective"],interact:["Interagir","Interact"],loadTxt:["Le comité prépare déjà des questions.","The committee is already drafting questions."]
 };
 for(const e of document.querySelectorAll("[data-i18n]")){const val=dict[e.dataset.i18n];if(val)e.textContent=msg(...val);}
 let story,st=null,checkpoint=null,THREE=null,scene=null,renderer=null,camera=null,world=null,avatar=null,portal=null,arms=[],legs=[],collectibles=[],quality=1,flat=false,modalOpen=true,paused=false,auto=false,clock=0,last=0,audio=false,ctx=null,notice=0,round=0,correct=0;
-let x=0,z=10;
+let x=0,z=10,actors=[],hazards=[],invulnerable=0,dodgeCooldown=0,encounterLock=0,guidedActor=null,cameraYaw=0,photoMode=false;
 const keyset=new Set(),SAVE="doctoral-game-save-v1",CHECK="doctoral-game-checkpoint-v1",distance=()=>Math.hypot(x,z+15),chap=()=>story.chapters[st.chapter];
 const clone=o=>JSON.parse(JSON.stringify(o)),read=k=>{try{let o=JSON.parse(localStorage.getItem(k));return o?.version===1&&Number.isInteger(o.chapter)?o:null;}catch{return null;}},store=()=>{try{if(st)localStorage.setItem(SAVE,JSON.stringify(st));}catch{}},savepoint=()=>{checkpoint=clone(st);try{localStorage.setItem(CHECK,JSON.stringify(checkpoint));}catch{}};
 const bound=(v,a=0,b=100)=>Math.max(a,Math.min(b,v));
-function state(mode){return{version:1,mode,chapter:0,rigor:32,energy:85,stress:20,trust:50,time:20,proof:0,budget:45,topic:null,collected:{},data:false,methods:false,network:false,ethics:false,course:false,poster:false,prepared:false,paper:false,reviewScore:0,choices:[],ending:null,boss:null};}
+function state(mode){return{version:1,mode,chapter:0,rigor:32,energy:85,stress:20,trust:50,time:20,proof:0,budget:45,topic:null,collected:{},encounters:{},dossier:[],subjectDesign:null,data:false,methods:false,network:false,ethics:false,course:false,poster:false,prepared:false,paper:false,reviewScore:0,choices:[],ending:null,boss:null};}
 function redraw(){
  if(!st)return;
  for(const prop of ["rigor","energy","stress","trust"]){el(prop+"Num").textContent=st[prop];el(prop+"Fill").style.width=bound(st[prop])+"%";}
@@ -43,11 +44,62 @@ function introduction(){
 function start(mode){st=state(mode);checkpoint=null;store();hide();enter(0);}
 function resume(){st=read(SAVE)||state("normal");checkpoint=read(CHECK);hide();if(st.ending){if(st.ending==="win")ending();else gameover(st.reason||"defense");return;}enter(st.chapter);}
 function reset(){try{localStorage.removeItem(SAVE);localStorage.removeItem(CHECK);}catch{}st=null;checkpoint=null;introduction();}
+
+const actorPoints=[[-3.1,4],[3.1,-4],[-3.1,-11]];
+function visited(){return st?.encounters?.[st.chapter]||{};}
+function seenCount(){return Object.keys(visited()).length;}
+function targetPoint(){
+ if(!st||flat||seenCount()>=2)return [0,-15];
+ return actorPoints.map((p,i)=>({p,i})).filter(o=>!visited()[o.i]).sort((a,b)=>Math.hypot(x-a.p[0],z-a.p[1])-Math.hypot(x-b.p[0],z-b.p[1]))[0]?.p||[0,-15];
+}
+function missionUpdate(){
+ if(!st||st.ending)return;
+ const n=seenCount(),point=targetPoint();
+ el("missionGoal").textContent=flat?tr(chap().goal):n<2?msg("Rencontre des témoins : ","Meet witnesses: ")+n+"/2 · "+tr(scenes[st.chapter][actorPoints.findIndex(p=>p===point)]?.name):msg("Enquête prête. Rejoins le laboratoire lumineux.","Investigation ready. Go to the glowing lab.");
+ el("distance").textContent=Math.round(Math.hypot(x-point[0],z-point[1]))+" m";
+}
+function meetActor(i){
+ if(!st||st.ending||modalOpen||visited()[i])return;
+ encounterLock=performance.now()+1200;
+ const b=scenes[st.chapter][i];
+ show(msg("RENCONTRE SUR LE TERRAIN","FIELD ENCOUNTER"),
+ '<div class="npc-dialogue"><span class="npc-icon">◆</span><h2>'+safe(tr(b.name))+'</h2></div><p class="npc-quote">'+safe(tr(b.line))+'</p><p class="micro">'+msg("À toi d'agir. Cette rencontre nourrit ton carnet de recherche.","Choose an action. This encounter adds to your field notebook.")+'</p><div class="choices">'+b.options.map((o,j)=>'<button type="button" class="choice" data-beat="'+j+'"><strong>'+safe(tr(o.title))+'</strong></button>').join("")+'</div>');
+ for(const btn of el("modalContent").querySelectorAll("[data-beat]"))btn.onclick=()=>{
+  const act=b.options[+btn.dataset.beat];st.encounters ||= {};st.encounters[st.chapter] ||= {};st.encounters[st.chapter][i]=true;
+  st.dossier ||= [];st.dossier.push({chapter:st.chapter,role:tr(b.name),note:tr(b.clue),valid:act.good});
+  change(act.delta);sound(act.good);store();
+  show(act.good?msg("INDICE RECUEILLI","EVIDENCE RECORDED"):msg("UN ANGLE MORT APPARAÎT","BLIND SPOT"),
+   '<h2>'+safe(tr(b.clue))+'</h2><p>'+safe(tr(act.title))+'</p>'+effectView(act.delta)+'<p class="micro">'+msg("Le carnet contient ","Notebook contains ")+st.dossier.length+msg(" observations."," observations.")+'</p>');
+  buttons([[msg("Reprendre l'exploration","Resume exploration"),()=>{hide();missionUpdate();if(seenCount()>=2)subtitle(msg("La porte du laboratoire est ouverte !","The research laboratory is now open!"));}]]);
+ };
+}
+function subjectWorkshop(){
+ const pick={track:0,territory:0,evidence:0};
+ const render=()=>{
+  const t=subjectTracks[pick.track],ar=territorySets[pick.territory],ev=evidenceStrategies[pick.evidence];
+  const section=(key,title,arr)=>'<fieldset><legend>'+title+'</legend>'+arr.map((o,i)=>'<button type="button" class="research-tile '+(pick[key]===i?'selected':'')+'" aria-pressed="'+(pick[key]===i)+'" data-'+key+'="'+i+'"><b>'+safe(tr(o.label))+'</b>'+(o.challenge?'<small>'+safe(tr(o.challenge))+'</small>':'')+'</button>').join("")+'</fieldset>';
+  show(msg("LABORATOIRE DES HYPOTHÈSES","HYPOTHESIS LAB"),
+   '<span class="workshop-tag">'+msg("PROBLÈME / QUESTION / TERRAIN / PREUVES","PROBLEM / QUESTION / SETTING / EVIDENCE")+'</span><h2>'+msg("Construis ton propre sujet de recherche","Build your own research topic")+'</h2><p class="lead">'+msg("Trois témoins t'ont montré que les besoins, les relations et les ressources ne sont pas interchangeables. Assemble un projet scientifique défendable.","The witnesses showed you that needs, active relationships and service supply differ. Assemble a defensible scientific project.")+'</p>'+
+   '<div class="research-workbench">'+section("track","01 · "+msg("Quelle question centrale ?","Which main question?"),subjectTracks)+section("territory","02 · "+msg("Sur quel terrain ?","What setting?"),territorySets)+section("evidence","03 · "+msg("Avec quelles données ?","Using which data?"),evidenceStrategies)+'</div>'+
+   '<section class="dossier-preview"><span class="workshop-tag">'+msg("AVANT-PROJET D'ÉRIC","ÉRIC'S RESEARCH PROPOSAL")+'</span><h3>'+safe(tr(t.label))+'</h3><p class="research-question">'+safe(tr(t.question))+'</p><b>'+msg("Méthode envisageable","Potential methodology")+'</b><p>'+safe(tr(t.method))+'</p><p class="micro">'+safe(tr(ar.note))+' '+safe(tr(ev.note))+'</p></section>');
+  for(const key of ["track","territory","evidence"])for(const btn of el("modalContent").querySelectorAll("[data-"+key+"]"))btn.onclick=()=>{pick[key]=+btn.dataset[key];render();};
+  buttons([[msg("Défendre ce protocole","Defend this proposal"),()=>{
+   let effects={rigor:8,trust:4,proof:1};
+   for(const d of [ar.delta,ev.delta])for(const [k,v] of Object.entries(d))effects[k]=(effects[k]||0)+v;
+   const ok=pick.territory<2&&pick.evidence===0;
+   st.topic=t.id;st.subjectDesign={track:t.id,setting:ar.id,source:ev.id,question:tr(t.question)};
+   st.dossier.push({chapter:0,role:msg("Projet","Proposal"),note:tr(t.question),valid:ok});
+   resolution(ok,tr(t.challenge)+" "+tr(ar.note)+" "+tr(ev.note),effects,{topic:t.id});
+  }]]);
+ };
+ render();
+}
+
 function enter(i){
  if(i>=story.chapters.length){ending();return;}
  st.chapter=i;st.boss=null;x=0;z=10;auto=false;paused=false;store();redraw();
  const c=chap();el("actLabel").textContent=msg("ACTE ","ACT ")+["I","II","III"][c.act-1]+" · "+msg("CHAPITRE ","CHAPTER ")+(i+1)+"/12";el("chapterTitle").textContent=tr(c.title);el("missionGoal").textContent=tr(c.goal);
- subtitle(tr(c.quip));if(THREE)buildWorld();savepoint();
+ subtitle(tr(c.quip));if(THREE)buildWorld();guidedActor=null;encounterLock=performance.now()+900;missionUpdate();savepoint();
 }
 function effectView(d){const names={rigor:msg("Rigueur","Rigor"),energy:msg("Énergie","Energy"),stress:"Stress",trust:msg("Direction","Supervision"),time:msg("Semaines","Weeks"),proof:msg("Preuves","Evidence"),budget:msg("Crédits","Credits")};return '<div class="result-stats">'+Object.entries(d).filter(([,v])=>v).map(([k,v])=>'<span class="'+((k==="stress"?v<0:v>0)?"good":"bad")+'">'+safe(names[k]||k)+' '+(v>0?"+":"")+v+'</span>').join("")+'</div>';}
 function resolution(ok,why,effects,flags={}){
@@ -141,6 +193,7 @@ function stage(){
  if(!st.data)c.rounds[1].claim={fr:"Les données promises sont inaccessibles. Quel plan de repli réaliste avez-vous ?",en:"Your promised data are unavailable. What is your feasible fallback?"};
  if(!st.ethics)c.rounds[3].claim={fr:"L'éthique n'est pas réglée. Comment protégerez-vous les réseaux de petite taille ?",en:"Ethics remain unresolved. How will you protect small networks?"};
  }
+ if(st.chapter===0){subjectWorkshop();return;}
  switch(c.type){
  case"choice":choiceStage(c);break;
  case"multi":multiStage(c);break;
@@ -172,21 +225,26 @@ function ending(){
  show(msg("FIN DE CAMPAGNE · SOUTENANCE","CAMPAIGN COMPLETE · DEFENSE"),'<h1>'+title+'</h1><p class="lead">'+lead+'</p><div class="mini-brief"><b>'+msg("Orientation","Research focus")+'</b> : '+topic+'</div><div class="result-stats"><span>'+msg("Rigueur","Rigor")+' '+st.rigor+'/100</span><span>'+msg("Questions réussies","Correct answers")+' '+n+'/5</span><span>'+msg("Preuves","Evidence")+' '+st.proof+'</span><span>'+msg("Semaines restantes","Weeks remaining")+' '+st.time+'</span></div><p>'+safe(epilogue)+'</p><p class="quote">'+msg("SCÈNE POST-GÉNÉRIQUE : « Bonjour. Reviewer 2 ici. Quelques suggestions mineures… » — pièce jointe de 42 pages.","POST-CREDITS: “Reviewer 2 here. Just a few minor suggestions...” — attachment: 42 pages.")+'</p>');
  buttons([[msg("Rejouer un autre scénario","Play another storyline"),reset],[msg("Visiter le site d'Éric","Visit Éric's website"),()=>{location.href="../#contact";},true]]);
 }
-function interact(){
- if(!st||st.ending||modalOpen)return;
- if(!flat&&distance()>3){notify(msg("Approche-toi de l'objectif : ","Get closer to the objective: ")+Math.round(distance())+" m");return;}
- stage();
-}
+function interact(){if(!st||st.ending||modalOpen)return;if(!flat&&(seenCount()<2||distance()>2.5))return;stage();}
 const held=move=>{const mapping={up:"ArrowUp",down:"ArrowDown",left:"ArrowLeft",right:"ArrowRight"};return mapping[move];};
 for(const b of document.querySelectorAll("[data-move]")){const k=held(b.dataset.move);const on=e=>{e.preventDefault();keyset.add(k);auto=false;b.classList.add("pressed");},off=e=>{e.preventDefault();keyset.delete(k);b.classList.remove("pressed");};b.addEventListener("pointerdown",on);b.addEventListener("pointerup",off);b.addEventListener("pointercancel",off);b.addEventListener("pointerleave",off);}
 addEventListener("keydown",e=>{
- if(!modalOpen&&["ArrowUp","ArrowDown","ArrowLeft","ArrowRight","Space","KeyW","KeyA","KeyS","KeyD","KeyQ","KeyZ","KeyE"].includes(e.code))e.preventDefault();
+ if(!modalOpen&&["ArrowUp","ArrowDown","ArrowLeft","ArrowRight","Space","KeyW","KeyA","KeyS","KeyD","KeyQ","KeyZ"].includes(e.code))e.preventDefault();
  keyset.add(e.code);
- if(!modalOpen&&(e.code==="KeyE"||e.code==="Enter"||e.code==="Space"))interact();
+ if(!modalOpen&&e.code==="Space"){e.preventDefault();dodge();}
  if(e.code==="Escape"&&!modalOpen&&st)pauseMenu();
 });addEventListener("keyup",e=>keyset.delete(e.code));addEventListener("blur",()=>keyset.clear());
 el("actionBtn").onclick=interact;
-el("autoWalk").onclick=()=>{if(st&&!modalOpen){auto=true;notify(msg("Éric avance vers la mission.","Éric is walking to the mission."));}};
+function dodge(){
+ if(!st||modalOpen||flat||dodgeCooldown>0)return;
+ let dx=Number(keyset.has("ArrowRight")||keyset.has("KeyD"))-Number(keyset.has("ArrowLeft")||keyset.has("KeyA")||keyset.has("KeyQ"));
+ let dz=Number(keyset.has("ArrowDown")||keyset.has("KeyS"))-Number(keyset.has("ArrowUp")||keyset.has("KeyW")||keyset.has("KeyZ"));
+ if(!dx&&!dz)dz=-1;const d=Math.hypot(dx,dz);x=bound(x+dx/d*2.85,-5.15,5.15);z=bound(z+dz/d*2.85,-16,18);
+ dodgeCooldown=2.4;invulnerable=.75;sound(true);
+}
+el("dodgeBtn")?.addEventListener("click",dodge);
+el("photoBtn")?.addEventListener("click",()=>{photoMode=!photoMode;cameraYaw=photoMode?Math.PI:0;el("photoBtn").setAttribute("aria-pressed",String(photoMode));notify(photoMode?msg("Caméra portrait : admire le personnage de face.","Portrait camera: view the character from the front."):msg("Caméra de suivi rétablie.","Follow camera restored."));});
+el("autoWalk").onclick=()=>{if(st&&!modalOpen){auto=true;notify(msg("Guidage vers le prochain objectif.","Guidance to the next objective."));}};
 el("modalClose").onclick=()=>{if(st&&!st.ending){paused=false;hide();}};
 function pauseMenu(){if(!st||modalOpen)return;paused=true;show(msg("PAUSE DOCTORALE","DOCTORAL BREAK"),'<h2>'+msg("Une pause n'est pas un échec.","A break is not a failure.")+'</h2><p class="lead">'+msg("La progression est automatiquement enregistrée sur cet appareil.","Progress is saved locally on your device.")+'</p>');buttons([[msg("Reprendre","Resume"),()=>{paused=false;hide();}],[msg("Nouvelle partie","New game"),reset,true],[msg("Revenir au site","Back to website"),()=>location.href="../",true]]);}
 el("pauseBtn").onclick=pauseMenu;
