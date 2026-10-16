@@ -472,7 +472,11 @@ html:lang(ar) .surtitre,html:lang(ar) .menu-titre,html:lang(ar) .statut,html:lan
 .chapeau p{margin-bottom:10px}
 
 /* Texte justifié (le FALC et la basse vision restent alignés à gauche, plus faciles à lire) */
-main p,.salle-contenu p{text-align:start;hyphens:auto;-webkit-hyphens:auto}
+/* Règle commune aux paragraphes rédigés, prioritaire sur les styles propres aux rubriques. */
+body p:not(:where(.surtitre,.roles,.petit-titre,.ref,.auteurs,.domaine,.date,.axe-libelle,.notion-libelle,.notion-refs-titre,.vul-petit-titre,.vul-type,.vul-source,.vul-citation,.pub-kicker,.badge-these,.these-evolution,.schema-legende,.legende,.projet-slogan,.actions,.actions-ecoute,.menu-panneau p)){
+ text-align:justify!important;text-align-last:start;text-justify:auto;
+ hyphens:auto!important;-webkit-hyphens:auto!important;
+}
 .falc p,html.lv main p,html.lv .salle-contenu p,.menu-panneau p,.encadrement,.surtitre,.petit-titre,.ref{text-align:start;hyphens:manual;-webkit-hyphens:manual}
 
 /* Survol et clic bien visibles */
