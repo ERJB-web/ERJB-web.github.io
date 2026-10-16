@@ -25,7 +25,7 @@ export function createAdventureWorld(T,canvas,opts={}){
  let worldReality=null,walkVX=0,walkVZ=0,jumpY=0,jumpVel=0,jumpHeld=false,xrTriggerHeld=false,obstacles=[];
  let last=0,lastNavigation=0,clock=0,modelX=0,modelZ=7,cameraYaw=0,cameraPitch=.28,cameraDistance=8.3,dragView=null,busy=false,auto=null,actors=[],targets=[],clickables=[],particles=[],chasers=[],collectibles=[],hitCooldown=0,activeTarget=null,controls=opts.keys||new Set();
  let skate={balance:0,clock:0,falls:0,completed:false,started:false,lastReport:0,gateIndex:0,gates:[],velocityX:0,velocityZ:0};
- let hockey=null,hockeyModels=null,hockeySession=0,lastHeading=Math.PI;
+ let hockey=null,hockeyModels=null,hockeySession=0,lastHeading=Math.PI,aimX=0,aimIndicator=null;
  const mat=(hex,metal=.05,rough=.65,glow=0)=>new T.MeshStandardMaterial({color:hex,metalness:metal,roughness:rough,emissive:glow?hex:0,emissiveIntensity:glow});
  // Art-directed PBR surface maps, generated deterministically in-browser.
  const materialMap=(kind)=>{
@@ -506,7 +506,11 @@ const cast=[
   });
   // Shooting and defensive AI run independently of arena decoration.
   const session=++hockeySession;
+  aimX=0;
+  aimIndicator=shape(new T.TorusGeometry(.42,.046,8,38),M.neon,0,.24,-25.85);
+  aimIndicator.rotation.x=Math.PI/2;aimIndicator.castShadow=false;
   hockey=createHockeyGame(T,group,eric,{
+   getAim:()=>aimX,
    onGoal:stats=>{opts.onHockeyEvent?.("goal",stats);opts.onNarrate?.("BUUUUT ! "+stats.goals+" / 3");},
    onSave:stats=>{opts.onHockeyEvent?.("save",stats);opts.onNarrate?.("ARRÊT DU GARDIEN ! Reprends la rondelle.");},
    onShot:stats=>opts.onHockeyEvent?.("shot",stats),
@@ -551,6 +555,7 @@ const cast=[
   canvas.addEventListener("pointerdown",ev=>{
    if(ev.button===2||ev.pointerType==="touch"||ev.shiftKey){dragView={x:ev.clientX,y:ev.clientY};canvas.setPointerCapture?.(ev.pointerId);return;}
    if(opts.isPaused?.())return;
+   if(room==="rink"&&ev.button===0){controls.add("MouseLeft");canvas.setPointerCapture?.(ev.pointerId);return;}
    const bounds=canvas.getBoundingClientRect(),v=new T.Vector2((ev.clientX-bounds.left)/bounds.width*2-1,-(ev.clientY-bounds.top)/bounds.height*2+1),ray=new T.Raycaster();ray.setFromCamera(v,camera);
    const hits=ray.intersectObjects(targets.map(t=>t.ring),true);
    if(!hits.length){dragView={x:ev.clientX,y:ev.clientY};canvas.setPointerCapture?.(ev.pointerId);return;}
@@ -559,12 +564,15 @@ const cast=[
    const target=targets.find(t=>t.ring===g);if(target)auto={x:target.x,z:target.z};
   });
   canvas.addEventListener("pointermove",ev=>{
+   if(room==="rink"&&!dragView){
+    const rect=canvas.getBoundingClientRect();aimX=Math.max(-1.68,Math.min(1.68,((ev.clientX-rect.left)/rect.width*2-1)*1.75));
+   }
    if(!dragView)return;
    cameraYaw+=(ev.clientX-dragView.x)*.0044;
    cameraPitch=Math.max(.10,Math.min(.56,cameraPitch+(ev.clientY-dragView.y)*.0022));
    dragView={x:ev.clientX,y:ev.clientY};
   });
-  for(const name of ["pointerup","pointercancel","lostpointercapture"])canvas.addEventListener(name,()=>{dragView=null;});
+  for(const name of ["pointerup","pointercancel","lostpointercapture"])canvas.addEventListener(name,()=>{dragView=null;controls.delete("MouseLeft");});
   canvas.addEventListener("wheel",ev=>{ev.preventDefault();cameraDistance=Math.max(4.8,Math.min(12.8,cameraDistance+Math.sign(ev.deltaY)*.60));},{passive:false});
     canvas.addEventListener("webglcontextlost",ev=>{ev.preventDefault();opts.onNarrate?.("Le moteur graphique a été interrompu. Recharge la page pour réessayer.");});
  }
@@ -687,6 +695,8 @@ const cast=[
     }
    }
    if(room==="rink"&&hockey){
+    aimX=Math.max(-1.68,Math.min(1.68,aimX+(Number(controls.has("KeyO"))-Number(controls.has("KeyU")))*dt*1.75));
+    if(aimIndicator){aimIndicator.position.x=aimX;aimIndicator.scale.setScalar(1+.12*Math.sin(clock*8));}
     const speed=Math.hypot(skate.velocityX,skate.velocityZ);
     const heading=speed>.06?Math.atan2(moveVX,moveVZ):lastHeading;
     const turn=dt>0?Math.atan2(Math.sin(heading-lastHeading),Math.cos(heading-lastHeading))/dt:0;
