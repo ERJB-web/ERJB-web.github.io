@@ -2119,7 +2119,7 @@ html[dir=rtl] .bande-parcours .trajectoire{direction:rtl}
  .salle .salle-onglets .onglet-titre{grid-column:2;grid-row:2;align-self:start;font-size:15px;line-height:1.25;font-weight:650;overflow-wrap:anywhere}
  .hall.en-volume .panneau-hall{top:30px;max-height:calc(100% - 34px)}
 }
-.hall .porte .vignette{inset-inline-start:10%;inset-inline-end:17%;top:6%;height:66%;background-position:center;background-size:cover}
+.hall .porte .vignette{inset-inline-start:13%;inset-inline-end:25%;top:9%;height:56%;background-position:center;background-size:cover;background-repeat:no-repeat}
 .hall .hall-reperes>button{min-height:75px;padding:12px 13px;gap:11px;font-size:15px;font-weight:400;line-height:1.33}
 .hall .hall-reperes>button bdi{width:34px;height:34px;font-size:13px;font-weight:500}
 .hall .hall-reperes>button span{font-size:inherit;line-height:inherit;overflow-wrap:break-word}
@@ -2393,7 +2393,9 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
     background:rgba(255,255,255,.95);
     font-size:10.8px;
     line-height:1.28;
-    overflow-wrap:anywhere;
+    overflow-wrap:normal;
+    word-break:normal;
+    hyphens:none;
     transition:background .18s,border-color .18s,box-shadow .18s;
   }
   .hall.en-volume .sous-portes-murales>button:hover,
@@ -2415,33 +2417,31 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
     right:0;
     bottom:calc(var(--eb-hall-hauteur) * .135 - 15px);
     height:18px;
-    z-index:1;
+    z-index:0;
     pointer-events:none;
     background:url("hall-rail-acier.svg") left top / 640px 18px repeat-x;
     /* Détails de surface intégrés à la photographie, pas de rail en relief massif. */
-    opacity:.96;
+    opacity:.86;
     -webkit-mask-image:linear-gradient(90deg,transparent 0%,black 1.5%,black 98.5%,transparent 100%);
     mask-image:linear-gradient(90deg,transparent 0%,black 1.5%,black 98.5%,transparent 100%);
   }
   .hall.en-volume .portes::after{
     content:none; /* La texture du rail inclut déjà son ombre de contact. */
   }
-  /* Chariots cachés dans le profilé, sans grandes roulettes apparentes. */
+  /* Deux véritables galets visibles, fixés au battant et engagés dans le profilé.
+     La ressource préexistante était jusqu'ici inutilisée. */
   .hall.en-volume .station-hall .porte::before{
     content:"";
     position:absolute;
-    left:4%;
-    top:100%;
-    width:92%;
-    height:3px;
+    left:0;
+    top:calc(100% - 1px);
+    width:100%;
+    height:14px;
     margin:0;
     pointer-events:none;
     z-index:2;
-    background:
-      linear-gradient(180deg,rgba(216,225,214,.8),rgba(65,79,67,.88))
-        left top / 13px 2px no-repeat,
-      linear-gradient(180deg,rgba(216,225,214,.8),rgba(65,79,67,.88))
-        right top / 13px 2px no-repeat;
+    background:url("hall-galets-acier.svg") center top / 100% 14px no-repeat;
+    opacity:.96;
     box-shadow:none;
   }
   /* L'assise du seuil projette une ombre courte sur la pierre naturelle.
@@ -2511,7 +2511,7 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
       3px 3px 7px rgba(36,44,36,.23);
   }
   /* Le mot Enseignement tient entier sur une ligne, sans « t » isolé. */
-  .hall.en-volume [data-hall-sous="enseignement"]{
+  .hall.en-volume [data-hall-sous="transmission"]{
     font-size:10px;
     letter-spacing:-.02em;
     padding-inline:3px;
@@ -2525,6 +2525,100 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
     hyphens:none;
   }
 }
+/* Finitions du hall : mêmes cotes de menuiserie, même photographie et mêmes couleurs.
+   L'illustration reste à l'intérieur du vitrage, séparée du panneau inférieur. */
+@media(min-width:1000px){
+  .hall.en-volume .station-hall .porte .baie{
+    background:linear-gradient(90deg,#bac3bc 0%,#fdfefb 2.5%,#e5eae5 5.5%,#eef1eb 94%,#fff 97%,#adb8b0 100%);
+    box-shadow:
+      inset 1px 0 0 rgba(255,255,255,.96),
+      inset -1px 0 0 rgba(77,93,81,.35),
+      0 0 0 1px rgba(131,143,134,.74),
+      2px 3px 7px rgba(36,47,37,.21);
+  }
+  .hall.en-volume .station-hall .porte .ouverture{
+    box-shadow:
+      inset 3px 1px 5px rgba(31,45,37,.27),
+      inset -2px 0 3px rgba(31,45,37,.17),
+      inset 0 0 0 1px rgba(94,111,100,.23);
+    background:linear-gradient(95deg,#d5dcd6,#f7f9f5 9%,#f8faf6 91%,#cdd6cf);
+  }
+  .hall.en-volume .station-hall .porte .battant{
+    background:linear-gradient(102deg,#fff 0%,#fafbf8 8%,#f3f5f0 60%,#e7ebe6 97%,#dce3dc 100%);
+    border:1px solid #adb9b1;
+    box-shadow:
+      inset 1px 1px 0 rgba(255,255,255,.98),
+      inset -1px -1px 0 rgba(49,67,55,.21),
+      inset 2px 0 3px rgba(255,255,255,.75),
+      1px 2px 3px rgba(34,45,37,.18);
+  }
+  .hall.en-volume .station-hall .porte .vignette{
+    border:1px solid rgba(115,133,122,.8);
+    border-radius:1px;
+    box-shadow:
+      0 0 0 2px #fafcf8,
+      0 0 0 3px rgba(132,147,138,.84),
+      inset 1px 1px 2px rgba(23,38,29,.19),
+      1px 2px 3px rgba(27,42,33,.16);
+  }
+  .hall.en-volume .station-hall .porte .vignette::after{
+    background:linear-gradient(118deg,rgba(255,255,255,.13) 0%,rgba(255,255,255,.025) 24%,transparent 37% 76%,rgba(255,255,255,.045) 100%);
+    box-shadow:inset 1px 1px 2px rgba(20,38,31,.17),inset -1px -1px 1px rgba(255,255,255,.14);
+  }
+  .hall.en-volume .station-hall .porte .battant::after{
+    top:73%;
+    height:18%;
+    border-color:#b4c0b8;
+    background:linear-gradient(145deg,#f9fbf6,#e7ede6);
+    box-shadow:0 0 0 2px #f9fbf6,0 0 0 3px #cbd5cc,inset 2px 2px 3px rgba(32,46,36,.14),inset -1px -1px 0 rgba(255,255,255,.8);
+  }
+  .hall.en-volume .station-hall .porte .poignee{
+    background:linear-gradient(90deg,#778388 0%,#e6ebeb 38%,#c0cbd0 61%,#68767a 100%);
+    box-shadow:1px 1px 2px rgba(17,29,31,.32),inset 1px 0 0 rgba(255,255,255,.35);
+  }
+  /* Les mots longs occupent un cadre entier : jamais de lettre orpheline. */
+  .hall.en-volume .sous-portes-murales{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .hall.en-volume .sous-portes-murales :is(
+    [data-hall-sous="transmission"],
+    [data-hall-sous="vulgarisation"],
+    [data-hall-sous="entrepreneuriat"],
+    [data-hall-sous="representation"]
+  ){grid-column:1 / -1}
+  .hall.en-volume .panneau-hall h3 span,
+  .hall.en-volume .sous-portes-murales>button,
+  .hall.en-volume .sous-portes-murales>a{
+    overflow-wrap:normal;
+    word-break:normal;
+    hyphens:none;
+  }
+  .hall.en-volume .sous-portes-murales>button,
+  .hall.en-volume .sous-portes-murales>a{white-space:normal}
+}
+/* Titres des cadres et onglets : retour à la ligne seulement entre des mots. */
+.hall .hall-reperes>button span,
+.hall.en-mobile .panneau-hall h3 button,
+.hall.en-mobile .sous-portes-murales>button,
+.hall.en-mobile .sous-portes-murales>a,
+.salle .salle-onglets .onglet-titre{
+  overflow-wrap:normal;
+  word-break:normal;
+  hyphens:none;
+}
+@media(min-width:701px) and (max-width:999px){
+  .hall.en-mobile .hall-reperes{
+    display:flex;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    scroll-snap-type:x proximity;
+  }
+  .hall.en-mobile .hall-reperes>button{flex:0 0 210px;scroll-snap-align:start}
+}
+@media(min-width:1121px) and (max-width:1230px){
+  .hall.en-volume .hall-reperes>button{gap:7px;padding-inline:8px;font-size:14px}
+}
+
 /* Mobile étroit : la porte principale retrouve une présence visuelle nette,
    sans réduire les cibles tactiles ni masquer les sous-catégories. */
 @media(max-width:520px){
