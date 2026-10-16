@@ -1,0 +1,50 @@
+name: Install CC0 animated civilian in site assets
+on:
+  push:
+    paths:
+      - '.github/workflows/doctoral-assets-sync.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  vendor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Fetch publicly licensed realistic 3D civilian mesh
+        run: |
+          mkdir -p assets/jeu
+          curl -fSL --retry 2 --max-time 300 \
+            'https://www.innerscene.com/api/library/relaxed-walk-jordan-3d-person-animated-7ab9479d/download' \
+            -o assets/jeu/civilian-animated.glb
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('assets/jeu/civilian-animated.glb')
+          with p.open('rb') as f: magic=f.read(4)
+          assert magic==b'glTF', f'Invalid GLB header, received {magic!r}'
+          assert 100_000 < p.stat().st_size < 70_000_000, f'Unexpected GLB size {p.stat().st_size}'
+          print('VALIDATED local 3D animation asset:',p.stat().st_size,'bytes')
+          PY
+      - name: Preserve provenance and public domain dedication
+        run: |
+          cat > assets/jeu/README.md <<'EOF'
+          # Modèles 3D pour PROTOCOLE
+          - `civilian-animated.glb` : **Relaxed walk – Jordan 3D Person, Animated**
+          - Producteur : Innerscene, adapté de MakeHuman / MPFB.
+          - Licence : **CC0 1.0 Universal** (domaine public).
+          - Source et licence : https://www.innerscene.com/tools/library/3d-parts/relaxed-walk-jordan-3d-person-animated-7ab9479d
+          - Personnage humain habillé civilement, rig 3D, animation de marche.
+          - Cette ressource n'est pas un scan 3D du visage d'Éric. Son portrait continue d'illustrer son identité dans l'interface.
+          EOF
+      - name: Commit the optimized runtime asset on GitHub Pages
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/jeu/civilian-animated.glb assets/jeu/README.md
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Vendor CC0 rigged civilian GLB to eliminate runtime CORS restrictions'
+          git pull --rebase origin main
+          git push origin HEAD:main
