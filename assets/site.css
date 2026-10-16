@@ -2092,10 +2092,10 @@ html[dir=rtl] .bande-parcours .trajectoire{direction:rtl}
   content:"";display:block;position:absolute;inset:0;pointer-events:none;
   background-image:var(--hall-exterieur);
   background-repeat:no-repeat;
-  background-position:var(--hall-lumiere,50%) center;
+  background-position:var(--hall-lumiere,50%) 49%;
   background-size:auto 130%;
-  -webkit-mask:url("hall-vitrages-verriere.svg") var(--hall-lumiere,50%) center / auto 130% no-repeat;
-  mask:url("hall-vitrages-verriere.svg") var(--hall-lumiere,50%) center / auto 130% no-repeat;
+  -webkit-mask:url("hall-vitrages-verriere.svg") var(--hall-lumiere,50%) 49% / auto 130% no-repeat;
+  mask:url("hall-vitrages-verriere.svg") var(--hall-lumiere,50%) 49% / auto 130% no-repeat;
   filter:brightness(.88) saturate(.91);
 }
 .hall.en-volume .verriere-hall{display:none}
@@ -2314,15 +2314,15 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
     background-image:url("photos/hall-atrium-verriere.webp");
     /* Le haut du mur et sa rencontre avec le sol coïncident avec
        le haut et le seuil des portes (63% du hall), sans bande fictive. */
-    background-position:var(--hall-lumiere,50%) center;
+    background-position:var(--hall-lumiere,50%) 49%;
     background-size:auto 130%;
   }
   /* Même cadrage pour toutes les couches photo, sans décalage. */
   .hall.en-volume .architecture-hall::before{
-    background-position:var(--hall-lumiere,50%) center;
+    background-position:var(--hall-lumiere,50%) 49%;
     background-size:auto 130%;
-    -webkit-mask-position:var(--hall-lumiere,50%) center;
-    mask-position:var(--hall-lumiere,50%) center;
+    -webkit-mask-position:var(--hall-lumiere,50%) 49%;
+    mask-position:var(--hall-lumiere,50%) 49%;
     -webkit-mask-size:auto 130%;
     mask-size:auto 130%;
   }
