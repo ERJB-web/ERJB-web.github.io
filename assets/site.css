@@ -2298,46 +2298,26 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
   .hall.en-volume .architecture-hall{
     transform:translateZ(-100px) scale(1.025);
     background-color:#eeeee8;
-    background-image:linear-gradient(180deg,rgba(249,250,247,.04),rgba(246,247,240,.03)),url("photos/hall-atrium-verriere.webp");
-    background-position:center top,var(--hall-lumiere,50%) top;
-    background-size:100% 100%,auto 110.5%;
+    /* Le véritable mur et sa jonction au dallage sont alignés par recadrage
+       photographique. Pas de façade supplémentaire dessinée en CSS. */
+    background-image:url("photos/hall-atrium-verriere.webp");
+    background-position:var(--hall-lumiere,50%) 50%;
+    background-size:auto 126%;
   }
   .hall.en-volume .architecture-hall::before{
-    background-position:var(--hall-lumiere,50%) top;
-    background-size:auto 110.5%;
-    -webkit-mask-position:var(--hall-lumiere,50%) top;
-    mask-position:var(--hall-lumiere,50%) top;
-    -webkit-mask-size:auto 110.5%;
-    mask-size:auto 110.5%;
+    background-position:var(--hall-lumiere,50%) 50%;
+    background-size:auto 126%;
+    -webkit-mask-position:var(--hall-lumiere,50%) 50%;
+    mask-position:var(--hall-lumiere,50%) 50%;
+    -webkit-mask-size:auto 126%;
+    mask-size:auto 126%;
   }
-  /* La limite du mur est exactement à la hauteur du sommet des portes :
-     100 % - 13,5 % (sol) - 63 % (porte) = 23,5 %.
-     On ne déplace pas la photographie entière, ce qui agrandirait le sol.
-     La bande couvre uniquement le vitrage central au-dessus de l'ancien mur. */
-  .hall.en-volume .architecture-hall::after{
-    content:"";
-    display:block;
-    position:absolute;
-    top:23.5%;
-    left:50%;
-    width:min(100%,calc(var(--eb-hall-hauteur) * 2.403));
-    height:calc(var(--eb-hall-hauteur) * .085);
-    transform:translateX(-50%);
-    pointer-events:none;
-    /* Joint de mur calé sur le sommet des portes ; pas de bande opaque rapportée. */
-    border-top:1px solid rgba(133,151,140,.43);
-    background:
-      linear-gradient(90deg,rgba(248,250,244,.08),transparent 22% 80%,rgba(222,229,220,.10)),
-      linear-gradient(180deg,
-        rgba(235,238,230,.94) 0%,
-        rgba(236,239,232,.83) 24%,
-        rgba(236,239,232,.38) 72%,
-        rgba(236,239,232,0) 100%);
-    box-shadow:0 -1px 0 rgba(255,255,255,.35),inset 0 2px 3px -3px rgba(57,79,65,.13);
-  }
+  /* Laisser l'architecture réelle de la photo former le haut du mur. */
+  .hall.en-volume .architecture-hall::after{content:none;display:none}
   .hall.en-volume .dallage-hall{
     height:calc(var(--eb-hall-hauteur) * .135);
-    background:linear-gradient(180deg,transparent,rgba(243,244,236,.045));
+    /* Les joints, veines et reflets du marbre proviennent de la photo. */
+    background:transparent;
   }
   .hall.en-volume .station-hall{
     width:430px;
@@ -2358,11 +2338,11 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
     max-height:none;
     overflow:visible;
     padding:10px;
-    border:1px solid #c3d3cb;
-    border-top:3px solid color-mix(in srgb,var(--c1) 55%,white);
-    border-radius:9px;
-    background:linear-gradient(150deg,rgba(255,255,252,.98),rgba(249,252,248,.95));
-    box-shadow:0 2px 9px rgba(25,51,48,.09),inset 0 1px 0 rgba(255,255,255,.95);
+    border:1px solid rgba(116,125,113,.38);
+    border-top:1px solid rgba(117,124,113,.42);
+    border-radius:3px;
+    background:linear-gradient(170deg,rgba(250,250,246,.985),rgba(242,244,239,.974));
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.87),1px 2px 4px rgba(43,51,43,.14);
     backdrop-filter:none;
   }
   .hall.en-volume .panneau-hall h3{
@@ -2391,74 +2371,82 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
   }
 }
 
-/* Guidage au sol du hall panoramique (desktop seulement).
-   Rainure encastrée + deux galets sous chaque seuil, à la même cote.
-   Les battants, dimensions, positions et déplacements des stations sont inchangés. */
+/* Hall architectural haute fidélité (ordinateur uniquement).
+   Le mur, ses reflets et le dallage proviennent de la photographie.
+   Le rail est un profilé inox encastré avec texture de métal brossé,
+   fraisage, micro-fixations et deux roulements porteurs sous le seuil.
+   Ni la porte ni la caméra / navigation ne sont modifiées. */
 @media(min-width:1000px){
-  /* Profilé quasi affleurant : une fente métallique, pas une barre posée sur le sol. */
   .hall.en-volume .portes::before{
     content:"";
     position:absolute;
     left:0;
     right:0;
-    bottom:calc(var(--eb-hall-hauteur) * .135 - 9px);
-    height:3px;
-    pointer-events:none;
+    bottom:calc(var(--eb-hall-hauteur) * .135 - 15px);
+    height:18px;
     z-index:1;
-    border-radius:0;
-    background:linear-gradient(180deg,
-      rgba(247,249,244,.95) 0%,
-      rgba(137,148,140,.90) 34%,
-      rgba(74,84,78,.92) 61%,
-      rgba(184,193,185,.89) 100%);
-    box-shadow:
-      0 -1px 0 rgba(255,255,255,.62),
-      0 1px 1px rgba(38,53,43,.10);
-    opacity:.92;
-    -webkit-mask-image:linear-gradient(90deg,transparent,#000 2%,#000 98%,transparent);
-    mask-image:linear-gradient(90deg,transparent,#000 2%,#000 98%,transparent);
-  }
-  /* Ombre de la rainure, sans bande sombre flottante. */
-  .hall.en-volume .portes::after{
-    content:"";
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:calc(var(--eb-hall-hauteur) * .135 - 13px);
-    height:4px;
     pointer-events:none;
-    z-index:0;
-    background:linear-gradient(180deg,rgba(40,54,45,.065),transparent 90%);
+    background:url("hall-rail-acier.svg") left top / 640px 18px repeat-x;
+    /* Détails de surface intégrés à la photographie, pas de rail en relief massif. */
+    opacity:.96;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0%,black 1.5%,black 98.5%,transparent 100%);
+    mask-image:linear-gradient(90deg,transparent 0%,black 1.5%,black 98.5%,transparent 100%);
   }
-  /* Deux galets compacts éloignés pour porter réellement le poids du vantail.
-     Leur point bas repose sur le haut du rail, 6px sous le seuil. */
+  .hall.en-volume .portes::after{
+    content:none; /* La texture du rail inclut déjà son ombre de contact. */
+  }
+  /* Les pièces mécaniques appartiennent aux portes et se déplacent avec elles. */
   .hall.en-volume .station-hall .porte::before{
     content:"";
     position:absolute;
-    left:8%;
-    right:8%;
-    top:calc(100% + 1px);
-    width:auto;
-    height:7px;
+    left:0;
+    top:calc(100% - 1px);
+    right:auto;
+    width:100%;
+    height:14px;
     margin:0;
-    pointer-events:none;
-    z-index:2;
-    border-radius:0;
-    background:
-      radial-gradient(circle at 9px 3px,
-        #c0c9c2 0 1px,#5d6861 1.15px 2.15px,transparent 2.3px),
-      radial-gradient(circle at calc(100% - 9px) 3px,
-        #c0c9c2 0 1px,#5d6861 1.15px 2.15px,transparent 2.3px),
-      linear-gradient(180deg,#cbd3cc,#818d84 62%,#657169)
-        center top / 100% 3px no-repeat;
+    border:0;
     box-shadow:none;
-    opacity:.94;
+    border-radius:0;
+    background:url("hall-galets-acier.svg") center top / 100% 100% no-repeat;
+    opacity:1;
+    z-index:2;
+    pointer-events:none;
   }
-  /* Contact discret entre le pied des portes et le sol. */
+  /* L'assise du seuil projette une ombre courte sur la pierre naturelle.
+     Deux zones douces sous les points d'appui évitent l'impression de flottement. */
+  .hall.en-volume .station-hall::before{
+    content:"";
+    position:absolute;
+    left:17px;
+    bottom:-15px;
+    width:168px;
+    height:26px;
+    pointer-events:none;
+    z-index:0;
+    background:
+      radial-gradient(ellipse 44px 7px at 14% 28%,rgba(39,43,36,.24),transparent 88%),
+      radial-gradient(ellipse 44px 7px at 87% 28%,rgba(39,43,36,.24),transparent 88%),
+      radial-gradient(ellipse 92px 10px at 51% 38%,rgba(53,55,46,.14),transparent 90%);
+    filter:blur(2px);
+  }
   .hall.en-volume .porte::after{
-    top:calc(100% + 7px);
-    height:10px;
-    background:radial-gradient(ellipse at 50% 0,rgba(38,51,42,.12),transparent 72%);
+    content:"";
+    position:absolute;
+    left:-3%;
+    top:calc(100% + 3px);
+    width:106%;
+    height:18px;
+    pointer-events:none;
+    z-index:0;
+    background:radial-gradient(ellipse at 50% 0%,rgba(50,49,42,.19),transparent 70%);
+    filter:blur(2.2px);
+  }
+  /* La vue garde les véritables détails de l'atrium jusque dans les bords. */
+  .hall.en-volume .hall-espace::before,
+  .hall.en-volume .hall-espace::after{
+    width:8px;
+    opacity:.56;
   }
 }
 /* Mobile étroit : la porte principale retrouve une présence visuelle nette,
