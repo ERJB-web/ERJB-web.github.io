@@ -1477,6 +1477,7 @@ ${LANGUES.filter((l) => l.hreflang).map((l) => `<link rel="alternate" hreflang="
 <link rel="alternate" hreflang="x-default" href="${URL}">
 <link rel="icon" href="${p}assets/favicon.svg?v=${VERSION_ICONE}" type="image/svg+xml">
 <link rel="stylesheet" href="${p}assets/site.css?v=${VERSION_CSS}">
+<link rel="stylesheet" href="${p}assets/vulgarisation-studio.css?v=20261015studio1">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="${e(c.meta.titre)}">
 <meta property="og:description" content="${e(c.meta.description)}">
@@ -1487,6 +1488,7 @@ ${LANGUES.filter((l) => l.hreflang).map((l) => `<link rel="alternate" hreflang="
 <script type="application/ld+json">${JSON.stringify(personne)}</script>
 <script src="${p}assets/hall-marche.js?v=${VERSION_MARCHE}" defer></script>
 <script src="${p}assets/site.js?v=${VERSION_JS}" defer></script>
+<script src="${p}assets/vulgarisation-studio.js?v=20261015studio1" defer></script>
 ${baliseAudience(p)}
 </head>
 <body>
