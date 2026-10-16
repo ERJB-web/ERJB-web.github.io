@@ -1665,7 +1665,7 @@ export const methodology={
 };
 
 export function initialCareerState(){
- return {version:1,week:0,budget:45,energy:85,stress:12,rigor:32,trust:48,proof:0,completed:[],attempts:{},journal:[],family:"mixed",design:"séquentiel exploratoire",data:"données administratives et entretiens",analysis:"intégration séquentielle",paradigm:"pragmatique",theme:"Relations interorganisationnelles",population:"Personnes aînées à domicile",setting:"deux territoires contrastés",sampling:"raisonné",objectives:4,format:"Thèse par articles",articleTarget:3,novelty:false,access:false,articles:0,approved:false,ending:null,repairs:0};
+ return {version:1,week:0,budget:45,energy:85,stress:12,rigor:32,trust:48,proof:0,completed:[],attempts:{},journal:[],family:"mixed",design:"séquentiel exploratoire",data:"données administratives et entretiens",analysis:"intégration séquentielle",paradigm:"pragmatique",theme:"Relations interorganisationnelles",population:"Personnes aînées à domicile",setting:"deux territoires contrastés",sampling:"raisonné",objectives:4,format:"Thèse par articles",articleTarget:3,novelty:false,access:false,programArticlesRequired:true,articles:0,approved:false,ending:null,repairs:0};
 }
 export function availableMilestones(st){const complete=new Set(st.completed);return milestones.filter(t=>!complete.has(t.id)&&t.requires.every(k=>complete.has(k)));}
 export function assessDesign(st){
@@ -1688,9 +1688,13 @@ export function checkDefense(st){
  if(!evalDesign.valid)missing.push("devis cohérent");
  if(!st.novelty)missing.push("originalité scientifique non démontrée");
  if(!st.access)missing.push("données ou autorisations non confirmées");
+ if(st.programArticlesRequired&&st.format!=="Thèse par articles")missing.push("règlement fictif du parcours : thèse par articles exigée");
  if(st.format==="Thèse par articles"&&st.articles<st.articleTarget)missing.push("manuscrits exigés dans la simulation");
- if(st.trust<28)missing.push("accord de la direction");
+ if(!st.approved)missing.push("approbation éthique non établie");
+ if(st.rigor<56)missing.push("rigueur méthodologique insuffisante");
+ if(st.proof<9)missing.push("dossier de preuves insuffisant");
+ if(st.trust<35)missing.push("désaccord persistant avec la direction");
  if(st.week>208)missing.push("délai des quatre années dépassé (prolongation nécessaire)");
- if(st.energy<10||st.stress>92)missing.push("conditions de soutenance incompatibles avec l'état du personnage");
+ if(st.energy<18||st.stress>90)missing.push("épuisement et pression avant la soutenance");
  return {ready:missing.length===0,missing,evalDesign};
 }
