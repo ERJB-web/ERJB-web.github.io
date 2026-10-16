@@ -196,6 +196,11 @@
 
   function marquer(nom) {
     points.forEach((p, i) => p.classList.toggle("actif", ordre[i] === nom));
+    const groupe = groupeDe(nom);
+    $$('.entete .nav > a').forEach(lien => {
+      if (groupe && groupeDe(lien.hash.slice(1)) === groupe) lien.setAttribute('aria-current', 'page');
+      else lien.removeAttribute('aria-current');
+    });
   }
 
   function synchroniserRubriques(table) {

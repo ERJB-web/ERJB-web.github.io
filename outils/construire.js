@@ -1442,7 +1442,7 @@ ${baliseAudience(p)}
 <header class="entete">
 <a class="marque" href="${p || "./"}"><span class="marque-domaines">${e(c.ui.sousTitre)}</span></a>
 <p class="coordonnees coordonnees-haut"><a href="mailto:${e(c.contact.courriel)}">${icone("enveloppe")}${e(c.contact.courriel)}</a><a href="tel:${TELEPHONE[1]}">${icone("telephone")}${TELEPHONE[0]}</a></p>
-<nav class="nav" aria-label="${e(c.ui.navigation)}">${GROUPES.map(([g, ss]) => `<a href="#${ss[0] || g}" style="--nav-accent:${TEINTES_GROUPES[g][0]}">${e(texteGroupe(c, g)[0])}</a>`).join("")}</nav>
+<nav class="nav" aria-label="${e(c.ui.navigation)}">${GROUPES.map(([g, ss], i) => `<a href="#${ss[0] || g}" style="--nav-accent:${TEINTES_GROUPES[g][0]}"><span class="nav-seuil" aria-hidden="true"><bdi dir="ltr">${num(i)}</bdi></span><span class="nav-libelle">${e(texteGroupe(c, g)[0])}</span><span class="nav-fleche" aria-hidden="true">↗</span></a>`).join("")}</nav>
 <div class="outils">
 ${menuLangues(c, edition)}
 ${menuAcces(c, c.lang)}
