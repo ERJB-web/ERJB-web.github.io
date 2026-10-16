@@ -40,6 +40,7 @@ try{
  }));
  console.log("BROWSER RENDER: "+JSON.stringify(result));
  assert.equal(result.actor,"loaded");
+ assert.equal(result.humanSource,"civilian-human","The playable character must be the locally hosted civilian, not the soldier backup");
  assert.equal(result.room,"classroom");
  assert.ok(["detailed-glb","procedural-fallback"].includes(result.sceneStatus),"Scene must render even if GLB provider is offline");
  if(result.sceneStatus==="procedural-fallback"){
