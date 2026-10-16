@@ -135,10 +135,48 @@ export function createEricAvatar(T,options={}){
  const paddle=box(stick,sole,.12,-1.21,.08,.32,.105,.068);paddle.rotation.y=.16;
  stick.visible=false;
  const helmetMount=new T.Group();helmetMount.position.set(0,2.50,0);rig.add(helmetMount);
+ // Hockey kit is built on anatomical pivots so the equipment follows falls and strides.
+ const navy=new T.MeshStandardMaterial({color:0x184c75,roughness:.73});
+ const jerseyWhite=new T.MeshStandardMaterial({color:0xe8f0f6,roughness:.78});
+ const visor=new T.MeshStandardMaterial({color:0xc9d6de,metalness:.75,roughness:.27});
+ const jerseyGear=new T.Group();rig.add(jerseyGear);
+ const sweater=mesh(new T.CylinderGeometry(.495,.407,1.01,28,5),navy,jerseyGear,0,1.65,0);
+ sweater.scale.z=.82;
+ const chestStripe=mesh(new T.CylinderGeometry(.46,.414,.12,28),jerseyWhite,jerseyGear,0,1.39,0);chestStripe.scale.z=.83;
+ const chestLogo=sphere(jerseyGear,jerseyWhite,0,1.73,.34,.14,.14,.025,28);
+ const redStripe=new T.MeshStandardMaterial({color:0xee6546,roughness:.75});
+ for(let side of [-1,1]){
+  sphere(jerseyGear,navy,side*.43,1.97,.005,.22,.25,.25,22);
+  const glove=sphere(arms[side===-1?0:1].elbow,navy,0,-.60,.03,.145,.19,.14,22);
+  const cuff=sphere(arms[side===-1?0:1].elbow,jerseyWhite,0,-.48,.02,.165,.11,.147,18);
+  // Elements attached to elbows must not remain visible outside the hockey scene.
+  glove.userData.hockeyOnly=true;cuff.userData.hockeyOnly=true;
+  const knee=legs[side===-1?0:1].knee;
+  const shin=sphere(knee,navy,0,-.32,.16,.205,.39,.19,22);shin.userData.hockeyOnly=true;
+  const trim=sphere(knee,jerseyWhite,0,-.45,.325,.16,.03,.04,18);trim.userData.hockeyOnly=true;
+  const bootOverlay=sphere(legs[side===-1?0:1].foot,navy,0,.01,.12,.182,.15,.28,22);
+  bootOverlay.userData.hockeyOnly=true;
+ }
+ const helmetShell=sphere(helmetMount,navy,0,.29,-.040,.382,.225,.339,40);
+ const backCap=sphere(helmetMount,navy,0,.10,-.19,.342,.24,.14,28);
+ const frontShell=sphere(helmetMount,navy,0,.20,.26,.355,.095,.11,28);
+ // Cage bars: subtle silver tubing curves around the actual photo-textured face.
+ for(const hh of [-.12,-.025,.065,.16]){
+  const bar=mesh(new T.TorusGeometry(.345,.012,7,50,Math.PI),visor,helmetMount,0,hh,.27);
+  bar.rotation.z=Math.PI;bar.scale.y=.48;
+ }
+ for(const xx of [-.21,-.11,0,.11,.21]){
+  const bar=cylinder(helmetMount,visor,xx,-.04,.32,.009,.009,.37);
+  bar.rotation.z=xx*.49;
+ }
+ const earGuard=sphere(helmetMount,jerseyWhite,-.345,.08,-.08,.06,.16,.09,15);
+ const earGuard2=sphere(helmetMount,jerseyWhite,.345,.08,-.08,.06,.16,.09,15);
+ let hasRealHelmet=false;
+ function useHelmetModel(model){helmetShell.visible=false;frontShell.visible=false;backCap.visible=false;hasRealHelmet=true;}
  let hasRealStick=false;
  const equipmentMounts={helmet:helmetMount,stick,leftSkate:legs[0].foot,rightSkate:legs[1].foot,
    leftGlove:arms[0].elbow,rightGlove:arms[1].elbow};
- function resetHockeyGear(){shaft.visible=true;paddle.visible=true;hasRealStick=false;}
+ function resetHockeyGear(){shaft.visible=true;paddle.visible=true;hasRealStick=false;helmetShell.visible=true;frontShell.visible=true;backCap.visible=true;hasRealHelmet=false;}
   function useStickModel(model){
    if(!model)return;
    shaft.visible=false;paddle.visible=false;hasRealStick=true;
@@ -181,9 +219,14 @@ export function createEricAvatar(T,options={}){
  }
  function setFall(progress=0){fallBlend=Math.max(0,Math.min(1,Math.sin(progress*Math.PI)*1.18));}
   function setPosition(x,y,z){root.position.set(x,y,z);}
- function setEquipment(equipment){stick.visible=equipment==="hockey";for(const leg of legs)leg.blade.visible=equipment==="hockey";}
+ function setEquipment(equipment){
+ const hockey=equipment==="hockey";
+ stick.visible=hockey;helmetMount.visible=hockey;jerseyGear.visible=hockey;
+ for(const leg of legs)leg.blade.visible=hockey;
+ for(const mesh of meshes)if(mesh.userData.hockeyOnly)mesh.visible=hockey;
+}
  function dispose(){for(const m of meshes){m.geometry?.dispose?.();}for(const mat of [skin,dark,eyes,denim,boot,sole,metal,shirt,seam])mat.dispose?.();shirtTexture.dispose?.();faceTexture.dispose?.();}
- return {group:root,update,setPosition,setFall,setEquipment,equipmentMounts,useStickModel,resetHockeyGear,dispose,get motion(){return motion;},get true3D(){return true;},get reference(){return "assets/portrait.jpg"}};
+ return {group:root,update,setPosition,setFall,setEquipment,equipmentMounts,useStickModel,useHelmetModel,resetHockeyGear,dispose,get motion(){return motion;},get true3D(){return true;},get reference(){return "assets/portrait.jpg"}};
 }
 function makeShirtTexture(T){
  const c=document.createElement("canvas");c.width=512;c.height=512;
