@@ -57,19 +57,15 @@ export async function installLivingWorld(T,api){
  const {GLTFLoader}=await import("three/addons/loaders/GLTFLoader.js");
  const utils=await import("three/addons/utils/SkeletonUtils.js");
  const loader=new GLTFLoader();
- let asset=null, source="";
+ let asset=null, source="", downloaded=null;
  for(const url of MODEL_URLS) {
   try {const gltf=await loader.loadAsync(url);
    if(!gltf.scene||!gltf.animations?.length)continue;
-   asset={scene:gltf.scene,utils};source=url;break;
+   asset={scene:gltf.scene,utils};source=url;downloaded=gltf;break;
   } catch (error) {console.warn("Another human asset source will be tried",url,error);}
  }
  if(!asset) throw Error("Neither rigged human model could be loaded");
- const player=humanController(T,asset,api.clips||[],2.48,api.player);
- // Clips are supplied by the downloaded glTF, not by the scene.
- player.destroy();
- let gltf=await loader.loadAsync(source);
- const hero=humanController(T,asset,gltf.animations,2.48,api.player);
+ const hero=humanController(T,asset,downloaded.animations,2.48,api.player);
  // Preserve the ground shadow but remove all primitive body components.
  for(const child of api.player.children) if(child!==hero.rig && child.type!=="Mesh")child.visible=false;
  let cast=[];
@@ -78,7 +74,7 @@ export async function installLivingWorld(T,api){
   cast=[];
   for(const [i,a] of actors.entries()){
    if(i>10)break;
-   const human=humanController(T,asset,gltf.animations,2.29,a.body);
+   const human=humanController(T,asset,downloaded.animations,2.29,a.body);
    // Hide geometric mannequin meshes but retain the conversation nameplate.
    for(const obj of a.body.children)if(obj!==human.rig && obj!==a.nameTag)obj.visible=false;
    human.rig.rotation.y=i%2?-.32:.30;
