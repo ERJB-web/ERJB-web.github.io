@@ -324,6 +324,34 @@ function skatingSuccess(result){
  st.journal.unshift({week:st.week,task:"Épreuve de hockey : équilibre sur glace",note:"Parcours réussi en "+result.seconds+" secondes. Chutes : "+result.falls+".",risky:false});
  persist();update();alertGame("ÉQUILIBRE MAÎTRISÉ ! "+result.falls+" chute(s) · Énergie +10."); 
 }
+function drawNavigation(nav){
+ const canvas=$("miniMap");if(!canvas)return;
+ const c=canvas.getContext("2d");if(!c)return;
+ const w=canvas.width,h=canvas.height,mx=w/2,my=h/2,scale=3.35;
+ c.clearRect(0,0,w,h);
+ const gradient=c.createRadialGradient(mx,my,15,mx,my,140);
+ gradient.addColorStop(0,"#173646");gradient.addColorStop(1,"#081823");
+ c.fillStyle=gradient;c.fillRect(0,0,w,h);
+ c.strokeStyle="#9ec7cb1b";c.lineWidth=1;
+ for(let p=-8;p<=8;p++){const at=mx+p*20;c.beginPath();c.moveTo(at,0);c.lineTo(at,h);c.stroke();
+ const y=my+p*20;c.beginPath();c.moveTo(0,y);c.lineTo(w,y);c.stroke();}
+ const dot=(x,z,color,r=3,outline=false)=>{
+  const px=mx+(x-nav.x)*scale,py=my+(z-nav.z)*scale;
+  if(px<4||py<4||px>w-4||py>h-4)return;
+  c.beginPath();c.arc(px,py,r,0,Math.PI*2);
+  c.fillStyle=color;c.fill();
+  if(outline){c.strokeStyle="#f5fffe";c.lineWidth=1.5;c.stroke();}
+ };
+ for(const p of nav.objectives)dot(p.x,p.z,p.type==="gate"?"#b5eefd":"#f36633",5,true);
+ for(const p of nav.clues)dot(p.x,p.z,"#9dffcd",4,true);
+ for(const p of nav.people)dot(p.x,p.z,"#a0b4ef",2.7);
+ for(const p of nav.dangers)dot(p.x,p.z,"#fb6470",4.5,true);
+ c.strokeStyle="#ffffffb8";c.lineWidth=1.5;c.beginPath();c.arc(mx,my,7,0,Math.PI*2);c.stroke();
+ c.fillStyle="#f36633";c.beginPath();c.moveTo(mx,my-7);c.lineTo(mx-5,my+5);c.lineTo(mx+5,my+5);c.closePath();c.fill();
+ $("miniZone").textContent=(PLACES.find(p=>p.id===nav.room)?.name||nav.room).slice(0,17);
+ $("miniGoal").textContent=nav.room==="rink"?"● Bleu : porte · Rouge : obstacle":
+ "● Orange : mission · Vert : indice · Rouge : danger";
+}
 function bootNewWorld(){
  worldController=createAdventureWorld(THREE,$("scene3d"),{
  keys:pressed,
@@ -335,6 +363,7 @@ function bootNewWorld(){
  onEvidence:earnClue,
  onDamage:reviewerAttack,
  onNpc:meetCharacter,
+ onNavigation:drawNavigation,
  onBalance:(balance,progress,falls,gates,total)=>{
   $("rinkNeedle").style.left=(50+Math.max(-1,Math.min(1,balance))*46)+"%";
   $("rinkTime").textContent=gates+" / "+total+" portes";
