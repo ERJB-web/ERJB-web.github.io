@@ -23,7 +23,7 @@ export function createAdventureWorld(T,canvas,opts={}){
  const choose=key=>PLACES.find(p=>p.id===key)||PLACES[0];
  let room="university",scene,camera,renderer,group,player,eric;
  let worldScenery=null,architecturalMeshes=[];let worldReality=null,walkVX=0,walkVZ=0,jumpY=0,jumpVel=0,jumpHeld=false,xrTriggerHeld=false,obstacles=[];
- let last=0,lastNavigation=0,clock=0,modelX=0,modelZ=7,cameraYaw=0,cameraPitch=.28,cameraDistance=8.3,dragView=null,busy=false,auto=null,actors=[],targets=[],clickables=[],particles=[],chasers=[],collectibles=[],hitCooldown=0,activeTarget=null,controls=opts.keys||new Set();
+ let last=0,lastNavigation=0,clock=0,modelX=0,modelZ=7,cameraYaw=0,cameraPitch=.13,cameraDistance=5.8,dragView=null,busy=false,auto=null,actors=[],targets=[],clickables=[],particles=[],chasers=[],collectibles=[],hitCooldown=0,activeTarget=null,controls=opts.keys||new Set();
  let skate={balance:0,clock:0,falls:0,completed:false,started:false,lastReport:0,gateIndex:0,gates:[],velocityX:0,velocityZ:0};
  let hockey=null,hockeyModels=null,hockeySession=0,lastHeading=Math.PI,aimX=0,aimIndicator=null;
  let renderRatio=1,targetRatio=1;
@@ -685,7 +685,7 @@ const cast=[
    eric.update(dt,ts,{x:moveVX,z:moveVZ},room);
    worldReality?.update(dt,moveVX,moveVZ,room);
    // Third-person pursuit camera; the player remains readable while the next section of the arena stays visible.
-   const lookAhead=worldReality?.inVR?0:room==="rink"?5.8:4.1;
+   const lookAhead=worldReality?.inVR?0:room==="rink"?4.1:3.25;
    const followX=modelX+Math.sin(cameraYaw)*cameraDistance,followZ=modelZ+Math.cos(cameraYaw)*cameraDistance;
    const centerX=modelX-Math.sin(cameraYaw)*lookAhead,centerZ=modelZ-Math.cos(cameraYaw)*lookAhead;
    if(worldReality?.inVR){player.visible=false;camera.position.set(modelX,1.72+jumpY,modelZ);}
@@ -773,5 +773,5 @@ const cast=[
   renderer.render(scene,camera);
  }
  boot();
- return {visit,resize,goToHotspot,shoot:(power)=>hockey?.shot({x:modelX,z:modelZ,vx:skate.velocityX,vz:skate.velocityZ,heading:lastHeading},power),faceoff:()=>hockey?.reset({x:modelX,z:modelZ}),get hockey(){return hockey?.status()??null;},resetCamera:()=>{cameraYaw=0;cameraPitch=.28;cameraDistance=8.3;},setPaused:()=>{},get room(){return room;},get skate(){return {...skate};},get targets(){return targets.map(t=>({id:t.id,label:t.label}));},get ready(){return true;}};
+ return {visit,resize,goToHotspot,shoot:(power)=>hockey?.shot({x:modelX,z:modelZ,vx:skate.velocityX,vz:skate.velocityZ,heading:lastHeading},power),faceoff:()=>hockey?.reset({x:modelX,z:modelZ}),get hockey(){return hockey?.status()??null;},resetCamera:()=>{cameraYaw=0;cameraPitch=.13;cameraDistance=5.8;},setPaused:()=>{},get room(){return room;},get skate(){return {...skate};},get targets(){return targets.map(t=>({id:t.id,label:t.label}));},get ready(){return true;}};
 }
