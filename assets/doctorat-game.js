@@ -315,36 +315,48 @@ function npc(i){
  const ring=mesh(new THREE.TorusGeometry(.77,.047,8,36),mat(0x9bffe1,.2,.2,.6),0,.08,0,group);ring.rotation.x=Math.PI/2;
  return {index:i,group,label,ring,px:p[0],pz:p[1]};
 }
+let playerAtlas=null,playerFrame=null,playerBody=null,playerFootprint=null,playerSpriteState={back:0,front:1,frame:1};
 function player(){
+ // Existing authorized six-frame portrait-like character sheet from the website.
+ // No facial photograph glued to a polygonal sphere.
  avatar=new THREE.Group();world.add(avatar);
- const skin=mat(0xe2b49b),hair=mat(0x292127),shirt=mat(0xe2e8ed),stripe=mat(0x94b2c8),pant=mat(0x1c3041),shoes=mat(0x382e2b);
- const chest=mesh(new THREE.CylinderGeometry(.37,.42,1.1,18),shirt,0,1.5,0,avatar);chest.scale.z=.8;
- for(let j=-4;j<=4;j++)box(.012,.97,.013,stripe,j*.075,1.49,-.295,avatar);
- const collar=box(.19,.23,.05,mat(0xf7fafb),-.14,2.015,-.25,avatar);collar.rotation.z=-.4;
- const collar2=box(.19,.23,.05,mat(0xf7fafb),.14,2.015,-.25,avatar);collar2.rotation.z=.4;
- column(.14,.24,skin,0,2.15,0,avatar);
- const head=orb(.39,skin,0,2.49,-.015,avatar);head.scale.set(.87,1.1,.9);
- const crown=orb(.37,hair,0,2.78,.02,avatar);crown.scale.set(.94,.47,.93);
- for(let j=0;j<9;j++){const angle=j/9*Math.PI*2;orb(.105,hair,Math.sin(angle)*.24,2.79,Math.cos(angle)*.21,avatar);}
- const beard=orb(.21,hair,0,2.27,-.30,avatar);beard.scale.set(1.1,.38,.65);
- for(let side of [-1,1]){orb(.032,mat(0x19242b),side*.12,2.49,-.34,avatar);}
- // The actual authorized on-site portrait supplies facial likeness, not a generic AI face.
- const cv=document.createElement("canvas");cv.width=256;cv.height=340;const g=cv.getContext("2d");const portrait=new Image();portrait.decoding="async";
- portrait.onload=()=>{
-  g.clearRect(0,0,256,340);g.save();g.beginPath();g.ellipse(128,170,116,165,0,0,Math.PI*2);g.clip();
-  g.drawImage(portrait,275,20,365,550,0,0,256,340);g.restore();
-  const tex=new THREE.CanvasTexture(cv);tex.colorSpace=THREE.SRGBColorSpace;
-  const face=mesh(new THREE.PlaneGeometry(.65,.86),new THREE.MeshBasicMaterial({map:tex,transparent:true,depthWrite:false,side:THREE.DoubleSide}),0,2.50,-.357,avatar);
-  face.renderOrder=3;face.castShadow=false;face.receiveShadow=false;
+ playerFrame=document.createElement("canvas");playerFrame.width=384;playerFrame.height=580;
+ const imageContext=playerFrame.getContext("2d");
+ const tex=new THREE.CanvasTexture(playerFrame);tex.colorSpace=THREE.SRGBColorSpace;
+ tex.minFilter=THREE.LinearFilter;tex.magFilter=THREE.LinearFilter;
+ const surface=new THREE.MeshBasicMaterial({map:tex,transparent:true,side:THREE.DoubleSide,depthWrite:false,alphaTest:.08});
+ playerBody=new THREE.Mesh(new THREE.PlaneGeometry(2.18,3.19),surface);
+ playerBody.position.y=1.575;playerBody.castShadow=false;playerBody.receiveShadow=false;playerBody.renderOrder=2;avatar.add(playerBody);
+ const shadow=new THREE.Mesh(new THREE.CircleGeometry(.75,48),new THREE.MeshBasicMaterial({color:0x030b14,transparent:true,opacity:.40,depthWrite:false,side:THREE.DoubleSide}));
+ shadow.rotation.x=-Math.PI/2;shadow.position.set(0,.025,0);avatar.add(shadow);
+ playerFootprint=shadow;
+ const atlas=new Image();atlas.decoding="async";
+ atlas.onload=()=>{
+  playerAtlas=atlas;
+  updateAvatarFrame(0,false,true);
  };
- portrait.src="../assets/portrait.jpg";
- arms=[];legs=[];for(const side of [-1,1]){
-  const arm=new THREE.Group();arm.position.set(side*.45,1.92,0);avatar.add(arm);
-  mesh(new THREE.CapsuleGeometry(.12,.51,4,9),shirt,0,-.44,0,arm);orb(.12,skin,0,-.84,0,arm);arms.push(arm);
-  const leg=new THREE.Group();leg.position.set(side*.19,1.02,0);avatar.add(leg);
-  mesh(new THREE.CapsuleGeometry(.15,.62,4,9),pant,0,-.54,0,leg);box(.32,.16,.49,shoes,0,-.99,-.13,leg);legs.push(leg);
- }
+ atlas.onerror=()=>{
+  // Never silently revert to a box-headed mannequin.
+  const g=imageContext;g.clearRect(0,0,384,580);
+  g.fillStyle="#e4f4f8";g.font="bold 25px sans-serif";g.textAlign="center";
+  g.fillText("Éric",192,310);tex.needsUpdate=true;
+  notify(msg("Le personnage photographique n'a pas pu être chargé.","The portrait character could not load."));
+ };
+ atlas.src="../assets/personnage-hall.png";
  avatar.position.set(0,0,10);
+ arms=[];legs=[];
+}
+function updateAvatarFrame(ts,walking,force=false){
+ if(!playerAtlas||!playerFrame||!playerBody)return;
+ const direction=photoMode?1:0;
+ const frame=walking?Math.floor(ts/190)%3:1;
+ if(!force&&playerSpriteState.front===direction&&playerSpriteState.frame===frame)return;
+ playerSpriteState.front=direction;playerSpriteState.frame=frame;
+ const source=playerAtlas,ctx=playerFrame.getContext("2d");
+ const sw=source.naturalWidth/3,sh=source.naturalHeight/2;
+ ctx.clearRect(0,0,playerFrame.width,playerFrame.height);
+ ctx.drawImage(source,frame*sw,direction*sh,sw,sh,0,0,384,580);
+ playerBody.material.map.needsUpdate=true;
 }
 function buildWorld(){
  if(!THREE)return;if(world){scene.remove(world);world.traverse(o=>{if(o.isMesh){o.geometry?.dispose();o.material?.dispose();}});}
@@ -426,9 +438,10 @@ function tick(ts){
   const sprint=(keyset.has("ShiftLeft")||keyset.has("ShiftRight"))&&st.energy>12;
   const speed=sprint?9.7:6.4;
   if(walk){x=bound(x+vx/d*speed*dt,-5.15,5.15);z=bound(z+vz/d*speed*dt,-16,18);avatar.rotation.y+=(Math.atan2(-vx,-vz)-avatar.rotation.y)*Math.min(1,8*dt);}
-  avatar.position.set(x,walk?Math.sin(ts*.011)*.055:0,z);
-  arms.forEach((a,i)=>a.rotation.x=walk?Math.sin(ts*.013*(sprint?1.4:1)+i*Math.PI)*-.50:0);
-  legs.forEach((a,i)=>a.rotation.x=walk?Math.sin(ts*.013*(sprint?1.4:1)+i*Math.PI)*.59:0);
+  avatar.position.set(x,walk?Math.sin(ts*.011)*.03:0,z);
+  playerBody?.quaternion.copy(camera.quaternion);
+  if(playerBody){playerBody.rotation.x=0;playerBody.rotation.z=0;}
+  updateAvatarFrame(ts,walk);
   for(const p of collectibles){
    p.group.rotation.y+=dt*1.4;p.group.position.y=1.1+Math.sin(ts*.002+p.x)*.15;
    if(p.group.visible&&Math.hypot(x-p.x,z-p.z)<1.26){p.group.visible=false;st.collected ||= {};st.collected[p.key]=true;change(p.delta);notify(p.label);sound(true);}
