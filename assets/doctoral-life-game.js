@@ -303,7 +303,7 @@ function earnClue(id,label,zone){
  if(st.worldClues[id]){alertGame("Indice déjà consigné : "+label);return;}
  st.worldClues[id]=true;st.proof=(st.proof||0)+1;st.rigor=clamp(st.rigor+1);
  st.journal.unshift({week:st.week,task:"Indice · "+label,note:"Découvert en explorant "+zone+". Les observations doivent ensuite être discutées dans le protocole.",risky:false});
- persist();update();alertGame("✦ INDICE TROUVÉ : "+label+" · Preuve +1");
+ persist();update();updateInWorldObjective(zone);alertGame("✦ INDICE TROUVÉ : "+label+" · Preuve +1");
 }
 function reviewerAttack(who,zone){
  if(!st)return;
@@ -329,6 +329,24 @@ function skatingSuccess(result){
  if(st.skateSessions===1){st.energy=clamp(st.energy+10);st.stress=clamp(st.stress-10);st.rigor=clamp(st.rigor+2);}
  st.journal.unshift({week:st.week,task:"Épreuve de hockey : équilibre sur glace",note:"Parcours réussi en "+result.seconds+" secondes. Chutes : "+result.falls+".",risky:false});
  persist();update();alertGame("ÉQUILIBRE MAÎTRISÉ ! "+result.falls+" chute(s) · Énergie +10."); 
+}
+function updateInWorldObjective(zone){
+ if(!st)return;
+ const hint=$("stationHint");if(!hint)return;
+ if(zone==="university"&&!st.completed.includes("admission")){
+  const count=["university-0","university-1","university-2"].filter(id=>st.worldClues?.[id]).length;
+  hint.textContent="MISSION ADMISSION · Documents "+count+"/3 · Rapporte-les au guichet de l’université.";
+ }else if(zone==="rink"){
+  hint.textContent="HOCKEY · Franchis les 7 portes dans l’ordre. Espace freine et stabilise.";
+ }else if(zone==="conference"){
+  const n=["conference-0","conference-1","conference-2"].filter(id=>st.worldClues?.[id]).length;
+  hint.textContent="CONGRÈS · Indices d’affiche "+n+"/3 · Rejoins ensuite la scène.";
+ }else if(zone==="laboratory"){
+  const n=["laboratory-0","laboratory-1","laboratory-2"].filter(id=>st.worldClues?.[id]).length;
+  hint.textContent="LABORATOIRE · Éléments analysés "+n+"/3 · Approche les postes.";
+ }else{
+  hint.textContent="Explore, rencontre les personnages et collecte les éléments de recherche.";
+ }
 }
 function drawNavigation(nav){
  const canvas=$("miniMap");if(!canvas)return;
@@ -362,7 +380,7 @@ function bootNewWorld(){
  worldController=createAdventureWorld(THREE,$("scene3d"),{
  keys:pressed,
  isPaused:()=>modal||!st||!$("intro").hidden||Boolean(st?.ending),
- onVisit:(zone,p)=>{score.setZone(zone);$("stationLabel").textContent=p.name;$("stationHint").textContent=p.sub+" · Approche les marqueurs lumineux pour agir.";showPlaceButtons(zone);$("rinkHud").hidden=zone!=="rink";if(st)update();},
+ onVisit:(zone,p)=>{score.setZone(zone);$("stationLabel").textContent=p.name;$("stationHint").textContent=p.sub+" · Approche les marqueurs lumineux pour agir.";showPlaceButtons(zone);$("rinkHud").hidden=zone!=="rink";if(st){update();updateInWorldObjective(zone);}},
  onActivity:doActivity,
  onNarrate:alertGame,
  onSkate:skatingSuccess,
