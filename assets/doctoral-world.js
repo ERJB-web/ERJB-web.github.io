@@ -581,7 +581,7 @@ const cast=[
   player=eric.group;player.rotation.y=Math.PI;scene.add(player);
   visit("university",true);resize();
   if(renderer.setAnimationLoop){renderer.xr.enabled=true;renderer.xr.setReferenceSpaceType?.("local-floor");renderer.setAnimationLoop(tick);}else requestAnimationFrame(tick);
-  if(typeof window!=="undefined")import("./doctoral-environments.js?v=1").then(m=>m.createImmersiveLocations(T,{})).then(layer=>{worldScenery=layer;layer.visit(room,group,architecturalMeshes);}).catch(err=>console.warn("Additional 3D environment unavailable",err));
+  if(typeof window!=="undefined")import("./doctoral-environments.js?v=2").then(m=>m.createImmersiveLocations(T,{})).then(layer=>{worldScenery=layer;layer.visit(room,group,architecturalMeshes);}).catch(err=>console.warn("Additional 3D environment unavailable",err));
   if(typeof window!=="undefined")import("./doctoral-reality.js?v=11").then(m=>m.installLivingWorld(T,{player,renderer,notify:opts.onNarrate})).then(layer=>{worldReality=layer;layer.syncCast(actors);}).catch(err=>{console.warn("Human asset unavailable",err);opts.onNarrate?.("Modèles 3D externes indisponibles : secours local activé.");});
   canvas.addEventListener("contextmenu",ev=>ev.preventDefault());
   canvas.addEventListener("pointerdown",ev=>{
