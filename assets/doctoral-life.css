@@ -172,3 +172,28 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
  .controls{right:9px;bottom:9px;left:auto}
  .board-heading{display:none}
 }
+
+
+/* Third period — physical puck-and-goalie mode */
+.hockey-scoreboard{position:absolute;z-index:6;top:78px;left:50%;width:min(520px,calc(100% - 32px));transform:translateX(-50%);padding:11px 17px 10px;color:#f6fbff;background:linear-gradient(140deg,#0a1a2be8,#152f42e8);border:1px solid #86c0d1ae;border-radius:13px;box-shadow:0 12px 42px #04111dc7;backdrop-filter:blur(9px);pointer-events:none}
+.hockey-score-row{display:flex;align-items:center;justify-content:space-between;gap:7px;font:700 12px 'Space Grotesk'}
+.hockey-score-row>span:not(.hockey-period){display:flex;align-items:center;gap:9px}
+.hockey-score-row strong{background:#f36633;padding:5px 9px;border-radius:7px;color:#151515;font-size:19px;font-weight:900}
+.hockey-period{font-size:10px;letter-spacing:.08em;color:#a2d9e6}
+.hockey-charge{display:flex;justify-content:space-between;gap:10px;color:#d4eef5;font:700 11px 'Space Grotesk';margin:8px 0 5px}
+.hockey-power-track{height:7px;border-radius:8px;background:#2b465a;overflow:hidden}
+.hockey-power-track i{display:block;width:0;height:100%;background:linear-gradient(90deg,#72dfc4,#f6bb66,#f36633);transition:width .08s}
+.hockey-controls{font-size:10px;color:#d6e7eb;line-height:1.55;margin-top:8px}
+.hockey-controls b{color:#ffc495}
+.hockey-scoreboard #hockeyFaceoff{pointer-events:auto;margin-top:8px;background:#234759;border:1px solid #91dfe98c;color:#ebfafc;border-radius:7px;padding:6px 10px;font:700 10px 'Space Grotesk'}
+.rink-hud{display:none!important}
+.touch #hockeyShootTouch{display:none}
+@media(max-width:710px){
+ .hockey-scoreboard{top:128px;padding:8px 10px;width:calc(100% - 18px);max-width:480px}
+ .hockey-score-row{font-size:9px}
+ .hockey-score-row strong{font-size:13px;padding:3px 6px}
+ .hockey-period{font-size:8px}
+ .hockey-controls{font-size:8px;margin-top:4px}
+ .touch #hockeyShootTouch{display:block;width:auto;min-width:100px;height:39px;background:#f36633;color:#16181b;border:1px solid #ffdfcc;border-radius:10px;font:700 11px 'Space Grotesk';margin-top:5px}
+ .touch #hockeyShootTouch.pressed{background:#b6eee4}
+}
