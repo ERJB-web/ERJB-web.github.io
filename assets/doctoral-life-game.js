@@ -453,7 +453,7 @@ function bootNewWorld(){
  worldController=createAdventureWorld(THREE,$("scene3d"),{
  keys:pressed,
  isPaused:()=>modal||!st||!$("intro").hidden||Boolean(st?.ending),
- onVisit:(zone,p)=>{score.setZone(zone);$("stationLabel").textContent=p.name;$("stationHint").textContent=p.sub+" · Approche les marqueurs lumineux pour agir.";showPlaceButtons(zone);$("rinkHud").hidden=zone!=="rink";$("hockeyScoreboard").hidden=zone!=="rink";if(st){update();updateInWorldObjective(zone);}},
+ onVisit:(zone,p)=>{score.setZone(zone);$("stationLabel").textContent=p.name;$("stationHint").textContent=p.sub+" · Approche les marqueurs lumineux pour agir.";showPlaceButtons(zone);$("rinkHud").hidden=zone!=="rink";$("hockeyScoreboard").hidden=zone!=="rink";$("hockeyShootTouch").hidden=zone!=="rink";$("balanceBtn").hidden=zone!=="rink";if(st){update();updateInWorldObjective(zone);}},
  onActivity:doActivity,
  onNarrate:alertGame,
  onSkate:skatingSuccess,
