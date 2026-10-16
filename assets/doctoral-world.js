@@ -19,7 +19,7 @@ export const PLACES=[
 const color={orange:0xf36633,cream:0xf0efed,ink:0x151515,teal:0x286d5c,stone:0x73868a};
 export function createAdventureWorld(T,canvas,opts={}){
  const choose=key=>PLACES.find(p=>p.id===key)||PLACES[0];
- let room="university",scene,camera,renderer,group,player,actorPlane,atlasImage,spriteCanvas,spriteTex;
+ let room="university",scene,camera,renderer,group,player,eric,actorPlane,atlasImage,spriteCanvas,spriteTex;
  let last=0,clock=0,frame=-1,modelX=0,modelZ=7,busy=false,auto=null,actors=[],targets=[],clickables=[],particles=[],chasers=[],collectibles=[],hitCooldown=0,activeTarget=null,controls=opts.keys||new Set();
  let skate={balance:0,clock:0,falls:0,completed:false,started:false,lastReport:0};
  const mat=(hex,metal=.05,rough=.65,glow=0)=>new T.MeshStandardMaterial({color:hex,metalness:metal,roughness:rough,emissive:glow?hex:0,emissiveIntensity:glow});
