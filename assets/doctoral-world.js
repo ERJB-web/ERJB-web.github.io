@@ -517,6 +517,7 @@ const cast=[
  }
  function visit(id,initial=false){
   const next=choose(id).id;
+  if(hockey){hockey.dispose();hockey=null;}++hockeySession;
   room=next;busy=false;auto=null;modelX=0;modelZ=9;actors=[];targets=[];clickables=[];particles=[];chasers=[];collectibles=[];hitCooldown=0;activeTarget=null;
   if(group){scene.remove(group);releaseScene(group);}
   group=new T.Group();scene.add(group);
@@ -665,28 +666,25 @@ const cast=[
       modelZ=Math.max(-25,Math.min(12,modelZ+(modelZ-h.z)/(distance||1)*1.8));
     }
    }
-   if(room==="rink"){
-    if(walking&&!skate.completed){skate.started=true;skate.clock+=dt;
-     const gate=skate.gates[skate.gateIndex];
-     if(gate&&Math.hypot(modelX-gate[0],modelZ-gate[1])<2){
-       gate.indicator.visible=false;skate.gateIndex++;
-       if(skate.gates[skate.gateIndex])skate.gates[skate.gateIndex].indicator.visible=true;
-       opts.onNarrate?.("PORTE "+skate.gateIndex+"/"+skate.gates.length+" · Continue la trajectoire !");
-     }
-     skate.balance+=dx*dt*.38+Math.sin(clock*2.9)*dt*.18+Math.sin(clock*1.7+.7)*dt*.14;
-     if(Math.abs(modelX)>7)skate.balance+=Math.sign(modelX)*dt*.25;
-     for(let k=0;k<8;k++){const coneX=k%2?-5:5,coneZ=-18+k*3.2;
-      if(Math.hypot(modelX-coneX,modelZ-coneZ)<.78){skate.balance+=Math.sign(modelX||1)*dt*.9;}}
-     
-     if(controls.has("Space"))skate.balance*=Math.max(0,1-2.8*dt);
-     skate.balance*=Math.max(0,1-.13*dt);
-     if(Math.abs(skate.balance)>1.0){
-      skate.falls++;skate.balance=0;skate.clock=Math.max(0,skate.clock-6);
-      opts.onNarrate?.("Chute sur la glace ! " +skate.falls+" · Reprends ton équilibre avec Espace.");
-     }
-     if(skate.gateIndex===skate.gates.length){skate.completed=true;opts.onSkate?.({falls:skate.falls,seconds:Math.round(skate.clock),gates:skate.gateIndex});}
-    }
-    opts.onBalance?.(skate.balance,skate.gateIndex/skate.gates.length,skate.falls,skate.gateIndex,skate.gates.length);
+   if(room==="rink"&&hockey){
+    const speed=Math.hypot(skate.velocityX,skate.velocityZ);
+    const heading=speed>.06?Math.atan2(moveVX,moveVZ):lastHeading;
+    const turn=dt>0?Math.atan2(Math.sin(heading-lastHeading),Math.cos(heading-lastHeading))/dt:0;
+    if(speed>.06)lastHeading=heading;
+    const player={x:modelX,z:modelZ,vx:moveVX,vz:moveVZ,heading:lastHeading,turn};
+    const prev=hockey.status();
+    if(prev.fallTime<=0&&speed>7.1&&Math.abs(turn)>3.2&&Math.abs(skate.balance)>.16)hockey.fall(player,"virage trop serré");
+    if(modelZ< -24&&Math.abs(modelX)<2.4&&speed>5&&prev.fallTime<=0)hockey.fall(player,"collision avec le gardien");
+    if(hockey.status().fallTime>0){skate.velocityX*=Math.pow(.91,dt*60);skate.velocityZ*=Math.pow(.91,dt*60);}
+    const current=hockey.step(dt,player,controls);
+    skate.clock=current.clock;skate.falls=current.falls;
+    skate.balance+=dx*dt*.25+Math.sin(clock*2.7)*dt*.08+(Math.abs(turn)>3?Math.sign(turn)*dt*.22:0);
+    if(controls.has("Space"))skate.balance*=Math.max(0,1-3.5*dt);
+    skate.balance*=Math.max(0,1-.28*dt);
+    if(Math.abs(skate.balance)>1.05&&current.fallTime<=0){hockey.fall(player,"perte d'équilibre");skate.balance=0;}
+    if(current.fallTime>0)skate.balance*=.75;
+    opts.onHockeyFrame?.(current);
+    opts.onBalance?.(skate.balance,current.score/3,current.falls,current.score,3);
    }
   }
   if(ts-lastNavigation>115){
@@ -703,5 +701,5 @@ const cast=[
   renderer.render(scene,camera);
  }
  boot();
- return {visit,resize,goToHotspot,resetCamera:()=>{cameraYaw=0;cameraPitch=.28;cameraDistance=8.3;},setPaused:()=>{},get room(){return room;},get skate(){return {...skate};},get targets(){return targets.map(t=>({id:t.id,label:t.label}));},get ready(){return true;}};
+ return {visit,resize,goToHotspot,shoot:(power)=>hockey?.shot({x:modelX,z:modelZ,vx:skate.velocityX,vz:skate.velocityZ,heading:lastHeading},power),faceoff:()=>hockey?.reset({x:modelX,z:modelZ}),get hockey(){return hockey?.status()??null;},resetCamera:()=>{cameraYaw=0;cameraPitch=.28;cameraDistance=8.3;},setPaused:()=>{},get room(){return room;},get skate(){return {...skate};},get targets(){return targets.map(t=>({id:t.id,label:t.label}));},get ready(){return true;}};
 }
