@@ -6,7 +6,7 @@
     "Vision de l’enseignement",
     "De l’éducation spécialisée à l’université",
     "Expériences et accompagnement",
-    "Des valeurs aux pratiques",
+    "Méthodes et dispositifs pédagogiques",
     "Faire apprendre et évaluer",
     "Former pour demain",
     "Références"
@@ -75,18 +75,6 @@
     ],
     "refs": [
       "carless"
-    ]
-  },
-  "valeurs": {
-    "titre": "Six valeurs, des engagements pédagogiques concrets",
-    "intro": "Mes valeurs prennent sens dans les conditions de travail que je souhaite proposer et dans les capacités que je cherche à soutenir.",
-    "items": [
-      "Ouvrir les perspectives disciplinaires, distinguer fait, interprétation et jugement de valeur, puis demander de justifier une position et d’examiner ce qui pourrait la remettre en cause. L’esprit critique s’exerce aussi sur ses propres raisonnements.",
-      "Faire de l’erreur analysée une possibilité de progression : reprendre une argumentation, utiliser un retour et reconnaître un acquis. Cela demande des appuis et des conditions de travail soutenables ; l’effort individuel ne résout pas à lui seul les obstacles institutionnels.",
-      "Donner des repères, des choix et des occasions de s’autoévaluer, puis faire évoluer l’accompagnement. Je souhaite que les étudiants apprennent à décider quand approfondir, vérifier une source ou solliciter une expertise.",
-      "Organiser un travail où chacun contribue, où les désaccords sont instruits et où les savoirs des personnes concernées ont une place. La coopération demande des rôles explicites et une responsabilité individuelle au sein du collectif.",
-      "Autoriser l’exploration de nouvelles réponses, y compris numériques, en demandant quel problème elles résolvent, pour qui et avec quels effets. Une innovation pédagogique mérite d’être appréciée à partir des apprentissages qu’elle rend possibles.",
-      "Anticiper les obstacles d’accès et de participation, rendre les attentes lisibles et proposer des voies adaptées pour atteindre des objectifs communs. L’équité implique une attention aux moyens réels d’apprendre et de montrer ce que l’on sait."
     ]
   },
   "apprendre": {
