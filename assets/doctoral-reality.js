@@ -19,10 +19,11 @@ function humanController(T, base, clips, targetHeight, parent) {
  const model = clone(base.scene);
  const rig = new T.Group();
  const b = new T.Box3().setFromObject(model);
- const h = Math.max(.1, b.max.y-b.min.y);
- const scale = targetHeight/h;
+ const w=Math.max(.1,b.max.x-b.min.x),h=Math.max(.1,b.max.y-b.min.y),d=Math.max(.1,b.max.z-b.min.z);
+ // Keep adult human dimensions plausible even if an animated GLB reports an undersized bind-pose box.
+ const scale=Math.min(1,targetHeight/Math.max(h,w*1.65,d*2.5,1.7));
  model.scale.multiplyScalar(scale);
- model.position.y = -b.min.y*scale;
+ model.position.set(-(b.min.x+b.max.x)*.5*scale,-b.min.y*scale,-(b.min.z+b.max.z)*.5*scale);
  model.traverse(o=>{if(o.isMesh||o.isSkinnedMesh){o.castShadow=true;o.receiveShadow=true;o.frustumCulled=false;o.userData.externalGLTF=true;}});
  rig.add(model);parent.add(rig);
  const mixer=new T.AnimationMixer(model);
@@ -65,7 +66,7 @@ export async function installLivingWorld(T,api){
   } catch (error) {console.warn("Another human asset source will be tried",url,error);}
  }
  if(!asset) throw Error("Neither rigged human model could be loaded");
- const hero=humanController(T,asset,downloaded.animations,2.48,api.player);
+ const hero=humanController(T,asset,downloaded.animations,1.85,api.player);
  // Preserve the ground shadow but remove all primitive body components.
  for(const child of api.player.children) if(child!==hero.rig && child.type!=="Mesh")child.visible=false;
  let cast=[];
@@ -74,7 +75,7 @@ export async function installLivingWorld(T,api){
   cast=[];
   for(const [i,a] of actors.entries()){
    if(i>10)break;
-   const human=humanController(T,asset,downloaded.animations,2.29,a.body);
+   const human=humanController(T,asset,downloaded.animations,1.81,a.body);
    // Hide geometric mannequin meshes but retain the conversation nameplate.
    for(const obj of a.body.children)if(obj!==human.rig && obj!==a.nameTag)obj.visible=false;
    human.rig.rotation.y=i%2?-.32:.30;
