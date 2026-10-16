@@ -1,0 +1,277 @@
+"use strict";
+(async function(){
+const el=id=>document.getElementById(id),loc=new URLSearchParams(location.search).get("lang")==="en"?"en":"fr",tr=o=>typeof o==="string"?o:o?.[loc]??o?.fr??"",safe=t=>String(t??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+document.documentElement.lang=loc;
+const msg=(fr,en)=>loc==="en"?en:fr;
+const dict={
+ brandSmall:["L'odyssée doctorale","The doctoral odyssey"],heroRank:["Doctorant • Niveau 01","PhD student • Level 01"],rigor:["Rigueur","Rigor"],energy:["Énergie","Energy"],stress:["Stress","Stress"],direction:["Direction","Supervision"],weeks:["semaines","weeks"],proofs:["preuves","evidence"],credits:["crédits","credits"],currentObjective:["OBJECTIF ACTUEL","CURRENT OBJECTIVE"],toObjective:["jusqu'à l'objectif","to objective"],moveHint:["ZQSD / WASD / flèches · E pour interagir","WASD / arrows · E to interact"],autoWalk:["⇢ Rejoindre l'objectif","⇢ Walk to objective"],interact:["Interagir","Interact"],loadTxt:["Le comité prépare déjà des questions.","The committee is already drafting questions."]
+};
+for(const e of document.querySelectorAll("[data-i18n]")){const val=dict[e.dataset.i18n];if(val)e.textContent=msg(...val);}
+let story,st=null,checkpoint=null,THREE=null,scene=null,renderer=null,camera=null,world=null,avatar=null,portal=null,arms=[],legs=[],quality=1,flat=false,modalOpen=true,paused=false,auto=false,clock=0,last=0,audio=false,ctx=null,notice=0,round=0,correct=0;
+let x=0,z=10;
+const keyset=new Set(),SAVE="doctoral-game-save-v1",CHECK="doctoral-game-checkpoint-v1",distance=()=>Math.hypot(x,z+15),chap=()=>story.chapters[st.chapter];
+const clone=o=>JSON.parse(JSON.stringify(o)),read=k=>{try{let o=JSON.parse(localStorage.getItem(k));return o?.version===1&&Number.isInteger(o.chapter)?o:null;}catch{return null;}},store=()=>{try{if(st)localStorage.setItem(SAVE,JSON.stringify(st));}catch{}},savepoint=()=>{checkpoint=clone(st);try{localStorage.setItem(CHECK,JSON.stringify(checkpoint));}catch{}};
+const bound=(v,a=0,b=100)=>Math.max(a,Math.min(b,v));
+function state(mode){return{version:1,mode,chapter:0,rigor:32,energy:85,stress:20,trust:50,time:20,proof:0,budget:45,topic:null,data:false,methods:false,network:false,ethics:false,course:false,poster:false,prepared:false,paper:false,reviewScore:0,choices:[],ending:null,boss:null};}
+function redraw(){
+ if(!st)return;
+ for(const prop of ["rigor","energy","stress","trust"]){el(prop+"Num").textContent=st[prop];el(prop+"Fill").style.width=bound(st[prop])+"%";}
+ for(const [prop,id] of [["time","timeNum"],["proof","proofNum"],["budget","budgetNum"]])el(id).textContent=st[prop];
+ el("chapterPips").innerHTML=story.chapters.map((_,i)=>'<span class="'+(i<st.chapter?"past":i===st.chapter?"active":"")+'"></span>').join("");
+ el("heroStatus").textContent=st.stress>75?msg("Éric cherche la touche « pause ».","Éric needs a pause."):st.energy<30?msg("Propulsé par du café.","Powered by coffee."):st.rigor>75?msg("Dossier défendable.","Defensible protocol."):msg("Toujours optimiste.","Still optimistic.");
+}
+function change(e){
+ for(const [k,v] of Object.entries(e||{})){if(typeof st[k]==="number")st[k]+=v;}
+ for(const k of ["rigor","energy","stress","trust"])st[k]=bound(st[k]);
+ st.time=Math.max(0,st.time);st.proof=Math.max(0,st.proof);store();redraw();
+}
+function sound(ok=true){if(!audio)return;try{ctx ||=new(window.AudioContext||window.webkitAudioContext)();const o=ctx.createOscillator(),v=ctx.createGain();o.type="sine";o.frequency.setValueAtTime(ok?600:240,ctx.currentTime);o.frequency.exponentialRampToValueAtTime(ok?870:140,ctx.currentTime+.2);v.gain.setValueAtTime(.028,ctx.currentTime);v.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.22);o.connect(v).connect(ctx.destination);o.start();o.stop(ctx.currentTime+.23);}catch{}}
+function notify(t){let a=el("toast");a.textContent=t;a.classList.add("show");clearTimeout(notice);notice=setTimeout(()=>a.classList.remove("show"),2300);}
+function subtitle(t){el("subtitle").textContent=t;el("subtitle").classList.add("visible");setTimeout(()=>el("subtitle").classList.remove("visible"),4800);}
+function show(title,html,canClose=false){
+ modalOpen=true;el("modalEyebrow").textContent=title;el("modalContent").innerHTML=html;el("modal").hidden=false;el("modalClose").hidden=!canClose;el("modalCard").scrollTop=0;
+ setTimeout(()=>el("modalContent").querySelector("button")?.focus({preventScroll:true}),0);
+}
+function hide(){el("modal").hidden=true;modalOpen=false;}
+function buttons(entries){const row=document.createElement("div");row.className="buttons";for(const [title,cb,secondary] of entries){const b=document.createElement("button");b.type="button";b.className=secondary?"secondary":"primary";b.textContent=title;b.onclick=cb;row.appendChild(b);}el("modalContent").appendChild(row);}
+function introduction(){
+ const save=read(SAVE);
+ show(msg("VOICI VOTRE LETTRE D'ADMISSION","YOUR ADMISSION LETTER"),'<h1>'+msg('PROTOCOLE : <span class="accent">LA THÈSE IMPOSSIBLE</span>','PROTOCOL: <span class="accent">THE IMPOSSIBLE THESIS</span>')+'</h1><p class="lead">'+msg("Douze chapitres, trois orientations de recherche, des épreuves scientifiques, des décisions qui comptent et un véritable boss de soutenance.","Twelve chapters, three research directions, scientific challenges, consequential decisions and a real defense boss fight.")+'</p><div class="hero-illustration"><img src="../assets/portrait.jpg" alt="Éric Bernier"><div><b>'+msg("INCARNEZ ÉRIC","PLAY AS ÉRIC")+'</b><small>'+msg("Le sujet est immense. Le temps, lui, est fini.","The topic is huge. Time is finite.")+'</small></div></div><p class="micro">'+msg("Fiction pédagogique inspirée d'un véritable projet en évolution. Déplacements avec ZQSD/WASD/flèches ou tactile. Sauvegarde dans le navigateur. Son désactivé par défaut.","Educational fiction inspired by evolving research. Use WASD, arrows, touch controls or assisted walking. Local autosave. Sound off by default.")+'</p>');
+ const a=[];if(save)a.push([msg("↳ Reprendre la partie","↳ Continue game"),resume]);
+ a.push([msg("Commencer · Parcours doctoral","Start · PhD journey"),()=>start("normal")],[msg("Découverte · Plus accessible","Discovery · Easier"),()=>start("easy"),true],[msg("Comité de 17 personnes · Difficile","17-member committee · Hard"),()=>start("hard"),true]);buttons(a);
+}
+function start(mode){st=state(mode);checkpoint=null;store();hide();enter(0);}
+function resume(){st=read(SAVE)||state("normal");checkpoint=read(CHECK);hide();if(st.ending){if(st.ending==="win")ending();else gameover(st.reason||"defense");return;}enter(st.chapter);}
+function reset(){try{localStorage.removeItem(SAVE);localStorage.removeItem(CHECK);}catch{}st=null;checkpoint=null;introduction();}
+function enter(i){
+ if(i>=story.chapters.length){ending();return;}
+ st.chapter=i;st.boss=null;x=0;z=10;auto=false;paused=false;store();redraw();
+ const c=chap();el("actLabel").textContent=msg("ACTE ","ACT ")+["I","II","III"][c.act-1]+" · "+msg("CHAPITRE ","CHAPTER ")+(i+1)+"/12";el("chapterTitle").textContent=tr(c.title);el("missionGoal").textContent=tr(c.goal);
+ subtitle(tr(c.quip));if(THREE)buildWorld();savepoint();
+}
+function effectView(d){const names={rigor:msg("Rigueur","Rigor"),energy:msg("Énergie","Energy"),stress:"Stress",trust:msg("Direction","Supervision"),time:msg("Semaines","Weeks"),proof:msg("Preuves","Evidence"),budget:msg("Crédits","Credits")};return '<div class="result-stats">'+Object.entries(d).filter(([,v])=>v).map(([k,v])=>'<span class="'+((k==="stress"?v<0:v>0)?"good":"bad")+'">'+safe(names[k]||k)+' '+(v>0?"+":"")+v+'</span>').join("")+'</div>';}
+function resolution(ok,why,effects,flags={}){
+ Object.assign(st,flags);st.choices.push({chapter:st.chapter,ok,detail:why});
+ const basal=st.mode==="hard"?{energy:-7,stress:5,time:-1}:st.mode==="easy"?{energy:-1,time:-1}:{energy:-3,time:-1};
+ const all={...basal};for(const [k,v] of Object.entries(effects||{}))all[k]=(all[k]||0)+v;change(all);sound(ok);
+ if(st.energy<=0||st.stress>=100||st.trust<=0||st.time<=0||st.budget< -10){gameover(st.energy<=0?"exhaustion":st.stress>=100?"stress":st.trust<=0?"supervision":st.time<=0?"deadline":"funding");return;}
+ show(ok?msg("ÉPREUVE RÉUSSIE","CHALLENGE PASSED"):msg("LE COMITÉ PREND DES NOTES","THE COMMITTEE TAKES NOTES"),'<h2>'+safe(ok?tr(chap().win||{fr:"Le protocole progresse.",en:"The proposal moves forward."}):tr(chap().lose||{fr:"Cette décision aura des conséquences.",en:"This decision has consequences."}))+'</h2><p class="lead">'+safe(why)+'</p>'+effectView(all)+'<p class="micro">'+msg("Les prochaines épreuves et la soutenance tiendront compte de ton dossier.","Your research dossier will affect subsequent challenges and the defense.")+'</p>');
+ buttons([[msg("Continuer vers le prochain chapitre","Continue to the next chapter"),()=>{hide();enter(st.chapter+1);} ]]);
+}
+function choiceStage(c){
+ show(msg("DÉCISION SCIENTIFIQUE","RESEARCH DECISION"),'<h2>'+safe(tr(c.title))+'</h2><p class="lead">'+safe(tr(c.prompt))+'</p><div class="choices">'+c.opts.map((o,i)=>'<button class="choice" type="button" data-pick="'+i+'"><strong>'+safe(tr(o.title))+'</strong><span>'+safe(tr(o.detail))+'</span></button>').join("")+'</div>');
+ for(const b of el("modalContent").querySelectorAll("[data-pick]"))b.onclick=()=>{
+ const o=c.opts[+b.dataset.pick],ok=(o.delta.rigor||0)>=0;
+ resolution(ok,tr(o.why),o.delta,o.flags);
+ };
+}
+function multiStage(c){
+ const chosen=new Set();
+ const details=(title,text)=>'<strong>'+safe(title)+'</strong><span>'+safe(text)+'</span>';
+ show(msg("ENQUÊTE & SÉLECTION","INVESTIGATION & SELECTION"),'<h2>'+safe(tr(c.title))+'</h2><p class="lead">'+safe(tr(c.prompt))+'</p><div class="cards-grid">'+c.items.map((v,i)=>'<button type="button" class="source-card" data-item="'+i+'" aria-pressed="false"><em>'+String(i+1).padStart(2,"0")+'</em>'+details(tr(v[0]),tr(v[1]))+'</button>').join("")+'</div><p class="micro" id="chosenCount">0 / '+c.correct+'</p>');
+ for(const b of el("modalContent").querySelectorAll("[data-item]"))b.onclick=()=>{
+ const n=+b.dataset.item;if(chosen.has(n))chosen.delete(n);else if(chosen.size<c.correct)chosen.add(n);else{notify(msg("Trois dossiers maximum.","Select three files maximum."));return;}b.classList.toggle("selected",chosen.has(n));b.setAttribute("aria-pressed",String(chosen.has(n)));el("chosenCount").textContent=chosen.size+" / "+c.correct;
+ };
+ buttons([[msg("Valider les dossiers","Check selected files"),()=>{
+ if(chosen.size!==c.correct){notify(msg("Il faut exactement trois choix.","Select exactly three options."));return;}
+ const correct=[...chosen].filter(n=>c.items[n][2]===1).length,ok=correct===c.correct;
+ resolution(ok,ok?tr(c.win):tr(c.lose),ok?c.reward:{...c.penalty,proof:correct},c.zone==="network"?{network:ok}:{literature:ok});
+ }]]);
+}
+function matchStage(c){
+ show(msg("LABORATOIRE MÉTHODOLOGIQUE","METHODS LAB"),'<h2>'+safe(tr(c.title))+'</h2><p class="lead">'+safe(tr(c.prompt))+'</p><div class="method-grid">'+c.rows.map((row,i)=>'<label class="method-row"><span>'+safe(tr(row))+'</span><select data-method="'+i+'"><option value="">'+msg("Sélectionner une méthode","Select a method")+'</option>'+c.methods.map((m,j)=>'<option value="'+j+'">'+safe(tr(m))+'</option>').join("")+'</select></label>').join("")+'</div>');
+ buttons([[msg("Valider les associations","Check alignment"),()=>{
+ const values=[...el("modalContent").querySelectorAll("[data-method]")];if(values.some(v=>!v.value)){notify(msg("Remplis les quatre associations.","Complete all four matches."));return;}
+ const n=values.filter(v=>+v.value===+v.dataset.method).length,ok=n===4;
+ resolution(ok,ok?tr(c.win):tr(c.lose),ok?c.reward:c.penalty,{methods:ok});
+ }]]);
+}
+function scheduleStage(c){
+ const data=c.tasks.map(t=>({label:tr(t[0]),min:t[1],h:t[2]}));
+ show(msg("GESTION DU TEMPS","TIME MANAGEMENT"),'<h2>'+safe(tr(c.title))+'</h2><p class="lead">'+safe(tr(c.prompt))+'</p><div>'+data.map((r,i)=>'<label class="schedule-row"><span>'+safe(r.label)+' <small>(≥'+r.min+'h)</small></span><b id="sch'+i+'">'+r.h+' h</b><input type="range" min="0" max="24" step="1" value="'+r.h+'" data-schedule="'+i+'"></label>').join("")+'</div><div class="schedule-total"><span>'+msg("TOTAL PLANIFIÉ","TOTAL PLANNED")+'</span><b id="hoursTotal">43 / 40 h</b></div>');
+ function upd(){const sum=data.reduce((v,t)=>v+t.h,0);el("hoursTotal").textContent=sum+" / 40 h";el("hoursTotal").style.color=sum>40?"#ffc0b6":"#a3ffe0";}
+ for(const r of el("modalContent").querySelectorAll("[data-schedule]")){r.oninput=()=>{data[+r.dataset.schedule].h=+r.value;el("sch"+r.dataset.schedule).textContent=r.value+" h";upd();};}upd();
+ buttons([[msg("Soumettre l'emploi du temps","Submit schedule"),()=>{
+ const n=data.reduce((v,t)=>v+t.h,0),ok=n<=40&&data.every(t=>t.h>=t.min);
+ resolution(ok,ok?tr(c.win):tr(c.lose),ok?c.reward:c.penalty,{course:ok});
+ }]]);
+}
+function reviewStage(c){round=0;correct=0;quizRound(false);}
+function quizRound(boss){
+ const c=chap(),q=c.rounds[round],max=c.rounds.length;
+ if(!q){if(boss)return finalBoss();const ok=correct>=2;st.reviewScore=correct;resolution(ok,ok?tr(c.win):tr(c.lose),ok?c.reward:c.penalty,{paper:ok});return;}
+ show((boss?msg("JURY · QUESTION ","COMMITTEE · QUESTION "):msg("REVIEWER 2 · OBJECTION ","REVIEWER 2 · OBJECTION "))+(round+1)+"/"+max,'<h2>'+safe(tr(q.claim))+'</h2>'+(boss?'<div class="mini-brief">'+msg("Réserve de crédibilité","Credibility")+" : ✦ × "+st.boss.hp+'</div>':'<p class="lead">'+safe(tr(c.prompt))+'</p>')+'<div class="choices">'+q.options.map((o,i)=>'<button type="button" class="choice" data-answer="'+i+'"><strong>'+safe(tr(o))+'</strong></button>').join("")+'</div>');
+ for(const b of el("modalContent").querySelectorAll("[data-answer]"))b.onclick=()=>{
+ const ok=+b.dataset.answer===q.correct;if(ok){correct++;sound(true);}else{sound(false);change(boss?{stress:8,energy:-4,trust:-3}:{energy:-4,stress:7});if(boss)st.boss.hp-=st.mode==="hard"?2:1;}
+ round++;store();
+ if(boss&&st.boss.hp<=0){gameover("defense");return;}
+ show(ok?msg("ARGUMENT RECEVABLE","ARGUMENT ACCEPTED"):msg("OBJECTION MAINTENUE","OBJECTION SUSTAINED"),'<h2>'+safe(tr(q.why))+'</h2><p>'+msg("Une bonne réponse implique de reconnaître les limites du devis.","A good defense recognizes what its design can and cannot establish.")+'</p>'+(boss?'<div class="mini-brief">✦ × '+st.boss.hp+'</div>':''));
+ buttons([[round===max?msg("Voir la décision","See the verdict"):msg("Question suivante","Next question"),()=>quizRound(boss)]]);
+ };
+}
+function beginBoss(c){
+ const assets=[st.data,st.ethics,st.methods,st.paper,st.prepared].filter(Boolean).length;
+ st.boss={hp:(st.mode==="easy"?5:st.mode==="hard"?2:3)+(assets>=4?1:0),correct:0};round=0;correct=0;store();
+ show(msg("SOUTENANCE FINALE","FINAL DEFENSE"),'<h1>'+safe(tr(c.title))+'</h1><p class="lead">'+safe(tr(c.prompt))+'</p><div class="mini-brief">'+msg("Crédibilité initiale","Starting credibility")+" : ✦ × "+st.boss.hp+' · '+msg("Rigueur","Rigor")+" : "+st.rigor+"/100</div><p class='quote'>"+msg("« Merci pour cette présentation. Nous avons quelques questions. » — Phrase la plus inquiétante du campus.","“Thank you for your presentation. We have a few questions.” — The campus's most terrifying sentence.")+'</p>');
+ buttons([[msg("Entrer dans la salle","Enter the auditorium"),()=>quizRound(true)]]);
+}
+function finalBoss(){
+ const ok=correct>=3&&st.boss.hp>0;
+ st.boss.correct=correct;store();
+ if(!ok){gameover("defense");return;}ending();
+}
+function stage(){
+ if(!st||st.ending)return;auto=false;
+ const c=chap();switch(c.type){
+ case"choice":choiceStage(c);break;
+ case"multi":multiStage(c);break;
+ case"match":matchStage(c);break;
+ case"schedule":scheduleStage(c);break;
+ case"review":reviewStage(c);break;
+ case"boss":beginBoss(c);break;
+ }
+}
+function gameover(reason){
+ if(!st)return;st.ending="gameover";st.reason=reason;store();sound(false);
+ const why={
+ exhaustion:msg("Le chercheur n'a plus d'énergie. Une thèse exige des marges et une organisation soutenable.","The researcher has no energy left. A thesis needs sustainable work planning."),
+ stress:msg("La pression a dépassé toutes les marges. Il faut revoir les priorités.","Stress overwhelmed all available buffer. Revisit priorities."),
+ supervision:msg("Le comité de direction ne peut pas valider un protocole sans périmètre défendable.","Supervision cannot back an undefended design."),
+ deadline:msg("Le calendrier s'est épuisé. Un projet faisable renonce à certaines ambitions.","The timeline has expired. Feasible projects require trade-offs."),
+ funding:msg("Les ressources financières ne couvrent plus le programme proposé.","The project has run out of funding."),
+ defense:msg("Le jury demande de revoir des éléments fondamentaux du raisonnement.","The committee asks for fundamental revision of the reasoning.")
+ }[reason]||msg("Le protocole a besoin d'une révision fondamentale.","The protocol needs fundamental revision.");
+ show("GAME OVER",'<h1>'+msg('LE PROTOCOLE <span class="accent">A CRAQUÉ.</span>','THE PROTOCOL <span class="accent">COLLAPSED.</span>')+'</h1><p class="lead">'+safe(why)+'</p><p>'+msg("L'échec est fictif, pédagogique et réversible. Ce n'est ni une appréciation d'Éric ni une évaluation de sa véritable thèse.","This outcome is fictional, educational and reversible. It is not an assessment of Éric or his real thesis.")+'</p><div class="mini-brief">'+msg("Chapitre atteint","Reached chapter")+" : "+(st.chapter+1)+"/12 · "+msg("Rigueur","Rigor")+" : "+st.rigor+"/100</div>");
+ const a=[];if(checkpoint)a.push([msg("↶ Rejouer ce chapitre","↶ Retry this chapter"),()=>{st=clone(checkpoint);st.ending=null;store();hide();enter(st.chapter);}]);a.push([msg("Recommencer l'aventure","Restart adventure"),reset,true]);buttons(a);
+}
+function ending(){
+ if(!st)return;st.ending="win";store();const n=st.boss?.correct??0,excellent=n===5&&st.rigor>=85&&st.data&&st.ethics&&st.methods&&st.course,good=n>=4&&st.rigor>=60;
+ const title=excellent?msg("PROTOCOLE ACCEPTÉ AVEC ÉLOGES","PROTOCOL APPROVED WITH DISTINCTION"):good?msg("PROTOCOLE ACCEPTÉ","PROTOCOL APPROVED"):msg("ACCEPTÉ SOUS CONDITIONS","CONDITIONALLY APPROVED");
+ const lead=excellent?msg("Le comité est convaincu. Reviewer 2 garde le silence pendant quatre secondes. Un record universitaire.","The committee is convinced. Reviewer 2 stays quiet for four seconds. A university record."):good?msg("La soutenance est réussie. L'histoire continue : la vraie recherche commence maintenant.","The defense succeeded. The story continues: the actual research begins now."):msg("Le comité reconnaît la pertinence du travail et demande des améliorations ciblées.","The committee recognizes the value of the project and asks for targeted revisions.");
+ const topic=st.topic==="network"?msg("Réseaux intersectoriels","Intersectoral networks"):st.topic==="territory"?msg("Ressources territoriales","Territorial resources"):msg("Recommandations avec les partenaires","Partner-led recommendations");
+ show(msg("FIN DE CAMPAGNE · SOUTENANCE","CAMPAIGN COMPLETE · DEFENSE"),'<h1>'+title+'</h1><p class="lead">'+lead+'</p><div class="mini-brief"><b>'+msg("Orientation","Research focus")+'</b> : '+topic+'</div><div class="result-stats"><span>'+msg("Rigueur","Rigor")+' '+st.rigor+'/100</span><span>'+msg("Questions réussies","Correct answers")+' '+n+'/5</span><span>'+msg("Preuves","Evidence")+' '+st.proof+'</span><span>'+msg("Semaines restantes","Weeks remaining")+' '+st.time+'</span></div><p class="quote">'+msg("SCÈNE POST-GÉNÉRIQUE : « Bonjour. Reviewer 2 ici. Quelques suggestions mineures… » — pièce jointe de 42 pages.","POST-CREDITS: “Reviewer 2 here. Just a few minor suggestions...” — attachment: 42 pages.")+'</p>');
+ buttons([[msg("Rejouer un autre scénario","Play another storyline"),reset],[msg("Visiter le site d'Éric","Visit Éric's website"),()=>{location.href="../#contact";},true]]);
+}
+function interact(){
+ if(!st||st.ending||modalOpen)return;
+ if(!flat&&distance()>3){notify(msg("Approche-toi de l'objectif : ","Get closer to the objective: ")+Math.round(distance())+" m");return;}
+ stage();
+}
+const held=move=>{const mapping={up:"ArrowUp",down:"ArrowDown",left:"ArrowLeft",right:"ArrowRight"};return mapping[move];};
+for(const b of document.querySelectorAll("[data-move]")){const k=held(b.dataset.move);const on=e=>{e.preventDefault();keyset.add(k);auto=false;b.classList.add("pressed");},off=e=>{e.preventDefault();keyset.delete(k);b.classList.remove("pressed");};b.addEventListener("pointerdown",on);b.addEventListener("pointerup",off);b.addEventListener("pointercancel",off);b.addEventListener("pointerleave",off);}
+addEventListener("keydown",e=>{
+ if(!modalOpen&&["ArrowUp","ArrowDown","ArrowLeft","ArrowRight","Space","KeyW","KeyA","KeyS","KeyD","KeyQ","KeyZ","KeyE"].includes(e.code))e.preventDefault();
+ keyset.add(e.code);
+ if(!modalOpen&&(e.code==="KeyE"||e.code==="Enter"||e.code==="Space"))interact();
+ if(e.code==="Escape"&&!modalOpen&&st)pauseMenu();
+});addEventListener("keyup",e=>keyset.delete(e.code));addEventListener("blur",()=>keyset.clear());
+el("actionBtn").onclick=interact;
+el("autoWalk").onclick=()=>{if(st&&!modalOpen){auto=true;notify(msg("Éric avance vers la mission.","Éric is walking to the mission."));}};
+el("modalClose").onclick=()=>{if(st&&!st.ending){paused=false;hide();}};
+function pauseMenu(){if(!st||modalOpen)return;paused=true;show(msg("PAUSE DOCTORALE","DOCTORAL BREAK"),'<h2>'+msg("Une pause n'est pas un échec.","A break is not a failure.")+'</h2><p class="lead">'+msg("La progression est automatiquement enregistrée sur cet appareil.","Progress is saved locally on your device.")+'</p>');buttons([[msg("Reprendre","Resume"),()=>{paused=false;hide();}],[msg("Nouvelle partie","New game"),reset,true],[msg("Revenir au site","Back to website"),()=>location.href="../",true]]);}
+el("pauseBtn").onclick=pauseMenu;
+el("audioBtn").onclick=()=>{audio=!audio;el("audioBtn").textContent=audio?"♫":"♪";notify(audio?msg("Son activé","Sound on"):msg("Son désactivé","Sound off"));if(audio)sound();};
+el("fullBtn").onclick=()=>document.fullscreenElement?document.exitFullscreen?.().catch(()=>{}):document.documentElement.requestFullscreen?.().catch(()=>{});
+el("qualityBtn").onclick=()=>{quality=quality===1?.67:quality===.67?1.3:1;resize();notify(msg("Qualité graphique","Graphics quality")+" "+Math.round(quality*100)+"%");};
+function mesh(geom,mat,x0=0,y0=0,z0=0,root=world){const o=new THREE.Mesh(geom,mat);o.position.set(x0,y0,z0);o.castShadow=true;o.receiveShadow=true;root.add(o);return o;}
+function mat(c,metal=.1,rough=.6,emit=0){return new THREE.MeshStandardMaterial({color:c,metalness:metal,roughness:rough,emissive:emit?c:0x000000,emissiveIntensity:emit});}
+function box(a,b,c,m,x0,y0,z0,root=world){return mesh(new THREE.BoxGeometry(a,b,c),m,x0,y0,z0,root);}
+function orb(r,m,x0,y0,z0,root=world){return mesh(new THREE.SphereGeometry(r,18,12),m,x0,y0,z0,root);}
+function column(r,h,m,x0,y0,z0,root=world){return mesh(new THREE.CylinderGeometry(r*.9,r,h,12),m,x0,y0,z0,root);}
+function player(){
+ avatar=new THREE.Group();world.add(avatar);const skin=mat(0xe4b9a5),hair=mat(0x302424),coat=mat(0x1c344b),shirt=mat(0xb0d6e5),pant=mat(0x172337),shoes=mat(0x392f2a),eye=mat(0x171a1d);
+ box(.82,1.05,.42,shirt,0,1.5,0,avatar);box(.23,.86,.08,coat,-.35,1.52,-.24,avatar);box(.23,.86,.08,coat,.35,1.52,-.24,avatar);
+ column(.15,.21,skin,0,2.1,0,avatar);const head=orb(.36,skin,0,2.46,-.04,avatar);head.scale.set(.88,1.08,.9);
+ const cap=orb(.34,hair,0,2.7,-.03,avatar);cap.scale.set(1,.40,1);
+ for(let i=-3;i<=3;i++)orb(.105,hair,i*.082,2.79+(i%2)*.017,-.06,avatar);
+ const beard=orb(.21,mat(0x4b322d),0,2.25,-.30,avatar);beard.scale.set(1.2,.33,.50);
+ orb(.035,eye,-.12,2.49,-.34,avatar);orb(.035,eye,.12,2.49,-.34,avatar);box(.075,.12,.07,skin,0,2.42,-.38,avatar);
+ arms=[];legs=[];for(let side of [-1,1]){
+  const a=new THREE.Group();a.position.set(side*.5,1.85,0);avatar.add(a);box(.24,.81,.25,coat,0,-.43,0,a);orb(.12,skin,0,-.87,0,a);arms.push(a);
+  const l=new THREE.Group();l.position.set(side*.2,1.02,0);avatar.add(l);box(.30,.91,.32,pant,0,-.46,0,l);box(.36,.15,.51,shoes,0,-.98,-.11,l);legs.push(l);
+ }
+ avatar.position.set(0,0,10);
+}
+function buildWorld(){
+ if(!THREE)return;if(world){scene.remove(world);world.traverse(o=>{if(o.isMesh){o.geometry?.dispose();o.material?.dispose();}});}
+ world=new THREE.Group();scene.add(world);
+ const c=chap(),palette={
+ campus:[0x071522,0x20354d,0x8beddf],library:[0x091521,0x3c3441,0xf4c58c],committee:[0x0a1626,0x313b58,0xd3b8ff],data:[0x071726,0x17394d,0x81f0f5],
+ methods:[0x0b1922,0x254842,0x8bffbf],network:[0x0a1728,0x29445a,0x96f5eb],ethics:[0x101424,0x403044,0xeab0db],calendar:[0x10182b,0x384457,0xf4cf98],
+ congress:[0x10172b,0x3c3c4e,0xd8b5ff],review:[0x171627,0x483044,0xf8a7bb],seminar:[0x0b1b27,0x29444d,0x96f1d0],defense:[0x0a1426,0x353959,0xf6d698]
+ }[c.zone];const [sky,tower,accent]=palette;scene.background=new THREE.Color(sky);scene.fog=new THREE.FogExp2(sky,.018);
+ const slate=mat(tower),line=mat(0x57738b,.48,.42),road=mat(0x22344c,.12,.78),glass=mat(0x255675,.58,.19,.16),glow=mat(accent,.58,.25,.57),gold=mat(0xd4b994,.6,.22);
+ box(90,.5,110,mat(0x111e2c),0,-.37,-5);box(10,.19,52,road,0,-.05,-6);
+ for(let z0=-32;z0<=20;z0+=2.1){box(9.3,.025,.035,line,0,.06,z0);for(const xx of [-4.55,4.55])box(.055,.04,1.8,line,xx,.07,z0);}
+ for(let side of [-1,1])for(let k=0;k<5;k++){
+ const xx=side*(9.6+(k%2)*1.1),zz=-24+k*10,h=6+(k+c.act)%3*2;
+ box(7,h,7,slate,xx,h/2,zz);box(7.45,.25,7.55,line,xx,h+.1,zz);
+ for(let y=1.3;y<h;y+=2.1)for(const shift of [-2,0,2]){
+ box(1.1,1.42,.10,glass,xx+shift,y,zz+(side===1?3.55:-3.55));
+ box(.72,.055,.12,glow,xx+shift,y-.25,zz+(side===1?3.62:-3.62));
+ }
+ column(.20,h,line,xx-3.2,h/2,zz+3.5);column(.20,h,line,xx+3.2,h/2,zz+3.5);
+ if(k%2===0){column(.09,5,line,side*5.7,2.45,zz+1);orb(.28,glow,side*5.7,5.05,zz+1);}
+ }
+ const end=new THREE.Group();end.position.set(0,0,-24);world.add(end);
+ for(const xx of [-4.2,4.2]){box(2.0,9.2,3.3,slate,xx,4.6,0,end);column(.56,9,line,xx,4.5,1.48,end);orb(.55,glow,xx,9.5,1.48,end);}
+ box(10.8,1.35,4,line,0,9.2,0,end);box(7.4,2.1,.28,glass,0,7.35,1.52,end);
+ const deco=["library","data","methods","network","review","calendar"].includes(c.zone);
+ if(deco)for(const xx of [-6.25,6.25])for(let zz=-6;zz>-23;zz-=5){
+  box(2,1.25,1.35,slate,xx,.62,zz);
+  if(c.zone==="library"){for(let i=0;i<5;i++)box(.21,.6,.55,mat([0x9f6882,0x5d91bd,0xc4b68a][i%3]),xx-.65+i*.32,1.55,zz);}
+  else{box(1.55,.88,.1,glass,xx,1.6,zz);if(c.zone==="network")for(let j=0;j<3;j++)orb(.12,glow,xx+(j-1)*.52,2.23+j%2*.26,zz);}
+ }
+ if(["congress","defense","seminar","committee"].includes(c.zone))for(let zz=-6;zz>-23;zz-=3.4)for(const xx of [-6,6]){box(2.9,.70,1.35,road,xx,.35,zz);box(2.6,.5,.7,slate,xx,1,zz+.1);}
+ portal=new THREE.Group();portal.position.set(0,2.65,-15);world.add(portal);
+ mesh(new THREE.TorusGeometry(2.1,.13,12,72),glow,0,0,0,portal);
+ mesh(new THREE.TorusGeometry(1.69,.034,8,72),gold,0,0,.04,portal);
+ const disk=mesh(new THREE.CircleGeometry(1.6,54),new THREE.MeshBasicMaterial({color:accent,opacity:.085,transparent:true,side:THREE.DoubleSide,depthWrite:false}),0,0,.06,portal);disk.castShadow=false;
+ for(let k=0;k<12;k++){const a=k/12*Math.PI*2,p=box(.08,.36,.1,glow,Math.cos(a)*2.47,Math.sin(a)*2.47,.08,portal);p.rotation.z=-a;}
+ const ambientPortal=new THREE.PointLight(accent,21,17);ambientPortal.position.set(0,3.5,-14);world.add(ambientPortal);
+ const cvs=document.createElement("canvas");cvs.width=1024;cvs.height=256;const cc=cvs.getContext("2d");cc.fillStyle="#0b2631";cc.fillRect(0,0,1024,256);cc.fillStyle="#b3ffe8";cc.font="bold 43px sans-serif";cc.textAlign="center";cc.fillText("DOCTORAL CAMPUS",512,90);cc.fillStyle="#ffffff";cc.font="bold 38px sans-serif";let title=tr(c.title);if(title.length>37)title=title.slice(0,35)+"…";cc.fillText(title,512,160);
+ const t=new THREE.CanvasTexture(cvs);mesh(new THREE.PlaneGeometry(8,2),new THREE.MeshBasicMaterial({map:t,transparent:true}),0,8.7,-22);
+ const stars=[],geo=new THREE.BufferGeometry();for(let k=0;k<160;k++)stars.push((Math.random()-.5)*115,5+Math.random()*35,(Math.random()-.5)*105);geo.setAttribute("position",new THREE.Float32BufferAttribute(stars,3));world.add(new THREE.Points(geo,new THREE.PointsMaterial({color:0xd5fdfa,size:.065,transparent:true,opacity:.75})));
+ player();camera.position.set(0,6,19);camera.lookAt(0,1.5,0);
+}
+function resize(){if(!renderer)return;renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.8)*quality);renderer.setSize(innerWidth,innerHeight,false);camera.aspect=innerWidth/innerHeight;camera.fov=innerWidth<670?69:58;camera.updateProjectionMatrix();}
+function tick(ts){
+ requestAnimationFrame(tick);const dt=Math.min(.046,((ts-last)||16)/1000);last=ts;
+ if(!THREE||!renderer)return;
+ if(st&&!st.ending&&!modalOpen&&!paused&&!document.hidden){
+ const dx=Number(keyset.has("ArrowRight")||keyset.has("KeyD"))-Number(keyset.has("ArrowLeft")||keyset.has("KeyA")||keyset.has("KeyQ"));
+ const dz=Number(keyset.has("ArrowDown")||keyset.has("KeyS"))-Number(keyset.has("ArrowUp")||keyset.has("KeyW")||keyset.has("KeyZ"));
+ let vx=dx,vz=dz;
+ if(auto&&dx===0&&dz===0){vx=-x;vz=-15-z;if(distance()<2.5){auto=false;vx=vz=0;notify(msg("Tu peux interagir.","You can interact."));}}
+ else if(dx||dz)auto=false;
+ const d=Math.hypot(vx,vz),walk=d>.01;if(walk){x=bound(x+vx/d*6.4*dt,-5.2,5.2);z=bound(z+vz/d*6.4*dt,-16,18);avatar.rotation.y+=(Math.atan2(-vx,-vz)-avatar.rotation.y)*Math.min(1,7*dt);}
+ avatar.position.set(x,(walk?Math.sin(ts*.011)*.05:0),z);
+ arms.forEach((a,i)=>a.rotation.x=walk?Math.sin(ts*.012+i*Math.PI)*-.48:0);legs.forEach((a,i)=>a.rotation.x=walk?Math.sin(ts*.012+i*Math.PI)*.54:0);
+ const target=new THREE.Vector3(x,5.3,z+9.4);camera.position.lerp(target,Math.min(1,dt*4));camera.lookAt(x,1.5,z-4);
+ portal.rotation.z=Math.sin(ts*.0006)*.06;portal.children[1].rotation.z+=dt*.25;
+ el("distance").textContent=Math.round(distance())+" m";el("markerDistance").textContent=Math.round(distance())+" m";el("actionBtn").disabled=distance()>3;
+ const p=portal.position.clone().add(new THREE.Vector3(0,1.7,0)).project(camera),mark=el("questMarker");
+ mark.style.opacity=p.z<1&&Math.abs(p.x)<1&&Math.abs(p.y)<1?"1":"0";mark.style.left=((p.x+1)*.5*innerWidth)+"px";mark.style.top=((-p.y+1)*.5*innerHeight-35)+"px";
+ }
+ if(!document.hidden)renderer.render(scene,camera);
+}
+try{
+ const res=await fetch("./scenario.json",{cache:"no-store"});if(!res.ok)throw Error("Scenario file not found");story=await res.json();
+ if(!Array.isArray(story.chapters)||story.chapters.length!==12)throw Error("Scenario incomplete");
+}catch(error){
+ el("loading").hidden=true;show(msg("ERREUR DE CHARGEMENT","LOAD ERROR"),'<h2>'+msg("Le scénario est introuvable.","The story could not be loaded.")+'</h2><p>'+safe(error.message)+'</p>');return;
+}
+try{
+ THREE=await import("https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js");
+ renderer=new THREE.WebGLRenderer({canvas:el("world"),antialias:true,powerPreference:"high-performance"});
+ renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.8));renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.8;
+ scene=new THREE.Scene();camera=new THREE.PerspectiveCamera(58,innerWidth/innerHeight,.1,160);
+ scene.add(new THREE.HemisphereLight(0xcce7ff,0x162339,2.35));
+ const sun=new THREE.DirectionalLight(0xffe1bd,3.5);sun.position.set(-12,25,14);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);sun.shadow.camera.left=-25;sun.shadow.camera.right=25;sun.shadow.camera.top=35;sun.shadow.camera.bottom=-35;scene.add(sun);
+ buildWorld();resize();addEventListener("resize",resize,{passive:true});requestAnimationFrame(tick);
+}catch(error){
+ console.warn("WebGL unavailable — narrative-only mode",error);flat=true;el("game").classList.add("flat-mode");el("autoWalk").hidden=true;el("actionBtn").disabled=false;
+ el("missionPanel").insertAdjacentHTML("afterend",'<div class="flat-scene"><h2>'+msg("Campus narratif","Story-mode campus")+'</h2><p>'+msg("La 3D n'est pas disponible ici, mais toutes les épreuves restent jouables.","3D rendering is unavailable, but every challenge remains playable.")+'</p></div>');
+}
+el("loading").hidden=true;introduction();
+})();
