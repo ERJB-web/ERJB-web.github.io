@@ -262,40 +262,57 @@
   const media = h('section','vs-media','<header class="vs-head"><span class="vs-kicker">03 / MEDIA LIBRARY</span><h4>' + escape(t.mediaTitle) + '</h4><p>' + escape(t.mediaSub) + '</p></header><div class="vs-media-grid">' + t.media.map((m,i)=>'<article class="vs-media-card"><div class="vs-media-visual vs-media-visual-'+i+'" aria-hidden="true"><span>'+['▶','◈','▥','CC'][i]+'</span></div><div class="vs-media-info"><small>'+escape(m[0])+'</small><h5>'+escape(m[1])+'</h5><p>'+escape(m[2])+'</p><a href="'+escape(m[3])+'" rel="noopener noreferrer" target="_blank">'+escape(t.open)+' ↗</a></div></article>').join('')+'</div><p class="vs-micro">'+escape(t.mediaFoot)+'</p>');
   if(panel(6))panel(6).insertBefore(media,panel(6).firstChild);
 
-  const quiz = h('section','vs-quiz','<header class="vs-head"><span class="vs-kicker">04 / QUIZ</span><h4>'+escape(t.quizTitle)+'</h4><p>'+escape(t.quizIntro)+'</p></header><div class="vs-quiz-body" aria-live="polite"><p class="vs-quiz-step"></p><fieldset class="vs-quiz-field"><legend class="vs-quiz-question"></legend><div class="vs-quiz-options"></div></fieldset><p class="vs-quiz-feedback" hidden></p><button type="button" class="vs-quiz-action"></button></div><p class="vs-micro">'+escape(t.quizSource)+'</p>');
-  if(panel(5))panel(5).append(quiz);
-  let qi=0,score=0,answered=false,choice=-1;
-  const quizStep=()=>{
-    const q=t.questions[qi];
-    $('.vs-quiz-step').textContent=(qi+1)+' / '+t.questions.length;
-    $('.vs-quiz-question').textContent=q[0];
-    const opts=$('.vs-quiz-options');opts.replaceChildren();
-    q[1].forEach((v,i)=>{
-      const label=document.createElement('label');
-      const radio=document.createElement('input');radio.type='radio';radio.name='vs-quiz-'+lang;radio.value=String(i);
-      radio.addEventListener('change',()=>{choice=i;});
-      const span=document.createElement('span');span.textContent=v;
-      label.append(radio,span);opts.append(label);
-    });
-    $('.vs-quiz-feedback').hidden=true;$('.vs-quiz-action').textContent=t.validate;
-    $('.vs-quiz-field').disabled=false;answered=false;choice=-1;
-  };
-  const finish=()=>{
-    $('.vs-quiz-body').innerHTML='<div class="vs-quiz-result"><strong>'+score+' / '+t.questions.length+'</strong><p>'+escape(t.score)+': '+score+' / '+t.questions.length+' — '+escape(t.scoreEnd)+'</p><button type="button" class="vs-quiz-restart">'+escape(t.restart)+'</button></div>';
-    $('.vs-quiz-restart').addEventListener('click',()=>{qi=0;score=0;answered=false;choice=-1;$('.vs-quiz-body').replaceWith(h('div','vs-quiz-body','<p class="vs-quiz-step"></p><fieldset class="vs-quiz-field"><legend class="vs-quiz-question"></legend><div class="vs-quiz-options"></div></fieldset><p class="vs-quiz-feedback" hidden></p><button type="button" class="vs-quiz-action"></button>'));initQuiz();});
-  };
-  const quizAction=()=>{
-    if(!answered){
-      if(choice<0){$('.vs-quiz-options input')?.focus();return;}
-      const correct=t.questions[qi][2],good=choice===correct;
-      if(good)score++;
-      $('.vs-quiz-field').disabled=true;answered=true;
-      const feedback=$('.vs-quiz-feedback');feedback.hidden=false;feedback.innerHTML='<strong>'+escape(good?t.right:t.wrong)+'</strong> '+escape(t.questions[qi][3]);
-      $('.vs-quiz-action').textContent=qi===t.questions.length-1?t.score:t.continue;
-    }else{if(qi===t.questions.length-1)finish();else{qi++;quizStep();}}
-  };
-  const initQuiz=()=>{quizStep();$('.vs-quiz-action').addEventListener('click',quizAction);};
-  if(panel(5))initQuiz();
+  // Independent quiz state: listeners belong to the currently open room.
+  const quiz = h('section','vs-quiz','<header class="vs-head"><span class="vs-kicker">04 / QUIZ</span><h4>'+escape(t.quizTitle)+'</h4><p>'+escape(t.quizIntro)+'</p></header><div class="vs-quiz-body"></div><p class="vs-micro">'+escape(t.quizSource)+'</p>');
+  const quizPanel=panel(5);
+  if(quizPanel){
+    quizPanel.append(quiz);
+    const root=quiz.querySelector('.vs-quiz-body');
+    let index=0,points=0,locked=false;
+    function renderQuestion(){
+      locked=false;
+      const q=t.questions[index];
+      root.replaceChildren();
+      const step=h('p','vs-quiz-step');step.textContent=(index+1)+' / '+t.questions.length;
+      const field=document.createElement('fieldset');field.className='vs-quiz-field';
+      const legend=document.createElement('legend');legend.className='vs-quiz-question';legend.textContent=q[0];field.append(legend);
+      const opts=h('div','vs-quiz-options');
+      q[1].forEach((labelText,k)=>{
+        const label=document.createElement('label');
+        const radio=document.createElement('input');radio.type='radio';radio.name='vs-question-'+index;radio.value=String(k);
+        const name=document.createElement('span');name.textContent=labelText;
+        label.append(radio,name);opts.append(label);
+      });field.append(opts);
+      const feedback=h('p','vs-quiz-feedback');feedback.hidden=true;feedback.setAttribute('role','status');
+      const action=document.createElement('button');action.type='button';action.className='vs-quiz-action';action.textContent=t.validate;
+      action.addEventListener('click',()=>{
+        if(!locked){
+          const selected=opts.querySelector('input:checked');
+          if(!selected){feedback.hidden=false;feedback.textContent=t.quizIntro;opts.querySelector('input')?.focus();return;}
+          locked=true;field.disabled=true;
+          const correct=Number(selected.value)===q[2];
+          if(correct)points++;
+          feedback.hidden=false;
+          feedback.replaceChildren();
+          const bold=document.createElement('strong');bold.textContent=correct?t.right:t.wrong;
+          feedback.append(bold,document.createTextNode(' '+q[3]));
+          action.textContent=index===t.questions.length-1?t.score:t.continue;
+        }else if(index<t.questions.length-1){index++;renderQuestion();}
+        else renderResult();
+      });
+      root.append(step,field,feedback,action);
+    }
+    function renderResult(){
+      root.replaceChildren();
+      const result=h('div','vs-quiz-result');
+      const tally=h('strong');tally.textContent=points+' / '+t.questions.length;
+      const desc=h('p');desc.textContent=t.score+': '+points+' / '+t.questions.length;
+      const restart=document.createElement('button');restart.type='button';restart.className='vs-quiz-restart';restart.textContent=t.restart;
+      restart.addEventListener('click',()=>{index=0;points=0;renderQuestion();});
+      result.append(tally,desc,restart);root.append(result);
+    }
+    renderQuestion();
+  }
   };
   initializeSection(document.querySelector('#vulgarisation .section-corps.vulgarisation') || document.querySelector('.section-corps.vulgarisation'));
   const room=document.querySelector('.salle-contenu');
