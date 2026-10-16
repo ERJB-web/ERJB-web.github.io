@@ -5,7 +5,7 @@ const el=id=>document.getElementById(id),loc=new URLSearchParams(location.search
 document.documentElement.lang=loc;
 const msg=(fr,en)=>loc==="en"?en:fr;
 const dict={
- brandSmall:["L'odyssée doctorale","The doctoral odyssey"],heroRank:["Doctorant • Niveau 01","PhD student • Level 01"],rigor:["Rigueur","Rigor"],energy:["Énergie","Energy"],stress:["Stress","Stress"],direction:["Direction","Supervision"],weeks:["semaines","weeks"],proofs:["preuves","evidence"],credits:["crédits","credits"],currentObjective:["OBJECTIF ACTUEL","CURRENT OBJECTIVE"],toObjective:["jusqu'à l'objectif","to objective"],moveHint:["ZQSD / WASD / flèches · Maj courir · Espace esquiver","WASD / arrows · Shift sprint · Space dodge"],autoWalk:["⇢ Rejoindre l'objectif","⇢ Walk to objective"],interact:["Interagir","Interact"],loadTxt:["Le comité prépare déjà des questions.","The committee is already drafting questions."]
+ brandSmall:["L'odyssée doctorale","The doctoral odyssey"],heroRank:["Doctorant • Niveau 01","PhD student • Level 01"],rigor:["Rigueur","Rigor"],energy:["Énergie","Energy"],stress:["Stress","Stress"],direction:["Direction","Supervision"],weeks:["semaines","weeks"],proofs:["preuves","evidence"],credits:["crédits","credits"],currentObjective:["OBJECTIF ACTUEL","CURRENT OBJECTIVE"],toObjective:["jusqu'à l'objectif","to objective"],moveHint:["ZQSD / WASD / flèches · Maj courir · Espace esquiver","WASD / arrows · Shift sprint · Space dodge"],autoWalk:["⇢ Guidage","⇢ Guided movement"],dodge:["↯ Esquiver","↯ Dodge"],journalLabel:["✦ CARNET DE TERRAIN","✦ FIELD NOTEBOOK"],interact:["Continuer","Continue"],loadTxt:["Le comité prépare déjà des questions.","The committee is already drafting questions."]
 };
 for(const e of document.querySelectorAll("[data-i18n]")){const val=dict[e.dataset.i18n];if(val)e.textContent=msg(...val);}
 let story,st=null,checkpoint=null,THREE=null,scene=null,renderer=null,camera=null,world=null,avatar=null,portal=null,arms=[],legs=[],collectibles=[],quality=1,flat=false,modalOpen=true,paused=false,auto=false,clock=0,last=0,audio=false,ctx=null,notice=0,round=0,correct=0;
@@ -271,6 +271,7 @@ function dodge(){
  dodgeCooldown=2.4;invulnerable=.75;sound(true);
 }
 el("dodgeBtn")?.addEventListener("click",dodge);
+if(el("photoBtn")){el("photoBtn").title=msg("Caméra portrait / caméra de suivi","Portrait / follow camera");el("photoBtn").setAttribute("aria-label",msg("Voir Éric de face","See Éric from the front"));}
 el("photoBtn")?.addEventListener("click",()=>{photoMode=!photoMode;cameraYaw=photoMode?Math.PI:0;el("photoBtn").setAttribute("aria-pressed",String(photoMode));notify(photoMode?msg("Caméra portrait : admire le personnage de face.","Portrait camera: view the character from the front."):msg("Caméra de suivi rétablie.","Follow camera restored."));});
 el("autoWalk").onclick=()=>{if(st&&!modalOpen){auto=true;notify(msg("Guidage vers le prochain objectif.","Guidance to the next objective."));}};
 el("world").addEventListener("pointerdown",e=>{
