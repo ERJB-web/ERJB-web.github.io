@@ -57,6 +57,7 @@ function missionUpdate(){
  const n=seenCount(),point=targetPoint();
  el("missionGoal").textContent=flat?tr(chap().goal):n<2?msg("Rencontre des témoins : ","Meet witnesses: ")+n+"/2 · "+tr(scenes[st.chapter][actorPoints.findIndex(p=>p===point)]?.name):msg("Enquête prête. Rejoins le laboratoire lumineux.","Investigation ready. Go to the glowing lab.");
  el("distance").textContent=Math.round(Math.hypot(x-point[0],z-point[1]))+" m";
+ const journal=el("fieldJournal");if(journal){journal.querySelector("strong").textContent=n>=2?msg("Laboratoire débloqué","Research lab unlocked"):msg("Témoignages ","Witness interviews ")+n+"/2";journal.querySelector("small").textContent=msg("Indices au carnet : ","Notebook evidence: ")+(st.dossier?.length||0)+msg(" · Explore les dialogues et récupère les objets."," · Explore dialogues and collect evidence.");}
 }
 function meetActor(i){
  if(!st||st.ending||modalOpen||visited()[i])return;
@@ -418,7 +419,7 @@ function tick(ts){
   if(auto&&dx===0&&dz===0){
    const t=guidedActor===null?targetPoint():actorPoints[guidedActor];
    vx=t[0]-x;vz=t[1]-z;
-   if(Math.hypot(vx,vz)<1.4){auto=false;guidedActor=null;vx=vz=0;}
+   if(Math.hypot(vx,vz)<.85){auto=false;guidedActor=null;vx=vz=0;}
   }else if(dx||dz){auto=false;guidedActor=null;}
   const d=Math.hypot(vx,vz),walk=d>.01;
   const sprint=(keyset.has("ShiftLeft")||keyset.has("ShiftRight"))&&st.energy>12;
