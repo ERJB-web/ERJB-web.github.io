@@ -1,7 +1,7 @@
 import {createEricAvatar} from "./eric-avatar-3d.js";
 /*
  * Immersive, procedural Three.js environments for the doctoral game.
- * Entirely original geometry, local character sprite already authored for Eric's site.
+ * Entirely original geometry with Eric's articulated 3D avatar.
  * Continuous game world: approach activities, click points of interest or move with ZQSD.
  */
 export const PLACES=[
