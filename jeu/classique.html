@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#071422"><title>PROTOCOLE — Ancien scénario narratif</title>
+<meta name="description" content="Une aventure doctorale 3D narrative et interactive. Aidez Éric Bernier à construire et défendre un protocole scientifique, entre comité, littérature, données et Reviewer 2.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/doctorat-game.css?v=3">
+</head>
+<body>
+<div class="game" id="game">
+  <canvas id="world" aria-label="Campus doctoral virtuel en trois dimensions. Les déplacements sont disponibles au clavier ou avec les commandes affichées."></canvas>
+  <div class="world-glow" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="../" id="back"><span class="brand-signet">ÉB<span>✦</span></span><span><strong>PROTOCOL_01</strong><small data-i18n="brandSmall">L'odyssée doctorale</small></span></a>
+    <div class="mission-ident"><span class="eyebrow" id="actLabel">ACTE I / 03</span><strong id="chapterTitle">La rentrée des hypothèses</strong></div>
+    <div class="top-actions">
+      <button id="photoBtn" class="icon-button" aria-label="Voir Éric de face" aria-pressed="false" title="Caméra portrait / caméra de suivi">◉</button>
+      <button id="audioBtn" class="icon-button" aria-label="Activer le son" title="Activer/désactiver le son">♪</button>
+      <button id="qualityBtn" class="icon-button" aria-label="Changer la qualité graphique" title="Qualité graphique">◇</button>
+      <button id="langBtn" class="icon-button" aria-label="Switch language" title="Français / English">EN</button>
+      <button id="pauseBtn" class="icon-button" aria-label="Pause" title="Pause">Ⅱ</button>
+      <button id="fullBtn" class="icon-button" aria-label="Plein écran" title="Plein écran">⛶</button>
+    </div>
+  </header>
+  <aside class="hud" aria-label="Indicateurs de la partie">
+    <div class="avatar-card"><img src="../assets/portrait.jpg" alt="Portrait d'Éric Bernier" width="74" height="74"><span><b>ÉRIC BERNIER</b><small data-i18n="heroRank">Doctorant • Nv. 01</small><span class="hero-status" id="heroStatus">Toujours optimiste.</span></span></div>
+    <div class="stats">
+      <div class="stat"><div class="stat-label"><span data-i18n="rigor">Rigueur</span><b id="rigorNum">32</b></div><div class="meter"><i id="rigorFill" style="--bar:#7cedc4"></i></div></div>
+      <div class="stat"><div class="stat-label"><span data-i18n="energy">Énergie</span><b id="energyNum">85</b></div><div class="meter"><i id="energyFill" style="--bar:#76baff"></i></div></div>
+      <div class="stat"><div class="stat-label"><span data-i18n="stress">Stress</span><b id="stressNum">20</b></div><div class="meter"><i id="stressFill" style="--bar:#ff9c80"></i></div></div>
+      <div class="stat"><div class="stat-label"><span data-i18n="direction">Direction</span><b id="trustNum">50</b></div><div class="meter"><i id="trustFill" style="--bar:#d0a7ff"></i></div></div>
+    </div>
+    <div class="mini-chips"><span>◷ <b id="timeNum">20</b> <span data-i18n="weeks">semaines</span></span><span>◈ <b id="proofNum">0</b> <span data-i18n="proofs">preuves</span></span><span>▣ <b id="budgetNum">45</b> <span data-i18n="credits">crédits</span></span></div>
+  </aside>
+  <div class="mission-panel" id="missionPanel"><span class="overline" data-i18n="currentObjective">OBJECTIF ACTUEL</span><strong id="missionGoal">Rejoindre le portail de la première mission.</strong><span class="hint">⌖ <span id="distance">22 m</span> <span data-i18n="toObjective">jusqu'à l'objectif</span></span></div>
+  <div class="quest-marker" id="questMarker" aria-hidden="true"><span>✦</span><b id="markerDistance">22 m</b></div>
+  <div class="bottom-left"><div class="chapter-pips" id="chapterPips" aria-label="Progression"></div><div class="movement-hint" data-i18n="moveHint">ZQSD / WASD / flèches · Maj courir · Espace esquiver</div></div>
+  <div class="bottom-right"><button id="dodgeBtn" class="small-btn dodge" data-i18n="dodge" aria-label="Esquiver un obstacle">↯ Esquiver</button><button id="autoWalk" class="small-btn" data-i18n="autoWalk">⇢ Guidage</button><button id="actionBtn" class="action-btn"><span>✦</span><span data-i18n="interact">Interagir</span></button></div>
+  <div class="touch-controls" aria-label="Déplacement tactile" id="touchControls"><div class="touch-pad"><button data-move="up" aria-label="Avancer">↑</button><div><button data-move="left" aria-label="Gauche">←</button><button data-move="down" aria-label="Reculer">↓</button><button data-move="right" aria-label="Droite">→</button></div></div></div>
+  <aside class="field-journal" id="fieldJournal" aria-live="polite"><span data-i18n="journalLabel">✦ CARNET DE TERRAIN</span><strong>Explore, enquête, décide.</strong><small>Approche les personnages : les échanges s'ouvrent automatiquement.</small></aside>
+  <a class="career-upgrade" href="./carriere.html" aria-label="Jouer au nouveau doctorat en quatre années">★ <strong>Nouvelle campagne</strong><small>4 années · 120 jalons · 40 devis</small></a>
+  <div class="subtitle" id="subtitle" role="status" aria-live="polite"></div>
+  <div class="modal-shell" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-scrim"></div><div class="modal-card" id="modalCard"><div class="modal-eyebrow" id="modalEyebrow">L'AVENTURE COMMENCE</div><button class="modal-close" id="modalClose" type="button" aria-label="Fermer">×</button><div id="modalContent"></div></div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="load" id="loading"><span class="load-mark">ÉB</span><div class="loading-ring"></div><strong>INITIALISATION DU CAMPUS</strong><small data-i18n="loadTxt">Le comité prépare déjà des questions.</small></div>
+</div>
+<script type="module" src="../assets/doctorat-game.js?v=4"></script>
+</body>
+</html>
