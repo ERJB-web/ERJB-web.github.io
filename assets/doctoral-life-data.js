@@ -1056,7 +1056,7 @@ export const milestones=[
    "article1Draft"
   ],
   "year": 3,
-  "priority": "main",
+  "priority": "side",
   "weeks": 1
  },
  {
@@ -1185,7 +1185,7 @@ export const milestones=[
   "kind": "admin",
   "station": "Administration",
   "requires": [
-   "article1Submit"
+   "triangulation"
   ],
   "year": 4,
   "priority": "main",
