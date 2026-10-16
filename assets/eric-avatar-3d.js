@@ -32,15 +32,15 @@ export function createEricAvatar(T,options={}){
  };
  // Pelvis and fitted trousers.
  const hip=new T.Group();hip.position.y=1.05;rig.add(hip);
- sphere(hip,denim,0,-.02,0,.42,.26,.27);
+ sphere(hip,denim,0,-.02,0,.39,.21,.265);
  cylinder(hip,boot,0,.145,0,.36,.36,.075);
  box(hip,metal,.045,.148,.302,.064,.062,.018);
  // Shirt is gently tapered and contoured rather than a box.
  const torso=mesh(new T.CylinderGeometry(.46,.35,1.02,28,7,true),shirt,rig,0,1.64,0);
  torso.scale.set(1.11,1,.82);
  sphere(rig,shirt,0,1.98,0,.47,.19,.32);
- const sternum=box(rig,seam,0,1.62,.326,.015,.80,.008);
- for(let j=0;j<7;j++)sphere(rig,sole,0,1.37+j*.10,.34,.011,.013,.006,10);
+ const sternum=box(rig,seam,0,1.62,.323,.006,.73,.007);
+ for(let j=0;j<6;j++)sphere(rig,sole,0,1.39+j*.11,.339,.008,.009,.004,10);
  // Collar and shirt opening.
  const leftCollar=box(rig,shirt,-.105,2.115,.29,.245,.105,.028);
  leftCollar.rotation.z=-.49;leftCollar.rotation.y=.20;
@@ -55,23 +55,27 @@ export function createEricAvatar(T,options={}){
   const ear=sphere(rig,skin,side*.329,2.54,.03,.078,.133,.067,20);
   const inner=sphere(rig,new T.MeshStandardMaterial({color:0xc58d80,roughness:.9}),side*.35,2.54,.087,.028,.073,.014,16);
  }
- // Hair volume and strands; the portrait supplies fine detail on the front.
- sphere(rig,dark,0,2.87,-.015,.345,.145,.313,32);
- const scalp=sphere(rig,dark,0,2.902,-.045,.35,.13,.29,30);
- for(let i=0;i<44;i++){
-  const a=i*2.399963229728653;
-  const radial=Math.sqrt((i+.5)/44);
-  const xi=Math.cos(a)*.31*radial, zi=Math.sin(a)*.28*radial;
-  const level=2.925+.035*Math.sin(i*1.81)+.02*Math.cos(i*2.13);
-  const lock=sphere(rig,dark,xi,level,zi-.02,.075,.076,.089,10);
-  lock.rotation.z=Math.sin(a)*.34;lock.rotation.x=Math.cos(a)*.16;
+ // Short, naturally swept hairstyle: textured scalp and shaped locks, not clusters of spherical curls.
+ const hairBase=new T.MeshStandardMaterial({color:0x292524,roughness:.98,metalness:0});
+ sphere(rig,hairBase,0,2.846,-.060,.343,.202,.310,40);
+ sphere(rig,hairBase,0,2.915,-.075,.337,.115,.290,36);
+ // Curved strands converge into the crown; narrow overlapping tapered pieces eliminate the afro-like silhouette.
+ const strandMaterial=[0x282322,0x312a29,0x211f20,0x3b302c].map(hex=>new T.MeshStandardMaterial({color:hex,roughness:.95}));
+ for(let i=0;i<18;i++){
+  const row=Math.floor(i/9),index=i%9,u=(index-4)/4;
+  const strand=mesh(new T.CapsuleGeometry(.031,.13+(.04*(i%3)),5,8),strandMaterial[i%4],rig,
+    u*.285,2.938-row*.068, .12+row*.129);
+  strand.rotation.z=-.40+u*.57;strand.rotation.x=.72+row*.22;
+  strand.scale.set(1,1.0+(i%3)*.17,1.0);
  }
- for(let i=0;i<8;i++){
-  const x=(i-3.5)*.083;
-  sphere(rig,dark,x,2.848,.29,.058,.083,.060,14);
+ // Slightly asymmetrical hairline consistent with Éric's portrait.
+ for(let i=0;i<7;i++){
+  const lock=mesh(new T.CapsuleGeometry(.037,.085,4,8),strandMaterial[(i+1)%4],rig,
+   (i-3)*.092,2.815+(i%3)*.020,.284-(i%2)*.04);
+  lock.rotation.z=-.42+(i-3)*.065;lock.rotation.x=.60;
  }
  const faceTexture=makeFaceTexture(T,options.portraitUrl||"../assets/portrait.jpg",()=>{options.onReady?.();});
- const faceMat=new T.MeshStandardMaterial({map:faceTexture,transparent:true,side:T.DoubleSide,roughness:.86,metalness:0,depthWrite:false,alphaTest:.05,polygonOffset:true,polygonOffsetFactor:-1});
+ const faceMat=new T.MeshBasicMaterial({map:faceTexture,transparent:true,side:T.DoubleSide,depthWrite:false,alphaTest:.025,polygonOffset:true,polygonOffsetFactor:-1});
  // Curved front surface. Vertex positions wrap back around the cheeks and temples;
  // edges gradually disappear into skin instead of a rectangular pasted photograph.
  const nx=40,ny=52,vertices=[],uvs=[],indices=[];
@@ -97,15 +101,15 @@ export function createEricAvatar(T,options={}){
  geometry.setIndex(indices);geometry.computeVertexNormals();
  const face=mesh(geometry,faceMat,rig);face.renderOrder=6;face.castShadow=false;
  // Facial hair continues under jaw in genuine volume (without a moustache blob).
- sphere(rig,new T.MeshStandardMaterial({color:0x4b3a37,roughness:.99,transparent:true,opacity:.77}),0,2.27,.04,.220,.067,.18,22);
+ // Facial hair is retained in the photographic texture, without an artificial moustache object.
  // Spine movement and articulated arms, two pivot points per limb.
  const arms=[],legs=[];
  for(const side of [-1,1]){
   const shoulder=new T.Group();shoulder.position.set(side*.52,1.99,0);rig.add(shoulder);
-  sphere(shoulder,shirt,0,-.09,0,.197,.24,.22);
+  sphere(shoulder,shirt,0,-.09,0,.167,.202,.172);
   const sleeve=cylinder(shoulder,shirt,0,-.31,0,.186,.143,.48);
   const elbow=new T.Group();elbow.position.set(0,-.56,0);shoulder.add(elbow);
-  sphere(elbow,shirt,0,0,0,.145,.158,.16);
+  sphere(elbow,shirt,0,0,0,.12,.125,.13);
   cylinder(elbow,shirt,0,-.24,0,.145,.11,.45);
   cylinder(elbow,seam,0,-.46,0,.116,.117,.035);
   sphere(elbow,skin,0,-.595,0,.106,.13,.105,20);
@@ -188,15 +192,15 @@ function makeFaceTexture(T,url,onReady){
   g.clearRect(0,0,512,640);
   // Portrait crop includes natural hairstyle, facial expression, jaw and upper neck.
   g.save();
-  g.beginPath();g.ellipse(256,323,246,307,0,0,Math.PI*2);g.clip();
-  g.drawImage(img,288,36,342,535,0,0,512,640);
+  g.beginPath();g.ellipse(256,326,245,304,0,0,Math.PI*2);g.clip();
+  g.drawImage(img,286,105,354,459,0,0,512,640);
   g.restore();
   // A feathered alpha mask prevents visible photograph-to-skin rectangular edges.
   g.globalCompositeOperation="destination-in";
-  const v=g.createRadialGradient(256,315,150,256,320,316);
+  const v=g.createRadialGradient(256,322,148,256,327,315);
   v.addColorStop(0,"rgba(0,0,0,1)");
-  v.addColorStop(.72,"rgba(0,0,0,1)");
-  v.addColorStop(.94,"rgba(0,0,0,.82)");
+  v.addColorStop(.68,"rgba(0,0,0,1)");
+  v.addColorStop(.87,"rgba(0,0,0,.74)");
   v.addColorStop(1,"rgba(0,0,0,0)");
   g.fillStyle=v;g.fillRect(0,0,512,640);
   g.globalCompositeOperation="source-over";
