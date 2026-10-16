@@ -134,7 +134,7 @@ export function createEricAvatar(T,options={}){
  const shaft=cylinder(stick,boot,.03,-.59,.01,.025,.025,1.25);
  const paddle=box(stick,sole,.12,-1.21,.08,.32,.105,.068);paddle.rotation.y=.16;
  stick.visible=false;
- let motion="idle",elapsed=0;
+ let fallBlend=0,elapsed=0,motion="idle";
  function update(dt=0,time=0,velocity={x:0,z:0},place="university"){
   const speed=Math.hypot(velocity.x||0,velocity.z||0);
   const walking=speed>.08;
@@ -146,7 +146,9 @@ export function createEricAvatar(T,options={}){
   const swing=Math.sin(time*.001*period),bounce=walking?Math.abs(Math.sin(time*.001*period))*(skating?.012:.036):Math.sin(time*.0011)*.009;
   rig.position.y=bounce;
   rig.rotation.z=walking?Math.sin(time*.001*period)*.017:Math.sin(time*.0018)*.009;
-  rig.rotation.x=skating?(walking?-.135:-.06):0;
+  rig.rotation.x=(skating?(walking?-.135:-.06):0)+fallBlend*1.18;
+  rig.rotation.z+=fallBlend*.23;
+  rig.position.y-=fallBlend*.91;
   hip.rotation.y=walking?Math.sin(time*.001*period)*.045:0;
   for(let i=0;i<2;i++){
    const leg=legs[i],arm=arms[i],phase=i===0?1:-1;
@@ -167,10 +169,11 @@ export function createEricAvatar(T,options={}){
   }
   shadow.material.opacity=walking?.28:.33;
  }
- function setPosition(x,y,z){root.position.set(x,y,z);}
+ function setFall(progress=0){fallBlend=Math.max(0,Math.min(1,Math.sin(progress*Math.PI)*1.18));}
+  function setPosition(x,y,z){root.position.set(x,y,z);}
  function setEquipment(equipment){stick.visible=equipment==="hockey";for(const leg of legs)leg.blade.visible=equipment==="hockey";}
  function dispose(){for(const m of meshes){m.geometry?.dispose?.();}for(const mat of [skin,dark,eyes,denim,boot,sole,metal,shirt,seam])mat.dispose?.();shirtTexture.dispose?.();faceTexture.dispose?.();}
- return {group:root,update,setPosition,setEquipment,dispose,get motion(){return motion;},get true3D(){return true;},get reference(){return "assets/portrait.jpg"}};
+ return {group:root,update,setPosition,setFall,setEquipment,dispose,get motion(){return motion;},get true3D(){return true;},get reference(){return "assets/portrait.jpg"}};
 }
 function makeShirtTexture(T){
  const c=document.createElement("canvas");c.width=512;c.height=512;
