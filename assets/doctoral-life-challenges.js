@@ -7,6 +7,7 @@ const buttons=txt=>'<div class="action-row">'+txt+'</div>';
 export function playMission(t,s,api){
  if(t.kind==="design")return methods(t,s,api);
  if(t.kind==="literature")return library(t,s,api);
+ if(t.id==="siteAuthorization"||t.id==="dataContracts")return permissions(t,s,api);
  if(t.kind==="field")return network(t,s,api);
  if(["funding","work","analysis"].includes(t.kind))return resources(t,s,api);
  if(t.kind==="defense")return defense(t,s,api);
@@ -58,6 +59,39 @@ function library(t,s,api){
  root.querySelector('[data-action="submit"]').onclick=()=>{if(set.size!==3){api.toast("Trois pièces nécessaires.");return;}const ok=[...set].every(i=>files[i][1]);if(ok&&t.id==="researchGap")s.novelty=true;api.finish(t,{rigor:ok?7:-8,proof:ok?3:0,stress:ok?0:7},ok?"Lacune et preuves maintenant documentées.":"Lacune insuffisamment étayée : risque au comité.",{risky:!ok});};
  }draw();
 }
+function permissions(t,s,api){
+ const data=t.id==="dataContracts";
+ const labels=data?[
+ ["Responsable de données","Accord sur les variables et les finalités"],
+ ["Protection institutionnelle","Contrat et mesures de sécurité"],
+ ["Responsable scientifique","Validation des responsabilités et conditions d'accès"],
+ ["Raccourci : téléchargement sans permission","Illégal dans le scénario"],
+ ["Fichier transmis sans convention","Ne garantit pas le droit d'usage"]
+ ]:[
+ ["Direction du terrain","Faisabilité opérationnelle et disponibilité"],
+ ["Partenaires de terrain","Modalités de recrutement et responsabilités"],
+ ["Responsable scientifique","Accord institutionnel documenté"],
+ ["Simple promesse orale","Ne remplace pas une autorisation"],
+ ["Accès supposé dans le protocole","Une hypothèse ne vaut pas une permission"]
+ ];
+ const signatures=new Set();
+ const render=()=>{
+ const root=api.open(head(t,"Tu dois négocier trois accords distincts. Visite les responsables et rassemble les pièces documentées. Une conversation informelle ne vaut pas une permission de mener la recherche.")+
+ '<div class="evidence-grid">'+labels.map((label,i)=>'<button data-sign="'+i+'" class="'+(signatures.has(i)?"marked":"")+'"><b>'+e(label[0])+'</b><small>'+e(label[1])+'</small></button>').join("")+'</div>'+
+ '<div class="assessment"><h3>Dossier des accès</h3><p>Accords réunis : '+signatures.size+'/3. Les autorisations sont des contraintes distinctes du choix des méthodes et de la disponibilité des services.</p></div>'+
+ '<div class="action-row">'+b("Transmettre les accords","submit")+'</div>');
+ for(const opt of root.querySelectorAll("[data-sign]"))opt.onclick=()=>{const i=+opt.dataset.sign;signatures.has(i)?signatures.delete(i):signatures.size<3?signatures.add(i):api.toast("Trois documents au maximum.");render();};
+ root.querySelector('[data-action="submit"]').onclick=()=>{
+ if(signatures.size!==3){api.toast("Il faut trois accords.");return;}
+ const valid=[...signatures].every(i=>i<3);
+ if(valid&&data)s.access=true;
+ if(valid&&!data)s.sites=true;
+ api.finish(t,{rigor:valid?6:-12,trust:valid?5:-10,proof:valid?1:0,stress:valid?0:11},
+ valid?"Conditions et responsabilités consignées. L'accès réel reste soumis à l'ensemble des autorisations applicables.":"Les pièces rassemblées ne constituent pas une autorisation. La collecte serait prématurée.",{risky:!valid});
+ };
+ };render();
+}
+
 function network(t,s,api){
  const points=[[50,135],[163,43],[275,82],[379,190],[221,245]],labels=["Usagers","CLSC","OC","Organisme","Annuaire"],pairs=[[0,1],[1,2],[2,3],[1,4],[0,4]],selected=new Set();let active=-1;
  function draw(){
@@ -65,7 +99,7 @@ function network(t,s,api){
  const nodes=points.map((p,i)=>'<g data-node="'+i+'" tabindex="0" role="button"><circle cx="'+p[0]+'" cy="'+p[1]+'" r="36" fill="'+(i===active?"#526eaf":"#224e62")+'" stroke="#afffe2" stroke-width="2"/><text x="'+p[0]+'" y="'+(p[1]+4)+'" text-anchor="middle" font-size="12" fill="white" style="pointer-events:none">'+labels[i]+'</text></g>').join("");
  const root=api.open(head(t,"Trace trois relations réellement documentées, pas seulement des établissements proches. Entretiens fictifs : Usagers–CLSC, CLSC–OC et OC–Organisme.")+'<div class="assessment"><svg style="display:block;width:100%;max-width:480px;margin:auto" viewBox="0 0 440 295">'+edges+nodes+'</svg></div><p>'+selected.size+' / 3 relations</p>'+buttons(b("Valider la carte","submit")));
  for(const n of root.querySelectorAll("[data-node]")){const hit=()=>{const i=+n.dataset.node;if(active<0){active=i;draw();return;}const j=pairs.findIndex(pair=>pair.includes(active)&&pair.includes(i));active=-1;if(j<0)api.toast("Relation inconnue.");else if(selected.has(j))selected.delete(j);else if(selected.size<3)selected.add(j);draw();};n.onclick=hit;n.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();hit();}};}
- root.querySelector('[data-action="submit"]').onclick=()=>{if(selected.size!==3){api.toast("Trace trois relations.");return;}const ok=[...selected].every(i=>i<3);if(ok&&["siteAuthorization","dataContracts"].includes(t.id))s.access=true;api.finish(t,{rigor:ok?7:-8,trust:ok?3:-5,proof:ok?2:0},ok?"Liens effectifs et services répertoriés sont différenciés.":"Cartographie trop spéculative.",{risky:!ok});};
+ root.querySelector('[data-action="submit"]').onclick=()=>{if(selected.size!==3){api.toast("Trace trois relations.");return;}const ok=[...selected].every(i=>i<3);api.finish(t,{rigor:ok?7:-8,trust:ok?3:-5,proof:ok?2:0},ok?"Liens effectifs et services répertoriés sont différenciés.":"Cartographie trop spéculative.",{risky:!ok});};
  }draw();
 }
 function negotiate(t,s,api){
