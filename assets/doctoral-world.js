@@ -371,14 +371,30 @@ function desk(x,z,width=2.3,screen=false){
    let dz=Number(controls.has("ArrowDown")||controls.has("KeyS"))-Number(controls.has("ArrowUp")||controls.has("KeyW")||controls.has("KeyZ"));
    if(auto&&!dx&&!dz){dx=auto.x-modelX;dz=auto.z-modelZ;if(Math.hypot(dx,dz)<.78){dx=dz=0;auto=null;}}
    else if(dx||dz)auto=null;
-   const d=Math.hypot(dx,dz),walking=d>.07;
-   const run=controls.has("ShiftLeft")||controls.has("ShiftRight");
-   const speed=room==="rink"?(run?10:7.6):(run?10:6.7);
-   if(walking){modelX=Math.max(room==="university"?-27:-13,Math.min(room==="university"?27:13,modelX+dx/d*speed*dt));
-    modelZ=Math.max(-25,Math.min(13,modelZ+dz/d*speed*dt));
+   const d=Math.hypot(dx,dz),run=controls.has("ShiftLeft")||controls.has("ShiftRight");
+   let moveVX=0,moveVZ=0;
+   if(room==="rink"){
+    const accel=run?15:11,limit=run?11:8;
+    if(d>.07){skate.velocityX+=dx/d*accel*dt;skate.velocityZ+=dz/d*accel*dt;}
+    const drag=controls.has("Space")?.89:.991;
+    const friction=Math.pow(drag,dt*60);
+    skate.velocityX*=friction;skate.velocityZ*=friction;
+    const speed=Math.hypot(skate.velocityX,skate.velocityZ);
+    if(speed>limit){skate.velocityX*=limit/speed;skate.velocityZ*=limit/speed;}
+    moveVX=skate.velocityX;moveVZ=skate.velocityZ;
+    const nextX=Math.max(-12.8,Math.min(12.8,modelX+moveVX*dt));
+    const nextZ=Math.max(-25,Math.min(13,modelZ+moveVZ*dt));
+    if(nextX===-12.8||nextX===12.8){skate.velocityX*=-.32;skate.balance+=Math.sign(moveVX)*.09;}
+    if(nextZ===-25||nextZ===13)skate.velocityZ*=-.22;
+    modelX=nextX;modelZ=nextZ;
+   }else if(d>.07){
+    const speed=run?10:6.7;moveVX=dx/d*speed;moveVZ=dz/d*speed;
+    modelX=Math.max(room==="university"?-27:-13,Math.min(room==="university"?27:13,modelX+moveVX*dt));
+    modelZ=Math.max(-25,Math.min(13,modelZ+moveVZ*dt));
    }
+   const walking=Math.hypot(moveVX,moveVZ)>.14;
    eric.setPosition(modelX,0,modelZ);
-   eric.update(dt,ts,{x:walking?dx/d*speed:0,z:walking?dz/d*speed:0},room);
+   eric.update(dt,ts,{x:moveVX,z:moveVZ},room);
    camera.position.lerp(new T.Vector3(modelX,room==="rink"?5.7:5.7,modelZ+10.5),Math.min(1,dt*3.7));
    camera.lookAt(modelX,1.5,modelZ-3.4);
    
@@ -424,6 +440,12 @@ function desk(x,z,width=2.3,screen=false){
    }
    if(room==="rink"){
     if(walking&&!skate.completed){skate.started=true;skate.clock+=dt;
+     const gate=skate.gates[skate.gateIndex];
+     if(gate&&Math.hypot(modelX-gate[0],modelZ-gate[1])<2){
+       gate.indicator.visible=false;skate.gateIndex++;
+       if(skate.gates[skate.gateIndex])skate.gates[skate.gateIndex].indicator.visible=true;
+       opts.onNarrate?.("PORTE "+skate.gateIndex+"/"+skate.gates.length+" · Continue la trajectoire !");
+     }
      skate.balance+=dx*dt*.38+Math.sin(clock*2.9)*dt*.18+Math.sin(clock*1.7+.7)*dt*.14;
      if(Math.abs(modelX)>7)skate.balance+=Math.sign(modelX)*dt*.25;
      for(let k=0;k<8;k++){const coneX=k%2?-5:5,coneZ=-18+k*3.2;
@@ -435,9 +457,9 @@ function desk(x,z,width=2.3,screen=false){
       skate.falls++;skate.balance=0;skate.clock=Math.max(0,skate.clock-6);
       opts.onNarrate?.("Chute sur la glace ! " +skate.falls+" · Reprends ton équilibre avec Espace.");
      }
-     if(skate.clock>=23){skate.completed=true;opts.onSkate?.({falls:skate.falls,seconds:Math.round(skate.clock)});}
+     if(skate.gateIndex===skate.gates.length){skate.completed=true;opts.onSkate?.({falls:skate.falls,seconds:Math.round(skate.clock),gates:skate.gateIndex});}
     }
-    opts.onBalance?.(skate.balance,Math.min(1,skate.clock/23),skate.falls);
+    opts.onBalance?.(skate.balance,skate.gateIndex/skate.gates.length,skate.falls,skate.gateIndex,skate.gates.length);
    }
   }
   renderer.render(scene,camera);
