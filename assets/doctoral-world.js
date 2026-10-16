@@ -532,7 +532,7 @@ const cast=[
   group=new T.Group();scene.add(group);
   // Studio lighting colors adapt to each location.
   const groundLight=new T.HemisphereLight(0xe7f3ef,0x153b50,2.55);group.add(groundLight);
-  const sun=new T.DirectionalLight(0xffdec0,2.65);sun.position.set(-11,15,14);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);sun.shadow.camera.left=-32;sun.shadow.camera.right=32;sun.shadow.camera.top=30;sun.shadow.camera.bottom=-30;group.add(sun);
+  const sun=new T.DirectionalLight(0xffdec0,2.65);sun.position.set(-11,15,14);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);sun.shadow.camera.left=-32;sun.shadow.camera.right=32;sun.shadow.camera.top=30;sun.shadow.camera.bottom=-30;group.add(sun);
   ({university,classroom,laboratory,library,office,home,conference,field,auditorium,rink}[room]||university)();
   decoratePlay();
   worldReality?.syncCast(actors);
@@ -544,7 +544,9 @@ const cast=[
  }
  function boot(){
   renderer=new T.WebGLRenderer({canvas,antialias:true,powerPreference:"high-performance"});
-  renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.85));renderer.setSize(canvas.clientWidth||innerWidth,canvas.clientHeight||innerHeight,false);
+  // High resolution rendering is done on the player's own GPU via WebGL.
+  let renderRatio=Math.min(devicePixelRatio||1,2.4),targetRatio=renderRatio;
+  renderer.setPixelRatio(renderRatio);renderer.setSize(canvas.clientWidth||innerWidth,canvas.clientHeight||innerHeight,false);
   renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.36;renderer.outputColorSpace=T.SRGBColorSpace;
   renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;
   scene=new T.Scene();camera=new T.PerspectiveCamera(62,1,.1,145);
@@ -610,6 +612,15 @@ const cast=[
  function tick(ts){
   if(!renderer?.setAnimationLoop)requestAnimationFrame(tick);if(!renderer)return;
   const dt=Math.min(.055,(ts-last||16)/1000);last=ts;clock+=dt;
+  // Mild adaptive resolution avoids losing input responsiveness on slow GPUs.
+  if(!tick.metrics)tick.metrics={total:0,seconds:0,window:0};
+  const perf=tick.metrics;perf.total+=1;perf.seconds+=dt;perf.window+=dt;
+  if(perf.window>4.5&&perf.seconds>0){
+    const avg=perf.total/perf.seconds;
+    const next=avg<37?Math.max(1.1,renderRatio*.87):avg>57?Math.min(targetRatio,renderRatio*1.06):renderRatio;
+    if(Math.abs(next-renderRatio)>.07){renderRatio=next;renderer.setPixelRatio(renderRatio);resize();}
+    perf.total=0;perf.seconds=0;perf.window=0;
+  }
   if(!opts.isPaused?.()){
    let dx=Number(controls.has("ArrowRight")||controls.has("KeyD"))-Number(controls.has("ArrowLeft")||controls.has("KeyA")||controls.has("KeyQ"));
    let dz=Number(controls.has("ArrowDown")||controls.has("KeyS"))-Number(controls.has("ArrowUp")||controls.has("KeyW")||controls.has("KeyZ"));
