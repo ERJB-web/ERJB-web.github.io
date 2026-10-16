@@ -2,9 +2,11 @@ import {milestones,initialCareerState,availableMilestones,assessDesign,checkDefe
 import {playMission,methods} from "./doctoral-life-challenges.js";
 import {createAdventureWorld,PLACES} from "./doctoral-world.js?v=8";
 import {createScore} from "./doctoral-sound.js";
+import {createHockeySfx} from "./hockey-sfx.js";
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const KEY="doctoral-life-four-year-v1";
 const score=createScore();
+const hockeySound=createHockeySfx();
 let worldController=null;
 const kindToWorld=(t)=>{const k=typeof t==="string"?t:t?.kind;
  if(k==="admin")return "university";
@@ -35,6 +37,7 @@ function open(content){modal=true;$("dialogContent").innerHTML=content;$("dialog
 function close(){modal=false;$("dialog").hidden=true;}
 const api={open,close,toast:alertGame,save:persist,finish:finish};
 function start(newGame){
+ hockeySound.unlock();
  st=newGame?initialCareerState():read()||initialCareerState();st.journal ||= [];st.attempts ||= {};
  if(st.ending)st=initialCareerState();st.difficulty="doctorale"; $("intro").hidden=true;persist();update();
  worldController?.visit("university");
@@ -218,7 +221,7 @@ if(hockeyShoot){
  hockeyShoot.addEventListener("pointerdown",down);
  for(const type of ["pointerup","pointercancel","pointerleave"])hockeyShoot.addEventListener(type,up);
 }
-$("hockeyFaceoff").onclick=()=>{worldController?.faceoff();alertGame("Nouvelle remise en jeu !");};
+$("hockeyFaceoff").onclick=()=>{worldController?.faceoff();hockeySound.play("faceoff");alertGame("Nouvelle remise en jeu !");};
 const balanceControl=$("balanceBtn");
 if(balanceControl){
  const hold=ev=>{ev.preventDefault();pressed.add("Space");balanceControl.classList.add("pressed");};
@@ -412,7 +415,10 @@ function bootNewWorld(){
  onSkate:skatingSuccess,
  onHockeyFrame:updateHockeyFrame,
  onHockeyWin:hockeyVictory,
- onHockeyEvent:(type,data)=>{if(type==="start")score.setZone("rink");},
+ onHockeyEvent:(type,data)=>{
+  if(type==="start"){score.setZone("rink");hockeySound.play("faceoff");}
+  else hockeySound.play(type,type==="skate"||type==="edge"?Math.min(1.4,(data?.speed||1)/8):1);
+},
  onHockeyAsset:(asset,ok)=>{if(ok)console.info("Hockey model loaded",asset);},
  onEvidence:earnClue,
  onDamage:reviewerAttack,
