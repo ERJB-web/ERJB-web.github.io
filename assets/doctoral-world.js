@@ -311,7 +311,7 @@ function desk(x,z,width=2.3,screen=false){
   ({university,classroom,laboratory,library,office,home,conference,field,auditorium,rink}[room]||university)();
   decoratePlay();
   // Keep Eric separate from rebuildable environment.
-  player.position.set(0,0,9);frame=-1;skate.lastReport=0;
+  eric.setPosition(0,0,9);eric.setEquipment(next==="rink"?"hockey":"casual");skate.lastReport=0;
   opts.onVisit?.(next,choose(next));
   if(!initial)opts.onNarrate?.("Nouveau lieu · "+choose(next).name);
  }
@@ -372,11 +372,11 @@ function desk(x,z,width=2.3,screen=false){
    if(walking){modelX=Math.max(room==="university"?-27:-13,Math.min(room==="university"?27:13,modelX+dx/d*speed*dt));
     modelZ=Math.max(-25,Math.min(13,modelZ+dz/d*speed*dt));
    }
-   player.position.set(modelX,walking?Math.sin(ts*.010)*.025:0,modelZ);
-   updateSprite(walking,ts,dz);
+   eric.setPosition(modelX,0,modelZ);
+   eric.update(dt,ts,{x:walking?dx/d*speed:0,z:walking?dz/d*speed:0},room);
    camera.position.lerp(new T.Vector3(modelX,room==="rink"?5.7:5.7,modelZ+10.5),Math.min(1,dt*3.7));
    camera.lookAt(modelX,1.5,modelZ-3.4);
-   actorPlane.quaternion.copy(camera.quaternion);actorPlane.rotation.x=0;actorPlane.rotation.z=0;
+   
    for(const npc of actors){
     npc.body.position.x=npc.x+Math.sin(clock*.72+npc.sway)*npc.move*.46;
     npc.body.position.z=npc.z+Math.cos(clock*.6+npc.sway)*npc.move*.30;
