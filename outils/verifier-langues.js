@@ -30,5 +30,22 @@ const rapport = codes.map(code=>{
  const etat=adaptee?"adaptation FALC":partielle?"traduction partielle, contenu intégral accessible":"version complète";
  return {code,langueDuContenu:doclang,rubriques:ids.length,etat};
 });
+
+const TYPOS = require("./typologies-multilingues");
+const typesFR = [...pages.fr.matchAll(/<span class="type">([^<>]+)<\/span>/g)].map(m=>m[1]);
+if(!typesFR.length) erreurs.push("aucun type de recherche trouvé");
+for(const code of ["en","es","zh","ar","ru"]){
+ const typesTraduits = [...pages[code].matchAll(/<span class="type">([^<>]+)<\/span>/g)].map(m=>m[1]);
+ const attendusTypes = typesFR.map(type => TYPOS.traduire(code,type));
+ if(JSON.stringify(typesTraduits)!==JSON.stringify(attendusTypes))
+   erreurs.push(code+": typologies de recherche non traduites ou ordre incohérent");
+ if(typesFR.some(type=>!TYPOS.types[type]?.[code]))
+   erreurs.push(code+": une typologie n'est pas couverte dans le lexique multilingue");
+}
+for(const code of codes){
+ if(pages[code].includes("Français canadien"))erreurs.push(code+": ancien libellé français canadien");
+ if(!pages[code].includes("#0055a4"))erreurs.push(code+": drapeau français absent");
+}
+
 console.log(JSON.stringify({versions:rapport,erreurs,traductionsRestantACompleter:["inuktitut","innu-aimun"]},null,2));
 process.exitCode=erreurs.length?1:0;

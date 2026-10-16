@@ -11,7 +11,7 @@ const CRCHUM_LAYANI = "https://www.chumontreal.qc.ca/crchum/chercheurs/geraldine
 
 // Langues complètes (hreflang) puis versions abrégées : inuktitut, innu-aimun, facile à lire.
 const LANGUES = [
-  { code: "fr", libelle: "FR", nom: "Français canadien", dossier: "", hreflang: "fr", drapeau: "fr", voix: "fr-CA" },
+  { code: "fr", libelle: "FR", nom: "Français", dossier: "", hreflang: "fr", drapeau: "fr", voix: "fr-FR" },
   { code: "en", libelle: "EN", nom: "English", dossier: "en/", hreflang: "en", drapeau: "gb", voix: "en-CA" },
   { code: "es", libelle: "ES", nom: "Español", dossier: "es/", hreflang: "es", drapeau: "es", voix: "es-ES" },
   { code: "zh", libelle: "中文", nom: "中文（简体）", dossier: "zh/", hreflang: "zh-Hans", drapeau: "cn", voix: "zh-CN" },
@@ -42,7 +42,7 @@ const AUTEURS = {
 /* ---------------------------------------------------------------- Français */
 const fr = {
   lang: "fr",
-  locale: "fr_CA",
+  locale: "fr_FR",
   chemin: "",
   meta: {
     titre: "Éric Bernier",

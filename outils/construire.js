@@ -31,6 +31,7 @@ const ATELIERS = require("./ateliers");
 const LOGICIELS = require("./logiciels");
 const SPHERES_PUBLIC = require("./spheres-publication.json");
 const NAV_RUBRIQUES = require("./navigation-rubriques");
+const TYPES_ETUDES = require("./typologies-multilingues");
 const AUDIENCE = require("./audience.json");
 const AUDIENCE_LIBELLES = require("./audience-libelles");
 if(AUDIENCE.websiteId && !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(AUDIENCE.websiteId))throw new Error("Identifiant Umami invalide");
@@ -340,8 +341,8 @@ const etoile = (cx, cy, r) => {
   return `M${p.join("L")}Z`;
 };
 const DRAPEAUX = {
-  fr: '<svg viewBox="0 0 24 16"><path fill="#003da5" d="M0 0h24v16H0z"/><path fill="#fff" d="M10 0h4v16h-4zM0 6h24v4H0z"/><path fill="#fff" d="M5 1.4c.5.5.6 1.1.3 1.7.5-.3 1-.2 1.2.3-.4 0-.7.2-.9.5h-1.2c-.2-.3-.5-.5-.9-.5.2-.5.7-.6 1.2-.3-.3-.6-.2-1.2.3-1.7zM4.1 3.9h1.8v.4h-1.8zM19 1.4c.5.5.6 1.1.3 1.7.5-.3 1-.2 1.2.3-.4 0-.7.2-.9.5h-1.2c-.2-.3-.5-.5-.9-.5.2-.5.7-.6 1.2-.3-.3-.6-.2-1.2.3-1.7zM18.1 3.9h1.8v.4h-1.8zM5 11.4c.5.5.6 1.1.3 1.7.5-.3 1-.2 1.2.3-.4 0-.7.2-.9.5h-1.2c-.2-.3-.5-.5-.9-.5.2-.5.7-.6 1.2-.3-.3-.6-.2-1.2.3-1.7zM4.1 13.9h1.8v.4h-1.8zM19 11.4c.5.5.6 1.1.3 1.7.5-.3 1-.2 1.2.3-.4 0-.7.2-.9.5h-1.2c-.2-.3-.5-.5-.9-.5.2-.5.7-.6 1.2-.3-.3-.6-.2-1.2.3-1.7zM18.1 13.9h1.8v.4h-1.8z"/></svg>',
-  gb: '<svg viewBox="0 0 32 16"><path fill="#d52b1e" d="M0 0h8v16H0zM24 0h8v16h-8z"/><path fill="#fff" d="M8 0h16v16H8z"/><path fill="#d52b1e" d="M16 2.2l1 1.9 1-.5-.4 2.7 1.4-1.4.3.8 1.6-.3-.5 1.6.7.3-2.4 2 .3.9-2.4-.4v2.4h-.4v-2.4l-2.4.4.3-.9-2.4-2 .7-.3-.5-1.6 1.6.3.3-.8 1.4 1.4-.4-2.7 1 .5z"/></svg>',
+  fr: '<svg viewBox="0 0 30 20"><path fill="#0055a4" d="M0 0h10v20H0z"/><path fill="#fff" d="M10 0h10v20H10z"/><path fill="#ef4135" d="M20 0h10v20H20z"/></svg>',
+  gb: '<svg viewBox="0 0 32 16"><path fill="#012169" d="M0 0h32v16H0z"/><path stroke="#fff" stroke-width="4.5" d="M0 0l32 16M32 0L0 16"/><path stroke="#c8102e" stroke-width="2" d="M0 0l32 16M32 0L0 16"/><path stroke="#fff" stroke-width="6" d="M16 0v16M0 8h32"/><path stroke="#c8102e" stroke-width="3" d="M16 0v16M0 8h32"/></svg>',
   es: '<svg viewBox="0 0 3 2"><path fill="#aa151b" d="M0 0h3v2H0z"/><path fill="#f1bf00" d="M0 .5h3v1H0z"/></svg>',
   cn: `<svg viewBox="0 0 30 20"><path fill="#ee1c25" d="M0 0h30v20H0z"/><path fill="#ffde00" d="${etoile(5, 5, 3)}${etoile(10, 2, 1)}${etoile(12, 4, 1)}${etoile(12, 7, 1)}${etoile(10, 9, 1)}"/></svg>`,
 };
@@ -1194,7 +1195,7 @@ function sectionConceptualisation(c, imbrique = false) {
     )
     .join("");
   const lectures = (arr) =>
-    `<ol class="lectures">${arr.map((x) => `<li><span class="lecture-auteurs">${e(x.auteurs)} (${e(x.annee)})</span> ${x.lien ? lien(x.lien, e(x.titre)) : e(x.titre)} <span class="type">${e(x.type)}</span></li>`).join("")}</ol>`;
+    `<ol class="lectures">${arr.map((x) => `<li><span class="lecture-auteurs">${e(x.auteurs)} (${e(x.annee)})</span> ${x.lien ? lien(x.lien, e(x.titre)) : e(x.titre)} <span class="type">${e(TYPES_ETUDES.traduire(c.lang,x.type))}</span></li>`).join("")}</ol>`;
   return `<div class="${imbrique ? "conceptualisation-these" : "section-corps pleine"}">
 <div class="${imbrique ? "conceptualisation-texte" : "colonne-texte"}">
 ${imbrique ? "" : `<p class="surtitre">${e(t.surtitre)}</p>`}
@@ -1508,7 +1509,7 @@ ${sections[s].replace(/<p class="surtitre">(\d{2} · )?/, `<p class="surtitre">$
 
 function enTeteAbregee(c, code) {
   return `<!doctype html>
-<html lang="fr" data-voix="fr-CA" data-racine="../"${code === "falc" ? ' data-audio="falc"' : ""}>
+<html lang="fr" data-voix="fr-FR" data-racine="../"${code === "falc" ? ' data-audio="falc"' : ""}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
