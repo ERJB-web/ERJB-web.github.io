@@ -19,7 +19,7 @@ const color={orange:0xf36633,cream:0xf0efed,ink:0x151515,teal:0x286d5c,stone:0x7
 export function createAdventureWorld(T,canvas,opts={}){
  const choose=key=>PLACES.find(p=>p.id===key)||PLACES[0];
  let room="university",scene,camera,renderer,group,player,actorPlane,atlasImage,spriteCanvas,spriteTex;
- let last=0,clock=0,frame=-1,modelX=0,modelZ=7,busy=false,auto=null,actors=[],targets=[],clickables=[],particles=[],activeTarget=null,controls=opts.keys||new Set();
+ let last=0,clock=0,frame=-1,modelX=0,modelZ=7,busy=false,auto=null,actors=[],targets=[],clickables=[],particles=[],chasers=[],collectibles=[],hitCooldown=0,activeTarget=null,controls=opts.keys||new Set();
  let skate={balance:0,clock:0,falls:0,completed:false,started:false,lastReport:0};
  const mat=(hex,metal=.05,rough=.65,glow=0)=>new T.MeshStandardMaterial({color:hex,metalness:metal,roughness:rough,emissive:glow?hex:0,emissiveIntensity:glow});
  const M={
@@ -87,7 +87,38 @@ export function createAdventureWorld(T,canvas,opts={}){
   targets.push({id,label,x,z,type,ring,gem,text,armed:true});
   clickables.push({mesh:ring,id});
  }
- function desk(x,z,width=2.3,screen=false){
+ function clue(label,x,z,index){
+  const g=new T.Group();g.position.set(x,1.1,z);group.add(g);
+  shape(new T.IcosahedronGeometry(.35,1),mat([color.orange,0xa3e4c1,0x9fd7e8][index%3],.4,.22,.65),0,0,0,g);
+  const tor=shape(new T.TorusGeometry(.57,.046,8,32),M.white,0,-.35,0,g);tor.rotation.x=Math.PI/2;
+  const t=sign(label,0,1.03,0,2.6,.43,g);
+  collectibles.push({id:room+"-"+index,label,group:g,x,z,taken:false});
+}
+function pursuer(name,x,z,speed=2.7){
+  const g=new T.Group();g.position.set(x,0,z);group.add(g);
+  const purple=mat(0x9d597d,.25,.28,.65),page=mat(0xf2dfcc),accent=mat(0xf36633,.3,.28,.5);
+  for(let j=0;j<7;j++){const p=cube(.9,.065,.6,j%3===0?accent:page,Math.cos(j*2.2)*.38,1.6+(j-3)*.12,Math.sin(j*2.2)*.25,g);p.rotation.y=j*.32;p.rotation.z=j*.25;}
+  ball(.28,purple,0,2.5,0,g);sign(name,0,3.25,0,3,.47,g,true);
+  chasers.push({group:g,x,z,startX:x,startZ:z,speed,phase:Math.random()*5});
+}
+function decoratePlay(){
+  if(room==="rink")return;
+  const labels=room==="university"?["Attestation","Courriel URGENT","Dossier administratif"]:
+    room==="laboratory"?["Codebook","Variables","Données vérifiées"]:
+    room==="office"?["Avis du jury","Commentaires","Plan de thèse"]:
+    room==="classroom"?["Notes de cours","Épreuve","Formule"]:
+    room==="conference"?["Résumé","Affiche","Collaboration"]:
+    room==="library"?["Preuve 1","Synthèse","Article original"]:
+    room==="home"?["Reposer les yeux","Prendre des notes","Dernier café"]:
+    room==="auditorium"?["Argument","Données","Limites"]:
+    ["Acteurs","Réseau","Terrain"];
+  for(let i=0;i<3;i++)clue(labels[i],-8+i*8, i%2===0?-8:-17,i);
+  if(["university","office","classroom","conference","auditorium"].includes(room)){
+   pursuer(room==="university"?"LA DATE LIMITE":"REVIEWER 2",-9,-17,room==="auditorium"?3.3:2.65);
+   if(room==="office"||room==="university")pursuer("COURRIEL URGENT",8,-19,2.4);
+  }
+}
+function desk(x,z,width=2.3,screen=false){
   cube(width,.14,1.28,M.wood,x,1.16,z);
   for(const a of [-1,1])for(const b of [-1,1])cube(.10,1.09,.1,M.metal,x+a*(width*.43),.54,z+b*.48);
   if(screen){cube(1.26,.74,.09,M.black,x,1.86,z-.27);cube(1.15,.58,.01,mat(0x429e9b,.35,.29,.5),x,1.86,z-.328);cube(.50,.06,.23,M.metal,x,1.38,z-.27);}
@@ -269,13 +300,14 @@ export function createAdventureWorld(T,canvas,opts={}){
  }
  function visit(id,initial=false){
   const next=choose(id).id;
-  room=next;busy=false;auto=null;modelX=0;modelZ=9;actors=[];targets=[];clickables=[];particles=[];activeTarget=null;
+  room=next;busy=false;auto=null;modelX=0;modelZ=9;actors=[];targets=[];clickables=[];particles=[];chasers=[];collectibles=[];hitCooldown=0;activeTarget=null;
   if(group){scene.remove(group);group.traverse(o=>{if(o.isMesh&&o.geometry&&o!==actorPlane)o.geometry.dispose();});}
   group=new T.Group();scene.add(group);
   // Studio lighting colors adapt to each location.
   const groundLight=new T.HemisphereLight(0xe7f3ef,0x153b50,2.55);group.add(groundLight);
-  const sun=new T.DirectionalLight(0xffdec0,2.65);sun.position.set(-11,15,14);group.add(sun);
+  const sun=new T.DirectionalLight(0xffdec0,2.65);sun.position.set(-11,15,14);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);sun.shadow.camera.left=-32;sun.shadow.camera.right=32;sun.shadow.camera.top=30;sun.shadow.camera.bottom=-30;group.add(sun);
   ({university,classroom,laboratory,library,office,home,conference,field,auditorium,rink}[room]||university)();
+  decoratePlay();
   // Keep Eric separate from rebuildable environment.
   player.position.set(0,0,9);frame=-1;skate.lastReport=0;
   opts.onVisit?.(next,choose(next));
@@ -293,6 +325,7 @@ export function createAdventureWorld(T,canvas,opts={}){
   renderer=new T.WebGLRenderer({canvas,antialias:true,powerPreference:"high-performance"});
   renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.85));renderer.setSize(canvas.clientWidth||innerWidth,canvas.clientHeight||innerHeight,false);
   renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.72;renderer.outputColorSpace=T.SRGBColorSpace;
+  renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;
   scene=new T.Scene();camera=new T.PerspectiveCamera(62,1,.1,145);
   player=new T.Group();scene.add(player);
   spriteCanvas=document.createElement("canvas");spriteCanvas.width=384;spriteCanvas.height=580;
@@ -358,6 +391,36 @@ export function createAdventureWorld(T,canvas,opts={}){
     target.ring.rotation.y+=dt*.4;
    }
    checkTarget();
+   hitCooldown=Math.max(0,hitCooldown-dt);
+   for(const item of collectibles){
+    if(item.taken)continue;
+    item.group.rotation.y+=dt*.9;
+    item.group.position.y=1.12+Math.sin(ts*.0025+item.x)*.2;
+    item.t.quaternion.copy(camera.quaternion);item.t.rotation.x=0;item.t.rotation.z=0;
+    if(Math.hypot(modelX-item.x,modelZ-item.z)<1.15){
+      item.taken=true;item.group.visible=false;
+      opts.onEvidence?.(item.id,item.label,room);
+    }
+   }
+   for(const h of chasers){
+    const distance=Math.hypot(modelX-h.x,modelZ-h.z);
+    if(distance<14){
+     const vx=(modelX-h.x)/(distance||1),vz=(modelZ-h.z)/(distance||1);
+     h.x+=vx*h.speed*dt;h.z+=vz*h.speed*dt;
+    }else{
+     h.x=h.startX+Math.sin(clock*.7+h.phase)*1.3;
+     h.z=h.startZ+Math.cos(clock*.6+h.phase)*.8;
+    }
+    h.group.position.set(h.x,Math.sin(clock*4+h.phase)*.18,h.z);
+    h.group.rotation.y+=dt*1.9;
+    if(distance<1.3&&hitCooldown<=0){
+      hitCooldown=4.0;
+      opts.onDamage?.(h===chasers[0]?"Reviewer 2":"Courriel urgent",room);
+      // Push Éric away rather than imprisoning him in the collider.
+      modelX=Math.max(-11,Math.min(11,modelX+(modelX-h.x)/(distance||1)*1.8));
+      modelZ=Math.max(-25,Math.min(12,modelZ+(modelZ-h.z)/(distance||1)*1.8));
+    }
+   }
    if(room==="rink"){
     if(walking&&!skate.completed){skate.started=true;skate.clock+=dt;
      skate.balance+=dx*dt*.38+Math.sin(clock*2.9)*dt*.18+Math.sin(clock*1.7+.7)*dt*.14;
