@@ -145,6 +145,7 @@ export async function installLivingWorld(T,api){
   return {x:Math.max(-1,Math.min(1,dx)),z:Math.max(-1,Math.min(1,dz)),interact};
  }
  document.getElementById("career")?.setAttribute("data-human-model","loaded");
+ document.getElementById("career")?.setAttribute("data-human-source",source.includes("innerscene")?"civilian-human":source.includes("3dassets.dev")?"scout-human":"soldier-fallback");
  api.notify?.("Personnages humains 3D chargés. Marche, course et animations squelettiques activées.");
  return {syncCast,update,fall:()=>{hero.tumble();tactilePulse(.72,160);},pulse:tactilePulse,xrAxes,get inVR(){return !!xrSession;},source};
 }
