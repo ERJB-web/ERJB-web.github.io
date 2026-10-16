@@ -74,7 +74,8 @@ function finish(task,delta,detail,flags={}){
  const checkpoint=JSON.parse(JSON.stringify(st));
  st.attempts[task.id]=(st.attempts[task.id]||0)+1;
  for(const [k,v] of Object.entries(delta||{}))if(typeof st[k]==="number")st[k]+=v;
- st.week+=task.weeks;st.energy-=Math.max(1,Math.floor(task.weeks/2));st.stress+=flags.risky?3:1;
+ st.week+=task.weeks;st.energy-=Math.max(1,Math.floor(task.weeks/2));st.stress+=flags.risky?5:1;
+ if(st.difficulty==="doctorale"&&task.weeks>=3){st.energy-=1;st.stress+=1;}
  st.budget-=(task.kind==="field"||task.kind==="publication"?2:1);
  for(const k of ["rigor","energy","trust","stress"])st[k]=clamp(st[k]);
  st.budget=Math.max(0,st.budget);st.proof=Math.max(0,st.proof);
@@ -205,8 +206,15 @@ document.querySelectorAll("[data-move]").forEach(el=>{
  el.addEventListener("pointerdown",ev=>{ev.preventDefault();pressed.add(code);});
  for(const type of ["pointerup","pointerleave","pointercancel"])el.addEventListener(type,ev=>{ev.preventDefault();pressed.delete(code);});
 });
-window.addEventListener("keydown",ev=>{if(!modal&&["ArrowUp","ArrowDown","ArrowLeft","ArrowRight","KeyW","KeyA","KeyS","KeyD","KeyQ","KeyZ"].includes(ev.code))ev.preventDefault();if(!modal)pressed.add(ev.code);if(ev.key==="Escape"&&modal)close();});
+window.addEventListener("keydown",ev=>{if(!modal&&["ArrowUp","ArrowDown","ArrowLeft","ArrowRight","KeyW","KeyA","KeyS","KeyD","KeyQ","KeyZ","Space"].includes(ev.code))ev.preventDefault();if(!modal)pressed.add(ev.code);if(ev.key==="Escape"&&modal)close();});
 window.addEventListener("keyup",ev=>pressed.delete(ev.code));window.addEventListener("blur",()=>pressed.clear());
+const balanceControl=$("balanceBtn");
+if(balanceControl){
+ const hold=ev=>{ev.preventDefault();pressed.add("Space");balanceControl.classList.add("pressed");};
+ const release=ev=>{ev.preventDefault();pressed.delete("Space");balanceControl.classList.remove("pressed");};
+ balanceControl.addEventListener("pointerdown",hold);
+ for(const kind of ["pointerup","pointercancel","pointerleave"])balanceControl.addEventListener(kind,release);
+}
 $("startBtn").onclick=()=>start(false);
 $("resumeBtn").hidden=true; // One visible entry point: Éric, mode doctoral, play.
 function updateMusicButton(){
