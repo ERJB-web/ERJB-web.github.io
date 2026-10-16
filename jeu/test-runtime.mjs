@@ -27,6 +27,7 @@ const canvas=()=>({width:512,height:512,clientWidth:1200,clientHeight:750,getCon
 const document={createElement:()=>canvas()};
 class Vec{
  constructor(x=0,y=0,z=0){this.set(x,y,z);}
+ setScalar(k){this.x=k;this.y=k;this.z=k;return this;}
  set(x=0,y=0,z=0){this.x=x;this.y=y;this.z=z;return this;}
  copy(v){this.x=v.x;this.y=v.y;this.z=v.z;return this;}
  lerp(v,k){this.x+=(v.x-this.x)*k;this.y+=(v.y-this.y)*k;this.z+=(v.z-this.z)*k;return this;}
