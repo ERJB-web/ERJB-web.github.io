@@ -42,6 +42,7 @@ if(AUDIENCE.websiteId && !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9
 const RACINE = path.join(__dirname, "..");
 const empreinte = (fichier) => require("crypto").createHash("sha256").update(fs.readFileSync(path.join(RACINE, fichier))).digest("hex").slice(0, 10);
 const VERSION_CSS = empreinte("assets/site.css");
+const VERSION_HALL_CSS = empreinte("assets/hall-realiste.css");
 const VERSION_JS = empreinte("assets/site.js");
 const VERSION_MARCHE = empreinte("assets/hall-marche.js");
 const VERSION_AUDIENCE = empreinte("assets/audience.js");
@@ -1477,6 +1478,7 @@ ${LANGUES.filter((l) => l.hreflang).map((l) => `<link rel="alternate" hreflang="
 <link rel="alternate" hreflang="x-default" href="${URL}">
 <link rel="icon" href="${p}assets/favicon.svg?v=${VERSION_ICONE}" type="image/svg+xml">
 <link rel="stylesheet" href="${p}assets/site.css?v=${VERSION_CSS}">
+<link rel="stylesheet" href="${p}assets/hall-realiste.css?v=${VERSION_HALL_CSS}">
 <link rel="stylesheet" href="${p}assets/vulgarisation-studio.css?v=20261015studio5">
 <link rel="stylesheet" href="${p}assets/vulgarisation-editorial.css?v=20261015editorial4">
 <meta property="og:type" content="profile">
@@ -1582,6 +1584,7 @@ ${PREFERENCES}
 <link rel="canonical" href="${URL}${langue(code).dossier}">
 <link rel="icon" href="../assets/favicon.svg?v=${VERSION_ICONE}" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/site.css?v=${VERSION_CSS}">
+<link rel="stylesheet" href="../assets/hall-realiste.css?v=${VERSION_HALL_CSS}">
 <script src="../assets/hall-marche.js?v=${VERSION_MARCHE}" defer></script>
 <script src="../assets/site.js?v=${VERSION_JS}" defer></script>
 ${baliseAudience("../")}
