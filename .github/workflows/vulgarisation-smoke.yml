@@ -1,0 +1,25 @@
+name: Vérifier la vulgarisation scientifique
+on:
+  push:
+    paths:
+      - "assets/vulgarisation-*.js"
+      - "index.html"
+      - "tests/vulgarisation-smoke.mjs"
+      - ".github/workflows/vulgarisation-smoke.yml"
+  workflow_dispatch:
+jobs:
+  interactions:
+    name: Test des commandes après ouverture de la porte
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Récupérer le site
+        uses: actions/checkout@v4
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Préparer le DOM de test
+        run: npm install --no-save --no-package-lock jsdom@26
+      - name: Exécuter le scénario complet
+        run: node tests/vulgarisation-smoke.mjs
