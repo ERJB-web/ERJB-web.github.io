@@ -6,7 +6,7 @@
     "Visión de la enseñanza",
     "De la educación especializada a la universidad",
     "Experiencia y acompañamiento",
-    "Valores en la práctica",
+    "Métodos y dispositivos pedagógicos",
     "Aprendizaje y evaluación",
     "Formar para el mañana",
     "Referencias"
@@ -75,18 +75,6 @@
     ],
     "refs": [
       "carless"
-    ]
-  },
-  "valeurs": {
-    "titre": "Seis valores convertidos en compromisos pedagógicos concretos",
-    "intro": "Mis valores adquieren sentido en las condiciones de trabajo que quiero ofrecer y en las capacidades que pretendo apoyar.",
-    "items": [
-      "Abrir perspectivas disciplinarias, distinguir hechos, interpretaciones y juicios de valor, y pedir que se justifique una posición y se examine lo que podría cuestionarla. El pensamiento crítico también se aplica al propio razonamiento.",
-      "Convertir el error analizado en una oportunidad de progreso: revisar un argumento, utilizar una devolución y reconocer un logro. Esto requiere apoyos y condiciones sostenibles; el esfuerzo individual no elimina por sí solo los obstáculos institucionales.",
-      "Ofrecer referencias, elecciones y oportunidades de autoevaluación, y después ajustar el acompañamiento. Quiero que el alumnado aprenda cuándo profundizar, comprobar una fuente o solicitar conocimientos especializados.",
-      "Organizar un trabajo en el que todos contribuyan, se examinen los desacuerdos y tengan cabida los saberes de las personas afectadas. Cooperar requiere funciones explícitas y responsabilidad individual dentro del colectivo.",
-      "Permitir explorar nuevas respuestas, también digitales, preguntando qué problema resuelven, para quién y con qué efectos. Una innovación pedagógica debe valorarse por los aprendizajes que hace posibles.",
-      "Anticipar obstáculos de acceso y participación, aclarar las expectativas y ofrecer vías adecuadas hacia objetivos comunes. La equidad implica atender a los medios reales para aprender y demostrar lo que se sabe."
     ]
   },
   "apprendre": {
