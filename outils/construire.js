@@ -1489,7 +1489,7 @@ ${LANGUES.filter((l) => l.hreflang).map((l) => `<link rel="alternate" hreflang="
 <script type="application/ld+json">${JSON.stringify(personne)}</script>
 <script src="${p}assets/hall-marche.js?v=${VERSION_MARCHE}" defer></script>
 <script src="${p}assets/site.js?v=${VERSION_JS}" defer></script>
-<script src="${p}assets/vulgarisation-studio.js?v=20261015studio5" defer></script>
+<script src="${p}assets/vulgarisation-studio.js?v=quizfix20261016" defer></script>
 <script src="${p}assets/vulgarisation-editorial.js?v=20261015editorial4" defer></script>
 ${baliseAudience(p)}
 </head>
