@@ -690,7 +690,13 @@ const BANDE = {
 function bandeAccueil(c) {
   const B = BANDE[c.lang];
   const I = CHIFFRES_IMPACT[c.lang];
-  const frise = '<section class="bande-accueil bande-parcours" aria-labelledby="parcours-apercu-titre"><h2 class="bande-titre" id="parcours-apercu-titre">' + e(B.titre) + '</h2><ol class="trajectoire">' + [...B.etapes].reverse().map(([quand, quoi], i) => '<li style="--rang:' + i + '"><span class="trajectoire-date">' + e(quand) + '</span><span class="trajectoire-texte">' + e(quoi) + '</span></li>').join('') + '</ol></section>';
+  const etapes = [];
+  for (const [quand, quoi] of [...B.etapes].reverse()) {
+    const derniere = etapes.at(-1);
+    if (derniere && derniere.quand === quand) derniere.textes.push(quoi);
+    else etapes.push({ quand, textes: [quoi] });
+  }
+  const frise = '<section class="bande-accueil bande-parcours" aria-labelledby="parcours-apercu-titre"><h2 class="bande-titre" id="parcours-apercu-titre">' + e(B.titre) + '</h2><ol class="trajectoire">' + etapes.map(({quand, textes}, i) => '<li style="--rang:' + i + '"><span class="trajectoire-date">' + e(quand) + '</span>' + textes.map(quoi => '<span class="trajectoire-texte">' + e(quoi) + '</span>').join('') + '</li>').join('') + '</ol></section>';
   const chiffres = '<section class="bande-accueil bande-restauree" aria-labelledby="parcours-chiffres-titre"><h2 class="bande-titre" id="parcours-chiffres-titre">' + e(I.titre) + '</h2><div class="impact-ensembles">' + I.groupes.map((titre, i) => '<section class="impact-ensemble"><h3>' + e(titre) + '</h3><dl>' + I.chiffres.slice(i * 4, i * 4 + 4).map(([valeur, libelle, precision]) => '<div><dt>' + e(libelle) + (precision ? '<small class="impact-public">' + e(precision) + '</small>' : '') + '</dt><dd><bdi dir="ltr">' + e(valeur) + '</bdi></dd></div>').join('') + '</dl></section>').join('') + '</div><details class="impact-precisions"><summary>' + e(I.details) + '</summary><ul>' + I.notes.map(t => '<li>' + e(t) + '</li>').join('') + '</ul></details></section>';
   return frise + chiffres;
 }
