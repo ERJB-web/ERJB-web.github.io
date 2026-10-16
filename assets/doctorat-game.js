@@ -7,12 +7,12 @@ const dict={
  brandSmall:["L'odyssée doctorale","The doctoral odyssey"],heroRank:["Doctorant • Niveau 01","PhD student • Level 01"],rigor:["Rigueur","Rigor"],energy:["Énergie","Energy"],stress:["Stress","Stress"],direction:["Direction","Supervision"],weeks:["semaines","weeks"],proofs:["preuves","evidence"],credits:["crédits","credits"],currentObjective:["OBJECTIF ACTUEL","CURRENT OBJECTIVE"],toObjective:["jusqu'à l'objectif","to objective"],moveHint:["ZQSD / WASD / flèches · E pour interagir","WASD / arrows · E to interact"],autoWalk:["⇢ Rejoindre l'objectif","⇢ Walk to objective"],interact:["Interagir","Interact"],loadTxt:["Le comité prépare déjà des questions.","The committee is already drafting questions."]
 };
 for(const e of document.querySelectorAll("[data-i18n]")){const val=dict[e.dataset.i18n];if(val)e.textContent=msg(...val);}
-let story,st=null,checkpoint=null,THREE=null,scene=null,renderer=null,camera=null,world=null,avatar=null,portal=null,arms=[],legs=[],quality=1,flat=false,modalOpen=true,paused=false,auto=false,clock=0,last=0,audio=false,ctx=null,notice=0,round=0,correct=0;
+let story,st=null,checkpoint=null,THREE=null,scene=null,renderer=null,camera=null,world=null,avatar=null,portal=null,arms=[],legs=[],collectibles=[],quality=1,flat=false,modalOpen=true,paused=false,auto=false,clock=0,last=0,audio=false,ctx=null,notice=0,round=0,correct=0;
 let x=0,z=10;
 const keyset=new Set(),SAVE="doctoral-game-save-v1",CHECK="doctoral-game-checkpoint-v1",distance=()=>Math.hypot(x,z+15),chap=()=>story.chapters[st.chapter];
 const clone=o=>JSON.parse(JSON.stringify(o)),read=k=>{try{let o=JSON.parse(localStorage.getItem(k));return o?.version===1&&Number.isInteger(o.chapter)?o:null;}catch{return null;}},store=()=>{try{if(st)localStorage.setItem(SAVE,JSON.stringify(st));}catch{}},savepoint=()=>{checkpoint=clone(st);try{localStorage.setItem(CHECK,JSON.stringify(checkpoint));}catch{}};
 const bound=(v,a=0,b=100)=>Math.max(a,Math.min(b,v));
-function state(mode){return{version:1,mode,chapter:0,rigor:32,energy:85,stress:20,trust:50,time:20,proof:0,budget:45,topic:null,data:false,methods:false,network:false,ethics:false,course:false,poster:false,prepared:false,paper:false,reviewScore:0,choices:[],ending:null,boss:null};}
+function state(mode){return{version:1,mode,chapter:0,rigor:32,energy:85,stress:20,trust:50,time:20,proof:0,budget:45,topic:null,collected:{},data:false,methods:false,network:false,ethics:false,course:false,poster:false,prepared:false,paper:false,reviewScore:0,choices:[],ending:null,boss:null};}
 function redraw(){
  if(!st)return;
  for(const prop of ["rigor","energy","stress","trust"]){el(prop+"Num").textContent=st[prop];el(prop+"Fill").style.width=bound(st[prop])+"%";}
@@ -51,6 +51,9 @@ function enter(i){
 }
 function effectView(d){const names={rigor:msg("Rigueur","Rigor"),energy:msg("Énergie","Energy"),stress:"Stress",trust:msg("Direction","Supervision"),time:msg("Semaines","Weeks"),proof:msg("Preuves","Evidence"),budget:msg("Crédits","Credits")};return '<div class="result-stats">'+Object.entries(d).filter(([,v])=>v).map(([k,v])=>'<span class="'+((k==="stress"?v<0:v>0)?"good":"bad")+'">'+safe(names[k]||k)+' '+(v>0?"+":"")+v+'</span>').join("")+'</div>';}
 function resolution(ok,why,effects,flags={}){
+ if(st.topic==="network"&&st.chapter===5&&ok)effects={...effects,proof:(effects.proof||0)+1};
+ if(st.topic==="territory"&&st.chapter===4&&ok)effects={...effects,rigor:(effects.rigor||0)+2};
+ if(st.topic==="design"&&st.chapter===6&&ok)effects={...effects,trust:(effects.trust||0)+3};
  Object.assign(st,flags);st.choices.push({chapter:st.chapter,ok,detail:why});
  const basal=st.mode==="hard"?{energy:-7,stress:5,time:-1}:st.mode==="easy"?{energy:-1,time:-1}:{energy:-3,time:-1};
  const all={...basal};for(const [k,v] of Object.entries(effects||{}))all[k]=(all[k]||0)+v;change(all);sound(ok);
@@ -110,8 +113,8 @@ function quizRound(boss){
  };
 }
 function beginBoss(c){
- const assets=[st.data,st.ethics,st.methods,st.paper,st.prepared].filter(Boolean).length;
- st.boss={hp:(st.mode==="easy"?5:st.mode==="hard"?2:3)+(assets>=4?1:0),correct:0};round=0;correct=0;store();
+ const assets=[st.data,st.ethics,st.methods,st.paper,st.prepared].filter(Boolean).length;const liabilities=[st.bluff,st.overScope,st.ethicsIncident].filter(Boolean).length;
+ st.boss={hp:Math.max(1,(st.mode==="easy"?5:st.mode==="hard"?2:3)+(assets>=4?1:0)-liabilities),correct:0};round=0;correct=0;store();
  show(msg("SOUTENANCE FINALE","FINAL DEFENSE"),'<h1>'+safe(tr(c.title))+'</h1><p class="lead">'+safe(tr(c.prompt))+'</p><div class="mini-brief">'+msg("Crédibilité initiale","Starting credibility")+" : ✦ × "+st.boss.hp+' · '+msg("Rigueur","Rigor")+" : "+st.rigor+"/100</div><p class='quote'>"+msg("« Merci pour cette présentation. Nous avons quelques questions. » — Phrase la plus inquiétante du campus.","“Thank you for your presentation. We have a few questions.” — The campus's most terrifying sentence.")+'</p>');
  buttons([[msg("Entrer dans la salle","Enter the auditorium"),()=>quizRound(true)]]);
 }
@@ -122,7 +125,16 @@ function finalBoss(){
 }
 function stage(){
  if(!st||st.ending)return;auto=false;
- const c=chap();switch(c.type){
+ let c=chap(),focus=st.topic;
+ if(st.chapter===2)c={...c,prompt:{fr:c.prompt.fr+(focus==="network"?" Précisez ce que vous appelez un lien intersectoriel.":focus==="territory"?" Une ressource disponible n'est pas un service utilisé.":" Les recommandations devront suivre la production de résultats empiriques."),en:c.prompt.en+(focus==="network"?" Define the network ties.":focus==="territory"?" Available services are not necessarily used.":" Recommendations should build on empirical findings.")}};
+ if(st.chapter===5&&focus==="territory")c={...c,prompt:{fr:"Scénario territorial : distinguez services inscrits sur la carte et liens réellement documentés par les entretiens fictifs. Sélectionnez trois liens.",en:"Territorial storyline: distinguish mapped services from ties documented in fictional interviews. Select three."}};
+ if(st.chapter===5&&focus==="design")c={...c,prompt:{fr:"Avant l'atelier délibératif, quelles relations sont réellement documentées ? Sélectionnez trois liens.",en:"Before stakeholder deliberation, which ties are actually documented? Select three."}};
+ if(st.chapter===11){c=clone(c);
+ c.rounds[0].claim={fr:focus==="network"?"Quelles relations intersectorielles pourrez-vous réellement observer ?":focus==="territory"?"En quoi deux territoires contrastés éclairent-ils les écarts de ressources sans généralisation abusive ?":"Comment l'atelier délibératif sera-t-il fondé sur les données empiriques ?",en:focus==="network"?"Which intersectoral ties will you actually observe?":focus==="territory"?"How will two contrasting areas inform service gaps without overgeneralizing?":"How will deliberation build upon empirical observations?"};
+ if(!st.data)c.rounds[1].claim={fr:"Les données promises sont inaccessibles. Quel plan de repli réaliste avez-vous ?",en:"Your promised data are unavailable. What is your feasible fallback?"};
+ if(!st.ethics)c.rounds[3].claim={fr:"L'éthique n'est pas réglée. Comment protégerez-vous les réseaux de petite taille ?",en:"Ethics remain unresolved. How will you protect small networks?"};
+ }
+ switch(c.type){
  case"choice":choiceStage(c);break;
  case"multi":multiStage(c);break;
  case"match":matchStage(c);break;
@@ -149,7 +161,8 @@ function ending(){
  const title=excellent?msg("PROTOCOLE ACCEPTÉ AVEC ÉLOGES","PROTOCOL APPROVED WITH DISTINCTION"):good?msg("PROTOCOLE ACCEPTÉ","PROTOCOL APPROVED"):msg("ACCEPTÉ SOUS CONDITIONS","CONDITIONALLY APPROVED");
  const lead=excellent?msg("Le comité est convaincu. Reviewer 2 garde le silence pendant quatre secondes. Un record universitaire.","The committee is convinced. Reviewer 2 stays quiet for four seconds. A university record."):good?msg("La soutenance est réussie. L'histoire continue : la vraie recherche commence maintenant.","The defense succeeded. The story continues: the actual research begins now."):msg("Le comité reconnaît la pertinence du travail et demande des améliorations ciblées.","The committee recognizes the value of the project and asks for targeted revisions.");
  const topic=st.topic==="network"?msg("Réseaux intersectoriels","Intersectoral networks"):st.topic==="territory"?msg("Ressources territoriales","Territorial resources"):msg("Recommandations avec les partenaires","Partner-led recommendations");
- show(msg("FIN DE CAMPAGNE · SOUTENANCE","CAMPAIGN COMPLETE · DEFENSE"),'<h1>'+title+'</h1><p class="lead">'+lead+'</p><div class="mini-brief"><b>'+msg("Orientation","Research focus")+'</b> : '+topic+'</div><div class="result-stats"><span>'+msg("Rigueur","Rigor")+' '+st.rigor+'/100</span><span>'+msg("Questions réussies","Correct answers")+' '+n+'/5</span><span>'+msg("Preuves","Evidence")+' '+st.proof+'</span><span>'+msg("Semaines restantes","Weeks remaining")+' '+st.time+'</span></div><p class="quote">'+msg("SCÈNE POST-GÉNÉRIQUE : « Bonjour. Reviewer 2 ici. Quelques suggestions mineures… » — pièce jointe de 42 pages.","POST-CREDITS: “Reviewer 2 here. Just a few minor suggestions...” — attachment: 42 pages.")+'</p>');
+ const epilogue=st.topic==="network"?msg("Épilogue : Éric enquête sur les collaborations réelles, pas seulement sur des organigrammes.","Epilogue: Éric studies real collaborations, not just organization charts."):st.topic==="territory"?msg("Épilogue : deux territoires, des ressources et des réalités différentes.","Epilogue: two territories, unequal services and different realities."):msg("Épilogue : les partenaires sont consultés sur des constats explicites.","Epilogue: stakeholders deliberate over explicit findings.");
+ show(msg("FIN DE CAMPAGNE · SOUTENANCE","CAMPAIGN COMPLETE · DEFENSE"),'<h1>'+title+'</h1><p class="lead">'+lead+'</p><div class="mini-brief"><b>'+msg("Orientation","Research focus")+'</b> : '+topic+'</div><div class="result-stats"><span>'+msg("Rigueur","Rigor")+' '+st.rigor+'/100</span><span>'+msg("Questions réussies","Correct answers")+' '+n+'/5</span><span>'+msg("Preuves","Evidence")+' '+st.proof+'</span><span>'+msg("Semaines restantes","Weeks remaining")+' '+st.time+'</span></div><p>'+safe(epilogue)+'</p><p class="quote">'+msg("SCÈNE POST-GÉNÉRIQUE : « Bonjour. Reviewer 2 ici. Quelques suggestions mineures… » — pièce jointe de 42 pages.","POST-CREDITS: “Reviewer 2 here. Just a few minor suggestions...” — attachment: 42 pages.")+'</p>');
  buttons([[msg("Rejouer un autre scénario","Play another storyline"),reset],[msg("Visiter le site d'Éric","Visit Éric's website"),()=>{location.href="../#contact";},true]]);
 }
 function interact(){
@@ -173,6 +186,7 @@ el("pauseBtn").onclick=pauseMenu;
 el("audioBtn").onclick=()=>{audio=!audio;el("audioBtn").textContent=audio?"♫":"♪";notify(audio?msg("Son activé","Sound on"):msg("Son désactivé","Sound off"));if(audio)sound();};
 el("fullBtn").onclick=()=>document.fullscreenElement?document.exitFullscreen?.().catch(()=>{}):document.documentElement.requestFullscreen?.().catch(()=>{});
 el("qualityBtn").onclick=()=>{quality=quality===1?.67:quality===.67?1.3:1;resize();notify(msg("Qualité graphique","Graphics quality")+" "+Math.round(quality*100)+"%");};
+el("langBtn").textContent=loc==="en"?"FR":"EN";el("langBtn").onclick=()=>{const url=new URL(location.href);url.searchParams.set("lang",loc==="en"?"fr":"en");location.assign(url.href);};
 function mesh(geom,mat,x0=0,y0=0,z0=0,root=world){const o=new THREE.Mesh(geom,mat);o.position.set(x0,y0,z0);o.castShadow=true;o.receiveShadow=true;root.add(o);return o;}
 function mat(c,metal=.1,rough=.6,emit=0){return new THREE.MeshStandardMaterial({color:c,metalness:metal,roughness:rough,emissive:emit?c:0x000000,emissiveIntensity:emit});}
 function box(a,b,c,m,x0,y0,z0,root=world){return mesh(new THREE.BoxGeometry(a,b,c),m,x0,y0,z0,root);}
@@ -232,7 +246,19 @@ function buildWorld(){
  const cvs=document.createElement("canvas");cvs.width=1024;cvs.height=256;const cc=cvs.getContext("2d");cc.fillStyle="#0b2631";cc.fillRect(0,0,1024,256);cc.fillStyle="#b3ffe8";cc.font="bold 43px sans-serif";cc.textAlign="center";cc.fillText("DOCTORAL CAMPUS",512,90);cc.fillStyle="#ffffff";cc.font="bold 38px sans-serif";let title=tr(c.title);if(title.length>37)title=title.slice(0,35)+"…";cc.fillText(title,512,160);
  const t=new THREE.CanvasTexture(cvs);mesh(new THREE.PlaneGeometry(8,2),new THREE.MeshBasicMaterial({map:t,transparent:true}),0,8.7,-22);
  const stars=[],geo=new THREE.BufferGeometry();for(let k=0;k<160;k++)stars.push((Math.random()-.5)*115,5+Math.random()*35,(Math.random()-.5)*105);geo.setAttribute("position",new THREE.Float32BufferAttribute(stars,3));world.add(new THREE.Points(geo,new THREE.PointsMaterial({color:0xd5fdfa,size:.065,transparent:true,opacity:.75})));
- player();camera.position.set(0,6,19);camera.lookAt(0,1.5,0);
+ player();
+ collectibles=[];
+ const prizes=[
+ {type:"coffee",x:-3.25,z:4.5,delta:{energy:8,budget:-1},label:msg("Café salvateur : énergie +8, budget -1","Coffee pickup: energy +8, funding -1"),color:0xe6c286},
+ {type:"paper",x:3.2,z:-4.5,delta:{proof:1,rigor:2},label:msg("Article vérifié : preuve +1","Verified paper: evidence +1"),color:0x88f5cf},
+ {type:"mail",x:-3.15,z:-10,delta:{trust:3,stress:4},label:msg("Mail de la direction à minuit : soutien +3, stress +4","Midnight supervisor email: support +3, stress +4"),color:0xcaabff}
+ ];
+ for(const p of prizes){const key=st.chapter+"-"+p.type;if(st.collected?.[key])continue;
+ const group=new THREE.Group();group.position.set(p.x,1.1,p.z);world.add(group);
+ mesh(new THREE.OctahedronGeometry(.42),mat(p.color,.6,.2,.8),0,0,0,group);
+ const ring=mesh(new THREE.TorusGeometry(.72,.04,8,34),mat(p.color,.4,.3,.55),0,-.48,0,group);ring.rotation.x=Math.PI/2;
+ group.add(new THREE.PointLight(p.color,3,4));collectibles.push({...p,key,group});}
+ camera.position.set(0,6,19);camera.lookAt(0,1.5,0);
 }
 function resize(){if(!renderer)return;renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.8)*quality);renderer.setSize(innerWidth,innerHeight,false);camera.aspect=innerWidth/innerHeight;camera.fov=innerWidth<670?69:58;camera.updateProjectionMatrix();}
 function tick(ts){
@@ -247,6 +273,8 @@ function tick(ts){
  const d=Math.hypot(vx,vz),walk=d>.01;if(walk){x=bound(x+vx/d*6.4*dt,-5.2,5.2);z=bound(z+vz/d*6.4*dt,-16,18);avatar.rotation.y+=(Math.atan2(-vx,-vz)-avatar.rotation.y)*Math.min(1,7*dt);}
  avatar.position.set(x,(walk?Math.sin(ts*.011)*.05:0),z);
  arms.forEach((a,i)=>a.rotation.x=walk?Math.sin(ts*.012+i*Math.PI)*-.48:0);legs.forEach((a,i)=>a.rotation.x=walk?Math.sin(ts*.012+i*Math.PI)*.54:0);
+ for(const p of collectibles){p.group.rotation.y+=dt*1.4;p.group.position.y=1.1+Math.sin(ts*.002+p.x)*.15;
+ if(p.group.visible&&Math.hypot(x-p.x,z-p.z)<1.28){p.group.visible=false;st.collected ||= {};st.collected[p.key]=true;change(p.delta);notify(p.label);sound(true);}}
  const target=new THREE.Vector3(x,5.3,z+9.4);camera.position.lerp(target,Math.min(1,dt*4));camera.lookAt(x,1.5,z-4);
  portal.rotation.z=Math.sin(ts*.0006)*.06;portal.children[1].rotation.z+=dt*.25;
  el("distance").textContent=Math.round(distance())+" m";el("markerDistance").textContent=Math.round(distance())+" m";el("actionBtn").disabled=distance()>3;
