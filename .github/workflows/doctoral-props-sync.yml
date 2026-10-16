@@ -1,0 +1,65 @@
+name: Install CC0 furnished game interiors
+on:
+  push:
+    paths:
+      - '.github/workflows/doctoral-props-sync.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  furniture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Download CC0 PBR furnishing assets at real-world scale
+        run: |
+          mkdir -p assets/jeu
+          while read -r filename slug; do
+            [ -z "$filename" ] && continue
+            curl -fSL --retry 2 --connect-timeout 15 --max-time 150 \
+              "https://www.innerscene.com/api/library/$slug/download" \
+              -o "assets/jeu/$filename"
+            python3 - "$filename" <<'PY'
+          import sys
+          from pathlib import Path
+          p=Path('assets/jeu')/sys.argv[1]
+          with p.open('rb') as f: magic=f.read(4)
+          assert magic==b'glTF', f'{p}: invalid GLB {magic!r}'
+          assert 50000<p.stat().st_size<10_000_000, f'{p}: unreasonable size'
+          print('CC0 GLB verified',p, p.stat().st_size)
+          PY
+          done <<'EOF'
+          classroom-desk.glb student-desk-and-chair-medium-education-furniture-851ea191
+          lab-bench.glb lab-bench-with-sink-education-furniture-8f5ca23b
+          library-shelf.glb double-sided-library-shelving-education-furniture-c2b67492
+          office-desk.glb four-person-office-bench-desk-ae655d58
+          home-sofa.glb l-sectional-right-original-interior-furnishing-b9b8479f
+          conference-table.glb forum-320-conference-table-573b29df
+          study-books.glb books-stack-large-original-interior-decor-57e64dc9
+          EOF
+      - name: Write origin, author and CC0 license provenance
+        run: |
+          cat > assets/jeu/FURNISHINGS.md <<'EOF'
+          # PROTOCOLE, licence et provenance des meubles 3D
+          Modèles détaillés GLB à l'échelle humaine en matériaux PBR, téléchargés depuis la bibliothèque Innerscene. Tous proposés sous CC0 1.0. Les références suivantes permettent de vérifier les notices individuelles :
+          - `classroom-desk.glb`: https://www.innerscene.com/tools/library/3d-parts/student-desk-and-chair-medium-education-furniture-851ea191
+          - `lab-bench.glb`: https://www.innerscene.com/tools/library/3d-parts/lab-bench-with-sink-education-furniture-8f5ca23b
+          - `library-shelf.glb`: https://www.innerscene.com/tools/library/3d-parts/double-sided-library-shelving-education-furniture-c2b67492
+          - `office-desk.glb`: https://www.innerscene.com/tools/library/3d-parts/four-person-office-bench-desk-ae655d58
+          - `home-sofa.glb`: https://www.innerscene.com/tools/library/3d-parts/l-sectional-right-original-interior-furnishing-b9b8479f
+          - `conference-table.glb`: https://www.innerscene.com/tools/library/3d-parts/forum-320-conference-table-573b29df
+          - `study-books.glb`: https://www.innerscene.com/tools/library/3d-parts/books-stack-large-original-interior-decor-57e64dc9
+          Fournisseur : Innerscene, licence CC0 (public domain); les éléments « Forum » sont produits par Innerscene.
+          EOF
+      - name: Publish materials in original repository
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/jeu/*.glb assets/jeu/FURNISHINGS.md
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Vendor seven CC0 PBR furniture models for doctoral game'
+          git pull --rebase origin main
+          git push origin HEAD:main
