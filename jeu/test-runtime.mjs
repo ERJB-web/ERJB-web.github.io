@@ -32,7 +32,7 @@ class Vec{
  lerp(v,k){this.x+=(v.x-this.x)*k;this.y+=(v.y-this.y)*k;this.z+=(v.z-this.z)*k;return this;}
 }
 class Object3D{
- constructor(geometry,material){this.geometry=geometry;this.material=material;this.children=[];this.position=new Vec();this.rotation=new Vec();this.scale=new Vec(1,1,1);this.quaternion={copy:noop};this.visible=true;this.shadow={mapSize:{set:noop},camera:{}};}
+ constructor(geometry,material){this.geometry=geometry;this.material=material;this.children=[];this.position=new Vec();this.rotation=new Vec();this.scale=new Vec(1,1,1);this.quaternion={copy:noop};this.visible=true;this.userData={};this.shadow={mapSize:{set:noop},camera:{}};}
  add(child){assert.ok(child?.children,"Invalid child in Three.js scene graph");this.children.push(child);}
  remove(child){this.children=this.children.filter(c=>c!==child);}
  traverse(fn){fn(this);for(const child of this.children)child.traverse(fn);}
