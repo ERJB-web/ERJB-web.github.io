@@ -2324,27 +2324,9 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
     -webkit-mask-size:auto 110.5%;
     mask-size:auto 110.5%;
   }
-  /* Juste le mur de pierre réel raccordé au seuil des portes.
-     Rééchantillonnage du même cliché, sans bande blanche ni brume. */
-  .hall.en-volume .architecture-hall::after{
-    content:"";
-    display:block;
-    position:absolute;
-    top:23.5%;
-    left:50%;
-    width:min(100%,calc(var(--eb-hall-hauteur) * 2.403));
-    height:calc(var(--eb-hall-hauteur) * .085);
-    transform:translateX(-50%);
-    pointer-events:none;
-    background-image:url("photos/hall-atrium-verriere.webp");
-    background-repeat:no-repeat;
-    background-size:auto calc(var(--eb-hall-hauteur) * 1.105);
-    background-position:var(--hall-lumiere,50%) calc(var(--eb-hall-hauteur) * -.305);
-    -webkit-mask-image:linear-gradient(#000 0%,#000 76%,transparent 100%);
-    mask-image:linear-gradient(#000 0%,#000 76%,transparent 100%);
-    box-shadow:none;
-    border:0;
-  }
+  /* Suppression de la seconde photographie : elle formait une jonction
+     horizontale visible sur la pierre. Un seul cliché, aucune couture. */
+  .hall.en-volume .architecture-hall::after{content:none;display:none}
   .hall.en-volume .dallage-hall{
     height:calc(var(--eb-hall-hauteur) * .135);
     /* Photographie du dallage conservée. */
@@ -2480,102 +2462,164 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
     opacity:.56;
   }
 }
-/* Finitions réelles et discrètes : ne PAS modifier les images, la
-   peinture, la géométrie des vitrages ou la taille des portes. */
-@media(min-width:1000px){
-  /* Mêmes coordonnées et même cadrage des photographies qu'avant. */
-  .hall.en-volume .station-hall .porte .vignette{
-    background-position:center center;
-    background-size:cover;
-    background-repeat:no-repeat;
-  }
-  /* Ombres de contact d'une huisserie réelle, sans surcadre décoratif. */
-  .hall.en-volume .station-hall .porte .baie{
-    box-shadow:inset 1px 1px rgba(255,255,255,.9),
-      inset -1px -1px rgba(104,116,106,.35),
-      0 0 0 1px rgba(118,132,121,.66),
-      2px 3px 6px rgba(36,47,37,.19);
-  }
-  .hall.en-volume .station-hall .porte .battant{
-    box-shadow:inset 1px 1px rgba(255,255,255,.97),
-      inset -1px -1px rgba(42,54,45,.17),
-      1px 1px 2px rgba(34,45,37,.12);
-  }
-  .hall.en-volume .station-hall .porte .vignette::after{
-    background:linear-gradient(115deg,
-      rgba(255,255,255,.07),transparent 25% 77%,rgba(255,255,255,.03));
-  }
-  .hall.en-volume .station-hall .porte:hover .battant{
-    box-shadow:inset 1px 1px rgba(255,255,255,.97),
-      inset -1px -1px rgba(42,54,45,.2),
-      3px 3px 7px rgba(36,44,36,.23);
-  }
-  /* Le mot Enseignement tient entier sur une ligne, sans « t » isolé. */
-  .hall.en-volume [data-hall-sous="transmission"]{
-    font-size:10px;
-    letter-spacing:-.02em;
-    padding-inline:3px;
-    overflow-wrap:normal;
-    word-break:normal;
-    white-space:nowrap;
-  }
-  .hall.en-volume .sous-portes-murales>button,
-  .hall.en-volume .sous-portes-murales>a{
-    word-break:normal;
-    hyphens:none;
+/* Porte architecturale — construction cohérente, sans changer les dimensions,
+   l'emplacement, les couleurs de base ni la mécanique d'ouverture.
+   Huisserie, feuillure, laquage, verre et panneau utilisent un même repère
+   pour les deux rectangles (mêmes marges exactes à gauche et à droite). */
+.hall:is(.en-volume,.en-mobile) .station-hall .porte .baie{
+  background:linear-gradient(90deg,
+    #9fab9f 0%,#e4eae2 1%,#fcfdf9 2.8%,#edf1eb 4.4%,
+    #eef1ed 95.5%,#fcfdfa 97.4%,#bbc6bb 99.2%,#849389 100%);
+  border:0;
+  border-radius:1px;
+  box-shadow:
+    inset 1px 1px 0 #fff,
+    inset -2px 0 1px rgba(61,79,65,.42),
+    0 0 0 1px rgba(98,114,100,.74),
+    2px 3px 5px rgba(28,43,32,.24),
+    4px 6px 10px -7px rgba(27,39,28,.38);
+}
+.hall:is(.en-volume,.en-mobile) .station-hall .porte .ouverture{
+  inset:2.4% 3.3% 1.6%;
+  overflow:visible;
+  background:linear-gradient(90deg,#d3dbd3,#f3f6ef 8%,#f5f7f2 92%,#b5c1b6);
+  box-shadow:
+    inset 3px 0 5px rgba(39,54,43,.27),
+    inset -2px 0 3px rgba(39,54,43,.2),
+    inset 0 2px 3px rgba(34,47,36,.26),
+    0 0 0 1px rgba(116,134,119,.35);
+}
+.hall:is(.en-volume,.en-mobile) .station-hall .porte .battant{
+  border:1px solid #aebbb0;
+  border-radius:1px;
+  background-image:
+    url("hall-peinture-satinee.svg"),
+    linear-gradient(104deg,#fff 0%,#fdfefb 8%,#f8faf5 38%,#f0f3ed 79%,#dee6dd 100%);
+  background-size:192px 256px,100% 100%;
+  background-repeat:repeat,no-repeat;
+  background-blend-mode:soft-light,normal;
+  box-shadow:
+    inset 2px 0 1px rgba(255,255,255,.97),
+    inset -2px 0 2px rgba(78,94,77,.2),
+    inset 0 2px 1px rgba(255,255,255,.96),
+    inset 0 -3px 3px rgba(100,113,97,.17),
+    1px 2px 2px rgba(24,37,28,.17);
+  backface-visibility:hidden;
+}
+.hall:is(.en-volume,.en-mobile) .station-hall .porte .battant::before{
+  /* Ombre de feuillure sur la tranche du battant — sans ligne décorative. */
+  content:"";
+  position:absolute;
+  inset:0 auto 0 0;
+  width:2px;
+  background:linear-gradient(90deg,rgba(53,69,57,.28),rgba(255,255,255,.26));
+  pointer-events:none;
+}
+/* Les deux encadrements ont EXACTEMENT les mêmes limites latérales.
+   Le montant à droite reste assez large pour la poignée. */
+.hall:is(.en-volume,.en-mobile) .station-hall .porte .vignette,
+.hall:is(.en-volume,.en-mobile) .station-hall .porte .battant::after{
+  inset-inline-start:13.5%;
+  inset-inline-end:24%;
+  box-sizing:border-box;
+  border-radius:1px;
+}
+.hall:is(.en-volume,.en-mobile) .station-hall .porte .vignette{
+  top:9%;
+  height:55%;
+  border:2px solid #e2e8e0;
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-clip:padding-box;
+  box-shadow:
+    0 0 0 1px #8f9c90,
+    0 0 0 3px #f9faf6,
+    0 0 0 4px #adb9ae,
+    inset 2px 2px 4px rgba(22,34,27,.36),
+    inset -1px -1px 2px rgba(255,255,255,.2),
+    2px 3px 4px -2px rgba(34,50,36,.28);
+}
+.hall:is(.en-volume,.en-mobile) .station-hall .porte .vignette::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(90deg,rgba(14,25,19,.14),transparent 8% 92%,rgba(14,25,19,.11));
+  box-shadow:inset 1px 2px 3px rgba(13,28,20,.24);
+}
+.hall:is(.en-volume,.en-mobile) .station-hall .porte .vignette::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  /* Vitrage quasi neutre : pas de voile blanc ni de fumée. */
+  background:linear-gradient(118deg,
+    rgba(255,255,255,.12) 0%,rgba(255,255,255,.035) 13%,
+    transparent 28% 78%,rgba(255,255,255,.025) 100%);
+  box-shadow:none;
+}
+.hall:is(.en-volume,.en-mobile) .station-hall .porte .battant::after{
+  display:block;
+  content:"";
+  top:72.5%;
+  height:18.5%;
+  border:2px solid #c5d0c5;
+  background-image:
+    url("hall-peinture-satinee.svg"),
+    linear-gradient(140deg,#edf2eb 0%,#fafcf7 33%,#f4f7f1 67%,#e0e9df 100%);
+  background-size:192px 256px,100% 100%;
+  background-repeat:repeat,no-repeat;
+  background-blend-mode:soft-light,normal;
+  box-shadow:
+    0 0 0 1px #fdfefa,
+    0 0 0 3px #e7ede5,
+    0 0 0 4px #aebbad,
+    inset 2px 2px 3px rgba(59,77,62,.23),
+    inset -2px -2px 2px rgba(255,255,255,.92),
+    1px 2px 3px -2px rgba(42,61,43,.24);
+  pointer-events:none;
+}
+.hall:is(.en-volume,.en-mobile) .station-hall .porte .poignee{
+  top:51%;
+  inset-inline-end:6.8%;
+  width:4%;
+  height:10.5%;
+  min-width:3px;
+  min-height:0;
+  border:1px solid #87938f;
+  border-radius:3px;
+  background:linear-gradient(90deg,#6d7a78,#d9e0dd 21%,#fcfdfb 42%,#b7c4c0 73%,#778583);
+  box-shadow:1px 1px 3px rgba(24,39,32,.38),inset 1px 0 rgba(255,255,255,.66);
+  z-index:3;
+}
+.hall:is(.en-volume,.en-mobile) .station-hall .porte .poignee::before{
+  top:40%;
+  width:170%;
+  aspect-ratio:1;
+  border:1px solid rgba(72,88,82,.78);
+  background:radial-gradient(circle at 34% 27%,#fff 0%,#e9efed 19%,#abb9b5 53%,#64746e 86%,#3e5048 100%);
+  box-shadow:0 1px 2px rgba(19,33,27,.35);
+}
+.hall:is(.en-volume,.en-mobile) .station-hall .porte .poignee::after{
+  top:40%;
+  width:340%;
+  height:17%;
+  min-height:2px;
+  border-radius:2px 1px 1px 2px;
+  background:linear-gradient(180deg,#fff 0%,#e4e9e6 20%,#a8b7b2 63%,#606f69 100%);
+  box-shadow:0 1px 2px rgba(18,32,26,.36),inset 0 1px rgba(255,255,255,.67);
+}
+/* Ombres réalistes au survol, sans cadre coloré ajouté autour de la porte. */
+@media(hover:hover) and (pointer:fine){
+  .hall:is(.en-volume,.en-mobile) .station-hall .porte:hover .battant{
+    box-shadow:
+      inset 2px 0 1px rgba(255,255,255,.95),
+      inset -2px 0 2px rgba(78,94,77,.2),
+      5px 4px 10px rgba(27,40,31,.26);
   }
 }
-/* Finitions du hall : mêmes cotes de menuiserie, même photographie et mêmes couleurs.
-   L'illustration reste à l'intérieur du vitrage, séparée du panneau inférieur. */
 @media(min-width:1000px){
-  .hall.en-volume .station-hall .porte .baie{
-    background:linear-gradient(90deg,#bac3bc 0%,#fdfefb 2.5%,#e5eae5 5.5%,#eef1eb 94%,#fff 97%,#adb8b0 100%);
-    box-shadow:
-      inset 1px 0 0 rgba(255,255,255,.96),
-      inset -1px 0 0 rgba(77,93,81,.35),
-      0 0 0 1px rgba(131,143,134,.74),
-      2px 3px 7px rgba(36,47,37,.21);
-  }
-  .hall.en-volume .station-hall .porte .ouverture{
-    box-shadow:
-      inset 3px 1px 5px rgba(31,45,37,.27),
-      inset -2px 0 3px rgba(31,45,37,.17),
-      inset 0 0 0 1px rgba(94,111,100,.23);
-    background:linear-gradient(95deg,#d5dcd6,#f7f9f5 9%,#f8faf6 91%,#cdd6cf);
-  }
-  .hall.en-volume .station-hall .porte .battant{
-    background:linear-gradient(102deg,#fff 0%,#fafbf8 8%,#f3f5f0 60%,#e7ebe6 97%,#dce3dc 100%);
-    border:1px solid #adb9b1;
-    box-shadow:
-      inset 1px 1px 0 rgba(255,255,255,.98),
-      inset -1px -1px 0 rgba(49,67,55,.21),
-      inset 2px 0 3px rgba(255,255,255,.75),
-      1px 2px 3px rgba(34,45,37,.18);
-  }
-  .hall.en-volume .station-hall .porte .vignette{
-    border:1px solid rgba(115,133,122,.8);
-    border-radius:1px;
-    box-shadow:
-      0 0 0 2px #fafcf8,
-      0 0 0 3px rgba(132,147,138,.84),
-      inset 1px 1px 2px rgba(23,38,29,.19),
-      1px 2px 3px rgba(27,42,33,.16);
-  }
-  .hall.en-volume .station-hall .porte .vignette::after{
-    background:linear-gradient(118deg,rgba(255,255,255,.13) 0%,rgba(255,255,255,.025) 24%,transparent 37% 76%,rgba(255,255,255,.045) 100%);
-    box-shadow:inset 1px 1px 2px rgba(20,38,31,.17),inset -1px -1px 1px rgba(255,255,255,.14);
-  }
-  .hall.en-volume .station-hall .porte .battant::after{
-    top:73%;
-    height:18%;
-    border-color:#b4c0b8;
-    background:linear-gradient(145deg,#f9fbf6,#e7ede6);
-    box-shadow:0 0 0 2px #f9fbf6,0 0 0 3px #cbd5cc,inset 2px 2px 3px rgba(32,46,36,.14),inset -1px -1px 0 rgba(255,255,255,.8);
-  }
-  .hall.en-volume .station-hall .porte .poignee{
-    background:linear-gradient(90deg,#778388 0%,#e6ebeb 38%,#c0cbd0 61%,#68767a 100%);
-    box-shadow:1px 1px 2px rgba(17,29,31,.32),inset 1px 0 0 rgba(255,255,255,.35);
-  }
   /* Les mots longs occupent un cadre entier : jamais de lettre orpheline. */
   .hall.en-volume .sous-portes-murales{
     grid-template-columns:repeat(2,minmax(0,1fr));
