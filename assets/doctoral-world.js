@@ -166,6 +166,7 @@ function desk(x,z,width=2.3,screen=false){
   for(const x of [-8,8]){cube(3,.19,.65,M.wood,x,.45,-2);cube(.14,.7,.64,M.metal,x,.25,-2);}
   npc(5,-2,0x725f65,1);npc(-6,-9,0x275a67,2);npc(9,-13,0x365473,1);
   sign("ACCÈS AUX ESPACES DE VIE",0,5.2,-6,8,.8);
+  hotspot("admission","Déposer ma candidature",0,-9,"activity");
   const portals=[
    ["classroom","Cours",-9,-5],["laboratory","Labo",9,-5],["library","Bibliothèque",-9,-15],["office","Bureau",9,-15],
    ["home","Maison",-20,6],["conference","Congrès",20,6],["rink","Hockey",-20,-14],["field","Terrain",20,-14],["auditorium","Jury",0,-24]
