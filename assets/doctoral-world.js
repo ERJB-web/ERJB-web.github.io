@@ -21,7 +21,7 @@ export function createAdventureWorld(T,canvas,opts={}){
  const choose=key=>PLACES.find(p=>p.id===key)||PLACES[0];
  let room="university",scene,camera,renderer,group,player,eric;
  let last=0,clock=0,modelX=0,modelZ=7,busy=false,auto=null,actors=[],targets=[],clickables=[],particles=[],chasers=[],collectibles=[],hitCooldown=0,activeTarget=null,controls=opts.keys||new Set();
- let skate={balance:0,clock:0,falls:0,completed:false,started:false,lastReport:0};
+ let skate={balance:0,clock:0,falls:0,completed:false,started:false,lastReport:0,gateIndex:0,gates:[],velocityX:0,velocityZ:0};
  const mat=(hex,metal=.05,rough=.65,glow=0)=>new T.MeshStandardMaterial({color:hex,metalness:metal,roughness:rough,emissive:glow?hex:0,emissiveIntensity:glow});
  const M={
   white:mat(color.cream),dark:mat(0x18313f),wall:mat(0x30495a),blue:mat(0x17455c),wood:mat(0x9d7051),metal:mat(0x657987,.65,.27),
@@ -298,7 +298,16 @@ function desk(x,z,width=2.3,screen=false){
   for(const x of [-18,18]){cube(5,2,36,mat(0x384957),x,1,-5);for(let z=-20;z<13;z+=2)npc(x,-20+(z+20),0x7a8790);}
   sign("HOCKEY · ÉQUILIBRE SUR GLACE",0,9,-27,12,1.2,true);
   hotspot("exit","Retour au campus",0,12.2,"exit");
-  skate={balance:0,clock:0,falls:0,completed:false,started:false,lastReport:0};
+  skate={balance:0,clock:0,falls:0,completed:false,started:false,lastReport:0,gateIndex:0,velocityX:0,velocityZ:0,
+   gates:[[-5,2],[5,-4],[-5,-10],[5,-16],[0,-23],[-5,-11],[0,6]]};
+  skate.gates.forEach(([gx,gz],i)=>{
+   const t=new T.Group();t.position.set(gx,.11,gz);group.add(t);
+   const ring=shape(new T.TorusGeometry(1.2,.10,9,44),i===0?M.neon:M.green,0,0,0,t);ring.rotation.x=Math.PI/2;
+   const post=shape(new T.CylinderGeometry(.075,.075,1.5,8),M.metal,0,.73,0,t);
+   sign("PORTE "+(i+1),0,1.91,0,2.35,.42,t);
+   t.visible=i===0;
+   skate.gates[i].indicator=t;
+  });
  }
  function visit(id,initial=false){
   const next=choose(id).id;
