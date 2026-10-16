@@ -49,7 +49,7 @@ function atPlace(place){
  for(const el of root.querySelectorAll("[data-go]"))el.onclick=()=>{const task=openTasks().find(t=>t.id===el.dataset.go);if(task)playMission(task,st,api);};
 }
 function finish(task,delta,detail,flags={}){
- if(task.id==="freeDesign"){persist();close();update();alertGame("Projet méthodologique sauvegardé");return;}
+ if(task.id==="freeDesign"){st.week+=st.completed.includes("committeeReview")?2:1;st.stress=clamp(st.stress+1);persist();close();update();alertGame("Projet révisé : du temps doctoral a été consommé.");return;}
  const checkpoint=JSON.parse(JSON.stringify(st));
  st.attempts[task.id]=(st.attempts[task.id]||0)+1;
  for(const [k,v] of Object.entries(delta||{}))if(typeof st[k]==="number")st[k]+=v;
@@ -67,7 +67,7 @@ function finish(task,delta,detail,flags={}){
  if(task.id==="deposit")st.ending="complete";
  if(st.energy<=0||st.stress>=100||st.trust<=0)st.ending="burnout";
  if(st.week>228&&!st.ending)st.ending="deadline";
- st.journal.unshift({week:st.week,task:task.title,note:detail,risky:!!flags.risky});st.journal=st.journal.slice(0,125);
+ st.journal.unshift({id:task.id,week:st.week,task:task.title,note:detail,risky:!!flags.risky});st.journal=st.journal.slice(0,125);
  persist();close();update();
  const view='<span class="kicker">JOURNAL · SEMAINE '+st.week+'</span><h2>'+esc(task.title)+'</h2><p>'+esc(detail)+'</p><div class="status-block"><span>Rigueur '+st.rigor+'</span><span>Direction '+st.trust+'</span><span>Budget '+st.budget+'</span><span>Temps restant '+Math.max(0,208-st.week)+' semaines</span></div>'+(flags.risky?'<p>⚠ Cette décision présente une faiblesse scientifique ou organisationnelle.</p>':'');
  if(st.ending){
@@ -88,8 +88,24 @@ function roadmap(){
  open('<span class="kicker">DOSSIER DOCTORAL COMPLET</span><h2>120 étapes réparties sur 4 années</h2><p>Les activités se débloquent selon les prérequis. Tu peux choisir leur ordre parmi celles qui sont accessibles, avec des coûts de temps différents.</p>'+[1,2,3,4].map(y=>'<h3>ANNÉE '+y+'</h3><div class="story-record">'+milestones.filter(t=>t.year===y).map(t=>'<article><strong>'+(done.has(t.id)?"✓ ":avail.has(t.id)?"→ ":"◇ ")+esc(t.title)+'</strong><small>'+esc(t.station)+' · '+(done.has(t.id)?"Accomplie":avail.has(t.id)?"Disponible":"Nécessite : "+t.requires.map(esc).join(", "))+'</small></article>').join("")+'</div>').join(""));
 }
 function notebook(){
- open('<span class="kicker">CARNET DE RECHERCHE</span><h2>Le chemin que tu as construit</h2><div class="story-record">'+(st.journal.map(v=>'<article><strong>Semaine '+v.week+' · '+esc(v.task)+'</strong><small>'+esc(v.note)+'</small></article>').join("")||'<p>Les décisions seront consignées au fil de la partie.</p>')+'</div>');
+ const items=st.journal.map(v=>{
+  const repair=v.risky&&v.id&&complete(v.id)?'<div class="action-row"><button class="secondary" data-repair="'+esc(v.id)+'">↶ Reprendre cette décision · 2 semaines</button></div>':"";
+  return '<article><strong>Semaine '+v.week+' · '+esc(v.task)+'</strong><small>'+esc(v.note)+'</small>'+repair+'</article>';
+ }).join("");
+ const root=open('<span class="kicker">CARNET DE RECHERCHE</span><h2>Le chemin que tu as construit</h2><p>Une erreur peut être reprise, mais cela coûte deux semaines et deux crédits. La décision précédente reste consignée dans le journal.</p><div class="story-record">'+(items||'<p>Les décisions seront consignées au fil de la partie.</p>')+'</div>');
+ for(const button of root.querySelectorAll("[data-repair]"))button.onclick=()=>{
+  const id=button.dataset.repair;if(!complete(id))return;
+  st.completed=st.completed.filter(v=>v!==id);
+  if(id==="researchGap")st.novelty=false;
+  if(id==="ethicsApproved")st.approved=false;
+  if(id==="dataContracts")st.access=false;
+  st.week+=2;st.budget=Math.max(0,st.budget-2);st.stress=clamp(st.stress+2);
+  st.repairs=(st.repairs||0)+1;
+  st.journal.unshift({id:"repair",week:st.week,task:"Révision de "+id,note:"Deux semaines consacrées à reprendre un choix contesté.",risky:false});
+  persist();close();update();alertGame("Étape réouverte : reprends la mission et corrige ton dossier.");
+ };
 }
+
 function drawScene(){}
 function init3D(){
  renderer=new THREE.WebGLRenderer({canvas:$("scene3d"),antialias:true,powerPreference:"high-performance"});
@@ -148,7 +164,7 @@ function init3D(){
    let dz=Number(pressed.has("KeyS")||pressed.has("ArrowDown"))-Number(pressed.has("KeyW")||pressed.has("KeyZ")||pressed.has("ArrowUp"));
    if(travel&&!dx&&!dz){dx=travel[2]-px;dz=travel[3]-pz;if(Math.hypot(dx,dz)<3.4){const here=travel;travel=null;dx=dz=0;if(entered!==here[0]){entered=here[0];atPlace(here);}}}else if(dx||dz)travel=null;
    const d=Math.hypot(dx,dz),speed=pressed.has("ShiftLeft")?15:10;
-   if(d>.001){px=clamp(px+dx/d*dt*speed,-34,34);pz=clamp(pz+dz/d*dt*speed,-36,34);animate(ts);}else animate(190,true);
+   if(d>.001){px=clamp(px+dx/d*dt*speed,-34,34);pz=clamp(pz+dz/d*dt*speed,-36,34);animate(ts);}else animate(190);
    character.position.set(px,d>.001?Math.sin(ts*.01)*.025:0,pz);
    body.quaternion.copy(camera.quaternion);body.rotation.x=0;body.rotation.z=0;
    camera.position.lerp(new THREE.Vector3(px,7,pz+12),Math.min(1,dt*4));camera.lookAt(px,1.7,pz-4);
