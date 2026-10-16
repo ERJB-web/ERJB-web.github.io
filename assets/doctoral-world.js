@@ -76,7 +76,21 @@ export function createAdventureWorld(T,canvas,opts={}){
   glass:new T.MeshPhysicalMaterial({color:0x76aec1,transparent:true,opacity:.34,metalness:.1,roughness:.11,side:T.DoubleSide}),
   neon:mat(color.orange,.3,.26,.6),green:mat(color.teal,.18,.46,.3),black:mat(0x19252c),ice:PBR.ice
  };
- function shape(geo,material,x=0,y=0,z=0,parent=group){
+ const sharedMaterials=new Set([...Object.values(M),...Object.values(PBR)]);
+ function releaseScene(root){
+  const released=new Set();
+  root.traverse(o=>{
+   if(!o.isMesh)return;
+   o.geometry?.dispose?.();
+   for(const m of (Array.isArray(o.material)?o.material:[o.material])){
+    if(!m||sharedMaterials.has(m)||released.has(m))continue;
+    released.add(m);
+    for(const t of [m.map,m.bumpMap,m.normalMap,m.roughnessMap,m.emissiveMap])t?.dispose?.();
+    m.dispose?.();
+   }
+  });
+ }
+  function shape(geo,material,x=0,y=0,z=0,parent=group){
   const mesh=new T.Mesh(geo,material);mesh.position.set(x,y,z);mesh.castShadow=true;mesh.receiveShadow=true;parent.add(mesh);return mesh;
  }
  const cube=(a,b,c,material,x,y,z,parent)=>shape(new T.BoxGeometry(a,b,c),material,x,y,z,parent);
@@ -489,7 +503,7 @@ const cast=[
  function visit(id,initial=false){
   const next=choose(id).id;
   room=next;busy=false;auto=null;modelX=0;modelZ=9;actors=[];targets=[];clickables=[];particles=[];chasers=[];collectibles=[];hitCooldown=0;activeTarget=null;
-  if(group){scene.remove(group);group.traverse(o=>{if(o.isMesh&&o.geometry&&o!==player)o.geometry.dispose();});}
+  if(group){scene.remove(group);releaseScene(group);}
   group=new T.Group();scene.add(group);
   // Studio lighting colors adapt to each location.
   const groundLight=new T.HemisphereLight(0xe7f3ef,0x153b50,2.55);group.add(groundLight);
