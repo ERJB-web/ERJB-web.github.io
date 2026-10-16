@@ -70,9 +70,9 @@ export function createAdventureWorld(T,canvas,opts={}){
   for(const x of [-15.47,15.47])for(let z=-19;z<12;z+=8){
    const glass=cube(.09,4,5,M.glass,x,5,z);
    cube(.1,4.8,.18,M.metal,x,5,z-2.55);cube(.1,4.8,.18,M.metal,x,5,z+2.55);
-   const p=new T.PointLight(light,1.6,12);p.position.set(x>0?12:-12,5,z);group.add(p);
+   // Windows reflect the exterior light without adding one expensive dynamic lamp per pane.
   }
-  for(let z=-20;z<12;z+=10)for(const x of [-8,0,8]){
+  for(let z=-18;z<12;z+=14)for(const x of [-8,0,8]){
    const light=new T.PointLight(0xffe3bb,2.0,13);light.position.set(x,8.5,z);group.add(light);
   }
   sign("↶  RETOUR AU CAMPUS",0,3.8,13,5.4,.75);
