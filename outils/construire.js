@@ -31,6 +31,7 @@ const CHIFFRES_IMPACT = require("./chiffres-parcours");
 const LOISIRS_AJOUTS = require("./loisirs-ajouts");
 const ATELIERS = require("./ateliers");
 const LOGICIELS = require("./logiciels");
+const JEUX_ACCUEIL = require("./jeu-accueil.json");
 const SPHERES_PUBLIC = require("./spheres-publication.json");
 const NAV_RUBRIQUES = require("./navigation-rubriques");
 const TYPES_ETUDES = require("./typologies-multilingues");
@@ -100,10 +101,59 @@ function sourcesMediation(c, s) {
   return `<h3 class="titre-bloc">${e(MEDIATION.LANGUES[c.lang].references)}</h3><ul class="methode-refs references-transmission">${cles.map((k) => `<li>${lien(MEDIATION.REFERENCES[k].href, e(MEDIATION.REFERENCES[k].citation))}</li>`).join("")}</ul>`;
 }
 
+const JEUX_RESSOURCES = {
+  "fr": [
+    "JEU INTERACTIF 3D",
+    "La thèse impossible",
+    "Une aventure doctorale pour aider Éric à construire et défendre son protocole, avec des choix méthodologiques et plusieurs issues.",
+    "Découvrir le jeu",
+    "Disponible en français et en anglais"
+  ],
+  "en": [
+    "INTERACTIVE 3D GAME",
+    "The impossible thesis",
+    "A doctoral adventure where you help Éric design and defend his research protocol, making methodological choices with different outcomes.",
+    "Explore the game",
+    "Available in French and English"
+  ],
+  "es": [
+    "JUEGO INTERACTIVO 3D",
+    "La tesis imposible",
+    "Una aventura doctoral para ayudar a Éric a elaborar y defender su protocolo de investigación, tomando decisiones metodológicas que cambian el desenlace.",
+    "Descubrir el juego",
+    "Disponible en francés e inglés"
+  ],
+  "zh": [
+    "3D 互动游戏",
+    "不可能的博士论文",
+    "在这场博士研究冒险中，帮助 Éric 制定并答辩研究方案。方法学选择会影响游戏结局。",
+    "探索游戏",
+    "游戏提供法语和英语版本"
+  ],
+  "ar": [
+    "لعبة تفاعلية ثلاثية الأبعاد",
+    "أطروحة الدكتوراه المستحيلة",
+    "مغامرة دكتوراه تساعد فيها إريك على إعداد بروتوكول بحثه والدفاع عنه، مع اختيارات منهجية تؤثر في النهاية.",
+    "استكشف اللعبة",
+    "اللعبة متاحة بالفرنسية والإنجليزية"
+  ],
+  "ru": [
+    "ИНТЕРАКТИВНАЯ 3D-ИГРА",
+    "Невозможная диссертация",
+    "Докторское приключение: помогите Эрику подготовить и защитить исследовательский протокол. Методологические решения меняют исход игры.",
+    "Открыть игру",
+    "Доступно на французском и английском"
+  ]
+};
+function sectionJeuRessources(c){
+ const t=JEUX_RESSOURCES[c.lang]||JEUX_RESSOURCES.en;
+ const j=c.lang==="fr"?"fr":"en";
+ return '<aside class="logiciels-jeu" aria-labelledby="jeu-ressources-'+c.lang+'"><div class="logiciels-jeu-texte"><span class="logiciels-jeu-kicker">'+e(t[0])+'</span><h3 id="jeu-ressources-'+c.lang+'">'+e(t[1])+'</h3><p>'+e(t[2])+'</p><small>'+e(t[4])+'</small></div><a class="logiciels-jeu-lien" href="'+c.chemin+'jeu/?lang='+j+'">'+e(t[3])+' <span aria-hidden="true">↗</span></a></aside>';
+}
 function sectionLogiciels(c,compact=false){
  const L=LOGICIELS[c.lang];
  const visuel=i=>i===0?'<svg viewBox="0 0 460 170" aria-hidden="true"><path d="M45 15v125h380" fill="none" stroke="#b5d0d5" stroke-width="2"/><path d="M55 128 405 36" stroke="#216b8a" stroke-width="3"/><g fill="#168990">'+Array.from({length:23},(_,n)=>'<circle cx="'+(60+n*15)+'" cy="'+(126-n*3.9+Math.sin(n*4)*18)+'" r="5" opacity=".7"/>').join('')+'</g></svg>':'<svg viewBox="0 0 460 170" aria-hidden="true"><g stroke="#5b94a7" stroke-width="2"><path d="M80 45 225 120 380 45M80 45 380 45M225 120 225 45"/></g><g fill="#e2f0ee" stroke="#287a6c" stroke-width="2"><circle cx="80" cy="45" r="24"/><circle cx="225" cy="120" r="24"/><circle cx="380" cy="45" r="24"/></g><circle cx="225" cy="45" r="18" fill="#d9e8f2" stroke="#276a91" stroke-width="2"/></svg>';
- return '<section class="section-corps pleine logiciels-publics"><header><p class="surtitre">'+e(L.salle[0])+'</p><h2>'+e(L.titre)+'</h2><p class="intro">'+e(L.intro)+'</p></header><div class="logiciels-cartes">'+['statosphere','episphere'].map((s,i)=>{const B=SPHERES_PUBLIC.bilan[s];return '<article>'+visuel(i)+'<div><h3>'+e(i?'Épisphère':'Statosphère')+'</h3><p>'+e(L.items[i])+'</p><p class="logiciels-chiffres"><span><b>'+B.lecons+'</b> '+e(L.chapitres)+'</span><span><b>'+B.qcm.toLocaleString(c.lang)+'</b> '+e(L.questions)+'</span></p><a class="bouton" href="'+c.chemin+'applications/'+s+'/">'+e(L.lancer)+' ↗</a></div></article>';}).join('')+'</div><ol class="logiciels-parcours">'+L.etapes.map((t,i)=>'<li><b>'+num(i)+'</b>'+e(t)+'</li>').join('')+'</ol><p class="note">'+e(L.note)+'</p></section>';
+ return '<section class="section-corps pleine logiciels-publics"><header><p class="surtitre">'+e(L.salle[0])+'</p><h2>'+e(L.titre)+'</h2><p class="intro">'+e(L.intro)+'</p></header><div class="logiciels-cartes">'+['statosphere','episphere'].map((s,i)=>{const B=SPHERES_PUBLIC.bilan[s];return '<article>'+visuel(i)+'<div><h3>'+e(i?'Épisphère':'Statosphère')+'</h3><p>'+e(L.items[i])+'</p><p class="logiciels-chiffres"><span><b>'+B.lecons+'</b> '+e(L.chapitres)+'</span><span><b>'+B.qcm.toLocaleString(c.lang)+'</b> '+e(L.questions)+'</span></p><a class="bouton" href="'+c.chemin+'applications/'+s+'/">'+e(L.lancer)+' ↗</a></div></article>';}).join('')+'</div><ol class="logiciels-parcours">'+L.etapes.map((t,i)=>'<li><b>'+num(i)+'</b>'+e(t)+'</li>').join('')+'</ol><p class="note">'+e(L.note)+'</p>'+(!compact?sectionJeuRessources(c):'')+'</section>';
 }
 function atelierPratique(c,cle){
  const A=ATELIERS.textes(c.lang,cle),L=A.labels;
@@ -1494,6 +1544,7 @@ ${sections[s].replace(/<p class="surtitre">(\d{2} · )?/, `<p class="surtitre">$
     .join("")}</ul></div>
 </div>
 </section>
+${JEUX_ACCUEIL[c.lang] || ""}
 </main>
 
 <footer class="pied"><div class="pied-informations">${copyrightSite(c.lang)}${confidentialiteAudience(c.lang)}<small>${e(c.credits)}</small></div><a href="#contenu">${e(c.ui.haut)} ↑</a></footer>
