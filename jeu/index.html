@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#071422"><title>PROTOCOLE : LA THÈSE IMPOSSIBLE — Éric Bernier</title>
 <meta name="description" content="Une aventure doctorale 3D narrative et interactive. Aidez Éric Bernier à construire et défendre un protocole scientifique, entre comité, littérature, données et Reviewer 2.">
-<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/doctorat-game.css?v=1">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/doctorat-game.css?v=3">
 </head>
 <body>
 <div class="game" id="game">
@@ -14,6 +14,7 @@
     <a class="brand" href="../" id="back"><span class="brand-signet">ÉB<span>✦</span></span><span><strong>PROTOCOL_01</strong><small data-i18n="brandSmall">L'odyssée doctorale</small></span></a>
     <div class="mission-ident"><span class="eyebrow" id="actLabel">ACTE I / 03</span><strong id="chapterTitle">La rentrée des hypothèses</strong></div>
     <div class="top-actions">
+      <button id="photoBtn" class="icon-button" aria-label="Voir Éric de face" aria-pressed="false" title="Caméra portrait / caméra de suivi">◉</button>
       <button id="audioBtn" class="icon-button" aria-label="Activer le son" title="Activer/désactiver le son">♪</button>
       <button id="qualityBtn" class="icon-button" aria-label="Changer la qualité graphique" title="Qualité graphique">◇</button>
       <button id="langBtn" class="icon-button" aria-label="Switch language" title="Français / English">EN</button>
@@ -33,9 +34,10 @@
   </aside>
   <div class="mission-panel" id="missionPanel"><span class="overline" data-i18n="currentObjective">OBJECTIF ACTUEL</span><strong id="missionGoal">Rejoindre le portail de la première mission.</strong><span class="hint">⌖ <span id="distance">22 m</span> <span data-i18n="toObjective">jusqu'à l'objectif</span></span></div>
   <div class="quest-marker" id="questMarker" aria-hidden="true"><span>✦</span><b id="markerDistance">22 m</b></div>
-  <div class="bottom-left"><div class="chapter-pips" id="chapterPips" aria-label="Progression"></div><div class="movement-hint" data-i18n="moveHint">ZQSD / WASD / flèches · E pour interagir</div></div>
-  <div class="bottom-right"><button id="autoWalk" class="small-btn" data-i18n="autoWalk">⇢ Rejoindre l'objectif</button><button id="actionBtn" class="action-btn"><span>✦</span><span data-i18n="interact">Interagir</span><kbd>E</kbd></button></div>
+  <div class="bottom-left"><div class="chapter-pips" id="chapterPips" aria-label="Progression"></div><div class="movement-hint" data-i18n="moveHint">ZQSD / WASD / flèches · Maj courir · Espace esquiver</div></div>
+  <div class="bottom-right"><button id="dodgeBtn" class="small-btn dodge" aria-label="Esquiver un obstacle">↯ Esquiver</button><button id="autoWalk" class="small-btn" data-i18n="autoWalk">⇢ Guidage</button><button id="actionBtn" class="action-btn"><span>✦</span><span data-i18n="interact">Interagir</span><kbd>E</kbd></button></div>
   <div class="touch-controls" aria-label="Déplacement tactile" id="touchControls"><div class="touch-pad"><button data-move="up" aria-label="Avancer">↑</button><div><button data-move="left" aria-label="Gauche">←</button><button data-move="down" aria-label="Reculer">↓</button><button data-move="right" aria-label="Droite">→</button></div></div></div>
+  <aside class="field-journal" id="fieldJournal" aria-live="polite"><span>✦ CARNET DE TERRAIN</span><strong>Explore, enquête, décide.</strong><small>Approche les personnages : les échanges s'ouvrent automatiquement.</small></aside>
   <div class="subtitle" id="subtitle" role="status" aria-live="polite"></div>
   <div class="modal-shell" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
     <div class="modal-scrim"></div><div class="modal-card" id="modalCard"><div class="modal-eyebrow" id="modalEyebrow">L'AVENTURE COMMENCE</div><button class="modal-close" id="modalClose" type="button" aria-label="Fermer">×</button><div id="modalContent"></div></div>
@@ -43,6 +45,6 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <div class="load" id="loading"><span class="load-mark">ÉB</span><div class="loading-ring"></div><strong>INITIALISATION DU CAMPUS</strong><small data-i18n="loadTxt">Le comité prépare déjà des questions.</small></div>
 </div>
-<script type="module" src="../assets/doctorat-game.js?v=1"></script>
+<script type="module" src="../assets/doctorat-game.js?v=3"></script>
 </body>
 </html>
