@@ -61,7 +61,9 @@ function finish(task,delta,detail,flags={}){
  if(task.id==="siteAuthorization"&&!flags.risky)st.access=true;
  if(task.id==="dataContracts"&&!flags.risky)st.access=true;
  if(task.id==="ethicsApproved"&&!flags.risky)st.approved=true;
- for(let i=1;i<=3;i++)if(task.id==="article"+i+"Submit"&&!flags.risky)st.articles=Math.max(st.articles,i);
+ st.acceptedArticles ||= [];
+ if(flags.articleAccepted&&!st.acceptedArticles.includes(task.id))st.acceptedArticles.push(task.id);
+ st.articles=st.acceptedArticles.length;
  if(!flags.forceNoMark)st.completed.push(task.id);
  if(flags.defenseFailed)st.ending="defenseFailed";
  if(task.id==="deposit")st.ending="complete";
@@ -99,6 +101,7 @@ function notebook(){
   if(id==="researchGap")st.novelty=false;
   if(id==="ethicsApproved")st.approved=false;
   if(id==="dataContracts")st.access=false;
+  if(st.acceptedArticles){st.acceptedArticles=st.acceptedArticles.filter(x=>x!==id);st.articles=st.acceptedArticles.length;}
   st.week+=2;st.budget=Math.max(0,st.budget-2);st.stress=clamp(st.stress+2);
   st.repairs=(st.repairs||0)+1;
   st.journal.unshift({id:"repair",week:st.week,task:"Révision de "+id,note:"Deux semaines consacrées à reprendre un choix contesté.",risky:false});
