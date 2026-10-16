@@ -88,5 +88,23 @@ export async function loadHockeyAssets(T,stage,eric,hockey,isActive=()=>true,pro
   catch(e){console.info("Optional hockey GLB unavailable:",item.id,e);progress(item.id,false);}
  });
  await Promise.allSettled(tasks);
- return {loaded:loaded.length,ids:loaded,dispose(){for(const [parent,obj] of attachments){parent?.remove?.(obj);}eric.resetHockeyGear?.();}};
+ return {loaded:loaded.length,ids:loaded,dispose(){
+  const meshes=new Set(),materials=new Set(),textures=new Set();
+  for(const [parent,obj] of attachments){
+   parent?.remove?.(obj);
+   obj.traverse(o=>{
+    if(!o.isMesh)return;
+    if(o.geometry)meshes.add(o.geometry);
+    for(const material of Array.isArray(o.material)?o.material:[o.material]){
+     if(!material)continue;materials.add(material);
+     for(const key of ["map","normalMap","roughnessMap","metalnessMap","emissiveMap","bumpMap","aoMap"])
+      if(material[key])textures.add(material[key]);
+    }
+   });
+  }
+  for(const t of textures)t.dispose?.();
+  for(const g of meshes)g.dispose?.();
+  for(const m of materials)m.dispose?.();
+  eric.resetHockeyGear?.();
+ }};
 }
