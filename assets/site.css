@@ -2289,7 +2289,10 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
 @media(hover:none) and (pointer:coarse){.pub-format:hover,.pub-format:hover svg{transform:none}}
 @media(prefers-reduced-motion:reduce){.salle .salle-onglets,.hall.en-mobile .hall-reperes,.entete .nav{scroll-behavior:auto}}
 
-/* 2026-10-15 — cadrage du panorama, sans modifier la navigation ni l'intérieur. */
+/* 2026-10-15 — Rééquilibrage du hall panoramique.
+   Une seule échelle architecturale : verrière 32 %, portes et panneaux au même
+   niveau (32 %), seuil à 86,5 %, sol visible réduit à 13,5 %.
+   Les stations conservent leur largeur et leur pas pour préserver la navigation. */
 @media(min-width:1000px){
   .hall.en-volume{--eb-hall-hauteur:clamp(410px,52svh,470px)}
   .hall.en-volume .hall-espace{height:var(--eb-hall-hauteur)}
@@ -2297,30 +2300,79 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
     transform:translateZ(-100px) scale(1.025);
     background-color:#eeeee8;
     background-image:linear-gradient(180deg,rgba(249,250,247,.04),rgba(246,247,240,.03)),url("photos/hall-atrium-verriere.webp");
-    background-size:100% 100%,auto 100%;
+    background-position:center top,var(--hall-lumiere,50%) top;
+    background-size:100% 100%,auto 110.5%;
   }
   .hall.en-volume .architecture-hall::before{
-    background-size:auto 100%;
-    -webkit-mask-size:auto 100%;
-    mask-size:auto 100%;
+    background-position:var(--hall-lumiere,50%) top;
+    background-size:auto 110.5%;
+    -webkit-mask-position:var(--hall-lumiere,50%) top;
+    mask-position:var(--hall-lumiere,50%) top;
+    -webkit-mask-size:auto 110.5%;
+    mask-size:auto 110.5%;
+  }
+  .hall.en-volume .dallage-hall{
+    height:calc(var(--eb-hall-hauteur) * .135);
+    background:linear-gradient(180deg,transparent,rgba(243,244,236,.045));
   }
   .hall.en-volume .station-hall{
-    height:calc(var(--eb-hall-hauteur) * .70);
-    bottom:calc(var(--eb-hall-hauteur) * .215);
+    width:430px;
+    height:calc(var(--eb-hall-hauteur) * .75);
+    bottom:calc(var(--eb-hall-hauteur) * .135);
   }
   .hall.en-volume .station-hall .porte{
-    height:calc(var(--eb-hall-hauteur) * .50);
+    left:10px;
+    width:148px;
+    --largeur-porte:148px;
+    height:calc(var(--eb-hall-hauteur) * .545);
   }
   .hall.en-volume .panneau-hall{
-    top:calc(var(--eb-hall-hauteur) * .20);
-    max-height:calc(var(--eb-hall-hauteur) * .50);
-    border-color:#cbd6d0;
-    border-top-color:color-mix(in srgb,var(--c1) 55%,white);
-    background:rgba(255,255,251,.96);
-    box-shadow:0 3px 12px rgba(30,58,55,.1);
+    left:173px;
+    top:calc(var(--eb-hall-hauteur) * .205);
+    width:244px;
+    max-height:calc(var(--eb-hall-hauteur) * .535);
+    padding:12px;
+    border:1px solid #c3d3cb;
+    border-top:3px solid color-mix(in srgb,var(--c1) 55%,white);
+    border-radius:9px;
+    background:linear-gradient(150deg,rgba(255,255,252,.98),rgba(249,252,248,.95));
+    box-shadow:0 6px 19px rgba(25,51,48,.11),inset 0 1px 0 rgba(255,255,255,.95);
+    backdrop-filter:blur(5px);
   }
-  .hall.en-volume .dallage-hall{height:calc(var(--eb-hall-hauteur) * .215);background:linear-gradient(180deg,transparent,rgba(243,244,236,.05))}
+  .hall.en-volume .panneau-hall h3{
+    margin:0 0 10px;
+    font-size:13.5px;
+    line-height:1.3;
+  }
+  .hall.en-volume .panneau-hall h3 button{align-items:center;min-height:27px}
+  .hall.en-volume .panneau-hall h3 bdi{width:23px;height:23px;flex:none}
+  .hall.en-volume .sous-portes-murales{gap:6px}
+  .hall.en-volume .sous-portes-murales>button,
+  .hall.en-volume .sous-portes-murales>a{
+    min-height:37px;
+    padding:6px 7px;
+    border:1px solid #d5e2dc;
+    border-radius:6px;
+    background:rgba(255,255,255,.95);
+    font-size:11px;
+    line-height:1.32;
+    transition:background .18s,border-color .18s,box-shadow .18s;
+  }
+  .hall.en-volume .sous-portes-murales>button:hover,
+  .hall.en-volume .sous-portes-murales>a:hover{
+    box-shadow:0 2px 7px rgba(25,51,48,.07);
+  }
 }
+/* Mobile étroit : la porte principale retrouve une présence visuelle nette,
+   sans réduire les cibles tactiles ni masquer les sous-catégories. */
+@media(max-width:520px){
+  .hall.en-mobile .station-hall .porte{
+    width:clamp(136px,43vw,172px);
+    height:clamp(206px,61vw,250px);
+    margin:4px 0 27px;
+  }
+}
+
 /* Recalage natif de proximité, jamais forcé, séparé entre page et salle. */
 @supports(scroll-snap-type:y proximity){
   html:not(.lv):not(.hc){scroll-snap-type:y proximity;scroll-padding-top:clamp(85px,11svh,136px)}
