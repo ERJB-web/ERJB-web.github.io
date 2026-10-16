@@ -1,9 +1,13 @@
 "use strict";
 /* Studio de vulgarisation scientifique : démonstrations pédagogiques, aucun résultat personnel simulé. */
 (() => {
-  const section = document.querySelector('.section-corps.vulgarisation');
-  if (!section || section.dataset.studioReady) return;
-  section.dataset.studioReady = 'true';
+  const bound = new WeakSet();
+  const initializeSection = (section) => {
+    if (!section || bound.has(section)) return;
+    bound.add(section);
+    // The hall clones the content whenever a room opens; cloneNode(true)
+    // does not clone event listeners. Rebuild interactive widgets per instance.
+    section.querySelectorAll('.vs-hero,.vs-map,.vs-bridge,.vs-lab,.vs-studio,.vs-video,.vs-trust,.vs-media,.vs-quiz').forEach(el => el.remove());
   const lang = (document.documentElement.lang || 'fr').slice(0, 2).toLowerCase();
   const tr = {
     fr: {
@@ -236,4 +240,12 @@
   };
   const initQuiz=()=>{quizStep();$('.vs-quiz-action').addEventListener('click',quizAction);};
   if(panel(5))initQuiz();
+  };
+  initializeSection(document.querySelector('#vulgarisation .section-corps.vulgarisation') || document.querySelector('.section-corps.vulgarisation'));
+  const room=document.querySelector('.salle-contenu');
+  if(room){
+    const initializeRoom=()=>room.querySelectorAll('.section-corps.vulgarisation').forEach(initializeSection);
+    new MutationObserver(initializeRoom).observe(room,{childList:true,subtree:false});
+    initializeRoom();
+  }
 })();
