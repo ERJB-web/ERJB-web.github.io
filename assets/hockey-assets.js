@@ -4,7 +4,7 @@
  * The public manifest can resolve the other models. Falls back to modeled gear offline.
  */
 const ROOT="https://3dassets.dev/api/v1/packs/ice-hockey-arena-and-locker-room";
-const VERIFIED={stick:"https://cdn.3dassets.dev/assets/33716/v1/model.glb",pads:"https://cdn.3dassets.dev/assets/33719/v1/model.glb"};
+const VERIFIED={stick:"https://cdn.3dassets.dev/assets/33716/v1/model.glb",pads:"https://cdn.3dassets.dev/assets/33719/v1/model.glb",resurfacer:"https://cdn.3dassets.dev/assets/33705/v1/model.glb"};
 const DESCRIPTORS=[
  {id:"stick",labels:["hockey stick, heel curve","hockey stick heel curve","hockey stick"],mount:"stick"},
  {id:"pads",labels:["goalie leg pads","goalie pads"],mount:"goalie"},
@@ -12,7 +12,8 @@ const DESCRIPTORS=[
  {id:"helmet",labels:["player helmet with cage","player helmet"],mount:"helmet"},
  {id:"skates",labels:["player skate"],mount:"skates"},
  {id:"gloves",labels:["hockey gloves"],mount:"gloves"},
- {id:"goal",labels:["hockey goal with net","hockey goal"],mount:"rink"}
+ {id:"goal",labels:["hockey goal with net","hockey goal"],mount:"rink"},
+ {id:"resurfacer",labels:["ice resurfacer"],mount:"rink"}
 ];
 function discover(data){
  const result=[],visited=new WeakSet();
@@ -71,6 +72,8 @@ export async function loadHockeyAssets(T,stage,eric,hockey,isActive=()=>true,pro
   }else if(item.id==="mask"){
    const keeper=hockey.goalie;keeper.add(model);
    model.position.set(0,1.96,.1);model.scale.setScalar(.92);
+  }else if(item.id==="resurfacer"){
+   stage.add(model);model.position.set(16.8,.03,-17.5);model.rotation.y=Math.PI/2;
   }else if(item.id==="goal"){
    stage.add(model);model.position.set(0,.10,-26.4);
    // Existing regulation frame remains; hide the alternative until its geometry is aligned.
