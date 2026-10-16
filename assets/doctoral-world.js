@@ -26,6 +26,7 @@ export function createAdventureWorld(T,canvas,opts={}){
  let last=0,lastNavigation=0,clock=0,modelX=0,modelZ=7,cameraYaw=0,cameraPitch=.28,cameraDistance=8.3,dragView=null,busy=false,auto=null,actors=[],targets=[],clickables=[],particles=[],chasers=[],collectibles=[],hitCooldown=0,activeTarget=null,controls=opts.keys||new Set();
  let skate={balance:0,clock:0,falls:0,completed:false,started:false,lastReport:0,gateIndex:0,gates:[],velocityX:0,velocityZ:0};
  let hockey=null,hockeyModels=null,hockeySession=0,lastHeading=Math.PI,aimX=0,aimIndicator=null;
+ let renderRatio=1,targetRatio=1;
  const mat=(hex,metal=.05,rough=.65,glow=0)=>new T.MeshStandardMaterial({color:hex,metalness:metal,roughness:rough,emissive:glow?hex:0,emissiveIntensity:glow});
  // Art-directed PBR surface maps, generated deterministically in-browser.
  const materialMap=(kind)=>{
@@ -561,7 +562,7 @@ const cast=[
  function boot(){
   renderer=new T.WebGLRenderer({canvas,antialias:true,powerPreference:"high-performance"});
   // High resolution rendering is done on the player's own GPU via WebGL.
-  let renderRatio=Math.min(devicePixelRatio||1,2.4),targetRatio=renderRatio;
+  renderRatio=Math.min(devicePixelRatio||1,2.4);targetRatio=renderRatio;
   renderer.setPixelRatio(renderRatio);renderer.setSize(canvas.clientWidth||innerWidth,canvas.clientHeight||innerHeight,false);
   renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.36;renderer.outputColorSpace=T.SRGBColorSpace;
   renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;
