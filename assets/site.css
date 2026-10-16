@@ -1665,7 +1665,7 @@ html.lv .axes-cartes{grid-template-columns:1fr}
  .hall.en-volume .hall-espace.en-glissement{cursor:grabbing}
  .hall.en-volume .hall-espace:focus-visible{outline:2px solid var(--green);outline-offset:4px}
  .hall.en-volume .hall-univers{position:absolute;inset:0;width:100%;height:100%;transform:none;transform-style:preserve-3d;pointer-events:none}
- .hall.en-volume .architecture-hall{display:block;position:absolute;inset:0;pointer-events:none;transform:translateZ(-100px) scale(1.056);transform-origin:50% 48%;background-color:#edece4;background-image:linear-gradient(180deg,#ffffff05,#fdfef805),url("photos/hall-atrium.webp");background-repeat:no-repeat;background-position:center top,var(--hall-lumiere,50%) top;background-size:100% 100%,auto calc(126.6% - 40.5px)}
+ .hall.en-volume .architecture-hall{display:block;position:absolute;inset:0;pointer-events:none;transform:translateZ(-100px) scale(1.056);transform-origin:50% 48%;background-color:#edece4;background-image:linear-gradient(180deg,#ffffff05,#fdfef805),url("photos/hall-atrium-verriere.webp");background-repeat:no-repeat;background-position:center top,var(--hall-lumiere,50%) top;background-size:100% 100%,auto calc(126.6% - 40.5px)}
  .hall.en-volume .paroi-hall,.hall.en-volume .plafond-hall,.hall.en-volume .verriere-hall{display:none}
  .hall.en-volume .dallage-hall{position:absolute;left:0;right:0;bottom:0;height:32px;background:linear-gradient(180deg,#ffffff05,transparent);border:0;box-shadow:none}
  .hall.en-volume .portes{position:absolute;inset:0;display:block;margin:0;padding:0;transform-style:preserve-3d;pointer-events:none}
@@ -1733,7 +1733,7 @@ html.lv .axes-cartes{grid-template-columns:1fr}
  .hall.en-mobile .portes{position:relative;display:flex;align-items:flex-start;gap:12px;min-width:0;margin:0;padding:12px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:12px;overscroll-behavior-x:contain;scrollbar-width:none;direction:ltr;transition:height .22s ease}
  .hall.en-mobile .portes::-webkit-scrollbar{display:none}
  .hall.en-mobile .station-hall{position:relative;display:grid;grid-template-columns:clamp(92px,26vw,170px) minmax(0,1fr);align-items:end;gap:14px;flex:0 0 100%;min-width:0;min-height:330px;padding:24px 14px 54px;border:1px solid #d9e0d6;border-radius:10px;scroll-snap-align:start;scroll-snap-stop:always;background:linear-gradient(100deg,#e5ebe0,#fcfdf8 14% 75%,#e9eee5);isolation:isolate;perspective:1100px;direction:ltr}
- .hall.en-mobile .station-hall::before{content:"";position:absolute;z-index:-1;inset:0 0 43px;pointer-events:none;background:linear-gradient(100deg,rgba(70,89,56,.09),rgba(255,255,255,.87) 5% 92%,rgba(70,89,56,.08)),url("photos/hall-atrium.webp") center 25%/cover;box-shadow:inset 0 10px 20px -20px #47613a,inset 0 -5px 0 #e0e6d9,inset 0 -6px 0 #c7d1be}
+ .hall.en-mobile .station-hall::before{content:"";position:absolute;z-index:-1;inset:0 0 43px;pointer-events:none;background:linear-gradient(100deg,rgba(70,89,56,.09),rgba(255,255,255,.87) 5% 92%,rgba(70,89,56,.08)),url("photos/hall-atrium-verriere.webp") center 25%/cover;box-shadow:inset 0 10px 20px -20px #47613a,inset 0 -5px 0 #e0e6d9,inset 0 -6px 0 #c7d1be}
  .hall.en-mobile .station-hall::after{content:"";position:absolute;z-index:-1;inset:auto 0 0;height:43px;pointer-events:none;background:linear-gradient(110deg,rgba(255,255,255,.8),transparent 55%),repeating-linear-gradient(90deg,transparent 0 70px,rgba(140,154,130,.12) 71px 72px),linear-gradient(#d8e0d0,#f3f5ed);box-shadow:inset 0 10px 15px -15px #526545}
  .hall.en-mobile .station-hall .porte{position:relative;display:block;align-self:end;grid-column:1;grid-row:2;width:100%;height:clamp(190px,52vw,334px);min-width:0;min-height:0;margin:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;transform:none;transition:none;isolation:auto}
  .hall.en-mobile .station-hall .porte:hover,.hall.en-mobile .station-hall .porte:focus-visible{background:transparent;border:0;box-shadow:none;transform:none}
@@ -2064,15 +2064,15 @@ html[dir=rtl] .bande-parcours .trajectoire{direction:rtl}
 @media(max-width:999px){.hall.en-mobile .station-hall{padding-top:24px;row-gap:14px}.hall.en-mobile .panneau-hall h3{margin-bottom:4px}}
 
 /* L'extérieur suit l'heure et la saison ; le mur, le sol et les portes restent clairs. */
-.hall{--hall-exterieur:url("photos/hall-atrium.webp");--hall-filtre-saison:brightness(1);--hall-filtre-heure:brightness(1)}
-.hall[data-moment="nuit"]{--hall-exterieur:url("photos/hall-atrium-nuit.webp")}
+.hall{--hall-exterieur:url("photos/hall-atrium-verriere.webp");--hall-filtre-saison:brightness(1);--hall-filtre-heure:brightness(1)}
+.hall[data-moment="nuit"]{--hall-exterieur:url("photos/hall-atrium-verriere-nuit.webp")}
 .hall[data-moment="aube"]{--hall-filtre-heure:sepia(.12) saturate(1.1)}
 .hall[data-moment="crepuscule"]{--hall-filtre-heure:sepia(.16) saturate(1.12) brightness(.88)}
 .hall[data-saison="printemps"]{--hall-filtre-saison:saturate(1.13)}
 .hall[data-saison="automne"]{--hall-filtre-saison:sepia(.24) saturate(1.13)}
 .hall[data-saison="hiver"]{--hall-filtre-saison:grayscale(.45) saturate(.7) brightness(1.07)}
 .hall.en-volume .architecture-hall{isolation:isolate}
-.hall.en-volume .architecture-hall::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:var(--hall-exterieur);background-repeat:no-repeat;background-position:var(--hall-lumiere,50%) top;background-size:auto calc(126.6% - 40.5px);-webkit-mask:url("hall-vitrages.svg") var(--hall-lumiere,50%) top / auto calc(126.6% - 40.5px) no-repeat;mask:url("hall-vitrages.svg") var(--hall-lumiere,50%) top / auto calc(126.6% - 40.5px) no-repeat;filter:var(--hall-filtre-saison) var(--hall-filtre-heure)}
+.hall.en-volume .architecture-hall::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:var(--hall-exterieur);background-repeat:no-repeat;background-position:var(--hall-lumiere,50%) top;background-size:auto calc(126.6% - 40.5px);-webkit-mask:url("hall-vitrages-verriere.svg") var(--hall-lumiere,50%) top / auto calc(126.6% - 40.5px) no-repeat;mask:url("hall-vitrages-verriere.svg") var(--hall-lumiere,50%) top / auto calc(126.6% - 40.5px) no-repeat;filter:var(--hall-filtre-saison) var(--hall-filtre-heure)}
 .hall.en-volume .architecture-hall::after{content:none}
 .hall.en-volume .verriere-hall{display:none}
 .hall.en-mobile .station-hall::before{background-image:linear-gradient(100deg,rgba(70,89,56,.06),transparent 5% 92%,rgba(70,89,56,.06)),var(--hall-exterieur)}
