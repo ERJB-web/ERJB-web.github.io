@@ -39,7 +39,7 @@ class Material{constructor(values={}){Object.assign(this,values);}dispose(){}}
 const T={
  Mesh:Object3D,Group:Object3D,Scene:Object3D,HemisphereLight:Object3D,DirectionalLight:Object3D,PointLight:Object3D,
  MeshBasicMaterial:Material,MeshStandardMaterial:Material,MeshPhysicalMaterial:Material,
- CanvasTexture:class{constructor(){this.repeat={set:noop};}dispose(){}},
+ CanvasTexture:class{constructor(image){this.image=image;this.repeat={set:noop};}dispose(){}},
  BufferGeometry:Geometry,Float32BufferAttribute:class{},
  Vector2:Vec,Vector3:Vec,Color:class{},FogExp2:class{},Raycaster:class{},
  PerspectiveCamera:class extends Object3D{updateProjectionMatrix(){}},
