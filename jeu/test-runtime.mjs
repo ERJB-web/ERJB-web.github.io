@@ -13,6 +13,15 @@ const avatar=src("assets/eric-avatar-3d.js").replace(/^export /gm,"");
 const world=src("assets/doctoral-world.js").replace(/^import .*$/gm,"").replace(/^export /gm,"");
 new Function(avatar);new Function(world);
 const noop=()=>{};
+// The smoke runner strips ES imports; use a minimal adapter for the independently
+// verified hockey integration so ten-room navigation remains testable in Node.
+const createHockeyGame=()=>({
+ status:()=>({fallTime:0,goals:0,saves:0,shots:0}),
+ step:()=>({fallTime:0,goals:0,saves:0,shots:0}),
+ fall:noop,dispose:noop,shot:noop,reset:noop
+});
+const loadHockeyAssets=()=>Promise.resolve();
+
 const ctx=new Proxy({createRadialGradient:()=>({addColorStop:noop})},{get:(o,k)=>o[k]??noop});
 const canvas=()=>({width:512,height:512,clientWidth:1200,clientHeight:750,getContext:()=>ctx,addEventListener:noop,getBoundingClientRect:()=>({left:0,top:0,width:1200,height:750})});
 const document={createElement:()=>canvas()};
@@ -52,8 +61,8 @@ a.update(.016,550,{x:4,z:-7},"rink");
 assert.equal(a.motion,"skate");
 a.dispose();
 let raf=null,frames=0,events=[];
-const createWorld=new Function("createEricAvatar","document","Image","requestAnimationFrame","devicePixelRatio","innerWidth","innerHeight",world+";return createAdventureWorld")(
- createAvatar,document,TestImage,cb=>raf=cb,1,1200,750);
+const createWorld=new Function("createEricAvatar","createHockeyGame","loadHockeyAssets","document","Image","requestAnimationFrame","devicePixelRatio","innerWidth","innerHeight",world+";return createAdventureWorld")(
+ createAvatar,createHockeyGame,loadHockeyAssets,document,TestImage,cb=>raf=cb,1,1200,750);
 const keys=new Set();
 const game=createWorld(T,canvas(),{keys,isPaused:()=>false,onVisit:(id)=>events.push(["visit",id]),onEvidence:(id)=>events.push(["clue",id]),onActivity:(zone,id)=>events.push(["activity",zone,id]),onNpc:(name)=>events.push(["npc",name]),onBalance:noop,onNarrate:noop});
 const step=n=>{for(let i=0;i<n;i++){assert.equal(typeof raf,"function");raf(++frames*17);}};
