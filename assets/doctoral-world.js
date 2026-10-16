@@ -25,7 +25,7 @@ export function createAdventureWorld(T,canvas,opts={}){
  let worldReality=null,walkVX=0,walkVZ=0,jumpY=0,jumpVel=0,jumpHeld=false,xrTriggerHeld=false,obstacles=[];
  let last=0,lastNavigation=0,clock=0,modelX=0,modelZ=7,cameraYaw=0,cameraPitch=.28,cameraDistance=8.3,dragView=null,busy=false,auto=null,actors=[],targets=[],clickables=[],particles=[],chasers=[],collectibles=[],hitCooldown=0,activeTarget=null,controls=opts.keys||new Set();
  let skate={balance:0,clock:0,falls:0,completed:false,started:false,lastReport:0,gateIndex:0,gates:[],velocityX:0,velocityZ:0};
- let hockey=null,hockeySession=0,lastHeading=Math.PI;
+ let hockey=null,hockeyModels=null,hockeySession=0,lastHeading=Math.PI;
  const mat=(hex,metal=.05,rough=.65,glow=0)=>new T.MeshStandardMaterial({color:hex,metalness:metal,roughness:rough,emissive:glow?hex:0,emissiveIntensity:glow});
  // Art-directed PBR surface maps, generated deterministically in-browser.
  const materialMap=(kind)=>{
@@ -514,11 +514,13 @@ const cast=[
    onWin:stats=>{skate.completed=true;opts.onHockeyWin?.(stats);}
   });
   loadHockeyAssets(T,group,eric,hockey,()=>session===hockeySession&&room==="rink",(id,ok)=>opts.onHockeyAsset?.(id,ok))
+   .then(models=>{if(session===hockeySession&&room==="rink")hockeyModels=models;else models?.dispose?.();})
    .catch(error=>console.warn("Hockey 3D model loading failed, gameplay still available",error));
   opts.onHockeyEvent?.("start",hockey.status());
  }
  function visit(id,initial=false){
   const next=choose(id).id;
+  hockeyModels?.dispose?.();hockeyModels=null;
   if(hockey){hockey.dispose();hockey=null;}++hockeySession;
   room=next;busy=false;auto=null;modelX=0;modelZ=9;walkVX=0;walkVZ=0;jumpY=0;jumpVel=0;obstacles=[];actors=[];targets=[];clickables=[];particles=[];chasers=[];collectibles=[];hitCooldown=0;activeTarget=null;
   if(group){scene.remove(group);releaseScene(group);}
