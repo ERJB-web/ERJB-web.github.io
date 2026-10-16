@@ -183,3 +183,16 @@ html:is(.hc,.lv) .vulgarisation .vs-hero{background:#173f52}
 .vs-video-poster small{z-index:1;font-size:15px;font-weight:650}
 .vulgarisation .vs-video-copy button:focus-visible{outline:3px solid #148d8d;outline-offset:4px}
 @media(max-width:800px){.vulgarisation .vs-video{grid-template-columns:1fr}.vs-video-preview{min-height:210px}.vs-video-copy{padding:22px}}
+
+/* Graphique vectoriel rigoureux : axe explicite de 0 à 100 %, labels et tableau de données. */
+.vs-risk-chart{display:block;max-width:100%;margin:2px 0 26px;padding:19px 13px 8px;border:1px solid #cbdedc;border-radius:15px;background:linear-gradient(180deg,#ffffff,#f7fbfa)}
+.vs-risk-chart svg{width:100%;height:auto;display:block;overflow:visible;font-family:var(--sans)}
+.vs-chart-grid line{stroke:#d8e7e5;stroke-width:1.4;stroke-dasharray:4 5}
+.vs-chart-grid text{fill:#536e78;font-size:17px;font-weight:550;direction:ltr}
+.vs-chart-labels text{fill:#1b4254;font-size:19px;font-weight:700}
+.vs-chart-range-a{stroke:#256d94;stroke-width:13;stroke-linecap:round;opacity:.7}
+.vs-chart-range-b{stroke:#d48054;stroke-width:13;stroke-linecap:round;opacity:.8}
+.vs-chart-point-a{fill:#235f7b;stroke:#fff;stroke-width:4}
+.vs-chart-point-b{fill:#b95f3e;stroke:#fff;stroke-width:4}
+.vs-chart-number-a,.vs-chart-number-b{fill:#163e51;font-size:22px;font-weight:750}
+@media(max-width:580px){.vs-risk-chart{padding:10px 8px 0}.vs-chart-grid text{font-size:18px}.vs-chart-number-a,.vs-chart-number-b{font-size:21px}}
