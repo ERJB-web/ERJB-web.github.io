@@ -93,3 +93,82 @@ body{background:#101719;color:#f0efed}
 .minimap-panel small{display:block;color:#b5cad1;font-size:9px;line-height:1.5}
 @media(max-width:1100px){.minimap-panel{width:158px;right:10px;bottom:13px}}
 @media(max-width:710px){.minimap-panel{width:126px;right:9px;bottom:62px;padding:7px}.minimap-heading{font-size:7px}.minimap-panel small{display:none}}
+
+
+/* GAMEPLAY HUD 2.0 — the 3D scene must remain the focus, no full-width button ribbon. */
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+.career{width:100%;min-width:0}
+.career-bar{height:67px;min-height:67px;padding:9px 16px;gap:12px}
+.career-bar .brand{min-width:0;max-width:255px;flex:0 1 auto}
+.brand strong{font-size:11px;letter-spacing:.08em;white-space:nowrap}
+.brand small{max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.time-bar{flex:0 1 260px;min-width:100px;width:auto}
+.time-bar span{font-size:9px}
+.time-bar strong{font-size:9px}
+.bar-actions{flex:0 1 auto;min-width:0;gap:5px}
+.bar-actions button{padding:9px 11px;font-size:10px}
+.game-layout{grid-template-columns:minmax(0,1fr) 295px;min-width:0}
+.playzone{min-width:0}
+.mission-board{min-width:0}
+.board-heading{padding:14px 15px 12px}
+.board-heading strong{font-size:15px;line-height:1.24}
+.board-heading small{font-size:10px;line-height:1.4}
+.stats-grid{padding:9px 12px;gap:5px}
+.stats-grid>div{padding:8px}
+.stats-grid strong{font-size:18px}
+.mission-items{padding:0 10px 8px}
+.mission-card{padding:10px 11px;margin-bottom:7px}
+.mission-card strong{font-size:12px}
+.world-label{top:13px;left:15px;max-width:min(360px,45%);padding:10px 13px}
+.world-label strong{font-size:17px;margin:4px 0}
+.world-label small{font-size:10px}
+.avatar-chip{top:13px;right:14px;padding:5px 8px}
+.avatar-chip img{width:37px;height:37px}
+.avatar-chip strong{font-size:9px}
+.avatar-chip small{font-size:9px}
+#placesToggle{position:absolute;top:113px;left:16px;z-index:6;display:flex;align-items:center;gap:13px;border:1px solid #f5a479b0;border-radius:10px;padding:9px 12px;color:#ffe5d6;background:#172b36e8;box-shadow:0 10px 20px #04121c7d;font:700 10px 'Space Grotesk';backdrop-filter:blur(8px)}
+#placesToggle:hover,#placesToggle[aria-expanded=true]{background:#f36633;color:#151719}
+#placesToggle span{font-size:11px}
+.world-places{display:none;top:154px;left:16px;right:auto;width:min(270px,calc(100% - 32px));max-height:min(420px,60vh);overflow-y:auto;overflow-x:hidden;z-index:7;padding:9px;flex-direction:column;gap:5px;background:#0d2230f5;border:1px solid #f3663390;border-radius:13px;box-shadow:0 20px 50px #030d1cbd}
+.world-places.open{display:flex}
+.world-places button{width:100%;text-align:left;padding:10px 12px;font-size:11px;white-space:normal;background:#193847;box-shadow:none}
+.world-places button:hover,.world-places button.current{transform:none;background:#f36633;color:#141b21}
+.rink-hud{top:153px;left:16px;width:265px;max-width:calc(100% - 32px);padding:10px 13px}
+.rink-hud .rink-track{margin-top:8px}
+.minimap-panel{width:154px;right:13px;bottom:14px;padding:8px}
+.minimap-panel small{font-size:8px}
+.controls{left:13px;bottom:14px;gap:5px;right:184px}
+.controls span{font-size:9px;padding:7px}
+.controls button{padding:9px;font-size:10px}
+.vignette{background:linear-gradient(to bottom,#0b1c294c,transparent 16%,transparent 83%,#05192587)}
+@media(max-width:1150px){
+ .career-bar{gap:7px}
+ .brand small{display:none}
+ .time-bar{flex-basis:160px}
+ .bar-actions button{font-size:9px;padding:8px}
+ .controls span{display:none}
+}
+@media(max-width:900px){
+ .game-layout{grid-template-columns:minmax(0,1fr) 250px}
+ .brand{max-width:150px!important}
+ .brand strong{font-size:9px}
+ .avatar-chip small{display:none}
+ .controls{right:148px}
+ .minimap-panel{width:130px}
+}
+@media(max-width:710px){
+ .career-bar{height:auto;min-height:62px}
+ .brand{width:auto;max-width:none!important}
+ .time-bar{flex-basis:100%;order:3}
+ .game-layout{display:flex;flex-direction:column}
+ .playzone{height:64dvh;min-height:350px}
+ .mission-board{height:34dvh}
+ #placesToggle{top:81px;left:9px;padding:7px 9px;font-size:9px}
+ .world-places{top:117px;left:9px}
+ .rink-hud{top:124px;left:9px;width:232px;padding:9px}
+ .world-label{top:8px;left:8px;max-width:53%;padding:8px 9px}
+ .avatar-chip{top:9px;right:8px}
+ .minimap-panel{width:111px;right:8px;bottom:74px}
+ .controls{right:9px;bottom:9px;left:auto}
+ .board-heading{display:none}
+}
