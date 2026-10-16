@@ -166,8 +166,23 @@
     background: radial-gradient(ellipse at 50% 30%,#25282050,transparent 72%);
     filter: blur(2px);
   }
-  /* Seuil encastré : le rail et les roulettes apparentes donnaient un effet de meuble. */
-  .hall.en-volume .portes::before,
+  /* Rail continu affleurant : une gorge fine dans la pierre, à la ligne du sol.
+     Le dessin de 8px comprend les marges ; le métal visible ne dépasse pas 3px. */
+  .hall.en-volume .portes::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(var(--hall-ligne-sol) - 2px);
+    bottom: auto;
+    height: 8px;
+    z-index: 1;
+    pointer-events: none;
+    background: url("hall-rail-encastre.svg") left top / 640px 8px repeat-x;
+    opacity: .82;
+    -webkit-mask-image: linear-gradient(90deg,transparent,#000 1.5% 98.5%,transparent);
+    mask-image: linear-gradient(90deg,transparent,#000 1.5% 98.5%,transparent);
+  }
   .hall.en-volume .station-hall .porte::before { content: none; }
   .hall.en-volume .porte::after { top: 100%; height: 9px; }
   .hall.en-volume .dallage-hall { height: calc(var(--eb-hall-hauteur) - var(--hall-ligne-sol)); }
@@ -193,6 +208,19 @@
     width: 118px;
     height: calc(500px * 360 / 726);
     margin: 0;
+  }
+  .hall.en-mobile .station-hall .porte .baie::after {
+    content: "";
+    position: absolute;
+    left: -22px;
+    right: -22px;
+    top: calc(100% - 2px);
+    height: 8px;
+    pointer-events: none;
+    background: url("hall-rail-encastre.svg") center top / 640px 8px repeat-x;
+    opacity: .82;
+    -webkit-mask-image: linear-gradient(90deg,transparent,#000 10% 90%,transparent);
+    mask-image: linear-gradient(90deg,transparent,#000 10% 90%,transparent);
   }
   .hall.en-mobile .station-hall .panneau-hall {
     display: block;
