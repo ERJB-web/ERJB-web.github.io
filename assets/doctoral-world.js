@@ -104,7 +104,7 @@ function pursuer(name,x,z,speed=2.7){
 }
 function decoratePlay(){
   if(room==="rink")return;
-  const labels=room==="university"?["Attestation","Courriel URGENT","Dossier administratif"]:
+  const labels=room==="university"?["Relevé universitaire","Lettre de motivation","Avant-projet doctoral"]:
     room==="laboratory"?["Codebook","Variables","Données vérifiées"]:
     room==="office"?["Avis du jury","Commentaires","Plan de thèse"]:
     room==="classroom"?["Notes de cours","Épreuve","Formule"]:
@@ -336,7 +336,11 @@ function desk(x,z,width=2.3,screen=false){
   canvas.addEventListener("webglcontextlost",ev=>{ev.preventDefault();opts.onNarrate?.("Le moteur graphique a été interrompu. Recharge la page pour réessayer.");});
  }
  function resize(){if(!renderer)return;const w=canvas.clientWidth,h=canvas.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);camera.aspect=w/h;camera.fov=w<600?69:62;camera.updateProjectionMatrix();}
- function goToHotspot(){const t=targets.find(t=>t.type==="activity")||targets.find(t=>t.type==="portal");if(t)auto={x:t.x,z:t.z};return Boolean(t);}
+ function goToHotspot(){
+  const available=targets.filter(t=>t.type==="activity"||t.type==="portal");
+  const t=available.sort((a,b)=>Math.hypot(a.x-modelX,a.z-modelZ)-Math.hypot(b.x-modelX,b.z-modelZ))[0];
+  if(t)auto={x:t.x,z:t.z};return Boolean(t);
+ }
  function checkTarget(){
   if(opts.isPaused?.()||busy)return;
   const near=targets.filter(t=>Math.hypot(modelX-t.x,modelZ-t.z)<1.32).sort((a,b)=>Math.hypot(modelX-a.x,modelZ-a.z)-Math.hypot(modelX-b.x,modelZ-b.z))[0];
