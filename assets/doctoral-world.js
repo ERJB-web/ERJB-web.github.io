@@ -615,13 +615,24 @@ const cast=[
     if(nextX===-12.8||nextX===12.8){skate.velocityX*=-.32;skate.balance+=Math.sign(moveVX)*.09;}
     if(nextZ===-25||nextZ===13)skate.velocityZ*=-.22;
     modelX=nextX;modelZ=nextZ;
-   }else if(d>.07){
-    const speed=run?10:6.7;moveVX=dx/d*speed;moveVZ=dz/d*speed;
-    modelX=Math.max(room==="university"?-27:-13,Math.min(room==="university"?27:13,modelX+moveVX*dt));
-    modelZ=Math.max(-25,Math.min(13,modelZ+moveVZ*dt));
+   }else{
+    const speed=run?10:6.7,smoothing=1-Math.exp(-dt*(d>.07?11:17));
+    walkVX+=((d>.07?dx/d*speed:0)-walkVX)*smoothing;
+    walkVZ+=((d>.07?dz/d*speed:0)-walkVZ)*smoothing;
+    if(Math.hypot(walkVX,walkVZ)<.025){walkVX=0;walkVZ=0;}
+    const nextX=Math.max(room==="university"?-27:-13,Math.min(room==="university"?27:13,modelX+walkVX*dt));
+    const nextZ=Math.max(-25,Math.min(13,modelZ+walkVZ*dt));
+    const collision=(x,z)=>obstacles.some(o=>Math.abs(x-o.x)<o.rx+.28&&Math.abs(z-o.z)<o.rz+.28);
+    if(!collision(nextX,modelZ))modelX=nextX;else walkVX=0;
+    if(!collision(modelX,nextZ))modelZ=nextZ;else walkVZ=0;
+    moveVX=walkVX;moveVZ=walkVZ;
+    const jumping=controls.has("Space");
+    if(jumping&&!jumpHeld&&jumpY<.03)jumpVel=4.6;
+    jumpHeld=jumping;jumpVel-=13.5*dt;
+    jumpY=Math.max(0,jumpY+jumpVel*dt);if(jumpY===0)jumpVel=0;
    }
    const walking=Math.hypot(moveVX,moveVZ)>.14;
-   eric.setPosition(modelX,0,modelZ);
+   eric.setPosition(modelX,jumpY,modelZ);
    eric.update(dt,ts,{x:moveVX,z:moveVZ},room);
    worldReality?.update(dt,moveVX,moveVZ,room);
    // Third-person pursuit camera; the player remains readable while the next section of the arena stays visible.
