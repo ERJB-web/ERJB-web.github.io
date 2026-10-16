@@ -64,8 +64,12 @@ const game=createWorld(T,canvas(),{keys,isPaused:()=>false,onVisit:(id)=>events.
 const step=n=>{for(let i=0;i<n;i++){assert.equal(typeof raf,"function");raf(++frames*17);}};
 const zones=["university","classroom","laboratory","library","office","home","conference","rink","field","auditorium"];
 for(const zone of zones){game.visit(zone);assert.equal(game.room,zone);assert.ok(game.targets.length>0,zone+" has no playable target");step(15);}
-game.visit("rink");step(20);
+game.visit("rink");step(2);
 assert.equal(typeof game.hockey?.score,"number","Live puck/goalkeeper must expose a score");
+keys.add("KeyW");step(63);keys.delete("KeyW");
+assert.equal(game.hockey?.owned,true,"Eric must physically skate to take puck possession");
+keys.add("KeyJ");step(30);keys.delete("KeyJ");step(5);
+assert.ok(game.hockey?.shots>=1,"Holding and releasing the shoot key must launch a real puck");
 assert.equal(typeof game.hockey?.puckZ,"number","Puck physics must run in the 3D stage");
 game.visit("university");
 keys.add("KeyW");step(200);keys.delete("KeyW");
