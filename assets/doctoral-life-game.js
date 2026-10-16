@@ -259,6 +259,22 @@ function doActivity(zone,action,label){
   const n=["conference-0","conference-1","conference-2"].filter(id=>st.worldClues?.[id]).length;
   if(n<2){alertGame("AVANT DE MONTER SUR SCÈNE : trouve deux éléments d'affiche scientifique ("+n+"/2).");return;}
  }
+ if(zone==="auditorium"&&action==="defense"){
+  const ids=["auditorium-0","auditorium-1","auditorium-2"];
+  const evidence=ids.filter(id=>st.worldClues?.[id]).length;
+  if(evidence<ids.length){
+   alertGame("LE JURY ATTEND TROIS PIÈCES : retrouve la question, les données et les limites dans l'amphithéâtre ("+evidence+"/3).");
+   return;
+  }
+  const task=openTasks().find(t=>t.id==="defense");
+  if(!task){alertGame("Le jury n'ouvre pas encore la soutenance : termine la scolarité, les autorisations, les travaux et les manuscrits.");return;}
+  const verdict=checkDefense(st);
+  const passed=verdict.ready;
+  finish(task,passed?{rigor:9,trust:8,stress:-9}:{trust:-13,stress:15},
+   passed?"Éric a traversé l'amphithéâtre, rassemblé trois éléments de défense, répondu aux objections par son travail et obtenu l'accord du jury.":
+   "Ajournement : "+verdict.missing.join(" ; "),{defenseWon:passed,defenseFailed:!passed,risky:!passed,forceNoMark:!passed});
+  return;
+ }
  if(zone==="laboratory"&&action==="data"){
   const n=["laboratory-0","laboratory-1","laboratory-2"].filter(id=>st.worldClues?.[id]).length;
   if(n<2){alertGame("LABORATOIRE : examine au moins deux dossiers de données avant l'analyse ("+n+"/2).");return;}
