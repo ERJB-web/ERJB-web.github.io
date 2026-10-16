@@ -211,6 +211,14 @@ document.querySelectorAll("[data-move]").forEach(el=>{
 });
 window.addEventListener("keydown",ev=>{if(!modal&&["ArrowUp","ArrowDown","ArrowLeft","ArrowRight","KeyW","KeyA","KeyS","KeyD","KeyQ","KeyZ","Space"].includes(ev.code))ev.preventDefault();if(!modal)pressed.add(ev.code);if(ev.key==="Escape"&&modal)close();});
 window.addEventListener("keyup",ev=>pressed.delete(ev.code));window.addEventListener("blur",()=>pressed.clear());
+const hockeyShoot=$("hockeyShootTouch");
+if(hockeyShoot){
+ const down=ev=>{ev.preventDefault();pressed.add("ShootTouch");hockeyShoot.classList.add("pressed");};
+ const up=ev=>{ev.preventDefault();pressed.delete("ShootTouch");hockeyShoot.classList.remove("pressed");};
+ hockeyShoot.addEventListener("pointerdown",down);
+ for(const type of ["pointerup","pointercancel","pointerleave"])hockeyShoot.addEventListener(type,up);
+}
+$("hockeyFaceoff").onclick=()=>{worldController?.faceoff();alertGame("Nouvelle remise en jeu !");};
 const balanceControl=$("balanceBtn");
 if(balanceControl){
  const hold=ev=>{ev.preventDefault();pressed.add("Space");balanceControl.classList.add("pressed");};
@@ -337,7 +345,7 @@ function updateInWorldObjective(zone){
   const count=["university-0","university-1","university-2"].filter(id=>st.worldClues?.[id]).length;
   hint.textContent="MISSION ADMISSION · Documents "+count+"/3 · Rapporte-les au guichet de l’université.";
  }else if(zone==="rink"){
-  hint.textContent="HOCKEY · Franchis les 7 portes dans l’ordre. Espace freine et stabilise.";
+  hint.textContent="HOCKEY · Marque trois buts contre le gardien : prends la rondelle puis tire avec J.";
  }else if(zone==="conference"){
   const n=["conference-0","conference-1","conference-2"].filter(id=>st.worldClues?.[id]).length;
   hint.textContent="CONGRÈS · Indices d’affiche "+n+"/3 · Rejoins ensuite la scène.";
@@ -376,21 +384,43 @@ function drawNavigation(nav){
  $("miniGoal").textContent=nav.room==="rink"?"● Bleu : porte · Rouge : obstacle":
  "● Orange : mission · Vert : indice · Rouge : danger";
 }
+let lastHockeyHud=0;
+function updateHockeyFrame(state){
+ if(!state)return;const now=performance.now();if(now-lastHockeyHud<90)return;lastHockeyHud=now;
+ $("hockeyGoals").textContent=state.score+" / 3";
+ $("hockeySaves").textContent=state.saves;
+ $("hockeyShots").textContent=state.shots+" tirs";
+ $("hockeyStatus").textContent=state.status;
+ $("hockeyPower").style.width=Math.round(state.charge*100)+"%";
+ $("rinkTime").textContent=state.score+" / 3 buts";
+ $("rinkTips").textContent=state.fallTime>0?"Éric se relève !":"J : maintenir et relâcher pour tirer · Espace : freiner";
+}
+function hockeyVictory(stats){
+ if(!st)return;st.hockeyWins=(st.hockeyWins||0)+1;
+ const first=st.hockeyWins===1;
+ if(first){st.energy=clamp(st.energy+12);st.stress=clamp(st.stress-9);st.trust=clamp(st.trust+3);}
+ st.journal.unshift({week:st.week,task:"Hockey : trois buts contre le gardien",note:"Défi terminé : "+stats.shots+" tirs, "+stats.saves+" arrêts, "+stats.falls+" chutes.",risky:false});
+ persist();update();alertGame("VICTOIRE ! Trois buts marqués contre le gardien.");
+}
 function bootNewWorld(){
  worldController=createAdventureWorld(THREE,$("scene3d"),{
  keys:pressed,
  isPaused:()=>modal||!st||!$("intro").hidden||Boolean(st?.ending),
- onVisit:(zone,p)=>{score.setZone(zone);$("stationLabel").textContent=p.name;$("stationHint").textContent=p.sub+" · Approche les marqueurs lumineux pour agir.";showPlaceButtons(zone);$("rinkHud").hidden=zone!=="rink";if(st){update();updateInWorldObjective(zone);}},
+ onVisit:(zone,p)=>{score.setZone(zone);$("stationLabel").textContent=p.name;$("stationHint").textContent=p.sub+" · Approche les marqueurs lumineux pour agir.";showPlaceButtons(zone);$("rinkHud").hidden=zone!=="rink";$("hockeyScoreboard").hidden=zone!=="rink";if(st){update();updateInWorldObjective(zone);}},
  onActivity:doActivity,
  onNarrate:alertGame,
  onSkate:skatingSuccess,
+ onHockeyFrame:updateHockeyFrame,
+ onHockeyWin:hockeyVictory,
+ onHockeyEvent:(type,data)=>{if(type==="start")score.setZone("rink");},
+ onHockeyAsset:(asset,ok)=>{if(ok)console.info("Hockey model loaded",asset);},
  onEvidence:earnClue,
  onDamage:reviewerAttack,
  onNpc:meetCharacter,
  onNavigation:drawNavigation,
  onBalance:(balance,progress,falls,gates,total)=>{
   $("rinkNeedle").style.left=(50+Math.max(-1,Math.min(1,balance))*46)+"%";
-  $("rinkTime").textContent=gates+" / "+total+" portes";
+  $("rinkTime").textContent=gates+" / "+total+" buts";
   $("rinkTips").textContent="ZQSD : prendre de l'élan · Espace : freiner et stabiliser · Chutes : "+falls;
  }
  });
