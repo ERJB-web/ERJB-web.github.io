@@ -143,15 +143,16 @@ export function createAdventureWorld(T,canvas,opts={}){
   for(let z=-18;z<12;z+=14)for(const x of [-8,0,8]){
    const light=new T.PointLight(0xffe3bb,2.0,13);light.position.set(x,8.5,z);group.add(light);
   }
-  sign("↶  RETOUR AU CAMPUS",0,3.8,13,5.4,.75);
-  hotspot("exit","Retour au campus",0,12.2,"exit");
+  // The exit occupies a side wall, out of the third-person camera sightline.
+  sign("SORTIE ↶",-12.2,3.1,12,1.45,.26);
+  hotspot("exit","Retour au campus",-12.2,11.2,"exit");
  }
  function hotspot(id,label,x,z,type="activity"){
   const ring=new T.Group();ring.position.set(x,.1,z);group.add(ring);
   const m=mat(type==="exit"?0x8eeccf:color.orange,.25,.25,.6);
   const halo=shape(new T.TorusGeometry(.7,.058,8,40),m,0,0,0,ring);halo.rotation.x=-Math.PI/2;halo.castShadow=false;
   const gem=shape(new T.OctahedronGeometry(.32),m,0,1.65,0,ring);gem.castShadow=false;
-  const text=sign(label,0,2.48,0,2.85,.44,ring);
+  const text=sign(label,0,2.18,0,1.65,.27,ring);
   targets.push({id,label,x,z,type,ring,gem,text,armed:true});
   clickables.push({mesh:ring,id});
  }
@@ -159,7 +160,7 @@ export function createAdventureWorld(T,canvas,opts={}){
   const g=new T.Group();g.position.set(x,1.1,z);group.add(g);
   shape(new T.IcosahedronGeometry(.35,1),mat([color.orange,0xa3e4c1,0x9fd7e8][index%3],.4,.22,.65),0,0,0,g);
   const tor=shape(new T.TorusGeometry(.57,.046,8,32),M.white,0,-.35,0,g);tor.rotation.x=Math.PI/2;
-  const t=sign(label,0,1.03,0,2.6,.43,g);
+  const t=sign(label,0,.84,0,1.55,.27,g);
   collectibles.push({id:room+"-"+index,label,group:g,x,z,t,taken:false});
 }
 function pursuer(name,x,z,speed=2.7){
