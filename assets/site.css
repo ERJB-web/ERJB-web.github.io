@@ -2385,6 +2385,71 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
     box-shadow:0 2px 7px rgba(25,51,48,.07);
   }
 }
+
+/* Rail et galets du hall panoramique — décor uniquement.
+   Les portes, leurs battants et le défilement restent inchangés. */
+@media(min-width:1000px){
+  /* Rail continu solidaire du hall, indépendant des stations coulissantes. */
+  .hall.en-volume .portes::before{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:calc(var(--eb-hall-hauteur) * .135 - 14px);
+    height:10px;
+    pointer-events:none;
+    z-index:1;
+    border-radius:999px;
+    background:linear-gradient(180deg,
+      rgba(255,255,255,.7) 0%,
+      rgba(214,221,214,.95) 32%,
+      rgba(150,160,154,.95) 52%,
+      rgba(101,111,106,.95) 53%,
+      rgba(185,193,188,.96) 100%);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.85) inset,
+      0 -1px 0 rgba(82,90,85,.28) inset,
+      0 2px 6px rgba(26,39,33,.12);
+  }
+  /* Assise et ombre légère du profilé. */
+  .hall.en-volume .portes::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:calc(var(--eb-hall-hauteur) * .135 - 20px);
+    height:20px;
+    pointer-events:none;
+    z-index:0;
+    background:linear-gradient(180deg,rgba(44,54,47,.16),transparent 75%);
+  }
+  /* Chariot métallique fixé au pied de chaque porte.
+     Roulettes centrées sur le rail (à 9px sous le seuil). */
+  .hall.en-volume .station-hall .porte::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:100%;
+    width:78px;
+    height:16px;
+    margin-left:-39px;
+    margin-top:1px;
+    pointer-events:none;
+    z-index:2;
+    border-radius:999px;
+    background:
+      radial-gradient(circle at 20px 8px,#7f8a84 0 4px,#4c544f 4px 6px,transparent 6px),
+      radial-gradient(circle at 58px 8px,#7f8a84 0 4px,#4c544f 4px 6px,transparent 6px),
+      linear-gradient(180deg,#eef2ee 0%,#b8c1bb 38%,#7d8781 60%,#d9dfda 100%);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.8) inset,
+      0 1px 4px rgba(32,45,37,.18);
+  }
+  /* Décaler seulement l'ombre préexistante pour dégager le rail. */
+  .hall.en-volume .porte::after{
+    top:calc(100% + 14px);
+  }
+}
 /* Mobile étroit : la porte principale retrouve une présence visuelle nette,
    sans réduire les cibles tactiles ni masquer les sous-catégories. */
 @media(max-width:520px){
