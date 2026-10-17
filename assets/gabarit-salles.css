@@ -1,0 +1,231 @@
+/* Gabarit unique des salles : bandeau transversal, tuiles de chapitres illustrées, chapitres pleine largeur, barre de lecture.
+   Couleurs de la Chaire : bleu #0879BE, sarcelle #11A7A5, vert #5AAE38, bleu logo #0755AD, marine #0D2A3A. */
+:root{
+  --gab-marine:#0D2A3A;--gab-bleu:#0879BE;--gab-bleu-logo:#0755AD;--gab-sarcelle:#11A7A5;--gab-vert:#5AAE38;
+  --gab-texte:#2f4550;--gab-doux:#5b707a;--gab-ligne:#dfe8ea;--gab-fond:#f4f8f9;
+  --gab-degrade:linear-gradient(90deg,var(--gab-bleu),var(--gab-sarcelle),var(--gab-vert));
+  --gab-largeur:1340px;--gab-marge:32px;--gab-rayon:24px;
+  --gab-ease:cubic-bezier(.22,.8,.2,1);
+}
+
+/* ---------- En-tête de la salle : hall, porte, salles, écoute ---------- */
+.salle.gab-salle{border-top:0}
+.salle.gab-salle:not([hidden]){scroll-snap-type:none}
+.salle.gab-salle .gab :is(.bandeau,.section-corps,.rubrique-corps){scroll-snap-align:none}
+.salle .salle-contenu .gab .gab-chapitre,.gab .gab-chapitre{scroll-margin-top:6px!important}
+.salle.gab-salle .salle-progres{display:none}
+.salle-barre.gab-barre{display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"retour porte actions" "salles salles salles" "lecture lecture lecture";align-items:center;column-gap:18px;row-gap:0;padding:12px var(--gab-marge);background:rgba(255,255,255,.93);border-bottom:1px solid var(--gab-ligne);font-size:16px}
+.gab-barre>[data-retour]{grid-area:retour;display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:999px;border:1.5px solid var(--gab-marine);color:var(--gab-marine)!important;font-weight:600;font-size:15.5px;white-space:nowrap;transition:background .2s,color .2s}
+.gab-barre>[data-retour]:hover{background:var(--gab-marine);color:#fff!important}
+.gab-barre #salle-titre{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.gab-porte-nom{grid-area:porte;font-size:16px;color:var(--gab-doux);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gab-porte-nom small{font-size:inherit}
+.gab-porte-nom{font-weight:700;color:var(--gab-marine)}
+.gab-porte-nom small{font-weight:400;color:var(--gab-doux);margin-inline-end:4px}
+.gab-barre .salle-actions{grid-area:actions;display:flex;align-items:center;gap:10px}
+.gab-barre .salle-actions button{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:999px;font-weight:600;font-size:15.5px;white-space:nowrap}
+.gab-barre [data-ecouter],.gab-barre [data-arreter]{border:1.5px solid var(--gab-marine);color:var(--gab-marine)!important}
+.gab-barre [data-suivante],.gab-barre [data-contact]{background:var(--gab-marine);color:#fff!important;border:1.5px solid var(--gab-marine)}
+.gab-barre [data-suivante]:hover,.gab-barre [data-contact]:hover{background:var(--gab-bleu);border-color:var(--gab-bleu)}
+
+/* Salles de la porte : onglets avec vignette photo (sans petites portes). */
+.gab-barre .salle-onglets{grid-area:salles;display:flex!important;gap:6px;margin:10px 0 0;padding:0;max-width:none;max-height:60px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;transition:max-height .4s var(--gab-ease),opacity .3s,margin .3s}
+.gab-barre .salle-onglets>:first-child{margin-inline-start:auto}
+.gab-barre .salle-onglets>:last-child{margin-inline-end:auto}
+.salle.gab-lit.gab-avec-chapitres .gab-barre .salle-onglets{max-height:0;opacity:0;margin-top:0;pointer-events:none}
+.gab-barre .salle-onglets[hidden]{display:none!important}
+.gab-barre .salle-onglets::-webkit-scrollbar{display:none}
+.salle .gab-barre .salle-onglets .onglet-salle{flex:none!important;display:inline-flex!important;align-items:center;gap:10px;width:auto!important;max-width:none!important;min-width:0;min-height:0!important;padding:5px 16px 5px 5px!important;border:0;border-radius:14px!important;background:transparent;box-shadow:none;color:var(--gab-doux);font-size:16px;font-weight:600;transform:none!important;transition:background .2s,color .2s}
+.salle .gab-barre .salle-onglets .onglet-salle:hover{background:var(--gab-fond);color:var(--gab-marine);box-shadow:none}
+.salle .gab-barre .salle-onglets .onglet-salle :is(.baie,.onglet-num){display:none!important}
+.gab-onglet-photo{width:34px;height:34px;border-radius:10px;background:#cfdde1 center/cover;flex:none;opacity:.8;transition:opacity .2s}
+.gab-barre .onglet-salle:hover .gab-onglet-photo{opacity:1}
+.salle .gab-barre .salle-onglets .onglet-salle.actif{background:var(--gab-marine);color:#fff;box-shadow:none;border:0}
+.gab-barre .onglet-salle.actif .gab-onglet-photo{opacity:1;box-shadow:0 0 0 2px rgba(255,255,255,.7)}
+.gab-barre .onglet-titre{white-space:nowrap}
+
+/* Barre de lecture : apparaît quand les tuiles sont dépassées. */
+.gab-lecture{grid-area:lecture;display:flex;align-items:center;gap:12px;max-height:0;opacity:0;overflow:hidden;visibility:hidden;transition:max-height .4s var(--gab-ease),opacity .3s,margin .3s,visibility 0s .4s}
+.salle.gab-lit.gab-avec-chapitres .gab-lecture{max-height:80px;opacity:1;visibility:visible;margin-top:8px;transition:max-height .4s var(--gab-ease),opacity .3s,margin .3s}
+.gab-lecture button{font:inherit;cursor:pointer}
+.gab-tous{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:12px;background:var(--gab-fond);border:0;font-weight:700;font-size:15px;color:var(--gab-marine)}
+.gab-tous:hover{background:#e6eff1}
+.gab-fleche{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;border:1.5px solid var(--gab-ligne);background:#fff;font-size:22px;line-height:1;color:var(--gab-marine)}
+.gab-fleche:hover{background:var(--gab-fond)}
+[dir=rtl] .gab-fleche{transform:scaleX(-1)}
+.gab-actuel{flex:1;min-width:0;display:flex;align-items:center;gap:12px}
+.gab-actuel b{display:grid;place-items:center;flex:none;width:42px;height:42px;border-radius:12px;background:var(--gab-c,var(--gab-bleu));color:#fff;font:400 18px var(--serif);transition:background .3s}
+.gab-actuel>span{min-width:0}
+.gab-actuel small{display:block;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gab-c,var(--gab-bleu))}
+.gab-actuel strong{display:block;font-size:17.5px;color:var(--gab-marine);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gab-segments{display:flex;gap:5px;width:min(280px,26vw)}
+.gab-segments button{flex:1;height:9px;padding:0;border:0;border-radius:9px;background:color-mix(in srgb,var(--gab-c) 22%,white);transition:background .3s,transform .2s}
+.gab-segments button.lu,.gab-segments button[aria-current=true]{background:var(--gab-c)}
+.gab-segments button:hover{transform:scaleY(1.6)}
+
+/* ---------- Contenu d'une salle ---------- */
+.section-contenu.gab{max-width:var(--gab-largeur);margin:0 auto;padding:24px var(--gab-marge) 110px;color:var(--gab-texte);font-size:18px;line-height:1.7}
+.salle .section-contenu.gab{padding-top:24px}
+.gab .section-corps{display:block!important;max-width:none!important;margin:0!important;padding:0!important;gap:0}
+.gab .colonne-outils{display:block;width:auto;max-width:none;margin:0;padding:0}
+.gab-chapitres{display:block}
+
+/* Bandeau transversal */
+.gab .bandeau.gab-bandeau{--gab-voile:linear-gradient(90deg,rgba(13,42,58,.9) 0%,rgba(13,42,58,.66) 38%,rgba(13,42,58,.1) 74%);height:300px;max-width:none;margin:0;border-radius:28px;overflow:hidden;background-image:var(--gab-voile),var(--gab-photo,none)!important;background-size:cover!important;background-position:center 40%!important;box-shadow:0 30px 60px -42px rgba(13,42,58,.7)}
+[dir=rtl] .gab .bandeau.gab-bandeau{--gab-voile:linear-gradient(270deg,rgba(13,42,58,.9) 0%,rgba(13,42,58,.66) 38%,rgba(13,42,58,.1) 74%)}
+.gab .gab-bandeau::after{content:"";position:absolute;inset:auto 0 0 0;height:6px;background:var(--gab-degrade)}
+.gab .gab-bandeau .bandeau-texte{inset-inline-start:42px;bottom:40px;gap:10px;max-width:min(760px,74%);animation:none}
+.gab .gab-bandeau .bandeau-num{font:700 14px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:#bfe9e8;opacity:1}
+.gab .gab-bandeau .bandeau-titre{font:400 clamp(40px,5vw,66px)/1.02 var(--serif);letter-spacing:-.02em;text-shadow:none}
+.gab .gab-bandeau .bandeau-legende{font-size:19px;opacity:1;color:#e6f0f2}
+.gab-puces{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.gab-puces span{padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);font-size:14.5px;font-weight:600;color:#fff;backdrop-filter:blur(6px)}
+html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(90deg,var(--gab-marine) 0%,var(--gab-marine) 60%,rgba(13,42,58,.4) 100%)}
+
+/* Tuiles des chapitres : toutes illustrées, couleurs de la Chaire en alternance. */
+.gab-programme{margin:30px 0 8px}
+.gab-programme-tete{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:0 4px 16px}
+.gab .gab-programme-tete h2{margin:0;font:700 15px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gab-marine)}
+.gab-programme-tete span{font-size:15.5px;color:var(--gab-doux)}
+.gab-tuiles{display:grid;grid-template-columns:repeat(var(--gab-colonnes,4),minmax(0,1fr));grid-auto-rows:200px;gap:16px}
+.gab-tuile{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;padding:20px 22px;border-radius:var(--gab-rayon);overflow:hidden;color:#fff;text-decoration:none;
+  background:linear-gradient(0deg,color-mix(in srgb,var(--gab-c) 92%,black) 0%,color-mix(in srgb,var(--gab-c) 62%,transparent) 34%,rgba(13,42,58,0) 66%),linear-gradient(180deg,rgba(13,42,58,.28),rgba(13,42,58,0) 30%),var(--gab-tuile,none) center/cover,var(--gab-c);
+  box-shadow:0 18px 36px -30px rgba(13,42,58,.9);transition:transform .35s var(--gab-ease),box-shadow .35s var(--gab-ease)}
+.gab-tuile:hover,.gab-tuile:focus-visible{transform:translateY(-4px);box-shadow:0 28px 50px -30px rgba(13,42,58,.95)}
+.gab-tuile:focus-visible{outline:3px solid var(--gab-c);outline-offset:3px}
+.gab-tuile-num{align-self:flex-start;display:grid;place-items:center;min-width:46px;height:46px;padding:0 8px;border-radius:14px;background:rgba(255,255,255,.2);backdrop-filter:blur(8px);font:400 22px var(--serif);color:#fff;border:1px solid rgba(255,255,255,.35)}
+.gab-tuile-titre{font:700 19px/1.28 var(--sans);text-shadow:0 1px 10px rgba(0,0,0,.25);overflow-wrap:anywhere;hyphens:auto}
+.gab-tuile.gab-large{grid-column:span 2}
+.gab-tuile.gab-grande{grid-column:span 2;grid-row:span 2}
+.gab-tuile.gab-grande .gab-tuile-titre{font-size:26px}
+@media(forced-colors:active){.gab-tuile{border:2px solid CanvasText;background:Canvas;color:CanvasText}.gab-tuile-num{border-color:CanvasText}}
+
+/* Introduction de la salle */
+.gab .gab-intro{max-width:none!important;margin:56px 0 0!important;padding:0!important;position:static}
+.gab .gab-intro>*{margin-inline-start:0!important}
+.gab .gab-intro h2{font:400 clamp(30px,3.2vw,44px)/1.14 var(--serif);color:var(--gab-marine);letter-spacing:-.012em;margin:0 0 16px;max-width:30ch}
+.gab .gab-intro p,.gab .gab-intro .intro{font-size:19px;line-height:1.7;color:var(--gab-texte);max-width:78ch}
+.gab .gab-intro.gab-intro-duo{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:start}
+.gab .gab-intro.gab-intro-duo h2{margin:0;max-width:none}
+.gab .gab-intro.gab-intro-duo>p{margin:4px 0 0}
+.gab .gab-intro.gab-intro-duo>p+p{grid-column:2;margin-top:0}
+
+/* Chapitres : texte et photo côte à côte, toute la largeur. */
+.gab .gab-chapitre{position:relative;display:block;margin:64px 0 0;padding:44px 0 0;border:0;border-top:1px solid var(--gab-ligne)!important;background:none;box-shadow:none;scroll-margin-top:6px;scroll-snap-align:none!important;animation:none!important}
+.gab .gab-chapitres>.gab-chapitre:first-child{border-top:0!important;padding-top:12px}
+.gab .gab-chapitre::before{display:none!important}
+.gab-chapitre-grille{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:56px;align-items:start}
+.gab-chapitre-texte{min-width:0}
+.gab-chapitre-tete{margin:0 0 22px}
+.gab-chapitre-num{display:inline-flex;align-items:center;gap:14px;font:700 14px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gab-c,var(--gab-bleu))}
+.gab-chapitre-num b{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;font:400 22px var(--serif);letter-spacing:0;color:#fff;background:var(--gab-c,var(--gab-bleu));box-shadow:0 14px 26px -14px var(--gab-c,var(--gab-bleu))}
+.gab .gab-chapitre-titre{margin:16px 0 0!important;font:400 clamp(30px,3vw,42px)/1.15 var(--serif)!important;color:var(--gab-marine)!important;letter-spacing:-.01em;text-transform:none!important;max-width:none!important}
+.gab-chapitre-aside{position:sticky;top:calc(var(--salle-barre-hauteur,90px) + 24px);display:grid;gap:18px}
+.gab-photo{margin:0}
+.gab-photo img{display:block;width:100%;aspect-ratio:3/2;height:auto;object-fit:cover;border-radius:22px;background:#dfe9ec;box-shadow:0 26px 50px -34px rgba(13,42,58,.8)}
+.gab-credit{display:block;margin-top:8px;font-size:12.5px;line-height:1.4;color:var(--gab-doux)}
+.gab-credit a{color:inherit;text-decoration:none;border-bottom:1px dotted currentColor}
+.gab-sommaire-chapitre{display:grid;gap:2px;padding:16px;border-radius:18px;background:var(--gab-fond);border-inline-start:4px solid var(--gab-c,var(--gab-bleu))}
+.gab-sommaire-chapitre>span{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gab-c,var(--gab-bleu));margin-bottom:6px}
+.gab-sommaire-chapitre a{padding:6px 8px;border-radius:10px;font-size:15px;line-height:1.35;color:var(--gab-marine);text-decoration:none}
+.gab-sommaire-chapitre a:hover{background:#fff}
+
+/* Corps des chapitres : une seule typographie, quelles que soient les anciennes classes. */
+.gab-corps{font-size:18px;line-height:1.72;color:var(--gab-texte)}
+.gab-corps p{max-width:80ch}
+.gab-corps h3{font:700 23px/1.32 var(--sans)!important;color:var(--gab-marine)!important;letter-spacing:0!important;text-transform:none!important;margin:34px 0 10px}
+.gab-corps h4{font:700 19.5px/1.35 var(--sans)!important;color:var(--gab-marine)!important;letter-spacing:0!important;text-transform:none!important;margin:28px 0 8px}
+.gab-corps>:first-child,.gab-corps>.gab-source>:first-child,.gab-corps .rubrique-contenu>:first-child{margin-top:0}
+.gab-corps a:not([class]){color:var(--gab-bleu);text-decoration-thickness:1px;text-underline-offset:3px}
+.gab-corps .rubrique-contenu{display:block;max-width:none;padding:0;margin:0;background:none;border:0;box-shadow:none}
+.gab .gab-source{position:static;display:block;margin:0;padding:0;border:0!important;border-radius:0;background:none!important;box-shadow:none!important;color:inherit;min-height:0;transform:none!important;animation:none!important}
+.gab .gab-source::before,.gab .gab-source::after{display:none}
+.gab .gab-source .titre-bloc{margin-top:0}
+.gab-corps ul:not([class]),.gab-corps ol:not([class]),.gab-corps .vitrine-liste,.gab-corps .puces{padding-inline-start:1.2em}
+.gab-corps li{margin:4px 0}
+.gab .gab-corps :is(p,li,dd):not(.note){font-size:17.5px;line-height:1.66}
+.gab .gab-corps :is(.methode-refs,.references,.lectures-liste,.refs,.vs-refs) :is(li,p){font-size:15.5px;line-height:1.55}
+
+/* Onglets internes (choix d'atelier, formats…) : un seul style de commutateur. */
+.gab .onglets:not(.rubriques-nav){display:flex;flex-wrap:wrap;gap:4px;padding:5px;border-radius:14px;background:var(--gab-fond);border:0;width:fit-content;max-width:100%}
+.gab .onglets:not(.rubriques-nav) [role=tab]{padding:9px 16px;border-radius:10px;border:0;background:transparent;color:var(--gab-texte);font:600 15.5px var(--sans);box-shadow:none}
+.gab .onglets:not(.rubriques-nav) [role=tab][aria-selected=true]{background:#fff;color:var(--gab-marine);box-shadow:0 2px 10px -4px rgba(13,42,58,.4)}
+
+/* Blocs dépliables */
+.gab-corps details:not(.lecture-theme){border:1px solid var(--gab-ligne);border-radius:16px;background:#fff;margin:12px 0;padding:0 18px}
+.gab-corps details:not(.lecture-theme)>summary{padding:14px 0;font-weight:700;color:var(--gab-marine);cursor:pointer}
+.gab .lecture-theme.gab-source>summary{display:inline-flex;align-items:center;gap:10px;margin:4px 0 12px;padding:11px 20px;border-radius:999px;background:var(--gab-c,var(--gab-bleu));color:#fff;font:700 15.5px var(--sans);cursor:pointer;list-style:none}
+.gab .lecture-theme.gab-source>summary::-webkit-details-marker{display:none}
+.gab .lecture-theme.gab-source>summary::after{content:"＋";font-weight:400}
+.gab .lecture-theme.gab-source[open]>summary::after{content:"−"}
+
+/* Ressources : un seul style de panneau, clair, pour la presse, les vidéos et les balados. */
+.gab section.rg:not(.gab-source){background:#fff!important;color:var(--gab-texte)!important;border:1px solid var(--gab-ligne)!important;border-radius:var(--gab-rayon);box-shadow:0 20px 44px -36px rgba(13,42,58,.6)}
+.gab section.rg .rg-titre{color:var(--gab-marine)!important}
+.gab section.rg .rg-langue{color:var(--gab-bleu)!important}
+.gab section.rg .compte{background:var(--gab-sarcelle)!important;color:#fff!important}
+.gab section.rg .media{background:var(--gab-fond)!important;border-color:var(--gab-ligne)!important}
+.gab section.rg .media-texte strong{color:var(--gab-marine)!important}
+.gab section.rg .media-texte :is(small,p){color:var(--gab-texte)!important}
+.gab section.rg .media-texte a{color:var(--gab-bleu)!important;border-color:currentColor}
+.gab section.rg .media-ecran:not(:has(iframe)){background:linear-gradient(135deg,var(--gab-bleu-logo),var(--gab-sarcelle))!important}
+.gab section.rg .liens-contact a{background:#fff!important}
+
+/* Le parcours : deux frises (formations, expériences) dans leurs chapitres. */
+.gab .gab-chapitre .frise{margin:0;padding:0}
+
+/* Salles d'un seul chapitre : bandeau puis contenu. */
+.gab.gab-unique .section-corps{margin-top:8px!important}
+
+/* ---------- Écrans moyens et téléphones ---------- */
+@media(max-width:1180px){
+  .gab-chapitre-grille{grid-template-columns:1fr;gap:24px}
+  .gab-chapitre-aside{position:static;order:-1;grid-template-columns:minmax(0,1fr)}
+  .gab-photo img{aspect-ratio:21/9}
+  .gab-sommaire-chapitre{display:none}
+  .gab-tuiles{grid-template-columns:repeat(min(var(--gab-colonnes,4),3),minmax(0,1fr))}
+  .gab-tuile.gab-grande{grid-row:span 1}
+}
+@media(max-width:900px){
+  :root{--gab-marge:16px}
+  .salle-barre.gab-barre{grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"retour . actions" "salles salles salles" "lecture lecture lecture";padding:10px var(--gab-marge)}
+  .gab-barre .salle-onglets>:first-child{margin-inline-start:0}
+  .gab-porte-nom{display:none}
+  .gab-barre .salle-onglets{justify-content:flex-start;margin:0 calc(-1 * var(--gab-marge));padding:0 var(--gab-marge)}
+  .gab-barre .onglet-salle{font-size:15px}
+  .gab-barre .salle-actions button{padding:8px 13px;font-size:14.5px}
+  .gab-barre [data-ecouter] span{display:none}
+  .gab-tous span:last-child,.gab-segments{display:none}
+  .salle.gab-lit.gab-avec-chapitres .gab-lecture{margin-top:0}
+  .section-contenu.gab{font-size:17px;padding-top:14px}
+  .gab .bandeau.gab-bandeau{height:260px;border-radius:22px;--gab-voile:linear-gradient(0deg,rgba(13,42,58,.92) 0%,rgba(13,42,58,.55) 52%,rgba(13,42,58,.06) 88%)}
+  .gab .gab-bandeau .bandeau-texte{inset-inline-start:22px;bottom:24px;max-width:calc(100% - 44px)}
+  .gab .gab-bandeau .bandeau-titre{font-size:clamp(34px,10vw,46px)}
+  .gab .gab-bandeau .bandeau-legende{font-size:16px}
+  .gab-programme-tete span{display:none}
+  .gab-tuiles{grid-template-columns:1fr 1fr;grid-auto-rows:160px;gap:12px}
+  .gab-tuile{padding:14px 15px;border-radius:20px}
+  .gab-tuile-num{min-width:38px;height:38px;font-size:18px;border-radius:12px}
+  .gab-tuile-titre{font-size:16px}
+  .gab-tuile.gab-large,.gab-tuile.gab-grande{grid-column:span 1;grid-row:span 1}
+  .gab-tuile.gab-grande .gab-tuile-titre{font-size:16px}
+  .gab-tuiles>.gab-tuile:first-child:nth-last-child(odd){grid-column:span 2}
+  .gab .gab-intro{margin-top:40px!important}
+  .gab .gab-intro.gab-intro-duo{display:block}
+  .gab .gab-intro.gab-intro-duo h2{margin-bottom:14px}
+  .gab .gab-intro p,.gab .gab-intro .intro{font-size:17.5px}
+  .gab .gab-chapitre{margin-top:44px;padding-top:32px}
+  .gab-chapitre-num b{width:44px;height:44px;font-size:19px}
+  .gab .gab-chapitre-titre{font-size:30px!important}
+  .gab-photo img{aspect-ratio:16/9;border-radius:18px}
+  .gab-corps{font-size:17px}
+}
+/* Téléphone : priorité sur les anciennes règles de la barre de salle. */
+@media(max-width:900px){
+  .salle .salle-barre.gab-barre .salle-actions{grid-area:actions!important;grid-column:auto!important;grid-row:auto!important;gap:8px}
+  .salle .salle-barre.gab-barre [data-retour]{grid-area:retour!important;grid-column:auto!important;grid-row:auto!important;padding:8px 14px!important;font-size:14.5px!important;border-radius:999px!important}
+  .salle .salle-barre.gab-barre .salle-actions button{min-height:42px;padding:8px 13px!important;border-radius:999px!important;font-size:14px!important;white-space:nowrap!important;max-width:none!important}
+  .salle .salle-barre.gab-barre .salle-actions button[data-suivante],.salle .salle-barre.gab-barre .salle-actions button[data-contact]{background:var(--c1,var(--gab-marine))!important;border-color:var(--c1,var(--gab-marine))!important;color:#fff!important}
+  .gab .gab-bandeau .gab-k-porte{display:none}
+}
+@media(prefers-reduced-motion:reduce){.gab-tuile,.gab-lecture,.gab-segments button{transition:none}}
