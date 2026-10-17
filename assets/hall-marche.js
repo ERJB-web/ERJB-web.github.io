@@ -15,13 +15,13 @@ window.creerMarcheHall=({hall,scene,monde,stations,surSelection})=>{
   if(!w)return;
   if(w!==largeurVue||h!==hauteurVue){
    largeurVue=w;hauteurVue=h;
-   // Le mur de la photographie (2000 × 670) va du pilier x=253 au pilier x=1746, de y=202 à y=526.
+   // La baie occupe toute la largeur de l'image (2000 px de large).
    const px=Math.max(w/1850,h/600),ix=(w-2000*px)/2;
    const style=getComputedStyle(hall),porte=(526-(parseFloat(style.getPropertyValue('--hall-porte-haut'))||202))*px*(parseFloat(style.getPropertyValue('--hall-porte-ratio'))||.454);
    const espace=parseFloat(style.getPropertyValue('--hall-ecart'))||30;
    largeur=Math.round(porte+espace+Math.min(320,Math.max(280,w*.24)));pas=largeur+espace;
    hall.style.setProperty('--hall-station-l',largeur+'px');
-   murG=Math.max(0,ix+253*px);murD=Math.min(w,ix+1746*px);
+   murG=Math.max(0,ix);murD=Math.min(w,ix+2000*px);
    margeG=murG+ecart;margeD=w-murD+ecart;
    maximum=Math.max(0,margeG+pas*(stations.length-1)+largeur+margeD-w);
    if(restauration!==null){position=cible=maximum*restauration;restauration=null;}

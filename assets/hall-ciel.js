@@ -96,28 +96,35 @@ const ebMeteoMontreal = (() => {
     if (code === 1 || code === 2) return "eclaircies";
     return Number(c.is_day) ? "soleil" : "clair";
   }
-  const trait = 'fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"';
-  const nuage = '<path d="M7 18h10a4 4 0 0 0 .6-7.96A5.5 5.5 0 0 0 7.1 9.5 4.25 4.25 0 0 0 7 18Z"/>';
-  const ICONES = {
-    soleil: '<circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4"/>',
-    clair: '<path d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5Z"/>',
-    eclaircies: '<path d="M9 4v1.5M4.5 9H6M5.8 5.8l1 1M13.2 5.8l-1 1"/><path d="M6.6 11.5a3.5 3.5 0 0 1 6.2-2.8"/>' + '<path d="M9 20h8a3.5 3.5 0 0 0 .5-6.96A4.8 4.8 0 0 0 9 12.3 3.9 3.9 0 0 0 9 20Z"/>',
-    couvert: nuage,
-    brouillard: '<path d="M4 9h16M3 13h18M5 17h14"/>',
-    bruine: nuage.replace('d="M7 18', 'd="M7 15') + '<path d="M9 19v1M13 19v1M17 19v1"/>',
-    pluie: '<path d="M7 15h10a4 4 0 0 0 .6-7.96A5.5 5.5 0 0 0 7.1 6.5 4.25 4.25 0 0 0 7 15Z"/><path d="M8.5 18l-1 2.5M12.5 18l-1 2.5M16.5 18l-1 2.5"/>',
-    verglas: '<path d="M7 15h10a4 4 0 0 0 .6-7.96A5.5 5.5 0 0 0 7.1 6.5 4.25 4.25 0 0 0 7 15Z"/><path d="M9 18l-1 2.5M15 18l-1 2.5M12 19v.5"/>',
-    neige: '<path d="M7 15h10a4 4 0 0 0 .6-7.96A5.5 5.5 0 0 0 7.1 6.5 4.25 4.25 0 0 0 7 15Z"/><path d="M9 19h.01M12 21h.01M15 19h.01M10.5 22h.01M13.5 18h.01"/>',
-    orage: '<path d="M7 15h10a4 4 0 0 0 .6-7.96A5.5 5.5 0 0 0 7.1 6.5 4.25 4.25 0 0 0 7 15Z"/><path d="m12.5 14-2 4h3l-2 4"/>',
-  };
+  const NUAGE = 'M7.4 18.5h9.4a3.9 3.9 0 0 0 .5-7.77 5.3 5.3 0 0 0-10.1-.95A4.4 4.4 0 0 0 7.4 18.5Z';
+  const PETIT_NUAGE = 'M9.6 19h7.6a3.1 3.1 0 0 0 .4-6.17 4.2 4.2 0 0 0-8-.76A3.5 3.5 0 0 0 9.6 19Z';
+  const soleil = (cx, cy, r) => `<circle class="i-halo" cx="${cx}" cy="${cy}" r="${r + 3}"/><circle class="i-soleil" cx="${cx}" cy="${cy}" r="${r}"/>`;
+  const lune = (dx = 0, dy = 0, k = 1) => `<path class="i-lune" transform="translate(${dx} ${dy}) scale(${k})" d="M14.6 4.2a7.6 7.6 0 1 0 5.2 12.6A6.3 6.3 0 0 1 14.6 4.2Z"/>`;
+  const nuage = (cls = 'i-nuage', d = NUAGE) => `<path class="${cls}" d="${d}"/>`;
+  function icone(nom, nuit) {
+    switch (nom) {
+      case 'soleil': return soleil(12, 12, 6.2);
+      case 'clair': return lune();
+      case 'eclaircies': return (nuit ? lune(-3.5, -3, .8) : soleil(8.5, 8.5, 4.2)) + nuage('i-nuage', PETIT_NUAGE);
+      case 'couvert': return nuage('i-nuage i-fond', 'M6 14.5h8a3.3 3.3 0 0 0 .3-6.6 4.5 4.5 0 0 0-8.6-.8A3.7 3.7 0 0 0 6 14.5Z') + nuage();
+      case 'brouillard': return '<rect class="i-brume" x="3" y="8" width="18" height="2" rx="1"/><rect class="i-brume" x="5" y="12" width="15" height="2" rx="1"/><rect class="i-brume" x="3" y="16" width="17" height="2" rx="1"/>';
+      case 'bruine': return nuage('i-nuage', 'M7.4 15.5h9.4a3.9 3.9 0 0 0 .5-7.77 5.3 5.3 0 0 0-10.1-.95A4.4 4.4 0 0 0 7.4 15.5Z') + '<path class="i-goutte" d="M9 18v1.4M13 18v1.4M17 18v1.4"/>';
+      case 'pluie':
+      case 'verglas': return nuage('i-nuage', 'M7.4 15h9.4a3.9 3.9 0 0 0 .5-7.77 5.3 5.3 0 0 0-10.1-.95A4.4 4.4 0 0 0 7.4 15Z') + '<path class="i-goutte" d="m9 17.5-1 2.8M13 17.5l-1 2.8M17 17.5l-1 2.8"/>';
+      case 'neige': return nuage('i-nuage', 'M7.4 15h9.4a3.9 3.9 0 0 0 .5-7.77 5.3 5.3 0 0 0-10.1-.95A4.4 4.4 0 0 0 7.4 15Z') + '<circle class="i-flocon" cx="9" cy="18.5" r="1.1"/><circle class="i-flocon" cx="13" cy="20.2" r="1.1"/><circle class="i-flocon" cx="16.6" cy="18.3" r="1.1"/>';
+      case 'orage': return nuage('i-nuage i-sombre', 'M7.4 15h9.4a3.9 3.9 0 0 0 .5-7.77 5.3 5.3 0 0 0-10.1-.95A4.4 4.4 0 0 0 7.4 15Z') + '<path class="i-eclair" d="m12.8 14.2-2.6 4.3h2.6l-1.6 3.6 4.3-5.2h-2.7l1.6-2.7Z"/>';
+      default: return soleil(12, 12, 6.2);
+    }
+  }
 
   function creer(classe) {
     const p = document.createElement("p");
     p.className = "direct-montreal " + classe;
     p.setAttribute("aria-label", T.etiquette);
-    p.innerHTML = '<span class="direct-ciel" aria-hidden="true"><span class="direct-etoiles"></span><svg viewBox="0 0 24 24" ' + trait + '></svg></span>'
-      + '<span class="direct-texte"><span class="direct-ligne"><span class="direct-ville"></span><time class="direct-heure"></time></span>'
-      + '<span class="direct-ligne direct-meteo"><span class="direct-temp"></span><span class="direct-cond"></span></span></span>'
+    p.innerHTML = '<span class="direct-ciel" aria-hidden="true"><span class="direct-etoiles"></span><svg viewBox="0 0 24 24"></svg></span>'
+      + '<span class="direct-texte"><time class="direct-heure"></time>'
+      + '<span class="direct-sous"><span class="direct-ville"></span><span class="direct-meteo"><span class="direct-temp"></span> <span class="direct-cond"></span></span></span></span>'
+      + '<span class="direct-filet" aria-hidden="true"></span>'
       + '<span class="direct-activite"><span class="direct-point" aria-hidden="true"></span><span class="direct-statut"></span></span>';
     return p;
   }
@@ -149,13 +156,13 @@ const ebMeteoMontreal = (() => {
       t.textContent = heure(m);
       t.dateTime = `${m.date}T${String(m.heure).padStart(2, "0")}:${String(m.minute).padStart(2, "0")}`;
       l.querySelector(".direct-statut").textContent = T.statuts[statut];
-      l.querySelector(".direct-ciel svg").innerHTML = ICONES[nom];
+      l.querySelector(".direct-ciel svg").innerHTML = icone(nom, moment === "nuit");
       const bloc = l.querySelector(".direct-meteo");
       bloc.hidden = !meteo;
       if (meteo && Number.isFinite(Number(meteo.temperature_2m))) {
         const degres = Math.round(Number(meteo.temperature_2m));
         l.querySelector(".direct-temp").textContent = `${degres === 0 ? 0 : degres}\u00a0°C`;
-        l.querySelector(".direct-cond").textContent = T.meteo[nom];
+        l.querySelector(".direct-cond").textContent = ["fr", "en", "es", "ru"].includes(codeLangue) ? T.meteo[nom].charAt(0).toLowerCase() + T.meteo[nom].slice(1) : T.meteo[nom];
       }
     }
   }

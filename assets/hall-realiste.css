@@ -1,5 +1,5 @@
 /* Hall de Montréal : intérieur 2000 × 720 (repères de la photographie 2000 × 670).
-   La baie vitrée occupe x=253 à x=1746 (entre les piliers), de y=120 (sous le plafond) à y=526 (le sol).
+   La baie vitrée occupe toute la largeur, de y=120 (sous le plafond) à y=526 (le sol).
    Les portes s'arrêtent à y=236. Les mêmes repères placent la ville, les modules de verre et les rails. */
 .hall[data-hall-volume] {
   --hall-jour: url("photos/hall-interieur-jour.webp");
@@ -245,13 +245,15 @@
 /* La ville (3800 × 1090) est agrandie pour que le fleuve passe juste au-dessus des portes ;
    plus lointaine que la vitre, elle défile un peu moins vite : effet de profondeur. */
 .hall-ville .hall-ville-plan {
-  --ville-zoom: 1.12;
-  left: calc((1 - var(--ville-zoom)) * 50%);
-  top: -14.3%;
-  width: calc(var(--ville-zoom) * 100%);
+  /* Hauteur de la vitre ; la ville la couvre toujours, fleuve (30,5 % de la photo) à 21 % de la vitre. */
+  --hv: calc(var(--mur-bas) - var(--verre-haut));
+  --plan-l: max(calc((var(--mur-d) - var(--mur-g)) * 1.04), calc(var(--hv) * 1.3 * 3800 / 1090));
+  left: 50%;
+  top: calc(var(--hv) * .21 - var(--plan-l) * 1090 / 3800 * .305);
+  width: var(--plan-l);
   height: auto;
   aspect-ratio: 3800 / 1090;
-  transform: translateX(calc((.5 - var(--hall-defile,.5)) * 6%));
+  transform: translateX(calc(-50% + (.5 - var(--hall-defile,.5)) * 6%));
 }
 .hall-ville-plan > span {
   background-repeat: no-repeat;
@@ -308,7 +310,7 @@
   .hall-brume,
   .hall-reflet,
   .hall-ville .hall-eblouissement { transition: none; }
-  .hall-ville .hall-ville-plan { transform: none; }
+  .hall-ville .hall-ville-plan { transform: translateX(-50%); }
 }
 
 @media(min-width:1000px) {
@@ -342,8 +344,8 @@
     --verre-haut: calc(var(--iy) + var(--px) * 120);
     --mur-haut: calc(var(--iy) + var(--px) * var(--hall-porte-haut));
     --mur-bas: calc(var(--iy) + var(--px) * 526);
-    --mur-g: calc(var(--ix) + var(--px) * 253);
-    --mur-d: calc(var(--ix) + var(--px) * 1746);
+    --mur-g: max(0px, var(--ix));
+    --mur-d: min(100cqw, calc(var(--ix) + var(--px) * 2000));
     --hauteur-mur: calc(var(--mur-bas) - var(--mur-haut));
     --hall-porte-l: calc(var(--hauteur-mur) * var(--hall-porte-ratio));
   }
@@ -577,94 +579,79 @@
 
 /* Ligne d'état : heure, météo et activité à Montréal. */
 .direct-montreal {
-  --statut: #8a8f98;
+  --statut: #6b7a90;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   margin: 0;
-  padding: 4px 5px 4px 4px;
-  border: 1px solid rgba(29,52,54,.12);
-  border-radius: 999px;
-  background: linear-gradient(180deg,rgba(255,255,255,.95),rgba(243,246,246,.9));
-  box-shadow: 0 1px 2px rgba(20,40,44,.06), 0 8px 20px -12px rgba(20,40,44,.4);
-  color: var(--ink, #1d3436);
-  font: 500 12.5px/1.15 var(--sans);
+  color: var(--ink, #173f52);
+  font: 500 13px/1.2 var(--sans);
   white-space: nowrap;
 }
 .direct-montreal .direct-ciel {
   position: relative;
   display: grid;
   place-items: center;
-  width: 34px;
+  width: 46px;
   height: 34px;
   flex: none;
   overflow: hidden;
-  border-radius: 50%;
-  background: linear-gradient(160deg,#4f9fe8 0%,#93c9f8 60%,#dcefff 100%);
-  box-shadow: inset 0 -6px 10px rgba(255,255,255,.35), inset 0 1px 1px rgba(255,255,255,.6), 0 2px 6px rgba(30,80,130,.25);
+  border-radius: 10px;
+  background: linear-gradient(175deg,#3f8fdc 0%,#7fbaf0 55%,#cfe6fb 100%);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.35), 0 1px 2px rgba(15,49,66,.12), 0 6px 14px -8px rgba(15,49,66,.45);
 }
-.direct-montreal[data-moment=aube] .direct-ciel { background: linear-gradient(160deg,#7a8fd8 0%,#f3a8a0 55%,#ffd6a1 100%); }
-.direct-montreal[data-moment=crepuscule] .direct-ciel { background: linear-gradient(160deg,#3b4a8f 0%,#c76f8e 55%,#f7a86b 100%); }
-.direct-montreal[data-moment=nuit] .direct-ciel {
-  background: radial-gradient(circle at 70% 25%,#2d3f72 0%,#16224a 55%,#0b1330 100%);
-  box-shadow: inset 0 1px 1px rgba(255,255,255,.25), 0 2px 6px rgba(10,20,50,.4);
-}
+.direct-montreal[data-moment=aube] .direct-ciel { background: linear-gradient(175deg,#6c7fcf 0%,#e9a3a6 55%,#ffd3a0 100%); }
+.direct-montreal[data-moment=crepuscule] .direct-ciel { background: linear-gradient(175deg,#2f3d82 0%,#b9668c 55%,#f4a266 100%); }
+.direct-montreal[data-moment=nuit] .direct-ciel { background: linear-gradient(175deg,#0b1430 0%,#1b2a5a 60%,#33467d 100%); }
 .direct-montreal:is([data-temps=couvert],[data-temps=pluie],[data-temps=bruine],[data-temps=verglas],[data-temps=orage],[data-temps=brouillard],[data-temps=neige]):not([data-moment=nuit]) .direct-ciel {
-  background: linear-gradient(160deg,#8b9aab 0%,#b8c3cf 60%,#e1e6ec 100%);
+  background: linear-gradient(175deg,#7d8b9b 0%,#a8b4c1 55%,#d7dee6 100%);
 }
 .direct-montreal .direct-etoiles {
   position: absolute;
   inset: 0;
   opacity: 0;
   background:
-    radial-gradient(circle at 22% 30%,#fff 0 .7px,transparent 1.2px),
-    radial-gradient(circle at 70% 72%,#fff 0 .6px,transparent 1.1px),
-    radial-gradient(circle at 38% 80%,#fff 0 .5px,transparent 1px),
-    radial-gradient(circle at 82% 40%,#fff 0 .5px,transparent 1px);
+    radial-gradient(circle at 14% 24%,#fff 0 .7px,transparent 1.2px),
+    radial-gradient(circle at 34% 70%,#fff 0 .5px,transparent 1px),
+    radial-gradient(circle at 62% 16%,#fff 0 .6px,transparent 1.1px),
+    radial-gradient(circle at 86% 58%,#fff 0 .5px,transparent 1px),
+    radial-gradient(circle at 76% 84%,#fff 0 .4px,transparent .9px);
 }
-.direct-montreal[data-moment=nuit] .direct-etoiles { opacity: .9; animation: direct-scintille 4s ease-in-out infinite; }
-.direct-montreal .direct-ciel svg {
-  position: relative;
-  width: 21px;
-  height: 21px;
-  color: #fff;
-  filter: drop-shadow(0 1px 1px rgba(0,0,0,.18));
+.direct-montreal[data-moment=nuit] .direct-etoiles { opacity: 1; animation: direct-scintille 5s ease-in-out infinite; }
+.direct-montreal .direct-ciel svg { position: relative; width: 26px; height: 26px; overflow: visible; }
+.direct-montreal .i-soleil { fill: #ffd34a; }
+.direct-montreal .i-halo { fill: #fff3b0; opacity: .35; transform-box: fill-box; transform-origin: center; animation: direct-halo 4s ease-in-out infinite; }
+.direct-montreal .i-lune { fill: #f6ecc4; filter: drop-shadow(0 0 2px rgba(255,240,190,.55)); }
+.direct-montreal .i-nuage { fill: #fff; filter: drop-shadow(0 1px 1px rgba(20,40,70,.18)); animation: direct-nuage 7s ease-in-out infinite; }
+.direct-montreal .i-fond { fill: #e5ebf2; animation-duration: 9s; animation-direction: reverse; }
+.direct-montreal .i-sombre { fill: #d9dee6; }
+.direct-montreal[data-moment=nuit] .i-nuage { fill: #c9d2e3; }
+.direct-montreal .i-goutte { fill: none; stroke: #f2f8ff; stroke-width: 1.7; stroke-linecap: round; animation: direct-pluie 1.1s linear infinite; }
+.direct-montreal .i-flocon { fill: #fff; animation: direct-neige 2.4s ease-in-out infinite; }
+.direct-montreal .i-eclair { fill: #ffd34a; animation: direct-eclair 3.5s linear infinite; }
+.direct-montreal .i-brume { fill: #f2f5f8; opacity: .9; }
+.direct-montreal .direct-texte { display: grid; gap: 3px; }
+.direct-montreal .direct-heure {
+  font: 400 19px/1 var(--serif, Georgia, serif);
+  letter-spacing: -.01em;
+  font-variant-numeric: tabular-nums lining-nums;
+  color: var(--ink-deep, #0f3142);
 }
-.direct-montreal[data-temps=soleil] .direct-ciel svg { color: #ffe066; animation: direct-rayons 24s linear infinite; }
-.direct-montreal[data-temps=clair] .direct-ciel svg { color: #fff3c4; }
-.direct-montreal:is([data-temps=pluie],[data-temps=bruine],[data-temps=verglas]) .direct-ciel svg { animation: direct-pluie 1.6s ease-in-out infinite; }
-.direct-montreal:is([data-temps=couvert],[data-temps=eclaircies]) .direct-ciel svg { animation: direct-nuage 6s ease-in-out infinite; }
-.direct-montreal .direct-texte { display: grid; gap: 2px; min-width: 0; }
-.direct-montreal .direct-ligne { display: flex; align-items: baseline; gap: 6px; }
-.direct-montreal .direct-ville {
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--muted, #5b6b6e);
-}
-.direct-montreal .direct-heure { font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--ink, #1d3436); }
+.direct-montreal .direct-sous { display: flex; gap: 6px; font-size: 11.5px; color: var(--muted, #56707a); }
+.direct-montreal .direct-ville { font-weight: 600; color: var(--ink, #173f52); }
 .direct-montreal .direct-meteo[hidden] { display: none; }
-.direct-montreal .direct-temp { font-weight: 700; font-variant-numeric: tabular-nums; }
-.direct-montreal .direct-cond { color: var(--muted, #5b6b6e); }
-.direct-montreal .direct-activite {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-inline-start: 4px;
-  padding: 7px 12px 7px 10px;
-  border: 1px solid color-mix(in srgb,var(--statut) 28%,transparent);
-  border-radius: 999px;
-  background: color-mix(in srgb,var(--statut) 11%,#fff);
-  color: color-mix(in srgb,var(--statut) 70%,#0e1f20);
-  font-weight: 600;
-}
+.direct-montreal .direct-meteo::before { content: "·"; margin-inline-end: 6px; opacity: .6; }
+.direct-montreal .direct-temp { font-weight: 600; font-variant-numeric: tabular-nums; color: var(--ink, #173f52); }
+.direct-montreal .direct-filet { width: 1px; height: 30px; background: linear-gradient(180deg,transparent,rgba(23,63,82,.22),transparent); }
+.direct-montreal .direct-activite { display: inline-flex; align-items: center; gap: 9px; font-weight: 600; color: var(--ink-deep, #0f3142); }
 .direct-montreal .direct-point {
   position: relative;
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
+  flex: none;
   border-radius: 50%;
   background: var(--statut);
+  box-shadow: 0 0 0 3px color-mix(in srgb,var(--statut) 18%,transparent);
 }
 .direct-montreal .direct-point::after {
   content: "";
@@ -672,20 +659,22 @@
   inset: 0;
   border-radius: 50%;
   background: var(--statut);
-  animation: direct-pouls 2.4s ease-out infinite;
+  animation: direct-pouls 2.6s ease-out infinite;
 }
-@keyframes direct-pouls { 0% { transform: scale(1); opacity: .55; } 70%, 100% { transform: scale(2.8); opacity: 0; } }
-@keyframes direct-rayons { to { transform: rotate(360deg); } }
-@keyframes direct-nuage { 0%, 100% { transform: translateX(-1.5px); } 50% { transform: translateX(1.5px); } }
-@keyframes direct-pluie { 0%, 100% { transform: translateY(-.5px); } 50% { transform: translateY(1px); } }
-@keyframes direct-scintille { 0%, 100% { opacity: .9; } 50% { opacity: .45; } }
+@keyframes direct-pouls { 0% { transform: scale(1); opacity: .5; } 70%, 100% { transform: scale(3); opacity: 0; } }
+@keyframes direct-halo { 0%, 100% { transform: scale(1); opacity: .3; } 50% { transform: scale(1.15); opacity: .5; } }
+@keyframes direct-nuage { 0%, 100% { transform: translateX(-1px); } 50% { transform: translateX(1.2px); } }
+@keyframes direct-pluie { 0% { transform: translateY(-1.5px); opacity: 0; } 30% { opacity: 1; } 100% { transform: translateY(2px); opacity: 0; } }
+@keyframes direct-neige { 0%, 100% { transform: translateY(-.6px); } 50% { transform: translateY(.8px); } }
+@keyframes direct-eclair { 0%, 86%, 100% { opacity: .85; } 88%, 93% { opacity: 1; filter: drop-shadow(0 0 3px #fff3a0); } 90% { opacity: .3; } }
+@keyframes direct-scintille { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
 @media(prefers-reduced-motion:reduce) {
   .direct-montreal *, .direct-montreal *::after { animation: none !important; }
 }
 .entete .direct-entete {
   position: absolute;
   right: var(--gouttiere, 48px);
-  bottom: 12px;
+  bottom: 15px;
 }
 .hall-tete .direct-hall { display: none; text-transform: none; letter-spacing: 0; }
 @media(max-width:1279px) {
@@ -693,10 +682,10 @@
   .hall-tete .direct-hall { display: inline-flex; margin-inline: auto; }
 }
 @media(max-width:640px) {
-  .hall-tete { flex-wrap: wrap; row-gap: 10px; }
-  .hall-tete .direct-hall { order: 3; margin-inline: 0; white-space: normal; }
+  .hall-tete { flex-wrap: wrap; row-gap: 12px; }
+  .hall-tete .direct-hall { order: 3; margin-inline: 0; }
 }
 [dir=rtl] .entete .direct-entete { right: auto; left: var(--gouttiere, 48px); }
 @media(forced-colors:active) {
-  .direct-montreal, .direct-montreal .direct-activite { border: 1px solid CanvasText; background: Canvas; color: CanvasText; }
+  .direct-montreal .direct-ciel { border: 1px solid CanvasText; }
 }
