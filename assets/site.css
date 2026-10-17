@@ -3720,3 +3720,137 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
 .salle-contenu .f-titre{justify-content:center}
 .salle-contenu .f-acteur strong{text-align:center}
 .f-acteurs-fin{margin:.4rem 0 1.4rem;font-style:italic}
+
+/* Ma thèse · Retombées */
+/* Chapitre « Retombées » de « Ma thèse » : classes préfixées r- */
+.r-retombees {
+  --r-bleu: #237a9a;
+  --r-vert: #65a946;
+  --r-fonce: #173f52;
+  --r-bleu-pale: rgba(35, 122, 154, .09);
+  --r-vert-pale: rgba(101, 169, 70, .11);
+  --r-fonce-pale: rgba(23, 63, 82, .08);
+  --r-trait: rgba(23, 63, 82, .16);
+  --r-rayon: 14px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .r-retombees {
+    --r-bleu-pale: rgba(77, 170, 205, .14);
+    --r-vert-pale: rgba(130, 200, 95, .14);
+    --r-fonce-pale: rgba(160, 200, 220, .10);
+    --r-trait: rgba(200, 225, 235, .20);
+  }
+}
+:root[data-theme="dark"] .r-retombees {
+  --r-bleu-pale: rgba(77, 170, 205, .14);
+  --r-vert-pale: rgba(130, 200, 95, .14);
+  --r-fonce-pale: rgba(160, 200, 220, .10);
+  --r-trait: rgba(200, 225, 235, .20);
+}
+
+/* Chapeau et statut */
+.r-retombees .r-chapeau { font-size: 1.12em; line-height: 1.6; max-width: 68ch; }
+.r-retombees .r-statut {
+  border-left: 4px solid var(--r-bleu); background: var(--r-bleu-pale);
+  padding: .75rem 1rem; border-radius: 0 var(--r-rayon) var(--r-rayon) 0; margin: 1rem 0 1.5rem; font-size: .95em;
+}
+
+/* Titres de section numérotés */
+.r-retombees .r-section { margin: 2.6rem 0 1rem; display: flex; align-items: baseline; gap: .7rem; }
+.r-retombees .r-section .r-num {
+  flex: none; display: inline-grid; place-items: center; width: 2.1rem; height: 2.1rem; border-radius: 50%;
+  background: var(--r-fonce); color: #fff; font-size: .9rem; font-weight: 700;
+}
+.r-retombees .r-intro { max-width: 70ch; }
+
+/* Chiffres clés */
+.r-retombees .r-chiffres { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: .8rem; margin: 1.2rem 0; }
+.r-retombees .r-chiffre { border: 1px solid var(--r-trait); border-top: 4px solid var(--r-bleu); border-radius: var(--r-rayon); padding: .9rem 1rem; }
+.r-retombees .r-chiffre:nth-child(2n) { border-top-color: var(--r-vert); }
+.r-retombees .r-chiffre:nth-child(3n) { border-top-color: var(--r-fonce); }
+.r-retombees .r-chiffre strong { display: block; font-size: 1.7rem; line-height: 1.1; color: var(--r-bleu); font-variant-numeric: tabular-nums; }
+.r-retombees .r-chiffre:nth-child(2n) strong { color: var(--r-vert); }
+.r-retombees .r-chiffre span { display: block; font-size: .88rem; margin-top: .35rem; line-height: 1.4; }
+.r-retombees .r-chiffre small { display: block; font-size: .76rem; opacity: .75; margin-top: .35rem; }
+
+/* Bloc illustré : texte et image côte à côte */
+.r-retombees .bloc-illustre.r-bloc {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 1.6rem; align-items: center; margin: 1.6rem 0;
+}
+.r-retombees .bloc-illustre.r-bloc.r-inverse { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); }
+.r-retombees .bloc-illustre.r-bloc.r-inverse > .r-texte { order: 2; }
+.r-retombees .r-bloc figure { margin: 0; }
+.r-retombees .r-bloc figure img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--r-trait); background: #fff; }
+.r-retombees .r-bloc figure a { display: block; }
+.r-retombees .r-bloc figcaption, .r-retombees .r-fig figcaption { font-size: .82rem; line-height: 1.45; margin-top: .45rem; opacity: .85; }
+.r-retombees .r-texte > :first-child { margin-top: 0; }
+.r-retombees .r-texte h5 { font-size: 1.02rem; margin: 0 0 .4rem; color: var(--r-bleu); letter-spacing: .01em; }
+
+/* Cartes des objectifs */
+.r-retombees .r-objectifs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 1.2rem 0; }
+.r-retombees .r-obj { border-radius: var(--r-rayon); padding: 1.1rem 1.1rem 1rem; border: 1px solid var(--r-trait); display: flex; flex-direction: column; gap: .55rem; }
+.r-retombees .r-obj.r-o1 { background: var(--r-bleu-pale); border-top: 5px solid var(--r-bleu); }
+.r-retombees .r-obj.r-o2 { background: var(--r-fonce-pale); border-top: 5px solid var(--r-fonce); }
+.r-retombees .r-obj.r-o3 { background: var(--r-vert-pale); border-top: 5px solid var(--r-vert); }
+.r-retombees .r-obj .r-etiquette { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; opacity: .8; }
+.r-retombees .r-obj h5 { margin: 0; font-size: 1.08rem; }
+.r-retombees .r-obj dl { margin: 0; display: grid; gap: .45rem; }
+.r-retombees .r-obj dt { font-size: .76rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--r-bleu); }
+.r-retombees .r-obj.r-o3 dt { color: var(--r-vert); }
+.r-retombees .r-obj dd { margin: 0; font-size: .93rem; line-height: 1.5; }
+
+/* Figures SVG */
+.r-retombees .r-fig { margin: 1.2rem 0; }
+.r-retombees .r-fig svg { width: 100%; height: auto; display: block; color: inherit; }
+.r-retombees .r-fig svg text { fill: currentColor; font-family: inherit; }
+.r-retombees .r-fig .r-titre-fig { font-weight: 700; font-size: .95rem; margin-bottom: .4rem; }
+.r-retombees .r-legende { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-size: .8rem; margin-top: .4rem; }
+.r-retombees .r-legende i { display: inline-block; width: .8rem; height: .8rem; border-radius: 3px; vertical-align: -1px; margin-right: .3rem; }
+
+/* Grille des publics */
+.r-retombees .r-publics { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin: 1.2rem 0; }
+.r-retombees .r-public { border: 1px solid var(--r-trait); border-radius: var(--r-rayon); padding: 1rem 1.05rem; display: flex; flex-direction: column; gap: .5rem; }
+.r-retombees .r-public header { display: flex; align-items: center; gap: .6rem; }
+.r-retombees .r-public header svg { flex: none; width: 2.2rem; height: 2.2rem; }
+.r-retombees .r-public h5 { margin: 0; font-size: 1.02rem; line-height: 1.3; }
+.r-retombees .r-public p { margin: 0; font-size: .92rem; line-height: 1.5; }
+.r-retombees .r-public .r-ex { background: var(--r-bleu-pale); border-radius: 8px; padding: .5rem .65rem; font-size: .86rem; }
+.r-retombees .r-pastilles { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: auto; padding-top: .3rem; }
+.r-retombees .r-pastille { font-size: .72rem; font-weight: 700; padding: .15rem .55rem; border-radius: 999px; color: #fff; }
+.r-retombees .r-p1 { background: var(--r-bleu); }
+.r-retombees .r-p2 { background: var(--r-fonce); }
+.r-retombees .r-p3 { background: var(--r-vert); }
+
+/* Tableaux */
+.r-retombees .r-tableau-defile { overflow-x: auto; margin: 1.2rem 0; border: 1px solid var(--r-trait); border-radius: var(--r-rayon); }
+.r-retombees table.r-tableau { width: 100%; border-collapse: collapse; font-size: .88rem; min-width: 640px; }
+.r-retombees .r-tableau caption { text-align: left; font-weight: 700; padding: .7rem .9rem .3rem; }
+.r-retombees .r-tableau th, .r-retombees .r-tableau td { padding: .55rem .8rem; border-top: 1px solid var(--r-trait); vertical-align: top; text-align: left; }
+.r-retombees .r-tableau thead th { background: var(--r-fonce); color: #fff; border-top: 0; font-size: .8rem; letter-spacing: .03em; }
+.r-retombees .r-tableau tbody tr:nth-child(2n) { background: var(--r-fonce-pale); }
+.r-retombees .r-tableau td.r-n { font-variant-numeric: tabular-nums; white-space: nowrap; font-weight: 700; color: var(--r-bleu); }
+.r-retombees .r-tableau .r-oui { color: var(--r-vert); font-weight: 700; }
+.r-retombees .r-tableau .r-centre { text-align: center; }
+
+/* Encadrés */
+.r-retombees .r-encadre { border-radius: var(--r-rayon); padding: 1rem 1.15rem; margin: 1.2rem 0; background: var(--r-vert-pale); border-left: 5px solid var(--r-vert); }
+.r-retombees .r-encadre.r-prudence { background: var(--r-fonce-pale); border-left-color: var(--r-fonce); }
+.r-retombees .r-encadre > :first-child { margin-top: 0; }
+.r-retombees .r-encadre > :last-child { margin-bottom: 0; }
+.r-retombees .r-calcul { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .84em; background: var(--r-bleu-pale); padding: .05rem .35rem; border-radius: 5px; white-space: nowrap; }
+
+/* Étapes de co-construction */
+.r-retombees .r-etapes { list-style: none; padding: 0; margin: 1.2rem 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: .8rem; counter-reset: r-etape; }
+.r-retombees .r-etapes li { counter-increment: r-etape; border: 1px solid var(--r-trait); border-radius: var(--r-rayon); padding: .9rem 1rem .9rem 3.1rem; position: relative; font-size: .92rem; line-height: 1.5; }
+.r-retombees .r-etapes li::before { content: counter(r-etape); position: absolute; left: .9rem; top: .85rem; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--r-bleu); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: .85rem; }
+.r-retombees .r-etapes li:nth-child(2n)::before { background: var(--r-vert); }
+.r-retombees .r-etapes li strong { display: block; margin-bottom: .2rem; }
+
+/* Téléphone */
+@media (max-width: 860px) {
+  .r-retombees .r-objectifs { grid-template-columns: 1fr; }
+  .r-retombees .bloc-illustre.r-bloc,
+  .r-retombees .bloc-illustre.r-bloc.r-inverse { grid-template-columns: 1fr; }
+  .r-retombees .bloc-illustre.r-bloc.r-inverse > .r-texte { order: 0; }
+}
+.r-retombees .r-fig.r-fig-moyenne { max-width: 760px; }
