@@ -104,7 +104,7 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 .gab .gab-intro{max-width:none!important;margin:56px 0 0!important;padding:0!important;position:static}
 .gab .gab-intro>*{margin-inline-start:0!important}
 .gab .gab-intro h2{font:400 clamp(30px,3.2vw,44px)/1.14 var(--serif);color:var(--gab-marine);letter-spacing:-.012em;margin:0 0 16px;max-width:30ch}
-.gab .gab-intro p,.gab .gab-intro .intro{font-size:19px;line-height:1.7;color:var(--gab-texte);max-width:78ch}
+.gab .gab-intro p:not(.devise),.gab .gab-intro .intro{font-size:19px;line-height:1.7;color:var(--gab-texte);max-width:78ch}
 .gab .gab-intro.gab-intro-duo{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:start}
 .gab .gab-intro.gab-intro-duo h2{margin:0;max-width:none}
 .gab .gab-intro.gab-intro-duo>p{margin:4px 0 0}
@@ -213,7 +213,7 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   .gab .gab-intro{margin-top:40px!important}
   .gab .gab-intro.gab-intro-duo{display:block}
   .gab .gab-intro.gab-intro-duo h2{margin-bottom:14px}
-  .gab .gab-intro p,.gab .gab-intro .intro{font-size:17.5px}
+  .gab .gab-intro p:not(.devise),.gab .gab-intro .intro{font-size:17.5px}
   .gab .gab-chapitre{margin-top:44px;padding-top:32px}
   .gab-chapitre-num b{width:44px;height:44px;font-size:19px}
   .gab .gab-chapitre-titre{font-size:30px!important}
