@@ -3213,3 +3213,14 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
 .contact-visite .tuto-video video::cue{font-size:15px}
 @media(max-width:1000px){.contact .section-corps.contact-grille{grid-template-columns:1fr}.contact-grille .contact-visite{grid-row:2;max-width:none}.contact-grille .contact-droite{grid-row:1}}
 .contact-grille .contact-droite .liens-contact{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.contact-grille .contact-droite .liens-contact>li{min-width:0}.contact-grille .contact-droite .liens-contact a{height:100%}@media(max-width:560px){.contact-grille .contact-droite .liens-contact{grid-template-columns:1fr}}
+/* Contact : texte centré dans sa colonne, liens en bandeau sur toute la largeur en bas */
+.contact-grille .contact-droite{display:contents}
+.contact-grille .contact-droite .colonne-texte{grid-column:2;grid-row:1;text-align:center;justify-self:center;max-width:560px}
+.contact-grille .contact-droite .colonne-texte .contact-actions{justify-content:center}
+.contact-grille .contact-droite .colonne-texte .courriel,.contact-grille .contact-droite .colonne-texte .note{text-align:center;margin-inline:auto}
+.contact-grille .contact-droite .colonne-outils{grid-column:1/-1;grid-row:2;margin-top:12px;padding-top:28px;border-top:1px solid var(--line,#dfe7e5)}
+.contact-grille .contact-droite .liens-contact{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media(max-width:1000px){.contact-grille .contact-droite .colonne-texte{grid-column:1;grid-row:1}.contact-grille .contact-visite{grid-row:2}.contact-grille .contact-droite .colonne-outils{grid-column:1;grid-row:3}.contact-grille .contact-droite .liens-contact{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.contact-grille .contact-droite .liens-contact{grid-template-columns:1fr}}
+.contact-grille .contact-droite .colonne-texte>*{text-align:center!important;margin-inline:auto;text-align-last:center}
+.contact-grille .contact-droite .colonne-texte>.surtitre{display:flex;justify-content:center;width:100%}
