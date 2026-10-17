@@ -125,10 +125,17 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 .gab-photo img{display:block;width:100%;aspect-ratio:3/2;height:auto;object-fit:cover;border-radius:22px;background:#dfe9ec;box-shadow:0 26px 50px -34px rgba(13,42,58,.8)}
 .gab-credit{display:block;margin-top:8px;font-size:12.5px;line-height:1.4;color:var(--gab-doux)}
 .gab-credit a{color:inherit;text-decoration:none;border-bottom:1px dotted currentColor}
-.gab-sommaire-chapitre{display:grid;gap:2px;padding:16px;border-radius:18px;background:var(--gab-fond);border-inline-start:4px solid var(--gab-c,var(--gab-bleu))}
+/* Sommaire du chapitre : défilement indépendant, y compris au clavier. */
+.gab-sommaire-chapitre{display:grid;gap:4px;align-content:start;max-height:clamp(180px,calc(100dvh - var(--salle-barre-hauteur,90px) - 365px),440px);overflow-y:auto;overscroll-behavior-y:contain;scrollbar-width:thin;scrollbar-color:var(--gab-c,var(--gab-bleu)) transparent;scrollbar-gutter:stable;padding:16px;border-radius:18px;background:var(--gab-fond);border-inline-start:4px solid var(--gab-c,var(--gab-bleu))}
 .gab-sommaire-chapitre>span{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gab-c,var(--gab-bleu));margin-bottom:6px}
-.gab-sommaire-chapitre a{padding:6px 8px;border-radius:10px;font-size:15px;line-height:1.35;color:var(--gab-marine);text-decoration:none}
+.gab-sommaire-chapitre a{display:block;padding:7px 9px;border-radius:10px;font-size:15px;line-height:1.4;color:var(--gab-marine);text-decoration:none;overflow-wrap:break-word}
 .gab-sommaire-chapitre a:hover{background:#fff}
+.gab-sommaire-chapitre a:focus-visible,.gab-sommaire-chapitre:focus-visible{outline:2px solid var(--gab-c,var(--gab-bleu));outline-offset:2px}
+.gab-sommaire-chapitre a[data-objectif]{border-inline-start:3px solid var(--sommaire-objectif);padding-inline-start:12px;background:var(--sommaire-fond);color:var(--sommaire-objectif);font-weight:700}
+.gab-sommaire-chapitre a[data-objectif="O1"]{--sommaire-objectif:#24659b;--sommaire-fond:#eef5fc}
+.gab-sommaire-chapitre a[data-objectif="O2"]{--sommaire-objectif:#286e5b;--sommaire-fond:#edf6f1}
+.gab-sommaire-chapitre a[data-objectif="O3"]{--sommaire-objectif:#754d8a;--sommaire-fond:#f6f0f9}
+.gab-sommaire-chapitre a[data-objectif]:is(:hover,:focus-visible){box-shadow:inset 0 0 0 1px var(--sommaire-objectif)}
 
 /* Corps des chapitres : une seule typographie, quelles que soient les anciennes classes. */
 .gab-corps{font-size:18px;line-height:1.72;color:var(--gab-texte)}
@@ -182,7 +189,7 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   .gab-chapitre-grille{grid-template-columns:1fr;gap:24px}
   .gab-chapitre-aside{position:static;order:-1;grid-template-columns:minmax(0,1fr)}
   .gab-photo img{aspect-ratio:21/9}
-  .gab-sommaire-chapitre{display:none}
+  .gab-sommaire-chapitre{display:grid;max-height:min(300px,45dvh)}
   .gab-tuiles{grid-template-columns:repeat(min(var(--gab-colonnes,4),3),minmax(0,1fr))}
   .gab-tuile.gab-grande{grid-row:span 1}
 }
