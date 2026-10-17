@@ -3198,3 +3198,7 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
 .contact-visite .tuto-video video::cue{font-size:12px}
 @media(max-width:1000px){.contact .section-corps.contact-grille{grid-template-columns:1fr}.contact-grille .contact-visite{grid-column:1;grid-row:2;max-width:420px}.contact-grille .contact-droite{grid-column:1;grid-row:1}}
 @media(max-width:700px){.contact-grille .contact-droite{grid-template-columns:1fr}}
+/* Courriel et téléphone du haut plus visibles, sans pastilles */
+.entete-contact a[href^="mailto:"],.entete-contact a[href^="tel:"]{font-size:15px;font-weight:600;color:#173f52;letter-spacing:0}
+.entete-contact a[href^="mailto:"] svg,.entete-contact a[href^="tel:"] svg{width:16px;height:16px;color:#1f5a8a}
+.entete-contact a[href^="mailto:"]:hover,.entete-contact a[href^="tel:"]:hover{color:#1f5a8a;text-decoration:underline;text-underline-offset:3px}
