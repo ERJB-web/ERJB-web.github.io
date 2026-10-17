@@ -3045,3 +3045,7 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
 .hall.en-mobile .hall-indice{bottom:auto;top:150px;font-size:14px;padding:9px 16px 9px 12px}
 @media(prefers-reduced-motion:reduce){.hall-tete .hall-geste svg,.hall-indice .hall-indice-main{animation:none}}
 @media(forced-colors:active){.hall-tete .hall-titre-nom em{color:CanvasText;background:none}.hall-indice{border:1px solid CanvasText}}
+/* Titre du hall aux couleurs de la Chaire : bleu, mot clé en vert, sans dégradé */
+.hall-tete .hall-titre-nom{color:var(--gsk-bleu,#237a9a)}
+.hall-tete .hall-titre-nom em{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--gsk-vert,#65a946)}
+.hall-tete .hall-titre-nom::after{background:linear-gradient(90deg,var(--gsk-bleu,#237a9a) 50%,var(--gsk-vert,#65a946) 50%)}
