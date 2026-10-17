@@ -1,4 +1,167 @@
 "use strict";
+// Météo actuelle de Montréal, partagée par le hall et la ligne d'état de l'en-tête.
+const ebMeteoMontreal = (() => {
+  const URL_METEO = "https://api.open-meteo.com/v1/forecast?latitude=45.5017&longitude=-73.5673"
+    + "&current=temperature_2m,is_day,weather_code,cloud_cover,precipitation,rain,showers,snowfall,wind_speed_10m,wind_direction_10m"
+    + "&timezone=America%2FToronto";
+  const CLE = "eb-meteo-montreal";
+  let enCours = null;
+  return () => {
+    try {
+      const memo = JSON.parse(localStorage.getItem(CLE) || "null");
+      if (memo && Date.now() - memo.t < 20 * 60000) return Promise.resolve(memo.d);
+    } catch (e) { /* stockage indisponible */ }
+    if (!enCours) {
+      enCours = fetch(URL_METEO, { credentials: "omit", referrerPolicy: "no-referrer" })
+        .then((r) => (r.ok ? r.json() : null))
+        .then((d) => {
+          if (d) { try { localStorage.setItem(CLE, JSON.stringify({ t: Date.now(), d })); } catch (e) { /* stockage indisponible */ } }
+          return d;
+        })
+        .catch(() => null)
+        .finally(() => { setTimeout(() => { enCours = null; }, 1000); });
+    }
+    return enCours;
+  };
+})();
+
+// Ligne d'état : heure, météo et activité d'Éric Bernier à Montréal.
+(() => {
+  const entete = document.querySelector(".entete");
+  if (!entete) return;
+  const ZONE = "America/Toronto";
+  const langue = (document.documentElement.lang || "fr").slice(0, 2);
+  const L = {
+    fr: { ville: "Montréal", statuts: { enseignement: "En cours d'enseignement", classe: "En classe", labo: "Au laboratoire", vacances: "En vacances", weekend: "En week-end", bibliotheque: "À la bibliothèque", sport: "Au sport", patin: "En train de patiner", teletravail: "En télétravail", congres: "En congrès", hors: "Hors des heures de travail" },
+      meteo: { soleil: "Ensoleillé", clair: "Ciel dégagé", eclaircies: "Éclaircies", couvert: "Nuageux", brouillard: "Brouillard", bruine: "Bruine", pluie: "Pluie", verglas: "Pluie verglaçante", neige: "Neige", orage: "Orage" }, etiquette: "En ce moment à Montréal" },
+    en: { ville: "Montreal", statuts: { enseignement: "Teaching a class", classe: "In class", labo: "In the lab", vacances: "On vacation", weekend: "Weekend", bibliotheque: "At the library", sport: "Playing sports", patin: "Skating", teletravail: "Working remotely", congres: "At a conference", hors: "Outside working hours" },
+      meteo: { soleil: "Sunny", clair: "Clear sky", eclaircies: "Partly cloudy", couvert: "Cloudy", brouillard: "Fog", bruine: "Drizzle", pluie: "Rain", verglas: "Freezing rain", neige: "Snow", orage: "Thunderstorm" }, etiquette: "Right now in Montreal" },
+    es: { ville: "Montreal", statuts: { enseignement: "Dando clase", classe: "En clase", labo: "En el laboratorio", vacances: "De vacaciones", weekend: "Fin de semana", bibliotheque: "En la biblioteca", sport: "Haciendo deporte", patin: "Patinando", teletravail: "Teletrabajando", congres: "En un congreso", hors: "Fuera del horario laboral" },
+      meteo: { soleil: "Soleado", clair: "Despejado", eclaircies: "Parcialmente nublado", couvert: "Nublado", brouillard: "Niebla", bruine: "Llovizna", pluie: "Lluvia", verglas: "Lluvia helada", neige: "Nieve", orage: "Tormenta" }, etiquette: "Ahora en Montreal" },
+    zh: { ville: "蒙特利尔", statuts: { enseignement: "正在授课", classe: "正在上课", labo: "在实验室", vacances: "休假中", weekend: "周末", bibliotheque: "在图书馆", sport: "在运动", patin: "在滑冰", teletravail: "远程办公", congres: "参加学术会议", hors: "非工作时间" },
+      meteo: { soleil: "晴", clair: "晴朗", eclaircies: "多云间晴", couvert: "多云", brouillard: "雾", bruine: "毛毛雨", pluie: "雨", verglas: "冻雨", neige: "雪", orage: "雷暴" }, etiquette: "蒙特利尔此刻" },
+    ar: { ville: "مونتريال", statuts: { enseignement: "يُدرّس الآن", classe: "في الصف", labo: "في المختبر", vacances: "في إجازة", weekend: "عطلة نهاية الأسبوع", bibliotheque: "في المكتبة", sport: "يمارس الرياضة", patin: "يتزلّج على الجليد", teletravail: "يعمل عن بُعد", congres: "في مؤتمر", hors: "خارج ساعات العمل" },
+      meteo: { soleil: "مشمس", clair: "سماء صافية", eclaircies: "غائم جزئيًا", couvert: "غائم", brouillard: "ضباب", bruine: "رذاذ", pluie: "مطر", verglas: "مطر متجمّد", neige: "ثلج", orage: "عاصفة رعدية" }, etiquette: "الآن في مونتريال" },
+    ru: { ville: "Монреаль", statuts: { enseignement: "Веду занятие", classe: "На занятиях", labo: "В лаборатории", vacances: "В отпуске", weekend: "Выходные", bibliotheque: "В библиотеке", sport: "На тренировке", patin: "Катаюсь на коньках", teletravail: "Работаю удалённо", congres: "На конференции", hors: "Нерабочее время" },
+      meteo: { soleil: "Солнечно", clair: "Ясно", eclaircies: "Переменная облачность", couvert: "Облачно", brouillard: "Туман", bruine: "Морось", pluie: "Дождь", verglas: "Ледяной дождь", neige: "Снег", orage: "Гроза" }, etiquette: "Сейчас в Монреале" },
+  }[langue] || null;
+  const T = L || {
+    ville: "Montréal", statuts: { enseignement: "En cours d'enseignement", classe: "En classe", labo: "Au laboratoire", vacances: "En vacances", weekend: "En week-end", bibliotheque: "À la bibliothèque", sport: "Au sport", patin: "En train de patiner", teletravail: "En télétravail", congres: "En congrès", hors: "Hors des heures de travail" },
+    meteo: { soleil: "Ensoleillé", clair: "Ciel dégagé", eclaircies: "Éclaircies", couvert: "Nuageux", brouillard: "Brouillard", bruine: "Bruine", pluie: "Pluie", verglas: "Pluie verglaçante", neige: "Neige", orage: "Orage" }, etiquette: "En ce moment à Montréal",
+  };
+  const codeLangue = L ? langue : "fr";
+
+  // Emploi du temps hebdomadaire, en heure de Montréal : [jour (0 = dimanche), début, fin, statut], minutes depuis minuit.
+  const h = (heure, minute = 0) => heure * 60 + minute;
+  const HORAIRE = [
+    [1, h(8, 30), h(11, 30), "enseignement"], [1, h(12), h(13), "patin"],
+    [2, h(9), h(12), "enseignement"], [2, h(12, 30), h(15, 30), "enseignement"],
+    [3, h(9), h(17), "labo"],
+    [4, h(15), h(16, 30), "sport"], [4, h(18), h(19, 30), "sport"],
+    [5, h(12), h(13), "patin"],
+    [0, h(8), h(11), "sport"],
+  ];
+  // Périodes particulières (dates incluses, AAAA-MM-JJ) : vacances, congrès, bibliothèque.
+  const PERIODES = [];
+  const COULEURS = { enseignement: "#c0612b", classe: "#1f5a8a", labo: "#7a4a8c", sport: "#4f7d2e", patin: "#138086", teletravail: "#2e8b57", weekend: "#8a8f98", hors: "#8a8f98", vacances: "#b8862b", congres: "#a8343f", bibliotheque: "#466a78" };
+
+  function maintenantMontreal() {
+    const p = Object.fromEntries(new Intl.DateTimeFormat("en-CA", { timeZone: ZONE, year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", weekday: "short", hourCycle: "h23" }).formatToParts(new Date()).map((x) => [x.type, x.value]));
+    const jours = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+    return { date: `${p.year}-${p.month}-${p.day}`, jour: jours[p.weekday], minutes: Number(p.hour) * 60 + Number(p.minute), heure: Number(p.hour), minute: Number(p.minute) };
+  }
+  function activite(m) {
+    const periode = PERIODES.find((x) => m.date >= x.du && m.date <= x.au);
+    if (periode) return periode.statut;
+    const creneau = HORAIRE.find(([j, a, b]) => j === m.jour && m.minutes >= a && m.minutes < b);
+    if (creneau) return creneau[3];
+    if (m.jour === 0 || m.jour === 6) return "weekend";
+    return m.minutes >= h(9) && m.minutes < h(17) ? "teletravail" : "hors";
+  }
+  function heure(m) {
+    if (codeLangue === "fr") return `${m.heure} h ${String(m.minute).padStart(2, "0")}`;
+    return new Intl.DateTimeFormat(codeLangue, { timeZone: ZONE, hour: "numeric", minute: "2-digit" }).format(new Date());
+  }
+
+  // Codes météo de l'Organisation météorologique mondiale.
+  function temps(c) {
+    const code = Number(c.weather_code) || 0;
+    if (code >= 95) return "orage";
+    if ((code >= 71 && code <= 77) || code === 85 || code === 86) return "neige";
+    if (code === 66 || code === 67 || code === 56 || code === 57) return "verglas";
+    if ((code >= 61 && code <= 65) || (code >= 80 && code <= 82)) return "pluie";
+    if (code >= 51 && code <= 55) return "bruine";
+    if (code === 45 || code === 48) return "brouillard";
+    if (code === 3) return "couvert";
+    if (code === 1 || code === 2) return "eclaircies";
+    return Number(c.is_day) ? "soleil" : "clair";
+  }
+  const trait = 'fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"';
+  const nuage = '<path d="M7 18h10a4 4 0 0 0 .6-7.96A5.5 5.5 0 0 0 7.1 9.5 4.25 4.25 0 0 0 7 18Z"/>';
+  const ICONES = {
+    soleil: '<circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4"/>',
+    clair: '<path d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5Z"/>',
+    eclaircies: '<path d="M9 4v1.5M4.5 9H6M5.8 5.8l1 1M13.2 5.8l-1 1"/><path d="M6.6 11.5a3.5 3.5 0 0 1 6.2-2.8"/>' + '<path d="M9 20h8a3.5 3.5 0 0 0 .5-6.96A4.8 4.8 0 0 0 9 12.3 3.9 3.9 0 0 0 9 20Z"/>',
+    couvert: nuage,
+    brouillard: '<path d="M4 9h16M3 13h18M5 17h14"/>',
+    bruine: nuage.replace('d="M7 18', 'd="M7 15') + '<path d="M9 19v1M13 19v1M17 19v1"/>',
+    pluie: '<path d="M7 15h10a4 4 0 0 0 .6-7.96A5.5 5.5 0 0 0 7.1 6.5 4.25 4.25 0 0 0 7 15Z"/><path d="M8.5 18l-1 2.5M12.5 18l-1 2.5M16.5 18l-1 2.5"/>',
+    verglas: '<path d="M7 15h10a4 4 0 0 0 .6-7.96A5.5 5.5 0 0 0 7.1 6.5 4.25 4.25 0 0 0 7 15Z"/><path d="M9 18l-1 2.5M15 18l-1 2.5M12 19v.5"/>',
+    neige: '<path d="M7 15h10a4 4 0 0 0 .6-7.96A5.5 5.5 0 0 0 7.1 6.5 4.25 4.25 0 0 0 7 15Z"/><path d="M9 19h.01M12 21h.01M15 19h.01M10.5 22h.01M13.5 18h.01"/>',
+    orage: '<path d="M7 15h10a4 4 0 0 0 .6-7.96A5.5 5.5 0 0 0 7.1 6.5 4.25 4.25 0 0 0 7 15Z"/><path d="m12.5 14-2 4h3l-2 4"/>',
+  };
+
+  function creer(classe) {
+    const p = document.createElement("p");
+    p.className = "direct-montreal " + classe;
+    p.setAttribute("aria-label", T.etiquette);
+    p.innerHTML = '<span class="direct-ville"></span><span class="direct-sep" aria-hidden="true">·</span><time class="direct-heure"></time>'
+      + '<span class="direct-meteo" hidden><span class="direct-sep" aria-hidden="true">·</span><svg viewBox="0 0 24 24" aria-hidden="true" ' + trait + '></svg><span class="direct-temp"></span></span>'
+      + '<span class="direct-sep" aria-hidden="true">·</span><span class="direct-activite"><span class="direct-point" aria-hidden="true"></span><span class="direct-statut"></span></span>';
+    return p;
+  }
+  // Hauteur réelle de l'en-tête, pour que le hall et ses rubriques tiennent dans la fenêtre.
+  const noterEntete = () => document.documentElement.style.setProperty("--entete-h", Math.round(entete.getBoundingClientRect().height) + "px");
+  noterEntete();
+  if ("ResizeObserver" in window) new ResizeObserver(noterEntete).observe(entete);
+  const lignes = [creer("direct-entete")];
+  entete.append(lignes[0]);
+  const teteHall = document.querySelector(".hall-tete");
+  if (teteHall) {
+    const l = creer("direct-hall");
+    teteHall.firstElementChild ? teteHall.firstElementChild.after(l) : teteHall.prepend(l);
+    lignes.push(l);
+  }
+  let meteo = null;
+  function afficher() {
+    const m = maintenantMontreal();
+    const statut = activite(m);
+    for (const l of lignes) {
+      l.querySelector(".direct-ville").textContent = T.ville;
+      const t = l.querySelector(".direct-heure");
+      t.textContent = heure(m);
+      t.dateTime = `${m.date}T${String(m.heure).padStart(2, "0")}:${String(m.minute).padStart(2, "0")}`;
+      l.querySelector(".direct-statut").textContent = T.statuts[statut];
+      l.querySelector(".direct-point").style.background = COULEURS[statut];
+      const bloc = l.querySelector(".direct-meteo");
+      if (meteo && Number.isFinite(Number(meteo.temperature_2m))) {
+        const nom = temps(meteo);
+        bloc.hidden = false;
+        bloc.querySelector("svg").innerHTML = ICONES[nom];
+        const degres = Math.round(Number(meteo.temperature_2m));
+        const libelle = ["fr", "en", "es", "ru"].includes(codeLangue) ? T.meteo[nom].charAt(0).toLowerCase() + T.meteo[nom].slice(1) : T.meteo[nom];
+        bloc.querySelector(".direct-temp").textContent = `${degres === 0 ? 0 : degres} °C, ${libelle}`;
+      }
+    }
+  }
+  function charger() { ebMeteoMontreal().then((d) => { if (d?.current) { meteo = d.current; afficher(); } }); }
+  afficher();
+  charger();
+  setInterval(afficher, 30000);
+  setInterval(charger, 20 * 60000);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) { afficher(); charger(); } });
+})();
+
 // Lumière du hall : heure solaire, saison et météo actuelles de Montréal.
 (() => {
   const hall = document.querySelector("[data-hall-volume]");
@@ -7,10 +170,6 @@
   const dossier = new URL("photos/", document.currentScript ? document.currentScript.src : location.href);
   const photo = (nom) => `url("${new URL(`${nom}.webp`, dossier).href}")`;
   const LAT = 45.5017, LON = -73.5673;
-  const METEO = "https://api.open-meteo.com/v1/forecast?latitude=45.5017&longitude=-73.5673"
-    + "&current=weather_code,cloud_cover,precipitation,rain,showers,snowfall,wind_speed_10m,wind_direction_10m"
-    + "&timezone=America%2FToronto";
-  const CLE = "eb-hall-meteo";
   const calme = matchMedia("(prefers-reduced-motion: reduce)");
   const borner = (v, a, b) => Math.max(a, Math.min(b, v));
   const lisse = (a, b, x) => { const t = borner((x - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
@@ -40,6 +199,7 @@
     const md = dateMontreal(date);
     if (neige || md >= 1116 || md <= 415) return "hiver";
     if (md >= 922) return "automne";
+    if (md <= 620) return "printemps";
     return "ete";
   }
 
@@ -63,19 +223,7 @@
   }
   let meteo = null;
   function charger() {
-    try {
-      const memo = JSON.parse(localStorage.getItem(CLE) || "null");
-      if (memo && Date.now() - memo.t < 20 * 60000) { meteo = lireMeteo(memo.d); actualiser(); return; }
-    } catch (e) { /* stockage indisponible */ }
-    fetch(METEO, { credentials: "omit", referrerPolicy: "no-referrer" })
-      .then((r) => (r.ok ? r.json() : null))
-      .then((d) => {
-        if (!d) return;
-        meteo = lireMeteo(d);
-        try { localStorage.setItem(CLE, JSON.stringify({ t: Date.now(), d })); } catch (e) { /* stockage indisponible */ }
-        actualiser();
-      })
-      .catch(() => {});
+    ebMeteoMontreal().then((d) => { if (d?.current) { meteo = lireMeteo(d); actualiser(); } });
   }
 
   // La ville derrière la baie, l'intérieur du hall par-dessus, puis le reflet de la ville sur le sol.

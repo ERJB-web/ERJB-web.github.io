@@ -313,7 +313,8 @@
 
 @media(min-width:1000px) {
   .hall.en-volume {
-    --eb-hall-hauteur: clamp(500px,68svh,650px);
+    /* Le hall, sa barre de rubriques et l'en-tête tiennent ensemble dans la fenêtre. */
+    --eb-hall-hauteur: clamp(360px, calc(100svh - var(--entete-h, 136px) - 210px), 600px);
     /* Vue rapprochée : la photo est agrandie et le haut de la verrière recadré. */
     --hall-zoom: 1.3;
     /* Largeur de porte rapportée à sa hauteur, et espace égal entre porte et panneau. */
@@ -331,12 +332,13 @@
   .hall.en-volume .hall-espace::before,
   .hall.en-volume .hall-espace::after { content: none; }
   .hall.en-volume .hall-univers {
-    /* L'échelle suit une hauteur de 540 px au plus : un hall plus haut montre davantage de sol. */
-    --px: calc(max(calc(100cqw / 2000), calc(min(100cqh, 540px) / 670)) * var(--hall-zoom));
+    /* Bande visible de la photo : du plafond (y=84) au sol (y=690), soit 606 px, centrée ;
+       en largeur, au moins les 1700 px du centre. */
+    --px: max(calc(100cqw / 1700), calc(100cqh / 606));
     --iw: calc(var(--px) * 2000);
     --ih: calc(var(--px) * 720);
     --ix: calc((100cqw - var(--iw)) / 2);
-    --iy: calc(var(--px) * var(--hall-recadrage) * -1);
+    --iy: calc((100cqh - 606 * var(--px)) / 2 - 84 * var(--px));
     --verre-haut: calc(var(--iy) + var(--px) * 120);
     --mur-haut: calc(var(--iy) + var(--px) * var(--hall-porte-haut));
     --mur-bas: calc(var(--iy) + var(--px) * 526);
@@ -572,3 +574,44 @@
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .panneau-hall { background-color: rgba(250,250,247,.86); }
 }
+
+/* Ligne d'état : heure, météo et activité à Montréal. */
+.direct-montreal {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2px 7px;
+  margin: 0;
+  color: var(--muted, #5b6b6e);
+  font: 500 13px/1.3 var(--sans);
+  white-space: nowrap;
+}
+.direct-montreal .direct-ville { color: var(--ink, #1d3436); font-weight: 600; }
+.direct-montreal .direct-heure { font-variant-numeric: tabular-nums; color: var(--ink, #1d3436); }
+.direct-montreal .direct-sep { opacity: .45; }
+.direct-montreal .direct-meteo { display: inline-flex; align-items: center; gap: 7px; }
+.direct-montreal .direct-meteo[hidden] { display: none; }
+.direct-montreal svg { width: 17px; height: 17px; flex: none; color: var(--ink, #1d3436); }
+.direct-montreal .direct-activite { display: inline-flex; align-items: center; gap: 6px; color: var(--ink, #1d3436); }
+.direct-montreal .direct-point {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px color-mix(in srgb,currentColor 8%,transparent);
+}
+.entete .direct-entete {
+  position: absolute;
+  right: var(--gouttiere, 48px);
+  bottom: 24px;
+  max-width: 44%;
+}
+.hall-tete .direct-hall { display: none; text-transform: none; letter-spacing: 0; font-size: 12.5px; }
+@media(max-width:1279px) {
+  .entete .direct-entete { display: none; }
+  .hall-tete .direct-hall { display: flex; flex: 1 1 auto; justify-content: center; }
+}
+@media(max-width:640px) {
+  .hall-tete { flex-wrap: wrap; }
+  .hall-tete .direct-hall { order: 3; flex-basis: 100%; justify-content: flex-start; white-space: normal; }
+}
+[dir=rtl] .entete .direct-entete { right: auto; left: var(--gouttiere, 48px); }
