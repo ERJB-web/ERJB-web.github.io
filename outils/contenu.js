@@ -448,10 +448,9 @@ const fr = {
           ]
         ],
         [
-          "Bureautique et IA",
+          "Bureautique",
           [
-            "Office 365",
-            "Intelligence artificielle"
+            "Office 365"
           ]
         ]
       ]
@@ -1568,7 +1567,7 @@ const fr = {
           },
           {
             "date": "Programmation",
-            "titre": "Programmation assistée par IA"
+            "titre": "Développement d’outils numériques"
           },
           {
             "date": "Culture",
@@ -2019,10 +2018,9 @@ const en = {
           ]
         ],
         [
-          "Office tools and AI",
+          "Office tools",
           [
-            "Office 365",
-            "Artificial intelligence"
+            "Office 365"
           ]
         ]
       ]
@@ -3139,7 +3137,7 @@ const en = {
           },
           {
             "date": "Programming",
-            "titre": "AI-assisted programming"
+            "titre": "Building digital tools"
           },
           {
             "date": "Culture",
@@ -3590,10 +3588,9 @@ const es = {
           ]
         ],
         [
-          "Ofimática e IA",
+          "Ofimática",
           [
-            "Office 365",
-            "Inteligencia artificial"
+            "Office 365"
           ]
         ]
       ]
@@ -4710,7 +4707,7 @@ const es = {
           },
           {
             "date": "Programación",
-            "titre": "Programación asistida por IA"
+            "titre": "Desarrollo de herramientas digitales"
           },
           {
             "date": "Cultura",

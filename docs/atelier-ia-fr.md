@@ -1,6 +1,6 @@
 # Programmer avec l’IA, garder la maîtrise de l’enquête
 
-Mon usage avancé de Positron assisté, de Claude et de Codex me permet de passer d’une intention à un outil, de développer des interfaces et de reprendre du code. Ce gain de capacité s’accompagne d’une exigence : savoir décrire ce qui a été délégué, ce qui a été contrôlé et ce qui demeure une décision scientifique. L’outil contribue au travail ; la responsabilité de l’auteur demeure identifiable.
+Les assistants d’IA générative permettent de passer d’une intention à un outil, de développer des interfaces et de reprendre du code. Ce gain de capacité s’accompagne d’une exigence : savoir décrire ce qui a été délégué, ce qui a été contrôlé et ce qui demeure une décision scientifique. L’outil contribue au travail ; la responsabilité de l’auteur demeure identifiable.
 
 ## 1. Cadrer
 

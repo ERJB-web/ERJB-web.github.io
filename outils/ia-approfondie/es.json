@@ -1,49 +1,7 @@
 {
   "titre": "IA: programar, producir conocimiento y pensar sus efectos en la sociedad",
-  "intro": "Mi uso de la IA combina programación asistida avanzada, creación de herramientas y reflexión sobre investigación, aprendizaje y salud pública. Vinculo esta experiencia con trabajos científicos sobre los beneficios, límites y transformaciones sociales de estas tecnologías.",
+  "intro": "Esta sección reúne la programación asistida, la creación de herramientas y la reflexión sobre investigación, aprendizaje y salud pública. Se apoya en trabajos científicos sobre los beneficios, límites y transformaciones sociales de estas tecnologías.",
   "date": "Síntesis documental · 14 de octubre de 2026",
-  "usage": {
-    "nom": "Mi práctica avanzada",
-    "titre": "De la programación asistida al diseño de herramientas",
-    "intro": "Utilizo Positron con asistencia de IA, Claude y Codex de manera iterativa: precisar una necesidad, construir una solución, leer y modificar código, resolver dificultades y mejorar la herramienta. Esta práctica atraviesa mis proyectos digitales, mi entorno de investigación y la presentación accesible del conocimiento.",
-    "items": [
-      [
-        "Programar con asistentes",
-        "Utilizo la IA para desarrollar y revisar código, explorar soluciones y convertir una intención en funciones. El trabajo incluye formular el problema, dividir las tareas y examinar las propuestas, más allá de generar un primer script.",
-        []
-      ],
-      [
-        "Crear interfaces y herramientas",
-        "Mis proyectos digitales, como OWNNIGHT y las Esferas, concretan el prototipado, las interacciones y la experiencia de uso. La programación asistida favorece la creación y la iteración; las finalidades y las decisiones siguen siendo mías.",
-        []
-      ],
-      [
-        "Positron: código y datos",
-        "Positron asistido forma parte de mi entorno científico. Distingo la ayuda para escribir un script de las decisiones analíticas y de la interpretación: producir código no basta para justificar un método ni un resultado.",
-        [
-          "posit"
-        ]
-      ],
-      [
-        "Claude y Codex: contextualizar e iterar",
-        "Los utilizo para desarrollar herramientas, comprender o revisar código y discutir soluciones. La calidad depende del contexto aportado: objetivo, archivos pertinentes, restricciones, comportamiento esperado y criterios de aceptación.",
-        []
-      ],
-      [
-        "Vincular técnica y accesibilidad",
-        "El desarrollo también abarca legibilidad, idiomas, navegación y formatos de difusión. Me interesa hacer más accesible un conocimiento o una herramienta, más allá de la sofisticación técnica.",
-        []
-      ],
-      [
-        "Responsabilidad científica identificable",
-        "Conservo la responsabilidad de las decisiones, la protección de datos y los contenidos difundidos. Las contribuciones de la IA deben poder describirse; las referencias e interpretaciones deben examinarse en su contexto científico.",
-        [
-          "icmje"
-        ]
-      ]
-    ],
-    "note": "Mi práctica comprende desarrollo, trabajo científico y creación de herramientas. Los usos de investigación previstos siguen sujetos al protocolo, al consentimiento y a las normas institucionales."
-  },
   "programmation": {
     "nom": "Programación y agentes",
     "titre": "Dirigir un desarrollo asistido",
@@ -91,7 +49,7 @@
   "rechercheAjouts": [
     [
       "Cuestionar el problema antes de automatizar",
-      "En mi tesis, la relación entre perfiles de pacientes y configuraciones de redes intersectoriales orienta los métodos. La IA puede ayudar a explorar formulaciones o preparar código; no determina por mí el objeto, la frontera de la red ni la validez de un indicador.",
+      "En mi tesis, la relación entre perfiles de pacientes y configuraciones de redes intersectoriales orienta los métodos. La IA puede ayudar a explorar formulaciones o preparar código; no determina el objeto, la frontera de la red ni la validez de un indicador.",
       []
     ],
     [

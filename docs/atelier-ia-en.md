@@ -1,6 +1,6 @@
 # Use AI to build tools while retaining scientific judgement
 
-I use AI-assisted Positron, Claude and Codex for programming, tool development and iterative revision. I distinguish executable code, a valid statistical analysis and an answer to the right research question. Specify the estimand, population, timing and missing-data assumptions before interpreting a result. Human responsibility includes confidentiality, equity and the ability to challenge an output.
+Generative AI assistants can support programming, tool development and iterative revision. I distinguish executable code, a valid statistical analysis and an answer to the right research question. Specify the estimand, population, timing and missing-data assumptions before interpreting a result. Human responsibility includes confidentiality, equity and the ability to challenge an output.
 
 ## 1. Frame
 

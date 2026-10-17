@@ -166,23 +166,10 @@ html:is(.hc,.lv) .vulgarisation .vs-hero{background:#173f52}
 
 /* Lecteur institutionnel, jamais chargé sans action explicite. */
 .vulgarisation .vs-video{display:grid;grid-template-columns:minmax(0,.93fr) minmax(0,1.07fr);gap:20px;align-items:stretch;margin:22px 0 36px;border:1px solid #c7dcd9;border-radius:18px;background:#fff;overflow:hidden;box-shadow:var(--vs-shadow)}
-.vs-video-copy{min-width:0;padding:clamp(18px,2.5vw,32px)}
-.vs-video-copy .vs-kicker{display:block;color:#137882;margin-bottom:12px}
+
 .vulgarisation .vs-video h4{font:500 clamp(22px,2.5vw,32px)/1.2 var(--serif);color:var(--vs-ink);margin:0 0 14px}
-.vs-video-copy>p:not(.vs-micro){font-size:15px;line-height:1.7;margin-bottom:14px}
-.vs-video-copy>button{display:inline-flex;min-height:44px;align-items:center;margin:15px 14px 10px 0;padding:10px 15px;border-radius:10px;background:#123f52;color:white;font-weight:750;font-size:14px}
-.vs-video-copy>button:disabled{opacity:.45;cursor:default}
-.vs-video-copy>a{color:#176975;text-decoration:underline;text-underline-offset:4px;font-size:14px;font-weight:750}
-.vs-video-preview{position:relative;min-height:260px;aspect-ratio:16/9;background:#103a53}
-.vs-video-preview iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.vs-video-poster{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;padding:20px;background:radial-gradient(circle at 80% 30%,#2395a3 0%,transparent 50%),linear-gradient(145deg,#12384f,#185d71);color:#fff;text-align:center}
-.vs-video-poster:before,.vs-video-poster:after{content:"";position:absolute;width:52%;aspect-ratio:1;border:2px solid #ffffff26;border-radius:50%}
-.vs-video-poster:after{width:72%}
-.vs-video-poster>span{z-index:1;display:grid;place-items:center;width:80px;height:80px;border:2px solid #ffffffb0;border-radius:50%;background:#ffffff16;font-size:34px}
-.vs-video-poster b{z-index:1;font-size:11px;letter-spacing:.15em}
-.vs-video-poster small{z-index:1;font-size:15px;font-weight:650}
-.vulgarisation .vs-video-copy button:focus-visible{outline:3px solid #148d8d;outline-offset:4px}
-@media(max-width:800px){.vulgarisation .vs-video{grid-template-columns:1fr}.vs-video-preview{min-height:210px}.vs-video-copy{padding:22px}}
+
+@media(max-width:800px){.vulgarisation .vs-video{grid-template-columns:1fr}}
 
 /* Graphique vectoriel rigoureux : axe explicite de 0 à 100 %, labels et tableau de données. */
 .vs-risk-chart{display:block;max-width:100%;margin:2px 0 26px;padding:19px 13px 8px;border:1px solid #cbdedc;border-radius:15px;background:linear-gradient(180deg,#ffffff,#f7fbfa)}

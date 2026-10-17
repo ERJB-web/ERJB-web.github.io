@@ -2,7 +2,7 @@
 module.exports = {
   "salle": [
     "IA, investigación y docencia",
-    "Uso avanzado, PAIRR, salud pública y bioética"
+    "Programación, PAIRR, salud pública y bioética"
   ],
   "titre": "La IA al servicio del razonamiento científico y del aprendizaje",
   "intro": "La IA transforma la producción de conocimientos, la formación y las decisiones colectivas. Me interesan las condiciones de un uso riguroso: comprender su aportación, verificar sus resultados y conservar la responsabilidad de las decisiones.",
@@ -11,33 +11,6 @@ module.exports = {
   "sources": "Referencias y lecturas",
   "lienSources": "Fuentes",
   "rubriques": [
-    {
-      "nom": "Mi uso",
-      "titre": "Un uso avanzado, asistido y crítico",
-      "intro": "Utilizo de manera avanzada asistentes y modelos de IA generativa, incluidos Positron con asistencia de IA, Claude y Codex. Apoyan mi programación, el desarrollo de herramientas y la reflexión. La pertinencia de una respuesta depende de la pregunta, del contexto y de su verificación.",
-      "items": [
-        [
-          "Positron con asistencia de IA",
-          "Un entorno para código y análisis de datos con un asistente integrado. Hay que distinguir el entorno, el proveedor del modelo y las reglas de acceso a los datos.",
-          [
-            "posit"
-          ]
-        ],
-        [
-          "Claude y Codex",
-          "Apoyos para explorar soluciones, contrastar argumentos, estructurar el trabajo y desarrollar o revisar código. Su uso se inscribe en objetivos y criterios de calidad explícitos.",
-          []
-        ],
-        [
-          "Mi principio ético",
-          "La asistencia no transfiere mi responsabilidad científica. Mi marco exige verificar fuentes y código, proteger los datos, documentar las contribuciones y declarar los usos según las reglas académicas aplicables.",
-          [
-            "icmje"
-          ]
-        ]
-      ],
-      "note": "Una respuesta plausible no es una prueba ni una referencia científica. Los ejemplos no demuestran un sistema clínico validado."
-    },
     {
       "nom": "PAIRR",
       "titre": "PAIRR: apoyo entre pares, IA y reflexión",
@@ -109,7 +82,7 @@ module.exports = {
           ]
         ]
       ],
-      "note": "En mi tesis, la IA es objeto de reflexión y herramienta de apoyo; no sustituye el protocolo ni la validación metodológica del análisis de redes egocentrado en el CLSC."
+      "note": "En mi tesis, la IA es objeto de reflexión; no sustituye el protocolo ni la validación metodológica del análisis de redes egocentrado en el CLSC."
     },
     {
       "nom": "Aprendizaje",

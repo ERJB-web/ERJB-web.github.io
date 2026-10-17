@@ -2,7 +2,7 @@
 module.exports = {
   "salle": [
     "AI, research and teaching",
-    "Advanced use, PAIRR, public health and bioethics"
+    "Programming, PAIRR, public health and bioethics"
   ],
   "titre": "AI in support of scientific reasoning and learning",
   "intro": "AI is changing knowledge production, education and collective decisions. My interest lies in the conditions for rigorous use: understanding its contribution, checking its outputs and retaining responsibility for decisions.",
@@ -11,33 +11,6 @@ module.exports = {
   "sources": "References and further reading",
   "lienSources": "Sources",
   "rubriques": [
-    {
-      "nom": "My use",
-      "titre": "Advanced, assisted and critical use",
-      "intro": "I make advanced use of generative AI assistants and models, including AI-assisted Positron, Claude and Codex. They support my programming, tool development and reflection. The relevance of an output depends on the question, its context and verification.",
-      "items": [
-        [
-          "AI-assisted Positron",
-          "A working environment for code and data analysis with an integrated assistant. The environment, model provider and rules governing data access must be distinguished.",
-          [
-            "posit"
-          ]
-        ],
-        [
-          "Claude and Codex",
-          "Support for exploring solutions, challenging arguments, organising work and developing or reviewing code. I place their use within a process led by explicit objectives and quality criteria.",
-          []
-        ],
-        [
-          "My ethical principle",
-          "Assistance does not transfer my scientific responsibility. My framework calls for checking sources and code, protecting data, tracing contributions and disclosing use under the applicable academic rules.",
-          [
-            "icmje"
-          ]
-        ]
-      ],
-      "note": "A plausible output is neither evidence nor a scientific reference. The examples here do not demonstrate a validated clinical system."
-    },
     {
       "nom": "PAIRR",
       "titre": "PAIRR: peer support, AI and reflection",
@@ -109,7 +82,7 @@ module.exports = {
           ]
         ]
       ],
-      "note": "In my thesis, AI is a subject for reflection and a supporting tool; this section does not replace the protocol or methodological validation of CLSC ego-centred network analysis."
+      "note": "In my thesis, AI is a subject for reflection; this section does not replace the protocol or methodological validation of CLSC ego-centred network analysis."
     },
     {
       "nom": "Learning",

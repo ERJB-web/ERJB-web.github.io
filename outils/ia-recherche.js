@@ -106,7 +106,7 @@ module.exports = {
     "fr": {
       "salle": [
         "IA, recherche et pédagogie",
-        "Usages avancés, PAIRR, santé publique et bioéthique"
+        "Programmation, PAIRR, santé publique et bioéthique"
       ],
       "titre": "Une IA au service du raisonnement scientifique et de l’apprentissage",
       "intro": "L’IA transforme la production des connaissances, la formation et les décisions collectives. Mon intérêt porte sur les conditions d’un usage exigeant : comprendre ce que l’outil apporte, vérifier ce qu’il produit et conserver la responsabilité des choix.",
@@ -115,33 +115,6 @@ module.exports = {
       "sources": "Références et lectures",
       "lienSources": "Sources",
       "rubriques": [
-        {
-          "nom": "Mon usage",
-          "titre": "Un usage avancé, assisté et critique",
-          "intro": "J’utilise de manière avancée des assistants et des modèles d’IA générative, notamment Positron avec assistance IA, Claude et Codex. Ils soutiennent mon travail de programmation, de développement d’outils et de réflexion. La pertinence d’une réponse dépend de la question, du contexte et de sa vérification.",
-          "items": [
-            [
-              "Positron avec assistance IA",
-              "Un environnement de travail pour le code et l’analyse de données, avec un assistant intégré. L’environnement, le fournisseur du modèle et les règles d’accès aux données doivent être distingués.",
-              [
-                "posit"
-              ]
-            ],
-            [
-              "Claude et Codex",
-              "Des appuis pour explorer des solutions, mettre à l’épreuve des arguments, structurer un travail et développer ou réviser du code. Je situe leur usage dans une démarche dirigée par des objectifs et des critères de qualité explicites.",
-              []
-            ],
-            [
-              "Mon point d’éthique",
-              "L’assistance ne transfère pas ma responsabilité scientifique. Mon cadre de conduite repose sur la vérification des sources et du code, la protection des données, la traçabilité des contributions et la déclaration des usages selon les règles académiques applicables.",
-              [
-                "icmje"
-              ]
-            ]
-          ],
-          "note": "Une sortie plausible n’est ni une preuve, ni une référence scientifique. Les exemples présentés ici ne témoignent pas d’un dispositif clinique validé."
-        },
         {
           "nom": "PAIRR",
           "titre": "PAIRR : pair-aidance, IA et réflectivité",
@@ -213,7 +186,7 @@ module.exports = {
               ]
             ]
           ],
-          "note": "Dans ma thèse, l’IA est un objet de réflexion et un outil d’appui ; cette rubrique ne remplace ni le protocole ni la validation méthodologique de l’analyse de réseaux égocentrée sur le CLSC."
+          "note": "Dans ma thèse, l’IA est un objet de réflexion ; cette rubrique ne remplace ni le protocole ni la validation méthodologique de l’analyse de réseaux égocentrée sur le CLSC."
         },
         {
           "nom": "Apprentissage",

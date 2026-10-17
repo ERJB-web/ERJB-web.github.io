@@ -1,5 +1,5 @@
 "use strict";
-// Enrichissement éditorial : usages personnels déclarés et littérature distingués.
+// Enrichissement éditorial de la salle IA.
 module.exports = (ia) => {
   Object.assign(ia.references, require("./ia-references-ajouts.json"));
   const titresBiblio = {
@@ -18,8 +18,8 @@ module.exports = (ia) => {
     s.date = a.date;
     s.lectures.titre = titresBiblio[code];
     const originales = s.rubriques;
-    const recherche = { ...originales[2], intro: a.rechercheIntro, items: [...a.rechercheAjouts, ...originales[2].items] };
-    const sante = { ...originales[4], intro: a.santeIntro, items: [...a.santeAjouts, ...originales[4].items] };
-    s.rubriques = [a.usage, a.programmation, originales[1], recherche, originales[3], sante, originales[5], a.societe, a.debats];
+    const recherche = { ...originales[1], intro: a.rechercheIntro, items: [...a.rechercheAjouts, ...originales[1].items] };
+    const sante = { ...originales[3], intro: a.santeIntro, items: [...a.santeAjouts, ...originales[3].items] };
+    s.rubriques = [a.programmation, originales[0], recherche, originales[2], sante, originales[4], a.societe, a.debats];
   }
 };

@@ -1,6 +1,6 @@
 # Programar con IA y mantener el juicio científico
 
-Utilizo Positron asistido, Claude y Codex para programar y desarrollar herramientas. Distingo código ejecutable, validez estadística y pertinencia de la pregunta. Explicitar población, estimando, temporalidad y datos ausentes. La responsabilidad humana abarca confidencialidad, justicia y posibilidad de impugnar resultados.
+Los asistentes de IA generativa pueden apoyar la programación y el desarrollo de herramientas. Distingo código ejecutable, validez estadística y pertinencia de la pregunta. Explicitar población, estimando, temporalidad y datos ausentes. La responsabilidad humana abarca confidencialidad, justicia y posibilidad de impugnar resultados.
 
 ## 1. Delimitar
 

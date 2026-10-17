@@ -1,49 +1,7 @@
 {
   "titre": "IA : programmer, produire des connaissances et penser ses effets sur la société",
-  "intro": "Mon usage de l’IA associe une pratique avancée de programmation assistée, la création d’outils et une réflexion sur la recherche, l’apprentissage et la santé publique. J’articule cette expérience aux travaux scientifiques sur les bénéfices, les limites et les transformations sociales de ces technologies.",
+  "intro": "Cette salle associe la programmation assistée, la création d’outils et une réflexion sur la recherche, l’apprentissage et la santé publique. Elle s’appuie sur les travaux scientifiques consacrés aux bénéfices, aux limites et aux transformations sociales de ces technologies.",
   "date": "Synthèse documentaire · 14 octobre 2026",
-  "usage": {
-    "nom": "Ma pratique avancée",
-    "titre": "De la programmation assistée à la conception d’outils",
-    "intro": "Je mobilise Positron avec assistance IA, Claude et Codex dans un travail itératif : préciser un besoin, construire une solution, lire et modifier le code, résoudre les difficultés et faire évoluer l’outil. Cette pratique traverse mes projets numériques, mon environnement de recherche et la mise en forme accessible des connaissances.",
-    "items": [
-      [
-        "Programmer et coder avec des assistants",
-        "J’utilise l’IA pour développer et reprendre du code, explorer différentes solutions et transformer une intention en fonctionnalités. Le travail comprend la formulation du problème, le découpage des tâches et l’examen des propositions, au-delà de la seule génération d’un premier script.",
-        []
-      ],
-      [
-        "Créer des interfaces et des outils",
-        "Mes projets numériques, dont OWNNIGHT et les Sphères, donnent une place concrète au prototypage, aux interactions et à l’expérience des utilisateurs. La programmation assistée soutient cette capacité de création et d’itération ; les finalités et les arbitrages restent les miens.",
-        []
-      ],
-      [
-        "Positron : travailler avec le code et les données",
-        "Positron assisté s’inscrit dans mon environnement de travail scientifique. Je distingue l’aide à l’écriture d’un script, les choix d’analyse et l’interprétation : produire du code ne suffit pas à justifier une méthode ni un résultat.",
-        [
-          "posit"
-        ]
-      ],
-      [
-        "Claude et Codex : contextualiser et itérer",
-        "Je les mobilise pour développer des outils, comprendre ou réviser un code et discuter des solutions. La qualité du travail dépend du contexte fourni : objectif, fichiers pertinents, contraintes, comportement attendu et critères d’acceptation.",
-        []
-      ],
-      [
-        "Relier technique et accessibilité",
-        "Le développement comprend aussi la lisibilité, les langues, la navigation et les supports de diffusion. Je m’intéresse à la possibilité de rendre une connaissance ou un outil plus accessible, plutôt qu’à la seule sophistication technique.",
-        []
-      ],
-      [
-        "Une responsabilité scientifique identifiable",
-        "Je conserve la responsabilité des choix, de la protection des données et des contenus diffusés. Les contributions de l’IA doivent pouvoir être décrites ; les références et les interprétations doivent être examinées dans leur contexte scientifique.",
-        [
-          "icmje"
-        ]
-      ]
-    ],
-    "note": "Ma pratique porte sur le développement, le travail scientifique et la création d’outils. Les usages de recherche envisagés restent soumis au protocole, au consentement et aux règles institutionnelles."
-  },
   "programmation": {
     "nom": "Programmation et agents",
     "titre": "Piloter un travail de développement assisté",
@@ -91,7 +49,7 @@
   "rechercheAjouts": [
     [
       "Questionner le problème avant d’automatiser",
-      "Dans ma thèse, le lien entre profils de patients et configurations des réseaux intersectoriels guide le choix des méthodes. L’IA peut aider à explorer une formulation ou préparer du code ; elle ne détermine pas à ma place l’objet, la frontière du réseau ou la validité d’un indicateur.",
+      "Dans ma thèse, le lien entre profils de patients et configurations des réseaux intersectoriels guide le choix des méthodes. L’IA peut aider à explorer une formulation ou préparer du code ; elle ne détermine pas l’objet, la frontière du réseau ou la validité d’un indicateur.",
       []
     ],
     [

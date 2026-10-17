@@ -196,19 +196,18 @@ body,.salle{background-color:#f9fbfa;background-image:var(--fond-editorial);back
 .methode-these-corps dt{margin:20px 0 6px;color:var(--ink);font-weight:600}
 .methode-these-corps dd{margin:0;font-size:14.5px;line-height:1.7}
 .repere-protocole{margin:18px 0 0;font-size:12.5px;color:var(--muted)}
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+
 .puces{margin:0;padding:0;list-style:none}
 .puces li{position:relative;padding:8px 0 8px 18px;border-bottom:1px solid var(--line);font-size:14.5px}
 .puces li::before{content:"";position:absolute;inset-inline-start:0;top:17px;width:7px;height:7px;border-radius:50%;background:var(--green)}
 .puces b{color:var(--ink)}
 
-.puces.deux-colonnes{display:grid;grid-template-columns:1fr 1fr;column-gap:28px}
 .piliers{display:grid;gap:10px;margin:24px 0 8px}
 .piliers>div{padding:16px 18px;border:1px solid var(--line);border-radius:12px;background:var(--white)}
 .piliers h4,.valeurs h4{margin:0 0 4px;color:var(--ink);font:400 19px/1.3 var(--serif)}
 .piliers p,.valeurs p{margin:0;font-size:14.5px}
 .outils-liste span{background:var(--ink);color:#fff;font-weight:500}
-.petit-titre{margin:18px 0 6px;font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+
 .puces.secondaires li{font-size:14px}
 .puces.secondaires li::before{background:#9fbcbe}
 .valeurs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
@@ -236,7 +235,7 @@ body,.salle{background-color:#f9fbfa;background-image:var(--fond-editorial);back
 .expertises>div{padding:18px;border-radius:12px;background:var(--white);border:1px solid var(--line);border-top:3px solid var(--green)}
 .expertises h4{margin:0 0 6px;color:var(--ink);font:400 19px/1.3 var(--serif)}
 .expertises p{margin:0;font-size:14.5px}
-.portrait-bio{width:100%;max-width:360px;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:14px;box-shadow:var(--shadow);margin-top:22px}
+
 .recit{list-style:none;margin:0;padding:0}
 .recit li{display:grid;grid-template-columns:56px 1fr;gap:18px;padding:0 0 30px;position:relative}
 .recit li::before{content:"";position:absolute;inset-inline-start:22px;top:48px;bottom:8px;width:1px;background:var(--line)}
@@ -272,11 +271,6 @@ body,.salle{background-color:#f9fbfa;background-image:var(--fond-editorial);back
 .biblio ol{margin:0;padding:4px 22px 18px 40px;font-size:13.5px;line-height:1.6}
 .biblio li{margin-bottom:8px;overflow-wrap:anywhere}
 .biblio a{color:var(--green)}
-.carte-formation{margin:24px 0;padding:20px 22px;border-radius:14px;background:linear-gradient(135deg,#fff,#f3f8f6);border:1px solid #bcd6cc}
-.carte-formation h4{margin:4px 0 8px;color:var(--ink);font:400 22px/1.3 var(--serif)}
-.carte-formation p{margin:0 0 10px}
-.carte-formation .etiquettes{margin-bottom:12px}
-.carte-formation .profil{font-size:13.5px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
 
 .notions .ref{margin-top:8px;font-size:12.5px;color:var(--muted);font-style:italic}
 .codirection{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
@@ -404,7 +398,7 @@ html.lv .presentation .identite{grid-row:auto;margin-bottom:24px}
 html.lv .presentation .chapeau,html.lv .presentation .encadrement,html.lv .presentation .actions{grid-column:1;grid-row:auto}
 html.lv .colonne-texte{position:static}
 html.lv .marque small{display:none}
-html.lv .notions,html.lv .duo,html.lv .codirection,html.lv .expertises,html.lv .cadres,html.lv .travaux-grille,html.lv .puces.deux-colonnes{grid-template-columns:1fr}
+html.lv .notions,html.lv .codirection,html.lv .expertises,html.lv .cadres,html.lv .travaux-grille{grid-template-columns:1fr}
 html.lv .travail.vedette{grid-template-columns:1fr}
 html.lv .travail.vedette .resume,html.lv .travail.vedette .etiquettes{grid-column:1;grid-row:auto}
 html.lv p,html.lv li{max-width:70ch}
@@ -439,13 +433,10 @@ html:lang(ar) .surtitre,html:lang(ar) .menu-titre,html:lang(ar) .statut,html:lan
 .salutation{margin:0;font:400 clamp(52px,8vw,88px)/1.1 var(--serif);color:var(--ink)}
 .translitteration{margin:4px 0 0;font-size:17px;color:var(--muted);font-style:italic}
 .sens{margin:4px 0 26px;font-size:15px;color:var(--green);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
-.duo-langues{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px;margin:8px 0 28px}
-.duo-langues h2{font:600 13px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin:0 0 10px}
-.duo-langues p{font-size:16.5px;margin:0 0 12px}
-.duo-langues .avis{font-size:14.5px;color:var(--muted);border-inline-start:3px solid var(--line);padding-inline-start:12px}
+
 .merci{font-size:20px;color:var(--ink);margin:0 0 18px}
 @media (max-width:760px){
-  .duo-langues{grid-template-columns:1fr;gap:20px}
+  
   .bloc-falc{grid-template-columns:56px minmax(0,1fr);gap:14px}
   .bloc-falc .picto{width:56px;height:56px;border-radius:14px}
   .bloc-falc .picto .ic{width:34px;height:34px}
@@ -483,7 +474,7 @@ body p:not(:where(.surtitre,.roles,.petit-titre,.ref,.auteurs,.domaine,.date,.ax
  text-align:justify!important;text-align-last:start;text-justify:auto;
  hyphens:auto!important;-webkit-hyphens:auto!important;
 }
-.falc p,html.lv main p,html.lv .salle-contenu p,.menu-panneau p,.encadrement,.surtitre,.petit-titre,.ref{text-align:start;hyphens:manual;-webkit-hyphens:manual}
+.falc p,html.lv main p,html.lv .salle-contenu p,.menu-panneau p,.encadrement,.surtitre,.ref{text-align:start;hyphens:manual;-webkit-hyphens:manual}
 
 /* Survol et clic bien visibles */
 :root{--accent:#1f6fb2;--accent-pale:#eaf3fb;--accent-fonce:#164f80}
@@ -531,7 +522,7 @@ a,button,summary{-webkit-tap-highlight-color:rgba(31,111,178,.18)}
 .media-texte a{font-size:13px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);display:inline-block;margin-top:8px}
 .media-texte a:hover{color:var(--accent);border-color:var(--accent)}
 .plus-loin{max-width:1220px;margin:0 auto;padding:0 var(--gouttiere) 88px}
-.plus-loin-grille{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px 32px}
+
 .suggestions small.apport{margin-top:5px;color:var(--body);font-size:13px;line-height:1.5}
 .formation-discrete{margin:22px 0 0;padding-top:12px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted)}
 .formation-discrete span{display:block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:2px}
@@ -562,7 +553,7 @@ a,button,summary{-webkit-tap-highlight-color:rgba(31,111,178,.18)}
   .onglets button:nth-child(odd){border-inline-start:0}
   .onglets button:nth-child(n+3){border-top:1px solid var(--line)}
   .onglets.n5 button:last-child{grid-column:1/-1}
-  .notions,.duo,.puces.deux-colonnes,.codirection,.expertises,.cadres{grid-template-columns:1fr}
+  .notions,.codirection,.expertises,.cadres{grid-template-columns:1fr}
   .valeurs{grid-template-columns:repeat(2,1fr)}
   .travaux-grille{grid-template-columns:1fr}
   .travail.vedette{grid-template-columns:1fr}
@@ -599,13 +590,6 @@ a,button,summary{-webkit-tap-highlight-color:rgba(31,111,178,.18)}
   html{scroll-padding-top:110px}
 }
 .citation-lien{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}.citation-lien:hover{color:var(--accent);text-decoration-color:var(--accent)}
-.salutation-page .translitteration{display:block;font-size:14px;margin-top:2px}
-.salutation-page h2 .translitteration{font-size:14px;font-weight:400}
-.salutation-page p[lang]{font-size:19px;margin:0 0 12px}
-.avis-traduction{margin-top:28px;font-size:13.5px;color:var(--muted);border-inline-start:3px solid var(--line);padding-inline-start:12px}
-.avis-traduction span{display:block}
-.salutation-page p.salutation{font-size:clamp(52px,8vw,88px);margin:0}
-.salutation-page p.merci{font-size:22px}
 
 /* Schémas */
 .schema{margin:30px 0 8px;padding:22px 22px 16px;border-radius:16px;background:linear-gradient(160deg,#f6fafc,#eef5f3);border:1px solid var(--line)}
@@ -651,10 +635,6 @@ html.cb .schema-reseau .n0{fill:#0072b2}html.cb .schema-reseau .n1{fill:#009e73}
 .frise li{grid-template-columns:44px 96px 1fr;gap:16px;align-items:start;padding:16px 18px;background:var(--white);border:1px solid var(--line);border-radius:14px;transition:border-color .2s,box-shadow .2s}
 .frise li:hover{border-color:var(--accent);box-shadow:0 10px 26px rgba(31,111,178,.1)}
 .frise li::before{display:none}
-.frise-icone{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--accent-pale);color:var(--accent)}
-.frise li.formation .frise-icone{background:#e7f1ec;color:#286d5c}
-.frise li.entreprise .frise-icone{background:#fbf1d9;color:#8a6a2f}
-.frise-icone .ic{width:22px;height:22px}
 
 /* Barre de salle : couleur de la salle et progression des portes */
 .salle{border-top:5px solid var(--c1,var(--ink))}
@@ -708,10 +688,7 @@ html.cb .schema-reseau .n0{fill:#0072b2}html.cb .schema-reseau .n1{fill:#009e73}
 .chiffres>div{padding:16px 16px 14px;border-radius:14px;background:var(--white);border:1px solid var(--line)}
 .chiffres strong{display:block;font:400 40px/1 var(--serif);color:var(--accent)}
 .chiffres span{display:block;margin-top:6px;font-size:13.5px;line-height:1.4;color:var(--body)}
-.chiffres-accueil>div{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.18)}
-.chiffres-accueil strong{color:#f2c14e}
-.chiffres-accueil>div:nth-child(4n+2) strong{color:#7fd1b9}.chiffres-accueil>div:nth-child(4n+3) strong{color:#8ec5ff}.chiffres-accueil>div:nth-child(4n+4) strong{color:#f5a65b}
-.chiffres-accueil span{color:#e6f1f6}
+
 @media (max-width:980px){.trajectoire{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:22px}.trajectoire::before{display:none}.chiffres{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.bande-accueil{padding:24px 18px}.trajectoire{grid-template-columns:1fr 1fr}}
 html.hc .bande-accueil,html.lv .bande-accueil{background:#0b2230}
@@ -780,12 +757,12 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 /* Apparitions au défilement */
 @keyframes apparaitre{from{opacity:.001;transform:translateY(26px)}to{opacity:1;transform:none}}
 @supports (animation-timeline:view()){@media (prefers-reduced-motion:no-preference){.revele{animation:apparaitre linear both;animation-timeline:view();animation-range:entry 0% entry 40%}}}
-.portrait-bio{border-radius:50%;box-shadow:0 18px 50px rgba(15,49,66,.18);background:transparent}
+
 .presentation .identite .surtitre{white-space:nowrap;letter-spacing:.06em;font-size:11.5px}
 
 /* En-tête : portrait rond et nom en typographie soignée */
 .marque{gap:14px}
-.marque-portrait{width:46px;height:46px;border-radius:50%;object-fit:cover;flex:none;box-shadow:0 0 0 2px #fff,0 0 0 4px var(--accent-pale),0 6px 16px rgba(15,49,66,.18)}
+
 .marque strong{font:400 22px/1.15 var(--serif);letter-spacing:-.01em;color:var(--ink)}
 .marque small{font-size:12px;letter-spacing:.04em;color:var(--muted);margin-top:3px}
 .coordonnees{display:flex;flex-wrap:wrap;gap:10px;margin:-14px 0 24px}
@@ -837,15 +814,14 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 .section-corps.pleine .liste li{break-inside:avoid}
 .section-corps.pleine .valeurs-grille{grid-template-columns:repeat(3,minmax(0,1fr))}
 .section-corps.pleine:has(.valeurs-grille) .colonne-outils{columns:auto}
-.section-corps.pleine .groupe-photo,.section-corps.pleine .loisirs{break-inside:avoid;margin-bottom:24px}
+.section-corps.pleine .loisirs{break-inside:avoid;margin-bottom:24px}
 @media (max-width:980px){.section-corps.pleine .valeurs-grille{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .section-corps.pleine .titre-bloc{break-after:avoid}
 
 /* Engagements illustrés */
-.groupe-photo{display:grid;grid-template-columns:220px minmax(0,1fr);gap:20px;align-items:start;margin-top:30px}
-.groupe-photo .titre-bloc{margin-top:0}
+
 .photo-groupe{width:100%;height:auto;aspect-ratio:7/4;object-fit:cover;border-radius:14px;box-shadow:0 12px 30px rgba(15,49,66,.14)}
-.groupe-photo>.photo-groupe{aspect-ratio:4/5}
+
 .loisirs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .loisir{margin:0;border-radius:16px;overflow:hidden;background:var(--white);border:1px solid var(--line);transition:transform .2s,box-shadow .2s}
 .loisir:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(31,111,178,.16)}
@@ -854,7 +830,7 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 .loisir figcaption span{display:block;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
 .loisir figcaption strong{display:block;color:var(--ink);font-size:15.5px;margin-top:2px}
 .loisir figcaption small{display:block;color:var(--muted);font-size:13px;margin-top:4px;line-height:1.4}
-@media (max-width:860px){.groupe-photo{grid-template-columns:1fr}.groupe-photo>.photo-groupe{aspect-ratio:16/9}.loisirs{grid-template-columns:1fr 1fr}}
+@media (max-width:860px){.loisirs{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.loisirs{grid-template-columns:1fr}}
 /* Expertises méthodologiques illustrées */
 .methodes{display:grid;gap:18px}
@@ -1044,15 +1020,15 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 
 /* Notions clés */
 .carte-notion .groupe-corps>p{font-size:15px;line-height:1.65;text-align:start}
-.notion-refs-titre{margin:14px 0 6px;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+
 .notion-refs{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:12.5px;line-height:1.5;color:var(--muted)}
 .notion-refs a{overflow-wrap:anywhere}
-/* Références : grille de cartes équilibrée au lieu d'une longue colonne */
+/* Références : grille de cartes équilibrée */
 .lectures-liste{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;padding:0;list-style:none}
 .lectures-liste li{margin:0;padding:10px 14px;background:var(--white);border:1px solid var(--line);border-radius:10px;font-size:13px}
 @media (max-width:760px){.lectures-liste{grid-template-columns:1fr}}
 .carte-notion .titre-bloc{font:400 22px/1.2 var(--serif);text-transform:none;letter-spacing:0;color:var(--ink);margin:0 0 10px}
-.carte-notion .groupe-corps>p.notion-refs-titre{font-size:11.5px;line-height:1.3}
+
 /* Lexique : cadres distincts et lecture en quatre familles. */
 .lexique .colonne-texte>.intro{text-align:start;hyphens:none;max-width:85ch}
 .lexique .lexique-famille{margin:6px 0 20px;font:600 18px/1.4 var(--sans);color:var(--ink)}
@@ -1092,7 +1068,7 @@ html.hc .lexique .notion-usage,html.lv .lexique .notion-usage{background:var(--w
 .porte .poignee{width:13px;height:13px}
 .onglet-salle .poignee{width:6px;height:6px;top:56%;box-shadow:0 .5px 1px rgba(40,25,0,.45)}
 .poignee,.porte .poignee,.onglet-salle .poignee{top:72.5%;inset-inline-end:7%}
-/* Barre colorée conservée, poignée ronde dorée au-dessus ; ouverture teintée de la couleur de la porte */
+/* Barre colorée, poignée ronde dorée au-dessus ; ouverture teintée de la couleur de la porte */
 .poignee,.porte .poignee,.onglet-salle .poignee{width:3px;height:12%;top:78%;inset-inline-end:8%;border-radius:2px;background:var(--c1);box-shadow:none}
 .poignee::before{content:"";position:absolute;left:50%;top:-13px;width:11px;height:11px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff6cf 0%,#e8c25a 38%,#b8861f 70%,#7a5510 100%);box-shadow:0 1px 2px rgba(40,25,0,.45),inset 0 -1px 1px rgba(80,50,0,.35)}
 .porte .poignee::before{width:13px;height:13px;top:-16px}
@@ -1133,33 +1109,27 @@ html.hc .lexique .notion-usage,html.lv .lexique .notion-usage{background:var(--w
 /* Petites portes illustrées */
 .onglet-salle .baie.mini{width:50px}
 .onglet-salle .vignette{background-size:cover;background-position:center}
-/* Monogramme */
-.marque-mono{flex:none;display:inline-grid;place-items:center;width:46px;height:46px;border-radius:12px;background:linear-gradient(150deg,#1d4256,#0f2a38);color:#f4ecd8;font:600 13px/1 var(--serif);letter-spacing:.08em;box-shadow:inset 0 0 0 1px rgba(244,236,216,.35)}
+
 /* Portes académiques : porte peinte, moulures, vitrage, plaque et poignée en laiton, chambranle crème */
 .porte .baie,.onglet-salle .baie.mini{background:#f6f1e6;box-shadow:0 0 0 6px #efe8d8,0 0 0 7px #d6cbb3,0 18px 26px -14px rgba(15,49,66,.5)}
 .battant,.porte .battant{background:repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 2px,rgba(0,0,0,.035) 2px 5px),linear-gradient(165deg,color-mix(in srgb,var(--c1) 88%,#fff),var(--c1) 45%,color-mix(in srgb,var(--c1) 72%,#000));border:1px solid color-mix(in srgb,var(--c1) 60%,#000);box-shadow:inset 0 0 0 3px color-mix(in srgb,var(--c1) 85%,#000),inset 0 0 0 4px rgba(255,255,255,.12)}
 .vignette{border-radius:1px;box-shadow:0 0 0 3px color-mix(in srgb,var(--c1) 70%,#000),0 0 0 4px rgba(255,255,255,.22),inset 0 0 12px rgba(0,0,0,.18)}
 .battant::after{border:1px solid rgba(255,255,255,.16);background:linear-gradient(180deg,rgba(0,0,0,.14),rgba(255,255,255,.04));box-shadow:inset 0 2px 5px rgba(0,0,0,.28),0 1px 0 rgba(255,255,255,.12)}
-.plaque-laiton{position:absolute;inset-inline-start:22%;inset-inline-end:34%;top:68%;padding:1px 0;border-radius:2px;background:linear-gradient(180deg,#f6e3a6,#cfa448 55%,#9c7424);box-shadow:0 1px 2px rgba(40,25,0,.45),inset 0 0 0 1px rgba(255,248,220,.5);color:#3d2a06;font:700 9px/1.4 var(--serif);letter-spacing:.12em;text-align:center;z-index:1}
+
 .porte .vignette{height:58%}
 .poignee,.porte .poignee,.onglet-salle .poignee{background:linear-gradient(90deg,#9c7424,#e7c66d 45%,#a97f2a)}
 .porte-contact .vignette{background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.05))}
 .porte:hover,.porte:focus-visible{background:transparent}
 /* Teintes de porte plus sobres (peinture profonde, veinage discret) */
 .battant,.porte .battant{background:repeating-linear-gradient(90deg,rgba(255,255,255,.018) 0 2px,rgba(0,0,0,.022) 2px 6px),linear-gradient(165deg,color-mix(in srgb,var(--c1) 74%,#4a4a4a),color-mix(in srgb,var(--c1) 66%,#262626) 55%,color-mix(in srgb,var(--c1) 58%,#141414))}
-.marque-mono{letter-spacing:.03em;font-size:14px}
+
 /* Portes académiques : couleurs adoucies */
 .battant,.porte .battant{background:repeating-linear-gradient(90deg,rgba(255,255,255,.03) 0 2px,rgba(0,0,0,.018) 2px 6px),linear-gradient(165deg,color-mix(in srgb,var(--c1) 34%,#f1ece2),color-mix(in srgb,var(--c1) 42%,#e2dbcd) 55%,color-mix(in srgb,var(--c1) 50%,#cfc6b4));border:1px solid color-mix(in srgb,var(--c1) 40%,#9a907e);box-shadow:inset 0 0 0 3px color-mix(in srgb,var(--c1) 30%,#c9c0ad),inset 0 0 0 4px rgba(255,255,255,.35)}
 .vignette{box-shadow:0 0 0 3px color-mix(in srgb,var(--c1) 45%,#8f8676),0 0 0 4px rgba(255,255,255,.45),inset 0 0 10px rgba(0,0,0,.12)}
 .battant::after{border:1px solid rgba(255,255,255,.4);background:linear-gradient(180deg,rgba(0,0,0,.06),rgba(255,255,255,.12));box-shadow:inset 0 2px 4px rgba(0,0,0,.14),0 1px 0 rgba(255,255,255,.4)}
 .porte-contact .vignette{background:linear-gradient(160deg,color-mix(in srgb,var(--c1) 55%,#fff),color-mix(in srgb,var(--c1) 70%,#fff));color:var(--c1)}
 .porte-contact .vignette::before{color:#fff}
-/* Monogramme calligraphié : E et B en grand, « rj » discret */
-.marque-mono{width:auto;min-width:58px;height:48px;padding:0 9px;display:inline-flex;align-items:baseline;justify-content:center;gap:0;letter-spacing:0}
-.mono-grand{font-family:"Snell Roundhand","Apple Chancery","Edwardian Script ITC","Palace Script MT","Segoe Script","Brush Script MT",Georgia,serif;font-size:25px;font-weight:400;line-height:48px;color:#f4e3b0}
-.mono-petit{font-family:var(--serif);font-style:italic;font-size:11px;line-height:48px;margin:0 1px;color:#f4ecd8;opacity:.85}
-.plaque-laiton{height:3.4%;padding:0}
-.plaque-laiton{display:none}
+
 /* Porte moderne : battant blanc mat, grande vitre, liseré de couleur côté charnière, barre de tirage en acier brossé */
 .porte .baie,.onglet-salle .baie.mini{background:#eef1f1;box-shadow:0 0 0 1px #d5dcde,0 16px 28px -16px rgba(15,49,66,.45)}
 .battant,.porte .battant{background:linear-gradient(180deg,#ffffff,#f3f5f5);border:1px solid #dde3e4;box-shadow:inset 4px 0 0 var(--c1)}
@@ -1169,11 +1139,7 @@ html.hc .lexique .notion-usage,html.lv .lexique .notion-usage{background:var(--w
 .poignee,.porte .poignee,.onglet-salle .poignee{top:34%;inset-inline-end:8%;width:3.5%;min-width:2px;height:32%;aspect-ratio:auto;border-radius:3px;background:linear-gradient(90deg,#6f787c,#d8dee0 45%,#7d878b);box-shadow:1px 1px 2px rgba(15,30,40,.3)}
 .poignee::before,.poignee::after{display:none}
 .porte-contact .vignette{background:linear-gradient(160deg,color-mix(in srgb,var(--c1) 55%,#fff),var(--c1))}
-/* Monogramme de juriste : capitales à empattements, filet doré */
-.marque-mono{background:linear-gradient(150deg,#16364a,#0c2230);box-shadow:inset 0 0 0 1px rgba(214,182,110,.55),inset 0 0 0 3px #0f2a38,inset 0 0 0 4px rgba(214,182,110,.3)}
-.mono-grand{font-family:"Palatino Linotype","Palatino","Book Antiqua","Baskerville","Georgia",serif;font-size:23px;font-weight:400;font-style:normal;letter-spacing:.02em;color:#e3c983}
-.mono-petit{font-family:"Palatino Linotype","Palatino","Book Antiqua","Georgia",serif;font-style:italic;font-size:12px;margin:0 1px;color:#efe6cf;opacity:.9}
-.portrait-bio{border-radius:18px;background:#e0e0e9}
+
 /* Logos de l'affiche dans La recherche */
 .logos-recherche{margin:22px 0 4px;padding:18px 26px;background:#fff;border:1px solid var(--line);border-radius:16px}
 .logos-recherche img{display:block;width:100%;max-width:1000px;height:auto;margin:0 auto}
@@ -1188,9 +1154,9 @@ html.hc .lexique .notion-usage,html.lv .lexique .notion-usage{background:var(--w
 .porte:hover .poignee::after,.porte:focus-visible .poignee::after,.porte.ouverte .poignee::after,.onglet-salle:hover .poignee::after,.onglet-salle.ouverte .poignee::after{transform:translateY(-50%) rotate(-40deg)}
 .poignee::after{width:280%}
 .porte:focus,.porte:focus-visible{outline:none}
-.portrait-bio{background:none}
+
 .sous-portes{flex-direction:column;align-items:flex-start;flex-wrap:nowrap}
-.portrait-bio{border-radius:50%;background:none}
+
 /* Barre de salle : boutons Le hall et Porte suivante bien visibles */
 .salle .salle-barre button[data-retour]{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:999px;border:1.5px solid var(--c1);background:var(--white);color:var(--c1);font:600 15px/1.2 var(--sans,inherit);cursor:pointer;box-shadow:0 6px 16px -10px rgba(15,49,66,.45);transition:background .2s,color .2s,transform .2s var(--ease)}
 .salle .salle-barre button[data-retour]:hover,.salle .salle-barre button[data-retour]:focus-visible{background:var(--c1);color:#fff;transform:translateX(-2px)}
@@ -1199,7 +1165,7 @@ html.hc .lexique .notion-usage,html.lv .lexique .notion-usage{background:var(--w
 .salle .salle-barre button[data-ecouter],.salle .salle-barre button[data-arreter]{border-radius:999px;padding:8px 14px;border:1px solid var(--line);background:var(--white)}
 .salle .salle-barre .salle-actions{display:flex;align-items:center;gap:10px}
 .salle .salle-barre button[data-retour]:focus:not(:hover){outline:none;background:var(--white);color:var(--c1);transform:none}
-.portrait-bio{max-width:280px;border-radius:50%;background:none}
+
 /* Barre de salle sobre : une seule couleur, sur « Porte suivante » */
 .salle{border-top:0}
 #salle-titre{color:var(--ink)!important}
@@ -1223,13 +1189,7 @@ html.hc .lexique .notion-usage,html.lv .lexique .notion-usage{background:var(--w
 @media (max-width:700px){.grille-vitrine{grid-template-columns:1fr}}
 .salle-onglets{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
 /* Monogramme : r et j en diagonale autour d'une barre dorée */
-.marque-mono{align-items:center;gap:1px}
-.mono-grand{line-height:1}
-.mono-frac{position:relative;display:inline-block;width:15px;height:26px;margin:0 1px}
-.mono-r,.mono-j{position:absolute;font:italic 400 12px/1 "Palatino Linotype","Palatino","Book Antiqua",Georgia,serif;color:#efe6cf}
-.mono-r{top:1px;left:0}
-.mono-j{bottom:1px;right:0}
-.mono-barre{position:absolute;left:50%;top:50%;width:1.3px;height:24px;border-radius:1px;background:#e3c983;transform:translate(-50%,-50%) rotate(32deg)}
+
 .carte-vitrine.carte-large{grid-column:1 / -1;background:linear-gradient(180deg,#f4f8fb,#fff)}
 .carte-large .vitrine-liste{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px}
 .groupe-corps>.cnp-introduction{text-align:start;hyphens:none;max-width:90ch;margin:0 0 20px}
@@ -1240,15 +1200,15 @@ html.hc .lexique .notion-usage,html.lv .lexique .notion-usage{background:var(--w
 .cnp-reperes a{font-size:13.5px;color:var(--accent);text-underline-offset:3px;overflow-wrap:anywhere}
 @media(max-width:700px){.cnp-reperes{grid-template-columns:1fr;gap:18px}}
 @media (max-width:700px){.carte-large .vitrine-liste{grid-template-columns:1fr}}
-.mono-barre{width:.8px;height:19px;opacity:.6}
+
 .sous-portes span[data-lien]{cursor:pointer}
 /* Textes descriptifs justifiés, avec césure, partout */
-.section-corps .colonne-texte>p:not(.surtitre):not(.badge-these),.section-corps .intro,.groupe-corps>p,.carte-notion .groupe-corps>p:not(.notion-refs-titre),.projet-bloc p,.liste p,.chapeau p,.presentation p:not(.surtitre):not(.roles):not(.encadrement),.travaux p,.lacunes p,.notions p,.cadres p,.valeurs-grille p,.faits span,.carte-entreprendre p,.rg .apport,.suggestions small.apport{text-align:start;hyphens:auto;-webkit-hyphens:auto;text-wrap:pretty}
+.section-corps .colonne-texte>p:not(.surtitre):not(.badge-these),.section-corps .intro,.groupe-corps>p,.carte-notion .groupe-corps>p:not(.notion-refs-titre),.projet-bloc p,.liste p,.chapeau p,.presentation p:not(.surtitre):not(.roles):not(.encadrement),.travaux p,.lacunes p,.notions p,.cadres p,.valeurs-grille p,.faits span,.rg .apport,.suggestions small.apport{text-align:start;hyphens:auto;-webkit-hyphens:auto;text-wrap:pretty}
 .section-corps .colonne-texte>h2,.groupe-corps h3,.vitrine-liste li,.lectures-liste li,.notion-refs li{text-align:start}
 .porte{align-items:start}.porte-texte{padding-top:6px}.portes{align-items:start}
 @media (max-width:700px){.salle-onglets{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .onglet-salle{min-width:0}.onglet-titre{min-width:0;overflow-wrap:anywhere;hyphens:auto}
-.mono-barre{width:.7px;height:13px;opacity:.5}
+
 .porte .plaque{flex-direction:column;align-items:flex-start;gap:6px;font-size:18px;line-height:1.25;min-height:calc(26px + 6px + 2.5em)}
 /* Petites portes : mots entiers, numéro au-dessus du titre */
 .onglet-salle{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto auto;column-gap:14px;row-gap:4px;align-items:center;text-align:start}
@@ -1382,8 +1342,7 @@ html.lv .hall::before,html.lv .hall::after,html.lv .portes>.porte::before{displa
 .porte .sous-portes span{overflow-wrap:break-word}
 
 /* Le monogramme de l'en-tête garde les proportions de l'icône d'onglet. */
-.marque-mono{width:48px;min-width:48px;height:48px;padding:0;display:block;background:none;box-shadow:none;border-radius:12px;flex:none}
-.marque-mono img{display:block;width:100%;height:100%}
+
 .reperes-transmission .ref{font-size:12.5px;margin:14px 0 0;text-align:start}
 .reperes-transmission .ref a{color:var(--accent-fonce);text-decoration:underline;text-underline-offset:3px}
 .communication-visuelle{min-width:0;margin-block:24px 42px;padding:28px;border:1px solid var(--line);border-radius:18px;background:var(--paper)}
@@ -1630,7 +1589,7 @@ html.lv .axes-cartes{grid-template-columns:1fr}
 @media(max-width:700px){.axes-cartes{grid-template-columns:minmax(0,1fr);gap:18px}.axes-introduction{margin-bottom:28px}.axe-carte{padding:21px 21px 0}.axe-carte-tete{margin-bottom:14px}.axe-carte h4{font-size:20px}.axes-famille+ .axes-famille{margin-top:30px}.axe-description{font-size:14px;margin-bottom:20px}.axe-associations a{min-height:64px}}
 @media(prefers-reduced-motion:reduce){.axe-carte{transition:none}.axe-carte:hover{transform:none}}
 
-/* Parcours : palette et frise d’origine, douze indicateurs organisés par thème. */
+/* Parcours : palette, frise et douze indicateurs organisés par thème. */
 .bande-parcours .trajectoire{margin-bottom:0}
 .bande-accueil.bande-restauree{padding:20px 24px 18px}
 .bande-restauree .impact-ensembles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
@@ -1657,9 +1616,7 @@ html.lv .axes-cartes{grid-template-columns:1fr}
 @media(max-width:900px){.bande-restauree .impact-ensembles{grid-template-columns:minmax(0,1fr);gap:18px}.bande-restauree .impact-ensemble+.impact-ensemble{padding-inline-start:0;border-inline-start:0;border-top:1px solid rgba(255,255,255,.22);padding-top:16px}.bande-restauree .impact-ensemble dl{grid-template-columns:repeat(4,minmax(0,1fr))}.bande-restauree .impact-ensemble h3{margin-bottom:14px}}
 @media(max-width:600px){.bande-accueil.bande-restauree{padding:18px 18px 16px}.bande-restauree .impact-ensemble dl{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:14px}.bande-restauree .impact-ensemble dt{font-size:12px}.bande-restauree .impact-ensemble dd{font-size:30px}}
 
-
-
-/* Hall en volume : architecture continue, panneaux muraux et portes d'origine. */
+/* Hall en volume : architecture continue, panneaux muraux et portes. */
 .station-hall{display:contents}
 .architecture-hall,.panneau-hall,.hall-commandes,.hall-reperes{display:none}
 .hall-outils{display:flex;align-items:center;gap:14px}
@@ -1676,7 +1633,7 @@ html.lv .axes-cartes{grid-template-columns:1fr}
  .hall.en-volume .hall-espace.en-glissement{cursor:grabbing}
  .hall.en-volume .hall-espace:focus-visible{outline:2px solid var(--green);outline-offset:4px}
  .hall.en-volume .hall-univers{position:absolute;inset:0;width:100%;height:100%;transform:none;transform-style:preserve-3d;pointer-events:none}
- .hall.en-volume .architecture-hall{display:block;position:absolute;inset:0;pointer-events:none;transform:translateZ(-100px) scale(1.056);transform-origin:50% 48%;background-color:#edece4;background-image:linear-gradient(180deg,#ffffff05,#fdfef805),url("photos/hall-atrium-verriere.webp");background-repeat:no-repeat;background-position:center top,var(--hall-lumiere,50%) top;background-size:100% 100%,auto calc(126.6% - 40.5px)}
+ .hall.en-volume .architecture-hall{display:block;position:absolute;inset:0;pointer-events:none;transform:translateZ(-100px) scale(1.056);transform-origin:50% 48%;background-color:#edece4;background-image:linear-gradient(180deg,#ffffff05,#fdfef805);background-repeat:no-repeat;background-position:center top,var(--hall-lumiere,50%) top;background-size:100% 100%,auto calc(126.6% - 40.5px)}
  .hall.en-volume .paroi-hall,.hall.en-volume .plafond-hall,.hall.en-volume .verriere-hall{display:none}
  .hall.en-volume .dallage-hall{position:absolute;left:0;right:0;bottom:0;height:32px;background:linear-gradient(180deg,#ffffff05,transparent);border:0;box-shadow:none}
  .hall.en-volume .portes{position:absolute;inset:0;display:block;margin:0;padding:0;transform-style:preserve-3d;pointer-events:none}
@@ -1745,7 +1702,7 @@ html.lv .axes-cartes{grid-template-columns:1fr}
  .hall.en-mobile .portes{position:relative;display:flex;align-items:flex-start;gap:12px;min-width:0;margin:0;padding:12px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:12px;overscroll-behavior-x:contain;scrollbar-width:none;direction:ltr;transition:height .22s ease}
  .hall.en-mobile .portes::-webkit-scrollbar{display:none}
  .hall.en-mobile .station-hall{position:relative;display:grid;grid-template-columns:clamp(92px,26vw,170px) minmax(0,1fr);align-items:end;gap:14px;flex:0 0 100%;min-width:0;min-height:330px;padding:24px 14px 54px;border:1px solid #d9e0d6;border-radius:10px;scroll-snap-align:start;scroll-snap-stop:always;background:linear-gradient(100deg,#e5ebe0,#fcfdf8 14% 75%,#e9eee5);isolation:isolate;perspective:1100px;direction:ltr}
- .hall.en-mobile .station-hall::before{content:"";position:absolute;z-index:-1;inset:0 0 43px;pointer-events:none;background:linear-gradient(100deg,rgba(70,89,56,.09),rgba(255,255,255,.87) 5% 92%,rgba(70,89,56,.08)),url("photos/hall-atrium-verriere.webp") center 25%/cover;box-shadow:inset 0 10px 20px -20px #47613a,inset 0 -5px 0 #e0e6d9,inset 0 -6px 0 #c7d1be}
+ .hall.en-mobile .station-hall::before{content:"";position:absolute;z-index:-1;inset:0 0 43px;pointer-events:none;background:linear-gradient(100deg,rgba(70,89,56,.09),rgba(255,255,255,.87) 5% 92%,rgba(70,89,56,.08));box-shadow:inset 0 10px 20px -20px #47613a,inset 0 -5px 0 #e0e6d9,inset 0 -6px 0 #c7d1be}
  .hall.en-mobile .station-hall::after{content:"";position:absolute;z-index:-1;inset:auto 0 0;height:43px;pointer-events:none;background:linear-gradient(110deg,rgba(255,255,255,.8),transparent 55%),repeating-linear-gradient(90deg,transparent 0 70px,rgba(140,154,130,.12) 71px 72px),linear-gradient(#d8e0d0,#f3f5ed);box-shadow:inset 0 10px 15px -15px #526545}
  .hall.en-mobile .station-hall .porte{position:relative;display:block;align-self:end;grid-column:1;grid-row:2;width:100%;height:clamp(190px,52vw,334px);min-width:0;min-height:0;margin:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;transform:none;transition:none;isolation:auto}
  .hall.en-mobile .station-hall .porte:hover,.hall.en-mobile .station-hall .porte:focus-visible{background:transparent;border:0;box-shadow:none;transform:none}
@@ -1986,7 +1943,7 @@ html:is(.hc,.lv) .rubriques[data-navigation=atelier] :is(.rubriques-console,.rub
  .hall .station-hall:hover .porte:not(.ouverte) .apercu{opacity:1}
 }
 
-/* Retouches éditoriales 2026-10 : liens et présentation du contenu. */
+/* Liens et présentation du contenu. */
 .accueil{padding-top:34px}
 .encadrement{line-height:1.8}
 .encadrement .encadrement-lien{color:var(--ink);font-weight:600;text-decoration:none;text-underline-offset:3px;text-decoration-thickness:1px;border-bottom:1px solid color-mix(in srgb,var(--green) 40%,transparent);transition:color .2s,border-color .2s}
@@ -2022,7 +1979,6 @@ html:is(.hc,.lv) .rubriques[data-navigation=atelier] :is(.rubriques-console,.rub
 }
 @media(max-width:520px){.bande-parcours .trajectoire{grid-template-columns:1fr;gap:13px}.bande-parcours .trajectoire li{padding-top:23px}.bande-parcours .trajectoire li::before{top:-12px}}
 
-
 /* Une seule ligne de six repères ; les trois éléments de 2024 partagent leur date. */
 .bande-accueil.bande-parcours{padding:26px 30px 24px}
 .bande-parcours>.bande-titre{margin-bottom:18px}
@@ -2041,7 +1997,7 @@ html:is(.hc,.lv) .rubriques[data-navigation=atelier] :is(.rubriques-console,.rub
 @media(max-width:850px){.bande-accueil.bande-parcours{padding:24px 22px}.bande-parcours .trajectoire{grid-template-columns:minmax(0,1fr);gap:0}.bande-parcours .trajectoire::before{display:none}.bande-parcours .trajectoire>li{padding:0 0 20px;padding-inline-start:31px}.bande-parcours .trajectoire>li::before{top:1px;width:18px;height:18px;border-width:4px}.bande-parcours .trajectoire>li::after{content:"";position:absolute;inset-inline:8px auto;top:17px;bottom:-3px;width:2px;background:rgba(142,197,255,.6)}.bande-parcours .trajectoire>li:last-child{padding-bottom:0}.bande-parcours .trajectoire>li:last-child::after{display:none}}
 html[dir=rtl] .bande-parcours .trajectoire{direction:rtl}
 
-/* Barre des six portes plus nette, dimensions inchangées à quelques pixels près. */
+/* Barre des six portes. */
 .hall.en-volume .hall-reperes,.hall.en-mobile .hall-reperes{
  gap:6px;margin-top:12px;padding:7px;border:1px solid #bcd4d1;
  border-radius:16px;background:linear-gradient(115deg,#e6f1ef,#f0f6f4 55%,#e6f1f0);
@@ -2066,7 +2022,7 @@ html[dir=rtl] .bande-parcours .trajectoire{direction:rtl}
 }
 @media(max-width:999px){.hall.en-mobile .hall-reperes>button{min-height:55px;max-width:none;padding:9px 10px}}
 @media(max-width:700px){.hall.en-mobile .hall-reperes{display:flex;overflow-x:auto}.hall.en-mobile .hall-reperes>button{flex:0 0 auto;min-width:156px;max-width:208px;min-height:58px}}
-/* Panneaux abaissés discrètement, en gardant la taille d'origine. */
+/* Panneaux du hall abaissés. */
 @media(min-width:1000px){
  .hall.en-volume .panneau-hall{top:17px;max-height:calc(100% - 20px);padding:14px;border-radius:6px;box-shadow:1px 3px 7px #303d2425,inset 0 1px #fff}
  .hall.en-volume .panneau-hall h3{margin-bottom:13px;padding:0;border-bottom:none}
@@ -2075,42 +2031,18 @@ html[dir=rtl] .bande-parcours .trajectoire{direction:rtl}
 }
 @media(max-width:999px){.hall.en-mobile .station-hall{padding-top:24px;row-gap:14px}.hall.en-mobile .panneau-hall h3{margin-bottom:4px}}
 
-/* L'extérieur suit l'heure et la saison ; le mur, le sol et les portes restent clairs. */
-.hall{--hall-exterieur:url("photos/hall-atrium-verriere.webp");--hall-filtre-saison:brightness(1);--hall-filtre-heure:brightness(1)}
-.hall[data-moment="nuit"]{--hall-exterieur:url("photos/hall-atrium-verriere-nuit.webp")}
-.hall[data-moment="aube"]{--hall-filtre-heure:sepia(.12) saturate(1.1)}
-.hall[data-moment="crepuscule"]{--hall-filtre-heure:sepia(.16) saturate(1.12) brightness(.88)}
-.hall[data-saison="printemps"]{--hall-filtre-saison:saturate(1.13)}
-.hall[data-saison="automne"]{--hall-filtre-saison:sepia(.24) saturate(1.13)}
-.hall[data-saison="hiver"]{--hall-filtre-saison:grayscale(.45) saturate(.7) brightness(1.07)}
 .hall.en-volume .architecture-hall{isolation:isolate}
-/* Une seule photographie de jour : le second calque masqué du vitrage
-   doublait la lumière et créait l'apparence de fumée/voile blanc.
-   L'alternance de nuit est préservée uniquement derrière les vraies vitres. */
 .hall.en-volume .architecture-hall::before{content:none;display:none}
-.hall.en-volume[data-moment="nuit"] .architecture-hall::before{
-  content:"";display:block;position:absolute;inset:0;pointer-events:none;
-  background-image:var(--hall-exterieur);
-  background-repeat:no-repeat;
-  background-position:var(--hall-lumiere,50%) top;
-  background-size:auto 110.5%;
-  -webkit-mask:url("hall-vitrages-verriere.svg") var(--hall-lumiere,50%) top / auto 110.5% no-repeat;
-  mask:url("hall-vitrages-verriere.svg") var(--hall-lumiere,50%) top / auto 110.5% no-repeat;
-  filter:brightness(.88) saturate(.91);
-}
 .hall.en-volume .verriere-hall{display:none}
-.hall.en-mobile .station-hall::before{background-image:linear-gradient(100deg,rgba(70,89,56,.06),transparent 5% 92%,rgba(70,89,56,.06)),var(--hall-exterieur)}
 
-
-/* Correctif 2026-10-15 : ne jamais laisser le contenu déroulant étirer la grille principale. */
+/* Le contenu déroulant n'étire pas la grille principale. */
 .accueil{grid-template-columns:minmax(0,1fr);width:100%;min-width:0}
 .accueil>*{min-width:0;max-width:100%}
 .bande-parcours{min-width:0;max-width:100%;overflow:hidden}
 .bande-parcours .trajectoire{width:100%;max-width:100%;min-width:0}
 .hall,.hall-espace,.hall-reperes{min-width:0;max-width:100%}
 
-
-/* Mise à jour des portes miniatures et de la navigation du hall. */
+/* Portes miniatures et navigation du hall. */
 @media(min-width:1000px){
  .salle .salle-onglets{display:grid;grid-template-columns:repeat(var(--colonnes,4),minmax(0,1fr));max-width:1460px;gap:10px;margin-top:12px;margin-bottom:14px}
  .salle .salle-onglets .onglet-salle{display:grid;grid-template-columns:35px minmax(0,1fr);grid-template-rows:auto auto;column-gap:12px;row-gap:3px;width:100%;min-width:0;max-width:none;min-height:81px;padding:11px 12px;border-radius:12px}
@@ -2302,16 +2234,13 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
 @media(hover:none) and (pointer:coarse){.pub-format:hover,.pub-format:hover svg{transform:none}}
 @media(prefers-reduced-motion:reduce){.salle .salle-onglets,.hall.en-mobile .hall-reperes,.entete .nav{scroll-behavior:auto}}
 
-/* Hall panoramique : rééquilibrage des dimensions uniquement.
-   Station 430px et défilement latéral inchangés. */
+/* Hall panoramique : dimensions. */
 @media(min-width:1000px){
   .hall.en-volume{--eb-hall-hauteur:clamp(410px,52svh,470px)}
   .hall.en-volume .hall-espace{height:var(--eb-hall-hauteur)}
   .hall.en-volume .architecture-hall{
     transform:translateZ(-100px) scale(1.025);
     background-color:#eeeee8;
-    /* Cadrage panoramique original : la verrière ne doit pas être coupée. */
-    background-image:url("photos/hall-atrium-verriere.webp");
     background-position:var(--hall-lumiere,50%) top;
     background-size:auto 110.5%;
   }
@@ -2324,12 +2253,9 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
     -webkit-mask-size:auto 110.5%;
     mask-size:auto 110.5%;
   }
-  /* Suppression de la seconde photographie : elle formait une jonction
-     horizontale visible sur la pierre. Un seul cliché, aucune couture. */
   .hall.en-volume .architecture-hall::after{content:none;display:none}
   .hall.en-volume .dallage-hall{
     height:calc(var(--eb-hall-hauteur) * .135);
-    /* Photographie du dallage conservée. */
     background:linear-gradient(180deg,transparent,rgba(243,244,236,.045));
   }
   .hall.en-volume .station-hall{
@@ -2714,7 +2640,6 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
   background-size:cover;
 }
 
-
 /* Jeu doctoral immersif — module indépendant du hall. */
 .eb-game-entry{padding:clamp(32px,6vw,92px) var(--gouttiere);scroll-margin-top:100px;border-top:1px solid #cadae3}
 .eb-game-frame{position:relative;isolation:isolate;max-width:1320px;margin:auto;overflow:hidden;border-radius:clamp(18px,2vw,32px);background:radial-gradient(ellipse at 80% 24%,#25455d,transparent 48%),linear-gradient(135deg,#071320,#10283b 68%,#151c30);color:#f0f8fb;border:1px solid #b8ffff36;box-shadow:0 35px 90px #082b3a29}
@@ -2752,7 +2677,6 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
 @media(max-width:620px){.eb-game-hero{display:flex;flex-direction:column-reverse;align-items:stretch;gap:14px;padding:12px 20px 30px}.eb-game-art{height:185px;align-self:center;width:100%}.eb-game-art img{width:152px;height:152px;border-radius:20px}.eb-game-art::before{width:200px;height:200px}.eb-game-art::after{width:160px;height:160px}.eb-game-character-tag{right:6%;bottom:0}.eb-game-copy h2{font-size:clamp(34px,9vw,46px)}.eb-game-top{padding:15px 20px}.eb-game-play>summary{padding:15px 20px;font-size:12px}.eb-game-play iframe{min-height:590px;height:86dvh}.eb-game-footer{padding:12px 20px}}
 @media(prefers-reduced-motion:reduce){.eb-game-link{transition:none}}
 
-
 /* Portail de recherche approfondie : panneau éditorial de la sous-catégorie Implantation.
    Réutilise les couleurs cuivrées du portail 02, sans modifier la géométrie du hall. */
 .implantation-portail-accueil{--impl-orange:#ec7930;--impl-navy:#153e50;--impl-line:#dfd6cc;overflow:hidden;margin:34px 0 14px;border:1px solid #edd5bd;border-radius:22px;background:#fffaf5;box-shadow:0 14px 36px rgba(100,62,30,.08);text-align:start}
@@ -2774,7 +2698,6 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
 html.hc .implantation-portail-accueil{border:2px solid currentColor}
 html.hc .implantation-portail-liens a{border-color:currentColor}
 
-
 /* Enseignement 02.3 — neuf chapitres illustrés et fondés sur la littérature.
    Style local : ne modifie ni le hall, ni les autres salles, ni leur défilement. */
 .enseignement .pedago-vitrine{--ped-bleu:#17495e;--ped-vert:#2d7869;--ped-or:#aa813c;max-width:1120px;min-width:0;color:var(--body);font-family:var(--sans)}
@@ -2784,34 +2707,7 @@ html.hc .implantation-portail-liens a{border-color:currentColor}
 .pedago-vitrine h4{font-size:clamp(16px,1.4vw,19px);margin:0 0 10px;line-height:1.3;font-weight:650}
 .pedago-vitrine h5{font-size:12px;text-transform:uppercase;letter-spacing:.08em;line-height:1.55;color:var(--green);margin:0 0 10px}
 .pedago-vitrine p{line-height:1.66;hyphens:auto;overflow-wrap:break-word}
-.pedago-hero{background:linear-gradient(145deg,#edf5f0 0%,#f9fcfa 60%,#eef5f7);border:1px solid var(--line);border-radius:20px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:27px;padding:clamp(22px,3.3vw,42px);align-items:center;overflow:hidden}
-.pedago-hero-texte{padding-block:12px}
-.pedago-hero h3{font-size:clamp(30px,3.3vw,45px);line-height:1.1;max-width:14ch}
-.pedago-hero-texte>p:not(.pedago-eyebrow):not(.pedago-statut){font-size:16px;line-height:1.8}
-.pedago-eyebrow{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:14px}
-.pedago-statut{font-size:12px;border-inline-start:3px solid var(--ped-vert);padding:9px 12px;color:var(--ink);background:#e0efeb;border-radius:0 5px 5px 0;margin:22px 0 0}
-.pedago-hero-visuel,.pedago-schema-figure{margin:0;min-width:0}
-.pedago-hero-visuel img,.pedago-schema-figure img{width:100%;height:auto;object-fit:contain;border-radius:14px;box-shadow:0 14px 35px rgba(17,55,70,.15)}
-.pedago-hero-visuel figcaption,.pedago-schema-figure figcaption{font-size:12px;color:var(--muted);margin-top:11px;line-height:1.55}
-.pedago-piliers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0 0}
-.pedago-pilier{background:#fff;border:1px solid var(--line);border-radius:14px;padding:21px;border-top:4px solid var(--ped-vert)}
-.pedago-pilier:nth-child(2){border-top-color:#5e86aa}.pedago-pilier:nth-child(3){border-top-color:var(--ped-or)}
-.pedago-pilier span{font:700 12px/1 var(--sans);color:var(--green);display:block;margin-bottom:11px}
-.pedago-pilier h4{margin-bottom:6px}.pedago-pilier p{font-size:14px;margin:0}
-.pedago-section{padding:56px 0 52px;border-top:1px solid var(--line)}
-.pedago-piliers+.pedago-section{margin-top:42px}
-.pedago-head{max-width:850px;margin-bottom:28px}
-.pedago-head>p{font-size:16px;max-width:820px;margin:10px 0 0}
-.pedago-kicker{display:inline-block;font:700 11px/1.5 var(--sans);letter-spacing:.12em;color:var(--ped-vert);margin-bottom:13px}
-.pedago-cycle{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;padding:0;margin:0}
-.pedago-etape{position:relative;border-radius:12px;padding:22px 15px 20px;background:#f2f7f4;border:1px solid #d1e2dc}
-.pedago-etape:nth-child(2){background:#f0f6f8;border-color:#d4e3ea}.pedago-etape:nth-child(3){background:#e5f0ed;border-color:#b4d1c6}
-.pedago-etape:nth-child(4){background:#f7f3e9;border-color:#e5d4b7}.pedago-etape:nth-child(5){background:#f0f2f8;border-color:#cbd4e3}
-.pedago-etape:not(:last-child)::after{content:"→";position:absolute;inset-inline-end:-13px;top:39px;color:var(--ink);font-size:19px;font-weight:800;z-index:2}
-.pedago-nombre{display:grid;place-items:center;flex:none;width:36px;height:36px;border-radius:10px;background:var(--ink);color:#fff;font-size:12px;font-weight:700;margin-bottom:13px}
-.pedago-cycle h4{font-size:16px;margin-bottom:8px}.pedago-cycle p{font-size:13px;line-height:1.55;margin:0}
-.pedago-schema-figure{margin-top:28px;max-width:1000px}
-.pedago-schema-figure img{box-shadow:none;border:1px solid var(--line);border-radius:14px}
+
 .pedago-table-scroll{overflow-x:auto;max-width:100%;border:1px solid #c9dcda;border-radius:14px;background:#fff;scrollbar-color:#8caeaf transparent}
 .pedago-table{width:100%;min-width:730px;border-collapse:collapse;text-align:start;font-size:13px;line-height:1.6}
 .pedago-table thead{background:var(--ink);color:#fff}
@@ -2825,85 +2721,43 @@ html.hc .implantation-portail-liens a{border-color:currentColor}
 .pedago-choix button[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:0 6px 20px rgba(20,60,77,.14)}
 .pedago-choix button:not([aria-selected="true"]):hover{background:#e2eee9}
 .pedago-cas-panel{display:grid;grid-template-columns:70px repeat(3,minmax(0,1fr));gap:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff}
-.pedago-cas-num{display:grid;place-items:center;background:var(--ped-bleu);color:#fff;font:400 28px/1 var(--serif)}
+
 .pedago-cas-panel section{padding:22px;border-inline-end:1px solid var(--line);background:#fff}
 .pedago-cas-panel section:last-child{border-inline-end:0}
 .pedago-cas-panel p{font-size:14px;line-height:1.65;margin:0}
-.pedago-preuves{background:linear-gradient(150deg,#f2f7f8,#f9fcfa);padding-inline:clamp(20px,3.4vw,40px);border:1px solid var(--line);border-radius:18px;margin-bottom:5px}
-.pedago-preuves+.pedago-section{border-top:0}
-.pedago-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.pedago-stats>div{padding:25px 18px 20px;border:1px solid #c8dad9;background:#fff;border-radius:12px}
-.pedago-stats strong{font:400 clamp(27px,3.5vw,43px)/1 var(--serif);color:var(--ink);display:block;margin-bottom:14px}
-.pedago-stats span{font-size:12.5px;line-height:1.55;display:block;color:var(--body)}
-.pedago-graphe{margin:24px 0 0;background:#fff;border:1px solid #d1e1e0;border-radius:13px;padding:24px 26px}
-.pedago-graphe figcaption{font-weight:700;color:var(--ink);font-size:16px;margin-bottom:20px}
-.pedago-graphe-ligne{display:grid;grid-template-columns:minmax(125px,1fr) minmax(110px,2.8fr) 38px;align-items:center;gap:12px;margin-bottom:14px;font-size:13px}
-.pedago-graphe-ligne strong{font-size:13px;color:var(--ink)}
-.pedago-bar-track{height:21px;border-radius:4px;background:#e7eeee;overflow:hidden}
-.pedago-bar-track i{display:block;height:100%;background:#548b86;border-radius:4px}
-.pedago-graphe-ligne:nth-of-type(2) .pedago-bar-track i{background:#d5a770}
-.pedago-graphe-note{font-size:12px;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;margin:18px 0 0}
-.pedago-cadres{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:20px}
-.pedago-cadres article{border:1px solid var(--line);border-radius:12px;padding:23px;background:#fff}
-.pedago-cadre-top span{display:block;color:var(--green);font-weight:700;font-size:12px;margin-bottom:14px}
-.pedago-cadres p{font-size:14px}
-.pedago-lien,.pedago-sources{font-size:12px;margin-top:15px;line-height:1.8;overflow-wrap:anywhere}
-.pedago-lien a,.pedago-sources a,.pedago-graphe-note a{color:var(--green-deep);text-underline-offset:3px}
-.pedago-sources{border-top:1px solid var(--line);padding-top:13px;max-width:100%}
-.pedago-etudes-grille{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
-.pedago-etude{background:linear-gradient(170deg,#fff,#f8fbfa);border:1px solid var(--line);border-radius:14px;padding:24px;position:relative}
-.pedago-etude:nth-child(5){grid-column:span 2}
-.pedago-etude-indice{display:inline-grid;place-items:center;background:#dcebe7;border-radius:50%;height:32px;width:32px;font-size:11px;color:var(--ink);font-weight:750;margin-bottom:11px}
-.pedago-etude .pedago-etude-type{font-size:12px;color:var(--green-deep);font-weight:700;margin:0 0 10px}
-.pedago-etude>p:not(.pedago-lien){font-size:14px}
-.pedago-etude .pedago-etude-limite{border-inline-start:3px solid #d5aa6a;padding-inline-start:12px;color:var(--body);font-size:12px!important;background:#fdfaf4;margin-top:12px}
-.pedago-competences{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
-.pedago-competences article{border-radius:14px;background:#f1f7f4;border:1px solid #d0e2dc;padding:23px}
-.pedago-competences article:nth-child(2n){background:#f2f7f9;border-color:#ccdee6}
-.pedago-competences h4{margin-top:0}
-.pedago-competences p{font-size:14px}
-.pedago-competences .pedago-preuve{border-top:1px solid #bfd2d0;padding-top:12px;margin-top:18px;font-weight:650;color:var(--ink)}
-.pedago-progression{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;list-style:none;margin:0;padding:0}
-.pedago-progression li{border:1px solid var(--line);border-top:5px solid #477a8c;padding:20px;background:#fff;border-radius:12px}
-.pedago-progression li:nth-child(2){border-top-color:#3e9375}.pedago-progression li:nth-child(3){border-top-color:#c59656}.pedago-progression li:nth-child(4){border-top-color:#8066a5}
-.pedago-progression p{font-size:13px;margin:0}
-.pedago-limites-grille{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.pedago-limites-grille article{border:1px solid #d8ddda;border-radius:12px;padding:24px;background:#f9fbfa}
-.pedago-limites-grille article h4{border-inline-start:3px solid #b38955;padding-inline-start:11px}
-.pedago-limites-grille p{font-size:14px;margin-bottom:0}
+
 @media(max-width:1050px){
-  .pedago-hero{grid-template-columns:minmax(0,1fr)}
-  .pedago-hero h3{max-width:none}
-  .pedago-hero-visuel{max-width:750px}
-  .pedago-cycle{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .pedago-etape:nth-child(3)::after{display:none}
-  .pedago-competences{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .pedago-progression{grid-template-columns:repeat(2,minmax(0,1fr))}
+  
+  
+  
+  
+  
+  
+  
   .pedago-cas-panel{grid-template-columns:54px minmax(0,1fr)}
-  .pedago-cas-num{grid-row:span 3}
+  
   .pedago-cas-panel section{border-inline-end:0;border-bottom:1px solid var(--line)}
   .pedago-cas-panel section:last-child{border-bottom:0}
 }
 @media(max-width:680px){
-  .pedago-hero{padding:21px 17px;gap:17px;border-radius:13px}
-  .pedago-hero h3{font-size:32px}
-  .pedago-hero-texte>p:not(.pedago-eyebrow):not(.pedago-statut){font-size:14px}
-  .pedago-piliers,.pedago-cycle,.pedago-stats,.pedago-cadres,.pedago-etudes-grille,.pedago-competences,.pedago-progression,.pedago-limites-grille{grid-template-columns:minmax(0,1fr)}
-  .pedago-etape::after{display:none}
-  .pedago-section{padding-block:38px}
-  .pedago-preuves{padding-inline:17px}
+  
+  
+  
+  
+  
+  
+  
   .pedago-choix{grid-template-columns:minmax(0,1fr)}
   .pedago-choix button{min-height:46px}
   .pedago-cas-panel{grid-template-columns:1fr}
-  .pedago-cas-num{grid-row:auto;min-height:44px}
+  
   .pedago-cas-panel section{padding:17px}
-  .pedago-etude:nth-child(5){grid-column:auto}
-  .pedago-graphe{padding:16px}
-  .pedago-graphe-ligne{grid-template-columns:1fr 1.2fr 27px;font-size:11px;gap:7px}
-  .pedago-pilier,.pedago-etude,.pedago-cadres article,.pedago-competences article,.pedago-limites-grille article{padding:18px}
+  
+  
+  
+  
 }
 @media(prefers-reduced-motion:reduce){.pedago-vitrine *{transition-duration:0s!important}}
-
 
 /* Lien vers le jeu doctoral dans Ressources (sans ajouter de rubrique au menu principal). */
 .logiciels-jeu{display:flex;align-items:center;justify-content:space-between;gap:clamp(22px,4vw,52px);margin:27px 0 0;padding:clamp(22px,3.5vw,40px);border:1px solid #9bbfc2;border-radius:20px;background:linear-gradient(115deg,#e6f2f2 0%,#f5faf7 70%,#eef5f7 100%);box-shadow:0 12px 35px rgba(12,65,78,.07)}
@@ -2917,10 +2771,7 @@ html.hc .implantation-portail-liens a{border-color:currentColor}
 .logiciels-jeu-lien:focus-visible{outline:3px solid #277f85;outline-offset:3px}
 @media(max-width:750px){.logiciels-jeu{flex-direction:column;align-items:stretch;gap:20px}.logiciels-jeu-lien{width:100%}}
 
-
-/* ENSEIGNEMENT : refonte éditoriale du 16 octobre 2026
- * Retirer l'effet catalogue de cartes et les pictogrammes sans valeur informative.
- * Seuls les sélecteurs de la salle Enseignement sont modifiés. */
+/* Salle Enseignement : présentation éditoriale, sans cartes ni pictogrammes. */
 .enseignement,.enseignement .colonne-outils,.enseignement .rubriques,.enseignement .rubrique-corps,.enseignement .rubrique-contenu{min-width:0;max-width:100%;overflow-wrap:normal}
 .enseignement .rubriques[data-navigation=atelier]{grid-template-columns:minmax(182px,210px) minmax(0,1fr);column-gap:clamp(22px,2.5vw,40px);width:100%;container-type:normal}
 .enseignement .rubriques[data-navigation=atelier] .rubriques-console{border:0;border-right:1px solid #d8e3de;border-radius:0;box-shadow:none;background:none;padding:11px 13px 18px 0;top:92px}
@@ -2958,7 +2809,7 @@ html.hc .implantation-portail-liens a{border-color:currentColor}
 .enseignement .enseignement-sequence li{padding:18px 23px;border-bottom:1px solid var(--line);border-top:0}
 .enseignement .enseignement-sequence li:nth-child(2n){border-inline-start:0}
 
-/* Atelier 06 : quatre blocs compressés à l'origine => prose ample, progression lisible. */
+/* Atelier 06 : prose ample, progression lisible. */
 .enseignement .atelier-pratique{max-width:920px;margin-inline:0}
 .enseignement .atelier-pratique>.atelier-figure{display:none}
 .enseignement .atelier-pratique>header{border:0;border-block:1px solid #d3e2dc;border-radius:0;background:#f7faf8;padding:25px 18px}

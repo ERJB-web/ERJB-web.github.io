@@ -1,49 +1,7 @@
 {
   "titre": "AI: programming, producing knowledge and examining its effects on society",
-  "intro": "My use of AI combines advanced assisted programming, tool development and reflection on research, learning and public health. I connect this experience with scientific work on the benefits, limitations and social transformations of these technologies.",
+  "intro": "This section brings together assisted programming, tool development and reflection on research, learning and public health. It draws on scientific work on the benefits, limitations and social transformations of these technologies.",
   "date": "Documentary synthesis · 14 October 2026",
-  "usage": {
-    "nom": "My advanced practice",
-    "titre": "From assisted programming to tool design",
-    "intro": "I use AI-assisted Positron, Claude and Codex iteratively: defining a need, building a solution, reading and changing code, resolving difficulties and developing the tool further. This practice spans my digital projects, research environment and accessible presentation of knowledge.",
-    "items": [
-      [
-        "Programming and coding with assistants",
-        "I use AI to develop and revise code, explore alternative solutions and turn intentions into features. The work includes framing the problem, breaking down tasks and examining proposals, beyond generating an initial script.",
-        []
-      ],
-      [
-        "Creating interfaces and tools",
-        "My digital projects, including OWNNIGHT and the Spheres, make prototyping, interaction and user experience concrete. Assisted programming supports creation and iteration; the purposes and trade-offs remain mine.",
-        []
-      ],
-      [
-        "Positron: working with code and data",
-        "AI-assisted Positron is part of my scientific working environment. I distinguish support for writing a script from analytical choices and interpretation: producing code is insufficient to justify a method or finding.",
-        [
-          "posit"
-        ]
-      ],
-      [
-        "Claude and Codex: context and iteration",
-        "I use them to develop tools, understand or revise code and discuss solutions. Quality depends on the context supplied: the goal, relevant files, constraints, expected behaviour and acceptance criteria.",
-        []
-      ],
-      [
-        "Connecting technology and accessibility",
-        "Development also involves readability, languages, navigation and dissemination formats. I am interested in making knowledge or a tool more accessible, beyond technical sophistication alone.",
-        []
-      ],
-      [
-        "Identifiable scientific responsibility",
-        "I remain responsible for decisions, data protection and published content. AI contributions should be describable; references and interpretations must be examined in their scientific context.",
-        [
-          "icmje"
-        ]
-      ]
-    ],
-    "note": "My practice concerns development, scientific work and tool creation. Planned research uses remain subject to the protocol, consent and institutional rules."
-  },
   "programmation": {
     "nom": "Programming and agents",
     "titre": "Directing assisted development",
@@ -91,7 +49,7 @@
   "rechercheAjouts": [
     [
       "Questioning the problem before automating",
-      "In my thesis, the relationship between patient profiles and intersectoral network configurations guides methodological choices. AI can help explore a formulation or prepare code; it does not determine the research object, network boundary or validity of an indicator for me.",
+      "In my thesis, the relationship between patient profiles and intersectoral network configurations guides methodological choices. AI can help explore a formulation or prepare code; it does not determine the research object, network boundary or validity of an indicator.",
       []
     ],
     [

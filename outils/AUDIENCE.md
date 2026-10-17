@@ -12,5 +12,3 @@ Les salles et rubriques sont des vues virtuelles ; les téléchargements des deu
 Les demandes Do Not Track et Global Privacy Control et le refus dans le pied de page empêchent le chargement et les envois. Les statistiques automatiques de navigation et de performance sont désactivées : seuls les envois explicitement définis par le site sont utilisés. Les domaines absents de la configuration, dont localhost, sont exclus.
 
 Documentation : https://docs.umami.is/docs/cloud/sign-up · https://docs.umami.is/docs/cloud/faq · https://docs.umami.is/docs/tracker-functions · https://docs.umami.is/docs/tracker-configuration
-
-Le service GoatCounter initialement proposé n’a pas pu être joint en HTTPS depuis cet environnement lors de la préparation. Il n’est ni chargé ni utilisé.

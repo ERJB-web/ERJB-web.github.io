@@ -53,8 +53,16 @@ function copyrightSite(code="fr") {
   const libelles={fr:"Dernière mise à jour",en:"Last updated",es:"Última actualización",zh:"最后更新",ar:"آخر تحديث",ru:"Последнее обновление"};
   const langue=libelles[code]?code:"fr",date=PUBLICATION_SITE.date;
   const lisible=new Intl.DateTimeFormat(langue,{day:"numeric",month:"long",year:"numeric",timeZone:"UTC"}).format(new Date(date+"T12:00:00Z"));
-  return '<span>© '+date.slice(0,4)+' Éric Bernier · '+e(libelles[langue])+' : <time datetime="'+date+'">'+e(lisible)+'</time></span>';
+  return '<span>© '+date.slice(0,4)+' Éric Bernier · '+e(libelles[langue])+' : <time datetime="'+date+'">'+e(lisible)+'</time></span><small>'+e(AUTEUR_SITE[langue])+'</small>';
 }
+const AUTEUR_SITE = {
+  fr: "Contenu et réflexion originaux créés et rédigés par Éric Bernier sous sa seule responsabilité. L’IA a pu être utilisée comme assistance à la programmation et à la création graphique.",
+  en: "Original content and reflection created and written by Éric Bernier, under the author’s sole responsibility. AI may have been used to assist with programming and graphic design.",
+  es: "Contenido y reflexión originales creados y redactados por Éric Bernier bajo su exclusiva responsabilidad. La IA pudo utilizarse como asistencia para la programación y la creación gráfica.",
+  zh: "原创内容与思考由 Éric Bernier 创作和撰写，并由作者本人承担全部责任。人工智能可能曾被用于辅助编程和图形创作。",
+  ar: "المحتوى والتفكير الأصليان من إنشاء Éric Bernier وتحريره، على مسؤولية المؤلف وحده. ربما استُخدم الذكاء الاصطناعي للمساعدة في البرمجة والتصميم الجرافيكي.",
+  ru: "Оригинальное содержание и размышления созданы и написаны Éric Bernier под исключительную ответственность автора. ИИ мог использоваться для помощи в программировании и создании графики.",
+};
 const URL = "https://erjb-web.github.io/";
 const TELEPHONE = ["(263) 384-3050", "+12633843050"];
 const GROUPES = [
@@ -1037,28 +1045,28 @@ function sectionBiographie(c) {
 const PHOTOS_ENGAGEMENTS = ["representation", null, "distinctions", null, null];
 const MARATHON_ILLUSTRATION = {
   "fr": [
-    "Illustration générée par IA de coureurs fictifs à Paris, avec l’Arc de Triomphe en arrière-plan",
-    "Illustration générée par IA · Paris"
+    "Illustration de coureurs fictifs à Paris, avec l’Arc de Triomphe en arrière-plan",
+    "Illustration · Paris"
   ],
   "en": [
-    "AI-generated illustration of fictional runners in Paris, with the Arc de Triomphe in the background",
-    "AI-generated illustration · Paris"
+    "Illustration of fictional runners in Paris, with the Arc de Triomphe in the background",
+    "Illustration · Paris"
   ],
   "es": [
-    "Ilustración generada por IA de corredores ficticios en París, con el Arco del Triunfo al fondo",
-    "Ilustración generada por IA · París"
+    "Ilustración de corredores ficticios en París, con el Arco del Triunfo al fondo",
+    "Ilustración · París"
   ],
   "zh": [
-    "AI 生成插图：虚构跑者在巴黎跑步，背景为凯旋门",
-    "AI 生成插图 · 巴黎"
+    "插图：虚构跑者在巴黎跑步，背景为凯旋门",
+    "插图 · 巴黎"
   ],
   "ar": [
-    "رسم مولد بالذكاء الاصطناعي لعدائين خياليين في باريس وقوس النصر في الخلفية",
-    "صورة توضيحية مولدة بالذكاء الاصطناعي · باريس"
+    "رسم لعدائين خياليين في باريس وقوس النصر في الخلفية",
+    "صورة توضيحية · باريس"
   ],
   "ru": [
-    "Созданная ИИ иллюстрация вымышленных бегунов в Париже с Триумфальной аркой на заднем плане",
-    "Иллюстрация, созданная ИИ · Париж"
+    "Иллюстрация вымышленных бегунов в Париже с Триумфальной аркой на заднем плане",
+    "Иллюстрация · Париж"
   ]
 };
 const PHOTOS_LOISIRS = ["photos/course.jpg", "photos/musique.jpg", "photos/hockey.jpg", "bandeaux/grise.jpg", "bandeaux/loisirs.jpg"];
