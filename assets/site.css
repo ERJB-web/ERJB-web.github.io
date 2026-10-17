@@ -3202,3 +3202,13 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
 .entete-contact a[href^="mailto:"],.entete-contact a[href^="tel:"]{font-size:15px;font-weight:600;color:#173f52;letter-spacing:0}
 .entete-contact a[href^="mailto:"] svg,.entete-contact a[href^="tel:"] svg{width:16px;height:16px;color:#1f5a8a}
 .entete-contact a[href^="mailto:"]:hover,.entete-contact a[href^="tel:"]:hover{color:#1f5a8a;text-decoration:underline;text-underline-offset:3px}
+/* Contact : vidéo tutoriel en grand à gauche, contact sur une seule colonne à droite */
+.contact .section-corps.contact-grille{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px 56px;align-items:start;max-width:1180px}
+.contact-grille .contact-visite{align-self:start;max-width:none}
+.contact-grille .contact-droite{display:flex;flex-direction:column;gap:28px}
+.contact-grille .contact-droite .colonne-texte,.contact-grille .contact-droite .colonne-outils{width:100%;max-width:none}
+.contact-visite .surtitre{margin:0 0 8px}
+.contact-visite .chapeau-visite{margin:0 0 14px;font-size:15px;color:var(--ink)}
+.contact-visite .tuto-video video{border-radius:14px}
+.contact-visite .tuto-video video::cue{font-size:15px}
+@media(max-width:1000px){.contact .section-corps.contact-grille{grid-template-columns:1fr}.contact-grille .contact-visite{grid-row:2;max-width:none}.contact-grille .contact-droite{grid-row:1}}
