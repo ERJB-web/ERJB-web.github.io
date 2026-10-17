@@ -1,5 +1,5 @@
-/* Hall de Montréal : photographie 2000 × 670.
-   La baie vitrée occupe x=253 à x=1746 (entre les piliers), de y=86 (sous la verrière) à y=526 (le sol).
+/* Hall de Montréal : intérieur 2000 × 720 (repères de la photographie 2000 × 670).
+   La baie vitrée occupe x=253 à x=1746 (entre les piliers), de y=120 (sous le plafond) à y=526 (le sol).
    Les portes s'arrêtent à y=236. Les mêmes repères placent la ville, les modules de verre et les rails. */
 .hall[data-hall-volume] {
   --hall-jour: url("photos/hall-interieur-jour.webp");
@@ -240,21 +240,24 @@
   width: 100%;
   height: 100%;
 }
-/* La ville, plus lointaine que la vitre, défile un peu moins vite : effet de profondeur. */
+/* La ville (3800 × 1090) est agrandie pour que le fleuve passe juste au-dessus des portes ;
+   plus lointaine que la vitre, elle défile un peu moins vite : effet de profondeur. */
 .hall-ville .hall-ville-plan {
-  inset: 0 auto 0 -4%;
-  width: 108%;
-  height: 100%;
-  transform: translateX(calc((.5 - var(--hall-defile,.5)) * 7%));
+  --ville-zoom: 1.12;
+  left: calc((1 - var(--ville-zoom)) * 50%);
+  top: -14.3%;
+  width: calc(var(--ville-zoom) * 100%);
+  height: auto;
+  aspect-ratio: 3800 / 1090;
+  transform: translateX(calc((.5 - var(--hall-defile,.5)) * 6%));
 }
 .hall-ville-plan > span {
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center 40%;
+  background-size: 100% 100%;
 }
 .hall-bateaux {
-  -webkit-mask: url("photos/hall-ville-fleuve.png") center 40% / cover no-repeat;
-  mask: url("photos/hall-ville-fleuve.png") center 40% / cover no-repeat;
+  -webkit-mask: url("photos/hall-ville-fleuve.png") 0 0 / 100% 100% no-repeat;
+  mask: url("photos/hall-ville-fleuve.png") 0 0 / 100% 100% no-repeat;
 }
 .hall-ville .hall-ville-calque,
 .hall-calque {
@@ -314,7 +317,7 @@
     /* Largeur de porte rapportée à sa hauteur, et espace égal entre porte et panneau. */
     --hall-porte-ratio: .57;
     --hall-ecart: 30;
-    --hall-recadrage: 48;
+    --hall-recadrage: 72;
     /* Haut des portes, dans la photo ; le fleuve reste visible au-dessus. */
     --hall-porte-haut: 224;
   }
@@ -329,10 +332,10 @@
     /* L'échelle suit une hauteur de 540 px au plus : un hall plus haut montre davantage de sol. */
     --px: calc(max(calc(100cqw / 2000), calc(min(100cqh, 540px) / 670)) * var(--hall-zoom));
     --iw: calc(var(--px) * 2000);
-    --ih: calc(var(--px) * 670);
+    --ih: calc(var(--px) * 720);
     --ix: calc((100cqw - var(--iw)) / 2);
     --iy: calc(var(--px) * var(--hall-recadrage) * -1);
-    --verre-haut: calc(var(--iy) + var(--px) * 86);
+    --verre-haut: calc(var(--iy) + var(--px) * 120);
     --mur-haut: calc(var(--iy) + var(--px) * var(--hall-porte-haut));
     --mur-bas: calc(var(--iy) + var(--px) * 526);
     --mur-g: calc(var(--ix) + var(--px) * 253);

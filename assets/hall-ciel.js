@@ -350,7 +350,7 @@
     const nuit = etat?.nuit || 0;
     const b = taille(bateaux);
     if (b.w) {
-      const s = Math.max(b.w / 3800, b.h / 1090), ox = (b.w - 3800 * s) / 2, oy = (b.h - 1090 * s) * 0.4;
+      const s = b.w / 3800, ox = 0, oy = (b.h - 1090 * s) / 2;
       cb.setTransform(1, 0, 0, 1, 0, 0);
       cb.clearRect(0, 0, bateaux.width, bateaux.height);
       for (const n of navires) {
