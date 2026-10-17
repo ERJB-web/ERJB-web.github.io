@@ -1100,3 +1100,140 @@
 
 // Vidéo de visite : pas de lecture automatique si l’animation est réduite
 (()=>{const v=document.querySelector('.tuto-video video');if(!v)return;if(matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();}})();
+
+
+/* atlas-these-cartographie-2026
+   Figures exploratoires du projet cartographique O2.
+   Réparties dans les onglets de la thèse, sans toucher aux textes du protocole. */
+(() => {
+  const initialiser = () => {
+    if ((document.documentElement.lang || "fr").toLowerCase() !== "fr") return;
+    const table = document.querySelector('.these [data-rubriques="these"]');
+    if (!table || table.querySelector('.atlas-these')) return;
+
+    const dossier = 'assets/these/o2/';
+    const cartes = {
+      clsc: {
+        fichier: 'carte-01-ccsmtl-les-8-territoires-de-clsc-et-leur-reponse-conjointe-a-.webp',
+        titre: 'Réponse conjointe santé et social à domicile, par territoire de CLSC',
+        detail: 'Une lecture territoriale des domaines sociaux disposant d’une réponse conjointe à domicile : de 6 à 9 domaines sur 12 selon les huit territoires de CLSC.',
+        alt: 'Carte des huit territoires de CLSC du CCSMTL colorés selon le nombre de domaines sociaux couverts à domicile.'
+      },
+      secteurs: {
+        fichier: 'carte-02-ccsmtl-ressources-de-sante-et-ressources-sociales-par-secteur.webp',
+        titre: 'Services recensés, par secteur',
+        detail: 'Localisation des services de santé et sociaux recensés, selon six secteurs : réseau public, première ligne, parapublic, communautaire, municipalité et habitation.',
+        alt: 'Localisation des services recensés sur le territoire du CCSMTL et ses environs, distingués par secteur.'
+      },
+      proximite1: {
+        fichier: 'carte-03-ccsmtl-reponse-intersectorielle-a-1-km-20-min-de-marche-par-i.webp',
+        titre: 'Réponse intersectorielle de proximité à 1 km',
+        detail: 'Nombre de domaines sociaux accessibles à pied en même temps qu’une ressource de santé dans un rayon d’environ 1 km : moyenne de 10,0 domaines sur 12 pour les 65 ans et plus du CCSMTL.',
+        alt: 'Carte des îlots du CCSMTL selon le score de proximité santé et social à 1 km, en cinq classes.'
+      },
+      proximite500: {
+        fichier: 'carte-04-ccsmtl-reponse-intersectorielle-a-500-m-10-min-de-marche-par-.webp',
+        titre: 'Réponse intersectorielle de proximité à 500 m',
+        detail: 'À dix minutes de marche environ, la moyenne territoriale pondérée pour les personnes de 65 ans et plus est de 7,4 domaines sociaux sur 12.',
+        alt: 'Carte des îlots du CCSMTL selon le score de proximité santé et social à 500 mètres.'
+      },
+      gmf: {
+        fichier: 'carte-05-ccsmtl-acces-aux-gmf-en-30-min-de-transport-collectif-par-ilo.webp',
+        titre: 'Accessibilité potentielle aux GMF en transport collectif',
+        detail: 'Modélisation E2SFCA de la capacité potentiellement accessible en 30 minutes de transport collectif, avec pondération par temps de trajet et concurrence entre populations.',
+        alt: 'Carte de l’accessibilité potentielle aux groupes de médecine de famille en transport collectif, par îlot.'
+      },
+      prioritaires: {
+        fichier: 'carte-06-ccsmtl-zones-prioritaires-65-ans-et-plus-reponse-faible-defav.webp',
+        titre: 'Zones prioritaires pour les personnes de 65 ans et plus',
+        detail: 'Croisement de la densité des aînés, de la faiblesse de réponse à 500 m et de la défavorisation : 150 îlots prioritaires, comptant 7 958 personnes de 65 ans et plus.',
+        alt: 'Carte avec contours jaunes des îlots prioritaires et agrandissements de Saint-Paul, Verdun et de l’île des Sœurs.'
+      },
+      lisa: {
+        fichier: 'carte-07-ccsmtl-grappes-de-reponse-faible-ou-forte-a-1-km-lisa.webp',
+        titre: 'Regroupements spatiaux de la réponse intersectorielle',
+        detail: 'Analyse du I de Moran local à 1 km : identification de regroupements Haut–Haut et Bas–Bas, avec contrôle du taux de fausses découvertes.',
+        alt: 'Carte LISA des regroupements spatiaux de forte ou faible réponse intersectorielle à 1 km.'
+      },
+      besoins: {
+        fichier: 'carte-08-ccsmtl-besoins-sociaux-potentiels-des-personnes-ainees-recens.webp',
+        titre: 'Indice des besoins sociaux concomitants potentiels des personnes aînées',
+        detail: 'Indice écologique exploratoire construit à partir de facteurs du recensement de 2021 : revenu, logement, isolement, langue, grand âge et genre. Il ne mesure pas les besoins individuels.',
+        alt: 'Carte par îlot des besoins sociaux potentiels des personnes aînées, de teinte orange clair à orange foncé.'
+      },
+      ecarts: {
+        fichier: 'carte-09-ccsmtl-ecart-entre-besoins-potentiels-et-reponse-a-500-m.webp',
+        titre: 'Écart entre besoins potentiels et réponse intersectorielle à 500 m',
+        detail: 'Croisement en neuf classes des besoins potentiels et de la faiblesse de réponse de proximité : 15,9 % des personnes de 65 ans et plus vivent dans une zone de forte discordance.',
+        alt: 'Carte bivariée par îlot croisant les besoins potentiels et la faiblesse de réponse intersectorielle à 500 mètres.'
+      }
+    };
+
+    const blocs = [
+      {
+        volet: 'contexte',
+        titre: 'Lire le territoire avant de décrire les réseaux',
+        introduction: 'Ces cartes illustrent la distribution des besoins potentiels, celle des services et les différences entre territoires de CLSC. Elles donnent à voir le contexte territorial, sans déduire les profils individuels des seules données géographiques.',
+        cartes: ['besoins', 'secteurs', 'clsc']
+      },
+      {
+        volet: 'methodes',
+        titre: 'Mesurer l’accessibilité et la réponse de proximité',
+        introduction: 'Exemples de productions cartographiques utilisées pour expliciter les choix de distance, d’échelle et d’indicateurs. Une ressource proche géographiquement ne suffit pas à établir une coordination effective entre les acteurs.',
+        cartes: ['proximite500', 'proximite1', 'gmf']
+      },
+      {
+        volet: 'resultats',
+        titre: 'Croiser besoins, réponse et configurations territoriales',
+        introduction: 'Ces trois exemples montrent comment des croisements spatiaux peuvent orienter des questions à approfondir. Ils ne doivent pas être interprétés comme les résultats définitifs de la thèse, ni comme une validation des réseaux réellement mobilisés.',
+        cartes: ['ecarts', 'prioritaires', 'lisa']
+      }
+    ];
+    const creerCarte = (cle, numero) => {
+      const c = cartes[cle];
+      const url = dossier + c.fichier;
+      const fig = document.createElement('figure');
+      fig.className = 'atlas-these-figure';
+      fig.innerHTML =
+        '<div class="atlas-these-figure-entete"><span>Carte ' + String(numero).padStart(2, '0') + ' / 09</span><h5></h5><p></p></div>' +
+        '<a class="atlas-these-image" href="' + url + '" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir en pleine définition : ' + c.titre + '">' +
+        '<img src="' + url + '" alt="' + c.alt + '" loading="lazy" decoding="async"></a>' +
+        '<figcaption><span>Cartographie exploratoire O2 · CCSMTL · octobre 2026</span>' +
+        '<a href="' + url + '" target="_blank" rel="noopener noreferrer">Voir la carte en pleine définition ↗</a></figcaption>';
+      fig.querySelector('h5').textContent = c.titre;
+      fig.querySelector('.atlas-these-figure-entete p').textContent = c.detail;
+      return fig;
+    };
+
+    let compteur = 0;
+    blocs.forEach((bloc) => {
+      const panneau = Array.from(table.querySelectorAll('.rubrique-corps'))
+        .find(el => el.dataset.rubrique === bloc.volet && el.closest('[data-rubriques="these"]') === table);
+      if (!panneau) return;
+      const section = document.createElement('section');
+      section.className = 'atlas-these';
+      section.setAttribute('aria-label', bloc.titre);
+      const tete = document.createElement('header');
+      tete.className = 'atlas-these-entete';
+      tete.innerHTML = '<span class="atlas-these-kicker">Atlas cartographique · Exemples d’analyse</span><h4></h4><p></p>';
+      tete.querySelector('h4').textContent = bloc.titre;
+      tete.querySelector('p').textContent = bloc.introduction;
+      section.appendChild(tete);
+      bloc.cartes.forEach(cle => section.appendChild(creerCarte(cle, ++compteur)));
+      const note = document.createElement('p');
+      note.className = 'atlas-these-precaution';
+      note.textContent = 'Sources, méthodes, légendes et crédits figurent sur chaque carte. Ces représentations écologiques et spatiales sont des exemples d’analyses exploratoires et ne remplacent ni les données individuelles ni l’étude des relations effectives entre partenaires.';
+      section.appendChild(note);
+      panneau.appendChild(section);
+    });
+
+    // Les cartes présentes dans d’autres exposés méthodologiques ne doivent plus être recadrées.
+    document.querySelectorAll('img[src*="/these/o2/carte-"]').forEach(img => {
+      img.style.objectFit = 'contain';
+      img.style.objectPosition = 'center';
+    });
+  };
+  if (document.readyState === 'loading')
+    document.addEventListener('DOMContentLoaded', initialiser, { once: true });
+  else initialiser();
+})();
