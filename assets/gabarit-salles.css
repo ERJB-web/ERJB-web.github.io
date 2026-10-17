@@ -236,3 +236,33 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   .gab .gab-bandeau .gab-k-porte{display:none}
 }
 @media(prefers-reduced-motion:reduce){.gab-tuile,.gab-lecture,.gab-segments button{transition:none}}
+
+
+/* Thèse : sommaire latéral discret, davantage d'espace pour les textes et les cartes.
+   La palette et les fonds existants ne sont pas modifiés. */
+@media (min-width:1181px) {
+  .gab:is([data-gab-salle="recherche"],[data-gab-salle="methodes"]) .gab-chapitre-grille {
+    grid-template-columns:minmax(0,1fr) 286px;
+    column-gap:28px;
+  }
+  .gab:is([data-gab-salle="recherche"],[data-gab-salle="methodes"]) .gab-chapitre-aside {
+    width:100%;
+    min-width:0;
+    justify-self:end;
+  }
+  .gab:is([data-gab-salle="recherche"],[data-gab-salle="methodes"]) .gab-sommaire-chapitre {
+    padding:12px 10px;
+    gap:1px;
+    border-radius:16px;
+  }
+  .gab:is([data-gab-salle="recherche"],[data-gab-salle="methodes"]) .gab-sommaire-chapitre > span {
+    font-size:12px;
+    margin-bottom:5px;
+  }
+  .gab:is([data-gab-salle="recherche"],[data-gab-salle="methodes"]) .gab-sommaire-chapitre a {
+    padding:5px 7px;
+    font-size:14px;
+    line-height:1.32;
+    overflow-wrap:break-word;
+  }
+}
