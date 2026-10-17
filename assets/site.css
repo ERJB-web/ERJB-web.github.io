@@ -4141,3 +4141,101 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
   .lacune-principale{padding:22px 20px;border-radius:14px}
   .cartes-o2-grille{grid-template-columns:minmax(0,1fr);padding:6px 12px 20px}
 }
+
+/* Bandeau de statut de la thèse — lisibilité et mise en page */
+.these .these-introduction .these-statut{
+  position:relative;
+  box-sizing:border-box;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:11px 18px;
+  width:100%;
+  max-width:100%;
+  min-height:74px;
+  margin:0 0 28px;
+  padding:17px clamp(20px,2.6vw,30px);
+  overflow:hidden;
+  isolation:isolate;
+  border:1px solid #c9dfd9;
+  border-radius:16px;
+  background:linear-gradient(115deg,#f0f8f3 0%,#f8fbfa 62%,#edf5f8 100%);
+  box-shadow:0 12px 28px -23px rgba(23,63,82,.4);
+}
+.these .these-introduction .these-statut::before{
+  content:"";
+  position:absolute;
+  inset-block:0;
+  inset-inline-start:0;
+  width:5px;
+  background:#3c9965;
+}
+.these .these-introduction .these-statut .badge-these{
+  display:inline-flex;
+  flex:0 0 auto;
+  align-items:center;
+  gap:9px;
+  max-width:100%;
+  margin:0;
+  padding:8px 13px;
+  border:1px solid #b8dbca;
+  border-radius:999px;
+  background:#e1f1e8;
+  color:#205e4d;
+  font:700 13px/1.35 var(--sans);
+  letter-spacing:0;
+  text-align:start;
+  white-space:normal;
+}
+.these .these-introduction .these-statut .badge-these::before{
+  width:7px;
+  height:7px;
+  flex:none;
+  background:#2d8e5e;
+  box-shadow:0 0 0 3px #c9e7d5;
+}
+.these .these-introduction .these-statut .these-evolution{
+  flex:1 1 390px;
+  min-width:0;
+  max-width:none;
+  margin:0;
+  padding:0;
+  border:0;
+  background:transparent;
+  color:#183f51;
+  font:500 clamp(14px,1.12vw,16px)/1.55 var(--sans);
+  text-align:start;
+  overflow-wrap:break-word;
+  hyphens:none;
+  text-wrap:pretty;
+}
+.these .these-introduction .these-statut .these-evolution strong{
+  color:inherit;
+  font-weight:600;
+}
+@media(max-width:640px){
+  .these .these-introduction .these-statut{
+    gap:12px;
+    min-height:0;
+    padding:16px 18px 17px 22px;
+    margin-bottom:23px;
+    border-radius:14px;
+  }
+  .these .these-introduction .these-statut .these-evolution{
+    flex-basis:100%;
+    font-size:14px;
+    line-height:1.55;
+  }
+}
+:root[data-theme="dark"] .these .these-introduction .these-statut{
+  border-color:#376778;
+  background:linear-gradient(115deg,#153e46,#183d55);
+}
+:root[data-theme="dark"] .these .these-introduction .these-statut .these-evolution{color:#f3f8f9}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .these .these-introduction .these-statut{
+    border-color:#376778;
+    background:linear-gradient(115deg,#153e46,#183d55);
+  }
+  :root:not([data-theme="light"]) .these .these-introduction .these-statut .these-evolution{color:#f3f8f9}
+}
