@@ -4,7 +4,7 @@
 .eb-duo:has(.eb-game-play[open]){grid-template-columns:minmax(0,1fr)}
 .eb-duo:has(.eb-game-play[open]) .revue{contain:none!important;max-height:720px}
 @media(min-width:981px){
-  .eb-duo{grid-auto-rows:minmax(660px,auto)}
+  .eb-duo{grid-auto-rows:minmax(720px,auto)}
   .eb-duo>.eb-game-frame{display:flex;flex-direction:column}
   .eb-duo .eb-game-top{padding:20px 28px 0}
   .eb-duo .eb-game-hero{flex:1;grid-template-columns:minmax(0,1fr) auto;align-items:start;align-content:center;gap:20px;min-height:0;padding:24px 28px 26px}
@@ -24,7 +24,7 @@
 .revue{--revue-c:#7cc4f0;position:relative;isolation:isolate;display:flex;flex-direction:column;min-width:0;min-height:460px;overflow:hidden;border-radius:clamp(18px,2vw,32px);background:radial-gradient(ellipse at 20% 0%,#25455d,transparent 52%),linear-gradient(135deg,#071320,#10283b 68%,#151c30);color:#f0f8fb;border:1px solid #b8ffff36;box-shadow:0 35px 90px #082b3a29}
 .revue::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(120deg,transparent 40%,#bdffe515 60%,transparent 85%),repeating-linear-gradient(90deg,#fff0 0 80px,#ffffff09 81px 82px);mask-image:linear-gradient(to left,transparent,#000)}
 .revue :focus-visible{outline-color:#9ff6db}
-.revue p,.revue li{text-align:start}
+.revue p,.revue li{text-align:start!important}
 
 .revue-haut{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;padding:20px 28px 0}
 .revue-marque{font:700 11px var(--sans);letter-spacing:.18em;color:#a7f9db;text-transform:uppercase}
@@ -34,8 +34,8 @@
 
 .revue-tete{padding:20px 28px 14px}
 .revue-accroche{display:block;margin:0 0 10px;font:700 10px var(--sans);color:#b4e9df;letter-spacing:.18em;text-transform:uppercase}
-.revue-tete h2{margin:0;color:#fff;font:700 clamp(30px,2.6vw,40px)/1.02 var(--sans);letter-spacing:-.05em}
-.revue-tete h2 em{font-style:normal;color:#9ff6db}
+.revue-tete h2{margin:0;color:#fff;font:700 clamp(23px,1.95vw,29px)/1.12 var(--sans);letter-spacing:-.035em}
+.revue-tete h2 em{display:block;font-style:normal;color:#9ff6db}
 .revue-langue{margin:8px 0 0;color:#a8bccf;font-size:11px}
 
 .revue-bonne{margin:0 28px 14px;padding:13px 16px 12px;border-radius:14px;background:linear-gradient(115deg,#9ff6db24,#b8c8f714 70%);border:1px solid #9ff6db57}
@@ -46,13 +46,15 @@
 .revue-bonne-titre a:hover{text-decoration:underline;text-decoration-color:#9ff6db;text-underline-offset:3px}
 .revue-bonne .revue-resume{-webkit-line-clamp:2}
 
-.revue-onglets{display:flex;flex-wrap:wrap;gap:7px;padding:0 28px 14px;border-bottom:1px solid #caffed31}
-.revue-onglets [role=tab]{padding:7px 11px;border:1px solid #c1ffff35;border-radius:6px;background:#ffffff0b;color:#e1eef4;font:600 11px/1.2 var(--sans);transition:background .2s,color .2s}
+.revue-onglets{display:flex;flex-wrap:wrap;gap:5px;padding:0 28px 14px;border-bottom:1px solid #caffed31}
+.revue-onglets [role=tab]{padding:7px 8px;border:1px solid #c1ffff35;border-radius:6px;background:#ffffff0b;color:#e1eef4;font:600 11px/1.2 var(--sans);transition:background .2s,color .2s}
 .revue-onglets [role=tab]:hover{background:#ffffff1c}
 .revue-onglets [role=tab][aria-selected=true]{border-color:transparent;background:linear-gradient(105deg,#a1eed7,#b8c8f7);color:#071d2c}
 
 .revue-panneau{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#9ff6db55 transparent}
 .revue-panneau[data-rubrique=quebec]{--revue-c:#8fb4ff}
+.revue-panneau[data-rubrique=canada]{--revue-c:#f28b82}
+.revue-panneau[data-rubrique=france]{--revue-c:#a7b6ff}
 .revue-panneau[data-rubrique=debats]{--revue-c:#f2a679}
 .revue-panneau[data-rubrique=decouvertes]{--revue-c:#6fe0dc}
 .revue-panneau[data-rubrique=recherche]{--revue-c:#c7b8ff}
@@ -72,7 +74,9 @@
 .revue-source{color:#9ff6db;font-weight:650}
 .revue-etiquette{padding:1px 8px;border:1px solid #9ff6db40;border-radius:999px;background:#9ff6db17;color:#c9fff0;font-weight:600}
 .revue-pied{margin:0;padding:11px 28px 13px;border-top:1px solid #ffffff15;color:#abbecf;font-size:11px;line-height:1.5}
-.revue-pied-titre{font-weight:700;color:#d1fbef}
+.revue-pied summary{cursor:pointer;width:max-content;color:#d1fbef;font-weight:700}
+.revue-pied summary:hover{color:#9ff6db}
+.revue-pied details[open] summary{margin-bottom:4px}
 
 html.hc .revue-resume,html.lv .revue-resume{color:#e6f0f5}
 html.hc .revue-liste a,html.lv .revue-liste a{text-decoration:underline}

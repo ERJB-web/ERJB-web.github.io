@@ -1,4 +1,4 @@
-// Revue de presse santé : lit les flux des médias, les classe par rubrique et écrit le JSON lu par la page d'accueil.
+// Revue de presse : lit les flux des médias et des institutions, classe les articles par rubrique et écrit le JSON lu par la page d'accueil.
 // Usage : node outils/revue-presse.mjs [edition-precedente.json] [sortie.json]
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { dirname } from "node:path";
@@ -7,71 +7,106 @@ const [, , cheminPrecedent = "", cheminSortie = "assets/revue-presse.json"] = pr
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36";
 const RC = "https://ici.radio-canada.ca/info/rss/";
 const LD = "https://www.ledevoir.com/rss/";
+const TC = "https://theconversation.com/";
 
+// zone : qc (Québec et Canada francophone), ca (Canada), fr (France), monde.
+// type : sante (tout le flux est retenu), general (filtré par mots-clés), science, opinion, analyse, institution, loi, recherche.
 const SOURCES = [
-  { id: "rc-sante", nom: "Radio-Canada", groupe: "rc", url: RC + "sante/en-continu", type: "sante" },
-  { id: "lp-sante", nom: "La Presse", groupe: "lp", url: "https://www.lapresse.ca/actualites/sante/rss", type: "sante" },
-  { id: "ld-sante", nom: "Le Devoir", groupe: "ld", url: LD + "section/actualites/sante.xml", type: "sante" },
-  { id: "jdm-sante", nom: "Le Journal de Montréal", groupe: "qmi", url: "https://www.journaldemontreal.com/actualite/sante/rss.xml", type: "sante" },
-  { id: "tva-sante", nom: "TVA Nouvelles", groupe: "qmi", url: "https://www.tvanouvelles.ca/actualites/sante/rss.xml", type: "sante" },
-  { id: "lactualite", nom: "L’actualité", groupe: "lact", url: "https://lactualite.com/sante-et-science/feed/", type: "sante" },
-  { id: "rc-quebec", nom: "Radio-Canada", groupe: "rc", url: RC + "quebec/en-continu", type: "general", quebec: true },
-  { id: "rc-montreal", nom: "Radio-Canada", groupe: "rc", url: RC + "grandmontreal/en-continu", type: "general", quebec: true },
-  { id: "lp-actualites", nom: "La Presse", groupe: "lp", url: "https://www.lapresse.ca/actualites/rss", type: "general" },
-  { id: "ld-manchettes", nom: "Le Devoir", groupe: "ld", url: LD + "manchettes.xml", type: "general" },
-  { id: "metro", nom: "Métro", groupe: "metro", url: "https://journalmetro.com/feed/", type: "general", quebec: true },
-  { id: "rc-science", nom: "Radio-Canada", groupe: "rc", url: RC + "science/en-continu", type: "science" },
-  { id: "lp-sciences", nom: "La Presse", groupe: "lp", url: "https://www.lapresse.ca/actualites/sciences/rss", type: "science" },
-  { id: "ld-science", nom: "Le Devoir", groupe: "ld", url: LD + "section/actualites/science.xml", type: "science" },
-  { id: "qs", nom: "Québec Science", groupe: "qs", url: "https://www.quebecscience.qc.ca/feed/", type: "science" },
-  { id: "asp", nom: "Agence Science-Presse", groupe: "asp", url: "https://www.sciencepresse.qc.ca/rss.xml", type: "science" },
-  { id: "ld-idees", nom: "Le Devoir", groupe: "ld", url: LD + "section/opinion/idees.xml", type: "opinion" },
-  { id: "ld-lettres", nom: "Le Devoir", groupe: "ld", url: LD + "section/opinion/lettres.xml", type: "opinion" },
-  { id: "ld-libre", nom: "Le Devoir", groupe: "ld", url: LD + "section/opinion/libre-opinion.xml", type: "opinion" },
-  { id: "ld-editoriaux", nom: "Le Devoir", groupe: "ld", url: LD + "section/opinion/editoriaux.xml", type: "opinion" },
-  { id: "lp-dialogue", nom: "La Presse", groupe: "lp", url: "https://www.lapresse.ca/dialogue/rss", type: "opinion" },
-  { id: "conversation", nom: "La Conversation", groupe: "tc", url: "https://theconversation.com/ca-fr/sante/articles.atom", type: "analyse" },
-  { id: "gc-sante", nom: "Gouvernement du Canada", groupe: "gc", url: "https://api.io.canada.ca/io-server/gc/news/fr/v2?topic=health&sort=publishedDate&orderBy=desc&pick=30&format=atom", type: "institution" },
-  { id: "frq", nom: "Fonds de recherche du Québec", groupe: "frq", url: "https://frq.gouv.qc.ca/feed/", type: "institution" },
-  { id: "inspq-publications", nom: "INSPQ", groupe: "inspq", url: "https://www.inspq.qc.ca/nos-productions/publications/rss.xml", type: "institution" },
-  { id: "inspq-nouvelles", nom: "INSPQ", groupe: "inspq", url: "https://www.inspq.qc.ca/nouvelles/rss.xml", type: "institution" },
-  { id: "sq-communiques", nom: "Santé Québec", groupe: "sq", url: "https://sante.quebec/actualites/communiques-presse/", type: "institution", page: "santeQuebec" },
-  { id: "sq-nouvelles", nom: "Santé Québec", groupe: "sq", url: "https://sante.quebec/actualites/nouvelles/", type: "institution", page: "santeQuebec" },
+  { id: "rc-sante", nom: "Radio-Canada", groupe: "rc", url: RC + "sante/en-continu", zone: "qc", type: "sante" },
+  { id: "lp-sante", nom: "La Presse", groupe: "lp", url: "https://www.lapresse.ca/actualites/sante/rss", zone: "qc", type: "sante" },
+  { id: "ld-sante", nom: "Le Devoir", groupe: "ld", url: LD + "section/actualites/sante.xml", zone: "qc", type: "sante" },
+  { id: "jdm-sante", nom: "Le Journal de Montréal", groupe: "qmi", url: "https://www.journaldemontreal.com/actualite/sante/rss.xml", zone: "qc", type: "sante" },
+  { id: "tva-sante", nom: "TVA Nouvelles", groupe: "qmi", url: "https://www.tvanouvelles.ca/actualites/sante/rss.xml", zone: "qc", type: "sante" },
+  { id: "lactualite", nom: "L’actualité", groupe: "lact", url: "https://lactualite.com/sante-et-science/feed/", zone: "qc", type: "sante" },
+  { id: "rc-quebec", nom: "Radio-Canada", groupe: "rc", url: RC + "quebec/en-continu", zone: "qc", type: "general", quebec: true },
+  { id: "rc-montreal", nom: "Radio-Canada", groupe: "rc", url: RC + "grandmontreal/en-continu", zone: "qc", type: "general", quebec: true },
+  { id: "rc-societe", nom: "Radio-Canada", groupe: "rc", url: RC + "societe/en-continu", zone: "qc", type: "general" },
+  { id: "lp-actualites", nom: "La Presse", groupe: "lp", url: "https://www.lapresse.ca/actualites/rss", zone: "qc", type: "general" },
+  { id: "ld-manchettes", nom: "Le Devoir", groupe: "ld", url: LD + "manchettes.xml", zone: "qc", type: "general" },
+  { id: "ld-societe", nom: "Le Devoir", groupe: "ld", url: LD + "section/actualites/societe.xml", zone: "qc", type: "general" },
+  { id: "jdm-societe", nom: "Le Journal de Montréal", groupe: "qmi", url: "https://www.journaldemontreal.com/actualite/societe/rss.xml", zone: "qc", type: "general" },
+  { id: "metro", nom: "Métro", groupe: "metro", url: "https://journalmetro.com/feed/", zone: "qc", type: "general", quebec: true },
+  { id: "pivot", nom: "Pivot", groupe: "pivot", url: "https://pivot.quebec/feed/", zone: "qc", type: "general" },
+  { id: "itineraire", nom: "L’Itinéraire", groupe: "itineraire", url: "https://itineraire.ca/feed/", zone: "qc", type: "general", quebec: true },
+  { id: "rqaca", nom: "RQ-ACA", groupe: "rqaca", url: "https://rq-aca.org/feed/", zone: "qc", type: "sante", quebec: true },
+  { id: "assnat", nom: "Assemblée nationale du Québec", groupe: "assnat", url: "https://www.assnat.qc.ca/fr/rss/SyndicationRSS-210.html", zone: "qc", type: "loi", quebec: true },
+  { id: "sq-communiques", nom: "Santé Québec", groupe: "sq", url: "https://sante.quebec/actualites/communiques-presse/", zone: "qc", type: "institution", quebec: true, page: "santeQuebec", delai: 31000 },
+  { id: "sq-nouvelles", nom: "Santé Québec", groupe: "sq", url: "https://sante.quebec/actualites/nouvelles/", zone: "qc", type: "institution", quebec: true, page: "santeQuebec", delai: 31000 },
+  { id: "inspq-publications", nom: "INSPQ", groupe: "inspq", url: "https://www.inspq.qc.ca/nos-productions/publications/rss.xml", zone: "qc", type: "institution", quebec: true },
+  { id: "inspq-nouvelles", nom: "INSPQ", groupe: "inspq", url: "https://www.inspq.qc.ca/nouvelles/rss.xml", zone: "qc", type: "institution", quebec: true },
+
+  { id: "cbc-sante", nom: "CBC", groupe: "cbc", url: "https://www.cbc.ca/webfeed/rss/rss-health", zone: "ca", type: "sante", langue: "en" },
+  { id: "global-sante", nom: "Global News", groupe: "global", url: "https://globalnews.ca/health/feed/", zone: "ca", type: "sante", langue: "en" },
+  { id: "onfr", nom: "ONFR", groupe: "onfr", url: "https://onfr.tfo.org/feed/", zone: "ca", type: "general" },
+  { id: "gc-sante", nom: "Gouvernement du Canada", groupe: "gc", url: "https://api.io.canada.ca/io-server/gc/news/fr/v2?topic=health&sort=publishedDate&orderBy=desc&pick=30&format=atom", zone: "ca", type: "institution" },
+  { id: "tc-ca-en", nom: "The Conversation Canada", groupe: "tc-en", url: TC + "ca/health/articles.atom", zone: "ca", type: "analyse", langue: "en" },
+
+  { id: "lemonde-sante", nom: "Le Monde", groupe: "lemonde", url: "https://www.lemonde.fr/sante/rss_full.xml", zone: "fr", type: "sante" },
+  { id: "figaro-sante", nom: "Le Figaro", groupe: "figaro", url: "https://www.lefigaro.fr/rss/figaro_sante.xml", zone: "fr", type: "sante" },
+  { id: "franceinfo-sante", nom: "franceinfo", groupe: "franceinfo", url: "https://www.francetvinfo.fr/sante.rss", zone: "fr", type: "sante" },
+  { id: "liberation-sante", nom: "Libération", groupe: "liberation", url: "https://www.liberation.fr/arc/outboundfeeds/rss/category/societe/sante/?outputType=xml", zone: "fr", type: "sante" },
+  { id: "qdm", nom: "Le Quotidien du médecin", groupe: "qdm", url: "https://www.lequotidiendumedecin.fr/rss.xml", zone: "fr", type: "sante" },
+  { id: "infirmiers", nom: "Infirmiers.com", groupe: "infirmiers", url: "https://www.infirmiers.com/rss.xml", zone: "fr", type: "sante" },
+  { id: "lemonde-societe", nom: "Le Monde", groupe: "lemonde", url: "https://www.lemonde.fr/societe/rss_full.xml", zone: "fr", type: "general" },
+  { id: "franceinfo-societe", nom: "franceinfo", groupe: "franceinfo", url: "https://www.francetvinfo.fr/societe.rss", zone: "fr", type: "general" },
+  { id: "spf", nom: "Santé publique France", groupe: "spf", url: "https://www.santepubliquefrance.fr/rss/actualites.xml", zone: "fr", type: "institution" },
+  { id: "tc-fr", nom: "The Conversation France", groupe: "tc-fr", url: TC + "fr/sante/articles.atom", zone: "fr", type: "analyse" },
+
+  { id: "ld-idees", nom: "Le Devoir", groupe: "ld", url: LD + "section/opinion/idees.xml", zone: "qc", type: "opinion" },
+  { id: "ld-lettres", nom: "Le Devoir", groupe: "ld", url: LD + "section/opinion/lettres.xml", zone: "qc", type: "opinion" },
+  { id: "ld-libre", nom: "Le Devoir", groupe: "ld", url: LD + "section/opinion/libre-opinion.xml", zone: "qc", type: "opinion" },
+  { id: "ld-editoriaux", nom: "Le Devoir", groupe: "ld", url: LD + "section/opinion/editoriaux.xml", zone: "qc", type: "opinion" },
+  { id: "lp-dialogue", nom: "La Presse", groupe: "lp", url: "https://www.lapresse.ca/dialogue/rss", zone: "qc", type: "opinion" },
+  { id: "tc-ca", nom: "La Conversation", groupe: "tc", url: TC + "ca-fr/sante/articles.atom", zone: "qc", type: "analyse" },
+
+  { id: "rc-science", nom: "Radio-Canada", groupe: "rc", url: RC + "science/en-continu", zone: "monde", type: "science" },
+  { id: "lp-sciences", nom: "La Presse", groupe: "lp", url: "https://www.lapresse.ca/actualites/sciences/rss", zone: "monde", type: "science" },
+  { id: "ld-science", nom: "Le Devoir", groupe: "ld", url: LD + "section/actualites/science.xml", zone: "monde", type: "science" },
+  { id: "qs", nom: "Québec Science", groupe: "qs", url: "https://www.quebecscience.qc.ca/feed/", zone: "monde", type: "science" },
+  { id: "asp", nom: "Agence Science-Presse", groupe: "asp", url: "https://www.sciencepresse.qc.ca/rss.xml", zone: "monde", type: "science" },
+  { id: "lemonde-sciences", nom: "Le Monde", groupe: "lemonde", url: "https://www.lemonde.fr/sciences/rss_full.xml", zone: "monde", type: "science" },
+  { id: "sciencesetavenir", nom: "Sciences et Avenir", groupe: "sea", url: "https://www.sciencesetavenir.fr/sante/rss.xml", zone: "monde", type: "science" },
+  { id: "futura", nom: "Futura", groupe: "futura", url: "https://www.futura-sciences.com/rss/sante/actualites.xml", zone: "monde", type: "science" },
+  { id: "inserm", nom: "Inserm", groupe: "inserm", url: "https://www.inserm.fr/feed/", zone: "monde", type: "science" },
+  { id: "sciencedaily", nom: "ScienceDaily", groupe: "sciencedaily", url: "https://www.sciencedaily.com/rss/health_medicine.xml", zone: "monde", type: "science", langue: "en" },
+  { id: "medicalxpress", nom: "Medical Xpress", groupe: "medicalxpress", url: "https://medicalxpress.com/rss-feed/", zone: "monde", type: "science", langue: "en" },
+  { id: "nature-medicine", nom: "Nature Medicine", groupe: "natmed", url: "https://www.nature.com/nm.rss", zone: "monde", type: "science", langue: "en" },
+
+  { id: "crchum", nom: "CRCHUM", groupe: "crchum", url: "https://www.chumontreal.qc.ca/crchum/nouvelles", zone: "qc", type: "recherche", page: "chum", delai: 2000 },
+  { id: "espum", nom: "ESPUM", groupe: "espum", url: "https://espum.umontreal.ca/lespum/nouvelles/", zone: "qc", type: "recherche", page: "espum", delai: 2000 },
+  { id: "udem", nom: "UdeM Nouvelles", groupe: "udem", url: "https://nouvelles.umontreal.ca/", zone: "qc", type: "recherche", page: "udem", delai: 2000, filtre: true },
+  { id: "frq", nom: "Fonds de recherche du Québec", groupe: "frq", url: "https://frq.gouv.qc.ca/feed/", zone: "qc", type: "recherche", filtre: true },
+  { id: "inrs", nom: "INRS", groupe: "inrs", url: "https://inrs.ca/feed/", zone: "qc", type: "recherche", filtre: true },
 ];
-// sante.quebec demande 30 s entre deux requêtes (robots.txt).
-const DELAI_PAGES = 31000;
 
 const PUBMED = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/";
-const EXCLUS_PUBMED = ' AND journal article[pt] NOT (comment[pt] OR editorial[pt] OR letter[pt] OR news[pt] OR published erratum[pt] OR retraction of publication[pt] OR expression of concern[pt] OR interview[pt] OR biography[pt]) AND hasabstract';
+const EXCLUS_PUBMED = " AND journal article[pt] NOT (comment[pt] OR editorial[pt] OR letter[pt] OR news[pt] OR published erratum[pt] OR retraction of publication[pt] OR expression of concern[pt] OR interview[pt] OR biography[pt]) AND hasabstract";
+const revues = noms => "(" + noms.map(n => `"${n}"[ta]`).join(" OR ") + ")";
 const REQUETES_PUBMED = [
-  {
-    cle: "revues",
-    jours: 7,
-    terme: '("N Engl J Med"[ta] OR "Lancet"[ta] OR "JAMA"[ta] OR "BMJ"[ta] OR "Nat Med"[ta] OR "CMAJ"[ta] OR "Lancet Public Health"[ta] OR "Lancet Glob Health"[ta] OR "Am J Public Health"[ta] OR "Can J Public Health"[ta])' + EXCLUS_PUBMED,
-  },
-  {
-    cle: "inspq",
-    jours: 30,
-    terme: '"Institut national de sante publique du Quebec"[ad]' + EXCLUS_PUBMED,
-  },
-  {
-    cle: "quebec",
-    jours: 14,
-    terme: '(Montreal[ad] OR Quebec[ad] OR Sherbrooke[ad] OR Laval[ad] OR "Trois-Rivieres"[ad] OR Rimouski[ad] OR Chicoutimi[ad] OR Gatineau[ad]) AND ("public health"[tiab] OR "population health"[tiab] OR "primary care"[tiab] OR "primary health care"[tiab] OR "health services"[tiab] OR "health policy"[tiab] OR "health system"[tiab] OR "social needs"[tiab] OR "social determinants"[tiab] OR "health equity"[tiab] OR "health inequalities"[tiab] OR epidemiolog*[tiab] OR "home care"[tiab] OR "integrated care"[tiab])' + EXCLUS_PUBMED,
-  },
+  { cle: "revues", jours: 7, terme: revues(["N Engl J Med", "Lancet", "JAMA", "BMJ", "Nat Med", "CMAJ", "Lancet Glob Health", "JAMA Intern Med"]) + EXCLUS_PUBMED },
+  { cle: "santePublique", jours: 7, terme: revues(["Lancet Public Health", "Am J Public Health", "Health Aff (Millwood)", "Milbank Q", "Health Policy", "Soc Sci Med", "BMJ Glob Health", "Eur J Public Health", "Int J Equity Health", "J Epidemiol Community Health", "Can J Public Health", "Health Soc Care Community", "Implement Sci"]) + EXCLUS_PUBMED },
+  { cle: "crchum", jours: 14, terme: '("CRCHUM"[ad] OR "Centre de recherche du CHUM"[ad] OR "CHUM Research Centre"[ad] OR "Centre hospitalier de l\'Universite de Montreal"[ad])' + EXCLUS_PUBMED },
+  { cle: "espum", jours: 45, terme: '("Ecole de sante publique de l\'Universite de Montreal"[ad] OR "School of Public Health, Universite de Montreal"[ad] OR "Universite de Montreal School of Public Health"[ad] OR ESPUM[ad])' + EXCLUS_PUBMED },
+  { cle: "inspq", jours: 30, terme: '"Institut national de sante publique du Quebec"[ad]' + EXCLUS_PUBMED },
+  { cle: "quebec", jours: 14, terme: '(Montreal[ad] OR Quebec[ad] OR Sherbrooke[ad] OR Laval[ad] OR "Trois-Rivieres"[ad] OR Rimouski[ad] OR Chicoutimi[ad] OR Gatineau[ad]) AND ("public health"[tiab] OR "population health"[tiab] OR "primary care"[tiab] OR "primary health care"[tiab] OR "health services"[tiab] OR "health policy"[tiab] OR "health system"[tiab] OR "social needs"[tiab] OR "social determinants"[tiab] OR "health equity"[tiab] OR "health inequalities"[tiab] OR epidemiolog*[tiab] OR "home care"[tiab] OR "integrated care"[tiab] OR "social services"[tiab] OR "community organizations"[tiab])' + EXCLUS_PUBMED },
 ];
 
 const HEURE = 3600e3;
+const JOUR = 24 * HEURE;
 const maintenant = Date.now();
 
 const sansAccents = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[’']/g, " ");
 const motif = liste => new RegExp("(?:^|[^a-z0-9])(?:" + liste.join("|") + ")", "i");
 
-const SANTE = motif(["sante", "hopita", "urgences?\\b", "medec", "medic", "infirmi", "patient", "soins?\\b", "soignant", "clinique", "clsc", "ciusss", "cisss", "gmf\\b", "chsld", "rpa\\b", "pharmac", "vaccin", "maladi", "cancer", "tumeur", "virus", "viral", "grippe", "covid", "rougeole", "ebola", "mpox", "epidem", "pandem", "eclosion", "infecti", "bacteri", "antibio", "psychiatr", "psycholog", "depressi", "anxi", "suicid", "dependanc", "surdose", "opioide", "fentanyl", "tabac", "vapot", "chirurg", "diagnos", "traitement", "therap", "nutrition", "obesit", "diabet", "cardiaq", "cardio", "alzheimer", "demence", "avc\\b", "greffe", "don d organe", "grossesse", "accouch", "postpartum", "sage-femme", "ramq", "inspq", "msss", "inesss", "itineran", "autism", "chum\\b", "cusm", "sainte-justine", "ambulanc", "paramedic", "vieilliss", "longevit", "sommeil", "sedentar", "listeri", "salmonell", "mortalite", "esperance de vie", "proche aidant", "aines", "dentist", "optometr", "physiotherap", "sante publique", "deces"]);
-const QUEBEC = motif(["quebec", "montreal", "laval\\b", "gatineau", "sherbrooke", "saguenay", "trois-rivieres", "rimouski", "levis", "longueuil", "estrie", "monteregie", "laurentides", "lanaudiere", "outaouais", "abitibi", "gaspesie", "cote-nord", "nunavik", "mauricie", "chaudiere-appalaches", "capitale-nationale", "bas-saint-laurent", "ciusss", "cisss", "chsld", "ramq", "inspq", "msss", "inesss", "sante quebec", "chum\\b", "cusm", "sainte-justine", "hema-quebec", "assemblee nationale", "gmf\\b", "clsc", "frq\\b"]);
-const DEBAT = motif(["debat", "controvers", "polemi", "critiqu", "denonc", "reclam", "s oppos", "opposition", "reforme", "projet de loi", "petition", "plaidoyer", "lettre ouverte", "faut-il", "doit-on", "remise en question", "inquietude", "deplor", "appel a"]);
+const SANTE = ["sante", "hopita", "urgences?\\b", "medec", "medic", "infirmi", "patient", "soins?\\b", "soignant", "clinique", "clsc", "ciusss", "cisss", "gmf\\b", "chsld", "rpa\\b", "pharmac", "vaccin", "maladi", "cancer", "tumeur", "virus", "viral", "grippe", "covid", "rougeole", "ebola", "mpox", "epidem", "pandem", "eclosion", "infecti", "bacteri", "antibio", "psychiatr", "psycholog", "depressi", "anxi", "suicid", "dependanc", "surdose", "opioide", "fentanyl", "tabac", "vapot", "chirurg", "diagnos", "traitement", "therap", "nutrition", "obesit", "diabet", "cardiaq", "cardio", "alzheimer", "demence", "avc\\b", "greffe", "don d organe", "grossesse", "accouch", "postpartum", "sage-femme", "ramq", "inspq", "msss", "inesss", "chum\\b", "cusm", "sainte-justine", "ambulanc", "paramedic", "vieilliss", "longevit", "sommeil", "sedentar", "listeri", "salmonell", "mortalite", "esperance de vie", "dentist", "optometr", "physiotherap", "deces", "menopause", "ehpad", "ars\\b", "assurance maladie", "assurance-maladie", "securite sociale", "plfss", "mutuelle", "deserts? medica", "aide-soignant"];
+const SOCIAL = ["services sociaux", "travail social", "travailleu[rs]e?s? sociaux", "intervenant", "communautaire", "organismes?\\b", "banques? alimentaire", "insecurite alimentaire", "aide alimentaire", "itineran", "sans-abri", "refuge", "logement social", "logements sociaux", "hlm\\b", "pauvrete", "precarite", "aide sociale", "solidarite sociale", "dpj\\b", "protection de la jeunesse", "protection de l enfance", "violence conjugale", "maison d hebergement", "proches? aidant", "aines\\b", "personnes agees", "handicap", "deficience", "autism", "sante mentale", "toxicomanie", "benevol", "philanthrop", "centraide", "action communautaire", "economie sociale", "rsa\\b", "allocation", "inclusion sociale"];
+const SECTEUR = motif([...SANTE, ...SOCIAL]);
+const SANTE_SEULE = motif(SANTE);
+const QUEBEC = motif(["quebec", "montreal", "laval\\b", "gatineau", "sherbrooke", "saguenay", "trois-rivieres", "rimouski", "levis", "longueuil", "estrie", "monteregie", "laurentides", "lanaudiere", "outaouais", "abitibi", "gaspesie", "cote-nord", "nunavik", "mauricie", "chaudiere-appalaches", "capitale-nationale", "bas-saint-laurent", "ciusss", "cisss", "chsld", "ramq", "inspq", "msss", "inesss", "sante quebec", "chum\\b", "cusm", "sainte-justine", "hema-quebec", "assemblee nationale", "gmf\\b", "clsc", "frq\\b", "dpj\\b"]);
+const CANADA = motif(["canada", "canadien", "ottawa", "federa", "ontari", "alberta", "colombie-britannique", "british columbia", "manitoba", "saskatchewan", "nouvelle-ecosse", "nova scotia", "nouveau-brunswick", "new brunswick", "terre-neuve", "newfoundland", "ile-du-prince-edouard", "prince edward island", "yukon", "nunavut", "territoires du nord-ouest", "northwest territories", "toronto", "vancouver", "calgary", "edmonton", "winnipeg", "halifax", "regina", "saskatoon", "hamilton", "sante canada", "health canada", "aspc\\b", "phac\\b", "irsc\\b", "cihr\\b"]);
+const DEBAT = motif(["debat", "controvers", "polemi", "critiqu", "denonc", "reclam", "s oppos", "opposition", "reforme", "projet de loi", "petition", "plaidoyer", "lettre ouverte", "faut-il", "doit-on", "remise en question", "inquietude", "deplor", "appel a", "mobilisation", "manifest"]);
 const DECOUVERTE = motif(["etude", "chercheu", "decouv", "percee", "essai clinique", "scientifi", "recherche", "molecule", "genetiq", "genome", "cellul", "prometteu", "premiere mondiale", "nouveau traitement", "nouvelle therap", "intelligence artificielle", "ia\\b", "biomarqueur", "neuron", "microbiote", "anticorps"]);
-const POSITIF = motif(["percee", "gueri", "guerison", "succes", "reussi", "espoir", "prometteu", "efficac", "sauve", "sauver", "don\\b", "don d", "greffe", "survi", "remission", "recul", "amelior", "innovation", "premiere mondiale", "gratuit", "elargi", "investi", "financement", "soutien", "benevol", "solidarit", "laureat", "distingu", "eradiq", "terminee", "declaree terminee", "bonne nouvelle", "bienfait", "benefi", "soulag", "autonomie", "retrouver", "nouvelle clinique", "ouverture", "recrut", "meilleurs soins", "plus de professionnels", "prevenir", "protege", "progres", "avancee", "celebr", "record de dons", "retour a domicile", "reduire", "reduit"]);
+const POSITIF = motif(["percee", "gueri", "guerison", "succes", "reussi", "espoir", "prometteu", "efficac", "sauve", "sauver", "don\\b", "don d", "greffe", "survi", "remission", "recul", "amelior", "innovation", "premiere mondiale", "gratuit", "elargi", "investi", "financement", "soutien", "benevol", "solidarit", "laureat", "distingu", "eradiq", "terminee", "declaree terminee", "bonne nouvelle", "bienfait", "benefi", "soulag", "autonomie", "retrouver", "nouvelle clinique", "ouverture", "recrut", "meilleurs soins", "plus de professionnels", "prevenir", "protege", "progres", "avancee", "celebr", "record de dons", "retour a domicile", "reduire", "reduit", "entraide"]);
 const NEGATIF = motif(["deces", "mort", "meurt", "decede", "tue", "victime", "crise", "penurie", "attente", "greve", "rupture", "eclosion", "epidemie", "cas de", "rappel", "risque", "danger", "alerte", "radie", "fraude", "poursuit", "poursuite", "compression", "coupe", "ferme", "fermeture", "deborde", "surcharg", "violence", "viol\\b", "agress", "abus", "suicid", "surdose", "inquiet", "menace", "grave", "hausse", "complication", "retard", "erreur", "scandal", "plainte", "enquete", "accus", "condamn", "deficit", "manque", "demission", "epuise", "detresse", "intoxic", "contamin", "listeri", "salmonell", "ebola", "effets secondaires", "difficile", "sombre", "drame", "tragedie", "meurtr", "cancer", "ne pas", "pire", "echec", "perte", "perd"]);
 
 const ENTITES = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ", rsquo: "’", lsquo: "‘", ldquo: "“", rdquo: "”", laquo: "«", raquo: "»", hellip: "…", ndash: "–", mdash: "—", eacute: "é", egrave: "è", agrave: "à", ccedil: "ç", ecirc: "ê", ocirc: "ô", icirc: "î" };
@@ -96,45 +131,63 @@ const lien = x => {
   const guid = texte(balise(x, "guid"));
   return /^https?:/.test(guid) ? guid : "";
 };
+const pause = ms => new Promise(f => setTimeout(f, ms));
 
 async function lire(url, essais = 2) {
   for (let i = 0; i < essais; i++) {
     try {
-      const r = await fetch(url, { headers: { "user-agent": UA, accept: "application/rss+xml, application/atom+xml, application/xml, text/xml, application/json, */*" }, signal: AbortSignal.timeout(20000), redirect: "follow" });
+      const r = await fetch(url, { headers: { "user-agent": UA, accept: "application/rss+xml, application/atom+xml, application/xml, text/xml, text/html, application/json, */*" }, signal: AbortSignal.timeout(20000), redirect: "follow" });
       if (r.ok) return await r.text();
       if (r.status < 500) return "";
     } catch {}
-    await new Promise(f => setTimeout(f, 1500));
+    await pause(1500);
   }
   return "";
 }
 
-const MOIS = { janv: 0, fevr: 1, mars: 2, avr: 3, mai: 4, juin: 5, juil: 6, aout: 7, sept: 8, oct: 9, nov: 10, dec: 11 };
+const MOIS = ["janv", "fevr", "mars", "avr", "mai", "juin", "juil", "aout", "sept", "oct", "nov", "dec"];
 function dateFrancaise(s) {
-  const m = sansAccents(s).match(/(\d{1,2})\s+([a-z]+)\.?\s+(\d{4})/);
-  if (!m || !(m[2] in MOIS)) return null;
-  return new Date(Date.UTC(+m[3], MOIS[m[2]], +m[1], 16));
+  const m = sansAccents(s || "").match(/(\d{1,2})(?:er)?\s+([a-z]+)\.?\s+(\d{4})/);
+  const mois = m ? MOIS.findIndex(k => m[2].startsWith(k)) : -1;
+  return mois < 0 ? null : new Date(Date.UTC(+m[3], mois, +m[1], 16));
 }
 
-function analyserSanteQuebec(html, source) {
-  const cartes = html.matchAll(/<a href="(\/actualites\/(?:communiques-presse|nouvelles)\/[^"]+)"[^>]*data-component_section="(?:article|tuile)"[^>]*>([\s\S]*?)<\/a>/g);
-  return [...cartes].map(([, chemin, bloc]) => {
-    const titre = texte((bloc.match(/<h3[^>]*>([\s\S]*?)<\/h3>/) || [])[1]);
-    const date = dateFrancaise((bloc.match(/<span[^>]*>\s*(\d{1,2}\s+[^<\d]{3,10}\s+\d{4})\s*<\/span>/) || [])[1] || "");
-    return { t: titre, u: "https://sante.quebec" + chemin, s: source.nom, g: source.groupe, src: source.id, type: source.type, quebecSource: true, d: date, resume: "" };
-  }).filter(a => a.t && a.d);
-}
+const article = (source, titre, url, date, resume = "") => ({
+  t: titre, u: url, s: source.nom, g: source.groupe, src: source.id, type: source.type, zone: source.zone,
+  l: source.langue || "fr", quebecSource: !!source.quebec, filtre: !!source.filtre, d: date, resume,
+});
+
+const PAGES = {
+  santeQuebec: (html, source) => [...html.matchAll(/<a href="(\/actualites\/(?:communiques-presse|nouvelles)\/[^"]+)"[^>]*data-component_section="(?:article|tuile)"[^>]*>([\s\S]*?)<\/a>/g)]
+    .map(([, chemin, bloc]) => article(source, texte((bloc.match(/<h3[^>]*>([\s\S]*?)<\/h3>/) || [])[1]), "https://sante.quebec" + chemin,
+      dateFrancaise((bloc.match(/<span[^>]*>\s*(\d{1,2}\s+[^<\d]{3,10}\s+\d{4})\s*<\/span>/) || [])[1]))),
+  chum: (html, source) => [...html.matchAll(/<article[^>]*>\s*<a href="(\/actualites\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/g)]
+    .map(([, chemin, bloc]) => article(source, texte((bloc.match(/<h2[^>]*>([\s\S]*?)<\/h2>/) || [])[1]), "https://www.chumontreal.qc.ca" + chemin,
+      dateFrancaise(texte((bloc.match(/<time[^>]*>([\s\S]*?)<\/time>/) || [])[1])))),
+  espum: (html, source) => html.split(/itemtype="http:\/\/schema\.org\/Article"/).slice(1).map(bloc => {
+    const a = bloc.match(/<a title="([^"]+)" href="(\/lespum\/nouvelles\/nouvelle\/news\/detail\/[^"]+)"/);
+    const d = bloc.match(/datetime="(\d{4}-\d{2}-\d{2})"/);
+    return a && d ? article(source, texte(a[1]), "https://espum.umontreal.ca" + a[2], new Date(d[1] + "T16:00:00Z")) : null;
+  }).filter(Boolean),
+  udem: (html, source) => {
+    const vus = new Map();
+    for (const [, chemin, a, m, j, bloc] of html.matchAll(/<a href="(\/article\/(\d{4})\/(\d{2})\/(\d{2})\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/g)) {
+      const morceaux = bloc.replace(/<!--[\s\S]*?-->/g, "").split(/<[^>]+>/).map(texte).filter(Boolean);
+      const titre = morceaux.sort((x, y) => y.length - x.length)[0] || "";
+      const rubrique = morceaux.length > 1 ? morceaux[morceaux.length - 1] : "";
+      if (titre.length > (vus.get(chemin)?.t.length || 0)) vus.set(chemin, article(source, titre, "https://nouvelles.umontreal.ca" + chemin, new Date(`${a}-${m}-${j}T16:00:00Z`), rubrique));
+    }
+    return [...vus.values()];
+  },
+};
 
 function analyser(xml, source) {
-  if (source.page === "santeQuebec") return analyserSanteQuebec(xml, source);
-  const blocs = xml.match(/<(item|entry)[\s>][\s\S]*?<\/\1>/gi) || [];
-  return blocs.map(b => {
-    const titre = texte(balise(b, "title"));
-    const resume = texte(balise(b, "description") || balise(b, "summary") || balise(b, "content")).slice(0, 600);
-    const brute = texte(balise(b, "pubDate") || balise(b, "published") || balise(b, "updated") || balise(b, "dc:date"));
-    const date = new Date(brute);
-    return { t: titre, u: lien(b), s: source.nom, g: source.groupe, src: source.id, type: source.type, quebecSource: !!source.quebec, d: isNaN(date) ? null : date, resume };
-  }).filter(a => a.t && a.u && a.d && a.d.getTime() <= maintenant + HEURE);
+  const liste = source.page ? PAGES[source.page](xml, source) : (xml.match(/<(item|entry)[\s>][\s\S]*?<\/\1>/gi) || []).map(b => {
+    const date = new Date(texte(balise(b, "pubDate") || balise(b, "published") || balise(b, "updated") || balise(b, "dc:date")));
+    return article(source, texte(balise(b, "title")), lien(b), isNaN(date) ? null : date,
+      texte(balise(b, "description") || balise(b, "summary") || balise(b, "content")).slice(0, 600));
+  });
+  return liste.filter(a => a.t && a.u && a.d && !isNaN(a.d) && a.d.getTime() <= maintenant + HEURE);
 }
 
 const normaliserUrl = u => u.replace(/[?#].*$/, "").replace(/\/$/, "").toLowerCase();
@@ -147,11 +200,21 @@ const ressemblance = (a, b) => {
   return { commun, jaccard: union ? commun / union : 0 };
 };
 
-const rechercheTexte = a => sansAccents(a.t + " " + a.resume);
-const estSante = a => a.type === "sante" || a.type === "analyse" || SANTE.test(rechercheTexte(a));
-const estSanteTitre = a => SANTE.test(sansAccents(a.t));
+const tout = a => sansAccents(a.t + " " + a.resume);
+const titreSecteur = a => SECTEUR.test(sansAccents(a.t));
 const recent = (a, heures) => maintenant - a.d.getTime() <= heures * HEURE;
 const compter = (re, s) => (s.match(new RegExp(re.source, "gi")) || []).length;
+// Un article d'un flux généraliste n'est retenu que si le secteur est dans le titre et revient dans le texte.
+const dansLeSecteur = a => a.type === "sante" || a.l === "en" || (titreSecteur(a) && compter(SECTEUR, tout(a)) >= 2);
+
+function region(a) {
+  if (a.zone === "fr") return "france";
+  const t = tout(a);
+  if (a.zone === "ca" && !a.quebecSource) return QUEBEC.test(sansAccents(a.t)) && !/hors quebec/.test(t) ? "quebec" : "canada";
+  if (a.quebecSource || (QUEBEC.test(t) && !/hors quebec/.test(t))) return "quebec";
+  if (a.zone === "ca" || CANADA.test(t)) return "canada";
+  return "monde";
+}
 
 function alterner(articles, max, cleGroupe = a => a.g) {
   const files = new Map();
@@ -178,12 +241,10 @@ function regrouper(articles) {
     if (cible) cible.membres.push({ a, j });
     else groupes.push({ membres: [{ a, j }] });
   }
+  const ordre = ["rc", "ld", "lp", "lact", "qmi", "metro"];
   return groupes.map(g => {
-    const medias = new Set(g.membres.map(m => m.a.g));
-    const dernier = Math.max(...g.membres.map(m => m.a.d.getTime()));
-    const ordre = ["rc", "ld", "lp", "lact", "qmi", "metro"];
     const tete = [...g.membres].sort((x, y) => ordre.indexOf(x.a.g) - ordre.indexOf(y.a.g) || y.a.d - x.a.d)[0].a;
-    return { tete, n: medias.size, dernier };
+    return { tete, n: new Set(g.membres.map(m => m.a.g)).size, dernier: Math.max(...g.membres.map(m => m.a.d.getTime())) };
   });
 }
 
@@ -198,8 +259,8 @@ function extrait(a) {
   let s = (a.resume || "")
     .replace(/https?:\/\/\S+/g, "")
     .replace(/(L’article|L'article|The post) .{0,200}(est apparu en premier sur|appeared first on) .*$/i, "")
-    .replace(/\s*(Lire la suite|Lire l’article|Continuer la lecture|Read more)\b.*$/i, "")
-    .replace(/\s*(\[…\]|\[\.\.\.\]|\[&#8230;\])\s*$/, "")
+    .replace(/\s*(Lire la suite|Lire l’article|Continuer la lecture|Read more|Continue reading)\b.*$/i, "")
+    .replace(/\s*(\[…\]|\[\.\.\.\])\s*$/, "")
     .trim();
   if (sansAccents(s).startsWith(sansAccents(a.t))) s = s.slice(a.t.length).replace(/^[\s:.,–—|-]+/, "");
   if (s.length < 40) return "";
@@ -208,8 +269,28 @@ function extrait(a) {
 
 const sortir = a => {
   const x = a.x ?? extrait(a);
-  return { t: a.t, u: a.u, s: a.s, d: a.d.toISOString(), ...(x ? { x } : {}), ...(a.n > 1 ? { n: a.n } : {}), ...(a.r ? { r: a.r } : {}), ...(a.q ? { q: 1 } : {}), ...(a.i ? { i: 1 } : {}) };
+  return { t: a.t, u: a.u, s: a.s, d: a.d.toISOString(), ...(x ? { x } : {}), ...(a.l === "en" ? { l: "en" } : {}), ...(a.n > 1 ? { n: a.n } : {}), ...(a.r ? { r: a.r } : {}), ...(a.e ? { e: a.e } : {}) };
 };
+
+async function pubmed() {
+  const resultats = {};
+  for (const req of REQUETES_PUBMED) {
+    const p = new URLSearchParams({ db: "pubmed", term: req.terme, reldate: String(req.jours), datetype: "edat", retmax: "60", retmode: "json", tool: "revue-presse-sante" });
+    const ids = JSON.parse((await lire(PUBMED + "esearch.fcgi?" + p)) || "{}").esearchresult?.idlist || [];
+    await pause(400);
+    if (!ids.length) { resultats[req.cle] = []; continue; }
+    const resume = JSON.parse((await lire(PUBMED + "esummary.fcgi?" + new URLSearchParams({ db: "pubmed", id: ids.join(","), retmode: "json", tool: "revue-presse-sante" }))) || "{}");
+    await pause(400);
+    resultats[req.cle] = (resume.result?.uids || []).map(uid => resume.result[uid]).filter(Boolean).map(f => {
+      const entree = (f.history || []).find(h => h.pubstatus === "entrez")?.date || f.sortpubdate;
+      const date = new Date((entree || "").replace(/\//g, "-").replace(" ", "T"));
+      const types = (f.pubtype || []).join(" ");
+      const poids = /Randomized Controlled Trial|Systematic Review|Meta-Analysis/.test(types) ? 3 : /Clinical Trial|Observational/.test(types) ? 2 : 1;
+      return { t: texte(f.title).replace(/\.$/, ""), u: `https://pubmed.ncbi.nlm.nih.gov/${f.uid}/`, pmid: f.uid, s: "PubMed", r: f.source, g: f.source, l: "en", d: isNaN(date) ? new Date(maintenant) : date, poids };
+    }).filter(a => a.t && !/^(correction|erratum|retraction|reply|response)/i.test(a.t));
+  }
+  return resultats;
+}
 
 async function conclusions(articles) {
   const ids = articles.map(a => a.pmid).filter(Boolean);
@@ -231,29 +312,7 @@ async function conclusions(articles) {
   for (const a of articles) if (trouves[a.pmid]) a.x = trouves[a.pmid];
 }
 
-async function pubmed() {
-  const resultats = {};
-  for (const req of REQUETES_PUBMED) {
-    const p = new URLSearchParams({ db: "pubmed", term: req.terme, reldate: String(req.jours), datetype: "edat", retmax: "60", retmode: "json", tool: "revue-presse-sante" });
-    const recherche = JSON.parse((await lire(PUBMED + "esearch.fcgi?" + p)) || "{}");
-    const ids = recherche.esearchresult?.idlist || [];
-    await new Promise(f => setTimeout(f, 400));
-    if (!ids.length) { resultats[req.cle] = []; continue; }
-    const resume = JSON.parse((await lire(PUBMED + "esummary.fcgi?" + new URLSearchParams({ db: "pubmed", id: ids.join(","), retmode: "json", tool: "revue-presse-sante" }))) || "{}");
-    await new Promise(f => setTimeout(f, 400));
-    const fiches = (resume.result?.uids || []).map(uid => resume.result[uid]).filter(Boolean);
-    resultats[req.cle] = fiches.map(f => {
-      const entree = (f.history || []).find(h => h.pubstatus === "entrez")?.date || f.sortpubdate;
-      const date = new Date((entree || "").replace(/\//g, "-").replace(" ", "T"));
-      const types = (f.pubtype || []).join(" ");
-      const poids = /Randomized Controlled Trial/.test(types) ? 3 : /Systematic Review|Meta-Analysis/.test(types) ? 3 : /Clinical Trial|Observational/.test(types) ? 2 : 1;
-      return { t: texte(f.title).replace(/\.$/, ""), u: `https://pubmed.ncbi.nlm.nih.gov/${f.uid}/`, pmid: f.uid, s: "PubMed", r: f.source, g: f.source, d: isNaN(date) ? new Date(maintenant) : date, poids, q: req.cle === "quebec" };
-    }).filter(a => a.t && !/^(correction|erratum|retraction|reply|response)/i.test(a.t));
-  }
-  return resultats;
-}
-
-function bonneNouvelle(articles, precedente, jour) {
+function nouvelleEncourageante(articles, precedente, jour) {
   if (precedente?.bonne?.jour === jour && precedente.bonne.u) {
     const meme = articles.find(a => normaliserUrl(a.u) === normaliserUrl(precedente.bonne.u));
     const x = precedente.bonne.x || (meme && extrait(meme));
@@ -261,12 +320,12 @@ function bonneNouvelle(articles, precedente, jour) {
   }
   const dejaVues = new Set((precedente?.bonnesRecentes || []).map(normaliserUrl));
   const candidates = articles
-    .filter(a => estSante(a) && a.type !== "opinion" && !dejaVues.has(normaliserUrl(a.u)))
+    .filter(a => a.l === "fr" && a.type !== "opinion" && a.type !== "loi" && dansLeSecteur(a) && SECTEUR.test(tout(a)) && !dejaVues.has(normaliserUrl(a.u)))
     .map(a => {
-      const titre = sansAccents(a.t), tout = rechercheTexte(a);
-      const pos = compter(POSITIF, titre) * 2 + compter(POSITIF, tout);
+      const titre = sansAccents(a.t);
+      const pos = compter(POSITIF, titre) * 2 + compter(POSITIF, tout(a));
       const neg = compter(NEGATIF, titre) * 2 + compter(NEGATIF, sansAccents(a.resume));
-      return { a, pos, neg, score: pos - 1.5 * neg };
+      return { a, pos, score: pos - 1.5 * neg };
     })
     .filter(c => c.pos >= 2 && compter(NEGATIF, sansAccents(c.a.t)) === 0);
   for (const fenetre of [36, 96, 24 * 7]) {
@@ -276,16 +335,14 @@ function bonneNouvelle(articles, precedente, jour) {
   return precedente?.bonne?.u ? precedente.bonne : null;
 }
 
-async function principal() {
-  let precedente = null;
-  if (cheminPrecedent) {
-    try { precedente = JSON.parse(await readFile(cheminPrecedent, "utf8")); } catch {}
-  }
+async function lireSources() {
   const pages = async () => {
     const sortie = [];
+    let precedent = null;
     for (const s of SOURCES.filter(s => s.page)) {
-      if (sortie.length) await new Promise(f => setTimeout(f, DELAI_PAGES));
+      if (precedent) await pause(Math.max(precedent.delai, s.delai));
       sortie.push({ s, xml: await lire(s.url, 1) });
+      precedent = s;
     }
     return sortie;
   };
@@ -293,11 +350,18 @@ async function principal() {
     Promise.all(SOURCES.filter(s => !s.page).map(async s => ({ s, xml: await lire(s.url) }))),
     pages(),
   ]);
-  const lus = [...flux, ...lesPages];
+  return [...flux, ...lesPages];
+}
+
+async function principal() {
+  let precedente = null;
+  if (cheminPrecedent) {
+    try { precedente = JSON.parse(await readFile(cheminPrecedent, "utf8")); } catch {}
+  }
   const etat = {};
   const vus = new Set();
   const articles = [];
-  for (const { s, xml } of lus) {
+  for (const { s, xml } of await lireSources()) {
     const liste = analyser(xml, s);
     etat[s.id] = liste.length;
     for (const a of liste) {
@@ -309,61 +373,65 @@ async function principal() {
   }
   articles.sort((x, y) => y.d - x.d);
 
-  const nouvelles = articles.filter(a => a.type === "sante" || (a.type === "general" && estSanteTitre(a) && compter(SANTE, rechercheTexte(a)) >= 2));
-  let fenetre = 24, une = [];
+  const nouvelles = articles.filter(a => ["sante", "general", "institution", "loi"].includes(a.type) && dansLeSecteur(a));
+  const parRegion = cle => nouvelles.filter(a => region(a) === cle);
+
+  let fenetre = 24, groupes = [];
+  const francophones = nouvelles.filter(a => a.l === "fr" && a.zone !== "fr" && (a.type === "sante" || a.type === "general"));
   while (fenetre <= 96) {
-    une = regrouper(nouvelles.filter(a => recent(a, fenetre)));
-    if (une.length >= 6) break;
+    groupes = regrouper(francophones.filter(a => recent(a, fenetre)));
+    if (groupes.length >= 6) break;
     fenetre *= 2;
   }
-  const repris = une.filter(g => g.n > 1).sort((x, y) => y.n - x.n || y.dernier - x.dernier).map(g => ({ ...g.tete, n: g.n }));
-  const seuls = une.filter(g => g.n === 1).sort((x, y) => y.dernier - x.dernier).map(g => g.tete);
-  une = [...repris, ...alterner(seuls, 6)].slice(0, 6);
+  const repris = groupes.filter(g => g.n > 1).sort((x, y) => y.n - x.n || y.dernier - x.dernier).map(g => ({ ...g.tete, n: g.n }));
+  const seuls = groupes.filter(g => g.n === 1).sort((x, y) => y.dernier - x.dernier).map(g => g.tete);
+  const une = [...repris, ...alterner(seuls, 6)].slice(0, 6);
 
-  const quebec = alterner(
-    nouvelles.filter(a => recent(a, 72) && (QUEBEC.test(rechercheTexte(a)) || a.quebecSource)),
-    8,
-  );
+  const quebec = alterner(parRegion("quebec").filter(a => recent(a, a.type === "loi" ? 24 * 21 : a.type === "institution" ? 24 * 14 : 96)), 10);
+  const canada = alterner(parRegion("canada").filter(a => recent(a, a.type === "institution" ? 24 * 14 : 96)), 8);
+  const france = alterner(parRegion("france").filter(a => recent(a, a.type === "institution" ? 24 * 14 : 72)), 8);
 
-  const debats = alterner(
-    articles.filter(a => recent(a, 24 * 7) && (
-      ((a.type === "opinion") && SANTE.test(sansAccents(a.t + " " + a.resume)) && estSanteTitre(a)) ||
-      a.type === "analyse" ||
-      ((a.type === "sante" || a.type === "general") && estSanteTitre(a) && DEBAT.test(sansAccents(a.t)))
-    )),
-    8,
-  );
+  const debats = alterner(articles.filter(a => recent(a, 24 * 7) && (
+    (a.type === "opinion" && titreSecteur(a) && compter(SECTEUR, tout(a)) >= 2) ||
+    a.type === "analyse" ||
+    ((a.type === "sante" || a.type === "general") && a.l === "fr" && dansLeSecteur(a) && DEBAT.test(sansAccents(a.t)))
+  )), 8);
 
   const decouvertes = alterner(
     articles
-      .filter(a => recent(a, 24 * 7) && a.type !== "opinion" && a.type !== "institution" && (
-        (a.type === "science" && (estSanteTitre(a) || (SANTE.test(rechercheTexte(a)) && DECOUVERTE.test(sansAccents(a.t))))) ||
-        ((a.type === "sante" || a.type === "analyse") && DECOUVERTE.test(sansAccents(a.t)))
+      .filter(a => recent(a, 24 * 7) && (
+        (a.type === "science" && (a.l === "en" || SANTE_SEULE.test(sansAccents(a.t)) || (SANTE_SEULE.test(tout(a)) && DECOUVERTE.test(sansAccents(a.t))))) ||
+        ((a.type === "sante" || a.type === "analyse") && a.l === "fr" && DECOUVERTE.test(sansAccents(a.t)))
       ))
-      .map(a => ({ a, score: compter(DECOUVERTE, sansAccents(a.t)) * 2 + compter(DECOUVERTE, sansAccents(a.resume)) + (estSanteTitre(a) ? 2 : 0) }))
+      .map(a => ({ a, score: a.l === "en" ? 3 : compter(DECOUVERTE, sansAccents(a.t)) * 2 + compter(DECOUVERTE, sansAccents(a.resume)) + (SANTE_SEULE.test(sansAccents(a.t)) ? 2 : 0) }))
       .sort((x, y) => y.score - x.score || y.a.d - x.a.d)
       .map(c => c.a),
-    8,
-  );
-
-  const publications = alterner(
-    articles.filter(a => a.type === "institution" && recent(a, 24 * 30) && (a.src !== "frq" || estSanteTitre(a))),
-    8,
+    10,
   );
 
   const pm = await pubmed();
-  const revues = alterner([...(pm.revues || [])].sort((x, y) => y.poids - x.poids || y.d - x.d), 4, a => a.r);
-  const inspq = (pm.inspq || []).sort((x, y) => y.d - x.d).slice(0, 2).map(a => ({ ...a, q: false, i: true }));
-  const dejaPris = new Set(inspq.map(a => a.u));
-  const quebecRecherche = (pm.quebec || []).filter(a => !dejaPris.has(a.u)).sort((x, y) => y.d - x.d).slice(0, 3);
-  const recherche = [...revues, ...inspq, ...quebecRecherche];
-  await conclusions(recherche);
+  const plusRecents = (liste, n) => [...(liste || [])].sort((x, y) => y.d - x.d).slice(0, n);
+  const pmRecherche = [
+    ...plusRecents(pm.crchum, 2).map(a => ({ ...a, e: "CRCHUM" })),
+    ...plusRecents(pm.espum, 2).map(a => ({ ...a, e: "ESPUM" })),
+    ...plusRecents(pm.inspq, 1).map(a => ({ ...a, e: "INSPQ" })),
+  ];
+  const dejaPris = new Set(pmRecherche.map(a => a.u));
+  pmRecherche.push(...plusRecents((pm.quebec || []).filter(a => !dejaPris.has(a.u)), 2).map(a => ({ ...a, e: "Québec" })));
+  const nouvellesRecherche = alterner(articles.filter(a => a.type === "recherche" && recent(a, 24 * 45) && (!a.filtre || SECTEUR.test(tout(a)))), 6);
+  const recherche = [...nouvellesRecherche, ...pmRecherche];
+
+  const publications = [
+    ...alterner([...(pm.revues || [])].sort((x, y) => y.poids - x.poids || y.d - x.d), 5, a => a.r),
+    ...alterner([...(pm.santePublique || [])].sort((x, y) => y.poids - x.poids || y.d - x.d), 4, a => a.r),
+  ];
+  await conclusions([...pmRecherche, ...publications]);
 
   const jour = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Montreal" }).format(new Date(maintenant));
-  const bonne = bonneNouvelle(articles, precedente, jour);
+  const bonne = nouvelleEncourageante(articles, precedente, jour);
   const bonnesRecentes = [...new Set([bonne?.u, ...(precedente?.bonnesRecentes || [])].filter(Boolean))].slice(0, 14);
 
-  const rubriques = { une, quebec, debats, decouvertes, recherche, publications };
+  const rubriques = { une, quebec, canada, france, debats, decouvertes, recherche, publications };
   for (const [cle, liste] of Object.entries(rubriques)) {
     rubriques[cle] = liste.map(sortir);
     if (!rubriques[cle].length && precedente?.rubriques?.[cle]?.length) rubriques[cle] = precedente.rubriques[cle];
@@ -373,14 +441,14 @@ async function principal() {
     maj: new Date(maintenant).toISOString(),
     bonne,
     rubriques,
-    sources: [...new Set(SOURCES.map(s => s.nom)), "PubMed"],
+    sources: [...new Set([...SOURCES.map(s => s.nom), "PubMed"])],
     bonnesRecentes,
     etat,
   };
   await mkdir(dirname(cheminSortie), { recursive: true });
   await writeFile(cheminSortie, JSON.stringify(sortie, null, 1) + "\n");
   const total = Object.values(etat).reduce((x, y) => x + y, 0);
-  console.log(`${articles.length} articles uniques (${total} lus) ; ` + Object.entries(rubriques).map(([k, v]) => `${k} ${v.length}`).join(", ") + ` ; bonne nouvelle : ${bonne ? bonne.t : "aucune"}`);
+  console.log(`${articles.length} articles uniques (${total} lus) ; ` + Object.entries(rubriques).map(([k, v]) => `${k} ${v.length}`).join(", ") + ` ; nouvelle encourageante : ${bonne ? bonne.t : "aucune"}`);
   const vides = Object.entries(etat).filter(([, n]) => !n).map(([k]) => k);
   if (vides.length) console.log("Flux sans article : " + vides.join(", "));
   if (total === 0) process.exitCode = 1;

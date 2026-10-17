@@ -5,15 +5,15 @@
   const DONNEES = "https://raw.githubusercontent.com/ERJB-web/ERJB-web.github.io/revue-presse-donnees/revue-presse.json";
   const SECOURS = (document.documentElement.dataset.racine || "./") + "assets/revue-presse.json";
   const RAFRAICHIR = 10 * 60e3;
-  const ORDRE = ["une", "quebec", "debats", "decouvertes", "recherche", "publications"];
+  const ORDRE = ["une", "quebec", "canada", "france", "debats", "decouvertes", "recherche", "publications"];
 
   const TEXTES = {
-    fr: { marque: "Éric Bernier · Revue de presse", accroche: "Santé publique · Québec · Recherche", titre: ["Actualité", "en santé"], maj: "Mise à jour {t}", attente: "Chargement de l’actualité…", indispo: "L’actualité est momentanément indisponible.", bonne: "Nouvelle encourageante du jour", rubriques: ["À la une", "Québec", "Débats", "Découvertes", "Recherche", "Publications"], medias: n => `${n} médias`, vide: "Rien de nouveau dans cette rubrique pour l’instant.", sources: "Sources", onglets: "Rubriques de l’actualité en santé", quebec: "Québec", langue: "" },
-    en: { marque: "Éric Bernier · Press review", accroche: "Public health · Québec · Research", titre: ["Health", "news"], maj: "Updated {t}", attente: "Loading the news…", indispo: "The news is temporarily unavailable.", bonne: "Encouraging news of the day", rubriques: ["Top stories", "Québec", "Debates", "Discoveries", "Research", "Publications"], medias: n => `${n} outlets`, vide: "Nothing new in this section yet.", sources: "Sources", onglets: "Health news sections", quebec: "Québec", langue: "Articles in French; research summaries in English" },
-    es: { marque: "Éric Bernier · Revista de prensa", accroche: "Salud pública · Quebec · Investigación", titre: ["Actualidad", "en salud"], maj: "Actualizado {t}", attente: "Cargando las noticias…", indispo: "Las noticias no están disponibles por el momento.", bonne: "Noticia alentadora del día", rubriques: ["Portada", "Quebec", "Debates", "Descubrimientos", "Investigación", "Publicaciones"], medias: n => `${n} medios`, vide: "Nada nuevo en esta sección por ahora.", sources: "Fuentes", onglets: "Secciones de actualidad en salud", quebec: "Quebec", langue: "Artículos en francés; investigación en inglés" },
-    zh: { marque: "Éric Bernier · 新闻综述", accroche: "公共卫生 · 魁北克 · 研究", titre: ["健康", "资讯"], maj: "更新于{t}", attente: "正在加载资讯…", indispo: "资讯暂时无法显示。", bonne: "今日鼓舞人心的消息", rubriques: ["头条", "魁北克", "辩论", "发现", "研究", "出版物"], medias: n => `${n} 家媒体`, vide: "此栏目暂无新内容。", sources: "来源", onglets: "健康资讯栏目", quebec: "魁北克", langue: "文章为法语，研究摘要为英语" },
-    ar: { marque: "إريك برنييه · مراجعة صحفية", accroche: "الصحة العامة · كيبيك · البحث", titre: ["أخبار", "الصحة"], maj: "آخر تحديث {t}", attente: "جارٍ تحميل الأخبار…", indispo: "الأخبار غير متاحة مؤقتًا.", bonne: "خبر مشجّع اليوم", rubriques: ["أبرز الأخبار", "كيبيك", "نقاشات", "اكتشافات", "أبحاث", "منشورات"], medias: n => `${n} وسائل إعلام`, vide: "لا جديد في هذا القسم حاليًا.", sources: "المصادر", onglets: "أقسام أخبار الصحة", quebec: "كيبيك", langue: "المقالات بالفرنسية، والأبحاث بالإنجليزية" },
-    ru: { marque: "Éric Bernier · Обзор прессы", accroche: "Общественное здоровье · Квебек · Исследования", titre: ["Новости", "здоровья"], maj: "Обновлено {t}", attente: "Загрузка новостей…", indispo: "Новости временно недоступны.", bonne: "Обнадёживающая новость дня", rubriques: ["Главное", "Квебек", "Дебаты", "Открытия", "Исследования", "Публикации"], medias: n => `СМИ: ${n}`, vide: "В этом разделе пока нет новостей.", sources: "Источники", onglets: "Разделы новостей здоровья", quebec: "Квебек", langue: "Статьи на французском, исследования на английском" },
+    fr: { marque: "Éric Bernier · Revue de presse", accroche: "Québec · Canada · France · Monde", titre: ["Actualité en recherche, santé,", "services sociaux et communautaires"], maj: "Mise à jour {t}", attente: "Chargement de l’actualité…", indispo: "L’actualité est momentanément indisponible.", bonne: "Nouvelle encourageante du jour", rubriques: ["À la une", "Québec", "Canada", "France", "Débats", "Découvertes", "Recherche", "Publications"], medias: n => `${n} médias`, vide: "Rien de nouveau dans cette rubrique pour l’instant.", sources: "Sources", onglets: "Rubriques de l’actualité", quebec: "Québec", langue: "" },
+    en: { marque: "Éric Bernier · Press review", accroche: "Québec · Canada · France · World", titre: ["News in research, health,", "social and community services"], maj: "Updated {t}", attente: "Loading the news…", indispo: "The news is temporarily unavailable.", bonne: "Encouraging news of the day", rubriques: ["Top stories", "Québec", "Canada", "France", "Debates", "Discoveries", "Research", "Publications"], medias: n => `${n} outlets`, vide: "Nothing new in this section yet.", sources: "Sources", onglets: "News sections", quebec: "Québec", langue: "Articles in their original language" },
+    es: { marque: "Éric Bernier · Revista de prensa", accroche: "Quebec · Canadá · Francia · Mundo", titre: ["Actualidad en investigación, salud,", "servicios sociales y comunitarios"], maj: "Actualizado {t}", attente: "Cargando las noticias…", indispo: "Las noticias no están disponibles por el momento.", bonne: "Noticia alentadora del día", rubriques: ["Portada", "Quebec", "Canadá", "Francia", "Debates", "Descubrimientos", "Investigación", "Publicaciones"], medias: n => `${n} medios`, vide: "Nada nuevo en esta sección por ahora.", sources: "Fuentes", onglets: "Secciones de actualidad", quebec: "Quebec", langue: "Artículos en su idioma original" },
+    zh: { marque: "Éric Bernier · 新闻综述", accroche: "魁北克 · 加拿大 · 法国 · 全球", titre: ["研究、健康、", "社会与社区服务资讯"], maj: "更新于{t}", attente: "正在加载资讯…", indispo: "资讯暂时无法显示。", bonne: "今日鼓舞人心的消息", rubriques: ["头条", "魁北克", "加拿大", "法国", "辩论", "发现", "研究", "出版物"], medias: n => `${n} 家媒体`, vide: "此栏目暂无新内容。", sources: "来源", onglets: "资讯栏目", quebec: "魁北克", langue: "文章保留原文语言" },
+    ar: { marque: "إريك برنييه · مراجعة صحفية", accroche: "كيبيك · كندا · فرنسا · العالم", titre: ["أخبار البحث والصحة", "والخدمات الاجتماعية والمجتمعية"], maj: "آخر تحديث {t}", attente: "جارٍ تحميل الأخبار…", indispo: "الأخبار غير متاحة مؤقتًا.", bonne: "خبر مشجّع اليوم", rubriques: ["أبرز الأخبار", "كيبيك", "كندا", "فرنسا", "نقاشات", "اكتشافات", "أبحاث", "منشورات"], medias: n => `${n} وسائل إعلام`, vide: "لا جديد في هذا القسم حاليًا.", sources: "المصادر", onglets: "أقسام الأخبار", quebec: "كيبيك", langue: "المقالات بلغتها الأصلية" },
+    ru: { marque: "Éric Bernier · Обзор прессы", accroche: "Квебек · Канада · Франция · Мир", titre: ["Новости исследований, здравоохранения,", "социальных и общественных служб"], maj: "Обновлено {t}", attente: "Загрузка новостей…", indispo: "Новости временно недоступны.", bonne: "Обнадёживающая новость дня", rubriques: ["Главное", "Квебек", "Канада", "Франция", "Дебаты", "Открытия", "Исследования", "Публикации"], medias: n => `СМИ: ${n}`, vide: "В этом разделе пока нет новостей.", sources: "Источники", onglets: "Разделы новостей", quebec: "Квебек", langue: "Статьи на языке оригинала" },
   };
   const code = (document.documentElement.lang || "fr").slice(0, 2);
   const langue = TEXTES[code] ? code : "fr";
@@ -42,7 +42,7 @@
     return n;
   };
 
-  const langueArticle = a => (a.s === "PubMed" ? "en" : "fr");
+  const langueArticle = a => (a.s === "PubMed" || a.l === "en" ? "en" : "fr");
 
   const lienArticle = a => {
     const lien = el("a", { href: a.u, target: "_blank", rel: "noopener", lang: langueArticle(a), dir: "ltr" });
@@ -59,8 +59,7 @@
     const morceaux = [el("bdi", { class: "revue-source", texte: a.s === "PubMed" ? (a.r || "PubMed") : a.s })];
     morceaux.push(el("time", { datetime: a.d, texte: quand(a.d) }));
     if (a.n > 1) morceaux.push(el("span", { class: "revue-etiquette", texte: T.medias(a.n) }));
-    if (a.i) morceaux.push(el("span", { class: "revue-etiquette", texte: "INSPQ" }));
-    else if (a.q) morceaux.push(el("span", { class: "revue-etiquette", texte: T.quebec }));
+    if (a.e) morceaux.push(el("span", { class: "revue-etiquette", texte: a.e === "Québec" ? T.quebec : a.e }));
     morceaux.forEach((m, i) => { if (i) ligne.append(el("span", { class: "revue-point", "aria-hidden": "true", texte: "·" })); ligne.append(m); });
     return ligne;
   };
@@ -124,7 +123,9 @@
       );
     }
     const sources = donnees.sources || [];
-    pied.replaceChildren(el("span", { class: "revue-pied-titre", texte: T.sources + " : " }), el("span", { lang: "fr", texte: sources.join(" · ") }));
+    pied.replaceChildren(el("details", {},
+      el("summary", { texte: `${T.sources} (${sources.length})` }),
+      el("span", { lang: "fr", texte: sources.join(" · ") })));
     remplirListe();
   }
 
