@@ -40,5 +40,10 @@
       784
     ]
   },
-  "fleuve": "hall-ville-fleuve.png : masque des zones d’eau visibles, pour les bateaux dessinés par hall-ciel.js."
+  "fleuve": "hall-ville-fleuve.png : masque des zones d’eau visibles, pour les bateaux dessinés par hall-ciel.js.",
+  "sol": {
+    "texture": "granite_tile (Poly Haven, https://polyhaven.com/a/granite_tile), auteure Charlotte Baglioni",
+    "licence": "CC0",
+    "traitement": "Niveaux éclaircis, projection en perspective (hall/interieur.py)"
+  }
 }
