@@ -4690,3 +4690,50 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
   display: block;
   max-width: 100%;
 }
+
+
+/* Objectif 2 — capture Power BI du 211 en pleine largeur (annexe A18). */
+.m-o2 .bloc-illustre.m-egal:has(> figure img[src$="diapo-49.webp"]) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(18px, 2.5vw, 30px);
+  margin-block: 2rem 2.8rem;
+}
+.m-o2 .bloc-illustre.m-egal:has(> figure img[src$="diapo-49.webp"]) > div {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+}
+.m-o2 .bloc-illustre.m-egal:has(> figure img[src$="diapo-49.webp"]) > figure {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+}
+.m-o2 .bloc-illustre.m-egal:has(> figure img[src$="diapo-49.webp"]) > figure > a {
+  display: block;
+  width: 100%;
+  max-width: none;
+  cursor: zoom-in;
+}
+.m-o2 .bloc-illustre.m-egal:has(> figure img[src$="diapo-49.webp"]) > figure img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  image-rendering: auto;
+  border-radius: 12px;
+}
+.m-o2 .bloc-illustre.m-egal:has(> figure img[src$="diapo-49.webp"]) figcaption {
+  width: 100%;
+  max-width: none;
+  margin-top: .8rem;
+  font-size: clamp(.9rem, 1.05vw, 1.05rem);
+  line-height: 1.55;
+  text-align: left;
+  hyphens: none;
+  word-break: normal;
+}
