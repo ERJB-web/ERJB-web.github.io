@@ -3224,3 +3224,28 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
 @media(max-width:560px){.contact-grille .contact-droite .liens-contact{grid-template-columns:1fr}}
 .contact-grille .contact-droite .colonne-texte>*{text-align:center!important;margin-inline:auto;text-align-last:center}
 .contact-grille .contact-droite .colonne-texte>.surtitre{display:flex;justify-content:center;width:100%}
+/* Ma thèse · cartes O2 en exemple */
+.cartes-o2{margin:36px 0 8px;padding:28px 0 0;border-top:1px solid var(--line,#dfe7e5)}
+.cartes-o2 .titre-bloc{margin-top:2px}
+.cartes-o2-intro{max-width:78ch;line-height:1.7}
+.cartes-o2-apres{margin:18px 0 26px;padding:16px 20px;border-inline-start:3px solid var(--gsk-bleu,#237a9a);border-radius:0 10px 10px 0;background:#f2f7f9}
+.cartes-o2-apres strong{display:block;margin-bottom:6px;color:var(--ink-deep,#173f52)}
+.cartes-o2-apres p{margin:0;line-height:1.65}
+.cartes-o2-sous{margin:6px 0 12px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.cartes-o2-outils{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-bottom:26px}
+.cartes-o2 figure{margin:0}
+.cartes-o2 figure a{display:block;overflow:hidden;border:1px solid #d9e3e6;border-radius:10px;background:#fff;box-shadow:0 2px 8px -4px rgba(23,63,82,.18);transition:box-shadow .2s ease,transform .2s ease}
+.cartes-o2 figure a:hover,.cartes-o2 figure a:focus-visible{transform:translateY(-2px);box-shadow:0 10px 22px -10px rgba(23,63,82,.35)}
+.cartes-o2 figure img{display:block;width:100%;height:auto}
+.cartes-o2-outils img{aspect-ratio:16/8.5;object-fit:cover;object-position:top left}
+.cartes-o2 figcaption{margin-top:8px;font-size:13px;line-height:1.45;color:var(--muted)}
+.cartes-o2-section{margin:0 0 10px;border:1px solid #dce6e9;border-radius:12px;background:#fff}
+.cartes-o2-section>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;cursor:pointer;font-weight:600;color:var(--ink-deep,#173f52);list-style:none}
+.cartes-o2-section>summary::-webkit-details-marker{display:none}
+.cartes-o2-section>summary span{min-width:28px;padding:2px 9px;border-radius:999px;background:#eef4f6;font-size:12px;font-weight:600;color:#4b5e66;text-align:center}
+.cartes-o2-section>summary::after{content:"";width:9px;height:9px;margin-inline-start:4px;border-right:2px solid #7a8b92;border-bottom:2px solid #7a8b92;transform:rotate(45deg);transition:transform .2s ease}
+.cartes-o2-section[open]>summary::after{transform:rotate(-135deg)}
+.cartes-o2-section>summary span{margin-inline-start:auto}
+.cartes-o2-grille{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;padding:4px 18px 20px}
+@media(max-width:640px){.cartes-o2-outils{grid-template-columns:1fr}.cartes-o2-grille{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;padding:4px 12px 14px}}
+@media(prefers-reduced-motion:reduce){.cartes-o2 figure a{transition:none}}
