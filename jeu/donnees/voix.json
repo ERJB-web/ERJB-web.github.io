@@ -907,6 +907,30 @@
   "duree": 5.84,
   "qui": "eric"
  },
+ "c3_reunion_006": {
+  "duree": 7.26,
+  "qui": "intervenante_sad"
+ },
+ "c3_usager_1_001": {
+  "duree": 2.11,
+  "qui": "usager_1"
+ },
+ "c3_usager_1_002": {
+  "duree": 5.3,
+  "qui": "eric"
+ },
+ "c3_usager_1_003": {
+  "duree": 4.82,
+  "qui": "usager_1"
+ },
+ "c3_usager_1_004": {
+  "duree": 2.85,
+  "qui": "eric"
+ },
+ "c3_usager_2_001": {
+  "duree": 5.58,
+  "qui": "usager_2"
+ },
  "c4_apres_partie_001": {
   "duree": 5.12,
   "qui": "collegue_doc"

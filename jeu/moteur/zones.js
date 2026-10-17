@@ -4,10 +4,10 @@ import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { preparerMateriauLightmap } from './rendu.js?v=2a9aa6f76b';
-import { creerNavmesh } from './navmesh.js?v=2a9aa6f76b';
-import { boiteLocale } from './objets.js?v=2a9aa6f76b';
-import { GROUPES, groupes } from './physique.js?v=2a9aa6f76b';
+import { preparerMateriauLightmap } from './rendu.js?v=c7ebb6024c';
+import { creerNavmesh } from './navmesh.js?v=c7ebb6024c';
+import { boiteLocale } from './objets.js?v=c7ebb6024c';
+import { GROUPES, groupes } from './physique.js?v=c7ebb6024c';
 
 const TOUT = 0xffff;
 
@@ -82,6 +82,12 @@ export async function chargerZone({ id, base = 'zones', rendu, physique, objets,
   const scene = gltf.scene;
   scene.name = `zone_${id}`;
   scene.updateWorldMatrix(true, true);
+  if (manifeste.double_face) {
+    scene.traverse((o) => {
+      if (!o.isMesh) return;
+      for (const m of Array.isArray(o.material) ? o.material : [o.material]) if (m) m.side = THREE.DoubleSide;
+    });
+  }
   const zone = {
     id, manifeste, racine: scene, envTex, envFond,
     spawns: {}, pnj: [], interactions: [], sieges: {}, cameras: {}, declencheurs: [],

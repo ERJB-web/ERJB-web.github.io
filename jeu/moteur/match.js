@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { COULEURS_EQUIPES, CONFIGS } from './equipes.js?v=2a9aa6f76b';
+import { COULEURS_EQUIPES, CONFIGS } from './equipes.js?v=c7ebb6024c';
 
 const POSTES = ['C', 'AG', 'AD', 'DG', 'DD'];
 const COTE_POSTE = { C: 0, AG: -1, AD: 1, DG: -1, DD: 1 };
