@@ -67,6 +67,34 @@
   "duree": 2.69,
   "qui": "eric"
  },
+ "c1_bureau_009": {
+  "duree": 2.19,
+  "qui": "collegue_doc"
+ },
+ "c1_bureau_choix_1": {
+  "duree": 4.84,
+  "qui": "eric"
+ },
+ "c1_bureau_choix_2": {
+  "duree": 5.35,
+  "qui": "eric"
+ },
+ "c1_bureau_choix_3": {
+  "duree": 5.71,
+  "qui": "eric"
+ },
+ "c1_bureau_r1_001": {
+  "duree": 5.08,
+  "qui": "collegue_doc"
+ },
+ "c1_bureau_r2_001": {
+  "duree": 4.63,
+  "qui": "collegue_doc"
+ },
+ "c1_bureau_r3_001": {
+  "duree": 3.42,
+  "qui": "collegue_doc"
+ },
  "c1_cafe_001": {
   "duree": 3.98,
   "qui": "eric"
@@ -170,6 +198,34 @@
  "c1_hall_006": {
   "duree": 3.0,
   "qui": "eric"
+ },
+ "c1_hall_007": {
+  "duree": 3.32,
+  "qui": "etudiant_2"
+ },
+ "c1_hall_choix_1": {
+  "duree": 4.13,
+  "qui": "eric"
+ },
+ "c1_hall_choix_2": {
+  "duree": 4.54,
+  "qui": "eric"
+ },
+ "c1_hall_choix_3": {
+  "duree": 4.91,
+  "qui": "eric"
+ },
+ "c1_hall_r1_001": {
+  "duree": 4.58,
+  "qui": "etudiant_2"
+ },
+ "c1_hall_r2_001": {
+  "duree": 4.72,
+  "qui": "etudiant_2"
+ },
+ "c1_hall_r3_001": {
+  "duree": 4.21,
+  "qui": "etudiant_2"
  },
  "c1_imprimante_001": {
   "duree": 4.34,
@@ -278,6 +334,34 @@
  "c1_quanti_intro_005": {
   "duree": 5.53,
   "qui": "prof_quanti"
+ },
+ "c1_quanti_intro_choix_1": {
+  "duree": 2.96,
+  "qui": "eric"
+ },
+ "c1_quanti_intro_choix_2": {
+  "duree": 3.07,
+  "qui": "eric"
+ },
+ "c1_quanti_intro_choix_3": {
+  "duree": 3.72,
+  "qui": "eric"
+ },
+ "c1_quanti_intro_r1_001": {
+  "duree": 16.46,
+  "qui": "prof_quanti"
+ },
+ "c1_quanti_intro_r2_001": {
+  "duree": 3.82,
+  "qui": "prof_quanti"
+ },
+ "c1_quanti_intro_r3_001": {
+  "duree": 8.49,
+  "qui": "prof_quanti"
+ },
+ "c1_quanti_intro_r3_002": {
+  "duree": 5.1,
+  "qui": "etudiant_4"
  },
  "c1_quanti_jaccard_001": {
   "duree": 15.56,
@@ -521,6 +605,34 @@
  },
  "c2_etudiant_003": {
   "duree": 4.97,
+  "qui": "etudiant_1"
+ },
+ "c2_etudiant_choix_1": {
+  "duree": 3.91,
+  "qui": "eric"
+ },
+ "c2_etudiant_choix_2": {
+  "duree": 5.32,
+  "qui": "eric"
+ },
+ "c2_etudiant_choix_3": {
+  "duree": 4.07,
+  "qui": "eric"
+ },
+ "c2_etudiant_r1_001": {
+  "duree": 3.75,
+  "qui": "etudiant_1"
+ },
+ "c2_etudiant_r2_001": {
+  "duree": 4.27,
+  "qui": "etudiant_1"
+ },
+ "c2_etudiant_r2_002": {
+  "duree": 4.14,
+  "qui": "bibliothecaire"
+ },
+ "c2_etudiant_r3_001": {
+  "duree": 2.31,
   "qui": "etudiant_1"
  },
  "c2_fin_001": {
@@ -1071,9 +1183,45 @@
   "duree": 4.43,
   "qui": "chevalier"
  },
+ "c4_entracte_choix_1": {
+  "duree": 4.57,
+  "qui": "eric"
+ },
+ "c4_entracte_choix_2": {
+  "duree": 5.65,
+  "qui": "eric"
+ },
+ "c4_entracte_choix_3": {
+  "duree": 3.49,
+  "qui": "eric"
+ },
+ "c4_entracte_r1_001": {
+  "duree": 5.11,
+  "qui": "chevalier"
+ },
+ "c4_entracte_r2_001": {
+  "duree": 6.36,
+  "qui": "chevalier"
+ },
+ "c4_entracte_r3_001": {
+  "duree": 4.32,
+  "qui": "chevalier"
+ },
+ "c4_entracte_r3_002": {
+  "duree": 4.35,
+  "qui": "collegue_doc"
+ },
+ "c4_gardien_001": {
+  "duree": 3.77,
+  "qui": "gardien"
+ },
  "c4_gardien_002": {
   "duree": 1.87,
   "qui": "eric"
+ },
+ "c4_gardien_003": {
+  "duree": 7.28,
+  "qui": "gardien"
  },
  "c4_gardien_004": {
   "duree": 4.73,
@@ -1082,6 +1230,10 @@
  "c4_gardien_005": {
   "duree": 5.75,
   "qui": "gardien"
+ },
+ "c4_gardien_choix_1": {
+  "duree": 3.7,
+  "qui": "eric"
  },
  "c4_lecon_fin_001": {
   "duree": 5.84,

@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GROUPES, groupes } from './physique.js?v=224d9fe72e';
+import { GROUPES, groupes } from './physique.js?v=17d7a7c565';
 
 const FILTRE_CAM = groupes(0xffff, GROUPES.STATIQUE | GROUPES.PORTE);
 
