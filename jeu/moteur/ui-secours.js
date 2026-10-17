@@ -14,7 +14,8 @@ export function initUI({ bus, etat, racine }) {
     .s-choix button{font:15px Lato,system-ui;padding:10px 18px;border-radius:10px;border:1px solid #11A7A5;background:rgba(13,42,58,.85);color:#fff;cursor:pointer}
     .s-toast{position:fixed;right:18px;top:16px;color:#fff;font:14px Lato,system-ui;background:rgba(7,85,173,.85);padding:8px 14px;border-radius:8px;display:none}
   </style>
-  <div class="s-ecran" data-e="titre"><h1>PROTOCOLE</h1><p>La thèse d’Éric</p><button data-a="nouvelle">Nouvelle partie</button><button data-a="continuer">Continuer</button></div>
+  <div class="s-ecran" data-e="titre"><h1>PROTOCOLE</h1><p>Mode histoire · Études doctorales</p><button data-a="nouvelle">Nouvelle partie</button><button data-a="continuer">Continuer</button><p>Mode salle</p><div class="s-salles"></div></div>
+  <div class="s-ecran" data-e="salle_fin"><h1>BILAN</h1><p class="s-bilan"></p><button data-a="rejouer">Rejouer</button><button data-a="quitter">Menu principal</button></div>
   <div class="s-ecran" data-e="chargement"><p>Chargement… <span class="s-pc">0</span> %</p></div>
   <div class="s-ecran" data-e="pause"><h1>PAUSE</h1><button data-a="reprendre">Reprendre</button><button data-a="quitter">Menu principal</button></div>
   <div class="s-ecran" data-e="fin"><h1>FIN</h1><p class="s-issue"></p><button data-a="quitter">Menu principal</button></div>
@@ -32,10 +33,20 @@ export function initUI({ bus, etat, racine }) {
     if (a === 'continuer') bus.emit(etat.existeSauvegarde ? 'partie:continuer' : 'partie:nouvelle');
     if (a === 'reprendre') bus.emit('reprendre');
     if (a === 'quitter') bus.emit('quitter');
+    if (a === 'salle') { const b = e.target.closest('[data-a]'); derniere = { salle: b.dataset.salle, activite: b.dataset.activite }; bus.emit('partie:salle', derniere); }
+    if (a === 'rejouer' && derniere) bus.emit('partie:salle', derniere);
   });
+  let derniere = null;
+  function listerSalles() {
+    const el = q('.s-salles');
+    el.innerHTML = (etat.salles || []).filter((x) => x.disponible !== false).map((x) => x.activites.map((a) => `<button data-a="salle" data-salle="${x.id}" data-activite="${a.id}">${x.titre} · ${a.titre}</button>`).join('')).join('');
+  }
+  listerSalles();
+  bus.on('salles', listerSalles);
+  bus.on('ecran', ({ nom, bilan }) => { if (nom === 'salle_fin' && bilan) q('.s-bilan').textContent = `${bilan.reussis} / ${bilan.total} réussis`; });
   bus.on('ecran', ({ nom, issue }) => { if (nom === 'journal' || nom === 'carte') return; montrer(nom === 'dialogue' || nom === 'defi' ? 'jeu' : nom); if (issue) q('.s-issue').textContent = issue; });
   bus.on('chargement', ({ progression }) => { q('.s-pc').textContent = Math.round((progression || 0) * 100); });
-  bus.on('hud', (h) => { q('.s-hud').textContent = `${h.objectif || ''} · ${h.semaines} sem. · pression ${Math.round(h.pression)}`; });
+  bus.on('hud', (h) => { q('.s-hud').textContent = h.mode === 'salle' || h.semaines == null ? (h.objectif || '') : `${h.objectif || ''} · ${h.semaines} sem. · pression ${Math.round(h.pression)}`; });
   bus.on('sousTitre', (s) => { const el = q('.s-st'); if (!s) { el.style.display = 'none'; return; } el.innerHTML = `<b style="color:${s.couleur}">${s.nom}</b>${s.texte}`; el.style.display = 'block'; });
   bus.on('invite', (i) => { const el = q('.s-inv'); el.style.display = i ? 'block' : 'none'; if (i) el.textContent = `${i.touche ? i.touche + ' — ' : ''}${i.texte}`; });
   bus.on('dialogue:choix', ({ options }) => {

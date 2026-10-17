@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GROUPES, groupes } from './physique.js?v=1770adecd5';
+import { GROUPES, groupes } from './physique.js?v=0a63877699';
 
 const SEUIL_APPARITION = 30;
 const FILTRE_VUE = groupes(0xffff, GROUPES.STATIQUE | GROUPES.PORTE);
@@ -67,6 +67,7 @@ export function creerDirection({ pnj, physique, audio, bus, jeu, dialogues }) {
 
   function mettreAJour(dt, joueur) {
     if (!joueur || d.pause) return;
+    if (jeu.modeSalle) return;
     if (d.statut === 'absente') {
       if (jeu.etat.pression >= SEUIL_APPARITION && d.zone?.spawns?.SPAWN_direction && d.attente <= 0 && joueur.mode === 'libre') apparaitre();
       d.attente -= dt;

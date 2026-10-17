@@ -1,5 +1,5 @@
-import { h, icone, vider, glisser } from '../noyau.js?v=1770adecd5';
-import { melanger, scoreCriblage, categorieMotif, normaliserDecision } from '../calculs.js?v=1770adecd5';
+import { h, icone, vider, glisser } from '../noyau.js?v=0a63877699';
+import { melanger, scoreCriblage, categorieMotif, normaliserDecision, motifsAcceptes } from '../calculs.js?v=0a63877699';
 
 export const chronoManuel = true;
 
@@ -13,9 +13,12 @@ export function rendre(def, coque) {
   const articles = (Array.isArray(def.articles) ? def.articles : []).map((a, i) => ({
     i, titre: String(a.titre ?? ''), resume: String(a.resume ?? ''),
     decision: normaliserDecision(a.decision) || 'exclure', motif: String(a.motif ?? ''),
+    motifsAcceptes: Array.isArray(a.motifsAcceptes) ? a.motifsAcceptes : null,
+    explication: String(a.explication ?? ''),
   }));
   const ordre = melanger(articles, coque.alea);
-  const criteres = CRITERES.filter((c) => def.criteres && def.criteres[c.cle]);
+  const motifsDef = Array.isArray(def.motifs) ? def.motifs.map(categorieMotif).filter(Boolean) : [];
+  const criteres = CRITERES.filter((c) => (def.criteres && def.criteres[c.cle]) || motifsDef.includes(c.cle));
   const decisions = new Array(articles.length).fill(null);
   const temps = Number(def.temps) > 0 ? Number(def.temps) : Math.max(60, 25 * articles.length);
   let k = 0;
@@ -28,7 +31,7 @@ export function rendre(def, coque) {
     h('p', { class: 'dfx-surtitre', text: 'Critères d’admissibilité (PCC)' }),
     criteres.map((c) => h('div', { class: `dfx-critere dfx-critere--${c.cle}` },
       h('span', { class: 'dfx-critere-lettre', brut: c.lettre }),
-      h('div', {}, h('p', { class: 'dfx-critere-nom', text: c.nom }), h('p', { class: 'dfx-critere-texte', text: def.criteres[c.cle] })))));
+      h('div', {}, h('p', { class: 'dfx-critere-nom', text: c.nom }), def.criteres?.[c.cle] ? h('p', { class: 'dfx-critere-texte', text: def.criteres[c.cle] }) : null))));
   const points = h('ol', { class: 'dfx-crib-points', 'aria-hidden': 'true' }, ordre.map(() => h('li')));
   const progression = h('p', { class: 'dfx-crib-prog' });
   const pile = h('div', { class: 'dfx-crib-pile' });
@@ -213,16 +216,16 @@ export function rendre(def, coque) {
     for (const { a, p } of tries) {
       const d = decisions[a.i];
       const ok = p.etat === 'juste';
-      const cat = categorieMotif(a.motif);
-      const nomCat = CRITERES.find((c) => c.cle === cat)?.nom;
+      const cats = [...motifsAcceptes(a)];
+      const nomCat = cats.map((c) => CRITERES.find((x) => x.cle === c)?.nom.toLowerCase()).filter(Boolean).join(' ou ');
       const donne = !d ? 'non traitée' : d.decision === 'inclure' ? 'incluse' : `exclue${d.motif ? ` (${CRITERES.find((c) => c.cle === d.motif)?.nom.toLowerCase()})` : ''}`;
-      const attendu = a.decision === 'inclure' ? 'à inclure' : `à exclure${nomCat ? ` (${nomCat.toLowerCase()})` : ''}`;
+      const attendu = a.decision === 'inclure' ? 'à inclure' : `à exclure${nomCat ? ` (${nomCat})` : ''}`;
       liste.append(h('li', { class: `dfx-ligne-correction ${ok ? 'dfx-ok' : p.etat === 'motif' ? 'dfx-moyen' : 'dfx-ko'}` },
         h('span', { class: 'dfx-ligne-ico' }, icone(ok ? 'valider' : p.etat === 'motif' ? 'info' : 'fermer')),
         h('div', {},
           h('p', { class: 'dfx-ligne-titre', text: a.titre }),
           h('p', { class: 'dfx-ligne-meta', text: `Ta décision : ${donne} · Attendu : ${attendu}` }),
-          a.motif ? h('p', { class: 'dfx-ligne-explication', text: a.motif }) : null)));
+          a.explication || a.motif ? h('p', { class: 'dfx-ligne-explication', text: a.explication || a.motif }) : null)));
     }
     zone.append(liste);
   }

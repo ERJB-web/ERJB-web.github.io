@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GROUPES, groupes } from './physique.js?v=1770adecd5';
+import { GROUPES, groupes } from './physique.js?v=0a63877699';
 
 const DEMI_HAUTEUR = 0.6, RAYON = 0.3, CENTRE = DEMI_HAUTEUR + RAYON;
 const FILTRE = groupes(GROUPES.JOUEUR, GROUPES.STATIQUE | GROUPES.DYNAMIQUE | GROUPES.PORTE | GROUPES.PNJ | GROUPES.GLACE);
@@ -155,7 +155,7 @@ export function creerJoueur({ physique, perso, audio, bus, jeu }) {
           const impulsion = Math.pow(Math.max(0, Math.sin(j.phasePoussee * Math.PI)), 2);
           vh.addScaledVector(cap, dt * (1.1 + 3.6 * habilete) * (0.35 + impulsion * 1.3) * intensite);
           j.pousse = true;
-          if (impulsion > 0.95 && !j.sonPoussee) { j.sonPoussee = true; audio?.jouer3d('patin_glisse', j.position, { volume: 0.35 + v * 0.05 }); }
+          if (impulsion > 0.95 && !j.sonPoussee) { j.sonPoussee = true; j.nbPoussees = (j.nbPoussees || 0) + 1; audio?.jouer3d('patin_glisse', j.position, { volume: 0.35 + v * 0.05 }); }
           if (impulsion < 0.5) j.sonPoussee = false;
         }
       }

@@ -4,10 +4,10 @@ import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { preparerMateriauLightmap } from './rendu.js?v=1770adecd5';
-import { creerNavmesh } from './navmesh.js?v=1770adecd5';
-import { boiteLocale } from './objets.js?v=1770adecd5';
-import { GROUPES, groupes } from './physique.js?v=1770adecd5';
+import { preparerMateriauLightmap } from './rendu.js?v=0a63877699';
+import { creerNavmesh } from './navmesh.js?v=0a63877699';
+import { boiteLocale } from './objets.js?v=0a63877699';
+import { GROUPES, groupes } from './physique.js?v=0a63877699';
 
 const TOUT = 0xffff;
 
@@ -220,6 +220,48 @@ export async function chargerZone({ id, base = 'zones', rendu, physique, objets,
     o.receiveShadow = true;
     if (mobile) o.castShadow = true;
   });
+
+  // collisions exactes sur tout le décor solide visible, en plus des COL_
+  if (manifeste.collisionsAuto !== false) {
+    const sommets = [], indices = [];
+    const v = new THREE.Vector3();
+    const taille = new THREE.Vector3();
+    scene.updateWorldMatrix(true, true);
+    scene.traverse((o) => {
+      if (!o.isMesh || !o.geometry?.attributes?.position || o.isSkinnedMesh) return;
+      for (let p = o; p; p = p.parent) if (p.visible === false) return;
+      if (o === zone.glace || o.parent === zone.glace) return;
+      if (o.userData.porte || o.userData.dynamique || estDansMobile(o)) return;
+      for (let p = o; p; p = p.parent) {
+        const n = p.name || '';
+        if (Number(p.userData?.collide) === 0 || /NOCOL|^FILET_|filet|feuill|leaf|herbe|grass|decal|ligne_|marquage/i.test(n)) return;
+      }
+      const mats = Array.isArray(o.material) ? o.material : [o.material];
+      if (mats.every((m) => m && m.alphaTest > 0 && !/glass|verre|vitre/i.test(m.name || ''))) return;
+      if (!o.geometry.boundingBox) o.geometry.computeBoundingBox();
+      o.geometry.boundingBox.getSize(taille);
+      const e = new THREE.Vector3();
+      o.matrixWorld.decompose(new THREE.Vector3(), new THREE.Quaternion(), e);
+      taille.multiply(e);
+      if (Math.max(taille.x, taille.y, taille.z) < 0.3) return;
+      if (zone.glaceBoite && taille.y < 0.05) {
+        const c = new THREE.Box3().setFromObject(o).getCenter(new THREE.Vector3());
+        const g = zone.glaceBoite;
+        if (c.x > g.min.x && c.x < g.max.x && c.z > g.min.z && c.z < g.max.z && Math.abs(c.y - g.max.y) < 0.08) return;
+      }
+      const pos = o.geometry.attributes.position;
+      const base0 = sommets.length / 3;
+      for (let i = 0; i < pos.count; i++) { v.fromBufferAttribute(pos, i).applyMatrix4(o.matrixWorld); sommets.push(v.x, v.y, v.z); }
+      if (o.geometry.index) for (const i of o.geometry.index.array) indices.push(base0 + i);
+      else for (let i = 0; i < pos.count; i++) indices.push(base0 + i);
+    });
+    if (indices.length) {
+      physique.maillage(corpsStatique, new Float32Array(sommets), new Uint32Array(indices), {
+        friction: 0.7, groupes: groupes(GROUPES.STATIQUE, TOUT),
+      });
+      zone.trianglesCollision = indices.length / 3;
+    }
+  }
 
   return zone;
 }

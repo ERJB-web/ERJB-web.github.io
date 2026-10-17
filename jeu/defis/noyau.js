@@ -147,9 +147,16 @@ export function duree(sec) {
   return `${m}:${String(r).padStart(2, '0')}`;
 }
 
-const SIGLES = new Set(['ad', 'clsc', 'sad', 'rta', 'sig', 'gmf', 'rls', 'rts', 'omh', 'hlm', 'rpa', 'chsld', 'spvm', 'stm', 'cer', 'osf', 'jbi', 'pcc', 'msss', 'inspq', 'isq', 'oemc', 'qgis']);
+const SIGLES = new Set(['ad', 'clsc', 'sad', 'rta', 'sig', 'gmf', 'rls', 'rts', 'omh', 'hlm', 'rpa', 'chsld', 'spvm', 'stm', 'cer', 'osf', 'jbi', 'pcc', 'msss', 'inspq', 'isq', 'oemc', 'qgis', 'lca', 'lrsss', 'efvp', 'ivt']);
+const ACCENTS = {
+  acces: 'accès', aines: 'aînés', aine: 'aîné', bibliotheque: 'bibliothèque', communaute: 'communauté', defense: 'défense',
+  ecole: 'école', education: 'éducation', equipe: 'équipe', evaluation: 'évaluation', municipalite: 'municipalité',
+  numerique: 'numérique', premiere: 'première', reseau: 'réseau', sante: 'santé', securite: 'sécurité', societe: 'société',
+  donnees: 'données', ethique: 'éthique', vulnerabilite: 'vulnérabilité', mobilite: 'mobilité', precarite: 'précarité',
+};
 export function humaniser(id) {
-  const t = String(id ?? '').replace(/[_-]+/g, ' ').trim().split(/\s+/).map((m) => (SIGLES.has(m.toLowerCase()) ? m.toUpperCase() : m)).join(' ');
+  const t = String(id ?? '').replace(/^p_(?=[a-z])/i, '').replace(/[_-]+/g, ' ').trim().split(/\s+/)
+    .map((m) => (SIGLES.has(m.toLowerCase()) ? m.toUpperCase() : ACCENTS[m.toLowerCase()] ?? m)).join(' ');
   return t.charAt(0).toUpperCase() + t.slice(1);
 }
 
@@ -270,21 +277,31 @@ export function compteurAnime(el, de, a, { duree = 600, calme = false, format: f
 
 // Portraits stylisés (personnages fictifs, formes simples).
 const PERSONNAGES = {
-  collegue: { peau: '#E9C3A5', cheveux: '#3B2A22', coupe: 'queue', haut: '#11A7A5', lunettes: false },
+  collegue_doc: { peau: '#E9C3A5', cheveux: '#3B2A22', coupe: 'queue', haut: '#11A7A5' },
   bibliothecaire: { peau: '#C99A78', cheveux: '#1E1B1A', coupe: 'carre', haut: '#4F6878', lunettes: true },
-  direction: { peau: '#EBC9B0', cheveux: '#6E6A68', coupe: 'chignon', haut: '#253439', lunettes: true },
-  jury1: { peau: '#EED1BC', cheveux: '#B9B5B0', coupe: 'carre', haut: '#253439', lunettes: true },
-  jury2: { peau: '#B98263', cheveux: '#2A1F1A', coupe: 'court', haut: '#4F6878', lunettes: false, barbe: true },
-  jury3: { peau: '#8E5F45', cheveux: '#17120F', coupe: 'boucles', haut: '#0879BE', lunettes: false, foulard: true },
-  gestionnaire: { peau: '#DDB08F', cheveux: '#4A3426', coupe: 'chignon', haut: '#0755AD', lunettes: false, cordon: true },
+  direction_a: { peau: '#EBC9B0', cheveux: '#8A8580', coupe: 'chignon', haut: '#253439', lunettes: true },
+  direction_b: { peau: '#D8A982', cheveux: '#5A2E1E', coupe: 'carre', haut: '#0755AD', foulard: true },
+  jury_1: { peau: '#EED1BC', cheveux: '#C2BEB8', coupe: 'degarni', haut: '#253439', lunettes: true, barbe: true },
+  jury_2: { peau: '#B98263', cheveux: '#2A1F1A', coupe: 'chignon', haut: '#4F6878' },
+  jury_3: { peau: '#8E5F45', cheveux: '#17120F', coupe: 'boucles', haut: '#0879BE', foulard: true },
+  gestionnaire_clsc: { peau: '#DDB08F', cheveux: '#4A3426', coupe: 'court', haut: '#0879BE', cordon: true },
+  prof_seminaire: { peau: '#F0D2BC', cheveux: '#D8D4CF', coupe: 'degarni', haut: '#6B4A33', barbe: true },
+  chauffeur_zamboni: { peau: '#E4B896', cheveux: '#9A948E', coupe: 'casquette', haut: '#253439', barbe: true },
+  intervenante_sad: { peau: '#C68C68', cheveux: '#24170F', coupe: 'queue', haut: '#3E8A22' },
 };
+const ALIAS = { collegue: 'collegue_doc', direction: 'direction_a', jury1: 'jury_1', jury2: 'jury_2', jury3: 'jury_3', gestionnaire: 'gestionnaire_clsc', professeur: 'prof_seminaire', chauffeur: 'chauffeur_zamboni' };
+
+export function roleCanonique(qui) {
+  return PERSONNAGES[qui] ? qui : ALIAS[qui] || qui;
+}
 
 export function portrait(qui, humeur = 'neutre', taille = 64) {
-  const p = PERSONNAGES[qui] || PERSONNAGES.collegue;
-  const g = s('svg', { class: `dfx-portrait dfx-portrait--${qui}`, viewBox: '0 0 100 100', width: taille, height: taille, 'aria-hidden': 'true' });
+  const role = roleCanonique(qui);
+  const p = PERSONNAGES[role] || PERSONNAGES.collegue_doc;
+  const g = s('svg', { class: `dfx-portrait dfx-portrait--${role}`, viewBox: '0 0 100 100', width: taille, height: taille, 'aria-hidden': 'true' });
   g.append(s('circle', { cx: 50, cy: 50, r: 50, class: 'dfx-portrait-fond' }));
-  const haut = s('path', { d: 'M14 100c2-20 16-30 36-30s34 10 36 30z', fill: p.haut });
-  g.append(haut);
+  g.append(s('path', { d: 'M14 100c2-20 16-30 36-30s34 10 36 30z', fill: p.haut }));
+  if (role === 'prof_seminaire') g.append(s('path', { d: 'M36 72l14 14 14-14', fill: 'none', stroke: '#F6F4F1', 'stroke-width': 3 }));
   if (p.foulard) g.append(s('path', { d: 'M34 72c6 8 26 8 32 0l-3 10c-8 5-18 5-26 0z', fill: '#11A7A5' }));
   if (p.cordon) g.append(s('path', { d: 'M40 72l10 20 10-20', fill: 'none', stroke: '#F6F4F1', 'stroke-width': 2 }), s('rect', { x: 45, y: 88, width: 10, height: 8, rx: 1.5, fill: '#F6F4F1' }));
   g.append(s('rect', { x: 43, y: 58, width: 14, height: 14, rx: 5, fill: p.peau }));
@@ -298,8 +315,11 @@ export function portrait(qui, humeur = 'neutre', taille = 64) {
     carre: 'M31 40c1-12 8-19 19-19s18 7 19 19c-6-5-12-8-19-8s-13 3-19 8z',
     court: 'M32 38c1-11 8-16 18-16s17 5 18 16c-3-3-8-6-18-6s-15 3-18 6z',
     boucles: 'M30 44c-4-14 6-26 20-26s24 12 20 26c-2-6-4-10-6-12-2 4-8 6-14 6s-12-2-14-6c-2 2-4 6-6 12z',
+    degarni: 'M31 46c-1-6 0-10 2-13 1 4 2 7 3 9zM69 46c1-6 0-10-2-13-1 4-2 7-3 9z',
+    casquette: 'M30 36c2-12 10-17 20-17s18 5 20 17z',
   };
   g.append(s('path', { d: coupes[p.coupe] || coupes.court, fill: p.cheveux }));
+  if (p.coupe === 'casquette') g.append(s('path', { d: 'M29 36c4-15 12-19 21-19s17 4 21 19z', fill: '#0D2A3A' }), s('path', { d: 'M27 36h46c4 0 8 2 9 4H27z', fill: '#0755AD' }));
   if (p.coupe === 'boucles') {
     for (const [x, y] of [[30, 30], [36, 22], [46, 18], [56, 18], [65, 23], [70, 31]]) g.append(s('circle', { cx: x, cy: y, r: 6, fill: p.cheveux }));
   }
@@ -418,8 +438,14 @@ export function pastilleSecteur(style, taille = 16) {
 }
 
 export const NOMS_PERSONNAGES = {
-  collegue: 'Ta collègue de bureau',
+  collegue_doc: 'Ta collègue de bureau',
   bibliothecaire: 'La bibliothécaire',
-  direction: 'Ta direction',
-  gestionnaire: 'La gestionnaire du CLSC',
+  direction_a: 'Ta codirectrice',
+  direction_b: 'Ta codirectrice',
+  gestionnaire_clsc: 'Le gestionnaire du CLSC',
+  prof_seminaire: 'Le professeur du séminaire',
+  chauffeur_zamboni: 'Le chauffeur de la surfaceuse',
+  jury_1: 'Président du jury',
+  jury_2: 'Membre du jury',
+  jury_3: 'Membre du jury',
 };

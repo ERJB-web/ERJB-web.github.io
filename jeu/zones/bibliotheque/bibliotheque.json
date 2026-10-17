@@ -1,0 +1,170 @@
+{
+  "id": "bibliotheque",
+  "titre": "Bibliothèque de la santé",
+  "sousTitre": "Pavillon Roger-Gaudry, 6e étage",
+  "glb": "bibliotheque.glb",
+  "lightmaps": [
+    {
+      "fichier": "bibliotheque_lm0.webp",
+      "scale": 1.7305
+    },
+    {
+      "fichier": "bibliotheque_lm1.webp",
+      "scale": 0.9962
+    }
+  ],
+  "env": {
+    "fichier": "bibliotheque_env.hdr",
+    "intensite": 1.0,
+    "fond": "#cfd8dc"
+  },
+  "soleil": {
+    "direction": [
+      0.777,
+      -0.423,
+      0.466
+    ],
+    "couleur": "#ffeed6",
+    "intensite": 2.5
+  },
+  "brouillard": {
+    "couleur": "#dde3e6",
+    "densite": 0.0015
+  },
+  "exposition": 1.0,
+  "musique": "bibliotheque",
+  "ambiance": "amb_bibliotheque",
+  "sol": "moquette",
+  "bounds": {
+    "min": [
+      -23.0,
+      0.0,
+      -15.5
+    ],
+    "max": [
+      23.0,
+      7.2,
+      15.5
+    ]
+  },
+  "carte": "bibliotheque_carte.webp",
+  "acces": {
+    "campus": "SPAWN_from_campus"
+  },
+  "credits": [
+    {
+      "ressource": "Oak Veneer 01 (texture)",
+      "auteur": "Jenelle van Heerden, Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/oak_veneer_01"
+    },
+    {
+      "ressource": "Walnut Veneer (texture)",
+      "auteur": "Jenelle van Heerden, Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/walnut_veneer"
+    },
+    {
+      "ressource": "Plastered Wall 04 (texture)",
+      "auteur": "Rob Tuytel, Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/plastered_wall_04"
+    },
+    {
+      "ressource": "Poly Wool Herringbone (texture)",
+      "auteur": "colormass et Rico Cilliers, Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/poly_wool_herringbone"
+    },
+    {
+      "ressource": "Carpet 012 (texture)",
+      "auteur": "ambientCG",
+      "licence": "CC0",
+      "url": "https://ambientcg.com/view?id=Carpet012"
+    },
+    {
+      "ressource": "Office Ceiling 001 (texture)",
+      "auteur": "ambientCG",
+      "licence": "CC0",
+      "url": "https://ambientcg.com/view?id=OfficeCeiling001"
+    },
+    {
+      "ressource": "Terrazzo 012 (texture)",
+      "auteur": "ambientCG",
+      "licence": "CC0",
+      "url": "https://ambientcg.com/view?id=Terrazzo012"
+    },
+    {
+      "ressource": "Concrete 034 (texture)",
+      "auteur": "ambientCG",
+      "licence": "CC0",
+      "url": "https://ambientcg.com/view?id=Concrete034"
+    },
+    {
+      "ressource": "Metal 009 (texture)",
+      "auteur": "ambientCG",
+      "licence": "CC0",
+      "url": "https://ambientcg.com/view?id=Metal009"
+    },
+    {
+      "ressource": "Lato (police, signalétique)",
+      "auteur": "Łukasz Dziedzic",
+      "licence": "OFL",
+      "url": "https://fonts.google.com/specimen/Lato"
+    },
+    {
+      "ressource": "Barlow Condensed (police, dos de livres)",
+      "auteur": "Jeremy Tribby",
+      "licence": "OFL",
+      "url": "https://fonts.google.com/specimen/Barlow+Condensed"
+    },
+    {
+      "ressource": "Fira Sans Condensed (police, dos de livres)",
+      "auteur": "Carrois Apostrophe",
+      "licence": "OFL",
+      "url": "https://fonts.google.com/specimen/Fira+Sans+Condensed"
+    },
+    {
+      "ressource": "Oswald (police, dos de livres)",
+      "auteur": "Vernon Adams",
+      "licence": "OFL",
+      "url": "https://fonts.google.com/specimen/Oswald"
+    },
+    {
+      "ressource": "Archivo Narrow (police, dos de livres)",
+      "auteur": "Omnibus-Type",
+      "licence": "OFL",
+      "url": "https://fonts.google.com/specimen/Archivo+Narrow"
+    },
+    {
+      "ressource": "Libre Baskerville (police, dos de livres)",
+      "auteur": "Impallari Type",
+      "licence": "OFL",
+      "url": "https://fonts.google.com/specimen/Libre+Baskerville"
+    },
+    {
+      "ressource": "PT Serif (police, dos de livres)",
+      "auteur": "ParaType",
+      "licence": "OFL",
+      "url": "https://fonts.google.com/specimen/PT+Serif"
+    },
+    {
+      "ressource": "Crimson Text (police, dos de livres)",
+      "auteur": "Sebastian Kosch",
+      "licence": "OFL",
+      "url": "https://fonts.google.com/specimen/Crimson+Text"
+    },
+    {
+      "ressource": "Caveat (police, tableau blanc)",
+      "auteur": "Impallari Type",
+      "licence": "OFL",
+      "url": "https://fonts.google.com/specimen/Caveat"
+    },
+    {
+      "ressource": "Permanent Marker (police, tableau blanc)",
+      "auteur": "Font Diner",
+      "licence": "Apache 2.0",
+      "url": "https://fonts.google.com/specimen/Permanent+Marker"
+    }
+  ]
+}

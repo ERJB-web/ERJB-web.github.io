@@ -1398,3 +1398,42 @@
   .dfx-pitch-item .dfx-ordre-poignee { display: none; }
   .dfx-pitch-item-outils { grid-column: 1 / -1; justify-content: flex-end; }
 }
+
+/* ------------------------------------------------------------------ compléments (contenu du jeu) */
+.dfx-puce-libelle { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 1px; text-align: left; }
+.dfx-puce-sens { font-family: var(--dfx-police); font-size: 11.5px; font-weight: 400; line-height: 1.25; color: var(--dfx-texte-2); }
+.dfx-req-tag { display: inline-block; margin: 3px 4px 0 0; padding: 1px 7px; border-radius: 6px; background: rgba(13, 42, 58, 0.08); font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 11.5px; color: var(--dfx-encre-2); }
+.dfx-req-bilan-expl { flex-basis: 100%; padding-left: 24px; font-size: 13px; line-height: 1.45; color: var(--dfx-texte-2); }
+.dfx-liste-note { display: block; font-size: 13.5px; color: var(--dfx-texte-2); }
+.dfx-corr-bilan-expl { grid-column: 1 / -1; margin: 2px 0 0; font-size: 14.5px; line-height: 1.5; color: var(--dfx-texte-2); }
+.dfx-sig-attente { fill: none; stroke: var(--dfx-alerte); stroke-width: 3; stroke-dasharray: 4 3; }
+.dfx-sig-res--vide path { stroke-width: 2.5; stroke-dasharray: 3 2; }
+.dfx-sig-cle { display: flex; align-items: center; gap: 8px; margin: 6px 0 0 6px; font-size: 13px; color: var(--dfx-texte-2); }
+.dfx-sig-cle svg { flex: none; }
+.dfx-sig-secteur { display: grid; }
+.dfx-sig-sous { display: grid; margin: 0 0 4px 30px; }
+.dfx-choix-ligne--sous { min-height: 32px; padding: 4px 8px; font-size: 13.5px; }
+.dfx-choix-ligne input:disabled + span { opacity: 0.5; }
+.dfx-select { width: 100%; min-height: 38px; padding: 0 10px; border-radius: 10px; border: 1px solid var(--dfx-ligne); background: rgba(0, 0, 0, 0.25); color: var(--dfx-texte); font-size: 14.5px; }
+.dfx-select option { background: #0D2A3A; color: #F6F4F1; }
+.dfx-sig-note { margin-top: 0; }
+.dfx-sig-fiche dd.dfx-sig-alerte { color: var(--dfx-alerte-encre); }
+.dfx-table td.dfx-sig-zero { color: var(--dfx-alerte-clair); font-weight: 900; }
+.dfx-portrait--direction_a .dfx-portrait-fond, .dfx-portrait--direction_b .dfx-portrait-fond { fill: #E6C9C6; }
+.dfx-portrait--bibliothecaire .dfx-portrait-fond { fill: #BFE6E5; }
+.dfx-portrait--chauffeur_zamboni .dfx-portrait-fond { fill: #D6E4EC; }
+.dfx-portrait--prof_seminaire .dfx-portrait-fond { fill: #E8DCCB; }
+.dfx-decor { position: absolute; inset: 0; }
+.dfx-asc--glace .dfx-asc-cabine, .dfx-asc--neutre .dfx-asc-cabine { background: linear-gradient(180deg, #24414F, #132A35); }
+.dfx-decor--glace { display: grid; place-items: center; padding: 16px 30% 16px 16px; }
+.dfx-glace { width: 100%; height: 100%; max-height: 100%; }
+.dfx-glace-bande { fill: #F6F4F1; stroke: #C9D9E3; stroke-width: 4; }
+.dfx-glace-surface { fill: #EAF3F8; }
+.dfx-glace-rouge { stroke: #C8463D; stroke-width: 3; opacity: 0.7; }
+.dfx-glace-bleue { stroke: #0755AD; stroke-width: 3; opacity: 0.55; }
+.dfx-glace-cercle { fill: none; stroke: #0755AD; stroke-width: 2; opacity: 0.45; }
+.dfx-glace-trace { fill: none; stroke: rgba(255, 255, 255, 0.95); stroke-width: 30; stroke-linecap: round; stroke-linejoin: round; opacity: 0.9; }
+.dfx-decor--neutre { display: grid; place-content: center; justify-items: center; gap: 16px; padding-right: 30%; color: var(--dfx-texte-2); }
+.dfx-decor-horloge .dfx-ico { width: 80px; height: 80px; stroke-width: 1.2; }
+.dfx-decor-temps { width: 200px; height: 8px; border-radius: 999px; background: rgba(255, 255, 255, 0.1); overflow: hidden; }
+.dfx-decor-temps-remplie { display: block; height: 100%; width: 0; background: var(--dfx-sarcelle); transition: width 0.3s linear; }

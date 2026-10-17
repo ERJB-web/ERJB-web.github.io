@@ -1,21 +1,49 @@
-import { h, icone, vider, pct, portrait, attendre, glisser, memoriserPositions, animerDepuis, NB } from '../noyau.js?v=1770adecd5';
-import { melanger, scorePitch, compterMots, dureeLecture, vrai, borner } from '../calculs.js?v=1770adecd5';
+import { h, s, icone, vider, pct, portrait, attendre, glisser, memoriserPositions, animerDepuis, roleCanonique, NB } from '../noyau.js?v=0a63877699';
+import { melanger, scorePitch, compterMots, dureeLecture, estSuperflu, borner, normaliser } from '../calculs.js?v=0a63877699';
 
 const MPM = 150;
 const ETAGES = 6;
 
-const PENSEES = {
-  bon: ['Intéressant.', 'Ça, ça me parle.', 'Hum hum.', 'Continuez.', 'D’accord, je vois.'],
-  desordre: ['Attendez, je suis perdue.', 'Je ne suis pas certaine de suivre l’ordre.'],
-  superflu: ['Euh… d’accord.', 'Je ne vois pas trop le lien.', 'C’est très… technique.', 'On arrive bientôt, hein ?'],
+const REGISTRES = {
+  soutenu: {
+    bon: ['Intéressant.', 'Ça, ça me parle.', 'Hum hum.', 'Continuez.', 'D’accord, je vois.'],
+    desordre: ['Attendez, je ne vous suis plus.', 'L’ordre m’échappe un peu.'],
+    superflu: ['Euh… d’accord.', 'Je ne vois pas trop le lien.', 'C’est très… technique.', 'On arrive bientôt, non ?'],
+    fin: ['Envoyez-moi votre protocole. On en reparle.', 'Intéressant. Écrivez-moi.', 'Euh… bonne chance avec votre thèse !'],
+  },
+  familier: {
+    bon: ['Ah ouin.', 'Ça, je comprends.', 'Continue.', 'OK, je te suis.'],
+    desordre: ['Attends, t’es rendu où, là ?', 'Recommence donc par le début.'],
+    superflu: ['Hein ?', 'Euh… en français ?', 'Tu me perds, mon gars.', 'Ça, c’est du jargon.'],
+    fin: ['Ah ben ! Ça, ça me parle.', 'Pas pire. Essaie plus simple.', 'J’ai rien compris, mais bonne chance.'],
+  },
 };
+
+export function contextePitch(def) {
+  const texte = normaliser(`${def.titre ?? ''} ${def.consigne ?? ''} ${def.retour?.succes ?? ''} ${def.retour?.echec ?? ''}`);
+  const decor = ['ascenseur', 'glace', 'neutre'].includes(def.decor) ? def.decor
+    : /ascenseur|etage/.test(texte) ? 'ascenseur'
+      : /surfaceuse|zamboni|patinoire|la glace/.test(texte) ? 'glace' : 'neutre';
+  let role = typeof def.interlocuteur === 'string' && def.interlocuteur.trim() ? def.interlocuteur.trim() : '';
+  if (!role) {
+    if (/\breal\b|surfaceuse|zamboni/.test(texte)) role = 'chauffeur_zamboni';
+    else if (/professeur|\bprof\b/.test(texte)) role = 'prof_seminaire';
+    else if (/direction|codirectrice/.test(texte)) role = 'direction_a';
+    else role = 'gestionnaire_clsc';
+  }
+  const descend = decor === 'ascenseur' && /rez-de-chaussee|descend/.test(texte) && !/\bmonte\b/.test(texte);
+  return { decor, role: roleCanonique(role), descend, registre: roleCanonique(role) === 'chauffeur_zamboni' ? 'familier' : 'soutenu' };
+}
 
 export function rendre(def, coque) {
   const fragments = (Array.isArray(def.fragments) ? def.fragments : []).map((f, i) => ({
-    i, texte: String(f.texte ?? ''), rang: Number(f.rang), superflu: vrai(f.superflu), mots: compterMots(f.texte),
+    i, texte: String(f.texte ?? ''), rang: Number(f.rang), superflu: estSuperflu(f), mots: compterMots(f.texte),
   }));
   const limite = Number(def.limiteMots) > 0 ? Number(def.limiteMots) : 75;
-  const interlocuteur = typeof def.interlocuteur === 'string' && def.interlocuteur.trim() ? def.interlocuteur.trim() : 'La gestionnaire du CLSC';
+  const ctxPitch = contextePitch(def);
+  const PENSEES = REGISTRES[ctxPitch.registre];
+  const nomInterlocuteur = coque.nomPersonnage(ctxPitch.role, true);
+  const libDuree = ctxPitch.decor === 'ascenseur' ? 'd’ascenseur' : ctxPitch.decor === 'glace' ? 'pour un tour de glace' : 'd’attention';
   const piocheOrdre = melanger(fragments.map((f) => f.i), coque.alea);
   let piste = [];
   let phase = 'composer';
@@ -29,7 +57,7 @@ export function rendre(def, coque) {
   const compteur = h('div', { class: 'dfx-pitch-compteur' },
     h('div', { class: 'dfx-pitch-chiffres' },
       h('span', {}, motsEl, h('span', { text: ` / ${limite} mots` })),
-      h('span', {}, secEl, h('span', { text: ` · environ ${Math.round(dureeLecture(limite, MPM))} s d’ascenseur` }))),
+      h('span', {}, secEl, h('span', { text: ` · environ ${Math.round(dureeLecture(limite, MPM))} s ${libDuree}` }))),
     h('div', { class: 'dfx-pitch-barre', 'aria-hidden': 'true' }, barre, h('span', { class: 'dfx-pitch-limite' })));
 
   const elPioche = new Map();
@@ -48,7 +76,7 @@ export function rendre(def, coque) {
   coque.corps.append(h('div', { class: 'dfx-pitch' },
     h('section', { class: 'dfx-pitch-gauche' },
       h('p', { class: 'dfx-surtitre', text: 'Fragments' }),
-      h('p', { class: 'dfx-aide', text: `Tu as croisé ${interlocuteur.replace(/^La |^Le /, (m) => m.toLowerCase())} dans l’ascenseur. Tu as le temps de quelques phrases.` }),
+      h('p', { class: 'dfx-aide', text: `Ton interlocuteur : ${nomInterlocuteur}. Environ 150 mots par minute : chaque mot compte.` }),
       pioche),
     h('section', { class: 'dfx-pitch-droite' },
       h('p', { class: 'dfx-surtitre', text: 'Ton pitch' }),
@@ -176,22 +204,17 @@ export function rendre(def, coque) {
     coque.chrono.arreter();
     coque.viderActions();
     vider(coque.corps);
-    const affichage = h('span', { class: 'dfx-asc-etage', brut: 'RC' });
-    const fleche = h('span', { class: 'dfx-asc-fleche', 'aria-hidden': 'true' }, icone('haut'));
-    const portes = h('div', { class: 'dfx-asc-portes', 'aria-hidden': 'true' }, h('span', { class: 'dfx-asc-porte dfx-asc-porte--g' }), h('span', { class: 'dfx-asc-porte dfx-asc-porte--d' }));
-    const zonePortrait = h('div', { class: 'dfx-asc-portrait' }, portrait('gestionnaire', 'neutre', 150));
+    const { decor, role, descend } = ctxPitch;
+    const zonePortrait = h('div', { class: 'dfx-asc-portrait' }, portrait(role, 'neutre', 150));
     const pensee = h('div', { class: 'dfx-asc-pensee', 'aria-live': 'polite' });
     const interet = h('span', { class: 'dfx-asc-interet-remplie' });
-    const chronoSim = h('strong', { brut: '0 s' });
-    const scene = h('div', { class: 'dfx-asc' },
-      h('div', { class: 'dfx-asc-cabine' },
-        h('div', { class: 'dfx-asc-panneau' }, fleche, affichage),
-        portes,
-        h('div', { class: 'dfx-asc-main-courante', 'aria-hidden': 'true' }),
-        zonePortrait, pensee),
+    const chronoSim = h('strong', { brut: `0${NB}s` });
+    const decorEl = construireDecor(decor, descend);
+    const scene = h('div', { class: `dfx-asc dfx-asc--${decor}` },
+      h('div', { class: 'dfx-asc-cabine' }, decorEl.el, zonePortrait, pensee),
       h('div', { class: 'dfx-asc-hud' },
-        h('p', { class: 'dfx-asc-qui', text: interlocuteur }),
-        h('div', { class: 'dfx-asc-interet', role: 'img', 'aria-label': 'Intérêt de ton interlocutrice' }, h('span', { text: 'Intérêt' }), h('span', { class: 'dfx-asc-interet-piste' }, interet)),
+        h('p', { class: 'dfx-asc-qui', text: nomInterlocuteur }),
+        h('div', { class: 'dfx-asc-interet', role: 'img', 'aria-label': 'Intérêt de ton interlocuteur' }, h('span', { text: 'Intérêt' }), h('span', { class: 'dfx-asc-interet-piste' }, interet)),
         h('p', { class: 'dfx-asc-temps' }, chronoSim, h('span', { text: ' écoulées' }))));
     const texte = h('div', { class: 'dfx-asc-texte' }, piste.map((i) => h('span', { class: 'dfx-asc-frag', dataset: { i: String(i) }, text: `${fragments[i].texte} ` })));
     coque.corps.append(h('div', { class: 'dfx-pitch-scene' }, scene, texte));
@@ -206,6 +229,7 @@ export function rendre(def, coque) {
     let coupe = false;
     const majInteret = () => { interet.style.width = `${Math.round(niveau * 100)}%`; };
     majInteret();
+    decorEl.maj(0);
     if (!coque.calme) { scene.classList.add('dfx-asc--entree'); await attendre(850); scene.classList.remove('dfx-asc--entree'); }
 
     for (const i of piste) {
@@ -219,7 +243,7 @@ export function rendre(def, coque) {
       while (!rapide && performance.now() - t0 < pas) {
         const s2 = simule + ((performance.now() - t0) / 1000) * facteur;
         chronoSim.textContent = `${Math.min(Math.round(s2), 99)}${NB}s`;
-        affichage.textContent = etage(Math.min(s2, trajet), trajet);
+        decorEl.maj(Math.min(1, s2 / trajet));
         if (s2 >= trajet) break;
         await attendre(60);
       }
@@ -236,39 +260,35 @@ export function rendre(def, coque) {
       el.classList.remove('dfx-asc-frag--actif');
       el.classList.add(`dfx-asc-frag--${cat}`);
       vider(zonePortrait);
-      zonePortrait.append(portrait('gestionnaire', niveau >= 0.7 ? 'ravi' : niveau >= 0.5 ? 'content' : niveau >= 0.35 ? 'neutre' : 'sceptique', 150));
+      zonePortrait.append(portrait(role, niveau >= 0.7 ? 'ravi' : niveau >= 0.5 ? 'content' : niveau >= 0.35 ? 'neutre' : 'sceptique', 150));
       const liste = PENSEES[cat];
-      pensee.textContent = liste[Math.floor(coque.alea() * liste.length)];
-      pensee.classList.remove('dfx-asc-pensee--pop');
-      void pensee.offsetWidth;
-      pensee.classList.add('dfx-asc-pensee--pop');
+      dire(liste[Math.floor(coque.alea() * liste.length)]);
       if (coupe) break;
     }
     chronoSim.textContent = `${Math.round(Math.min(simule, 99))}${NB}s`;
-    affichage.textContent = etage(Math.min(simule, trajet), trajet);
+    decorEl.maj(Math.min(1, simule / trajet));
     const res = scorePitch(piste, fragments, limite);
     if (coupe || simule > trajet + 0.5) {
       texte.querySelectorAll('.dfx-asc-frag:not([class*="--bon"]):not([class*="--superflu"]):not([class*="--desordre"])').forEach((e2) => e2.classList.add('dfx-asc-frag--coupe'));
-      affichage.textContent = String(ETAGES);
+      decorEl.maj(1);
       coque.jouer('tic');
-      pensee.textContent = 'Ding ! C’est mon étage. Écrivez-moi !';
-      scene.classList.add('dfx-asc--ouvert');
-      coque.reagir('L’ascenseur n’attend personne. Même pas les doctorants.', { humeur: 'surpris', force: true });
+      dire(decor === 'ascenseur' ? 'Ding ! C’est mon étage. Écrivez-moi !' : decor === 'glace' ? 'Fin du tour ! La glace m’attend.' : 'Désolé, on m’attend. Écrivez-moi !');
+      decorEl.fin();
+      coque.reagir(decor === 'ascenseur' ? 'L’ascenseur n’attend personne. Même pas les doctorants.' : decor === 'glace' ? 'Un tour de surfaceuse, ça passe vite.' : 'Trop long : ton interlocuteur est parti avant la fin.', { humeur: 'surpris', force: true });
     } else {
-      pensee.textContent = res.score >= 0.85 ? 'Envoyez-moi votre protocole. On en parle au comité la semaine prochaine.' : res.score >= 0.6 ? 'Intéressant. Écrivez-moi, on verra.' : 'Euh… bonne chance avec votre thèse !';
-      if (!coque.calme) { scene.classList.add('dfx-asc--ouvert'); }
+      dire(PENSEES.fin[res.score >= 0.85 ? 0 : res.score >= 0.6 ? 1 : 2]);
+      if (!coque.calme) decorEl.fin();
     }
-    pensee.classList.remove('dfx-asc-pensee--pop');
-    void pensee.offsetWidth;
-    pensee.classList.add('dfx-asc-pensee--pop');
     coque.viderActions();
     coque.bouton('Voir le bilan', { primaire: true, ico: 'droite', surClic: () => finir(res) }).focus();
-    coque.setStatut(`${res.mots} mots · environ ${Math.round(res.secondes)} s pour un trajet de ${Math.round(trajet)} s.`);
-  }
+    coque.setStatut(`${res.mots} mots · environ ${Math.round(res.secondes)} s pour ${Math.round(trajet)} s ${libDuree}.`);
 
-  function etage(sim, trajet) {
-    const e = Math.floor((sim / trajet) * ETAGES);
-    return e <= 0 ? 'RC' : String(Math.min(ETAGES, e));
+    function dire(txt) {
+      pensee.textContent = txt;
+      pensee.classList.remove('dfx-asc-pensee--pop');
+      void pensee.offsetWidth;
+      pensee.classList.add('dfx-asc-pensee--pop');
+    }
   }
 
   function finir(res) {
@@ -302,6 +322,59 @@ export function rendre(def, coque) {
       }
     },
   };
+}
+
+function construireDecor(decor, descend) {
+  if (decor === 'ascenseur') {
+    const affichage = h('span', { class: 'dfx-asc-etage', brut: descend ? String(ETAGES) : 'RC' });
+    const fleche = h('span', { class: 'dfx-asc-fleche', 'aria-hidden': 'true' }, icone(descend ? 'bas' : 'haut'));
+    const portes = h('div', { class: 'dfx-asc-portes', 'aria-hidden': 'true' }, h('span', { class: 'dfx-asc-porte dfx-asc-porte--g' }), h('span', { class: 'dfx-asc-porte dfx-asc-porte--d' }));
+    const el = h('div', { class: 'dfx-decor' }, h('div', { class: 'dfx-asc-panneau' }, fleche, affichage), portes, h('div', { class: 'dfx-asc-main-courante', 'aria-hidden': 'true' }));
+    return {
+      el,
+      maj(k) {
+        const e = Math.min(ETAGES, Math.floor(k * ETAGES));
+        const n = descend ? ETAGES - e : e;
+        affichage.textContent = n <= 0 ? 'RC' : String(n);
+      },
+      fin() { el.closest('.dfx-asc')?.classList.add('dfx-asc--ouvert'); },
+    };
+  }
+  if (decor === 'glace') {
+    const surfaceuse = s('g', { class: 'dfx-glace-surfaceuse' },
+      s('rect', { x: -26, y: -15, width: 52, height: 30, rx: 7, fill: '#F6F4F1', stroke: '#0D2A3A', 'stroke-width': 2 }),
+      s('rect', { x: -26, y: -15, width: 14, height: 30, rx: 4, fill: '#0755AD' }),
+      s('rect', { x: 2, y: -10, width: 14, height: 12, rx: 3, fill: '#11A7A5' }),
+      s('rect', { x: -30, y: -17, width: 6, height: 34, rx: 2, fill: '#4F6878' }));
+    const trace = s('path', { class: 'dfx-glace-trace', d: '' });
+    const svg = s('svg', { class: 'dfx-glace', viewBox: '0 0 400 230', preserveAspectRatio: 'xMidYMid meet', 'aria-hidden': 'true' },
+      s('rect', { x: 10, y: 10, width: 380, height: 210, rx: 70, class: 'dfx-glace-bande' }),
+      s('rect', { x: 18, y: 18, width: 364, height: 194, rx: 64, class: 'dfx-glace-surface' }),
+      s('line', { x1: 200, y1: 18, x2: 200, y2: 212, class: 'dfx-glace-rouge' }),
+      s('line', { x1: 140, y1: 18, x2: 140, y2: 212, class: 'dfx-glace-bleue' }),
+      s('line', { x1: 260, y1: 18, x2: 260, y2: 212, class: 'dfx-glace-bleue' }),
+      s('circle', { cx: 200, cy: 115, r: 28, class: 'dfx-glace-cercle' }),
+      trace, surfaceuse);
+    const el = h('div', { class: 'dfx-decor dfx-decor--glace' }, svg);
+    const pos = (k) => {
+      const a = -Math.PI / 2 + k * 2 * Math.PI;
+      return { x: 200 + 150 * Math.cos(a), y: 115 + 72 * Math.sin(a), ang: (a * 180) / Math.PI + 90 };
+    };
+    return {
+      el,
+      maj(k) {
+        const p = pos(k);
+        surfaceuse.setAttribute('transform', `translate(${p.x} ${p.y}) rotate(${p.ang})`);
+        const pts = [];
+        for (let j = 0; j <= 40; j++) { const q = pos((k * j) / 40); pts.push(`${q.x.toFixed(1)},${q.y.toFixed(1)}`); }
+        trace.setAttribute('d', `M${pts.join('L')}`);
+      },
+      fin() { el.classList.add('dfx-decor--fini'); },
+    };
+  }
+  const barre = h('span', { class: 'dfx-decor-temps-remplie' });
+  const el = h('div', { class: 'dfx-decor dfx-decor--neutre' }, h('div', { class: 'dfx-decor-horloge', 'aria-hidden': 'true' }, icone('horloge')), h('div', { class: 'dfx-decor-temps' }, barre));
+  return { el, maj(k) { barre.style.width = `${Math.round(k * 100)}%`; }, fin() {} };
 }
 
 function statCase(titre, valeur, legende, alerte) {

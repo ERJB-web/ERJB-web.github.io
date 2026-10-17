@@ -129,8 +129,28 @@ export function termeCorrespond(terme, champs) {
   return t.mots.every((mot) => champs.some((champ) => champ.some((j) => motCorrespond(mot, j))));
 }
 
+// Mode « exact » : les motsCles contiennent déjà les termes de l'équation (troncature résolue).
+export function modeRequete(concepts, corpus) {
+  const termes = new Set();
+  for (const c of concepts || []) for (const x of c.termes || []) termes.add(String(typeof x === 'string' ? x : x.t ?? x.texte ?? '').trim());
+  let total = 0;
+  let communs = 0;
+  for (const d of corpus || []) {
+    for (const m of listeMotsCles(d?.motsCles)) {
+      total++;
+      if (termes.has(m.trim())) communs++;
+    }
+  }
+  return total > 0 && communs / total >= 0.8 ? 'exact' : 'texte';
+}
+
+function ensembleMotsCles(doc) {
+  return new Set(listeMotsCles(doc?.motsCles).map((m) => m.trim()));
+}
+
 // blocs : [{ termes: [brut], actif, exclusion }]
-export function evaluerEquation(blocs, corpus) {
+export function evaluerEquation(blocs, corpus, mode = 'texte') {
+  if (mode === 'exact') return evaluerExact(blocs, corpus);
   const index = corpus.map(indexerNotice);
   const utiles = blocs
     .filter((b) => b && b.actif !== false)
@@ -165,7 +185,46 @@ export function evaluerEquation(blocs, corpus) {
   };
 }
 
-export function termesTrouves(blocs, doc) {
+function evaluerExact(blocs, corpus) {
+  const utiles = blocs
+    .filter((b) => b && b.actif !== false)
+    .map((b) => ({ ...b, liste: (b.termes || []).map((x) => String(x).trim()).filter(Boolean) }))
+    .filter((b) => b.liste.length);
+  const totalPertinents = corpus.filter((d) => vrai(d?.pertinent)).length;
+  if (!utiles.some((b) => !b.exclusion)) {
+    return { valide: false, resultats: [], vp: 0, totalPertinents, rappel: 0, precision: 0, parBloc: [] };
+  }
+  const parBloc = utiles.map((b) => ({ id: b.id, nb: 0 }));
+  const resultats = [];
+  corpus.forEach((d, i) => {
+    const mc = ensembleMotsCles(d);
+    let garde = true;
+    utiles.forEach((b, k) => {
+      const touche = b.liste.some((x) => mc.has(x));
+      if (touche) parBloc[k].nb++;
+      if (b.exclusion ? touche : !touche) garde = false;
+    });
+    if (garde) resultats.push(i);
+  });
+  const vp = resultats.filter((i) => vrai(corpus[i]?.pertinent)).length;
+  return {
+    valide: true, resultats, vp, totalPertinents,
+    rappel: totalPertinents ? vp / totalPertinents : 0,
+    precision: resultats.length ? vp / resultats.length : 0,
+    parBloc,
+  };
+}
+
+export function termesTrouves(blocs, doc, mode = 'texte') {
+  if (mode === 'exact') {
+    const mc = ensembleMotsCles(doc);
+    const out = [];
+    for (const b of blocs) {
+      if (!b || b.actif === false) continue;
+      for (const brut of b.termes || []) if (mc.has(String(brut).trim())) out.push({ bloc: b.id, terme: brut, analyse: analyserTerme(brut) });
+    }
+    return out;
+  }
   const champs = indexerNotice(doc);
   const out = [];
   for (const b of blocs) {
@@ -289,6 +348,17 @@ export function normaliserDecision(d) {
   return null;
 }
 
+export function motifsAcceptes(a) {
+  const s = new Set();
+  const c = categorieMotif(a?.motif);
+  if (c) s.add(c);
+  for (const m of Array.isArray(a?.motifsAcceptes) ? a.motifsAcceptes : []) {
+    const k = categorieMotif(m);
+    if (k) s.add(k);
+  }
+  return s;
+}
+
 // decisions : [{ decision, motif }] (null si non traité)
 export function scoreCriblage(decisions, articles) {
   let points = 0;
@@ -309,8 +379,8 @@ export function scoreCriblage(decisions, articles) {
       return { etat: 'erreur', points: 0 };
     }
     if (attendu === 'exclure') {
-      const cat = categorieMotif(a.motif);
-      if (cat && d.motif && d.motif !== cat) {
+      const acceptes = motifsAcceptes(a);
+      if (acceptes.size && d.motif && !acceptes.has(d.motif)) {
         motifsErrones++;
         points += 0.5;
         return { etat: 'motif', points: 0.5 };
@@ -336,7 +406,13 @@ export function humeurApres(humeur, qualite) {
   return borner(humeur + (borner(qualite) - 0.5) * 0.5);
 }
 
+export function estSuperflu(f) {
+  if (f?.superflu != null && f.superflu !== '') return vrai(f.superflu);
+  return !(Number(f?.rang) > 0);
+}
+
 export function scorePitch(selection, fragments, limiteMots = 75) {
+  fragments = fragments.map((f) => ({ ...f, superflu: estSuperflu(f) }));
   const essentiels = fragments.map((f, i) => ({ f, i })).filter((x) => !vrai(x.f.superflu));
   const superflus = fragments.length - essentiels.length;
   const choisis = selection.map((i) => fragments[i]).filter(Boolean);
@@ -447,9 +523,14 @@ export function pointDansPolygone(pt, poly) {
   return dedans;
 }
 
+export function capaciteConnue(r) {
+  return r?.capacite !== null && r?.capacite !== undefined && r?.capacite !== '' && Number.isFinite(Number(r.capacite));
+}
+
+// Capacité inconnue : la ressource compte pour une unité.
 export function capaciteDe(r) {
-  const c = Number(r?.capacite);
-  return Number.isFinite(c) && c > 0 ? c : 1;
+  if (!capaciteConnue(r)) return 1;
+  return Math.max(0, Number(r.capacite));
 }
 
 export function populationTotale(zones) {
@@ -462,7 +543,7 @@ export function statsSecteur(ressources, zones, rayon) {
   const capacite = ressources.reduce((s, r) => s + capaciteDe(r), 0);
   let couverte = 0;
   if (rayon > 0) {
-    for (const z of zones) if (ressources.some((r) => distance(z, r) <= rayon)) couverte += Number(z.pop65) || 0;
+    for (const z of zones) if (ressources.some((r) => capaciteDe(r) > 0 && distance(z, r) <= rayon)) couverte += Number(z.pop65) || 0;
   }
   return {
     n,
@@ -479,12 +560,21 @@ export function deuxEtapes(ressources, zones, rayon) {
   const ratio = ressources.map((r, j) => (demande[j] > 0 ? capaciteDe(r) / demande[j] : 0));
   const acces = zones.map((z) =>
     ressources.reduce((s, r, j) => (distance(z, r) <= rayon ? s + ratio[j] : s), 0) * 1000);
-  const pression = ressources.map((r, j) => demande[j] / capaciteDe(r));
+  const pression = ressources.map((r, j) => (capaciteDe(r) > 0 ? demande[j] / capaciteDe(r) : 0));
   return { demande, ratio, acces, pression };
 }
 
 export function zonesSansRessource(zones, ressources, rayon) {
-  return zones.filter((z) => !ressources.some((r) => distance(z, r) <= rayon));
+  return zones.filter((z) => !ressources.some((r) => capaciteDe(r) > 0 && distance(z, r) <= rayon));
+}
+
+export function couperRectangle(poly, x0, y0, x1, y1) {
+  let p = poly;
+  p = decouper(p, -1, 0, -x0);
+  p = decouper(p, 1, 0, x1);
+  p = decouper(p, 0, -1, -y0);
+  p = decouper(p, 0, 1, y1);
+  return p;
 }
 
 export function seuilsQuantiles(valeurs, classes = 5) {
@@ -555,6 +645,30 @@ export function mesuresReseau(alters, liens, egoId = 'ego') {
     composantes: composantesAlters(relies, liens, egoId),
     niveauMoyen: n ? [...niveauEgo.values()].reduce((s, v) => s + v, 0) / n : 0,
   };
+}
+
+export function jaccard(a, b) {
+  const A = new Set(a);
+  const B = new Set(b);
+  let inter = 0;
+  for (const x of A) if (B.has(x)) inter++;
+  const union = A.size + B.size - inter;
+  return union ? inter / union : 0;
+}
+
+// Domaines ayant au moins un alter relié à l'ego au niveau seuil ou plus.
+export function couvertureDomaines(alters, liens, egoId = 'ego', seuil = 2) {
+  const tous = new Set();
+  for (const a of alters) for (const d of Array.isArray(a.domaines) ? a.domaines : []) tous.add(d);
+  const couverts = new Set();
+  for (const l of liens) {
+    if ((Number(l.niveau) || 0) < seuil) continue;
+    const autre = l.a === egoId ? l.b : l.b === egoId ? l.a : null;
+    if (autre == null) continue;
+    const a = alters.find((x) => x.id === autre);
+    for (const d of Array.isArray(a?.domaines) ? a.domaines : []) couverts.add(d);
+  }
+  return { couverts: couverts.size, total: tous.size, liste: [...couverts] };
 }
 
 export function composantesAlters(ids, liens, egoId = 'ego') {

@@ -1,7 +1,7 @@
-import { h, s, icone, vider, nombre, pct, styleSecteurs, cheminSymbole, pastilleSecteur, glisser } from '../noyau.js?v=1770adecd5';
-import { mesuresReseau, scoreCodageReseau, clefLien, vrai, borner, melanger } from '../calculs.js?v=1770adecd5';
-import { panneauQuestions } from './questions.js?v=1770adecd5';
-import { ongletsPanneau } from './carte.js?v=1770adecd5';
+import { h, s, icone, vider, nombre, pct, styleSecteurs, cheminSymbole, pastilleSecteur, glisser, humaniser } from '../noyau.js?v=0a63877699';
+import { mesuresReseau, scoreCodageReseau, clefLien, vrai, borner, melanger, jaccard, couvertureDomaines } from '../calculs.js?v=0a63877699';
+import { panneauQuestions } from './questions.js?v=0a63877699';
+import { ongletsPanneau } from './carte.js?v=0a63877699';
 
 export const NIVEAUX = [
   { n: 1, nom: 'Information', def: 'Échange d’information, sans action commune.' },
@@ -29,7 +29,13 @@ const EGO = '__ego__';
 
 export function preparerReseau(def) {
   const egoNom = typeof def.ego === 'string' ? def.ego : String(def.ego?.nom ?? def.ego?.id ?? 'Équipe SAD');
-  const alters = (Array.isArray(def.alters) ? def.alters : []).map((a, i) => ({ id: String(a.id ?? i), nom: String(a.nom ?? a.id ?? `Alter ${i + 1}`), secteur: String(a.secteur ?? '') }));
+  const alters = (Array.isArray(def.alters) ? def.alters : []).map((a, i) => ({
+    id: String(a.id ?? i), nom: String(a.nom ?? a.id ?? `Alter ${i + 1}`), secteur: String(a.secteur ?? ''),
+    domaines: Array.isArray(a.domaines) ? a.domaines.map(String) : [],
+    declare: a.declare == null ? null : vrai(a.declare),
+    refere211: a.refere211 == null ? null : vrai(a.refere211),
+    inventaire: a.inventaire == null ? null : vrai(a.inventaire),
+  }));
   const ids = new Set(alters.map((a) => a.id));
   const fin = (v) => (ids.has(String(v)) ? String(v) : EGO);
   const vus = new Map();
@@ -47,12 +53,41 @@ export function preparerReseau(def) {
   }
   const liens = [...vus.values()];
   const noms = [...new Set(alters.map((a) => a.secteur))];
-  const secteurs = styleSecteurs(noms.map((n) => ({ id: n, nom: n || 'Autre' })));
-  return { egoNom, alters, liens, secteurs, declares: liens.filter((l) => l.niveau >= 1), observes: liens.filter((l) => l.observe) };
+  const secteurs = styleSecteurs(noms.map((n) => ({ id: n, nom: nomSecteur(n) })));
+  const observes = liens.filter((l) => l.observe);
+  for (const a of alters) {
+    if (a.refere211 && !observes.some((l) => l.a === EGO && l.b === a.id)) observes.push({ a: EGO, b: a.id, niveau: 0, observe: true });
+  }
+  const legende = def.legende && typeof def.legende === 'object' ? def.legende : {};
+  return { egoNom, alters, liens, secteurs, declares: liens.filter((l) => l.niveau >= 1), observes, legende, avec211: alters.some((a) => a.refere211 != null) || /211/.test(String(legende.observe || legende.refere211 || '')) };
+}
+
+function nomSecteur(id) {
+  const m = /^s\s*([1-6])$/i.exec(String(id).trim());
+  if (m) return ['Réseau public', 'Première ligne', 'Parapublic', 'Communauté', 'Ville et municipalité', 'Habitation'][+m[1] - 1];
+  return id ? humaniser(id) : 'Autre';
+}
+
+export function niveauxDe(legende) {
+  const brut = legende && typeof legende.niveau === 'string' ? legende.niveau : '';
+  if (!brut) return { niveaux: NIVEAUX, echelle: false };
+  const parties = {};
+  for (const morceau of brut.split(/[;\n]/)) {
+    const m = /^\s*([1-4])\s*[=:–-]\s*(.+?)\s*$/.exec(morceau);
+    if (m) parties[+m[1]] = m[2];
+  }
+  const unite = /passes?/i.test(brut) ? 'passes' : '';
+  for (const k of Object.keys(parties)) if (unite && !/passe/i.test(parties[k])) parties[k] = `${parties[k]} ${unite}`;
+  return {
+    echelle: true,
+    niveaux: [1, 2, 3, 4].map((n) => ({ n, nom: parties[n] ? `Niveau ${n}` : NIVEAUX[n - 1].nom, def: parties[n] || NIVEAUX[n - 1].def, valeur: parties[n] || '' })),
+  };
 }
 
 export function rendre(def, coque) {
   const R = preparerReseau(def);
+  const { niveaux, echelle } = niveauxDe(R.legende);
+  const libObs = R.avec211 ? 'Observé (211)' : 'Observé';
   const questions = Array.isArray(def.questions) ? def.questions : [];
   const joueur = new Map();
   let selection = null;
@@ -139,10 +174,11 @@ export function rendre(def, coque) {
   const scene = h('div', { class: 'dfx-res-scene' }, svg, popover,
     h('div', { class: 'dfx-res-legende' },
       h('div', { class: 'dfx-res-legende-ligne' }, ordreSect.filter((sec) => R.alters.some((a) => a.secteur === sec.id)).map((sec) => h('span', { class: 'dfx-res-leg' }, pastilleSecteur(sec, 14), h('span', { text: sec.nom })))),
-      h('div', { class: 'dfx-res-legende-ligne dfx-res-legende-niveaux' }, NIVEAUX.map((n) => h('span', { class: `dfx-res-leg dfx-res-leg--${n.n}` }, s('svg', { width: 34, height: 12, 'aria-hidden': 'true' }, s('line', { x1: 2, y1: 6, x2: 32, y2: 6, class: `dfx-res-lien dfx-res-lien--n${n.n}` })), h('span', { text: `${n.n} · ${n.nom}` }))))));
+      h('div', { class: 'dfx-res-legende-ligne dfx-res-legende-niveaux' }, niveaux.map((n) => h('span', { class: `dfx-res-leg dfx-res-leg--${n.n}` }, s('svg', { width: 34, height: 12, 'aria-hidden': 'true' }, s('line', { x1: 2, y1: 6, x2: 32, y2: 6, class: `dfx-res-lien dfx-res-lien--n${n.n}` })), h('span', { text: echelle ? `${n.n} · ${n.def}` : `${n.n} · ${n.nom}` }))))));
 
   // ---------------------------------------------------------------- entretien
-  const extraits = construireExtraits(R, coque.alea);
+  const libNiv = (n) => (echelle ? niveaux[n - 1]?.def : niveaux[n - 1]?.nom) || '';
+  const extraits = construireExtraits(R, coque.alea, echelle ? niveaux : null);
   const listeExtraits = h('ol', { class: 'dfx-res-extraits' }, extraits.map((x) => {
     const coche = h('input', { type: 'checkbox', 'aria-label': 'Extrait codé' });
     coche.addEventListener('change', () => li.classList.toggle('dfx-res-extrait--fait', coche.checked));
@@ -153,8 +189,8 @@ export function rendre(def, coque) {
     return li;
   }));
   const entretien = h('aside', { class: 'dfx-res-gauche' },
-    h('p', { class: 'dfx-surtitre', text: 'Entretien avec l’équipe SAD' }),
-    h('p', { class: 'dfx-aide', text: '« Au cours des 12 derniers mois, avec quelles organisations avez-vous collaboré pour une personne aînée ? » Trace chaque lien déclaré et cote son niveau.' }),
+    h('p', { class: 'dfx-surtitre', text: echelle ? `Ce que déclare ${R.egoNom.replace(/\s*\(.*\)\s*$/, '')}` : 'Entretien avec l’équipe SAD' }),
+    h('p', { class: 'dfx-aide', text: echelle ? `Trace chaque lien déclaré et cote-le avec l’échelle : ${R.legende.niveau}.` : '« Au cours des 12 derniers mois, avec quelles organisations avez-vous collaboré pour une personne aînée ? » Trace chaque lien déclaré et cote son niveau.' }),
     listeExtraits);
 
   const mesures = h('div', { class: 'dfx-res-mesures' });
@@ -226,7 +262,7 @@ export function rendre(def, coque) {
   function coter(l, n) {
     l.niveau = n;
     coque.jouer('clic');
-    coque.annoncer(`Niveau ${n} : ${NIVEAUX[n - 1].nom}.`);
+    coque.annoncer(`Niveau ${n} : ${niveaux[n - 1].nom}.`);
     fermerPop();
     dessiner();
     majMesures();
@@ -250,7 +286,7 @@ export function rendre(def, coque) {
     popover.append(h('p', { class: 'dfx-res-pop-titre', text: `${nomA} — ${nomB}` }));
     if (ego) {
       popover.append(h('p', { class: 'dfx-res-pop-q', text: 'Niveau de collaboration le plus élevé :' }));
-      const grille = h('div', { class: 'dfx-res-pop-niveaux' }, NIVEAUX.map((n) => {
+      const grille = h('div', { class: 'dfx-res-pop-niveaux' }, niveaux.map((n) => {
         const b = h('button', { class: `dfx-res-niv${l.niveau === n.n ? ' dfx-res-niv--actif' : ''}`, type: 'button', 'aria-pressed': String(l.niveau === n.n) },
           h('span', { class: 'dfx-res-niv-n', brut: String(n.n) }),
           h('span', { class: 'dfx-res-niv-nom', text: n.nom }),
@@ -434,11 +470,26 @@ export function rendre(def, coque) {
     } else {
       const dec = mesuresReseau(R.alters, R.declares.map((l) => ({ a: l.a === EGO ? 'ego' : l.a, b: l.b, niveau: l.niveau })), 'ego');
       const obs = mesuresReseau(R.alters, R.observes.map((l) => ({ a: l.a === EGO ? 'ego' : l.a, b: l.b, niveau: Math.max(1, l.niveau) })), 'ego');
-      const nonMob = R.alters.filter((a) => R.observes.some((l) => l.a === EGO && l.b === a.id) && !R.declares.some((l) => l.a === EGO && l.b === a.id));
-      const jamais = R.alters.filter((a) => !R.liens.some((l) => l.a === EGO && l.b === a.id && (l.niveau >= 1 || l.observe)));
-      mesures.append(h('div', { class: 'dfx-res-mesure-duo' }, blocMesures(dec, 'Déclaré'), blocMesures(obs, 'Observé (211)')));
-      if (nonMob.length) mesures.append(h('div', { class: 'dfx-res-note' }, h('p', { class: 'dfx-res-note-titre', text: 'Référées par le 211, non mobilisées par l’équipe' }), h('ul', {}, nonMob.map((a) => h('li', { text: a.nom })))));
-      if (jamais.length) mesures.append(h('div', { class: 'dfx-res-note dfx-res-note--neutre' }, h('p', { class: 'dfx-res-note-titre', text: 'Présentes sur le territoire, absentes des deux réseaux' }), h('ul', {}, jamais.map((a) => h('li', { text: a.nom })))));
+      const egoDec = R.declares.filter((l) => l.a === EGO).map((l) => l.b);
+      const egoObs = R.observes.filter((l) => l.a === EGO).map((l) => l.b);
+      const nonMob = R.alters.filter((a) => egoObs.includes(a.id) && !egoDec.includes(a.id));
+      const avecInventaire = R.alters.some((a) => a.inventaire != null);
+      const jamais = R.alters.filter((a) => (avecInventaire ? a.inventaire : true) && !egoDec.includes(a.id) && !egoObs.includes(a.id));
+      mesures.append(h('div', { class: 'dfx-res-mesure-duo' }, blocMesures(dec, 'Déclaré'), blocMesures(obs, libObs)));
+      const extra = [];
+      if (egoObs.length) extra.push(ligne('Concordance déclaré et observé', nombre(jaccard(egoDec, egoObs), 2), 'indice de Jaccard sur les alters'));
+      if (R.alters.some((a) => a.domaines.length)) {
+        const cv = couvertureDomaines(R.alters, R.declares.map((l) => ({ a: l.a === EGO ? 'ego' : l.a, b: l.b, niveau: l.niveau })), 'ego', 2);
+        extra.push(ligne('Couverture des domaines', `${cv.couverts} sur ${cv.total}`, 'domaines avec un alter de niveau 2 ou plus'));
+      }
+      if (extra.length) mesures.append(h('dl', { class: 'dfx-res-dl' }, extra));
+      if (nonMob.length) mesures.append(h('div', { class: 'dfx-res-note' }, h('p', { class: 'dfx-res-note-titre', text: R.avec211 ? 'Référés par le 211, non mobilisés par l’équipe' : 'Observés, mais non déclarés' }), h('ul', {}, nonMob.map((a) => h('li', { text: a.nom })))));
+      if (jamais.length && avecInventaire) mesures.append(h('div', { class: 'dfx-res-note dfx-res-note--neutre' }, h('p', { class: 'dfx-res-note-titre', text: 'Dans l’inventaire, absents des deux réseaux' }), h('ul', {}, jamais.map((a) => h('li', { text: a.nom })))));
+      const cles = Object.entries(R.legende).filter(([k, v]) => k !== 'niveau' && typeof v === 'string' && v);
+      if (cles.length) {
+        const libelles = { declare: 'Déclaré', refere211: 'Référé par le 211', inventaire: 'Inventaire', observe: 'Observé' };
+        mesures.append(h('div', { class: 'dfx-res-note dfx-res-note--neutre' }, h('p', { class: 'dfx-res-note-titre', text: 'Sources' }), h('ul', {}, cles.map(([k, v]) => h('li', { text: `${libelles[k] || humaniser(k)} : ${v}` })))));
+      }
     }
   }
 
@@ -467,7 +518,7 @@ export function rendre(def, coque) {
     coque.setStatut(`Liens trouvés : ${sc.vp} sur ${R.declares.length} · niveaux exacts : ${nivJustes} sur ${egoVrais} · liens en trop : ${sc.fp}`);
     vider(vues);
     vues.hidden = false;
-    [['corrige', 'Ton codage corrigé'], ['declare', 'Déclaré'], ['observe', 'Observé (211)'], ['superpose', 'Superposé']].forEach(([v, t]) => {
+    [['corrige', 'Ton codage corrigé'], ['declare', 'Déclaré'], ['observe', libObs], ['superpose', 'Superposé']].forEach(([v, t]) => {
       const b = h('button', { class: 'dfx-segment', type: 'button', role: 'radio', 'aria-checked': String(v === vueAnalyse), text: t });
       b.addEventListener('click', () => {
         vueAnalyse = v;
@@ -478,7 +529,7 @@ export function rendre(def, coque) {
       vues.append(b);
     });
     scene.querySelector('.dfx-res-legende-niveaux').append(
-      h('span', { class: 'dfx-res-leg dfx-res-leg--obs' }, s('svg', { width: 34, height: 12, 'aria-hidden': 'true' }, s('line', { x1: 2, y1: 6, x2: 32, y2: 6, class: 'dfx-res-lien dfx-res-lien--obs' })), h('span', { text: 'Référence du 211' })),
+      h('span', { class: 'dfx-res-leg dfx-res-leg--obs' }, s('svg', { width: 34, height: 12, 'aria-hidden': 'true' }, s('line', { x1: 2, y1: 6, x2: 32, y2: 6, class: 'dfx-res-lien dfx-res-lien--obs' })), h('span', { text: R.avec211 ? 'Référence du 211' : 'Lien observé' })),
       h('span', { class: 'dfx-res-leg' }, s('svg', { width: 34, height: 12, 'aria-hidden': 'true' }, s('line', { x1: 2, y1: 6, x2: 32, y2: 6, class: 'dfx-res-lien dfx-res-lien--manquant' })), h('span', { text: 'Lien manqué' })),
       h('span', { class: 'dfx-res-leg' }, s('svg', { width: 34, height: 12, 'aria-hidden': 'true' }, s('line', { x1: 2, y1: 6, x2: 32, y2: 6, class: 'dfx-res-lien dfx-res-lien--faux' })), h('span', { text: 'Lien en trop' })));
     if (ongletQuestions) ongletQuestions.disabled = false;
@@ -523,7 +574,7 @@ export function rendre(def, coque) {
         const nomA = l.a === EGO ? R.egoNom : R.alters.find((x) => x.id === l.a)?.nom;
         const nomB = R.alters.find((x) => x.id === l.b)?.nom;
         const meta = l.a === EGO
-          ? (d?.etat === 'manquant' ? `Non tracé · niveau attendu : ${l.niveau} (${NIVEAUX[l.niveau - 1]?.nom})` : d?.etat === 'niveau' ? `Coté ${d.donne || '?'} · attendu ${l.niveau} (${NIVEAUX[l.niveau - 1]?.nom})` : `Niveau ${l.niveau} (${NIVEAUX[l.niveau - 1]?.nom})`)
+          ? (d?.etat === 'manquant' ? `Non tracé · niveau attendu : ${l.niveau} (${libNiv(l.niveau)})` : d?.etat === 'niveau' ? `Coté ${d.donne || '?'} · attendu ${l.niveau} (${libNiv(l.niveau)})` : `Niveau ${l.niveau} (${libNiv(l.niveau)})`)
           : (d?.etat === 'manquant' ? 'Lien entre alters non tracé' : 'Lien entre alters');
         ul.append(h('li', { class: `dfx-ligne-correction ${ok ? 'dfx-ok' : d?.etat === 'niveau' ? 'dfx-moyen' : 'dfx-ko'}` },
           h('span', { class: 'dfx-ligne-ico' }, icone(ok ? 'valider' : d?.etat === 'niveau' ? 'info' : 'fermer')),
@@ -542,16 +593,20 @@ export function rendre(def, coque) {
   };
 }
 
-function construireExtraits(R, alea) {
+function construireExtraits(R, alea, echelle) {
   const choisir = (t) => t[Math.floor(alea() * t.length)];
   const nom = (id) => R.alters.find((a) => a.id === id)?.nom ?? id;
   const out = [];
   for (const l of R.declares) {
-    if (l.a === EGO) out.push({ titre: nom(l.b), texte: choisir(EXTRAITS[l.niveau]) });
+    if (echelle) {
+      const v = echelle[l.niveau - 1]?.valeur || '';
+      if (l.a === EGO) out.push({ titre: nom(l.b), texte: `Avec ${nom(l.b).replace(/\s*\(.*\)\s*$/, '')} : ${v}${/passe/i.test(v) || !v ? '' : ' passes'}.` });
+      else out.push({ titre: `${nom(l.a)} et ${nom(l.b)}`, texte: 'Entre eux aussi, ça circule.' });
+    } else if (l.a === EGO) out.push({ titre: nom(l.b), texte: choisir(EXTRAITS[l.niveau]) });
     else out.push({ titre: `${nom(l.a)} et ${nom(l.b)}`, texte: choisir(EXTRAITS.alters) });
   }
   const declares = new Set(R.declares.filter((l) => l.a === EGO).map((l) => l.b));
-  for (const a of R.alters) if (!declares.has(a.id)) out.push({ titre: a.nom, texte: choisir(EXTRAITS.aucun) });
+  for (const a of R.alters) if (!declares.has(a.id)) out.push({ titre: a.nom, texte: echelle ? 'Aucun échange déclaré.' : choisir(EXTRAITS.aucun) });
   return melanger(out, alea);
 }
 

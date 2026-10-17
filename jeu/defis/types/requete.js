@@ -1,5 +1,5 @@
-import { h, icone, vider, pct, nombre, compteurAnime, attendre } from '../noyau.js?v=1770adecd5';
-import { analyserTerme, evaluerEquation, equationLignes, scoreRequete, termesTrouves, normaliser, vrai, listeMotsCles } from '../calculs.js?v=1770adecd5';
+import { h, icone, vider, pct, nombre, compteurAnime, attendre } from '../noyau.js?v=0a63877699';
+import { analyserTerme, evaluerEquation, equationLignes, scoreRequete, termesTrouves, normaliser, vrai, listeMotsCles, modeRequete } from '../calculs.js?v=0a63877699';
 
 const MOTS_VIDES = new Set(['a', 'au', 'aux', 'avec', 'chez', 'd', 'dans', 'de', 'des', 'du', 'en', 'et', 'l', 'la', 'le', 'les', 'ou', 'par', 'pour', 'sur', 'un', 'une', 'plus', 'moins']);
 
@@ -41,7 +41,10 @@ export function rendre(def, coque) {
     precision: Number(def.ciblePrecision) > 0 ? Number(def.ciblePrecision) : 0.5,
   };
   const maxEssais = Number(def.essais) > 0 ? Math.round(Number(def.essais)) : 6;
-  const exclusionPermise = permetExclusion(def.operateurs);
+  const mode = modeRequete(def.concepts, corpus);
+  const exact = mode === 'exact';
+  const exclusionPermise = permetExclusion(def.operateurs) && !exact;
+  const champ = exact ? '' : 'TITLE-ABS-KEY';
   let idTerme = 0;
 
   const blocs = (Array.isArray(def.concepts) ? def.concepts : []).map((c, k) => ({
@@ -51,7 +54,12 @@ export function rendre(def, coque) {
     exclusion: false,
     termes: (Array.isArray(c.termes) ? c.termes : []).map((t) => {
       const brut = typeof t === 'string' ? t : String(t.t ?? t.texte ?? '');
-      return { id: ++idTerme, original: brut, texte: brut, coche: false, suggere: true, pertinent: typeof t === 'object' ? vrai(t.pertinent) : null };
+      return {
+        id: ++idTerme, original: brut, texte: brut, coche: false, suggere: true,
+        pertinent: typeof t === 'object' && t.pertinent != null ? vrai(t.pertinent) : null,
+        sens: typeof t === 'object' && t.sens ? String(t.sens) : '',
+        explication: typeof t === 'object' && t.explication ? String(t.explication) : '',
+      };
     }),
   }));
   if (exclusionPermise) blocs.push({ id: '__sauf', nom: 'Exclure (SAUF)', actif: true, exclusion: true, termes: [] });
@@ -77,7 +85,7 @@ export function rendre(def, coque) {
         interrupteur),
       h('p', { class: 'dfx-req-bloc-aide', text: b.exclusion ? 'Les notices qui contiennent un de ces termes seront retirées. À manier avec prudence.' : 'Termes reliés par OU : une notice est retenue si elle contient au moins un terme coché.' }),
       corpsBloc,
-      h('form', { class: 'dfx-req-ajout', on: { submit: (e) => { e.preventDefault(); ajouterTerme(b, saisie.value); saisie.value = ''; saisie.focus(); } } }, saisie, ajouter));
+      exact ? null : h('form', { class: 'dfx-req-ajout', on: { submit: (e) => { e.preventDefault(); ajouterTerme(b, saisie.value); saisie.value = ''; saisie.focus(); } } }, saisie, ajouter));
     ajouter.type = 'submit';
     interrupteur.addEventListener('click', () => {
       b.actif = !b.actif;
@@ -106,15 +114,17 @@ export function rendre(def, coque) {
   function puce(x, t) {
     const analyse = analyserTerme(t.texte);
     const multi = analyse.mots.length > 1 || analyse.expression;
-    const principal = h('button', { class: 'dfx-puce-terme', type: 'button', role: 'checkbox', 'aria-checked': String(t.coche), title: t.coche ? 'Retirer ce terme de l’équation' : 'Ajouter ce terme à l’équation' },
+    const principal = h('button', { class: 'dfx-puce-terme', type: 'button', role: 'checkbox', 'aria-checked': String(t.coche), title: t.sens || (t.coche ? 'Retirer ce terme de l’équation' : 'Ajouter ce terme à l’équation') },
       h('span', { class: 'dfx-puce-case', 'aria-hidden': 'true' }, icone('valider')),
-      h('span', { class: 'dfx-puce-texte' }, ...texteColore(t.texte)));
+      h('span', { class: 'dfx-puce-libelle' },
+        h('span', { class: 'dfx-puce-texte' }, ...texteColore(t.texte)),
+        t.sens ? h('span', { class: 'dfx-puce-sens', text: t.sens }) : null));
     principal.addEventListener('click', () => { t.coche = !t.coche; coque.jouer('clic'); rafraichir(x, t); });
     const tronc = h('button', { class: 'dfx-puce-mini', type: 'button', 'aria-pressed': String(estTronque(t.texte)), title: 'Troncature (*) : retrouve aussi les pluriels et les variantes' }, h('span', { 'aria-hidden': 'true', brut: '*' }), h('span', { class: 'dfx-sr', text: `Troncature pour ${t.texte}` }));
     tronc.addEventListener('click', () => { t.texte = basculerTroncature(t.texte); t.coche = true; coque.jouer('clic'); rafraichir(x, t, '.dfx-puce-mini'); });
     const guil = h('button', { class: 'dfx-puce-mini', type: 'button', 'aria-pressed': String(analyse.expression), title: 'Guillemets : expression exacte, mots consécutifs', disabled: !multi }, h('span', { 'aria-hidden': 'true', brut: '“ ”' }), h('span', { class: 'dfx-sr', text: `Expression exacte pour ${t.texte}` }));
     guil.addEventListener('click', () => { t.texte = basculerGuillemets(t.texte); t.coche = true; coque.jouer('clic'); rafraichir(x, t, '.dfx-puce-mini + .dfx-puce-mini'); });
-    const enfants = [principal, h('span', { class: 'dfx-puce-outils' }, tronc, guil)];
+    const enfants = exact ? [principal] : [principal, h('span', { class: 'dfx-puce-outils' }, tronc, guil)];
     if (!t.suggere) {
       const suppr = h('button', { class: 'dfx-puce-mini dfx-puce-mini--suppr', type: 'button', title: 'Supprimer ce terme' }, icone('fermer'), h('span', { class: 'dfx-sr', text: `Supprimer ${t.texte}` }));
       suppr.addEventListener('click', () => {
@@ -159,7 +169,7 @@ export function rendre(def, coque) {
   const zoneApercu = h('section', { class: 'dfx-req-apercu' },
     h('div', { class: 'dfx-req-apercu-tete' },
       h('p', { class: 'dfx-surtitre', text: 'Historique de recherche' }),
-      h('p', { class: 'dfx-req-champs', text: 'Champs : titre, résumé, mots-clés' })),
+      h('p', { class: 'dfx-req-champs', text: exact ? 'Champs : titre, résumé, descripteurs' : 'Champs : titre, résumé, mots-clés' })),
     apercu);
 
   const nbResultats = h('strong', { class: 'dfx-req-nb', brut: '—' });
@@ -229,7 +239,7 @@ export function rendre(def, coque) {
     for (const l of lignes) {
       const ligne = h('span', { class: `dfx-syn-ligne${l.exclusion ? ' dfx-syn-ligne--sauf' : ''}` },
         h('span', { class: 'dfx-syn-num', brut: `${l.num}` }),
-        h('span', { class: 'dfx-syn-champ', brut: 'TITLE-ABS-KEY' }), ' ( ');
+        champ ? h('span', { class: 'dfx-syn-champ', brut: champ }) : null, champ ? ' ( ' : '( ');
       l.termes.forEach((t, k) => {
         if (k > 0) ligne.append(h('span', { class: 'dfx-syn-op', brut: ' OR ' }));
         ligne.append(...texteColore(t));
@@ -250,7 +260,7 @@ export function rendre(def, coque) {
   async function lancer() {
     if (enCours || fini) return;
     const blocsCalc = blocsPourCalcul();
-    const res = evaluerEquation(blocsCalc, corpus);
+    const res = evaluerEquation(blocsCalc, corpus, mode);
     if (!res.valide) {
       coque.setStatut('Coche au moins un terme dans un bloc actif.');
       coque.reagir('Une recherche sans terme ? Même la bibliothécaire n’a jamais vu ça.', { humeur: 'surpris' });
@@ -285,7 +295,7 @@ export function rendre(def, coque) {
     else if (n >= corpus.length * 0.75) coque.reagir('Tu as retrouvé presque toute la base. Tu cherches quelque chose en particulier ?', { humeur: 'sceptique', qui: 'bibliothecaire', force: true });
     else if (atteint) coque.reagir('Rappel et précision au rendez-vous. Je l’encadrerais.', { humeur: 'ravi', qui: 'bibliothecaire', force: true });
     else if (res.rappel >= cibles.rappel && res.precision < cibles.precision) coque.reagir('Beaucoup de bruit. Regarde les titres : lesquels n’ont rien à faire là ?', { humeur: 'neutre', qui: 'bibliothecaire', force: true });
-    else if (res.rappel < cibles.rappel) coque.reagir('Il manque des études. Pense aux pluriels, au féminin et aux synonymes.', { humeur: 'neutre', qui: 'bibliothecaire', force: true });
+    else if (res.rappel < cibles.rappel) coque.reagir(exact ? 'Il manque des études. Pense aux synonymes et aux descripteurs.' : 'Il manque des études. Pense aux pluriels, au féminin et aux synonymes.', { humeur: 'neutre', qui: 'bibliothecaire', force: true });
   }
 
   function afficherResultats(e) {
@@ -308,10 +318,12 @@ export function rendre(def, coque) {
     if (!e.resultats.length) listeRes.append(h('li', { class: 'dfx-req-attente', text: 'Aucune notice ne correspond à cette équation.' }));
     e.resultats.forEach((i, k) => {
       const d = corpus[i];
-      const trouves = termesTrouves(e.blocs, d);
+      const trouves = termesTrouves(e.blocs, d, mode);
       const li = h('li', { class: 'dfx-req-notice', style: { '--dfx-delai': `${Math.min(k, 14) * 28}ms` } },
-        h('p', { class: 'dfx-req-notice-titre' }, ...surligner(String(d.titre ?? ''), trouves)),
-        h('p', { class: 'dfx-req-notice-mc', text: listeMotsCles(d.motsCles).join(' · ') }));
+        h('p', { class: 'dfx-req-notice-titre' }, ...(exact ? [String(d.titre ?? '')] : surligner(String(d.titre ?? ''), trouves))),
+        exact
+          ? h('p', { class: 'dfx-req-notice-mc' }, [...new Set(trouves.map((x) => x.terme))].map((x) => h('span', { class: 'dfx-req-tag', brut: x })))
+          : h('p', { class: 'dfx-req-notice-mc', text: listeMotsCles(d.motsCles).join(' · ') }));
       listeRes.append(li);
     });
   }
@@ -331,7 +343,7 @@ export function rendre(def, coque) {
         resultats: dernier.resultats.length,
         rappel: dernier.rappel,
         precision: dernier.precision,
-        equation: [...dernier.equation.lignes.map((l) => `TITLE-ABS-KEY ( ${l.termes.join(' OR ')} )`), dernier.equation.combinaison?.texte].filter(Boolean),
+        equation: [...dernier.equation.lignes.map((l) => (champ ? `${champ} ( ${l.termes.join(' OR ')} )` : `( ${l.termes.join(' OR ')} )`)), dernier.equation.combinaison?.texte].filter(Boolean),
       },
     }, (zone) => correction(zone, dernier, sc), {
       sousVerdict: `Rappel ${pct(dernier.rappel)} · précision ${pct(dernier.precision)} · ${essais.length} essai${essais.length > 1 ? 's' : ''}`,
@@ -342,7 +354,7 @@ export function rendre(def, coque) {
     zone.append(h('h4', { class: 'dfx-correction-titre', text: 'Ton équation soumise' }));
     const pre = h('pre', { class: 'dfx-req-syntaxe dfx-req-syntaxe--bilan' });
     dernier.equation.lignes.forEach((l) => {
-      const ligne = h('span', { class: `dfx-syn-ligne${l.exclusion ? ' dfx-syn-ligne--sauf' : ''}` }, h('span', { class: 'dfx-syn-num', brut: `${l.num}` }), h('span', { class: 'dfx-syn-champ', brut: 'TITLE-ABS-KEY' }), ' ( ');
+      const ligne = h('span', { class: `dfx-syn-ligne${l.exclusion ? ' dfx-syn-ligne--sauf' : ''}` }, h('span', { class: 'dfx-syn-num', brut: `${l.num}` }), champ ? h('span', { class: 'dfx-syn-champ', brut: champ }) : null, champ ? ' ( ' : '( ');
       l.termes.forEach((t, k) => { if (k) ligne.append(h('span', { class: 'dfx-syn-op', brut: ' OR ' })); ligne.append(...texteColore(t)); });
       ligne.append(' )');
       pre.append(ligne, '\n');
@@ -363,7 +375,8 @@ export function rendre(def, coque) {
             h('span', { class: 'dfx-req-bilan-coche', 'aria-hidden': 'true' }, t.coche ? icone('valider') : null),
             h('code', { brut: t.texte }),
             h('span', { class: 'dfx-etiquette', text: statut }),
-            h('span', { class: 'dfx-sr', text: t.coche ? 'dans ton équation' : 'absent de ton équation' }));
+            h('span', { class: 'dfx-sr', text: t.coche ? 'dans ton équation' : 'absent de ton équation' }),
+            t.explication ? h('span', { class: 'dfx-req-bilan-expl', text: t.explication }) : null);
         }))));
     }
     zone.append(grille);
@@ -373,11 +386,11 @@ export function rendre(def, coque) {
     const bruit = dernier.resultats.filter((i) => !vrai(corpus[i].pertinent));
     if (manques.length) {
       zone.append(h('h4', { class: 'dfx-correction-titre', text: `Études pertinentes manquées (${manques.length})` }));
-      zone.append(h('ul', { class: 'dfx-liste-simple' }, manques.map((x) => h('li', { class: 'dfx-ko', text: x.d.titre }))));
+      zone.append(h('ul', { class: 'dfx-liste-simple' }, manques.map((x) => h('li', { class: 'dfx-ko' }, h('span', { text: x.d.titre }), x.d.note ? h('span', { class: 'dfx-liste-note', text: x.d.note }) : null))));
     }
     if (bruit.length) {
       zone.append(h('h4', { class: 'dfx-correction-titre', text: `Bruit retenu (${bruit.length})` }));
-      zone.append(h('ul', { class: 'dfx-liste-simple' }, bruit.map((i) => h('li', { class: 'dfx-neutre', text: corpus[i].titre }))));
+      zone.append(h('ul', { class: 'dfx-liste-simple' }, bruit.map((i) => h('li', { class: 'dfx-neutre' }, h('span', { text: corpus[i].titre }), corpus[i].note ? h('span', { class: 'dfx-liste-note', text: corpus[i].note }) : null))));
     }
   }
 
@@ -385,7 +398,7 @@ export function rendre(def, coque) {
     async surTempsEcoule() {
       if (fini) return;
       if (!essais.length) {
-        const res = evaluerEquation(blocsPourCalcul(), corpus);
+        const res = evaluerEquation(blocsPourCalcul(), corpus, mode);
         const blocsCalc = blocsPourCalcul();
         essais.push({ ...res, equation: equationLignes(blocsCalc), blocs: blocsCalc });
       }

@@ -1,10 +1,10 @@
-import { h, icone, vider, pct, portrait, humaniser, attendre } from '../noyau.js?v=1770adecd5';
-import { borner, scoreJury, humeurApres, normaliser } from '../calculs.js?v=1770adecd5';
+import { h, icone, vider, pct, portrait, attendre } from '../noyau.js?v=0a63877699';
+import { borner, scoreJury, humeurApres, normaliser } from '../calculs.js?v=0a63877699';
 
 export const chronoManuel = true;
 
-const ROLES = ['Présidente du jury', 'Membre interne', 'Examinateur externe'];
-const PORTRAITS = ['jury1', 'jury2', 'jury3'];
+const ROLES = ['Président du jury', 'Membre du jury', 'Membre du jury'];
+const PORTRAITS = ['jury_1', 'jury_2', 'jury_3'];
 
 const REACTIONS = {
   excellent: ['Très bien. C’est exactement ce que je voulais entendre.', 'Voilà une réponse appuyée sur des données. Merci.', 'Convaincant. Je raye ma question suivante.'],
@@ -47,7 +47,8 @@ export function rendre(def, coque) {
     let siege = k;
     const m = /(\d+)\s*$/.exec(c);
     if (m && +m[1] >= 1 && +m[1] <= 3) siege = +m[1] - 1;
-    return { cle: c, siege, nom: estIdentifiant(c) ? null : c };
+    const connu = estIdentifiant(c) && coque.ctx.personnages[`jury_${siege + 1}`] ? coque.nomPersonnage(`jury_${siege + 1}`, true) : null;
+    return { cle: c, siege, nom: estIdentifiant(c) ? connu : c, role: coque.descriptionPersonnage(`jury_${siege + 1}`) };
   });
   const sieges = [0, 1, 2].map((k) => membres.find((m) => m.siege === k) || null);
   membres.forEach((m) => { if (!sieges.includes(m)) sieges[sieges.indexOf(null)] = m; });
@@ -78,7 +79,7 @@ export function rendre(def, coque) {
       zonePortrait,
       h('div', { class: 'dfx-jury-plaque' },
         h('strong', { text: m?.nom || ROLES[k2] }),
-        m?.nom ? h('span', { text: ROLES[k2] }) : null));
+        m?.nom ? h('span', { text: m.role || ROLES[k2] }) : null));
     return { el, zonePortrait, humeur: 'neutre' };
   });
   const table = h('div', { class: 'dfx-jury-table' }, membresEl.map((m) => m.el), h('div', { class: 'dfx-jury-bois', 'aria-hidden': 'true' }));
@@ -142,7 +143,7 @@ export function rendre(def, coque) {
       const b = h('button', { class: `dfx-jury-rep${r.preuve ? (verrouillee ? ' dfx-jury-rep--verrou' : ' dfx-jury-rep--preuve') : ''}`, type: 'button', style: { '--dfx-delai': `${j * 60}ms` } },
         h('span', { class: 'dfx-option-lettre', brut: String(j + 1) }),
         h('span', { class: 'dfx-jury-rep-texte', text: verrouillee ? 'Réponse appuyée sur une preuve que tu n’as pas encore récoltée.' : r.texte }),
-        r.preuve ? h('span', { class: 'dfx-jury-rep-preuve' }, icone(verrouillee ? 'cadenas' : 'preuve'), h('span', { text: verrouillee ? `Preuve requise : ${humaniser(r.preuve)}` : `Preuve : ${humaniser(r.preuve)}` })) : null);
+        r.preuve ? h('span', { class: 'dfx-jury-rep-preuve' }, icone(verrouillee ? 'cadenas' : 'preuve'), h('span', { text: verrouillee ? `Preuve requise : ${coque.titrePreuve(r.preuve)}` : `Preuve : ${coque.titrePreuve(r.preuve)}` })) : null);
       b.disabled = !!verrouillee;
       b.addEventListener('click', () => repondre(q, r, b));
       reponses.append(b);
@@ -242,7 +243,7 @@ export function rendre(def, coque) {
           h('p', { class: 'dfx-ligne-meta', text: sieges[siege]?.nom || ROLES[siege] }),
           h('p', { class: 'dfx-ligne-titre', text: q.texte }),
           h('p', { class: 'dfx-ligne-explication', text: r ? `Ta réponse (${pct(r.qualite)}) : ${r.texte}` : 'Pas de réponse dans le temps imparti.' }),
-          !ok && meilleure ? h('p', { class: 'dfx-ligne-explication dfx-ligne-explication--forte', text: `Réponse la plus forte (${pct(meilleure.qualite)}) : ${meilleure.texte}${meilleure.preuve ? ` · débloquée par la preuve « ${humaniser(meilleure.preuve)} »` : ''}` }) : null)));
+          !ok && meilleure ? h('p', { class: 'dfx-ligne-explication dfx-ligne-explication--forte', text: `Réponse la plus forte (${pct(meilleure.qualite)}) : ${meilleure.texte}${meilleure.preuve ? ` · débloquée par la preuve « ${coque.titrePreuve(meilleure.preuve)} »` : ''}` }) : null)));
     });
     zone.append(liste);
   }

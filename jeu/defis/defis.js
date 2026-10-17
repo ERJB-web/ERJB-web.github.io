@@ -1,15 +1,15 @@
-import { h, s, icone, typo, vider, pct, nombre, duree, focusables, portrait, NOMS_PERSONNAGES, humaniser, NB } from './noyau.js?v=1770adecd5';
-import { borner, hacher, generateur } from './calculs.js?v=1770adecd5';
-import * as choix from './types/choix.js?v=1770adecd5';
-import * as tri from './types/tri.js?v=1770adecd5';
-import * as ordre from './types/ordre.js?v=1770adecd5';
-import * as requete from './types/requete.js?v=1770adecd5';
-import * as criblage from './types/criblage.js?v=1770adecd5';
-import * as correspondance from './types/correspondance.js?v=1770adecd5';
-import * as carte from './types/carte.js?v=1770adecd5';
-import * as reseau from './types/reseau.js?v=1770adecd5';
-import * as jury from './types/jury.js?v=1770adecd5';
-import * as pitch from './types/pitch.js?v=1770adecd5';
+import { h, s, icone, typo, vider, pct, duree, focusables, portrait, roleCanonique, NOMS_PERSONNAGES, humaniser, NB } from './noyau.js?v=0a63877699';
+import { borner, hacher, generateur } from './calculs.js?v=0a63877699';
+import * as choix from './types/choix.js?v=0a63877699';
+import * as tri from './types/tri.js?v=0a63877699';
+import * as ordre from './types/ordre.js?v=0a63877699';
+import * as requete from './types/requete.js?v=0a63877699';
+import * as criblage from './types/criblage.js?v=0a63877699';
+import * as correspondance from './types/correspondance.js?v=0a63877699';
+import * as carte from './types/carte.js?v=0a63877699';
+import * as reseau from './types/reseau.js?v=0a63877699';
+import * as jury from './types/jury.js?v=0a63877699';
+import * as pitch from './types/pitch.js?v=0a63877699';
 
 const TYPES = {
   choix: { module: choix, libelle: 'Dilemme méthodologique', icone: 'balance' },
@@ -36,10 +36,11 @@ const QUIPS_REUSSITE = [
   'Propre. Je vais copier ta méthode, si ça ne te dérange pas.',
 ];
 const QUIPS_ECHEC = [
-  'On s’en reparle à notre prochaine rencontre de suivi.',
-  'Je te réserve une plage jeudi. Apporte ton protocole.',
-  'Intéressant… Ce n’est pas un compliment.',
-  'Relis la section méthode avant notre rencontre, s’il te plaît.',
+  { qui: 'direction_a', texte: 'On avait dit vendredi.' },
+  { qui: 'direction_a', texte: 'Nous en reparlerons à notre prochaine rencontre de suivi.' },
+  { qui: 'direction_a', texte: 'Relisez la section méthode avant notre rencontre, s’il vous plaît.' },
+  { qui: 'direction_b', texte: 'Petite idée : on se voit jeudi ? Apporte ton protocole.' },
+  { qui: 'direction_b', texte: 'Intéressant… Ce n’est pas un compliment.' },
 ];
 
 function normaliserCtx(ctx) {
@@ -57,6 +58,8 @@ function normaliserCtx(ctx) {
     stats: c.stats || {},
     calme,
     graine: Number.isFinite(c.graine) ? c.graine : null,
+    personnages: c.personnages && typeof c.personnages === 'object' ? c.personnages : {},
+    titresPreuves: c.titresPreuves && typeof c.titresPreuves === 'object' ? c.titresPreuves : {},
   };
 }
 
@@ -260,15 +263,35 @@ function creerCoque(def, ctx, type, resolve) {
   }
 
   // ---------------------------------------------------------------- réactions de personnages
-  function reagir(texte, { qui = 'collegue', humeur = 'content', delai = 4200, force = false } = {}) {
+  function nomPersonnage(qui, long = false) {
+    const role = roleCanonique(qui);
+    const p = ctx.personnages[role];
+    if (p && (p.court || p.nom)) return String(long ? p.nom || p.court : p.court || p.nom);
+    return NOMS_PERSONNAGES[role] || humaniser(role);
+  }
+
+  function descriptionPersonnage(qui) {
+    const p = ctx.personnages[roleCanonique(qui)];
+    return p && p.description ? String(p.description) : '';
+  }
+
+  function titrePreuve(id) {
+    const v = ctx.titresPreuves[id];
+    if (typeof v === 'string' && v) return v;
+    if (v && typeof v === 'object' && v.titre) return String(v.titre);
+    return humaniser(id);
+  }
+
+  function reagir(texte, { qui = 'collegue_doc', humeur = 'content', delai = 4200, force = false } = {}) {
     const maintenant = performance.now();
     if (!force && maintenant - derniereReaction < 2200) return;
     derniereReaction = maintenant;
     vider(reactions);
-    const bulle = h('div', { class: `dfx-reaction dfx-reaction--${qui}` },
-      h('div', { class: 'dfx-reaction-portrait' }, portrait(qui, humeur, 52)),
+    const role = roleCanonique(qui);
+    const bulle = h('div', { class: `dfx-reaction dfx-reaction--${role.replace(/_.*/, '')}` },
+      h('div', { class: 'dfx-reaction-portrait' }, portrait(role, humeur, 52)),
       h('div', { class: 'dfx-reaction-bulle' },
-        h('p', { class: 'dfx-reaction-nom', text: NOMS_PERSONNAGES[qui] || humaniser(qui) }),
+        h('p', { class: 'dfx-reaction-nom', text: nomPersonnage(role) }),
         h('p', { class: 'dfx-reaction-texte', text: texte })));
     reactions.append(bulle);
     clearTimeout(reagir.minuterie);
@@ -399,11 +422,12 @@ function creerCoque(def, ctx, type, resolve) {
         setTimeout(() => panneau.classList.remove('dfx-secousse'), 520);
       }
     }
-    const quips = reussi ? QUIPS_REUSSITE : QUIPS_ECHEC;
-    const quip = options.reaction || quips[Math.floor(alea() * quips.length)];
+    const tire = reussi ? { qui: 'collegue_doc', texte: QUIPS_REUSSITE[Math.floor(alea() * QUIPS_REUSSITE.length)] } : QUIPS_ECHEC[Math.floor(alea() * QUIPS_ECHEC.length)];
+    const quip = options.reaction || tire.texte;
+    const quiQuip = options.reactionQui || tire.qui;
     setTimeout(() => {
       if (!racine.isConnected) return;
-      reagir(quip, { qui: options.reactionQui || (reussi ? 'collegue' : 'direction'), humeur: reussi ? 'ravi' : 'sceptique', delai: 6000, force: true });
+      reagir(quip, { qui: quiQuip, humeur: reussi ? 'ravi' : 'sceptique', delai: 6000, force: true });
     }, ctx.calme ? 0 : 900);
   }
 
@@ -421,7 +445,7 @@ function creerCoque(def, ctx, type, resolve) {
     const sem = (Number(effets?.semaines) || 0) + (Number(supplementaires?.semaines) || 0);
     if (sem) ajouter(`${sem > 0 ? '+' : '−'}${Math.abs(sem)} semaine${Math.abs(sem) > 1 ? 's' : ''}`, sem > 0);
     const preuves = [].concat(effets?.preuves || [], supplementaires?.preuves || []);
-    for (const p of preuves) ajouter(`Preuve obtenue : ${humaniser(p)}`, true);
+    for (const p of preuves) ajouter(`Preuve obtenue : ${titrePreuve(p)}`, true);
     return items.length ? h('ul', { class: 'dfx-effets', 'aria-label': 'Effets' }, items) : null;
   }
 
@@ -468,6 +492,9 @@ function creerCoque(def, ctx, type, resolve) {
     setStatut: (t) => { statut.textContent = typo(t || ''); },
     setCompteur: (t) => { compteur.hidden = !t; compteur.textContent = typo(t || ''); },
     reagir,
+    nomPersonnage,
+    descriptionPersonnage,
+    titrePreuve,
     surTouche: (fn) => { piles.touches.push(fn); },
     surEchap: (fn) => { piles.echap.push(fn); return () => { const i = piles.echap.indexOf(fn); if (i >= 0) piles.echap.splice(i, 1); }; },
     ecouter: ev,
@@ -500,7 +527,7 @@ export async function lancerDefi(def, ctx) {
       coque.chrono.demarrer(temps, {
         surFin: () => {
           if (coque.estTermine()) return;
-          coque.reagir('Le temps est écoulé ! On remet ce qu’on a.', { qui: 'collegue', humeur: 'surpris', force: true });
+          coque.reagir('Le temps est écoulé ! On remet ce qu’on a.', { qui: 'collegue_doc', humeur: 'surpris', force: true });
           controle.surTempsEcoule?.();
         },
       });

@@ -114,6 +114,8 @@ const COULEURS_PERSONNAGES = {
   prepose_accueil: '#B4DAD2',
   mme_protocole: '#E27A1B',
   jury: '#E6DCC8',
+  entraineur_patin: '#A3D99B',
+  usager: '#C9D9E3',
   etudiant: '#B9CCE0',
   joueur_hockey: '#B9CCE0',
   gardien: '#B9CCE0',
@@ -183,16 +185,18 @@ const TOUCHES_CLAVIER = {
   passer: ['Space'],
   deplacer: ['KeyW', 'KeyA', 'KeyS', 'KeyD'],
   regarder: ['@souris'],
+  tirer: ['@souris'],
   defiler: ['ArrowUp', 'ArrowDown']
 };
 
 const TOUCHES_MANETTE = {
-  interagir: ['X'],
-  sauter: ['A'],
+  interagir: ['A'],
+  sauter: ['X'],
   courir: ['L3'],
-  journal: ['@vue'],
-  carte: ['Y'],
+  journal: ['Y'],
+  carte: ['@vue'],
   pause: ['@menu'],
+  tirer: ['RT'],
   valider: ['A'],
   retour: ['B'],
   onglets: ['LB', 'RB'],
@@ -204,10 +208,22 @@ const TOUCHES_MANETTE = {
   defiler: ['R']
 };
 
-const ALIAS_TOUCHES = { e: 'interagir', espace: 'sauter', ' ': 'sauter', space: 'sauter', maj: 'courir', shift: 'courir', j: 'journal', m: 'carte', 'échap': 'pause', escape: 'pause', 'entrée': 'valider', enter: 'valider' };
+const ALIAS_TOUCHES = { f: 'interagir', tab: 'journal', start: 'pause', e: 'interagir', espace: 'sauter', ' ': 'sauter', space: 'sauter', maj: 'courir', shift: 'courir', j: 'journal', m: 'carte', 'échap': 'pause', escape: 'pause', 'entrée': 'valider', enter: 'valider' };
 
 const LIBELLES_CODES = { Space: 'Espace', ShiftLeft: 'Maj', ShiftRight: 'Maj', Escape: 'Échap', Enter: 'Entrée', Tab: 'Tab', Backspace: 'Retour', ArrowUp: '↑', ArrowDown: '↓', ArrowLeft: '←', ArrowRight: '→' };
 const AZERTY = { KeyW: 'Z', KeyA: 'Q', KeyQ: 'A', KeyZ: 'W' };
+
+const CLE_PARTIE = 'protocole.partie.v1';
+const CLE_RENCONTRES = 'protocole.ui.rencontres.v1';
+
+const LIEUX = {
+  campus: { titre: 'Pavillon Roger-Gaudry', sousTitre: 'Université de Montréal' },
+  bibliotheque: { titre: 'Bibliothèque de la santé', sousTitre: 'Pavillon Roger-Gaudry, 6e étage' },
+  clsc: { titre: 'CLSC des Faubourgs', sousTitre: 'Centre-Sud' },
+  arena: { titre: 'Aréna du CEPSUM', sousTitre: 'Université de Montréal' },
+  soutenance: { titre: 'Salle du conseil', sousTitre: 'Pavillon Roger-Gaudry' },
+  metro: { titre: 'Métro de Montréal', sousTitre: 'Ligne bleue' }
+};
 
 const DIRECTIONS_CLAVIER = { ArrowUp: 'haut', ArrowDown: 'bas', ArrowLeft: 'gauche', ArrowRight: 'droite', KeyW: 'haut', KeyS: 'bas', KeyA: 'gauche', KeyD: 'droite' };
 
@@ -235,34 +251,39 @@ function dispositionParDefaut() {
 
 function optionsParDefaut() {
   return {
-    graphismes: estTactile() ? 'bas' : 'eleve',
+    qualite: 'auto',
     volumeGeneral: 0.9,
-    volumeMusique: 0.7,
+    volumeMusique: 0.6,
     volumeVoix: 1,
-    volumeEffets: 0.8,
+    volumeEffets: 0.85,
     sousTitres: true,
-    tailleSousTitres: 'moyenne',
+    tailleSousTitres: 'normale',
     fondSousTitres: 'leger',
     sensibilite: 1,
     inverserY: false,
-    disposition: dispositionParDefaut(),
-    reduireMouvements: media('(prefers-reduced-motion: reduce)'),
-    contrasteEleve: media('(prefers-contrast: more)')
+    clavier: 'auto',
+    reduireMouvement: media('(prefers-reduced-motion: reduce)'),
+    contraste: media('(prefers-contrast: more)')
   };
 }
 
 const VALEURS_OPTIONS = {
-  graphismes: ['bas', 'moyen', 'eleve', 'ultra'],
-  tailleSousTitres: ['petite', 'moyenne', 'grande', 'tres_grande'],
+  qualite: ['auto', 'bas', 'moyen', 'eleve', 'ultra'],
+  tailleSousTitres: ['petite', 'normale', 'grande', 'tres_grande'],
   fondSousTitres: ['aucun', 'leger', 'opaque'],
-  disposition: ['qwerty', 'azerty']
+  clavier: ['auto', 'qwerty', 'azerty']
 };
 
-function lireOptions() {
+function lireStockageJSON(cle) {
+  const brut = lireStockage(cle);
+  if (!brut) return {};
+  try { return JSON.parse(brut) || {}; } catch { return {}; }
+}
+
+function lireOptions(fournies) {
   const defauts = optionsParDefaut();
-  let lues = {};
-  const brut = lireStockage(CLE_OPTIONS);
-  if (brut) { try { lues = JSON.parse(brut) || {}; } catch { lues = {}; } }
+  const lues = { ...lireStockageJSON(CLE_OPTIONS), ...(fournies && typeof fournies === 'object' ? fournies : {}) };
+  if (lues.tailleSousTitres === 'moyenne') lues.tailleSousTitres = 'normale';
   const o = { ...defauts };
   for (const [k, v] of Object.entries(lues)) {
     if (!(k in defauts)) continue;
@@ -270,7 +291,11 @@ function lireOptions() {
     if (VALEURS_OPTIONS[k] && !VALEURS_OPTIONS[k].includes(v)) continue;
     o[k] = v;
   }
-  return { options: o, dispositionLue: 'disposition' in lues };
+  return { options: o };
+}
+
+function ecrireOptions(o) {
+  ecrireStockage(CLE_OPTIONS, JSON.stringify({ ...lireStockageJSON(CLE_OPTIONS), ...o }));
 }
 
 function chargerFeuille() {
@@ -304,7 +329,7 @@ function visible(n) {
   return cs.visibility !== 'hidden' && cs.display !== 'none' && n.getClientRects().length > 0;
 }
 
-export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = {}) {
+export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, autonome = false } = {}) {
   if (!bus || typeof bus.on !== 'function' || typeof bus.emit !== 'function') throw new Error('initUI : bus.on et bus.emit sont requis');
   chargerFeuille();
   if (!racine) {
@@ -315,7 +340,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
   racine.setAttribute('lang', 'fr-CA');
   racine.replaceChildren();
 
-  const lu = lireOptions();
+  const lu = lireOptions(etat.options);
   const S = {
     base: 'aucun',
     mode: 'jeu',
@@ -335,8 +360,21 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     ongletJournal: 'missions',
     ongletOptions: 'affichage',
     ongletsVus: new Set(),
-    dispositionChoisie: false,
+    dispositionDetectee: dispositionParDefaut(),
     deltaExterne: {},
+    pauseEmise: -1e9,
+    partieLancee: false,
+    chargementDemarrage: false,
+    chapitreCourant: null,
+    carteEnAttente: null,
+    lieuEnAttente: null,
+    lieuxVus: {},
+    journalExplicite: false,
+    sectionsNouvelles: new Set(),
+    preuvesNouvelles: new Set(),
+    rencontres: (() => { try { const l = JSON.parse(lireStockage(CLE_RENCONTRES) || '[]'); return Array.isArray(l) ? l : []; } catch { return []; } })(),
+    nomsVus: {},
+    donneesPerso: null,
     hockey: { actif: false, possession: false },
     exercice: null,
     zoneId: null,
@@ -379,13 +417,12 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     return qui ? String(qui) : '';
   }
   function couleurDe(qui, explicite) {
-    if (explicite) return explicite;
     const p = S.personnages[qui];
     if (p && p.couleur) return p.couleur;
-    if (!qui) return COULEURS_PERSONNAGES.etudiant;
-    if (COULEURS_PERSONNAGES[qui]) return COULEURS_PERSONNAGES[qui];
-    const racineId = String(qui).replace(/_\d+$/, '');
-    return COULEURS_PERSONNAGES[racineId] || '#C9D9E3';
+    if (qui && COULEURS_PERSONNAGES[qui]) return COULEURS_PERSONNAGES[qui];
+    const racineId = String(qui || '').replace(/_\d+$/, '');
+    if (COULEURS_PERSONNAGES[racineId]) return COULEURS_PERSONNAGES[racineId];
+    return explicite || '#C9D9E3';
   }
   function portraitDe(qui, explicite) {
     const id = explicite || (S.personnages[qui] && S.personnages[qui].portrait) || null;
@@ -404,9 +441,12 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     return m;
   }
 
+  function dispositionEffective() {
+    return S.options.clavier === 'auto' ? S.dispositionDetectee : S.options.clavier;
+  }
   function libelleCode(code) {
     if (LIBELLES_CODES[code]) return LIBELLES_CODES[code];
-    if (S.options.disposition === 'azerty' && AZERTY[code]) return AZERTY[code];
+    if (dispositionEffective() === 'azerty' && AZERTY[code]) return AZERTY[code];
     return code.replace(/^Key/, '').replace(/^Digit/, '');
   }
   function glyphe(action, entree = S.entree) {
@@ -436,6 +476,11 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     const c = el('span', { class: 'ui-glyphes', 'data-glyphe-libre': touche, 'aria-hidden': 'true' });
     c.append(el('kbd', { class: 'ui-glyphe' + (String(touche).length > 1 ? ' large' : '') }, String(touche)));
     return c;
+  }
+  function glypheInvite(touche) {
+    const t = String(touche || '').trim().toLowerCase();
+    if (!t || ['e', 'f', 'a', 'x', 'interagir'].includes(t)) return glyphe('interagir');
+    return glypheLibre(touche);
   }
   function rafraichirGlyphes() {
     for (const g of racine.querySelectorAll('[data-glyphe]')) g.replaceWith(glyphe(g.dataset.glyphe));
@@ -478,9 +523,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
           el('h1', { class: 'ui-titre-jeu ui-entree d1' }, 'Protocole'),
           el('span', { class: 'ui-titre-filet ui-entree d2', 'aria-hidden': 'true' }),
           accroche),
-        el('div', { class: 'ui-entree d3' }, menu)),
-      el('footer', { class: 'ui-titre-pied ui-entree d4' },
-        el('span', { class: 'ui-logo-pastille' }, el('img', { src: urlRessource('img/logo-chaire-rogne.png'), alt: 'Chaire de recherche GlaxoSmithKline (GSK) en gestion optimale des maladies chroniques', width: '134', height: '108', draggable: 'false' }))));
+        el('div', { class: 'ui-entree d3' }, menu)));
     return { el: e, items };
   })();
   bases.titre = titre.el;
@@ -495,8 +538,21 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     if (s.semaines != null) morceaux.push(`${s.semaines} semaine${Math.abs(s.semaines) > 1 ? 's' : ''}`);
     return morceaux.join(' · ');
   }
+  function partieCourante() {
+    try { return etat.partie || null; } catch { return null; }
+  }
+  function sauvegardeCourante() {
+    if (S.sauvegarde) return S.sauvegarde;
+    let existe = false;
+    try { existe = !!etat.existeSauvegarde; } catch { existe = false; }
+    if (!existe) return null;
+    const p = lireStockageJSON(CLE_PARTIE);
+    const chs = (etat.scenario && etat.scenario.chapitres) || [];
+    const i = chs.findIndex(c => c.id === p.chapitre);
+    return { existe: true, chapitre: i >= 0 ? libelleChapitre({ numero: i + 1, titre: chs[i].titre }) : '', semaines: Number.isFinite(p.semaines) ? p.semaines : null };
+  }
   function majTitre() {
-    const s = S.sauvegarde;
+    const s = sauvegardeCourante();
     const existe = !!(s && (s.existe !== false));
     titre.items.continuer.hidden = !existe;
     titre.items.continuer._sous.textContent = fr(resumeSauvegarde(s));
@@ -508,7 +564,8 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
   }
   async function nouvellePartie() {
     son('ui_clic');
-    if (S.sauvegarde && S.sauvegarde.existe !== false) {
+    const sv = sauvegardeCourante();
+    if (sv && sv.existe !== false) {
       const ok = await confirmer({ surtitre: 'Nouvelle partie', titre: 'Recommencer depuis le début ?', texte: 'Votre progression actuelle sera remplacée.', ok: 'Commencer', annuler: 'Annuler' });
       if (!ok) return;
     }
@@ -548,15 +605,18 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     chargement.pct.textContent = `${Math.round(p * 100)}${NBSP}%`;
     chargement.piste.setAttribute('aria-valuenow', String(Math.round(p * 100)));
     if (d.texte != null) chargement.texte.textContent = fr(d.texte);
-    const z = d.zone && typeof d.zone === 'object' ? d.zone : null;
+    const z = S.chargementDemarrage ? null : (d.zone && typeof d.zone === 'object' ? d.zone : (typeof d.zone === 'string' ? lieuDe(d.zone) : null));
     const t = d.titre || (z && z.titre);
-    const st = d.sousTitre || (z && z.sousTitre);
+    const st = d.sousTitre != null ? d.sousTitre : (z ? (z.sousTitre || '') : null);
     if (t) chargement.lieu.textContent = fr(t);
     if (st != null) chargement.sous.textContent = fr(st);
     if (d.chapitre != null) chargement.surtitre.textContent = fr(typeof d.chapitre === 'object' ? libelleChapitre(d.chapitre) : d.chapitre);
     if (d.conseil) chargement.conseil.textContent = fr(d.conseil);
     if (d.image) { chargement.image.style.backgroundImage = `url("${d.image}")`; chargement.image.hidden = false; }
     chargement.el.setAttribute('aria-busy', p < 1 ? 'true' : 'false');
+  }
+  function lieuDe(id) {
+    return S.lieuxVus[id] || LIEUX[id] || null;
   }
   function conseilSuivant() {
     const liste = S.conseils;
@@ -753,8 +813,10 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     }
     if (d.pression != null) S.hud.pression = Number(d.pression) || 0;
     if (d.chapitre !== undefined) {
-      S.hud.chapitre = d.chapitre;
-      hud.chapitre.textContent = fr(libelleChapitre(d.chapitre));
+      let c = d.chapitre;
+      if (typeof c === 'string' && S.chapitreCourant && S.chapitreCourant.titre === c) c = S.chapitreCourant;
+      S.hud.chapitre = c;
+      hud.chapitre.textContent = fr(libelleChapitre(c));
       hud.chapitre.hidden = !hud.chapitre.textContent;
     }
     if (d.objectif !== undefined) { S.hud.objectif = d.objectif; definirObjectif(d.objectif); }
@@ -770,7 +832,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     }
     S.invite = d;
     hud.inviteTexte.textContent = fr(d.texte);
-    hud.inviteGlyphe.replaceChildren(d.touche ? glypheLibre(d.touche) : glyphe('interagir'));
+    hud.inviteGlyphe.replaceChildren(glypheInvite(d.touche));
     hud.invite.classList.add('visible');
     tactile.interagir.classList.add('dispo');
   }
@@ -838,7 +900,12 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     if (!d) return;
     const duree = Number(d.duree) > 0 ? Number(d.duree) : 2.8;
     if (d.preuve) {
-      const t = typeof d.preuve === 'string' ? d.preuve : (d.preuve.titre || d.preuve.nom || '');
+      const dict = (etat.scenario && etat.scenario.preuves) || {};
+      const idP = typeof d.preuve === 'string' ? d.preuve : (d.preuve.id || '');
+      const t = typeof d.preuve === 'string' ? ((dict[d.preuve] && dict[d.preuve].titre) || d.preuve) : (d.preuve.titre || d.preuve.nom || (dict[idP] && dict[idP].titre) || '');
+      if (idP) S.preuvesNouvelles.add(idP);
+      S.nouveaux.preuves = true;
+      journal.onglets.boutons.preuves._point.hidden = false;
       etiquette(`Preuve récoltée : ${t}`, 'preuve', 'preuve', Math.max(duree, 3.6));
       son('ui_succes');
       return;
@@ -956,6 +1023,12 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
   /* ---------- Cartes de titre ---------- */
 
   function carteChapitre(d = {}) {
+    S.chapitreCourant = { numero: d.numero, titre: d.titre };
+    if (d.titre || d.numero != null) majHUD({ chapitre: { numero: d.numero, titre: d.titre } });
+    if (S.base !== 'hud') { S.carteEnAttente = d; return; }
+    jouerCarteChapitre(d);
+  }
+  function jouerCarteChapitre(d) {
     const n = d.numero != null ? d.numero : '';
     chapitreVue.numero.textContent = n !== '' ? fr(`Chapitre ${n}`) : 'Chapitre';
     chapitreVue.titre.textContent = fr(d.titre || '');
@@ -973,12 +1046,16 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
       if (S.lieuEnAttente) { const z = S.lieuEnAttente; S.lieuEnAttente = null; S.zoneId = null; annoncerLieu(z); }
       if (S.objectifTexte) rejouerObjectif();
     }, 4000);
-    if (d.titre || n !== '') majHUD({ chapitre: { numero: d.numero, titre: d.titre } });
+  }
+  function lancerAttentes() {
+    if (S.base !== 'hud') return;
+    if (S.carteEnAttente) { const d = S.carteEnAttente; S.carteEnAttente = null; jouerCarteChapitre(d); return; }
+    if (S.lieuEnAttente) { const z = S.lieuEnAttente; S.lieuEnAttente = null; S.zoneId = null; annoncerLieu(z); }
   }
 
   function annoncerLieu(z) {
     if (!z || !z.titre) return;
-    if (S.cinematique) { S.lieuEnAttente = z; return; }
+    if (S.cinematique || S.base !== 'hud') { S.lieuEnAttente = z; return; }
     if (S.zoneId === z.id && performance.now() - (S.zoneT || 0) < 3000) return;
     S.zoneId = z.id;
     S.zoneT = performance.now();
@@ -995,7 +1072,8 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
 
   function majZone(z, annoncer = false) {
     if (!z) return;
-    S.zone = { ...(S.zone || {}), ...z };
+    S.zone = annoncer ? { ...z } : { ...(S.zone || {}), ...z };
+    if (z.id && z.titre) S.lieuxVus[z.id] = { titre: z.titre, sousTitre: z.sousTitre || '' };
     const src = S.zone.carte || S.zone.image;
     if (src) { hud.plan.style.backgroundImage = `url("${src}")`; carteVue.image.src = src; carteVue.image.hidden = false; }
     else { hud.plan.style.backgroundImage = ''; carteVue.image.removeAttribute('src'); carteVue.image.hidden = true; }
@@ -1145,6 +1223,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     clearTimeout(replique.minuterie);
     if (!d || !d.texte || !S.options.sousTitres) { replique.el.classList.remove('visible'); return; }
     const nom = d.nom || nomDe(d.qui);
+    noterRencontre(d.qui, d.nom);
     replique.nom.textContent = fr(nom);
     replique.nom.hidden = !nom;
     replique.texte.textContent = fr(d.texte);
@@ -1169,6 +1248,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
       return;
     }
     S.st = d;
+    noterRencontre(d.qui, d.nom);
     racine.classList.add('ui-st-actif');
     const nom = d.nom || nomDe(d.qui);
     const texte = fr(d.texte);
@@ -1181,7 +1261,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     const montrer = S.options.sousTitres;
     st.el.classList.toggle('visible', montrer);
     const duree = Number(d.duree) > 0 ? (Number(d.duree) > 100 ? Number(d.duree) / 1000 : Number(d.duree)) : 0;
-    if (S.options.reduireMouvements || !montrer) {
+    if (S.options.reduireMouvement || !montrer) {
       st.vu.textContent = texte;
       st.reste.textContent = '';
       st.complet = true;
@@ -1218,9 +1298,9 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
   }
 
   function definirMode(mode) {
-    S.mode = mode === 'dialogue' ? 'dialogue' : 'jeu';
+    S.mode = ['dialogue', 'cinematique', 'defi'].includes(mode) ? mode : 'jeu';
     racine.dataset.mode = S.mode;
-    if (S.mode === 'dialogue') liberePointeur();
+    if (S.mode !== 'jeu') liberePointeur();
     majAide();
   }
 
@@ -1289,7 +1369,8 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     alerte: { icone: 'alerte', titre: 'Attention', son: 'ui_echec' },
     preuve: { icone: 'preuve', titre: 'Preuve récoltée', son: 'ui_succes' },
     mission: { icone: 'mission', titre: 'Journal mis à jour', son: 'ui_page' },
-    semaine: { icone: 'calendrier', titre: 'Le temps file' }
+    semaine: { icone: 'calendrier', titre: 'Le temps file' },
+    aide: { icone: 'manette', titre: 'Commandes' }
   };
   function toast(d) {
     if (!d || !d.texte) return;
@@ -1418,10 +1499,11 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
   })();
   couches.journal = {
     el: journal.el,
-    preparer: () => { S.ongletsVus = new Set(); rendreJournal(); changerOngletJournal(S.ongletJournal, false); },
+    preparer: () => { S.ongletsVus = new Set(); if (!S.journalExplicite) { chargerPersonnages(); journalDepuisEtat(); } rendreJournal(); changerOngletJournal(S.ongletJournal, false); },
     fermer: () => {
       if (S.ongletsVus.has('protocole')) for (const s of S.journal.protocole.sections) { if (sectionRemplie(s)) S.vus.protocole.add(s.id); s._nouvelle = false; }
-      if (S.ongletsVus.has('preuves')) for (const x of S.journal.preuves) x._nouvelle = false;
+      if (S.ongletsVus.has('preuves')) { for (const x of S.journal.preuves) x._nouvelle = false; S.preuvesNouvelles.clear(); }
+      if (S.ongletsVus.has('protocole')) S.sectionsNouvelles.clear();
     },
     onglets: journal.onglets,
     changer: (id) => changerOngletJournal(id, true)
@@ -1445,6 +1527,64 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     }
   }
 
+  function typePreuve(id) {
+    const t = String(id);
+    if (/simulation|tableau|grille|attribution|donnee|carte|atlas/.test(t)) return 'donnees';
+    if (/entretien|notes|temoignage/.test(t)) return 'entretien';
+    if (/article|revue|requete/.test(t)) return 'article';
+    return 'document';
+  }
+  function journalDepuisEtat() {
+    const p = partieCourante();
+    const sc = etat.scenario;
+    if (!p || !sc || S.journalExplicite) return;
+    const J = S.journal;
+    const chs = sc.chapitres || [];
+    const iCour = Math.max(0, chs.findIndex(c => c.id === p.chapitre));
+    const faits = new Set(p.etapesFaites || []);
+    J.missions = chs.slice(0, iCour + 1).map((c, i) => {
+      const objectifs = [];
+      let courante = false;
+      for (const e of (c.etapes || [])) {
+        if (!e.objectif) continue;
+        if (faits.has(e.id)) objectifs.push({ texte: e.objectif, fait: true });
+        else if (i === iCour && !courante && (!p.etape || p.etape === e.id || !faits.has(e.id))) { objectifs.push({ texte: e.objectif, fait: false }); courante = true; }
+      }
+      return { id: c.id, titre: c.titre, chapitre: `Chapitre ${i + 1}`, etat: i < iCour ? 'terminee' : 'en_cours', description: c.resume || '', objectifs };
+    }).reverse();
+    const ecrit = p.protocole || {};
+    J.protocole.titre = sc.titreProtocole || J.protocole.titre || '';
+    J.protocole.sousTitre = sc.sousTitreProtocole || J.protocole.sousTitre || '';
+    J.protocole.sections = (sc.protocole || []).map(x => ({ id: x.section, titre: x.section, texte: ecrit[x.section] || '', _nouvelle: S.sectionsNouvelles.has(x.section) && !!ecrit[x.section] }));
+    if (!J.protocole.sections.length) J.protocole.sections = SECTIONS_PROTOCOLE.map(x => ({ ...x }));
+    const dict = sc.preuves || {};
+    J.preuves = (p.preuves || []).map(id => ({ id, titre: (dict[id] && dict[id].titre) || id, description: (dict[id] && dict[id].description) || '', type: typePreuve(id), _nouvelle: S.preuvesNouvelles.has(id) }));
+    const P = S.donneesPerso || {};
+    const ids = ['eric', ...S.rencontres.filter(x => x !== 'eric')];
+    J.personnages = ids.map(id => {
+      const d = P[id] || {};
+      if (id === 'eric') return { id, nom: 'Éric Bernier', role: 'Doctorant en santé publique', description: '' };
+      return { id, nom: d.nom || S.nomsVus[id] || id, role: d.description || '', description: '' };
+    });
+  }
+  function chargerPersonnages() {
+    if (S.donneesPerso || S.chargementPerso) return;
+    S.chargementPerso = true;
+    let url;
+    try { url = new URL('../donnees/dialogues.json', import.meta.url).href; } catch { return; }
+    fetch(url).then(r => (r.ok ? r.json() : null)).then((d) => {
+      S.donneesPerso = (d && d.personnages) || {};
+      if (S.pile.includes('journal')) { journalDepuisEtat(); rendreJournal(); }
+    }).catch(() => { S.donneesPerso = {}; });
+  }
+  function noterRencontre(qui, nom) {
+    if (!qui) return;
+    if (nom) S.nomsVus[qui] = nom;
+    if (S.rencontres.includes(qui)) return;
+    S.rencontres.push(qui);
+    ecrireStockage(CLE_RENCONTRES, JSON.stringify(S.rencontres));
+  }
+
   function sectionRemplie(s) { return !!(s && (s.texte || (Array.isArray(s.points) && s.points.length))); }
 
   function fusionnerJournal(d, initial = false) {
@@ -1458,6 +1598,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
       return true;
     };
     const marquer = (onglet) => { if (!initial) S.nouveaux[onglet] = true; };
+    if (Array.isArray(d.missions) || Array.isArray(d.preuves) || Array.isArray(d.personnages) || (d.protocole && Array.isArray(d.protocole.sections))) S.journalExplicite = true;
     if (Array.isArray(d.missions)) { J.missions = d.missions.map(m => ({ ...m })); marquer('missions'); }
     if (d.mission) { upsert(J.missions, d.mission); marquer('missions'); }
     if (d.protocole) {
@@ -1475,7 +1616,11 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
       }
       marquer('protocole');
     }
-    if (d.section) {
+    if (typeof d.section === 'string') {
+      S.sectionsNouvelles.add(d.section);
+      marquer('protocole');
+      if (!initial) { etiquette(`Protocole : ${d.section}`, 'plus', 'protocole', 3.6); son('ui_succes'); }
+    } else if (d.section) {
       let s = J.protocole.sections.find(x => x.id === d.section.id);
       if (s) Object.assign(s, d.section);
       else { s = { ...d.section }; J.protocole.sections.push(s); }
@@ -1748,9 +1893,9 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
   const SCHEMA_OPTIONS = [
     {
       id: 'affichage', titre: 'Affichage', icone: 'graphismes', lignes: [
-        { cle: 'graphismes', type: 'choix', libelle: 'Qualité graphique', valeurs: [['bas', 'Bas'], ['moyen', 'Moyen'], ['eleve', 'Élevé'], ['ultra', 'Ultra']], aide: 'Bas convient aux portables et aux téléphones. Ultra demande une carte graphique récente.' },
-        { cle: 'reduireMouvements', type: 'bascule', libelle: 'Réduire les mouvements', aide: 'Atténue les animations de l’interface et les mouvements de caméra.' },
-        { cle: 'contrasteEleve', type: 'bascule', libelle: 'Contraste élevé', aide: 'Opacifie les panneaux et renforce les contours pour une lecture plus nette.' }
+        { cle: 'qualite', type: 'choix', libelle: 'Qualité graphique', valeurs: [['auto', 'Auto'], ['bas', 'Bas'], ['moyen', 'Moyen'], ['eleve', 'Élevé'], ['ultra', 'Ultra']], aide: 'Auto choisit selon votre appareil. Bas convient aux portables et aux téléphones ; Ultra demande une carte graphique récente.' },
+        { cle: 'reduireMouvement', type: 'bascule', libelle: 'Réduire les mouvements', aide: 'Atténue les animations de l’interface et les secousses de caméra.' },
+        { cle: 'contraste', type: 'bascule', libelle: 'Contraste élevé', aide: 'Opacifie les panneaux et renforce les contours pour une lecture plus nette.' }
       ]
     },
     {
@@ -1764,7 +1909,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     {
       id: 'soustitres', titre: 'Sous-titres', icone: 'soustitres', lignes: [
         { cle: 'sousTitres', type: 'bascule', libelle: 'Sous-titres', aide: 'Affiche les répliques à l’écran, avec le nom de la personne qui parle.', apercu: true },
-        { cle: 'tailleSousTitres', type: 'choix', libelle: 'Taille du texte', valeurs: [['petite', 'Petite'], ['moyenne', 'Moyenne'], ['grande', 'Grande'], ['tres_grande', 'Très grande']], aide: 'Agrandit le texte des sous-titres et des dialogues.', apercu: true },
+        { cle: 'tailleSousTitres', type: 'choix', libelle: 'Taille du texte', valeurs: [['petite', 'Petite'], ['normale', 'Normale'], ['grande', 'Grande'], ['tres_grande', 'Très grande']], aide: 'Agrandit le texte des sous-titres et des dialogues.', apercu: true },
         { cle: 'fondSousTitres', type: 'choix', libelle: 'Fond', valeurs: [['aucun', 'Aucun'], ['leger', 'Léger'], ['opaque', 'Opaque']], aide: 'Ajoute un fond derrière les sous-titres pour les détacher du décor.', apercu: true }
       ]
     },
@@ -1772,7 +1917,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
       id: 'commandes', titre: 'Commandes', icone: 'clavier', lignes: [
         { cle: 'sensibilite', type: 'curseur', libelle: 'Sensibilité de la caméra', min: 0.2, max: 3, pas: 0.1, format: v => `${nombreFr(v, 1)}${NBSP}×`, aide: 'Vitesse de rotation de la caméra à la souris, à la manette ou au doigt.' },
         { cle: 'inverserY', type: 'bascule', libelle: 'Inverser l’axe vertical', aide: 'Pousser vers le haut fait regarder vers le bas.' },
-        { cle: 'disposition', type: 'choix', libelle: 'Disposition du clavier', valeurs: [['qwerty', 'QWERTY'], ['azerty', 'AZERTY']], aide: 'Adapte les touches de déplacement à votre clavier : WASD en QWERTY, ZQSD en AZERTY.' }
+        { cle: 'clavier', type: 'choix', libelle: 'Disposition du clavier', valeurs: [['auto', 'Auto'], ['qwerty', 'QWERTY'], ['azerty', 'AZERTY']], aide: 'Adapte l’affichage des touches de déplacement : WASD en QWERTY, ZQSD en AZERTY. Auto suit votre clavier.' }
       ],
       touches: true
     }
@@ -1914,7 +2059,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
 
   function majControlesOptions() {
     for (const c of Object.values(options.controles)) c.maj();
-    const tailles = { petite: 16, moyenne: 19, grande: 23, tres_grande: 28 };
+    const tailles = { petite: 16, normale: 19, grande: 23, tres_grande: 28 };
     options.apercu.style.fontSize = `${tailles[S.options.tailleSousTitres] || 19}px`;
     options.apercuBoite.style.background = `rgba(4, 16, 23, ${{ aucun: 0, leger: 0.55, opaque: 0.92 }[S.options.fondSousTitres]})`;
     options.apercu.style.opacity = S.options.sousTitres ? '1' : '.35';
@@ -1925,12 +2070,11 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
   function changerOption(cle, valeur) {
     if (S.options[cle] === valeur) return;
     S.options[cle] = valeur;
-    if (cle === 'disposition') S.dispositionChoisie = true;
     son('ui_survol');
     appliquerOptions();
-    ecrireStockage(CLE_OPTIONS, JSON.stringify(S.options));
+    ecrireOptions(S.options);
     majControlesOptions();
-    if (cle === 'disposition') rafraichirGlyphes();
+    if (cle === 'clavier') rafraichirGlyphes();
     emettre('options', { ...S.options });
   }
 
@@ -1938,7 +2082,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     son('ui_clic');
     S.options = optionsParDefaut();
     appliquerOptions();
-    ecrireStockage(CLE_OPTIONS, JSON.stringify(S.options));
+    ecrireOptions(S.options);
     majControlesOptions();
     rafraichirGlyphes();
     emettre('options', { ...S.options });
@@ -1948,8 +2092,8 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     const o = S.options;
     racine.dataset.tailleSt = o.tailleSousTitres;
     racine.dataset.fondSt = o.fondSousTitres;
-    racine.classList.toggle('ui-mouvement-reduit', !!o.reduireMouvements);
-    racine.classList.toggle('ui-contraste', !!o.contrasteEleve);
+    racine.classList.toggle('ui-mouvement-reduit', !!o.reduireMouvement);
+    racine.classList.toggle('ui-contraste', !!o.contraste);
     if (!o.sousTitres) { st.el.classList.remove('visible'); replique.el.classList.remove('visible'); }
     else if (S.st) st.el.classList.add('visible');
   }
@@ -1985,8 +2129,15 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
   })();
   couches.chapitres = { el: chapitresVue.el, preparer: rendreChapitres };
 
+  function chapitresDuScenario() {
+    const chs = (etat.scenario && etat.scenario.chapitres) || [];
+    if (!chs.length) return [];
+    const p = lireStockageJSON(CLE_PARTIE);
+    const atteint = Math.max(0, chs.findIndex(c => c.id === p.chapitre));
+    return chs.map((c, i) => ({ id: c.id, numero: i + 1, titre: c.titre, lieu: (lieuDe(c.zone) || {}).titre || '', debloque: i <= atteint }));
+  }
   function rendreChapitres() {
-    const l = S.chapitres;
+    const l = S.chapitres.length ? S.chapitres : chapitresDuScenario();
     if (!l.length) {
       chapitresVue.liste.replaceChildren(el('div', { class: 'ui-vide ui-carte-panneau', style: { gridColumn: '1 / -1', minHeight: '240px' } }, icone('cadenas'), el('p', {}, 'Les chapitres se débloquent à mesure que vous avancez.')));
       return;
@@ -2033,15 +2184,12 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     creditsVue.rouleau.replaceChildren(
       el('h2', { class: 'ui-credits-titre' }, 'Protocole'),
       ...sections.map(s => el('section', { class: 'ui-credits-section' }, el('h3', {}, s.titre || s.section || ''), (s.lignes || []).map(ligne))),
-      el('div', { class: 'ui-credits-logo' },
-        el('span', { class: 'ui-logo-pastille' }, el('img', { src: urlRessource('img/logo-chaire-rogne.png'), alt: 'Chaire de recherche GlaxoSmithKline (GSK) en gestion optimale des maladies chroniques', width: '134', height: '108', draggable: 'false' })),
-        el('p', {}, 'Chaire de recherche GlaxoSmithKline (GSK) en gestion optimale des maladies chroniques')),
       el('p', { class: 'ui-credits-note' }, 'Hormis Éric Bernier, tous les personnages sont fictifs. Toute ressemblance avec des personnes réelles serait fortuite.'));
   }
   function demarrerDefilementCredits() {
     cancelAnimationFrame(creditsVue.raf);
     creditsVue.zone.scrollTop = 0;
-    creditsVue.auto = !S.options.reduireMouvements;
+    creditsVue.auto = !S.options.reduireMouvement;
     let t0 = 0;
     let acc = 0;
     const pas = (t) => {
@@ -2165,9 +2313,9 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     tirer.hidden = true;
     const boutons = el('div', { class: 'ui-tc-boutons' }, interagir, sauter, tirer);
     const haut = el('div', { class: 'ui-tc-haut' },
-      el('button', { class: 'ui-bouton-icone', type: 'button', 'aria-label': 'Journal', onclick: () => { emettre('tactile:action', { action: 'journal' }); ouvrirCouche('journal'); } }, icone('journal')),
-      el('button', { class: 'ui-bouton-icone', type: 'button', 'aria-label': 'Carte', onclick: () => ouvrirCouche('carte') }, icone('carte')),
-      el('button', { class: 'ui-bouton-icone', type: 'button', 'aria-label': 'Pause', onclick: () => { emettre('tactile:action', { action: 'pause' }); ouvrirCouche('pause'); } }, icone('pause')));
+      el('button', { class: 'ui-bouton-icone', type: 'button', 'aria-label': 'Journal', onclick: () => actionTactile('journal') }, icone('journal')),
+      el('button', { class: 'ui-bouton-icone', type: 'button', 'aria-label': 'Carte', onclick: () => actionTactile('carte') }, icone('carte')),
+      el('button', { class: 'ui-bouton-icone', type: 'button', 'aria-label': 'Pause', onclick: () => actionTactile('pause') }, icone('pause')));
     const e = el('div', { class: 'ui-tactile' }, regard, joystick, boutons, haut);
     return { el: e, joystick, base, manche, regard, interagir, sauter, tirer, haut };
   })();
@@ -2248,6 +2396,12 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     T.addEventListener('pointerup', finTir);
     T.addEventListener('pointercancel', finTir);
   })();
+
+  function actionTactile(action) {
+    son('ui_clic');
+    if (autonome) ouvrirCouche(action);
+    else emettre('tactile:action', { action });
+  }
 
   /* ---------- But et carte de chapitre ---------- */
 
@@ -2393,7 +2547,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     if (!a || !zone.contains(a) || !liste.includes(a)) { focusInitial(zone); return; }
     if (a.hasAttribute('data-defile') && (dir === 'haut' || dir === 'bas')) {
       const avant = a.scrollTop;
-      a.scrollBy({ top: dir === 'bas' ? 90 : -90, behavior: S.options.reduireMouvements ? 'auto' : 'smooth' });
+      a.scrollBy({ top: dir === 'bas' ? 90 : -90, behavior: S.options.reduireMouvement ? 'auto' : 'smooth' });
       const auBord = dir === 'bas' ? a.scrollTop + a.clientHeight >= a.scrollHeight - 2 : avant <= 0;
       if (!auBord) return;
     }
@@ -2415,7 +2569,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     }
     if (cible && cible !== a) {
       cible.focus({ preventScroll: true });
-      cible.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: S.options.reduireMouvements ? 'auto' : 'smooth' });
+      cible.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: S.options.reduireMouvement ? 'auto' : 'smooth' });
     }
   }
 
@@ -2476,7 +2630,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     S.pile.push(nom);
     if (c.preparer) c.preparer(opts);
     montrer(c.el);
-    if (etaitVide && S.base === 'hud' && !opts.silencieux) emettre('pause', { menu: nom });
+    if (etaitVide && S.base === 'hud' && !opts.silencieux) { S.pauseEmise = performance.now(); emettre('pause', { menu: nom }); }
     if (S.base === 'hud') liberePointeur();
     if (nom !== 'confirmation') son('ui_page');
     majInert();
@@ -2529,13 +2683,16 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     if (S.base !== 'hud') { definirMode('jeu'); masquerChoix(); afficherSousTitre(null); afficherReplique(null); majInvite(null); majHockey(null); majExercice(null); majPatin(null); }
     if (S.base === 'titre') majTitre();
     if (S.base === 'fin') majFin(donnees);
-    if (S.base === 'chargement') { majChargement(donnees); demarrerConseils(); }
-    else clearInterval(chargement.minuterie);
+    if (S.base === 'chargement') {
+      if (S.chapitreCourant && donnees.chapitre == null && !S.chargementDemarrage) chargement.surtitre.textContent = fr(libelleChapitre(S.chapitreCourant));
+      majChargement(donnees);
+      demarrerConseils();
+    } else { clearInterval(chargement.minuterie); S.chargementDemarrage = false; }
     if (S.base !== 'hud') majDirection({ visible: false });
     majInert();
     majAide();
     if (S.base === 'titre' || S.base === 'fin') requestAnimationFrame(() => focusInitial(bases[S.base]));
-    if (avant !== S.base && S.base === 'hud') planifierCarte();
+    if (avant !== S.base && S.base === 'hud') { planifierCarte(); setTimeout(lancerAttentes, 700); }
   }
 
   function allerA(nom, donnees = {}) {
@@ -2552,18 +2709,27 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
         definirMode('jeu');
         break;
       case 'dialogue':
+      case 'cinematique':
+      case 'defi':
         if (S.base !== 'hud') changerBase('hud');
         else fermerTout({ silencieux: true });
-        definirMode('dialogue');
+        definirMode(nom);
         break;
-      case 'pause':
+      case 'pause': {
+        const haut = S.pile[S.pile.length - 1];
+        if (haut && haut !== 'pause' && performance.now() - S.pauseEmise < 900) break;
+        ouvrirCouche('pause', { silencieux: true });
+        break;
+      }
       case 'journal':
       case 'carte':
       case 'options':
-      case 'credits':
-      case 'chapitres':
         if (nom === 'journal' && donnees.onglet) S.ongletJournal = donnees.onglet;
         if (nom === 'options' && donnees.onglet) S.ongletOptions = donnees.onglet;
+        ouvrirCouche(nom, { silencieux: !(S.base === 'hud' && S.mode === 'jeu' && !S.pile.length) });
+        break;
+      case 'credits':
+      case 'chapitres':
         ouvrirCouche(nom, { silencieux: true });
         break;
       case 'aucun':
@@ -2585,16 +2751,15 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
       return;
     }
     if (S.base !== 'hud') return;
-    if (e.repeat) return;
-    if (S.mode === 'dialogue') {
+    if (e.repeat || S.mode === 'defi') return;
+    if (S.mode === 'dialogue' || S.mode === 'cinematique') {
       if (e.code === 'Space' || e.code === 'Enter' || e.code === 'NumpadEnter' || e.key === 'e' || e.key === 'E') { passer_(); e.preventDefault(); e.stopPropagation(); }
-      else if (e.code === 'Escape') { ouvrirCouche('pause'); e.preventDefault(); e.stopPropagation(); }
       return;
     }
     const k = (e.key || '').toLowerCase();
     if ((e.code === 'Enter' || e.code === 'NumpadEnter') && S.st) { passer_(); e.preventDefault(); e.stopPropagation(); return; }
     if (e.code === 'Escape' || k === 'p') { ouvrirCouche('pause'); e.preventDefault(); e.stopPropagation(); }
-    else if (k === 'j') { ouvrirCouche('journal'); e.preventDefault(); e.stopPropagation(); }
+    else if (k === 'j' || e.code === 'Tab') { ouvrirCouche('journal'); e.preventDefault(); e.stopPropagation(); }
     else if (k === 'm') { ouvrirCouche('carte'); e.preventDefault(); e.stopPropagation(); }
   }, true);
 
@@ -2602,7 +2767,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     const a = document.activeElement;
     const haut = S.pile[S.pile.length - 1];
     if (e.code === 'Escape' || e.code === 'Backspace') {
-      if (!e.repeat) { if (!haut && S.base === 'hud' && e.code === 'Escape') ouvrirCouche('pause'); else retour(); }
+      if (!e.repeat) { if (!haut && S.base === 'hud' && S.mode === 'jeu' && e.code === 'Escape') ouvrirCouche('pause'); else retour(); }
       return true;
     }
     if (S.choix && !haut && /^(Digit|Numpad)[1-9]$/.test(e.code)) { repondre(Number(e.code.slice(-1)) - 1); return true; }
@@ -2703,20 +2868,21 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
         else if (b === 1) retour();
         else if (b === 4) changerOngletRelatif(-1);
         else if (b === 5) changerOngletRelatif(1);
+        else if (!autonome) continue;
         else if (b === 9 && haut === 'pause') reprendre();
         else if (b === 9 && !haut && S.base === 'hud') ouvrirCouche('pause');
-        else if (b === 8 && haut === 'journal') retour();
-        else if (b === 3 && haut === 'carte') retour();
+        else if (b === 3 && haut === 'journal') retour();
+        else if (b === 8 && haut === 'carte') retour();
       }
       return;
     }
     manette.dir = null;
-    if (S.base !== 'hud') return;
+    if (S.base !== 'hud' || !autonome) return;
     for (const b of presse) {
-      if (S.mode === 'dialogue' && b === 0) passer_();
-      else if (b === 9) ouvrirCouche('pause');
-      else if (b === 8 && S.mode === 'jeu') ouvrirCouche('journal');
-      else if (b === 3 && S.mode === 'jeu') ouvrirCouche('carte');
+      if ((S.mode === 'dialogue' || S.mode === 'cinematique') && b === 0) passer_();
+      else if (b === 9 && S.mode === 'jeu') ouvrirCouche('pause');
+      else if (b === 3 && S.mode === 'jeu') ouvrirCouche('journal');
+      else if (b === 8 && S.mode === 'jeu') ouvrirCouche('carte');
     }
   }
   function demarrerManette() { if (!manette.raf && !S.detruit) manette.raf = requestAnimationFrame(boucleManette); }
@@ -2732,7 +2898,16 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
     abonnements.push({ nom, g, res });
   };
   sur('ecran', (d) => { const x = typeof d === 'string' ? { nom: d } : (d || {}); allerA(x.nom, x); });
-  sur('chargement', (d) => majChargement(d || {}));
+  sur('chargement', (d) => {
+    if (S.base === 'aucun' && !S.partieLancee) { S.chargementDemarrage = true; changerBase('chargement', { titre: 'Protocole', sousTitre: 'Doctorat en santé publique' }); chargement.surtitre.textContent = ''; }
+    majChargement(d || {});
+  });
+  for (const n of ['partie:nouvelle', 'partie:continuer', 'partie:chapitre']) {
+    sur(n, () => {
+      S.partieLancee = true;
+      if (n !== 'partie:continuer') { S.rencontres = []; ecrireStockage(CLE_RENCONTRES, '[]'); S.preuvesNouvelles.clear(); S.sectionsNouvelles.clear(); }
+    });
+  }
   sur('hud', (d) => majHUD(d || {}));
   sur('invite', (d) => majInvite(d));
   sur('sousTitre', (d) => afficherSousTitre(d));
@@ -2772,15 +2947,13 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true } = 
   if (etat.journal) fusionnerJournal(etat.journal, true);
   majInert();
 
-  if (!lu.dispositionLue && navigator.keyboard && typeof navigator.keyboard.getLayoutMap === 'function') {
+  if (navigator.keyboard && typeof navigator.keyboard.getLayoutMap === 'function') {
     navigator.keyboard.getLayoutMap().then((carte) => {
-      if (S.dispositionChoisie) return;
-      const q = carte.get('KeyQ');
-      const d = q === 'a' ? 'azerty' : 'qwerty';
-      if (d !== S.options.disposition) { S.options.disposition = d; rafraichirGlyphes(); majControlesOptions(); emettre('options', { ...S.options }); }
+      const d = carte.get('KeyQ') === 'a' ? 'azerty' : 'qwerty';
+      if (d !== S.dispositionDetectee) { S.dispositionDetectee = d; rafraichirGlyphes(); }
     }).catch(() => { });
   }
-  queueMicrotask(() => emettre('options', { ...S.options }));
+  if (!etat.options) queueMicrotask(() => emettre('options', { ...S.options }));
 
   return {
     get options() { return { ...S.options }; },

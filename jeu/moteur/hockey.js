@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GROUPES, groupes } from './physique.js?v=1770adecd5';
+import { GROUPES, groupes } from './physique.js?v=0a63877699';
 
 const H_RONDELLE = 0.0127;
 const EXERCICES = {
@@ -187,6 +187,7 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
     audio.jouer3d('rondelle_tir', p.objet.getWorldPosition(tmp), { volume: 0.5 + charge * 0.5, hauteur: 0.9 + charge * 0.25 });
     cam.secouer(charge * 0.5);
     bus.emit('hockey:tir', { vitesse, charge });
+    h.tirEnVol = { rondelle: p, t: 2.5, cadre: false };
     h.exercice?.surTir?.(vitesse);
   }
 
@@ -220,6 +221,7 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
     j.jouerSpecial('skate_pass', 0.4);
     audio.jouer3d('rondelle_tir', p.objet.getWorldPosition(tmp), { volume: 0.4, hauteur: 1.2 });
     bus.emit('hockey:passe', { vers: meilleur?.id || null });
+    h.dernierePasseEric = performance.now();
     h.exercice?.surPasse?.();
   }
 
@@ -330,24 +332,38 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
     }
   }
 
-  // ---------- partie à trois contre trois ----------
+  // ---------- partie amicale ----------
+  const idPnj = (x) => String(x || '').replace(/^NPC_/, '');
   function demarrerPartie(params) {
     const z = jeu.zone;
     const centre = z.glaceBoite.getCenter(new THREE.Vector3());
-    const butsTries = [...h.buts].sort((a, b) => a.boite.getCenter(new THREE.Vector3()).applyMatrix4(a.objet.matrixWorld).x - b.boite.getCenter(new THREE.Vector3()).applyMatrix4(b.objet.matrixWorld).x);
-    const cibleAttaque = butsTries.find((b) => b.cote === 'est') || butsTries[butsTries.length - 1];
+    const coteVoulu = /ouest/i.test(params.filet_attaque || '') ? 'ouest' : 'est';
+    const cibleAttaque = h.buts.find((b) => b.cote === coteVoulu) || h.buts[0];
     const centreBut = cibleAttaque.boite.getCenter(new THREE.Vector3()).applyMatrix4(cibleAttaque.objet.matrixWorld);
     const versAttaque = centreBut.clone().sub(centre).setY(0).normalize();
-    h.partie = { score: { eric: 0, adverse: 0 }, chrono: params.duree || 360, objectif: params.buts || 3, coteAttaque: cibleAttaque.cote, versAttaque, centre, pause: 0, fini: false };
-    const joueurs = gestionPnj.liste.filter((p) => /^joueur_hockey/.test(p.role) || /^joueur_hockey/.test(p.id));
-    h.patineurs = joueurs.slice(0, 5).map((p, i) => {
-      const equipe = i < 2 ? 'eric' : 'adverse';
-      const lateral = new THREE.Vector3(-versAttaque.z, 0, versAttaque.x);
-      const depart = centre.clone().addScaledVector(versAttaque, equipe === 'eric' ? -4 - (i % 2) * 3 : 4 + (i % 3) * 3).addScaledVector(lateral, ((i % 3) - 1) * 5);
+    h.partie = {
+      score: { eric: 0, adverse: 0 }, chrono: params.duree, objectif: params.buts, coteAttaque: cibleAttaque.cote,
+      versAttaque, centre, centreBut, pause: 0, fini: false,
+      objectifPasses: params.objectifPasses, objectifTirs: params.objectifTirs, passes: 0, tirs: 0,
+    };
+    const tous = gestionPnj.liste.filter((p) => /^joueur_hockey/.test(p.role) || /^joueur/.test(p.id));
+    const parId = (id) => tous.find((p) => p.id === idPnj(id));
+    let equipeEric = (params.coequipiers || []).map(parId).filter(Boolean);
+    let adverses = (params.adversaires || []).map(parId).filter(Boolean);
+    if (!equipeEric.length && !adverses.length) { equipeEric = tous.slice(0, 2); adverses = tous.slice(2, 5); }
+    const lateral = new THREE.Vector3(-versAttaque.z, 0, versAttaque.x);
+    const placer = (p, equipe, i, n) => {
+      const recul = equipe === 'eric' ? -4 - (i % 2) * 4 : 4 + (i % 2) * 4;
+      const ecart = (i - (n - 1) / 2) * 6;
+      const depart = centre.clone().addScaledVector(versAttaque, recul).addScaledVector(lateral, ecart);
       p.muet = true;
       p.comportement = 'hockey';
       return { pnj: p, id: p.id, equipe, position: depart.clone(), depart, vitesse: new THREE.Vector3(), decision: 0, poke: 0, aLaRondelle: false };
-    });
+    };
+    h.patineurs = [
+      ...equipeEric.map((p, i) => placer(p, 'eric', i, equipeEric.length)),
+      ...adverses.map((p, i) => placer(p, 'adverse', i, adverses.length)),
+    ];
     miseAuJeu();
   }
 
@@ -454,17 +470,25 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
       s.pnj.perso.jouer(s.aLaRondelle ? 'stickhandle' : v > 0.6 ? 'skate' : 'skate_idle', { vitesse: 0.6 + v / 7 });
     }
     // fin de partie
-    if (!P.fini && (P.score.eric >= P.objectif || P.score.adverse >= P.objectif || P.chrono <= 0)) {
+    const parObjectifs = P.objectifPasses != null || P.objectifTirs != null;
+    const objectifsAtteints = parObjectifs && P.passes >= (P.objectifPasses ?? 0) && P.tirs >= (P.objectifTirs ?? 0);
+    if (!P.fini && (objectifsAtteints || P.chrono <= 0 || (!parObjectifs && (P.score.eric >= P.objectif || P.score.adverse >= P.objectif)))) {
       P.fini = true;
-      const gagne = P.score.eric > P.score.adverse;
+      const gagne = parObjectifs ? objectifsAtteints : P.score.eric > P.score.adverse;
       dialogues.repliqueAuHasard(gagne ? 'hockey_fin_victoire' : 'hockey_fin_defaite', {});
       audio.jouer('sirene_but', { volume: 0.9 });
       setTimeout(() => h.exercice?.terminer?.(gagne, { score: { ...P.score } }), 2500);
     }
-    bus.emit('hockey:etat', { score: { ...P.score }, chrono: Math.max(0, P.chrono), charge: h.charge, possession: h.porteur === 'eric' });
+    bus.emit('hockey:etat', { score: { ...P.score }, chrono: Math.max(0, P.chrono), charge: h.charge, possession: h.porteur === 'eric', passes: P.passes, tirs: P.tirs, objectifPasses: P.objectifPasses, objectifTirs: P.objectifTirs });
   }
 
   function prendreAI(s) {
+    // passe réussie d'Éric : un coéquipier reçoit la rondelle peu après
+    if (h.partie && s.equipe === 'eric' && h.dernierePasseEric && performance.now() - h.dernierePasseEric < 3500) {
+      h.partie.passes++;
+      h.dernierePasseEric = 0;
+      audio.jouer('ui_clic', { volume: 0.4 });
+    }
     for (const x of h.patineurs) x.aLaRondelle = false;
     s.aLaRondelle = true;
     h.porteur = s.id;
@@ -481,32 +505,66 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
   }
 
   // ---------- leçon de patinage ----------
+  function normaliser(type, p) {
+    const n = (...cles) => { for (const c of cles) if (p[c] !== undefined && p[c] !== null) return Number(p[c]); return undefined; };
+    const d = EXERCICES[type]?.defaut || {};
+    return {
+      duree: n('duree_s', 'duree') ?? d.duree ?? 8,
+      chutesMax: n('chutes_max') ?? Infinity,
+      distance: n('distance_m', 'distance') ?? d.distance ?? 10,
+      tempsMax: n('temps_max_s', 'temps') ?? d.temps ?? Infinity,
+      poussees: n('poussees_min') ?? 0,
+      vitesse: n('vitesse_min_m_s', 'vitesse') ?? d.vitesse ?? 3,
+      glisses: n('glisses_reussies') ?? 0,
+      dureeGlisse: n('duree_glisse_s') ?? 2,
+      distanceArret: n('distance_arret_max_m') ?? 4.5,
+      repetitions: n('essais_reussis', 'repetitions') ?? d.repetitions ?? 3,
+      tours: n('tours') ?? d.tours ?? 2,
+      cones: Array.isArray(p.cones) ? p.cones : null,
+      pertesMax: n('pertes_max') ?? Infinity,
+      passes: n('passes_reussies', 'passes') ?? d.passes ?? 5,
+      essaisMax: n('essais_max', 'essais') ?? Infinity,
+      receveur: p.receveur ? idPnj(p.receveur) : null,
+      buts: n('buts') ?? d.buts ?? 3,
+      dureePartie: n('duree_min') !== undefined ? n('duree_min') * 60 : (n('duree') ?? 360),
+      objectifPasses: n('objectif_passes'),
+      objectifTirs: n('objectif_tirs'),
+      coequipiers: p.coequipiers, adversaires: p.adversaires, filet_attaque: p.filet_attaque,
+    };
+  }
+
+  const coach = () => gestionPnj.liste.find((x) => x.role === 'entraineur_patin');
+  const conesDe = (ids) => (ids || []).map((id) => objets.dynamiques.find((d) => d.id === id)).filter(Boolean);
+
   function lancerExercice(etape, fin) {
     const type = etape.exercice;
     const modele = EXERCICES[type];
     if (!modele) { fin(true); return; }
-    const params = { ...modele.defaut, ...(etape.parametres || {}) };
+    const p = normaliser(type, etape.parametres || {});
     const j = jeu.joueur;
-    if (type !== 'equilibre' && type !== 'poussee' && (jeu.etat.drapeaux.patinage ?? 0) < 0.05) jeu.etat.drapeaux.patinage = 0.05;
+    if ((jeu.etat.drapeaux.patinage ?? 0) < 0.05) jeu.etat.drapeaux.patinage = 0.05;
     const ex = {
-      type, params, titre: etape.titre || modele.titre, consigne: etape.objectif || modele.consigne,
-      progression: 0, compteur: 0, distance: 0, temps: 0, etat: 'en_cours', dernierePos: j.position.clone(), elan: false, angle: 0, angleAvant: null,
+      type, p, titre: etape.titre || modele.titre, consigne: etape.objectif || modele.consigne,
+      progression: 0, compteur: 0, distance: 0, temps: 0, chutes: 0, pertes: 0, essais: 0, etat: 'en_cours',
+      dernierePos: j.position.clone(), elan: false, angle: 0, angleAvant: null, iCone: 0, glisse: 0,
+      poussees0: j.nbPoussees || 0,
       terminer(reussi, details) {
         if (ex.etat !== 'en_cours') return;
         ex.etat = reussi ? 'reussi' : 'rate';
         if (reussi) {
           jeu.etat.drapeaux.patinage = Math.min(1, (jeu.etat.drapeaux.patinage ?? 0.05) + 0.13);
-          dialogues.repliqueAuHasard('entraineur_bravo', { pnj: gestionPnj.trouver('entraineur') || gestionPnj.liste.find((x) => x.role === 'entraineur_patin') });
+          dialogues.repliqueAuHasard('entraineur_bravo', { pnj: coach() });
           audio.jouer('ui_succes');
-        } else dialogues.repliqueAuHasard('entraineur_encore', { pnj: gestionPnj.liste.find((x) => x.role === 'entraineur_patin') });
+        } else dialogues.repliqueAuHasard('entraineur_encore', { pnj: coach() });
         bus.emit('exercice', { ...publique(), etat: ex.etat });
         h.exercice = null;
         if (type === 'partie') { h.partie = null; for (const s of h.patineurs) s.pnj.comportement = 'statique'; h.patineurs = []; }
         setTimeout(() => fin(reussi, details), 1200);
       },
-      surTir() {},
-      surPasse() { if (type === 'passe') ex.passeEnVol = 2.5; },
-      surBut(pourEric) { if (type === 'lancer' && pourEric) { ex.compteur++; if (ex.compteur >= params.buts) ex.terminer(true); } },
+      surTir() { if (type === 'lancer') ex.essais++; },
+      surPasse() { if (type === 'passe') { ex.passeEnVol = 2.5; ex.essais++; } },
+      surBut(pourEric) { if (type === 'lancer' && pourEric) { ex.compteur++; if (ex.compteur >= p.buts) ex.terminer(true); } },
+      surChute() { ex.chutes++; },
     };
     function publique() {
       return { type, titre: ex.titre, consigne: ex.consigne, progression: ex.progression, texte: ex.texte || '' };
@@ -518,16 +576,16 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
     if (sp && !j.surGlace) j.placer(sp.position, j.lacet);
     equiperBaton(j);
     if (['maniement', 'passe', 'lancer'].includes(type)) {
-      const p = rondellesZone()[0];
-      if (p) {
+      const pk = rondellesZone()[0];
+      if (pk) {
         const devant = j.position.clone().addScaledVector(j.avant(), 1.0);
-        p.corps.setTranslation({ x: devant.x, y: j.position.y + 0.05, z: devant.z }, true);
-        p.corps.setLinvel({ x: 0, y: 0, z: 0 }, true);
+        pk.corps.setTranslation({ x: devant.x, y: j.position.y + 0.05, z: devant.z }, true);
+        pk.corps.setLinvel({ x: 0, y: 0, z: 0 }, true);
       }
     }
-    if (type === 'partie') demarrerPartie(params);
-    const coach = gestionPnj.liste.find((x) => x.role === 'entraineur_patin');
-    dialogues.repliqueAuHasard(`entraineur_conseil_${type}`, { pnj: coach, position: coach?.position });
+    if (type === 'partie') demarrerPartie({ ...p, duree: p.dureePartie });
+    const c = coach();
+    dialogues.repliqueAuHasard(`entraineur_conseil_${type}`, { pnj: c, position: c?.position });
     bus.emit('exercice', publique());
   }
 
@@ -535,32 +593,44 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
     const ex = h.exercice;
     if (!ex || ex.etat !== 'en_cours') return;
     const j = jeu.joueur;
-    const p = ex.params;
+    const p = ex.p;
     const v = j.vitesseHorizontale;
     ex.temps += dt;
     const deplacement = j.position.distanceTo(ex.dernierePos);
     ex.dernierePos.copy(j.position);
+    const reste = Number.isFinite(p.tempsMax) ? ` · ${Math.max(0, p.tempsMax - ex.temps).toFixed(0)} s` : '';
+    if (ex.chutes > p.chutesMax) { ex.terminer(false); return; }
     switch (ex.type) {
       case 'equilibre':
         if (j.chute > 0) ex.compteur = 0;
-        else if (v > 0.6) ex.compteur += dt;
+        else ex.compteur += dt;
         ex.progression = Math.min(1, ex.compteur / p.duree);
-        ex.texte = `${Math.floor(ex.compteur)} / ${p.duree} s`;
+        ex.texte = `${Math.floor(ex.compteur)} / ${p.duree} s debout${Number.isFinite(p.chutesMax) ? ` · chutes ${ex.chutes}/${p.chutesMax}` : ''}`;
         if (ex.compteur >= p.duree) ex.terminer(true);
         break;
-      case 'poussee':
-        ex.progression = Math.min(1, v / p.vitesse);
-        ex.max = Math.max(ex.max || 0, v);
-        ex.texte = `${(v * 3.6).toFixed(0)} km/h`;
-        if (v >= p.vitesse) ex.terminer(true);
-        break;
-      case 'glisse':
-        if (!ex.elan && v > 3) ex.elan = true;
-        if (ex.elan && !j.pousse && j.chute <= 0) ex.distance += deplacement;
-        if (ex.elan && j.pousse && ex.distance > 0.5) ex.distance = 0;
+      case 'poussee': {
+        if (!j.recule && j.chute <= 0) ex.distance += deplacement;
+        const nb = (j.nbPoussees || 0) - ex.poussees0;
         ex.progression = Math.min(1, ex.distance / p.distance);
-        ex.texte = ex.elan ? `${ex.distance.toFixed(1)} / ${p.distance} m sans pousser` : 'Prends d’abord de l’élan';
-        if (ex.distance >= p.distance) ex.terminer(true);
+        ex.texte = `${ex.distance.toFixed(1)} / ${p.distance} m · ${nb} poussées${p.poussees ? ` (min. ${p.poussees})` : ''}${reste}`;
+        if (ex.distance >= p.distance) ex.terminer(nb >= p.poussees);
+        else if (ex.temps > p.tempsMax) ex.terminer(false);
+        break;
+      }
+      case 'glisse':
+        if (v > 1 && !j.pousse && j.chute <= 0) ex.glisse += dt;
+        else if (j.pousse || v < 0.6) { ex.glisse = 0; ex.glisseComptee = false; }
+        if (p.glisses) {
+          if (ex.glisse >= p.dureeGlisse && !ex.glisseComptee) { ex.glisseComptee = true; ex.compteur++; audio.jouer('ui_clic', { volume: 0.5 }); }
+          ex.progression = Math.min(1, ex.compteur / p.glisses);
+          ex.texte = `${ex.compteur} / ${p.glisses} glisses de ${p.dureeGlisse} s`;
+          if (ex.compteur >= p.glisses) ex.terminer(true);
+        } else {
+          if (v > 1 && !j.pousse) ex.distance += deplacement; else if (j.pousse) ex.distance = 0;
+          ex.progression = Math.min(1, ex.distance / p.distance);
+          ex.texte = `${ex.distance.toFixed(1)} / ${p.distance} m sans pousser`;
+          if (ex.distance >= p.distance) ex.terminer(true);
+        }
         break;
       case 'arret':
         if (!ex.elan && v >= p.vitesse) { ex.elan = true; ex.departFrein = null; }
@@ -568,85 +638,127 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
         if (ex.elan && ex.departFrein && v < 0.3) {
           const dist = ex.departFrein.distanceTo(j.position);
           ex.elan = false; ex.departFrein = null;
-          if (dist < 4.5) { ex.compteur++; audio.jouer('ui_clic'); }
+          if (dist <= p.distanceArret) { ex.compteur++; audio.jouer('ui_clic'); }
+          else dialogues.repliqueAuHasard('entraineur_conseil_arret', { pnj: coach() });
         }
         ex.progression = ex.compteur / p.repetitions;
-        ex.texte = `${ex.compteur} / ${p.repetitions} arrêts`;
+        ex.texte = `${ex.compteur} / ${p.repetitions} arrêts en moins de ${p.distanceArret} m`;
         if (ex.compteur >= p.repetitions) ex.terminer(true);
         break;
       case 'croisement': {
-        const sp = jeu.zone.spawns.SPAWN_lecon;
-        const c = sp ? sp.position : jeu.zone.glaceBoite.getCenter(new THREE.Vector3());
+        const cones = conesDe(p.cones);
+        const c = cones.length
+          ? cones.reduce((acc, d) => acc.add(d.objet.getWorldPosition(new THREE.Vector3())), new THREE.Vector3()).divideScalar(cones.length)
+          : (jeu.zone.spawns.SPAWN_lecon?.position || jeu.zone.glaceBoite.getCenter(new THREE.Vector3()));
         const a = Math.atan2(j.position.z - c.z, j.position.x - c.x);
         const r = Math.hypot(j.position.z - c.z, j.position.x - c.x);
-        if (ex.angleAvant !== null && r > 2 && r < 9) {
+        if (ex.angleAvant !== null && r > 1.5 && r < 10) {
           let d = a - ex.angleAvant; d = Math.atan2(Math.sin(d), Math.cos(d));
           ex.angle += d;
         }
         ex.angleAvant = a;
         const tours = Math.abs(ex.angle) / (Math.PI * 2);
         ex.progression = Math.min(1, tours / p.tours);
-        ex.texte = `${tours.toFixed(1)} / ${p.tours} tours · ${Math.max(0, p.temps - ex.temps).toFixed(0)} s`;
+        ex.texte = `${tours.toFixed(1)} / ${p.tours} tours${reste}`;
         if (tours >= p.tours) ex.terminer(true);
-        else if (ex.temps > p.temps) ex.terminer(false);
+        else if (ex.temps > p.tempsMax) ex.terminer(false);
         break;
       }
       case 'recul':
         if (j.recule && j.chute <= 0) ex.distance += deplacement;
         ex.progression = Math.min(1, ex.distance / p.distance);
-        ex.texte = `${ex.distance.toFixed(1)} / ${p.distance} m`;
+        ex.texte = `${ex.distance.toFixed(1)} / ${p.distance} m à reculons${reste}`;
         if (ex.distance >= p.distance) ex.terminer(true);
+        else if (ex.temps > p.tempsMax) ex.terminer(false);
         break;
-      case 'maniement':
-        if (h.possession && h.porteur === 'eric') ex.distance += deplacement;
-        else if (ex.distance > 2) { ex.pertes = (ex.pertes || 0) + 1; ex.distance = Math.max(0, ex.distance - 5); }
-        ex.progression = Math.min(1, ex.distance / p.distance);
-        ex.texte = `${ex.distance.toFixed(0)} / ${p.distance} m avec la rondelle`;
-        if (ex.distance >= p.distance) ex.terminer(true);
+      case 'maniement': {
+        const cones = conesDe(p.cones);
+        if (h.possession && h.porteur === 'eric') ex.avait = true;
+        else if (ex.avait) { ex.avait = false; ex.pertes++; }
+        if (cones.length) {
+          const cible = cones[ex.iCone];
+          if (cible && h.porteur === 'eric' && cible.objet.getWorldPosition(new THREE.Vector3()).distanceTo(j.position) < 1.6) { ex.iCone++; audio.jouer('ui_clic', { volume: 0.5 }); }
+          ex.progression = ex.iCone / cones.length;
+          ex.texte = `${ex.iCone} / ${cones.length} cônes · pertes ${ex.pertes}${Number.isFinite(p.pertesMax) ? `/${p.pertesMax}` : ''}${reste}`;
+          if (ex.iCone >= cones.length) { ex.terminer(ex.pertes <= p.pertesMax); break; }
+        } else {
+          if (h.porteur === 'eric') ex.distance += deplacement;
+          ex.progression = Math.min(1, ex.distance / p.distance);
+          ex.texte = `${ex.distance.toFixed(0)} / ${p.distance} m avec la rondelle`;
+          if (ex.distance >= p.distance) { ex.terminer(true); break; }
+        }
+        if (ex.pertes > p.pertesMax || ex.temps > p.tempsMax) ex.terminer(false);
         break;
+      }
       case 'passe': {
-        const coach = gestionPnj.liste.find((x) => x.role === 'entraineur_patin');
-        if (ex.passeEnVol > 0 && coach) {
+        const receveur = (p.receveur && gestionPnj.trouver(p.receveur)) || coach();
+        if (ex.passeEnVol > 0 && receveur) {
           ex.passeEnVol -= dt;
           const pk = rondellesZone()[0];
           const pos = pk?.objet.getWorldPosition(new THREE.Vector3());
-          if (pos && pos.distanceTo(coach.position) < 1.4) {
+          if (pos && pos.distanceTo(receveur.position) < 1.5) {
             ex.passeEnVol = 0;
             ex.compteur++;
             audio.jouer3d('rondelle_poteau', pos, { volume: 0.4, hauteur: 1.4 });
             setTimeout(() => {
-              const vers = jeu.joueur.position.clone().sub(coach.position).setY(0).normalize();
-              pk.corps.setTranslation({ x: coach.position.x + vers.x * 0.8, y: pos.y, z: coach.position.z + vers.z * 0.8 }, true);
+              const vers = jeu.joueur.position.clone().sub(receveur.position).setY(0).normalize();
+              pk.corps.setTranslation({ x: receveur.position.x + vers.x * 0.8, y: pos.y, z: receveur.position.z + vers.z * 0.8 }, true);
               pk.corps.setLinvel({ x: vers.x * 9, y: 0, z: vers.z * 9 }, true);
             }, 900);
           }
         }
         ex.progression = ex.compteur / p.passes;
-        ex.texte = `${ex.compteur} / ${p.passes} passes réussies`;
+        ex.texte = `${ex.compteur} / ${p.passes} passes reçues${Number.isFinite(p.essaisMax) ? ` · ${ex.essais}/${p.essaisMax} essais` : ''}`;
         if (ex.compteur >= p.passes) ex.terminer(true);
+        else if (ex.essais >= p.essaisMax && !(ex.passeEnVol > 0)) ex.terminer(false);
         break;
       }
       case 'lancer':
         ex.progression = ex.compteur / p.buts;
-        ex.texte = `${ex.compteur} / ${p.buts} buts`;
+        ex.texte = `${ex.compteur} / ${p.buts} buts${Number.isFinite(p.essaisMax) ? ` · ${ex.essais}/${p.essaisMax} tirs` : ''}`;
+        if (ex.compteur < p.buts && ex.essais >= p.essaisMax) {
+          ex.attenteFin = (ex.attenteFin || 0) + dt;
+          if (ex.attenteFin > 2.5) ex.terminer(false);
+        }
         break;
       case 'partie':
-        if (h.partie) { ex.progression = h.partie.score.eric / p.buts; ex.texte = `${h.partie.score.eric} – ${h.partie.score.adverse}`; }
+        if (h.partie) {
+          const P = h.partie;
+          if (P.objectifPasses != null || P.objectifTirs != null) {
+            const op = P.objectifPasses ?? 0, ot = P.objectifTirs ?? 0;
+            ex.progression = Math.min(1, (Math.min(P.passes, op) + Math.min(P.tirs, ot)) / Math.max(1, op + ot));
+            const c = Math.max(0, P.chrono);
+            ex.texte = `Passes ${P.passes}/${op} · tirs cadrés ${P.tirs}/${ot} · ${Math.floor(c / 60)}:${String(Math.floor(c % 60)).padStart(2, '0')}`;
+          } else { ex.progression = P.score.eric / Math.max(1, p.buts); ex.texte = `${P.score.eric} – ${P.score.adverse}`; }
+        }
         break;
       default:
         break;
     }
     ex.accUI = (ex.accUI || 0) + dt;
     if (ex.accUI > 0.15) { ex.accUI = 0; bus.emit('exercice', ex.publique()); }
-    ex.conseil = (ex.conseil || 18) - dt;
+    ex.conseil = (ex.conseil ?? 18) - dt;
     if (ex.conseil <= 0 && ex.progression < 0.3) {
       ex.conseil = 25;
-      const coach = gestionPnj.liste.find((x) => x.role === 'entraineur_patin');
-      dialogues.repliqueAuHasard(`entraineur_conseil_${ex.type}`, { pnj: coach, position: coach?.position });
+      const c = coach();
+      dialogues.repliqueAuHasard(`entraineur_conseil_${ex.type}`, { pnj: c, position: c?.position });
     }
   }
 
+  function suivreTirs(dt) {
+    const t = h.tirEnVol;
+    if (!t) return;
+    t.t -= dt;
+    if (t.t <= 0) { h.tirEnVol = null; return; }
+    if (t.cadre || !h.partie) return;
+    const pos = t.rondelle.objet.getWorldPosition(new THREE.Vector3());
+    const g = h.gardiens.find((x) => x.cote === h.partie.coteAttaque) || h.gardiens[0];
+    const pres = pos.distanceTo(h.partie.centreBut) < 1.4 || (g && pos.distanceTo(g.pnj.position) < 0.9);
+    if (pres) { t.cadre = true; h.partie.tirs++; }
+  }
+
   bus.on('patin:chute', () => {
+    h.exercice?.surChute?.();
     const coach = gestionPnj.liste.find((x) => x.role === 'entraineur_patin');
     if (Math.random() < 0.7) dialogues.repliqueAuHasard('entraineur_chute', { pnj: coach, position: coach?.position }) || dialogues.repliqueAuHasard('eric_chute_glace', {});
     if (h.possession) perdre();
@@ -684,6 +796,7 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
     gardiens(dt);
     patineurs(dt);
     verifierButs();
+    suivreTirs(dt);
     suivreExercice(dt);
     if (h.partie || h.exercice) bus.emit('hockey:etat', { score: h.partie ? { ...h.partie.score } : null, chrono: h.partie?.chrono ?? null, charge: h.charge, possession: h.porteur === 'eric' });
   }

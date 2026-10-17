@@ -1,5 +1,5 @@
-import { h, s, icone, vider, glisser, elementSous } from '../noyau.js?v=1770adecd5';
-import { melanger, scoreCorrespondance, clePaire } from '../calculs.js?v=1770adecd5';
+import { h, s, icone, vider, glisser, elementSous } from '../noyau.js?v=0a63877699';
+import { melanger, scoreCorrespondance, clePaire } from '../calculs.js?v=0a63877699';
 
 export function rendre(def, coque) {
   const gauche = (Array.isArray(def.gauche) ? def.gauche : []).map((x, i) => ({ id: String(x.id ?? i), texte: String(x.texte ?? x.id ?? '') }));
@@ -8,6 +8,19 @@ export function rendre(def, coque) {
     .map((p) => (Array.isArray(p) ? [String(p[0]), String(p[1])] : p && typeof p === 'object' ? [String(p.g ?? p.gauche), String(p.d ?? p.droite)] : null))
     .filter(Boolean);
   const droiteMelangee = melanger(droite, coque.alea);
+  const compter = (cote) => {
+    const m = new Map();
+    for (const [g, d] of paires) { const k = cote === 'g' ? g : d; m.set(k, (m.get(k) || 0) + 1); }
+    return Math.max(1, ...m.values());
+  };
+  const maxG = compter('g');
+  const maxD = def.plusieursParCible === true || def.plusieursParCible === 1 ? Infinity : compter('d');
+  const explications = def.explications && typeof def.explications === 'object' ? def.explications : {};
+  const aide = maxG === 1 && maxD === 1
+    ? 'Relie chaque élément de gauche à un seul élément de droite : glisse un trait, ou touche un élément puis un autre. Un nouveau lien remplace l’ancien.'
+    : maxG === 1
+      ? 'Chaque élément de gauche va vers un seul élément de droite ; un élément de droite peut en recevoir plusieurs. Glisse un trait, ou touche un élément puis un autre.'
+      : 'Relie chaque élément de gauche à son ou ses équivalents de droite : glisse un trait, ou touche un élément puis un autre. Touche un trait existant (ou refais la même paire) pour le retirer.';
   const liens = new Map();
   let selection = null;
   let valide = false;
@@ -36,7 +49,7 @@ export function rendre(def, coque) {
   droiteMelangee.forEach((x) => colD.append(item(x, 'd')));
 
   coque.corps.append(h('div', { class: 'dfx-correspondance' },
-    h('p', { class: 'dfx-aide', text: 'Relie chaque élément de gauche à son ou ses équivalents de droite : glisse un trait, ou touche un élément puis un autre. Touche un trait existant (ou refais la même paire) pour le retirer.' }),
+    h('p', { class: 'dfx-aide', text: aide }),
     titres, plateau));
   const btn = coque.bouton('Valider les liens', { primaire: true, ico: 'valider', desactive: true, surClic: valider });
 
@@ -88,6 +101,10 @@ export function rendre(def, coque) {
       liens.delete(k);
       coque.annoncer('Lien retiré.');
     } else {
+      const deG = [...liens.entries()].filter(([, [a]]) => a === g);
+      if (deG.length >= maxG) liens.delete(deG[0][0]);
+      const deD = [...liens.entries()].filter(([, [, b]]) => b === d);
+      if (deD.length >= maxD) liens.delete(deD[0][0]);
       liens.set(k, [g, d]);
       coque.annoncer(`Lien créé : ${gauche.find((x) => x.id === g)?.texte} et ${droite.find((x) => x.id === d)?.texte}.`);
       if (liens.size > Math.max(paires.length * 1.6, paires.length + 3) && !basculer.dit) {
@@ -237,7 +254,8 @@ export function rendre(def, coque) {
               icone(etat === 'juste' ? 'valider' : etat === 'faux' ? 'fermer' : 'plus'),
               h('span', { text: x?.texte ?? d }),
               h('span', { class: 'dfx-etiquette', text: etat === 'juste' ? 'trouvé' : etat === 'faux' ? 'en trop' : 'manquant' }));
-          }) : h('li', { class: 'dfx-corr-bilan-d', text: 'Aucune correspondance attendue.' }))));
+          }) : h('li', { class: 'dfx-corr-bilan-d', text: 'Aucune correspondance attendue.' })),
+          explications[g.id] ? h('p', { class: 'dfx-corr-bilan-expl', text: String(explications[g.id]) }) : null));
       }
       zone.append(tab);
     });

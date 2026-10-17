@@ -1,4 +1,4 @@
-import { appliquerEffets, sauvegarder } from './etat.js?v=1770adecd5';
+import { appliquerEffets, sauvegarder } from './etat.js?v=0a63877699';
 
 export function creerMissions({ bus, jeu }) {
   let scenario = { chapitres: [] };
@@ -274,8 +274,14 @@ export function creerMissions({ bus, jeu }) {
     }
   }
 
+  function arreter() {
+    etapeCourante = null;
+    sousEtapes = null;
+    bonus = [];
+  }
+
   return {
-    charger, demarrerChapitre, activer, terminer, lancerDefi, hud,
+    charger, demarrerChapitre, activer, terminer, lancerDefi, hud, arreter,
     get bonus() { return bonus; },
     surInteraction, surArrivee, surRamasse, surOuverture,
     etapesActives, trouverEtape,

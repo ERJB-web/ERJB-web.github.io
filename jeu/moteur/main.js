@@ -1,20 +1,20 @@
 import * as THREE from 'three';
-import { creerBus } from './bus.js?v=1770adecd5';
-import { etatInitial, charger as chargerPartie, sauvegarder, chargerOptions, sauverOptions, appliquerEffets } from './etat.js?v=1770adecd5';
-import { creerRendu } from './rendu.js?v=1770adecd5';
-import { creerPhysique } from './physique.js?v=1770adecd5';
-import { creerChargeur, chargerZone, installerZone, retirerZone } from './zones.js?v=1770adecd5';
-import { creerObjets } from './objets.js?v=1770adecd5';
-import { creerAudio } from './audio.js?v=1770adecd5';
-import { creerPersonnages } from './personnages.js?v=1770adecd5';
-import { creerCamera } from './camera.js?v=1770adecd5';
-import { creerEntrees } from './entrees.js?v=1770adecd5';
-import { creerInteractions } from './interactions.js?v=1770adecd5';
-import { creerGestionPNJ } from './pnj.js?v=1770adecd5';
-import { creerDialogues } from './dialogues.js?v=1770adecd5';
-import { creerDirection } from './direction.js?v=1770adecd5';
-import { creerMissions } from './missions.js?v=1770adecd5';
-import { creerHockey } from './hockey.js?v=1770adecd5';
+import { creerBus } from './bus.js?v=0a63877699';
+import { etatInitial, charger as chargerPartie, sauvegarder, chargerOptions, sauverOptions, appliquerEffets } from './etat.js?v=0a63877699';
+import { creerRendu } from './rendu.js?v=0a63877699';
+import { creerPhysique } from './physique.js?v=0a63877699';
+import { creerChargeur, chargerZone, installerZone, retirerZone } from './zones.js?v=0a63877699';
+import { creerObjets } from './objets.js?v=0a63877699';
+import { creerAudio } from './audio.js?v=0a63877699';
+import { creerPersonnages } from './personnages.js?v=0a63877699';
+import { creerCamera } from './camera.js?v=0a63877699';
+import { creerEntrees } from './entrees.js?v=0a63877699';
+import { creerInteractions } from './interactions.js?v=0a63877699';
+import { creerGestionPNJ } from './pnj.js?v=0a63877699';
+import { creerDialogues } from './dialogues.js?v=0a63877699';
+import { creerDirection } from './direction.js?v=0a63877699';
+import { creerMissions } from './missions.js?v=0a63877699';
+import { creerHockey } from './hockey.js?v=0a63877699';
 
 const VERSION = '2.0.0';
 const params = new URLSearchParams(location.search);
@@ -49,12 +49,14 @@ async function demarrer() {
   const gestionPnj = creerGestionPNJ({ physique, personnages, objets, audio, bus });
   const dialogues = creerDialogues({ bus, audio, camera: cam, physique, options });
 
-  const [scenario, donneesDialogues, donneesDefis, voix] = await Promise.all([
+  const [scenario, donneesDialogues, donneesDefis, voix, donneesSalles] = await Promise.all([
     json('donnees/scenario.json', { chapitres: [] }),
     json('donnees/dialogues.json', {}),
     json('donnees/defis.json', []),
     json('donnees/voix.json', {}),
+    json('donnees/salles.json', { salles: [] }),
   ]);
+  const salles = donneesSalles.salles || [];
   dialogues.charger(donneesDialogues, voix);
 
   const jeu = {
@@ -76,12 +78,12 @@ async function demarrer() {
   // ---------- interface ----------
   let ui = null;
   try {
-    const mod = await import('../ui/ui.js?v=1770adecd5');
-    ui = mod.initUI({ bus, etat: { options, get partie() { return jeu.etat; }, get existeSauvegarde() { return !!chargerPartie(); }, scenario, version: VERSION }, racine: racineUI });
+    const mod = await import('../ui/ui.js?v=0a63877699');
+    ui = mod.initUI({ bus, etat: { options, get partie() { return jeu.etat; }, get existeSauvegarde() { return !!chargerPartie(); }, scenario, salles, version: VERSION }, racine: racineUI });
   } catch (e) {
     console.warn('[ui] interface de secours', e);
-    const mod = await import('./ui-secours.js?v=1770adecd5');
-    ui = mod.initUI({ bus, etat: { options, get partie() { return jeu.etat; }, get existeSauvegarde() { return !!chargerPartie(); }, scenario }, racine: racineUI });
+    const mod = await import('./ui-secours.js?v=0a63877699');
+    ui = mod.initUI({ bus, etat: { options, get partie() { return jeu.etat; }, get existeSauvegarde() { return !!chargerPartie(); }, scenario, salles }, racine: racineUI });
   }
 
   function fondu(versNoir, duree = 0.6) {
@@ -140,7 +142,7 @@ async function demarrer() {
 
     // personnage du joueur
     if (!jeu.joueur) {
-      const { creerJoueur } = await import('./joueur.js?v=1770adecd5');
+      const { creerJoueur } = await import('./joueur.js?v=0a63877699');
       const perso = await personnages.creer('eric');
       jeu.joueur = creerJoueur({ physique, perso, audio, bus, jeu });
       dialogues.lier(jeu.joueur, gestionPnj);
@@ -167,6 +169,14 @@ async function demarrer() {
       return gestionPnj.ajouter({ role, id, position: m.position, quaternion: m.quaternion, anim: flaner ? 'idle' : (m.donnees.anim || 'idle'), dialogue: m.donnees.dialogue || null, nom: roles[role]?.nom || roles[id]?.nom || '', flaner });
     }));
 
+    for (const etape of toutesEtapes()) {
+      if (etape.type !== 'ramasser' || !etape.cible) continue;
+      const d = objets.dynamiques.find((x) => x.id === [].concat(etape.cible)[0]);
+      if (!d) continue;
+      if (etape.titreOuvrage) d.titre = etape.titreOuvrage;
+      if (etape.cote) d.cote = etape.cote;
+      if (etape.titreOuvrage || etape.cote) d.label = [etape.cote, etape.titreOuvrage].filter(Boolean).join(' · ');
+    }
     hockey.activer(zone);
     cam.suivi(jeu.joueur);
     audio.themeMusical(zone.manifeste.musique || null, { immediat: false });
@@ -207,6 +217,13 @@ async function demarrer() {
 
   function attendre(ms) { return new Promise((ok) => setTimeout(ok, ms)); }
 
+  const etapesPoussees = new WeakSet();
+  function toutesEtapes() {
+    const liste = [];
+    for (const c of scenario.chapitres || []) for (const e of c.etapes || []) { liste.push(e); for (const x of e.etapes || []) liste.push(x); }
+    return liste;
+  }
+
   // ---------- scènes, défis, fins ----------
   async function scene(id) {
     if (!id || !dialogues.scene(id)) return { choix: null };
@@ -241,7 +258,7 @@ async function demarrer() {
     bus.emit('invite', null);
     let r = { reussi: true, score: 1 };
     try {
-      const mod = await import('../defis/defis.js?v=1770adecd5');
+      const mod = await import('../defis/defis.js?v=0a63877699');
       racineDefis.hidden = false;
       r = await mod.lancerDefi(def, {
         racine: racineDefis,
@@ -265,6 +282,11 @@ async function demarrer() {
   }
 
   async function fin(issue) {
+    if (issue === 'report' && !jeu.finEcheanceJouee) {
+      jeu.finEcheanceJouee = true;
+      const sc = scenario.finEcheance?.scene || 'fin_echeance';
+      if (dialogues.scene(sc)) await scene(sc);
+    }
     jeu.enJeu = false;
     jeu.etat.fin = issue;
     sauvegarder(jeu.etat);
@@ -275,6 +297,23 @@ async function demarrer() {
 
   function signaler(changements) {
     for (const c of changements || []) bus.emit('stat:changement', c);
+  }
+
+  function positionObjectif(etape) {
+    const z = jeu.zone;
+    if (!z || !etape) return null;
+    if (etape.zone && etape.zone !== z.id) {
+      const sortie = z.interactions.find((m) => m.actions.some((a) => a.startsWith(`zone:${etape.zone}`)))
+        || z.interactions.find((m) => m.actions.includes('voyage'));
+      return sortie ? sortie.position : null;
+    }
+    if (etape.type === 'ramasser' && etape.destination) {
+      const porte = jeu.joueur?.porte;
+      const cible = [].concat(etape.cible || [])[0];
+      const objet = objets.dynamiques.find((d) => d.id === cible);
+      if ((porte && porte.id === cible) || (objet && !objet.prenable)) return positionCible(etape.destination);
+    }
+    return positionCible(etape.cible || etape.destination);
   }
 
   function positionCible(cible) {
@@ -426,21 +465,93 @@ async function demarrer() {
     const n = Math.min(suivi, 6);
     jeu.joueur.mode = 'cine';
     await scene(`suivi_${n}`) ;
-    const def = missions.defis[`suivi_${n}`];
-    let reussi = true;
-    if (def) reussi = (await defi(def)).reussi;
-    const effets = reussi ? { pression: -22, confiance: 6, stress: -3 } : { pression: -8, semaines: -1, stress: 9, confiance: -5 };
+    const infoSuivi = (scenario.suivis || [])[n - 1] || {};
+    const def = missions.defis[infoSuivi.defi || `suivi_${n}`];
+    let reussi = true, r = null;
+    if (def) { r = await defi(def); reussi = r.reussi; }
+    const effetsDefi = def?.effets?.[reussi ? 'succes' : 'echec'];
+    const effets = effetsDefi || (reussi ? { pression: -22, confiance: 6, stress: -3 } : { pression: -8, semaines: -1, stress: 9, confiance: -5 });
     signaler(appliquerEffets(e, effets));
-    await scene(reussi ? `suivi_${n}_succes` : `suivi_${n}_echec`);
+    if (r?.details?.effets) signaler(appliquerEffets(e, r.details.effets));
+    await scene(reussi ? (infoSuivi.succes || `suivi_${n}_succes`) : (infoSuivi.echec || `suivi_${n}_echec`));
     direction.relacher(reussi ? 'succes' : 'echec');
     jeu.joueur.mode = 'libre';
     missions.hud();
     if (e.semaines <= 0) fin('report');
   });
 
+  // ---------- mode salle : aller droit à l'activité d'un lieu ----------
+  async function verifierSalles() {
+    for (const sa of salles) sa.disponible = await zoneExiste(sa.zone);
+    bus.emit('salles', { salles });
+  }
+
+  function etapeParId(id) {
+    for (const c of scenario.chapitres || []) for (const e of c.etapes || []) {
+      if (e.id === id) return e;
+      for (const x of e.etapes || []) if (x.id === id) return x;
+    }
+    return null;
+  }
+
+  async function lancerSalle({ salle: idSalle, activite: idActivite } = {}) {
+    audio.demarrer();
+    const salle = salles.find((x) => x.id === idSalle);
+    const act = salle?.activites?.find((a) => a.id === idActivite) || salle?.activites?.[0];
+    if (!salle || !act) return;
+    if (!(await zoneExiste(salle.zone))) { bus.emit('toast', { texte: `${salle.titre} : ce lieu est encore en construction.`, type: 'info' }); return; }
+    jeu.etat = etatInitial(scenario);
+    jeu.etat.mode = 'salle';
+    jeu.etat.salle = { salle: salle.id, activite: act.id };
+    jeu.etat.zonesVues = [salle.zone];
+    if (act.patinage != null) jeu.etat.drapeaux.patinage = act.patinage;
+    jeu.modeSalle = true;
+    missions.arreter?.();
+    jeu.cibleObjectif(null);
+    direction.changerZone(null);
+    await allerZone(salle.zone, act.spawn || null);
+    direction.changerZone(null);
+    bus.emit('objectif', { texte: act.titre, id: `salle_${act.id}` });
+    bus.emit('hud', { stats: { ...jeu.etat.stats }, semaines: null, pression: 0, objectif: act.titre, preuves: 0, chapitre: salle.titre, mode: 'salle' });
+    if (act.patins && jeu.joueur) {
+      jeu.joueur.patins = true;
+      const sp = jeu.zone.spawns.SPAWN_glace || jeu.zone.spawns.SPAWN_lecon;
+      if (sp) jeu.joueur.placer(sp.position, jeu.joueur.lacet);
+    }
+    if (act.libre) return;
+    const bilan = { reussis: 0, total: 0, details: [] };
+    for (const id of act.exercices || []) {
+      const etape = etapeParId(id);
+      if (!etape) continue;
+      let ok = false;
+      for (let essai = 0; essai < 3 && !ok && jeu.modeSalle; essai++) {
+        ok = await new Promise((fin) => hockey.lancerExercice(etape, (r) => fin(!!r)));
+      }
+      if (!jeu.modeSalle) return;
+      bilan.total++;
+      if (ok) bilan.reussis++;
+      bilan.details.push({ titre: etape.objectif || etape.exercice, reussi: ok });
+    }
+    for (const id of act.defis || []) {
+      const def = missions.defis[id];
+      if (!def) continue;
+      const r = await defi(def);
+      if (!jeu.modeSalle) return;
+      bilan.total++;
+      if (r.reussi) bilan.reussis++;
+      bilan.details.push({ titre: def.titre, reussi: r.reussi, score: r.score });
+    }
+    audio.stinger(bilan.reussis === bilan.total ? 'victoire' : 'echec', { volume: 0.7 });
+    entrees.liberer();
+    bus.emit('ecran', { nom: 'salle_fin', salle, activite: act, bilan });
+  }
+  bus.on('partie:salle', (d) => lancerSalle(d));
+  bus.on('salles:verifier', () => verifierSalles());
+
   // ---------- interface → moteur ----------
   bus.on('partie:nouvelle', async () => {
     audio.demarrer();
+    jeu.modeSalle = false;
     jeu.etat = etatInitial(scenario);
     direction.changerZone(jeu.zone);
     let premier = null;
@@ -451,6 +562,7 @@ async function demarrer() {
   });
   bus.on('partie:continuer', async () => {
     audio.demarrer();
+    jeu.modeSalle = false;
     const e = chargerPartie();
     if (!e) return bus.emit('partie:nouvelle');
     jeu.etat = e;
@@ -460,6 +572,7 @@ async function demarrer() {
   });
   bus.on('partie:chapitre', async ({ id }) => {
     audio.demarrer();
+    jeu.modeSalle = false;
     jeu.etat = etatInitial(scenario);
     const i = scenario.chapitres.findIndex((c) => c.id === id);
     for (const c of scenario.chapitres.slice(0, Math.max(0, i))) jeu.etat.etapesFaites.push(...(c.etapes || []).map((x) => x.id));
@@ -505,7 +618,7 @@ async function demarrer() {
   })();
   function majMarqueur(t) {
     const j = jeu.joueur;
-    const cible = jeu.enJeu && !jeu.cinematique && jeu.objectif ? positionCible(jeu.objectif.cible) : null;
+    const cible = jeu.enJeu && !jeu.cinematique && jeu.objectif ? positionObjectif(jeu.objectif.etape) : null;
     if (!cible || !j) { marqueur.visible = false; return; }
     const d = Math.hypot(cible.x - j.position.x, cible.z - j.position.z);
     marqueur.visible = d > 2.6;
@@ -530,10 +643,12 @@ async function demarrer() {
     console.error('[titre]', e);
   }
   await fondu(false, 1.2);
+  verifierSalles();
   bus.emit('ecran', { nom: 'titre' });
   audio.themeMusical('menu', { boucle: true });
 
-  if (params.has('jouer')) bus.emit('partie:nouvelle');
+  if (params.has('salle')) bus.emit('partie:salle', { salle: params.get('salle'), activite: params.get('activite') });
+  else if (params.has('jouer')) bus.emit('partie:nouvelle');
 
   // ---------- boucle ----------
   let avant = performance.now();
@@ -569,6 +684,15 @@ async function demarrer() {
         hockey.mettreAJour(dt, ent);
         objets.testerDeclencheurs(j.position);
         interactions.mettreAJour(jeu.zone, j, gestionPnj, ent, !jeu.cinematique && j.mode !== 'cine');
+        // objet non portable poussé jusqu'à sa destination (chariot)
+        for (const etape of missions.etapesActives()) {
+          if (etape.type !== 'ramasser' || !etape.destination) continue;
+          const d = objets.dynamiques.find((x) => x.id === [].concat(etape.cible || [])[0]);
+          const dest = positionCible(etape.destination);
+          if (!d || d.prenable || !dest) continue;
+          const p = d.objet.getWorldPosition(new THREE.Vector3());
+          if (Math.hypot(p.x - dest.x, p.z - dest.z) < (etape.rayon || 1.8) && !etapesPoussees.has(etape)) { etapesPoussees.add(etape); missions.terminer(etape, true); }
+        }
         // arrivée près d'une cible « aller »
         for (const etape of missions.etapesActives()) {
           if (etape.type !== 'aller' || etape.interagir) continue;
@@ -584,7 +708,7 @@ async function demarrer() {
       accCarte += dt;
       if (accCarte > 0.1 && j && jeu.enJeu) {
         accCarte = 0;
-        const cible = jeu.objectif ? positionCible(jeu.objectif.cible) : null;
+        const cible = jeu.objectif ? positionObjectif(jeu.objectif.etape) : null;
         bus.emit('carte', {
           x: j.position.x, z: j.position.z, angle: j.lacet, camAngle: cam.lacet,
           pnj: gestionPnj.liste.map((p) => ({ x: p.position.x, z: p.position.z, direction: /^direction/.test(p.role) })),
@@ -592,7 +716,7 @@ async function demarrer() {
         });
       }
       accSauvegarde += dt;
-      if (accSauvegarde > 15 && jeu.enJeu && j && !jeu.cinematique) {
+      if (accSauvegarde > 15 && jeu.enJeu && j && !jeu.cinematique && !jeu.modeSalle) {
         accSauvegarde = 0;
         jeu.etat.position = j.position.toArray();
         sauvegarder(jeu.etat);
