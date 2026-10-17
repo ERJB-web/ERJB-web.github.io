@@ -5,7 +5,7 @@
   if (!hall) return;
   const archi = hall.querySelector(".architecture-hall");
   const dossier = new URL("photos/", document.currentScript ? document.currentScript.src : location.href);
-  const photo = (nom) => `url("${new URL(`hall-montreal-${nom}.webp`, dossier).href}")`;
+  const photo = (nom) => `url("${new URL(`${nom}.webp`, dossier).href}")`;
   const LAT = 45.5017, LON = -73.5673;
   const METEO = "https://api.open-meteo.com/v1/forecast?latitude=45.5017&longitude=-73.5673"
     + "&current=weather_code,cloud_cover,precipitation,rain,showers,snowfall,wind_speed_10m,wind_direction_10m"
@@ -78,20 +78,21 @@
       .catch(() => {});
   }
 
-  const calques = {};
-  for (const nom of ["couvert", "crepuscule", "nuit"]) {
-    const el = document.createElement("span");
-    el.className = "hall-calque hall-calque-" + nom;
-    archi?.append(el);
-    calques[nom] = el;
-  }
-  const brume = document.createElement("span");
-  brume.className = "hall-brume";
+  // La ville derrière la baie, l'intérieur du hall par-dessus, puis le reflet de la ville sur le sol.
+  const creer = (classe, parent) => { const el = document.createElement("span"); el.className = classe; parent?.append(el); return el; };
+  const ville = creer("hall-ville", archi);
+  const villeBase = creer("hall-ville-base", ville);
+  const villeCalques = {};
+  for (const nom of ["couvert", "crepuscule", "nuit"]) villeCalques[nom] = creer("hall-ville-calque hall-ville-" + nom, ville);
+  const brume = creer("hall-brume", ville);
   const toile = document.createElement("canvas");
   toile.className = "hall-precipitation";
-  const eclair = document.createElement("span");
-  eclair.className = "hall-eclair";
-  archi?.append(brume, toile, eclair);
+  ville.append(toile);
+  const eclair = creer("hall-eclair", ville);
+  creer("hall-interieur", archi);
+  const calques = {};
+  for (const nom of ["couvert", "crepuscule", "nuit"]) calques[nom] = creer("hall-calque hall-calque-" + nom, archi);
+  creer("hall-reflet", archi);
 
   function poser(el, image, opacite) {
     if (opacite > 0.005 && el.dataset.image !== image) { el.style.backgroundImage = image; el.dataset.image = image; }
@@ -111,21 +112,24 @@
     hall.dataset.saison = s;
     hall.dataset.moment = nuit > 0.6 ? "nuit" : crepuscule > 0.45 ? (matin(maintenant) ? "aube" : "crepuscule") : "jour";
     hall.dataset.meteo = m.orage ? "orage" : m.neige ? "neige" : m.pluie ? "pluie" : m.brouillard ? "brouillard" : couvert > 0.5 ? "couvert" : "soleil";
-    hall.style.setProperty("--hall-jour", photo("jour-" + s));
-    poser(calques.couvert, photo("couvert-" + s), couvert);
-    poser(calques.crepuscule, photo("crepuscule-" + s), crepuscule);
-    poser(calques.nuit, photo("nuit"), nuit);
-    // Une seule image dominante pour l'affichage mobile.
-    const dominante = nuit > 0.55 ? "nuit" : crepuscule > 0.5 ? "crepuscule-" + s : couvert > 0.5 ? "couvert-" + s : "jour-" + s;
-    hall.style.setProperty("--hall-fond", photo(dominante));
+    hall.style.setProperty("--hall-jour", photo("hall-interieur-jour"));
+    poser(calques.couvert, photo("hall-interieur-couvert"), couvert * (1 - nuit));
+    poser(calques.crepuscule, photo("hall-interieur-crepuscule"), crepuscule);
+    poser(calques.nuit, photo("hall-interieur-nuit"), nuit);
+    const jourVille = photo("hall-ville-jour-" + s);
+    if (villeBase.dataset.image !== jourVille) { villeBase.style.backgroundImage = jourVille; villeBase.dataset.image = jourVille; }
+    poser(villeCalques.couvert, photo("hall-ville-couvert-" + s), couvert);
+    poser(villeCalques.crepuscule, photo("hall-ville-crepuscule"), crepuscule);
+    poser(villeCalques.nuit, photo("hall-ville-nuit"), nuit);
+    // Une seule image dominante pour le reflet au sol et l'affichage mobile.
+    const dominante = nuit > 0.55 ? "hall-ville-nuit" : crepuscule > 0.5 ? "hall-ville-crepuscule" : couvert > 0.5 ? "hall-ville-couvert-" + s : "hall-ville-jour-" + s;
+    hall.style.setProperty("--hall-ville-fond", photo(dominante));
     const soleil = (1 - nuit) * (1 - couvert) * (1 - crepuscule * 0.6);
     const eclairage = 1 - nuit * 0.12 - crepuscule * 0.16 * (1 - nuit) - couvert * 0.06 * (1 - nuit);
     hall.style.setProperty("--hall-soleil", soleil.toFixed(3));
     hall.style.setProperty("--hall-eclairage", eclairage.toFixed(3));
     hall.style.setProperty("--hall-chaleur", (nuit * 0.12 + crepuscule * 0.2).toFixed(3));
-    // Les rayons du soleil, ou les halos des lampes, tombent aussi sur les portes et les panneaux.
-    hall.style.setProperty("--hall-lumiere-calque", photo(nuit > 0.5 ? "lumiere-nuit" : "lumiere-jour"));
-    hall.style.setProperty("--hall-lumiere-force", (nuit > 0.5 ? nuit : soleil).toFixed(3));
+    hall.style.setProperty("--hall-reflet", (0.16 + nuit * 0.3 + crepuscule * 0.12).toFixed(3));
     const voile = m.brouillard ? 0.5 : m.neige ? 0.34 : m.pluie ? 0.24 : couvert * 0.08;
     brume.style.opacity = voile.toFixed(3);
     brume.style.setProperty("--hall-brume-nuit", nuit.toFixed(3));

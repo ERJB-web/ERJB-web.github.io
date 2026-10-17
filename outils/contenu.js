@@ -1606,7 +1606,7 @@ const fr = {
     adresse: "École de santé publique de l’Université de Montréal · 7101, avenue du Parc, Montréal (Québec)",
   },
   pied: "© 2026 Éric Bernier",
-  credits: "Images : portrait d’Éric Bernier, photographies Unsplash et illustrations numériques représentant des scènes fictives, non documentaires. Lecture à voix haute : Kyutai TTS (CC BY 4.0), voix de référence CML-TTS (Oliveira et al., 2023) et Alba MacKenna (CC BY 4.0).",
+  credits: "Images : portrait d’Éric Bernier, photographies Unsplash et illustrations numériques représentant des scènes fictives, non documentaires. Vue de Montréal depuis le mont Royal : Wilfredor, « Montreal Skyline from Mont Royal golden hour » (CC0), et Calvin411, « Panorama Montreal Skyline 2017 » (CC BY-SA 4.0, modifiée), Wikimedia Commons. Lecture à voix haute : Kyutai TTS (CC BY 4.0), voix de référence CML-TTS (Oliveira et al., 2023) et Alba MacKenna (CC BY 4.0).",
   introuvable: { titre: "Page introuvable", texte: "Cette page n’existe pas ou a été déplacée.", retour: "Revenir à l’accueil" },
 };
 
@@ -3177,7 +3177,7 @@ const en = {
     adresse: "School of Public Health, Université de Montréal · 7101 avenue du Parc, Montréal, Québec",
   },
   pied: "© 2026 Éric Bernier",
-  credits: "Images: a portrait of Éric Bernier, Unsplash photographs and digital illustrations depicting fictional scenes, not documentary photographs. Read-aloud voices: Kyutai TTS (CC BY 4.0), reference voices CML-TTS (Oliveira et al., 2023) and Alba MacKenna (CC BY 4.0).",
+  credits: "Images: a portrait of Éric Bernier, Unsplash photographs and digital illustrations depicting fictional scenes, not documentary photographs. View of Montreal from Mount Royal: Wilfredor, “Montreal Skyline from Mont Royal golden hour” (CC0), and Calvin411, “Panorama Montreal Skyline 2017” (CC BY-SA 4.0, modified), Wikimedia Commons. Read-aloud voices: Kyutai TTS (CC BY 4.0), reference voices CML-TTS (Oliveira et al., 2023) and Alba MacKenna (CC BY 4.0).",
   introuvable: { titre: "Page not found", texte: "This page does not exist or has moved.", retour: "Back to the home page" },
 };
 
@@ -4748,7 +4748,7 @@ const es = {
     adresse: "Escuela de Salud Pública de la Université de Montréal · 7101, avenue du Parc, Montreal (Quebec)",
   },
   pied: "© 2026 Éric Bernier",
-  credits: "Imágenes: retrato de Éric Bernier, fotografías de Unsplash e ilustraciones digitales de escenas ficticias, no documentales. Lectura en voz alta: Kyutai TTS (CC BY 4.0), voces de referencia CML-TTS (Oliveira et al., 2023) y Alba MacKenna (CC BY 4.0).",
+  credits: "Imágenes: retrato de Éric Bernier, fotografías de Unsplash e ilustraciones digitales de escenas ficticias, no documentales. Vista de Montreal desde el monte Royal: Wilfredor, «Montreal Skyline from Mont Royal golden hour» (CC0), y Calvin411, «Panorama Montreal Skyline 2017» (CC BY-SA 4.0, modificada), Wikimedia Commons. Lectura en voz alta: Kyutai TTS (CC BY 4.0), voces de referencia CML-TTS (Oliveira et al., 2023) y Alba MacKenna (CC BY 4.0).",
   introuvable: { titre: "Página no encontrada", texte: "Esta página no existe o ha sido trasladada.", retour: "Volver a la página de inicio" },
 };
 
