@@ -57,6 +57,12 @@ const ICONES = {
   menu: '<path d="M5 7.5h14M5 12h14M5 16.5h14"/>',
   etoile: '<path d="M12 4l2.4 5 5.4.6-4 3.7 1.1 5.3L12 16l-4.9 2.6 1.1-5.3-4-3.7 5.4-.6z"/>',
   souris: '<rect x="7" y="3.5" width="10" height="17" rx="5"/><path d="M12 7v3"/>',
+  cible: '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r=".6"/>',
+  patin: '<path d="M5.5 5h5.5v6.5l6.6 1.6a2 2 0 0 1 1.5 1.9v1H5.5z"/><path d="M4 19.5h16.5"/><path d="M8.5 16v3.5M16 16v3.5"/>',
+  livres: '<path d="M4.5 5h3.5v14.5H4.5zM9.5 5H13v14.5H9.5z"/><path d="M14.6 5.9l3.4-.9 3.5 13.3-3.4.9z"/>',
+  pavillon: '<path d="M3.5 20.5h17M6 20.5V11h12v9.5M9.5 11V6.5h5V11M11 6.5V3.5h2v3"/><path d="M9 14v3.5M12 14v3.5M15 14v3.5"/>',
+  clsc: '<rect x="4.5" y="7" width="15" height="13.5" rx="1"/><path d="M12 10.2v6.3M8.9 13.4h6.2"/><path d="M9 7V4h6v3"/>',
+  lutrin: '<path d="M7 10h10l-1.6 10.5H8.6z"/><path d="M5 10h14"/><path d="M12 10V5.5M9.5 5.5h5"/>',
   rondelle: '<ellipse cx="12" cy="10" rx="7.5" ry="3"/><path d="M4.5 10v3.5c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3V10"/>'
 };
 
@@ -362,6 +368,10 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
     ongletsVus: new Set(),
     dispositionDetectee: dispositionParDefaut(),
     deltaExterne: {},
+    pageTitre: 'principal',
+    modeJeu: 'histoire',
+    salles: Array.isArray(etat.salles) ? etat.salles : ((etat.salles && etat.salles.salles) || []),
+    derniereSalle: null,
     pauseEmise: -1e9,
     partieLancee: false,
     chargementDemarrage: false,
@@ -500,20 +510,37 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
   /* ---------- Écran-titre ---------- */
 
   const titre = (() => {
-    const item = (action, libelle, fn, sous) => {
+    const item = (action, libelle, fn, sous, classe = '') => {
       const sousEl = el('span', { class: 'ui-menu-sous' }, sous || '');
-      const b = el('button', { class: 'ui-menu-item', type: 'button', 'data-nav': '', 'data-action': action, onclick: fn }, el('span', { class: 'ui-menu-libelle' }, libelle), sousEl);
+      const b = el('button', { class: `ui-menu-item ${classe}`, type: 'button', 'data-nav': '', 'data-action': action, onclick: fn }, el('span', { class: 'ui-menu-libelle' }, libelle), sousEl);
       b._sous = sousEl;
       return b;
     };
+    const grand = (action, libelle, sous, ic, fn) => {
+      const b = el('button', { class: 'ui-menu-item ui-menu-grand', type: 'button', 'data-nav': '', 'data-action': action, onclick: fn },
+        el('span', { class: 'ui-menu-icone', html: svg(ic) }),
+        el('span', { class: 'ui-menu-textes' }, el('span', { class: 'ui-menu-libelle' }, libelle), el('span', { class: 'ui-menu-sous' }, sous)),
+        el('span', { class: 'ui-menu-fleche', html: svg('chevron') }));
+      b._sous = b.querySelector('.ui-menu-sous');
+      return b;
+    };
     const items = {
-      continuer: item('continuer', 'Continuer', () => { son('ui_clic'); emettre('partie:continuer', {}); }),
+      histoire: grand('histoire', 'Mode histoire', 'Études doctorales', 'journal', () => { son('ui_clic'); pageTitre('histoire', true); }),
+      salle: grand('salle', 'Mode salle', 'Aller droit à une activité', 'cible', () => { son('ui_clic'); ouvrirCouche('salles'); }),
+      continuer: item('continuer', 'Continuer', () => { son('ui_clic'); S.modeJeu = 'histoire'; emettre('partie:continuer', {}); }),
       nouvelle: item('nouvelle', 'Nouvelle partie', nouvellePartie),
       chapitres: item('chapitres', 'Chapitres', () => { son('ui_clic'); ouvrirCouche('chapitres'); }),
+      retour: item('retour', 'Retour', () => { son('ui_clic'); pageTitre('principal', true); }, '', 'ui-menu-retour'),
       options: item('options', 'Options', () => { son('ui_clic'); ouvrirCouche('options'); }),
       credits: item('credits', 'Crédits', () => { son('ui_clic'); ouvrirCouche('credits'); })
     };
-    const menu = el('nav', { class: 'ui-menu', 'aria-label': 'Menu principal', 'data-boucle': '' }, Object.values(items));
+    items.histoire.setAttribute('data-defaut', '');
+    const principal = el('nav', { class: 'ui-menu ui-titre-page', 'data-page': 'principal', 'aria-label': 'Menu principal', 'data-boucle': '' },
+      items.histoire, items.salle, el('div', { class: 'ui-menu-sep', 'aria-hidden': 'true' }), items.options, items.credits);
+    const histoire = el('nav', { class: 'ui-menu ui-titre-page', 'data-page': 'histoire', 'aria-label': 'Mode histoire', 'data-boucle': '', hidden: '' },
+      el('p', { class: 'ui-titre-page-tete' }, el('span', { html: svg('journal') }), 'Mode histoire · Études doctorales'),
+      items.continuer, items.nouvelle, items.chapitres, el('div', { class: 'ui-menu-sep', 'aria-hidden': 'true' }), items.retour);
+    const menu = el('div', { class: 'ui-titre-menus' }, principal, histoire);
     const accroche = el('p', { class: 'ui-titre-accroche ui-entree d2' }, etat.accroche || 'Faites accepter votre protocole de thèse avant la soutenance.');
     const e = el('section', { class: 'ui-couche ui-titre', 'aria-label': 'Écran-titre', inert: '' },
       el('div', { class: 'ui-voile' }),
@@ -524,9 +551,25 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
           el('span', { class: 'ui-titre-filet ui-entree d2', 'aria-hidden': 'true' }),
           accroche),
         el('div', { class: 'ui-entree d3' }, menu)));
-    return { el: e, items };
+    return { el: e, items, pages: { principal, histoire } };
   })();
   bases.titre = titre.el;
+
+  function pageTitre(nom, avecFocus = false) {
+    const page = titre.pages[nom] ? nom : 'principal';
+    const avant = S.pageTitre;
+    S.pageTitre = page;
+    for (const [k, n] of Object.entries(titre.pages)) {
+      n.hidden = k !== page;
+      n.classList.toggle('arrivee', k === page && avant && avant !== page);
+    }
+    majAide();
+    if (avecFocus) requestAnimationFrame(() => {
+      const zone = titre.pages[page];
+      const cible = (page === 'principal' && avant === 'histoire') ? titre.items.histoire : (navigables(zone).find(n => n.hasAttribute('data-defaut')) || navigables(zone)[0]);
+      if (cible) cible.focus({ preventScroll: true });
+    });
+  }
 
   function resumeSauvegarde(s) {
     if (!s) return '';
@@ -560,7 +603,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
     titre.items.nouvelle._sous.hidden = true;
     titre.items.continuer.toggleAttribute('data-defaut', existe);
     titre.items.nouvelle.toggleAttribute('data-defaut', !existe);
-    for (const k of ['chapitres', 'options', 'credits']) titre.items[k]._sous.hidden = true;
+    for (const k of ['chapitres', 'options', 'credits', 'retour']) titre.items[k]._sous.hidden = true;
   }
   async function nouvellePartie() {
     son('ui_clic');
@@ -569,6 +612,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
       const ok = await confirmer({ surtitre: 'Nouvelle partie', titre: 'Recommencer depuis le début ?', texte: 'Votre progression actuelle sera remplacée.', ok: 'Commencer', annuler: 'Annuler' });
       if (!ok) return;
     }
+    S.modeJeu = 'histoire';
     emettre('partie:nouvelle', {});
   }
 
@@ -769,7 +813,12 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
     }, 4200);
   }
 
+  function definirModeJeu(m) {
+    S.modeJeu = m === 'salle' ? 'salle' : 'histoire';
+    racine.classList.toggle('ui-mode-salle', S.modeJeu === 'salle');
+  }
   function majHUD(d = {}) {
+    if ('mode' in d) definirModeJeu(d.mode);
     if (d.stats) {
       for (const [cle] of STATS) {
         if (d.stats[cle] == null) continue;
@@ -1440,14 +1489,19 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
 
   const pause = (() => {
     const item = (libelle, ic, fn, classe = '') => el('button', { class: `ui-menu-item ${classe}`, type: 'button', 'data-nav': '', onclick: fn }, el('span', { class: 'ui-menu-libelle' }, libelle));
+    const items = {
+      reprendre: item('Reprendre', 'reprendre', () => { son('ui_clic'); reprendre(); }),
+      changer: item('Changer d’activité', 'cible', () => { son('ui_clic'); ouvrirCouche('salles'); }),
+      journal: item('Journal', 'journal', () => { son('ui_clic'); ouvrirCouche('journal'); }),
+      carte: item('Carte', 'carte', () => { son('ui_clic'); ouvrirCouche('carte'); }),
+      options: item('Options', 'reglages', () => { son('ui_clic'); ouvrirCouche('options'); }),
+      quitter: item('Menu principal', 'sortie', quitterPartie, 'danger')
+    };
     const menu = el('nav', { class: 'ui-menu', 'aria-label': 'Menu de pause', 'data-boucle': '' },
-      item('Reprendre', 'reprendre', () => { son('ui_clic'); reprendre(); }),
-      item('Journal', 'journal', () => { son('ui_clic'); ouvrirCouche('journal'); }),
-      item('Carte', 'carte', () => { son('ui_clic'); ouvrirCouche('carte'); }),
-      item('Options', 'reglages', () => { son('ui_clic'); ouvrirCouche('options'); }),
+      items.reprendre, items.changer, items.journal, items.carte, items.options,
       el('div', { class: 'ui-menu-sep', 'aria-hidden': 'true' }),
-      item('Quitter vers l’écran-titre', 'sortie', quitterPartie, 'danger'));
-    menu.firstElementChild.setAttribute('data-defaut', '');
+      items.quitter);
+    items.reprendre.setAttribute('data-defaut', '');
     const chap = el('p', { class: 'ui-resume-chap' }, '');
     const lieu = el('p', { class: 'ui-resume-lieu' }, icone('lieu'), el('span', {}, ''));
     const obj = el('p', {}, '');
@@ -1458,24 +1512,29 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
       el('div', { class: 'ui-plein' },
         el('div', { class: 'ui-pause-gauche ui-entree' }, el('p', { class: 'ui-surtitre' }, el('span', { class: 'ui-points', 'aria-hidden': 'true' }, el('i'), el('i')), 'Partie en pause'), el('h2', { class: 'ui-titre-section', id: 'ui-pause-titre' }, 'Pause'), menu),
         el('div', { class: 'ui-pause-droite' }, resume, stats)));
-    return { el: e, chap, lieu, obj, stats, resume };
+    return { el: e, chap, lieu, obj, stats, resume, items };
   })();
   couches.pause = { el: pause.el, preparer: majPause };
 
   function majPause() {
+    const salle = S.modeJeu === 'salle';
+    pause.items.changer.hidden = !salle;
+    pause.items.journal.hidden = salle;
     const c = S.hud.chapitre;
-    pause.chap.textContent = fr(libelleChapitre(c) || 'En route vers la soutenance');
+    pause.chap.textContent = fr(libelleChapitre(c) || (salle ? 'Mode salle' : 'En route vers la soutenance'));
     pause.lieu.lastChild.textContent = fr((S.zone && (S.zone.titre + (S.zone.sousTitre ? ` · ${S.zone.sousTitre}` : ''))) || '');
     pause.lieu.hidden = !pause.lieu.lastChild.textContent;
     pause.obj.textContent = fr(S.objectifTexte || 'Aucun objectif en cours');
-    const cases = [['Semaines', S.hud.semaines != null ? String(S.hud.semaines) : '–']];
+    const cases = salle ? [] : [['Semaines', S.hud.semaines != null ? String(S.hud.semaines) : '–']];
     for (const [cle, nom] of STATS) cases.push([nom, S.hud.stats[cle] != null ? String(Math.round(S.hud.stats[cle])) : '–']);
     pause.stats.replaceChildren(...cases.map(([n, v]) => el('div', { class: 'ui-resume-stat' }, el('p', {}, n), el('p', {}, v))));
+    pause.stats.classList.toggle('sans-semaines', salle);
   }
 
   async function quitterPartie() {
     son('ui_clic');
-    const ok = await confirmer({ surtitre: 'Quitter la partie', titre: 'Revenir à l’écran-titre ?', texte: 'Vous reprendrez au début du chapitre en cours.', ok: 'Quitter', annuler: 'Annuler', danger: true });
+    const salle = S.modeJeu === 'salle';
+    const ok = await confirmer({ surtitre: salle ? 'Mode salle' : 'Quitter la partie', titre: 'Revenir au menu principal ?', texte: salle ? 'L’activité en cours sera interrompue.' : 'Votre progression est sauvegardée.', ok: 'Menu principal', annuler: 'Annuler', danger: true });
     if (!ok) return;
     emettre('quitter', {});
     changerBase('titre');
@@ -2117,6 +2176,114 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
     for (const g of options.listeTouches.querySelectorAll('[data-glyphe]')) g.removeAttribute('data-glyphe');
   }
 
+  /* ---------- Mode salle ---------- */
+
+  const ICONES_SALLES = { arena: 'patin', bibliotheque: 'livres', campus: 'pavillon', clsc: 'clsc', soutenance: 'lutrin' };
+  const TEINTES_SALLES = { arena: '#11A7A5', bibliotheque: '#0879BE', campus: '#0755AD', clsc: '#3E8A22', soutenance: '#4F6878' };
+
+  const sallesVue = (() => {
+    const liste = el('div', { class: 'ui-salles-liste ui-defile' });
+    const entete = entetePlein({ surtitre: 'Mode salle', titre: 'Choisir une activité', idTitre: 'ui-salles-titre' });
+    const e = el('section', { class: 'ui-couche ui-salles', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'ui-salles-titre', inert: '' },
+      el('div', { class: 'ui-fond-menu' }),
+      el('div', { class: 'ui-plein ui-entree' }, entete.el, el('div', { class: 'ui-plein-corps' }, liste)));
+    return { el: e, liste };
+  })();
+  couches.salles = { el: sallesVue.el, preparer: () => { rendreSalles(); emettre('salles:verifier', {}); } };
+
+  function rendreSalles() {
+    const l = S.salles || [];
+    if (!l.length) {
+      sallesVue.liste.replaceChildren(el('div', { class: 'ui-vide ui-carte-panneau', style: { minHeight: '240px' } }, icone('cible'), el('p', {}, 'Aucune salle n’est prête pour l’instant.')));
+      return;
+    }
+    const focusAvant = document.activeElement && sallesVue.el.contains(document.activeElement) ? document.activeElement.dataset.cle : null;
+    let premier = null;
+    const cartes = l.map((sa, i) => {
+      const dispo = sa.disponible !== false;
+      const acts = Array.isArray(sa.activites) ? sa.activites : [];
+      const boutons = acts.map((a) => {
+        const b = el('button', { class: 'ui-activite', type: 'button', 'data-nav': '', 'data-cle': `${sa.id}/${a.id}`, 'aria-disabled': dispo ? null : 'true', onclick: () => choisirActivite(sa, a, dispo) },
+          el('span', { class: 'ui-activite-textes' }, el('span', { class: 'ui-activite-titre' }, a.titre || ''), a.description ? el('span', { class: 'ui-activite-desc' }, a.description) : null),
+          el('span', { class: 'ui-activite-fleche', html: svg(dispo ? 'chevron' : 'cadenas') }));
+        if (dispo && !premier) premier = b;
+        return el('li', {}, b);
+      });
+      return el('article', { class: 'ui-salle' + (dispo ? '' : ' indispo'), style: { '--teinte': TEINTES_SALLES[sa.zone || sa.id] || '#0879BE' }, 'aria-label': sa.titre || '' },
+        el('header', { class: 'ui-salle-tete' },
+          el('span', { class: 'ui-salle-icone', html: svg(ICONES_SALLES[sa.zone || sa.id] || 'lieu') }),
+          el('span', { class: 'ui-salle-num', 'aria-hidden': 'true' }, String(i + 1).padStart(2, '0')),
+          dispo ? null : el('span', { class: 'ui-salle-badge' }, icone('cadenas'), 'En construction')),
+        el('div', { class: 'ui-salle-corps' },
+          el('h3', { class: 'ui-salle-titre' }, sa.titre || ''),
+          sa.sousTitre ? el('p', { class: 'ui-salle-sous' }, sa.sousTitre) : null,
+          el('ul', { class: 'ui-salle-activites' }, boutons)));
+    });
+    sallesVue.liste.replaceChildren(...cartes);
+    const cible = (focusAvant && sallesVue.liste.querySelector(`[data-cle="${CSS.escape(focusAvant)}"]`)) || null;
+    if (premier) premier.setAttribute('data-defaut', '');
+    if (cible) cible.focus({ preventScroll: true });
+  }
+
+  function choisirActivite(sa, a, dispo) {
+    if (!dispo) {
+      son('ui_echec');
+      toast({ texte: `${sa.titre} : ce lieu est encore en construction.`, type: 'info', duree: 3.5 });
+      return;
+    }
+    son('ui_clic');
+    S.derniereSalle = { salle: sa.id, activite: a.id };
+    definirModeJeu('salle');
+    if (S.base === 'hud') fermerTout();
+    else fermerTout({ silencieux: true });
+    emettre('partie:salle', { salle: sa.id, activite: a.id });
+  }
+
+  const salleFin = (() => {
+    const anneau = el('div', { class: 'ui-sf-anneau ui-entree', 'aria-hidden': 'true' }, el('span', { class: 'ui-sf-score' }, ''), el('span', { class: 'ui-sf-sur' }, ''));
+    const surtitre = el('p', { class: 'ui-surtitre ui-entree d1' }, '');
+    const titreF = el('h1', { class: 'ui-sf-titre ui-entree d1', id: 'ui-sf-titre' }, '');
+    const verdict = el('p', { class: 'ui-sf-verdict ui-entree d2' }, '');
+    const details = el('ul', { class: 'ui-sf-details ui-entree d3' });
+    const actions = el('div', { class: 'ui-fin-actions ui-entree d4' });
+    const e = el('section', { class: 'ui-couche ui-salle-fin', 'aria-labelledby': 'ui-sf-titre', inert: '' },
+      el('div', { class: 'ui-voile' }),
+      el('div', { class: 'ui-sf-contenu' }, anneau, surtitre, titreF, el('div', { class: 'ui-fin-filet ui-entree d2', 'aria-hidden': 'true' }), verdict, details, actions));
+    return { el: e, anneau, surtitre, titre: titreF, verdict, details, actions };
+  })();
+  bases.salle_fin = salleFin.el;
+
+  function majSalleFin(d = {}) {
+    const idSalle = d.salle && typeof d.salle === 'object' ? d.salle.id : d.salle;
+    const sa = (d.salle && typeof d.salle === 'object') ? d.salle : (S.salles.find(x => x.id === idSalle) || { id: idSalle });
+    const idAct = d.activite && typeof d.activite === 'object' ? d.activite.id : d.activite;
+    const act = (d.activite && typeof d.activite === 'object') ? d.activite : ((sa.activites || []).find(x => x.id === idAct) || { id: idAct });
+    S.derniereSalle = { salle: idSalle, activite: idAct };
+    const b = d.bilan || {};
+    const total = Math.max(0, Number(b.total) || 0);
+    const reussis = Math.max(0, Math.min(total, Number(b.reussis) || 0));
+    const resultat = total && reussis === total ? 'parfait' : (reussis > 0 ? 'partiel' : 'rate');
+    salleFin.el.dataset.resultat = resultat;
+    salleFin.el.style.setProperty('--r', total ? (reussis / total).toFixed(3) : '0');
+    salleFin.anneau.querySelector('.ui-sf-score').textContent = String(reussis);
+    salleFin.anneau.querySelector('.ui-sf-sur').textContent = fr(`sur ${total}`);
+    salleFin.surtitre.textContent = fr(sa.titre || 'Mode salle');
+    salleFin.titre.textContent = fr(act.titre || 'Activité terminée');
+    const verdicts = { parfait: 'Activité réussie. Rien à redire.', partiel: `${reussis} réussite${reussis > 1 ? 's' : ''} sur ${total}. Encore un essai ?`, rate: 'Pas cette fois. Chaque essai rapproche du but.' };
+    salleFin.verdict.textContent = fr(total ? verdicts[resultat] : 'Activité terminée.');
+    const lignes = Array.isArray(b.details) ? b.details : [];
+    salleFin.details.replaceChildren(...lignes.map((x) => el('li', { class: x.reussi ? 'reussi' : 'rate' },
+      el('span', { class: 'ui-sf-pastille', html: svg(x.reussi ? 'check' : 'croix') }),
+      el('span', { class: 'ui-sf-ligne' }, x.titre || ''),
+      Number.isFinite(Number(x.score)) && x.score != null ? el('span', { class: 'ui-sf-pct' }, `${Math.round(Number(x.score) * 100)}${NBSP}%`) : null,
+      el('span', { class: 'ui-sr' }, x.reussi ? ' (réussi)' : ' (à reprendre)'))));
+    salleFin.details.hidden = !lignes.length;
+    salleFin.actions.replaceChildren(
+      el('button', { class: 'ui-bouton primaire', type: 'button', 'data-nav': '', 'data-defaut': '', onclick: () => { son('ui_clic'); definirModeJeu('salle'); emettre('partie:salle', { salle: idSalle, activite: idAct }); } }, 'Rejouer'),
+      el('button', { class: 'ui-bouton', type: 'button', 'data-nav': '', onclick: () => { son('ui_clic'); ouvrirCouche('salles'); } }, 'Autre activité'),
+      el('button', { class: 'ui-bouton', type: 'button', 'data-nav': '', onclick: () => { son('ui_clic'); emettre('quitter', {}); changerBase('titre'); } }, 'Menu principal'));
+  }
+
   /* ---------- Chapitres ---------- */
 
   const chapitresVue = (() => {
@@ -2295,7 +2462,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
     const boutons = [];
     if (r === 'report') boutons.push(el('button', { class: 'ui-bouton primaire', type: 'button', 'data-nav': '', 'data-defaut': '', onclick: () => { son('ui_clic'); emettre('partie:continuer', {}); } }, 'Reprendre au dernier chapitre'));
     boutons.push(el('button', { class: 'ui-bouton' + (r === 'report' ? '' : ' primaire'), type: 'button', 'data-nav': '', 'data-defaut': r === 'report' ? null : '', onclick: () => { son('ui_clic'); ouvrirCouche('credits'); } }, 'Voir les crédits'));
-    boutons.push(el('button', { class: 'ui-bouton', type: 'button', 'data-nav': '', onclick: () => { son('ui_clic'); emettre('quitter', {}); changerBase('titre'); } }, 'Écran-titre'));
+    boutons.push(el('button', { class: 'ui-bouton', type: 'button', 'data-nav': '', onclick: () => { son('ui_clic'); emettre('quitter', {}); changerBase('titre'); } }, 'Menu principal'));
     fin.actions.replaceChildren(...boutons);
   }
 
@@ -2446,8 +2613,10 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
     but.el,
     chapitreVue.el,
     fin.el,
+    salleFin.el,
     chapitresVue.el,
     pause.el,
+    sallesVue.el,
     journal.el,
     carteVue.el,
     options.el,
@@ -2472,8 +2641,9 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
       items.push(itemAide('retour', haut === 'pause' ? 'Reprendre' : (haut === 'confirmation' ? 'Annuler' : 'Retour'), retour));
     } else if (S.choix) {
       items.push(itemAide('valider', 'Choisir', valider));
-    } else if (S.base === 'titre' || S.base === 'fin') {
+    } else if (S.base === 'titre' || S.base === 'fin' || S.base === 'salle_fin') {
       items.push(itemAide('valider', 'Choisir', valider));
+      if (S.base === 'titre' && S.pageTitre === 'histoire') items.push(itemAide('retour', 'Retour', retour));
     }
     aide.replaceChildren(...items);
     aide.classList.toggle('ouvert', items.length > 0);
@@ -2492,6 +2662,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
     if (S.choix) return choix.el;
     if (S.base === 'titre') return titre.el;
     if (S.base === 'fin') return fin.el;
+    if (S.base === 'salle_fin') return salleFin.el;
     return null;
   }
 
@@ -2667,7 +2838,10 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
 
   function retour() {
     const haut = S.pile[S.pile.length - 1];
-    if (!haut) return;
+    if (!haut) {
+      if (S.base === 'titre' && S.pageTitre === 'histoire') { son('ui_clic'); pageTitre('principal', true); }
+      return;
+    }
     if (haut === 'confirmation') { resoudreConfirmation(false); return; }
     if (haut === 'pause') { son('ui_clic'); reprendre(); return; }
     son('ui_clic');
@@ -2681,8 +2855,10 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
     S.base = bases[nom] ? nom : 'aucun';
     racine.dataset.ecran = S.base;
     if (S.base !== 'hud') { definirMode('jeu'); masquerChoix(); afficherSousTitre(null); afficherReplique(null); majInvite(null); majHockey(null); majExercice(null); majPatin(null); }
-    if (S.base === 'titre') majTitre();
+    if (S.base === 'titre') { majTitre(); pageTitre('principal'); }
     if (S.base === 'fin') majFin(donnees);
+    if (S.base === 'salle_fin') majSalleFin(donnees);
+    if (S.base === 'hud') { const p = partieCourante(); if (p && p.mode) definirModeJeu(p.mode); }
     if (S.base === 'chargement') {
       if (S.chapitreCourant && donnees.chapitre == null && !S.chargementDemarrage) chargement.surtitre.textContent = fr(libelleChapitre(S.chapitreCourant));
       majChargement(donnees);
@@ -2691,7 +2867,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
     if (S.base !== 'hud') majDirection({ visible: false });
     majInert();
     majAide();
-    if (S.base === 'titre' || S.base === 'fin') requestAnimationFrame(() => focusInitial(bases[S.base]));
+    if (S.base === 'titre' || S.base === 'fin' || S.base === 'salle_fin') requestAnimationFrame(() => focusInitial(bases[S.base]));
     if (avant !== S.base && S.base === 'hud') { planifierCarte(); setTimeout(lancerAttentes, 700); }
   }
 
@@ -2700,7 +2876,11 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
       case 'titre':
       case 'chargement':
       case 'fin':
+      case 'salle_fin':
         changerBase(nom, donnees);
+        break;
+      case 'salles':
+        ouvrirCouche('salles', { silencieux: true });
         break;
       case 'hud':
       case 'jeu':
@@ -2905,6 +3085,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
   for (const n of ['partie:nouvelle', 'partie:continuer', 'partie:chapitre']) {
     sur(n, () => {
       S.partieLancee = true;
+      definirModeJeu('histoire');
       if (n !== 'partie:continuer') { S.rencontres = []; ecrireStockage(CLE_RENCONTRES, '[]'); S.preuvesNouvelles.clear(); S.sectionsNouvelles.clear(); }
     });
   }
@@ -2923,6 +3104,13 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
   sur('chapitres', (d) => { S.chapitres = Array.isArray(d) ? d : ((d && d.liste) || []); if (S.pile.includes('chapitres')) rendreChapitres(); });
   sur('sauvegarde', (d) => { S.sauvegarde = d; if (S.base === 'titre') majTitre(); });
   sur('credits', (d) => { S.credits = Array.isArray(d) ? d : ((d && d.sections) || []); if (S.pile.includes('credits')) rendreCredits(); });
+  sur('salles', (d) => {
+    const l = Array.isArray(d) ? d : (d && d.salles);
+    if (!Array.isArray(l)) return;
+    S.salles = l;
+    if (S.pile.includes('salles')) rendreSalles();
+  });
+  sur('partie:salle', () => { S.partieLancee = true; definirModeJeu('salle'); });
   sur('personnages', (d) => { S.personnages = { ...S.personnages, ...(d || {}) }; });
   sur('chapitre', (d) => carteChapitre(d || {}));
   sur('objectif', (d) => { if (d && d.cible) S.cible = d.cible; definirObjectif(d && d.texte ? d.texte : null); S.hud.objectif = d; });
