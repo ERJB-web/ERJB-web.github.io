@@ -119,7 +119,7 @@
     const dominante = nuit > 0.55 ? "nuit" : crepuscule > 0.5 ? "crepuscule-" + s : couvert > 0.5 ? "couvert-" + s : "jour-" + s;
     hall.style.setProperty("--hall-fond", photo(dominante));
     const soleil = (1 - nuit) * (1 - couvert) * (1 - crepuscule * 0.6);
-    const eclairage = 1 - nuit * 0.3 - crepuscule * 0.24 * (1 - nuit) - couvert * 0.06 * (1 - nuit);
+    const eclairage = 1 - nuit * 0.12 - crepuscule * 0.16 * (1 - nuit) - couvert * 0.06 * (1 - nuit);
     hall.style.setProperty("--hall-soleil", soleil.toFixed(3));
     hall.style.setProperty("--hall-eclairage", eclairage.toFixed(3));
     hall.style.setProperty("--hall-chaleur", (nuit * 0.12 + crepuscule * 0.2).toFixed(3));
