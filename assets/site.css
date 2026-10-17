@@ -3188,3 +3188,13 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
 .hall-tete .hall-gestes{gap:6px 20px;font-size:13px}
 .hall-tete .hall-geste,.hall-tete .hall-geste:nth-child(n){padding:0;border:0;border-radius:0;background:none;box-shadow:none;color:#5b6d74;font-weight:500}
 .hall-tete .hall-geste svg,.hall-tete .hall-geste:nth-child(n) svg{width:15px;height:15px;color:#8597a0;animation:none}
+/* Contact : vidéo de visite réduite en bas à gauche, contact dans la colonne de droite */
+.contact .section-corps.contact-grille{display:grid;grid-template-columns:minmax(240px,340px) minmax(0,1fr);gap:28px 44px;align-items:end;max-width:1180px}
+.contact-grille .contact-visite{grid-column:1;grid-row:1;align-self:end}
+.contact-grille .contact-droite{grid-column:2;grid-row:1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:24px 36px;align-items:start}
+.contact-visite .chapeau-visite{margin:0 0 8px;font-size:13.5px;line-height:1.5;color:var(--muted)}
+.contact-visite .tuto-video{margin:0}
+.contact-visite .tuto-video video{border-radius:10px}
+.contact-visite .tuto-video video::cue{font-size:12px}
+@media(max-width:1000px){.contact .section-corps.contact-grille{grid-template-columns:1fr}.contact-grille .contact-visite{grid-column:1;grid-row:2;max-width:420px}.contact-grille .contact-droite{grid-column:1;grid-row:1}}
+@media(max-width:700px){.contact-grille .contact-droite{grid-template-columns:1fr}}
