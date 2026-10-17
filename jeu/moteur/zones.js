@@ -4,10 +4,10 @@ import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { preparerMateriauLightmap } from './rendu.js?v=4c12ba9b3d';
-import { creerNavmesh } from './navmesh.js?v=4c12ba9b3d';
-import { boiteLocale } from './objets.js?v=4c12ba9b3d';
-import { GROUPES, groupes } from './physique.js?v=4c12ba9b3d';
+import { preparerMateriauLightmap } from './rendu.js?v=0a26226c4e';
+import { creerNavmesh } from './navmesh.js?v=0a26226c4e';
+import { boiteLocale } from './objets.js?v=0a26226c4e';
+import { GROUPES, groupes } from './physique.js?v=0a26226c4e';
 
 const TOUT = 0xffff;
 

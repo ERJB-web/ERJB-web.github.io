@@ -1042,5 +1042,153 @@
  "rep_direction_poursuite_016": {
   "duree": 3.19,
   "qui": "direction_b"
+ },
+ "rep_direction_poursuite_017": {
+  "duree": 3.36,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_018": {
+  "duree": 3.86,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_019": {
+  "duree": 2.95,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_020": {
+  "duree": 3.38,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_021": {
+  "duree": 2.96,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_022": {
+  "duree": 4.14,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_023": {
+  "duree": 3.05,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_024": {
+  "duree": 3.84,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_025": {
+  "duree": 4.58,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_026": {
+  "duree": 3.92,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_027": {
+  "duree": 10.75,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_028": {
+  "duree": 5.23,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_029": {
+  "duree": 2.94,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_030": {
+  "duree": 2.78,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_031": {
+  "duree": 3.61,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_032": {
+  "duree": 4.76,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_033": {
+  "duree": 3.26,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_034": {
+  "duree": 3.13,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_035": {
+  "duree": 5.4,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_036": {
+  "duree": 3.42,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_037": {
+  "duree": 3.98,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_038": {
+  "duree": 4.68,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_039": {
+  "duree": 3.21,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_040": {
+  "duree": 3.84,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_041": {
+  "duree": 2.86,
+  "qui": "direction_a"
+ },
+ "rep_entraineur_bravo_001": {
+  "duree": 4.48,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_002": {
+  "duree": 2.98,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_003": {
+  "duree": 4.23,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_004": {
+  "duree": 2.25,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_005": {
+  "duree": 3.48,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_006": {
+  "duree": 3.55,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_007": {
+  "duree": 2.6,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_008": {
+  "duree": 3.03,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_009": {
+  "duree": 2.86,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_010": {
+  "duree": 3.4,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_011": {
+  "duree": 3.25,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_012": {
+  "duree": 3.09,
+  "qui": "entraineur_patin"
  }
 }
