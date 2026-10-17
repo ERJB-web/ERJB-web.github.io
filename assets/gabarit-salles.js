@@ -445,10 +445,20 @@
     if (!onglets) return;
     $$(".onglet-salle", onglets).forEach((b) => {
       if ($(".gab-onglet-photo", b)) return;
-      const source = $(`section.section[data-salle="${b.dataset.sous}"] .bandeau`);
+      const sousSalle = b.dataset.sous;
+      const section = $(`section.section[data-salle="${sousSalle}"]`);
+      const source = $(".bandeau", section);
+      const miniature = $(".section-contenu", section)?.dataset.mini || "";
+      // Choisir des photographies propres aux rubriques plutôt que recycler leurs bandeaux.
+      // "Axes" partage son bandeau avec "Thèse" et "IA" celui de la littérature grise.
+      const photosDediees = { axes: "implantation.jpg", ia: "grise.jpg" };
+      const fichier = photosDediees[sousSalle];
+      const racine = D.documentElement.dataset.racine || "./";
+      const url = fichier
+        ? absolue(`${racine}assets/portes-mini/${fichier}`)
+        : absolue(miniature) || photoDuBandeau(source);
       const photo = el("span", "gab-onglet-photo");
       photo.setAttribute("aria-hidden", "true");
-      const url = photoDuBandeau(source);
       if (url) photo.style.backgroundImage = `url("${url}")`;
       b.prepend(photo);
     });
