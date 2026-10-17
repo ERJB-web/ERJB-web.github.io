@@ -25,7 +25,6 @@
 
   // Découpage des salles qui ne sont pas organisées en rubriques.
   const VITRINE = { sel: "article.carte-vitrine", titre: "h3" };
-  const LISTE = { sel: ".liste-cartes > li", titre: "h4" };
   const REGLES = {
     axes: { sel: "article.axe-carte", titre: "h4" },
     publications: { sel: "section.publication-bloc", titre: ".publication-titre, h3" },
@@ -34,7 +33,7 @@
     biographie: { sel: "ol.recit > li", titre: "h3" },
     juriste: VITRINE, gestionnaire: VITRINE, educateur: VITRINE, entrepreneuriat: VITRINE,
     valeurs: { sel: "article.valeur", titre: "h4" },
-    representation: LISTE, communaute: LISTE, distinctions: LISTE, citoyen: LISTE,
+    representation: { unique: true }, communaute: { unique: true }, distinctions: { unique: true }, citoyen: { unique: true },
     loisirs: { sel: "figure.loisir", titre: "h4, figcaption strong" },
     logiciels: { sel: ".logiciels-cartes > *, aside.logiciels-jeu", titre: "h3" },
     litterature: { sel: "section.rg-articles, details.lecture-theme", titre: "h3.rg-titre, summary" },

@@ -39,13 +39,16 @@
 .revue-tete h2 em{display:block;font-style:normal;color:#9ff6db}
 .revue-langue{margin:5px 0 0;color:#a8bccf;font-size:11px}
 
-.revue-bonne{margin:0 24px 10px;padding:9px 14px 9px;border-radius:14px;background:linear-gradient(115deg,#9ff6db24,#b8c8f714 70%);border:1px solid #9ff6db57}
-.revue-bonne-etiquette{display:flex;align-items:center;gap:8px;margin:0 0 4px;color:#a7f9db;font:700 10px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase}
-.revue-soleil{width:14px;height:14px;flex:none;border-radius:50%;background:radial-gradient(circle,#f6c95a 0 40%,transparent 43%),repeating-conic-gradient(#f6c95a 0 15deg,transparent 15deg 45deg)}
-.revue-bonne-titre{margin:0;font:650 14px/1.35 var(--sans)}
+.revue-bonne{position:relative;margin:0 24px 12px;padding:12px 16px 11px 20px;border-radius:14px;background:linear-gradient(115deg,#f6c95a3d,#f2a6791f 55%,#9ff6db14);border:1px solid #f6c95a8c;box-shadow:0 0 0 1px #f6c95a1f,0 10px 30px #f6c95a26,inset 0 1px 0 #fff3cf2e;overflow:hidden}
+.revue-bonne::before{content:"";position:absolute;inset-block:0;inset-inline-start:0;width:5px;background:linear-gradient(#ffe08a,#f6a83a)}
+.revue-bonne-etiquette{display:flex;align-items:center;gap:9px;margin:0 0 6px;color:#ffd978;font:800 11px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.revue-soleil{width:18px;height:18px;flex:none;border-radius:50%;background:radial-gradient(circle,#ffd45e 0 40%,transparent 43%),repeating-conic-gradient(#ffd45e 0 15deg,transparent 15deg 45deg);filter:drop-shadow(0 0 5px #f6c95acc);animation:revue-soleil 14s linear infinite}
+@keyframes revue-soleil{to{transform:rotate(1turn)}}
+@media(prefers-reduced-motion:reduce){.revue-soleil{animation:none}}
+.revue-bonne-titre{margin:0;font:700 16px/1.35 var(--sans)}
 .revue-bonne-titre a{color:#fff;text-decoration:none}
-.revue-bonne-titre a:hover{text-decoration:underline;text-decoration-color:#9ff6db;text-underline-offset:3px}
-.revue-bonne .revue-resume{-webkit-line-clamp:2}
+.revue-bonne-titre a:hover{text-decoration:underline;text-decoration-color:#ffd978;text-underline-offset:3px}
+.revue-bonne .revue-resume{-webkit-line-clamp:2;color:#efe3c8}
 
 .revue-onglets{display:flex;flex-wrap:wrap;gap:4px;padding:0 24px 10px;border-bottom:1px solid #caffed31}
 .revue-onglets [role=tab]{padding:5px 7px;border:1px solid #c1ffff35;border-radius:6px;background:#ffffff0b;color:#e1eef4;font:600 11px/1.2 var(--sans);transition:background .2s,color .2s}
@@ -73,6 +76,7 @@
 .revue-resume{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;overflow:hidden;margin:2px 0 0;color:#c3d4de;font-size:12.5px;line-height:1.45}
 .revue-meta{display:flex;flex-wrap:wrap;align-items:center;gap:2px 7px;margin:3px 0 0;color:#9fb4c6;font-size:11px}
 .revue-source{color:#9ff6db;font-weight:650}
+.revue-bonne .revue-source{color:#ffd978}
 .revue-etiquette{padding:1px 8px;border:1px solid #9ff6db40;border-radius:999px;background:#9ff6db17;color:#c9fff0;font-weight:600}
 .revue-type{border-color:#c7b8ff59;background:#c7b8ff1f;color:#e6dfff}
 .revue-pied{margin:0;padding:9px 24px 11px;border-top:1px solid #ffffff15;color:#abbecf;font-size:11px;line-height:1.5}
