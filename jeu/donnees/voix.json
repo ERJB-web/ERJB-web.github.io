@@ -658,5 +658,41 @@
  "c2_salle_groupe_003": {
   "duree": 5.97,
   "qui": "collegue_doc"
+ },
+ "c2_salle_groupe_004": {
+  "duree": 4.73,
+  "qui": "collegue_doc"
+ },
+ "c2_salle_groupe_005": {
+  "duree": 1.01,
+  "qui": "eric"
+ },
+ "c2_salle_groupe_006": {
+  "duree": 5.67,
+  "qui": "collegue_doc"
+ },
+ "c2_taxo_r_001": {
+  "duree": 5.87,
+  "qui": "collegue_doc"
+ },
+ "c2_taxo_r_002": {
+  "duree": 7.85,
+  "qui": "collegue_doc"
+ },
+ "c4_apres_partie_001": {
+  "duree": 5.12,
+  "qui": "collegue_doc"
+ },
+ "c4_apres_partie_002": {
+  "duree": 3.01,
+  "qui": "joueur_hockey_1"
+ },
+ "c4_apres_partie_003": {
+  "duree": 3.08,
+  "qui": "collegue_doc"
+ },
+ "c4_apres_partie_004": {
+  "duree": 5.13,
+  "qui": "eric"
  }
 }

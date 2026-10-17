@@ -1,23 +1,24 @@
 import * as THREE from 'three';
-import { creerBus } from './bus.js?v=194d6359b9';
-import { etatInitial, charger as chargerPartie, sauvegarder, chargerOptions, sauverOptions, appliquerEffets } from './etat.js?v=194d6359b9';
-import { creerRendu } from './rendu.js?v=194d6359b9';
-import { creerPhysique } from './physique.js?v=194d6359b9';
-import { creerChargeur, chargerZone, installerZone, retirerZone } from './zones.js?v=194d6359b9';
-import { creerObjets } from './objets.js?v=194d6359b9';
-import { creerAudio } from './audio.js?v=194d6359b9';
-import { creerPersonnages } from './personnages.js?v=194d6359b9';
-import { creerCamera } from './camera.js?v=194d6359b9';
-import { creerEntrees } from './entrees.js?v=194d6359b9';
-import { creerInteractions } from './interactions.js?v=194d6359b9';
-import { creerGestionPNJ } from './pnj.js?v=194d6359b9';
-import { creerDialogues } from './dialogues.js?v=194d6359b9';
-import { creerDirection } from './direction.js?v=194d6359b9';
-import { creerMissions } from './missions.js?v=194d6359b9';
-import { creerHockey } from './hockey.js?v=194d6359b9';
-import { creerCompagnon } from './compagnon.js?v=194d6359b9';
-import { creerMatch } from './match.js?v=194d6359b9';
-import { creerFoule } from './foule.js?v=194d6359b9';
+import { creerBus } from './bus.js?v=57e75813b4';
+import { etatInitial, charger as chargerPartie, sauvegarder, chargerOptions, sauverOptions, appliquerEffets } from './etat.js?v=57e75813b4';
+import { creerRendu } from './rendu.js?v=57e75813b4';
+import { creerPhysique } from './physique.js?v=57e75813b4';
+import { creerChargeur, chargerZone, installerZone, retirerZone } from './zones.js?v=57e75813b4';
+import { creerObjets } from './objets.js?v=57e75813b4';
+import { creerAudio } from './audio.js?v=57e75813b4';
+import { creerPersonnages } from './personnages.js?v=57e75813b4';
+import { creerCamera } from './camera.js?v=57e75813b4';
+import { creerEntrees } from './entrees.js?v=57e75813b4';
+import { creerInteractions } from './interactions.js?v=57e75813b4';
+import { creerGestionPNJ } from './pnj.js?v=57e75813b4';
+import { creerDialogues } from './dialogues.js?v=57e75813b4';
+import { creerDirection } from './direction.js?v=57e75813b4';
+import { creerMissions } from './missions.js?v=57e75813b4';
+import { creerHockey } from './hockey.js?v=57e75813b4';
+import { creerCompagnon } from './compagnon.js?v=57e75813b4';
+import { creerMatch } from './match.js?v=57e75813b4';
+import { creerFoule } from './foule.js?v=57e75813b4';
+import { creerCourse } from './course.js?v=57e75813b4';
 
 const VERSION = '2.0.0';
 const ROLES_PAR_ZONE = { campus: { prof_seminaire: 'prof_quanti', prof: 'prof_quanti' }, espum: { prof: 'prof_seminaire' } };
@@ -82,15 +83,17 @@ async function demarrer() {
   const foule = creerFoule({ audio, bus });
   const match = creerMatch({ bus, jeu, hockey, gestionPnj, personnages, dialogues, audio, cam, foule });
   jeu.match = match;
+  const course = creerCourse({ bus, jeu, gestionPnj, dialogues, audio });
+  jeu.course = course;
 
   // ---------- interface ----------
   let ui = null;
   try {
-    const mod = await import('../ui/ui.js?v=194d6359b9');
+    const mod = await import('../ui/ui.js?v=57e75813b4');
     ui = mod.initUI({ bus, etat: { options, get partie() { return jeu.etat; }, get existeSauvegarde() { return !!chargerPartie(); }, scenario, salles, version: VERSION }, racine: racineUI });
   } catch (e) {
     console.warn('[ui] interface de secours', e);
-    const mod = await import('./ui-secours.js?v=194d6359b9');
+    const mod = await import('./ui-secours.js?v=57e75813b4');
     ui = mod.initUI({ bus, etat: { options, get partie() { return jeu.etat; }, get existeSauvegarde() { return !!chargerPartie(); }, scenario, salles }, racine: racineUI });
   }
 
@@ -116,6 +119,7 @@ async function demarrer() {
   async function allerZone(id, spawnNom) {
     if (!(await zoneExiste(id))) id = await zoneDeRepli();
     if (match.actif) await match.arreter();
+    course.arreter();
     jeu.enJeu = false;
     entrees.activer(false);
     await fondu(true, 0.5);
@@ -151,7 +155,7 @@ async function demarrer() {
 
     // personnage du joueur
     if (!jeu.joueur) {
-      const { creerJoueur } = await import('./joueur.js?v=194d6359b9');
+      const { creerJoueur } = await import('./joueur.js?v=57e75813b4');
       const perso = await personnages.creer('eric');
       jeu.joueur = creerJoueur({ physique, perso, audio, bus, jeu });
       dialogues.lier(jeu.joueur, gestionPnj);
@@ -273,7 +277,7 @@ async function demarrer() {
     bus.emit('invite', null);
     let r = { reussi: true, score: 1 };
     try {
-      const mod = await import('../defis/defis.js?v=194d6359b9');
+      const mod = await import('../defis/defis.js?v=57e75813b4');
       racineDefis.hidden = false;
       r = await mod.lancerDefi(def, {
         racine: racineDefis,
@@ -379,7 +383,9 @@ async function demarrer() {
       else dialogues.repliqueAuHasard(`pnj_${p.role}`, { pnj: p }) || dialogues.repliqueAuHasard('pnj_generique', { pnj: p });
       return;
     }
-    for (const a of evt.actions || []) await actionGenerique(a, evt);
+    const parDefaut = { INTERACT_lit: 'lit', INTERACT_ordinateur: 'ordinateur', INTERACT_chienne_laisse: 'promenade', INTERACT_comptoir: 'comptoir' };
+    const actions = evt.actions?.length ? evt.actions : (parDefaut[evt.id || evt.marqueur?.id] ? [parDefaut[evt.id || evt.marqueur?.id]] : []);
+    for (const a of actions) await actionGenerique(a, evt);
   });
 
   async function actionGenerique(a, evt) {
@@ -423,6 +429,19 @@ async function demarrer() {
         break;
       }
       case 'banc': { const sp = jeu.zone.spawns.SPAWN_banc; if (sp) jeu.joueur.placer(sp.position, jeu.joueur.lacet); break; }
+      case 'comptoir': case 'hotdog': {
+        if (dialogues.scene('bell_comptoir')) await scene('bell_comptoir');
+        signaler(appliquerEffets(e, { energie: 8, stress: -2 }));
+        missions.hud();
+        break;
+      }
+      case 'lit': {
+        if (dialogues.scene('out_lit')) await scene('out_lit');
+        if (!jeu.modeSalle) { sauvegarder(e); bus.emit('toast', { texte: 'Partie sauvegardée. Bonne nuit.', type: 'info' }); }
+        break;
+      }
+      case 'ordinateur': if (dialogues.scene('out_ordinateur')) await scene('out_ordinateur'); break;
+      case 'promenade': if (dialogues.scene('out_promenade')) await scene('out_promenade'); compagnon.aboyer?.(2); break;
       default:
         bus.emit(`action:${cle}`, { valeur: val, evt });
     }
@@ -430,10 +449,13 @@ async function demarrer() {
 
   async function voyage() {
     const destinations = [
+      { zone: 'outremont', texte: 'Outremont · à la maison' },
       { zone: 'espum', texte: 'Parc · ESPUM, 7101, avenue du Parc' },
       { zone: 'campus', texte: 'Université-de-Montréal · pavillon Roger-Gaudry' },
       { zone: 'clsc', texte: 'Centre-Sud · CLSC des Faubourgs' },
       { zone: 'arena', texte: 'CEPSUM · aréna' },
+      { zone: 'mont_royal', texte: 'Mont-Royal · parc du Mont-Royal (autobus 11)' },
+      { zone: 'centre_bell', texte: 'Lucien-L’Allier · Centre Bell' },
     ].filter((d) => d.zone !== jeu.zone?.id);
     const dispo = [];
     for (const d of destinations) {
@@ -447,6 +469,13 @@ async function demarrer() {
     const d = dispo[r.index];
     if (!d) return;
     audio.jouer('metro_carillon');
+    if (jeu.debutJournee && d.zone === jeu.debutJournee.zone) {
+      const id = jeu.debutJournee.chapitre;
+      jeu.debutJournee = null;
+      if (dialogues.scene('out_metro')) await scene('out_metro');
+      await missions.demarrerChapitre(id);
+      return;
+    }
     await allerZone(d.zone, 'SPAWN_from_metro');
     missions.surArrivee(`zone:${d.zone}`);
   }
@@ -521,17 +550,19 @@ async function demarrer() {
     const salle = salles.find((x) => x.id === idSalle);
     const act = salle?.activites?.find((a) => a.id === idActivite) || salle?.activites?.[0];
     if (!salle || !act) return;
-    if (!(await zoneExiste(salle.zone))) { bus.emit('toast', { texte: `${salle.titre} : ce lieu est encore en construction.`, type: 'info' }); return; }
+    let zoneSalle = null;
+    for (const z of [].concat(act.zone || salle.zone)) if (await zoneExiste(z)) { zoneSalle = z; break; }
+    if (!zoneSalle) { bus.emit('toast', { texte: `${salle.titre} : ce lieu est encore en construction.`, type: 'info' }); return; }
     jeu.etat = etatInitial(scenario);
     jeu.etat.mode = 'salle';
     jeu.etat.salle = { salle: salle.id, activite: act.id };
-    jeu.etat.zonesVues = [salle.zone];
+    jeu.etat.zonesVues = [zoneSalle];
     if (act.patinage != null) jeu.etat.drapeaux.patinage = act.patinage;
     jeu.modeSalle = true;
     missions.arreter?.();
     jeu.cibleObjectif(null);
     direction.changerZone(null);
-    await allerZone(salle.zone, act.spawn || null);
+    await allerZone(zoneSalle, act.spawn || null);
     direction.changerZone(null);
     bus.emit('objectif', { texte: act.titre, id: `salle_${act.id}` });
     bus.emit('hud', { stats: { ...jeu.etat.stats }, semaines: null, pression: 0, objectif: act.titre, preuves: 0, chapitre: salle.titre, mode: 'salle' });
@@ -541,11 +572,12 @@ async function demarrer() {
       if (sp) jeu.joueur.placer(sp.position, jeu.joueur.lacet);
     }
     if (act.libre) return;
-    if (act.match || act.entrainement) {
+    if (act.match || act.entrainement || act.course) {
       let r = null;
       try {
-        r = act.match ? await match.lancerMatch(act.match === true ? {} : act.match) : await match.lancerEntrainement(act.entrainement === true ? {} : act.entrainement);
-      } catch (e) { console.error('[match]', e); }
+        if (act.course) r = await course.lancer(act.course === true ? {} : act.course);
+        else r = act.match ? await match.lancerMatch(act.match === true ? {} : act.match) : await match.lancerEntrainement(act.entrainement === true ? {} : act.entrainement);
+      } catch (e) { console.error('[activité]', e); }
       if (!jeu.modeSalle) return;
       const details = r?.details || [];
       const bilanEquipe = { reussis: details.filter((d) => d.reussi).length, total: details.length, details };
@@ -593,7 +625,14 @@ async function demarrer() {
     let premier = null;
     for (const c of scenario.chapitres) if (await zoneExiste(c.zone)) { premier = c; break; }
     if (params.has('zone')) await allerZone(params.get('zone'));
-    else if (premier) await missions.demarrerChapitre(premier.id);
+    else if (premier && (await zoneExiste('outremont'))) {
+      jeu.debutJournee = { chapitre: premier.id, zone: premier.zone };
+      await allerZone('outremont', 'SPAWN_player');
+      if (dialogues.scene('out_reveil')) await scene('out_reveil');
+      const etape = { id: 'out_metro', type: 'aller', cible: 'INTERACT_metro', objectif: 'Prendre le métro à la station Outremont' };
+      jeu.cibleObjectif(etape);
+      bus.emit('objectif', { texte: etape.objectif, id: etape.id });
+    } else if (premier) await missions.demarrerChapitre(premier.id);
     else await allerZone(await zoneDeRepli());
   });
   bus.on('partie:continuer', async () => {
@@ -719,6 +758,7 @@ async function demarrer() {
         direction.mettreAJour(dt, j);
         hockey.mettreAJour(dt, ent);
         compagnon.mettreAJour(dt, j);
+        course.mettreAJour(dt);
         objets.testerDeclencheurs(j.position);
         interactions.mettreAJour(jeu.zone, j, gestionPnj, ent, !jeu.cinematique && j.mode !== 'cine' && !match.actif);
         // objet non portable poussé jusqu'à sa destination (chariot)
@@ -766,7 +806,7 @@ async function demarrer() {
     for (let i = 0; i < n; i++) etape(1 / 60, entreesForcees ? { ...entreesForcees, presses: new Set(i === 0 ? (entreesForcees.presses || []) : []) } : null);
     if (rendre) rendu.rendre();
   };
-  window.__protocole = { simuler, hockey, compagnon, jeu, bus, entrees, interactions, rendu, physique, objets, gestionPnj, direction, missions, dialogues, cam, audio, match, foule, personnages, THREE };
+  window.__protocole = { simuler, hockey, compagnon, jeu, bus, entrees, interactions, rendu, physique, objets, gestionPnj, direction, missions, dialogues, cam, audio, match, foule, course, personnages, THREE };
 }
 
 demarrer().catch((e) => {

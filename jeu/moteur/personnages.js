@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import * as SkeletonUtils from 'three/addons/utils/SkeletonUtils.js';
-import { recolorer } from './equipes.js?v=194d6359b9';
+import { recolorer } from './equipes.js?v=57e75813b4';
 
 const ALIAS = {
   idle: ['idle', 'Idle', 'repos'],
@@ -44,6 +44,11 @@ export function creerPersonnages({ chargeur, base = 'personnages', audio }) {
       const k = Number(m[2]), t = m[1], autre = t === 'carabins' ? 'visiteurs' : 'carabins';
       const memes = equipe(t).filter((r) => r !== role);
       return [...memes, HOCKEY[(k - 1) % 6], ...HOCKEY, 'gardien', ...equipe(autre)];
+    }
+    const ligue = /^(canadiens|adversaires_lnh)_(\d+)$/.exec(role);
+    if (ligue) {
+      const k = Number(ligue[2]);
+      return [...Array.from({ length: 8 }, (_, i) => `${ligue[1]}_${i + 1}`).filter((r) => r !== role), HOCKEY[(k - 1) % 6], ...HOCKEY, 'gardien'];
     }
     if (/_gardien$/.test(role) || role === 'gardien') return ['gardien', 'carabins_gardien', 'visiteurs_gardien', ...HOCKEY];
     if (/^arbitre_/.test(role)) return ['arbitre_1', 'arbitre_2', ...HOCKEY, 'gardien'];

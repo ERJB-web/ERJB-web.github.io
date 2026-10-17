@@ -270,6 +270,66 @@
      ]
     }
    ]
+  },
+  {
+   "id": "outremont",
+   "zone": "outremont",
+   "titre": "Outremont",
+   "sousTitre": "Chez Éric, le métro et l’aréna du quartier",
+   "activites": [
+    {
+     "id": "lecon_outremont",
+     "titre": "Cours de patin à Outremont",
+     "description": "Équilibre, poussée, glisse, arrêt, croisements et recul, sur la petite glace de l’aréna du quartier.",
+     "zone": [
+      "outremont_arena",
+      "outremont"
+     ],
+     "patinage": 0.05,
+     "exercices": [
+      "c4_e09",
+      "c4_e10",
+      "c4_e11",
+      "c4_e13",
+      "c4_e14",
+      "c4_e15"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mont_royal",
+   "zone": "mont_royal",
+   "titre": "Parc du Mont-Royal",
+   "sousTitre": "Le chemin Olmsted et le belvédère Kondiaronk",
+   "activites": [
+    {
+     "id": "course",
+     "titre": "Course au mont Royal",
+     "description": "Un parcours chronométré d’un point de passage à l’autre, avec la chienne. Ménage ton souffle et bats ton meilleur temps.",
+     "course": {
+      "coureurs": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "centre_bell",
+   "zone": "centre_bell",
+   "titre": "Centre Bell",
+   "sousTitre": "Un match des Canadiens, dans les gradins",
+   "activites": [
+    {
+     "id": "match_canadiens",
+     "titre": "Match des Canadiens au Centre Bell",
+     "description": "Les Canadiens contre les visiteurs, depuis ton siège. R pour la vue de la télévision ; un petit calcul de statistiques à la fin.",
+     "match": {
+      "config": "canadiens",
+      "periodes": 3,
+      "duree_periode": 240
+     }
+    }
+   ]
   }
  ]
 }

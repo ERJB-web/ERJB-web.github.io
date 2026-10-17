@@ -1,11 +1,11 @@
 import * as THREE from 'three';
-import { COULEURS_EQUIPES, EFFECTIFS, TRIOS } from './equipes.js?v=194d6359b9';
+import { COULEURS_EQUIPES, CONFIGS } from './equipes.js?v=57e75813b4';
 
 const POSTES = ['C', 'AG', 'AD', 'DG', 'DD'];
 const COTE_POSTE = { C: 0, AG: -1, AD: 1, DG: -1, DD: 1 };
 const H_RONDELLE = 0.0127;
 const NOMS_FAUTES = { accrochage: 'accrochage', trebucher: 'avoir fait trébucher' };
-const ROLES_ANNONCEUR = ['imitateur', 'imitateur_de_gaulle', 'annonceur'];
+const ROLES_ANNONCEUR = ['imitateur', 'imitateur_de_gaulle', 'annonceur', 'annonceur_bell'];
 const ROLES_ARBITRES = ['arbitre_1', 'arbitre_2', 'arbitre'];
 const ROLES_ENTRAINEUR = ['entraineur', 'entraineur_patin'];
 const nomPeriode = (n, total) => (n > total ? 'Prol.' : n === 1 ? '1re' : `${n}e`);
@@ -101,7 +101,10 @@ export function creerMatch({ bus, jeu, hockey, gestionPnj, personnages, dialogue
   }
   function dire(cles, contexte = {}) {
     if (!dialogues) return null;
-    return dialogues.situation(cles, { canal: 'glace', ...contexte });
+    const table = P.config?.cles;
+    const liste = [].concat(cles).map((k) => (table && k in table ? table[k] : k)).filter(Boolean);
+    if (!liste.length) return null;
+    return dialogues.situation(liste, { canal: 'glace', ...contexte });
   }
   function annoncerBut(buteur) {
     if (!buteur) return null;
@@ -161,10 +164,10 @@ export function creerMatch({ bus, jeu, hockey, gestionPnj, personnages, dialogue
     return new THREE.Quaternion().setFromAxisAngle(HAUT, lacet - Math.PI);
   }
 
-  async function ajouterPnj(fiche, equipe, position, lacet, anim = 'skate_idle') {
+  async function ajouterPnj(fiche, equipe, position, lacet, anim = 'skate_idle', couleursImposees = null) {
     const noms = dialogues?.donnees?.personnages || {};
     const nom = noms[fiche.role]?.nom || fiche.prenom || fiche.role;
-    const couleurs = COULEURS_EQUIPES[equipe] || null;
+    const couleurs = couleursImposees || P.config?.equipes?.[equipe]?.couleurs || COULEURS_EQUIPES[equipe] || null;
     const pnj = await gestionPnj.ajouter({ role: fiche.role, id: fiche.role, position, quaternion: quaternionPour(lacet), anim, nom, couleurs, alias: fiche.alias || [] });
     pnj.muet = true;
     pnj.match = true;
@@ -1081,7 +1084,7 @@ export function creerMatch({ bus, jeu, hockey, gestionPnj, personnages, dialogue
     for (const id of ['carabins', 'visiteurs']) {
       const E = P.equipes[id];
       if (!E) continue;
-      const trios = TRIOS[id];
+      const trios = P.config.equipes[id].trios;
       const trio = trios[(n - 1) % trios.length];
       const surLaGlace = new Set(Object.values(trio));
       const enPenalite = new Set(E.penalites.map((p) => p.joueur));
@@ -1175,7 +1178,8 @@ export function creerMatch({ bus, jeu, hockey, gestionPnj, personnages, dialogue
     toast(`Fin de la ${nomPeriode(n, P.params.periodes)} période · CARABINS ${C.score} – ${V.score} VISITEURS`, 'info', 5);
     annoncer(['match_annonce_fin_periode'], n, 1);
     if (n < P.params.periodes) {
-      if (dialogues?.scene?.(`match_entracte_${n}`)) P.sceneEntracte = `match_entracte_${n}`;
+      const idScene = P.config.scenes?.entracte?.[n];
+      if (idScene && dialogues?.scene?.(idScene)) P.sceneEntracte = idScene;
       else setTimeout(() => entraineurDit(['entraineur_match_entracte']), 2000);
       audio.stinger(Math.random() < 0.5 ? 'arena_jeu_3' : 'arena_jeu_1', { volume: 0.55 });
     }
@@ -1250,9 +1254,17 @@ export function creerMatch({ bus, jeu, hockey, gestionPnj, personnages, dialogue
     if (!P.actif || !P.R || !jeu.joueur) return;
     P.temps += dt;
     lireRondelle();
-    if (ent?.presses?.has('demander') && !ERIC.banc) {
+    if (ent?.presses?.has('demander') && P.spectateur) {
+      P.cameraTele = !P.cameraTele;
+      if (!P.cameraTele) cam.suivi(jeu.joueur);
+      toast(P.cameraTele ? 'Vue de la télévision · R pour revenir à ton siège' : 'Retour à ton siège', 'info', 2.5);
+    } else if (ent?.presses?.has('demander') && !ERIC.banc) {
       P.demande = 1.6;
       ericDit(['eric_demande_passe'], 1);
+    }
+    if (P.cameraTele && !jeu.cinematique) {
+      const pos = monde(borne(P.ru * 0.8, -G.L + 6, G.L - 6), -(G.W + 10)).setY(G.y + 9);
+      cam.plan(pos, v3.copy(P.rp).setY(G.y + 0.5), { fov: 40, lissage: 2.5 });
     }
     P.demande = Math.max(0, P.demande - dt);
     if (P.mode === 'entrainement') { P.boucleEntrainement?.(dt, ent); finBoucle(dt); return; }
@@ -1403,10 +1415,11 @@ export function creerMatch({ bus, jeu, hockey, gestionPnj, personnages, dialogue
   }
 
   // ---------- installation commune ----------
-  async function installer({ mode, equipesVoulues = ['carabins', 'visiteurs'] }) {
+  async function installer({ mode, equipesVoulues = ['carabins', 'visiteurs'], config = 'carabins' }) {
     const zone = jeu.zone;
     G = geometrie(zone);
     P.mode = mode;
+    P.config = CONFIGS[config] || CONFIGS.carabins;
     P.temps = 0;
     P.patineurs = [];
     P.arbitres = [];
@@ -1435,9 +1448,10 @@ export function creerMatch({ bus, jeu, hockey, gestionPnj, personnages, dialogue
     const avantGlace = (E, k) => pointEquipe(E, -4 - k * 2.5, (k % 2 ? 1 : -1) * 4);
     const charges = [];
     for (const id of equipesVoulues) {
-      const E = { id, nom: COULEURS_EQUIPES[id]?.nom || id.toUpperCase(), sens: id === 'carabins' ? 1 : -1, gardien: null, glace: [], tous: [], score: 0, tirs: 0, penalites: [] };
+      const conf = P.config.equipes[id];
+      const E = { id, nom: conf.nom, sens: id === 'carabins' ? 1 : -1, gardien: null, glace: [], tous: [], score: 0, tirs: 0, penalites: [] };
       P.equipes[id] = E;
-      const fiches = EFFECTIFS[id];
+      const fiches = conf.effectif;
       fiches.forEach((f, k) => {
         charges.push(ajouterPnj(f, id, avantGlace(E, k), Math.atan2(G.axe.x * E.sens, G.axe.z * E.sens)).then((pnj) => {
           pnj.comportement = 'hockey';
@@ -1447,7 +1461,7 @@ export function creerMatch({ bus, jeu, hockey, gestionPnj, personnages, dialogue
           attacherBaton(pnj);
         }));
       });
-      const fg = EFFECTIFS.gardiens[id];
+      const fg = conf.gardien;
       charges.push(ajouterPnj(fg, id, filetPropre(E, new THREE.Vector3()), Math.atan2(G.axe.x * E.sens, G.axe.z * E.sens)).then((pnj) => {
         E.gardien = hockey.ajouterGardien(pnj, E.sens > 0 ? 'ouest' : 'est');
         if (E.gardien) { const x = extrasModele(pnj); E.gardien.vitesse = 2.9; E.gardien.delai = id === 'carabins' ? 0.14 : 0.15; E.gardien.patineur = { id: fg.role, role: fg.role, alias: fg.alias || [], pnj, equipe: id, numero: Number(x.numero ?? fg.numero), prenom: fg.prenom }; }
@@ -1456,18 +1470,18 @@ export function creerMatch({ bus, jeu, hockey, gestionPnj, personnages, dialogue
     }
     if (mode === 'match') {
       for (const [k, role] of ['arbitre_1', 'arbitre_2'].entries()) {
-        charges.push(ajouterPnj({ role, prenom: k === 0 ? 'Arbitre' : 'Juge de lignes' }, 'arbitre', monde(k ? -6 : 6, (k ? -1 : 1) * (G.W - 1.7)), 0).then((pnj) => {
+        charges.push(ajouterPnj({ role, prenom: k === 0 ? 'Arbitre' : 'Juge de lignes' }, 'arbitre', monde(k ? -6 : 6, (k ? -1 : 1) * (G.W - 1.7)), 0, 'skate_idle', COULEURS_EQUIPES.arbitre).then((pnj) => {
           pnj.comportement = 'hockey';
           P.arbitres[k] = { id: role, role, pnj, pos: pnj.position, vel: new THREE.Vector3(), lacet: 0, cible: pnj.position.clone(), vmax: 6, talent: 0.7, banc: false, chute: 0, regardRondelle: true, phase: 0 };
         }));
       }
     }
     // entraîneur des Carabins derrière le banc (ou sur la glace à l'entraînement)
-    const existeEntraineur = await personnages.existe('entraineur');
+    const existeEntraineur = P.config.entraineur !== false && await personnages.existe('entraineur');
     const posEntraineur = mode === 'match' ? monde(-9.2, G.W + 1.0) : monde(-2, G.W - 2.5);
     if (existeEntraineur) {
       charges.push(ajouterPnj({ role: 'entraineur', prenom: 'Coach' }, null, posEntraineur, Math.atan2(-G.lat.x, -G.lat.z), mode === 'match' ? 'idle' : 'skate_idle').then((pnj) => { P.entraineur = pnj; pnj.comportement = 'statique'; }));
-    } else {
+    } else if (P.config.entraineur !== false) {
       const c = P.masques.find((p) => p.role === 'entraineur_patin');
       if (c) {
         montrer(c);
@@ -1486,14 +1500,19 @@ export function creerMatch({ bus, jeu, hockey, gestionPnj, personnages, dialogue
     await Promise.all(charges);
     P.patineurs.sort((a, b) => a.id.localeCompare(b.id));
     for (const E of Object.values(P.equipes)) E.tous.sort((a, b) => a.id.localeCompare(b.id));
-    // Éric
     const j = jeu.joueur;
-    j.patins = true;
-    await equiperEric(true);
-    hockey.equiperBaton(j);
-    if (j.perso.batonPropre && hockey.baton) hockey.baton.visible = false;
     ERIC.banc = false;
-    if (P.equipes.carabins) {
+    if (P.config.eric === false) {
+      const siege = jeu.zone.sieges?.SEAT_eric || Object.entries(jeu.zone.sieges || {}).find(([k]) => /eric|public|gradin/i.test(k))?.[1];
+      if (siege) j.asseoir(siege);
+      P.spectateur = true;
+    } else {
+      P.spectateur = false;
+      j.patins = true;
+      await equiperEric(true);
+      hockey.equiperBaton(j);
+    }
+    if (P.equipes.carabins && P.config.eric !== false) {
       P.equipes.carabins.tous.push(ERIC);
       P.patineurs.push(ERIC);
     }
@@ -1530,8 +1549,13 @@ export function creerMatch({ bus, jeu, hockey, gestionPnj, personnages, dialogue
     P.entraineur = null;
     sortirRondelles();
     hockey.preparerGardiens();
-    if (jeu.joueur?.mode === 'assis') { jeu.joueur.mode = 'libre'; jeu.joueur.placer(jeu.joueur.position.clone().setY(G.y), jeu.joueur.lacet); }
+    if (jeu.joueur?.mode === 'assis') {
+      if (P.spectateur) jeu.joueur.lever();
+      else { jeu.joueur.mode = 'libre'; jeu.joueur.placer(retourBanc('carabins'), jeu.joueur.lacet); }
+    }
     ERIC.banc = false;
+    if (P.cameraTele) { P.cameraTele = false; cam.suivi(jeu.joueur); }
+    P.spectateur = false;
     await equiperEric(false);
     foule?.retirer();
     bus.emit('hockey:etat', null);
@@ -1552,8 +1576,8 @@ export function creerMatch({ bus, jeu, hockey, gestionPnj, personnages, dialogue
     P.params = parametres;
     P.dureePenalite = params.duree_penalite ?? Math.max(20, Math.round(120 * parametres.dureePeriode / 1200));
     P.regles = { horsJeu: params.hors_jeu !== false, penalites: params.penalites !== 0 && params.penalites !== false, mises: true };
-    await installer({ mode: 'match' });
-    foule?.installer(jeu.zone, { nombre: params.spectateurs ?? 340 });
+    await installer({ mode: 'match', config: params.config || 'carabins' });
+    foule?.installer(jeu.zone, { nombre: params.spectateurs ?? P.config.spectateurs ?? 340, couleursLocales: P.config.couleursFoule || null, couleursVisiteurs: P.config.couleursFouleVisiteurs || null });
     audio.themeMusical(null);
     P.comportement = null;
     P.surPasse = P.surPossession = P.surTir = P.surVol = P.surArret = P.surDegagement = null;
@@ -1562,8 +1586,7 @@ export function creerMatch({ bus, jeu, hockey, gestionPnj, personnages, dialogue
     const fin = new Promise((ok) => { P.resoudre = ok; });
     preparerMiseAuJeu({ u: 0, v: 0 });
     P.etat = 'scene';
-    await scene('match_vestiaire');
-    await scene('match_presentation');
+    for (const id of P.config.scenes?.avant || []) await scene(id);
     P.etat = 'arret';
     debutPeriode(1);
     majObjectifs();
@@ -1589,7 +1612,46 @@ export function creerMatch({ bus, jeu, hockey, gestionPnj, personnages, dialogue
     const r = P.resoudre;
     P.resoudre = null;
     P.etat = 'conclusion';
-    scene(victoire ? 'match_victoire' : 'match_defaite').then(() => desinstaller()).then(() => r?.(bilan));
+    const sc = P.config.scenes || {};
+    if (P.spectateur) {
+      dire([victoire ? (P.config.fin?.victoire || 'bell_victoire') : (P.config.fin?.defaite || 'bell_defaite')], { canal: 'annonce', priorite: 2, roles: ROLES_ANNONCEUR, position: null });
+      bilan.details = bilan.details.filter((d) => !/Éric|Passes/.test(d.titre));
+      bilan.details[0].titre = `${victoire ? 'Victoire' : C.score === V.score ? 'Match nul' : 'Défaite'} · ${C.nom} ${C.score} – ${V.score} ${V.nom}`;
+      bilan.reussi = true;
+    }
+    const apres = async () => {
+      await scene(victoire ? sc.victoire : sc.defaite);
+      if (P.spectateur) {
+        await scene('bell_stats');
+        const def = defiStatistiques();
+        if (def && jeu.defi) { const r2 = await jeu.defi(def); bilan.details.push({ titre: def.titre, reussi: !!r2?.reussi, score: r2?.score }); }
+        await scene(sc.apres);
+      }
+    };
+    apres().then(() => desinstaller()).then(() => r?.(bilan));
+  }
+
+  // ---------- mini-défi de statistiques (spectateur) ----------
+  function defiStatistiques() {
+    const C = P.equipes.carabins, V = P.equipes.visiteurs;
+    const tirsV = V.tirs, butsV = V.score;
+    if (tirsV < 2) return null;
+    const fmt = (x) => `${String(Math.round(x * 10) / 10).replace('.', ',')} %`;
+    const pct = ((tirsV - butsV) / tirsV) * 100;
+    const candidats = [(butsV / tirsV) * 100, ((C.tirs - C.score) / Math.max(1, C.tirs)) * 100, Math.max(0, Math.min(100, pct + (Math.random() < 0.5 ? 7.5 : -7.5))), (tirsV / Math.max(1, tirsV + C.tirs)) * 100];
+    const options = [{ texte: fmt(pct), correct: 1, retour: `Oui : ${tirsV - butsV} arrêts sur ${tirsV} tirs. Le pourcentage d’arrêts divise les arrêts par les tirs reçus.` }];
+    for (const f of candidats) {
+      if (options.length >= 4 || options.some((o) => o.texte === fmt(f))) continue;
+      options.push({ texte: fmt(f), correct: 0, retour: 'Non. Le pourcentage d’arrêts, c’est le nombre d’arrêts divisé par le nombre de tirs reçus par ce gardien.' });
+    }
+    options.sort(() => Math.random() - 0.5);
+    return {
+      id: 'bell_stats_match', type: 'choix', titre: 'Les chiffres du match',
+      consigne: `Calcule le pourcentage d’arrêts du gardien des ${C.nom === 'CANADIENS' ? 'Canadiens' : C.nom}.`,
+      situation: `${V.nom} : ${tirsV} tirs au but, ${butsV} but${butsV > 1 ? 's' : ''}. ${C.nom} : ${C.tirs} tirs, ${C.score} but${C.score > 1 ? 's' : ''}.`,
+      options, reussite: 1, references: [],
+      retour: { succes: 'Bon calcul : un ratio, un numérateur, un dénominateur, et aucun tir oublié.', echec: 'Reprends le dénominateur : tous les tirs reçus, y compris ceux qui ont fait but.' },
+    };
   }
 
   // ---------- entraînement d'équipe ----------
