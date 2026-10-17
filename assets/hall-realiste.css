@@ -20,8 +20,9 @@
 }
 .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .ouverture {
   inset: 1.1% 2.2% 0;
-  background: linear-gradient(90deg,#101511,#3a3d32 15%,#262b25 92%,#101511);
-  box-shadow: inset 2px 1px 3px #0008;
+  /* Lumière de la couleur de la porte, visible dans l'entrebâillement. */
+  background: radial-gradient(120% 70% at 50% 75%,color-mix(in srgb,var(--c1) 16%,#fffaf0) 0%,color-mix(in srgb,var(--c1) 42%,#f1e9da) 100%);
+  box-shadow: inset 0 8px 12px color-mix(in srgb,var(--c1) 28%,transparent), inset 2px 0 3px rgba(40,34,26,.25);
   perspective: 1700px;
   perspective-origin: 50% 50%;
 }
@@ -63,8 +64,8 @@
   box-shadow: none;
 }
 .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .apercu {
-  color: #f2eee2;
-  text-shadow: 0 1px 2px #000;
+  color: color-mix(in srgb,var(--c1) 78%,#10201f);
+  text-shadow: none;
 }
 
 /* Panneaux épinglés au mur : plaque blanche mate sur quatre entretoises inox. */
@@ -147,9 +148,10 @@
   background: var(--c1);
 }
 .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .sous-portes-murales > :is(button,a):hover {
-  color: #102827;
-  background: linear-gradient(90deg,color-mix(in srgb,var(--c1) 9%,transparent),transparent);
+  color: color-mix(in srgb,var(--c1) 72%,#0d1f1e);
+  background: linear-gradient(90deg,color-mix(in srgb,var(--c1) 22%,transparent),color-mix(in srgb,var(--c1) 7%,transparent));
   border-bottom-color: var(--c1);
+  box-shadow: inset 3px 0 0 var(--c1);
 }
 .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .sous-portes-murales > :is(button,a):focus-visible,
 .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .panneau-hall h3 button:focus-visible {
