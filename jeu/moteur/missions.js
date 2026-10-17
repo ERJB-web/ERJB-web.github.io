@@ -1,4 +1,4 @@
-import { appliquerEffets, sauvegarder } from './etat.js?v=57e75813b4';
+import { appliquerEffets, sauvegarder } from './etat.js?v=63f5f7cb13';
 
 export function creerMissions({ bus, jeu }) {
   let scenario = { chapitres: [] };

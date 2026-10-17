@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { COULEURS_EQUIPES, CONFIGS } from './equipes.js?v=57e75813b4';
+import { COULEURS_EQUIPES, CONFIGS } from './equipes.js?v=63f5f7cb13';
 
 const POSTES = ['C', 'AG', 'AD', 'DG', 'DD'];
 const COTE_POSTE = { C: 0, AG: -1, AD: 1, DG: -1, DD: 1 };
@@ -1813,6 +1813,7 @@ export function creerMatch({ bus, jeu, hockey, gestionPnj, personnages, dialogue
           for (const s of P.patineurs) if (s.horsJeuExercice) patinerEnRond(s, dt);
           ex.progression = Math.min(1, ex.compteur / objectif);
           ex.texte = `${ex.compteur} / ${objectif} buts · ${ex.essais}/${tirsMax} tirs`;
+          if (ex.temps > (opts.temps ?? 150) && ex.etat === 'en_cours') { ex.score = ex.compteur / objectif; terminer(false); }
         };
       } else if (id === 'deux_contre_un' || id === 'avantage_numerique') {
         const an = id === 'avantage_numerique';
