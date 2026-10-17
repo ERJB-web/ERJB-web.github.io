@@ -3854,3 +3854,196 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
   .r-retombees .bloc-illustre.r-bloc.r-inverse > .r-texte { order: 0; }
 }
 .r-retombees .r-fig.r-fig-moyenne { max-width: 760px; }
+
+/* Ma thèse · Méthode */
+/* Fragment Méthode, objectif O2 et analyse de réseaux : classes préfixées m- */
+.m-o2 {
+  --m-bleu: #237a9a;
+  --m-vert: #65a946;
+  --m-fonce: #173f52;
+  --m-bleu-pale: rgba(35, 122, 154, .10);
+  --m-vert-pale: rgba(101, 169, 70, .12);
+  --m-trait: rgba(23, 63, 82, .18);
+  --m-texte-doux: rgba(23, 63, 82, .78);
+  --m-fond-carte: #ffffff;
+  --m-code-fond: #181e26;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 2.5rem 0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .m-o2 {
+    --m-bleu-pale: rgba(77, 170, 205, .14);
+    --m-vert-pale: rgba(130, 200, 95, .14);
+    --m-trait: rgba(200, 225, 235, .20);
+    --m-texte-doux: rgba(225, 236, 242, .78);
+    --m-fond-carte: rgba(255, 255, 255, .04);
+  }
+}
+:root[data-theme="dark"] .m-o2 {
+  --m-bleu-pale: rgba(77, 170, 205, .14);
+  --m-vert-pale: rgba(130, 200, 95, .14);
+  --m-trait: rgba(200, 225, 235, .20);
+  --m-texte-doux: rgba(225, 236, 242, .78);
+  --m-fond-carte: rgba(255, 255, 255, .04);
+}
+
+.m-o2 h4.m-titre, .m-o2 h5.m-sous-titre { margin: 0 0 .6rem; line-height: 1.3; }
+.m-o2 h4.m-titre { font-size: 1.45rem; color: var(--m-bleu); }
+.m-o2 h5.m-sous-titre { font-size: 1.12rem; margin-top: 2.2rem; }
+.m-o2 h6.m-etiquette {
+  font-size: .78rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--m-vert); margin: 0 0 .35rem; font-weight: 700;
+}
+.m-o2 p { margin: 0 0 .85rem; }
+.m-o2 .m-chapeau { font-size: 1.08rem; color: var(--m-texte-doux); max-width: 62rem; }
+.m-o2 .m-source { font-size: .82rem; color: var(--m-texte-doux); font-style: italic; }
+.m-o2 code { font-family: Consolas, "Cascadia Mono", monospace; font-size: .9em;
+  background: var(--m-bleu-pale); padding: .05em .35em; border-radius: 4px; overflow-wrap: anywhere; }
+
+/* Encadré principal */
+.m-o2 .m-encadre {
+  border: 2px solid var(--m-bleu); border-radius: 18px; padding: 1.6rem 1.6rem 1.2rem;
+  background: linear-gradient(180deg, var(--m-bleu-pale), transparent 14rem);
+  margin: 1.5rem 0 2.5rem;
+}
+.m-o2 .m-encadre > .m-titre { display: flex; gap: .6rem; align-items: center; }
+.m-o2 .m-encadre > .m-titre::before {
+  content: ""; width: .7rem; height: 1.6rem; border-radius: 4px; background: var(--m-vert); flex: none;
+}
+
+/* Bloc illustré : texte et figure côte à côte */
+.m-o2 .bloc-illustre, .m-o2 .m-bloc {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  gap: 1.6rem; align-items: center; margin: 1.8rem 0;
+}
+.m-o2 .bloc-illustre.m-inverse > :first-child { order: 2; }
+.m-o2 .bloc-illustre.m-large-figure { grid-template-columns: minmax(0, .85fr) minmax(0, 1.5fr); }
+.m-o2 .bloc-illustre.m-egal { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+@media (max-width: 860px) {
+  .m-o2 .bloc-illustre, .m-o2 .bloc-illustre.m-large-figure, .m-o2 .bloc-illustre.m-egal { grid-template-columns: 1fr; }
+  .m-o2 .bloc-illustre.m-inverse > :first-child { order: 0; }
+}
+.m-o2 .bloc-illustre.m-haut { align-items: start; }
+.m-o2 .m-cles { margin: 1.4rem 0; }
+.m-o2 .m-cles .m-schema { margin-top: .6rem; }
+.m-o2 figure { margin: 0; }
+.m-o2 figure img { width: 100%; height: auto; display: block; border-radius: 12px;
+  border: 1px solid var(--m-trait); background: #fff; }
+.m-o2 figure a { display: block; }
+.m-o2 figcaption { font-size: .86rem; color: var(--m-texte-doux); margin-top: .5rem; line-height: 1.45; }
+
+/* Chiffres clés */
+.m-o2 .m-chiffres { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: .8rem; margin: 1.2rem 0 1.6rem; }
+.m-o2 .m-chiffre { background: var(--m-fond-carte); border: 1px solid var(--m-trait); border-radius: 14px; padding: .8rem .9rem; }
+.m-o2 .m-chiffre strong { display: block; font-size: 1.65rem; line-height: 1.1; color: var(--m-bleu); font-variant-numeric: tabular-nums; }
+.m-o2 .m-chiffre span { font-size: .84rem; color: var(--m-texte-doux); }
+
+/* Tableau des données */
+.m-o2 .m-table-defile { overflow-x: auto; border: 1px solid var(--m-trait); border-radius: 14px; margin: 1rem 0 .4rem; }
+.m-o2 table.table-donnees, .m-o2 table.m-table { border-collapse: collapse; width: 100%; min-width: 46rem; font-size: .9rem; }
+.m-o2 table th, .m-o2 table td { padding: .6rem .75rem; vertical-align: top; text-align: left; border-bottom: 1px solid var(--m-trait); }
+.m-o2 table thead th { background: var(--m-fonce); color: #fff; font-weight: 600; position: sticky; top: 0; }
+.m-o2 table tbody tr:nth-child(even) td { background: var(--m-bleu-pale); }
+.m-o2 table td:first-child { font-weight: 600; }
+.m-o2 table td small { display: block; font-weight: 400; color: var(--m-texte-doux); }
+.m-o2 .m-pastille { display: inline-block; font-size: .72rem; font-weight: 700; border-radius: 99px;
+  padding: .05rem .5rem; margin: 0 .2rem .2rem 0; color: #fff; background: var(--m-bleu); white-space: nowrap; }
+.m-o2 .m-pastille.m-v { background: var(--m-vert); }
+.m-o2 .m-pastille.m-f { background: var(--m-fonce); }
+
+/* Six variables communes */
+.m-o2 .m-variables { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; margin: 1rem 0; }
+.m-o2 .m-variable { border: 1px solid var(--m-trait); border-top: 5px solid var(--m-bleu); border-radius: 14px;
+  padding: 1rem 1.05rem .7rem; background: var(--m-fond-carte); }
+.m-o2 .m-variable:nth-child(even) { border-top-color: var(--m-vert); }
+.m-o2 .m-variable h6 { margin: 0 0 .3rem; font-size: 1.02rem; display: flex; gap: .5rem; align-items: baseline; }
+.m-o2 .m-variable h6 b { color: var(--m-bleu); font-size: 1.3rem; }
+.m-o2 .m-variable p { font-size: .9rem; margin-bottom: .5rem; }
+.m-o2 .m-variable .m-reserve { font-size: .82rem; color: var(--m-texte-doux); border-left: 3px solid var(--m-vert); padding-left: .55rem; }
+
+/* Schémas SVG */
+.m-o2 .m-schema svg { width: 100%; height: auto; display: block; }
+.m-o2 .m-schema { background: var(--m-fond-carte); border: 1px solid var(--m-trait); border-radius: 14px; padding: 1rem; }
+.m-o2 svg .m-s-texte { fill: currentColor; font-size: 15px; }
+.m-o2 svg .m-s-petit { fill: currentColor; font-size: 12.5px; opacity: .8; }
+.m-o2 svg .m-s-gras { font-weight: 700; }
+.m-o2 svg .m-s-blanc { fill: #fff; }
+
+/* Étapes */
+.m-o2 ol.m-etapes { list-style: none; counter-reset: m-etape; padding: 0; margin: 1rem 0; display: grid; gap: .75rem; }
+.m-o2 ol.m-etapes > li { counter-increment: m-etape; position: relative; padding: .8rem 1rem .6rem 3.6rem;
+  border: 1px solid var(--m-trait); border-radius: 14px; background: var(--m-fond-carte); }
+.m-o2 ol.m-etapes > li::before { content: counter(m-etape); position: absolute; left: .9rem; top: .8rem;
+  width: 2rem; height: 2rem; border-radius: 50%; background: var(--m-bleu); color: #fff; font-weight: 700;
+  display: grid; place-items: center; }
+.m-o2 ol.m-etapes > li:last-child::before { background: var(--m-vert); }
+.m-o2 ol.m-etapes > li p { margin: .2rem 0 .3rem; font-size: .93rem; }
+
+/* Du code à la carte */
+.m-o2 .code-vers-carte, .m-o2 .m-code-carte {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 1rem; align-items: center;
+  margin: 1.4rem 0 .6rem;
+}
+.m-o2 .m-code-carte .m-fleche { font-size: 2rem; color: var(--m-vert); text-align: center; }
+@media (max-width: 860px) {
+  .m-o2 .code-vers-carte, .m-o2 .m-code-carte { grid-template-columns: 1fr; }
+  .m-o2 .m-code-carte .m-fleche { transform: rotate(90deg); }
+}
+.m-o2 .m-code-carte figure img { border-color: transparent; }
+.m-o2 .m-legende-code { border-left: 4px solid var(--m-vert); padding: .6rem 0 .6rem 1rem; margin: .6rem 0 1.4rem; }
+
+/* Lecture ligne à ligne */
+.m-o2 dl.m-lecture { display: grid; grid-template-columns: minmax(9rem, 13rem) 1fr; gap: .45rem 1rem; margin: 1rem 0; font-size: .92rem; }
+.m-o2 dl.m-lecture dt { font-family: Consolas, monospace; font-size: .86rem; color: var(--m-bleu); font-weight: 700; overflow-wrap: anywhere; }
+.m-o2 dl.m-lecture dd { margin: 0; }
+@media (max-width: 640px) { .m-o2 dl.m-lecture { grid-template-columns: 1fr; } .m-o2 dl.m-lecture dd { margin-bottom: .5rem; } }
+
+/* Exemple chiffré d'un îlot */
+.m-o2 .m-ilots { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; margin: 1rem 0; }
+.m-o2 .m-ilot { border: 1px solid var(--m-trait); border-radius: 14px; padding: .9rem 1rem; background: var(--m-fond-carte); }
+.m-o2 .m-ilot .m-cases { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3px; margin: .5rem 0; }
+.m-o2 .m-ilot .m-cases i { aspect-ratio: 1; border-radius: 3px; background: var(--m-trait); }
+.m-o2 .m-ilot .m-cases i.m-oui { background: var(--m-bleu); }
+.m-o2 .m-ilot .m-sante { font-size: .85rem; }
+.m-o2 .m-ilot .m-score { font-size: 1.4rem; font-weight: 700; color: var(--m-vert); }
+.m-o2 .m-ilot .m-score.m-nul { color: #c0392b; }
+
+/* Matrice CLSC × domaine */
+.m-o2 .m-matrice { display: grid; grid-template-columns: 9.5rem repeat(14, minmax(1.6rem, 1fr)); gap: 3px; font-size: .74rem; min-width: 40rem; }
+.m-o2 .m-matrice > div { padding: .25rem; border-radius: 4px; }
+.m-o2 .m-matrice .m-ent { font-weight: 700; text-align: center; writing-mode: vertical-rl; transform: rotate(180deg); padding: .35rem 0; justify-self: center; }
+.m-o2 .m-matrice .m-ligne { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.m-o2 .m-matrice .m-c { min-height: 1.6rem; }
+.m-o2 .m-c-complete { background: #1b8a63; }
+.m-o2 .m-c-partielle { background: #8fd0b2; }
+.m-o2 .m-c-insuffisant { background: #c9c8c4; }
+.m-o2 .m-c-absente { background: #d03b3b; }
+.m-o2 .m-c-inaccessible { background: #eb6834; }
+.m-o2 .m-c-saturee { background: #eda100; }
+.m-o2 .m-legende { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-size: .82rem; margin: .7rem 0 0; padding: 0; list-style: none; }
+.m-o2 .m-legende li { display: flex; align-items: center; gap: .35rem; }
+.m-o2 .m-legende i { width: .9rem; height: .9rem; border-radius: 3px; display: inline-block; }
+
+/* Encarts « pourquoi » */
+.m-o2 .pourquoi-indispensable { margin-top: 2.8rem; }
+.m-o2 .m-pourquoi { border-radius: 16px; padding: 1.2rem 1.3rem .6rem; margin: 1.2rem 0; background: var(--m-bleu-pale); border-left: 6px solid var(--m-bleu); }
+.m-o2 .m-pourquoi.m-v { background: var(--m-vert-pale); border-left-color: var(--m-vert); }
+.m-o2 .m-pourquoi.m-f { background: transparent; border: 2px solid var(--m-fonce); border-left-width: 6px; }
+.m-o2 ul.m-puces { padding-left: 1.1rem; margin: .3rem 0 .9rem; }
+.m-o2 ul.m-puces li { margin-bottom: .35rem; }
+.m-o2 ul.m-puces li::marker { color: var(--m-vert); }
+.m-o2 blockquote.m-citation { margin: .8rem 0; padding: .7rem 1rem; border-left: 4px solid var(--m-fonce); background: var(--m-fond-carte); border-radius: 0 10px 10px 0; font-size: .95rem; }
+
+/* Six secteurs */
+.m-o2 .m-secteurs { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: .5rem; margin: .8rem 0; }
+@media (max-width: 860px) { .m-o2 .m-secteurs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.m-o2 .m-secteur { border-radius: 12px; padding: .6rem .6rem .5rem; background: var(--m-fond-carte); border: 1px solid var(--m-trait); font-size: .8rem; }
+.m-o2 .m-secteur b { display: block; font-size: .86rem; color: #fff; background: var(--m-bleu); margin: -.6rem -.6rem .45rem; padding: .45rem .6rem; border-radius: 12px 12px 0 0; }
+.m-o2 .m-secteur:nth-child(even) b { background: var(--m-vert); }
+.m-o2 .m-secteur.m-ouvert { border-style: dashed; border-color: var(--m-vert); }
+.m-o2 .m-secteur.m-ouvert b { background: transparent; color: var(--m-vert); }
+
+/* Références */
+.m-o2 ul.refs-apa { font-size: .85rem; padding-left: 0; list-style: none; margin-top: 1rem; }
+.m-o2 ul.refs-apa li { padding-left: 2em; text-indent: -2em; margin-bottom: .45rem; overflow-wrap: anywhere; }
