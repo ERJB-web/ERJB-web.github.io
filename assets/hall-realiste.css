@@ -43,8 +43,8 @@
   border: 0;
   border-radius: 0;
   background:
-    radial-gradient(circle at 4px 3px,rgba(255,255,255,.62) 0 1.2px,transparent 1.7px) 0 62% / 8px 11px repeat-x,
-    radial-gradient(circle at 0 8px,rgba(255,255,255,.62) 0 1.2px,transparent 1.7px) 0 62% / 8px 11px repeat-x,
+    radial-gradient(circle at 4px 3px,rgba(255,255,255,.62) 0 1.2px,transparent 1.7px) 0 69% / 8px 11px repeat-x,
+    radial-gradient(circle at 0 8px,rgba(255,255,255,.62) 0 1.2px,transparent 1.7px) 0 69% / 8px 11px repeat-x,
     linear-gradient(106deg,transparent 0 12%,rgba(255,255,255,.22) 20%,rgba(255,255,255,.06) 27%,transparent 34%,transparent 58%,rgba(255,255,255,.12) 64%,transparent 72%),
     linear-gradient(180deg,rgba(255,255,255,.12),transparent 30%,transparent 80%,rgba(255,255,255,.06)),
     rgba(186,210,216,.13);
@@ -72,56 +72,30 @@
   background: linear-gradient(180deg,#e9ebeb,#a9aeaf 35%,#868c8d 70%,#5d6365);
   box-shadow: inset 0 1px 0 #fff;
 }
-/* Poignée bec-de-cane inox : plaque, rosace et béquille qui s'abaisse avant l'ouverture. */
+/* Poignée bec-de-cane en inox brossé, sur rosace ronde ; la béquille s'abaisse avant l'ouverture. */
 .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .poignee {
   display: block;
   position: absolute;
-  top: 46%;
-  inset-inline-end: 5.5%;
-  width: 6.5%;
-  min-width: 7px;
-  height: 15%;
-  border: 0;
-  border-radius: 3px;
-  background: linear-gradient(90deg,#757c7d,#e9ecec 35%,#b8bebf 65%,#687071);
-  box-shadow: 1px 2px 3px rgba(20,24,26,.35), inset 0 1px 0 rgba(255,255,255,.7);
-  z-index: 3;
-}
-.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .poignee::before {
-  display: block;
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 30%;
-  width: 150%;
+  top: 56%;
+  inset-inline-end: 2%;
+  inset-inline-start: auto;
+  width: 42%;
+  min-width: 40px;
   height: auto;
-  aspect-ratio: 1;
+  aspect-ratio: 160 / 52;
   border: 0;
-  border-radius: 50%;
-  transform: translate(-50%,-50%);
-  background: radial-gradient(circle at 35% 30%,#fff 0%,#e3e6e6 28%,#9ca3a4 68%,#5f6667 100%);
-  box-shadow: 0 1px 2px rgba(0,0,0,.4);
-}
-.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .poignee::after {
-  display: block;
-  content: "";
-  position: absolute;
-  top: 30%;
-  right: 50%;
-  left: auto;
-  width: 430%;
-  height: 15%;
-  min-height: 3px;
-  border: 0;
-  border-radius: 3px 2px 2px 3px;
-  background: linear-gradient(180deg,#fbfcfc 0%,#d6dadb 30%,#9aa1a2 70%,#5c6365 100%);
-  box-shadow: 0 2px 3px rgba(0,0,0,.35);
-  transform-origin: 100% 50%;
+  border-radius: 0;
+  background: url("poignee-inox.svg") center / 100% 100% no-repeat;
+  box-shadow: none;
+  z-index: 3;
+  transform-origin: 83.75% 50%;
   transform: translateY(-50%) rotate(0deg);
   transition: transform .26s cubic-bezier(.3,.7,.3,1.25);
 }
-.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte:is(:hover,:focus-visible,.ouverte) .poignee::after {
-  transform: translateY(-50%) rotate(-38deg);
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .poignee::before,
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .poignee::after { display: none; content: none; }
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte:is(:hover,:focus-visible,.ouverte) .poignee {
+  transform: translateY(-50%) rotate(-32deg);
 }
 /* La béquille s'abaisse d'abord, puis le battant s'entrouvre. */
 .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte:is(:hover,:focus-visible):not(.ouverte) .battant { transition-delay: .18s; }
@@ -132,7 +106,7 @@
   top: 5%;
   inset-inline-start: 10%;
   inset-inline-end: 14%;
-  height: 52%;
+  height: 45%;
   border: 0;
   border-radius: 0;
   background-size: cover;
@@ -248,8 +222,8 @@
 
 /* Calques : la ville derrière la baie, puis l'intérieur du hall par-dessus. */
 .hall-ville,
-.hall-ville > span,
-.hall-ville > canvas,
+.hall-ville span,
+.hall-ville canvas,
 .hall-interieur,
 .hall-calque,
 .hall-reflet {
@@ -259,19 +233,41 @@
 }
 .hall-ville { overflow: hidden; }
 .hall-ville > span,
-.hall-ville > canvas {
+.hall-ville > canvas,
+.hall-ville-plan > span,
+.hall-ville-plan > canvas {
   inset: 0;
   width: 100%;
   height: 100%;
 }
-.hall-ville > span {
+/* La ville, plus lointaine que la vitre, défile un peu moins vite : effet de profondeur. */
+.hall-ville .hall-ville-plan {
+  inset: 0 auto 0 -4%;
+  width: 108%;
+  height: 100%;
+  transform: translateX(calc((.5 - var(--hall-defile,.5)) * 7%));
+}
+.hall-ville-plan > span {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center 40%;
 }
+.hall-bateaux {
+  -webkit-mask: url("photos/hall-ville-fleuve.png") center 40% / cover no-repeat;
+  mask: url("photos/hall-ville-fleuve.png") center 40% / cover no-repeat;
+}
 .hall-ville .hall-ville-calque,
 .hall-calque {
   opacity: 0;
+  transition: opacity 2.4s ease;
+}
+/* Reflet du soleil sur le vitrage. */
+.hall-ville .hall-eblouissement {
+  opacity: calc(var(--hall-eblouissement,0) * .55);
+  mix-blend-mode: screen;
+  background:
+    radial-gradient(60% 90% at 88% -10%,rgba(255,244,214,.55),rgba(255,236,200,.18) 40%,transparent 70%),
+    linear-gradient(118deg,transparent 0 52%,rgba(255,250,235,.10) 56%,transparent 60%,transparent 66%,rgba(255,250,235,.07) 69%,transparent 72%);
   transition: opacity 2.4s ease;
 }
 .hall-brume {
@@ -305,7 +301,9 @@
   .hall-ville .hall-ville-calque,
   .hall-calque,
   .hall-brume,
-  .hall-reflet { transition: none; }
+  .hall-reflet,
+  .hall-ville .hall-eblouissement { transition: none; }
+  .hall-ville .hall-ville-plan { transform: none; }
 }
 
 @media(min-width:1000px) {
@@ -317,6 +315,8 @@
     --hall-porte-ratio: .53;
     --hall-ecart: 30;
     --hall-recadrage: 48;
+    /* Haut des portes et de la traverse, dans la photo ; le fleuve reste visible au-dessus. */
+    --hall-porte-haut: 236;
   }
   .hall.en-volume .hall-espace {
     height: var(--eb-hall-hauteur);
@@ -332,7 +332,7 @@
     --ix: calc((100cqw - var(--iw)) / 2);
     --iy: calc(var(--px) * var(--hall-recadrage) * -1);
     --verre-haut: calc(var(--iy) + var(--px) * 86);
-    --mur-haut: calc(var(--iy) + var(--px) * 202);
+    --mur-haut: calc(var(--iy) + var(--px) * var(--hall-porte-haut));
     --mur-bas: calc(var(--iy) + var(--px) * 526);
     --mur-g: calc(var(--ix) + var(--px) * 253);
     --mur-d: calc(var(--ix) + var(--px) * 1746);
@@ -446,6 +446,7 @@
       radial-gradient(circle at 0 9px,rgba(255,255,255,.6) 0 1.2px,transparent 1.7px) 0 var(--bande) / 9px 12px repeat-x,
       linear-gradient(104deg,transparent 0 16%,rgba(255,255,255,.11) 22%,rgba(255,255,255,.035) 28%,transparent 34%,transparent 60%,rgba(255,255,255,.07) 66%,rgba(255,255,255,.02) 70%,transparent 76%),
       linear-gradient(180deg,rgba(255,255,255,.09) 0%,transparent 28%,transparent 72%,rgba(255,255,255,.04) 100%),
+      linear-gradient(0deg,rgba(250,252,255,calc(var(--hall-givre,0) * .62)) 0,rgba(250,252,255,calc(var(--hall-givre,0) * .28)) 5%,transparent 13%),
       linear-gradient(0deg,rgba(245,244,240,calc(var(--hall-nuit,0) * .12)) 0%,transparent 42%),
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"),
       rgba(170,200,206,.07);
