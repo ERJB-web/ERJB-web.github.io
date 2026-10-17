@@ -3714,3 +3714,9 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
   .f-synthese { padding: 1.2rem 1rem; }
   .gantt.f-gantt { padding: 0.8rem 0.6rem; }
 }
+/* Salles : texte justifié, titres centrés */
+.salle-contenu p,.salle-contenu li,.salle-contenu dd,.salle-contenu .f-acteur,.salle-contenu figcaption{text-align:justify;text-justify:inter-word;-webkit-hyphens:auto;hyphens:auto}
+.salle-contenu h2,.salle-contenu h3,.salle-contenu h4,.salle-contenu h5,.salle-contenu .titre-bloc,.salle-contenu .f-titre{text-align:center}
+.salle-contenu .f-titre{justify-content:center}
+.salle-contenu .f-acteur strong{text-align:center}
+.f-acteurs-fin{margin:.4rem 0 1.4rem;font-style:italic}
