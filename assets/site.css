@@ -3103,3 +3103,10 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
 .entete .nav a svg{width:13px;height:13px;padding:4px;border-radius:6px}
 @media(min-width:1441px) and (max-width:1599px){.entete .nav a{padding:5px 8px 5px 5px;font-size:13px}}
 @media(min-width:701px) and (max-width:1440px){.entete .nav a{padding:5px 8px}.entete .nav a::after{left:8px;right:8px}}
+/* Ligne de contact du haut plus lisible ; rendez-vous en majuscules */
+.entete-contact{font-size:14.5px;gap:6px 18px}
+.entete-contact a svg{width:16px;height:16px}
+.entete-contact a.entete-rdv{text-transform:uppercase;letter-spacing:.05em;font-weight:700;font-size:13.5px}
+/* Mentions légales du pied de page */
+.pied .pied-titre{margin:0 0 6px;font:600 13px/1.3 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.pied .mentions-info p strong{color:var(--ink)}
