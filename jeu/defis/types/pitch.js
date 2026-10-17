@@ -1,5 +1,5 @@
-import { h, s, icone, vider, pct, portrait, attendre, glisser, memoriserPositions, animerDepuis, roleCanonique, NB } from '../noyau.js?v=0a002b19d4';
-import { melanger, scorePitch, compterMots, dureeLecture, estSuperflu, borner, normaliser } from '../calculs.js?v=0a002b19d4';
+import { h, s, icone, vider, pct, portrait, attendre, glisser, memoriserPositions, animerDepuis, roleCanonique, NB } from '../noyau.js?v=11a8d44cf2';
+import { melanger, scorePitch, compterMots, dureeLecture, estSuperflu, borner, normaliser } from '../calculs.js?v=11a8d44cf2';
 
 const MPM = 150;
 const ETAGES = 6;
@@ -44,6 +44,7 @@ export function rendre(def, coque) {
   const PENSEES = REGISTRES[ctxPitch.registre];
   const nomInterlocuteur = coque.nomPersonnage(ctxPitch.role, true);
   const libDuree = ctxPitch.decor === 'ascenseur' ? 'd’ascenseur' : ctxPitch.decor === 'glace' ? 'pour un tour de glace' : 'd’attention';
+  coque.setSurtitre(ctxPitch.decor === 'ascenseur' ? 'Pitch d’ascenseur' : ctxPitch.decor === 'glace' ? 'Pitch · vulgarisation' : 'Pitch');
   const piocheOrdre = melanger(fragments.map((f) => f.i), coque.alea);
   let piste = [];
   let phase = 'composer';
@@ -194,7 +195,8 @@ export function rendre(def, coque) {
     compteur.style.setProperty('--dfx-limite', `${(1 / 1.5) * 100}%`);
     compteur.classList.toggle('dfx-pitch-compteur--trop', mots > limite);
     btn.disabled = piste.length === 0;
-    coque.setStatut(piste.length ? (mots > limite ? `Trop long de ${mots - limite} mots : l’ascenseur arrivera avant la fin.` : `${piste.length} fragment${piste.length > 1 ? 's' : ''} · ça tient dans le trajet.`) : 'Compose ton pitch.');
+    const trop = ctxPitch.decor === 'ascenseur' ? 'l’ascenseur arrivera avant la fin' : ctxPitch.decor === 'glace' ? 'le tour de glace finira avant toi' : 'ton interlocuteur partira avant la fin';
+    coque.setStatut(piste.length ? (mots > limite ? `Trop long de ${mots - limite} mots : ${trop}.` : `${piste.length} fragment${piste.length > 1 ? 's' : ''} · ça tient dans le temps.`) : 'Compose ton pitch.');
   }
 
   // ---------------------------------------------------------------- présentation

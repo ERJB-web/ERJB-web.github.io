@@ -1,7 +1,7 @@
-import { h, s, icone, vider, nombre, pct, styleSecteurs, cheminSymbole, pastilleSecteur, glisser, humaniser } from '../noyau.js?v=0a002b19d4';
-import { mesuresReseau, scoreCodageReseau, clefLien, vrai, borner, melanger, jaccard, couvertureDomaines } from '../calculs.js?v=0a002b19d4';
-import { panneauQuestions } from './questions.js?v=0a002b19d4';
-import { ongletsPanneau } from './carte.js?v=0a002b19d4';
+import { h, s, icone, vider, nombre, pct, styleSecteurs, cheminSymbole, pastilleSecteur, glisser, humaniser } from '../noyau.js?v=11a8d44cf2';
+import { mesuresReseau, scoreCodageReseau, clefLien, vrai, borner, melanger, jaccard, couvertureDomaines } from '../calculs.js?v=11a8d44cf2';
+import { panneauQuestions } from './questions.js?v=11a8d44cf2';
+import { ongletsPanneau } from './carte.js?v=11a8d44cf2';
 
 export const NIVEAUX = [
   { n: 1, nom: 'Information', def: 'Échange d’information, sans action commune.' },
@@ -145,7 +145,7 @@ export function rendre(def, coque) {
     const g = s('g', { class: `dfx-res-noeud${id === EGO ? ' dfx-res-noeud--ego' : ''}`, transform: `translate(${p.x} ${p.y})`, tabindex: '0', role: 'button', dataset: { id } });
     if (id === EGO) {
       g.append(s('circle', { r: 74, class: 'dfx-res-ego' }));
-      lignes(R.egoNom, 14).forEach((l, k, t) => g.append(s('text', { y: (k - (t.length - 1) / 2) * 24, 'text-anchor': 'middle', 'dominant-baseline': 'middle', class: 'dfx-res-ego-txt' }, l)));
+      lignes(R.egoNom.replace(/\s*\(.*\)\s*$/, ''), 14).forEach((l, k, t) => g.append(s('text', { y: (k - (t.length - 1) / 2) * 24, 'text-anchor': 'middle', 'dominant-baseline': 'middle', class: 'dfx-res-ego-txt' }, l)));
       g.setAttribute('aria-label', `${R.egoNom} (ego)`);
     } else {
       const a = R.alters.find((x) => x.id === id);
@@ -154,10 +154,14 @@ export function rendre(def, coque) {
       g.append(s('path', { d: cheminSymbole(st?.forme, 21), fill: st?.couleur || '#0755AD', class: 'dfx-res-symbole' }));
       const cos = Math.cos(p.ang);
       const sin = Math.sin(p.ang);
-      const ancre = cos > 0.35 ? 'start' : cos < -0.35 ? 'end' : 'middle';
-      const lx = cos * 44;
-      const morceaux = lignes(a.nom, 20);
-      const ly = sin * 44 + (Math.abs(cos) <= 0.35 ? (sin > 0 ? 10 : -10 - (morceaux.length - 1) * 22) : -((morceaux.length - 1) * 22) / 2);
+      const ancre = cos > 0.16 ? 'start' : cos < -0.16 ? 'end' : 'middle';
+      const rang = [...pos.keys()].indexOf(id);
+      const serre = R.alters.length > 9 && Math.abs(sin) > 0.7 && rang % 2 === 1;
+      const ecart = serre ? 74 : 42;
+      const lx = cos * ecart;
+      const morceaux = lignes(a.nom, R.alters.length > 9 ? 17 : 20);
+      const ly = sin * ecart + (Math.abs(cos) <= 0.16 ? (sin > 0 ? 10 : -10 - (morceaux.length - 1) * 22) : -((morceaux.length - 1) * 22) / 2);
+      if (serre) g.append(s('line', { x1: cos * 26, y1: sin * 26, x2: cos * (ecart - 12), y2: sin * (ecart - 12), class: 'dfx-res-attache' }));
       morceaux.forEach((l, k) => g.append(s('text', { x: lx, y: ly + k * 22, 'text-anchor': ancre, 'dominant-baseline': 'middle', class: 'dfx-res-nom' }, l)));
       g.setAttribute('aria-label', `${a.nom}, ${st?.nom ?? ''}`);
     }

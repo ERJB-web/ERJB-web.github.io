@@ -1,20 +1,20 @@
 import * as THREE from 'three';
-import { creerBus } from './bus.js?v=0a002b19d4';
-import { etatInitial, charger as chargerPartie, sauvegarder, chargerOptions, sauverOptions, appliquerEffets } from './etat.js?v=0a002b19d4';
-import { creerRendu } from './rendu.js?v=0a002b19d4';
-import { creerPhysique } from './physique.js?v=0a002b19d4';
-import { creerChargeur, chargerZone, installerZone, retirerZone } from './zones.js?v=0a002b19d4';
-import { creerObjets } from './objets.js?v=0a002b19d4';
-import { creerAudio } from './audio.js?v=0a002b19d4';
-import { creerPersonnages } from './personnages.js?v=0a002b19d4';
-import { creerCamera } from './camera.js?v=0a002b19d4';
-import { creerEntrees } from './entrees.js?v=0a002b19d4';
-import { creerInteractions } from './interactions.js?v=0a002b19d4';
-import { creerGestionPNJ } from './pnj.js?v=0a002b19d4';
-import { creerDialogues } from './dialogues.js?v=0a002b19d4';
-import { creerDirection } from './direction.js?v=0a002b19d4';
-import { creerMissions } from './missions.js?v=0a002b19d4';
-import { creerHockey } from './hockey.js?v=0a002b19d4';
+import { creerBus } from './bus.js?v=11a8d44cf2';
+import { etatInitial, charger as chargerPartie, sauvegarder, chargerOptions, sauverOptions, appliquerEffets } from './etat.js?v=11a8d44cf2';
+import { creerRendu } from './rendu.js?v=11a8d44cf2';
+import { creerPhysique } from './physique.js?v=11a8d44cf2';
+import { creerChargeur, chargerZone, installerZone, retirerZone } from './zones.js?v=11a8d44cf2';
+import { creerObjets } from './objets.js?v=11a8d44cf2';
+import { creerAudio } from './audio.js?v=11a8d44cf2';
+import { creerPersonnages } from './personnages.js?v=11a8d44cf2';
+import { creerCamera } from './camera.js?v=11a8d44cf2';
+import { creerEntrees } from './entrees.js?v=11a8d44cf2';
+import { creerInteractions } from './interactions.js?v=11a8d44cf2';
+import { creerGestionPNJ } from './pnj.js?v=11a8d44cf2';
+import { creerDialogues } from './dialogues.js?v=11a8d44cf2';
+import { creerDirection } from './direction.js?v=11a8d44cf2';
+import { creerMissions } from './missions.js?v=11a8d44cf2';
+import { creerHockey } from './hockey.js?v=11a8d44cf2';
 
 const VERSION = '2.0.0';
 const params = new URLSearchParams(location.search);
@@ -78,11 +78,11 @@ async function demarrer() {
   // ---------- interface ----------
   let ui = null;
   try {
-    const mod = await import('../ui/ui.js?v=0a002b19d4');
+    const mod = await import('../ui/ui.js?v=11a8d44cf2');
     ui = mod.initUI({ bus, etat: { options, get partie() { return jeu.etat; }, get existeSauvegarde() { return !!chargerPartie(); }, scenario, salles, version: VERSION }, racine: racineUI });
   } catch (e) {
     console.warn('[ui] interface de secours', e);
-    const mod = await import('./ui-secours.js?v=0a002b19d4');
+    const mod = await import('./ui-secours.js?v=11a8d44cf2');
     ui = mod.initUI({ bus, etat: { options, get partie() { return jeu.etat; }, get existeSauvegarde() { return !!chargerPartie(); }, scenario, salles }, racine: racineUI });
   }
 
@@ -142,7 +142,7 @@ async function demarrer() {
 
     // personnage du joueur
     if (!jeu.joueur) {
-      const { creerJoueur } = await import('./joueur.js?v=0a002b19d4');
+      const { creerJoueur } = await import('./joueur.js?v=11a8d44cf2');
       const perso = await personnages.creer('eric');
       jeu.joueur = creerJoueur({ physique, perso, audio, bus, jeu });
       dialogues.lier(jeu.joueur, gestionPnj);
@@ -258,7 +258,7 @@ async function demarrer() {
     bus.emit('invite', null);
     let r = { reussi: true, score: 1 };
     try {
-      const mod = await import('../defis/defis.js?v=0a002b19d4');
+      const mod = await import('../defis/defis.js?v=11a8d44cf2');
       racineDefis.hidden = false;
       r = await mod.lancerDefi(def, {
         racine: racineDefis,

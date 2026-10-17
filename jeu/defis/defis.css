@@ -50,6 +50,8 @@
 
 .dfx *, .dfx *::before, .dfx *::after { box-sizing: border-box; }
 .dfx [hidden] { display: none !important; }
+.dfx :is(h1, h2, h3, h4, h5, h6) { text-transform: none; font-family: inherit; }
+.dfx .dfx-correction-titre { text-transform: uppercase; }
 .dfx button, .dfx input, .dfx select, .dfx textarea { font-family: inherit; }
 .dfx :focus { outline: none; }
 .dfx :focus-visible { outline: 3px solid var(--dfx-focus); outline-offset: 2px; }
@@ -821,7 +823,7 @@
 .dfx-crib-points .dfx-crib-point--fait { background: var(--dfx-sarcelle); }
 .dfx-crib-points .dfx-crib-point--actuel { background: #F6F4F1; box-shadow: 0 0 0 3px rgba(246, 244, 241, 0.25); }
 .dfx-crib-centre { display: flex; flex-direction: column; align-items: center; gap: 18px; min-height: 0; }
-.dfx-crib-pile { position: relative; flex: 0 1 auto; width: min(780px, 100%); height: clamp(300px, 54vh, 470px); margin-top: auto; }
+.dfx-crib-pile { position: relative; flex: 0 1 auto; width: min(780px, 100%); height: clamp(280px, 46vh, 410px); margin-top: auto; }
 .dfx-crib-decision { margin-bottom: auto; }
 .dfx-crib-carte {
   position: absolute;
@@ -1088,6 +1090,7 @@
 .dfx-res-ego { fill: var(--dfx-bleu); stroke: var(--dfx-bleu-clair); stroke-width: 3; filter: drop-shadow(0 8px 18px rgba(7, 85, 173, 0.55)); }
 .dfx-res-ego-txt { fill: #fff; font-size: 21px; font-weight: 900; }
 .dfx-res-noeud--isole { opacity: 0.42; }
+.dfx-res-attache { stroke: rgba(201, 217, 227, 0.35); stroke-width: 1.5; }
 .dfx-res-noeud--non-mobilise .dfx-res-halo { fill: rgba(200, 70, 61, 0.18); stroke: var(--dfx-alerte); stroke-dasharray: 5 4; }
 .dfx-res-scene--choix .dfx-res-noeud:not(.dfx-res-noeud--choisi) .dfx-res-halo { stroke: rgba(17, 167, 165, 0.45); }
 .dfx-res-pop { position: absolute; z-index: 4; padding: 12px; border-radius: 14px; background: var(--dfx-papier); color: var(--dfx-encre); box-shadow: 0 18px 40px rgba(0, 0, 0, 0.42); animation: dfx-pop 0.22s var(--dfx-courbe) both; }
@@ -1313,6 +1316,9 @@
   .dfx-actions { width: 100%; flex-wrap: nowrap; }
   .dfx-actions .dfx-btn { flex: 1; min-width: 0; padding: 0 12px; font-size: 15px; }
   .dfx-reactions { left: 10px; bottom: 112px; max-width: calc(100% - 20px); }
+  .dfx-statut:empty { display: none; }
+  .dfx--bilan .dfx-reactions { bottom: 84px; }
+  .dfx-bilan-score { margin-bottom: 18px; }
   .dfx-reaction-portrait { width: 44px; height: 44px; }
   .dfx-reaction-texte { font-size: 14px; }
 
@@ -1370,7 +1376,7 @@
   .dfx-sig-carte { height: 56vh; }
   .dfx-sig-outil span { display: none; }
   .dfx-sig-outil { width: 38px; padding: 0; justify-content: center; }
-  .dfx-sig-titre { top: auto; bottom: 48px; max-width: calc(100% - 24px); font-size: 12.5px; }
+  .dfx-sig-titre { top: auto; bottom: 64px; max-width: calc(100% - 24px); font-size: 12.5px; }
   .dfx-sig-nord { top: auto; bottom: 56px; right: 14px; display: none; }
   .dfx-sig-fiche { bottom: 92px; }
   .dfx-reseau { grid-template-areas: "scene" "droite" "gauche"; }

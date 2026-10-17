@@ -1,5 +1,5 @@
-import { h, icone, vider, pct, portrait, attendre } from '../noyau.js?v=0a002b19d4';
-import { borner, scoreJury, humeurApres, normaliser } from '../calculs.js?v=0a002b19d4';
+import { h, icone, vider, pct, portrait, attendre } from '../noyau.js?v=11a8d44cf2';
+import { borner, scoreJury, humeurApres, normaliser } from '../calculs.js?v=11a8d44cf2';
 
 export const chronoManuel = true;
 
@@ -73,7 +73,7 @@ export function rendre(def, coque) {
     h('span', { class: 'dfx-jury-humeur-piste' }, jaugeRemplie, jaugeCurseur),
     h('span', { class: 'dfx-jury-humeur-bout', text: 'Convaincu' }));
   const membresEl = [0, 1, 2].map((k2) => {
-    const m = sieges[k2];
+    const m = sieges[k2] || (coque.ctx.personnages[`jury_${k2 + 1}`] ? { nom: coque.nomPersonnage(`jury_${k2 + 1}`, true), role: coque.descriptionPersonnage(`jury_${k2 + 1}`) } : null);
     const zonePortrait = h('div', { class: 'dfx-jury-portrait' }, portrait(PORTRAITS[k2], 'neutre', 112));
     const el = h('div', { class: 'dfx-jury-membre', dataset: { siege: String(k2) } },
       zonePortrait,

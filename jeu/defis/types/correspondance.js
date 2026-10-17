@@ -1,5 +1,5 @@
-import { h, s, icone, vider, glisser, elementSous } from '../noyau.js?v=0a002b19d4';
-import { melanger, scoreCorrespondance, clePaire } from '../calculs.js?v=0a002b19d4';
+import { h, s, icone, vider, glisser, elementSous } from '../noyau.js?v=11a8d44cf2';
+import { melanger, scoreCorrespondance, clePaire } from '../calculs.js?v=11a8d44cf2';
 
 export function rendre(def, coque) {
   const gauche = (Array.isArray(def.gauche) ? def.gauche : []).map((x, i) => ({ id: String(x.id ?? i), texte: String(x.texte ?? x.id ?? '') }));
@@ -29,9 +29,9 @@ export function rendre(def, coque) {
   const colD = h('div', { class: 'dfx-corr-col dfx-corr-col--d', role: 'group', 'aria-label': 'Colonne de droite' });
   const svg = s('svg', { class: 'dfx-corr-traits', 'aria-hidden': 'true' });
   const calqueBoutons = h('div', { class: 'dfx-corr-suppr' });
-  const titres = h('div', { class: 'dfx-corr-titres' },
-    h('p', { class: 'dfx-surtitre', text: def.titreGauche || 'Domaines de la revue' }),
-    h('p', { class: 'dfx-surtitre', text: def.titreDroite || 'Taxonomie du 211' }));
+  const titres = def.titreGauche || def.titreDroite ? h('div', { class: 'dfx-corr-titres' },
+    h('p', { class: 'dfx-surtitre', text: def.titreGauche || '' }),
+    h('p', { class: 'dfx-surtitre', text: def.titreDroite || '' })) : null;
   const plateau = h('div', { class: 'dfx-corr-plateau' }, colG, svg, colD, calqueBoutons);
 
   const items = new Map();

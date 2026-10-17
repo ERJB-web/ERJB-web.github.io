@@ -62,7 +62,7 @@ const ICONES = {
   livres: '<path d="M4.5 5h3.5v14.5H4.5zM9.5 5H13v14.5H9.5z"/><path d="M14.6 5.9l3.4-.9 3.5 13.3-3.4.9z"/>',
   pavillon: '<path d="M3.5 20.5h17M6 20.5V11h12v9.5M9.5 11V6.5h5V11M11 6.5V3.5h2v3"/><path d="M9 14v3.5M12 14v3.5M15 14v3.5"/>',
   clsc: '<rect x="4.5" y="7" width="15" height="13.5" rx="1"/><path d="M12 10.2v6.3M8.9 13.4h6.2"/><path d="M9 7V4h6v3"/>',
-  lutrin: '<path d="M7 10h10l-1.6 10.5H8.6z"/><path d="M5 10h14"/><path d="M12 10V5.5M9.5 5.5h5"/>',
+  lutrin: '<path d="M2.5 9.5L12 5l9.5 4.5L12 14z"/><path d="M6.5 11.6v4.6c3.2 2.1 7.8 2.1 11 0v-4.6"/><path d="M21.5 9.5v5.5"/>',
   rondelle: '<ellipse cx="12" cy="10" rx="7.5" ry="3"/><path d="M4.5 10v3.5c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3V10"/>'
 };
 
@@ -153,6 +153,13 @@ const CONSEILS = [
   'Certains échecs coûtent une semaine. Gardez un œil sur l’échéance.',
   'Le journal garde la trace de vos missions et de votre protocole.',
   'Parlez aux gens : un détail glané au détour d’un corridor peut tout changer.'
+];
+
+const CONSEILS_SALLE = [
+  'Chaque activité se rejoue autant de fois que vous le voulez.',
+  'Sur la glace, surveillez la jauge d’équilibre : près des bords rouges, la chute guette.',
+  'Le menu pause permet de changer d’activité à tout moment.',
+  'Les sous-titres, le contraste et les commandes se règlent dans les options.'
 ];
 
 const FINS = {
@@ -567,7 +574,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
     if (avecFocus) requestAnimationFrame(() => {
       const zone = titre.pages[page];
       const cible = (page === 'principal' && avant === 'histoire') ? titre.items.histoire : (navigables(zone).find(n => n.hasAttribute('data-defaut')) || navigables(zone)[0]);
-      if (cible) cible.focus({ preventScroll: true });
+      if (cible) focaliser(cible);
     });
   }
 
@@ -662,8 +669,11 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
   function lieuDe(id) {
     return S.lieuxVus[id] || LIEUX[id] || null;
   }
+  function conseilsActifs() {
+    return S.modeJeu === 'salle' ? CONSEILS_SALLE : S.conseils;
+  }
   function conseilSuivant() {
-    const liste = S.conseils;
+    const liste = conseilsActifs();
     if (!liste.length) return;
     chargement.indice = (chargement.indice + 1) % liste.length;
     chargement.conseil.style.opacity = '0';
@@ -671,7 +681,8 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
   }
   function demarrerConseils() {
     clearInterval(chargement.minuterie);
-    if (!chargement.conseil.textContent) chargement.conseil.textContent = fr(S.conseils[chargement.indice % S.conseils.length]);
+    const liste = conseilsActifs();
+    chargement.conseil.textContent = fr(liste[chargement.indice % liste.length]);
     chargement.minuterie = setInterval(conseilSuivant, 8000);
   }
 
@@ -1181,7 +1192,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
     const k = r / RAYON_MINICARTE_M;
     const { x, z, angle } = S.carte;
     const cam = S.carte.camAngle;
-    const phi = Number.isFinite(cam) ? cam - Math.PI : 0;
+    const phi = Number.isFinite(cam) ? cam : 0;
     hud.monde.style.transform = phi ? `rotate(${phi.toFixed(4)}rad)` : '';
     const b = S.zone && S.zone.bounds;
     if (b && (S.zone.carte || S.zone.image)) {
@@ -1581,7 +1592,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
       requestAnimationFrame(() => {
         const p = journal.onglets.panneaux[id];
         const cible = p.querySelector('.choisie[data-nav]') || navigables(p)[0];
-        (cible || journal.onglets.boutons[id]).focus({ preventScroll: true });
+        focaliser((cible || journal.onglets.boutons[id]));
       });
     }
   }
@@ -2039,7 +2050,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
     const premiere = SCHEMA_OPTIONS.find(s => s.id === id).lignes[0];
     montrerAideOption(premiere);
     if (change && depuisUtilisateur) son('ui_page');
-    if (depuisUtilisateur) requestAnimationFrame(() => { const c = navigables(panneau)[0]; (c || options.onglets.boutons[id]).focus({ preventScroll: true }); });
+    if (depuisUtilisateur) requestAnimationFrame(() => { const c = navigables(panneau)[0]; focaliser((c || options.onglets.boutons[id])); });
   }
 
   function construireLigneOption(def) {
@@ -2048,7 +2059,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
     let controle;
     let maj;
     if (def.type === 'choix') {
-      const segs = def.valeurs.map(([v, lib]) => el('button', { class: 'ui-segment', type: 'button', role: 'radio', tabindex: '-1', 'data-valeur': v, onclick: (ev) => { ev.stopPropagation(); changerOption(def.cle, v); controle.focus({ preventScroll: true }); } }, lib));
+      const segs = def.valeurs.map(([v, lib]) => el('button', { class: 'ui-segment', type: 'button', role: 'radio', tabindex: '-1', 'data-valeur': v, onclick: (ev) => { ev.stopPropagation(); changerOption(def.cle, v); focaliser(controle); } }, lib));
       controle = el('div', { class: 'ui-segments', role: 'radiogroup', tabindex: '0', 'aria-labelledby': idLib, 'data-nav': '', 'data-nav-h': '' }, segs);
       controle._ajuster = (sens) => {
         const vals = def.valeurs.map(x => x[0]);
@@ -2085,7 +2096,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
         fixer(def.min + ((ev.clientX - r.left) / r.width) * (def.max - def.min));
       };
       controle.addEventListener('pointerdown', (ev) => {
-        controle.focus({ preventScroll: true });
+        focaliser(controle);
         controle.setPointerCapture(ev.pointerId);
         depuisPointeur(ev);
         const bouge = (e2) => depuisPointeur(e2);
@@ -2222,7 +2233,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
     sallesVue.liste.replaceChildren(...cartes);
     const cible = (focusAvant && sallesVue.liste.querySelector(`[data-cle="${CSS.escape(focusAvant)}"]`)) || null;
     if (premier) premier.setAttribute('data-defaut', '');
-    if (cible) cible.focus({ preventScroll: true });
+    if (cible) focaliser(cible);
   }
 
   function choisirActivite(sa, a, dispo) {
@@ -2480,7 +2491,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
     tirer.hidden = true;
     const boutons = el('div', { class: 'ui-tc-boutons' }, interagir, sauter, tirer);
     const haut = el('div', { class: 'ui-tc-haut' },
-      el('button', { class: 'ui-bouton-icone', type: 'button', 'aria-label': 'Journal', onclick: () => actionTactile('journal') }, icone('journal')),
+      el('button', { class: 'ui-bouton-icone ui-tc-journal', type: 'button', 'aria-label': 'Journal', onclick: () => actionTactile('journal') }, icone('journal')),
       el('button', { class: 'ui-bouton-icone', type: 'button', 'aria-label': 'Carte', onclick: () => actionTactile('carte') }, icone('carte')),
       el('button', { class: 'ui-bouton-icone', type: 'button', 'aria-label': 'Pause', onclick: () => actionTactile('pause') }, icone('pause')));
     const e = el('div', { class: 'ui-tactile' }, regard, joystick, boutons, haut);
@@ -2651,6 +2662,16 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
 
   /* ---------- Navigation ---------- */
 
+  function marquerSel(t) {
+    if (selection && selection !== t) selection.classList.remove('ui-sel');
+    if (t && t.classList && racine.contains(t)) { t.classList.add('ui-sel'); selection = t; } else selection = null;
+  }
+  function focaliser(n) {
+    if (!n || typeof n.focus !== 'function') return;
+    n.focus({ preventScroll: true });
+    if (document.activeElement === n) marquerSel(n);
+  }
+
   function navigables(zone) {
     if (!zone) return [];
     return [...zone.querySelectorAll('[data-nav]')].filter(n => !n.hasAttribute('data-nav-ignore') && visible(n) && zone.contains(n));
@@ -2675,7 +2696,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
       || (panneau && liste.find(n => panneau.contains(n)))
       || liste.find(n => n.getAttribute('aria-selected') === 'true')
       || liste[0];
-    if (cible) cible.focus({ preventScroll: true });
+    if (cible) focaliser(cible);
   }
 
   function voisin(courant, dir, liste) {
@@ -2739,7 +2760,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
       }
     }
     if (cible && cible !== a) {
-      cible.focus({ preventScroll: true });
+      focaliser(cible);
       cible.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: S.options.reduireMouvement ? 'auto' : 'smooth' });
     }
   }
@@ -2753,7 +2774,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
     const i = ordre.indexOf(courant);
     const j = (i + sens + ordre.length) % ordre.length;
     c.changer(ordre[j]);
-    if (garderFocusOnglet) requestAnimationFrame(() => c.onglets.boutons[ordre[j]].focus({ preventScroll: true }));
+    if (garderFocusOnglet) requestAnimationFrame(() => focaliser(c.onglets.boutons[ordre[j]]));
   }
 
   function activer(n) {
@@ -2822,7 +2843,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
     if (opts.sansFocus) return;
     const f = c.retourFocus;
     const zone = zoneActive();
-    if (f && zone && zone.contains(f) && visible(f)) f.focus({ preventScroll: true });
+    if (f && zone && zone.contains(f) && visible(f)) focaliser(f);
     else if (zone) focusInitial(zone);
     else if (document.activeElement && racine.contains(document.activeElement)) document.activeElement.blur();
   }
@@ -2860,7 +2881,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
     if (S.base === 'salle_fin') majSalleFin(donnees);
     if (S.base === 'hud') { const p = partieCourante(); if (p && p.mode) definirModeJeu(p.mode); }
     if (S.base === 'chargement') {
-      if (S.chapitreCourant && donnees.chapitre == null && !S.chargementDemarrage) chargement.surtitre.textContent = fr(libelleChapitre(S.chapitreCourant));
+      chargement.surtitre.textContent = (S.chapitreCourant && S.modeJeu !== 'salle' && !S.chargementDemarrage) ? fr(libelleChapitre(S.chapitreCourant)) : (S.modeJeu === 'salle' ? fr('Mode salle') : '');
       majChargement(donnees);
       demarrerConseils();
     } else { clearInterval(chargement.minuterie); S.chargementDemarrage = false; }
@@ -2983,14 +3004,13 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
     if (e.pointerType !== 'mouse') return;
     const t = e.target.closest('[data-nav]');
     const zone = zoneActive();
-    if (t && zone && zone.contains(t) && t !== document.activeElement && visible(t) && !t.hasAttribute('data-defile')) t.focus({ preventScroll: true });
+    if (t && zone && zone.contains(t) && t !== document.activeElement && visible(t) && !t.hasAttribute('data-defile')) focaliser(t);
   });
   let selection = null;
   ecouter(racine, 'focusin', (e) => {
     const t = e.target;
     if (t.matches && t.matches('[data-nav]')) son('ui_survol');
-    if (selection && selection !== t) selection.classList.remove('ui-sel');
-    if (t.classList) { t.classList.add('ui-sel'); selection = t; }
+    marquerSel(t);
   });
   ecouter(window, 'pointerdown', (e) => { definirEntree(e.pointerType === 'touch' ? 'tactile' : 'clavier'); }, true);
   ecouter(window, 'mousemove', (e) => { if (S.entree === 'manette' && (Math.abs(e.movementX) + Math.abs(e.movementY) > 6)) definirEntree('clavier'); }, { passive: true });

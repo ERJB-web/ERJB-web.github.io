@@ -1,9 +1,9 @@
-import { h, s, icone, vider, nombre, pct, humaniser, styleSecteurs, cheminSymbole, pastilleSecteur } from '../noyau.js?v=0a002b19d4';
+import { h, s, icone, vider, nombre, pct, humaniser, styleSecteurs, cheminSymbole, pastilleSecteur } from '../noyau.js?v=11a8d44cf2';
 import {
   voronoi, contourTampon, distance, statsSecteur, deuxEtapes, zonesSansRessource, seuilsQuantiles, classeDe,
   populationTotale, capaciteDe, capaciteConnue, pointDansPolygone, normaliser, enveloppeConvexe, couperRectangle, densitePour1000,
-} from '../calculs.js?v=0a002b19d4';
-import { panneauQuestions } from './questions.js?v=0a002b19d4';
+} from '../calculs.js?v=11a8d44cf2';
+import { panneauQuestions } from './questions.js?v=11a8d44cf2';
 
 const RAMPE_POP = ['#EEF4F7', '#C9D9E3', '#8DB5D3', '#3F86BF', '#0D4F86'];
 const RAMPE_ACCES = ['#F3DCD9', '#CDEBEA', '#7FD0CD', '#2BAEAB', '#0B7472'];
@@ -102,7 +102,7 @@ export function rendre(def, coque) {
   const domaines = [...new Set(C.ressources.map((r) => r.domaine).filter(Boolean))];
   const avecAttente = C.ressources.some((r) => r.attente != null);
   const libZone = C.zones.some((z) => z.type) ? humaniser(C.zones.find((z) => z.type).type) : 'Aire de diffusion';
-  const libZones = C.zones.some((z) => z.type) ? `${libZone.toLowerCase()}s` : 'aires de diffusion';
+  const libZones = pluriel(minuscule(libZone));
   const etat = {
     fond: 'pop',
     visibles: new Set(C.secteurs.map((x) => x.id)),
@@ -115,6 +115,8 @@ export function rendre(def, coque) {
     outil: 'deplacer',
   };
   const vue = { x: (C.boite.x0 + C.boite.x1) / 2, y: (C.boite.y0 + C.boite.y1) / 2, w: (C.boite.x1 - C.boite.x0) * 1.12 || 1000 };
+  let ajuste = false;
+  const largeurAjustee = (r) => Math.max(C.boite.x1 - C.boite.x0, (C.boite.y1 - C.boite.y0) * (r.width / Math.max(1, r.height))) * 1.1 || 1000;
   let mesure = null;
   let identifie = null;
   const popTot = populationTotale(C.zones);
@@ -292,7 +294,8 @@ export function rendre(def, coque) {
   });
 
   function borneW(w) {
-    const base = (C.boite.x1 - C.boite.x0) * 1.12 || 1000;
+    const r = svg.getBoundingClientRect();
+    const base = r.width ? largeurAjustee(r) : (C.boite.x1 - C.boite.x0) * 1.12 || 1000;
     return Math.min(base * 3, Math.max(base / 12, w));
   }
 
@@ -306,6 +309,7 @@ export function rendre(def, coque) {
   function appliquerVue() {
     const r = svg.getBoundingClientRect();
     if (!r.width) return;
+    if (!ajuste) { ajuste = true; vue.w = largeurAjustee(r); }
     const k = vue.w / r.width;
     const hgt = r.height * k;
     svg.setAttribute('viewBox', `${vue.x - vue.w / 2} ${-vue.y - hgt / 2} ${vue.w} ${hgt}`);
@@ -334,7 +338,8 @@ export function rendre(def, coque) {
   function recentrer() {
     vue.x = (C.boite.x0 + C.boite.x1) / 2;
     vue.y = (C.boite.y0 + C.boite.y1) / 2;
-    vue.w = (C.boite.x1 - C.boite.x0) * 1.12 || 1000;
+    const r = svg.getBoundingClientRect();
+    vue.w = r.width ? largeurAjustee(r) : (C.boite.x1 - C.boite.x0) * 1.12 || 1000;
     appliquerVue();
   }
 
@@ -473,7 +478,7 @@ export function rendre(def, coque) {
     let rampe;
     let titreLeg;
     let fmt = (v) => nombre(v);
-    if (etat.fond === 'pop') { valeurs = C.zones.map((z) => z.pop65); rampe = RAMPE_POP; titreLeg = `Aînés de 65 ans et plus par ${libZone.toLowerCase()}`; }
+    if (etat.fond === 'pop') { valeurs = C.zones.map((z) => z.pop65); rampe = RAMPE_POP; titreLeg = `Aînés de 65 ans et plus par ${minuscule(libZone)}`; }
     else if (etat.fond === 'acces') {
       valeurs = deuxEtapes(actives, C.zones, rayonA).acces;
       rampe = RAMPE_ACCES;
@@ -551,7 +556,7 @@ export function rendre(def, coque) {
       const st = statsSecteur(rs, C.zones, rayon);
       const n = C.parTerritoire ? rs.reduce((t, r) => t + (capaciteConnue(r) ? r.capacite : 0), 0) : rs.filter((r) => capaciteDe(r) > 0).length;
       const cache = !etat.visibles.has(x.id) || (tousSecteur.length && !rs.length);
-      tbody.append(h('tr', { class: `${cache ? 'dfx-sig-ligne-cachee' : ''}${tousSecteur.length === 0 ? ' dfx-sig-ligne-absente' : ''}` },
+      tbody.append(h('tr', { class: `${cache ? 'dfx-sig-ligne-cachee' : ''}${tousSecteur.length === 0 && !C.parTerritoire ? ' dfx-sig-ligne-absente' : ''}` },
         h('th', { scope: 'row' }, pastilleSecteur(x, 14), h('span', { text: x.nom })),
         h('td', { brut: String(n) }),
         h('td', { brut: nombre(densitePour1000(n, popTot), 2) }),
@@ -651,7 +656,7 @@ export function rendre(def, coque) {
       }));
     }
     return h('div', { class: 'dfx-sig-secteur' },
-      h('label', { class: 'dfx-choix-ligne' }, inp, pastilleSecteur(x, 16), h('span', { text: x.nom }), h('span', { class: `dfx-sig-n${n ? '' : ' dfx-sig-n--zero'}`, brut: String(n) })),
+      h('label', { class: 'dfx-choix-ligne' }, inp, pastilleSecteur(x, 16), h('span', { text: x.nom }), h('span', { class: `dfx-sig-n${n || C.parTerritoire ? '' : ' dfx-sig-n--zero'}`, brut: String(n) })),
       sous);
   }
   function choixDomaine() {
@@ -708,6 +713,21 @@ export function rendre(def, coque) {
   }
 
   return { surTempsEcoule: () => finir(true) };
+}
+
+function minuscule(t) {
+  const mots = String(t).split(' ');
+  if (mots[0] && mots[0] !== mots[0].toUpperCase()) mots[0] = mots[0].charAt(0).toLowerCase() + mots[0].slice(1);
+  return mots.join(' ');
+}
+
+function pluriel(t) {
+  const mots = String(t).split(' ');
+  const m = mots[0];
+  if (m && !/[sxz]$/i.test(m)) mots[0] = /al$/i.test(m) ? m.replace(/al$/i, 'aux') : `${m}s`;
+  const de = mots.indexOf('de');
+  for (let i = 1; i < (de > 0 ? de : mots.length); i++) if (/^[a-zà-ÿ]+$/.test(mots[i]) && !/[sxz]$/.test(mots[i])) mots[i] = `${mots[i]}s`;
+  return mots.join(' ');
 }
 
 function polyD(poly, inverser = true) {

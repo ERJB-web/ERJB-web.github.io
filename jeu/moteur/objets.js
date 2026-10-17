@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GROUPES, groupes } from './physique.js?v=0a002b19d4';
+import { GROUPES, groupes } from './physique.js?v=11a8d44cf2';
 
 const TOUT = 0xffff;
 const AXE_Y = new THREE.Vector3(0, 1, 0);
@@ -207,6 +207,8 @@ export function creerObjets({ physique, audio, bus }) {
     };
     objet.userData.dynamique = d;
     dynamiques.push(d);
+    // au repos jusqu'au premier contact : un objet posé ne s'envole pas au chargement
+    corps.sleep();
     return d;
   }
 

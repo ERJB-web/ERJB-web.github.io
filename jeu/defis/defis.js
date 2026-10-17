@@ -1,15 +1,15 @@
-import { h, s, icone, typo, vider, pct, duree, focusables, portrait, roleCanonique, NOMS_PERSONNAGES, humaniser, NB } from './noyau.js?v=0a002b19d4';
-import { borner, hacher, generateur } from './calculs.js?v=0a002b19d4';
-import * as choix from './types/choix.js?v=0a002b19d4';
-import * as tri from './types/tri.js?v=0a002b19d4';
-import * as ordre from './types/ordre.js?v=0a002b19d4';
-import * as requete from './types/requete.js?v=0a002b19d4';
-import * as criblage from './types/criblage.js?v=0a002b19d4';
-import * as correspondance from './types/correspondance.js?v=0a002b19d4';
-import * as carte from './types/carte.js?v=0a002b19d4';
-import * as reseau from './types/reseau.js?v=0a002b19d4';
-import * as jury from './types/jury.js?v=0a002b19d4';
-import * as pitch from './types/pitch.js?v=0a002b19d4';
+import { h, s, icone, typo, vider, pct, duree, focusables, portrait, roleCanonique, NOMS_PERSONNAGES, humaniser, NB } from './noyau.js?v=11a8d44cf2';
+import { borner, hacher, generateur } from './calculs.js?v=11a8d44cf2';
+import * as choix from './types/choix.js?v=11a8d44cf2';
+import * as tri from './types/tri.js?v=11a8d44cf2';
+import * as ordre from './types/ordre.js?v=11a8d44cf2';
+import * as requete from './types/requete.js?v=11a8d44cf2';
+import * as criblage from './types/criblage.js?v=11a8d44cf2';
+import * as correspondance from './types/correspondance.js?v=11a8d44cf2';
+import * as carte from './types/carte.js?v=11a8d44cf2';
+import * as reseau from './types/reseau.js?v=11a8d44cf2';
+import * as jury from './types/jury.js?v=11a8d44cf2';
+import * as pitch from './types/pitch.js?v=11a8d44cf2';
 
 const TYPES = {
   choix: { module: choix, libelle: 'Dilemme méthodologique', icone: 'balance' },
@@ -147,6 +147,7 @@ function creerCoque(def, ctx, type, resolve) {
     }
   }
   racine.addEventListener('keydown', surClavier);
+  for (const nom of ['keydown', 'keyup', 'keypress']) racine.addEventListener(nom, (e) => e.stopPropagation());
   ev(document, 'keydown', (e) => { if (e.key !== 'Tab' && !racine.contains(e.target)) e.stopPropagation(); }, true);
 
   function ev(cible, nom, fn, opts) {
@@ -491,6 +492,7 @@ function creerCoque(def, ctx, type, resolve) {
     annoncer: (t) => { annonceur.textContent = ''; setTimeout(() => { annonceur.textContent = typo(t); }, 30); },
     setStatut: (t) => { statut.textContent = typo(t || ''); },
     setCompteur: (t) => { compteur.hidden = !t; compteur.textContent = typo(t || ''); },
+    setSurtitre: (t) => { const el = entete.querySelector('.dfx-surtitre'); if (el && t) el.textContent = typo(t); },
     reagir,
     nomPersonnage,
     descriptionPersonnage,

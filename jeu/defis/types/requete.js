@@ -1,5 +1,5 @@
-import { h, icone, vider, pct, nombre, compteurAnime, attendre } from '../noyau.js?v=0a002b19d4';
-import { analyserTerme, evaluerEquation, equationLignes, scoreRequete, termesTrouves, normaliser, vrai, listeMotsCles, modeRequete } from '../calculs.js?v=0a002b19d4';
+import { h, icone, vider, pct, nombre, compteurAnime, attendre } from '../noyau.js?v=11a8d44cf2';
+import { analyserTerme, evaluerEquation, equationLignes, scoreRequete, termesTrouves, normaliser, vrai, listeMotsCles, modeRequete } from '../calculs.js?v=11a8d44cf2';
 
 const MOTS_VIDES = new Set(['a', 'au', 'aux', 'avec', 'chez', 'd', 'dans', 'de', 'des', 'du', 'en', 'et', 'l', 'la', 'le', 'les', 'ou', 'par', 'pour', 'sur', 'un', 'une', 'plus', 'moins']);
 
