@@ -4675,3 +4675,18 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
     padding:13px 14px!important;
   }
 }
+
+/* Thèse : agrandir les figures de méthode sans les recadrer (octobre 2026). */
+@media (min-width: 1100px) {
+  #recherche .section-corps.pleine.these {
+    max-width: 1580px;
+  }
+}
+#recherche .figure-officielle.these-comparaison-intersectorielle {
+  padding: 6px 6px 12px;
+}
+#recherche .figure-officielle.these-comparaison-intersectorielle > a,
+#recherche .figure-officielle.these-comparaison-intersectorielle > a > img {
+  display: block;
+  max-width: 100%;
+}
