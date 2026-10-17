@@ -1,5 +1,5 @@
-import { h, icone, vider, pct, portrait, attendre } from '../noyau.js?v=fa2b8c1a0f';
-import { borner, scoreJury, humeurApres, normaliser } from '../calculs.js?v=fa2b8c1a0f';
+import { h, icone, vider, pct, portrait, attendre } from '../noyau.js?v=daaffb3e30';
+import { borner, scoreJury, humeurApres, normaliser } from '../calculs.js?v=daaffb3e30';
 
 export const chronoManuel = true;
 

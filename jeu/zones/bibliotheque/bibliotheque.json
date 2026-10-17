@@ -6,11 +6,15 @@
   "lightmaps": [
     {
       "fichier": "bibliotheque_lm0.webp",
-      "scale": 1.7305
+      "scale": 2.4019
     },
     {
       "fichier": "bibliotheque_lm1.webp",
-      "scale": 0.9962
+      "scale": 1.2505
+    },
+    {
+      "fichier": "bibliotheque_lm2.webp",
+      "scale": 2.2848
     }
   ],
   "env": {

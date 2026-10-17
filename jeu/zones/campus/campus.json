@@ -6,23 +6,23 @@
  "lightmaps": [
   {
    "fichier": "campus_lm0.webp",
-   "scale": 1.3073
+   "scale": 1.2641
   },
   {
    "fichier": "campus_lm1.webp",
-   "scale": 1.2979
+   "scale": 1.3089
   },
   {
    "fichier": "campus_lm2.webp",
-   "scale": 5.8361
+   "scale": 6.6616
   },
   {
    "fichier": "campus_lm3.webp",
-   "scale": 5.2761
+   "scale": 4.7473
   },
   {
    "fichier": "campus_lm4.webp",
-   "scale": 1.1551
+   "scale": 1.0016
   }
  ],
  "env": {
@@ -125,10 +125,28 @@
    "url": "https://polyhaven.com/a/marble_01"
   },
   {
-   "ressource": "Wood Table 001",
-   "auteur": "Dimitrios Savva, Rico Cilliers",
+   "ressource": "Dark Wood",
+   "auteur": "Dario Barresi, Dimitrios Savva, Rico Cilliers",
    "licence": "CC0",
-   "url": "https://polyhaven.com/a/wood_table_001"
+   "url": "https://polyhaven.com/a/dark_wood"
+  },
+  {
+   "ressource": "Walnut Veneer",
+   "auteur": "Jenelle van Heerden",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/walnut_veneer"
+  },
+  {
+   "ressource": "Herringbone Parquet",
+   "auteur": "Jenelle van Heerden, Sergej Majboroda",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/herringbone_parquet"
+  },
+  {
+   "ressource": "Oak Wood Planks",
+   "auteur": "Dimitrios Savva",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/oak_wood_planks"
   },
   {
    "ressource": "Painted Plaster Wall",
@@ -143,40 +161,10 @@
    "url": "https://polyhaven.com/a/linoleum_brown"
   },
   {
-   "ressource": "Oak Wood Planks",
-   "auteur": "Dimitrios Savva",
-   "licence": "CC0",
-   "url": "https://polyhaven.com/a/oak_wood_planks"
-  },
-  {
    "ressource": "Brushed Concrete ",
    "auteur": "Dario Barresi, Dimitrios Savva",
    "licence": "CC0",
    "url": "https://polyhaven.com/a/brushed_concrete"
-  },
-  {
-   "ressource": "Dark Wood",
-   "auteur": "Dario Barresi, Dimitrios Savva, Rico Cilliers",
-   "licence": "CC0",
-   "url": "https://polyhaven.com/a/dark_wood"
-  },
-  {
-   "ressource": "Walnut Veneer",
-   "auteur": "Jenelle van Heerden",
-   "licence": "CC0",
-   "url": "https://polyhaven.com/a/walnut_veneer"
-  },
-  {
-   "ressource": "Herringbone Parquet",
-   "auteur": "Jenelle van Heerden, Sergej Majboroda",
-   "licence": "CC0",
-   "url": "https://polyhaven.com/a/herringbone_parquet"
-  },
-  {
-   "ressource": "Velour Velvet",
-   "auteur": "colormass, Rico Cilliers",
-   "licence": "CC0",
-   "url": "https://polyhaven.com/a/velour_velvet"
   },
   {
    "ressource": "Rough Linen",
@@ -185,10 +173,10 @@
    "url": "https://polyhaven.com/a/rough_linen"
   },
   {
-   "ressource": "Metal Plate",
-   "auteur": "Rob Tuytel",
+   "ressource": "Velour Velvet",
+   "auteur": "colormass, Rico Cilliers",
    "licence": "CC0",
-   "url": "https://polyhaven.com/a/metal_plate"
+   "url": "https://polyhaven.com/a/velour_velvet"
   },
   {
    "ressource": "Kloofendal 48d Partly Cloudy (Pure Sky)",
@@ -203,34 +191,16 @@
    "url": "https://polyhaven.com/a/SchoolChair_01"
   },
   {
-   "ressource": "Potted Plant 02",
-   "auteur": "Rico Cilliers",
-   "licence": "CC0",
-   "url": "https://polyhaven.com/a/potted_plant_02"
-  },
-  {
-   "ressource": "Dark Wood",
-   "auteur": "Dario Barresi, Dimitrios Savva, Rico Cilliers",
-   "licence": "CC0",
-   "url": "https://polyhaven.com/a/dark_wood"
-  },
-  {
-   "ressource": "Walnut Veneer",
-   "auteur": "Jenelle van Heerden",
-   "licence": "CC0",
-   "url": "https://polyhaven.com/a/walnut_veneer"
-  },
-  {
-   "ressource": "Herringbone Parquet",
-   "auteur": "Jenelle van Heerden, Sergej Majboroda",
-   "licence": "CC0",
-   "url": "https://polyhaven.com/a/herringbone_parquet"
-  },
-  {
    "ressource": "Lato",
    "auteur": "Łukasz Dziedzic",
    "licence": "OFL 1.1",
    "url": "https://fonts.google.com/specimen/Lato"
+  },
+  {
+   "ressource": "DejaVu Sans",
+   "auteur": "projet DejaVu (d'après Bitstream Vera)",
+   "licence": "licence libre Bitstream Vera",
+   "url": "https://dejavu-fonts.github.io/"
   }
  ]
 }
