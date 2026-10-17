@@ -209,6 +209,36 @@
    "texte": "Les domaines et vignettes d’O1 bornent O2 et O3 ; l’atlas d’O2 choisit les cas d’O3."
   },
   {
+   "section": "Méthodes · Classes latentes",
+   "defi": "quanti_classes_latentes",
+   "texte": "Au moins 2 000 personnes ; l’entropie ne sert pas à choisir le modèle."
+  },
+  {
+   "section": "Méthodes · Cooccurrence",
+   "defi": "quanti_jaccard",
+   "texte": "Jaccard = intersection ÷ union, comparé à l’attendu sous l’indépendance ; des demandes, pas des personnes."
+  },
+  {
+   "section": "Méthodes · Accessibilité",
+   "defi": "quanti_2sfca",
+   "texte": "2SFCA en deux étapes ; la somme pondérée redonne la capacité totale."
+  },
+  {
+   "section": "Méthodes · Dénominateurs",
+   "defi": "quanti_denominateur",
+   "texte": "Densités pour 1 000 personnes de 65 ans et plus, et de 75 ans et plus."
+  },
+  {
+   "section": "Méthodes · Inférence sur les réseaux",
+   "defi": "quanti_reseaux_inference",
+   "texte": "Modèle mixte pour des liens nichés, QAP pour comparer deux matrices, ERGM pour la structure, appariement optimal pour les séquences."
+  },
+  {
+   "section": "Méthodes · Agrégation",
+   "defi": "quanti_ecologique",
+   "texte": "Taux pondérés par la population ; aucune inférence individuelle à partir des territoires ; cellules de moins de 5 supprimées."
+  },
+  {
    "section": "O1 · Revue de portée",
    "defi": "pcc_revue",
    "texte": "JBI et PRISMA-ScR ; population, concept et contexte écrits d’avance."
@@ -297,17 +327,18 @@
  "chapitres": [
   {
    "id": "c1",
-   "titre": "Le séminaire de protocole",
-   "zone": "campus",
+   "titre": "Le séminaire et le cours de méthodes",
+   "zone": "espum",
    "intro": "c1_arrivee",
    "fin": "c1_fin",
-   "resume": "Pavillon Roger-Gaudry. Une question à défendre, quatre notions à distinguer et un courriel de 23 h 14.",
+   "resume": "L’ESPUM, au 7101, avenue du Parc : une question à défendre, quatre notions et un courriel de 23 h 14. Puis Roger-Gaudry, et un cours de méthodes quantitatives sur tes propres données.",
    "etapes": [
     {
      "id": "c1_e01",
-     "type": "ouvrir",
-     "cible": "DOOR_entree_g",
-     "objectif": "Pousser la porte du pavillon Roger-Gaudry"
+     "type": "aller",
+     "cible": "INTERACT_ascenseur",
+     "objectif": "Monter à l’étage de l’ESPUM",
+     "interagir": true
     },
     {
      "id": "c1_e02",
@@ -365,8 +396,8 @@
     {
      "id": "c1_e03",
      "type": "ouvrir",
-     "cible": "DOOR_g415",
-     "objectif": "Entrer dans la salle G-415"
+     "cible": "DOOR_seminaire",
+     "objectif": "Entrer dans la salle du séminaire de protocole"
     },
     {
      "id": "c1_e04",
@@ -503,7 +534,7 @@
      "id": "c1_e17",
      "type": "ouvrir",
      "cible": "DOOR_bureau",
-     "objectif": "Retourner au bureau des doctorants"
+     "objectif": "Retourner au local des doctorants"
     },
     {
      "id": "c1_e18",
@@ -573,8 +604,198 @@
     {
      "id": "c1_e25",
      "type": "aller",
+     "cible": "INTERACT_metro",
+     "objectif": "Prendre le métro à la station Parc jusqu’à Université-de-Montréal",
+     "interagir": true
+    },
+    {
+     "id": "c1_e26",
+     "type": "ouvrir",
+     "cible": "DOOR_entree_g",
+     "objectif": "Pousser la porte du pavillon Roger-Gaudry",
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e27",
+     "type": "dialogue",
+     "scene": "c1_roger_gaudry",
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e28",
+     "type": "ouvrir",
+     "cible": "DOOR_g415",
+     "objectif": "Entrer dans la salle G-415",
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e29",
+     "type": "aller",
+     "cible": "INTERACT_seminaire",
+     "objectif": "Prendre place au cours de méthodes quantitatives",
+     "zone": "campus",
+     "interagir": true
+    },
+    {
+     "id": "c1_e30",
+     "type": "dialogue",
+     "scene": "c1_quanti_intro",
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e31",
+     "type": "defi",
+     "defi": "quanti_classes_latentes",
+     "objectif": "Lire ta simulation de classes latentes",
+     "succes": {
+      "suivante": "c1_e32",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c1_e32"
+     },
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e32",
+     "type": "dialogue",
+     "scene": "c1_quanti_jaccard",
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e33",
+     "type": "defi",
+     "defi": "quanti_jaccard",
+     "objectif": "Calculer et interpréter un indice de Jaccard",
+     "succes": {
+      "suivante": "c1_e34",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c1_e34"
+     },
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e34",
+     "type": "aller",
+     "cible": "INTERACT_tableau_seminaire",
+     "objectif": "Calculer au tableau",
+     "zone": "campus",
+     "interagir": true
+    },
+    {
+     "id": "c1_e35",
+     "type": "dialogue",
+     "scene": "c1_quanti_2sfca",
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e36",
+     "type": "defi",
+     "defi": "quanti_2sfca",
+     "objectif": "Calculer un 2SFCA étape par étape",
+     "succes": {
+      "suivante": "c1_e37",
+      "pression": -8
+     },
+     "echec": {
+      "pression": 20,
+      "semaines": -1,
+      "suivante": "c1_e36r"
+     },
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e36r",
+     "type": "dialogue",
+     "scene": "c1_quanti_2sfca_r",
+     "suivante": "c1_e37",
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e37",
+     "type": "defi",
+     "defi": "quanti_denominateur",
+     "objectif": "Choisir le dénominateur d’une densité",
+     "succes": {
+      "suivante": "c1_e38",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c1_e38"
+     },
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e38",
+     "type": "dialogue",
+     "scene": "c1_quanti_reseaux",
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e39",
+     "type": "defi",
+     "defi": "quanti_reseaux_inference",
+     "objectif": "Choisir les méthodes d’inférence sur les réseaux",
+     "succes": {
+      "suivante": "c1_e40",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c1_e40"
+     },
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e40",
+     "type": "dialogue",
+     "scene": "c1_quanti_eco",
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e41",
+     "type": "defi",
+     "defi": "quanti_ecologique",
+     "objectif": "Déjouer le biais d’agrégation",
+     "succes": {
+      "suivante": "c1_e42",
+      "pression": -8
+     },
+     "echec": {
+      "pression": 20,
+      "semaines": -1,
+      "suivante": "c1_e41r"
+     },
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e41r",
+     "type": "dialogue",
+     "scene": "c1_quanti_eco_r",
+     "suivante": "c1_e42",
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e42",
+     "type": "dialogue",
+     "scene": "c1_quanti_fin",
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e43",
+     "type": "aller",
      "cible": "INTERACT_ascenseur",
      "objectif": "Monter à la Bibliothèque de la santé",
+     "zone": "campus",
      "interagir": true
     }
    ]
@@ -1507,7 +1728,7 @@
    "titre": "Les passes",
    "zone": "arena",
    "intro": "c4_arrivee",
-   "resume": "Aréna du CEPSUM. Apprendre à patiner, jouer pour vrai, et comprendre qu’un réseau, ce sont des passes.",
+   "resume": "Aréna du CEPSUM. Apprendre à patiner, jouer pour vrai, croiser un général et un chevalier, et comprendre qu’un réseau, ce sont des passes.",
    "etapes": [
     {
      "id": "c4_e01",
@@ -1948,43 +2169,53 @@
     },
     {
      "id": "c4_e25",
+     "type": "dialogue",
+     "scene": "c4_entracte",
+     "effets": {
+      "stats": {
+       "stress": -5
+      }
+     }
+    },
+    {
+     "id": "c4_e26",
      "type": "defi",
      "defi": "passes_reseau",
      "objectif": "Comparer la feuille de match et les déclarations",
      "succes": {
-      "suivante": "c4_e26",
+      "suivante": "c4_e27",
       "pression": -5
      },
      "echec": {
       "pression": 10,
       "semaines": 0,
-      "suivante": "c4_e26"
+      "suivante": "c4_e27"
      }
     },
     {
-     "id": "c4_e26",
+     "id": "c4_e27",
      "type": "parler",
      "cible": "NPC_chauffeur_zamboni",
      "scene": "c4_zamboni",
      "objectif": "Parler à Réal, sur la surfaceuse"
     },
     {
-     "id": "c4_e27",
+     "id": "c4_e28",
      "type": "defi",
      "defi": "pitch_zamboni",
      "objectif": "Expliquer ta thèse sans jargon",
      "succes": {
-      "suivante": "c4_e28",
+      "suivante": "c4_e29",
       "pression": -5
      },
      "echec": {
       "pression": 5,
       "semaines": 0,
-      "suivante": "c4_e28"
+      "suivante": "c4_e29"
      }
     },
     {
-     "id": "c4_e28",
+     "id": "c4_e29",
      "type": "dialogue",
      "scene": "c4_direction",
      "effets": {
@@ -1992,48 +2223,48 @@
      }
     },
     {
-     "id": "c4_e29",
+     "id": "c4_e30",
      "type": "defi",
      "defi": "arbitrage_semaines",
      "objectif": "Arbitrer avec ta direction",
      "succes": {
-      "suivante": "c4_e30",
+      "suivante": "c4_e31",
       "pression": -5
      },
      "echec": {
       "pression": 20,
       "semaines": -1,
-      "suivante": "c4_e29r"
+      "suivante": "c4_e30r"
      }
     },
     {
-     "id": "c4_e29r",
+     "id": "c4_e30r",
      "type": "dialogue",
      "scene": "c4_couper_r",
-     "suivante": "c4_e30"
+     "suivante": "c4_e31"
     },
     {
-     "id": "c4_e30",
+     "id": "c4_e31",
      "type": "dialogue",
      "scene": "c4_recensement"
     },
     {
-     "id": "c4_e31",
+     "id": "c4_e32",
      "type": "defi",
      "defi": "recensement_2026",
      "objectif": "Choisir tes dénominateurs",
      "succes": {
-      "suivante": "c4_e32",
+      "suivante": "c4_e33",
       "pression": -5
      },
      "echec": {
       "pression": 15,
       "semaines": 0,
-      "suivante": "c4_e32"
+      "suivante": "c4_e33"
      }
     },
     {
-     "id": "c4_e32",
+     "id": "c4_e33",
      "type": "dialogue",
      "scene": "c4_depart",
      "effets": {
@@ -2043,21 +2274,21 @@
      }
     },
     {
-     "id": "c4_e33",
+     "id": "c4_e34",
      "type": "aller",
      "cible": "INTERACT_sortie",
      "objectif": "Retourner au pavillon Roger-Gaudry",
      "interagir": true
     },
     {
-     "id": "c4_e34",
+     "id": "c4_e35",
      "type": "ouvrir",
      "cible": "DOOR_conseil",
      "objectif": "Ouvrir la porte de la salle du conseil",
      "zone": "campus"
     },
     {
-     "id": "c4_e35",
+     "id": "c4_e36",
      "type": "aller",
      "cible": "INTERACT_conseil",
      "objectif": "Entrer dans la salle du conseil",
@@ -2071,7 +2302,7 @@
    "titre": "La soutenance",
    "zone": "soutenance",
    "intro": "c5_arrivee",
-   "resume": "Salle du conseil. Trois membres du jury, dix-sept questions, et toutes les preuves récoltées.",
+   "resume": "Salle du conseil, à Roger-Gaudry. Trois membres du jury, dix-sept questions, et toutes les preuves récoltées.",
    "etapes": [
     {
      "id": "c5_e01",

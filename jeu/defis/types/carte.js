@@ -1,9 +1,9 @@
-import { h, s, icone, vider, nombre, pct, humaniser, styleSecteurs, cheminSymbole, pastilleSecteur } from '../noyau.js?v=6c5bfced27';
+import { h, s, icone, vider, nombre, pct, humaniser, styleSecteurs, cheminSymbole, pastilleSecteur } from '../noyau.js?v=fa2b8c1a0f';
 import {
   voronoi, contourTampon, distance, statsSecteur, deuxEtapes, zonesSansRessource, seuilsQuantiles, classeDe,
   populationTotale, capaciteDe, capaciteConnue, pointDansPolygone, normaliser, enveloppeConvexe, couperRectangle, densitePour1000,
-} from '../calculs.js?v=6c5bfced27';
-import { panneauQuestions } from './questions.js?v=6c5bfced27';
+} from '../calculs.js?v=fa2b8c1a0f';
+import { panneauQuestions } from './questions.js?v=fa2b8c1a0f';
 
 const RAMPE_POP = ['#EEF4F7', '#C9D9E3', '#8DB5D3', '#3F86BF', '#0D4F86'];
 const RAMPE_ACCES = ['#F3DCD9', '#CDEBEA', '#7FD0CD', '#2BAEAB', '#0B7472'];

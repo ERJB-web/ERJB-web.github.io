@@ -1,5 +1,5 @@
-import { h, icone, vider, glisser } from '../noyau.js?v=6c5bfced27';
-import { melanger, scoreCriblage, categorieMotif, normaliserDecision, motifsAcceptes } from '../calculs.js?v=6c5bfced27';
+import { h, icone, vider, glisser } from '../noyau.js?v=fa2b8c1a0f';
+import { melanger, scoreCriblage, categorieMotif, normaliserDecision, motifsAcceptes } from '../calculs.js?v=fa2b8c1a0f';
 
 export const chronoManuel = true;
 

@@ -561,6 +561,711 @@
     "Leutz WN (1999). Five laws for integrating medical and social services: lessons from the United States and the United Kingdom. The Milbank Quarterly, 77(1), 77-110."
    ]
   },
+  "quanti_classes_latentes": {
+   "id": "quanti_classes_latentes",
+   "type": "tri",
+   "titre": "Ce que dit la simulation",
+   "consigne": "La professeure Lhermite projette le tableau de ta simulation (section 6.3 de ta fiche). Pour chaque affirmation, dis si la simulation la soutient, la contredit, ou ne permet pas de trancher.",
+   "temps": 210,
+   "reussite": 0.75,
+   "bacs": [
+    {
+     "id": "soutenu",
+     "titre": "La simulation la soutient"
+    },
+    {
+     "id": "contredit",
+     "titre": "La simulation la contredit"
+    },
+    {
+     "id": "indetermine",
+     "titre": "La simulation ne permet pas de trancher"
+    }
+   ],
+   "cartes": [
+    {
+     "texte": "À 2 000 individus et 3,5 besoins par personne, le BIC retient les quatre classes dans la moitié des réplications.",
+     "bac": "soutenu",
+     "explication": "50 % à 2 000, 100 % à 5 000 : c’est le seuil de ta fiche."
+    },
+    {
+     "texte": "À 5 000 individus, le BIC retient les quatre classes dans toutes les réplications.",
+     "bac": "soutenu",
+     "explication": "100 % des 20 réplications."
+    },
+    {
+     "texte": "Sous 1 000 individus, le BIC fusionne les profils en deux ou trois classes.",
+     "bac": "soutenu",
+     "explication": "0 % de récupération à 150, 300 et 500 ; 5 % à 1 000. Le BIC est conservateur quand l’échantillon est petit (Nylund et al., 2007)."
+    },
+    {
+     "texte": "À 150 individus, l’entropie de 0,82 montre que les classes sont bien retrouvées.",
+     "bac": "contredit",
+     "explication": "L’entropie décrit la netteté du classement, pas sa justesse : elle baisse quand n augmente (0,82 à 150, 0,61 à 5 000) alors que l’ARI monte (0,40 à 0,56). Elle ne sert pas à choisir un modèle (Weller et al., 2020)."
+    },
+    {
+     "texte": "L’ARI plafonne vers 0,55, même à 5 000 individus, parce que les profils simulés se chevauchent.",
+     "bac": "soutenu",
+     "explication": "Un ARI de 1 serait un accord parfait, 0 le hasard (Hubert et Arabie, 1985). Des profils qui se recouvrent, comme dans la réalité, limitent l’accord possible."
+    },
+    {
+     "texte": "Un questionnaire de 300 à 500 usagers ne donnerait que deux ou trois grands profils.",
+     "bac": "soutenu",
+     "explication": "C’est la conséquence nº 3 de ta fiche : profils fixés d’avance ou grappes descriptives validées qualitativement."
+    },
+    {
+     "texte": "Avec 5 000 demandes au 211, l’ARI reste à 0,13 : à peine mieux que le hasard.",
+     "bac": "soutenu",
+     "explication": "Scénario B : 1,4 besoin par demande, 56 % des demandes avec un besoin ou aucun."
+    },
+    {
+     "texte": "Avec assez de demandes au 211, on finirait par retrouver les quatre profils.",
+     "bac": "contredit",
+     "explication": "Aucune taille ne le permet : 0 % de récupération de 150 à 5 000 demandes, et un ARI qui stagne. Le problème est la densité des besoins, pas la taille."
+    },
+    {
+     "texte": "Avec 20 besoins au lieu de 10, 500 usagers suffiraient.",
+     "bac": "indetermine",
+     "explication": "Ce scénario n’a pas été simulé. Il faudrait le tester avant de l’écrire."
+    },
+    {
+     "texte": "Les usagers du SAD du CCSMTL forment exactement quatre profils.",
+     "bac": "indetermine",
+     "explication": "Quatre est une hypothèse de la simulation, pas un résultat sur les usagers réels."
+    },
+    {
+     "texte": "Sur les demandes au 211, des k-moyennes retrouveraient les profils que les classes latentes ratent.",
+     "bac": "indetermine",
+     "explication": "Non simulé. Mais la difficulté vient des données (1,4 besoin par demande), pas de l’algorithme (Steinley, 2006)."
+    }
+   ],
+   "retour": {
+    "succes": "Tu lis une simulation comme une statisticienne la lirait : ce qu’elle montre, ce qu’elle réfute, et ce qu’elle ne teste pas. La professeure Lhermite range son crayon rouge.",
+    "echec": "Une simulation ne dit que ce qu’elle a simulé. Et une entropie élevée n’est pas une bonne nouvelle en soi (Weller et al., 2020)."
+   },
+   "effets": {
+    "succes": {
+     "stats": {
+      "rigueur": 6,
+      "confiance": 4,
+      "stress": -2
+     },
+     "preuves": [
+      "p_simulation_lca"
+     ]
+    },
+    "echec": {
+     "stats": {
+      "rigueur": 1,
+      "confiance": -4,
+      "stress": 8,
+      "energie": -3
+     }
+    }
+   },
+   "references": [
+    "Nylund KL, Asparouhov T, Muthén BO (2007). Deciding on the number of classes in latent class analysis and growth mixture modeling: a Monte Carlo simulation study. Structural Equation Modeling, 14(4), 535-569.",
+    "Weller BE, Bowen NK, Faubert SJ (2020). Latent class analysis: a guide to best practice. Journal of Black Psychology, 46(4), 287-311.",
+    "Hubert L, Arabie P (1985). Comparing partitions. Journal of Classification, 2, 193-218.",
+    "Collins LM, Lanza ST (2010). Latent Class and Latent Transition Analysis: With Applications in the Social, Behavioral, and Health Sciences. Wiley.",
+    "Steinley D (2006). K-means clustering: a half-century synthesis. British Journal of Mathematical and Statistical Psychology, 59(1), 1-34."
+   ]
+  },
+  "quanti_jaccard": {
+   "id": "quanti_jaccard",
+   "type": "choix",
+   "titre": "Intersection sur union",
+   "consigne": "Calcule et interprète.",
+   "situation": "Exemple fictif au tableau : sur 1 000 demandes de 70 ans et plus, 180 contiennent un besoin de logement, 120 un besoin d’alimentation, et 45 les deux. Que conclus-tu ?",
+   "temps": 150,
+   "options": [
+    {
+     "texte": "Jaccard = 45 ÷ 255 = 0,18. Et 45 dépasse les 21,6 demandes attendues si les deux besoins étaient indépendants : dans une même demande, la paire se cumule plus que le hasard.",
+     "correct": 1,
+     "retour": "Union = 180 + 120 − 45 = 255. Sous l’indépendance : 180 × 120 ÷ 1 000 = 21,6. Le Jaccard ignore les demandes sans aucun des deux besoins, ce qui le rend stable quand le volume change (Jaccard, 1912). Et ce sont des demandes, pas des personnes."
+    },
+    {
+     "texte": "Jaccard = 45 ÷ 1 000 = 0,045 : la paire est rare.",
+     "correct": 0.2,
+     "retour": "0,045 est la fréquence conjointe, pas le Jaccard. Elle dépend de toutes les demandes sans ces besoins, ce que le Jaccard évite justement."
+    },
+    {
+     "texte": "Jaccard = 45 ÷ 120 = 0,375 : plus du tiers des aînés qui manquent de nourriture ont aussi un problème de logement.",
+     "correct": 0.3,
+     "retour": "C’est une proportion conditionnelle, pas un Jaccard. Et « des aînés » : non, des demandes."
+    },
+    {
+     "texte": "Jaccard = 0,18 : donc 18 % des aînés cumulent les deux besoins.",
+     "correct": 0.4,
+     "retour": "Le bon chiffre, la mauvaise phrase. Le Jaccard n’est pas une prévalence, et une demande n’est pas une personne."
+    }
+   ],
+   "retour": {
+    "succes": "« Intersection sur union, et comparé à l’attendu. » La professeure Lhermite le fait répéter à toute la classe.",
+    "echec": "Le Jaccard, c’est l’intersection divisée par l’union. La fréquence conjointe et la proportion conditionnelle répondent à d’autres questions."
+   },
+   "effets": {
+    "succes": {
+     "stats": {
+      "rigueur": 6,
+      "confiance": 4,
+      "stress": -2
+     }
+    },
+    "echec": {
+     "stats": {
+      "rigueur": 1,
+      "confiance": -4,
+      "stress": 8,
+      "energie": -3
+     }
+    }
+   },
+   "references": [
+    "Jaccard P (1912). The distribution of the flora in the alpine zone. New Phytologist, 11(2), 37-50.",
+    "Kreuter MW, Garg R, Li L, et al. (2021). How do social needs cluster among low-income individuals? Population Health Management, 24(3), 322-332.",
+    "Robinson WS (1950). Ecological correlations and the behavior of individuals. American Sociological Review, 15(3), 351-357."
+   ]
+  },
+  "quanti_2sfca": {
+   "id": "quanti_2sfca",
+   "type": "carte",
+   "titre": "Un 2SFCA à la craie",
+   "consigne": "Exemple fictif, calculé à la main : cinq aires de diffusion, deux centres de jour, un bassin de 1 000 m à pied. Réponds étape par étape. Coordonnées en mètres.",
+   "temps": 420,
+   "reussite": 0.7,
+   "territoire": "Quartier fictif, cinq aires de diffusion",
+   "note": "Données entièrement fictives. Distances à vol d’oiseau, en mètres.",
+   "echelle": {
+    "unite": "m",
+    "largeur": 3000,
+    "hauteur": 1500
+   },
+   "secteurs": [
+    {
+     "id": "S1",
+     "nom": "Réseau public"
+    },
+    {
+     "id": "S2",
+     "nom": "Première ligne"
+    },
+    {
+     "id": "S3",
+     "nom": "Parapublic"
+    },
+    {
+     "id": "S4",
+     "nom": "Communauté"
+    },
+    {
+     "id": "S5",
+     "nom": "Ville et municipalité"
+    },
+    {
+     "id": "S6",
+     "nom": "Habitation"
+    }
+   ],
+   "ressources": [
+    {
+     "nom": "Centre de jour Les Glaneurs",
+     "secteur": "S4",
+     "type": "centre_de_jour",
+     "domaine": "isolement",
+     "x": 500,
+     "y": 500,
+     "capacite": 30,
+     "attente": 0
+    },
+    {
+     "nom": "Centre de jour La Passerelle",
+     "secteur": "S4",
+     "type": "centre_de_jour",
+     "domaine": "isolement",
+     "x": 1600,
+     "y": 600,
+     "capacite": 20,
+     "attente": 0
+    }
+   ],
+   "zonesAD": [
+    {
+     "id": "V1",
+     "pop65": 400,
+     "x": 300,
+     "y": 300
+    },
+    {
+     "id": "V2",
+     "pop65": 600,
+     "x": 900,
+     "y": 400
+    },
+    {
+     "id": "V3",
+     "pop65": 500,
+     "x": 1300,
+     "y": 900
+    },
+    {
+     "id": "V4",
+     "pop65": 300,
+     "x": 2000,
+     "y": 300
+    },
+    {
+     "id": "V5",
+     "pop65": 450,
+     "x": 2600,
+     "y": 1200
+    }
+   ],
+   "questions": [
+    {
+     "texte": "Étape 1 : population de 65 ans et plus dans le bassin des Glaneurs ?",
+     "reponses": [
+      "1 500",
+      "1 000",
+      "2 250",
+      "400"
+     ],
+     "correcte": 0,
+     "explication": "V1, V2 et V3 sont à moins de 1 000 m (283, 412 et 894 m) : 400 + 600 + 500 = 1 500."
+    },
+    {
+     "texte": "Étape 1 : ratio des Glaneurs, pour 1 000 aînés ?",
+     "reponses": [
+      "20",
+      "30",
+      "13,3",
+      "2"
+     ],
+     "correcte": 0,
+     "explication": "30 places ÷ 1 500 aînés × 1 000 = 20."
+    },
+    {
+     "texte": "Étape 1 : ratio de La Passerelle, pour 1 000 aînés ?",
+     "reponses": [
+      "14,3",
+      "20",
+      "6,7",
+      "33,3"
+     ],
+     "correcte": 0,
+     "explication": "Bassin : V2, V3 et V4, soit 1 400 aînés. 20 ÷ 1 400 × 1 000 = 14,3."
+    },
+    {
+     "texte": "Étape 2 : accessibilité de V3, pour 1 000 aînés ?",
+     "reponses": [
+      "34,3",
+      "20",
+      "14,3",
+      "50"
+     ],
+     "correcte": 0,
+     "explication": "V3 atteint les deux centres : on additionne leurs ratios, 20 + 14,3 (Luo et Wang, 2003)."
+    },
+    {
+     "texte": "Vérification : que donne la somme, sur les cinq AD, de la population multipliée par l’accessibilité ?",
+     "reponses": [
+      "50 places, la capacité totale",
+      "34,3",
+      "2 250",
+      "100 places"
+     ],
+     "correcte": 0,
+     "explication": "400 × 0,020 + 600 × 0,0343 + 500 × 0,0343 + 300 × 0,0143 + 450 × 0 = 50 = 30 + 20. Le 2SFCA redistribue l’offre sans en créer ni en perdre."
+    },
+    {
+     "texte": "V5 obtient 0. Que conclure ?",
+     "reponses": [
+      "Aucun centre à moins de 1 000 m à pied : vérifier le bassin de 30 minutes en transport collectif avant de parler d’offre absente",
+      "Offre absente sur le territoire",
+      "Les aînés de V5 n’ont pas besoin de centre de jour",
+      "Agrandir le rayon jusqu’à ce que V5 soit couverte"
+     ],
+     "correcte": 0,
+     "explication": "Zéro à pied ne veut pas dire zéro : ta fiche prévoit aussi des bassins de 15 et 30 minutes en transport collectif."
+    },
+    {
+     "texte": "Pourquoi passer à l’E2SFCA ?",
+     "reponses": [
+      "Il pondère par la distance dans le bassin : une AD à 900 m ne compte pas comme une AD à 300 m",
+      "Il ajoute la capacité, que le 2SFCA ignore",
+      "Il supprime le besoin de choisir un rayon",
+      "Il corrige les listes d’attente"
+     ],
+     "correcte": 0,
+     "explication": "L’E2SFCA découpe le bassin en anneaux pondérés (Luo et Qi, 2009). Il ne règle ni le choix du rayon ni la saturation."
+    }
+   ],
+   "retour": {
+    "succes": "Deux étapes, une vérification, une limite. Tu viens de faire à la craie ce que ton atlas fera pour 490 aires de diffusion.",
+    "echec": "Étape 1 : chaque ressource divise sa capacité par la population de son bassin. Étape 2 : chaque AD additionne les ratios qu’elle atteint (Luo et Wang, 2003)."
+   },
+   "effets": {
+    "succes": {
+     "stats": {
+      "rigueur": 8,
+      "confiance": 5,
+      "stress": -3
+     }
+    },
+    "echec": {
+     "stats": {
+      "rigueur": 1,
+      "confiance": -6,
+      "stress": 10,
+      "energie": -4
+     }
+    }
+   },
+   "references": [
+    "Luo W, Wang F (2003). Measures of spatial accessibility to health care in a GIS environment: synthesis and a case study in the Chicago region. Environment and Planning B: Planning and Design, 30(6), 865-884.",
+    "Luo W, Qi Y (2009). An enhanced two-step floating catchment area (E2SFCA) method for measuring spatial accessibility to primary care physicians. Health & Place, 15(4), 1100-1107.",
+    "Guagliardo MF (2004). Spatial accessibility of primary care: concepts, methods and challenges. International Journal of Health Geographics, 3, 3."
+   ]
+  },
+  "quanti_denominateur": {
+   "id": "quanti_denominateur",
+   "type": "choix",
+   "titre": "Pour 1 000 quoi ?",
+   "consigne": "Choisis la comparaison que tu défendras.",
+   "situation": "Verdun compte 14 pharmacies et Pointe-Saint-Charles, 3. En 2026 : 74 672 habitants, dont 14 163 aînés, à Verdun ; 16 429 habitants, dont 2 132 aînés, à Pointe-Saint-Charles. Lequel est le mieux pourvu pour ses aînés ?",
+   "temps": 120,
+   "options": [
+    {
+     "texte": "Pointe-Saint-Charles : 1,41 pharmacie pour 1 000 aînés, contre 0,99 à Verdun. Rapporté à la population totale, le classement s’inverse : c’est le dénominateur qui porte la question.",
+     "correct": 1,
+     "retour": "Ta fiche rapporte l’offre aux 65 ans et plus, et aux 75 ans et plus : c’est la population étudiée. Pour 1 000 habitants, Verdun passe devant (0,19 contre 0,18). Chez les 75 ans et plus, Pointe-Saint-Charles reste devant (3,85 contre 2,16)."
+    },
+    {
+     "texte": "Verdun : 14 pharmacies contre 3.",
+     "correct": 0,
+     "retour": "Un compte brut compare des territoires de tailles différentes."
+    },
+    {
+     "texte": "Verdun, de peu : 0,19 contre 0,18 pharmacie pour 1 000 habitants.",
+     "correct": 0.3,
+     "retour": "Calcul juste, mauvais dénominateur : tu mesures l’offre pour toute la population, pas pour les aînés."
+    },
+    {
+     "texte": "Impossible à dire sans un 2SFCA.",
+     "correct": 0.5,
+     "retour": "Le 2SFCA dira mieux qui peut s’y rendre ; la densité répond déjà à la question descriptive, à condition de choisir le bon dénominateur. Les deux se complètent (Guagliardo, 2004)."
+    }
+   ],
+   "retour": {
+    "succes": "« Pour 1 000 quoi ? » La question que la professeure Lhermite pose à chaque taux. Tu y as répondu avant elle.",
+    "echec": "Un taux sans dénominateur choisi n’est qu’un chiffre. Ici, le choix inverse le classement."
+   },
+   "effets": {
+    "succes": {
+     "stats": {
+      "rigueur": 6,
+      "confiance": 4,
+      "stress": -2
+     }
+    },
+    "echec": {
+     "stats": {
+      "rigueur": 1,
+      "confiance": -4,
+      "stress": 8,
+      "energie": -3
+     }
+    }
+   },
+   "references": [
+    "Guagliardo MF (2004). Spatial accessibility of primary care: concepts, methods and challenges. International Journal of Health Geographics, 3, 3.",
+    "Penchansky R, Thomas JW (1981). The concept of access: definition and relationship to consumer satisfaction. Medical Care, 19(2), 127-140."
+   ]
+  },
+  "quanti_reseaux_inference": {
+   "id": "quanti_reseaux_inference",
+   "type": "correspondance",
+   "titre": "Des liens qui ne sont pas indépendants",
+   "consigne": "La professeure Lhermite distribue cinq questions tirées de ton O3. Relie chacune à la méthode qui y répond. Exemple fictif : 36 répondants dans 4 équipes SAD, 840 liens déclarés.",
+   "temps": 180,
+   "reussite": 0.8,
+   "gauche": [
+    {
+     "id": "q_entente",
+     "texte": "Une entente formelle est-elle associée à un lien de niveau 3 ou 4, sachant que les liens sont nichés dans des répondants, eux-mêmes nichés dans des équipes ?"
+    },
+    {
+     "id": "q_matrices",
+     "texte": "Le réseau déclaré par une équipe ressemble-t-il plus que par hasard au réseau des références du 211 entre les mêmes organismes ?"
+    },
+    {
+     "id": "q_sequences",
+     "texte": "La séquence d’acteurs mobilisés pour une vignette diffère-t-elle d’un CLSC à l’autre ?"
+    },
+    {
+     "id": "q_structure",
+     "texte": "La structure des liens entre organismes s’explique-t-elle par des triangles et des affinités de secteur plutôt que par le hasard ?"
+    },
+    {
+     "id": "q_diversite",
+     "texte": "Les réseaux des quatre CLSC diffèrent-ils par leur diversité sectorielle ?"
+    }
+   ],
+   "droite": [
+    {
+     "id": "m_mixte",
+     "texte": "Modèle mixte (logistique) avec effets aléatoires du répondant et de l’équipe"
+    },
+    {
+     "id": "m_qap",
+     "texte": "QAP : corrélation entre deux matrices, testée par permutations"
+    },
+    {
+     "id": "m_om",
+     "texte": "Analyse de séquences par appariement optimal"
+    },
+    {
+     "id": "m_ergm",
+     "texte": "Modèle exponentiel de graphe aléatoire (ERGM)"
+    },
+    {
+     "id": "m_blau",
+     "texte": "Indice de Blau, comparé entre CLSC"
+    }
+   ],
+   "paires": [
+    [
+     "q_entente",
+     "m_mixte"
+    ],
+    [
+     "q_matrices",
+     "m_qap"
+    ],
+    [
+     "q_sequences",
+     "m_om"
+    ],
+    [
+     "q_structure",
+     "m_ergm"
+    ],
+    [
+     "q_diversite",
+     "m_blau"
+    ]
+   ],
+   "explications": {
+    "q_entente": "Les liens d’un même répondant, et les répondants d’une même équipe, se ressemblent : une régression ordinaire sur 840 liens sous-estime les erreurs-types. Le modèle à plusieurs niveaux en tient compte (Perry et al., 2018).",
+    "q_matrices": "Les dyades d’une matrice ne sont pas indépendantes ; le QAP construit la distribution sous le hasard en permutant les nœuds d’une des matrices (Krackhardt, 1988).",
+    "q_sequences": "Une distance d’appariement optimal entre séquences, puis un regroupement (Abbott et Tsay, 2000 ; Gabadinho et al., 2011).",
+    "q_structure": "Les ERGM modélisent la probabilité d’un lien selon des configurations locales comme les triangles (Robins et al., 2007). Ils exigent un réseau complet entre organismes, pas seulement des liens ego-alter.",
+    "q_diversite": "Une mesure descriptive de diversité, à comparer entre CLSC (Blau, 1977)."
+   },
+   "retour": {
+    "succes": "Chaque question a sa structure de dépendance, et chaque méthode la respecte. Ton O3 a maintenant un plan d’analyse défendable.",
+    "echec": "Des liens nichés appellent un modèle mixte ; deux matrices sur les mêmes nœuds appellent un QAP. Une régression ordinaire sur des liens fait comme s’ils étaient indépendants."
+   },
+   "effets": {
+    "succes": {
+     "stats": {
+      "rigueur": 8,
+      "confiance": 5,
+      "stress": -3
+     }
+    },
+    "echec": {
+     "stats": {
+      "rigueur": 1,
+      "confiance": -4,
+      "stress": 8,
+      "energie": -3
+     }
+    }
+   },
+   "references": [
+    "Perry BL, Pescosolido BA, Borgatti SP (2018). Egocentric Network Analysis: Foundations, Methods, and Models. Cambridge University Press.",
+    "Krackhardt D (1988). Predicting with networks: nonparametric multiple regression analysis of dyadic data. Social Networks, 10(4), 359-381.",
+    "Robins G, Pattison P, Kalish Y, Lusher D (2007). An introduction to exponential random graph (p*) models for social networks. Social Networks, 29(2), 173-191.",
+    "Abbott A, Tsay A (2000). Sequence analysis and optimal matching methods in sociology: review and prospect. Sociological Methods & Research, 29(1), 3-33.",
+    "Blau PM (1977). Inequality and Heterogeneity: A Primitive Theory of Social Structure. Free Press."
+   ]
+  },
+  "quanti_ecologique": {
+   "id": "quanti_ecologique",
+   "type": "carte",
+   "titre": "La moyenne qui ment",
+   "consigne": "Exemple fictif : deux CLSC, deux aires de diffusion chacun. Pour chaque AD : aînés, besoins de logement non comblés au 211, part de ménages locataires. Réponds, et méfie-toi des moyennes.",
+   "temps": 360,
+   "reussite": 0.66,
+   "territoire": "Deux CLSC fictifs, A et B",
+   "note": "Données entièrement fictives.",
+   "echelle": {
+    "unite": "m",
+    "largeur": 1200,
+    "hauteur": 1400
+   },
+   "secteurs": [
+    {
+     "id": "S1",
+     "nom": "Réseau public"
+    },
+    {
+     "id": "S2",
+     "nom": "Première ligne"
+    },
+    {
+     "id": "S3",
+     "nom": "Parapublic"
+    },
+    {
+     "id": "S4",
+     "nom": "Communauté"
+    },
+    {
+     "id": "S5",
+     "nom": "Ville et municipalité"
+    },
+    {
+     "id": "S6",
+     "nom": "Habitation"
+    }
+   ],
+   "ressources": [],
+   "zonesAD": [
+    {
+     "id": "A1",
+     "clsc": "A",
+     "pop65": 1000,
+     "besoinsNonComblesLogement": 20,
+     "locatairesPct": 50,
+     "x": 300,
+     "y": 300
+    },
+    {
+     "id": "A2",
+     "clsc": "A",
+     "pop65": 200,
+     "besoinsNonComblesLogement": 12,
+     "locatairesPct": 80,
+     "x": 800,
+     "y": 300
+    },
+    {
+     "id": "B1",
+     "clsc": "B",
+     "pop65": 300,
+     "besoinsNonComblesLogement": 15,
+     "locatairesPct": 85,
+     "x": 300,
+     "y": 1000
+    },
+    {
+     "id": "B2",
+     "clsc": "B",
+     "pop65": 900,
+     "besoinsNonComblesLogement": 9,
+     "locatairesPct": 40,
+     "x": 800,
+     "y": 1000
+    }
+   ],
+   "questions": [
+    {
+     "texte": "Taux de besoins non comblés en logement au CLSC A, pour 1 000 aînés ?",
+     "reponses": [
+      "26,7",
+      "40",
+      "32",
+      "20"
+     ],
+     "correcte": 0,
+     "explication": "(20 + 12) ÷ (1 000 + 200) × 1 000 = 26,7. La moyenne des deux taux, 40, donne autant de poids à 200 aînés qu’à 1 000."
+    },
+    {
+     "texte": "Et au CLSC B ?",
+     "reponses": [
+      "20",
+      "30",
+      "24",
+      "10"
+     ],
+     "correcte": 0,
+     "explication": "24 ÷ 1 200 × 1 000 = 20. La moyenne non pondérée des AD donnerait 30."
+    },
+    {
+     "texte": "Quelle AD a le taux le plus élevé ?",
+     "reponses": [
+      "A2, à 60 pour 1 000",
+      "B1, à 50 pour 1 000",
+      "A1, à 20 pour 1 000",
+      "B2, à 10 pour 1 000"
+     ],
+     "correcte": 0,
+     "explication": "Le CLSC A, à 26,7, cache une AD à 60 : l’agrégation masque l’hétérogénéité."
+    },
+    {
+     "texte": "Le CLSC A a plus de locataires (55 %) et plus de besoins non comblés que B (51 %). Peut-on conclure que les aînés locataires ont plus de besoins non comblés ?",
+     "reponses": [
+      "Non : c’est une association entre territoires, elle ne dit rien des personnes",
+      "Oui, puisque la tendance va dans le même sens dans chaque CLSC",
+      "Oui, si la différence est statistiquement significative",
+      "Non, parce que l’écart de quatre points est trop petit"
+     ],
+     "correcte": 0,
+     "explication": "Même répétée dans chaque CLSC, une association entre AD reste écologique (Robinson, 1950). L’erreur inverse existe aussi : croire que seul l’individuel compte (Schwartz, 1994)."
+    },
+    {
+     "texte": "Si l’on regroupait A2 et B1 dans un même territoire, le contraste entre territoires :",
+     "reponses": [
+      "changerait : les résultats dépendent du découpage",
+      "resterait le même, puisque les taux des AD ne changent pas",
+      "disparaîtrait toujours",
+      "ne peut pas changer si l’on pondère"
+     ],
+     "correcte": 0,
+     "explication": "Le nouveau territoire aurait 54 pour 1 000, contre 20 et 10 ailleurs : c’est le problème des unités spatiales modifiables (Openshaw, 1984)."
+    },
+    {
+     "texte": "Dans l’AD B2, 3 demandes de transport chez les 70 ans et plus. Que fais-tu de cette cellule ?",
+     "reponses": [
+      "La supprimer ou l’agréger : moins de 5",
+      "La publier telle quelle",
+      "La multiplier par 1 000",
+      "L’attribuer au CLSC A"
+     ],
+     "correcte": 0,
+     "explication": "Sous 5, une cellule peut identifier quelqu’un ; le 211 applique déjà cette règle (Sweeney, 2002)."
+    }
+   ],
+   "retour": {
+    "succes": "Pondérer, ne pas descendre du territoire à la personne, et savoir que le découpage compte. Tes profils territoriaux du 211 sont entre de bonnes mains.",
+    "echec": "La moyenne des taux n’est pas le taux de l’ensemble, et un territoire n’est pas une personne (Robinson, 1950 ; Openshaw, 1984)."
+   },
+   "effets": {
+    "succes": {
+     "stats": {
+      "rigueur": 8,
+      "confiance": 5,
+      "stress": -3
+     }
+    },
+    "echec": {
+     "stats": {
+      "rigueur": 1,
+      "confiance": -6,
+      "stress": 10,
+      "energie": -4
+     }
+    }
+   },
+   "references": [
+    "Robinson WS (1950). Ecological correlations and the behavior of individuals. American Sociological Review, 15(3), 351-357.",
+    "Schwartz S (1994). The fallacy of the ecological fallacy: the potential misuse of a concept and the consequences. American Journal of Public Health, 84(5), 819-824.",
+    "Openshaw S (1984). The Modifiable Areal Unit Problem. Concepts and Techniques in Modern Geography (CATMOG), 38. Geo Books.",
+    "Sweeney L (2002). k-anonymity: a model for protecting privacy. International Journal of Uncertainty, Fuzziness and Knowledge-Based Systems, 10(5), 557-570."
+   ]
+  },
   "pcc_revue": {
    "id": "pcc_revue",
    "type": "tri",

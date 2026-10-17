@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GROUPES, groupes } from './physique.js?v=6c5bfced27';
+import { GROUPES, groupes } from './physique.js?v=fa2b8c1a0f';
 
 const FILTRE_CAM = groupes(0xffff, GROUPES.STATIQUE | GROUPES.PORTE);
 const COULEURS = {
@@ -98,7 +98,9 @@ export function creerDialogues({ bus, audio, camera, physique, options }) {
     if (b?.perso) b.perso.regarder(teteDe(a), 1);
     const duree = durees[ligne.id]?.duree || dureeEstimee(ligne);
     bus.emit('sousTitre', { qui: ligne.qui, nom: nomDe(ligne.qui), texte: ligne.texte, duree, couleur: COULEURS[ligne.qui] || '#E6EEF2', emotion: ligne.emotion });
-    const voix = audio.jouerVoix(ligne.id, { perso: a?.perso || null });
+    const voix = ligne.son
+      ? audio.jouer3d(ligne.son, a?.position ? a.position.clone().setY(a.position.y + 0.5) : null, { volume: 0.9 }).then(() => null)
+      : audio.jouerVoix(ligne.id, { perso: a?.perso || null });
     await new Promise((ok) => {
       let fini = false, minuterie = null;
       const finir = () => { if (fini) return; fini = true; clearTimeout(minuterie); passer = null; ok(); };
@@ -165,6 +167,7 @@ export function creerDialogues({ bus, audio, camera, physique, options }) {
     const duree = durees[r.id]?.duree || dureeEstimee(r);
     bus.emit('replique', { qui: r.qui, nom: nomDe(r.qui), texte: r.texte, duree, couleur: COULEURS[r.qui] || '#E6EEF2' });
     if (!enCours) bus.emit('sousTitre', { qui: r.qui, nom: nomDe(r.qui), texte: r.texte, duree, couleur: COULEURS[r.qui] || '#E6EEF2', discret: true });
+    if (r.son) { audio.jouer3d(r.son, position || pnj?.position || null, { volume: 0.9 }); await new Promise((res) => setTimeout(res, duree * 1000)); if (perso) perso.parle = false; if (!enCours) bus.emit('sousTitre', null); return; }
     const ok = await audio.jouerVoix(r.id, { perso, position });
     if (!ok) await new Promise((res) => setTimeout(res, duree * 1000));
     if (perso) perso.parle = false;

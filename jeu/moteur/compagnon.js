@@ -13,8 +13,10 @@ export function creerCompagnon({ bus, gestionPnj, audio, dialogues, jeu }) {
   async function installer(zone, joueur) {
     c.pnj = null;
     if (!zone || !joueur || !(await existe())) return;
-    if (zone.manifeste?.compagnon === false) return;
-    const pos = joueur.position.clone().addScaledVector(joueur.avant(), -1.2).add(new THREE.Vector3(0.8, 0, 0));
+    if (zone.manifeste?.compagnon === false || zone.id === 'clsc' || zone.id === 'soutenance') return;
+    c.attend = zone.id === 'bibliotheque' || zone.manifeste?.compagnon === 'attend';
+    c.poste = zone.spawns?.SPAWN_chienne || null;
+    const pos = c.poste && (c.attend || zone.glace) ? c.poste.position.clone() : joueur.position.clone().addScaledVector(joueur.avant(), -1.2).add(new THREE.Vector3(0.8, 0, 0));
     const q = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), joueur.lacet + Math.PI);
     const nom = dialogues.donnees.personnages?.chienne?.nom || 'Ta chienne';
     c.pnj = await gestionPnj.ajouter({ role: 'chienne', id: 'chienne', position: pos, quaternion: q, mobile: true, nom, anim: 'idle' });
@@ -33,7 +35,11 @@ export function creerCompagnon({ bus, gestionPnj, audio, dialogues, jeu }) {
   function mettreAJour(dt, joueur) {
     const n = c.pnj;
     if (!n || !joueur || !n.perso.racine.parent) return;
-    if (jeu.joueur?.patine) { n.comportement = 'statique'; jouer('sit'); return; }
+    if (c.attend || jeu.joueur?.patine || jeu.joueur?.surGlace) {
+      if (c.poste && n.position.distanceTo(c.poste.position) > 1.5 && n.comportement !== 'aller') gestionPnj.allerVers(n, c.poste.position, { vitesse: 1.5, anim: 'walk', fin: (x) => { x.comportement = 'compagnon'; } });
+      else if (n.comportement !== 'aller') { n.perso.regarder(joueur.tete(), 0.8); jouer(c.attend ? 'lie' : 'sit'); }
+      return;
+    }
     const d = n.position.distanceTo(joueur.position);
     const bouge = joueur.vitesseHorizontale > 0.3;
     c.immobile = bouge ? 0 : c.immobile + dt;

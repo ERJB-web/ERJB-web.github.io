@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GROUPES, groupes } from './physique.js?v=6c5bfced27';
+import { GROUPES, groupes } from './physique.js?v=fa2b8c1a0f';
 
 const TOUT = 0xffff;
 const AXE_Y = new THREE.Vector3(0, 1, 0);

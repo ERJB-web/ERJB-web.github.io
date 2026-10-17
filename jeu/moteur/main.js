@@ -1,23 +1,24 @@
 import * as THREE from 'three';
-import { creerBus } from './bus.js?v=6c5bfced27';
-import { etatInitial, charger as chargerPartie, sauvegarder, chargerOptions, sauverOptions, appliquerEffets } from './etat.js?v=6c5bfced27';
-import { creerRendu } from './rendu.js?v=6c5bfced27';
-import { creerPhysique } from './physique.js?v=6c5bfced27';
-import { creerChargeur, chargerZone, installerZone, retirerZone } from './zones.js?v=6c5bfced27';
-import { creerObjets } from './objets.js?v=6c5bfced27';
-import { creerAudio } from './audio.js?v=6c5bfced27';
-import { creerPersonnages } from './personnages.js?v=6c5bfced27';
-import { creerCamera } from './camera.js?v=6c5bfced27';
-import { creerEntrees } from './entrees.js?v=6c5bfced27';
-import { creerInteractions } from './interactions.js?v=6c5bfced27';
-import { creerGestionPNJ } from './pnj.js?v=6c5bfced27';
-import { creerDialogues } from './dialogues.js?v=6c5bfced27';
-import { creerDirection } from './direction.js?v=6c5bfced27';
-import { creerMissions } from './missions.js?v=6c5bfced27';
-import { creerHockey } from './hockey.js?v=6c5bfced27';
-import { creerCompagnon } from './compagnon.js?v=6c5bfced27';
+import { creerBus } from './bus.js?v=fa2b8c1a0f';
+import { etatInitial, charger as chargerPartie, sauvegarder, chargerOptions, sauverOptions, appliquerEffets } from './etat.js?v=fa2b8c1a0f';
+import { creerRendu } from './rendu.js?v=fa2b8c1a0f';
+import { creerPhysique } from './physique.js?v=fa2b8c1a0f';
+import { creerChargeur, chargerZone, installerZone, retirerZone } from './zones.js?v=fa2b8c1a0f';
+import { creerObjets } from './objets.js?v=fa2b8c1a0f';
+import { creerAudio } from './audio.js?v=fa2b8c1a0f';
+import { creerPersonnages } from './personnages.js?v=fa2b8c1a0f';
+import { creerCamera } from './camera.js?v=fa2b8c1a0f';
+import { creerEntrees } from './entrees.js?v=fa2b8c1a0f';
+import { creerInteractions } from './interactions.js?v=fa2b8c1a0f';
+import { creerGestionPNJ } from './pnj.js?v=fa2b8c1a0f';
+import { creerDialogues } from './dialogues.js?v=fa2b8c1a0f';
+import { creerDirection } from './direction.js?v=fa2b8c1a0f';
+import { creerMissions } from './missions.js?v=fa2b8c1a0f';
+import { creerHockey } from './hockey.js?v=fa2b8c1a0f';
+import { creerCompagnon } from './compagnon.js?v=fa2b8c1a0f';
 
 const VERSION = '2.0.0';
+const ROLES_PAR_ZONE = { campus: { prof_seminaire: 'prof_quanti', prof: 'prof_quanti' }, espum: { prof: 'prof_seminaire' } };
 const params = new URLSearchParams(location.search);
 
 async function json(url, defaut) {
@@ -80,11 +81,11 @@ async function demarrer() {
   // ---------- interface ----------
   let ui = null;
   try {
-    const mod = await import('../ui/ui.js?v=6c5bfced27');
+    const mod = await import('../ui/ui.js?v=fa2b8c1a0f');
     ui = mod.initUI({ bus, etat: { options, get partie() { return jeu.etat; }, get existeSauvegarde() { return !!chargerPartie(); }, scenario, salles, version: VERSION }, racine: racineUI });
   } catch (e) {
     console.warn('[ui] interface de secours', e);
-    const mod = await import('./ui-secours.js?v=6c5bfced27');
+    const mod = await import('./ui-secours.js?v=fa2b8c1a0f');
     ui = mod.initUI({ bus, etat: { options, get partie() { return jeu.etat; }, get existeSauvegarde() { return !!chargerPartie(); }, scenario, salles }, racine: racineUI });
   }
 
@@ -144,7 +145,7 @@ async function demarrer() {
 
     // personnage du joueur
     if (!jeu.joueur) {
-      const { creerJoueur } = await import('./joueur.js?v=6c5bfced27');
+      const { creerJoueur } = await import('./joueur.js?v=fa2b8c1a0f');
       const perso = await personnages.creer('eric');
       jeu.joueur = creerJoueur({ physique, perso, audio, bus, jeu });
       dialogues.lier(jeu.joueur, gestionPnj);
@@ -165,7 +166,7 @@ async function demarrer() {
     const roles = dialogues.donnees.personnages || {};
     await Promise.all(zone.pnj.map((m) => {
       const id = m.id.replace(/^NPC_/, '');
-      const role = m.donnees.role || id;
+      const role = (ROLES_PAR_ZONE[zone.id] || {})[m.donnees.role || id] || m.donnees.role || id;
       if (/^direction/.test(role)) return null;
       const flaner = Number(m.donnees.flaner) === 1 || m.donnees.anim === 'walk' || m.donnees.anim === 'flaner';
       return gestionPnj.ajouter({ role, id, position: m.position, quaternion: m.quaternion, anim: flaner ? 'idle' : (m.donnees.anim || 'idle'), dialogue: m.donnees.dialogue || null, nom: roles[role]?.nom || roles[id]?.nom || '', flaner });
@@ -261,7 +262,7 @@ async function demarrer() {
     bus.emit('invite', null);
     let r = { reussi: true, score: 1 };
     try {
-      const mod = await import('../defis/defis.js?v=6c5bfced27');
+      const mod = await import('../defis/defis.js?v=fa2b8c1a0f');
       racineDefis.hidden = false;
       r = await mod.lancerDefi(def, {
         racine: racineDefis,

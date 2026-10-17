@@ -173,6 +173,32 @@
    "portrait": "gardien",
    "description": "Gardien de but"
   },
+  "prof_quanti": {
+   "nom": "Pre Octavie Lhermite",
+   "court": "Pre Lhermite",
+   "voix": "prof_quanti",
+   "portrait": "prof_quanti",
+   "description": "Professeure de méthodes quantitatives"
+  },
+  "chienne": {
+   "nom": "La chienne",
+   "nomACompleter": true,
+   "voix": "chienne",
+   "portrait": "chienne",
+   "description": "La chienne d’Éric, une border collie noire et blanche"
+  },
+  "imitateur_de_gaulle": {
+   "nom": "Le Général",
+   "voix": "imitateur_de_gaulle",
+   "portrait": "imitateur_de_gaulle",
+   "description": "Imitation de Charles de Gaulle : l’annonceur de l’aréna"
+  },
+  "chevalier": {
+   "nom": "Perceval",
+   "voix": "chevalier",
+   "portrait": "chevalier",
+   "description": "Imitation : chevalier de foire, clin d’œil au Perceval de Kaamelott"
+  },
   "chauffeur_zamboni": {
    "nom": "Réal",
    "voix": "chauffeur_zamboni",
@@ -182,7 +208,7 @@
  },
  "scenes": {
   "c1_arrivee": {
-   "lieu": "campus",
+   "lieu": "espum",
    "lignes": [
     {
      "id": "c1_arrivee_001",
@@ -196,32 +222,52 @@
     {
      "id": "c1_arrivee_002",
      "qui": "eric",
-     "texte": "Une petite idée à 23 h 14, c’est rarement petit.",
-     "emotion": "ironie",
+     "texte": "Sept heures, métro Parc. Osti que je vais devoir encore cogner des clous aujourd’hui.",
+     "emotion": "fatigue",
      "intensite": 0.5,
-     "anim": "phone",
-     "plan": "gros_plan"
+     "anim": "idle",
+     "plan": "gros_plan",
+     "prononciation": "Sept heures, métro Parc. Ostie que j'vas d'voir encore cogner des clous aujourd'hui."
     },
     {
      "id": "c1_arrivee_003",
+     "qui": "eric",
+     "texte": "Viens, ma belle. Au pied. On a un séminaire au 7101.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c1_arrivee_004",
+     "qui": "chienne",
+     "texte": "Wouf !",
+     "emotion": "joie",
+     "intensite": 0.5,
+     "anim": "idle",
+     "plan": "epaule",
+     "son": "aboiement"
+    },
+    {
+     "id": "c1_arrivee_005",
      "qui": "etudiant_1",
-     "texte": "Salut Éric ! T’as l’air de quelqu’un qui a lu ses courriels avant son café.",
+     "texte": "Salut Éric ! T’as la tête de quelqu’un qui a lu ses mails avant son café.",
      "emotion": "amuse",
      "intensite": 0.3,
      "anim": "walk",
      "plan": "epaule"
     },
     {
-     "id": "c1_arrivee_004",
+     "id": "c1_arrivee_006",
      "qui": "eric",
-     "texte": "Erreur de débutant. Je suis en deuxième année, je devrais savoir.",
+     "texte": "Erreur de débutant, Mathis. Je suis en deuxième année, je devrais savoir.",
      "emotion": "ironie",
      "intensite": 0.4,
      "anim": "talk",
      "plan": "epaule"
     },
     {
-     "id": "c1_arrivee_005",
+     "id": "c1_arrivee_007",
      "qui": "etudiant_1",
      "texte": "Lunel commence à neuf heures. Il a mis son veston de velours.",
      "emotion": "neutre",
@@ -230,9 +276,9 @@
      "plan": "epaule"
     },
     {
-     "id": "c1_arrivee_006",
+     "id": "c1_arrivee_008",
      "qui": "eric",
-     "texte": "Le velours, c’est pour les comités. La tour, les briques jaunes… Le pavillon ne m’a jamais semblé aussi haut.",
+     "texte": "Le 7101, avenue du Parc. L’ESPUM. Le velours, c’est pour les comités.",
      "emotion": "neutre",
      "intensite": 0.4,
      "anim": "idle",
@@ -241,7 +287,7 @@
    ]
   },
   "c1_cafe": {
-   "lieu": "campus",
+   "lieu": "espum",
    "lignes": [
     {
      "id": "c1_cafe_001",
@@ -264,7 +310,7 @@
    ]
   },
   "c1_babillard": {
-   "lieu": "campus",
+   "lieu": "espum",
    "lignes": [
     {
      "id": "c1_babillard_001",
@@ -287,16 +333,17 @@
    ]
   },
   "c1_imprimante": {
-   "lieu": "campus",
+   "lieu": "espum",
    "lignes": [
     {
      "id": "c1_imprimante_001",
      "qui": "eric",
-     "texte": "Bourrage papier, bac 2. Il n’y a pas de bac 2.",
+     "texte": "Bourrage papier, bac 2. Il n’y a pas de bac 2. Ciboire.",
      "emotion": "agace",
      "intensite": 0.4,
      "anim": "push",
-     "plan": "rapproche"
+     "plan": "rapproche",
+     "prononciation": "Bourrage papier, bac 2. Il n'y a pas de bac 2. Cibouère."
     },
     {
      "id": "c1_imprimante_002",
@@ -319,19 +366,39 @@
    ]
   },
   "c1_hall": {
-   "lieu": "campus",
+   "lieu": "espum",
    "lignes": [
     {
      "id": "c1_hall_001",
      "qui": "etudiant_2",
-     "texte": "Éric ! C’est quoi ta thèse, déjà ? Ma tante me demande à chaque souper.",
+     "texte": "Éric ! Ta chienne ! Bonjour, toi ! T’es donc ben belle !",
      "emotion": "enthousiaste",
      "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule",
+     "prononciation": "Éric ! Ta chienne ! Bonjour, toi ! T'es don' ben belle !"
+    },
+    {
+     "id": "c1_hall_002",
+     "qui": "chienne",
+     "texte": "Wouf ! Wouf !",
+     "emotion": "joie",
+     "intensite": 0.6,
+     "anim": "idle",
+     "plan": "epaule",
+     "son": "aboiement"
+    },
+    {
+     "id": "c1_hall_003",
+     "qui": "etudiant_2",
+     "texte": "C’est quoi ta thèse, déjà ? Ma tante me demande à chaque souper.",
+     "emotion": "neutre",
+     "intensite": 0.4,
      "anim": "talk",
      "plan": "epaule"
     },
     {
-     "id": "c1_hall_002",
+     "id": "c1_hall_004",
      "qui": "eric",
      "texte": "Les besoins sociaux concomitants des aînés suivis en soutien à domicile. Et qui y répond, sur le territoire.",
      "emotion": "neutre",
@@ -340,7 +407,7 @@
      "plan": "epaule"
     },
     {
-     "id": "c1_hall_003",
+     "id": "c1_hall_005",
      "qui": "etudiant_2",
      "texte": "« Concomitants ». Je vais lui dire « plusieurs en même temps ». Elle va comprendre plus vite.",
      "emotion": "amuse",
@@ -349,7 +416,7 @@
      "plan": "epaule"
     },
     {
-     "id": "c1_hall_004",
+     "id": "c1_hall_006",
      "qui": "eric",
      "texte": "Note pour le comité : ta tante vulgarise mieux que moi.",
      "emotion": "ironie",
@@ -360,7 +427,7 @@
    ]
   },
   "c1_seminaire": {
-   "lieu": "campus",
+   "lieu": "espum",
    "lignes": [
     {
      "id": "c1_seminaire_001",
@@ -391,15 +458,34 @@
     },
     {
      "id": "c1_seminaire_004",
-     "qui": "collegue_doc",
-     "texte": "L’an passé, il a commencé par la fin. Pour « briser les attentes ».",
-     "emotion": "chuchote",
-     "intensite": 0.3,
+     "qui": "etudiant_1",
+     "texte": "Juste une petite remarque, en trois parties, avec une introduction, et une ouverture à la fin.",
+     "emotion": "enthousiaste",
+     "intensite": 0.4,
      "anim": "talk",
-     "plan": "rapproche"
+     "plan": "epaule"
     },
     {
      "id": "c1_seminaire_005",
+     "qui": "prof_seminaire",
+     "texte": "Merci, Mathis. Douze minutes. C’était la petite remarque la plus longue de la session, et nous sommes en octobre.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_seminaire_006",
+     "qui": "eric",
+     "texte": "Osti de Français, ils savent pas s’arrêter. Mais son troisième point était bon.",
+     "emotion": "chuchote",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "rapproche",
+     "prononciation": "Ostie d'Français, y savent pas s'arrêter. Mais son troisième point était bon."
+    },
+    {
+     "id": "c1_seminaire_007",
      "qui": "prof_seminaire",
      "texte": "Besoins sociaux, concomitance, complexité, réponse intersectorielle. Des mots qu’on confond très facilement.",
      "emotion": "neutre",
@@ -408,7 +494,7 @@
      "plan": "epaule"
     },
     {
-     "id": "c1_seminaire_006",
+     "id": "c1_seminaire_008",
      "qui": "prof_seminaire",
      "texte": "Avant votre question, distinguez-moi ces notions. Une confusion ici, et le comité vous suit jusqu’à la retraite.",
      "emotion": "insistant",
@@ -417,7 +503,7 @@
      "plan": "rapproche"
     },
     {
-     "id": "c1_seminaire_007",
+     "id": "c1_seminaire_009",
      "qui": "eric",
      "texte": "Ce qui se compte, ce qui se décrit, ce qui s’organise. Et ce qui reste sans réponse.",
      "emotion": "neutre",
@@ -428,7 +514,7 @@
    ]
   },
   "c1_question": {
-   "lieu": "campus",
+   "lieu": "espum",
    "lignes": [
     {
      "id": "c1_question_001",
@@ -460,7 +546,7 @@
    ]
   },
   "c1_question_r": {
-   "lieu": "campus",
+   "lieu": "espum",
    "lignes": [
     {
      "id": "c1_question_r_001",
@@ -492,7 +578,7 @@
    ]
   },
   "c1_condition": {
-   "lieu": "campus",
+   "lieu": "espum",
    "lignes": [
     {
      "id": "c1_condition_001",
@@ -524,7 +610,7 @@
    ]
   },
   "c1_tableau": {
-   "lieu": "campus",
+   "lieu": "espum",
    "lignes": [
     {
      "id": "c1_tableau_001",
@@ -547,7 +633,7 @@
    ]
   },
   "c1_fil_r": {
-   "lieu": "campus",
+   "lieu": "espum",
    "lignes": [
     {
      "id": "c1_fil_r_001",
@@ -579,7 +665,7 @@
    ]
   },
   "c1_fin_seminaire": {
-   "lieu": "campus",
+   "lieu": "espum",
    "lignes": [
     {
      "id": "c1_fin_seminaire_001",
@@ -602,7 +688,7 @@
    ]
   },
   "c1_pitch_intro": {
-   "lieu": "campus",
+   "lieu": "espum",
    "lignes": [
     {
      "id": "c1_pitch_intro_001",
@@ -634,7 +720,7 @@
    ]
   },
   "c1_bureau": {
-   "lieu": "campus",
+   "lieu": "espum",
    "lignes": [
     {
      "id": "c1_bureau_001",
@@ -657,14 +743,33 @@
     {
      "id": "c1_bureau_003",
      "qui": "collegue_doc",
-     "texte": "Ta direction a écrit dans le canal du labo. Trois fois. Avec des points d’exclamation.",
-     "emotion": "amuse",
-     "intensite": 0.4,
+     "texte": "Salut, la belle ! Éric, elle a encore mangé un résumé de congrès ?",
+     "emotion": "joie",
+     "intensite": 0.5,
      "anim": "talk",
      "plan": "epaule"
     },
     {
      "id": "c1_bureau_004",
+     "qui": "eric",
+     "texte": "Juste l’introduction. Elle a laissé la méthode, comme tout le monde.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "sit",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c1_bureau_005",
+     "qui": "collegue_doc",
+     "texte": "Ta direction s’est pété les bretelles au colloque avec ton affiche. Pis elle a écrit dans le canal du labo. Trois fois.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule",
+     "prononciation": "Ta direction s'est pété les bertelles au colloque avec ton affiche. Pis elle a écrit dans le canal du labo. Trois fois."
+    },
+    {
+     "id": "c1_bureau_006",
      "qui": "eric",
      "texte": "Pre Talbec, 23 h 14 : « Petite idée ». Pre Marcotel, 7 h 02 : « On avait dit vendredi. »",
      "emotion": "inquiet",
@@ -673,7 +778,7 @@
      "plan": "rapproche"
     },
     {
-     "id": "c1_bureau_005",
+     "id": "c1_bureau_007",
      "qui": "collegue_doc",
      "texte": "Une qui a des idées la nuit, l’autre qui a un calendrier le matin. T’es bien entouré.",
      "emotion": "ironie",
@@ -682,7 +787,7 @@
      "plan": "epaule"
     },
     {
-     "id": "c1_bureau_006",
+     "id": "c1_bureau_008",
      "qui": "eric",
      "texte": "Équilibre parfait. Je dors entre les deux.",
      "emotion": "ironie",
@@ -693,7 +798,7 @@
    ]
   },
   "c1_courriel": {
-   "lieu": "campus",
+   "lieu": "espum",
    "lignes": [
     {
      "id": "c1_courriel_001",
@@ -712,11 +817,21 @@
      "intensite": 0.4,
      "anim": "type",
      "plan": "gros_plan"
+    },
+    {
+     "id": "c1_courriel_003",
+     "qui": "eric",
+     "texte": "J’ai failli répondre « Super idée ! » à 23 h 15. Cave.",
+     "emotion": "ironie",
+     "intensite": 0.5,
+     "anim": "type",
+     "plan": "gros_plan",
+     "prononciation": "J'ai failli répondre « Super idée ! » à 23 h 15. Cave."
     }
    ]
   },
   "c1_courriel_r": {
-   "lieu": "campus",
+   "lieu": "espum",
    "lignes": [
     {
      "id": "c1_courriel_r_001",
@@ -748,7 +863,7 @@
    ]
   },
   "c1_politique": {
-   "lieu": "campus",
+   "lieu": "espum",
    "lignes": [
     {
      "id": "c1_politique_001",
@@ -789,12 +904,12 @@
    ]
   },
   "c1_depart": {
-   "lieu": "campus",
+   "lieu": "espum",
    "lignes": [
     {
      "id": "c1_depart_001",
      "qui": "collegue_doc",
-     "texte": "Va voir Margaux, à la bibliothèque. Ta revue de portée, elle la veut en format PCC avant midi.",
+     "texte": "Ton cours de méthodes quantitatives est à 13 h, à Roger-Gaudry. Métro Parc, ligne bleue, quatre stations.",
      "emotion": "neutre",
      "intensite": 0.4,
      "anim": "talk",
@@ -802,17 +917,17 @@
     },
     {
      "id": "c1_depart_002",
-     "qui": "eric",
-     "texte": "Population, concept, contexte. Je monte.",
+     "qui": "collegue_doc",
+     "texte": "Après, monte voir Margaux, à la Bibliothèque de la santé. Même pavillon. Elle veut ta revue de portée en format PCC.",
      "emotion": "neutre",
-     "intensite": 0.3,
-     "anim": "nod",
+     "intensite": 0.4,
+     "anim": "talk",
      "plan": "epaule"
     },
     {
      "id": "c1_depart_003",
      "qui": "collegue_doc",
-     "texte": "Cours pas dans la salle de lecture. Elle t’entend depuis les périodiques.",
+     "texte": "Pis laisse ta chienne à l’entrée. Margaux aime les chiens, mais pas dans la salle de lecture.",
      "emotion": "amuse",
      "intensite": 0.4,
      "anim": "wave",
@@ -826,7 +941,7 @@
     {
      "id": "c1_fin_001",
      "qui": "eric",
-     "texte": "Une question qui tient, un fil qui se tient, un courriel désamorcé. Premier chapitre : correct.",
+     "texte": "Un séminaire au 7101, un cours à Roger-Gaudry, des chiffres qui tiennent. Premier chapitre : correct.",
      "emotion": "neutre",
      "intensite": 0.4,
      "anim": "idle",
@@ -835,7 +950,7 @@
     {
      "id": "c1_fin_002",
      "qui": "eric",
-     "texte": "Chez Lunel, c’est un compliment.",
+     "texte": "Chez Lunel, c’est un compliment. Chez Lhermite, c’est une erreur-type acceptable.",
      "emotion": "ironie",
      "intensite": 0.4,
      "anim": "idle",
@@ -849,7 +964,7 @@
     {
      "id": "c2_arrivee_001",
      "qui": "eric",
-     "texte": "Sixième étage. L’odeur du papier, le silence, et quelque part, une bibliothécaire qui sait déjà ce que j’ai mal fait.",
+     "texte": "Sixième étage de Roger-Gaudry. L’odeur du papier, le silence, et une bibliothécaire qui sait déjà ce que j’ai mal fait.",
      "emotion": "neutre",
      "intensite": 0.3,
      "anim": "idle",
@@ -858,11 +973,40 @@
     {
      "id": "c2_arrivee_002",
      "qui": "bibliothecaire",
-     "texte": "Éric ? Par ici. Pas trop vite.",
-     "emotion": "chuchote",
-     "intensite": 0.3,
-     "anim": "wave",
+     "texte": "Câline ! Pas de chiens à la bibliothèque !",
+     "emotion": "agace",
+     "intensite": 0.6,
+     "anim": "point",
+     "plan": "epaule",
+     "prononciation": "Kâline ! Pas de chiens à la bibliothèque !"
+    },
+    {
+     "id": "c2_arrivee_003",
+     "qui": "eric",
+     "texte": "Elle est plus silencieuse que moi. Et elle ne court jamais dans la salle de lecture.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "talk",
      "plan": "epaule"
+    },
+    {
+     "id": "c2_arrivee_004",
+     "qui": "bibliothecaire",
+     "texte": "Elle attendra à l’entrée avec l’agent de sécurité. Il a des biscuits. Toi, par ici. Pas trop vite.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_arrivee_005",
+     "qui": "chienne",
+     "texte": "Ouaf…",
+     "emotion": "triste",
+     "intensite": 0.4,
+     "anim": "idle",
+     "plan": "epaule",
+     "son": "gemissement"
     }
    ]
   },
@@ -1059,11 +1203,12 @@
     {
      "id": "c2_requete_r_004",
      "qui": "eric",
-     "texte": "Je recommence. Zotero va encore me dire que j’ai des doublons.",
+     "texte": "Mautadine. Je recommence. Zotero va encore me dire que j’ai des doublons.",
      "emotion": "fatigue",
      "intensite": 0.4,
      "anim": "type",
-     "plan": "rapproche"
+     "plan": "rapproche",
+     "prononciation": "Mautadine. J'recommence. Zotero va encore me dire que j'ai des doublons."
     }
    ]
   },
@@ -1119,11 +1264,12 @@
     {
      "id": "c2_photocopieur_001",
      "qui": "eric",
-     "texte": "« Bourrage. Ouvrir A, puis… » La suite est effacée. Par un doctorant désespéré, sans doute.",
+     "texte": "« Bourrage. Ouvrir A, puis… » La suite est effacée. Câlisse.",
      "emotion": "agace",
      "intensite": 0.4,
      "anim": "push",
-     "plan": "rapproche"
+     "plan": "rapproche",
+     "prononciation": "« Bourrage. Ouvrir A, puis… » La suite est effacée. Kâlisse."
     },
     {
      "id": "c2_photocopieur_002",
@@ -1457,11 +1603,12 @@
     {
      "id": "c2_salle_groupe_006",
      "qui": "collegue_doc",
-     "texte": "PH-2200. Je l’ai découvert à minuit. Ma vie sociale ne s’en est jamais remise.",
+     "texte": "PH-2200. Je te niaise pas, je l’ai découvert à minuit. Ma vie sociale ne s’en est jamais remise.",
      "emotion": "joie",
      "intensite": 0.4,
      "anim": "talk",
-     "plan": "epaule"
+     "plan": "epaule",
+     "prononciation": "PH-2200. J'te niaise pas, j'l'ai découvert à minuit. Ma vie sociale s'en est jamais remise."
     }
    ]
   },
@@ -1659,11 +1806,12 @@
     {
      "id": "c3_arrivee_001",
      "qui": "eric",
-     "texte": "CLSC des Faubourgs. Centre-Sud. Le terrain, enfin. Sans tableau, sans flèches, sans comité.",
-     "emotion": "neutre",
-     "intensite": 0.3,
+     "texte": "CLSC des Faubourgs, Centre-Sud. Ça fait frette, à matin. Le terrain, enfin, sans tableau ni comité.",
+     "emotion": "fatigue",
+     "intensite": 0.4,
      "anim": "idle",
-     "plan": "large"
+     "plan": "large",
+     "prononciation": "CLSC des Faubourgs, Centre-Sud. Ça fait frètte, à matin. Le terrain, enfin, sans tableau ni comité."
     },
     {
      "id": "c3_arrivee_002",
@@ -1896,11 +2044,12 @@
     {
      "id": "c3_intervenante_006",
      "qui": "intervenante_sad",
-     "texte": "Trois domaines, quatre organismes, cinq numéros de téléphone. Pis un fax. Oui, un fax.",
+     "texte": "Trois domaines, quatre organismes, cinq numéros de téléphone. Pis un fax. Oui, un maudit fax.",
      "emotion": "neutre",
      "intensite": 0.4,
      "anim": "talk",
-     "plan": "epaule"
+     "plan": "epaule",
+     "prononciation": "Trois domaines, quatre organismes, cinq numéros de téléphone. Pis un fax. Oui, un maudzit fax."
     },
     {
      "id": "c3_intervenante_007",
@@ -2193,11 +2342,12 @@
     {
      "id": "c3_acces_r_001",
      "qui": "gestionnaire_clsc",
-     "texte": "T’as raison de reculer. Si ça sortait, c’était mon poste pis ton doctorat.",
+     "texte": "C’est de valeur, mais t’as raison de reculer. Si ça sortait, c’était mon poste pis ton doctorat.",
      "emotion": "neutre",
      "intensite": 0.4,
      "anim": "talk",
-     "plan": "epaule"
+     "plan": "epaule",
+     "prononciation": "C'est d'valeur, mais t'as raison de reculer. Si ça sortait, c'était mon poste pis ton doctorat."
     },
     {
      "id": "c3_acces_r_002",
@@ -2298,11 +2448,12 @@
     {
      "id": "c3_depart_001",
      "qui": "intervenante_sad",
-     "texte": "Reviens nous montrer tes résultats. Pas un classement : des pistes.",
+     "texte": "Reviens nous montrer tes résultats. Icitte, on aime les pistes. Pas les classements.",
      "emotion": "neutre",
      "intensite": 0.4,
      "anim": "talk",
-     "plan": "epaule"
+     "plan": "epaule",
+     "prononciation": "Reviens nous montrer tes résultats. Icitte, on aime les pistes. Pas les classements."
     },
     {
      "id": "c3_depart_002",
@@ -2376,6 +2527,16 @@
      "intensite": 0.4,
      "anim": "idle",
      "plan": "large"
+    },
+    {
+     "id": "c4_arrivee_005",
+     "qui": "eric",
+     "texte": "J’ai pris l’auto pour les patins. Stationnement du CEPSUM, sans permis. Je vais encore pogner une amende.",
+     "emotion": "agace",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule",
+     "prononciation": "J'ai pris l'auto pour les patins. Stationnement du CEPSUM, sans permis. J'vas encore pogné une amende."
     }
    ]
   },
@@ -2476,20 +2637,22 @@
     {
      "id": "c4_lecon_mi_001",
      "qui": "entraineur_patin",
-     "texte": "Tu avances ! Maintenant, la question que tout le monde oublie : comment on s’arrête ?",
+     "texte": "Tabarnouche ! Tu avances ! Maintenant, la question que tout le monde oublie : comment on s’arrête ?",
      "emotion": "joie",
-     "intensite": 0.4,
+     "intensite": 0.5,
      "anim": "talk",
-     "plan": "epaule"
+     "plan": "epaule",
+     "prononciation": "Tabarnouche ! Tu avances ! Maintenant, la question que tout le monde oublie : comment on s'arrête ?"
     },
     {
      "id": "c4_lecon_mi_002",
      "qui": "eric",
-     "texte": "J’espérais que la bande me répondrait.",
+     "texte": "Tabarnak que c’est glissant. J’espérais que la bande me répondrait.",
      "emotion": "stresse",
-     "intensite": 0.4,
-     "anim": "skate_idle",
-     "plan": "rapproche"
+     "intensite": 0.5,
+     "anim": "skate_wobble",
+     "plan": "rapproche",
+     "prononciation": "Tabarnak que c'est glissant. J'espérais que la bande me répondrait."
     },
     {
      "id": "c4_lecon_mi_003",
@@ -2525,6 +2688,16 @@
     },
     {
      "id": "c4_lecon_fin_003",
+     "qui": "entraineur_patin",
+     "texte": "Pas encore aussi agile que Caufield, mais plus agile qu’hier. C’est ça, une courbe d’apprentissage.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule",
+     "prononciation": "Pas encore aussi agile que Côfîlde, mais plus agile qu'hier. C'est ça, une courbe d'apprentissage."
+    },
+    {
+     "id": "c4_lecon_fin_004",
      "qui": "entraineur_patin",
      "texte": "Va chercher une rondelle. On passe au hockey.",
      "emotion": "enthousiaste",
@@ -2613,6 +2786,16 @@
      "intensite": 0.4,
      "anim": "talk",
      "plan": "epaule"
+    },
+    {
+     "id": "c4_partie_intro_004",
+     "qui": "eric",
+     "texte": "Le score, on s’en câlisse. Moi, je veux mes quatre passes.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "skate_idle",
+     "plan": "rapproche",
+     "prononciation": "Le score, on s'en kâlisse. Moi, j'veux mes quatre passes."
     }
    ]
   },
@@ -2654,6 +2837,16 @@
      "intensite": 0.3,
      "anim": "think",
      "plan": "rapproche"
+    },
+    {
+     "id": "c4_apres_partie_005",
+     "qui": "eric",
+     "texte": "Pis Gaétan a tout arrêté ce soir. Il se prend pour Dobeš.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "skate_idle",
+     "plan": "epaule",
+     "prononciation": "Pis Gaétan a toute arrêté à soir. Y s'prend pour Dobech."
     }
    ]
   },
@@ -2695,6 +2888,25 @@
      "intensite": 0.4,
      "anim": "talk",
      "plan": "epaule"
+    },
+    {
+     "id": "c4_zamboni_005",
+     "qui": "chienne",
+     "texte": "Wouf ! Wouf ! Wouf !",
+     "emotion": "enthousiaste",
+     "intensite": 0.7,
+     "anim": "idle",
+     "plan": "large",
+     "son": "aboiement"
+    },
+    {
+     "id": "c4_zamboni_006",
+     "qui": "chauffeur_zamboni",
+     "texte": "Ta chienne veut conduire ma surfaceuse ? Une border collie, ça veut tout rassembler, même la glace.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
     }
    ]
   },
@@ -2704,11 +2916,12 @@
     {
      "id": "c4_direction_001",
      "qui": "collegue_doc",
-     "texte": "Éric. Dans les gradins. Tailleur sombre et foulard. Elles sont là toutes les deux.",
+     "texte": "Éric. Dans les gradins. Tailleur sombre et foulard. Elles sont là toutes les deux. La première a l’air en beau fusil.",
      "emotion": "stresse",
      "intensite": 0.5,
      "anim": "point",
-     "plan": "epaule"
+     "plan": "epaule",
+     "prononciation": "Éric. Dans les gradins. Tailleur sombre et foulard. Elles sont là toutes les deux. La première a l'air en beau fusil."
     },
     {
      "id": "c4_direction_002",
@@ -2731,14 +2944,24 @@
     {
      "id": "c4_direction_004",
      "qui": "direction_b",
-     "texte": "Mais on est contentes de te voir ! J’ai eu trois petites idées en montant les marches.",
+     "texte": "Tabarouette, Éric, tu patines ! J’ai eu trois petites idées en montant les marches.",
      "emotion": "enthousiaste",
      "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule",
+     "prononciation": "Tabarouètte, Éric, tu patines ! J'ai eu trois petites idées en montant les marches."
+    },
+    {
+     "id": "c4_direction_005",
+     "qui": "direction_a",
+     "texte": "Et… c’est votre chienne ? Bon. Elle, au moins, n’a rien à se reprocher.",
+     "emotion": "neutre",
+     "intensite": 0.4,
      "anim": "talk",
      "plan": "epaule"
     },
     {
-     "id": "c4_direction_005",
+     "id": "c4_direction_006",
      "qui": "eric",
      "texte": "Trois. Pendant les marches. C’est un record.",
      "emotion": "ironie",
@@ -2747,7 +2970,7 @@
      "plan": "rapproche"
     },
     {
-     "id": "c4_direction_006",
+     "id": "c4_direction_007",
      "qui": "direction_a",
      "texte": "Il reste peu de semaines. Il faut arbitrer. Qu’est-ce qu’on coupe ?",
      "emotion": "neutre",
@@ -2882,11 +3105,12 @@
     {
      "id": "c5_ecran_001",
      "qui": "eric",
-     "texte": "Le câble ne rentre pas. L’adaptateur est dans mon autre sac. Mon autre sac est à l’aréna.",
+     "texte": "Sacrament. Le câble ne rentre pas. L’adaptateur est dans mon autre sac, à l’aréna.",
      "emotion": "stresse",
      "intensite": 0.5,
      "anim": "push",
-     "plan": "rapproche"
+     "plan": "rapproche",
+     "prononciation": "Sacraman. Le câble rentre pas. L'adaptateur est dans mon autre sac, à l'aréna."
     },
     {
      "id": "c5_ecran_002",
@@ -3167,6 +3391,16 @@
      "intensite": 0.6,
      "anim": "celebrate",
      "plan": "rapproche"
+    },
+    {
+     "id": "c5_fin_felicitations_005",
+     "qui": "collegue_doc",
+     "texte": "Regarde-les. Ta direction se pète les bretelles. Pour une fois, elle a raison.",
+     "emotion": "amuse",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule",
+     "prononciation": "Regarde-les. Ta direction se pète les bertelles. Pour une fois, elle a raison."
     }
    ]
   },
@@ -3203,11 +3437,12 @@
     {
      "id": "c5_fin_accepte_004",
      "qui": "eric",
-     "texte": "Vendredi. Pour une fois, j’ai hâte.",
+     "texte": "Vendredi. Pour une fois, j’ai hâte. Tiguidou.",
      "emotion": "joie",
      "intensite": 0.6,
      "anim": "celebrate",
-     "plan": "rapproche"
+     "plan": "rapproche",
+     "prononciation": "Vendredi. Pour une fois, j'ai hâte. Tiguidou."
     }
    ]
   },
@@ -3760,6 +3995,364 @@
      "plan": "rapproche"
     }
    ]
+  },
+  "c1_roger_gaudry": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_roger_gaudry_001",
+     "qui": "eric",
+     "texte": "Roger-Gaudry. La tour, les briques jaunes. Le 7101 pour le protocole, ici pour les chiffres.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "idle",
+     "plan": "large"
+    },
+    {
+     "id": "c1_roger_gaudry_002",
+     "qui": "eric",
+     "texte": "Cours de méthodes quantitatives à 13 h. Mon cerveau est encore au séminaire. Ma chienne, elle, est prête.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "walk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c1_quanti_intro": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_quanti_intro_001",
+     "qui": "prof_quanti",
+     "texte": "Bonjour. Aujourd’hui, pas de théorie : de vraies données. Monsieur Bernier, vous nous prêtez votre protocole.",
+     "emotion": "solennel",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_quanti_intro_002",
+     "qui": "eric",
+     "texte": "Je n’ai pas vraiment eu le choix, je pense.",
+     "emotion": "inquiet",
+     "intensite": 0.4,
+     "anim": "sit",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c1_quanti_intro_003",
+     "qui": "prof_quanti",
+     "texte": "Aucun. Et votre chienne peut rester. Une border collie : au moins une qui sait regrouper des observations.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "point",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_quanti_intro_004",
+     "qui": "etudiant_4",
+     "texte": "Elle a fait ça à Mathis la semaine passée. Il a changé de sujet de thèse.",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c1_quanti_intro_005",
+     "qui": "prof_quanti",
+     "texte": "Règles du cours : une entropie n’est pas une note de passage, et un BIC n’est pas un stylo.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c1_quanti_jaccard": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_quanti_jaccard_001",
+     "qui": "prof_quanti",
+     "texte": "Les demandes au 211, maintenant. Deux besoins dans une même demande. Combien, et comparé à quoi ?",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "point",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_quanti_jaccard_002",
+     "qui": "eric",
+     "texte": "Jaccard. L’intersection sur l’union. Pas sur le nombre total de demandes.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "think",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c1_quanti_2sfca": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_quanti_2sfca_001",
+     "qui": "prof_quanti",
+     "texte": "Au tableau. Un 2SFCA, étape par étape, à la main. Les logiciels, c’est pour ceux qui savent déjà ce qu’ils calculent.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "point",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_quanti_2sfca_002",
+     "qui": "eric",
+     "texte": "À la main. Comme au siècle dernier. Avec une craie.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c1_quanti_2sfca_003",
+     "qui": "prof_quanti",
+     "texte": "La craie, c’est pour le style. La rigueur, c’est pour vous.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c1_quanti_2sfca_r": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_quanti_2sfca_r_001",
+     "qui": "prof_quanti",
+     "texte": "Étape un : chaque ressource divise sa capacité par la population de son bassin. Étape deux : chaque AD additionne ce qu’elle atteint.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_quanti_2sfca_r_002",
+     "qui": "prof_quanti",
+     "texte": "Et si la somme pondérée ne redonne pas la capacité totale, vous avez perdu des places en chemin.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c1_quanti_reseaux": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_quanti_reseaux_001",
+     "qui": "prof_quanti",
+     "texte": "Vos liens viennent de répondants, qui viennent d’équipes. Ce ne sont pas des observations indépendantes.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_quanti_reseaux_002",
+     "qui": "eric",
+     "texte": "Donc pas de régression ordinaire sur mes 840 liens. Compris.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "nod",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c1_quanti_eco": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_quanti_eco_001",
+     "qui": "prof_quanti",
+     "texte": "Dernier exercice. Des aires de diffusion, deux CLSC, et une moyenne qui ment.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_quanti_eco_002",
+     "qui": "etudiant_2",
+     "texte": "Elle dit ça chaque semaine. Cette fois, je pense qu’elle a raison.",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c1_quanti_eco_r": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_quanti_eco_r_001",
+     "qui": "prof_quanti",
+     "texte": "La moyenne des taux n’est pas le taux de l’ensemble. Pondérez par la population. Toujours.",
+     "emotion": "agace",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_quanti_eco_r_002",
+     "qui": "prof_quanti",
+     "texte": "Et un territoire n’est pas une personne. Robinson l’a écrit en 1950 ; on le redécouvre chaque automne.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c1_quanti_fin": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_quanti_fin_001",
+     "qui": "prof_quanti",
+     "texte": "Bien, monsieur Bernier. Vos chiffres tiennent. Vous pouvez monter à la bibliothèque.",
+     "emotion": "joie",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_quanti_fin_002",
+     "qui": "eric",
+     "texte": "Mes chiffres tiennent. Moi, un peu moins.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "nod",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c1_quanti_fin_003",
+     "qui": "prof_quanti",
+     "texte": "C’est normal. L’erreur-type diminue avec l’expérience.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c4_entracte": {
+   "lieu": "arena",
+   "lignes": [
+    {
+     "id": "c4_entracte_001",
+     "qui": "imitateur_de_gaulle",
+     "texte": "Mesdames et messieurs, patineurs de la ligue du mardi… je vous ai compris !",
+     "emotion": "solennel",
+     "intensite": 0.7,
+     "anim": "talk",
+     "plan": "large"
+    },
+    {
+     "id": "c4_entracte_002",
+     "qui": "imitateur_de_gaulle",
+     "texte": "Vive Montréal ! Vive le Québec libre !",
+     "emotion": "solennel",
+     "intensite": 0.9,
+     "anim": "talk",
+     "plan": "large",
+     "prononciation": "Vive… Montréal ! Vive… le Québec… … libre !"
+    },
+    {
+     "id": "c4_entracte_003",
+     "qui": "joueur_hockey_2",
+     "texte": "C’est qui, lui ?",
+     "emotion": "amuse",
+     "intensite": 0.5,
+     "anim": "skate_idle",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_entracte_004",
+     "qui": "collegue_doc",
+     "texte": "Le gars du micro. Il fait le Général à chaque entracte. La semaine passée, il a fait la météo.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_entracte_005",
+     "qui": "chevalier",
+     "texte": "Vive le Québec indépendant !",
+     "emotion": "enthousiaste",
+     "intensite": 0.8,
+     "anim": "skate_wobble",
+     "plan": "large",
+     "prononciation": "Viiive le Québec… indépendaaant !"
+    },
+    {
+     "id": "c4_entracte_006",
+     "qui": "eric",
+     "texte": "Un chevalier en armure. En patins. Ça, c’est pas dans mon protocole.",
+     "emotion": "ironie",
+     "intensite": 0.5,
+     "anim": "skate_idle",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c4_entracte_007",
+     "qui": "chevalier",
+     "texte": "Libre, indépendant… Moi, j’ai pris celui qui a le plus de syllabes. Ça fait plus sérieux.",
+     "emotion": "neutre",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_entracte_008",
+     "qui": "chevalier",
+     "texte": "Je cherche le Graal. On m’a dit qu’il était derrière le filet. Y a juste une bouteille d’eau.",
+     "emotion": "enthousiaste",
+     "intensite": 0.6,
+     "anim": "point",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_entracte_009",
+     "qui": "chevalier",
+     "texte": "Les passes, moi, je les fais au hasard. Comme ça, l’adversaire peut pas prévoir. Mon équipe non plus.",
+     "emotion": "neutre",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_entracte_010",
+     "qui": "eric",
+     "texte": "Des passes au hasard. Un réseau sans structure. Il vient de résumer la moitié de ma revue de littérature.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "think",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c4_entracte_011",
+     "qui": "chevalier",
+     "texte": "C’est bon, je suis tombé exprès. C’est une technique de chevalier.",
+     "emotion": "joie",
+     "intensite": 0.6,
+     "anim": "skate_fall",
+     "plan": "large"
+    }
+   ]
   }
  },
  "repliques": {
@@ -3821,7 +4414,7 @@
    {
     "id": "rep_direction_poursuite_007",
     "qui": "direction_a",
-    "texte": "Je vous vois, Éric. Les briques jaunes ne vous cachent pas.",
+    "texte": "Je vous vois, Éric. Vous marchez comme quelqu’un qui est en retard sur sa section 4.",
     "emotion": "neutre",
     "intensite": 0.3,
     "anim": "walk_fast",
@@ -3902,9 +4495,10 @@
    {
     "id": "rep_direction_poursuite_016",
     "qui": "direction_b",
-    "texte": "J’ai pris l’escalier pour toi ! Ralentis !",
+    "texte": "J’ai pris l’escalier pour toi ! Câline, ralentis !",
     "emotion": "insistant",
     "intensite": 0.5,
+    "prononciation": "J'ai pris l'escalier pour toi ! Kâline, ralentis !",
     "anim": "walk_fast",
     "palier": 2
    },
@@ -4037,7 +4631,7 @@
    {
     "id": "rep_direction_poursuite_031",
     "qui": "direction_a",
-    "texte": "Je connais ce pavillon depuis vingt-cinq ans. Vous ne m’échapperez pas.",
+    "texte": "Je connais ces corridors depuis vingt-cinq ans. Vous ne m’échapperez pas.",
     "emotion": "insistant",
     "intensite": 0.7,
     "anim": "walk_fast",
@@ -4123,6 +4717,15 @@
     "intensite": 0.8,
     "anim": "walk_fast",
     "palier": 3
+   },
+   {
+    "id": "rep_direction_poursuite_041",
+    "qui": "direction_a",
+    "texte": "Votre chienne m’a saluée, elle. Vous, vous fuyez.",
+    "emotion": "joie",
+    "intensite": 0.3,
+    "anim": "walk_fast",
+    "palier": 1
    }
   ],
   "direction_apparition": [
@@ -4475,7 +5078,7 @@
    {
     "id": "rep_pnj_generique_001",
     "qui": "etudiant_1",
-    "texte": "Salut ! Je suis un peu pressé, on se reparle ?",
+    "texte": "Salut ! Je suis à la bourre, on se capte plus tard ?",
     "emotion": "neutre",
     "intensite": 0.3,
     "anim": "talk"
@@ -4566,6 +5169,14 @@
     "texte": "Prends une pause. Ça aide. Parole d’expérience.",
     "emotion": "neutre",
     "intensite": 0.3,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_pnj_generique_013",
+    "qui": "etudiant_4",
+    "texte": "Ta chienne est trop belle. Elle fait un doctorat, elle aussi ?",
+    "emotion": "joie",
+    "intensite": 0.4,
     "anim": "talk"
    }
   ],
@@ -5411,6 +6022,15 @@
     "emotion": "amuse",
     "intensite": 0.6,
     "anim": "celebrate_hockey"
+   },
+   {
+    "id": "rep_hockey_but_eric_013",
+    "qui": "joueur_hockey_1",
+    "texte": "Aussi agile que Caufield, notre doctorant !",
+    "emotion": "enthousiaste",
+    "intensite": 0.7,
+    "prononciation": "Aussi agile que Côfîlde, notre doctorant !",
+    "anim": "celebrate_hockey"
    }
   ],
   "hockey_but_adverse": [
@@ -5510,6 +6130,15 @@
     "texte": "Le retour ! Personne au retour ?",
     "emotion": "crie",
     "intensite": 0.6,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_arret_gardien_007",
+    "qui": "joueur_hockey_5",
+    "texte": "Encore un arrêt ! Il se prend pour Dobeš, lui !",
+    "emotion": "enthousiaste",
+    "intensite": 0.6,
+    "prononciation": "Encore un arrêt ! Y s'prend pour Dobech, lui !",
     "anim": "talk"
    }
   ],
@@ -5661,6 +6290,15 @@
     "emotion": "ironie",
     "intensite": 0.5,
     "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_bande_007",
+    "qui": "eric",
+    "texte": "Viarge ! La bande a gagné.",
+    "emotion": "agace",
+    "intensite": 0.5,
+    "prononciation": "Viarge ! La bande a gagné.",
+    "anim": "talk"
    }
   ],
   "hockey_fin_victoire": [
@@ -5811,6 +6449,15 @@
     "emotion": "ironie",
     "intensite": 0.4,
     "anim": "idle"
+   },
+   {
+    "id": "rep_eric_cafe_007",
+    "qui": "eric",
+    "texte": "Café de 7 h. Osti que je vais devoir encore cogner des clous aujourd’hui.",
+    "emotion": "fatigue",
+    "intensite": 0.5,
+    "prononciation": "Café de 7 h. Ostie que j'vas d'voir encore cogner des clous aujourd'hui.",
+    "anim": "idle"
    }
   ],
   "eric_porte_verrouillee": [
@@ -5860,6 +6507,15 @@
     "texte": "Même les portes ont des critères d’admission.",
     "emotion": "ironie",
     "intensite": 0.4,
+    "anim": "push"
+   },
+   {
+    "id": "rep_eric_porte_verrouillee_007",
+    "qui": "eric",
+    "texte": "Barrée. Crisse. Même les portes ont un comité.",
+    "emotion": "agace",
+    "intensite": 0.4,
+    "prononciation": "Barrée. Crisse. Même les portes ont un comité.",
     "anim": "push"
    }
   ],
@@ -5911,15 +6567,25 @@
     "emotion": "fatigue",
     "intensite": 0.6,
     "anim": "idle"
+   },
+   {
+    "id": "rep_eric_fatigue_007",
+    "qui": "eric",
+    "texte": "Calvaire que je suis brûlé. J’ai de la misère à suivre ma propre direction.",
+    "emotion": "fatigue",
+    "intensite": 0.6,
+    "prononciation": "Calvaire que chu brûlé. J'ai d'la misère à suivre ma propre direction.",
+    "anim": "idle"
    }
   ],
   "eric_chute_glace": [
    {
     "id": "rep_eric_chute_glace_001",
     "qui": "eric",
-    "texte": "Aïe. La glace a examiné mon protocole. Elle a dit non.",
+    "texte": "Calvaire. La glace a examiné mon protocole. Elle a dit non.",
     "emotion": "ironie",
     "intensite": 0.5,
+    "prononciation": "Calvaire. La glace a examiné mon protocole. A'l a dit non.",
     "anim": "skate_getup"
    },
    {
@@ -5961,6 +6627,186 @@
     "emotion": "ironie",
     "intensite": 0.5,
     "anim": "skate_getup"
+   },
+   {
+    "id": "rep_eric_chute_glace_007",
+    "qui": "eric",
+    "texte": "Tabarnak que c’est dur, de la glace.",
+    "emotion": "agace",
+    "intensite": 0.5,
+    "prononciation": "Tabarnak que c'est dur, d'la glace.",
+    "anim": "skate_getup"
+   }
+  ],
+  "chienne_aboie": [
+   {
+    "id": "rep_chienne_aboie_001",
+    "qui": "chienne",
+    "texte": "Wouf !",
+    "emotion": "enthousiaste",
+    "intensite": 0.6,
+    "anim": "idle",
+    "son": "aboiement"
+   },
+   {
+    "id": "rep_chienne_aboie_002",
+    "qui": "chienne",
+    "texte": "Wouf, wouf !",
+    "emotion": "enthousiaste",
+    "intensite": 0.7,
+    "anim": "idle",
+    "son": "aboiement"
+   },
+   {
+    "id": "rep_chienne_aboie_003",
+    "qui": "chienne",
+    "texte": "Ouaf !",
+    "emotion": "agace",
+    "intensite": 0.5,
+    "anim": "idle",
+    "son": "aboiement"
+   },
+   {
+    "id": "rep_chienne_aboie_004",
+    "qui": "chienne",
+    "texte": "Wouf ! Wouf ! Wouf !",
+    "emotion": "enthousiaste",
+    "intensite": 0.8,
+    "anim": "idle",
+    "son": "aboiement"
+   },
+   {
+    "id": "rep_chienne_aboie_005",
+    "qui": "chienne",
+    "texte": "Grrr… wouf !",
+    "emotion": "inquiet",
+    "intensite": 0.5,
+    "anim": "idle",
+    "son": "grognement"
+   },
+   {
+    "id": "rep_chienne_aboie_006",
+    "qui": "chienne",
+    "texte": "Ouaf ?",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "idle",
+    "son": "aboiement"
+   }
+  ],
+  "chienne_contente": [
+   {
+    "id": "rep_chienne_contente_001",
+    "qui": "chienne",
+    "texte": "Mmmh…",
+    "emotion": "joie",
+    "intensite": 0.5,
+    "anim": "idle",
+    "son": "gemissement"
+   },
+   {
+    "id": "rep_chienne_contente_002",
+    "qui": "chienne",
+    "texte": "Wouf !",
+    "emotion": "joie",
+    "intensite": 0.6,
+    "anim": "idle",
+    "son": "aboiement"
+   },
+   {
+    "id": "rep_chienne_contente_003",
+    "qui": "chienne",
+    "texte": "Snif, snif.",
+    "emotion": "joie",
+    "intensite": 0.5,
+    "anim": "idle",
+    "son": "reniflement"
+   },
+   {
+    "id": "rep_chienne_contente_004",
+    "qui": "chienne",
+    "texte": "Hmm hmm hmm !",
+    "emotion": "joie",
+    "intensite": 0.6,
+    "anim": "idle",
+    "son": "jappement"
+   },
+   {
+    "id": "rep_chienne_contente_005",
+    "qui": "chienne",
+    "texte": "Pfff…",
+    "emotion": "joie",
+    "intensite": 0.4,
+    "anim": "idle",
+    "son": "soupir"
+   },
+   {
+    "id": "rep_chienne_contente_006",
+    "qui": "chienne",
+    "texte": "Wouf ! Ouaf !",
+    "emotion": "enthousiaste",
+    "intensite": 0.6,
+    "anim": "idle",
+    "son": "jappement"
+   }
+  ],
+  "eric_chienne": [
+   {
+    "id": "rep_eric_chienne_001",
+    "qui": "eric",
+    "texte": "Viens, ma belle. Au pied.",
+    "emotion": "joie",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_eric_chienne_002",
+    "qui": "eric",
+    "texte": "Non, on ne court pas après la direction. C’est elle qui court après moi.",
+    "emotion": "ironie",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_eric_chienne_003",
+    "qui": "eric",
+    "texte": "Bonne fille. Toi, au moins, tu ne me demandes pas ma condition traceuse.",
+    "emotion": "joie",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_eric_chienne_004",
+    "qui": "eric",
+    "texte": "Assis. Bravo. Tu obéis mieux que mon échéancier.",
+    "emotion": "amuse",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_eric_chienne_005",
+    "qui": "eric",
+    "texte": "Lâche ça. C’est un résumé fictif, pas un os.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_eric_chienne_006",
+    "qui": "eric",
+    "texte": "Une border collie, ça rassemble tout le monde. Coordonnatrice, tu as ça dans le sang.",
+    "emotion": "amuse",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_eric_chienne_007",
+    "qui": "eric",
+    "texte": "Ça fait frette, hein, ma belle ? On rentre.",
+    "emotion": "fatigue",
+    "intensite": 0.4,
+    "prononciation": "Ça fait frètte, hein, ma belle ? On rentre.",
+    "anim": "talk"
    }
   ]
  }
