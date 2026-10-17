@@ -17,14 +17,17 @@
   border-radius: 0;
   background: transparent;
   box-shadow:
-    inset 0 0 0 5px #a3a8a9,
-    inset 0 0 0 6px #5f6567,
-    inset 1px 1px 0 6px #e4e7e7,
+    inset 0 0 0 1px #3f4547,
+    inset 1px 1px 0 2px #f2f4f4,
+    inset 0 0 0 4px #b3b8b9,
+    inset -1px -1px 0 5px #7d8486,
+    inset 0 0 0 7px #5a6163,
+    inset 0 0 0 8px rgba(0,0,0,.25),
     0 0 0 1px rgba(36,40,42,.55),
     calc(2px + var(--hall-soleil) * 5px) calc(2px + var(--hall-soleil) * 3px) calc(8px + (1 - var(--hall-soleil)) * 8px) rgba(30,26,20,calc(.12 + var(--hall-soleil) * .1));
 }
 .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .ouverture {
-  inset: 6px 6px 0;
+  inset: 8px 8px 0;
   background: transparent;
   box-shadow: none;
   perspective: 1700px;
@@ -40,12 +43,17 @@
   border: 0;
   border-radius: 0;
   background:
-    linear-gradient(112deg,rgba(255,255,255,.26) 0%,rgba(255,255,255,.07) 26%,rgba(255,255,255,0) 44%,rgba(255,255,255,.1) 62%,rgba(255,255,255,0) 74%),
-    rgba(196,214,220,.16);
+    radial-gradient(circle at 4px 3px,rgba(255,255,255,.62) 0 1.2px,transparent 1.7px) 0 62% / 8px 11px repeat-x,
+    radial-gradient(circle at 0 8px,rgba(255,255,255,.62) 0 1.2px,transparent 1.7px) 0 62% / 8px 11px repeat-x,
+    linear-gradient(106deg,transparent 0 12%,rgba(255,255,255,.22) 20%,rgba(255,255,255,.06) 27%,transparent 34%,transparent 58%,rgba(255,255,255,.12) 64%,transparent 72%),
+    linear-gradient(180deg,rgba(255,255,255,.12),transparent 30%,transparent 80%,rgba(255,255,255,.06)),
+    rgba(186,210,216,.13);
   box-shadow:
-    inset 0 0 0 3px #b9bdbe,
-    inset 0 0 0 4px #6c7273,
-    inset 2px 2px 0 4px rgba(255,255,255,.6);
+    inset 0 0 0 2px #c9cdce,
+    inset 0 0 0 3px #6c7273,
+    inset 0 0 0 4px rgba(120,170,160,.5),
+    inset 3px 3px 6px 3px rgba(255,255,255,.18),
+    inset -2px -2px 5px 3px rgba(0,0,0,.12);
   transform-origin: 0 50%;
   transition: transform .55s var(--ease);
 }
@@ -64,22 +72,59 @@
   background: linear-gradient(180deg,#e9ebeb,#a9aeaf 35%,#868c8d 70%,#5d6365);
   box-shadow: inset 0 1px 0 #fff;
 }
-/* Poignée bâton inox. */
+/* Poignée bec-de-cane inox : plaque, rosace et béquille qui s'abaisse avant l'ouverture. */
 .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .poignee {
   display: block;
   position: absolute;
-  top: 40%;
-  inset-inline-end: 7%;
-  width: 3.4%;
-  min-width: 4px;
-  height: 24%;
+  top: 46%;
+  inset-inline-end: 5.5%;
+  width: 6.5%;
+  min-width: 7px;
+  height: 15%;
   border: 0;
   border-radius: 3px;
-  background: linear-gradient(90deg,#6f7677,#eef0f0 40%,#b3b9ba 70%,#6a7172);
-  box-shadow: 1px 2px 3px rgba(20,24,26,.4);
+  background: linear-gradient(90deg,#757c7d,#e9ecec 35%,#b8bebf 65%,#687071);
+  box-shadow: 1px 2px 3px rgba(20,24,26,.35), inset 0 1px 0 rgba(255,255,255,.7);
+  z-index: 3;
 }
-.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .poignee::before,
-.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .poignee::after { display: none; }
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .poignee::before {
+  display: block;
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  width: 150%;
+  height: auto;
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 50%;
+  transform: translate(-50%,-50%);
+  background: radial-gradient(circle at 35% 30%,#fff 0%,#e3e6e6 28%,#9ca3a4 68%,#5f6667 100%);
+  box-shadow: 0 1px 2px rgba(0,0,0,.4);
+}
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .poignee::after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 30%;
+  right: 50%;
+  left: auto;
+  width: 430%;
+  height: 15%;
+  min-height: 3px;
+  border: 0;
+  border-radius: 3px 2px 2px 3px;
+  background: linear-gradient(180deg,#fbfcfc 0%,#d6dadb 30%,#9aa1a2 70%,#5c6365 100%);
+  box-shadow: 0 2px 3px rgba(0,0,0,.35);
+  transform-origin: 100% 50%;
+  transform: translateY(-50%) rotate(0deg);
+  transition: transform .26s cubic-bezier(.3,.7,.3,1.25);
+}
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte:is(:hover,:focus-visible,.ouverte) .poignee::after {
+  transform: translateY(-50%) rotate(-38deg);
+}
+/* La béquille s'abaisse d'abord, puis le battant s'entrouvre. */
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte:is(:hover,:focus-visible):not(.ouverte) .battant { transition-delay: .18s; }
 /* Illustration de chaque porte, imprimée dans le haut du verre. */
 .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .vignette {
   display: block;
@@ -381,9 +426,11 @@
     filter: blur(1.5px);
     z-index: 0;
   }
-  /* Module de verre : montant inox à gauche, traverse à la hauteur des portes, reflets du vitrage. */
+  /* Module de verre : montant inox à gauche, traverse à la hauteur des portes, tranche verte,
+     bande dépolie de sécurité, reflets du ciel et du hall, grain très léger du vitrage. */
   .hall.en-volume .station-hall::after {
     --traverse: calc(var(--mur-haut) - var(--verre-haut));
+    --bande: calc(var(--traverse) + var(--hauteur-mur) * .58);
     content: "";
     position: absolute;
     z-index: -1;
@@ -393,10 +440,15 @@
     bottom: 0;
     pointer-events: none;
     background:
-      linear-gradient(90deg,#5d6365 0,#d9dcdc 2px,#a3a8a9 4px,#6b7173 6px,rgba(0,0,0,.25) 7px,transparent 9px) left top / 9px 100% no-repeat,
-      linear-gradient(180deg,transparent calc(var(--traverse) - 4px),#dfe2e2 calc(var(--traverse) - 4px),#a1a6a7 calc(var(--traverse) - 1px),#61676a calc(var(--traverse) + 3px),rgba(0,0,0,.2) calc(var(--traverse) + 4px),transparent calc(var(--traverse) + 6px)),
-      linear-gradient(112deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,.03) 20%,rgba(255,255,255,0) 38%,rgba(255,255,255,.08) 56%,rgba(255,255,255,0) 68%,rgba(255,255,255,.04) 90%),
-      rgba(178,200,208,.08);
+      linear-gradient(90deg,#41474a 0,#9ea4a6 1px,#e9ecec 3px,#c4c9ca 5px,#8a9193 8px,#4c5255 10px,rgba(120,170,160,.45) 10px,rgba(120,170,160,.2) 11.5px,rgba(0,0,0,.22) 12px,rgba(0,0,0,.08) 16px,transparent 22px) left top / 22px 100% no-repeat,
+      linear-gradient(180deg,transparent calc(var(--traverse) - 5px),#4c5255 calc(var(--traverse) - 5px),#e6e9e9 calc(var(--traverse) - 3px),#aeb3b4 calc(var(--traverse)),#6a7173 calc(var(--traverse) + 3px),rgba(0,0,0,.24) calc(var(--traverse) + 4px),rgba(0,0,0,.06) calc(var(--traverse) + 9px),transparent calc(var(--traverse) + 13px)),
+      radial-gradient(circle at 4.5px 3px,rgba(255,255,255,.6) 0 1.2px,transparent 1.7px) 0 var(--bande) / 9px 12px repeat-x,
+      radial-gradient(circle at 0 9px,rgba(255,255,255,.6) 0 1.2px,transparent 1.7px) 0 var(--bande) / 9px 12px repeat-x,
+      linear-gradient(104deg,transparent 0 16%,rgba(255,255,255,.11) 22%,rgba(255,255,255,.035) 28%,transparent 34%,transparent 60%,rgba(255,255,255,.07) 66%,rgba(255,255,255,.02) 70%,transparent 76%),
+      linear-gradient(180deg,rgba(255,255,255,.09) 0%,transparent 28%,transparent 72%,rgba(255,255,255,.04) 100%),
+      linear-gradient(0deg,rgba(245,244,240,calc(var(--hall-nuit,0) * .12)) 0%,transparent 42%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"),
+      rgba(170,200,206,.07);
   }
   .hall.en-volume .station-hall .porte {
     top: 0;
