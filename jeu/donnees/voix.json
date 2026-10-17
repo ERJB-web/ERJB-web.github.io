@@ -798,5 +798,249 @@
  "c4_entracte_008": {
   "duree": 5.94,
   "qui": "chevalier"
+ },
+ "c4_entracte_009": {
+  "duree": 6.98,
+  "qui": "chevalier"
+ },
+ "c4_entracte_010": {
+  "duree": 6.16,
+  "qui": "eric"
+ },
+ "c4_entracte_011": {
+  "duree": 4.43,
+  "qui": "chevalier"
+ },
+ "c4_gardien_002": {
+  "duree": 1.87,
+  "qui": "eric"
+ },
+ "c4_gardien_004": {
+  "duree": 4.73,
+  "qui": "eric"
+ },
+ "c4_gardien_005": {
+  "duree": 5.75,
+  "qui": "gardien"
+ },
+ "c4_lecon_fin_001": {
+  "duree": 5.84,
+  "qui": "entraineur_patin"
+ },
+ "c4_lecon_fin_002": {
+  "duree": 2.63,
+  "qui": "eric"
+ },
+ "c4_lecon_fin_003": {
+  "duree": 6.51,
+  "qui": "entraineur_patin"
+ },
+ "c4_lecon_fin_004": {
+  "duree": 2.93,
+  "qui": "entraineur_patin"
+ },
+ "c4_lecon_intro_001": {
+  "duree": 5.56,
+  "qui": "entraineur_patin"
+ },
+ "c4_lecon_intro_002": {
+  "duree": 1.57,
+  "qui": "eric"
+ },
+ "c4_lecon_intro_003": {
+  "duree": 6.55,
+  "qui": "entraineur_patin"
+ },
+ "c4_lecon_intro_004": {
+  "duree": 6.37,
+  "qui": "entraineur_patin"
+ },
+ "c4_lecon_intro_005": {
+  "duree": 4.53,
+  "qui": "eric"
+ },
+ "c4_lecon_intro_006": {
+  "duree": 4.7,
+  "qui": "entraineur_patin"
+ },
+ "c4_lecon_mi_001": {
+  "duree": 5.85,
+  "qui": "entraineur_patin"
+ },
+ "c4_lecon_mi_002": {
+  "duree": 4.1,
+  "qui": "eric"
+ },
+ "c4_lecon_mi_003": {
+  "duree": 3.35,
+  "qui": "entraineur_patin"
+ },
+ "c4_partie_intro_001": {
+  "duree": 9.73,
+  "qui": "entraineur_patin"
+ },
+ "c4_partie_intro_002": {
+  "duree": 4.04,
+  "qui": "joueur_hockey_2"
+ },
+ "c4_partie_intro_003": {
+  "duree": 5.14,
+  "qui": "entraineur_patin"
+ },
+ "c4_partie_intro_004": {
+  "duree": 4.05,
+  "qui": "eric"
+ },
+ "c4_recensement_001": {
+  "duree": 5.65,
+  "qui": "direction_b"
+ },
+ "c4_recensement_002": {
+  "duree": 4.93,
+  "qui": "eric"
+ },
+ "c4_vestiaire_001": {
+  "duree": 3.04,
+  "qui": "joueur_hockey_1"
+ },
+ "c4_vestiaire_002": {
+  "duree": 4.23,
+  "qui": "eric"
+ },
+ "c4_vestiaire_003": {
+  "duree": 5.61,
+  "qui": "joueur_hockey_3"
+ },
+ "c4_zamboni_001": {
+  "duree": 4.12,
+  "qui": "chauffeur_zamboni"
+ },
+ "c4_zamboni_002": {
+  "duree": 1.36,
+  "qui": "eric"
+ },
+ "c4_zamboni_003": {
+  "duree": 5.15,
+  "qui": "chauffeur_zamboni"
+ },
+ "c4_zamboni_004": {
+  "duree": 3.45,
+  "qui": "chauffeur_zamboni"
+ },
+ "c4_zamboni_006": {
+  "duree": 5.19,
+  "qui": "chauffeur_zamboni"
+ },
+ "rep_direction_apparition_001": {
+  "duree": 3.41,
+  "qui": "direction_a"
+ },
+ "rep_direction_apparition_002": {
+  "duree": 4.92,
+  "qui": "direction_b"
+ },
+ "rep_direction_apparition_003": {
+  "duree": 5.27,
+  "qui": "direction_a"
+ },
+ "rep_direction_apparition_004": {
+  "duree": 4.22,
+  "qui": "direction_b"
+ },
+ "rep_direction_apparition_005": {
+  "duree": 3.03,
+  "qui": "direction_a"
+ },
+ "rep_direction_apparition_006": {
+  "duree": 4.7,
+  "qui": "direction_b"
+ },
+ "rep_direction_perdue_001": {
+  "duree": 2.31,
+  "qui": "direction_a"
+ },
+ "rep_direction_perdue_002": {
+  "duree": 5.22,
+  "qui": "direction_b"
+ },
+ "rep_direction_perdue_003": {
+  "duree": 3.21,
+  "qui": "direction_a"
+ },
+ "rep_direction_perdue_004": {
+  "duree": 3.49,
+  "qui": "direction_b"
+ },
+ "rep_direction_perdue_005": {
+  "duree": 3.2,
+  "qui": "direction_a"
+ },
+ "rep_direction_perdue_006": {
+  "duree": 3.19,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_001": {
+  "duree": 4.23,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_002": {
+  "duree": 2.9,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_003": {
+  "duree": 3.34,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_004": {
+  "duree": 3.05,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_005": {
+  "duree": 2.67,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_006": {
+  "duree": 2.58,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_007": {
+  "duree": 4.3,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_008": {
+  "duree": 5.16,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_009": {
+  "duree": 3.98,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_010": {
+  "duree": 4.42,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_011": {
+  "duree": 3.51,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_012": {
+  "duree": 4.14,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_013": {
+  "duree": 3.04,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_014": {
+  "duree": 3.89,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_015": {
+  "duree": 2.0,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_016": {
+  "duree": 3.19,
+  "qui": "direction_b"
  }
 }
