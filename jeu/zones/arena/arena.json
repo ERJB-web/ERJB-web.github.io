@@ -3,9 +3,18 @@
   "titre": "Aréna du CEPSUM",
   "sousTitre": "Centre d'éducation physique et des sports, Université de Montréal",
   "glb": "arena.glb",
-  "lightmaps": [],
+  "lightmaps": [
+    {
+      "fichier": "arena_lm0.webp",
+      "scale": 5.2666
+    },
+    {
+      "fichier": "arena_lm1.webp",
+      "scale": 2.3426
+    }
+  ],
   "env": {
-    "fichier": null,
+    "fichier": "arena_env.hdr",
     "intensite": 1.0,
     "fond": "#1b2026"
   },
@@ -38,7 +47,7 @@
       29.5
     ]
   },
-  "carte": null,
+  "carte": "arena_carte.webp",
   "acces": {
     "campus": "SPAWN_from_campus"
   },

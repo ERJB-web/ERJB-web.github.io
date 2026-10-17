@@ -1,1 +1,30 @@
-{}
+{
+ "c1_arrivee_001": {
+  "duree": 8.23,
+  "qui": "eric"
+ },
+ "c1_arrivee_002": {
+  "duree": 5.75,
+  "qui": "eric"
+ },
+ "c1_arrivee_003": {
+  "duree": 4.32,
+  "qui": "eric"
+ },
+ "c1_arrivee_005": {
+  "duree": 4.19,
+  "qui": "etudiant_1"
+ },
+ "c1_arrivee_006": {
+  "duree": 4.84,
+  "qui": "eric"
+ },
+ "c1_arrivee_007": {
+  "duree": 3.48,
+  "qui": "etudiant_1"
+ },
+ "c1_arrivee_008": {
+  "duree": 5.72,
+  "qui": "eric"
+ }
+}

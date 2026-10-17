@@ -1,0 +1,182 @@
+{
+  "id": "clsc",
+  "titre": "CLSC des Faubourgs",
+  "sousTitre": "Rue de la Visitation, Centre-Sud",
+  "glb": "clsc.glb",
+  "lightmaps": [
+    {
+      "fichier": "clsc_lm0.webp",
+      "scale": 1.03011
+    },
+    {
+      "fichier": "clsc_lm1.webp",
+      "scale": 2.92765
+    }
+  ],
+  "env": {
+    "fichier": "clsc_env.hdr",
+    "intensite": 1.0,
+    "fond": "#c8d5de"
+  },
+  "soleil": {
+    "direction": [
+      0.528,
+      -0.614,
+      -0.587
+    ],
+    "couleur": "#fff0dc",
+    "intensite": 2.5
+  },
+  "brouillard": {
+    "couleur": "#d3dbe0",
+    "densite": 0.004
+  },
+  "exposition": 1.0,
+  "musique": "clsc",
+  "ambiance": "amb_clsc",
+  "sol": "beton",
+  "bounds": {
+    "min": [
+      -91.0,
+      -0.2,
+      -46.0
+    ],
+    "max": [
+      91.0,
+      12.0,
+      46.0
+    ]
+  },
+  "carte": "clsc_carte.webp",
+  "acces": {
+    "metro": "SPAWN_from_metro"
+  },
+  "credits": [
+    {
+      "ressource": "Red Brick",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/red_brick"
+    },
+    {
+      "ressource": "Brick Wall 006",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/brick_wall_006"
+    },
+    {
+      "ressource": "Brick Wall 10",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/brick_wall_10"
+    },
+    {
+      "ressource": "Brick Wall 11",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/brick_wall_11"
+    },
+    {
+      "ressource": "Concrete Wall 008",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/concrete_wall_008"
+    },
+    {
+      "ressource": "Asphalt 02",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/asphalt_02"
+    },
+    {
+      "ressource": "Concrete Floor Worn 001",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/concrete_floor_worn_001"
+    },
+    {
+      "ressource": "Concrete",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/concrete"
+    },
+    {
+      "ressource": "Dry Decay Leaves",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/dry_decay_leaves"
+    },
+    {
+      "ressource": "Bark Platanus",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/bark_platanus"
+    },
+    {
+      "ressource": "Oak Veneer 01",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/oak_veneer_01"
+    },
+    {
+      "ressource": "Poly Wool Herringbone",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/poly_wool_herringbone"
+    },
+    {
+      "ressource": "Kloofendal 38d Partly Cloudy (Pure Sky)",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/kloofendal_38d_partly_cloudy_puresky"
+    },
+    {
+      "ressource": "Potted Plant 02",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/potted_plant_02"
+    },
+    {
+      "ressource": "Modern Arm Chair 01",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/modern_arm_chair_01"
+    },
+    {
+      "ressource": "Wheelchair 01",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/wheelchair_01"
+    },
+    {
+      "ressource": "Wet Floor Sign 01",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/WetFloorSign_01"
+    },
+    {
+      "ressource": "Lato, Barlow Semi Condensed, Caveat",
+      "auteur": "Łukasz Dziedzic ; Jeremy Tribby ; Impallari Type",
+      "licence": "OFL",
+      "url": "https://fonts.google.com"
+    },
+    {
+      "ressource": "Territoires de CLSC 2026",
+      "auteur": "Ministère de la Santé et des Services sociaux du Québec",
+      "licence": "Données ouvertes",
+      "url": "https://www.donneesquebec.ca"
+    },
+    {
+      "ressource": "Aires de diffusion 2021",
+      "auteur": "Statistique Canada",
+      "licence": "Licence du gouvernement ouvert – Canada",
+      "url": "https://www12.statcan.gc.ca"
+    },
+    {
+      "ressource": "Limites des arrondissements",
+      "auteur": "Ville de Montréal",
+      "licence": "CC BY 4.0",
+      "url": "https://donnees.montreal.ca"
+    }
+  ]
+}

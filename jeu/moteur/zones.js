@@ -4,10 +4,10 @@ import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { preparerMateriauLightmap } from './rendu.js?v=daaffb3e30';
-import { creerNavmesh } from './navmesh.js?v=daaffb3e30';
-import { boiteLocale } from './objets.js?v=daaffb3e30';
-import { GROUPES, groupes } from './physique.js?v=daaffb3e30';
+import { preparerMateriauLightmap } from './rendu.js?v=843b24f588';
+import { creerNavmesh } from './navmesh.js?v=843b24f588';
+import { boiteLocale } from './objets.js?v=843b24f588';
+import { GROUPES, groupes } from './physique.js?v=843b24f588';
 
 const TOUT = 0xffff;
 
@@ -17,6 +17,17 @@ export function creerChargeur(renderer) {
   const gltf = new GLTFLoader();
   gltf.setDRACOLoader(draco);
   gltf.setMeshoptDecoder(MeshoptDecoder);
+  // une texture sans image (export incomplet) est ignorée au lieu de faire échouer toute la zone
+  gltf.register((parser) => ({
+    name: 'texture_sans_image',
+    loadTexture(index) {
+      const def = parser.json.textures?.[index];
+      const ext = def?.extensions || {};
+      if (!def || def.source !== undefined || ext.EXT_texture_webp || ext.KHR_texture_basisu || ext.EXT_texture_avif) return null;
+      console.warn('[zone] texture sans image ignorée :', index);
+      return Promise.resolve(null);
+    },
+  }));
   const textures = new THREE.TextureLoader();
   const rgbe = new RGBELoader();
   const max = renderer.capabilities.getMaxAnisotropy();
