@@ -1237,3 +1237,14 @@
     document.addEventListener('DOMContentLoaded', initialiser, { once: true });
   else initialiser();
 })();
+
+// Atlas O3 — réseaux egocentres CLSC Centre-Sud (figures scientifiques et volets qualitatifs).
+(()=>{
+  if (!/^fr(?:-|$)/i.test(document.documentElement.lang || "")) return;
+  if (document.querySelector('script[data-o3-reseaux]')) return;
+  const script = document.createElement('script');
+  script.dataset.o3Reseaux = '1';
+  script.src = (document.documentElement.dataset.racine || './') + 'assets/o3-reseaux.js?v=20261017';
+  script.defer = true;
+  document.head.appendChild(script);
+})();
