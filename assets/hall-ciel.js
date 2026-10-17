@@ -122,8 +122,9 @@ const ebMeteoMontreal = (() => {
     p.className = "direct-montreal " + classe;
     p.setAttribute("aria-label", T.etiquette);
     p.innerHTML = '<span class="direct-ciel" aria-hidden="true"><span class="direct-etoiles"></span><svg viewBox="0 0 24 24"></svg></span>'
-      + '<span class="direct-texte"><time class="direct-heure"></time>'
-      + '<span class="direct-sous"><span class="direct-ville"></span><span class="direct-meteo"><span class="direct-temp"></span> <span class="direct-cond"></span></span></span></span>'
+      + '<span class="direct-meteo"><span class="direct-temp"></span><span class="direct-cond"></span></span>'
+      + '<span class="direct-filet" aria-hidden="true"></span>'
+      + '<span class="direct-texte"><time class="direct-heure"></time><span class="direct-ville"></span></span>'
       + '<span class="direct-filet" aria-hidden="true"></span>'
       + '<span class="direct-activite"><span class="direct-point" aria-hidden="true"></span><span class="direct-statut"></span></span>';
     return p;
@@ -162,7 +163,7 @@ const ebMeteoMontreal = (() => {
       if (meteo && Number.isFinite(Number(meteo.temperature_2m))) {
         const degres = Math.round(Number(meteo.temperature_2m));
         l.querySelector(".direct-temp").textContent = `${degres === 0 ? 0 : degres}\u00a0°C`;
-        l.querySelector(".direct-cond").textContent = ["fr", "en", "es", "ru"].includes(codeLangue) ? T.meteo[nom].charAt(0).toLowerCase() + T.meteo[nom].slice(1) : T.meteo[nom];
+        l.querySelector(".direct-cond").textContent = T.meteo[nom];
       }
     }
   }
