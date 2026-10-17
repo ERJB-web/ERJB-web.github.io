@@ -4737,3 +4737,129 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
   hyphens: none;
   word-break: normal;
 }
+
+
+/* Thèse — cartes et schémas lisibles en deux blocs (2026-10-17) */
+/* Un premier bloc pour les explications, un second, indépendant, pour le visuel.
+   Conservation intégrale des images, de leurs légendes et des textes existants. */
+#recherche .these .m-o2 .bloc-illustre:has(> figure),
+#recherche .these .bloc-illustre:has(> figure img[src*="/these/o2/"]),
+#recherche .these .r-retombees .bloc-illustre:has(> figure img[src*="/these/o2/"]) {
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  grid-auto-flow:row!important;
+  align-items:start!important;
+  gap:clamp(18px,2vw,28px)!important;
+  width:100%;
+  min-width:0;
+  max-width:none;
+  margin-block:clamp(26px,3vw,44px);
+}
+#recherche .these .m-o2 .bloc-illustre:has(> figure)>*,
+#recherche .these .bloc-illustre:has(> figure img[src*="/these/o2/"])>* {
+  grid-column:1!important;
+  order:initial!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0;
+}
+#recherche .these .m-o2 .bloc-illustre:has(> figure)>div,
+#recherche .these .bloc-illustre:has(> figure img[src*="/these/o2/"])>div {
+  padding:clamp(17px,2.2vw,27px);
+  border:1px solid #d8e6e2;
+  border-left:4px solid #287867;
+  border-radius:14px;
+  background:linear-gradient(125deg,#f3f8f5,#fff);
+}
+#recherche .these .m-o2 .bloc-illustre:has(> figure)>figure,
+#recherche .these .bloc-illustre:has(> figure img[src*="/these/o2/"])>figure {
+  margin:0!important;
+  padding:0;
+  border:0;
+  background:#fff;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0;
+}
+#recherche .these .m-o2 .bloc-illustre:has(> figure)>figure a,
+#recherche .these .bloc-illustre:has(> figure img[src*="/these/o2/"])>figure a {
+  display:block;
+  width:100%;
+  max-width:none;
+  cursor:zoom-in;
+}
+#recherche .these .m-o2 .bloc-illustre:has(> figure)>figure img,
+#recherche .these .bloc-illustre:has(> figure img[src*="/these/o2/"])>figure img,
+#recherche .these figure img[src*="/these/o2/atlas-"] {
+  display:block;
+  width:100%!important;
+  max-width:100%!important;
+  height:auto!important;
+  max-height:none!important;
+  aspect-ratio:auto!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  transform:none!important;
+  filter:none!important;
+  image-rendering:auto;
+}
+#recherche .these .m-o2 .bloc-illustre:has(> figure) figcaption,
+#recherche .these .bloc-illustre:has(> figure img[src*="/these/o2/"]) figcaption {
+  display:block;
+  width:100%;
+  max-width:95ch;
+  margin:12px 0 0;
+  font-size:clamp(14px,1.05vw,16px);
+  line-height:1.6;
+  text-align:start;
+  hyphens:none;
+}
+/* Les schémas et la comparaison code → carte ne doivent pas être comprimés. */
+#recherche .these .m-o2 :is(.code-vers-carte,.m-code-carte) {
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  align-items:start!important;
+  gap:15px!important;
+}
+#recherche .these .m-o2 :is(.code-vers-carte,.m-code-carte)>figure {
+  min-width:0;
+  max-width:none;
+  width:100%;
+}
+#recherche .these .m-o2 .m-code-carte .m-fleche {
+  transform:rotate(90deg);
+  font-size:24px;
+}
+#recherche .these .m-o2 .m-schema,
+#recherche .these .m-o2 .m-schema svg {
+  display:block;
+  width:100%;
+  max-width:none;
+  height:auto;
+  min-width:0;
+}
+#recherche .these .o3-figures-reelles,
+#recherche .these .o3-quali-grille {
+  grid-template-columns:minmax(0,1fr)!important;
+}
+#recherche .these .o3-figures-reelles figure img {
+  display:block;
+  width:100%!important;
+  height:auto!important;
+  max-height:none!important;
+  object-fit:contain!important;
+}
+/* Sur écrans étroits, cartes détaillées défilables plutôt que réduites à des miniatures. */
+@media(max-width:820px) {
+  #recherche .these figure:has(img[src*="/these/o2/atlas-"])>a,
+  #recherche .these figure:has(img[src*="/these/o2/carte-"])>a {
+    overflow-x:auto;
+    overscroll-behavior-inline:contain;
+    -webkit-overflow-scrolling:touch;
+  }
+  #recherche .these figure img[src*="/these/o2/atlas-"],
+  #recherche .these figure img[src*="/these/o2/carte-"] {
+    width:max(100%,760px)!important;
+    max-width:none!important;
+  }
+}
