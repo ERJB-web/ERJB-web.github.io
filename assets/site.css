@@ -4589,3 +4589,89 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
   #rubrique-fr-these-panneau-0 .these-chiffres>div>div>span:nth-child(2){grid-column:1;grid-row:2}
   #rubrique-fr-these-panneau-0 .these-chiffres>div>div>b{grid-column:2;grid-row:2}
 }
+
+
+/* Thèse — tableau travail social / réponse intersectorielle (style ciblé) */
+/* Le sélecteur vise exclusivement le comparatif de la section de thèse,
+   sans modifier son contenu, sa position ni les autres tableaux du site. */
+.these div:has(> table > thead > tr > th[style*="#0D2A3A"]) {
+  margin-block:24px 30px!important;
+  overflow-x:auto;
+  padding:3px 2px 10px;
+  scrollbar-color:#bfd3df transparent;
+  -webkit-overflow-scrolling:touch;
+}
+.these table:has(> thead > tr > th[style*="#0D2A3A"]) {
+  width:100%!important;
+  min-width:500px!important;
+  table-layout:fixed;
+  border-collapse:separate!important;
+  border-spacing:0!important;
+  border:1px solid #dce7ee;
+  border-radius:16px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 7px 28px rgba(13,42,58,.065);
+  color:#2d4656;
+  font-family:var(--sans);
+  font-size:1rem!important;
+  line-height:1.6;
+  text-align:start;
+}
+.these table:has(> thead > tr > th[style*="#0D2A3A"]) thead th {
+  padding:17px 21px!important;
+  color:#fff!important;
+  font-size:.95em;
+  font-weight:700;
+  line-height:1.45;
+  letter-spacing:-.015em;
+  vertical-align:middle;
+  text-align:start!important;
+  border:0!important;
+}
+.these table:has(> thead > tr > th[style*="#0D2A3A"]) thead th:first-child {
+  width:32%;
+  background:#0d2a3a!important;
+}
+.these table:has(> thead > tr > th[style*="#0D2A3A"]) thead th:nth-child(2) {
+  background:#0879be!important;
+}
+.these table:has(> thead > tr > th[style*="#0D2A3A"]) tbody td {
+  padding:17px 21px!important;
+  border-bottom:1px solid #e5edf2!important;
+  vertical-align:middle;
+  text-align:start;
+  text-align-last:auto;
+  hyphens:none;
+  overflow-wrap:break-word;
+  word-break:normal;
+}
+.these table:has(> thead > tr > th[style*="#0D2A3A"]) tbody td:first-child {
+  color:#193c4e;
+  background:#f4f8fa;
+  font-weight:630;
+  border-right:1px solid #e5edf2;
+}
+.these table:has(> thead > tr > th[style*="#0D2A3A"]) tbody tr:nth-child(even) td:nth-child(2) {
+  background:#fafcfd;
+}
+.these table:has(> thead > tr > th[style*="#0D2A3A"]) tbody tr:last-child td {
+  border-bottom:0!important;
+}
+.these div:has(> table > thead > tr > th[style*="#0D2A3A"]) > p.note {
+  margin:12px 3px 0!important;
+  color:#617888;
+  font-size:.82em!important;
+  line-height:1.5;
+  text-align:start;
+}
+@media(max-width:640px){
+  .these table:has(> thead > tr > th[style*="#0D2A3A"]) {
+    min-width:500px!important;
+    font-size:.9rem!important;
+  }
+  .these table:has(> thead > tr > th[style*="#0D2A3A"]) thead th,
+  .these table:has(> thead > tr > th[style*="#0D2A3A"]) tbody td {
+    padding:13px 14px!important;
+  }
+}
