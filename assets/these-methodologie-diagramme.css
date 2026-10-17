@@ -1,0 +1,129 @@
+/* Ma thèse — schémas de méthodologie O1–O3 */
+.these .these-methode-objectif{
+  position:relative;isolation:isolate;min-width:0;
+  margin:30px 0 38px;padding:clamp(18px,2.5vw,30px);
+  border:1px solid color-mix(in srgb,var(--objectif) 20%,#dbe4e5);
+  border-radius:22px;
+  background:linear-gradient(146deg,var(--objectif-fond) 0%,#fff 29%,#fff 100%);
+  box-shadow:0 18px 48px -37px rgba(16,48,65,.38);
+}
+.these .these-methode-objectif::before{
+  content:"";position:absolute;inset:0 0 auto;height:5px;
+  border-radius:22px 22px 0 0;background:var(--objectif);
+}
+.these .these-methode-objectif>.titre-bloc{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  margin:0 0 23px;padding:4px 0 20px;
+  border-bottom:1px solid color-mix(in srgb,var(--objectif) 20%,#e8ecec);
+  color:var(--ink);font:700 clamp(19px,2vw,25px)/1.3 var(--sans);
+  letter-spacing:-.025em;text-transform:none;text-align:start;
+  overflow-wrap:normal;hyphens:none;-webkit-hyphens:none;
+}
+.these .these-methode-objectif>.titre-bloc .objectif-code{
+  flex:none;min-width:44px;min-height:34px;
+  margin:0;padding:5px 11px;border-radius:9px;
+  font:800 14px/1.3 var(--sans);letter-spacing:.04em;
+}
+.these .these-methode-objectif .methode-these-corps{
+  padding:0;border:0;background:none;
+}
+.these .these-schema-nav{
+  display:flex;align-items:center;gap:0;min-width:0;
+  margin:0 0 25px;padding:4px 2px 14px;
+  overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;
+  scroll-snap-type:x proximity;scrollbar-width:thin;
+  scrollbar-color:color-mix(in srgb,var(--objectif) 30%,#dce8e9) transparent;
+}
+.these .these-schema-nav-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  flex:none;max-width:230px;min-height:42px;
+  padding:9px 15px;border:1px solid color-mix(in srgb,var(--objectif) 22%,#dae6e5);
+  border-radius:999px;background:#fff;color:var(--ink);
+  font:650 12.5px/1.4 var(--sans);text-align:center;
+  white-space:normal;hyphens:none;cursor:pointer;scroll-snap-align:start;
+  box-shadow:0 2px 8px rgba(16,48,65,.035);
+  transition:background .2s,color .2s,border-color .2s,transform .2s;
+}
+.these .these-schema-nav-btn:not(:last-child){margin-inline-end:0}
+.these .these-schema-nav-btn:not(:last-child)::after{content:none}
+.these .these-schema-nav-fleche{
+  display:grid;place-items:center;flex:none;width:27px;height:42px;
+  color:var(--objectif);font:700 17px/1 var(--sans);opacity:.7;
+}
+.these .these-schema-nav-btn:hover,
+.these .these-schema-nav-btn[aria-current=step]{
+  border-color:var(--objectif);background:var(--objectif);color:#fff;
+}
+.these .these-schema-nav-btn:focus-visible{
+  outline:3px solid var(--objectif);outline-offset:4px;
+}
+.these .these-schema-grille{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:19px;margin:0;padding:0;align-items:stretch;
+}
+.these .these-schema-card{
+  position:relative;min-width:0;scroll-margin-top:132px;
+  padding:24px clamp(18px,2vw,27px) 25px;
+  border:1px solid color-mix(in srgb,var(--objectif) 17%,#d8e3e5);
+  border-top:3px solid var(--objectif);border-radius:15px;
+  background:#fff;
+  box-shadow:0 9px 28px -25px rgba(16,48,65,.3);
+  transition:transform .24s ease,box-shadow .24s ease,border-color .24s ease;
+}
+.these .these-schema-card:hover{
+  transform:translateY(-2px);
+  border-color:color-mix(in srgb,var(--objectif) 39%,#d8e3e5);
+  box-shadow:0 17px 34px -25px rgba(16,48,65,.28);
+}
+.these .these-schema-card:target,
+.these .these-schema-card:focus{
+  outline:2px solid var(--objectif);outline-offset:3px;
+}
+.these .these-schema-card.is-wide{grid-column:1/-1}
+.these .these-schema-card::before{
+  content:attr(data-num);position:absolute;inset-inline-end:19px;top:18px;
+  display:grid;place-items:center;min-width:32px;height:28px;padding:0 5px;
+  border-radius:8px;background:var(--objectif-fond);color:var(--objectif);
+  font:750 11px/1 var(--sans);letter-spacing:.035em;
+}
+.these .these-schema-card dt{
+  margin:0 45px 12px 0;padding:0;
+  color:var(--ink);font:700 clamp(16px,1.4vw,19px)/1.35 var(--sans);
+  letter-spacing:-.01em;text-align:start;hyphens:none;-webkit-hyphens:none;
+  overflow-wrap:break-word;
+}
+.these .these-schema-card dd{
+  margin:0;padding:0;max-width:none;
+  color:var(--body);font:400 clamp(15px,1.12vw,16.5px)/1.72 var(--sans);
+  text-align:start;hyphens:none;-webkit-hyphens:none;word-break:normal;
+  overflow-wrap:break-word;
+}
+.these .these-schema-card.is-wide dd{max-width:94ch}
+.these .these-schema-card[data-volet=quan]{background:linear-gradient(142deg,#fff,var(--objectif-fond) 330%)}
+.these .these-schema-card[data-volet=qual]{background:linear-gradient(142deg,var(--objectif-fond) -180%,#fff 75%)}
+@media(max-width:850px){
+  .these .these-schema-grille{grid-template-columns:minmax(0,1fr);gap:14px}
+  .these .these-schema-card.is-wide{grid-column:auto}
+  .these .these-methode-objectif{padding:19px}
+  .these .these-schema-card{padding:21px 19px 22px}
+  .these .these-schema-card dt{font-size:17px}
+  .these .these-schema-card dd{font-size:15.5px;line-height:1.75}
+}
+@media(max-width:450px){
+  .these .these-methode-objectif{padding:16px 13px;border-radius:17px}
+  .these .these-methode-objectif>.titre-bloc{font-size:19px;gap:9px}
+  .these .these-schema-card{padding:19px 16px}
+  .these .these-schema-card dt{margin-inline-end:38px}
+  .these .these-schema-nav-btn{min-height:40px;padding:8px 12px;font-size:12px}
+  .these .these-schema-nav-fleche{width:19px}
+}
+@media(prefers-reduced-motion:reduce){
+  .these .these-schema-card,.these .these-schema-nav-btn{transition:none}
+  .these .these-schema-card:hover{transform:none}
+}
+html.hc .these .these-schema-card,html.lv .these .these-schema-card{
+  background:#fff;box-shadow:none;border-width:2px
+}
+html.hc .these .these-schema-nav-btn,html.lv .these .these-schema-nav-btn{
+  border-width:2px
+}
