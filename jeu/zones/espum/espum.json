@@ -6,19 +6,19 @@
   "lightmaps": [
     {
       "fichier": "espum_lm0.webp",
-      "scale": 2.62477
+      "scale": 2.62922
     },
     {
       "fichier": "espum_lm1.webp",
-      "scale": 2.06703
+      "scale": 3.5105
     },
     {
       "fichier": "espum_lm2.webp",
-      "scale": 2.84185
+      "scale": 2.8333
     },
     {
       "fichier": "espum_lm3.webp",
-      "scale": 2.93188
+      "scale": 3.5395
     }
   ],
   "env": {
@@ -150,6 +150,12 @@
       "url": "https://polyhaven.com/a/granite_tile"
     },
     {
+      "ressource": "Concrete Pavement",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/concrete_pavement"
+    },
+    {
       "ressource": "Plastered Wall 04",
       "auteur": "Poly Haven",
       "licence": "CC0",
@@ -208,6 +214,12 @@
       "auteur": "ambientCG",
       "licence": "CC0",
       "url": "https://ambientcg.com/view?id=Metal009"
+    },
+    {
+      "ressource": "Terrazzo012",
+      "auteur": "ambientCG",
+      "licence": "CC0",
+      "url": "https://ambientcg.com/view?id=Terrazzo012"
     },
     {
       "ressource": "Lato, Barlow Semi Condensed, Oswald, Caveat, Permanent Marker",

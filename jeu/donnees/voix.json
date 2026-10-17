@@ -178,5 +178,273 @@
  "c1_imprimante_002": {
   "duree": 4.1,
   "qui": "etudiant_3"
+ },
+ "c1_imprimante_003": {
+  "duree": 3.93,
+  "qui": "eric"
+ },
+ "c1_pitch_intro_001": {
+  "duree": 4.66,
+  "qui": "prof_seminaire"
+ },
+ "c1_pitch_intro_002": {
+  "duree": 2.23,
+  "qui": "eric"
+ },
+ "c1_pitch_intro_003": {
+  "duree": 1.27,
+  "qui": "prof_seminaire"
+ },
+ "c1_politique_001": {
+  "duree": 4.58,
+  "qui": "collegue_doc"
+ },
+ "c1_politique_002": {
+  "duree": 8.25,
+  "qui": "eric"
+ },
+ "c1_politique_003": {
+  "duree": 5.25,
+  "qui": "collegue_doc"
+ },
+ "c1_politique_004": {
+  "duree": 3.79,
+  "qui": "collegue_doc"
+ },
+ "c1_quanti_2sfca_001": {
+  "duree": 8.02,
+  "qui": "prof_quanti"
+ },
+ "c1_quanti_2sfca_002": {
+  "duree": 3.3,
+  "qui": "eric"
+ },
+ "c1_quanti_2sfca_003": {
+  "duree": 4.0,
+  "qui": "prof_quanti"
+ },
+ "c1_quanti_2sfca_r_001": {
+  "duree": 7.48,
+  "qui": "prof_quanti"
+ },
+ "c1_quanti_2sfca_r_002": {
+  "duree": 5.48,
+  "qui": "prof_quanti"
+ },
+ "c1_quanti_eco_001": {
+  "duree": 6.26,
+  "qui": "prof_quanti"
+ },
+ "c1_quanti_eco_002": {
+  "duree": 3.1,
+  "qui": "etudiant_2"
+ },
+ "c1_quanti_eco_r_001": {
+  "duree": 5.37,
+  "qui": "prof_quanti"
+ },
+ "c1_quanti_eco_r_002": {
+  "duree": 6.93,
+  "qui": "prof_quanti"
+ },
+ "c1_quanti_fin_001": {
+  "duree": 4.69,
+  "qui": "prof_quanti"
+ },
+ "c1_quanti_fin_002": {
+  "duree": 2.7,
+  "qui": "eric"
+ },
+ "c1_quanti_fin_003": {
+  "duree": 3.54,
+  "qui": "prof_quanti"
+ },
+ "c1_quanti_intro_001": {
+  "duree": 6.19,
+  "qui": "prof_quanti"
+ },
+ "c1_quanti_intro_002": {
+  "duree": 2.47,
+  "qui": "eric"
+ },
+ "c1_quanti_intro_003": {
+  "duree": 6.4,
+  "qui": "prof_quanti"
+ },
+ "c1_quanti_intro_004": {
+  "duree": 4.78,
+  "qui": "etudiant_4"
+ },
+ "c1_quanti_intro_005": {
+  "duree": 5.53,
+  "qui": "prof_quanti"
+ },
+ "c1_quanti_jaccard_001": {
+  "duree": 15.56,
+  "qui": "prof_quanti"
+ },
+ "c1_quanti_jaccard_002": {
+  "duree": 4.72,
+  "qui": "eric"
+ },
+ "c1_quanti_reseaux_001": {
+  "duree": 5.33,
+  "qui": "prof_quanti"
+ },
+ "c1_quanti_reseaux_002": {
+  "duree": 3.74,
+  "qui": "eric"
+ },
+ "c1_question_001": {
+  "duree": 5.38,
+  "qui": "prof_seminaire"
+ },
+ "c1_question_002": {
+  "duree": 4.31,
+  "qui": "collegue_doc"
+ },
+ "c1_question_003": {
+  "duree": 3.54,
+  "qui": "eric"
+ },
+ "c1_question_r_001": {
+  "duree": 6.32,
+  "qui": "prof_seminaire"
+ },
+ "c1_question_r_002": {
+  "duree": 7.72,
+  "qui": "prof_seminaire"
+ },
+ "c1_question_r_003": {
+  "duree": 3.66,
+  "qui": "eric"
+ },
+ "c1_roger_gaudry_001": {
+  "duree": 6.42,
+  "qui": "eric"
+ },
+ "c1_roger_gaudry_002": {
+  "duree": 6.52,
+  "qui": "eric"
+ },
+ "c1_seminaire_001": {
+  "duree": 6.52,
+  "qui": "prof_seminaire"
+ },
+ "c1_seminaire_002": {
+  "duree": 4.6,
+  "qui": "prof_seminaire"
+ },
+ "c1_seminaire_003": {
+  "duree": 3.84,
+  "qui": "eric"
+ },
+ "c1_seminaire_004": {
+  "duree": 5.22,
+  "qui": "etudiant_1"
+ },
+ "c1_seminaire_005": {
+  "duree": 6.17,
+  "qui": "prof_seminaire"
+ },
+ "c1_seminaire_006": {
+  "duree": 4.43,
+  "qui": "eric"
+ },
+ "c1_seminaire_007": {
+  "duree": 7.1,
+  "qui": "prof_seminaire"
+ },
+ "c1_seminaire_008": {
+  "duree": 6.55,
+  "qui": "prof_seminaire"
+ },
+ "c1_seminaire_009": {
+  "duree": 5.79,
+  "qui": "eric"
+ },
+ "c1_tableau_001": {
+  "duree": 6.07,
+  "qui": "prof_seminaire"
+ },
+ "c1_tableau_002": {
+  "duree": 4.54,
+  "qui": "eric"
+ },
+ "c2_arrivee_001": {
+  "duree": 7.18,
+  "qui": "eric"
+ },
+ "c2_arrivee_002": {
+  "duree": 4.72,
+  "qui": "bibliothecaire"
+ },
+ "c2_arrivee_003": {
+  "duree": 3.68,
+  "qui": "eric"
+ },
+ "c2_arrivee_004": {
+  "duree": 6.24,
+  "qui": "bibliothecaire"
+ },
+ "c2_bases_001": {
+  "duree": 9.17,
+  "qui": "bibliothecaire"
+ },
+ "c2_bases_002": {
+  "duree": 6.55,
+  "qui": "bibliothecaire"
+ },
+ "c2_bases_003": {
+  "duree": 5.36,
+  "qui": "bibliothecaire"
+ },
+ "c2_catalogue_001": {
+  "duree": 5.43,
+  "qui": "bibliothecaire"
+ },
+ "c2_catalogue_002": {
+  "duree": 5.95,
+  "qui": "bibliothecaire"
+ },
+ "c2_catalogue_003": {
+  "duree": 5.77,
+  "qui": "bibliothecaire"
+ },
+ "c2_comptoir_001": {
+  "duree": 6.75,
+  "qui": "bibliothecaire"
+ },
+ "c2_comptoir_002": {
+  "duree": 3.34,
+  "qui": "eric"
+ },
+ "c2_comptoir_003": {
+  "duree": 2.79,
+  "qui": "bibliothecaire"
+ },
+ "c2_comptoir_004": {
+  "duree": 5.08,
+  "qui": "bibliothecaire"
+ },
+ "c2_comptoir_005": {
+  "duree": 5.0,
+  "qui": "bibliothecaire"
+ },
+ "c2_cooc_001": {
+  "duree": 5.56,
+  "qui": "collegue_doc"
+ },
+ "c2_cooc_002": {
+  "duree": 3.38,
+  "qui": "eric"
+ },
+ "c2_cooc_r_001": {
+  "duree": 4.82,
+  "qui": "collegue_doc"
+ },
+ "c2_cooc_r_002": {
+  "duree": 5.23,
+  "qui": "eric"
  }
 }

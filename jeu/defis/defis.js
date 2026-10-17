@@ -1,15 +1,15 @@
-import { h, s, icone, typo, vider, pct, duree, focusables, portrait, roleCanonique, NOMS_PERSONNAGES, humaniser, NB } from './noyau.js?v=e83f1d9a58';
-import { borner, hacher, generateur } from './calculs.js?v=e83f1d9a58';
-import * as choix from './types/choix.js?v=e83f1d9a58';
-import * as tri from './types/tri.js?v=e83f1d9a58';
-import * as ordre from './types/ordre.js?v=e83f1d9a58';
-import * as requete from './types/requete.js?v=e83f1d9a58';
-import * as criblage from './types/criblage.js?v=e83f1d9a58';
-import * as correspondance from './types/correspondance.js?v=e83f1d9a58';
-import * as carte from './types/carte.js?v=e83f1d9a58';
-import * as reseau from './types/reseau.js?v=e83f1d9a58';
-import * as jury from './types/jury.js?v=e83f1d9a58';
-import * as pitch from './types/pitch.js?v=e83f1d9a58';
+import { h, s, icone, typo, vider, pct, duree, focusables, portrait, roleCanonique, NOMS_PERSONNAGES, humaniser, NB } from './noyau.js?v=fd382d2891';
+import { borner, hacher, generateur } from './calculs.js?v=fd382d2891';
+import * as choix from './types/choix.js?v=fd382d2891';
+import * as tri from './types/tri.js?v=fd382d2891';
+import * as ordre from './types/ordre.js?v=fd382d2891';
+import * as requete from './types/requete.js?v=fd382d2891';
+import * as criblage from './types/criblage.js?v=fd382d2891';
+import * as correspondance from './types/correspondance.js?v=fd382d2891';
+import * as carte from './types/carte.js?v=fd382d2891';
+import * as reseau from './types/reseau.js?v=fd382d2891';
+import * as jury from './types/jury.js?v=fd382d2891';
+import * as pitch from './types/pitch.js?v=fd382d2891';
 
 const TYPES = {
   choix: { module: choix, libelle: 'Dilemme méthodologique', icone: 'balance' },

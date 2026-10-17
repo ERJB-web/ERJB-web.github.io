@@ -1,5 +1,5 @@
-import { h, icone, lettre, pct } from '../noyau.js?v=e83f1d9a58';
-import { borner, melanger } from '../calculs.js?v=e83f1d9a58';
+import { h, icone, lettre, pct } from '../noyau.js?v=fd382d2891';
+import { borner, melanger } from '../calculs.js?v=fd382d2891';
 
 export function paragraphes(texte, cls = '') {
   return String(texte ?? '')
