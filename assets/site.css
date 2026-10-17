@@ -4446,3 +4446,50 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
   .these-methode-parcours a {transition:none;}
   .these-methode-parcours a:hover {transform:none;}
 }
+
+
+/* Atlas territorial O2 — cartes à pleine largeur (octobre 2026) */
+.these .atlas-these{display:block;clear:both;min-width:0;width:100%;max-width:none;margin:42px 0 20px;padding:32px 0 0;border-top:1px solid #cbded9;break-inside:auto}
+.these .atlas-these-entete{min-width:0;max-width:88ch;margin:0 0 24px;padding:0}
+.these .atlas-these-kicker{display:block;margin-bottom:10px;color:#286d5c;font:650 12px/1.5 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.these .atlas-these-entete h4{margin:0 0 14px;color:var(--ink-deep,#173f52);font:650 clamp(23px,2.4vw,34px)/1.22 var(--sans);letter-spacing:-.025em;text-wrap:balance}
+.these .atlas-these-entete p{margin:0;color:var(--body,#354f59);font-size:16px;line-height:1.75;text-wrap:pretty}
+.these .atlas-these-figure{display:block;min-width:0;width:100%;max-width:none;margin:0 0 34px;padding:0;break-inside:avoid;border:1px solid #d5e2df;border-radius:15px;overflow:hidden;background:#fff;box-shadow:0 8px 28px -23px rgba(10,54,68,.38)}
+.these .atlas-these-figure-entete{padding:22px clamp(16px,3vw,30px) 20px;background:linear-gradient(115deg,#f3f8f5 0%,#f6f9fb 100%);border-bottom:1px solid #dce7e3}
+.these .atlas-these-figure-entete>span{display:block;margin-bottom:8px;color:#34685f;font:650 11px/1.5 var(--sans);letter-spacing:.11em;text-transform:uppercase}
+.these .atlas-these-figure h5{margin:0 0 9px;color:#123d4a;font:650 clamp(19px,1.9vw,25px)/1.28 var(--sans);letter-spacing:-.02em;text-wrap:balance}
+.these .atlas-these-figure-entete p{max-width:85ch;margin:0;color:#405960;font:400 15px/1.65 var(--sans)}
+.these .atlas-these-image{display:block;width:100%;min-width:0;padding:0;overflow:visible;background:white;cursor:zoom-in}
+.these .atlas-these-image img{display:block;width:100%!important;max-width:100%!important;height:auto!important;max-height:none!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:center!important;transform:none!important;filter:none!important;border:0!important;border-radius:0!important}
+.these .atlas-these-figure figcaption{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:9px 22px;margin:0;padding:13px clamp(16px,3vw,30px);border-top:1px solid #e3eae8;color:#63767a;font:450 12px/1.55 var(--sans)}
+.these .atlas-these-figure figcaption a{color:#165e65;text-decoration:underline;text-decoration-color:#97c0bb;text-underline-offset:4px;font-weight:650}
+.these .atlas-these-figure figcaption a:hover,.these .atlas-these-figure figcaption a:focus-visible{color:#103d4b;text-decoration-color:currentColor}
+.these .atlas-these-precaution{max-width:90ch;margin:0;padding:15px 18px;border-left:3px solid #80aaa0;background:#f2f7f5;color:#455f62;font-size:13px;line-height:1.65}
+
+/* Corriger également les cartes déjà insérées ailleurs : texte avant/après, jamais en colonne latérale. */
+.these .bloc-illustre:has(img[src*="/these/o2/carte-"]),
+.these .code-vers-carte:has(img[src*="/these/o2/carte-"]),
+.these .m-code-carte:has(img[src*="/these/o2/carte-"]),
+.these .m-egal:has(img[src*="/these/o2/carte-"]){
+  display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-auto-flow:row!important;gap:16px!important;align-items:stretch!important;
+}
+.these .bloc-illustre:has(img[src*="/these/o2/carte-"]) > *,
+.these .code-vers-carte:has(img[src*="/these/o2/carte-"]) > *{grid-column:1!important;max-width:none!important;width:100%!important;min-width:0}
+.these .code-vers-carte:has(img[src*="/these/o2/carte-"])>.m-fleche{display:none!important}
+.these figure:has(img[src*="/these/o2/carte-"]){max-width:100%!important;min-width:0;float:none!important}
+.these figure img[src*="/these/o2/carte-"]{display:block;width:100%!important;max-width:100%!important;height:auto!important;max-height:none!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:center!important;filter:none!important;transform:none!important}
+
+/* Les éventuelles galeries cartographiques déjà présentes ne sont plus des vignettes recadrées. */
+.cartes-o2-outils,.cartes-o2-grille{grid-template-columns:minmax(0,1fr)!important}
+.cartes-o2-outils img,.cartes-o2-grille img{width:100%!important;height:auto!important;max-height:none!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:center!important}
+.cartes-o2 figure{width:100%;max-width:none}
+.cartes-o2 figcaption{font-size:14px;line-height:1.6}
+@media(max-width:700px){
+  .these .atlas-these{margin-top:32px;padding-top:23px}
+  .these .atlas-these-entete h4{font-size:23px}
+  .these .atlas-these-figure-entete{padding:16px 15px}
+  .these .atlas-these-figure-entete p{font-size:14px}
+  .these .atlas-these-figure figcaption{padding:13px 15px;font-size:11.5px}
+  .these .atlas-these-figure{margin-bottom:23px;border-radius:10px}
+}
+@media(prefers-reduced-motion:reduce){.these .atlas-these-image,.these .atlas-these-image img{transition:none!important}}
