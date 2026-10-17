@@ -277,7 +277,7 @@
           alt: "Calendrier de planification scientifique avec étapes O1, O2 et O3",
         };
       } else if (salle === "recherche" && chapitres.length === 6 && i === 4) {
-        const acteurs = CATALOGUE.find((im) => im.fichier === "implantation-01.webp");
+        const acteurs = CATALOGUE.find((im) => im.fichier === "litterature-15.webp");
         ch.choix = acteurs ? { url: urlImage(acteurs), image: acteurs } : choisirImage(ch, salle, porte?.dataset.salle, prises, photoSalle);
       } else {
         ch.choix = choisirImage(ch, salle, porte?.dataset.salle, prises, photoSalle);
