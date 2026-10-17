@@ -170,7 +170,7 @@
       if(salle && courante)salle.scrollTo({top:nombre(etat.lecture),left:0,behavior:'instant'});
       if(onglets && Number.isFinite(etat.menu))onglets.scrollLeft=etat.menu;
       if(etat.ancre){
-        const ancre=cibleRepere || document.getElementById(etat.ancre);
+        const ancre=cibleRepere || zone?.querySelector('#'+CSS.escape(etat.ancre)) || document.getElementById(etat.ancre);
         ancre?.scrollIntoView({block:'start',behavior:'instant'});
       }
       if(Array.isArray(etat.tables))etat.tables.forEach((sauve,i)=>{
