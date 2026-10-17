@@ -2977,16 +2977,29 @@ html.hc .implantation-portail-liens a{border-color:currentColor}
 @media(hover:hover) and (pointer:fine){.hall .hall-reperes>button:hover{background:color-mix(in srgb,var(--c1) 14%,white);border-color:color-mix(in srgb,var(--c1) 60%,white);color:color-mix(in srgb,var(--c1) 70%,var(--ink));box-shadow:0 4px 12px color-mix(in srgb,var(--c1) 22%,transparent)}.hall .hall-reperes>button:hover bdi{background:var(--c1);color:#fff}.hall .hall-reperes>button[aria-pressed=true]:hover{background:color-mix(in srgb,var(--c1) 16%,white)}}
 
 /* Accès direct à la thèse, à côté du courriel */
-.entete .coordonnees-haut a.acces-these{position:relative;overflow:hidden;gap:8px;padding:7px 16px 7px 13px;border:0;background:linear-gradient(135deg,#245a73 0%,#1f5a8a 55%,#2f7d9a 100%);color:#fff;font-weight:700;letter-spacing:.01em;box-shadow:0 2px 8px rgba(31,90,138,.28),inset 0 1px 0 rgba(255,255,255,.22);transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
-.entete .coordonnees-haut a.acces-these::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.28) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s ease;pointer-events:none}
-.entete .coordonnees-haut a.acces-these svg{width:18px;height:18px}
-.entete .coordonnees-haut a.acces-these .acces-these-fleche{display:inline-block;transition:transform .2s ease}
-.entete .coordonnees-haut a.acces-these:hover,.entete .coordonnees-haut a.acces-these:focus-visible{color:#fff;background:linear-gradient(135deg,#1d4c61 0%,#184d78 55%,#256d88 100%);transform:translateY(-1px);box-shadow:0 6px 16px rgba(31,90,138,.36),inset 0 1px 0 rgba(255,255,255,.22)}
-.entete .coordonnees-haut a.acces-these:hover::after{transform:translateX(120%)}
-.entete .coordonnees-haut a.acces-these:hover .acces-these-fleche{transform:translateX(3px)}
-[dir=rtl] .entete .coordonnees-haut a.acces-these .acces-these-fleche{transform:scaleX(-1)}
-[dir=rtl] .entete .coordonnees-haut a.acces-these:hover .acces-these-fleche{transform:scaleX(-1) translateX(3px)}
-@media(min-width:640px) and (max-width:1279px){.entete .coordonnees-haut a.acces-these{display:inline-flex;width:auto;height:40px;padding:0 14px 0 11px;border-radius:999px;font-size:13.5px;line-height:1;gap:7px}.entete .coordonnees-haut a.acces-these svg{width:17px;height:17px}}
-@media(prefers-reduced-motion:reduce){.entete .coordonnees-haut a.acces-these,.entete .coordonnees-haut a.acces-these::after,.entete .coordonnees-haut a.acces-these .acces-these-fleche{transition:none}}
-@media(forced-colors:active){.entete .coordonnees-haut a.acces-these{border:1px solid LinkText}}
+.entete a.acces-these{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px;height:40px;border-radius:999px;font-size:14px;text-decoration:none;white-space:nowrap;padding:7px 16px 7px 13px;border:0;background:linear-gradient(135deg,#245a73 0%,#1f5a8a 55%,#2f7d9a 100%);color:#fff;font-weight:700;letter-spacing:.01em;box-shadow:0 2px 8px rgba(31,90,138,.28),inset 0 1px 0 rgba(255,255,255,.22);transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+.entete a.acces-these::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.28) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s ease;pointer-events:none}
+.entete a.acces-these svg{width:18px;height:18px}
+.entete a.acces-these .acces-these-fleche{display:inline-block;transition:transform .2s ease}
+.entete a.acces-these:hover,.entete a.acces-these:focus-visible{color:#fff;background:linear-gradient(135deg,#1d4c61 0%,#184d78 55%,#256d88 100%);transform:translateY(-1px);box-shadow:0 6px 16px rgba(31,90,138,.36),inset 0 1px 0 rgba(255,255,255,.22)}
+.entete a.acces-these:hover::after{transform:translateX(120%)}
+.entete a.acces-these:hover .acces-these-fleche{transform:translateX(3px)}
+[dir=rtl] .entete a.acces-these .acces-these-fleche{transform:scaleX(-1)}
+[dir=rtl] .entete a.acces-these:hover .acces-these-fleche{transform:scaleX(-1) translateX(3px)}
+@media(min-width:640px) and (max-width:1279px){.entete a.acces-these{display:inline-flex;width:auto;height:40px;padding:0 14px 0 11px;border-radius:999px;font-size:13.5px;line-height:1;gap:7px}.entete a.acces-these svg{width:17px;height:17px}}
+@media(prefers-reduced-motion:reduce){.entete a.acces-these,.entete a.acces-these::after,.entete a.acces-these .acces-these-fleche{transition:none}}
+@media(forced-colors:active){.entete a.acces-these{border:1px solid LinkText}}
 #innovations{scroll-margin-top:120px}
+/* Bande du haut : contact sous les domaines, Ma thèse avec les outils */
+.entete .marque-bloc{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:6px}
+.entete .marque-bloc .marque{flex:none;max-width:100%}
+.entete-contact{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin:0;font-size:13px}
+.entete-contact a{display:inline-flex;align-items:center;gap:7px;color:var(--muted);font-weight:500;text-decoration:none}
+.entete-contact a svg{flex:none;width:15px;height:15px;color:#1f5a8a}
+.entete-contact a:hover,.entete-contact a:focus-visible{color:#1f5a8a;text-decoration:underline;text-underline-offset:3px}
+.entete-contact-sep{width:1px;height:14px;background:#cfdadd}
+[dir=rtl] .entete-contact a{direction:ltr;unicode-bidi:isolate}
+.entete .outils a.acces-these{margin-inline-end:6px}
+@media(min-width:640px) and (max-width:1279px){.entete .marque-bloc{order:0;flex:1 1 260px}}
+@media(max-width:700px){.entete .marque-bloc{flex:1 1 100%;order:0}.entete-contact{display:none}}
+@media(max-width:480px){.entete .outils a.acces-these{width:40px;padding:0;justify-content:center;gap:0;margin-inline-end:0}.entete .outils a.acces-these>span{display:none}}
