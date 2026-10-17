@@ -219,6 +219,13 @@
       }).join("");
       aside.append(nav);
     }
+    // Thèse : seul le sommaire migre à gauche ; l'illustration reste
+    // dans la colonne de lecture, suffisamment large pour les cartes.
+    if (salle === "recherche" && aside.querySelector(".gab-sommaire-chapitre")) {
+      const photo = aside.querySelector(".gab-photo");
+      if (photo) tete.after(photo);
+      grille.classList.add("gab-menu-gauche");
+    }
     grille.append(texte, aside);
     section.append(grille);
     return section;
