@@ -4863,3 +4863,61 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
     max-width:none!important;
   }
 }
+
+
+/* Objectif 2 — diapositives A18 et A19 du 211 : deux figures grandeur lecture. */
+#recherche .these .m-o2 .bloc-illustre.m-egal:has(> figure img:is([src$="diapo-49.webp"],[src$="diapo-50.webp"])) {
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  grid-auto-flow:row!important;
+  align-items:start!important;
+  gap:clamp(18px,2.3vw,28px)!important;
+  width:100%;
+  min-width:0;
+  max-width:none;
+  margin-block:clamp(30px,3vw,46px);
+}
+#recherche .these .m-o2 .bloc-illustre.m-egal:has(> figure img:is([src$="diapo-49.webp"],[src$="diapo-50.webp"])) > div {
+  grid-column:1!important;
+  order:0!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0;
+}
+#recherche .these .m-o2 .bloc-illustre.m-egal:has(> figure img:is([src$="diapo-49.webp"],[src$="diapo-50.webp"])) > figure {
+  grid-column:1!important;
+  order:1!important;
+  margin:0!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0;
+}
+#recherche .these .m-o2 .bloc-illustre.m-egal:has(> figure img:is([src$="diapo-49.webp"],[src$="diapo-50.webp"])) > figure > a {
+  display:block;
+  width:100%;
+  max-width:none;
+  cursor:zoom-in;
+}
+#recherche .these .m-o2 .bloc-illustre.m-egal:has(> figure img:is([src$="diapo-49.webp"],[src$="diapo-50.webp"])) > figure img {
+  display:block;
+  width:100%!important;
+  max-width:100%!important;
+  height:auto!important;
+  max-height:none!important;
+  aspect-ratio:auto!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  transform:none!important;
+  filter:none!important;
+  image-rendering:auto;
+}
+#recherche .these .m-o2 .bloc-illustre.m-egal:has(> figure img:is([src$="diapo-49.webp"],[src$="diapo-50.webp"])) figcaption {
+  display:block;
+  width:100%;
+  max-width:none;
+  margin:12px 0 0;
+  font-size:clamp(14px,1.1vw,17px);
+  line-height:1.6;
+  text-align:start;
+  hyphens:none;
+}
