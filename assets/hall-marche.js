@@ -19,7 +19,7 @@ window.creerMarcheHall=({hall,scene,monde,stations,surSelection})=>{
    const px=Math.max(w/1850,h/575+.102),ix=(w-2000*px)/2;
    const style=getComputedStyle(hall),porte=(526-(parseFloat(style.getPropertyValue('--hall-porte-haut'))||202))*px*(parseFloat(style.getPropertyValue('--hall-porte-ratio'))||.454);
    const espace=parseFloat(style.getPropertyValue('--hall-ecart'))||30;
-   largeur=Math.round(porte+espace+Math.min(320,Math.max(280,w*.24)));pas=largeur+espace;
+   largeur=Math.round(porte+espace+Math.min(320,Math.max(280,w*.24))*.95);pas=largeur+espace;
    hall.style.setProperty('--hall-station-l',largeur+'px');
    murG=Math.max(0,ix);murD=Math.min(w,ix+2000*px);
    margeG=murG+ecart;margeD=w-murD+ecart;

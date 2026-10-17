@@ -211,8 +211,8 @@
   background: var(--c1);
 }
 .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .sous-portes-murales > :is(button,a):hover {
-  color: color-mix(in srgb,var(--c1) 72%,#0d1f1e);
-  background: linear-gradient(90deg,color-mix(in srgb,var(--c1) 22%,transparent),color-mix(in srgb,var(--c1) 7%,transparent));
+  color: color-mix(in srgb,var(--c1) 82%,#0d1f1e);
+  background: linear-gradient(90deg,color-mix(in srgb,var(--c1) 34%,transparent),color-mix(in srgb,var(--c1) 13%,transparent));
   border-bottom-color: var(--c1);
   box-shadow: inset 3px 0 0 var(--c1);
 }
@@ -320,11 +320,11 @@
     /* Vue rapprochée : la photo est agrandie et le haut de la verrière recadré. */
     --hall-zoom: 1.3;
     /* Largeur de porte rapportée à sa hauteur, et espace égal entre porte et panneau. */
-    --hall-porte-ratio: .57;
+    --hall-porte-ratio: .543;
     --hall-ecart: 30;
     --hall-recadrage: 72;
     /* Haut des portes, dans la photo ; le fleuve reste visible au-dessus. */
-    --hall-porte-haut: 239;
+    --hall-porte-haut: 224.6;
   }
   .hall.en-volume .hall-espace {
     height: var(--eb-hall-hauteur);
@@ -506,11 +506,12 @@
     top: 40%;
     bottom: auto;
     left: calc(var(--hall-porte-l) + var(--hall-ecart) * 1px);
-    width: calc(var(--hall-station-l,446px) - var(--hall-porte-l) - var(--hall-ecart) * 1px);
+    width: calc((var(--hall-station-l,446px) - var(--hall-porte-l) - var(--hall-ecart) * 1px) / .95);
     height: auto;
     min-height: 0;
     max-height: none;
-    transform: translateY(-50%);
+    transform: translateY(-50%) scale(.95);
+    transform-origin: 0 50%;
   }
   .hall[data-hall-volume].en-volume .station-hall .panneau-hall { padding: 16px 20px 14px; }
   .hall[data-hall-volume].en-volume .station-hall .panneau-hall h3 { font-size: 15.5px; margin-bottom: 8px; padding-bottom: 9px; }
