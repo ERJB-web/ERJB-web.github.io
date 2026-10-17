@@ -2718,5 +2718,13 @@
  "rep_entraineur_entrainement_conseil_005": {
   "duree": 4.18,
   "qui": "entraineur"
+ },
+ "rep_entraineur_entrainement_conseil_006": {
+  "duree": 3.91,
+  "qui": "entraineur"
+ },
+ "rep_entraineur_entrainement_conseil_007": {
+  "duree": 3.94,
+  "qui": "entraineur"
  }
 }

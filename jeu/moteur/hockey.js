@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GROUPES, groupes } from './physique.js?v=8efd015962';
+import { GROUPES, groupes } from './physique.js?v=99dd062ecf';
 
 const H_RONDELLE = 0.0127;
 const EXERCICES = {
