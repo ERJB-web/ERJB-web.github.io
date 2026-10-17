@@ -1279,6 +1279,34 @@
   "duree": 6.05,
   "qui": "jury_1"
  },
+ "c5_fin_corrections_002": {
+  "duree": 3.56,
+  "qui": "jury_2"
+ },
+ "c5_fin_corrections_003": {
+  "duree": 3.91,
+  "qui": "direction_b"
+ },
+ "c5_fin_corrections_004": {
+  "duree": 5.01,
+  "qui": "eric"
+ },
+ "c5_fin_felicitations_001": {
+  "duree": 5.81,
+  "qui": "jury_1"
+ },
+ "c5_fin_felicitations_002": {
+  "duree": 3.09,
+  "qui": "direction_a"
+ },
+ "c5_fin_felicitations_003": {
+  "duree": 3.58,
+  "qui": "direction_b"
+ },
+ "c5_fin_felicitations_004": {
+  "duree": 3.0,
+  "qui": "eric"
+ },
  "rep_direction_apparition_001": {
   "duree": 3.41,
   "qui": "direction_a"

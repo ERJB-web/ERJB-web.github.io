@@ -1,5 +1,5 @@
-import { h, s, icone, vider, pct, portrait, attendre, glisser, memoriserPositions, animerDepuis, roleCanonique, NB } from '../noyau.js?v=581005f1ca';
-import { melanger, scorePitch, compterMots, dureeLecture, estSuperflu, borner, normaliser } from '../calculs.js?v=581005f1ca';
+import { h, s, icone, vider, pct, portrait, attendre, glisser, memoriserPositions, animerDepuis, roleCanonique, NB } from '../noyau.js?v=224d9fe72e';
+import { melanger, scorePitch, compterMots, dureeLecture, estSuperflu, borner, normaliser } from '../calculs.js?v=224d9fe72e';
 
 const MPM = 150;
 const ETAGES = 6;
