@@ -63,7 +63,7 @@ const ebMeteoMontreal = (() => {
   ];
   // Périodes particulières (dates incluses, AAAA-MM-JJ) : vacances, congrès, bibliothèque.
   const PERIODES = [];
-  const COULEURS = { enseignement: "#c0612b", classe: "#1f5a8a", labo: "#7a4a8c", sport: "#4f7d2e", patin: "#138086", teletravail: "#2e8b57", weekend: "#8a8f98", hors: "#8a8f98", vacances: "#b8862b", congres: "#a8343f", bibliotheque: "#466a78" };
+  const COULEURS = { enseignement: "#c0612b", classe: "#1f5a8a", labo: "#7a4a8c", sport: "#4f7d2e", patin: "#138086", teletravail: "#2e8b57", weekend: "#5b6fb5", hors: "#6b7a90", vacances: "#b8862b", congres: "#a8343f", bibliotheque: "#466a78" };
 
   function maintenantMontreal() {
     const p = Object.fromEntries(new Intl.DateTimeFormat("en-CA", { timeZone: ZONE, year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", weekday: "short", hourCycle: "h23" }).formatToParts(new Date()).map((x) => [x.type, x.value]));
@@ -115,9 +115,10 @@ const ebMeteoMontreal = (() => {
     const p = document.createElement("p");
     p.className = "direct-montreal " + classe;
     p.setAttribute("aria-label", T.etiquette);
-    p.innerHTML = '<span class="direct-ville"></span><span class="direct-sep" aria-hidden="true">·</span><time class="direct-heure"></time>'
-      + '<span class="direct-meteo" hidden><span class="direct-sep" aria-hidden="true">·</span><svg viewBox="0 0 24 24" aria-hidden="true" ' + trait + '></svg><span class="direct-temp"></span></span>'
-      + '<span class="direct-sep" aria-hidden="true">·</span><span class="direct-activite"><span class="direct-point" aria-hidden="true"></span><span class="direct-statut"></span></span>';
+    p.innerHTML = '<span class="direct-ciel" aria-hidden="true"><span class="direct-etoiles"></span><svg viewBox="0 0 24 24" ' + trait + '></svg></span>'
+      + '<span class="direct-texte"><span class="direct-ligne"><span class="direct-ville"></span><time class="direct-heure"></time></span>'
+      + '<span class="direct-ligne direct-meteo"><span class="direct-temp"></span><span class="direct-cond"></span></span></span>'
+      + '<span class="direct-activite"><span class="direct-point" aria-hidden="true"></span><span class="direct-statut"></span></span>';
     return p;
   }
   // Hauteur réelle de l'en-tête, pour que le hall et ses rubriques tiennent dans la fenêtre.
@@ -136,21 +137,25 @@ const ebMeteoMontreal = (() => {
   function afficher() {
     const m = maintenantMontreal();
     const statut = activite(m);
+    const hall = document.querySelector("[data-hall-volume]");
+    const nom = meteo ? temps(meteo) : (m.heure >= 7 && m.heure < 18 ? "soleil" : "clair");
+    const moment = hall?.dataset.moment || (meteo ? (Number(meteo.is_day) ? "jour" : "nuit") : (m.heure >= 7 && m.heure < 18 ? "jour" : "nuit"));
     for (const l of lignes) {
+      l.dataset.moment = moment;
+      l.dataset.temps = nom;
+      l.style.setProperty("--statut", COULEURS[statut]);
       l.querySelector(".direct-ville").textContent = T.ville;
       const t = l.querySelector(".direct-heure");
       t.textContent = heure(m);
       t.dateTime = `${m.date}T${String(m.heure).padStart(2, "0")}:${String(m.minute).padStart(2, "0")}`;
       l.querySelector(".direct-statut").textContent = T.statuts[statut];
-      l.querySelector(".direct-point").style.background = COULEURS[statut];
+      l.querySelector(".direct-ciel svg").innerHTML = ICONES[nom];
       const bloc = l.querySelector(".direct-meteo");
+      bloc.hidden = !meteo;
       if (meteo && Number.isFinite(Number(meteo.temperature_2m))) {
-        const nom = temps(meteo);
-        bloc.hidden = false;
-        bloc.querySelector("svg").innerHTML = ICONES[nom];
         const degres = Math.round(Number(meteo.temperature_2m));
-        const libelle = ["fr", "en", "es", "ru"].includes(codeLangue) ? T.meteo[nom].charAt(0).toLowerCase() + T.meteo[nom].slice(1) : T.meteo[nom];
-        bloc.querySelector(".direct-temp").textContent = `${degres === 0 ? 0 : degres} °C, ${libelle}`;
+        l.querySelector(".direct-temp").textContent = `${degres === 0 ? 0 : degres}\u00a0°C`;
+        l.querySelector(".direct-cond").textContent = T.meteo[nom];
       }
     }
   }
