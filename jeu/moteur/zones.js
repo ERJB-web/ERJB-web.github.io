@@ -4,10 +4,10 @@ import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { preparerMateriauLightmap } from './rendu.js?v=0611ddd2c3';
-import { creerNavmesh } from './navmesh.js?v=0611ddd2c3';
-import { boiteLocale } from './objets.js?v=0611ddd2c3';
-import { GROUPES, groupes } from './physique.js?v=0611ddd2c3';
+import { preparerMateriauLightmap } from './rendu.js?v=6c5bfced27';
+import { creerNavmesh } from './navmesh.js?v=6c5bfced27';
+import { boiteLocale } from './objets.js?v=6c5bfced27';
+import { GROUPES, groupes } from './physique.js?v=6c5bfced27';
 
 const TOUT = 0xffff;
 
@@ -87,8 +87,13 @@ export async function chargerZone({ id, base = 'zones', rendu, physique, objets,
 
   const noeuds = [];
   scene.traverse((o) => noeuds.push(o));
+  const traites = new Set();
+  const PREFIXES_OBJETS = /^(COL_|COLM_|NAV_|TRIGGER_|DOORSLIDE_|DOOR_|DYN_|GLACE)/;
+  const dansObjetTraite = (o) => { for (let p = o.parent; p; p = p.parent) if (traites.has(p)) return true; return false; };
   for (const o of noeuds) {
     const n = o.name || '';
+    if (dansObjetTraite(o)) continue;
+    if (PREFIXES_OBJETS.test(n)) traites.add(o);
     const marqueur = () => {
       o.updateWorldMatrix(true, false);
       o.matrixWorld.decompose(pos, quat, ech);

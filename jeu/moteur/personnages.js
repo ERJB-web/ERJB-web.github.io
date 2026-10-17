@@ -93,7 +93,7 @@ export function creerPersonnages({ chargeur, base = 'personnages', audio }) {
 
     const mixer = new THREE.AnimationMixer(corps);
     const actions = {};
-    const bibliotheque = [...anims, ...clipsPropres];
+    const bibliotheque = clipsPropres.length && role === 'chienne' ? [...clipsPropres] : [...clipsPropres, ...anims];
     for (const clip of bibliotheque) {
       const nom = clip.name;
       if (!actions[nom]) actions[nom] = mixer.clipAction(clip);

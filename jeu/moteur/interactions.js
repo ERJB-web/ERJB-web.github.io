@@ -55,7 +55,7 @@ export function creerInteractions({ bus, objets, entrees }) {
       if (/^direction/.test(n.role) || !n.nom || n.muet) continue;
       const d = n.position.distanceTo(pos);
       if (d > 2.3) continue;
-      proposer({ type: 'pnj', pnj: n, texte: `Parler · ${n.nom}` }, d + 0.1, n.position);
+      proposer({ type: 'pnj', pnj: n, texte: n.role === 'chienne' ? `Flatter · ${n.nom}` : `Parler · ${n.nom}` }, d + 0.1, n.position);
     }
     for (const s of Object.values(zone.sieges)) {
       if (desactives.has(s.id)) continue;

@@ -1,5 +1,5 @@
-import { h, icone, vider, glisser } from '../noyau.js?v=0611ddd2c3';
-import { melanger, scoreCriblage, categorieMotif, normaliserDecision, motifsAcceptes } from '../calculs.js?v=0611ddd2c3';
+import { h, icone, vider, glisser } from '../noyau.js?v=6c5bfced27';
+import { melanger, scoreCriblage, categorieMotif, normaliserDecision, motifsAcceptes } from '../calculs.js?v=6c5bfced27';
 
 export const chronoManuel = true;
 
@@ -27,11 +27,12 @@ export function rendre(def, coque) {
   let debutCarte = performance.now();
   let rapideDit = false;
 
-  const listeCriteres = h('div', { class: 'dfx-crib-criteres' },
-    h('p', { class: 'dfx-surtitre', text: 'Critères d’admissibilité (PCC)' }),
+  const listeCriteres = h('details', { class: 'dfx-crib-criteres' },
+    h('summary', { class: 'dfx-surtitre', text: 'Critères d’admissibilité (PCC)' }),
     criteres.map((c) => h('div', { class: `dfx-critere dfx-critere--${c.cle}` },
       h('span', { class: 'dfx-critere-lettre', brut: c.lettre }),
       h('div', {}, h('p', { class: 'dfx-critere-nom', text: c.nom }), def.criteres?.[c.cle] ? h('p', { class: 'dfx-critere-texte', text: def.criteres[c.cle] }) : null))));
+  listeCriteres.open = !window.matchMedia?.('(max-width: 720px)').matches;
   const points = h('ol', { class: 'dfx-crib-points', 'aria-hidden': 'true' }, ordre.map(() => h('li')));
   const progression = h('p', { class: 'dfx-crib-prog' });
   const pile = h('div', { class: 'dfx-crib-pile' });

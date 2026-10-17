@@ -810,6 +810,11 @@
 .dfx-criblage { display: grid; grid-template-columns: minmax(260px, 340px) minmax(0, 1fr); gap: 24px; min-height: 0; }
 .dfx-crib-cote { display: flex; flex-direction: column; gap: 16px; min-height: 0; overflow: auto; }
 .dfx-crib-criteres { display: grid; gap: 10px; }
+.dfx-crib-criteres > summary { cursor: pointer; list-style: none; }
+.dfx-crib-criteres > summary::-webkit-details-marker { display: none; }
+.dfx-crib-criteres > summary::after { content: " ▾"; }
+.dfx-crib-criteres[open] > summary::after { content: " ▴"; }
+.dfx-crib-criteres:not([open]) { gap: 0; }
 .dfx-critere { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 12px; border-radius: 14px; border-left: 4px solid var(--dfx-sarcelle); background: var(--dfx-surface); }
 .dfx-critere--population { border-left-color: var(--dfx-bleu-clair); }
 .dfx-critere--contexte { border-left-color: var(--dfx-vert2); }
@@ -1360,6 +1365,9 @@
   .dfx-puce-terme { padding: 7px 9px 7px 8px; }
 
   .dfx-crib-pile { height: 52vh; min-height: 300px; }
+  .dfx-crib-cote { order: -1; }
+  .dfx-crib-suivi { display: none; }
+  .dfx-crib-criteres { padding: 10px 12px; border-radius: 12px; background: var(--dfx-surface); }
   .dfx-crib-carte { padding: 20px 18px; }
   .dfx-crib-resume { font-size: 15.5px; }
   .dfx-btn--grand { flex: 1; min-width: 0; min-height: 56px; padding: 0 14px; font-size: 17px; }

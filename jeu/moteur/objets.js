@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GROUPES, groupes } from './physique.js?v=0611ddd2c3';
+import { GROUPES, groupes } from './physique.js?v=6c5bfced27';
 
 const TOUT = 0xffff;
 const AXE_Y = new THREE.Vector3(0, 1, 0);
@@ -57,11 +57,11 @@ export function creerObjets({ physique, audio, bus }) {
         .setLinearDamping(4)
         .setCanSleep(true)
     );
-    const cd = RAPIER.ColliderDesc.cuboid(Math.max(taille.x / 2, 0.02), Math.max(taille.y / 2 - 0.01, 0.02), Math.max(taille.z / 2, 0.015))
+    const cd = RAPIER.ColliderDesc.cuboid(Math.max(taille.x / 2 - 0.015, 0.02), Math.max(taille.y / 2 - 0.01, 0.02), Math.max(taille.z / 2, 0.015))
       .setTranslation(centre.x, centre.y + 0.01, centre.z)
       .setMass(masse)
       .setFriction(0.3)
-      .setCollisionGroups(groupes(GROUPES.PORTE, TOUT & ~GROUPES.PORTE));
+      .setCollisionGroups(groupes(GROUPES.PORTE, GROUPES.JOUEUR | GROUPES.PNJ | GROUPES.DYNAMIQUE | GROUPES.RONDELLE));
     const collider = monde.createCollider(cd, corps);
     const ouverture = THREE.MathUtils.degToRad(Number(u.open_deg) || 105);
     const sens = u.swing === undefined ? 0 : Number(u.swing);
