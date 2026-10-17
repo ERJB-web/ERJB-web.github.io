@@ -3019,3 +3019,29 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
 .hall.en-volume .hall-aide-deplacement,.hall .hall-aide-deplacement{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .hall.en-mobile .hall-guide-mobile{display:none!important}
 @media(max-width:640px){.hall-tete .hall-titre{gap:8px}.hall-tete .hall-titre-nom{font-size:22px}.hall-tete .hall-gestes{font-size:12px;gap:6px}.hall-tete .hall-geste{padding:5px 10px 5px 8px}}
+/* Hall plus engageant : mot clé en couleur, gestes animés, indice sur la scène */
+.hall-tete .hall-titre-nom{font-size:clamp(28px,2.6vw,38px);line-height:1.1}
+.hall-tete .hall-titre-nom em{font-style:italic;background:linear-gradient(100deg,#1f5a8a 0%,#2f7d9a 30%,#c0612b 65%,#7a4a8c 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-inline-end:.06em}
+.hall-tete .hall-titre-nom::after{width:64px;height:3px;margin-top:9px}
+.hall-tete .hall-gestes{font-size:14px;gap:10px}
+.hall-tete .hall-geste{padding:8px 15px 8px 11px;font-weight:600;box-shadow:0 1px 3px rgba(23,63,82,.08)}
+.hall-tete .hall-geste:nth-child(odd){background:#eaf2f8;border-color:#bfd4e6;color:#173f52}
+.hall-tete .hall-geste:nth-child(even){background:#fcf0e7;border-color:#f0cdb3;color:#5a2f12}
+.hall-tete .hall-geste:nth-child(odd) svg{color:#1f5a8a}
+.hall-tete .hall-geste:nth-child(even) svg{color:#c0612b}
+.hall-tete .hall-geste svg{width:18px;height:18px}
+.hall-tete .hall-geste:nth-child(odd) svg{animation:geste-glisser 2.4s ease-in-out infinite}
+.hall-tete .hall-geste:nth-child(even) svg{animation:geste-cliquer 2.4s ease-in-out infinite}
+@keyframes geste-glisser{0%,100%{transform:translateX(0)}25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
+@keyframes geste-cliquer{0%,60%,100%{transform:scale(1)}70%{transform:scale(.78)}80%{transform:scale(1.08)}}
+.hall-indice{position:absolute;left:50%;bottom:22px;z-index:30;display:inline-flex;align-items:center;gap:12px;padding:11px 20px 11px 14px;border-radius:999px;background:rgba(16,45,62,.78);color:#fff;font-size:15px;font-weight:600;letter-spacing:.01em;box-shadow:0 10px 28px rgba(10,30,45,.28);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transform:translateX(-50%);pointer-events:none;opacity:0;transition:opacity .45s ease,transform .45s ease}
+.hall.en-volume .hall-indice,.hall.en-mobile .hall-indice{opacity:1}
+.hall .hall-indice.vu{opacity:0;transform:translateX(-50%) translateY(8px)}
+.hall-indice .hall-indice-main{width:26px;height:26px;animation:indice-main 2.2s ease-in-out infinite}
+@keyframes indice-main{0%,100%{transform:translateX(-10px) rotate(-8deg)}50%{transform:translateX(10px) rotate(8deg)}}
+.hall-indice .geste-tactile,.hall.en-mobile .hall-indice .geste-souris{display:none}
+.hall.en-mobile .hall-indice .geste-tactile{display:inline}
+.hall-indice{white-space:nowrap}
+.hall.en-mobile .hall-indice{bottom:auto;top:150px;font-size:14px;padding:9px 16px 9px 12px}
+@media(prefers-reduced-motion:reduce){.hall-tete .hall-geste svg,.hall-indice .hall-indice-main{animation:none}}
+@media(forced-colors:active){.hall-tete .hall-titre-nom em{color:CanvasText;background:none}.hall-indice{border:1px solid CanvasText}}

@@ -18,6 +18,17 @@
   addEventListener('resize', ajusterJonctionAccueil, { passive:true });
   if (enteteAccueil && 'ResizeObserver' in window) new ResizeObserver(ajusterJonctionAccueil).observe(enteteAccueil);
   document.fonts?.ready.then(ajusterJonctionAccueil);
+  // L’indice « glissez » disparaît au premier geste dans le hall, ou quelques secondes après être apparu.
+  const hallIndice = $('.hall-indice');
+  if (hallIndice) {
+    const espace = hallIndice.parentElement, gestesIndice = ['pointerdown','wheel','keydown','touchstart'];
+    const masquerIndice = () => { hallIndice.classList.add('vu'); gestesIndice.forEach((n) => espace.removeEventListener(n, masquerIndice)); };
+    gestesIndice.forEach((n) => espace.addEventListener(n, masquerIndice, { passive:true }));
+    if ('IntersectionObserver' in window) {
+      const vue = new IntersectionObserver((e) => { if (e.some((x) => x.isIntersecting)) { vue.disconnect(); setTimeout(masquerIndice, 7000); } }, { threshold:.5 });
+      vue.observe(espace);
+    } else setTimeout(masquerIndice, 9000);
+  }
   const groupes = $$(".porte").map((p) => ({ nom: p.dataset.salle, porte: p, sections: (p.dataset.sections || "").split(" ").filter(Boolean) }));
   const ordre = groupes.flatMap((g) => g.sections);
   const groupeDe = (s) => groupes.find((g) => g.nom === s || g.sections.includes(s));
