@@ -1,5 +1,5 @@
-import { h, icone, glisser, memoriserPositions, animerDepuis, defilerPres } from '../noyau.js?v=5a3cf24964';
-import { melanger, concordancePaires, scoreOrdre, positionsAttendues } from '../calculs.js?v=5a3cf24964';
+import { h, icone, glisser, memoriserPositions, animerDepuis, defilerPres } from '../noyau.js?v=2a9aa6f76b';
+import { melanger, concordancePaires, scoreOrdre, positionsAttendues } from '../calculs.js?v=2a9aa6f76b';
 
 export function rendre(def, coque) {
   const elements = (Array.isArray(def.elements) ? def.elements : []).map((e, i) => ({ i, texte: String(e.texte ?? ''), rang: Number(e.rang) }));

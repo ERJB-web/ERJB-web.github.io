@@ -1,7 +1,7 @@
-import { h, s, icone, vider, nombre, pct, styleSecteurs, cheminSymbole, pastilleSecteur, glisser, humaniser } from '../noyau.js?v=5a3cf24964';
-import { mesuresReseau, scoreCodageReseau, clefLien, vrai, borner, melanger, jaccard, couvertureDomaines } from '../calculs.js?v=5a3cf24964';
-import { panneauQuestions } from './questions.js?v=5a3cf24964';
-import { ongletsPanneau } from './carte.js?v=5a3cf24964';
+import { h, s, icone, vider, nombre, pct, styleSecteurs, cheminSymbole, pastilleSecteur, glisser, humaniser } from '../noyau.js?v=2a9aa6f76b';
+import { mesuresReseau, scoreCodageReseau, clefLien, vrai, borner, melanger, jaccard, couvertureDomaines } from '../calculs.js?v=2a9aa6f76b';
+import { panneauQuestions } from './questions.js?v=2a9aa6f76b';
+import { ongletsPanneau } from './carte.js?v=2a9aa6f76b';
 
 export const NIVEAUX = [
   { n: 1, nom: 'Information', def: 'Échange d’information, sans action commune.' },

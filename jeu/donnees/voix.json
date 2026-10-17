@@ -863,6 +863,50 @@
   "duree": 4.49,
   "qui": "intervenante_sad"
  },
+ "c3_niveaux_002": {
+  "duree": 7.71,
+  "qui": "eric"
+ },
+ "c3_niveaux_003": {
+  "duree": 4.06,
+  "qui": "intervenante_sad"
+ },
+ "c3_niveaux_004": {
+  "duree": 5.22,
+  "qui": "eric"
+ },
+ "c3_niveaux_005": {
+  "duree": 4.85,
+  "qui": "intervenante_sad"
+ },
+ "c3_reseau_r_001": {
+  "duree": 5.21,
+  "qui": "intervenante_sad"
+ },
+ "c3_reseau_r_002": {
+  "duree": 4.99,
+  "qui": "eric"
+ },
+ "c3_reunion_001": {
+  "duree": 6.17,
+  "qui": "gestionnaire_clsc"
+ },
+ "c3_reunion_002": {
+  "duree": 5.38,
+  "qui": "eric"
+ },
+ "c3_reunion_003": {
+  "duree": 3.88,
+  "qui": "intervenante_sad"
+ },
+ "c3_reunion_004": {
+  "duree": 3.7,
+  "qui": "eric"
+ },
+ "c3_reunion_005": {
+  "duree": 5.84,
+  "qui": "eric"
+ },
  "c4_apres_partie_001": {
   "duree": 5.12,
   "qui": "collegue_doc"
