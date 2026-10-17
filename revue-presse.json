@@ -1,0 +1,698 @@
+{
+ "maj": "2026-10-17T23:50:06.779Z",
+ "bonne": {
+  "jour": "2026-10-17",
+  "t": "Un don qui sauve des vies",
+  "u": "https://ici.radio-canada.ca/en-bref/1-10786221/un-don-qui-sauve-vies",
+  "s": "Radio-Canada",
+  "d": "2026-10-16T21:25:59.000Z",
+  "x": "Plus de 200 personnes qui ont fait des dons d’organe au cours de la dernière année ont été honorés à Sherbrooke vendredi."
+ },
+ "rubriques": {
+  "une": [
+   {
+    "t": "Le PQ doit faire de la lutte à la pauvreté une priorité, disent des organismes",
+    "u": "https://ici.radio-canada.ca/nouvelle/2293471/communautaire-logement-inegalites-parti-quebecois",
+    "s": "Radio-Canada",
+    "d": "2026-10-17T20:11:41.000Z",
+    "x": "Des organismes et des citoyens ont manifesté à Québec, samedi."
+   },
+   {
+    "t": "Deux femmes agressées en CHSLD | « Tout est bien qui finit bien », se réjouit un agresseur qui évite la prison",
+    "u": "https://www.lapresse.ca/actualites/justice-et-faits-divers/2026-10-17/deux-femmes-agressees-en-chsld/tout-est-bien-qui-finit-bien-se-rejouit-un-agresseur-qui-evite-la-prison.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites",
+    "s": "La Presse",
+    "d": "2026-10-17T16:00:00.000Z",
+    "x": "« Tout est bien qui finit bien », a philosophé Mohamed Zarrouk, à la fin de l’audience."
+   },
+   {
+    "t": "«C’est tabou»: un jeune père veut démystifier l'infertilité masculine",
+    "u": "https://www.journaldemontreal.com/2026/10/07/cest-tabou---un-jeune-pere-veut-demystifier-linfertilite-masculine",
+    "s": "Le Journal de Montréal",
+    "d": "2026-10-17T04:00:00.000Z",
+    "x": "Un homme qui est devenu père trois ans après un diagnostic d’infertilité veut faire tomber les tabous qui persistent."
+   },
+   {
+    "t": "Hôpital de Chicoutimi | Un laboratoire plus rapide qui pourrait sauver des vies",
+    "u": "https://www.lapresse.ca/actualites/sante/2026-10-17/hopital-de-chicoutimi/un-laboratoire-plus-rapide-qui-pourrait-sauver-des-vies.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites&utm_content=sante",
+    "s": "La Presse",
+    "d": "2026-10-17T09:00:00.000Z",
+    "x": "Quand un patient fait une crise cardiaque, chaque minute compte."
+   },
+   {
+    "t": "« Spermaggedon » : La fertilité des hommes en chute libre",
+    "u": "https://www.journaldemontreal.com/2026/10/17/ca-fait-peur---la-fertilite-des-hommes-en-chute-libre",
+    "s": "Le Journal de Montréal",
+    "d": "2026-10-17T04:00:00.000Z",
+    "x": "Les hommes produisent aujourd’hui deux fois moins de spermatozoïdes que leur père."
+   },
+   {
+    "t": "Dépistage du cancer du sein | Pensez à la vie de ces femmes",
+    "u": "https://www.lapresse.ca/actualites/chroniques/2026-10-17/depistage-du-cancer-du-sein/pensez-a-la-vie-de-ces-femmes.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites",
+    "s": "La Presse",
+    "d": "2026-10-17T09:00:00.000Z",
+    "x": "Comment expliquer que le Québec n’offre toujours pas de dépistage systématique du cancer du sein aux femmes de 45 à 49 ans ?"
+   }
+  ],
+  "quebec": [
+   {
+    "t": "Le PQ doit faire de la lutte à la pauvreté une priorité, disent des organismes",
+    "u": "https://ici.radio-canada.ca/nouvelle/2293471/communautaire-logement-inegalites-parti-quebecois",
+    "s": "Radio-Canada",
+    "d": "2026-10-17T20:11:41.000Z",
+    "x": "Des organismes et des citoyens ont manifesté à Québec, samedi."
+   },
+   {
+    "t": "Deux femmes agressées en CHSLD | « Tout est bien qui finit bien », se réjouit un agresseur qui évite la prison",
+    "u": "https://www.lapresse.ca/actualites/justice-et-faits-divers/2026-10-17/deux-femmes-agressees-en-chsld/tout-est-bien-qui-finit-bien-se-rejouit-un-agresseur-qui-evite-la-prison.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites",
+    "s": "La Presse",
+    "d": "2026-10-17T16:00:00.000Z",
+    "x": "« Tout est bien qui finit bien », a philosophé Mohamed Zarrouk, à la fin de l’audience."
+   },
+   {
+    "t": "Un bateau transformé en refuge pour aider les jeunes adultes vulnérables à Québec",
+    "u": "https://www.journaldemontreal.com/2026/10/16/un-bateau-transforme-en-refuge-pour-aider-les-jeunes-adultes-vulnerables-a-quebec",
+    "s": "Le Journal de Montréal",
+    "d": "2026-10-16T23:07:57.000Z",
+    "x": "À Québec, un bateau amarré au bassin Louise s’apprête à accueillir des jeunes adultes en situation de précarité."
+   },
+   {
+    "t": "Difficile de retenir les jeunes infirmières au sein de la profession",
+    "u": "https://www.ledevoir.com/actualites/sante/1017083/difficile-retenir-jeunes-infirmieres-sein-profession",
+    "s": "Le Devoir",
+    "d": "2026-10-15T10:44:05.000Z",
+    "x": "37% des infirmières de moins de 35 ans ne renouvellent pas leur permis au Québec, note l’Institut économique de Montréal."
+   },
+   {
+    "t": "Le conseil d’administration de Santé Québec annonce la nomination de la présidente-directrice générale adjointe de Santé Québec – Centre hospitalier de l’Université de Montréal",
+    "u": "https://sante.quebec/actualites/communiques-presse/le-conseil-dadministration-de-sante-quebec-annonce-la-nomination-de-2/",
+    "s": "Santé Québec",
+    "d": "2026-10-08T16:00:00.000Z"
+   },
+   {
+    "t": "37e Nuit des sans-abris : « L’itinérance peut toucher tout le monde »",
+    "u": "https://ici.radio-canada.ca/nouvelle/2293388/itinerance-37e-nuit-des-sans-abris",
+    "s": "Radio-Canada",
+    "d": "2026-10-16T23:12:48.000Z",
+    "x": "Une rupture ou une éviction suffisent pour se retrouver à la rue, rappellent les travailleurs sur le terrain."
+   },
+   {
+    "t": "Dépistage du cancer du sein | Pensez à la vie de ces femmes",
+    "u": "https://www.lapresse.ca/actualites/chroniques/2026-10-17/depistage-du-cancer-du-sein/pensez-a-la-vie-de-ces-femmes.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites",
+    "s": "La Presse",
+    "d": "2026-10-17T09:00:00.000Z",
+    "x": "Comment expliquer que le Québec n’offre toujours pas de dépistage systématique du cancer du sein aux femmes de 45 à 49 ans ?"
+   },
+   {
+    "t": "Elle veut amasser 20 000 $ pour combattre le cancer: depuis quatre ans, une artiste de Québec déjoue les pronostics",
+    "u": "https://www.journaldemontreal.com/2026/10/12/elle-veut-amasser-20-000--pour-combattre-le-cancer--depuis-quatre-ans-une-artiste-de-quebec-dejoue-les-pronostics",
+    "s": "Le Journal de Montréal",
+    "d": "2026-10-16T23:00:00.000Z",
+    "x": "Sophie Williams souhaite financer la recherche et permettre à d’autres de rester en vie."
+   },
+   {
+    "t": "Des complications postpartum peuvent survenir bien après les premières semaines",
+    "u": "https://www.ledevoir.com/actualites/sante/1016876/complications-postpartum-peuvent-survenir-bien-apres-premieres-semaines",
+    "s": "Le Devoir",
+    "d": "2026-10-15T04:00:00.000Z",
+    "x": "Ces risques doivent être mieux connus, estiment deux médecins de l’hôpital Sainte-Justine."
+   },
+   {
+    "t": "La Nuit des sans-abri à Rimouski : le portrait de l’itinérance change",
+    "u": "https://ici.radio-canada.ca/info/videos/1-10786290/nuit-sans-abri-a-rimouski-portrait-itinerance-change",
+    "s": "Radio-Canada",
+    "d": "2026-10-16T22:22:59.000Z",
+    "x": "Au Bas-Saint-Laurent, des rassemblements ont lieu ce soir à Rivière-du-Loup, Mont-Joli, Trois-Pistoles et à Rimouski notamment pour la Nuit des sans-abri."
+   }
+  ],
+  "canada": [
+   {
+    "t": "1 in 4 Ebola deaths are children in Democratic Republic of Congo's worst outbreak",
+    "u": "https://www.cbc.ca/news/health/ebola-congo-children-deaths-9.7384641?cmp=rss",
+    "s": "CBC",
+    "d": "2026-10-17T08:00:00.000Z",
+    "x": "The Democratic Republic of Congo is battling its deadliest outbreak of Ebola, caused by a rare strain with no approved treatment.",
+    "l": "en"
+   },
+   {
+    "t": "Les effets de la COVID longue et le retour au travail",
+    "u": "https://ici.radio-canada.ca/en-bref/1-10786382/effets-covid-longue-et-retour-au-travail",
+    "s": "Radio-Canada",
+    "d": "2026-10-16T23:36:15.000Z",
+    "x": "Le 4ème Symposium canadien sur la COVID longue se poursuit à l’UBC, à Vancouver."
+   },
+   {
+    "t": "A federal IVF program will harmonize ‘patchwork’ approach, experts say",
+    "u": "https://globalnews.ca/news/12105879/support-for-federal-ivf-program/",
+    "s": "Global News",
+    "d": "2026-10-16T21:37:09.000Z",
+    "x": "Data collected by Ipsos for Fertility Matters Canada (FMC) found that 46 per cent of Canadians with an opinion on it support the proposed federal IVF funding program.",
+    "l": "en"
+   },
+   {
+    "t": "Rappel de certains fromages en raison d’un risque de listériose",
+    "u": "https://www.lapresse.ca/actualites/sante/2026-10-14/rappel-de-certains-fromages-en-raison-d-un-risque-de-listeriose.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites&utm_content=sante",
+    "s": "La Presse",
+    "d": "2026-10-14T19:43:44.000Z",
+    "x": "L’Agence canadienne d’inspection des aliments procède au rappel de certains fromages biologiques des marques Farm Boy, L’Ancêtre et Life Smart en raison d’un risque de contamination par la …"
+   },
+   {
+    "t": "Santé en français hors Québec : plus d’un francophone sur trois n’ose plus réclamer ses services",
+    "u": "https://onfr.tfo.org/sante-en-francais-hors-quebec-plus-dun-francophone-sur-trois-nose-plus-reclamer-ses-services/",
+    "s": "ONFR",
+    "d": "2026-10-14T15:18:24.000Z",
+    "x": "OTTAWA — La gêne ou la peur de déranger prend-elle le dessus sur le besoin d’être soigné dans sa langue?"
+   },
+   {
+    "t": "Le gouvernement du Canada annonce la nomination du Dr George Mutwiri au Conseil d’administration des Instituts de recherche en santé du Canada",
+    "u": "https://www.canada.ca/fr/sante-canada/nouvelles/2026/10/le-gouvernement-du-canada-annonce-la-nomination-du-dr-george-mutwiri-au-conseil-dadministration-des-instituts-de-recherche-en-sante-du-canada.html",
+    "s": "Gouvernement du Canada",
+    "d": "2026-10-13T19:00:00.000Z",
+    "x": "Aujourd’hui, l’honorable Marjorie Michel, ministre de la Santé, a annoncé la nomination de George Mutwiri au conseil d’administration des Instituts de recherche en santé du Canada (IRSC)."
+   },
+   {
+    "t": "Young people want to know if they're neurodivergent. Here's what doctors say is going on",
+    "u": "https://www.cbc.ca/radio/whitecoat/young-people-seeking-diagnoses-autism-and-adhd-9.7375950?cmp=rss",
+    "s": "CBC",
+    "d": "2026-10-17T08:00:00.000Z",
+    "x": "Mental health experts say they're seeing an increasing number of young patients leaning on advice from social media to connect symptoms to a potential diagnosis, even before consulting with …",
+    "l": "en"
+   },
+   {
+    "t": "Le Canada a besoin de plus d’inspecteurs en santé publique",
+    "u": "https://ici.radio-canada.ca/ohdio/premiere/emissions/dans-la-mosaique/segments/rattrapage/2505363/conference-a-tmu-role-sante-publique-environnementale-2",
+    "s": "Radio-Canada",
+    "d": "2026-10-16T21:07:06.000Z",
+    "x": "En fonction des besoins à couvrir, le pays compte moins d'inspecteurs en santé publique , c'est le constat fait vendredi à Toronto par Alexandre Tancrède, directeur de l'Institut canadien …"
+   }
+  ],
+  "france": [
+   {
+    "t": "\"13h15 le dimanche\". Du cœur au don d’organes > Episode 4",
+    "u": "https://www.franceinfo.fr/replay-magazine/france-2/13h15/13h15-le-dimanche-du-c-ur-au-don-d-organes-episode-4_8240443.html#xtor=RSS-3-%5Bgeneral%5D",
+    "s": "franceinfo",
+    "d": "2026-10-17T20:29:30.000Z",
+    "x": "À l'occasion de la Journée mondiale du don d’organes et de la greffe le 17 octobre, \"13h15 le dimanche\" présente un document exceptionnel sur la greffe cardiaque."
+   },
+   {
+    "t": "Lamia El Aaraje et Julien Parelon, un couple face à la maladie de Charcot : «Elle est devenue mon punching-ball alors qu’elle faisait tout pour moi»",
+    "u": "https://www.liberation.fr/societe/sante/elle-est-devenue-mon-punching-ball-lamia-el-aaraje-et-julien-parelon-livrent-le-quotidien-dun-couple-face-a-la-maladie-de-charcot-20261017_GZ5GABPRSZGWXIVDGJK4I7GG3Y/",
+    "s": "Libération",
+    "d": "2026-10-17T11:30:00.000Z",
+    "x": "La première adjointe à la mairie de Paris et son époux retracent, dans le livre «les Empêchés», paru jeudi 15 octobre, leur combat face à la pathologie neurodégénérative."
+   },
+   {
+    "t": "Alzheimer, Parkinson, dépression: et si l’origine de certaines maladies du cerveau se trouvait dans notre microbiote?",
+    "u": "https://sante.lefigaro.fr/medecine/alzheimer-parkinson-depression-et-si-l-origine-de-certaines-maladies-du-cerveau-se-trouvait-dans-notre-microbiote-20261017",
+    "s": "Le Figaro",
+    "d": "2026-10-17T07:30:00.000Z",
+    "x": "DÉCRYPTAGE - À l’occasion des vingt ans du Pasteurdon, organisés du 8 au 11 octobre, les chercheurs de l’Institut Pasteur, à Paris, ont présenté leurs travaux sur les interactions entre le …"
+   },
+   {
+    "t": "« Je chéris mon nouveau cœur autant que j’ai aimé l’ancien » : le quotidien de Sandra, greffée depuis quatorze ans",
+    "u": "https://www.lemonde.fr/intimites/article/2026/10/17/je-cheris-mon-nouveau-c-ur-autant-que-j-ai-aime-l-ancien-le-quotidien-de-sandra-greffee-depuis-quatorze-ans_6795854_6190330.html",
+    "s": "Le Monde",
+    "d": "2026-10-17T04:00:48.000Z",
+    "x": "Sandra Lartoni, 32 ans, vit avec le cœur d’un autre."
+   },
+   {
+    "t": "Assises de la ménopause : les annonces de Stéphanie Rist pour améliorer la prise en charge",
+    "u": "http://www.lequotidiendumedecin.fr/actu-medicale/assises-de-la-menopause-les-annonces-de-stephanie-rist-pour-ameliorer-la-prise-en-charge",
+    "s": "Le Quotidien du médecin",
+    "d": "2026-10-16T16:19:00.000Z",
+    "x": "Stéphanie Rist, ministre de la Santé, a annoncé plusieurs mesures visant à améliorer la prise en charge des femmes concernées par la ménopause, comme la possibilité pour les sages-femmes de …"
+   },
+   {
+    "t": "Les infirmiers de bloc opératoire du Centre hospitalier de Martigues en grève",
+    "u": "http://www.infirmiers.com/les-infirmiers-de-bloc-operatoire-du-centre-hospitalier-de-martigues-en-greve",
+    "s": "Infirmiers.com",
+    "d": "2026-10-16T13:04:57.000Z",
+    "x": "Les infirmiers de bloc opératoire du Centre Hospitalier de Martigues (près de Marseille) sont mobilisés depuis le début du mois de juillet pour défendre leur temps de travail, leurs …"
+   },
+   {
+    "t": "\"13h15 le dimanche\". Du cœur au don d’organes > Episode 3",
+    "u": "https://www.franceinfo.fr/replay-magazine/france-2/13h15/13h15-le-dimanche-du-c-ur-au-don-d-organes-episode-3_8240440.html#xtor=RSS-3-%5Bgeneral%5D",
+    "s": "franceinfo",
+    "d": "2026-10-17T20:29:11.000Z",
+    "x": "À l'occasion de la Journée mondiale du don d’organes et de la greffe le 17 octobre, \"13h15 le dimanche\" présente un document exceptionnel sur la greffe cardiaque."
+   },
+   {
+    "t": "Dangers du gaz lacrymogène : «C’est évident qu’il y a un risque plus important pour les plus jeunes»",
+    "u": "https://www.liberation.fr/societe/police-justice/dangers-du-gaz-lacrymogene-cest-evident-quil-y-a-un-risque-plus-important-pour-les-plus-jeunes-20261017_NFAZPGVAQZGDHOY5DCLBWT6PXU/",
+    "s": "Libération",
+    "d": "2026-10-17T05:00:00.000Z",
+    "x": "Le docteur en microbiologie Alexander Samuel revient pour «Libé» sur l’état de la connaissance scientifique au sujet des risques réels de l’exposition, ponctuelle ou répétée, au gaz …"
+   }
+  ],
+  "debats": [
+   {
+    "t": "Avant la mobilisation du 17 octobre, visualisez comment le coût de l'alimentation a explosé en dix ans en France",
+    "u": "https://www.franceinfo.fr/economie/inflation/avant-la-mobilisation-du-17-octobre-visualisez-comment-le-cout-de-l-alimentation-a-explose-en-dix-ans-en-france_8202725.html#xtor=RSS-3-%5Bgeneral%5D",
+    "s": "franceinfo",
+    "d": "2026-10-17T04:58:28.000Z",
+    "x": "L'indice des prix de l'alimentation, calculé par l'Insee, a augmenté de près de 35 points en dix ans."
+   },
+   {
+    "t": "Ménopause : une pause au milieu de la vie, non une date de péremption",
+    "u": "https://theconversation.com/menopause-une-pause-au-milieu-de-la-vie-non-une-date-de-peremption-294380",
+    "s": "The Conversation France",
+    "d": "2026-10-16T14:31:04.000Z",
+    "x": "À l’occasion de la Journée mondiale de la ménopause du 18 octobre, la philosophe Gloria&nbsp;Origgi invite à penser cette expérience comme une transformation plutôt que comme un déclin."
+   },
+   {
+    "t": "Mobilisation étudiante : la FNESI contre la précarité des étudiants infirmiers",
+    "u": "http://www.infirmiers.com/etudiants/mobilisation-etudiante-la-fnesi-contre-la-precarite-des-etudiants-infirmiers",
+    "s": "Infirmiers.com",
+    "d": "2026-10-15T19:30:32.000Z",
+    "x": "Alors que la mobilisation contre le sous-financement de l’éducation se poursuit, la Fédération nationale des étudiants en sciences infirmières (FNESI) rejoint le mouvement."
+   },
+   {
+    "t": "Des infirmières dénoncent des mois de salaires impayés",
+    "u": "https://ici.radio-canada.ca/en-bref/1-10784218/infirmieres-denoncent-mois-salaires-impayes",
+    "s": "Radio-Canada",
+    "d": "2026-10-14T22:41:22.000Z",
+    "x": "L’agence de placement privée ontarienne EZ Care ne répond plus à ses employées, laissant des soignantes dans une grande précarité financière."
+   },
+   {
+    "t": "Santé en français hors Québec : plus d’un francophone sur trois n’ose plus réclamer ses services",
+    "u": "https://onfr.tfo.org/sante-en-francais-hors-quebec-plus-dun-francophone-sur-trois-nose-plus-reclamer-ses-services/",
+    "s": "ONFR",
+    "d": "2026-10-14T15:18:24.000Z",
+    "x": "OTTAWA — La gêne ou la peur de déranger prend-elle le dessus sur le besoin d’être soigné dans sa langue?"
+   },
+   {
+    "t": "L’« affaire de Cornell » démontre que la culture du viol est toujours présente",
+    "u": "https://theconversation.com/l-affaire-de-cornell-demontre-que-la-culture-du-viol-est-toujours-presente-294294",
+    "s": "La Conversation",
+    "d": "2026-10-14T13:56:04.000Z",
+    "x": "Le cas de Cornell démontre que la culture du viol est toujours présente dans les universités."
+   },
+   {
+    "t": "Cancer du poumon : faut-il s'inquiéter après l'opération subie par le pape Léon XIV ?",
+    "u": "https://sante.lefigaro.fr/medecine/un-nodule-localise-dans-mon-poumon-faut-il-s-inquieter-de-l-operation-que-va-subir-le-pape-leon-xiv-20261011",
+    "s": "Le Figaro",
+    "d": "2026-10-13T21:10:37.000Z",
+    "x": "Le Saint-Père a été opéré ce mardi et les analyses ont confirmé qu’il souffrait d’un cancer du poumon."
+   },
+   {
+    "t": "The politics of city rats: What urban rodents tell us about housing and sanitation",
+    "u": "https://theconversation.com/the-politics-of-city-rats-what-urban-rodents-tell-us-about-housing-and-sanitation-293656",
+    "s": "The Conversation Canada",
+    "d": "2026-10-13T14:54:47.000Z",
+    "x": "Why have cities had so little success in reducing rat numbers?",
+    "l": "en"
+   }
+  ],
+  "decouvertes": [
+   {
+    "t": "Ces cellules « zombies » accélèrent notre vieillissement : des chercheurs ont découvert leur étonnant secret",
+    "u": "https://www.futura-sciences.com/sante/actualites/vieillissement-ces-cellules-zombies-accelerent-notre-vieillissement-chercheurs-ont-decouvert-leur-etonnant-secret-138585/#xtor%3DRSS-8",
+    "s": "Futura",
+    "d": "2026-10-16T12:08:51.000Z",
+    "x": "Certaines cellules abîmées refusent de mourir et s’accumulent avec l’âge, alimentant l'inflammation et le déclin physique."
+   },
+   {
+    "t": "Long-Acting HIV Therapy in African Adults with Adherence Challenges",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42874104/",
+    "s": "PubMed",
+    "d": "2026-10-14T17:23:00.000Z",
+    "x": "Among persons with HIV in Africa who have adherence challenges, long-acting cabotegravir plus rilpivirine was noninferior to oral dolutegravir-based therapy for maintaining a viral load of …",
+    "l": "en",
+    "r": "N Engl J Med",
+    "y": "essai"
+   },
+   {
+    "t": "L'IA pour aider à diagnostiquer des maladies génétiques rares au CHEO",
+    "u": "https://ici.radio-canada.ca/info/videos/1-10786374/ia-pour-aider-a-diagnostiquer-maladies-genetiques-rares-au-cheo",
+    "s": "Radio-Canada",
+    "d": "2026-10-16T23:18:57.000Z",
+    "x": "L'hôpital CHEO utilise une nouvelle intelligence artificielle ThinkRare pour diagnostiquer plus facilement les maladies génétiques rares chez les enfants."
+   },
+   {
+    "t": "Apnées du sommeil : l’IA accélère, la polysomnographie garde l’avantage",
+    "u": "http://www.lequotidiendumedecin.fr/actu-medicale/congres/apnees-du-sommeil-lia-accelere-la-polysomnographie-garde-lavantage",
+    "s": "Le Quotidien du médecin",
+    "d": "2026-10-15T02:00:00.000Z",
+    "x": "L’IA et de nouveaux dispositifs connectés simplifient le ­diagnostic des apnées du sommeil, sans parvenir encore à détrôner la polysomnographie."
+   },
+   {
+    "t": "Phase 2 Trial of Icotrokinra for Patients with Ulcerative Colitis",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42874103/",
+    "s": "PubMed",
+    "d": "2026-10-14T17:23:00.000Z",
+    "x": "Among participants with moderately to severely active ulcerative colitis, a clinical response at week 12 was significantly more common with once-daily oral icotrokinra at each of three …",
+    "l": "en",
+    "r": "N Engl J Med",
+    "y": "essai"
+   },
+   {
+    "t": "Intelligence artificielle : quel impact dans la pratique infirmière ?",
+    "u": "http://www.infirmiers.com/profession-ide/actualite-sociale/intelligence-artificielle-quel-impact-dans-la-pratique-infirmiere",
+    "s": "Infirmiers.com",
+    "d": "2026-10-16T09:03:09.000Z",
+    "x": "Si l’intelligence artificielle (IA) est plus que jamais présente dans le secteur de la santé, révolutionne-t-elle pour autant la pratique des infirmiers ?"
+   },
+   {
+    "t": "Face au cancer du sein, la recherche nantaise traque les failles des tumeurs",
+    "u": "https://www.sciencesetavenir.fr/sante/cancer-du-sein-comprendre-pourquoi-les-tumeurs-sont-plus-agressives-chez-les-jeunes-femmes_195344?xtor=RSS-16",
+    "s": "Sciences et Avenir",
+    "d": "2026-10-15T08:33:41.000Z",
+    "x": "Pourquoi ces cancers sont-ils souvent plus agressifs chez les jeunes femmes ?"
+   },
+   {
+    "t": "Ponatinib-Blinatumomab or Imatinib-Chemotherapy for Adult Ph-Positive ALL",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42874102/",
+    "s": "PubMed",
+    "d": "2026-10-14T17:23:00.000Z",
+    "x": "In this phase 3 trial, a frontline chemotherapy-free targeted and immunotherapeutic approach was superior to the use of imatinib and chemotherapy.",
+    "l": "en",
+    "r": "N Engl J Med",
+    "y": "essai"
+   },
+   {
+    "t": "Alzheimer, Parkinson, dépression: et si l’origine de certaines maladies du cerveau se trouvait dans notre microbiote?",
+    "u": "https://sante.lefigaro.fr/medecine/alzheimer-parkinson-depression-et-si-l-origine-de-certaines-maladies-du-cerveau-se-trouvait-dans-notre-microbiote-20261017",
+    "s": "Le Figaro",
+    "d": "2026-10-17T07:30:00.000Z",
+    "x": "DÉCRYPTAGE - À l’occasion des vingt ans du Pasteurdon, organisés du 8 au 11 octobre, les chercheurs de l’Institut Pasteur, à Paris, ont présenté leurs travaux sur les interactions entre le …"
+   },
+   {
+    "t": "Étude | La musculation pourrait contribuer au soulagement de l’anxiété chez les femmes",
+    "u": "https://www.lapresse.ca/actualites/sciences/2026-10-16/etude/la-musculation-pourrait-contribuer-au-soulagement-de-l-anxiete-chez-les-femmes.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites&utm_content=sciences",
+    "s": "La Presse",
+    "d": "2026-10-16T13:02:21.000Z",
+    "x": "La pratique de plusieurs types d’entraînement de musculation a été associée à une diminution des symptômes de dépression chez des femmes souffrant de troubles anxieux, dans le cadre d’une …"
+   }
+  ],
+  "recherche": [
+   {
+    "t": "Cancer du sein: deux chercheuses de l’UdeM travaillent à de nouvelles solutions",
+    "u": "https://nouvelles.umontreal.ca/article/2026/10/16/cancer-du-sein-deux-chercheuses-de-l-udem-travaillent-a-de-nouvelles-solutions",
+    "s": "UdeM Nouvelles",
+    "d": "2026-10-16T16:00:00.000Z"
+   },
+   {
+    "t": "850 000 $ pour développer des solutions innovantes en obésité pédiatrique au Québec",
+    "u": "https://frq.gouv.qc.ca/850-000-pour-developper-des-solutions-innovantes-en-obesite-pediatrique-au-quebec/",
+    "s": "Fonds de recherche du Québec",
+    "d": "2026-10-15T14:00:26.000Z",
+    "x": "Le Fonds de recherche du Québec (FRQ) est fier d’annoncer les équipes récipiendaires du Programme pour des Solutions en Obésité Infantile (SOI), une initiative de Pro-Santé, un partenariat …"
+   },
+   {
+    "t": "L’étude « Pauvreté persistante et temporaire : un enjeu de taille sur le territoire de Centraide du Grand Montréal »",
+    "u": "https://inrs.ca/actualites/nouvelles-publications-scientifiques/#utm_source=rss&utm_medium=rss&utm_campaign=nouvelles-publications-scientifiques-aut-hiv-26",
+    "s": "INRS",
+    "d": "2026-10-15T11:00:00.000Z",
+    "x": "L’étude a été menée par le professeur Xavier St-Denis et Rana Bouazer, étudiante à la maîtrise en études des populations et réalisée en collaboration avec Centraide du Grand Montréal."
+   },
+   {
+    "t": "Guy Wolf nommé à la Direction adjointe, Intelligence artificielle et sciences des données",
+    "u": "https://www.chumontreal.qc.ca/actualites/guy-wolf-nomme-direction-adjointe-intelligence-artificielle-sciences-donnees",
+    "s": "CRCHUM",
+    "d": "2026-10-13T16:00:00.000Z"
+   },
+   {
+    "t": "Bâtir la ville de demain : quand santé publique, urbanisme et culture se rencontrent",
+    "u": "https://espum.umontreal.ca/lespum/nouvelles/nouvelle/news/detail/News/batir-la-ville-de-demain-quand-sante-publique-urbanisme-et-culture-se-rencontrent/",
+    "s": "ESPUM",
+    "d": "2026-10-13T16:00:00.000Z"
+   },
+   {
+    "t": "Un nouveau centre québécois de recherche sur l’autisme et la déficience intellectuelle",
+    "u": "https://nouvelles.umontreal.ca/article/2026/10/16/un-nouveau-centre-quebecois-de-recherche-sur-l-autisme-et-la-deficience-intellectuelle",
+    "s": "UdeM Nouvelles",
+    "d": "2026-10-16T16:00:00.000Z"
+   },
+   {
+    "t": "Systematic review of clinical trials and cohort studies evaluating HIV post-exposure prophylaxis (PEP) regimens to inform updated Canadian guidelines",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42888371/",
+    "s": "PubMed",
+    "d": "2026-10-16T23:46:00.000Z",
+    "x": "Multiple PEP regimens have been associated with high completion, good tolerability and rare seroconversion, supporting their inclusion in clinical guidelines.",
+    "l": "en",
+    "r": "Br J Clin Pharmacol",
+    "e": "CRCHUM"
+   },
+   {
+    "t": "Temporal Step Supervision for Robust Step Counting from Wearable Accelerometers",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42884435/",
+    "s": "PubMed",
+    "d": "2026-10-16T01:09:00.000Z",
+    "x": "These results suggest that temporal step supervision improves robustness under irregular walking and can reduce dependence on large-scale external pretraining.",
+    "l": "en",
+    "r": "Sensors (Basel)",
+    "e": "CRCHUM"
+   },
+   {
+    "t": "\"Attention to the person who prepared the questionnaire\": Queer men's survey marginalia in HIV behavioural surveillance",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42868729/",
+    "s": "PubMed",
+    "d": "2026-10-13T18:37:00.000Z",
+    "x": "Practical recommendations for the design and administration of HIV behavioural surveillance surveys and research with queer people are offered.",
+    "l": "en",
+    "r": "Soc Sci Med",
+    "e": "ESPUM"
+   },
+   {
+    "t": "Understanding barriers to quality healthcare in rare diseases",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42852871/",
+    "s": "PubMed",
+    "d": "2026-10-09T08:53:00.000Z",
+    "x": "DiscussionThere is a clear and pressing need to improve the quality of care for people living with rare diseases, in alignment with major clinical recommendations.",
+    "l": "en",
+    "r": "Chronic Illn",
+    "e": "ESPUM"
+   },
+   {
+    "t": "PFAS exposure in 12-year-old children and its association with metabolic markers",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42881263/",
+    "s": "PubMed",
+    "d": "2026-10-15T23:50:00.000Z",
+    "x": "Findings indicate potential associations between PFAS exposure and metabolic biomarkers at age 12, with variations by sex and pubertal status, emphasizing the need for longitudinal investigations.",
+    "l": "en",
+    "r": "Pediatr Res",
+    "e": "INSPQ"
+   },
+   {
+    "t": "Altered sperm DNA methylation provides an epigenetic route from overweight and older men to intergenerational disease transmission",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42886706/",
+    "s": "PubMed",
+    "d": "2026-10-16T13:43:00.000Z",
+    "x": "These results suggest that sperm methylome alterations that are linked to an elevated BMI may influence key embryonic transcriptional processes, notably those associated with trophectoderm …",
+    "l": "en",
+    "r": "Proc Natl Acad Sci U S A",
+    "e": "Québec"
+   },
+   {
+    "t": "Collaborative Technology-Assisted Depression Program for Chronic Disease Patients in Santiago, Chile",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42885588/",
+    "s": "PubMed",
+    "d": "2026-10-16T06:06:00.000Z",
+    "x": "While results did not demonstrate statistical difference within the programs to treat the health problems included in the study, the findings support the use of computer-assisted …",
+    "l": "en",
+    "r": "Clin Gerontol",
+    "e": "Québec"
+   }
+  ],
+  "publications": [
+   {
+    "t": "Conditional pathways to loneliness in older adults with vision impairment: a decision-tree analysis",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42847076/",
+    "s": "PubMed",
+    "d": "2026-10-08T14:59:00.000Z",
+    "x": "By identifying conditional configurations of psychosocial and health-related factors, interpretable decision-tree models may inform more targeted screening, evaluation, and intervention strategies.",
+    "l": "en",
+    "r": "Innov Aging"
+   },
+   {
+    "t": "Assessment of potentially avoidable hospitalizations in Ningxia, China: application of a China-specific ACSCs list",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42871150/",
+    "s": "PubMed",
+    "d": "2026-10-14T08:00:00.000Z",
+    "x": "Notable differences in the rates of potentially avoidable hospitalizations and disease burden were identified in Ningxia, accompanied by significant spatial clustering and variations among …",
+    "l": "en",
+    "r": "Front Public Health"
+   },
+   {
+    "t": "What Comes Next? When and How Medicaid Home- and Community-Based Services End",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42834564/",
+    "s": "PubMed",
+    "d": "2026-10-06T01:44:00.000Z",
+    "x": "Extended duration of HCBS use was common across our sample, which may affect Medicaid's ability to fund HCBS programs.",
+    "l": "en",
+    "r": "J Am Geriatr Soc"
+   },
+   {
+    "t": "Equity-Driven and Community Empowerment-Focused Social Prescribing: Lessons From the Front Lines",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42834015/",
+    "s": "PubMed",
+    "d": "2026-10-05T22:53:00.000Z",
+    "x": "The wider development of equity- and community-focused social prescribing programs holds the potential to expand Canadian healthcare teams' capacity to address powerful social risks to health.",
+    "l": "en",
+    "r": "Healthc Pap"
+   },
+   {
+    "t": "From evidence to action: expert perspectives on stakeholder dialogues in Swiss health policy",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42827721/",
+    "s": "PubMed",
+    "d": "2026-10-03T05:42:00.000Z",
+    "x": "Stakeholder dialogues function as boundary infrastructures that integrate evidence, experience, and values.",
+    "l": "en",
+    "r": "Int J Public Health"
+   },
+   {
+    "t": "How do existing HRSN assessment tools assess social needs for older adults? A systematic review",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42846027/",
+    "s": "PubMed",
+    "d": "2026-10-08T10:19:00.000Z",
+    "x": "This enhanced understanding should increase age-friendly initiatives endorsed by Centers for Medicare and Medicaid services and other geriatrics organizations.",
+    "l": "en",
+    "r": "Front Health Serv",
+    "y": "revue"
+   },
+   {
+    "t": "Societal actors' perceptions of intersectoral collaboration and the participation of older adults in the development of age-friendly environments",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42875747/",
+    "s": "PubMed",
+    "d": "2026-10-15T00:03:00.000Z",
+    "x": "Age-friendly work requires shared responsibility across societal actors, supported by clear coordination.",
+    "l": "en",
+    "r": "BMC Geriatr"
+   },
+   {
+    "t": "Digital Exclusion and Sleep Problems in Middle-Aged and Older Adults: A Multi-Cohort Cross-National Study",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42845769/",
+    "s": "PubMed",
+    "d": "2026-10-08T08:33:00.000Z",
+    "x": "Digital inclusion warrants further investigation as a potential target for sleep-health intervention research.",
+    "l": "en",
+    "r": "Res Sq"
+   },
+   {
+    "t": "Interventions to address loneliness and social isolation in community-dwelling older adults: an umbrella review",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42868917/",
+    "s": "PubMed",
+    "d": "2026-10-13T18:46:00.000Z",
+    "x": "However, further research is needed to assess the long-term effects of these interventions, their cost-effectiveness, and their feasibility for large-scale implementation across diverse …",
+    "l": "en",
+    "r": "Arch Gerontol Geriatr"
+   },
+   {
+    "t": "Telepharmacological Consultation for Polypharmacy Management in Primary Care: A Qualitative Study of General Practitioners' Experiences With Cross-Sectoral Coordination",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42877986/",
+    "s": "PubMed",
+    "d": "2026-10-15T16:38:00.000Z",
+    "x": "How easily the service could be reached from within their existing systems determined whether it was used.",
+    "l": "en",
+    "r": "Basic Clin Pharmacol Toxicol"
+   }
+  ]
+ },
+ "sources": [
+  "Radio-Canada",
+  "La Presse",
+  "Le Devoir",
+  "Le Journal de Montréal",
+  "TVA Nouvelles",
+  "L’actualité",
+  "Métro",
+  "Pivot",
+  "L’Itinéraire",
+  "RQ-ACA",
+  "Assemblée nationale du Québec",
+  "Santé Québec",
+  "INSPQ",
+  "CBC",
+  "Global News",
+  "ONFR",
+  "Gouvernement du Canada",
+  "The Conversation Canada",
+  "Le Monde",
+  "Le Figaro",
+  "franceinfo",
+  "Libération",
+  "Le Quotidien du médecin",
+  "Infirmiers.com",
+  "Santé publique France",
+  "The Conversation France",
+  "La Conversation",
+  "Québec Science",
+  "Agence Science-Presse",
+  "Sciences et Avenir",
+  "Futura",
+  "Inserm",
+  "ScienceDaily",
+  "Medical Xpress",
+  "Nature Medicine",
+  "CRCHUM",
+  "ESPUM",
+  "UdeM Nouvelles",
+  "Fonds de recherche du Québec",
+  "INRS",
+  "PubMed"
+ ],
+ "bonnesRecentes": [
+  "https://ici.radio-canada.ca/en-bref/1-10786221/un-don-qui-sauve-vies"
+ ],
+ "etat": {
+  "rc-sante": 50,
+  "lp-sante": 10,
+  "ld-sante": 10,
+  "jdm-sante": 15,
+  "tva-sante": 40,
+  "lactualite": 50,
+  "rc-quebec": 50,
+  "rc-montreal": 50,
+  "rc-societe": 50,
+  "lp-actualites": 10,
+  "ld-manchettes": 35,
+  "ld-societe": 10,
+  "jdm-societe": 16,
+  "metro": 7,
+  "pivot": 10,
+  "itineraire": 10,
+  "rqaca": 10,
+  "assnat": 25,
+  "inspq-publications": 0,
+  "inspq-nouvelles": 0,
+  "cbc-sante": 20,
+  "global-sante": 10,
+  "onfr": 99,
+  "gc-sante": 30,
+  "tc-ca-en": 25,
+  "lemonde-sante": 20,
+  "figaro-sante": 20,
+  "franceinfo-sante": 20,
+  "liberation-sante": 50,
+  "qdm": 50,
+  "infirmiers": 57,
+  "lemonde-societe": 20,
+  "franceinfo-societe": 20,
+  "spf": 2,
+  "tc-fr": 25,
+  "ld-idees": 25,
+  "ld-lettres": 23,
+  "ld-libre": 10,
+  "ld-editoriaux": 10,
+  "lp-dialogue": 10,
+  "tc-ca": 25,
+  "rc-science": 50,
+  "lp-sciences": 10,
+  "ld-science": 7,
+  "qs": 6,
+  "asp": 10,
+  "lemonde-sciences": 20,
+  "sciencesetavenir": 38,
+  "futura": 20,
+  "inserm": 10,
+  "sciencedaily": 60,
+  "medicalxpress": 30,
+  "nature-medicine": 0,
+  "frq": 12,
+  "inrs": 10,
+  "sq-communiques": 10,
+  "sq-nouvelles": 10,
+  "crchum": 12,
+  "espum": 8,
+  "udem": 12
+ }
+}
