@@ -931,6 +931,14 @@
   "duree": 5.58,
   "qui": "usager_2"
  },
+ "c3_usager_2_002": {
+  "duree": 5.09,
+  "qui": "eric"
+ },
+ "c3_usager_2_003": {
+  "duree": 3.31,
+  "qui": "usager_2"
+ },
  "c4_apres_partie_001": {
   "duree": 5.12,
   "qui": "collegue_doc"
@@ -1182,6 +1190,94 @@
  "c4_zamboni_006": {
   "duree": 5.19,
   "qui": "chauffeur_zamboni"
+ },
+ "c5_arrivee_001": {
+  "duree": 6.47,
+  "qui": "jury_1"
+ },
+ "c5_arrivee_002": {
+  "duree": 5.07,
+  "qui": "jury_2"
+ },
+ "c5_arrivee_003": {
+  "duree": 5.7,
+  "qui": "jury_3"
+ },
+ "c5_arrivee_004": {
+  "duree": 6.28,
+  "qui": "eric"
+ },
+ "c5_conseil_direction_001": {
+  "duree": 4.1,
+  "qui": "direction_b"
+ },
+ "c5_conseil_direction_002": {
+  "duree": 4.32,
+  "qui": "direction_a"
+ },
+ "c5_conseil_direction_003": {
+  "duree": 3.68,
+  "qui": "eric"
+ },
+ "c5_deliberation_001": {
+  "duree": 4.48,
+  "qui": "jury_1"
+ },
+ "c5_deliberation_002": {
+  "duree": 3.62,
+  "qui": "collegue_doc"
+ },
+ "c5_deliberation_003": {
+  "duree": 4.44,
+  "qui": "eric"
+ },
+ "c5_deliberation_004": {
+  "duree": 4.86,
+  "qui": "direction_b"
+ },
+ "c5_deliberation_tendue_001": {
+  "duree": 3.6,
+  "qui": "jury_1"
+ },
+ "c5_deliberation_tendue_002": {
+  "duree": 3.21,
+  "qui": "eric"
+ },
+ "c5_deliberation_tendue_003": {
+  "duree": 3.44,
+  "qui": "direction_a"
+ },
+ "c5_ecran_001": {
+  "duree": 5.0,
+  "qui": "eric"
+ },
+ "c5_ecran_002": {
+  "duree": 4.08,
+  "qui": "etudiant_4"
+ },
+ "c5_ecran_003": {
+  "duree": 3.24,
+  "qui": "eric"
+ },
+ "c5_fin_accepte_001": {
+  "duree": 5.69,
+  "qui": "jury_1"
+ },
+ "c5_fin_accepte_002": {
+  "duree": 3.61,
+  "qui": "jury_3"
+ },
+ "c5_fin_accepte_003": {
+  "duree": 5.09,
+  "qui": "direction_a"
+ },
+ "c5_fin_accepte_004": {
+  "duree": 3.56,
+  "qui": "eric"
+ },
+ "c5_fin_corrections_001": {
+  "duree": 6.05,
+  "qui": "jury_1"
  },
  "rep_direction_apparition_001": {
   "duree": 3.41,

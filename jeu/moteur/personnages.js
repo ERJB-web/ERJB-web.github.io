@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import * as SkeletonUtils from 'three/addons/utils/SkeletonUtils.js';
-import { recolorer } from './equipes.js?v=c7ebb6024c';
+import { recolorer } from './equipes.js?v=581005f1ca';
 
 const ALIAS = {
   idle: ['idle', 'Idle', 'repos'],
