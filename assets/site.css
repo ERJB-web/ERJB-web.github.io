@@ -3005,3 +3005,17 @@ html.hc .implantation-portail-liens a{border-color:currentColor}
 @media(min-width:1081px){html:not(.lv):not(.hc) main>.accueil>.hall{scroll-snap-align:start;scroll-snap-stop:normal}}
 /* Chargement : la page apparaît une fois placée, sans saut visible */
 html.chargement main,html.chargement body>footer{visibility:hidden}
+/* En-tête du hall : titre d’invitation et gestes, côte à côte */
+.hall-tete{align-items:center}
+.hall-tete .hall-titre{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;min-width:0;text-transform:none;letter-spacing:0}
+.hall-tete .hall-titre-nom{margin:0;font:400 clamp(24px,2.1vw,30px)/1.15 var(--serif);letter-spacing:-.01em;color:var(--ink-deep,#173f52)}
+.hall-tete .hall-titre-nom::after{content:"";display:block;width:44px;height:3px;margin-top:7px;border-radius:2px;background:linear-gradient(90deg,#1f5a8a,#c0612b 50%,#7a4a8c)}
+.hall-tete .hall-gestes{display:flex;flex-wrap:wrap;gap:8px;margin:0;font-size:13px;font-weight:500;line-height:1.3}
+.hall-tete .hall-geste{display:inline-flex;align-items:center;gap:7px;padding:6px 12px 6px 10px;border:1px solid #d6e3e6;border-radius:999px;background:rgba(255,255,255,.75);color:var(--ink)}
+.hall-tete .hall-geste svg{flex:none;width:16px;height:16px;color:#1f5a8a}
+.hall-tete .hall-geste+.hall-geste{color:var(--ink)}
+.hall-tete .geste-tactile,.hall.en-mobile .hall-tete .geste-souris{display:none}
+.hall.en-mobile .hall-tete .geste-tactile{display:inline-flex}
+.hall.en-volume .hall-aide-deplacement,.hall .hall-aide-deplacement{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.hall.en-mobile .hall-guide-mobile{display:none!important}
+@media(max-width:640px){.hall-tete .hall-titre{gap:8px}.hall-tete .hall-titre-nom{font-size:22px}.hall-tete .hall-gestes{font-size:12px;gap:6px}.hall-tete .hall-geste{padding:5px 10px 5px 8px}}
