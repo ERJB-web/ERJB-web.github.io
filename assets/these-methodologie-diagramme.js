@@ -13,7 +13,7 @@
     const etapes = [];
     for (let i = 0; i < elements.length; i += 2) {
       const titre = elements[i].textContent.trim();
-      etapes.push({titre, rubrique:titre.replace(/,\\s*volet\\s+.*$/i, '').trim(),
+      etapes.push({titre, rubrique:titre.replace(/,\s*volet\s+.*$/i, '').trim(),
         dt:elements[i], dd:elements[i + 1]});
     }
 
@@ -24,8 +24,8 @@
       carte.className = 'these-schema-card';
       carte.id = 'schema-' + code.toLowerCase() + '-' + (index + 1);
       carte.dataset.num = String(index + 1).padStart(2, '0');
-      if (/\\bQUAN\\b/i.test(etape.titre)) carte.dataset.volet = 'quan';
-      else if (/\\bqual\\b/i.test(etape.titre)) carte.dataset.volet = 'qual';
+      if (/\bQUAN\b/i.test(etape.titre)) carte.dataset.volet = 'quan';
+      else if (/\bqual\b/i.test(etape.titre)) carte.dataset.volet = 'qual';
       if (index === 0 || index === etapes.length - 1 ||
           /^intégration$/i.test(etape.titre) ||
           /^pourquoi plusieurs CLSC contrastés$/i.test(etape.titre)) {
