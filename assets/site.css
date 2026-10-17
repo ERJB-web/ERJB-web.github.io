@@ -2956,3 +2956,16 @@ html.hc .implantation-portail-liens a{border-color:currentColor}
  .enseignement .enseignement-sequence ol{grid-template-columns:1fr}
 }
 @media(forced-colors:active){.enseignement .rubriques[data-navigation=atelier] button[aria-selected=true]{outline:2px solid Highlight}}
+
+/* En-tête sur tablette et petit portable : deux lignes (domaines, contact et outils ; puis rubriques). */
+@media(min-width:640px) and (max-width:1279px){
+  .entete{row-gap:4px;column-gap:14px;align-items:center}
+  .entete .marque{order:0;flex:1 1 260px;min-width:0;max-width:none}
+  .entete .marque-domaines{font-size:13px;line-height:1.35;text-wrap:balance}
+  .entete .coordonnees-haut{order:1;display:flex;flex:0 0 auto;flex-basis:auto;gap:6px;margin:0;justify-content:flex-end}
+  .entete .coordonnees-haut a{display:inline-grid;place-items:center;width:40px;height:40px;padding:0;border-radius:50%;font-size:0;line-height:0}
+  .entete .coordonnees-haut a svg{display:block;width:17px;height:17px;margin:0}
+  .entete .outils{order:2;flex:0 0 auto;flex-basis:auto;flex-wrap:nowrap;justify-content:flex-end;gap:6px;margin:0}
+  .entete .menu-acces summary .menu-libelle{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .entete .nav{order:3;flex:1 1 100%;margin:6px 0 0}
+}

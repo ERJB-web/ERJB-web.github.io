@@ -146,8 +146,10 @@ const ebMeteoMontreal = (() => {
     const m = maintenantMontreal();
     const statut = activite(m);
     const hall = document.querySelector("[data-hall-volume]");
-    const nom = meteo ? temps(meteo) : (m.heure >= 7 && m.heure < 18 ? "soleil" : "clair");
     const moment = hall?.dataset.moment || (meteo ? (Number(meteo.is_day) ? "jour" : "nuit") : (m.heure >= 7 && m.heure < 18 ? "jour" : "nuit"));
+    let nom = meteo ? temps(meteo) : "soleil";
+    // Ciel sans nuages : le soleil le jour, la lune la nuit, selon la position du soleil à Montréal.
+    if (nom === "soleil" || nom === "clair") nom = moment === "nuit" ? "clair" : "soleil";
     for (const l of lignes) {
       l.dataset.moment = moment;
       l.dataset.temps = nom;
@@ -293,6 +295,8 @@ const ebMeteoMontreal = (() => {
     // Une seule image dominante pour le reflet au sol et l'affichage mobile.
     const dominante = nuit > 0.55 ? "hall-ville-nuit" : crepuscule > 0.5 ? "hall-ville-crepuscule" : couvert > 0.5 ? "hall-ville-couvert-" + s : "hall-ville-jour-" + s;
     hall.style.setProperty("--hall-ville-fond", photo(dominante));
+    const piece = nuit > 0.55 ? "nuit" : crepuscule > 0.5 ? "crepuscule" : couvert > 0.5 ? "couvert" : "jour";
+    hall.style.setProperty("--hall-interieur-mobile", photo("hall-interieur-mobile-" + piece));
     const soleil = (1 - nuit) * (1 - couvert) * (1 - crepuscule * 0.6);
     const eclairage = 1 - nuit * 0.12 - crepuscule * 0.16 * (1 - nuit) - couvert * 0.06 * (1 - nuit);
     hall.style.setProperty("--hall-soleil", soleil.toFixed(3));

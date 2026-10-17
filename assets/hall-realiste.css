@@ -512,53 +512,113 @@
 }
 
 @media(max-width:999px) {
+  /* Téléphone et tablette : une porte par écran, dans la même scène que sur ordinateur.
+     Image intérieure 1400 × 1150 (repères de la photo : baie de y=120 à y=526, porte de y=224 à y=526),
+     affichée à partir de y=88 ; --m = pixels d'écran par unité de la photo. */
+  .hall.en-mobile .hall-espace { border: 0; border-radius: 16px; background: #5f5e5b; box-shadow: 0 18px 36px -24px rgba(15,30,40,.55); }
+  .hall.en-mobile .portes { container-type: inline-size; padding: 0; gap: 0; scroll-padding-inline: 0; }
   .hall.en-mobile .station-hall {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 150px 18px 24px;
-    background: #ddd3c2;
+    --m: min(calc(100cqw / 600), .84px);
+    --verre-h: calc(var(--m) * 32);
+    --verre-b: calc(var(--m) * 438);
+    --porte-h: calc(var(--m) * 302);
+    --porte-l: calc(var(--porte-h) * .57);
+    --plan-l: max(104cqw, calc((var(--verre-b) - var(--verre-h)) * 1.3 * 3800 / 1090));
+    position: relative;
+    isolation: isolate;
+    display: block;
+    flex: 0 0 100cqw;
+    min-height: 0;
+    padding: calc(var(--verre-b) + 18px) 16px 22px;
+    border: 0;
+    border-radius: 0;
+    overflow: hidden;
+    background: #605f5c var(--hall-interieur-mobile, url("photos/hall-interieur-mobile-jour.webp")) center calc(var(--m) * -88) / calc(var(--m) * 1400) calc(var(--m) * 1150) no-repeat;
   }
+  /* La ville derrière la vitre, le fleuve juste au-dessus de la porte. */
   .hall.en-mobile .station-hall::before {
-    inset: 0;
-    background:
-      linear-gradient(180deg,transparent 0 380px,#d8cdbb 380px),
-      var(--hall-ville-fond) center top / auto 380px no-repeat,
-      #ddd3c2;
-    box-shadow: none;
-  }
-  .hall.en-mobile .station-hall::after { content: none; }
-  .hall.en-mobile .station-hall .porte {
-    flex: none;
-    align-self: center;
-    width: 122px;
-    height: 230px;
-    margin: 0;
-  }
-  .hall.en-mobile .station-hall .porte .baie::after {
     content: "";
     position: absolute;
-    left: -30px;
-    right: -30px;
-    top: 100%;
-    height: 6px;
+    z-index: -1;
+    inset: var(--verre-h) 0 auto;
+    height: calc(var(--verre-b) - var(--verre-h));
+    background: var(--hall-ville-fond) center calc((var(--verre-b) - var(--verre-h)) * .21 - var(--plan-l) * 1090 / 3800 * .305) / var(--plan-l) auto no-repeat, #8fa3b5;
+    box-shadow: none;
+  }
+  /* Montants du vitrage, reflets et rail au sol, sur toute la largeur. */
+  .hall.en-mobile .station-hall::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: var(--verre-h) 0 auto;
+    height: calc(var(--verre-b) - var(--verre-h) + 9px);
     pointer-events: none;
-    background: linear-gradient(180deg,#f4f5f4,#a9aeaf 50%,#5c6264);
-    box-shadow: 0 2px 3px rgba(20,18,14,.35);
-    -webkit-mask-image: linear-gradient(90deg,transparent,#000 12% 88%,transparent);
-    mask-image: linear-gradient(90deg,transparent,#000 12% 88%,transparent);
+    background:
+      linear-gradient(90deg,#41474a 0,#9ea4a6 1px,#e9ecec 3px,#c4c9ca 5px,#8a9193 8px,#4c5255 10px,rgba(0,0,0,.2) 11px,transparent 18px) 6% 0 / 18px calc(100% - 9px) no-repeat,
+      linear-gradient(90deg,#41474a 0,#9ea4a6 1px,#e9ecec 3px,#c4c9ca 5px,#8a9193 8px,#4c5255 10px,rgba(0,0,0,.2) 11px,transparent 18px) 94% 0 / 18px calc(100% - 9px) no-repeat,
+      linear-gradient(104deg,transparent 0 16%,rgba(255,255,255,.12) 22%,rgba(255,255,255,.03) 28%,transparent 34%,transparent 60%,rgba(255,255,255,.08) 66%,transparent 74%) 0 0 / 100% calc(100% - 9px) no-repeat,
+      linear-gradient(0deg,rgba(250,252,255,calc(var(--hall-givre,0) * .6)) 0,transparent 14%) 0 0 / 100% calc(100% - 9px) no-repeat,
+      linear-gradient(180deg,#f4f5f4 0%,#c3c7c7 25%,#8e9495 60%,#5c6264 85%,#3d4244 100%) 0 100% / 100% 9px no-repeat;
+  }
+  .hall.en-mobile .station-hall .porte {
+    position: absolute;
+    z-index: 2;
+    top: calc(var(--verre-b) - var(--porte-h));
+    left: calc(50% - var(--porte-l) / 2);
+    width: var(--porte-l);
+    height: var(--porte-h);
+    margin: 0;
+    filter: brightness(var(--hall-eclairage,1));
+  }
+  .hall.en-mobile .station-hall .porte .baie { height: 100%; transform: none; }
+  .hall.en-mobile .station-hall .porte .baie::after { content: none; }
+  .hall.en-mobile .station-hall .porte .porte-texte { display: none; }
+  /* Ombre de la porte sur le sol. */
+  .hall.en-mobile .station-hall .porte::after {
+    content: "";
+    position: absolute;
+    left: -6%;
+    right: -6%;
+    top: calc(100% + 6px);
+    height: 14px;
+    pointer-events: none;
+    background: radial-gradient(ellipse at 50% 20%,rgba(20,18,14,.45),transparent 70%);
+    filter: blur(2px);
   }
   .hall.en-mobile .station-hall .panneau-hall {
+    position: relative;
+    z-index: 2;
     display: block;
     width: 100%;
-    max-width: 420px;
-    flex: none;
+    max-width: 460px;
+    margin-inline: auto;
     text-align: start;
   }
   .hall.en-mobile .station-hall .panneau-hall h3 { font-size: 16px; }
-  .hall.en-mobile .station-hall .sous-portes-murales > :is(button,a) { min-height: 44px; font-size: 14px; }
+  .hall.en-mobile .station-hall .sous-portes-murales { padding-top: 0; border-top: 0; }
+  .hall.en-mobile .station-hall .sous-portes-murales > :is(button,a) { min-height: 44px; font-size: 14px; background: transparent; border-width: 0 0 1px; border-radius: 0; }
   .hall.en-mobile .station-hall .sous-portes-murales > :last-child:nth-child(odd) { grid-column: 1/-1; }
+  .hall.en-mobile .hall-commandes { background: linear-gradient(180deg,rgba(40,40,38,.0),rgba(40,40,38,.35)); }
+  .hall.en-mobile .hall-position-mobile { color: #f2f2ee; }
+}
+/* Tablette : la porte à gauche, le panneau épinglé sur la vitre à sa droite, comme sur ordinateur. */
+@media(min-width:640px) and (max-width:999px) {
+  .hall.en-mobile .station-hall {
+    --m: min(calc(100cqw / 900), .86px);
+    min-height: calc(var(--verre-b) + 120px);
+    padding: 0;
+  }
+  .hall.en-mobile .station-hall .porte { left: 9%; }
+  .hall.en-mobile .station-hall .panneau-hall {
+    position: absolute;
+    top: calc(var(--verre-h) + (var(--verre-b) - var(--verre-h)) * .5);
+    left: calc(9% + var(--porte-l) + 34px);
+    right: 6%;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    transform: translateY(-50%);
+  }
 }
 @media(min-width:1000px) and (max-height:850px) {
   .hall[data-hall-volume].en-volume .station-hall .panneau-hall { padding: 13px 17px 11px; }
@@ -689,7 +749,9 @@
 }
 @media(max-width:640px) {
   .hall-tete { flex-wrap: wrap; row-gap: 12px; }
-  .hall-tete .direct-hall { order: 3; margin-inline: 0; }
+  .hall-tete .direct-hall { order: 3; margin-inline: 0; flex-wrap: wrap; row-gap: 10px; max-width: 100%; }
+  .hall-tete .direct-hall .direct-filet:nth-last-child(2) { display: none; }
+  .hall-tete .direct-hall .direct-activite { flex-basis: 100%; white-space: normal; }
 }
 [dir=rtl] .entete .direct-entete { right: auto; left: var(--gouttiere, 48px); }
 @media(forced-colors:active) {
