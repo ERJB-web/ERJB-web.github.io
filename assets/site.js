@@ -255,7 +255,7 @@
     passage.className = "passage";
     const teinte = getComputedStyle(porte);
     const g1 = teinte.getPropertyValue("--c1").trim();
-    passage.style.background = `radial-gradient(120% 70% at 50% 75%, color-mix(in srgb, ${g1} 12%, rgba(255,255,255,.78)) 0%, color-mix(in srgb, ${g1} 32%, rgba(255,255,255,.55)) 100%)`;
+    passage.style.background = `radial-gradient(125% 85% at 50% 50%, color-mix(in srgb, ${g1 || '#456879'} 65%, #fff) 0%, color-mix(in srgb, ${g1 || '#456879'} 78%, #182a32) 100%)`;
     Object.assign(passage.style, { left: r.left + "px", top: r.top + "px", width: r.width + "px", height: r.height + "px" });
     document.body.append(passage);
     if (!reduit && passage.animate) {
@@ -477,7 +477,7 @@
     const passage = document.createElement("div");
     passage.className = "passage";
     const c1 = bouton.style.getPropertyValue("--c1").trim();
-    passage.style.background = `radial-gradient(120% 70% at 50% 75%, color-mix(in srgb, ${c1} 12%, rgba(255,255,255,.78)) 0%, color-mix(in srgb, ${c1} 32%, rgba(255,255,255,.55)) 100%)`;
+    passage.style.background = `radial-gradient(125% 85% at 50% 50%, color-mix(in srgb, ${c1 || '#456879'} 65%, #fff) 0%, color-mix(in srgb, ${c1 || '#456879'} 78%, #182a32) 100%)`;
     Object.assign(passage.style, { left: r.left + "px", top: r.top + "px", width: r.width + "px", height: r.height + "px" });
     document.body.append(passage);
     if (!reduit && passage.animate) {
@@ -576,29 +576,6 @@
   });
 
 
-  // Éclairage en fonction de l'heure locale du navigateur, sans géolocalisation.
-  function actualiserLumiereHall() {
-    const hall = document.querySelector('[data-hall-volume]');
-    if (!hall) return;
-    const maintenant = new Date();
-    const zone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-    const sud = /^(Australia\/|Pacific\/(Auckland|Chatham|Fiji|Tahiti)|America\/(Argentina\/|Santiago|Sao_Paulo|Montevideo|Asuncion)|Africa\/(Johannesburg|Windhoek|Maputo|Harare)|Indian\/(Mauritius|Reunion|Antananarivo))/.test(zone);
-    const moisSaison = (maintenant.getMonth() + (sud ? 6 : 0)) % 12;
-    hall.dataset.saison = moisSaison < 2 || moisSaison === 11 ? 'hiver' : moisSaison < 5 ? 'printemps' : moisSaison < 8 ? 'ete' : 'automne';
-    const annee = maintenant.getFullYear();
-    const jour = Math.floor((Date.UTC(annee,maintenant.getMonth(),maintenant.getDate())-Date.UTC(annee,0,1))/86400000)+1;
-    // Horaires saisonniers indicatifs, sans prétendre calculer l'aube astronomique.
-    const saison = Math.cos(2*Math.PI*(jour-172)/365.2425) * (sud ? -1 : 1);
-    const lever = 420 - 75*saison, coucher = 1140 + 90*saison;
-    const minutes = maintenant.getHours()*60 + maintenant.getMinutes();
-    const moment = minutes < lever-45 || minutes >= coucher+50 ? 'nuit' :
-      minutes < lever+50 ? 'aube' :
-      minutes >= coucher-55 ? 'crepuscule' : 'jour';
-    if (hall.dataset.moment !== moment) hall.dataset.moment = moment;
-  }
-  actualiserLumiereHall();
-  setInterval(actualiserLumiereHall, 60000);
-  document.addEventListener('visibilitychange',()=>{if(!document.hidden)actualiserLumiereHall();});
 
   let hallVolume = null;
   function initialiserHallVolume() {

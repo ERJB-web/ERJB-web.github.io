@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-16",
+  "source": "Photographie du hall fournie par Éric Bernier (2000 × 670).",
+  "derives": "Versions couvert, crépuscule et nuit, et feuillage d'automne et d'hiver, obtenues par traitement de cette image (lumière, ciel et feuillage), sans génération d'image.",
+  "fichiers": [
+    "hall-montreal-jour-ete.webp", "hall-montreal-jour-automne.webp", "hall-montreal-jour-hiver.webp",
+    "hall-montreal-couvert-ete.webp", "hall-montreal-couvert-automne.webp", "hall-montreal-couvert-hiver.webp",
+    "hall-montreal-crepuscule-ete.webp", "hall-montreal-crepuscule-automne.webp", "hall-montreal-crepuscule-hiver.webp",
+    "hall-montreal-nuit.webp", "hall-montreal-vitrages.png"
+  ],
+  "geometrie": { "taille": [2000, 670], "hautDuMur": 202, "basDuMur": 526, "piliers": [253, 1746] }
+}

@@ -2,17 +2,23 @@
 // Panorama borné : regarder et faire glisser ne déclenchent jamais une entrée.
 window.creerMarcheHall=({hall,scene,monde,stations,surSelection})=>{
  const calme=matchMedia('(prefers-reduced-motion:reduce)');
- const pas=454,largeur=430,marge=28;
+ const pas=470,largeur=446,ecart=14;
  const borner=(v,a,b)=>Math.max(a,Math.min(b,v));
- let actif=false,selection=0,position=0,cible=0,maximum=0,largeurVue=0;
+ let actif=false,selection=0,position=0,cible=0,maximum=0,largeurVue=0,hauteurVue=0;
+ let murG=0,murD=0,margeG=ecart,margeD=ecart;
  let image=0,temps=0,vitesseBord=0,geste=null,ignorer=0,restauration=null,manuel=false;
  const touches=new Set();
  const bloque=()=>document.body.classList.contains('salle-ouverte')||hall.classList.contains('en-marche');
  function dimensions(){
-  const w=scene.clientWidth;
+  const w=scene.clientWidth,h=scene.clientHeight;
   if(!w)return;
-  if(w!==largeurVue){
-   largeurVue=w;maximum=Math.max(0,marge*2+pas*(stations.length-1)+largeur-w);
+  if(w!==largeurVue||h!==hauteurVue){
+   largeurVue=w;hauteurVue=h;
+   // Le mur de la photographie (2000 × 670) va du pilier x=253 au pilier x=1746.
+   const px=Math.max(w/2000,h/670),ix=(w-2000*px)/2;
+   murG=Math.max(0,ix+253*px);murD=Math.min(w,ix+1746*px);
+   margeG=murG+ecart;margeD=w-murD+ecart;
+   maximum=Math.max(0,margeG+pas*(stations.length-1)+largeur+margeD-w);
    if(restauration!==null){position=cible=maximum*restauration;restauration=null;}
    position=borner(position,0,maximum);cible=borner(cible,0,maximum);
   }
@@ -20,18 +26,18 @@ window.creerMarcheHall=({hall,scene,monde,stations,surSelection})=>{
  function dessiner(){
   if(!actif)return;dimensions();
   stations.forEach((s,i)=>{
-   const x=marge+i*pas-position,d=(x+largeur/2-largeurVue/2)/largeurVue;
+   const x=margeG+i*pas-position,d=(x+largeur/2-largeurVue/2)/largeurVue;
    // Faible perspective frontale : aucune rotation ne permet de passer derrière un mur.
    s.style.setProperty('--panorama-x',x.toFixed(2)+'px');
    s.style.setProperty('--panorama-angle',borner(-d*5,-7,7).toFixed(2)+'deg');
    s.style.setProperty('--panorama-z',(-Math.min(45,Math.abs(d)*24)).toFixed(2)+'px');
-   s.inert=x+largeur<0||x>largeurVue;
+   s.inert=x+largeur<murG||x>murD;
   });
   scene.style.setProperty('--hall-lumiere',(50-(maximum?position/maximum-.5:0)*5).toFixed(2)+'%');
  }
  function selectionManuelle(){
   if(!manuel)return;
-  const i=borner(Math.round((position+largeurVue/2-marge-largeur/2)/pas),0,stations.length-1);
+  const i=borner(Math.round((position+(murG+murD)/2-margeG-largeur/2)/pas),0,stations.length-1);
   if(i!==selection){selection=i;surSelection(i);}
   manuel=false;document.dispatchEvent(new Event('eb:hallposition'));
  }
@@ -55,7 +61,7 @@ window.creerMarcheHall=({hall,scene,monde,stations,surSelection})=>{
  }
  function choisir(i){
   selection=borner(i,0,stations.length-1);manuel=false;vitesseBord=0;
-  dimensions();cible=borner(marge+selection*pas+largeur/2-largeurVue/2,0,maximum);
+  dimensions();cible=borner(margeG+selection*pas+largeur/2-(murG+murD)/2,0,maximum);
   surSelection(selection);if(calme.matches)position=cible;demander();
  }
  scene.setAttribute('aria-describedby','hall-aide-deplacement');
@@ -79,12 +85,11 @@ window.creerMarcheHall=({hall,scene,monde,stations,surSelection})=>{
    }
    return;
   }
-  // Les zones interactives restent immobiles sous la souris. Les bords permettent de tourner.
-  if(e.pointerType!=='mouse'||calme.matches||e.target.closest('button,a,.panneau-hall')){
-   vitesseBord=0;return;
-  }
+  // La souris fait défiler le mur dès le quart extérieur ; sur un panneau, seulement tout au bord.
+  if(e.pointerType!=='mouse'||calme.matches){vitesseBord=0;return;}
   const r=scene.getBoundingClientRect(),x=((e.clientX-r.left)/r.width-.5)*2;
-  vitesseBord=Math.abs(x)>.78?Math.sign(x)*Math.pow((Math.abs(x)-.78)/.22,1.4)*280:0;
+  const seuil=e.target.closest('button,a,.panneau-hall')?.8:.5;
+  vitesseBord=Math.abs(x)>seuil?Math.sign(x)*Math.pow((Math.abs(x)-seuil)/(1-seuil),1.5)*640:0;
   demander();
  });
  function finir(e){
@@ -120,7 +125,7 @@ window.creerMarcheHall=({hall,scene,monde,stations,surSelection})=>{
  addEventListener('keyup',e=>{touches.delete(e.key);});
  stations.forEach((s,i)=>s.addEventListener('focusin',e=>{
   if(!actif||bloque()||!e.target.matches(':focus-visible'))return;
-  const x=marge+i*pas-position;if(x<0||x+largeur>largeurVue)choisir(i);
+  const x=margeG+i*pas-position;if(x<murG||x+largeur>murD)choisir(i);
  }));
  addEventListener('blur',arreter);
  document.addEventListener('visibilitychange',()=>{if(document.hidden)arreter();});

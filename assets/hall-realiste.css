@@ -1,226 +1,419 @@
-/* Atrium : coordonnées de la photographie 2167 × 726.
-   Mur y=210, sol y=570. Les mêmes repères pilotent toute la scène.
-   Les visuels sont des scènes fictives générées, sans valeur documentaire. */
-.hall {
-  --hall-exterieur: url("photos/hall-atrium-cinema.webp");
+/* Hall de Montréal : photographie 2000 × 670.
+   Mur de pierre de y=202 à y=526, entre les piliers x=253 et x=1746.
+   Les mêmes repères placent les portes, les panneaux et les rails. */
+.hall[data-hall-volume] {
+  --hall-jour: url("photos/hall-montreal-jour-ete.webp");
+  --hall-fond: var(--hall-jour);
+  --hall-soleil: .7;
+  --hall-eclairage: 1;
+  --hall-chaleur: 0;
 }
-.hall:is(.en-volume,.en-mobile) .station-hall .porte .baie {
-  border: 1px solid #9d9e94;
+
+/* Porte : battant photographique, huisserie inox affleurante. */
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .baie {
+  border: 0;
   border-radius: 0;
-  background: linear-gradient(90deg,#b6b4a8,#f1eee3 4%,#d7d4c9 95%,#85867d);
-  box-shadow: 1px 0 0 #ffffffb3, 3px 2px 5px #29282038;
+  background: linear-gradient(90deg,#8e918f,#e9eae7 3%,#c9cbc8 50%,#f2f2ef 97%,#7f8381);
+  box-shadow:
+    0 0 0 1px rgba(70,66,58,.55),
+    calc(2px + var(--hall-soleil) * 7px) calc(2px + var(--hall-soleil) * 4px) calc(9px + (1 - var(--hall-soleil)) * 10px) rgba(52,40,26,calc(.18 + var(--hall-soleil) * .14));
 }
-.hall:is(.en-volume,.en-mobile) .station-hall .porte .ouverture {
-  inset: 1.2% 2.6% .6%;
-  background: linear-gradient(90deg,#101511,#3a3d32 15%,#262b25 92%,#101511);
-  box-shadow: inset 2px 1px 3px #0008;
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .ouverture {
+  inset: 1.1% 2.2% 0;
+  background: linear-gradient(105deg,#151b1d,color-mix(in srgb,var(--c1) 17%,#162124),#10191c);
+  box-shadow: inset 3px 2px 5px #000a;
+  perspective: 900px;
+  perspective-origin: 0 50%;
+  transition: background .5s ease, box-shadow .5s ease;
 }
-.hall:is(.en-volume,.en-mobile) .station-hall .porte .battant {
+/* La teinte de la porte apparaît derrière le vantail pendant son ouverture. */
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte.ouverte .ouverture {
+  background: radial-gradient(ellipse at 54% 49%,color-mix(in srgb,var(--c1) 68%,#e6f0f2) 0%,color-mix(in srgb,var(--c1) 83%,#26313a) 65%,#182229 100%);
+  box-shadow: inset 0 0 16px color-mix(in srgb,var(--c1) 42%,transparent);
+}
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .battant {
   border: 0;
   border-radius: 0;
   background: url("photos/porte-laboratoire-cinema.webp") center / 100% 100% no-repeat;
-  box-shadow: 1px 1px 2px #181b1570;
+  box-shadow: inset 1px 0 0 rgba(255,255,255,.55), inset -1px 0 0 rgba(60,54,44,.35);
+  transform-origin: 0 50%;
+  transition: transform .6s cubic-bezier(.3,.7,.2,1), filter .6s;
 }
-/* Le vitrage, la quincaillerie et le panneau bas appartiennent au même cliché.
-   Supprimer les anciennes moulures CSS évite les doubles cadres. */
-.hall:is(.en-volume,.en-mobile) .station-hall .porte .battant::before,
-.hall:is(.en-volume,.en-mobile) .station-hall .porte .battant::after,
-.hall:is(.en-volume,.en-mobile) .station-hall .porte .vignette,
-.hall:is(.en-volume,.en-mobile) .station-hall .porte .poignee {
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .battant::before,
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .battant::after,
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .poignee {
   display: none;
 }
-.hall:is(.en-volume,.en-mobile) .station-hall .porte .apercu {
+/* Illustration de chaque porte, posée dans la vitre du battant photographié. */
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .vignette {
+  display: block;
+  position: absolute;
+  top: 5.2%;
+  inset-inline-start: 15.8%;
+  inset-inline-end: 19%;
+  height: 57.6%;
+  border: 0;
+  border-radius: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: inset 1px 1px 3px rgba(24,35,29,.44), inset -1px -1px 2px rgba(24,35,29,.25), 0 0 0 1px rgba(150,152,148,.55);
+}
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .vignette::before { content: none; }
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .vignette::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(116deg,rgba(255,255,255,.16),transparent 24% 72%,rgba(255,255,255,.05));
+  box-shadow: none;
+}
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .apercu {
   color: #f2eee2;
   text-shadow: 0 1px 2px #000;
 }
-/* Plaques d'orientation en aluminium et verre sérigraphié, fixations inox. */
-.hall:is(.en-volume,.en-mobile) .station-hall .panneau-hall {
+@media(hover:hover) and (pointer:fine) {
+  .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte:not(.ouverte):hover .battant {
+    transform: rotateY(-14deg);
+    box-shadow: inset 1px 0 0 rgba(255,255,255,.55), 6px 0 10px -4px rgba(0,0,0,.45);
+  }
+}
+
+/* Panneaux épinglés au mur : plaque blanche mate sur quatre entretoises inox. */
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .panneau-hall {
   box-sizing: border-box;
-  padding: 13px 14px 12px;
-  border: 1px solid #a5aaa5;
-  border-top: 1px solid #c4c9c3;
-  border-radius: 1px;
+  padding: 15px 17px 13px;
+  border: 0;
+  border-radius: 2px;
   background:
-    radial-gradient(circle at 5px 5px,#e7e9e4 0 1px,#777e78 1.2px 2px,transparent 2.4px),
-    radial-gradient(circle at calc(100% - 5px) 5px,#e7e9e4 0 1px,#777e78 1.2px 2px,transparent 2.4px),
-    radial-gradient(circle at 5px calc(100% - 5px),#e7e9e4 0 1px,#777e78 1.2px 2px,transparent 2.4px),
-    radial-gradient(circle at calc(100% - 5px) calc(100% - 5px),#e7e9e4 0 1px,#777e78 1.2px 2px,transparent 2.4px),
-    linear-gradient(118deg,#fffffaf5,#f0f1ebfa 62%,#e1e4dcf7);
-  box-shadow: 1px 1px 0 #ffffffe0, 3px 5px 7px #292b2430, 0 12px 15px -13px #151e16a0;
+    radial-gradient(circle at 9px 9px,#fcfcfa 0 1.1px,#c3c6c4 1.6px 2.9px,#80857f 3.3px 3.9px,rgba(40,36,30,.22) 4.3px 5.2px,transparent 5.6px),
+    radial-gradient(circle at calc(100% - 9px) 9px,#fcfcfa 0 1.1px,#c3c6c4 1.6px 2.9px,#80857f 3.3px 3.9px,rgba(40,36,30,.22) 4.3px 5.2px,transparent 5.6px),
+    radial-gradient(circle at 9px calc(100% - 9px),#fcfcfa 0 1.1px,#c3c6c4 1.6px 2.9px,#80857f 3.3px 3.9px,rgba(40,36,30,.22) 4.3px 5.2px,transparent 5.6px),
+    radial-gradient(circle at calc(100% - 9px) calc(100% - 9px),#fcfcfa 0 1.1px,#c3c6c4 1.6px 2.9px,#80857f 3.3px 3.9px,rgba(40,36,30,.22) 4.3px 5.2px,transparent 5.6px),
+    linear-gradient(162deg,#fffffe 0%,#faf9f5 55%,#f1efe9 100%);
+  box-shadow:
+    0 0 0 .5px rgba(98,86,68,.42),
+    inset 0 1px 0 #fff,
+    inset 0 -1px 0 rgba(130,118,98,.16),
+    calc(3px + var(--hall-soleil) * 6px) calc(4px + var(--hall-soleil) * 3px) calc(9px + (1 - var(--hall-soleil)) * 9px) rgba(58,44,28,calc(.15 + var(--hall-soleil) * .1));
   backdrop-filter: none;
+  overflow: visible;
 }
-.hall:is(.en-volume,.en-mobile) .station-hall .panneau-hall h3 {
-  margin: 0 0 9px;
-  padding: 0 0 9px;
-  border-bottom: 1px solid #b6bdb5;
-  font: 600 12.5px/1.3 var(--sans);
-  color: #243d3e;
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .panneau-hall h3 {
+  margin: 0 0 8px;
+  padding: 0 0 8px;
+  border-bottom: 1px solid #d9d4c8;
+  font: 600 13px/1.28 var(--sans);
+  color: #23302f;
 }
-.hall:is(.en-volume,.en-mobile) .station-hall .panneau-hall h3 button {
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .panneau-hall h3 button {
+  display: flex;
   align-items: center;
   gap: 10px;
-  min-height: 32px;
+  min-height: 30px;
   text-align: start;
 }
-.hall:is(.en-volume,.en-mobile) .station-hall .panneau-hall h3 bdi {
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .panneau-hall h3 bdi {
+  display: grid;
+  place-items: center;
   width: 30px;
-  height: 32px;
+  height: 30px;
+  flex: none;
   border-radius: 0;
   border-inline-end: 2px solid var(--c1);
   background: transparent;
   color: var(--c1);
-  font: 500 19px/1 ui-monospace,monospace;
+  font: 500 19px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;
 }
-.hall:is(.en-volume,.en-mobile) .station-hall .sous-portes-murales {
-  gap: 0 11px;
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .sous-portes-murales {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 0 12px;
 }
-.hall:is(.en-volume,.en-mobile) .station-hall .sous-portes-murales > :is(button,a) {
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .sous-portes-murales > :is(button,a) {
   position: relative;
+  display: flex;
+  align-items: center;
   gap: 6px;
   min-width: 0;
-  min-height: 35px;
-  padding: 5px 1px;
+  min-height: 30px;
+  padding: 4px 1px;
   border: 0;
-  border-bottom: 1px solid #c3c9c080;
+  border-bottom: 1px solid #e3ded3;
   border-radius: 0;
-  color: #2a4141;
+  color: #2b3a39;
   background: transparent;
   box-shadow: none;
-  font: 500 11px/1.32 var(--sans);
+  font: 500 11px/1.25 var(--sans);
+  text-align: start;
   overflow-wrap: normal;
   word-break: normal;
   hyphens: none;
 }
-.hall:is(.en-volume,.en-mobile) .station-hall .sous-portes-murales > :is(button,a)::before {
-  width: 3px;
-  height: 3px;
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .sous-portes-murales > :is(button,a)::before {
+  content: "";
+  flex: none;
+  width: 4px;
+  height: 4px;
   border-radius: 50%;
   background: var(--c1);
 }
-.hall:is(.en-volume,.en-mobile) .station-hall .sous-portes-murales > :is(button,a):hover {
-  color: #123535;
-  background: #ffffff9c;
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .sous-portes-murales > :is(button,a):hover {
+  color: #102827;
+  background: linear-gradient(90deg,color-mix(in srgb,var(--c1) 9%,transparent),transparent);
   border-bottom-color: var(--c1);
-  box-shadow: none;
 }
-.hall:is(.en-volume,.en-mobile) .station-hall .sous-portes-murales > :is(button,a):focus-visible,
-.hall:is(.en-volume,.en-mobile) .station-hall .panneau-hall h3 button:focus-visible {
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .sous-portes-murales > :is(button,a):focus-visible,
+.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .panneau-hall h3 button:focus-visible {
   outline: 2px solid var(--c1);
   outline-offset: 2px;
 }
+
+/* Calques de lumière et de météo, alignés sur la photographie. */
+.hall-calque,
+.hall-brume,
+.hall-precipitation,
+.hall-eclair {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.hall-calque {
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 2.4s ease;
+}
+.hall-brume,
+.hall-precipitation,
+.hall-eclair {
+  -webkit-mask-image: url("photos/hall-montreal-vitrages.png");
+  mask-image: url("photos/hall-montreal-vitrages.png");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+.hall-brume {
+  opacity: 0;
+  background: color-mix(in srgb,#cdd2d9,#3f3e4b calc(var(--hall-brume-nuit,0) * 100%));
+  transition: opacity 2.4s ease;
+}
+.hall-eclair {
+  opacity: 0;
+  background: #eef1ff;
+}
+@media(prefers-reduced-motion:reduce) {
+  .hall-calque,
+  .hall-brume { transition: none; }
+}
+
 @media(min-width:1000px) {
   .hall.en-volume {
-    --eb-hall-hauteur: clamp(440px,56svh,510px);
-    --hall-ligne-mur: calc(var(--eb-hall-hauteur) * 210 / 726);
-    --hall-ligne-sol: calc(var(--eb-hall-hauteur) * 570 / 726);
-    --hall-hauteur-porte: calc(var(--hall-ligne-sol) - var(--hall-ligne-mur));
+    --eb-hall-hauteur: clamp(460px,58svh,540px);
+  }
+  .hall.en-volume .hall-espace {
+    height: var(--eb-hall-hauteur);
+    container-type: size;
+    background: #cfc5b4;
+  }
+  .hall.en-volume .hall-espace::before,
+  .hall.en-volume .hall-espace::after { content: none; }
+  .hall.en-volume .hall-univers {
+    --px: max(calc(100cqw / 2000), calc(100cqh / 670));
+    --iw: calc(var(--px) * 2000);
+    --ih: calc(var(--px) * 670);
+    --ix: calc((100cqw - var(--iw)) / 2);
+    --mur-haut: calc(var(--px) * 202);
+    --mur-bas: calc(var(--px) * 526);
+    --mur-g: calc(var(--ix) + var(--px) * 253);
+    --mur-d: calc(var(--ix) + var(--px) * 1746);
+    --hauteur-mur: calc(var(--mur-bas) - var(--mur-haut));
+    --hall-porte-l: calc(var(--hauteur-mur) * 845 / 1862);
   }
   .hall.en-volume .architecture-hall {
+    inset: 0;
     transform: none;
-    background-image: url("photos/hall-atrium-cinema.webp");
-    background-position: center top;
-    /* Cadrage sur la travée centrale : les portes restent devant la pierre,
-       avec toute la bande vitrée au-dessus, sans fenêtres latérales derrière. */
-    background-size: 138% 100%;
+    isolation: isolate;
+    background: var(--hall-jour) var(--ix) 0 / var(--iw) var(--ih) no-repeat;
+    background-color: #d6ccbb;
   }
-  .hall.en-volume[data-moment="nuit"] .architecture-hall::before {
-    background-position: center top;
-    background-size: 138% 100%;
-    -webkit-mask-position: center top;
-    mask-position: center top;
-    -webkit-mask-size: 138% 100%;
-    mask-size: 138% 100%;
+  .hall.en-volume .architecture-hall::before,
+  .hall.en-volume .architecture-hall::after,
+  .hall.en-volume[data-moment] .architecture-hall::before { content: none; display: none; }
+  .hall.en-volume :is(.paroi-hall,.plafond-hall,.verriere-hall,.dallage-hall) { display: none; }
+  .hall.en-volume .hall-calque {
+    background-position: var(--ix) 0;
+    background-size: var(--iw) var(--ih);
   }
-  .hall.en-volume .station-hall {
-    top: var(--hall-ligne-mur);
-    bottom: auto;
-    height: var(--hall-hauteur-porte);
-    /* Un plan mural unique garde tous les linteaux sur la même horizontale. */
-    transform: translateX(var(--panorama-x,28px));
+  .hall.en-volume :is(.hall-brume,.hall-precipitation,.hall-eclair) {
+    -webkit-mask-position: var(--ix) 0;
+    mask-position: var(--ix) 0;
+    -webkit-mask-size: var(--iw) var(--ih);
+    mask-size: var(--iw) var(--ih);
   }
-  .hall.en-volume .station-hall .porte {
-    top: 0;
-    bottom: 0;
-    left: 14px;
-    width: calc(var(--hall-hauteur-porte) * .49);
-    height: 100%;
-    --largeur-porte: calc(var(--hall-hauteur-porte) * .49);
-    transform: none;
+
+  /* Les portes et les panneaux glissent le long du mur, entre les deux piliers. */
+  .hall.en-volume .portes {
+    clip-path: inset(0 calc(100cqw - var(--mur-d)) 0 var(--mur-g));
   }
-  .hall.en-volume .station-hall .porte:hover,
-  .hall.en-volume .station-hall .porte:focus-visible { transform: none; }
-  .hall.en-volume .station-hall .panneau-hall {
-    top: 16px;
-    left: calc(var(--hall-hauteur-porte) * .49 + 36px);
-    width: calc(430px - var(--hall-hauteur-porte) * .49 - 48px);
-    max-height: calc(100% - 24px);
-    overflow: auto;
-    overscroll-behavior: contain;
-    transform: none;
-  }
-  .hall.en-volume .station-hall::before {
-    left: 12px;
-    bottom: -8px;
-    width: calc(var(--hall-hauteur-porte) * .49 + 6px);
-    height: 13px;
-    background: radial-gradient(ellipse at 50% 30%,#25282050,transparent 72%);
-    filter: blur(2px);
-  }
-  /* Rail continu affleurant : une gorge fine dans la pierre, à la ligne du sol.
-     Le dessin de 8px comprend les marges ; le métal visible ne dépasse pas 3px. */
+  /* Rail haut : profilé inox fin posé sur l'arête du mur. */
   .hall.en-volume .portes::before {
     content: "";
     position: absolute;
     left: 0;
     right: 0;
-    top: calc(var(--hall-ligne-sol) - 2px);
+    top: calc(var(--mur-haut) - 1px);
     bottom: auto;
-    height: 8px;
+    height: 4px;
     z-index: 1;
     pointer-events: none;
-    background: url("hall-rail-encastre.svg") left top / 640px 8px repeat-x;
-    opacity: .82;
-    -webkit-mask-image: linear-gradient(90deg,transparent,#000 1.5% 98.5%,transparent);
-    mask-image: linear-gradient(90deg,transparent,#000 1.5% 98.5%,transparent);
+    background: linear-gradient(180deg,#f7f7f4 0%,#c6c8c5 40%,#8f928f 62%,#d9dad7 100%);
+    box-shadow: 0 1px 2px rgba(48,38,24,.32);
+    opacity: .9;
+    filter: brightness(var(--hall-eclairage));
+    -webkit-mask-image: none;
+    mask-image: none;
   }
-  .hall.en-volume .station-hall .porte::before { content: none; }
-  .hall.en-volume .porte::after { top: 100%; height: 9px; }
-  .hall.en-volume .dallage-hall { height: calc(var(--eb-hall-hauteur) - var(--hall-ligne-sol)); }
+  /* Guide au sol : simple gorge dans la pierre. */
+  .hall.en-volume .portes::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(var(--mur-bas) - 1px);
+    height: 2px;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(180deg,rgba(74,64,50,.55),rgba(160,150,134,.45));
+  }
+  .hall.en-volume .station-hall {
+    top: var(--mur-haut);
+    bottom: auto;
+    width: 446px;
+    height: var(--hauteur-mur);
+    transform: translateX(var(--panorama-x,40px));
+    filter: brightness(var(--hall-eclairage)) sepia(var(--hall-chaleur));
+  }
+  .hall.en-volume .station-hall::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: calc(100% - 3px);
+    bottom: auto;
+    width: calc(var(--hall-porte-l) + 10px);
+    height: 10px;
+    pointer-events: none;
+    background: radial-gradient(ellipse 50% 50% at 50% 30%,rgba(38,30,20,.34),transparent 78%);
+    filter: blur(1.5px);
+    z-index: 0;
+  }
+  .hall.en-volume .station-hall::after { content: none; }
+  .hall.en-volume .station-hall .porte {
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    width: var(--hall-porte-l);
+    height: 100%;
+    transform: none;
+  }
+  .hall.en-volume .station-hall .porte:hover,
+  .hall.en-volume .station-hall .porte:focus-visible { transform: none; }
+  /* Deux suspentes discrètes relient la porte au rail. */
+  .hall.en-volume .station-hall .porte::before {
+    content: "";
+    position: absolute;
+    left: 14%;
+    right: 14%;
+    top: -2px;
+    width: auto;
+    height: 6px;
+    z-index: 3;
+    pointer-events: none;
+    background:
+      linear-gradient(90deg,#9ea19e,#e6e7e4 50%,#8c8f8c) left top / 6px 100% no-repeat,
+      linear-gradient(90deg,#9ea19e,#e6e7e4 50%,#8c8f8c) right top / 6px 100% no-repeat;
+    box-shadow: none;
+    opacity: .9;
+  }
+  .hall.en-volume .station-hall .porte::after { content: none; }
+  .hall.en-volume .station-hall .porte:not(.ouverte):focus-visible .battant { transform: rotateY(-26deg); }
+  .hall.en-volume .station-hall .porte.ouverte .battant { transform: rotateY(-84deg); }
+  .hall.en-volume .station-hall .panneau-hall {
+    top: 8%;
+    bottom: auto;
+    left: calc(var(--hall-porte-l) + 34px);
+    width: calc(446px - var(--hall-porte-l) - 44px);
+    height: auto;
+    min-height: 80%;
+    max-height: none;
+    transform: none;
+  }
+  .hall.en-volume .station-hall .panneau-hall > p {
+    margin: 0 0 6px;
+    font-size: 10.5px;
+    line-height: 1.35;
+    text-align: start !important;
+    text-wrap: pretty;
+    hyphens: manual !important;
+  }
+  /* La lumière de la scène, fixe sur le mur, passe sur les objets qui glissent. */
+  .hall.en-volume .station-hall .porte .baie::before,
+  .hall.en-volume .station-hall .panneau-hall::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    pointer-events: none;
+    background-image: var(--hall-lumiere-calque,none);
+    background-size: var(--iw) var(--ih);
+    background-repeat: no-repeat;
+    mix-blend-mode: overlay;
+    opacity: var(--hall-lumiere-force,0);
+  }
+  .hall.en-volume .station-hall .porte .baie::before {
+    background-position: calc(var(--ix) - var(--panorama-x,40px) - 10px) calc(0px - var(--mur-haut));
+  }
+  .hall.en-volume .station-hall .panneau-hall::after {
+    border-radius: inherit;
+    background-position: calc(var(--ix) - var(--panorama-x,40px) - var(--hall-porte-l) - 34px) calc(0px - var(--mur-haut) - var(--hauteur-mur) * .08);
+  }
 }
+
 @media(max-width:999px) {
   .hall.en-mobile .station-hall {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    padding: calc(500px * 210 / 726) 18px 24px;
-    background: #e8e4d8;
+    padding: calc(520px * 202 / 670) 18px 24px;
+    background: #ddd3c2;
   }
   .hall.en-mobile .station-hall::before {
     inset: 0;
-    background: url("photos/hall-atrium-cinema.webp") center top / auto 500px no-repeat, #e8e4d8;
+    background: var(--hall-fond) center top / auto 520px no-repeat, #ddd3c2;
     box-shadow: none;
   }
   .hall.en-mobile .station-hall::after { content: none; }
   .hall.en-mobile .station-hall .porte {
     flex: none;
     align-self: center;
-    width: 118px;
-    height: calc(500px * 360 / 726);
+    width: calc(520px * 324 / 670 * 845 / 1862);
+    height: calc(520px * 324 / 670);
     margin: 0;
   }
   .hall.en-mobile .station-hall .porte .baie::after {
     content: "";
     position: absolute;
-    left: -22px;
-    right: -22px;
-    top: calc(100% - 2px);
-    height: 8px;
+    left: -30px;
+    right: -30px;
+    top: -2px;
+    height: 3px;
     pointer-events: none;
-    background: url("hall-rail-encastre.svg") center top / 640px 8px repeat-x;
-    opacity: .82;
-    -webkit-mask-image: linear-gradient(90deg,transparent,#000 10% 90%,transparent);
-    mask-image: linear-gradient(90deg,transparent,#000 10% 90%,transparent);
+    background: linear-gradient(180deg,#f7f7f4,#a9aca9 60%,#d6d7d4);
+    box-shadow: 0 1px 2px rgba(48,38,24,.3);
+    -webkit-mask-image: linear-gradient(90deg,transparent,#000 12% 88%,transparent);
+    mask-image: linear-gradient(90deg,transparent,#000 12% 88%,transparent);
   }
   .hall.en-mobile .station-hall .panneau-hall {
     display: block;
@@ -230,10 +423,6 @@
     text-align: start;
   }
   .hall.en-mobile .station-hall .panneau-hall h3 { font-size: 15px; }
-  .hall.en-mobile .station-hall .sous-portes-murales {
-    display: grid;
-    grid-template-columns: repeat(2,minmax(0,1fr));
-  }
   .hall.en-mobile .station-hall .sous-portes-murales > :is(button,a) {
     min-height: 44px;
     font-size: 12px;
@@ -241,29 +430,16 @@
   .hall.en-mobile .station-hall .sous-portes-murales > :last-child:nth-child(odd) { grid-column: 1/-1; }
 }
 @media(min-width:1000px) and (max-height:850px) {
-  .hall.en-volume .station-hall .panneau-hall {
-    top: 10px;
-    max-height: calc(100% - 18px);
-    padding: 10px 12px;
-  }
-  .hall.en-volume .station-hall .panneau-hall h3 {
-    margin-bottom: 6px;
-    padding-bottom: 6px;
-    font-size: 11.5px;
-  }
-  .hall.en-volume .station-hall .panneau-hall h3 button { min-height: 28px; }
-  .hall.en-volume .station-hall .panneau-hall h3 bdi { height: 28px; font-size: 18px; }
-  .hall.en-volume .station-hall .sous-portes-murales > :is(button,a) {
-    min-height: 30px;
-    padding-block: 3px;
-    font-size: 10.5px;
-    line-height: 1.2;
-  }
+  .hall.en-volume .station-hall .panneau-hall { padding: 12px 15px 10px; }
+  .hall.en-volume .station-hall .panneau-hall h3 { margin-bottom: 5px; padding-bottom: 6px; font-size: 12px; }
+  .hall.en-volume .station-hall .panneau-hall h3 button { min-height: 26px; }
+  .hall.en-volume .station-hall .panneau-hall h3 bdi { height: 26px; font-size: 17px; }
+  .hall.en-volume .station-hall .sous-portes-murales > :is(button,a) { min-height: 27px; padding-block: 3px; font-size: 10.5px; line-height: 1.2; }
 }
 @media(prefers-reduced-motion:reduce) {
-  .hall:is(.en-volume,.en-mobile) .station-hall .porte .battant { transition: none; }
+  .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .battant { transition: none; }
 }
 @media(forced-colors:active) {
-  .hall:is(.en-volume,.en-mobile) .station-hall .panneau-hall { background: Canvas; border: 1px solid CanvasText; }
-  .hall:is(.en-volume,.en-mobile) .station-hall .sous-portes-murales > :is(button,a) { color: LinkText; }
+  .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .panneau-hall { background: Canvas; border: 1px solid CanvasText; }
+  .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .sous-portes-murales > :is(button,a) { color: LinkText; }
 }

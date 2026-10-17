@@ -45,6 +45,7 @@ const VERSION_CSS = empreinte("assets/site.css");
 const VERSION_HALL_CSS = empreinte("assets/hall-realiste.css");
 const VERSION_JS = empreinte("assets/site.js");
 const VERSION_MARCHE = empreinte("assets/hall-marche.js");
+const VERSION_CIEL = empreinte("assets/hall-ciel.js");
 const VERSION_AUDIENCE = empreinte("assets/audience.js");
 const VERSION_ICONE = empreinte("assets/favicon.svg");
 const PUBLICATION_SITE = require("./site-publication.json");
@@ -1490,6 +1491,7 @@ ${LANGUES.filter((l) => l.hreflang).map((l) => `<link rel="alternate" hreflang="
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">${JSON.stringify(personne)}</script>
 <script src="${p}assets/hall-marche.js?v=${VERSION_MARCHE}" defer></script>
+<script src="${p}assets/hall-ciel.js?v=${VERSION_CIEL}" defer></script>
 <script src="${p}assets/site.js?v=${VERSION_JS}" defer></script>
 <script src="${p}assets/vulgarisation-studio.js?v=quizfix20261016" defer></script>
 <script src="${p}assets/vulgarisation-editorial.js?v=20261015editorial4" defer></script>
@@ -1586,6 +1588,7 @@ ${PREFERENCES}
 <link rel="stylesheet" href="../assets/site.css?v=${VERSION_CSS}">
 <link rel="stylesheet" href="../assets/hall-realiste.css?v=${VERSION_HALL_CSS}">
 <script src="../assets/hall-marche.js?v=${VERSION_MARCHE}" defer></script>
+<script src="../assets/hall-ciel.js?v=${VERSION_CIEL}" defer></script>
 <script src="../assets/site.js?v=${VERSION_JS}" defer></script>
 ${baliseAudience("../")}
 </head>
