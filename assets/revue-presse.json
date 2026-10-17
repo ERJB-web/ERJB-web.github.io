@@ -1,0 +1,348 @@
+{
+ "maj": "2026-10-17T04:41:22.086Z",
+ "bonne": {
+  "jour": "2026-10-17",
+  "t": "Prévenir l’itinérance : un refuge inusité sur un bateau",
+  "u": "https://ici.radio-canada.ca/ohdio/premiere/emissions/c-est-encore-mieux-l-apres-midi/segments/rattrapage/2505369/un-bateau-servira-refuge-pour-jeunes-a-quebec",
+  "s": "Radio-Canada",
+  "d": "2026-10-16T21:12:38.000Z"
+ },
+ "rubriques": {
+  "une": [
+   {
+    "t": "Prévenir l’itinérance : un refuge inusité sur un bateau",
+    "u": "https://ici.radio-canada.ca/ohdio/premiere/emissions/c-est-encore-mieux-l-apres-midi/segments/rattrapage/2505369/un-bateau-servira-refuge-pour-jeunes-a-quebec",
+    "s": "Radio-Canada",
+    "d": "2026-10-16T21:12:38.000Z",
+    "n": 2
+   },
+   {
+    "t": "Les effets de la COVID longue et le retour au travail",
+    "u": "https://ici.radio-canada.ca/en-bref/1-10786382/effets-covid-longue-et-retour-au-travail",
+    "s": "Radio-Canada",
+    "d": "2026-10-16T23:36:15.000Z"
+   },
+   {
+    "t": "Vaccination contre la grippe | Déjà 500 000 rendez-vous attribués",
+    "u": "https://www.lapresse.ca/actualites/sante/2026-10-16/vaccination-contre-la-grippe/deja-500-000-rendez-vous-attribues.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites&utm_content=sante",
+    "s": "La Presse",
+    "d": "2026-10-16T21:19:52.000Z"
+   },
+   {
+    "t": "Une inhalothérapeute est radiée pour s’être présentée au travail sous l’influence de substances",
+    "u": "https://www.journaldemontreal.com/2026/10/16/une-inhalotherapeute-est-radiee-pour-setre-presente-au-travail-sous-linfluence-de-substances",
+    "s": "Le Journal de Montréal",
+    "d": "2026-10-16T19:30:00.000Z"
+   },
+   {
+    "t": "L'IA pour aider à diagnostiquer des maladies génétiques rares au CHEO",
+    "u": "https://ici.radio-canada.ca/info/videos/1-10786374/ia-pour-aider-a-diagnostiquer-maladies-genetiques-rares-au-cheo",
+    "s": "Radio-Canada",
+    "d": "2026-10-16T23:18:57.000Z"
+   },
+   {
+    "t": "Le Kenya annonce un troisième cas d'Ebola sur son sol",
+    "u": "https://www.journaldemontreal.com/2026/10/16/le-kenya-annonce-un-troisieme-cas-debola-sur-son-sol",
+    "s": "Le Journal de Montréal",
+    "d": "2026-10-16T17:45:43.000Z"
+   }
+  ],
+  "quebec": [
+   {
+    "t": "Un don qui sauve des vies",
+    "u": "https://ici.radio-canada.ca/en-bref/1-10786221/un-don-qui-sauve-vies",
+    "s": "Radio-Canada",
+    "d": "2026-10-16T21:25:59.000Z"
+   },
+   {
+    "t": "Vaccination contre la grippe | Déjà 500 000 rendez-vous attribués",
+    "u": "https://www.lapresse.ca/actualites/sante/2026-10-16/vaccination-contre-la-grippe/deja-500-000-rendez-vous-attribues.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites&utm_content=sante",
+    "s": "La Presse",
+    "d": "2026-10-16T21:19:52.000Z"
+   },
+   {
+    "t": "Difficile de retenir les jeunes infirmières au sein de la profession",
+    "u": "https://www.ledevoir.com/actualites/sante/1017083/difficile-retenir-jeunes-infirmieres-sein-profession",
+    "s": "Le Devoir",
+    "d": "2026-10-15T10:44:05.000Z"
+   },
+   {
+    "t": "Près de 400 médecins millionnaires au Québec l’an dernier",
+    "u": "https://www.journaldemontreal.com/2026/10/15/pres-de-400-medecins-millionnaires-au-quebec",
+    "s": "Le Journal de Montréal",
+    "d": "2026-10-15T04:00:00.000Z"
+   },
+   {
+    "t": "Prévenir l’itinérance : un refuge inusité sur un bateau",
+    "u": "https://ici.radio-canada.ca/ohdio/premiere/emissions/c-est-encore-mieux-l-apres-midi/segments/rattrapage/2505369/un-bateau-servira-refuge-pour-jeunes-a-quebec",
+    "s": "Radio-Canada",
+    "d": "2026-10-16T21:12:38.000Z"
+   },
+   {
+    "t": "Crise de l’itinérance | Un bateau servira de refuge pour des jeunes à Québec",
+    "u": "https://www.lapresse.ca/actualites/2026-10-16/crise-de-l-itinerance/un-bateau-servira-de-refuge-pour-des-jeunes-a-quebec.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites",
+    "s": "La Presse",
+    "d": "2026-10-16T16:00:00.000Z"
+   },
+   {
+    "t": "Des complications postpartum peuvent survenir bien après les premières semaines",
+    "u": "https://www.ledevoir.com/actualites/sante/1016876/complications-postpartum-peuvent-survenir-bien-apres-premieres-semaines",
+    "s": "Le Devoir",
+    "d": "2026-10-15T04:00:00.000Z"
+   },
+   {
+    "t": "La grippe frappe fort et plus rapidement au Saguenay–Lac-Saint-Jean",
+    "u": "https://www.tvanouvelles.ca/2026/10/14/la-grippe-frappe-fort-et-plus-rapidement-au-saguenaylac-saint-jean",
+    "s": "TVA Nouvelles",
+    "d": "2026-10-14T17:22:02.000Z"
+   }
+  ],
+  "debats": [
+   {
+    "t": "Le temps n’est plus à la réflexion en itinérance, il faut agir vite!",
+    "u": "https://www.ledevoir.com/opinion/idees/1016894/temps-est-plus-reflexion-itinerance-il-faut-agir-vite",
+    "s": "Le Devoir",
+    "d": "2026-10-15T04:00:00.000Z"
+   },
+   {
+    "t": "Des infirmières dénoncent des mois de salaires impayés",
+    "u": "https://ici.radio-canada.ca/en-bref/1-10784218/infirmieres-denoncent-mois-salaires-impayes",
+    "s": "Radio-Canada",
+    "d": "2026-10-14T22:41:22.000Z"
+   },
+   {
+    "t": "L’« affaire de Cornell » démontre que la culture du viol est toujours présente",
+    "u": "https://theconversation.com/l-affaire-de-cornell-demontre-que-la-culture-du-viol-est-toujours-presente-294294",
+    "s": "La Conversation",
+    "d": "2026-10-14T13:56:04.000Z"
+   },
+   {
+    "t": "Doit-on s'inquiéter de la grippe aviaire chez l'humain?",
+    "u": "https://ici.radio-canada.ca/en-bref/1-10581769/doit-on-s-inquieter-grippe-aviaire-chez-humain",
+    "s": "Radio-Canada",
+    "d": "2026-10-14T15:08:31.000Z"
+   },
+   {
+    "t": "Des ambulanciers dénoncent des appels inutiles dans des RPA",
+    "u": "https://ici.radio-canada.ca/ohdio/premiere/emissions/place-publique/segments/rattrapage/2501785/paramedics-debordes-par-nombreux-appels-juges-inutiles-dans-rpa",
+    "s": "Radio-Canada",
+    "d": "2026-10-13T21:12:22.000Z"
+   }
+  ],
+  "decouvertes": [
+   {
+    "t": "L'IA pour aider à diagnostiquer des maladies génétiques rares au CHEO",
+    "u": "https://ici.radio-canada.ca/info/videos/1-10786374/ia-pour-aider-a-diagnostiquer-maladies-genetiques-rares-au-cheo",
+    "s": "Radio-Canada",
+    "d": "2026-10-16T23:18:57.000Z"
+   },
+   {
+    "t": "Étude | La musculation pourrait contribuer au soulagement de l’anxiété chez les femmes",
+    "u": "https://www.lapresse.ca/actualites/sciences/2026-10-16/etude/la-musculation-pourrait-contribuer-au-soulagement-de-l-anxiete-chez-les-femmes.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites&utm_content=sciences",
+    "s": "La Presse",
+    "d": "2026-10-16T13:02:21.000Z"
+   },
+   {
+    "t": "« Suis-je une bonne mère » ? La dépression post-partum à l'étude",
+    "u": "https://www.tvanouvelles.ca/2026/10/13/suis-je-une-bonne-mere----la-depression-post-partum-a-letude",
+    "s": "TVA Nouvelles",
+    "d": "2026-10-13T04:00:00.000Z"
+   },
+   {
+    "t": "Paris en ligne et jeux de hasard: une future crise de santé publique ?",
+    "u": "https://www.quebecscience.qc.ca/sante/crise-sante-publique-paris/",
+    "s": "Québec Science",
+    "d": "2026-10-14T13:30:53.000Z"
+   },
+   {
+    "t": "Les gros chiens vieillissent plus vite que les petits",
+    "u": "https://www.sciencepresse.qc.ca/actualites-scientifiques/2026/10/13/gros-chiens-vieillissent-plus-vite-petits",
+    "s": "Agence Science-Presse",
+    "d": "2026-10-13T23:37:42.000Z"
+   },
+   {
+    "t": "À quoi sert la grande respiration qu’on prend avant un vaccin?",
+    "u": "https://ici.radio-canada.ca/en-bref/1-10785756/a-quoi-sert-grande-respiration-qu-on-prend-avant-un-vaccin",
+    "s": "Radio-Canada",
+    "d": "2026-10-16T16:25:03.000Z"
+   },
+   {
+    "t": "La peur et l'anxiété liées au développement des technologies de l'IA en forte hausse",
+    "u": "https://www.tvanouvelles.ca/2026/10/13/la-peur-et-lanxiete-liee-au-developpement-des-technologies-de-lia-en-forte-hausse",
+    "s": "TVA Nouvelles",
+    "d": "2026-10-13T04:00:00.000Z"
+   }
+  ],
+  "recherche": [
+   {
+    "t": "Long-Acting HIV Therapy in African Adults with Adherence Challenges",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42874104/",
+    "s": "PubMed",
+    "d": "2026-10-14T21:23:00.000Z",
+    "r": "N Engl J Med"
+   },
+   {
+    "t": "Reporting completeness of clinical trials evaluating large language model interventions in medicine: systematic review",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42869550/",
+    "s": "PubMed",
+    "d": "2026-10-14T01:11:00.000Z",
+    "r": "BMJ"
+   },
+   {
+    "t": "Lp(a)-Reducing Agent Pelacarsen Misses the Mark in Phase 3-Now What?",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42886494/",
+    "s": "PubMed",
+    "d": "2026-10-16T15:36:00.000Z",
+    "r": "JAMA"
+   },
+   {
+    "t": "Decreases in Cancer Mortality During the COVID-19 Pandemic and Mortality Displacement in Aged Societies",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42879718/",
+    "s": "PubMed",
+    "d": "2026-10-15T23:32:00.000Z",
+    "r": "Am J Public Health"
+   },
+   {
+    "t": "PFAS exposure in 12-year-old children and its association with metabolic markers",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42881263/",
+    "s": "PubMed",
+    "d": "2026-10-16T03:50:00.000Z",
+    "r": "Pediatr Res",
+    "i": 1
+   },
+   {
+    "t": "Diversity in Care Trajectories in Specialist Visits for Preventing Cardiovascular Events After New-Onset Diabetes: A Population-Based Cohort Study",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42756426/",
+    "s": "PubMed",
+    "d": "2026-09-18T11:23:00.000Z",
+    "r": "CJC Open",
+    "i": 1
+   },
+   {
+    "t": "Altered sperm DNA methylation provides an epigenetic route from overweight and older men to intergenerational disease transmission",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42886706/",
+    "s": "PubMed",
+    "d": "2026-10-16T17:43:00.000Z",
+    "r": "Proc Natl Acad Sci U S A",
+    "q": 1
+   },
+   {
+    "t": "Collaborative Technology-Assisted Depression Program for Chronic Disease Patients in Santiago, Chile",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42885588/",
+    "s": "PubMed",
+    "d": "2026-10-16T10:06:00.000Z",
+    "r": "Clin Gerontol",
+    "q": 1
+   },
+   {
+    "t": "Challenges and opportunities with adapting international health care quality indicators to local contexts: A descriptive case study",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42885565/",
+    "s": "PubMed",
+    "d": "2026-10-16T09:54:00.000Z",
+    "r": "Int J Qual Health Care",
+    "q": 1
+   }
+  ],
+  "publications": [
+   {
+    "t": "850 000 $ pour développer des solutions innovantes en obésité pédiatrique au Québec",
+    "u": "https://frq.gouv.qc.ca/850-000-pour-developper-des-solutions-innovantes-en-obesite-pediatrique-au-quebec/",
+    "s": "Fonds de recherche du Québec",
+    "d": "2026-10-15T14:00:26.000Z"
+   },
+   {
+    "t": "Pour un hiver plus doux… on a un vaccin pour ça!",
+    "u": "https://sante.quebec/actualites/nouvelles/pour-un-hiver-plus-doux-un-vaccin-pour-ca/",
+    "s": "Santé Québec",
+    "d": "2026-10-14T16:00:00.000Z"
+   },
+   {
+    "t": "Le gouvernement du Canada annonce la nomination du Dr George Mutwiri au Conseil d’administration des Instituts de recherche en santé du Canada",
+    "u": "https://www.canada.ca/fr/sante-canada/nouvelles/2026/10/le-gouvernement-du-canada-annonce-la-nomination-du-dr-george-mutwiri-au-conseil-dadministration-des-instituts-de-recherche-en-sante-du-canada.html",
+    "s": "Gouvernement du Canada",
+    "d": "2026-10-13T19:00:00.000Z"
+   },
+   {
+    "t": "Appel de candidatures | Concours de capsules vidéo destiné à la relève étudiante — TA STRATÉGIE : parce que la prévention, c’est la santé !",
+    "u": "https://frq.gouv.qc.ca/appel-de-candidatures-concours-de-capsules-video-destine-a-la-releve-etudiante-ta-strategie-parce-que-la-prevention-cest-la-sante/",
+    "s": "Fonds de recherche du Québec",
+    "d": "2026-10-15T13:00:51.000Z"
+   },
+   {
+    "t": "La médecine de plongée pour travailler sous l'eau en sécurité",
+    "u": "https://sante.quebec/actualites/nouvelles/la-medecine-de-plongee-pour-travailler-sous-leau-en-securite/",
+    "s": "Santé Québec",
+    "d": "2026-10-14T16:00:00.000Z"
+   },
+   {
+    "t": "La croissance de l’effectif en santé au Canada",
+    "u": "https://www.canada.ca/fr/sante-canada/nouvelles/2026/10/la-croissance-de-leffectif-en-sante-au-canada.html",
+    "s": "Gouvernement du Canada",
+    "d": "2026-10-07T13:00:57.000Z"
+   },
+   {
+    "t": "Nouvelles Chaires de recherche Interventionnelle en Soins Infirmiers Autochtones (Chaires de RISA)",
+    "u": "https://frq.gouv.qc.ca/nouvelles-chaires-de-recherche-interventionnelle-en-soins-infirmiers-autochtones-chaires-de-risa-2/",
+    "s": "Fonds de recherche du Québec",
+    "d": "2026-10-08T12:00:28.000Z"
+   },
+   {
+    "t": "Halloween et allergies alimentaires : des repères pour profiter de la fête",
+    "u": "https://sante.quebec/actualites/nouvelles/halloween-et-allergies-alimentaires-des-reperes-pour-profiter-de-la-fete/",
+    "s": "Santé Québec",
+    "d": "2026-10-09T16:00:00.000Z"
+   }
+  ]
+ },
+ "sources": [
+  "Radio-Canada",
+  "La Presse",
+  "Le Devoir",
+  "Le Journal de Montréal",
+  "TVA Nouvelles",
+  "L’actualité",
+  "Métro",
+  "Québec Science",
+  "Agence Science-Presse",
+  "La Conversation",
+  "Gouvernement du Canada",
+  "Fonds de recherche du Québec",
+  "INSPQ",
+  "Santé Québec",
+  "PubMed"
+ ],
+ "bonnesRecentes": [
+  "https://ici.radio-canada.ca/ohdio/premiere/emissions/c-est-encore-mieux-l-apres-midi/segments/rattrapage/2505369/un-bateau-servira-refuge-pour-jeunes-a-quebec",
+  "https://ici.radio-canada.ca/en-bref/1-10786221/un-don-qui-sauve-vies"
+ ],
+ "etat": {
+  "rc-sante": 50,
+  "lp-sante": 10,
+  "ld-sante": 10,
+  "jdm-sante": 15,
+  "tva-sante": 40,
+  "lactualite": 50,
+  "rc-quebec": 50,
+  "rc-montreal": 50,
+  "lp-actualites": 10,
+  "ld-manchettes": 34,
+  "metro": 7,
+  "rc-science": 50,
+  "lp-sciences": 10,
+  "ld-science": 7,
+  "qs": 6,
+  "asp": 10,
+  "ld-idees": 25,
+  "ld-lettres": 23,
+  "ld-libre": 10,
+  "ld-editoriaux": 10,
+  "lp-dialogue": 10,
+  "conversation": 25,
+  "gc-sante": 30,
+  "frq": 12,
+  "inspq-publications": 0,
+  "inspq-nouvelles": 0,
+  "sq-communiques": 10,
+  "sq-nouvelles": 10
+ }
+}
