@@ -2969,3 +2969,8 @@ html.hc .implantation-portail-liens a{border-color:currentColor}
   .entete .menu-acces summary .menu-libelle{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   .entete .nav{order:3;flex:1 1 100%;margin:6px 0 0}
 }
+
+/* Barre de salle : « Porte suivante » garde sa couleur pleine, même parmi les petits boutons blancs. */
+.salle .salle-barre .salle-actions button[data-suivante],.salle .salle-barre .salle-actions button[data-contact]{background:var(--c1);border-color:var(--c1);color:#fff}
+/* Téléphone : la grande question de thèse n'est pas justifiée (pas de trous entre les mots). */
+@media(max-width:640px){:root .salle .these-formulation{text-align:start!important;text-wrap:pretty}}
