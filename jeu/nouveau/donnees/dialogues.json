@@ -1,0 +1,5967 @@
+{
+ "personnages": {
+  "eric": {
+   "nom": "Éric",
+   "voix": "eric",
+   "portrait": "eric"
+  },
+  "direction_a": {
+   "nom": "Pre Héloïse Marcotel",
+   "court": "Pre Marcotel",
+   "voix": "direction_a",
+   "portrait": "direction_a",
+   "description": "Codirectrice"
+  },
+  "direction_b": {
+   "nom": "Pre Yasmina Talbec",
+   "court": "Pre Talbec",
+   "voix": "direction_b",
+   "portrait": "direction_b",
+   "description": "Codirectrice"
+  },
+  "bibliothecaire": {
+   "nom": "Margaux Pellerat",
+   "court": "Margaux",
+   "voix": "bibliothecaire",
+   "portrait": "bibliothecaire",
+   "description": "Bibliothécaire en santé publique"
+  },
+  "collegue_doc": {
+   "nom": "Coralie Pétrin",
+   "court": "Coralie",
+   "voix": "collegue_doc",
+   "portrait": "collegue_doc",
+   "description": "Doctorante"
+  },
+  "prof_seminaire": {
+   "nom": "Pr Anatole Lunel",
+   "court": "Pr Lunel",
+   "voix": "prof_seminaire",
+   "portrait": "prof_seminaire",
+   "description": "Professeur du séminaire de protocole"
+  },
+  "etudiant_1": {
+   "nom": "Mathis",
+   "voix": "etudiant_1",
+   "portrait": "etudiant_1",
+   "description": "Étudiant"
+  },
+  "etudiant_2": {
+   "nom": "Priya",
+   "voix": "etudiant_2",
+   "portrait": "etudiant_2",
+   "description": "Étudiante"
+  },
+  "etudiant_3": {
+   "nom": "Félix-Antoine",
+   "voix": "etudiant_3",
+   "portrait": "etudiant_3",
+   "description": "Étudiant"
+  },
+  "etudiant_4": {
+   "nom": "Noémie",
+   "voix": "etudiant_4",
+   "portrait": "etudiant_4",
+   "description": "Étudiante"
+  },
+  "intervenante_sad": {
+   "nom": "Nadège Sansfaçon",
+   "court": "Nadège",
+   "voix": "intervenante_sad",
+   "portrait": "intervenante_sad",
+   "description": "Intervenante sociale du SAD"
+  },
+  "gestionnaire_clsc": {
+   "nom": "Normand Ouellon",
+   "court": "Normand",
+   "voix": "gestionnaire_clsc",
+   "portrait": "gestionnaire_clsc",
+   "description": "Gestionnaire du CLSC"
+  },
+  "prepose_accueil": {
+   "nom": "Ludovic Hamelot",
+   "court": "Ludovic",
+   "voix": "prepose_accueil",
+   "portrait": "prepose_accueil",
+   "description": "Préposé à l’accueil"
+  },
+  "usager_1": {
+   "nom": "Mme Rolande",
+   "voix": "usager_1",
+   "portrait": "usager_1",
+   "description": "Usagère du CLSC"
+  },
+  "usager_2": {
+   "nom": "M. Anselme",
+   "voix": "usager_2",
+   "portrait": "usager_2",
+   "description": "Usager du CLSC"
+  },
+  "usager_3": {
+   "nom": "Mme Ilinca",
+   "voix": "usager_3",
+   "portrait": "usager_3",
+   "description": "Usagère du CLSC"
+  },
+  "jury_1": {
+   "nom": "Pr Théodore Vaudrin",
+   "court": "Pr Vaudrin",
+   "voix": "jury_1",
+   "portrait": "jury_1",
+   "description": "Président du jury"
+  },
+  "jury_2": {
+   "nom": "Pre Amandine Kessar",
+   "court": "Pre Kessar",
+   "voix": "jury_2",
+   "portrait": "jury_2",
+   "description": "Géographie de la santé"
+  },
+  "jury_3": {
+   "nom": "Pre Ondine Ferlatte",
+   "court": "Pre Ferlatte",
+   "voix": "jury_3",
+   "portrait": "jury_3",
+   "description": "Analyse de réseaux"
+  },
+  "entraineur_patin": {
+   "nom": "Benoît Vadeboncœur",
+   "court": "Coach",
+   "voix": "entraineur_patin",
+   "portrait": "entraineur_patin",
+   "description": "Entraîneur de patinage"
+  },
+  "joueur_hockey_1": {
+   "nom": "Bruno",
+   "voix": "joueur_hockey_1",
+   "portrait": "joueur_hockey_1",
+   "description": "Ailier gauche"
+  },
+  "joueur_hockey_2": {
+   "nom": "Samuel",
+   "voix": "joueur_hockey_2",
+   "portrait": "joueur_hockey_2",
+   "description": "Ailier droit"
+  },
+  "joueur_hockey_3": {
+   "nom": "Rachid",
+   "voix": "joueur_hockey_3",
+   "portrait": "joueur_hockey_3",
+   "description": "Défenseur"
+  },
+  "joueur_hockey_4": {
+   "nom": "Olivier",
+   "voix": "joueur_hockey_4",
+   "portrait": "joueur_hockey_4",
+   "description": "Défenseur"
+  },
+  "joueur_hockey_5": {
+   "nom": "Kim",
+   "voix": "joueur_hockey_5",
+   "portrait": "joueur_hockey_5",
+   "description": "Centre"
+  },
+  "joueur_hockey_6": {
+   "nom": "Étienne",
+   "voix": "joueur_hockey_6",
+   "portrait": "joueur_hockey_6",
+   "description": "Ailier"
+  },
+  "gardien": {
+   "nom": "Gaétan",
+   "voix": "gardien",
+   "portrait": "gardien",
+   "description": "Gardien de but"
+  },
+  "chauffeur_zamboni": {
+   "nom": "Réal",
+   "voix": "chauffeur_zamboni",
+   "portrait": "chauffeur_zamboni",
+   "description": "Conducteur de la surfaceuse"
+  }
+ },
+ "scenes": {
+  "c1_arrivee": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_arrivee_001",
+     "qui": "eric",
+     "texte": "Quatorze semaines avant le dépôt du protocole. Et un courriel de 23 h 14 intitulé « Petite idée ».",
+     "emotion": "fatigue",
+     "intensite": 0.4,
+     "anim": "phone",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c1_arrivee_002",
+     "qui": "eric",
+     "texte": "Une petite idée à 23 h 14, c’est rarement petit.",
+     "emotion": "ironie",
+     "intensite": 0.5,
+     "anim": "phone",
+     "plan": "gros_plan"
+    },
+    {
+     "id": "c1_arrivee_003",
+     "qui": "etudiant_1",
+     "texte": "Salut Éric ! T’as l’air de quelqu’un qui a lu ses courriels avant son café.",
+     "emotion": "amuse",
+     "intensite": 0.3,
+     "anim": "walk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_arrivee_004",
+     "qui": "eric",
+     "texte": "Erreur de débutant. Je suis en deuxième année, je devrais savoir.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_arrivee_005",
+     "qui": "etudiant_1",
+     "texte": "Lunel commence à neuf heures. Il a mis son veston de velours.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "point",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_arrivee_006",
+     "qui": "eric",
+     "texte": "Le velours, c’est pour les comités. La tour, les briques jaunes… Le pavillon ne m’a jamais semblé aussi haut.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "idle",
+     "plan": "large"
+    }
+   ]
+  },
+  "c1_cafe": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_cafe_001",
+     "qui": "eric",
+     "texte": "Café allongé. La machine fait le bruit d’un comité qui délibère.",
+     "emotion": "fatigue",
+     "intensite": 0.3,
+     "anim": "idle",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c1_cafe_002",
+     "qui": "eric",
+     "texte": "Il goûte le carton mouillé. Exactement comme prévu. Merci, constance.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "idle",
+     "plan": "gros_plan"
+    }
+   ]
+  },
+  "c1_babillard": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_babillard_001",
+     "qui": "eric",
+     "texte": "« Journée de la relève : présentez votre thèse en trente secondes. » Ma question en prend vingt à elle seule.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "read",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c1_babillard_002",
+     "qui": "eric",
+     "texte": "« Chat perdu, répond au nom de Zotero. » Pauvre bête. Il a dû fusionner ses doublons.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "read",
+     "plan": "gros_plan"
+    }
+   ]
+  },
+  "c1_imprimante": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_imprimante_001",
+     "qui": "eric",
+     "texte": "Bourrage papier, bac 2. Il n’y a pas de bac 2.",
+     "emotion": "agace",
+     "intensite": 0.4,
+     "anim": "push",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c1_imprimante_002",
+     "qui": "etudiant_3",
+     "texte": "Ouvre le panneau du côté, pis tire doucement. Elle aime pas qu’on la brusque.",
+     "emotion": "amuse",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_imprimante_003",
+     "qui": "eric",
+     "texte": "Comme mon comité. Trente-deux pages de version 7, encore tièdes.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "pickup",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c1_hall": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_hall_001",
+     "qui": "etudiant_2",
+     "texte": "Éric ! C’est quoi ta thèse, déjà ? Ma tante me demande à chaque souper.",
+     "emotion": "enthousiaste",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_hall_002",
+     "qui": "eric",
+     "texte": "Les besoins sociaux concomitants des aînés suivis en soutien à domicile. Et qui y répond, sur le territoire.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_hall_003",
+     "qui": "etudiant_2",
+     "texte": "« Concomitants ». Je vais lui dire « plusieurs en même temps ». Elle va comprendre plus vite.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_hall_004",
+     "qui": "eric",
+     "texte": "Note pour le comité : ta tante vulgarise mieux que moi.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "nod",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c1_seminaire": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_seminaire_001",
+     "qui": "prof_seminaire",
+     "texte": "Bonjour. Chacun défend aujourd’hui son protocole devant le groupe. Ensuite, vous affronterez pire : votre comité.",
+     "emotion": "solennel",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_seminaire_002",
+     "qui": "prof_seminaire",
+     "texte": "Monsieur Bernier, vous êtes premier. C’est alphabétique. Enfin, presque.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "point",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_seminaire_003",
+     "qui": "eric",
+     "texte": "Presque alphabétique. Je note la méthode d’échantillonnage.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c1_seminaire_004",
+     "qui": "collegue_doc",
+     "texte": "L’an passé, il a commencé par la fin. Pour « briser les attentes ».",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c1_seminaire_005",
+     "qui": "prof_seminaire",
+     "texte": "Besoins sociaux, concomitance, complexité, réponse intersectorielle. Des mots qu’on confond très facilement.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_seminaire_006",
+     "qui": "prof_seminaire",
+     "texte": "Avant votre question, distinguez-moi ces notions. Une confusion ici, et le comité vous suit jusqu’à la retraite.",
+     "emotion": "insistant",
+     "intensite": 0.5,
+     "anim": "point",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c1_seminaire_007",
+     "qui": "eric",
+     "texte": "Ce qui se compte, ce qui se décrit, ce qui s’organise. Et ce qui reste sans réponse.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "nod",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c1_question": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_question_001",
+     "qui": "prof_seminaire",
+     "texte": "Votre question, maintenant. Une phrase, vos trois objectifs, et elle doit survivre au comité.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "point",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_question_002",
+     "qui": "collegue_doc",
+     "texte": "Pas celle de ton affiche. Il l’a vue au colloque. Il se souvient de tout.",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c1_question_003",
+     "qui": "eric",
+     "texte": "Elle avait de l’élan, celle-là. Et des patients en soins primaires.",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c1_question_r": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_question_r_001",
+     "qui": "prof_seminaire",
+     "texte": "Votre question part dans une autre thèse. Population, contexte, territoire : nommez-les.",
+     "emotion": "insistant",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_question_r_002",
+     "qui": "prof_seminaire",
+     "texte": "Les 65 ans et plus en SAD, les territoires de CLSC du RTS 063, et l’organisation de la réponse.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_question_r_003",
+     "qui": "eric",
+     "texte": "Une semaine à reformuler. Le comité va adorer la version 8.",
+     "emotion": "fatigue",
+     "intensite": 0.4,
+     "anim": "think",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c1_condition": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_condition_001",
+     "qui": "collegue_doc",
+     "texte": "« Condition traceuse : encore à préciser. » Ça fait trois versions qu’elle est encore à préciser.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "read",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_condition_002",
+     "qui": "eric",
+     "texte": "C’est une précision progressive. Une méthode en soi.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_condition_003",
+     "qui": "prof_seminaire",
+     "texte": "Trouble neurocognitif, diabète ou perte d’autonomie. Comment tranchez-vous, concrètement ?",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c1_tableau": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_tableau_001",
+     "qui": "prof_seminaire",
+     "texte": "Au tableau. Le fil de votre thèse, de la première lecture au dernier produit. Sans flèches décoratives.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "point",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_tableau_002",
+     "qui": "eric",
+     "texte": "Mes flèches sont toutes fonctionnelles. Deux sont même financées par le FRQ.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c1_fil_r": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_fil_r_001",
+     "qui": "prof_seminaire",
+     "texte": "Vous choisissez vos CLSC avant d’avoir l’atlas ? Avec quoi, une boule de cristal ?",
+     "emotion": "insistant",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_fil_r_002",
+     "qui": "prof_seminaire",
+     "texte": "O1 donne les domaines et les vignettes. O2 en tire l’atlas. L’atlas choisit les cas d’O3.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_fil_r_003",
+     "qui": "eric",
+     "texte": "Chaque objectif nourrit le suivant. Je refais la figure ce soir.",
+     "emotion": "fatigue",
+     "intensite": 0.4,
+     "anim": "nod",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c1_fin_seminaire": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_fin_seminaire_001",
+     "qui": "prof_seminaire",
+     "texte": "Correct, monsieur Bernier. Pas brillant : correct. Chez moi, c’est un compliment.",
+     "emotion": "joie",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_fin_seminaire_002",
+     "qui": "collegue_doc",
+     "texte": "Moi, l’an passé, il m’a dit « intéressant ». J’ai pleuré dans l’escalier.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c1_pitch_intro": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_pitch_intro_001",
+     "qui": "prof_seminaire",
+     "texte": "Accompagnez-moi jusqu’à l’ascenseur. Votre thèse, en trente secondes, avant qu’il arrive.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "walk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_pitch_intro_002",
+     "qui": "eric",
+     "texte": "Trente secondes. Sans tableau. Sans flèches.",
+     "emotion": "stresse",
+     "intensite": 0.5,
+     "anim": "walk",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c1_pitch_intro_003",
+     "qui": "prof_seminaire",
+     "texte": "Surtout sans flèches.",
+     "emotion": "amuse",
+     "intensite": 0.3,
+     "anim": "walk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c1_bureau": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_bureau_001",
+     "qui": "collegue_doc",
+     "texte": "Alors ? Il t’a dit « correct » ? Tu sais que c’est le plus beau mot de son vocabulaire ?",
+     "emotion": "enthousiaste",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_bureau_002",
+     "qui": "eric",
+     "texte": "Je sais. Je vais le faire encadrer.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "sit",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_bureau_003",
+     "qui": "collegue_doc",
+     "texte": "Ta direction a écrit dans le canal du labo. Trois fois. Avec des points d’exclamation.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_bureau_004",
+     "qui": "eric",
+     "texte": "Pre Talbec, 23 h 14 : « Petite idée ». Pre Marcotel, 7 h 02 : « On avait dit vendredi. »",
+     "emotion": "inquiet",
+     "intensite": 0.4,
+     "anim": "phone",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c1_bureau_005",
+     "qui": "collegue_doc",
+     "texte": "Une qui a des idées la nuit, l’autre qui a un calendrier le matin. T’es bien entouré.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_bureau_006",
+     "qui": "eric",
+     "texte": "Équilibre parfait. Je dors entre les deux.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "sit",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c1_courriel": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_courriel_001",
+     "qui": "eric",
+     "texte": "« Et si on sondait 300 usagers du SAD pour faire des classes latentes ? » Avec un bonhomme sourire.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "type",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c1_courriel_002",
+     "qui": "eric",
+     "texte": "Le bonhomme sourire ne change pas la taille d’échantillon.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "type",
+     "plan": "gros_plan"
+    }
+   ]
+  },
+  "c1_courriel_r": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_courriel_r_001",
+     "qui": "collegue_doc",
+     "texte": "Ta simulation, Éric. Sous mille personnes, le BIC ne retrouve jamais tes quatre profils.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_courriel_r_002",
+     "qui": "collegue_doc",
+     "texte": "Pis sur le 211, oublie ça : une demande, c’est pas une personne.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_courriel_r_003",
+     "qui": "eric",
+     "texte": "La réponse était dans ma propre fiche. Section 6.3. Je la relis au complet.",
+     "emotion": "fatigue",
+     "intensite": 0.4,
+     "anim": "type",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c1_politique": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_politique_001",
+     "qui": "collegue_doc",
+     "texte": "Dernière affaire. Ta direction veut que tu cites la Politique de première ligne comme du monde.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_politique_002",
+     "qui": "eric",
+     "texte": "Mars 2026. Le territoire de CLSC devient l’unité de référence. Quatre rôles pour le CLSC, page 42.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_politique_003",
+     "qui": "collegue_doc",
+     "texte": "Pis la mesure 28 de La fierté de vieillir, c’est les chutes. Pas tes besoins sociaux. Ne te fais pas prendre.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_politique_004",
+     "qui": "collegue_doc",
+     "texte": "Récite-moi les quatre rôles. Je te chronomètre avec le micro-ondes.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c1_depart": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_depart_001",
+     "qui": "collegue_doc",
+     "texte": "Va voir Margaux, à la bibliothèque. Ta revue de portée, elle la veut en format PCC avant midi.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_depart_002",
+     "qui": "eric",
+     "texte": "Population, concept, contexte. Je monte.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "nod",
+     "plan": "epaule"
+    },
+    {
+     "id": "c1_depart_003",
+     "qui": "collegue_doc",
+     "texte": "Cours pas dans la salle de lecture. Elle t’entend depuis les périodiques.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "wave",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c1_fin": {
+   "lieu": "campus",
+   "lignes": [
+    {
+     "id": "c1_fin_001",
+     "qui": "eric",
+     "texte": "Une question qui tient, un fil qui se tient, un courriel désamorcé. Premier chapitre : correct.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "idle",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c1_fin_002",
+     "qui": "eric",
+     "texte": "Chez Lunel, c’est un compliment.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "idle",
+     "plan": "gros_plan"
+    }
+   ]
+  },
+  "c2_arrivee": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_arrivee_001",
+     "qui": "eric",
+     "texte": "Sixième étage. L’odeur du papier, le silence, et quelque part, une bibliothécaire qui sait déjà ce que j’ai mal fait.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "idle",
+     "plan": "large"
+    },
+    {
+     "id": "c2_arrivee_002",
+     "qui": "bibliothecaire",
+     "texte": "Éric ? Par ici. Pas trop vite.",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "wave",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c2_comptoir": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_comptoir_001",
+     "qui": "bibliothecaire",
+     "texte": "Coralie m’a prévenue. Revue de portée, besoins sociaux des aînés, et une équation qui n’existe pas encore.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_comptoir_002",
+     "qui": "eric",
+     "texte": "Elle existe. Dans ma tête. Elle est très élégante.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_comptoir_003",
+     "qui": "bibliothecaire",
+     "texte": "Elles le sont toutes, avant d’être lancées dans MEDLINE.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_comptoir_004",
+     "qui": "bibliothecaire",
+     "texte": "D’abord tes critères en PCC. Population, concept, contexte. Sans ça, je ne touche à rien.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_comptoir_005",
+     "qui": "bibliothecaire",
+     "texte": "Tout le monde connaît le PCC. Ce qui m’intéresse, c’est où tu ranges « vivant à domicile ».",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c2_pcc_r": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_pcc_r_001",
+     "qui": "bibliothecaire",
+     "texte": "« Vivant à domicile » fait partie de ta population, selon ta propre fiche. Le contexte, c’est la première ligne et le SAD.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_pcc_r_002",
+     "qui": "bibliothecaire",
+     "texte": "Et les instruments, on les extrait. On n’en fait pas des critères. Les critères décident qui entre.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c2_quete_a": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_quete_a_001",
+     "qui": "bibliothecaire",
+     "texte": "Avant de chercher, lis. Quatre ouvrages de base. Je t’ai noté les cotes : WA, WT, rayons de santé publique et de gériatrie.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_quete_a_002",
+     "qui": "eric",
+     "texte": "Le manuel JBI, Collins et Lanza sur les classes latentes, la santé dans toutes les politiques, et un manuel de gérontologie sociale.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "read",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c2_quete_a_003",
+     "qui": "bibliothecaire",
+     "texte": "Rapporte-les ici. Pis ne les cherche pas en courant : les rayons ont des oreilles.",
+     "emotion": "amuse",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c2_quete_a_fin": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_quete_a_fin_001",
+     "qui": "bibliothecaire",
+     "texte": "Les quatre. Dans le bon ordre, en plus. Tu es le premier cette session.",
+     "emotion": "joie",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_quete_a_fin_002",
+     "qui": "eric",
+     "texte": "J’ai suivi les cotes. C’est la seule classification que je n’ai pas remise en question.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c2_catalogue": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_catalogue_001",
+     "qui": "bibliothecaire",
+     "texte": "Trois blocs. Dans chaque bloc, des synonymes reliés par OU. Entre les blocs, ET.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "point",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_catalogue_002",
+     "qui": "bibliothecaire",
+     "texte": "Je t’ai préparé un échantillon de résumés. Vise le rappel, mais ne noie pas ton criblage.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_catalogue_003",
+     "qui": "bibliothecaire",
+     "texte": "Et méfie-toi des troncatures trop courtes. J’ai déjà vu « ag* » ramener l’agriculture urbaine.",
+     "emotion": "amuse",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c2_requete_r": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_requete_r_001",
+     "qui": "bibliothecaire",
+     "texte": "Regarde ce qui manque. Les articles indexés seulement par un descripteur, tu les perds sans le MeSH.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_requete_r_002",
+     "qui": "bibliothecaire",
+     "texte": "Et les études en français ne disent pas « older adults ». Elles disent « aînés ».",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_requete_r_003",
+     "qui": "bibliothecaire",
+     "texte": "Les termes trop larges gonflent tout. « Patient* », « adult* », « communit* » : méfie-toi.",
+     "emotion": "insistant",
+     "intensite": 0.4,
+     "anim": "point",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c2_requete_r_004",
+     "qui": "eric",
+     "texte": "Je recommence. Zotero va encore me dire que j’ai des doublons.",
+     "emotion": "fatigue",
+     "intensite": 0.4,
+     "anim": "type",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c2_bases": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_bases_001",
+     "qui": "bibliothecaire",
+     "texte": "Ton équation testée dans MEDLINE, on l’adapte à CINAHL, Embase, PsycINFO, AgeLine, Cairn et Érudit. Chaque base a sa raison.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_bases_002",
+     "qui": "bibliothecaire",
+     "texte": "CINAHL pour le soin à domicile, AgeLine pour la gérontologie sociale, Cairn et Érudit pour le français.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_bases_003",
+     "qui": "bibliothecaire",
+     "texte": "Tant qu’à y être, pousse le chariot des retours jusqu’à la chute à livres. Doucement.",
+     "emotion": "amuse",
+     "intensite": 0.3,
+     "anim": "point",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c2_jbi": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_jbi_001",
+     "qui": "eric",
+     "texte": "Le manuel JBI, chapitre 11. L’ordre des étapes a l’air évident. C’est toujours là que je me trompe.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "read",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c2_photocopieur": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_photocopieur_001",
+     "qui": "eric",
+     "texte": "« Bourrage. Ouvrir A, puis… » La suite est effacée. Par un doctorant désespéré, sans doute.",
+     "emotion": "agace",
+     "intensite": 0.4,
+     "anim": "push",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c2_photocopieur_002",
+     "qui": "etudiant_2",
+     "texte": "Il y a une file derrière toi. Trois personnes. Une a apporté un lunch.",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_photocopieur_003",
+     "qui": "eric",
+     "texte": "Personne ne bouge. Je suis un professionnel.",
+     "emotion": "stresse",
+     "intensite": 0.4,
+     "anim": "push",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c2_dort": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_dort_001",
+     "qui": "etudiant_3",
+     "texte": "Mmh… le BIC… quatre classes… non, trois…",
+     "emotion": "fatigue",
+     "intensite": 0.5,
+     "anim": "sit",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_dort_002",
+     "qui": "eric",
+     "texte": "Félix-Antoine ? Tu dors sur un manuel de classes latentes.",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c2_dort_003",
+     "qui": "etudiant_3",
+     "texte": "C’est pas dormir, c’est une analyse en classes latentes. Avec les yeux fermés.",
+     "emotion": "fatigue",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_dort_004",
+     "qui": "eric",
+     "texte": "Je te laisse converger. Bonne nuit.",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "nod",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c2_etudiant": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_etudiant_001",
+     "qui": "etudiant_1",
+     "texte": "Moi, j’ai fait cribler mes résumés par une IA. Deux mille en une heure.",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_etudiant_002",
+     "qui": "eric",
+     "texte": "Et ton deuxième réviseur ?",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_etudiant_003",
+     "qui": "etudiant_1",
+     "texte": "Une autre IA. Accord interjuges parfait. Mon comité trouve ça louche, je comprends pas pourquoi.",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c2_criblage_intro": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_criblage_intro_001",
+     "qui": "bibliothecaire",
+     "texte": "Dix-huit résumés, cinq minutes. Inclus ou exclus, avec le critère qui manque. On calibre avant de cribler pour vrai.",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_criblage_intro_002",
+     "qui": "eric",
+     "texte": "Cinq minutes. C’est plus que ce que le comité me donnera.",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "sit",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c2_criblage_intro_003",
+     "qui": "bibliothecaire",
+     "texte": "Lis jusqu’à la dernière phrase. Les pièges aiment la dernière phrase.",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c2_criblage_r": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_criblage_r_001",
+     "qui": "bibliothecaire",
+     "texte": "Les 55 ans et plus : regarde si les 65 ans sont présentés à part. Ça change tout.",
+     "emotion": "chuchote",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_criblage_r_002",
+     "qui": "bibliothecaire",
+     "texte": "Ta revue n’est pas limitée au Québec. Et la RPA, ici, compte comme domicile pour le SAD.",
+     "emotion": "chuchote",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_criblage_r_003",
+     "qui": "eric",
+     "texte": "Une semaine de criblage à refaire. Mon accord interjuges vient de faire une chute.",
+     "emotion": "fatigue",
+     "intensite": 0.3,
+     "anim": "nod",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c2_instruments": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_instruments_001",
+     "qui": "bibliothecaire",
+     "texte": "Ta grille d’extraction va noter l’instrument de chaque étude. Sais-tu ce que chacun mesure, et ce qu’il ne voit pas ?",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_instruments_002",
+     "qui": "eric",
+     "texte": "Le CANE, l’interRAI, l’AHC, PRAPARE, l’OEMC. Cinq outils, cinq angles morts.",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "type",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c2_periodiques": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_periodiques_001",
+     "qui": "eric",
+     "texte": "Les périodiques. Une revue de gérontologie encore sous plastique. Personne ne l’a lue. Elle me ressemble.",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "read",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c2_periodiques_002",
+     "qui": "bibliothecaire",
+     "texte": "Lis les conclusions. Puis demande-toi si les données les permettent. C’est là que ton jury va frapper.",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c2_quete_b": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_quete_b_001",
+     "qui": "bibliothecaire",
+     "texte": "Pour O2 et O3, maintenant. Quatre autres ouvrages : SIG, mesure, réseaux égocentrés, études de cas.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_quete_b_002",
+     "qui": "bibliothecaire",
+     "texte": "Les rayons W84 et HV. Le livre de Yin est sur la tablette du bas. Personne ne se penche jusque-là.",
+     "emotion": "amuse",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c2_quete_b_fin": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_quete_b_fin_001",
+     "qui": "bibliothecaire",
+     "texte": "Parfait. Tu as maintenant plus de livres que de semaines. C’est un ratio très doctoral.",
+     "emotion": "joie",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_quete_b_fin_002",
+     "qui": "eric",
+     "texte": "Et plus de références que de sommeil.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "nod",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c2_reservation": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_reservation_001",
+     "qui": "eric",
+     "texte": "Salle de groupe : réservée de 9 h à 17 h par « Comité de thèse, à confirmer ».",
+     "emotion": "agace",
+     "intensite": 0.4,
+     "anim": "type",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c2_reservation_002",
+     "qui": "bibliothecaire",
+     "texte": "Ça fait trois semaines que ce comité-là ne s’est pas présenté. Prends le créneau de midi.",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_reservation_003",
+     "qui": "eric",
+     "texte": "Réservé. Au nom de « Revue de portée, confirmée ».",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "type",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c2_salle_groupe": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_salle_groupe_001",
+     "qui": "collegue_doc",
+     "texte": "Entre ! J’ai apporté des muffins de la machine.",
+     "emotion": "enthousiaste",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_salle_groupe_002",
+     "qui": "eric",
+     "texte": "Les muffins de la machine. Tu veux vraiment que je finisse ma thèse.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "sit",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_salle_groupe_003",
+     "qui": "collegue_doc",
+     "texte": "Ta grille de domaines doit parler la langue du 211. Sinon, tes deux volets d’O1 ne se reconnaîtront pas.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "point",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_salle_groupe_004",
+     "qui": "collegue_doc",
+     "texte": "Petit indice : l’accompagnement aux rendez-vous est rangé dans le P. Pas dans le transport.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_salle_groupe_005",
+     "qui": "eric",
+     "texte": "Dans le P ?",
+     "emotion": "inquiet",
+     "intensite": 0.3,
+     "anim": "think",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c2_salle_groupe_006",
+     "qui": "collegue_doc",
+     "texte": "PH-2200. Je l’ai découvert à minuit. Ma vie sociale ne s’en est jamais remise.",
+     "emotion": "joie",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c2_taxo_r": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_taxo_r_001",
+     "qui": "collegue_doc",
+     "texte": "Le code dit où le 211 range le service. Ton domaine dit à quel besoin il répond. C’est pas pareil.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_taxo_r_002",
+     "qui": "collegue_doc",
+     "texte": "La relève à domicile, c’est de la proche aidance. La livraison de repas, de l’alimentation. Le mot « domicile » ment.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c2_limites": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_limites_001",
+     "qui": "collegue_doc",
+     "texte": "Ta direction va te demander ce que le 211 peut vraiment te donner. Sans rêver.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_limites_002",
+     "qui": "eric",
+     "texte": "Le modèle public, l’extraction autorisée, et ce que le 211 ne saura jamais.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_limites_003",
+     "qui": "collegue_doc",
+     "texte": "Personne n’appelle le 211 pour dire : « Bonjour, j’ai un diabète, un TNC et une condition traceuse. »",
+     "emotion": "amuse",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c2_cooc": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_cooc_001",
+     "qui": "collegue_doc",
+     "texte": "Huit mille trois cents demandes de 60 ans et plus ! Tes classes latentes vont chanter !",
+     "emotion": "enthousiaste",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_cooc_002",
+     "qui": "eric",
+     "texte": "Ou chanter faux. Combien de besoins par demande, déjà ?",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "think",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c2_cooc_r": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_cooc_r_001",
+     "qui": "collegue_doc",
+     "texte": "Bon, j’avoue. Un virgule quatre besoin par demande, ça fait pas des profils de personnes.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_cooc_r_002",
+     "qui": "eric",
+     "texte": "Paires, triades, Jaccard, réseau de cooccurrence. Et des profils par territoire.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c2_echelle": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_echelle_001",
+     "qui": "collegue_doc",
+     "texte": "Dernière chose. Le 211 publie par arrondissement. Toi, tu travailles par CLSC.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "point",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_echelle_002",
+     "qui": "eric",
+     "texte": "Et Ville-Marie déborde sur le CLSC Métro, hors CCSMTL. Plus du tiers de sa population.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_echelle_003",
+     "qui": "collegue_doc",
+     "texte": "Le 211 a aussi une « MRC ». Ne me demande pas laquelle.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c2_depart": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_depart_001",
+     "qui": "bibliothecaire",
+     "texte": "Ton journal de recherche est propre. Garde-le : les comités adorent les journaux de recherche.",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_depart_002",
+     "qui": "eric",
+     "texte": "Merci, Margaux. Je vous dois un café. Pas de la machine.",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "nod",
+     "plan": "epaule"
+    },
+    {
+     "id": "c2_depart_003",
+     "qui": "bibliothecaire",
+     "texte": "Surtout pas de la machine. Va au CLSC, maintenant. Les données, c’est bien. Le terrain, c’est mieux.",
+     "emotion": "amuse",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c2_fin": {
+   "lieu": "bibliotheque",
+   "lignes": [
+    {
+     "id": "c2_fin_001",
+     "qui": "eric",
+     "texte": "Des critères, une équation, un criblage, une grille qui parle au 211. Et huit livres que je vais vraiment lire.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "idle",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c2_fin_002",
+     "qui": "eric",
+     "texte": "Bon. Que je vais vraiment ouvrir.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "idle",
+     "plan": "gros_plan"
+    }
+   ]
+  },
+  "c3_arrivee": {
+   "lieu": "clsc",
+   "lignes": [
+    {
+     "id": "c3_arrivee_001",
+     "qui": "eric",
+     "texte": "CLSC des Faubourgs. Centre-Sud. Le terrain, enfin. Sans tableau, sans flèches, sans comité.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "idle",
+     "plan": "large"
+    },
+    {
+     "id": "c3_arrivee_002",
+     "qui": "eric",
+     "texte": "La porte s’ouvre toute seule. Premier contact réussi.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "walk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_arrivee_003",
+     "qui": "usager_1",
+     "texte": "Prenez un numéro, jeune homme. Sinon, Ludovic va faire semblant de pas vous voir.",
+     "emotion": "amuse",
+     "intensite": 0.3,
+     "anim": "sit",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c3_borne": {
+   "lieu": "clsc",
+   "lignes": [
+    {
+     "id": "c3_borne_001",
+     "qui": "eric",
+     "texte": "Numéro 47. L’écran affiche 12. J’ai le temps de réviser deux chapitres.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "read",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c3_borne_002",
+     "qui": "usager_1",
+     "texte": "Moi, j’ai le 31. Troisième fois que je reviens pour mes papiers de pension.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_borne_003",
+     "qui": "usager_1",
+     "texte": "Quatre formulaires, deux numéros de téléphone, pis personne qui répond le vendredi.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_borne_004",
+     "qui": "eric",
+     "texte": "Les démarches administratives. Un domaine de besoin à part entière.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "nod",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c3_accueil": {
+   "lieu": "clsc",
+   "lignes": [
+    {
+     "id": "c3_accueil_001",
+     "qui": "prepose_accueil",
+     "texte": "Bonjour. Votre carte d’assurance maladie ?",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_accueil_002",
+     "qui": "eric",
+     "texte": "Je suis doctorant. J’ai rendez-vous avec l’équipe du soutien à domicile.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_accueil_003",
+     "qui": "prepose_accueil",
+     "texte": "Un doctorant. Le dernier voulait compter les chaises de la salle d’attente.",
+     "emotion": "amuse",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_accueil_004",
+     "qui": "eric",
+     "texte": "Moi, je compte les organismes. C’est presque pareil, mais avec des liens.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c3_carte_murale": {
+   "lieu": "clsc",
+   "lignes": [
+    {
+     "id": "c3_carte_murale_001",
+     "qui": "eric",
+     "texte": "La carte du territoire. Popotes, comptoirs, clubs, arrêts. Tout ce qui existait au moment de l’impression.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "read",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c3_carte_murale_002",
+     "qui": "eric",
+     "texte": "Ma frontière ne part pas de cette carte. Elle part des besoins. Chaque domaine appelle ses ressources.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "think",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c3_carte_r": {
+   "lieu": "clsc",
+   "lignes": [
+    {
+     "id": "c3_carte_r_001",
+     "qui": "eric",
+     "texte": "Une densité : nombre de ressources divisé par les aînés, fois mille. Pas l’inverse.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "think",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c3_carte_r_002",
+     "qui": "eric",
+     "texte": "Le 2SFCA : capacité sur la population du bassin, puis la somme des ratios atteignables.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "think",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c3_carte_r_003",
+     "qui": "eric",
+     "texte": "Et une popote pleine n’est pas une popote disponible.",
+     "emotion": "fatigue",
+     "intensite": 0.4,
+     "anim": "think",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c3_babillard": {
+   "lieu": "clsc",
+   "lignes": [
+    {
+     "id": "c3_babillard_001",
+     "qui": "eric",
+     "texte": "« Popote roulante : bénévoles demandés. » « Club de marche du mardi. » « Clinique d’impôts gratuite en mars. »",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "read",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c3_babillard_002",
+     "qui": "eric",
+     "texte": "Trois ressources que le répertoire ne connaît peut-être pas. Les répertoires sont souvent inexacts.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "read",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c3_intervenante": {
+   "lieu": "clsc",
+   "lignes": [
+    {
+     "id": "c3_intervenante_001",
+     "qui": "intervenante_sad",
+     "texte": "Entre. Tasse la pile de dossiers. C’est pas des archives, c’est ma semaine.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_intervenante_002",
+     "qui": "eric",
+     "texte": "Je fais une thèse sur votre semaine, justement.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_intervenante_003",
+     "qui": "intervenante_sad",
+     "texte": "T’aurais pu choisir un sujet plus reposant. La guerre de Cent Ans, mettons.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_intervenante_004",
+     "qui": "intervenante_sad",
+     "texte": "Ce matin, une dame de 81 ans : avis d’éviction, frigo vide, pis son mari qui la reconnaît plus.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_intervenante_005",
+     "qui": "eric",
+     "texte": "Logement, alimentation, proche aidance. Trois domaines dans la même visite.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "nod",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_intervenante_006",
+     "qui": "intervenante_sad",
+     "texte": "Trois domaines, quatre organismes, cinq numéros de téléphone. Pis un fax. Oui, un fax.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_intervenante_007",
+     "qui": "intervenante_sad",
+     "texte": "Pose-moi ta question. Mais si elle commence par « avec qui collaborez-vous », je vais te nommer tout le Québec.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c3_generateur_r": {
+   "lieu": "clsc",
+   "lignes": [
+    {
+     "id": "c3_generateur_r_001",
+     "qui": "intervenante_sad",
+     "texte": "Trop vague. Sur quelle période ? Pour quel besoin ? Sinon, on te nomme nos meilleurs amis, pis c’est tout.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_generateur_r_002",
+     "qui": "intervenante_sad",
+     "texte": "Donne-moi douze mois, un domaine, ou une vignette. Là, je vais me souvenir des vrais noms.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_generateur_r_003",
+     "qui": "eric",
+     "texte": "Un générateur précis pour un rappel juste. Je reformule.",
+     "emotion": "fatigue",
+     "intensite": 0.3,
+     "anim": "nod",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c3_niveaux": {
+   "lieu": "clsc",
+   "lignes": [
+    {
+     "id": "c3_niveaux_001",
+     "qui": "intervenante_sad",
+     "texte": "Tu veux savoir si on « collabore » ? Tout le monde dit oui. La question, c’est jusqu’où.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_niveaux_002",
+     "qui": "eric",
+     "texte": "Quatre niveaux : échange d’information, coopération, coordination, intégration. Le plus élevé, avec chaque organisme.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_niveaux_003",
+     "qui": "intervenante_sad",
+     "texte": "Avec la popote, on s’appelle tous les jours. Ça doit être le niveau quatre, non ?",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_niveaux_004",
+     "qui": "eric",
+     "texte": "Pas forcément. La fréquence, c’est une autre question. Vous êtes peut-être au premier.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c3_niveaux_005",
+     "qui": "intervenante_sad",
+     "texte": "Le premier ? Après vingt ans ? Je vais l’annoncer à Lise. Elle va être insultée.",
+     "emotion": "amuse",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c3_reunion": {
+   "lieu": "clsc",
+   "lignes": [
+    {
+     "id": "c3_reunion_001",
+     "qui": "gestionnaire_clsc",
+     "texte": "Bienvenue. Nadège m’a parlé de ton projet. L’équipe accepte de tester ton questionnaire.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_reunion_002",
+     "qui": "eric",
+     "texte": "Merci. Une vignette : Mme Protocole, 72 ans, ici, à Centre-Sud.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_reunion_003",
+     "qui": "intervenante_sad",
+     "texte": "Mme Protocole ? Elle avait pas 58 ans, sur ton affiche ?",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_reunion_004",
+     "qui": "eric",
+     "texte": "Elle a pris quatorze ans depuis. C’est ça, une révision de protocole.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c3_reunion_005",
+     "qui": "eric",
+     "texte": "Avis d’éviction, insécurité alimentaire, dettes, elle vit seule. Vers qui l’orientez-vous ?",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_reunion_006",
+     "qui": "intervenante_sad",
+     "texte": "La popote, l’office d’habitation, l’accompagnement-transport, le GMF pour ses médicaments. Pis on se parle entre nous.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c3_reseau_r": {
+   "lieu": "clsc",
+   "lignes": [
+    {
+     "id": "c3_reseau_r_001",
+     "qui": "intervenante_sad",
+     "texte": "Le GMF pis la pharmacie se parlent entre eux. Personne les relie à nos organismes. C’est là, ton trou.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_reseau_r_002",
+     "qui": "eric",
+     "texte": "Et la taille effective, c’est le nombre d’alters moins leur redondance. Pas le nombre de noms.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "think",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c3_atlas": {
+   "lieu": "clsc",
+   "lignes": [
+    {
+     "id": "c3_atlas_001",
+     "qui": "eric",
+     "texte": "Les huit territoires du RTS 063. Verdun : 14 163 aînés en 2026. Pointe-Saint-Charles : 2 132.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "read",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c3_atlas_002",
+     "qui": "eric",
+     "texte": "Une densité pour mille aînés, territoire par territoire. Les zéros, surtout, demandent une explication.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "think",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c3_cas": {
+   "lieu": "clsc",
+   "lignes": [
+    {
+     "id": "c3_cas_001",
+     "qui": "gestionnaire_clsc",
+     "texte": "Tu vas aller dans combien de CLSC ? Les huit ?",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_cas_002",
+     "qui": "eric",
+     "texte": "Trois ou quatre, contrastés. L’atlas m’aide à choisir, et le comité de liaison de l’AIPPA valide.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c3_cas_r": {
+   "lieu": "clsc",
+   "lignes": [
+    {
+     "id": "c3_cas_r_001",
+     "qui": "gestionnaire_clsc",
+     "texte": "Si tes cas se ressemblent, qu’est-ce que tu compares ? Prends des contrastes : revenu, gouvernance, langue.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_cas_r_002",
+     "qui": "eric",
+     "texte": "Et Verdun, pour le 211 qui s’attribue sans correction. Je refais la grille.",
+     "emotion": "fatigue",
+     "intensite": 0.3,
+     "anim": "nod",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c3_gestionnaire": {
+   "lieu": "clsc",
+   "lignes": [
+    {
+     "id": "c3_gestionnaire_001",
+     "qui": "gestionnaire_clsc",
+     "texte": "Ferme la porte. Je veux t’aider. Ton volet avec l’OEMC, ça risque de prendre des mois.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_gestionnaire_002",
+     "qui": "eric",
+     "texte": "Au moins. Il faut passer par la Loi sur les renseignements de santé et de services sociaux.",
+     "emotion": "inquiet",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_gestionnaire_003",
+     "qui": "gestionnaire_clsc",
+     "texte": "Ou je te sors un Excel ce soir. Entre nous. Personne va le savoir.",
+     "emotion": "amuse",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c3_gestionnaire_004",
+     "qui": "eric",
+     "texte": "Moi, je vais le savoir.",
+     "emotion": "stresse",
+     "intensite": 0.5,
+     "anim": "think",
+     "plan": "gros_plan"
+    }
+   ]
+  },
+  "c3_acces_r": {
+   "lieu": "clsc",
+   "lignes": [
+    {
+     "id": "c3_acces_r_001",
+     "qui": "gestionnaire_clsc",
+     "texte": "T’as raison de reculer. Si ça sortait, c’était mon poste pis ton doctorat.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_acces_r_002",
+     "qui": "gestionnaire_clsc",
+     "texte": "Fais ta demande en bonne et due forme. Je signerai ce qu’il faut signer, pas plus.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_acces_r_003",
+     "qui": "eric",
+     "texte": "Deux semaines perdues à me remettre de la peur. Mais le dossier sera propre.",
+     "emotion": "fatigue",
+     "intensite": 0.4,
+     "anim": "nod",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c3_usager_1": {
+   "lieu": "clsc",
+   "lignes": [
+    {
+     "id": "c3_usager_1_001",
+     "qui": "usager_1",
+     "texte": "Vous faites une étude sur nous autres ?",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "sit",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_usager_1_002",
+     "qui": "eric",
+     "texte": "Sur ce qui vous aide et sur ce qui manque. Avec des personnes fictives, pour protéger tout le monde.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_usager_1_003",
+     "qui": "usager_1",
+     "texte": "Mettez qu’il manque quelqu’un qui répond le vendredi. Pis un autobus qui arrête devant chez nous.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_usager_1_004",
+     "qui": "eric",
+     "texte": "Démarches et transport. Je le note. Pour vrai.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "nod",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c3_usager_2": {
+   "lieu": "clsc",
+   "lignes": [
+    {
+     "id": "c3_usager_2_001",
+     "qui": "usager_2",
+     "texte": "La popote, c’est mon meilleur repas de la semaine. Pis le livreur, c’est mon meilleur placoteux.",
+     "emotion": "joie",
+     "intensite": 0.3,
+     "anim": "sit",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_usager_2_002",
+     "qui": "eric",
+     "texte": "Alimentation et isolement, réglés par la même porte. Les besoins se tiennent par la main.",
+     "emotion": "amuse",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_usager_2_003",
+     "qui": "usager_2",
+     "texte": "Écrivez ça dans votre thèse. Vous me donnerez une copie.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c3_depart": {
+   "lieu": "clsc",
+   "lignes": [
+    {
+     "id": "c3_depart_001",
+     "qui": "intervenante_sad",
+     "texte": "Reviens nous montrer tes résultats. Pas un classement : des pistes.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c3_depart_002",
+     "qui": "eric",
+     "texte": "Promis. Des corridors, pas un palmarès.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "nod",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c3_fin": {
+   "lieu": "clsc",
+   "lignes": [
+    {
+     "id": "c3_fin_001",
+     "qui": "eric",
+     "texte": "Une frontière, une carte, un générateur, un sociogramme. Et une offre d’Excel refusée.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "idle",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c3_fin_002",
+     "qui": "eric",
+     "texte": "J’ai besoin de glace. Pas dans un verre : sous mes patins.",
+     "emotion": "fatigue",
+     "intensite": 0.5,
+     "anim": "idle",
+     "plan": "gros_plan"
+    }
+   ]
+  },
+  "c4_arrivee": {
+   "lieu": "arena",
+   "lignes": [
+    {
+     "id": "c4_arrivee_001",
+     "qui": "collegue_doc",
+     "texte": "La ligue du mardi ! Une heure de glace, pas un mot sur ta thèse. C’est la règle.",
+     "emotion": "enthousiaste",
+     "intensite": 0.6,
+     "anim": "walk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_arrivee_002",
+     "qui": "eric",
+     "texte": "Tu viens de dire « thèse ». On commence mal.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_arrivee_003",
+     "qui": "collegue_doc",
+     "texte": "Moi, j’ai le droit : je suis la marqueuse. Je note tout, surtout les passes que vous pensez avoir faites.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_arrivee_004",
+     "qui": "eric",
+     "texte": "L’odeur de la glace, le bruit des bandes. Mon stress descend déjà d’un étage.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "idle",
+     "plan": "large"
+    }
+   ]
+  },
+  "c4_vestiaire": {
+   "lieu": "arena",
+   "lignes": [
+    {
+     "id": "c4_vestiaire_001",
+     "qui": "joueur_hockey_1",
+     "texte": "Bernier ! On pensait que ton comité t’avait mangé.",
+     "emotion": "joie",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_vestiaire_002",
+     "qui": "eric",
+     "texte": "Il m’a seulement mâchouillé. Mais je n’ai pas patiné depuis l’école primaire.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "sit",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_vestiaire_003",
+     "qui": "joueur_hockey_3",
+     "texte": "Ça tombe bien, le coach donne une leçon avant la partie. Lace serré, surtout aux chevilles.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c4_lecon_intro": {
+   "lieu": "arena",
+   "lignes": [
+    {
+     "id": "c4_lecon_intro_001",
+     "qui": "entraineur_patin",
+     "texte": "Salut ! Benoît. Tout le monde m’appelle Coach. Toi, t’as des patins neufs pis un regard inquiet.",
+     "emotion": "enthousiaste",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_lecon_intro_002",
+     "qui": "eric",
+     "texte": "Les deux sont exacts.",
+     "emotion": "inquiet",
+     "intensite": 0.4,
+     "anim": "skate_wobble",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c4_lecon_intro_003",
+     "qui": "entraineur_patin",
+     "texte": "Règle numéro un : on va tomber. Règle numéro deux : on tombe sur le côté, genoux pliés.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_lecon_intro_004",
+     "qui": "entraineur_patin",
+     "texte": "On fait comme une vraie étude : équilibre, poussée, glisse. Après, l’arrêt. Jamais l’inverse.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "point",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_lecon_intro_005",
+     "qui": "eric",
+     "texte": "Un protocole de patinage. Enfin un domaine où je connais la méthode.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "skate_wobble",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c4_lecon_intro_006",
+     "qui": "entraineur_patin",
+     "texte": "Prends l’aide-patineur si tu veux. Y a pas de honte. La honte, c’est la bande.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c4_lecon_mi": {
+   "lieu": "arena",
+   "lignes": [
+    {
+     "id": "c4_lecon_mi_001",
+     "qui": "entraineur_patin",
+     "texte": "Tu avances ! Maintenant, la question que tout le monde oublie : comment on s’arrête ?",
+     "emotion": "joie",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_lecon_mi_002",
+     "qui": "eric",
+     "texte": "J’espérais que la bande me répondrait.",
+     "emotion": "stresse",
+     "intensite": 0.4,
+     "anim": "skate_idle",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c4_lecon_mi_003",
+     "qui": "entraineur_patin",
+     "texte": "La bande répond toujours. Mais jamais gentiment.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "shake",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c4_lecon_fin": {
+   "lieu": "arena",
+   "lignes": [
+    {
+     "id": "c4_lecon_fin_001",
+     "qui": "entraineur_patin",
+     "texte": "Tu patines. Mal, mais tu patines. C’est la plus belle phrase que je dis dans une journée.",
+     "emotion": "joie",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_lecon_fin_002",
+     "qui": "eric",
+     "texte": "Ça vaut un « correct » de Lunel.",
+     "emotion": "joie",
+     "intensite": 0.5,
+     "anim": "skate_idle",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c4_lecon_fin_003",
+     "qui": "entraineur_patin",
+     "texte": "Va chercher une rondelle. On passe au hockey.",
+     "emotion": "enthousiaste",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c4_gardien": {
+   "lieu": "arena",
+   "lignes": [
+    {
+     "id": "c4_gardien_001",
+     "qui": "gardien",
+     "texte": "Beau lancer. Mais t’as vu comment la rondelle est arrivée jusqu’à toi ?",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_gardien_002",
+     "qui": "eric",
+     "texte": "Bruno m’a fait une passe.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "skate_idle",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_gardien_003",
+     "qui": "gardien",
+     "texte": "Pis Samuel à Bruno, pis Rachid à Samuel. Un but, c’est une chaîne de passes. Pas un nom sur une feuille.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_gardien_004",
+     "qui": "eric",
+     "texte": "Une liste de joueurs, c’est un répertoire. Les passes, c’est le réseau.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "think",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c4_gardien_005",
+     "qui": "gardien",
+     "texte": "T’as fait un doctorat pour comprendre ça ? Moi, j’ai juste gardé les buts pendant trente ans.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c4_partie_intro": {
+   "lieu": "arena",
+   "lignes": [
+    {
+     "id": "c4_partie_intro_001",
+     "qui": "entraineur_patin",
+     "texte": "Partie amicale, huit minutes. Bruno, Samuel, Rachid avec Éric. En face, Olivier, Kim pis Étienne. Gaétan garde en face.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "point",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_partie_intro_002",
+     "qui": "joueur_hockey_2",
+     "texte": "Pis nous autres, pas de gardien. On défend serré ou on prie.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_partie_intro_003",
+     "qui": "entraineur_patin",
+     "texte": "Objectif pour toi : quatre passes réussies, deux tirs cadrés. Les buts, c’est un bonus.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c4_apres_partie": {
+   "lieu": "arena",
+   "lignes": [
+    {
+     "id": "c4_apres_partie_001",
+     "qui": "collegue_doc",
+     "texte": "Ma feuille de la saison est formelle. Vous avez tous déclaré plus de passes que j’en ai vu.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "read",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_apres_partie_002",
+     "qui": "joueur_hockey_1",
+     "texte": "Voyons, j’en ai fait au moins dix, juste ce soir !",
+     "emotion": "agace",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_apres_partie_003",
+     "qui": "collegue_doc",
+     "texte": "T’en as fait six. Les quatre autres étaient dans ta tête.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_apres_partie_004",
+     "qui": "eric",
+     "texte": "Réseau déclaré, réseau observé. Même au hockey, ils ne se recouvrent pas.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "think",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c4_zamboni": {
+   "lieu": "arena",
+   "lignes": [
+    {
+     "id": "c4_zamboni_001",
+     "qui": "chauffeur_zamboni",
+     "texte": "Tout le monde au banc ! Je refais la glace. Toi, le doctorant, reste là.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_zamboni_002",
+     "qui": "eric",
+     "texte": "J’ai fait quelque chose ?",
+     "emotion": "inquiet",
+     "intensite": 0.3,
+     "anim": "skate_idle",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_zamboni_003",
+     "qui": "chauffeur_zamboni",
+     "texte": "Non. Ma femme reçoit de l’aide à domicile. Explique-moi ta thèse. T’as le temps d’un tour de surfaceuse.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_zamboni_004",
+     "qui": "chauffeur_zamboni",
+     "texte": "Pis si tu dis « intersectoriel », je te fais rouler sur la glace fraîche.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c4_direction": {
+   "lieu": "arena",
+   "lignes": [
+    {
+     "id": "c4_direction_001",
+     "qui": "collegue_doc",
+     "texte": "Éric. Dans les gradins. Tailleur sombre et foulard. Elles sont là toutes les deux.",
+     "emotion": "stresse",
+     "intensite": 0.5,
+     "anim": "point",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_direction_002",
+     "qui": "eric",
+     "texte": "Ma direction. À l’aréna. Il n’y a aucune sortie de secours sur une patinoire.",
+     "emotion": "stresse",
+     "intensite": 0.6,
+     "anim": "skate_idle",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c4_direction_003",
+     "qui": "direction_a",
+     "texte": "Monsieur Bernier. On avait dit vendredi. Nous sommes mardi, et vous patinez.",
+     "emotion": "solennel",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "large"
+    },
+    {
+     "id": "c4_direction_004",
+     "qui": "direction_b",
+     "texte": "Mais on est contentes de te voir ! J’ai eu trois petites idées en montant les marches.",
+     "emotion": "enthousiaste",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_direction_005",
+     "qui": "eric",
+     "texte": "Trois. Pendant les marches. C’est un record.",
+     "emotion": "ironie",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c4_direction_006",
+     "qui": "direction_a",
+     "texte": "Il reste peu de semaines. Il faut arbitrer. Qu’est-ce qu’on coupe ?",
+     "emotion": "neutre",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c4_couper_r": {
+   "lieu": "arena",
+   "lignes": [
+    {
+     "id": "c4_couper_r_001",
+     "qui": "direction_a",
+     "texte": "Couper ce dont tout le reste dépend, c’est scier la branche. Le volet conditionnel, lui, s’assume comme conditionnel.",
+     "emotion": "agace",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_couper_r_002",
+     "qui": "eric",
+     "texte": "Avec son repli écrit d’avance : des profils fixés à partir de la revue.",
+     "emotion": "fatigue",
+     "intensite": 0.4,
+     "anim": "nod",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c4_recensement": {
+   "lieu": "arena",
+   "lignes": [
+    {
+     "id": "c4_recensement_001",
+     "qui": "direction_b",
+     "texte": "Et le recensement de 2026 ? Les nouvelles AD sortent en novembre. On attend ?",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_recensement_002",
+     "qui": "eric",
+     "texte": "Ça dépend de ce qu’on attend. L’âge sort en mai 2027, le revenu en juillet.",
+     "emotion": "neutre",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c4_depart": {
+   "lieu": "arena",
+   "lignes": [
+    {
+     "id": "c4_depart_001",
+     "qui": "direction_a",
+     "texte": "Bien. La salle du conseil est réservée. Le jury vous attend.",
+     "emotion": "neutre",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_depart_002",
+     "qui": "direction_b",
+     "texte": "Tu es prêt. Enfin, presque. Prends une douche avant, quand même.",
+     "emotion": "enthousiaste",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c4_depart_003",
+     "qui": "eric",
+     "texte": "Rigueur, confiance et désodorisant. Les trois piliers de la soutenance.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "nod",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c5_arrivee": {
+   "lieu": "soutenance",
+   "lignes": [
+    {
+     "id": "c5_arrivee_001",
+     "qui": "jury_1",
+     "texte": "Monsieur Bernier, bienvenue. Je préside ce jury. La professeure Kessar et la professeure Ferlatte m’accompagnent.",
+     "emotion": "solennel",
+     "intensite": 0.5,
+     "anim": "sit",
+     "plan": "epaule"
+    },
+    {
+     "id": "c5_arrivee_002",
+     "qui": "jury_2",
+     "texte": "Je viens de la géographie de la santé. Je vais vous parler de cartes, et de leurs mensonges.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "nod",
+     "plan": "epaule"
+    },
+    {
+     "id": "c5_arrivee_003",
+     "qui": "jury_3",
+     "texte": "Moi, des réseaux. Je lis les sociogrammes comme d’autres lisent les lignes de la main.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "nod",
+     "plan": "epaule"
+    },
+    {
+     "id": "c5_arrivee_004",
+     "qui": "eric",
+     "texte": "Bonjour. Je vous présente un protocole en trois objectifs, et une personne fictive de 72 ans.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "idle",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c5_ecran": {
+   "lieu": "soutenance",
+   "lignes": [
+    {
+     "id": "c5_ecran_001",
+     "qui": "eric",
+     "texte": "Le câble ne rentre pas. L’adaptateur est dans mon autre sac. Mon autre sac est à l’aréna.",
+     "emotion": "stresse",
+     "intensite": 0.5,
+     "anim": "push",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c5_ecran_002",
+     "qui": "etudiant_4",
+     "texte": "Tiens, j’en ai un. Je les collectionne depuis ma propre soutenance.",
+     "emotion": "chuchote",
+     "intensite": 0.3,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c5_ecran_003",
+     "qui": "eric",
+     "texte": "Tu viens de sauver une thèse. Je te mets dans mes remerciements.",
+     "emotion": "joie",
+     "intensite": 0.4,
+     "anim": "nod",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c5_conseil_direction": {
+   "lieu": "soutenance",
+   "lignes": [
+    {
+     "id": "c5_conseil_direction_001",
+     "qui": "direction_b",
+     "texte": "Une chose : quand tu ne sais pas, dis-le. Pis dis ce que tu ferais pour savoir.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c5_conseil_direction_002",
+     "qui": "direction_a",
+     "texte": "Et appuyez chaque réponse sur ce que vous avez fait. Pas sur ce que vous croyez.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c5_conseil_direction_003",
+     "qui": "eric",
+     "texte": "Mes preuves sont dans mon dossier. Ma confiance, dans mon autre sac.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "nod",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c5_ouverture": {
+   "lieu": "soutenance",
+   "lignes": [
+    {
+     "id": "c5_ouverture_001",
+     "qui": "jury_1",
+     "texte": "Commençons par la faisabilité. Je serai direct : c’est mon rôle.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c5_tour1_r": {
+   "lieu": "soutenance",
+   "lignes": [
+    {
+     "id": "c5_tour1_r_001",
+     "qui": "jury_1",
+     "texte": "Vos réponses restent générales. Un jury veut des décisions, des chiffres, des sources.",
+     "emotion": "agace",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c5_tour1_r_002",
+     "qui": "eric",
+     "texte": "Compris. Je vais m’appuyer davantage sur ma fiche.",
+     "emotion": "stresse",
+     "intensite": 0.5,
+     "anim": "nod",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c5_tour2": {
+   "lieu": "soutenance",
+   "lignes": [
+    {
+     "id": "c5_tour2_001",
+     "qui": "jury_2",
+     "texte": "À moi. Votre territoire, vos échelles, vos indicateurs. Une carte peut tout dire, surtout des sottises.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "point",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c5_tour2_r": {
+   "lieu": "soutenance",
+   "lignes": [
+    {
+     "id": "c5_tour2_r_001",
+     "qui": "jury_2",
+     "texte": "Une densité n’est pas une accessibilité, et un arrondissement n’est pas un CLSC. Retenez au moins ça.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c5_tour3": {
+   "lieu": "soutenance",
+   "lignes": [
+    {
+     "id": "c5_tour3_001",
+     "qui": "jury_3",
+     "texte": "Parlons réseaux. Je veux savoir où commence et où finit le vôtre.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c5_tour3_r": {
+   "lieu": "soutenance",
+   "lignes": [
+    {
+     "id": "c5_tour3_r_001",
+     "qui": "jury_3",
+     "texte": "Un réseau sans frontière n’est pas un réseau. C’est un annuaire qui a de l’ambition.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c5_tour4": {
+   "lieu": "soutenance",
+   "lignes": [
+    {
+     "id": "c5_tour4_001",
+     "qui": "jury_1",
+     "texte": "Dernière série. Mes collègues et moi alternons. Respirez, monsieur Bernier.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c5_tour4_002",
+     "qui": "eric",
+     "texte": "Je respire. C’est la seule chose que je fais sans référence.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "idle",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c5_deliberation": {
+   "lieu": "soutenance",
+   "lignes": [
+    {
+     "id": "c5_deliberation_001",
+     "qui": "jury_1",
+     "texte": "Merci. Le jury va délibérer. Sortez quelques minutes, s’il vous plaît.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c5_deliberation_002",
+     "qui": "collegue_doc",
+     "texte": "T’as été bon. Vraiment. Même la question sur Mme Protocole.",
+     "emotion": "chuchote",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c5_deliberation_003",
+     "qui": "eric",
+     "texte": "Quatorze semaines pour vingt minutes. Le ratio le plus injuste de la recherche.",
+     "emotion": "fatigue",
+     "intensite": 0.5,
+     "anim": "sit",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c5_deliberation_004",
+     "qui": "direction_b",
+     "texte": "Ils ont ri à ta blague sur le 211. C’est bon signe. Ils ne rient jamais.",
+     "emotion": "chuchote",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c5_deliberation_tendue": {
+   "lieu": "soutenance",
+   "lignes": [
+    {
+     "id": "c5_deliberation_tendue_001",
+     "qui": "jury_1",
+     "texte": "Merci. Le jury va délibérer. Cela pourrait prendre un moment.",
+     "emotion": "neutre",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c5_deliberation_tendue_002",
+     "qui": "eric",
+     "texte": "« Un moment ». Dans la langue des jurys, ça veut dire des corrections.",
+     "emotion": "stresse",
+     "intensite": 0.6,
+     "anim": "sit",
+     "plan": "rapproche"
+    },
+    {
+     "id": "c5_deliberation_tendue_003",
+     "qui": "direction_a",
+     "texte": "Des corrections, ce n’est pas un échec, Éric. C’est le métier.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "c5_fin_felicitations": {
+   "lieu": "soutenance",
+   "lignes": [
+    {
+     "id": "c5_fin_felicitations_001",
+     "qui": "jury_1",
+     "texte": "Le jury accepte votre protocole sans corrections. Et avec ses félicitations, ce qui est rare.",
+     "emotion": "solennel",
+     "intensite": 0.6,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c5_fin_felicitations_002",
+     "qui": "direction_a",
+     "texte": "Je n’ai rien à ajouter. Pour une fois.",
+     "emotion": "joie",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c5_fin_felicitations_003",
+     "qui": "direction_b",
+     "texte": "Moi, oui ! J’ai une petite idée pour ton postdoc !",
+     "emotion": "enthousiaste",
+     "intensite": 0.7,
+     "anim": "celebrate",
+     "plan": "epaule"
+    },
+    {
+     "id": "c5_fin_felicitations_004",
+     "qui": "eric",
+     "texte": "Demain. Avant 23 h 14, s’il vous plaît.",
+     "emotion": "ironie",
+     "intensite": 0.6,
+     "anim": "celebrate",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c5_fin_accepte": {
+   "lieu": "soutenance",
+   "lignes": [
+    {
+     "id": "c5_fin_accepte_001",
+     "qui": "jury_1",
+     "texte": "Le jury accepte votre protocole, avec des corrections mineures. Vous les recevrez par écrit.",
+     "emotion": "solennel",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c5_fin_accepte_002",
+     "qui": "jury_3",
+     "texte": "Votre réseau a une frontière. C’est plus que bien des thèses que j’ai lues.",
+     "emotion": "joie",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c5_fin_accepte_003",
+     "qui": "direction_a",
+     "texte": "Corrections mineures. Nous avions dit vendredi. Disons vendredi prochain.",
+     "emotion": "joie",
+     "intensite": 0.4,
+     "anim": "nod",
+     "plan": "epaule"
+    },
+    {
+     "id": "c5_fin_accepte_004",
+     "qui": "eric",
+     "texte": "Vendredi. Pour une fois, j’ai hâte.",
+     "emotion": "joie",
+     "intensite": 0.6,
+     "anim": "celebrate",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "c5_fin_corrections": {
+   "lieu": "soutenance",
+   "lignes": [
+    {
+     "id": "c5_fin_corrections_001",
+     "qui": "jury_1",
+     "texte": "Le jury accepte votre protocole, sous réserve de corrections majeures. Rien d’insurmontable.",
+     "emotion": "solennel",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c5_fin_corrections_002",
+     "qui": "jury_2",
+     "texte": "Revoyez vos échelles et votre frontière. Le reste tient.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c5_fin_corrections_003",
+     "qui": "direction_b",
+     "texte": "On s’y met demain. Pas à 23 h 14, promis.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "c5_fin_corrections_004",
+     "qui": "eric",
+     "texte": "Accepté, avec des devoirs. Dans la langue doctorale, c’est une victoire.",
+     "emotion": "fatigue",
+     "intensite": 0.5,
+     "anim": "nod",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "fin_echeance": {
+   "lieu": "*",
+   "lignes": [
+    {
+     "id": "fin_echeance_001",
+     "qui": "direction_a",
+     "texte": "Monsieur Bernier. La date de dépôt est passée.",
+     "emotion": "solennel",
+     "intensite": 0.6,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "fin_echeance_002",
+     "qui": "direction_b",
+     "texte": "On va demander un report au comité de programme. Ce n’est pas la fin. C’est un détour.",
+     "emotion": "triste",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "fin_echeance_003",
+     "qui": "eric",
+     "texte": "Quatorze semaines, c’était court. La prochaine fois, je réponds aux petites idées de 23 h 14 le lendemain.",
+     "emotion": "fatigue",
+     "intensite": 0.6,
+     "anim": "defeat",
+     "plan": "rapproche"
+    },
+    {
+     "id": "fin_echeance_004",
+     "qui": "direction_b",
+     "texte": "Tu peux toujours essayer.",
+     "emotion": "amuse",
+     "intensite": 0.4,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "suivi_1": {
+   "lieu": "*",
+   "lignes": [
+    {
+     "id": "suivi_1_001",
+     "qui": "direction_a",
+     "texte": "Éric. Un instant. Vous marchez vite pour quelqu’un qui n’a pas fini sa section 4.",
+     "emotion": "insistant",
+     "intensite": 0.6,
+     "anim": "walk_fast",
+     "plan": "epaule"
+    },
+    {
+     "id": "suivi_1_002",
+     "qui": "eric",
+     "texte": "J’allais justement la finir.",
+     "emotion": "stresse",
+     "intensite": 0.5,
+     "anim": "idle",
+     "plan": "rapproche"
+    },
+    {
+     "id": "suivi_1_003",
+     "qui": "direction_a",
+     "texte": "Vous écrivez « les aînés qui appellent le 211 ». Une demande, c’est une personne ?",
+     "emotion": "neutre",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "suivi_1_succes": {
+   "lieu": "*",
+   "lignes": [
+    {
+     "id": "suivi_1_succes_001",
+     "qui": "direction_a",
+     "texte": "Exact. Écrivez « demandes », pas « aînés ». Et allez finir cette section.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "nod",
+     "plan": "epaule"
+    },
+    {
+     "id": "suivi_1_succes_002",
+     "qui": "eric",
+     "texte": "Section 4, me voici.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "nod",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "suivi_1_echec": {
+   "lieu": "*",
+   "lignes": [
+    {
+     "id": "suivi_1_echec_001",
+     "qui": "direction_a",
+     "texte": "Non. Relisez votre propre fiche : sans identifiant d’appelant, c’est un épisode d’appel.",
+     "emotion": "agace",
+     "intensite": 0.5,
+     "anim": "shake",
+     "plan": "epaule"
+    },
+    {
+     "id": "suivi_1_echec_002",
+     "qui": "eric",
+     "texte": "Une semaine de plus à corriger mes « aînés » en « demandes ».",
+     "emotion": "fatigue",
+     "intensite": 0.5,
+     "anim": "defeat",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "suivi_2": {
+   "lieu": "*",
+   "lignes": [
+    {
+     "id": "suivi_2_001",
+     "qui": "direction_b",
+     "texte": "Éric ! Je t’ai vu de loin, j’ai couru. Enfin, marché vite. J’ai une question !",
+     "emotion": "enthousiaste",
+     "intensite": 0.6,
+     "anim": "walk_fast",
+     "plan": "epaule"
+    },
+    {
+     "id": "suivi_2_002",
+     "qui": "eric",
+     "texte": "Une question, ou une petite idée ?",
+     "emotion": "ironie",
+     "intensite": 0.5,
+     "anim": "idle",
+     "plan": "rapproche"
+    },
+    {
+     "id": "suivi_2_003",
+     "qui": "direction_b",
+     "texte": "Les deux. Pour le volet 1c, on demande l’OEMC de tous les usagers SAD du CCSMTL, Pointe-Saint-Charles compris ?",
+     "emotion": "amuse",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "suivi_2_succes": {
+   "lieu": "*",
+   "lignes": [
+    {
+     "id": "suivi_2_succes_001",
+     "qui": "direction_b",
+     "texte": "Ah oui, la clinique communautaire ! Bon. J’enlève ça de ma petite idée.",
+     "emotion": "joie",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "suivi_2_succes_002",
+     "qui": "eric",
+     "texte": "Elle reste un contraste. Pas une source de données.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "nod",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "suivi_2_echec": {
+   "lieu": "*",
+   "lignes": [
+    {
+     "id": "suivi_2_echec_001",
+     "qui": "direction_b",
+     "texte": "Hum. Le SAD de Pointe-Saint-Charles relève de la clinique communautaire, Éric. On en reparle demain.",
+     "emotion": "neutre",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "suivi_2_echec_002",
+     "qui": "eric",
+     "texte": "Et après-demain. Et le jour d’après.",
+     "emotion": "fatigue",
+     "intensite": 0.5,
+     "anim": "defeat",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "suivi_3": {
+   "lieu": "*",
+   "lignes": [
+    {
+     "id": "suivi_3_001",
+     "qui": "direction_a",
+     "texte": "Monsieur Bernier. Je vous ai appelé trois fois. Votre téléphone est en mode « doctorant » ?",
+     "emotion": "insistant",
+     "intensite": 0.6,
+     "anim": "walk_fast",
+     "plan": "epaule"
+    },
+    {
+     "id": "suivi_3_002",
+     "qui": "eric",
+     "texte": "Il était en mode « silence, bibliothèque ».",
+     "emotion": "stresse",
+     "intensite": 0.5,
+     "anim": "phone",
+     "plan": "rapproche"
+    },
+    {
+     "id": "suivi_3_003",
+     "qui": "direction_a",
+     "texte": "Une question simple, alors. Dans vos réseaux, qui est l’ego ?",
+     "emotion": "neutre",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "suivi_3_succes": {
+   "lieu": "*",
+   "lignes": [
+    {
+     "id": "suivi_3_succes_001",
+     "qui": "direction_a",
+     "texte": "Bien. Et n’oubliez pas les organisateurs communautaires.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "nod",
+     "plan": "epaule"
+    },
+    {
+     "id": "suivi_3_succes_002",
+     "qui": "eric",
+     "texte": "Déjà dans la fiche. Section 3.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "nod",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "suivi_3_echec": {
+   "lieu": "*",
+   "lignes": [
+    {
+     "id": "suivi_3_echec_001",
+     "qui": "direction_a",
+     "texte": "L’ego, c’est l’équipe SAD. La vignette, c’est ce que vous lui montrez. Ne les confondez plus.",
+     "emotion": "agace",
+     "intensite": 0.5,
+     "anim": "shake",
+     "plan": "epaule"
+    },
+    {
+     "id": "suivi_3_echec_002",
+     "qui": "eric",
+     "texte": "Noté. En rouge. Comme le reste.",
+     "emotion": "fatigue",
+     "intensite": 0.5,
+     "anim": "defeat",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "suivi_4": {
+   "lieu": "*",
+   "lignes": [
+    {
+     "id": "suivi_4_001",
+     "qui": "direction_b",
+     "texte": "Je t’attrape ! Petite vérification avant le comité. Deux minutes. Trois. Disons dix.",
+     "emotion": "insistant",
+     "intensite": 0.6,
+     "anim": "walk_fast",
+     "plan": "epaule"
+    },
+    {
+     "id": "suivi_4_002",
+     "qui": "eric",
+     "texte": "Je vous écoute. J’ai tout mon temps, sauf les quatorze semaines.",
+     "emotion": "fatigue",
+     "intensite": 0.5,
+     "anim": "idle",
+     "plan": "rapproche"
+    },
+    {
+     "id": "suivi_4_003",
+     "qui": "direction_b",
+     "texte": "Ton schéma à six secteurs et quatre niveaux, tu le cites d’où exactement ?",
+     "emotion": "neutre",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "suivi_4_succes": {
+   "lieu": "*",
+   "lignes": [
+    {
+     "id": "suivi_4_succes_001",
+     "qui": "direction_b",
+     "texte": "Figure 4, page 33 ! Tu cites mieux que moi. Je retourne à mon bureau.",
+     "emotion": "joie",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "suivi_4_succes_002",
+     "qui": "eric",
+     "texte": "Avec une petite idée en moins, j’espère.",
+     "emotion": "ironie",
+     "intensite": 0.4,
+     "anim": "nod",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "suivi_4_echec": {
+   "lieu": "*",
+   "lignes": [
+    {
+     "id": "suivi_4_echec_001",
+     "qui": "direction_b",
+     "texte": "Non, ça, c’est l’autre schéma. Celui du RUISSS, 2022. Vérifie ta source avant que le jury le fasse.",
+     "emotion": "neutre",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "suivi_4_echec_002",
+     "qui": "eric",
+     "texte": "Deux schémas, une semaine perdue.",
+     "emotion": "fatigue",
+     "intensite": 0.5,
+     "anim": "defeat",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "suivi_5": {
+   "lieu": "*",
+   "lignes": [
+    {
+     "id": "suivi_5_001",
+     "qui": "direction_a",
+     "texte": "Éric. Nous avions dit vendredi. Nous sommes rendus au vendredi suivant.",
+     "emotion": "colere",
+     "intensite": 0.6,
+     "anim": "walk_fast",
+     "plan": "epaule"
+    },
+    {
+     "id": "suivi_5_002",
+     "qui": "eric",
+     "texte": "Techniquement, c’est encore un vendredi.",
+     "emotion": "stresse",
+     "intensite": 0.6,
+     "anim": "idle",
+     "plan": "rapproche"
+    },
+    {
+     "id": "suivi_5_003",
+     "qui": "direction_a",
+     "texte": "Vos tableaux du 211 s’arrêtent aux 60-69 ans. Votre population commence à 65. Que faites-vous ?",
+     "emotion": "neutre",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "suivi_5_succes": {
+   "lieu": "*",
+   "lignes": [
+    {
+     "id": "suivi_5_succes_001",
+     "qui": "direction_a",
+     "texte": "Transparent. Je préfère ça à une moyenne inventée. Allez.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "nod",
+     "plan": "epaule"
+    },
+    {
+     "id": "suivi_5_succes_002",
+     "qui": "eric",
+     "texte": "Merci. Je cours. Enfin, je marche vite.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "nod",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "suivi_5_echec": {
+   "lieu": "*",
+   "lignes": [
+    {
+     "id": "suivi_5_echec_001",
+     "qui": "direction_a",
+     "texte": "On ne coupe pas une classe d’âge en deux par intuition. On demande la donnée.",
+     "emotion": "agace",
+     "intensite": 0.6,
+     "anim": "shake",
+     "plan": "epaule"
+    },
+    {
+     "id": "suivi_5_echec_002",
+     "qui": "eric",
+     "texte": "Une semaine de plus. Le calendrier pleure.",
+     "emotion": "fatigue",
+     "intensite": 0.5,
+     "anim": "defeat",
+     "plan": "rapproche"
+    }
+   ]
+  },
+  "suivi_6": {
+   "lieu": "*",
+   "lignes": [
+    {
+     "id": "suivi_6_001",
+     "qui": "direction_a",
+     "texte": "Arrêtez-vous. Nous vous suivons depuis l’ascenseur.",
+     "emotion": "insistant",
+     "intensite": 0.7,
+     "anim": "walk_fast",
+     "plan": "epaule"
+    },
+    {
+     "id": "suivi_6_002",
+     "qui": "direction_b",
+     "texte": "J’ai même pris l’escalier. L’escalier, Éric. Pour toi.",
+     "emotion": "insistant",
+     "intensite": 0.6,
+     "anim": "walk_fast",
+     "plan": "epaule"
+    },
+    {
+     "id": "suivi_6_003",
+     "qui": "direction_b",
+     "texte": "Pourquoi ne pas partir du répertoire du 211 pour ton inventaire ? C’est déjà fait, non ?",
+     "emotion": "neutre",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "suivi_6_succes": {
+   "lieu": "*",
+   "lignes": [
+    {
+     "id": "suivi_6_succes_001",
+     "qui": "direction_b",
+     "texte": "La frontière part des besoins. C’est vrai, c’est même ta lacune numéro deux.",
+     "emotion": "joie",
+     "intensite": 0.5,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "suivi_6_succes_002",
+     "qui": "direction_a",
+     "texte": "Bien. Nous redescendons. Par l’ascenseur, cette fois.",
+     "emotion": "neutre",
+     "intensite": 0.4,
+     "anim": "nod",
+     "plan": "epaule"
+    }
+   ]
+  },
+  "suivi_6_echec": {
+   "lieu": "*",
+   "lignes": [
+    {
+     "id": "suivi_6_echec_001",
+     "qui": "direction_a",
+     "texte": "Votre frontière part des besoins, pas d’un répertoire. C’est écrit dans votre propre fiche.",
+     "emotion": "agace",
+     "intensite": 0.6,
+     "anim": "talk",
+     "plan": "epaule"
+    },
+    {
+     "id": "suivi_6_echec_002",
+     "qui": "eric",
+     "texte": "Et maintenant, c’est écrit dans mon agenda. Une semaine de plus.",
+     "emotion": "fatigue",
+     "intensite": 0.6,
+     "anim": "defeat",
+     "plan": "rapproche"
+    }
+   ]
+  }
+ },
+ "repliques": {
+  "direction_poursuite": [
+   {
+    "id": "rep_direction_poursuite_001",
+    "qui": "direction_a",
+    "texte": "Éric ? Avez-vous deux minutes ?",
+    "emotion": "insistant",
+    "intensite": 0.3,
+    "anim": "walk_fast",
+    "palier": 1
+   },
+   {
+    "id": "rep_direction_poursuite_002",
+    "qui": "direction_b",
+    "texte": "Éric ! Attends-moi ! J’ai une petite idée !",
+    "emotion": "enthousiaste",
+    "intensite": 0.4,
+    "anim": "walk_fast",
+    "palier": 1
+   },
+   {
+    "id": "rep_direction_poursuite_003",
+    "qui": "direction_a",
+    "texte": "Monsieur Bernier, votre section 4, elle avance ?",
+    "emotion": "neutre",
+    "intensite": 0.3,
+    "anim": "walk_fast",
+    "palier": 1
+   },
+   {
+    "id": "rep_direction_poursuite_004",
+    "qui": "direction_b",
+    "texte": "Je t’ai envoyé trois liens. Les as-tu ouverts ?",
+    "emotion": "insistant",
+    "intensite": 0.3,
+    "anim": "walk_fast",
+    "palier": 1
+   },
+   {
+    "id": "rep_direction_poursuite_005",
+    "qui": "direction_a",
+    "texte": "On avait dit vendredi. Je dis ça comme ça.",
+    "emotion": "ironie",
+    "intensite": 0.3,
+    "anim": "walk_fast",
+    "palier": 1
+   },
+   {
+    "id": "rep_direction_poursuite_006",
+    "qui": "direction_b",
+    "texte": "Coucou ! C’est juste pour un petit suivi !",
+    "emotion": "joie",
+    "intensite": 0.3,
+    "anim": "walk_fast",
+    "palier": 1
+   },
+   {
+    "id": "rep_direction_poursuite_007",
+    "qui": "direction_a",
+    "texte": "Je vous vois, Éric. Les briques jaunes ne vous cachent pas.",
+    "emotion": "neutre",
+    "intensite": 0.3,
+    "anim": "walk_fast",
+    "palier": 1
+   },
+   {
+    "id": "rep_direction_poursuite_008",
+    "qui": "direction_b",
+    "texte": "Tu as reçu mon courriel de 23 h 14 ? Et celui de 23 h 16 ?",
+    "emotion": "insistant",
+    "intensite": 0.4,
+    "anim": "walk_fast",
+    "palier": 1
+   },
+   {
+    "id": "rep_direction_poursuite_009",
+    "qui": "direction_a",
+    "texte": "J’ai annoté votre version 7. En rouge. Beaucoup de rouge.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "walk_fast",
+    "palier": 1
+   },
+   {
+    "id": "rep_direction_poursuite_010",
+    "qui": "direction_b",
+    "texte": "On pourrait ajouter un petit volet qualitatif, non ? Petit, petit.",
+    "emotion": "enthousiaste",
+    "intensite": 0.4,
+    "anim": "walk_fast",
+    "palier": 1
+   },
+   {
+    "id": "rep_direction_poursuite_011",
+    "qui": "direction_a",
+    "texte": "Ce n’est pas une course, monsieur Bernier. Enfin, pas encore.",
+    "emotion": "ironie",
+    "intensite": 0.4,
+    "anim": "walk_fast",
+    "palier": 1
+   },
+   {
+    "id": "rep_direction_poursuite_012",
+    "qui": "direction_b",
+    "texte": "J’ai lu un article génial ! Il change tout ! Enfin, un peu.",
+    "emotion": "enthousiaste",
+    "intensite": 0.4,
+    "anim": "walk_fast",
+    "palier": 1
+   },
+   {
+    "id": "rep_direction_poursuite_013",
+    "qui": "direction_a",
+    "texte": "Votre condition traceuse est-elle toujours à préciser ?",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "walk_fast",
+    "palier": 1
+   },
+   {
+    "id": "rep_direction_poursuite_014",
+    "qui": "direction_b",
+    "texte": "Tu marches vite ! Bon pour le cardio, mauvais pour le protocole !",
+    "emotion": "amuse",
+    "intensite": 0.4,
+    "anim": "walk_fast",
+    "palier": 1
+   },
+   {
+    "id": "rep_direction_poursuite_015",
+    "qui": "direction_a",
+    "texte": "Éric. Je sais que vous m’entendez.",
+    "emotion": "insistant",
+    "intensite": 0.5,
+    "anim": "walk_fast",
+    "palier": 2
+   },
+   {
+    "id": "rep_direction_poursuite_016",
+    "qui": "direction_b",
+    "texte": "J’ai pris l’escalier pour toi ! Ralentis !",
+    "emotion": "insistant",
+    "intensite": 0.5,
+    "anim": "walk_fast",
+    "palier": 2
+   },
+   {
+    "id": "rep_direction_poursuite_017",
+    "qui": "direction_a",
+    "texte": "Fermer une porte ne ferme pas un dossier, monsieur Bernier.",
+    "emotion": "ironie",
+    "intensite": 0.5,
+    "anim": "walk_fast",
+    "palier": 2
+   },
+   {
+    "id": "rep_direction_poursuite_018",
+    "qui": "direction_b",
+    "texte": "Ma petite idée a grandi. Elle a maintenant trois sous-objectifs.",
+    "emotion": "enthousiaste",
+    "intensite": 0.5,
+    "anim": "walk_fast",
+    "palier": 2
+   },
+   {
+    "id": "rep_direction_poursuite_019",
+    "qui": "direction_a",
+    "texte": "Le comité se réunit bientôt. Vous, vous courez.",
+    "emotion": "insistant",
+    "intensite": 0.5,
+    "anim": "walk_fast",
+    "palier": 2
+   },
+   {
+    "id": "rep_direction_poursuite_020",
+    "qui": "direction_b",
+    "texte": "J’ai réservé une salle ! Pour nous trois ! Tout de suite !",
+    "emotion": "insistant",
+    "intensite": 0.5,
+    "anim": "walk_fast",
+    "palier": 2
+   },
+   {
+    "id": "rep_direction_poursuite_021",
+    "qui": "direction_a",
+    "texte": "Vous avez coupé votre revue de portée ? Dites-moi que non.",
+    "emotion": "inquiet",
+    "intensite": 0.5,
+    "anim": "walk_fast",
+    "palier": 2
+   },
+   {
+    "id": "rep_direction_poursuite_022",
+    "qui": "direction_b",
+    "texte": "Ton Zotero m’a envoyé une invitation. Je pense que c’est un signe.",
+    "emotion": "amuse",
+    "intensite": 0.5,
+    "anim": "walk_fast",
+    "palier": 2
+   },
+   {
+    "id": "rep_direction_poursuite_023",
+    "qui": "direction_a",
+    "texte": "J’ai votre plan de travail. Il manque le travail.",
+    "emotion": "ironie",
+    "intensite": 0.5,
+    "anim": "walk_fast",
+    "palier": 2
+   },
+   {
+    "id": "rep_direction_poursuite_024",
+    "qui": "direction_b",
+    "texte": "On en parle en marchant ? Je marche vite, moi aussi !",
+    "emotion": "insistant",
+    "intensite": 0.5,
+    "anim": "walk_fast",
+    "palier": 2
+   },
+   {
+    "id": "rep_direction_poursuite_025",
+    "qui": "direction_a",
+    "texte": "La bibliothèque n’a pas de sortie secrète. J’ai vérifié.",
+    "emotion": "ironie",
+    "intensite": 0.5,
+    "anim": "walk_fast",
+    "palier": 2
+   },
+   {
+    "id": "rep_direction_poursuite_026",
+    "qui": "direction_b",
+    "texte": "Je t’apporte un café de la machine ! C’est dire si c’est important !",
+    "emotion": "insistant",
+    "intensite": 0.5,
+    "anim": "walk_fast",
+    "palier": 2
+   },
+   {
+    "id": "rep_direction_poursuite_027",
+    "qui": "direction_a",
+    "texte": "Une demande n’est pas une personne. Et vous n’êtes pas invisible.",
+    "emotion": "insistant",
+    "intensite": 0.6,
+    "anim": "walk_fast",
+    "palier": 2
+   },
+   {
+    "id": "rep_direction_poursuite_028",
+    "qui": "direction_b",
+    "texte": "Le CER a répondu ! Enfin, il a posé onze questions. C’est une réponse !",
+    "emotion": "enthousiaste",
+    "intensite": 0.6,
+    "anim": "walk_fast",
+    "palier": 2
+   },
+   {
+    "id": "rep_direction_poursuite_029",
+    "qui": "direction_a",
+    "texte": "Éric Bernier ! Arrêtez-vous. Maintenant.",
+    "emotion": "crie",
+    "intensite": 0.7,
+    "anim": "walk_fast",
+    "palier": 3
+   },
+   {
+    "id": "rep_direction_poursuite_030",
+    "qui": "direction_b",
+    "texte": "Éric ! On a une idée, et elle est grande !",
+    "emotion": "crie",
+    "intensite": 0.7,
+    "anim": "walk_fast",
+    "palier": 3
+   },
+   {
+    "id": "rep_direction_poursuite_031",
+    "qui": "direction_a",
+    "texte": "Je connais ce pavillon depuis vingt-cinq ans. Vous ne m’échapperez pas.",
+    "emotion": "insistant",
+    "intensite": 0.7,
+    "anim": "walk_fast",
+    "palier": 3
+   },
+   {
+    "id": "rep_direction_poursuite_032",
+    "qui": "direction_b",
+    "texte": "J’ai prévenu la bibliothécaire, le préposé et le chauffeur de la surfaceuse !",
+    "emotion": "insistant",
+    "intensite": 0.7,
+    "anim": "walk_fast",
+    "palier": 3
+   },
+   {
+    "id": "rep_direction_poursuite_033",
+    "qui": "direction_a",
+    "texte": "Vendredi est passé, revenu et reparti, monsieur Bernier.",
+    "emotion": "colere",
+    "intensite": 0.7,
+    "anim": "walk_fast",
+    "palier": 3
+   },
+   {
+    "id": "rep_direction_poursuite_034",
+    "qui": "direction_b",
+    "texte": "Je cours en bottillons, Éric ! Sais-tu ce que ça me coûte ?",
+    "emotion": "stresse",
+    "intensite": 0.7,
+    "anim": "walk_fast",
+    "palier": 3
+   },
+   {
+    "id": "rep_direction_poursuite_035",
+    "qui": "direction_a",
+    "texte": "Votre protocole et vous, dans mon bureau. Ensemble ou séparément.",
+    "emotion": "insistant",
+    "intensite": 0.8,
+    "anim": "walk_fast",
+    "palier": 3
+   },
+   {
+    "id": "rep_direction_poursuite_036",
+    "qui": "direction_b",
+    "texte": "On va tout simplifier ! En ajoutant juste une chose !",
+    "emotion": "enthousiaste",
+    "intensite": 0.7,
+    "anim": "walk_fast",
+    "palier": 3
+   },
+   {
+    "id": "rep_direction_poursuite_037",
+    "qui": "direction_a",
+    "texte": "Je n’ai pas fait un doctorat pour courir dans des corridors. Et pourtant.",
+    "emotion": "fatigue",
+    "intensite": 0.7,
+    "anim": "walk_fast",
+    "palier": 3
+   },
+   {
+    "id": "rep_direction_poursuite_038",
+    "qui": "direction_b",
+    "texte": "Ma tablette est pleine de commentaires et à 3 % de batterie ! Vite !",
+    "emotion": "stresse",
+    "intensite": 0.8,
+    "anim": "walk_fast",
+    "palier": 3
+   },
+   {
+    "id": "rep_direction_poursuite_039",
+    "qui": "direction_a",
+    "texte": "Je vous préviens : je connais aussi le chemin du CEPSUM.",
+    "emotion": "insistant",
+    "intensite": 0.8,
+    "anim": "walk_fast",
+    "palier": 3
+   },
+   {
+    "id": "rep_direction_poursuite_040",
+    "qui": "direction_b",
+    "texte": "Éric ! Ma petite idée est devenue un projet de recherche !",
+    "emotion": "crie",
+    "intensite": 0.8,
+    "anim": "walk_fast",
+    "palier": 3
+   }
+  ],
+  "direction_apparition": [
+   {
+    "id": "rep_direction_apparition_001",
+    "qui": "direction_a",
+    "texte": "Monsieur Bernier est-il ici ? On m’a dit qu’il était ici.",
+    "emotion": "neutre",
+    "intensite": 0.5,
+    "anim": "walk_fast"
+   },
+   {
+    "id": "rep_direction_apparition_002",
+    "qui": "direction_b",
+    "texte": "Coucou ! On passait dans le coin. Par hasard. Totalement par hasard.",
+    "emotion": "joie",
+    "intensite": 0.5,
+    "anim": "walk_fast"
+   },
+   {
+    "id": "rep_direction_apparition_003",
+    "qui": "direction_a",
+    "texte": "Bonjour. Je cherche un doctorant dont la condition traceuse est encore à préciser.",
+    "emotion": "neutre",
+    "intensite": 0.5,
+    "anim": "walk_fast"
+   },
+   {
+    "id": "rep_direction_apparition_004",
+    "qui": "direction_b",
+    "texte": "J’ai demandé à l’accueil. On m’a dit de suivre le bruit de course.",
+    "emotion": "amuse",
+    "intensite": 0.5,
+    "anim": "walk_fast"
+   },
+   {
+    "id": "rep_direction_apparition_005",
+    "qui": "direction_a",
+    "texte": "Je ne viens pas vous surveiller. Je viens pour le calendrier.",
+    "emotion": "ironie",
+    "intensite": 0.5,
+    "anim": "walk_fast"
+   },
+   {
+    "id": "rep_direction_apparition_006",
+    "qui": "direction_b",
+    "texte": "Éric est là ? J’ai apporté ma tablette ! Et mes commentaires !",
+    "emotion": "enthousiaste",
+    "intensite": 0.6,
+    "anim": "walk_fast"
+   }
+  ],
+  "direction_perdue": [
+   {
+    "id": "rep_direction_perdue_001",
+    "qui": "direction_a",
+    "texte": "Où est-il passé ? Il était juste là.",
+    "emotion": "agace",
+    "intensite": 0.5,
+    "anim": "walk_fast"
+   },
+   {
+    "id": "rep_direction_perdue_002",
+    "qui": "direction_b",
+    "texte": "Éric ? Éric ! Bon. Je vais lui écrire. Vers 23 h 14.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "walk_fast"
+   },
+   {
+    "id": "rep_direction_perdue_003",
+    "qui": "direction_a",
+    "texte": "Il a fermé la porte. Habile. Je reviendrai.",
+    "emotion": "ironie",
+    "intensite": 0.5,
+    "anim": "walk_fast"
+   },
+   {
+    "id": "rep_direction_perdue_004",
+    "qui": "direction_b",
+    "texte": "Je l’ai perdu. Mais j’ai trouvé une petite idée en chemin.",
+    "emotion": "amuse",
+    "intensite": 0.4,
+    "anim": "walk_fast"
+   },
+   {
+    "id": "rep_direction_perdue_005",
+    "qui": "direction_a",
+    "texte": "Très bien. Nous en reparlerons vendredi. Le vrai.",
+    "emotion": "neutre",
+    "intensite": 0.5,
+    "anim": "walk_fast"
+   },
+   {
+    "id": "rep_direction_perdue_006",
+    "qui": "direction_b",
+    "texte": "Il court vite, pour un doctorant de deuxième année.",
+    "emotion": "ironie",
+    "intensite": 0.4,
+    "anim": "walk_fast"
+   }
+  ],
+  "bibliothecaire_bruit": [
+   {
+    "id": "rep_bibliothecaire_bruit_001",
+    "qui": "bibliothecaire",
+    "texte": "Chut. Éric. On ne court pas dans la salle de lecture.",
+    "emotion": "chuchote",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_bibliothecaire_bruit_002",
+    "qui": "bibliothecaire",
+    "texte": "Ce n’est pas une patinoire, ici.",
+    "emotion": "agace",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_bibliothecaire_bruit_003",
+    "qui": "bibliothecaire",
+    "texte": "Les livres tombent, Éric. Et moi, je me souviens.",
+    "emotion": "chuchote",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_bibliothecaire_bruit_004",
+    "qui": "bibliothecaire",
+    "texte": "Ralentis. Ta revue de portée ne va pas s’enfuir.",
+    "emotion": "chuchote",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_bibliothecaire_bruit_005",
+    "qui": "bibliothecaire",
+    "texte": "Même ta direction marche, ici. Bon, presque.",
+    "emotion": "ironie",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_bibliothecaire_bruit_006",
+    "qui": "bibliothecaire",
+    "texte": "Chut. Il y a des gens qui criblent.",
+    "emotion": "chuchote",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_bibliothecaire_bruit_007",
+    "qui": "bibliothecaire",
+    "texte": "Si tu fais encore tomber un livre, je le cote à ton nom.",
+    "emotion": "agace",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_bibliothecaire_bruit_008",
+    "qui": "bibliothecaire",
+    "texte": "On marche. On respire. On cherche avec des guillemets.",
+    "emotion": "chuchote",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_bibliothecaire_bruit_009",
+    "qui": "bibliothecaire",
+    "texte": "Je t’entends depuis les périodiques, Éric.",
+    "emotion": "chuchote",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_bibliothecaire_bruit_010",
+    "qui": "bibliothecaire",
+    "texte": "Course interdite. Troncature permise.",
+    "emotion": "ironie",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_bibliothecaire_bruit_011",
+    "qui": "bibliothecaire",
+    "texte": "Un pas de plus en courant, et je te prête le manuel JBI. Les quatre cents pages.",
+    "emotion": "chuchote",
+    "intensite": 0.6,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_bibliothecaire_bruit_012",
+    "qui": "bibliothecaire",
+    "texte": "Éric. Le silence, c’est aussi une méthode.",
+    "emotion": "agace",
+    "intensite": 0.6,
+    "anim": "talk"
+   }
+  ],
+  "bouscule_bibliothecaire": [
+   {
+    "id": "rep_bouscule_bibliothecaire_001",
+    "qui": "bibliothecaire",
+    "texte": "Éric. Le chariot. Recule.",
+    "emotion": "agace",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_bouscule_bibliothecaire_002",
+    "qui": "bibliothecaire",
+    "texte": "On ne bouscule pas la personne qui contrôle tes prêts.",
+    "emotion": "agace",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_bouscule_bibliothecaire_003",
+    "qui": "bibliothecaire",
+    "texte": "Chut… et ouille.",
+    "emotion": "chuchote",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_bouscule_bibliothecaire_004",
+    "qui": "bibliothecaire",
+    "texte": "Tu viens de faire tomber la classification de la Bibliothèque nationale de médecine.",
+    "emotion": "ironie",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_bouscule_bibliothecaire_005",
+    "qui": "bibliothecaire",
+    "texte": "Doucement ! J’ai trois cents retours à classer.",
+    "emotion": "agace",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_bouscule_bibliothecaire_006",
+    "qui": "bibliothecaire",
+    "texte": "Si tu me bouscules encore, ton équation recommence à zéro.",
+    "emotion": "chuchote",
+    "intensite": 0.5,
+    "anim": "talk"
+   }
+  ],
+  "pnj_bouscule": [
+   {
+    "id": "rep_pnj_bouscule_001",
+    "qui": "etudiant_1",
+    "texte": "Eille ! Regarde où tu marches !",
+    "emotion": "agace",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_pnj_bouscule_002",
+    "qui": "etudiant_2",
+    "texte": "Oups ! Mon café ! Pis mes notes !",
+    "emotion": "stresse",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_pnj_bouscule_003",
+    "qui": "etudiant_3",
+    "texte": "Wô ! Le corridor est à tout le monde !",
+    "emotion": "agace",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_pnj_bouscule_004",
+    "qui": "etudiant_4",
+    "texte": "T’es pressé ? Ta direction est en arrière de toi, c’est ça ?",
+    "emotion": "amuse",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_pnj_bouscule_005",
+    "qui": "collegue_doc",
+    "texte": "Wô ! Je porte les muffins !",
+    "emotion": "amuse",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_pnj_bouscule_006",
+    "qui": "prof_seminaire",
+    "texte": "Monsieur Bernier, on ne bouscule pas un professeur. On le contredit, à la limite.",
+    "emotion": "agace",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_pnj_bouscule_007",
+    "qui": "intervenante_sad",
+    "texte": "Attention, j’ai quarante dossiers dans les bras !",
+    "emotion": "agace",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_pnj_bouscule_008",
+    "qui": "gestionnaire_clsc",
+    "texte": "Doucement. Je suis gestionnaire, j’ai l’habitude d’être bousculé, mais quand même.",
+    "emotion": "ironie",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_pnj_bouscule_009",
+    "qui": "prepose_accueil",
+    "texte": "Monsieur, on ne saute pas la file en courant.",
+    "emotion": "agace",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_pnj_bouscule_010",
+    "qui": "usager_3",
+    "texte": "Ralentissez, jeune homme. Vous allez manquer ce qui se passe autour.",
+    "emotion": "amuse",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_pnj_bouscule_011",
+    "qui": "joueur_hockey_4",
+    "texte": "Mise en échec ! Deux minutes pour toi, Bernier !",
+    "emotion": "crie",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_pnj_bouscule_012",
+    "qui": "chauffeur_zamboni",
+    "texte": "Pas sur ma glace fraîche !",
+    "emotion": "agace",
+    "intensite": 0.5,
+    "anim": "talk"
+   }
+  ],
+  "pnj_generique": [
+   {
+    "id": "rep_pnj_generique_001",
+    "qui": "etudiant_1",
+    "texte": "Salut ! Je suis un peu pressé, on se reparle ?",
+    "emotion": "neutre",
+    "intensite": 0.3,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_pnj_generique_002",
+    "qui": "etudiant_2",
+    "texte": "Bonne chance pour ton protocole !",
+    "emotion": "joie",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_pnj_generique_003",
+    "qui": "etudiant_3",
+    "texte": "T’as l’air stressé. C’est normal, c’est octobre.",
+    "emotion": "amuse",
+    "intensite": 0.3,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_pnj_generique_004",
+    "qui": "etudiant_4",
+    "texte": "Moi aussi, j’ai un comité. On devrait fonder un club.",
+    "emotion": "neutre",
+    "intensite": 0.3,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_pnj_generique_005",
+    "qui": "prepose_accueil",
+    "texte": "Si vous cherchez la sortie, c’est par là.",
+    "emotion": "neutre",
+    "intensite": 0.3,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_pnj_generique_006",
+    "qui": "usager_1",
+    "texte": "Bonne journée, jeune homme. Mangez un peu, vous êtes tout pâle.",
+    "emotion": "joie",
+    "intensite": 0.3,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_pnj_generique_007",
+    "qui": "usager_2",
+    "texte": "Vous êtes l’étudiant qui fait une étude sur nous autres ? Mettez-moi dedans.",
+    "emotion": "amuse",
+    "intensite": 0.3,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_pnj_generique_008",
+    "qui": "usager_3",
+    "texte": "Ça fait du bien de jaser. Ici, au moins, on se parle.",
+    "emotion": "neutre",
+    "intensite": 0.3,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_pnj_generique_009",
+    "qui": "joueur_hockey_2",
+    "texte": "Belle soirée pour jouer, hein ?",
+    "emotion": "joie",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_pnj_generique_010",
+    "qui": "joueur_hockey_5",
+    "texte": "Tu viens mardi prochain ? On manque toujours de monde.",
+    "emotion": "amuse",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_pnj_generique_011",
+    "qui": "gardien",
+    "texte": "Garde la tête haute, mon grand. Sur la glace pis ailleurs.",
+    "emotion": "neutre",
+    "intensite": 0.3,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_pnj_generique_012",
+    "qui": "etudiant_2",
+    "texte": "Prends une pause. Ça aide. Parole d’expérience.",
+    "emotion": "neutre",
+    "intensite": 0.3,
+    "anim": "talk"
+   }
+  ],
+  "entraineur_conseil_equilibre": [
+   {
+    "id": "rep_entraineur_conseil_equilibre_001",
+    "qui": "entraineur_patin",
+    "texte": "Genoux pliés, comme si t’étais assis sur une chaise invisible.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_equilibre_002",
+    "qui": "entraineur_patin",
+    "texte": "Le poids au milieu de la lame. Pas sur les talons.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_equilibre_003",
+    "qui": "entraineur_patin",
+    "texte": "Regarde devant, pas tes patins. Tes patins savent où ils sont.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_equilibre_004",
+    "qui": "entraineur_patin",
+    "texte": "Les bras devant toi, comme si tu portais un plateau.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_equilibre_005",
+    "qui": "entraineur_patin",
+    "texte": "Pieds à la largeur des épaules. Ni plus, ni moins.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_equilibre_006",
+    "qui": "entraineur_patin",
+    "texte": "Si tu sens que tu pars, plie les genoux et va sur le côté. Pas sur le coccyx.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   }
+  ],
+  "entraineur_conseil_poussee": [
+   {
+    "id": "rep_entraineur_conseil_poussee_001",
+    "qui": "entraineur_patin",
+    "texte": "Pousse sur le côté, pas vers l’arrière. La carre intérieure mord la glace.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_poussee_002",
+    "qui": "entraineur_patin",
+    "texte": "Pousse, puis ramène le pied sous toi. Pousse, ramène.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_poussee_003",
+    "qui": "entraineur_patin",
+    "texte": "Étire la jambe au complet, jusqu’au bout de la lame.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_poussee_004",
+    "qui": "entraineur_patin",
+    "texte": "Garde les genoux pliés, sinon tu pousses dans le vide.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_poussee_005",
+    "qui": "entraineur_patin",
+    "texte": "Un pied à la fois. C’est pas une course en sac.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_poussee_006",
+    "qui": "entraineur_patin",
+    "texte": "Tes deux patins font un V. Le talon de celui qui pousse sort vers l’extérieur.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   }
+  ],
+  "entraineur_conseil_glisse": [
+   {
+    "id": "rep_entraineur_conseil_glisse_001",
+    "qui": "entraineur_patin",
+    "texte": "Après la poussée, laisse-toi glisser. Ne pédale pas.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_glisse_002",
+    "qui": "entraineur_patin",
+    "texte": "Glisse sur un pied, l’autre ramené près de la cheville.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_glisse_003",
+    "qui": "entraineur_patin",
+    "texte": "Le nez, le genou et les orteils alignés au-dessus du pied qui glisse.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_glisse_004",
+    "qui": "entraineur_patin",
+    "texte": "Plus tu restes bas, plus tu glisses longtemps.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_glisse_005",
+    "qui": "entraineur_patin",
+    "texte": "Glisser, c’est la récompense de la poussée. Profite.",
+    "emotion": "joie",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_glisse_006",
+    "qui": "entraineur_patin",
+    "texte": "Deux secondes sur chaque pied. Au début, deux secondes, c’est une éternité.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   }
+  ],
+  "entraineur_conseil_arret": [
+   {
+    "id": "rep_entraineur_conseil_arret_001",
+    "qui": "entraineur_patin",
+    "texte": "Chasse-neige : les pointes vers l’intérieur, pousse les talons vers l’extérieur.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_arret_002",
+    "qui": "entraineur_patin",
+    "texte": "Racle la glace avec la carre intérieure. Tu dois faire de la neige.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_arret_003",
+    "qui": "entraineur_patin",
+    "texte": "Plie les genoux en freinant, sinon tu bascules vers l’avant.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_arret_004",
+    "qui": "entraineur_patin",
+    "texte": "Le poids légèrement vers l’arrière. Légèrement. T’es pas dans un fauteuil.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_arret_005",
+    "qui": "entraineur_patin",
+    "texte": "Plus tard, l’arrêt de hockey : tu tournes les hanches d’un coup, les deux lames de côté.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_arret_006",
+    "qui": "entraineur_patin",
+    "texte": "On freine avant la bande. Pas avec la bande.",
+    "emotion": "amuse",
+    "intensite": 0.4,
+    "anim": "talk"
+   }
+  ],
+  "entraineur_conseil_croisement": [
+   {
+    "id": "rep_entraineur_conseil_croisement_001",
+    "qui": "entraineur_patin",
+    "texte": "Dans le virage, le pied extérieur passe par-dessus l’autre.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_croisement_002",
+    "qui": "entraineur_patin",
+    "texte": "Penche-toi vers l’intérieur du cercle. Les épaules suivent la courbe.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_croisement_003",
+    "qui": "entraineur_patin",
+    "texte": "Le pied intérieur pousse en dessous, vers l’extérieur. C’est lui, le moteur.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_croisement_004",
+    "qui": "entraineur_patin",
+    "texte": "Petits croisements d’abord. On ne fait pas de grand écart.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_croisement_005",
+    "qui": "entraineur_patin",
+    "texte": "Regarde où tu veux aller. Le corps suit la tête.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_croisement_006",
+    "qui": "entraineur_patin",
+    "texte": "Garde les genoux pliés dans la courbe. Debout, tu sors du virage.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   }
+  ],
+  "entraineur_conseil_recul": [
+   {
+    "id": "rep_entraineur_conseil_recul_001",
+    "qui": "entraineur_patin",
+    "texte": "Pour reculer, dessine des C avec tes pieds, en alternance.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_recul_002",
+    "qui": "entraineur_patin",
+    "texte": "Pousse avec l’avant de la lame vers l’extérieur, puis ramène sous toi.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_recul_003",
+    "qui": "entraineur_patin",
+    "texte": "Genoux pliés, dos droit, comme si tu t’assoyais.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_recul_004",
+    "qui": "entraineur_patin",
+    "texte": "Jette un œil par-dessus ton épaule. Il y a des cônes derrière toi.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_recul_005",
+    "qui": "entraineur_patin",
+    "texte": "Le poids sur l’avant des lames. Sur les talons, tu tombes sur le dos.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_recul_006",
+    "qui": "entraineur_patin",
+    "texte": "Recule lentement. La vitesse, c’est pour plus tard.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   }
+  ],
+  "entraineur_conseil_maniement": [
+   {
+    "id": "rep_entraineur_conseil_maniement_001",
+    "qui": "entraineur_patin",
+    "texte": "La rondelle au centre de la palette, pas au bout.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_maniement_002",
+    "qui": "entraineur_patin",
+    "texte": "La main du haut au bout du bâton, l’autre un peu plus bas que la largeur des épaules.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_maniement_003",
+    "qui": "entraineur_patin",
+    "texte": "Roule les poignets. La palette se ferme et s’ouvre sur la rondelle.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_maniement_004",
+    "qui": "entraineur_patin",
+    "texte": "Touche la rondelle doucement. C’est un œuf, pas une brique.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_maniement_005",
+    "qui": "entraineur_patin",
+    "texte": "Lève la tête. Sens la rondelle, regarde le jeu.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_maniement_006",
+    "qui": "entraineur_patin",
+    "texte": "Entre les cônes, petits coups de palette, d’un côté puis de l’autre.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   }
+  ],
+  "entraineur_conseil_passe": [
+   {
+    "id": "rep_entraineur_conseil_passe_001",
+    "qui": "entraineur_patin",
+    "texte": "Regarde ta cible, puis la rondelle, puis ta cible encore.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_passe_002",
+    "qui": "entraineur_patin",
+    "texte": "Balaie la rondelle, ne la frappe pas. Le poids passe de la jambe arrière à l’avant.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_passe_003",
+    "qui": "entraineur_patin",
+    "texte": "Finis le mouvement la palette pointée vers ton coéquipier.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_passe_004",
+    "qui": "entraineur_patin",
+    "texte": "Passe là où il va être, pas là où il est.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_passe_005",
+    "qui": "entraineur_patin",
+    "texte": "Pour recevoir, amortis : la palette recule un peu au contact.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_passe_006",
+    "qui": "entraineur_patin",
+    "texte": "Une bonne passe se reçoit sans bruit. Une mauvaise, toute l’aréna l’entend.",
+    "emotion": "amuse",
+    "intensite": 0.4,
+    "anim": "talk"
+   }
+  ],
+  "entraineur_conseil_lancer": [
+   {
+    "id": "rep_entraineur_conseil_lancer_001",
+    "qui": "entraineur_patin",
+    "texte": "Lancer du poignet : la rondelle roule du talon jusqu’au bout de la palette.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_lancer_002",
+    "qui": "entraineur_patin",
+    "texte": "Transfère ton poids vers l’avant, pis fouette avec les poignets.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_lancer_003",
+    "qui": "entraineur_patin",
+    "texte": "Lancer frappé : la palette touche la glace juste avant la rondelle. Le bâton plie, c’est lui qui lance.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_lancer_004",
+    "qui": "entraineur_patin",
+    "texte": "Vise les coins. Le gardien est au centre, c’est son métier.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_lancer_005",
+    "qui": "entraineur_patin",
+    "texte": "Regarde le filet avant de lancer, pas ta palette.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_lancer_006",
+    "qui": "entraineur_patin",
+    "texte": "Finis haut pour monter la rondelle, bas pour la garder sur la glace.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   }
+  ],
+  "entraineur_conseil_partie": [
+   {
+    "id": "rep_entraineur_conseil_partie_001",
+    "qui": "entraineur_patin",
+    "texte": "Reste à ta position. Le hockey, c’est de l’espace, pas un essaim d’abeilles.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_partie_002",
+    "qui": "entraineur_patin",
+    "texte": "Lève la tête avant de recevoir. Sache déjà à qui tu vas passer.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_partie_003",
+    "qui": "entraineur_patin",
+    "texte": "À la mise au jeu : palette sur la glace, genoux pliés, les yeux sur la rondelle.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_partie_004",
+    "qui": "entraineur_patin",
+    "texte": "On perd la rondelle ? Tout le monde se replie. Sans gardien, la défense, c’est vous autres.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_partie_005",
+    "qui": "entraineur_patin",
+    "texte": "Parle à tes coéquipiers. Un « ici ! » vaut trois passes ratées.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_conseil_partie_006",
+    "qui": "entraineur_patin",
+    "texte": "Une présence courte vaut mieux qu’une présence épuisée. Change quand tu manques d’air.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   }
+  ],
+  "entraineur_chute": [
+   {
+    "id": "rep_entraineur_chute_001",
+    "qui": "entraineur_patin",
+    "texte": "Bienvenue au club. Tout le monde est déjà tombé. Moi le premier.",
+    "emotion": "amuse",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_chute_002",
+    "qui": "entraineur_patin",
+    "texte": "Pour te relever : un genou, puis l’autre pied, puis debout. Dans cet ordre.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_chute_003",
+    "qui": "entraineur_patin",
+    "texte": "Belle chute. Contrôlée, latérale. Je donne sept sur dix.",
+    "emotion": "amuse",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_chute_004",
+    "qui": "entraineur_patin",
+    "texte": "La glace est dure, mais ton orgueil est plus fragile. Debout !",
+    "emotion": "amuse",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_chute_005",
+    "qui": "entraineur_patin",
+    "texte": "Sur le côté ! C’est exactement comme ça qu’il faut tomber.",
+    "emotion": "joie",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_chute_006",
+    "qui": "entraineur_patin",
+    "texte": "Ça, c’est une donnée aberrante. On la note, et on recommence.",
+    "emotion": "amuse",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_chute_007",
+    "qui": "entraineur_patin",
+    "texte": "Les mains vite sur la glace, et ramène les doigts : les lames passent pas loin.",
+    "emotion": "neutre",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_chute_008",
+    "qui": "entraineur_patin",
+    "texte": "Tu tombes vers l’avant ? Plie plus les genoux. C’est une hypothèse testable.",
+    "emotion": "amuse",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_chute_009",
+    "qui": "entraineur_patin",
+    "texte": "Troisième chute. Bel échantillon. Pas encore représentatif.",
+    "emotion": "amuse",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_chute_010",
+    "qui": "entraineur_patin",
+    "texte": "Tomber, c’est de la collecte de données. Tu viens d’enrichir ta base.",
+    "emotion": "amuse",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_chute_011",
+    "qui": "entraineur_patin",
+    "texte": "Réal va devoir repasser la surfaceuse là où t’es tombé.",
+    "emotion": "ironie",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_chute_012",
+    "qui": "entraineur_patin",
+    "texte": "Tu t’es relevé tout seul. Ça, c’est le vrai progrès.",
+    "emotion": "joie",
+    "intensite": 0.5,
+    "anim": "talk"
+   }
+  ],
+  "entraineur_bravo": [
+   {
+    "id": "rep_entraineur_bravo_001",
+    "qui": "entraineur_patin",
+    "texte": "Ça, c’est un patineur ! Un petit, mais un patineur.",
+    "emotion": "enthousiaste",
+    "intensite": 0.6,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_bravo_002",
+    "qui": "entraineur_patin",
+    "texte": "Beau ! Les genoux pliés, enfin !",
+    "emotion": "joie",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_bravo_003",
+    "qui": "entraineur_patin",
+    "texte": "Excellent. Refais-le pareil : c’est ça, la reproductibilité.",
+    "emotion": "joie",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_bravo_004",
+    "qui": "entraineur_patin",
+    "texte": "Parfait. Ton comité serait fier.",
+    "emotion": "amuse",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_bravo_005",
+    "qui": "entraineur_patin",
+    "texte": "Ouais ! T’as glissé deux secondes. Record personnel !",
+    "emotion": "enthousiaste",
+    "intensite": 0.6,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_bravo_006",
+    "qui": "entraineur_patin",
+    "texte": "Bravo ! Pas de chute, pas de bande, pas de drame.",
+    "emotion": "joie",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_bravo_007",
+    "qui": "entraineur_patin",
+    "texte": "Ça, c’était propre. On passe à la suite.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_bravo_008",
+    "qui": "entraineur_patin",
+    "texte": "Bien joué. Tes cônes sont encore debout.",
+    "emotion": "amuse",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_bravo_009",
+    "qui": "entraineur_patin",
+    "texte": "Je l’ai vu ! Je le note dans mon carnet.",
+    "emotion": "joie",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_bravo_010",
+    "qui": "entraineur_patin",
+    "texte": "Super ! Tu l’as fait sans y penser. C’est là que ça commence.",
+    "emotion": "enthousiaste",
+    "intensite": 0.6,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_bravo_011",
+    "qui": "entraineur_patin",
+    "texte": "Tu progresses plus vite que ton protocole, j’imagine.",
+    "emotion": "amuse",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_bravo_012",
+    "qui": "entraineur_patin",
+    "texte": "C’est bon ! Respire, bois de l’eau, on continue.",
+    "emotion": "joie",
+    "intensite": 0.5,
+    "anim": "talk"
+   }
+  ],
+  "entraineur_encore": [
+   {
+    "id": "rep_entraineur_encore_001",
+    "qui": "entraineur_patin",
+    "texte": "Presque. On recommence, plus lentement.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_encore_002",
+    "qui": "entraineur_patin",
+    "texte": "Pas grave. La deuxième fois, c’est toujours mieux.",
+    "emotion": "joie",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_encore_003",
+    "qui": "entraineur_patin",
+    "texte": "Encore une fois. Pense aux genoux.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_encore_004",
+    "qui": "entraineur_patin",
+    "texte": "On reprend du début. La glace, elle, a tout son temps.",
+    "emotion": "amuse",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_encore_005",
+    "qui": "entraineur_patin",
+    "texte": "Raté, mais instructif. Encore !",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_entraineur_encore_006",
+    "qui": "entraineur_patin",
+    "texte": "Recommence. Cette fois, regarde devant toi.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   }
+  ],
+  "hockey_but_eric": [
+   {
+    "id": "rep_hockey_but_eric_001",
+    "qui": "joueur_hockey_1",
+    "texte": "Bernier ! Quel tir !",
+    "emotion": "crie",
+    "intensite": 0.7,
+    "anim": "celebrate_hockey"
+   },
+   {
+    "id": "rep_hockey_but_eric_002",
+    "qui": "joueur_hockey_2",
+    "texte": "Dans le haut du filet ! Il l’a même pas vue partir !",
+    "emotion": "crie",
+    "intensite": 0.7,
+    "anim": "celebrate_hockey"
+   },
+   {
+    "id": "rep_hockey_but_eric_003",
+    "qui": "joueur_hockey_3",
+    "texte": "But ! Le doctorant compte !",
+    "emotion": "enthousiaste",
+    "intensite": 0.7,
+    "anim": "celebrate_hockey"
+   },
+   {
+    "id": "rep_hockey_but_eric_004",
+    "qui": "joueur_hockey_1",
+    "texte": "C’est ça, une passe bien reçue !",
+    "emotion": "joie",
+    "intensite": 0.6,
+    "anim": "celebrate_hockey"
+   },
+   {
+    "id": "rep_hockey_but_eric_005",
+    "qui": "joueur_hockey_2",
+    "texte": "Ouais ! On lui doit une tournée, à lui !",
+    "emotion": "enthousiaste",
+    "intensite": 0.7,
+    "anim": "celebrate_hockey"
+   },
+   {
+    "id": "rep_hockey_but_eric_006",
+    "qui": "joueur_hockey_3",
+    "texte": "Wow ! Un vrai lancer du poignet !",
+    "emotion": "crie",
+    "intensite": 0.7,
+    "anim": "celebrate_hockey"
+   },
+   {
+    "id": "rep_hockey_but_eric_007",
+    "qui": "collegue_doc",
+    "texte": "Je le note ! But de Bernier, passe de Bruno !",
+    "emotion": "crie",
+    "intensite": 0.7,
+    "anim": "celebrate_hockey"
+   },
+   {
+    "id": "rep_hockey_but_eric_008",
+    "qui": "joueur_hockey_1",
+    "texte": "Il a fait une revue de littérature sur les coins du filet, celui-là !",
+    "emotion": "amuse",
+    "intensite": 0.6,
+    "anim": "celebrate_hockey"
+   },
+   {
+    "id": "rep_hockey_but_eric_009",
+    "qui": "joueur_hockey_2",
+    "texte": "Bernier ! Bernier !",
+    "emotion": "crie",
+    "intensite": 0.7,
+    "anim": "celebrate_hockey"
+   },
+   {
+    "id": "rep_hockey_but_eric_010",
+    "qui": "joueur_hockey_3",
+    "texte": "Pis sa direction était même pas là pour le voir !",
+    "emotion": "amuse",
+    "intensite": 0.6,
+    "anim": "celebrate_hockey"
+   },
+   {
+    "id": "rep_hockey_but_eric_011",
+    "qui": "joueur_hockey_1",
+    "texte": "Belle finition ! Méthode rigoureuse !",
+    "emotion": "joie",
+    "intensite": 0.6,
+    "anim": "celebrate_hockey"
+   },
+   {
+    "id": "rep_hockey_but_eric_012",
+    "qui": "joueur_hockey_2",
+    "texte": "Ça, c’est un but qui passe en comité !",
+    "emotion": "amuse",
+    "intensite": 0.6,
+    "anim": "celebrate_hockey"
+   }
+  ],
+  "hockey_but_adverse": [
+   {
+    "id": "rep_hockey_but_adverse_001",
+    "qui": "joueur_hockey_3",
+    "texte": "Ah non ! Qui couvrait le joueur à droite ?",
+    "emotion": "agace",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_but_adverse_002",
+    "qui": "joueur_hockey_1",
+    "texte": "C’est correct, on revient !",
+    "emotion": "neutre",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_but_adverse_003",
+    "qui": "joueur_hockey_2",
+    "texte": "On se replie ! On se replie !",
+    "emotion": "crie",
+    "intensite": 0.6,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_but_adverse_004",
+    "qui": "joueur_hockey_3",
+    "texte": "Il était tout seul devant le filet !",
+    "emotion": "agace",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_but_adverse_005",
+    "qui": "joueur_hockey_1",
+    "texte": "Sans gardien, faut fermer le milieu. Fermez le milieu !",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_but_adverse_006",
+    "qui": "joueur_hockey_2",
+    "texte": "Bon. On appelle ça une donnée défavorable.",
+    "emotion": "ironie",
+    "intensite": 0.4,
+    "anim": "talk"
+   }
+  ],
+  "hockey_arret_gardien": [
+   {
+    "id": "rep_hockey_arret_gardien_001",
+    "qui": "joueur_hockey_5",
+    "texte": "Gros arrêt de Gaétan !",
+    "emotion": "crie",
+    "intensite": 0.6,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_arret_gardien_002",
+    "qui": "joueur_hockey_6",
+    "texte": "Il l’a gardée avec la mitaine !",
+    "emotion": "enthousiaste",
+    "intensite": 0.6,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_arret_gardien_003",
+    "qui": "joueur_hockey_4",
+    "texte": "Le bloqueur ! Comme un mur !",
+    "emotion": "crie",
+    "intensite": 0.6,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_arret_gardien_004",
+    "qui": "joueur_hockey_5",
+    "texte": "Arrêt de la jambière ! Il a encore trente ans de métier dans les jambes !",
+    "emotion": "amuse",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_arret_gardien_005",
+    "qui": "joueur_hockey_6",
+    "texte": "Il voit tout, ce gardien-là.",
+    "emotion": "neutre",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_arret_gardien_006",
+    "qui": "joueur_hockey_1",
+    "texte": "Le retour ! Personne au retour ?",
+    "emotion": "crie",
+    "intensite": 0.6,
+    "anim": "talk"
+   }
+  ],
+  "hockey_passe_demandee": [
+   {
+    "id": "rep_hockey_passe_demandee_001",
+    "qui": "joueur_hockey_1",
+    "texte": "Éric ! Ici !",
+    "emotion": "crie",
+    "intensite": 0.6,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_passe_demandee_002",
+    "qui": "joueur_hockey_2",
+    "texte": "Je suis seul, Bernier ! Passe !",
+    "emotion": "crie",
+    "intensite": 0.6,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_passe_demandee_003",
+    "qui": "joueur_hockey_1",
+    "texte": "À ta droite ! Ta droite !",
+    "emotion": "crie",
+    "intensite": 0.6,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_passe_demandee_004",
+    "qui": "joueur_hockey_3",
+    "texte": "Lève la tête, Bernier ! Je suis là !",
+    "emotion": "crie",
+    "intensite": 0.6,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_passe_demandee_005",
+    "qui": "joueur_hockey_2",
+    "texte": "Au centre ! Au centre !",
+    "emotion": "crie",
+    "intensite": 0.6,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_passe_demandee_006",
+    "qui": "joueur_hockey_3",
+    "texte": "Remets-la à la pointe !",
+    "emotion": "crie",
+    "intensite": 0.6,
+    "anim": "talk"
+   }
+  ],
+  "hockey_mise_au_jeu": [
+   {
+    "id": "rep_hockey_mise_au_jeu_001",
+    "qui": "entraineur_patin",
+    "texte": "Mise au jeu ! Palettes sur la glace, s’il vous plaît.",
+    "emotion": "neutre",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_mise_au_jeu_002",
+    "qui": "entraineur_patin",
+    "texte": "Centre contre centre. Pas de coudes.",
+    "emotion": "neutre",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_mise_au_jeu_003",
+    "qui": "entraineur_patin",
+    "texte": "Attention, la rondelle tombe !",
+    "emotion": "neutre",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_mise_au_jeu_004",
+    "qui": "joueur_hockey_3",
+    "texte": "Gagne la mise au jeu, Bernier, pis recule-la à la défense !",
+    "emotion": "neutre",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_mise_au_jeu_005",
+    "qui": "entraineur_patin",
+    "texte": "Tout le monde à sa place. On attend le sifflet.",
+    "emotion": "neutre",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_mise_au_jeu_006",
+    "qui": "entraineur_patin",
+    "texte": "Et c’est reparti !",
+    "emotion": "joie",
+    "intensite": 0.5,
+    "anim": "talk"
+   }
+  ],
+  "hockey_bande": [
+   {
+    "id": "rep_hockey_bande_001",
+    "qui": "joueur_hockey_1",
+    "texte": "Ouch ! La bande, elle, ne bouge pas.",
+    "emotion": "amuse",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_bande_002",
+    "qui": "joueur_hockey_2",
+    "texte": "T’as freiné avec la bande ? C’est une méthode.",
+    "emotion": "ironie",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_bande_003",
+    "qui": "joueur_hockey_3",
+    "texte": "Bernier ! La baie vitrée a eu peur !",
+    "emotion": "amuse",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_bande_004",
+    "qui": "entraineur_patin",
+    "texte": "Ça va ? T’as frappé fort. La bande aussi.",
+    "emotion": "inquiet",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_bande_005",
+    "qui": "joueur_hockey_4",
+    "texte": "Mise en échec contre toi-même !",
+    "emotion": "amuse",
+    "intensite": 0.5,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_bande_006",
+    "qui": "gardien",
+    "texte": "La bande gagne toujours. Toujours.",
+    "emotion": "ironie",
+    "intensite": 0.5,
+    "anim": "talk"
+   }
+  ],
+  "hockey_fin_victoire": [
+   {
+    "id": "rep_hockey_fin_victoire_001",
+    "qui": "joueur_hockey_1",
+    "texte": "Victoire ! La ligue du mardi est à nous !",
+    "emotion": "enthousiaste",
+    "intensite": 0.7,
+    "anim": "celebrate_hockey"
+   },
+   {
+    "id": "rep_hockey_fin_victoire_002",
+    "qui": "entraineur_patin",
+    "texte": "Belle partie, tout le monde ! Poignées de main !",
+    "emotion": "joie",
+    "intensite": 0.6,
+    "anim": "celebrate_hockey"
+   },
+   {
+    "id": "rep_hockey_fin_victoire_003",
+    "qui": "joueur_hockey_2",
+    "texte": "On a gagné avec des passes, pas avec des solos.",
+    "emotion": "joie",
+    "intensite": 0.6,
+    "anim": "celebrate_hockey"
+   },
+   {
+    "id": "rep_hockey_fin_victoire_004",
+    "qui": "joueur_hockey_3",
+    "texte": "Bernier, t’as été bon. Reviens mardi prochain !",
+    "emotion": "joie",
+    "intensite": 0.6,
+    "anim": "celebrate_hockey"
+   },
+   {
+    "id": "rep_hockey_fin_victoire_005",
+    "qui": "joueur_hockey_1",
+    "texte": "À la cantine, maintenant ! C’est Bernier qui paie !",
+    "emotion": "amuse",
+    "intensite": 0.6,
+    "anim": "celebrate_hockey"
+   },
+   {
+    "id": "rep_hockey_fin_victoire_006",
+    "qui": "collegue_doc",
+    "texte": "Victoire collective. Le réseau a fonctionné. Je l’ai noté.",
+    "emotion": "ironie",
+    "intensite": 0.5,
+    "anim": "celebrate_hockey"
+   }
+  ],
+  "hockey_fin_defaite": [
+   {
+    "id": "rep_hockey_fin_defaite_001",
+    "qui": "joueur_hockey_1",
+    "texte": "On a perdu, mais on a eu du fun.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_fin_defaite_002",
+    "qui": "entraineur_patin",
+    "texte": "Bonne partie quand même. On se reprend mardi.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_fin_defaite_003",
+    "qui": "joueur_hockey_2",
+    "texte": "On a trop joué en solo. La semaine prochaine, des passes.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_fin_defaite_004",
+    "qui": "joueur_hockey_3",
+    "texte": "Bravo à l’autre équipe. Ils se parlaient plus que nous autres.",
+    "emotion": "ironie",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_fin_defaite_005",
+    "qui": "joueur_hockey_1",
+    "texte": "C’est rien, c’est une ligue de garage.",
+    "emotion": "amuse",
+    "intensite": 0.4,
+    "anim": "talk"
+   },
+   {
+    "id": "rep_hockey_fin_defaite_006",
+    "qui": "joueur_hockey_2",
+    "texte": "Gaétan les a gardés dans le match. Lui, il mérite une poutine.",
+    "emotion": "joie",
+    "intensite": 0.4,
+    "anim": "talk"
+   }
+  ],
+  "eric_cafe": [
+   {
+    "id": "rep_eric_cafe_001",
+    "qui": "eric",
+    "texte": "Encore un café. Mon sang est maintenant à moitié machine.",
+    "emotion": "fatigue",
+    "intensite": 0.4,
+    "anim": "idle"
+   },
+   {
+    "id": "rep_eric_cafe_002",
+    "qui": "eric",
+    "texte": "La machine m’a rendu ma monnaie. C’est un signe. Lequel, je ne sais pas.",
+    "emotion": "ironie",
+    "intensite": 0.4,
+    "anim": "idle"
+   },
+   {
+    "id": "rep_eric_cafe_003",
+    "qui": "eric",
+    "texte": "Café noir. Comme mon humour. Et mon échéancier.",
+    "emotion": "ironie",
+    "intensite": 0.4,
+    "anim": "idle"
+   },
+   {
+    "id": "rep_eric_cafe_004",
+    "qui": "eric",
+    "texte": "Un café tiède. Le vrai coût de la recherche.",
+    "emotion": "fatigue",
+    "intensite": 0.4,
+    "anim": "idle"
+   },
+   {
+    "id": "rep_eric_cafe_005",
+    "qui": "eric",
+    "texte": "Allongé, sans sucre. Comme ma revue de littérature.",
+    "emotion": "neutre",
+    "intensite": 0.3,
+    "anim": "idle"
+   },
+   {
+    "id": "rep_eric_cafe_006",
+    "qui": "eric",
+    "texte": "Troisième café. Je vibre à la fréquence d’un comité.",
+    "emotion": "ironie",
+    "intensite": 0.4,
+    "anim": "idle"
+   }
+  ],
+  "eric_porte_verrouillee": [
+   {
+    "id": "rep_eric_porte_verrouillee_001",
+    "qui": "eric",
+    "texte": "Verrouillée. Le jury n’est pas encore prêt. Moi non plus, remarque.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "push"
+   },
+   {
+    "id": "rep_eric_porte_verrouillee_002",
+    "qui": "eric",
+    "texte": "Fermée à clé. Comme mon accès aux données.",
+    "emotion": "ironie",
+    "intensite": 0.4,
+    "anim": "push"
+   },
+   {
+    "id": "rep_eric_porte_verrouillee_003",
+    "qui": "eric",
+    "texte": "Pas encore. Il me manque des preuves. Et du courage.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "push"
+   },
+   {
+    "id": "rep_eric_porte_verrouillee_004",
+    "qui": "eric",
+    "texte": "Une porte verrouillée. Le CER a dû passer par ici.",
+    "emotion": "ironie",
+    "intensite": 0.4,
+    "anim": "push"
+   },
+   {
+    "id": "rep_eric_porte_verrouillee_005",
+    "qui": "eric",
+    "texte": "Bon. Je reviendrai quand j’aurai fini mes devoirs.",
+    "emotion": "fatigue",
+    "intensite": 0.4,
+    "anim": "push"
+   },
+   {
+    "id": "rep_eric_porte_verrouillee_006",
+    "qui": "eric",
+    "texte": "Même les portes ont des critères d’admission.",
+    "emotion": "ironie",
+    "intensite": 0.4,
+    "anim": "push"
+   }
+  ],
+  "eric_fatigue": [
+   {
+    "id": "rep_eric_fatigue_001",
+    "qui": "eric",
+    "texte": "Je suis à bout de souffle. Ma direction, elle, ne l’est jamais.",
+    "emotion": "fatigue",
+    "intensite": 0.6,
+    "anim": "idle"
+   },
+   {
+    "id": "rep_eric_fatigue_002",
+    "qui": "eric",
+    "texte": "Il faut que je m’arrête. Mes jambes demandent une prolongation d’échéance.",
+    "emotion": "fatigue",
+    "intensite": 0.6,
+    "anim": "idle"
+   },
+   {
+    "id": "rep_eric_fatigue_003",
+    "qui": "eric",
+    "texte": "Courir, écrire, courir. Il manque le dormir.",
+    "emotion": "fatigue",
+    "intensite": 0.5,
+    "anim": "idle"
+   },
+   {
+    "id": "rep_eric_fatigue_004",
+    "qui": "eric",
+    "texte": "Mon cardio est à préciser. Comme ma condition traceuse.",
+    "emotion": "fatigue",
+    "intensite": 0.6,
+    "anim": "idle"
+   },
+   {
+    "id": "rep_eric_fatigue_005",
+    "qui": "eric",
+    "texte": "Pause. Juste une. Avant la prochaine petite idée.",
+    "emotion": "fatigue",
+    "intensite": 0.5,
+    "anim": "idle"
+   },
+   {
+    "id": "rep_eric_fatigue_006",
+    "qui": "eric",
+    "texte": "Si je cours encore, je vais devoir me citer comme une limite de l’étude.",
+    "emotion": "fatigue",
+    "intensite": 0.6,
+    "anim": "idle"
+   }
+  ],
+  "eric_chute_glace": [
+   {
+    "id": "rep_eric_chute_glace_001",
+    "qui": "eric",
+    "texte": "Aïe. La glace a examiné mon protocole. Elle a dit non.",
+    "emotion": "ironie",
+    "intensite": 0.5,
+    "anim": "skate_getup"
+   },
+   {
+    "id": "rep_eric_chute_glace_002",
+    "qui": "eric",
+    "texte": "Je suis tombé sur le côté. Comme on me l’a appris. Fierté, quand même.",
+    "emotion": "fatigue",
+    "intensite": 0.5,
+    "anim": "skate_getup"
+   },
+   {
+    "id": "rep_eric_chute_glace_003",
+    "qui": "eric",
+    "texte": "Collecte de données sur la dureté de la glace : concluante.",
+    "emotion": "amuse",
+    "intensite": 0.5,
+    "anim": "skate_getup"
+   },
+   {
+    "id": "rep_eric_chute_glace_004",
+    "qui": "eric",
+    "texte": "Chute numéro trois. Je commence à avoir une taille d’échantillon.",
+    "emotion": "ironie",
+    "intensite": 0.5,
+    "anim": "skate_getup"
+   },
+   {
+    "id": "rep_eric_chute_glace_005",
+    "qui": "eric",
+    "texte": "Un genou, puis l’autre pied, puis debout. Méthode validée.",
+    "emotion": "neutre",
+    "intensite": 0.4,
+    "anim": "skate_getup"
+   },
+   {
+    "id": "rep_eric_chute_glace_006",
+    "qui": "eric",
+    "texte": "Personne n’a rien vu. Sauf Coralie. Et elle note tout.",
+    "emotion": "ironie",
+    "intensite": 0.5,
+    "anim": "skate_getup"
+   }
+  ]
+ }
+}

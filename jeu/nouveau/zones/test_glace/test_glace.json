@@ -1,0 +1,35 @@
+{
+  "id": "test_glace",
+  "titre": "Patinoire d'essai",
+  "sousTitre": "",
+  "glb": "test_glace.glb",
+  "lightmaps": [],
+  "env": {
+    "fichier": null,
+    "intensite": 1.0,
+    "fond": "#2a3238"
+  },
+  "brouillard": {
+    "couleur": "#2a3238",
+    "densite": 0
+  },
+  "exposition": 0.9,
+  "musique": "arena",
+  "ambiance": "amb_arena",
+  "sol": "caoutchouc",
+  "bounds": {
+    "min": [
+      -40,
+      0,
+      -21
+    ],
+    "max": [
+      40,
+      6,
+      21
+    ]
+  },
+  "carte": null,
+  "acces": {},
+  "credits": []
+}

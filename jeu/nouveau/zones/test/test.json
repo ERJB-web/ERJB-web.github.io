@@ -1,0 +1,35 @@
+{
+  "id": "test",
+  "titre": "Salle d'essai",
+  "sousTitre": "Zone de développement",
+  "glb": "test.glb",
+  "lightmaps": [],
+  "env": {
+    "fichier": null,
+    "intensite": 1.0,
+    "fond": "#20262b"
+  },
+  "brouillard": {
+    "couleur": "#20262b",
+    "densite": 0.0
+  },
+  "exposition": 1.0,
+  "musique": "campus",
+  "ambiance": "amb_hall",
+  "sol": "terrazzo",
+  "bounds": {
+    "min": [
+      -16,
+      0,
+      -7
+    ],
+    "max": [
+      16,
+      4,
+      7
+    ]
+  },
+  "carte": null,
+  "acces": {},
+  "credits": []
+}
