@@ -318,7 +318,7 @@ const ebMeteoMontreal = (() => {
     hall.style.setProperty("--hall-eclairage", eclairage.toFixed(3));
     hall.style.setProperty("--hall-chaleur", (crepuscule * 0.1 * (1 - nuit)).toFixed(3));
     hall.style.setProperty("--hall-nuit", nuit.toFixed(3));
-    hall.style.setProperty("--hall-reflet", (0.16 + nuit * 0.3 + crepuscule * 0.12).toFixed(3));
+    hall.style.setProperty("--hall-reflet", (0.36 - nuit * 0.1 + crepuscule * 0.04).toFixed(3));
     const voile = m.brouillard ? 0.5 : m.neige ? 0.34 : m.pluie ? 0.24 : couvert * 0.08;
     brume.style.opacity = voile.toFixed(3);
     brume.style.setProperty("--hall-brume-nuit", nuit.toFixed(3));

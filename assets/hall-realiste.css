@@ -8,7 +8,7 @@
   --hall-soleil: .7;
   --hall-eclairage: 1;
   --hall-chaleur: 0;
-  --hall-reflet: .16;
+  --hall-reflet: .36;
 }
 
 /* Porte : ouverture dans la baie, huisserie inox, battant de verre avec son illustration imprimée. */
@@ -336,7 +336,7 @@
   .hall.en-volume .hall-univers {
     /* Le haut de la vue reste fixe : une fine bande de plafond (depuis y=88) au-dessus de la baie ;
        le sol s'allonge ou se raccourcit selon la hauteur disponible. */
-    --px: max(calc(100cqw / 1850), calc(100cqh / 575));
+    --px: max(calc(100cqw / 1850), calc(100cqh / 575 + .048px));
     --iw: calc(var(--px) * 2000);
     --ih: calc(var(--px) * 720);
     --ix: calc((100cqw - var(--iw)) / 2);
@@ -369,13 +369,26 @@
     background-position: var(--ix) var(--iy);
     background-size: var(--iw) var(--ih);
   }
+  /* Le sol poli renvoie la vue de la baie en miroir, au même cadrage que la ville derrière la vitre. */
   .hall.en-volume .hall-reflet {
+    --hv: calc(var(--mur-bas) - var(--verre-haut));
+    --plan-l: max(calc((var(--mur-d) - var(--mur-g)) * 1.04), calc(var(--hv) * 1.3 * 3800 / 1090));
+    --plan-h: calc(var(--plan-l) * 1090 / 3800);
     left: var(--mur-g);
     width: calc(var(--mur-d) - var(--mur-g));
     top: var(--mur-bas);
     bottom: 0;
-    background-size: 100% calc(var(--mur-bas) - var(--verre-haut));
-    background-position: center bottom;
+    background-size: var(--plan-l) var(--plan-h);
+    background-position:
+      calc((var(--mur-d) - var(--mur-g) - var(--plan-l)) / 2 + (.5 - var(--hall-defile,.5)) * .06 * var(--plan-l))
+      calc(100cqh - var(--mur-bas) - var(--hv) + var(--hv) * .21 - var(--plan-h) * .305);
+    mix-blend-mode: normal;
+    filter: blur(1.2px) saturate(.85);
+    -webkit-mask-image: linear-gradient(to top,#000 0%,rgba(0,0,0,.78) 16%,rgba(0,0,0,.4) 45%,rgba(0,0,0,.12) 80%,transparent 100%);
+    mask-image: linear-gradient(to top,#000 0%,rgba(0,0,0,.78) 16%,rgba(0,0,0,.4) 45%,rgba(0,0,0,.12) 80%,transparent 100%);
+  }
+  .hall.en-volume .station-hall .porte {
+    -webkit-box-reflect: below 1px linear-gradient(transparent 62%,rgba(255,255,255,.05) 80%,rgba(255,255,255,.22));
   }
 
   /* La baie coulisse avec les portes et les panneaux, entre les deux piliers.
