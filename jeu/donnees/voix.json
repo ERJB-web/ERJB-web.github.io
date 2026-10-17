@@ -90,5 +90,93 @@
  "c1_courriel_001": {
   "duree": 6.2,
   "qui": "eric"
+ },
+ "c1_courriel_002": {
+  "duree": 3.06,
+  "qui": "eric"
+ },
+ "c1_courriel_003": {
+  "duree": 4.49,
+  "qui": "eric"
+ },
+ "c1_courriel_r_001": {
+  "duree": 5.37,
+  "qui": "collegue_doc"
+ },
+ "c1_courriel_r_002": {
+  "duree": 3.66,
+  "qui": "collegue_doc"
+ },
+ "c1_courriel_r_003": {
+  "duree": 5.06,
+  "qui": "eric"
+ },
+ "c1_depart_001": {
+  "duree": 6.46,
+  "qui": "collegue_doc"
+ },
+ "c1_depart_002": {
+  "duree": 8.08,
+  "qui": "collegue_doc"
+ },
+ "c1_depart_003": {
+  "duree": 5.2,
+  "qui": "collegue_doc"
+ },
+ "c1_fil_r_001": {
+  "duree": 4.69,
+  "qui": "prof_seminaire"
+ },
+ "c1_fil_r_002": {
+  "duree": 5.98,
+  "qui": "prof_seminaire"
+ },
+ "c1_fil_r_003": {
+  "duree": 4.53,
+  "qui": "eric"
+ },
+ "c1_fin_001": {
+  "duree": 6.1,
+  "qui": "eric"
+ },
+ "c1_fin_002": {
+  "duree": 4.54,
+  "qui": "eric"
+ },
+ "c1_fin_seminaire_001": {
+  "duree": 4.1,
+  "qui": "prof_seminaire"
+ },
+ "c1_fin_seminaire_002": {
+  "duree": 4.07,
+  "qui": "collegue_doc"
+ },
+ "c1_hall_001": {
+  "duree": 3.0,
+  "qui": "etudiant_2"
+ },
+ "c1_hall_003": {
+  "duree": 3.11,
+  "qui": "etudiant_2"
+ },
+ "c1_hall_004": {
+  "duree": 6.23,
+  "qui": "eric"
+ },
+ "c1_hall_005": {
+  "duree": 4.37,
+  "qui": "etudiant_2"
+ },
+ "c1_hall_006": {
+  "duree": 3.0,
+  "qui": "eric"
+ },
+ "c1_imprimante_001": {
+  "duree": 4.34,
+  "qui": "eric"
+ },
+ "c1_imprimante_002": {
+  "duree": 4.1,
+  "qui": "etudiant_3"
  }
 }
