@@ -139,7 +139,7 @@
     radial-gradient(circle at calc(100% - 9px) 9px,#fcfcfa 0 1.1px,#c3c6c4 1.6px 2.9px,#80857f 3.3px 3.9px,rgba(40,36,30,.22) 4.3px 5.2px,transparent 5.6px),
     radial-gradient(circle at 9px calc(100% - 9px),#fcfcfa 0 1.1px,#c3c6c4 1.6px 2.9px,#80857f 3.3px 3.9px,rgba(40,36,30,.22) 4.3px 5.2px,transparent 5.6px),
     radial-gradient(circle at calc(100% - 9px) calc(100% - 9px),#fcfcfa 0 1.1px,#c3c6c4 1.6px 2.9px,#80857f 3.3px 3.9px,rgba(40,36,30,.22) 4.3px 5.2px,transparent 5.6px),
-    linear-gradient(162deg,rgba(255,255,255,calc(.74 + var(--hall-nuit,0) * .07)) 0%,rgba(250,250,247,calc(.65 + var(--hall-nuit,0) * .07)) 55%,rgba(241,240,236,calc(.61 + var(--hall-nuit,0) * .07)) 100%);
+    linear-gradient(162deg,rgba(255,255,255,calc(.79 + var(--hall-nuit,0) * .07)) 0%,rgba(250,250,247,calc(.71 + var(--hall-nuit,0) * .07)) 55%,rgba(241,240,236,calc(.67 + var(--hall-nuit,0) * .07)) 100%);
   -webkit-backdrop-filter: blur(18px) saturate(1.3);
   backdrop-filter: blur(18px) saturate(1.3);
   box-shadow:
@@ -324,7 +324,7 @@
     --hall-ecart: 30;
     --hall-recadrage: 72;
     /* Haut des portes, dans la photo ; le fleuve reste visible au-dessus. */
-    --hall-porte-haut: 224;
+    --hall-porte-haut: 239;
   }
   .hall.en-volume .hall-espace {
     height: var(--eb-hall-hauteur);
@@ -336,7 +336,7 @@
   .hall.en-volume .hall-univers {
     /* Le haut de la vue reste fixe : une fine bande de plafond (depuis y=88) au-dessus de la baie ;
        le sol s'allonge ou se raccourcit selon la hauteur disponible. */
-    --px: max(calc(100cqw / 1850), calc(100cqh / 575 + .048px));
+    --px: max(calc(100cqw / 1850), calc(100cqh / 575 + .102px));
     --iw: calc(var(--px) * 2000);
     --ih: calc(var(--px) * 720);
     --ix: calc((100cqw - var(--iw)) / 2);
