@@ -4047,3 +4047,29 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
 /* Références */
 .m-o2 ul.refs-apa { font-size: .85rem; padding-left: 0; list-style: none; margin-top: 1rem; }
 .m-o2 ul.refs-apa li { padding-left: 2em; text-indent: -2em; margin-bottom: .45rem; overflow-wrap: anywhere; }
+
+/* Ma thèse · aperçu de la méthode */
+.a-apercu{margin:8px 0 34px}
+.a-devis{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:10px;margin:14px 0}
+.a-obj{padding:18px 18px 16px;border-radius:14px;background:#fff;border:1px solid #d6e4ea;border-top:4px solid #237a9a;box-shadow:0 6px 18px -12px rgba(23,63,82,.4)}
+.a-obj:nth-child(3){border-top-color:#65a946}.a-obj:nth-child(5){border-top-color:#173f52}
+.a-obj strong{display:block;margin:8px 0 10px;font-size:17px;color:#173f52;text-align:center}
+.a-code{display:block;width:max-content;margin:0 auto;padding:3px 12px;border-radius:999px;background:#237a9a;color:#fff;font-weight:700;letter-spacing:.04em}
+.a-obj:nth-child(3) .a-code{background:#65a946}.a-obj:nth-child(5) .a-code{background:#173f52}
+.a-lab{display:block;margin-top:6px;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#5b6d74;text-align:center}
+.a-obj p{margin:2px 0 0;font-size:15px;line-height:1.45;text-align:center!important}
+.a-obj .a-prod{font-weight:600;color:#1f5a4b}
+.a-fleche{display:flex;flex-direction:column;align-items:center;justify-content:center;color:#237a9a}
+.a-fleche svg{width:40px;height:24px}.a-fleche small{font-size:11px;color:#5b6d74}
+.a-pop{margin:6px 0 26px;padding:12px 16px;border-radius:10px;background:#f1f7f9;border-inline-start:3px solid #237a9a;font-size:15.5px}
+.a-entonnoir{display:flex;flex-direction:column;align-items:center;gap:6px;margin:12px 0 6px}
+.a-ent{width:var(--l);min-width:220px;display:flex;align-items:center;justify-content:center;gap:12px;padding:12px 16px;border-radius:10px;background:linear-gradient(90deg,#173f52,#237a9a);color:#fff}
+.a-ent:nth-child(3){background:linear-gradient(90deg,#3f8a2e,#65a946)}
+.a-ent b{font-size:22px}.a-ent span{font-size:14.5px;opacity:.95}
+.a-src{font-size:13px;color:#5b6d74;text-align:center!important}
+.a-caps{display:grid;gap:22px;margin-top:12px}
+.a-cap{margin:0}.a-cap img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid #d6e4ea;box-shadow:0 10px 28px -16px rgba(23,63,82,.5)}
+.a-cap figcaption{margin-top:8px;font-size:14.5px;color:#3a4c53}
+@media(max-width:860px){.a-devis{grid-template-columns:1fr}.a-fleche{transform:rotate(90deg);padding:4px 0}}
+/* Texte des chapitres plus lisible */
+.salle-contenu .volet p,.salle-contenu .volet li,.salle-contenu .volet dd{font-size:17px;line-height:1.7}
