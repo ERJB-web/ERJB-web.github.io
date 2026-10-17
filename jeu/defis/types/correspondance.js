@@ -1,5 +1,5 @@
-import { h, s, icone, vider, glisser, elementSous } from '../noyau.js?v=11a8d44cf2';
-import { melanger, scoreCorrespondance, clePaire } from '../calculs.js?v=11a8d44cf2';
+import { h, s, icone, vider, glisser, elementSous } from '../noyau.js?v=0611ddd2c3';
+import { melanger, scoreCorrespondance, clePaire } from '../calculs.js?v=0611ddd2c3';
 
 export function rendre(def, coque) {
   const gauche = (Array.isArray(def.gauche) ? def.gauche : []).map((x, i) => ({ id: String(x.id ?? i), texte: String(x.texte ?? x.id ?? '') }));

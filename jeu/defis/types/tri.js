@@ -1,5 +1,5 @@
-import { h, icone, humaniser, glisser, elementSous, memoriserPositions, animerDepuis, defilerPres } from '../noyau.js?v=11a8d44cf2';
-import { melanger, scoreTri } from '../calculs.js?v=11a8d44cf2';
+import { h, icone, humaniser, glisser, elementSous, memoriserPositions, animerDepuis, defilerPres } from '../noyau.js?v=0611ddd2c3';
+import { melanger, scoreTri } from '../calculs.js?v=0611ddd2c3';
 
 export function rendre(def, coque) {
   const bacs = (Array.isArray(def.bacs) ? def.bacs : []).map((b, i) => ({

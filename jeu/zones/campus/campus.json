@@ -1,0 +1,236 @@
+{
+ "id": "campus",
+ "titre": "Université de Montréal",
+ "sousTitre": "Pavillon Roger-Gaudry",
+ "glb": "campus.glb",
+ "lightmaps": [
+  {
+   "fichier": "campus_lm0.webp",
+   "scale": 1.3073
+  },
+  {
+   "fichier": "campus_lm1.webp",
+   "scale": 1.2979
+  },
+  {
+   "fichier": "campus_lm2.webp",
+   "scale": 5.8361
+  },
+  {
+   "fichier": "campus_lm3.webp",
+   "scale": 5.2761
+  },
+  {
+   "fichier": "campus_lm4.webp",
+   "scale": 1.1551
+  }
+ ],
+ "env": {
+  "fichier": "campus_env.hdr",
+  "intensite": 1.0,
+  "ciel": true,
+  "intensiteFond": 1.0,
+  "fond": "#9fb8cf"
+ },
+ "soleil": {
+  "direction": [
+   0.453,
+   -0.473,
+   -0.755
+  ],
+  "couleur": "#ffeeda",
+  "intensite": 3.0
+ },
+ "brouillard": {
+  "couleur": "#c3ceda",
+  "densite": 0.0016
+ },
+ "exposition": 1.0,
+ "musique": "campus",
+ "ambiance": "amb_exterieur_automne",
+ "sol": "beton",
+ "bounds": {
+  "min": [
+   -60.0,
+   -1.0,
+   -48.0
+  ],
+  "max": [
+   92.0,
+   30.0,
+   104.0
+  ]
+ },
+ "carte": "campus_carte.webp",
+ "acces": {
+  "metro": "SPAWN_from_metro",
+  "bibliotheque": "SPAWN_from_bibliotheque",
+  "arena": "SPAWN_from_arena",
+  "soutenance": "SPAWN_from_soutenance",
+  "clsc": "SPAWN_from_clsc"
+ },
+ "credits": [
+  {
+   "ressource": "Brick Wall 003",
+   "auteur": "Rob Tuytel, Dimitrios Savva",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/brick_wall_003"
+  },
+  {
+   "ressource": "Granite Tile 03",
+   "auteur": "Charlotte Baglioni",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/granite_tile_03"
+  },
+  {
+   "ressource": "Concrete Pavement",
+   "auteur": "Charlotte Baglioni",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/concrete_pavement"
+  },
+  {
+   "ressource": "Leafy Grass",
+   "auteur": "Charlotte Baglioni",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/leafy_grass"
+  },
+  {
+   "ressource": "Leaves Forest Ground",
+   "auteur": "Dario Barresi, Dimitrios Savva",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/leaves_forest_ground"
+  },
+  {
+   "ressource": "Asphalt 02",
+   "auteur": "Rob Tuytel",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/asphalt_02"
+  },
+  {
+   "ressource": "Trident Maple Bark",
+   "auteur": "Charlotte Baglioni",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/trident_maple_bark"
+  },
+  {
+   "ressource": "Beige Wall 002",
+   "auteur": "Dimitrios Savva, Rico Cilliers",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/beige_wall_002"
+  },
+  {
+   "ressource": "Marble 01",
+   "auteur": "Rob Tuytel",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/marble_01"
+  },
+  {
+   "ressource": "Wood Table 001",
+   "auteur": "Dimitrios Savva, Rico Cilliers",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/wood_table_001"
+  },
+  {
+   "ressource": "Painted Plaster Wall",
+   "auteur": "Amal Kumar",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/painted_plaster_wall"
+  },
+  {
+   "ressource": "Linoleum Brown",
+   "auteur": "Rob Tuytel",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/linoleum_brown"
+  },
+  {
+   "ressource": "Oak Wood Planks",
+   "auteur": "Dimitrios Savva",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/oak_wood_planks"
+  },
+  {
+   "ressource": "Brushed Concrete ",
+   "auteur": "Dario Barresi, Dimitrios Savva",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/brushed_concrete"
+  },
+  {
+   "ressource": "Dark Wood",
+   "auteur": "Dario Barresi, Dimitrios Savva, Rico Cilliers",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/dark_wood"
+  },
+  {
+   "ressource": "Walnut Veneer",
+   "auteur": "Jenelle van Heerden",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/walnut_veneer"
+  },
+  {
+   "ressource": "Herringbone Parquet",
+   "auteur": "Jenelle van Heerden, Sergej Majboroda",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/herringbone_parquet"
+  },
+  {
+   "ressource": "Velour Velvet",
+   "auteur": "colormass, Rico Cilliers",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/velour_velvet"
+  },
+  {
+   "ressource": "Rough Linen",
+   "auteur": "colormass, Rico Cilliers",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/rough_linen"
+  },
+  {
+   "ressource": "Metal Plate",
+   "auteur": "Rob Tuytel",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/metal_plate"
+  },
+  {
+   "ressource": "Kloofendal 48d Partly Cloudy (Pure Sky)",
+   "auteur": "Greg Zaal, Jarod Guest",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky"
+  },
+  {
+   "ressource": "School Chair 01",
+   "auteur": "Ethan Place",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/SchoolChair_01"
+  },
+  {
+   "ressource": "Potted Plant 02",
+   "auteur": "Rico Cilliers",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/potted_plant_02"
+  },
+  {
+   "ressource": "Dark Wood",
+   "auteur": "Dario Barresi, Dimitrios Savva, Rico Cilliers",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/dark_wood"
+  },
+  {
+   "ressource": "Walnut Veneer",
+   "auteur": "Jenelle van Heerden",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/walnut_veneer"
+  },
+  {
+   "ressource": "Herringbone Parquet",
+   "auteur": "Jenelle van Heerden, Sergej Majboroda",
+   "licence": "CC0",
+   "url": "https://polyhaven.com/a/herringbone_parquet"
+  },
+  {
+   "ressource": "Lato",
+   "auteur": "Łukasz Dziedzic",
+   "licence": "OFL 1.1",
+   "url": "https://fonts.google.com/specimen/Lato"
+  }
+ ]
+}
