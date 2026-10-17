@@ -193,10 +193,10 @@
   border: 0;
   border-bottom: 1px solid #e3ded3;
   border-radius: 0;
-  color: #253433;
+  color: color-mix(in srgb,var(--c1) 5%,#253433);
   background: transparent;
   box-shadow: none;
-  font: 500 14px/1.25 var(--sans);
+  font: 500 15px/1.25 var(--sans);
   text-align: start;
   overflow-wrap: normal;
   word-break: normal;
@@ -211,8 +211,8 @@
   background: var(--c1);
 }
 .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .sous-portes-murales > :is(button,a):hover {
-  color: color-mix(in srgb,var(--c1) 82%,#0d1f1e);
-  background: linear-gradient(90deg,color-mix(in srgb,var(--c1) 34%,transparent),color-mix(in srgb,var(--c1) 13%,transparent));
+  color: color-mix(in srgb,var(--c1) 87%,#0d1f1e);
+  background: linear-gradient(90deg,color-mix(in srgb,var(--c1) 39%,transparent),color-mix(in srgb,var(--c1) 18%,transparent));
   border-bottom-color: var(--c1);
   box-shadow: inset 3px 0 0 var(--c1);
 }
@@ -610,7 +610,7 @@
   }
   .hall.en-mobile .station-hall .panneau-hall h3 { font-size: 16px; }
   .hall.en-mobile .station-hall .sous-portes-murales { padding-top: 0; border-top: 0; }
-  .hall.en-mobile .station-hall .sous-portes-murales > :is(button,a) { min-height: 44px; font-size: 14px; background: transparent; border-width: 0 0 1px; border-radius: 0; }
+  .hall.en-mobile .station-hall .sous-portes-murales > :is(button,a) { min-height: 44px; font-size: 15px; background: transparent; border-width: 0 0 1px; border-radius: 0; }
   .hall.en-mobile .station-hall .sous-portes-murales > :last-child:nth-child(odd) { grid-column: 1/-1; }
   .hall.en-mobile .hall-commandes { background: linear-gradient(180deg,rgba(40,40,38,.0),rgba(40,40,38,.35)); }
   .hall.en-mobile .hall-position-mobile { color: #f2f2ee; }
@@ -638,7 +638,7 @@
   .hall[data-hall-volume].en-volume .station-hall .panneau-hall { padding: 13px 17px 11px; }
   .hall[data-hall-volume].en-volume .station-hall .panneau-hall h3 { margin-bottom: 6px; padding-bottom: 7px; font-size: 14.5px; }
   .hall[data-hall-volume].en-volume .station-hall .panneau-hall h3 bdi { height: 22px; font-size: 12px; }
-  .hall[data-hall-volume].en-volume .station-hall .sous-portes-murales > :is(button,a) { min-height: 32px; padding-block: 3px; font-size: 13px; line-height: 1.2; }
+  .hall[data-hall-volume].en-volume .station-hall .sous-portes-murales > :is(button,a) { min-height: 32px; padding-block: 3px; font-size: 14px; line-height: 1.2; }
 }
 @media(prefers-reduced-motion:reduce) {
   .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .battant { transition: none; }
