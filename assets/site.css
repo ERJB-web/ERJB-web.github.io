@@ -3049,3 +3049,31 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
 .hall-tete .hall-titre-nom{color:var(--gsk-bleu,#237a9a)}
 .hall-tete .hall-titre-nom em{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--gsk-vert,#65a946)}
 .hall-tete .hall-titre-nom::after{background:linear-gradient(90deg,var(--gsk-bleu,#237a9a) 50%,var(--gsk-vert,#65a946) 50%)}
+/* Barre de navigation segmentée : icône colorée par rubrique, survol clair, trait de couleur */
+.entete::after{content:"";order:2;flex:0 0 100%;height:0}
+.entete .nav{flex:0 1 auto;width:fit-content;max-width:calc(100% - 340px);gap:2px;margin:12px 0 0;padding:4px;border:1px solid #dfe7ea;border-radius:12px;background:linear-gradient(180deg,#f8fbfb,#eef3f5);box-shadow:inset 0 1px 0 #fff}
+.entete .nav a{position:relative;gap:8px;min-height:40px;padding:8px 14px;border:0;border-radius:9px;background:transparent;font-size:14px;font-weight:500;color:var(--ink);box-shadow:none}
+.entete .nav a svg{flex:none;width:17px;height:17px;color:var(--nav-accent,#1f5a8a);transition:transform .2s ease}
+.entete .nav a::after{content:"";position:absolute;left:14px;right:14px;bottom:3px;height:2px;border-radius:2px;background:var(--nav-accent,#1f5a8a);transform:scaleX(0);transition:transform .22s ease}
+.entete .nav a:hover,.entete .nav a:focus-visible{border:0;background:#fff;color:var(--ink-deep,#173f52);box-shadow:0 1px 4px rgba(23,63,82,.13)}
+.entete .nav a:hover::after,.entete .nav a:focus-visible::after{transform:scaleX(1)}
+.entete .nav a:hover svg,.entete .nav a:focus-visible svg{transform:translateY(-1px)}
+.entete .nav a:active{background:color-mix(in srgb,var(--nav-accent,#1f5a8a) 8%,#fff)}
+.entete-contact a.entete-rdv{color:#1f5a8a;font-weight:600}
+.entete-contact a.entete-rdv svg{color:var(--gsk-vert,#65a946)}
+@media(max-width:1080px){.entete .nav{max-width:100%}}
+@media(max-width:640px){.entete .nav{margin-top:6px;border-radius:10px}.entete .nav a{min-height:42px;padding:8px 11px}}
+@media(prefers-reduced-motion:reduce){.entete .nav a::after,.entete .nav a svg{transition:none}}
+@media(forced-colors:active){.entete .nav{border-color:CanvasText}.entete .nav a::after{background:Highlight}}
+@media(min-width:1081px) and (max-width:1599px){.entete .nav{max-width:calc(100% - 326px)}.entete .nav a{gap:6px;padding:7px 10px;font-size:13.5px}.entete .nav a::after{left:10px;right:10px}.entete .nav a svg{width:15px;height:15px}}
+@media(min-width:1081px) and (max-width:1440px){.entete .nav a{padding:7px 9px}.entete .nav a::after{left:9px;right:9px}.entete .nav a svg{display:none}}
+@media(min-width:701px) and (max-width:1080px){.entete .nav{max-width:100%}.entete .nav a{padding:7px 9px;font-size:13.5px}.entete .nav a::after{left:9px;right:9px}.entete .nav a svg{display:none}}
+/* Une seule couleur, celle de la Chaire : titre du hall, consignes, icônes de la barre */
+.hall-tete .hall-titre-nom{color:var(--gsk-bleu,#237a9a)}
+.hall-tete .hall-titre-nom::after{background:var(--gsk-bleu,#237a9a)}
+.hall-tete .hall-geste:nth-child(n){background:#eef5f8;border-color:#c9dde5;color:#173f52}
+.hall-tete .hall-geste:nth-child(n) svg{color:var(--gsk-bleu,#237a9a)}
+.entete .nav a svg{color:var(--gsk-bleu,#237a9a)}
+.entete .nav a::after{background:var(--gsk-bleu,#237a9a)}
+.entete .nav a:active{background:#eef5f8}
+.entete-contact a.entete-rdv svg{color:#1f5a8a}
