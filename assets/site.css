@@ -3180,3 +3180,11 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
 .tuto-video{margin:12px 0 0}
 .tuto-video video{display:block;width:100%;aspect-ratio:16/9;border-radius:14px;border:1px solid var(--line);background:#0d2a3a;box-shadow:var(--shadow)}
 .tuto-video video::cue{font-size:15px;line-height:1.35;background:rgba(13,42,58,.82);color:#fff}
+/* En-tête du hall allégé : consignes en texte discret, plus d’air */
+.hall-tete{margin-bottom:18px}
+.hall-tete .hall-titre{gap:6px 24px}
+.hall-tete .hall-titre-nom{font-size:clamp(24px,2vw,30px)}
+.hall-tete .hall-titre-nom::after{display:none}
+.hall-tete .hall-gestes{gap:6px 20px;font-size:13px}
+.hall-tete .hall-geste,.hall-tete .hall-geste:nth-child(n){padding:0;border:0;border-radius:0;background:none;box-shadow:none;color:#5b6d74;font-weight:500}
+.hall-tete .hall-geste svg,.hall-tete .hall-geste:nth-child(n) svg{width:15px;height:15px;color:#8597a0;animation:none}

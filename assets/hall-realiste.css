@@ -324,7 +324,7 @@
     --hall-ecart: 30;
     --hall-recadrage: 72;
     /* Haut des portes, dans la photo ; le fleuve reste visible au-dessus. */
-    --hall-porte-haut: 209.5;
+    --hall-porte-haut: 222.8;
   }
   .hall.en-volume .hall-espace {
     height: var(--eb-hall-hauteur);
@@ -336,7 +336,7 @@
   .hall.en-volume .hall-univers {
     /* Le haut de la vue reste fixe : une fine bande de plafond (depuis y=88) au-dessus de la baie ;
        le sol s'allonge ou se raccourcit selon la hauteur disponible. */
-    --px: max(calc(100cqw / 1850), calc(100cqh / 575 + .102px));
+    --px: max(calc(100cqw / 1850), calc(100cqh / 575 + .149px));
     --iw: calc(var(--px) * 2000);
     --ih: calc(var(--px) * 720);
     --ix: calc((100cqw - var(--iw)) / 2);
