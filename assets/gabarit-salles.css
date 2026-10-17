@@ -287,3 +287,67 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
     min-width:0;
   }
 }
+
+
+/* Thèse : sommaire seul dans la colonne gauche, scroll autonome.
+   Les illustrations demeurent en pleine largeur dans le contenu de droite. */
+@media (min-width:980px) {
+  .gab[data-gab-salle="recherche"] .gab-chapitre-grille.gab-menu-gauche {
+    grid-template-columns:clamp(225px,21vw,270px) minmax(0,1fr);
+    column-gap:clamp(24px,3vw,44px);
+    align-items:start;
+  }
+  .gab[data-gab-salle="recherche"] .gab-menu-gauche > .gab-chapitre-aside {
+    grid-column:1;
+    grid-row:1;
+    position:sticky;
+    top:calc(var(--salle-barre-hauteur,90px) + 18px);
+    width:100%;
+    min-width:0;
+    max-height:calc(100dvh - var(--salle-barre-hauteur,90px) - 30px);
+    justify-self:start;
+    align-self:start;
+  }
+  .gab[data-gab-salle="recherche"] .gab-menu-gauche > .gab-chapitre-texte {
+    grid-column:2;
+    grid-row:1;
+    min-width:0;
+  }
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre {
+  max-height:calc(100dvh - var(--salle-barre-hauteur,90px) - 38px);
+  min-height:0;
+  overflow-y:auto;
+  overscroll-behavior-y:contain;
+  scrollbar-width:thin;
+  padding:12px 10px;
+  gap:1px;
+  border-radius:16px;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre > span {
+  font-size:12px;
+  margin-bottom:5px;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre a {
+  padding:6px 7px;
+  font-size:14px;
+  line-height:1.36;
+  overflow-wrap:break-word;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-chapitre-texte > .gab-photo {
+  margin:0 0 26px;
+  width:100%;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-chapitre-texte > .gab-photo img {
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:none;
+  aspect-ratio:auto;
+  object-fit:contain;
+}
+@media (max-width:979px) {
+  .gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre {
+    max-height:min(300px,45dvh);
+  }
+}
