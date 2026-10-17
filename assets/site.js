@@ -1183,7 +1183,7 @@
         cartes: ['proximite500', 'proximite1', 'gmf']
       },
       {
-        volet: 'resultats',
+        volet: ['resultats', 'retombees'],
         titre: 'Croiser besoins, réponse et configurations territoriales',
         introduction: 'Ces trois exemples montrent comment des croisements spatiaux peuvent orienter des questions à approfondir. Ils ne doivent pas être interprétés comme les résultats définitifs de la thèse, ni comme une validation des réseaux réellement mobilisés.',
         cartes: ['ecarts', 'prioritaires', 'lisa']
@@ -1195,7 +1195,7 @@
       const fig = document.createElement('figure');
       fig.className = 'atlas-these-figure';
       fig.innerHTML =
-        '<div class="atlas-these-figure-entete"><span>Carte ' + String(numero).padStart(2, '0') + ' / 09</span><h5></h5><p></p></div>' +
+        '<div class="atlas-these-figure-entete"><span>Figure ' + String(numero).padStart(2, '0') + ' / 09</span><h5></h5><p></p></div>' +
         '<a class="atlas-these-image" href="' + url + '" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir en pleine définition : ' + c.titre + '">' +
         '<img src="' + url + '" alt="' + c.alt + '" loading="lazy" decoding="async"></a>' +
         '<figcaption><span>Cartographie exploratoire O2 · CCSMTL · octobre 2026</span>' +
@@ -1208,7 +1208,7 @@
     let compteur = 0;
     blocs.forEach((bloc) => {
       const panneau = Array.from(table.querySelectorAll('.rubrique-corps'))
-        .find(el => el.dataset.rubrique === bloc.volet && el.closest('[data-rubriques="these"]') === table);
+        .find(el => (Array.isArray(bloc.volet) ? bloc.volet.includes(el.dataset.rubrique) : el.dataset.rubrique === bloc.volet) && el.closest('[data-rubriques="these"]') === table);
       if (!panneau) return;
       const section = document.createElement('section');
       section.className = 'atlas-these';
