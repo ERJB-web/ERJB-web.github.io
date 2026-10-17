@@ -209,7 +209,12 @@
     if (intertitres.length >= 2) {
       const nav = el("nav", "gab-sommaire-chapitre");
       nav.setAttribute("aria-label", T.dans);
-      nav.innerHTML = `<span>${echapper(T.dans)}</span>` + intertitres.slice(0, 8).map((h, k) => `<a href="#" data-gab-intertitre="${k}">${echapper(net(h.textContent))}</a>`).join("");
+      nav.setAttribute("tabindex", "0");
+      nav.innerHTML = `<span>${echapper(T.dans)}</span>` + intertitres.slice(0, 8).map((h, k) => {
+        const titre = net(h.textContent);
+        const objectif = /^O([123])\b/i.exec(titre);
+        return `<a href="#" data-gab-intertitre="${k}"${objectif ? ` data-objectif="O${objectif[1]}"` : ""}>${echapper(titre)}</a>`;
+      }).join("");
       aside.append(nav);
     }
     grille.append(texte, aside);
