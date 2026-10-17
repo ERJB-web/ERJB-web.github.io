@@ -2603,8 +2603,7 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
 
 /* Recalage natif de proximité, jamais forcé, séparé entre page et salle. */
 @supports(scroll-snap-type:y proximity){
-  html:not(.lv):not(.hc){scroll-snap-type:y proximity;scroll-padding-top:clamp(85px,11svh,136px)}
-  html:not(.lv):not(.hc) main>.accueil,
+  html:not(.lv):not(.hc){scroll-snap-type:y proximity;scroll-padding-top:var(--entete-h,clamp(85px,11svh,136px))}
   html:not(.lv):not(.hc) main>.section{scroll-snap-align:start;scroll-snap-stop:normal}
   .salle:not([hidden]){scroll-snap-type:y proximity;scroll-padding-top:calc(var(--salle-barre-hauteur,78px) + 16px)}
   .salle:not([hidden]) .salle-contenu .bandeau,
@@ -3003,3 +3002,6 @@ html.hc .implantation-portail-liens a{border-color:currentColor}
 @media(min-width:640px) and (max-width:1279px){.entete .marque-bloc{order:0;flex:1 1 260px}}
 @media(max-width:700px){.entete .marque-bloc{flex:1 1 100%;order:0}.entete-contact{display:none}}
 @media(max-width:480px){.entete .outils a.acces-these{width:40px;padding:0;justify-content:center;gap:0;margin-inline-end:0}.entete .outils a.acces-these>span{display:none}}
+@media(min-width:1081px){html:not(.lv):not(.hc) main>.accueil>.hall{scroll-snap-align:start;scroll-snap-stop:normal}}
+/* Chargement : la page apparaît une fois placée, sans saut visible */
+html.chargement main,html.chargement body>footer{visibility:hidden}

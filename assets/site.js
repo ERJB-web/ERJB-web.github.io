@@ -35,6 +35,8 @@
   // Une entrée d’historique décrit une seule adresse et sa rubrique réelle.
   try { sessionStorage.removeItem('eb-navigation-v1:' + location.pathname); } catch {}
   if ('scrollRestoration' in history) history.scrollRestoration='manual';
+  // La page reste masquée jusqu’à ce qu’elle soit placée à sa position finale.
+  const reveler = () => racine.classList.remove('chargement');
   let memoirePrete = false, repriseEnCours = false, minuterieMemoire = 0, lectureAReprendre = null;
   let numeroReprise=0, adresseEnAttente=false, minuterieAdresse=0;
 
@@ -182,12 +184,13 @@
       placer();
       requestAnimationFrame(()=>{
         if(reprise!==numeroReprise)return;
-        placer();repriseEnCours=false;memoirePrete=true;memoriserNavigation();
+        placer();reveler();repriseEnCours=false;memoirePrete=true;memoriserNavigation();
       });
     });
     if(document.fonts)document.fonts.ready.then(placer);
     addEventListener('load',placer,{once:true});
     setTimeout(()=>{
+      reveler();
       interrompue=true;
       gestes.forEach(n=>document.removeEventListener(n,interrompre,true));
       removeEventListener('load',placer);
@@ -1078,6 +1081,7 @@
     if(navigationInitiale){reprendreNavigation(navigationInitiale);return;}
     if(location.hash){suivreAdresse();return;}
     memoirePrete=true;
+    reveler();
     demanderMemoire();
   });
 })();
