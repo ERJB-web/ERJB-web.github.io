@@ -266,3 +266,24 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
     overflow-wrap:break-word;
   }
 }
+
+/* Ma thèse : sommaire du chapitre à gauche, moins large.
+   Les images intégrées aux textes et les tuiles illustrées sont conservées. */
+@media (min-width:1181px) {
+  .gab[data-gab-salle="recherche"] .gab-chapitre-grille {
+    grid-template-columns:232px minmax(0,1fr);
+    column-gap:clamp(24px,3vw,40px);
+  }
+  .gab[data-gab-salle="recherche"] .gab-chapitre-aside {
+    grid-column:1;
+    grid-row:1;
+    width:100%;
+    min-width:0;
+    justify-self:start;
+  }
+  .gab[data-gab-salle="recherche"] .gab-chapitre-texte {
+    grid-column:2;
+    grid-row:1;
+    min-width:0;
+  }
+}
