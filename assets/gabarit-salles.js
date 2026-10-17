@@ -68,7 +68,7 @@
   function choisirImage(ch, salle, porte, prises, photoSalle) {
     const explicite = ch.source?.dataset?.image;
     if (explicite === "aucune") return { url: "" };
-    if (explicite) return { url: explicite };
+    if (explicite) return { url: absolue(explicite) };
     const connue = parTitre.get(`${salle}|${normaliser(ch.titre)}`);
     if (connue && !prises.has(connue.fichier)) return { url: urlImage(connue), image: connue };
     const interne = ch.photoInterne;
