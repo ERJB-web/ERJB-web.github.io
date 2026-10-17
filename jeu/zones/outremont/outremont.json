@@ -1,0 +1,323 @@
+{
+  "id": "outremont",
+  "titre": "Outremont",
+  "sousTitre": "Avenue Stuart et station Outremont",
+  "glb": "outremont.glb",
+  "lightmaps": [
+    {
+      "fichier": "outremont_lm0.webp",
+      "scale": 2.79307
+    },
+    {
+      "fichier": "outremont_lm1.webp",
+      "scale": 2.15716
+    },
+    {
+      "fichier": "outremont_lm2.webp",
+      "scale": 3.61007
+    },
+    {
+      "fichier": "outremont_lm3.webp",
+      "scale": 2.79842
+    }
+  ],
+  "env": {
+    "fichier": "outremont_env.hdr",
+    "intensite": 1.0,
+    "fond": "#c8d5de"
+  },
+  "soleil": {
+    "direction": [
+      0.144,
+      -0.486,
+      -0.862
+    ],
+    "couleur": "#fff0dc",
+    "intensite": 2.5
+  },
+  "brouillard": {
+    "couleur": "#d3dbe0",
+    "densite": 0.0035
+  },
+  "exposition": 1.0,
+  "musique": "outremont",
+  "ambiance": "amb_outremont",
+  "sol": "asphalte",
+  "bounds": {
+    "min": [
+      -62.0,
+      -14.0,
+      -108.0
+    ],
+    "max": [
+      156.0,
+      18.0,
+      56.0
+    ]
+  },
+  "carte": "outremont_carte.webp",
+  "acces": {
+    "metro": "SPAWN_from_metro",
+    "outremont_arena": "SPAWN_from_arena"
+  },
+  "credits": [
+    {
+      "ressource": "Concrete Brick Wall 001",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/concrete_brick_wall_001"
+    },
+    {
+      "ressource": "Brick Wall 09",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/brick_wall_09"
+    },
+    {
+      "ressource": "Red Brick",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/red_brick"
+    },
+    {
+      "ressource": "Brick Wall 006",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/brick_wall_006"
+    },
+    {
+      "ressource": "Brick Wall 10",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/brick_wall_10"
+    },
+    {
+      "ressource": "Roof Slates 03",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/roof_slates_03"
+    },
+    {
+      "ressource": "Asphalt 02",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/asphalt_02"
+    },
+    {
+      "ressource": "Concrete Floor Worn 001",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/concrete_floor_worn_001"
+    },
+    {
+      "ressource": "Concrete",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/concrete"
+    },
+    {
+      "ressource": "Concrete Wall 008",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/concrete_wall_008"
+    },
+    {
+      "ressource": "Leafy Grass",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/leafy_grass"
+    },
+    {
+      "ressource": "Bark Platanus",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/bark_platanus"
+    },
+    {
+      "ressource": "Dry Decay Leaves",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/dry_decay_leaves"
+    },
+    {
+      "ressource": "Oak Wood Planks",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/oak_wood_planks"
+    },
+    {
+      "ressource": "Painted Plaster Wall",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/painted_plaster_wall"
+    },
+    {
+      "ressource": "Floor Tiles 08",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/floor_tiles_08"
+    },
+    {
+      "ressource": "Poly Wool Herringbone",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/poly_wool_herringbone"
+    },
+    {
+      "ressource": "Oak Veneer 01",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/oak_veneer_01"
+    },
+    {
+      "ressource": "Dark Wood",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/dark_wood"
+    },
+    {
+      "ressource": "Autumn Field (Pure Sky)",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/autumn_field_puresky"
+    },
+    {
+      "ressource": "Sofa 01",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/Sofa_01"
+    },
+    {
+      "ressource": "Coffee Table 01",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/CoffeeTable_01"
+    },
+    {
+      "ressource": "Classic Laptop",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/classic_laptop"
+    },
+    {
+      "ressource": "Desk Lamp Arm 01",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/desk_lamp_arm_01"
+    },
+    {
+      "ressource": "Wooden Bookshelf Worn",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/wooden_bookshelf_worn"
+    },
+    {
+      "ressource": "Binder Notebook",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/binder_notebook"
+    },
+    {
+      "ressource": "Dining Table",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/dining_table"
+    },
+    {
+      "ressource": "Dining Chair 02",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/dining_chair_02"
+    },
+    {
+      "ressource": "Wicker Basket 01",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/wicker_basket_01"
+    },
+    {
+      "ressource": "Throw Pillows 01",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/throw_pillows_01"
+    },
+    {
+      "ressource": "Electric Stove",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/electric_stove"
+    },
+    {
+      "ressource": "Vintage Electric Kettle",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/vintage_electric_kettle"
+    },
+    {
+      "ressource": "Cardboard Box 01",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/cardboard_box_01"
+    },
+    {
+      "ressource": "Drawer Cabinet",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/drawer_cabinet"
+    },
+    {
+      "ressource": "Modern Wooden Cabinet",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/modern_wooden_cabinet"
+    },
+    {
+      "ressource": "Potted Plant 02",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/potted_plant_02"
+    },
+    {
+      "ressource": "Potted Plant 04",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/potted_plant_04"
+    },
+    {
+      "ressource": "Side Table 01",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/side_table_01"
+    },
+    {
+      "ressource": "Modern Arm Chair 01",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/modern_arm_chair_01"
+    },
+    {
+      "ressource": "Metal Trash Can",
+      "auteur": "Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/metal_trash_can"
+    },
+    {
+      "ressource": "Lato, Barlow Semi Condensed, Caveat",
+      "auteur": "Łukasz Dziedzic ; Jeremy Tribby ; Impallari Type",
+      "licence": "OFL",
+      "url": "https://fonts.google.com"
+    },
+    {
+      "ressource": "Tracé des rues et des bâtiments d'Outremont",
+      "auteur": "Contributeurs d'OpenStreetMap",
+      "licence": "ODbL",
+      "url": "https://www.openstreetmap.org/copyright"
+    },
+    {
+      "ressource": "Photos de référence de la station Outremont (consultées seulement, non publiées)",
+      "auteur": "Wikimedia Commons",
+      "licence": "CC BY-SA",
+      "url": "https://commons.wikimedia.org"
+    }
+  ]
+}

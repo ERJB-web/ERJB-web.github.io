@@ -1,24 +1,24 @@
 import * as THREE from 'three';
-import { creerBus } from './bus.js?v=0a26226c4e';
-import { etatInitial, charger as chargerPartie, sauvegarder, chargerOptions, sauverOptions, appliquerEffets } from './etat.js?v=0a26226c4e';
-import { creerRendu } from './rendu.js?v=0a26226c4e';
-import { creerPhysique } from './physique.js?v=0a26226c4e';
-import { creerChargeur, chargerZone, installerZone, retirerZone } from './zones.js?v=0a26226c4e';
-import { creerObjets } from './objets.js?v=0a26226c4e';
-import { creerAudio } from './audio.js?v=0a26226c4e';
-import { creerPersonnages } from './personnages.js?v=0a26226c4e';
-import { creerCamera } from './camera.js?v=0a26226c4e';
-import { creerEntrees } from './entrees.js?v=0a26226c4e';
-import { creerInteractions } from './interactions.js?v=0a26226c4e';
-import { creerGestionPNJ } from './pnj.js?v=0a26226c4e';
-import { creerDialogues } from './dialogues.js?v=0a26226c4e';
-import { creerDirection } from './direction.js?v=0a26226c4e';
-import { creerMissions } from './missions.js?v=0a26226c4e';
-import { creerHockey } from './hockey.js?v=0a26226c4e';
-import { creerCompagnon } from './compagnon.js?v=0a26226c4e';
-import { creerMatch } from './match.js?v=0a26226c4e';
-import { creerFoule } from './foule.js?v=0a26226c4e';
-import { creerCourse } from './course.js?v=0a26226c4e';
+import { creerBus } from './bus.js?v=5a3cf24964';
+import { etatInitial, charger as chargerPartie, sauvegarder, chargerOptions, sauverOptions, appliquerEffets } from './etat.js?v=5a3cf24964';
+import { creerRendu } from './rendu.js?v=5a3cf24964';
+import { creerPhysique } from './physique.js?v=5a3cf24964';
+import { creerChargeur, chargerZone, installerZone, retirerZone } from './zones.js?v=5a3cf24964';
+import { creerObjets } from './objets.js?v=5a3cf24964';
+import { creerAudio } from './audio.js?v=5a3cf24964';
+import { creerPersonnages } from './personnages.js?v=5a3cf24964';
+import { creerCamera } from './camera.js?v=5a3cf24964';
+import { creerEntrees } from './entrees.js?v=5a3cf24964';
+import { creerInteractions } from './interactions.js?v=5a3cf24964';
+import { creerGestionPNJ } from './pnj.js?v=5a3cf24964';
+import { creerDialogues } from './dialogues.js?v=5a3cf24964';
+import { creerDirection } from './direction.js?v=5a3cf24964';
+import { creerMissions } from './missions.js?v=5a3cf24964';
+import { creerHockey } from './hockey.js?v=5a3cf24964';
+import { creerCompagnon } from './compagnon.js?v=5a3cf24964';
+import { creerMatch } from './match.js?v=5a3cf24964';
+import { creerFoule } from './foule.js?v=5a3cf24964';
+import { creerCourse } from './course.js?v=5a3cf24964';
 
 const VERSION = '2.0.0';
 const ROLES_PAR_ZONE = { campus: { prof_seminaire: 'prof_quanti', prof: 'prof_quanti' }, espum: { prof: 'prof_seminaire' } };
@@ -89,11 +89,11 @@ async function demarrer() {
   // ---------- interface ----------
   let ui = null;
   try {
-    const mod = await import('../ui/ui.js?v=0a26226c4e');
+    const mod = await import('../ui/ui.js?v=5a3cf24964');
     ui = mod.initUI({ bus, etat: { options, get partie() { return jeu.etat; }, get existeSauvegarde() { return !!chargerPartie(); }, scenario, salles, version: VERSION }, racine: racineUI });
   } catch (e) {
     console.warn('[ui] interface de secours', e);
-    const mod = await import('./ui-secours.js?v=0a26226c4e');
+    const mod = await import('./ui-secours.js?v=5a3cf24964');
     ui = mod.initUI({ bus, etat: { options, get partie() { return jeu.etat; }, get existeSauvegarde() { return !!chargerPartie(); }, scenario, salles }, racine: racineUI });
   }
 
@@ -155,7 +155,7 @@ async function demarrer() {
 
     // personnage du joueur
     if (!jeu.joueur) {
-      const { creerJoueur } = await import('./joueur.js?v=0a26226c4e');
+      const { creerJoueur } = await import('./joueur.js?v=5a3cf24964');
       const perso = await personnages.creer('eric');
       jeu.joueur = creerJoueur({ physique, perso, audio, bus, jeu });
       dialogues.lier(jeu.joueur, gestionPnj);
@@ -277,7 +277,7 @@ async function demarrer() {
     bus.emit('invite', null);
     let r = { reussi: true, score: 1 };
     try {
-      const mod = await import('../defis/defis.js?v=0a26226c4e');
+      const mod = await import('../defis/defis.js?v=5a3cf24964');
       racineDefis.hidden = false;
       r = await mod.lancerDefi(def, {
         racine: racineDefis,

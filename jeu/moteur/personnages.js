@@ -1,12 +1,38 @@
 import * as THREE from 'three';
 import * as SkeletonUtils from 'three/addons/utils/SkeletonUtils.js';
-import { recolorer } from './equipes.js?v=0a26226c4e';
+import { recolorer } from './equipes.js?v=5a3cf24964';
 
 const ALIAS = {
   idle: ['idle', 'Idle', 'repos'],
   walk: ['walk', 'Walk', 'marche'],
   run: ['run', 'Run', 'course'],
 };
+
+// hauteur du bassin d'Éric, sur qui les animations communes ont été faites
+const BASSIN_ERIC = 0.959;
+const clipsAdaptes = new Map();
+
+// garde les rotations et les morphoses, et ne garde du déplacement que celui du bassin, mis à l'échelle,
+// pour que les longueurs d'os d'Éric n'étirent pas un personnage d'une autre taille
+function adapterClips(liste, ratio) {
+  const cle = ratio.toFixed(3);
+  if (!clipsAdaptes.has(cle)) {
+    clipsAdaptes.set(cle, liste.map((clip) => {
+      const pistes = [];
+      for (const p of clip.tracks) {
+        const prop = p.name.slice(p.name.lastIndexOf('.') + 1);
+        if (prop === 'quaternion' || p.name.includes('morphTargetInfluences')) pistes.push(p);
+        else if (prop === 'position' && /pelvis/i.test(p.name)) {
+          const q = p.clone();
+          for (let i = 0; i < q.values.length; i++) q.values[i] *= ratio;
+          pistes.push(q);
+        }
+      }
+      return new THREE.AnimationClip(clip.name, clip.duration, pistes);
+    }));
+  }
+  return clipsAdaptes.get(cle);
+}
 
 export function creerPersonnages({ chargeur, base = 'personnages', audio }) {
   const modeles = new Map();
@@ -127,9 +153,12 @@ export function creerPersonnages({ chargeur, base = 'personnages', audio }) {
     ombre.renderOrder = 1;
     racine.add(ombre);
 
+    let bassin = null;
+    corps.traverse((o) => { const h = o.userData?.hauteur_bassin; if (bassin == null && h != null && Number.isFinite(Number(h))) bassin = Number(h); });
+    const partagees = src === 'eric' || src === 'eric_hockey' ? anims : adapterClips(anims, bassin ? bassin / BASSIN_ERIC : 1);
     const mixer = new THREE.AnimationMixer(corps);
     const actions = {};
-    const bibliotheque = clipsPropres.length && role === 'chienne' ? [...clipsPropres] : [...clipsPropres, ...anims];
+    const bibliotheque = clipsPropres.length && role === 'chienne' ? [...clipsPropres] : [...clipsPropres, ...partagees];
     for (const clip of bibliotheque) {
       const nom = clip.name;
       if (!actions[nom]) actions[nom] = mixer.clipAction(clip);
