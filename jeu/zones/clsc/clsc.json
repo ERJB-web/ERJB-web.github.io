@@ -6,11 +6,15 @@
   "lightmaps": [
     {
       "fichier": "clsc_lm0.webp",
-      "scale": 1.03011
+      "scale": 1.04326
     },
     {
       "fichier": "clsc_lm1.webp",
-      "scale": 2.92765
+      "scale": 2.92421
+    },
+    {
+      "fichier": "clsc_lm2.webp",
+      "scale": 0.98923
     }
   ],
   "env": {

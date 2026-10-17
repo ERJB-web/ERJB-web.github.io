@@ -1,14 +1,14 @@
 {
  "c1_arrivee_001": {
-  "duree": 8.23,
+  "duree": 7.48,
   "qui": "eric"
  },
  "c1_arrivee_002": {
-  "duree": 5.75,
+  "duree": 4.49,
   "qui": "eric"
  },
  "c1_arrivee_003": {
-  "duree": 4.32,
+  "duree": 3.57,
   "qui": "eric"
  },
  "c1_arrivee_005": {
@@ -16,7 +16,7 @@
   "qui": "etudiant_1"
  },
  "c1_arrivee_006": {
-  "duree": 4.84,
+  "duree": 4.53,
   "qui": "eric"
  },
  "c1_arrivee_007": {
@@ -24,7 +24,71 @@
   "qui": "etudiant_1"
  },
  "c1_arrivee_008": {
-  "duree": 5.72,
+  "duree": 5.55,
+  "qui": "eric"
+ },
+ "c1_babillard_001": {
+  "duree": 5.53,
+  "qui": "eric"
+ },
+ "c1_babillard_002": {
+  "duree": 5.26,
+  "qui": "eric"
+ },
+ "c1_bureau_001": {
+  "duree": 17.08,
+  "qui": "collegue_doc"
+ },
+ "c1_bureau_002": {
+  "duree": 2.1,
+  "qui": "eric"
+ },
+ "c1_bureau_003": {
+  "duree": 4.77,
+  "qui": "collegue_doc"
+ },
+ "c1_bureau_004": {
+  "duree": 3.84,
+  "qui": "eric"
+ },
+ "c1_bureau_005": {
+  "duree": 6.29,
+  "qui": "collegue_doc"
+ },
+ "c1_bureau_006": {
+  "duree": 6.56,
+  "qui": "eric"
+ },
+ "c1_bureau_007": {
+  "duree": 5.42,
+  "qui": "collegue_doc"
+ },
+ "c1_bureau_008": {
+  "duree": 2.69,
+  "qui": "eric"
+ },
+ "c1_cafe_001": {
+  "duree": 3.98,
+  "qui": "eric"
+ },
+ "c1_cafe_002": {
+  "duree": 4.36,
+  "qui": "eric"
+ },
+ "c1_condition_001": {
+  "duree": 4.76,
+  "qui": "collegue_doc"
+ },
+ "c1_condition_002": {
+  "duree": 2.71,
+  "qui": "eric"
+ },
+ "c1_condition_003": {
+  "duree": 5.26,
+  "qui": "prof_seminaire"
+ },
+ "c1_courriel_001": {
+  "duree": 6.2,
   "qui": "eric"
  }
 }
