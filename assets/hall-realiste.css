@@ -312,11 +312,11 @@
     /* Vue rapprochée : la photo est agrandie et le haut de la verrière recadré. */
     --hall-zoom: 1.3;
     /* Largeur de porte rapportée à sa hauteur, et espace égal entre porte et panneau. */
-    --hall-porte-ratio: .53;
+    --hall-porte-ratio: .57;
     --hall-ecart: 30;
     --hall-recadrage: 48;
     /* Haut des portes, dans la photo ; le fleuve reste visible au-dessus. */
-    --hall-porte-haut: 236;
+    --hall-porte-haut: 224;
   }
   .hall.en-volume .hall-espace {
     height: var(--eb-hall-hauteur);
@@ -475,7 +475,7 @@
   .hall.en-volume .station-hall .porte:not(.ouverte):focus-visible .battant { transform: rotateY(-34deg); }
   .hall.en-volume .station-hall .porte.ouverte .battant { transform: rotateY(-82deg); }
   .hall.en-volume .station-hall .panneau-hall {
-    top: 50%;
+    top: 40%;
     bottom: auto;
     left: calc(var(--hall-porte-l) + var(--hall-ecart) * 1px);
     width: calc(var(--hall-station-l,446px) - var(--hall-porte-l) - var(--hall-ecart) * 1px);
