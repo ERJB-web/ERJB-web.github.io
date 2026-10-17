@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GROUPES, groupes } from './physique.js?v=fd382d2891';
+import { GROUPES, groupes } from './physique.js?v=194d6359b9';
 
 const DEMI = 0.6, RAYON = 0.28, CENTRE = DEMI + RAYON;
 const FILTRE = groupes(GROUPES.PNJ, GROUPES.STATIQUE | GROUPES.DYNAMIQUE | GROUPES.PORTE | GROUPES.JOUEUR);
@@ -9,9 +9,9 @@ export function creerGestionPNJ({ physique, personnages, objets, audio, bus }) {
   const liste = [];
   let zone = null;
 
-  async function ajouter({ role, position, quaternion, anim = 'idle', id, dialogue = null, mobile = false, nom, flaner = false }) {
+  async function ajouter({ role, position, quaternion, anim = 'idle', id, dialogue = null, mobile = false, nom, flaner = false, couleurs = null, alias = null }) {
     if (flaner) mobile = true;
-    const perso = await personnages.creer(role);
+    const perso = await personnages.creer(role, { couleurs });
     const fwd = new THREE.Vector3(0, 0, -1).applyQuaternion(quaternion || new THREE.Quaternion());
     const lacet = Math.atan2(fwd.x, fwd.z);
     const p = position.clone();
@@ -33,7 +33,7 @@ export function creerGestionPNJ({ physique, personnages, objets, audio, bus }) {
       position: p.clone(), lacet, animRepos: anim, assis, mobile,
       chemin: null, iChemin: 0, vitesse: 0, vitesseMax: 1.4, anim: 'walk',
       vy: 0, comportement: 'statique', cibleRegard: null, cachee: false,
-      ralenti: 0, bousculade: 0,
+      ralenti: 0, bousculade: 0, alias: alias || [],
     };
     perso.racine.position.copy(p);
     perso.racine.rotation.y = lacet;
@@ -151,6 +151,7 @@ export function creerGestionPNJ({ physique, personnages, objets, audio, bus }) {
         if (!pnj.parleMaintenant && !pnj.animForcee) p.jouer(pnj.animRepos in p.actions ? pnj.animRepos : 'idle');
       }
       p.racine.position.copy(pnj.position);
+      if (p.decalagePatins && !pnj.assis) p.racine.position.y += p.decalagePatins;
       p.racine.rotation.y = pnj.lacet;
       // regarde Éric quand il passe près
       if (joueur && !pnj.assis && pnj.comportement === 'statique') {
@@ -182,6 +183,9 @@ export function creerGestionPNJ({ physique, personnages, objets, audio, bus }) {
     liste, ajouter, retirer, allerVers, mettreAJour, orienterVers, vider,
     set zone(z) { zone = z; },
     get zone() { return zone; },
-    trouver(id) { return liste.find((p) => p.id === id || p.role === id); },
+    trouver(id) {
+      const ok = (p) => p.id === id || p.role === id || p.alias?.includes(id);
+      return liste.find((p) => ok(p) && !p.cache) || liste.find(ok);
+    },
   };
 }

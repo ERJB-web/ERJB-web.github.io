@@ -446,5 +446,217 @@
  "c2_cooc_r_002": {
   "duree": 5.23,
   "qui": "eric"
+ },
+ "c2_criblage_intro_001": {
+  "duree": 7.62,
+  "qui": "bibliothecaire"
+ },
+ "c2_criblage_intro_002": {
+  "duree": 3.16,
+  "qui": "eric"
+ },
+ "c2_criblage_intro_003": {
+  "duree": 4.41,
+  "qui": "bibliothecaire"
+ },
+ "c2_criblage_r_001": {
+  "duree": 6.19,
+  "qui": "bibliothecaire"
+ },
+ "c2_criblage_r_002": {
+  "duree": 6.87,
+  "qui": "bibliothecaire"
+ },
+ "c2_criblage_r_003": {
+  "duree": 5.08,
+  "qui": "eric"
+ },
+ "c2_depart_001": {
+  "duree": 4.68,
+  "qui": "bibliothecaire"
+ },
+ "c2_depart_002": {
+  "duree": 3.41,
+  "qui": "eric"
+ },
+ "c2_depart_003": {
+  "duree": 5.33,
+  "qui": "bibliothecaire"
+ },
+ "c2_dort_001": {
+  "duree": 4.11,
+  "qui": "etudiant_3"
+ },
+ "c2_dort_002": {
+  "duree": 3.42,
+  "qui": "eric"
+ },
+ "c2_dort_003": {
+  "duree": 4.79,
+  "qui": "etudiant_3"
+ },
+ "c2_dort_004": {
+  "duree": 1.82,
+  "qui": "eric"
+ },
+ "c2_echelle_001": {
+  "duree": 5.16,
+  "qui": "collegue_doc"
+ },
+ "c2_echelle_002": {
+  "duree": 6.9,
+  "qui": "eric"
+ },
+ "c2_echelle_003": {
+  "duree": 4.14,
+  "qui": "collegue_doc"
+ },
+ "c2_etudiant_001": {
+  "duree": 3.58,
+  "qui": "etudiant_1"
+ },
+ "c2_etudiant_002": {
+  "duree": 1.56,
+  "qui": "eric"
+ },
+ "c2_etudiant_003": {
+  "duree": 4.97,
+  "qui": "etudiant_1"
+ },
+ "c2_fin_001": {
+  "duree": 7.29,
+  "qui": "eric"
+ },
+ "c2_fin_002": {
+  "duree": 2.06,
+  "qui": "eric"
+ },
+ "c2_instruments_001": {
+  "duree": 6.37,
+  "qui": "bibliothecaire"
+ },
+ "c2_instruments_002": {
+  "duree": 7.92,
+  "qui": "eric"
+ },
+ "c2_jbi_001": {
+  "duree": 7.45,
+  "qui": "eric"
+ },
+ "c2_limites_001": {
+  "duree": 5.89,
+  "qui": "collegue_doc"
+ },
+ "c2_limites_002": {
+  "duree": 5.59,
+  "qui": "eric"
+ },
+ "c2_limites_003": {
+  "duree": 6.35,
+  "qui": "collegue_doc"
+ },
+ "c2_pcc_r_001": {
+  "duree": 8.33,
+  "qui": "bibliothecaire"
+ },
+ "c2_pcc_r_002": {
+  "duree": 5.0,
+  "qui": "bibliothecaire"
+ },
+ "c2_periodiques_001": {
+  "duree": 5.85,
+  "qui": "eric"
+ },
+ "c2_periodiques_002": {
+  "duree": 5.26,
+  "qui": "bibliothecaire"
+ },
+ "c2_photocopieur_001": {
+  "duree": 4.4,
+  "qui": "eric"
+ },
+ "c2_photocopieur_002": {
+  "duree": 3.57,
+  "qui": "etudiant_2"
+ },
+ "c2_photocopieur_003": {
+  "duree": 2.95,
+  "qui": "eric"
+ },
+ "c2_quete_a_001": {
+  "duree": 9.42,
+  "qui": "bibliothecaire"
+ },
+ "c2_quete_a_002": {
+  "duree": 8.81,
+  "qui": "eric"
+ },
+ "c2_quete_a_003": {
+  "duree": 4.9,
+  "qui": "bibliothecaire"
+ },
+ "c2_quete_a_fin_001": {
+  "duree": 4.3,
+  "qui": "bibliothecaire"
+ },
+ "c2_quete_a_fin_002": {
+  "duree": 4.26,
+  "qui": "eric"
+ },
+ "c2_quete_b_001": {
+  "duree": 6.65,
+  "qui": "bibliothecaire"
+ },
+ "c2_quete_b_002": {
+  "duree": 6.92,
+  "qui": "bibliothecaire"
+ },
+ "c2_quete_b_fin_001": {
+  "duree": 4.14,
+  "qui": "bibliothecaire"
+ },
+ "c2_quete_b_fin_002": {
+  "duree": 1.67,
+  "qui": "eric"
+ },
+ "c2_requete_r_001": {
+  "duree": 6.06,
+  "qui": "bibliothecaire"
+ },
+ "c2_requete_r_002": {
+  "duree": 4.31,
+  "qui": "bibliothecaire"
+ },
+ "c2_requete_r_003": {
+  "duree": 6.05,
+  "qui": "bibliothecaire"
+ },
+ "c2_requete_r_004": {
+  "duree": 4.63,
+  "qui": "eric"
+ },
+ "c2_reservation_001": {
+  "duree": 4.81,
+  "qui": "eric"
+ },
+ "c2_reservation_002": {
+  "duree": 5.96,
+  "qui": "bibliothecaire"
+ },
+ "c2_reservation_003": {
+  "duree": 3.8,
+  "qui": "eric"
+ },
+ "c2_salle_groupe_001": {
+  "duree": 2.97,
+  "qui": "collegue_doc"
+ },
+ "c2_salle_groupe_002": {
+  "duree": 3.84,
+  "qui": "eric"
+ },
+ "c2_salle_groupe_003": {
+  "duree": 5.97,
+  "qui": "collegue_doc"
  }
 }

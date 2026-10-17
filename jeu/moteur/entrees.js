@@ -1,6 +1,6 @@
 const ACTIONS_TOUCHES = {
   e: 'interagir', f: 'interagir', enter: 'confirmer', ' ': 'sauter', escape: 'pause', p: 'pause',
-  tab: 'journal', j: 'journal', m: 'carte', c: 'accroupir', r: 'recharger', q: 'gauche_alt', x: 'lacher',
+  tab: 'journal', j: 'journal', m: 'carte', c: 'accroupir', r: 'demander', q: 'gauche_alt', x: 'lacher',
 };
 
 const MOUVEMENT = {
@@ -108,6 +108,7 @@ export function creerEntrees({ canvas, bus, options }) {
     if (appui(1)) presses.add('retour');
     if (appui(2)) presses.add('sauter');
     if (appui(3)) presses.add('journal');
+    if (appui(1)) presses.add('demander');
     if (appui(8)) presses.add('carte');
     if (appui(9)) presses.add('pause');
     if (appui(12)) presses.add('haut');
@@ -168,7 +169,7 @@ export function creerEntrees({ canvas, bus, options }) {
     touche(action) {
       if (derniereSource === 'manette') return { interagir: 'A', sauter: 'X', journal: 'Y', pause: 'Start' }[action] || action;
       if (derniereSource === 'tactile') return '';
-      return { interagir: 'E', sauter: 'Espace', journal: 'Tab', pause: 'Échap', carte: 'M', courir: 'Maj' }[action] || action;
+      return { interagir: 'E', sauter: 'Espace', journal: 'Tab', pause: 'Échap', carte: 'M', courir: 'Maj', demander: 'R' }[action] || action;
     },
   };
 }

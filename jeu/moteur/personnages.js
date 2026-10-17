@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import * as SkeletonUtils from 'three/addons/utils/SkeletonUtils.js';
+import { recolorer } from './equipes.js?v=194d6359b9';
 
 const ALIAS = {
   idle: ['idle', 'Idle', 'repos'],
@@ -27,22 +28,49 @@ export function creerPersonnages({ chargeur, base = 'personnages', audio }) {
     return clipsPromesse;
   }
 
-  function repli(role) {
-    if (role === 'eric' || role === 'etudiant_1') return null;
-    if (/^joueur_hockey_(?!1$)/.test(role)) return 'joueur_hockey_1';
-    if (/^jury_(?!1$)/.test(role)) return 'jury_1';
-    if (/^public_|^usager_|^etudiant_/.test(role)) return 'etudiant_1';
-    return 'etudiant_1';
+  const existence = new Map();
+  function existe(role) {
+    if (!existence.has(role)) existence.set(role, fetch(`${base}/${role}.glb`, { method: 'HEAD', cache: 'no-cache' }).then((r) => r.ok).catch(() => false));
+    return existence.get(role);
+  }
+
+  const HOCKEY = ['joueur_hockey_1', 'joueur_hockey_2', 'joueur_hockey_3', 'joueur_hockey_4', 'joueur_hockey_5', 'joueur_hockey_6'];
+  const CIVILS = ['entraineur', 'entraineur_patin', 'chauffeur_zamboni', 'etudiant_1', 'etudiant_2', 'etudiant_3', 'etudiant_4', 'collegue_doc', 'bibliothecaire', 'prof_seminaire', 'prof_quanti', 'intervenante_sad', 'gestionnaire_clsc', 'prepose_accueil', 'usager_1', 'usager_2', 'usager_3', 'jury_1', 'jury_2', 'jury_3'];
+  const SUPPORTERS = Array.from({ length: 10 }, (_, i) => `supporter_${i + 1}`);
+  const equipe = (t) => Array.from({ length: 8 }, (_, i) => `${t}_${i + 1}`);
+  function candidats(role) {
+    const m = /^(carabins|visiteurs)_(\d+)$/.exec(role);
+    if (m) {
+      const k = Number(m[2]), t = m[1], autre = t === 'carabins' ? 'visiteurs' : 'carabins';
+      const memes = equipe(t).filter((r) => r !== role);
+      return [...memes, HOCKEY[(k - 1) % 6], ...HOCKEY, 'gardien', ...equipe(autre)];
+    }
+    if (/_gardien$/.test(role) || role === 'gardien') return ['gardien', 'carabins_gardien', 'visiteurs_gardien', ...HOCKEY];
+    if (/^arbitre_/.test(role)) return ['arbitre_1', 'arbitre_2', ...HOCKEY, 'gardien'];
+    if (role === 'entraineur' || role === 'entraineur_patin') return ['entraineur', 'entraineur_patin', 'chauffeur_zamboni', 'prof_seminaire', 'gestionnaire_clsc', 'etudiant_1', ...CIVILS, ...HOCKEY];
+    if (/^supporter_/.test(role)) return [...SUPPORTERS, 'etudiant_1', 'etudiant_2', 'etudiant_3', 'etudiant_4', 'usager_1', 'usager_2', 'usager_3', 'collegue_doc', ...CIVILS, ...HOCKEY];
+    if (/^joueur_hockey_/.test(role)) return [...HOCKEY, ...equipe('carabins'), 'gardien'];
+    if (/^jury_/.test(role)) return ['jury_1', 'jury_2', 'jury_3', 'prof_seminaire', 'prof_quanti', ...CIVILS, ...HOCKEY];
+    return ['etudiant_1', 'etudiant_2', 'etudiant_3', 'etudiant_4', 'usager_1', 'usager_2', 'collegue_doc', ...CIVILS, ...SUPPORTERS, ...HOCKEY, 'gardien'];
+  }
+
+  async function source(role) {
+    if (await existe(role)) return role;
+    if (role === 'eric' || role === 'chienne') return null;
+    if (role === 'eric_hockey') return (await existe('eric')) ? 'eric' : null;
+    for (const c of candidats(role)) if (c !== role && c !== 'eric' && c !== 'eric_hockey' && (await existe(c))) return c;
+    return null;
   }
 
   async function modele(role) {
-    if (modeles.has(role)) return modeles.get(role);
-    const p = chargerGLB(`${base}/${role}.glb`).catch(() => {
-      const r = repli(role);
-      return r ? modele(r) : null;
-    });
-    modeles.set(role, p);
-    return p;
+    const src = await source(role);
+    if (!src) return { gltf: null, source: null };
+    if (!modeles.has(src)) {
+      modeles.set(src, chargerGLB(`${base}/${src}.glb`).catch(() => { existence.set(src, Promise.resolve(false)); modeles.delete(src); return null; }));
+    }
+    let gltf = await modeles.get(src);
+    if (!gltf) return modele(role);
+    return { gltf, source: gltf ? src : null };
   }
 
   function trouverOs(racine, motifs) {
@@ -55,7 +83,7 @@ export function creerPersonnages({ chargeur, base = 'personnages', audio }) {
   }
 
   async function creer(role, options = {}) {
-    const [gltf, anims] = await Promise.all([modele(role), animations()]);
+    const [{ gltf, source: src }, anims] = await Promise.all([modele(role), animations()]);
     const racine = new THREE.Group();
     racine.name = `perso_${role}`;
     let corps;
@@ -67,6 +95,9 @@ export function creerPersonnages({ chargeur, base = 'personnages', audio }) {
       corps = mannequin(options.couleur);
     }
     racine.add(corps);
+    if (options.couleurs && (src !== role || options.toujoursRecolorer)) recolorer(corps, options.couleurs);
+    let decalagePatins = 0;
+    corps.traverse((o) => { const d = o.userData?.decalage_patins ?? o.userData?.lever; if (d != null && Number.isFinite(Number(d))) decalagePatins = Math.max(decalagePatins, Number(d)); });
     const morphs = [];
     corps.traverse((o) => {
       if (o.isMesh || o.isSkinnedMesh) {
@@ -110,7 +141,7 @@ export function creerPersonnages({ chargeur, base = 'personnages', audio }) {
     const repereBaton = (() => { let r = null; corps.traverse((o) => { if (/main_baton/i.test(o.name)) r = o; }); return r; })();
 
     const perso = {
-      role, racine, corps, mixer, actions, tete, cou, machoire, mainDroite: repereBaton || mainDroite, morphs, ombre,
+      role, source: src, repli: src !== role, decalagePatins, racine, corps, mixer, actions, tete, cou, machoire, mainDroite: repereBaton || mainDroite, morphs, ombre,
       courant: null, regardCible: null, regardPoids: 0, bouche: 0, parle: false,
       prochainClignement: 1 + Math.random() * 3, clignement: 0,
       vitesseNominale: { walk: 1.4, run: 4.5, skate: 5.5, walk_fast: 1.9 },
@@ -203,7 +234,7 @@ export function creerPersonnages({ chargeur, base = 'personnages', audio }) {
     if (i >= 0) tous.splice(i, 1);
   }
 
-  return { creer, mettreAJour, retirer, animations, tous };
+  return { creer, mettreAJour, retirer, animations, tous, existe, source, chargerGLB };
 }
 
 function texturerOmbre() {

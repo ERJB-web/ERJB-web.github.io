@@ -2174,3 +2174,12 @@
 .ui-hud-direction, .ui-hud-objectif, .ui-hud-droite, .ui-exercice, .ui-etiquette { background-color: rgba(8, 29, 41, .86); }
 
 .ui-mode-salle .ui-tc-journal { display: none; }
+
+/* Tableau d'affichage du match */
+.ui-pointage-centre { grid-auto-flow: row; align-content: center; gap: 1px; }
+.ui-pointage-periode, .ui-pointage-tirs { font-size: 9px; font-weight: 800; line-height: 1; letter-spacing: .16em; text-transform: uppercase; color: var(--texte-2); }
+.ui-pointage.match .ui-pointage-chrono { line-height: 1.05; }
+.ui-pointage.match .ui-pointage-equipe.adverse { background: linear-gradient(90deg, rgba(18, 18, 18, .95), rgba(150, 18, 27, .9)); }
+.ui-pointage.match .ui-pointage-equipe.eric { background: linear-gradient(90deg, rgba(13, 78, 166, .78), rgba(13, 78, 166, .96)); }
+.ui-pointage-pen { display: none; padding: 2px 6px; border-radius: 3px; font-size: 10px; font-weight: 800; letter-spacing: .06em; font-variant-numeric: tabular-nums; color: #fff; background: rgba(200, 70, 61, .92); }
+.ui-pointage-pen.visible { display: inline-block; }

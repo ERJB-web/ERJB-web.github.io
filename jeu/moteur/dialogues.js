@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GROUPES, groupes } from './physique.js?v=fd382d2891';
+import { GROUPES, groupes } from './physique.js?v=194d6359b9';
 
 const FILTRE_CAM = groupes(0xffff, GROUPES.STATIQUE | GROUPES.PORTE);
 const COULEURS = {
@@ -20,15 +20,16 @@ export function creerDialogues({ bus, audio, camera, physique, options }) {
     durees = voix || {};
   }
 
+  const nomsSupplementaires = {};
   function nomDe(qui) {
-    return donnees.personnages?.[qui]?.nom || (qui === 'eric' ? 'Éric' : qui);
+    return donnees.personnages?.[qui]?.nom || nomsSupplementaires[qui] || (qui === 'eric' ? 'Éric' : qui);
   }
 
   function acteur(qui, acteursForces) {
     if (acteursForces?.[qui]) return acteursForces[qui];
     if (qui === 'eric') return joueur ? { perso: joueur.perso, position: joueur.position, estJoueur: true } : null;
     const p = gestionPnj?.trouver(qui) || gestionPnj?.liste.find((x) => x.role === qui);
-    return p ? { perso: p.perso, position: p.position, pnj: p } : null;
+    return p && !p.cache ? { perso: p.perso, position: p.position, pnj: p } : null;
   }
 
   function teteDe(a) {
@@ -103,7 +104,8 @@ export function creerDialogues({ bus, audio, camera, physique, options }) {
       : audio.jouerVoix(ligne.id, { perso: a?.perso || null });
     await new Promise((ok) => {
       let fini = false, minuterie = null;
-      const finir = () => { if (fini) return; fini = true; clearTimeout(minuterie); passer = null; ok(); };
+      const secours = setTimeout(() => finir(), (duree + 1.5) * 1000);
+      const finir = () => { if (fini) return; fini = true; clearTimeout(minuterie); clearTimeout(secours); passer = null; ok(); };
       passer = () => { audio.arreterVoix(); finir(); };
       voix.then((r) => {
         if (r) minuterie = setTimeout(finir, 220);
@@ -150,6 +152,16 @@ export function creerDialogues({ bus, audio, camera, physique, options }) {
       bus.emit('dialogue:choix', { options: scene.choix.map((c) => c.texte), question: scene.question || null });
       const r = await bus.attendre('dialogue:reponse');
       choix = { index: r.index, option: scene.choix[r.index] };
+      const o = choix.option;
+      const texte = o && o.muet !== true ? (o.dit || o.texte) : null;
+      if (texte) {
+        const base = typeof id === 'string' ? id : (scene.id || 'scene');
+        const ligne = { id: o.id || `${base}_choix_${r.index + 1}`, qui: o.qui || 'eric', texte, emotion: o.emotion, anim: o.anim, plan: o.plan || 'rapproche' };
+        const vers = ligne.qui === 'eric' ? (autres[0] ? acteur(autres[0], acteurs) : null) : acteur('eric', acteurs);
+        await dire(ligne, acteurs, vers);
+        bus.emit('sousTitre', null);
+        bus.emit('camera:focus', { actif: false });
+      }
     }
     for (const q of quiParle) {
       const a = acteur(q, acteurs);
@@ -162,13 +174,14 @@ export function creerDialogues({ bus, audio, camera, physique, options }) {
 
   async function replique(r, { pnj = null, position = null } = {}) {
     if (!r) return;
+    bus.emit('replique:debut', { id: r.id, qui: r.qui });
     const perso = pnj?.perso || null;
     if (perso) perso.parle = true;
     const duree = durees[r.id]?.duree || dureeEstimee(r);
     bus.emit('replique', { qui: r.qui, nom: nomDe(r.qui), texte: r.texte, duree, couleur: COULEURS[r.qui] || '#E6EEF2' });
     if (!enCours) bus.emit('sousTitre', { qui: r.qui, nom: nomDe(r.qui), texte: r.texte, duree, couleur: COULEURS[r.qui] || '#E6EEF2', discret: true });
     if (r.son) { audio.jouer3d(r.son, position || pnj?.position || null, { volume: 0.9 }); await new Promise((res) => setTimeout(res, duree * 1000)); if (perso) perso.parle = false; if (!enCours) bus.emit('sousTitre', null); return; }
-    const ok = await audio.jouerVoix(r.id, { perso, position });
+    const ok = await Promise.race([audio.jouerVoix(r.id, { perso, position }), new Promise((res) => setTimeout(() => res('delai'), (duree + 1.5) * 1000))]);
     if (!ok) await new Promise((res) => setTimeout(res, duree * 1000));
     if (perso) perso.parle = false;
     if (!enCours) bus.emit('sousTitre', null);
@@ -179,14 +192,30 @@ export function creerDialogues({ bus, audio, camera, physique, options }) {
   }
 
   const dernieres = new Map();
+  const canaux = new Map();
   function repliqueAuHasard(categorie, contexte = {}) {
     let l = repliques(categorie);
     if (!l.length) return null;
+    const maintenant = performance.now();
+    if (contexte.canal) {
+      const occupe = canaux.get(contexte.canal);
+      if (occupe && occupe.fin > maintenant && (contexte.priorite ?? 0) <= occupe.priorite) return null;
+    }
     const role = contexte.pnj?.role;
+    if (typeof contexte.filtre === 'function') {
+      l = l.filter(contexte.filtre);
+      if (!l.length) return null;
+    }
+    if (Array.isArray(contexte.roles) && contexte.roles.length) {
+      const permis = l.filter((r) => contexte.roles.includes(r.qui));
+      if (permis.length) l = permis;
+      else if (contexte.rolesStricts) return null;
+    }
     if (role) {
-      const propres = l.filter((r) => r.qui === role);
+      const alias = [role, ...(contexte.pnj.alias || [])];
+      const propres = l.filter((r) => alias.includes(r.qui));
       if (propres.length) l = propres;
-      else if (/^(pnj_|bouscule_)/.test(categorie)) return null;
+      else if (/^(pnj_|bouscule_)/.test(categorie) || contexte.rolesStricts) return null;
     }
     if (typeof contexte.palier === 'number') {
       const p = l.filter((r) => (r.palier ?? 1) === contexte.palier);
@@ -201,17 +230,29 @@ export function creerDialogues({ bus, audio, camera, physique, options }) {
     dernieres.set(categorie, vues);
     if (!contexte.pnj && r.qui && r.qui !== 'eric') {
       const p = gestionPnj?.trouver(r.qui) || gestionPnj?.liste.find((x) => x.role === r.qui);
-      if (p) { contexte = { ...contexte, pnj: p, position: p.position.clone().setY(p.position.y + 1.6) }; }
+      if (p && !p.cache) { contexte = { ...contexte, pnj: p, position: p.position.clone().setY(p.position.y + 1.6) }; }
     }
-    if (r.qui === 'eric' && joueur && !contexte.pnj) contexte = { ...contexte, pnj: { perso: joueur.perso } };
+    if (r.qui === 'eric' && joueur && !contexte.pnj) contexte = { ...contexte, pnj: { perso: joueur.perso }, position: joueur.tete() };
+    if (contexte.canal) canaux.set(contexte.canal, { fin: maintenant + ((durees[r.id]?.duree || dureeEstimee(r)) + 0.4) * 1000, priorite: contexte.priorite ?? 0 });
     replique(r, contexte);
     return r;
+  }
+
+  function situation(cles, contexte = {}) {
+    for (const c of [].concat(cles)) {
+      if (!c || !repliques(c).length) continue;
+      const r = repliqueAuHasard(c, contexte);
+      if (r) return r;
+      if (contexte.canal) return null;
+    }
+    return null;
   }
 
   bus.on('dialogue:passer', () => passer?.());
 
   return {
-    charger, jouerScene, replique, repliques, repliqueAuHasard, nomDe,
+    charger, jouerScene, replique, repliques, repliqueAuHasard, situation, nomDe,
+    definirNoms(n) { Object.assign(nomsSupplementaires, n || {}); },
     passer() { passer?.(); },
     get actif() { return !!enCours; },
     lier(j, g) { joueur = j; gestionPnj = g; },

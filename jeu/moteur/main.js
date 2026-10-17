@@ -1,21 +1,23 @@
 import * as THREE from 'three';
-import { creerBus } from './bus.js?v=fd382d2891';
-import { etatInitial, charger as chargerPartie, sauvegarder, chargerOptions, sauverOptions, appliquerEffets } from './etat.js?v=fd382d2891';
-import { creerRendu } from './rendu.js?v=fd382d2891';
-import { creerPhysique } from './physique.js?v=fd382d2891';
-import { creerChargeur, chargerZone, installerZone, retirerZone } from './zones.js?v=fd382d2891';
-import { creerObjets } from './objets.js?v=fd382d2891';
-import { creerAudio } from './audio.js?v=fd382d2891';
-import { creerPersonnages } from './personnages.js?v=fd382d2891';
-import { creerCamera } from './camera.js?v=fd382d2891';
-import { creerEntrees } from './entrees.js?v=fd382d2891';
-import { creerInteractions } from './interactions.js?v=fd382d2891';
-import { creerGestionPNJ } from './pnj.js?v=fd382d2891';
-import { creerDialogues } from './dialogues.js?v=fd382d2891';
-import { creerDirection } from './direction.js?v=fd382d2891';
-import { creerMissions } from './missions.js?v=fd382d2891';
-import { creerHockey } from './hockey.js?v=fd382d2891';
-import { creerCompagnon } from './compagnon.js?v=fd382d2891';
+import { creerBus } from './bus.js?v=194d6359b9';
+import { etatInitial, charger as chargerPartie, sauvegarder, chargerOptions, sauverOptions, appliquerEffets } from './etat.js?v=194d6359b9';
+import { creerRendu } from './rendu.js?v=194d6359b9';
+import { creerPhysique } from './physique.js?v=194d6359b9';
+import { creerChargeur, chargerZone, installerZone, retirerZone } from './zones.js?v=194d6359b9';
+import { creerObjets } from './objets.js?v=194d6359b9';
+import { creerAudio } from './audio.js?v=194d6359b9';
+import { creerPersonnages } from './personnages.js?v=194d6359b9';
+import { creerCamera } from './camera.js?v=194d6359b9';
+import { creerEntrees } from './entrees.js?v=194d6359b9';
+import { creerInteractions } from './interactions.js?v=194d6359b9';
+import { creerGestionPNJ } from './pnj.js?v=194d6359b9';
+import { creerDialogues } from './dialogues.js?v=194d6359b9';
+import { creerDirection } from './direction.js?v=194d6359b9';
+import { creerMissions } from './missions.js?v=194d6359b9';
+import { creerHockey } from './hockey.js?v=194d6359b9';
+import { creerCompagnon } from './compagnon.js?v=194d6359b9';
+import { creerMatch } from './match.js?v=194d6359b9';
+import { creerFoule } from './foule.js?v=194d6359b9';
 
 const VERSION = '2.0.0';
 const ROLES_PAR_ZONE = { campus: { prof_seminaire: 'prof_quanti', prof: 'prof_quanti' }, espum: { prof: 'prof_seminaire' } };
@@ -77,15 +79,18 @@ async function demarrer() {
   const hockey = creerHockey({ bus, physique, objets, jeu, audio, dialogues, gestionPnj, cam });
   jeu.exercice = (etape, fin) => hockey.lancerExercice(etape, fin);
   const compagnon = creerCompagnon({ bus, gestionPnj, audio, dialogues, jeu });
+  const foule = creerFoule({ audio, bus });
+  const match = creerMatch({ bus, jeu, hockey, gestionPnj, personnages, dialogues, audio, cam, foule });
+  jeu.match = match;
 
   // ---------- interface ----------
   let ui = null;
   try {
-    const mod = await import('../ui/ui.js?v=fd382d2891');
+    const mod = await import('../ui/ui.js?v=194d6359b9');
     ui = mod.initUI({ bus, etat: { options, get partie() { return jeu.etat; }, get existeSauvegarde() { return !!chargerPartie(); }, scenario, salles, version: VERSION }, racine: racineUI });
   } catch (e) {
     console.warn('[ui] interface de secours', e);
-    const mod = await import('./ui-secours.js?v=fd382d2891');
+    const mod = await import('./ui-secours.js?v=194d6359b9');
     ui = mod.initUI({ bus, etat: { options, get partie() { return jeu.etat; }, get existeSauvegarde() { return !!chargerPartie(); }, scenario, salles }, racine: racineUI });
   }
 
@@ -110,6 +115,7 @@ async function demarrer() {
   // ---------- zones ----------
   async function allerZone(id, spawnNom) {
     if (!(await zoneExiste(id))) id = await zoneDeRepli();
+    if (match.actif) await match.arreter();
     jeu.enJeu = false;
     entrees.activer(false);
     await fondu(true, 0.5);
@@ -145,7 +151,7 @@ async function demarrer() {
 
     // personnage du joueur
     if (!jeu.joueur) {
-      const { creerJoueur } = await import('./joueur.js?v=fd382d2891');
+      const { creerJoueur } = await import('./joueur.js?v=194d6359b9');
       const perso = await personnages.creer('eric');
       jeu.joueur = creerJoueur({ physique, perso, audio, bus, jeu });
       dialogues.lier(jeu.joueur, gestionPnj);
@@ -212,6 +218,11 @@ async function demarrer() {
     await fondu(false, 0.8);
     jeu.enJeu = true;
     entrees.activer(true);
+    if (!jeu.lieuxCommentes) jeu.lieuxCommentes = new Set();
+    if (!jeu.lieuxCommentes.has(id)) {
+      jeu.lieuxCommentes.add(id);
+      setTimeout(() => { if (jeu.zone?.id === id && jeu.enJeu && !jeu.cinematique && !dialogues.actif) dialogues.situation([`eric_lieu_${id}`], { canal: 'eric' }); }, 2600);
+    }
     if (premiereFois && vues.length === 1) {
       const t = (a) => entrees.touche(a);
       setTimeout(() => bus.emit('toast', { texte: entrees.source === 'tactile' ? 'Joystick à gauche pour marcher, glisse à droite pour regarder.' : `ZQSD ou WASD pour marcher · ${t('courir')} pour courir · ${t('interagir')} pour agir · souris pour regarder`, type: 'aide', duree: 7 }), 1200);
@@ -262,7 +273,7 @@ async function demarrer() {
     bus.emit('invite', null);
     let r = { reussi: true, score: 1 };
     try {
-      const mod = await import('../defis/defis.js?v=fd382d2891');
+      const mod = await import('../defis/defis.js?v=194d6359b9');
       racineDefis.hidden = false;
       r = await mod.lancerDefi(def, {
         racine: racineDefis,
@@ -530,6 +541,20 @@ async function demarrer() {
       if (sp) jeu.joueur.placer(sp.position, jeu.joueur.lacet);
     }
     if (act.libre) return;
+    if (act.match || act.entrainement) {
+      let r = null;
+      try {
+        r = act.match ? await match.lancerMatch(act.match === true ? {} : act.match) : await match.lancerEntrainement(act.entrainement === true ? {} : act.entrainement);
+      } catch (e) { console.error('[match]', e); }
+      if (!jeu.modeSalle) return;
+      const details = r?.details || [];
+      const bilanEquipe = { reussis: details.filter((d) => d.reussi).length, total: details.length, details };
+      audio.stinger(r?.reussi ? 'victoire' : 'echec', { volume: 0.7 });
+      audio.themeMusical(jeu.zone?.manifeste?.musique || null, { immediat: false });
+      entrees.liberer();
+      bus.emit('ecran', { nom: 'salle_fin', salle, activite: act, bilan: bilanEquipe });
+      return;
+    }
     const bilan = { reussis: 0, total: 0, details: [] };
     for (const id of act.exercices || []) {
       const etape = etapeParId(id);
@@ -695,7 +720,7 @@ async function demarrer() {
         hockey.mettreAJour(dt, ent);
         compagnon.mettreAJour(dt, j);
         objets.testerDeclencheurs(j.position);
-        interactions.mettreAJour(jeu.zone, j, gestionPnj, ent, !jeu.cinematique && j.mode !== 'cine');
+        interactions.mettreAJour(jeu.zone, j, gestionPnj, ent, !jeu.cinematique && j.mode !== 'cine' && !match.actif);
         // objet non portable poussé jusqu'à sa destination (chariot)
         for (const etape of missions.etapesActives()) {
           if (etape.type !== 'ramasser' || !etape.destination) continue;
@@ -741,7 +766,7 @@ async function demarrer() {
     for (let i = 0; i < n; i++) etape(1 / 60, entreesForcees ? { ...entreesForcees, presses: new Set(i === 0 ? (entreesForcees.presses || []) : []) } : null);
     if (rendre) rendu.rendre();
   };
-  window.__protocole = { simuler, hockey, compagnon, jeu, bus, entrees, interactions, rendu, physique, objets, gestionPnj, direction, missions, dialogues, cam, audio, THREE };
+  window.__protocole = { simuler, hockey, compagnon, jeu, bus, entrees, interactions, rendu, physique, objets, gestionPnj, direction, missions, dialogues, cam, audio, match, foule, personnages, THREE };
 }
 
 demarrer().catch((e) => {

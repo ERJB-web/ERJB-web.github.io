@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GROUPES, groupes } from './physique.js?v=fd382d2891';
+import { GROUPES, groupes } from './physique.js?v=194d6359b9';
 
 const H_RONDELLE = 0.0127;
 const EXERCICES = {
@@ -63,27 +63,55 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
     h.partie = null;
     for (const d of objets.dynamiques) if (/aide_patineur/i.test(d.id)) { d.prenable = true; d.label = d.label || 'Aide-patineur'; }
     if (!h.actif) { retirerBaton(); return; }
-    preparerGardiens(zone);
+    preparerGardiens();
   }
 
-  function preparerGardiens(zone) {
-    for (const p of gestionPnj.liste.filter((x) => x.role === 'gardien' || /^gardien/.test(x.id))) {
-      let filet = null, dmin = Infinity;
-      for (const [nom, f] of Object.entries(zone.filets || {})) {
-        const c = f.getWorldPosition(new THREE.Vector3());
-        const d = c.distanceTo(p.position);
-        if (d < dmin) { dmin = d; filet = { nom, centre: c }; }
-      }
-      if (!filet) continue;
-      const cote = /est/i.test(filet.nom) ? 'est' : 'ouest';
-      const centreGlace = zone.glaceBoite ? zone.glaceBoite.getCenter(new THREE.Vector3()) : new THREE.Vector3();
-      const versCentre = centreGlace.clone().sub(filet.centre).setY(0).normalize();
-      const corps = monde.createRigidBody(RAPIER.RigidBodyDesc.kinematicPositionBased().setTranslation(p.position.x, 0.4, p.position.z));
-      const collider = monde.createCollider(RAPIER.ColliderDesc.cuboid(0.42, 0.4, 0.16).setRestitution(0.25).setCollisionGroups(groupes(GROUPES.PNJ, GROUPES.RONDELLE)), corps);
-      p.muet = true;
-      p.comportement = 'hockey';
-      h.gardiens.push({ pnj: p, filet, cote, versCentre, corps, collider, papillon: 0, reaction: 0, cible: p.position.clone() });
+  function filetDe(zone, cote, pres) {
+    let filet = null, dmin = Infinity;
+    for (const [nom, f] of Object.entries(zone.filets || {})) {
+      if (cote && !nom.toLowerCase().endsWith(`_${cote}`)) continue;
+      const c = f.getWorldPosition(new THREE.Vector3());
+      const d = pres ? c.distanceTo(pres) : 0;
+      if (d < dmin) { dmin = d; filet = { nom, centre: c }; }
     }
+    return filet;
+  }
+
+  function orienterGardien(g, cote) {
+    const zone = jeu.zone;
+    const filet = filetDe(zone, cote, g.pnj.position);
+    if (!filet) return;
+    const centreGlace = zone.glaceBoite ? zone.glaceBoite.getCenter(new THREE.Vector3()) : new THREE.Vector3();
+    g.filet = filet;
+    g.cote = /_est$/i.test(filet.nom) ? 'est' : 'ouest';
+    g.versCentre = centreGlace.clone().sub(filet.centre).setY(0).normalize();
+    g.cible.copy(filet.centre).addScaledVector(g.versCentre, 0.55);
+  }
+
+  function ajouterGardien(p, cote = null) {
+    const zone = jeu.zone;
+    const filet = filetDe(zone, cote, p.position);
+    if (!filet) return null;
+    const corps = monde.createRigidBody(RAPIER.RigidBodyDesc.kinematicPositionBased().setTranslation(p.position.x, 0.4, p.position.z));
+    const collider = monde.createCollider(RAPIER.ColliderDesc.cuboid(0.42, 0.4, 0.16).setRestitution(0.25).setCollisionGroups(groupes(GROUPES.PNJ, GROUPES.RONDELLE)), corps);
+    p.muet = true;
+    p.comportement = 'hockey';
+    const g = { pnj: p, filet, cote: null, versCentre: new THREE.Vector3(1, 0, 0), corps, collider, papillon: 0, reaction: 0, cible: p.position.clone(), vitesse: 2.6, delai: 0.16 };
+    h.gardiens.push(g);
+    orienterGardien(g, cote || (/_est$/i.test(filet.nom) ? 'est' : 'ouest'));
+    return g;
+  }
+
+  function viderGardiens() {
+    for (const g of h.gardiens) {
+      try { monde.removeRigidBody(g.corps); } catch { /* déjà retiré */ }
+      g.pnj.comportement = 'statique';
+    }
+    h.gardiens = [];
+  }
+
+  function preparerGardiens() {
+    for (const p of gestionPnj.liste.filter((x) => (x.role === 'gardien' || /^gardien/.test(x.id)) && !x.cache)) ajouterGardien(p);
   }
 
   function retirerBaton() {
@@ -107,6 +135,27 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
     const charge = h.charge > 0 ? h.charge : 0;
     h.lame.copy(j.position).addScaledVector(avant, 0.82 - charge * 0.35).addScaledVector(droite, 0.28 + balayage + charge * 0.25);
     h.lame.y = j.position.y + 0.02 + charge * 0.4;
+    const propre = j.perso.batonPropre;
+    if (propre) {
+      if (!propre.userData.bout) {
+        const boite = new THREE.Box3();
+        propre.updateWorldMatrix(true, true);
+        const inv = propre.matrixWorld.clone().invert();
+        propre.traverse((o) => {
+          if (!o.isMesh) return;
+          o.geometry.computeBoundingBox();
+          boite.union(o.geometry.boundingBox.clone().applyMatrix4(new THREE.Matrix4().multiplyMatrices(inv, o.matrixWorld)));
+        });
+        const t = boite.getSize(new THREE.Vector3());
+        const k = t.x > t.y ? (t.x > t.z ? 'x' : 'z') : (t.y > t.z ? 'y' : 'z');
+        const c = boite.getCenter(new THREE.Vector3());
+        c[k] = Math.abs(boite.max[k]) > Math.abs(boite.min[k]) ? boite.max[k] : boite.min[k];
+        propre.userData.bout = c;
+      }
+      const bout = propre.localToWorld(tmp.copy(propre.userData.bout));
+      if (bout.y - j.position.y < 0.35 && charge <= 0) h.lame.set(h.lame.x * 0.4 + bout.x * 0.6, h.lame.y, h.lame.z * 0.4 + bout.z * 0.6);
+      return;
+    }
     if (j.perso.mainDroite) j.perso.mainDroite.getWorldPosition(main);
     else main.copy(j.position).addScaledVector(droite, 0.22).addScaledVector(avant, 0.25).setY(j.position.y + 0.95);
     h.baton.position.copy(main);
@@ -118,9 +167,9 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
   function controler(j, dt, ent) {
     const pucks = rondellesZone();
     h.refroidi -= dt;
-    if (!h.possession && h.refroidi <= 0) {
+    if (!h.possession && h.refroidi <= 0 && !(h.match?.actif && !h.match.ericPeutPrendre())) {
       for (const p of pucks) {
-        if (p.tenu) continue;
+        if (p.tenu || p.horsJeu) continue;
         const pos = p.objet.getWorldPosition(tmp);
         const v = p.corps.linvel();
         if (pos.distanceTo(h.lame) < 0.5 && Math.hypot(v.x, v.z) < 11) {
@@ -128,6 +177,8 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
           h.porteur = 'eric';
           j.aLaRondelle = true;
           audio.jouer3d('rondelle_poteau', pos, { volume: 0.25, hauteur: 1.6 });
+          h.match?.surPossessionEric?.(p);
+          h.entrainement?.surPossessionEric?.(p);
           break;
         }
       }
@@ -154,6 +205,7 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
     }
     if (!ent.tenirTir && h.charge > 0 && !ent.relacheTir) h.charge = 0;
     if (ent.presses.has('interagir') && h.possession && h.porteur === 'eric') passer(j);
+    else if (ent.presses.has('interagir') && h.match?.actif) h.match.harponner();
   }
 
   function prochePalette() {
@@ -183,6 +235,8 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
     perdre();
     h.dernierToucheur = 'eric';
     p.corps.setLinvel({ x: dir.x * vitesse, y: leve, z: dir.z * vitesse }, true);
+    h.match?.surTirEric?.(p, vitesse, dir, charge);
+    h.entrainement?.surTirEric?.(p, vitesse, dir, charge);
     j.jouerSpecial(charge > 0.6 ? 'skate_slap' : 'skate_shoot', 0.45);
     audio.jouer3d('rondelle_tir', p.objet.getWorldPosition(tmp), { volume: 0.5 + charge * 0.5, hauteur: 0.9 + charge * 0.25 });
     cam.secouer(charge * 0.5);
@@ -197,7 +251,7 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
     const dir = directionVisee();
     let meilleur = cible, score = -Infinity;
     if (!meilleur) {
-      const candidats = [...h.patineurs.filter((s) => s.equipe === 'eric'), ...gestionPnj.liste.filter((x) => x.role === 'entraineur_patin')];
+      const candidats = h.match?.actif ? h.match.coequipiersEric() : h.entrainement?.actif ? h.entrainement.coequipiersEric() : [...h.patineurs.filter((s) => s.equipe === 'eric'), ...gestionPnj.liste.filter((x) => x.role === 'entraineur_patin')];
       for (const c of candidats) {
         const pos = c.position || c.pnj?.position;
         const v = tmp.copy(pos).sub(j.position).setY(0);
@@ -218,6 +272,8 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
     perdre();
     h.dernierToucheur = 'eric';
     p.corps.setLinvel({ x: vers.x * 13, y: 0.05, z: vers.z * 13 }, true);
+    h.match?.surPasseEric?.(meilleur, p);
+    h.entrainement?.surPasseEric?.(meilleur, p);
     j.jouerSpecial('skate_pass', 0.4);
     audio.jouer3d('rondelle_tir', p.objet.getWorldPosition(tmp), { volume: 0.4, hauteur: 1.2 });
     bus.emit('hockey:passe', { vers: meilleur?.id || null });
@@ -247,14 +303,15 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
         if (vitesseVersFilet > 9 && dmin < 14 && g.papillon <= 0) { g.papillon = 0.7; g.pnj.perso.jouer(g.pnj.perso.possede('butterfly') ? 'butterfly' : 'skate_idle', { fondu: 0.08 }); }
       }
       g.reaction -= dt;
-      if (g.reaction <= 0) { g.reaction = 0.16; g.cible.copy(cible); }
+      if (g.reaction <= 0) { g.reaction = g.delai ?? 0.16; g.cible.copy(cible); }
       const pos = g.pnj.position;
       const dep = g.cible.clone().sub(pos).setY(0);
       const l = dep.length();
-      const vmax = 2.6 * dt;
+      const vmax = (g.vitesse ?? 2.6) * dt;
       if (l > vmax) dep.multiplyScalar(vmax / l);
       pos.add(dep);
       g.pnj.lacet = Math.atan2(g.versCentre.x, g.versCentre.z);
+      if (g.papillon > 0 && g.papillon - dt <= 0) g.pnj.perso.jouer('skate_idle', { fondu: 0.25 });
       g.papillon -= dt;
       const bas = g.papillon > 0;
       const t = g.pnj.corps.translation();
@@ -266,7 +323,8 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
         const v = menace.p.corps.linvel();
         if (Math.hypot(v.x, v.z) < 1.2 && !h.possession) {
           g.gele = (g.gele || 0) + dt;
-          if (g.gele > 1.2) {
+          if (g.gele > 1.2 && h.match?.actif) { g.gele = 0; h.match.surGel(g, menace.p); }
+          else if (g.gele > 1.2) {
             g.gele = 0;
             const dirDegage = g.versCentre.clone().applyAxisAngle(haut, (Math.random() - 0.5) * 1.2);
             menace.p.corps.setLinvel({ x: dirDegage.x * 9, y: 0.1, z: dirDegage.z * 9 }, true);
@@ -300,6 +358,8 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
 
   function but(cote, p) {
     if (h.possession === p) perdre();
+    if (h.match?.actif) { h.match.surBut(cote, p); return; }
+    if (h.entrainement?.actif && h.entrainement.surBut(cote, p)) return;
     const pourEric = h.partie ? cote === h.partie.coteAttaque : true;
     audio.jouer('sirene_but', { volume: 0.8 });
     audio.jouer('foule_acclame', { volume: 0.6 });
@@ -536,8 +596,36 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
   const coach = () => gestionPnj.liste.find((x) => x.role === 'entraineur_patin');
   const conesDe = (ids) => (ids || []).map((id) => objets.dynamiques.find((d) => d.id === id)).filter(Boolean);
 
+  function exerciceEnEquipe(type) {
+    if (!jeu.match || !jeu.zone?.glaceBoite) return false;
+    if (type === 'partie' || type === 'match' || type === 'entrainement') return true;
+    return (type === 'passe' || type === 'lancer') && jeu.zone.id === 'arena';
+  }
+
+  function lancerEnEquipe(etape, fin) {
+    const type = etape.exercice;
+    const p = normaliser(type === 'match' ? 'partie' : type, etape.parametres || {});
+    const brut = etape.parametres || {};
+    const titre = etape.titre || etape.objectif || '';
+    let promesse;
+    if (type === 'partie' || type === 'match') {
+      promesse = jeu.match.lancerMatch({ ...brut, objectifPasses: p.objectifPasses, objectifTirs: p.objectifTirs, titre: titre || 'Match des Carabins', consigne: etape.objectif || '' });
+    } else if (type === 'entrainement') {
+      promesse = jeu.match.lancerEntrainement({ ...brut, exercices: brut.exercices });
+    } else if (type === 'passe') {
+      promesse = jeu.match.lancerEntrainement({ exercices: ['passes_deux'], passes_deux: { passes: p.passes, temps: Number.isFinite(p.tempsMax) ? p.tempsMax : 120 } });
+    } else {
+      promesse = jeu.match.lancerEntrainement({ exercices: ['tirs_gardien'], tirs_gardien: { buts: p.buts, tirs: Number.isFinite(p.essaisMax) ? p.essaisMax : 10 } });
+    }
+    promesse.then((r) => {
+      if (r?.reussi) jeu.etat.drapeaux.patinage = Math.min(1, (jeu.etat.drapeaux.patinage ?? 0.3) + 0.06);
+      fin(!!r?.reussi, r);
+    }).catch((e) => { console.error('[match]', e); fin(true); });
+  }
+
   function lancerExercice(etape, fin) {
     const type = etape.exercice;
+    if (exerciceEnEquipe(type)) { lancerEnEquipe(etape, fin); return; }
     const modele = EXERCICES[type];
     if (!modele) { fin(true); return; }
     const p = normaliser(type, etape.parametres || {});
@@ -553,7 +641,7 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
         ex.etat = reussi ? 'reussi' : 'rate';
         if (reussi) {
           jeu.etat.drapeaux.patinage = Math.min(1, (jeu.etat.drapeaux.patinage ?? 0.05) + 0.13);
-          dialogues.repliqueAuHasard('entraineur_bravo', { pnj: coach() });
+          dialogues.situation([`entraineur_bravo_${type}`, 'entraineur_bravo'], { pnj: coach() });
           audio.jouer('ui_succes');
         } else dialogues.repliqueAuHasard('entraineur_encore', { pnj: coach() });
         bus.emit('exercice', { ...publique(), etat: ex.etat });
@@ -585,7 +673,7 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
     }
     if (type === 'partie') demarrerPartie({ ...p, duree: p.dureePartie });
     const c = coach();
-    dialogues.repliqueAuHasard(`entraineur_conseil_${type}`, { pnj: c, position: c?.position });
+    dialogues.situation([`entraineur_intro_${type}`, `entraineur_conseil_${type}`], { pnj: c, position: c?.position });
     bus.emit('exercice', publique());
   }
 
@@ -759,8 +847,9 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
 
   bus.on('patin:chute', () => {
     h.exercice?.surChute?.();
-    const coach = gestionPnj.liste.find((x) => x.role === 'entraineur_patin');
-    if (Math.random() < 0.7) dialogues.repliqueAuHasard('entraineur_chute', { pnj: coach, position: coach?.position }) || dialogues.repliqueAuHasard('eric_chute_glace', {});
+    const coach = gestionPnj.liste.find((x) => x.role === 'entraineur_patin' && !x.cache);
+    if (h.match?.actif || h.entrainement?.actif) { if (Math.random() < 0.35) dialogues.situation(['eric_chute_match', 'eric_chute_glace'], { canal: 'eric' }); }
+    else if (Math.random() < 0.7) dialogues.repliqueAuHasard('entraineur_chute', { pnj: coach, position: coach?.position }) || dialogues.repliqueAuHasard('eric_chute_glace', {});
     if (h.possession) perdre();
   });
   bus.on('patin:bande', () => { if (Math.random() < 0.5) dialogues.repliqueAuHasard('hockey_bande', {}); });
@@ -774,6 +863,7 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
       const dehors = t.y < b.min.y - 1 || t.y > b.max.y + 6 || t.x < b.min.x - 3 || t.x > b.max.x + 3 || t.z < b.min.z - 3 || t.z > b.max.z + 3;
       if (!dehors) continue;
       if (h.possession === p) perdre();
+      if (h.match?.actif) { h.match.surSortie(p); continue; }
       const sp = jeu.zone.spawns.SPAWN_mise_au_jeu || jeu.zone.spawns.SPAWN_glace;
       const c = sp ? sp.position : b.getCenter(new THREE.Vector3());
       p.corps.setTranslation({ x: c.x + (Math.random() - 0.5) * 0.4, y: b.max.y + 0.1, z: c.z + (Math.random() - 0.5) * 0.4 }, true);
@@ -789,16 +879,18 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
     const j = jeu.joueur;
     if (j.patins && !h.baton && (j.surGlace || h.exercice)) equiperBaton(j);
     if (h.baton) {
-      h.baton.visible = j.patins;
+      h.baton.visible = j.patins && !j.perso.batonPropre;
       placerBaton(j, dt);
       if (j.patine && j.mode === 'libre') controler(j, dt, ent);
     }
     gardiens(dt);
-    patineurs(dt);
+    if (h.match?.actif) h.match.mettreAJour(dt, ent);
+    else if (h.entrainement?.actif) h.entrainement.mettreAJour(dt, ent);
+    else patineurs(dt);
     verifierButs();
     suivreTirs(dt);
     suivreExercice(dt);
-    if (h.partie || h.exercice) bus.emit('hockey:etat', { score: h.partie ? { ...h.partie.score } : null, chrono: h.partie?.chrono ?? null, charge: h.charge, possession: h.porteur === 'eric' });
+    if (!h.match?.actif && (h.partie || h.exercice)) bus.emit('hockey:etat', { score: h.partie ? { ...h.partie.score } : null, chrono: h.partie?.chrono ?? null, charge: h.charge, possession: h.porteur === 'eric' });
   }
 
   bus.on('action:lecon', () => bus.emit('toast', { texte: 'L’entraîneur t’attend sur la glace.', type: 'info' }));
@@ -810,5 +902,8 @@ export function creerHockey({ bus, physique, objets, jeu, audio, dialogues, gest
     p.corps.setLinvel({ x: 0, y: 0, z: 0 }, true);
   });
 
-  return Object.assign(h, { activer, mettreAJour, lancerExercice, EXERCICES });
+  return Object.assign(h, {
+    activer, mettreAJour, lancerExercice, EXERCICES,
+    rondelles: rondellesZone, perdre, equiperBaton, retirerBaton, ajouterGardien, viderGardiens, preparerGardiens, orienterGardien, creerBaton,
+  });
 }

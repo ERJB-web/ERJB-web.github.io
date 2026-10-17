@@ -1,10 +1,11 @@
 import * as THREE from 'three';
-import { GROUPES, groupes } from './physique.js?v=fd382d2891';
+import { GROUPES, groupes } from './physique.js?v=194d6359b9';
 
 const DEMI_HAUTEUR = 0.6, RAYON = 0.3, CENTRE = DEMI_HAUTEUR + RAYON;
 const FILTRE = groupes(GROUPES.JOUEUR, GROUPES.STATIQUE | GROUPES.DYNAMIQUE | GROUPES.PORTE | GROUPES.PNJ | GROUPES.GLACE);
 
-export function creerJoueur({ physique, perso, audio, bus, jeu }) {
+export function creerJoueur({ physique, perso: persoInitial, audio, bus, jeu }) {
+  let perso = persoInitial;
   const { RAPIER, monde } = physique;
   let corps = null, collider = null, controleur = null;
   const j = {
@@ -276,6 +277,7 @@ export function creerJoueur({ physique, perso, audio, bus, jeu }) {
       if (j.position.y < -30) bus.emit('joueur:tombe');
     }
     perso.racine.position.copy(j.position);
+    if (j.patine && perso.decalagePatins) perso.racine.position.y += perso.decalagePatins;
     perso.racine.rotation.set(0, j.lacet, 0);
     animer(dt);
     pas(dt);
@@ -307,8 +309,23 @@ export function creerJoueur({ physique, perso, audio, bus, jeu }) {
     j.animSpeciale = { t: duree ?? perso.duree(nom) * 0.92 };
   }
 
+  function changerPerso(nouveau) {
+    if (!nouveau || nouveau === perso) return perso;
+    const ancien = perso;
+    const parent = ancien.racine.parent;
+    parent?.remove(ancien.racine);
+    nouveau.racine.position.copy(ancien.racine.position);
+    nouveau.racine.rotation.copy(ancien.racine.rotation);
+    parent?.add(nouveau.racine);
+    perso = nouveau;
+    j.perso = nouveau;
+    j.animSpeciale = null;
+    nouveau.jouer(ancien.nomCourant || 'idle', { fondu: 0 });
+    return ancien;
+  }
+
   return Object.assign(j, {
-    placer, mettreAJour, asseoir, lever, jouerSpecial,
+    placer, mettreAJour, asseoir, lever, jouerSpecial, changerPerso,
     get corps() { return corps; },
     get collider() { return collider; },
     avant() { return new THREE.Vector3(Math.sin(j.lacet), 0, Math.cos(j.lacet)); },

@@ -751,10 +751,16 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
     const ptAdverse = el('span', { class: 'ui-pointage-score' }, '0');
     const ptChrono = el('span', { class: 'ui-pointage-chrono' }, '');
     const ptRondelle = el('span', { class: 'ui-pointage-rondelle', 'aria-hidden': 'true' });
+    const ptNomEric = el('span', { class: 'ui-pointage-nom' }, 'Éric');
+    const ptNomAdverse = el('span', { class: 'ui-pointage-nom' }, 'Adversaires');
+    const ptPeriode = el('span', { class: 'ui-pointage-periode', hidden: '' }, '');
+    const ptTirs = el('span', { class: 'ui-pointage-tirs', hidden: '' }, '');
+    const ptPenEric = el('span', { class: 'ui-pointage-pen' }, '');
+    const ptPenAdverse = el('span', { class: 'ui-pointage-pen' }, '');
     const pointage = el('div', { class: 'ui-pointage', role: 'status' },
-      el('div', { class: 'ui-pointage-equipe eric' }, ptRondelle, el('span', { class: 'ui-pointage-nom' }, 'Éric'), ptEric),
-      el('div', { class: 'ui-pointage-centre' }, ptChrono),
-      el('div', { class: 'ui-pointage-equipe adverse' }, ptAdverse, el('span', { class: 'ui-pointage-nom' }, 'Adversaires')));
+      el('div', { class: 'ui-pointage-equipe eric' }, ptPenEric, ptRondelle, ptNomEric, ptEric),
+      el('div', { class: 'ui-pointage-centre' }, ptPeriode, ptChrono, ptTirs),
+      el('div', { class: 'ui-pointage-equipe adverse' }, ptAdverse, ptNomAdverse, ptPenAdverse));
     const charge = el('div', { class: 'ui-charge', 'aria-hidden': 'true' }, el('span', { class: 'ui-charge-anneau' }), el('span', { class: 'ui-charge-point' }));
 
     const eqMarque = el('span', { class: 'ui-equilibre-marque' });
@@ -772,7 +778,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
       el: e, chapitre, etiquette, objectif, objTexte, objDist, semaines, semNombre, semLib, jauges, colonne, etiquettes,
       exercice, exTitre, exConsigne, exBarre, exTexte, exSceau,
       direction, dirEtat, dirStatut, dirAnnonce, plan, marques, monde, cone, fleche, disque, mcN, mcLieu, minicarte,
-      invite, inviteTexte, inviteGlyphe, pointage, ptEric, ptAdverse, ptChrono, ptRondelle, charge, equilibre, eqMarque,
+      invite, inviteTexte, inviteGlyphe, pointage, ptEric, ptAdverse, ptChrono, ptRondelle, ptNomEric, ptNomAdverse, ptPeriode, ptTirs, ptPenEric, ptPenAdverse, charge, equilibre, eqMarque,
       lieu, lieuSur, lieuTitre, lieuSous, pool: new Map()
     };
   })();
@@ -1060,6 +1066,16 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
     }
     hud.ptChrono.textContent = d.chrono != null ? formatChrono(d.chrono) : '';
     hud.ptChrono.hidden = d.chrono == null;
+    hud.pointage.classList.toggle('match', !!d.match);
+    hud.ptNomEric.textContent = fr(d.equipes?.eric || 'Éric');
+    hud.ptNomAdverse.textContent = fr(d.equipes?.adverse || 'Adversaires');
+    hud.ptPeriode.hidden = !d.nomPeriode;
+    hud.ptPeriode.textContent = d.nomPeriode ? fr(/^\d/.test(d.nomPeriode) ? `${d.nomPeriode} pér.` : d.nomPeriode) : '';
+    hud.ptTirs.hidden = !d.tirs;
+    hud.ptTirs.textContent = d.tirs ? `Tirs ${d.tirs.eric ?? 0}–${d.tirs.adverse ?? 0}` : '';
+    const pen = (n, liste) => { const l = (liste || []).filter((x) => x > 0); n.textContent = l.length ? `${l.length > 1 ? `${l.length} × ` : ''}${formatChrono(Math.min(...l))}` : ''; n.classList.toggle('visible', !!l.length); };
+    pen(hud.ptPenEric, d.penalites?.eric);
+    pen(hud.ptPenAdverse, d.penalites?.adverse);
     hud.pointage.classList.toggle('fin-chrono', d.chrono != null && d.chrono <= 10);
     hud.ptRondelle.classList.toggle('visible', !!d.possession);
     const c = pince(Number(d.charge) || 0, 0, 1);
@@ -1073,7 +1089,7 @@ export function initUI({ bus, etat = {}, racine, pauseSurPerteVerrou = true, aut
   function butHockey(d = {}) {
     const pourEric = d.pourEric !== false;
     but.el.classList.toggle('adverse', !pourEric);
-    but.sous.textContent = fr(pourEric ? 'Éric marque !' : 'L’équipe adverse marque');
+    but.sous.textContent = fr(d.texte || (pourEric ? 'Éric marque !' : 'L’équipe adverse marque'));
     relancer(but.el, 'joue');
     racine.classList.add('ui-but-en-cours');
     clearTimeout(but.minuterie);

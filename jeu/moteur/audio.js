@@ -50,7 +50,7 @@ export function creerAudio({ base = 'audio', options }) {
   const sfx = (nom) => `${base}/sfx/${nom}.mp3`;
   const piste = (nom) => `${base}/musique/${nom}.mp3`;
 
-  async function jouer(nom, { volume = 1, hauteur = 1, bus = 'effets' } = {}) {
+  async function jouer(nom, { volume = 1, hauteur = 1, bus = 'effets', retard = 0, filtre = 0, debut = 0, duree = 0 } = {}) {
     if (!ctx) return null;
     const b = await tampon(sfx(nom));
     if (!b) return null;
@@ -59,9 +59,58 @@ export function creerAudio({ base = 'audio', options }) {
     src.playbackRate.value = hauteur;
     const g = ctx.createGain();
     g.gain.value = volume;
-    src.connect(g).connect(bus === 'ui' || bus === 'effets' ? busEffets : busAmbiance);
-    src.start();
+    let entree = g;
+    if (filtre > 0) {
+      const f = ctx.createBiquadFilter();
+      f.type = 'lowpass';
+      f.frequency.value = filtre;
+      f.connect(g);
+      entree = f;
+    }
+    src.connect(entree);
+    g.connect(bus === 'ui' || bus === 'effets' ? busEffets : busAmbiance);
+    const t0 = ctx.currentTime + Math.max(0, retard);
+    if (duree > 0) {
+      g.gain.setValueAtTime(volume, t0 + Math.max(0, duree - 0.25));
+      g.gain.linearRampToValueAtTime(0, t0 + duree);
+      src.start(t0, debut, duree);
+    } else src.start(t0, debut);
     return src;
+  }
+
+  async function boucle(nom, { volume = 0.3, hauteur = 1, filtre = 0, bus = 'ambiance' } = {}) {
+    if (!ctx) return null;
+    const b = await tampon(sfx(nom));
+    if (!b) return null;
+    const src = ctx.createBufferSource();
+    src.buffer = b;
+    src.loop = true;
+    src.playbackRate.value = hauteur;
+    const g = ctx.createGain();
+    g.gain.value = 0;
+    let entree = g;
+    let f = null;
+    if (filtre > 0) {
+      f = ctx.createBiquadFilter();
+      f.type = 'lowpass';
+      f.frequency.value = filtre;
+      f.connect(g);
+      entree = f;
+    }
+    src.connect(entree);
+    g.connect(bus === 'effets' ? busEffets : busAmbiance);
+    src.start(ctx.currentTime, Math.random() * b.duration);
+    g.gain.setTargetAtTime(volume, ctx.currentTime, 0.8);
+    return {
+      regler(v, { filtre: fr, constante = 0.6 } = {}) {
+        g.gain.setTargetAtTime(v, ctx.currentTime, constante);
+        if (f && fr) f.frequency.setTargetAtTime(fr, ctx.currentTime, constante);
+      },
+      arreter(fondu = 1.2) {
+        g.gain.setTargetAtTime(0, ctx.currentTime, fondu / 3);
+        setTimeout(() => { try { src.stop(); } catch { /* arrêtée */ } }, fondu * 1000 + 300);
+      },
+    };
   }
 
   async function jouer3d(nom, position, { volume = 1, hauteur = 1, distanceRef = 2, max = 40 } = {}) {
@@ -284,7 +333,8 @@ export function creerAudio({ base = 'audio', options }) {
     },
     get pret() { return !!ctx; },
     appliquerVolumes,
-    jouer, jouer3d, jouerVoix, arreterVoix, amplitudeVoix,
+    jouer, jouer3d, jouerVoix, arreterVoix, amplitudeVoix, boucle,
+    get contexte() { return ctx; },
     changerAmbiance, themeMusical, stinger, tension: regler_tension,
     mettreAJourAuditeur,
     precharger(noms) { if (ctx) for (const n of noms) tampon(sfx(n)); },
