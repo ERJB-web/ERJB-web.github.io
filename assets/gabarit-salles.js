@@ -202,7 +202,7 @@
     const aside = el("aside", "gab-chapitre-aside");
     if (choix.url) {
       const credit = choix.image ? `${T.photo} : ${echapper(choix.image.auteur || "")}${choix.image.licence ? " · " + echapper(choix.image.licence) : ""}` : "";
-      const alt = langue === "fr" && choix.image?.alt ? choix.image.alt : "";
+      const alt = choix.alt || (langue === "fr" && choix.image?.alt ? choix.image.alt : "");
       aside.innerHTML = `<div class="gab-photo"><img src="${echapper(choix.url)}" alt="${echapper(alt)}" loading="lazy" decoding="async" width="960" height="640">${credit ? `<small class="gab-credit">${choix.image.source_url ? `<a href="${echapper(choix.image.source_url)}" target="_blank" rel="noopener">${credit}</a>` : credit}</small>` : ""}</div>`;
     }
     const intertitres = $$("h4", corps).filter((h) => !h.closest("details:not([open]), [hidden], .gab-source.carte-vitrine"));
@@ -266,10 +266,22 @@
 
     // Images : une par chapitre, sans doublon dans la salle.
     const prises = new Set();
-    chapitres.forEach((ch) => {
+    chapitres.forEach((ch, i) => {
       ch.extrait = net(ch.source.textContent).slice(0, 300);
       if (!parTitre.has(`${salle}|${normaliser(ch.titre)}`)) ch.photoInterne = premiereImage(ch.source);
-      ch.choix = choisirImage(ch, salle, porte?.dataset.salle, prises, photoSalle);
+      // Ma thèse : associer les visuels aux deux chapitres concernés,
+      // plutôt que de laisser la correspondance automatique choisir un hors-sujet.
+      if (salle === "recherche" && chapitres.length === 6 && i === 3) {
+        ch.choix = {
+          url: new URL(`${CHEMIN}assets/chapitres/calendrier-faisabilite.svg`, D.baseURI).href,
+          alt: "Calendrier de planification scientifique avec étapes O1, O2 et O3",
+        };
+      } else if (salle === "recherche" && chapitres.length === 6 && i === 4) {
+        const acteurs = CATALOGUE.find((im) => im.fichier === "implantation-01.webp");
+        ch.choix = acteurs ? { url: urlImage(acteurs), image: acteurs } : choisirImage(ch, salle, porte?.dataset.salle, prises, photoSalle);
+      } else {
+        ch.choix = choisirImage(ch, salle, porte?.dataset.salle, prises, photoSalle);
+      }
       if (ch.choix.image) prises.add(ch.choix.image.fichier);
     });
 
