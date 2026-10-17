@@ -2,7 +2,8 @@
 // Panorama borné : regarder et faire glisser ne déclenchent jamais une entrée.
 window.creerMarcheHall=({hall,scene,monde,stations,surSelection})=>{
  const calme=matchMedia('(prefers-reduced-motion:reduce)');
- const pas=470,largeur=446,ecart=14;
+ const ecart=14;
+ let pas=470,largeur=446;
  const borner=(v,a,b)=>Math.max(a,Math.min(b,v));
  let actif=false,selection=0,position=0,cible=0,maximum=0,largeurVue=0,hauteurVue=0;
  let murG=0,murD=0,margeG=ecart,margeD=ecart;
@@ -14,8 +15,12 @@ window.creerMarcheHall=({hall,scene,monde,stations,surSelection})=>{
   if(!w)return;
   if(w!==largeurVue||h!==hauteurVue){
    largeurVue=w;hauteurVue=h;
-   // Le mur de la photographie (2000 × 670) va du pilier x=253 au pilier x=1746.
-   const px=Math.max(w/2000,h/670),ix=(w-2000*px)/2;
+   // Le mur de la photographie (2000 × 670) va du pilier x=253 au pilier x=1746, de y=202 à y=526.
+   const zoom=parseFloat(getComputedStyle(hall).getPropertyValue('--hall-zoom'))||1;
+   const px=Math.max(w/2000,h/670)*zoom,ix=(w-2000*px)/2;
+   const porte=324*px*845/1862;
+   largeur=Math.round(porte+44+Math.min(340,Math.max(290,w*.26)));pas=largeur+24;
+   hall.style.setProperty('--hall-station-l',largeur+'px');
    murG=Math.max(0,ix+253*px);murD=Math.min(w,ix+1746*px);
    margeG=murG+ecart;margeD=w-murD+ecart;
    maximum=Math.max(0,margeG+pas*(stations.length-1)+largeur+margeD-w);

@@ -255,7 +255,7 @@
     passage.className = "passage";
     const teinte = getComputedStyle(porte);
     const g1 = teinte.getPropertyValue("--c1").trim();
-    passage.style.background = `radial-gradient(125% 85% at 50% 50%, color-mix(in srgb, ${g1 || '#456879'} 65%, #fff) 0%, color-mix(in srgb, ${g1 || '#456879'} 78%, #182a32) 100%)`;
+    passage.style.background = `radial-gradient(120% 70% at 50% 75%, color-mix(in srgb, ${g1} 12%, rgba(255,255,255,.78)) 0%, color-mix(in srgb, ${g1} 32%, rgba(255,255,255,.55)) 100%)`;
     Object.assign(passage.style, { left: r.left + "px", top: r.top + "px", width: r.width + "px", height: r.height + "px" });
     document.body.append(passage);
     if (!reduit && passage.animate) {
@@ -477,7 +477,7 @@
     const passage = document.createElement("div");
     passage.className = "passage";
     const c1 = bouton.style.getPropertyValue("--c1").trim();
-    passage.style.background = `radial-gradient(125% 85% at 50% 50%, color-mix(in srgb, ${c1 || '#456879'} 65%, #fff) 0%, color-mix(in srgb, ${c1 || '#456879'} 78%, #182a32) 100%)`;
+    passage.style.background = `radial-gradient(120% 70% at 50% 75%, color-mix(in srgb, ${c1} 12%, rgba(255,255,255,.78)) 0%, color-mix(in srgb, ${c1} 32%, rgba(255,255,255,.55)) 100%)`;
     Object.assign(passage.style, { left: r.left + "px", top: r.top + "px", width: r.width + "px", height: r.height + "px" });
     document.body.append(passage);
     if (!reduit && passage.animate) {

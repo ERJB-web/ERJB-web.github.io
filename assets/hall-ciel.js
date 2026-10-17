@@ -119,10 +119,10 @@
     const dominante = nuit > 0.55 ? "nuit" : crepuscule > 0.5 ? "crepuscule-" + s : couvert > 0.5 ? "couvert-" + s : "jour-" + s;
     hall.style.setProperty("--hall-fond", photo(dominante));
     const soleil = (1 - nuit) * (1 - couvert) * (1 - crepuscule * 0.6);
-    const eclairage = 1 - nuit * 0.48 - crepuscule * 0.3 * (1 - nuit) - couvert * 0.06 * (1 - nuit);
+    const eclairage = 1 - nuit * 0.3 - crepuscule * 0.24 * (1 - nuit) - couvert * 0.06 * (1 - nuit);
     hall.style.setProperty("--hall-soleil", soleil.toFixed(3));
     hall.style.setProperty("--hall-eclairage", eclairage.toFixed(3));
-    hall.style.setProperty("--hall-chaleur", (nuit * 0.18 + crepuscule * 0.22).toFixed(3));
+    hall.style.setProperty("--hall-chaleur", (nuit * 0.12 + crepuscule * 0.2).toFixed(3));
     // Les rayons du soleil, ou les halos des lampes, tombent aussi sur les portes et les panneaux.
     hall.style.setProperty("--hall-lumiere-calque", photo(nuit > 0.5 ? "lumiere-nuit" : "lumiere-jour"));
     hall.style.setProperty("--hall-lumiere-force", (nuit > 0.5 ? nuit : soleil).toFixed(3));

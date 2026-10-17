@@ -20,16 +20,10 @@
 }
 .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .ouverture {
   inset: 1.1% 2.2% 0;
-  background: linear-gradient(105deg,#151b1d,color-mix(in srgb,var(--c1) 17%,#162124),#10191c);
-  box-shadow: inset 3px 2px 5px #000a;
-  perspective: 900px;
-  perspective-origin: 0 50%;
-  transition: background .5s ease, box-shadow .5s ease;
-}
-/* La teinte de la porte apparaît derrière le vantail pendant son ouverture. */
-.hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte.ouverte .ouverture {
-  background: radial-gradient(ellipse at 54% 49%,color-mix(in srgb,var(--c1) 68%,#e6f0f2) 0%,color-mix(in srgb,var(--c1) 83%,#26313a) 65%,#182229 100%);
-  box-shadow: inset 0 0 16px color-mix(in srgb,var(--c1) 42%,transparent);
+  background: linear-gradient(90deg,#101511,#3a3d32 15%,#262b25 92%,#101511);
+  box-shadow: inset 2px 1px 3px #0008;
+  perspective: 1700px;
+  perspective-origin: 50% 50%;
 }
 .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .battant {
   border: 0;
@@ -37,7 +31,7 @@
   background: url("photos/porte-laboratoire-cinema.webp") center / 100% 100% no-repeat;
   box-shadow: inset 1px 0 0 rgba(255,255,255,.55), inset -1px 0 0 rgba(60,54,44,.35);
   transform-origin: 0 50%;
-  transition: transform .6s cubic-bezier(.3,.7,.2,1), filter .6s;
+  transition: transform .55s var(--ease);
 }
 .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .battant::before,
 .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .battant::after,
@@ -71,12 +65,6 @@
 .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte .apercu {
   color: #f2eee2;
   text-shadow: 0 1px 2px #000;
-}
-@media(hover:hover) and (pointer:fine) {
-  .hall[data-hall-volume]:is(.en-volume,.en-mobile) .station-hall .porte:not(.ouverte):hover .battant {
-    transform: rotateY(-14deg);
-    box-shadow: inset 1px 0 0 rgba(255,255,255,.55), 6px 0 10px -4px rgba(0,0,0,.45);
-  }
 }
 
 /* Panneaux épinglés au mur : plaque blanche mate sur quatre entretoises inox. */
@@ -211,6 +199,9 @@
 @media(min-width:1000px) {
   .hall.en-volume {
     --eb-hall-hauteur: clamp(460px,58svh,540px);
+    /* Vue rapprochée : la photo est agrandie et le haut de la verrière recadré. */
+    --hall-zoom: 1.24;
+    --hall-recadrage: 48;
   }
   .hall.en-volume .hall-espace {
     height: var(--eb-hall-hauteur);
@@ -220,12 +211,13 @@
   .hall.en-volume .hall-espace::before,
   .hall.en-volume .hall-espace::after { content: none; }
   .hall.en-volume .hall-univers {
-    --px: max(calc(100cqw / 2000), calc(100cqh / 670));
+    --px: calc(max(calc(100cqw / 2000), calc(100cqh / 670)) * var(--hall-zoom));
     --iw: calc(var(--px) * 2000);
     --ih: calc(var(--px) * 670);
     --ix: calc((100cqw - var(--iw)) / 2);
-    --mur-haut: calc(var(--px) * 202);
-    --mur-bas: calc(var(--px) * 526);
+    --iy: calc(var(--px) * var(--hall-recadrage) * -1);
+    --mur-haut: calc(var(--iy) + var(--px) * 202);
+    --mur-bas: calc(var(--iy) + var(--px) * 526);
     --mur-g: calc(var(--ix) + var(--px) * 253);
     --mur-d: calc(var(--ix) + var(--px) * 1746);
     --hauteur-mur: calc(var(--mur-bas) - var(--mur-haut));
@@ -235,7 +227,7 @@
     inset: 0;
     transform: none;
     isolation: isolate;
-    background: var(--hall-jour) var(--ix) 0 / var(--iw) var(--ih) no-repeat;
+    background: var(--hall-jour) var(--ix) var(--iy) / var(--iw) var(--ih) no-repeat;
     background-color: #d6ccbb;
   }
   .hall.en-volume .architecture-hall::before,
@@ -243,12 +235,12 @@
   .hall.en-volume[data-moment] .architecture-hall::before { content: none; display: none; }
   .hall.en-volume :is(.paroi-hall,.plafond-hall,.verriere-hall,.dallage-hall) { display: none; }
   .hall.en-volume .hall-calque {
-    background-position: var(--ix) 0;
+    background-position: var(--ix) var(--iy);
     background-size: var(--iw) var(--ih);
   }
   .hall.en-volume :is(.hall-brume,.hall-precipitation,.hall-eclair) {
-    -webkit-mask-position: var(--ix) 0;
-    mask-position: var(--ix) 0;
+    -webkit-mask-position: var(--ix) var(--iy);
+    mask-position: var(--ix) var(--iy);
     -webkit-mask-size: var(--iw) var(--ih);
     mask-size: var(--iw) var(--ih);
   }
@@ -290,7 +282,7 @@
   .hall.en-volume .station-hall {
     top: var(--mur-haut);
     bottom: auto;
-    width: 446px;
+    width: var(--hall-station-l,446px);
     height: var(--hauteur-mur);
     transform: translateX(var(--panorama-x,40px));
     filter: brightness(var(--hall-eclairage)) sepia(var(--hall-chaleur));
@@ -337,18 +329,22 @@
     opacity: .9;
   }
   .hall.en-volume .station-hall .porte::after { content: none; }
-  .hall.en-volume .station-hall .porte:not(.ouverte):focus-visible .battant { transform: rotateY(-26deg); }
-  .hall.en-volume .station-hall .porte.ouverte .battant { transform: rotateY(-84deg); }
+  .hall.en-volume .station-hall .porte:not(.ouverte):focus-visible .battant { transform: rotateY(-34deg); }
+  .hall.en-volume .station-hall .porte.ouverte .battant { transform: rotateY(-82deg); }
   .hall.en-volume .station-hall .panneau-hall {
     top: 8%;
     bottom: auto;
     left: calc(var(--hall-porte-l) + 34px);
-    width: calc(446px - var(--hall-porte-l) - 44px);
+    width: calc(var(--hall-station-l,446px) - var(--hall-porte-l) - 44px);
     height: auto;
     min-height: 80%;
     max-height: none;
     transform: none;
   }
+  .hall.en-volume .station-hall .panneau-hall { padding: 18px 20px 15px; }
+  .hall.en-volume .station-hall .panneau-hall h3 { font-size: 14.5px; margin-bottom: 10px; padding-bottom: 10px; }
+  .hall.en-volume .station-hall .panneau-hall h3 bdi { width: 34px; height: 34px; font-size: 21px; }
+  .hall.en-volume .station-hall .sous-portes-murales > :is(button,a) { min-height: 36px; font-size: 12px; }
   .hall.en-volume .station-hall .panneau-hall > p {
     margin: 0 0 6px;
     font-size: 10.5px;
@@ -372,11 +368,11 @@
     opacity: var(--hall-lumiere-force,0);
   }
   .hall.en-volume .station-hall .porte .baie::before {
-    background-position: calc(var(--ix) - var(--panorama-x,40px) - 10px) calc(0px - var(--mur-haut));
+    background-position: calc(var(--ix) - var(--panorama-x,40px) - 10px) calc(var(--iy) - var(--mur-haut));
   }
   .hall.en-volume .station-hall .panneau-hall::after {
     border-radius: inherit;
-    background-position: calc(var(--ix) - var(--panorama-x,40px) - var(--hall-porte-l) - 34px) calc(0px - var(--mur-haut) - var(--hauteur-mur) * .08);
+    background-position: calc(var(--ix) - var(--panorama-x,40px) - var(--hall-porte-l) - 34px) calc(var(--iy) - var(--mur-haut) - var(--hauteur-mur) * .08);
   }
 }
 
