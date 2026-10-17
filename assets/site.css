@@ -4493,3 +4493,99 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
   .these .atlas-these-figure{margin-bottom:23px;border-radius:10px}
 }
 @media(prefers-reduced-motion:reduce){.these .atlas-these-image,.these .atlas-these-image img{transition:none!important}}
+
+
+/* Thèse — lisibilité des quatre cartes statistiques du contexte */
+#rubrique-fr-these-panneau-0 .these-chiffres{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:18px!important;
+  align-items:stretch;
+}
+#rubrique-fr-these-panneau-0 .these-chiffres>div{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  box-sizing:border-box;
+  padding:18px 20px!important;
+  border-radius:12px!important;
+  background:#fff;
+  box-shadow:0 2px 6px rgba(13,42,58,.035);
+}
+#rubrique-fr-these-panneau-0 .these-chiffres>div>p:first-child{
+  margin:0 0 12px!important;
+  color:#203f51;
+  font-size:16px!important;
+  line-height:1.4!important;
+  text-align:start!important;
+  text-align-last:auto!important;
+  hyphens:none!important;
+}
+#rubrique-fr-these-panneau-0 .these-chiffres>div>div{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.2fr) minmax(84px,1fr) max-content!important;
+  align-items:center!important;
+  column-gap:12px!important;
+  margin:9px 0!important;
+}
+#rubrique-fr-these-panneau-0 .these-chiffres>div>div>span:first-child{
+  min-width:0;
+  font-size:14px!important;
+  line-height:1.35!important;
+  overflow-wrap:normal;
+  word-break:normal;
+  hyphens:none!important;
+}
+#rubrique-fr-these-panneau-0 .these-chiffres>div>div>span:nth-child(2){
+  width:100%;
+  min-width:0;
+  height:16px!important;
+  border-radius:999px!important;
+}
+#rubrique-fr-these-panneau-0 .these-chiffres>div>div>span:nth-child(2)>span{
+  border-radius:999px!important;
+}
+#rubrique-fr-these-panneau-0 .these-chiffres>div>div>b{
+  justify-self:end;
+  color:#0d2a3a;
+  font-size:14px!important;
+  font-weight:700;
+  font-variant-numeric:tabular-nums;
+  text-align:end;
+  white-space:nowrap;
+}
+#rubrique-fr-these-panneau-0 .these-chiffres>div>p.note{
+  margin:14px 0 0!important;
+  padding-top:12px;
+  border-top:1px solid #e4ebf1;
+  color:#536977;
+  font-size:14px!important;
+  line-height:1.55!important;
+  text-align:start!important;
+  text-align-last:auto!important;
+  text-justify:auto!important;
+  word-spacing:normal!important;
+  hyphens:none!important;
+  -webkit-hyphens:none!important;
+  overflow-wrap:break-word;
+}
+@media(max-width:920px){
+  #rubrique-fr-these-panneau-0 .these-chiffres{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  #rubrique-fr-these-panneau-0 .these-chiffres>div>div{
+    grid-template-columns:minmax(0,1fr) minmax(100px,1fr) max-content!important;
+  }
+}
+@media(max-width:520px){
+  #rubrique-fr-these-panneau-0 .these-chiffres{gap:12px!important}
+  #rubrique-fr-these-panneau-0 .these-chiffres>div{padding:16px!important}
+  #rubrique-fr-these-panneau-0 .these-chiffres>div>div{
+    grid-template-columns:minmax(0,1fr) max-content!important;
+    column-gap:12px!important;
+    row-gap:6px!important;
+    margin:10px 0!important;
+  }
+  #rubrique-fr-these-panneau-0 .these-chiffres>div>div>span:first-child{grid-column:1/-1}
+  #rubrique-fr-these-panneau-0 .these-chiffres>div>div>span:nth-child(2){grid-column:1;grid-row:2}
+  #rubrique-fr-these-panneau-0 .these-chiffres>div>div>b{grid-column:2;grid-row:2}
+}
