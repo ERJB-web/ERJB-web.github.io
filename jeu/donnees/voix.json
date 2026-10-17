@@ -698,5 +698,105 @@
  "c4_apres_partie_005": {
   "duree": 3.49,
   "qui": "eric"
+ },
+ "c4_arrivee_001": {
+  "duree": 4.92,
+  "qui": "collegue_doc"
+ },
+ "c4_arrivee_002": {
+  "duree": 2.93,
+  "qui": "eric"
+ },
+ "c4_arrivee_003": {
+  "duree": 6.27,
+  "qui": "collegue_doc"
+ },
+ "c4_arrivee_004": {
+  "duree": 4.73,
+  "qui": "eric"
+ },
+ "c4_arrivee_005": {
+  "duree": 5.73,
+  "qui": "eric"
+ },
+ "c4_couper_r_001": {
+  "duree": 6.78,
+  "qui": "direction_a"
+ },
+ "c4_couper_r_002": {
+  "duree": 4.32,
+  "qui": "eric"
+ },
+ "c4_depart_001": {
+  "duree": 4.15,
+  "qui": "direction_a"
+ },
+ "c4_depart_002": {
+  "duree": 4.5,
+  "qui": "direction_b"
+ },
+ "c4_depart_003": {
+  "duree": 4.73,
+  "qui": "eric"
+ },
+ "c4_direction_001": {
+  "duree": 6.98,
+  "qui": "collegue_doc"
+ },
+ "c4_direction_002": {
+  "duree": 4.57,
+  "qui": "eric"
+ },
+ "c4_direction_003": {
+  "duree": 4.54,
+  "qui": "direction_a"
+ },
+ "c4_direction_004": {
+  "duree": 5.33,
+  "qui": "direction_b"
+ },
+ "c4_direction_005": {
+  "duree": 3.81,
+  "qui": "direction_a"
+ },
+ "c4_direction_006": {
+  "duree": 2.73,
+  "qui": "eric"
+ },
+ "c4_direction_007": {
+  "duree": 3.42,
+  "qui": "direction_a"
+ },
+ "c4_entracte_001": {
+  "duree": 4.57,
+  "qui": "imitateur_de_gaulle"
+ },
+ "c4_entracte_002": {
+  "duree": 4.16,
+  "qui": "imitateur_de_gaulle"
+ },
+ "c4_entracte_003": {
+  "duree": 1.77,
+  "qui": "joueur_hockey_2"
+ },
+ "c4_entracte_004": {
+  "duree": 6.57,
+  "qui": "collegue_doc"
+ },
+ "c4_entracte_005": {
+  "duree": 3.5,
+  "qui": "chevalier"
+ },
+ "c4_entracte_006": {
+  "duree": 4.24,
+  "qui": "eric"
+ },
+ "c4_entracte_007": {
+  "duree": 6.47,
+  "qui": "chevalier"
+ },
+ "c4_entracte_008": {
+  "duree": 5.94,
+  "qui": "chevalier"
  }
 }

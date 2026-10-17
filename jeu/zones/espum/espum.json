@@ -6,19 +6,19 @@
   "lightmaps": [
     {
       "fichier": "espum_lm0.webp",
-      "scale": 2.62922
+      "scale": 2.63319
     },
     {
       "fichier": "espum_lm1.webp",
-      "scale": 3.5105
+      "scale": 3.42997
     },
     {
       "fichier": "espum_lm2.webp",
-      "scale": 2.8333
+      "scale": 2.84438
     },
     {
       "fichier": "espum_lm3.webp",
-      "scale": 3.5395
+      "scale": 3.13666
     }
   ],
   "env": {
