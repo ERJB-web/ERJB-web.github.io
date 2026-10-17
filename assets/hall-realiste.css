@@ -203,6 +203,9 @@
     --eb-hall-hauteur: clamp(460px,58svh,540px);
     /* Vue rapprochée : la photo est agrandie et le haut de la verrière recadré. */
     --hall-zoom: 1.24;
+    /* Largeur de porte rapportée à sa hauteur, et espace égal entre porte et panneau. */
+    --hall-porte-ratio: .51;
+    --hall-ecart: 30;
     --hall-recadrage: 48;
   }
   .hall.en-volume .hall-espace {
@@ -223,7 +226,7 @@
     --mur-g: calc(var(--ix) + var(--px) * 253);
     --mur-d: calc(var(--ix) + var(--px) * 1746);
     --hauteur-mur: calc(var(--mur-bas) - var(--mur-haut));
-    --hall-porte-l: calc(var(--hauteur-mur) * 845 / 1862);
+    --hall-porte-l: calc(var(--hauteur-mur) * var(--hall-porte-ratio));
   }
   .hall.en-volume .architecture-hall {
     inset: 0;
@@ -296,6 +299,7 @@
     top: calc(100% - 3px);
     bottom: auto;
     width: calc(var(--hall-porte-l) + 10px);
+    left: -5px;
     height: 10px;
     pointer-events: none;
     background: radial-gradient(ellipse 50% 50% at 50% 30%,rgba(38,30,20,.34),transparent 78%);
@@ -306,7 +310,7 @@
   .hall.en-volume .station-hall .porte {
     top: 0;
     bottom: 0;
-    left: 10px;
+    left: 0;
     width: var(--hall-porte-l);
     height: 100%;
     transform: none;
@@ -334,14 +338,14 @@
   .hall.en-volume .station-hall .porte:not(.ouverte):focus-visible .battant { transform: rotateY(-34deg); }
   .hall.en-volume .station-hall .porte.ouverte .battant { transform: rotateY(-82deg); }
   .hall.en-volume .station-hall .panneau-hall {
-    top: 8%;
+    top: 50%;
     bottom: auto;
-    left: calc(var(--hall-porte-l) + 34px);
-    width: calc(var(--hall-station-l,446px) - var(--hall-porte-l) - 44px);
+    left: calc(var(--hall-porte-l) + var(--hall-ecart) * 1px);
+    width: calc(var(--hall-station-l,446px) - var(--hall-porte-l) - var(--hall-ecart) * 1px);
     height: auto;
-    min-height: 80%;
+    min-height: 0;
     max-height: none;
-    transform: none;
+    transform: translateY(-50%);
   }
   .hall.en-volume .station-hall .panneau-hall { padding: 18px 20px 15px; }
   .hall.en-volume .station-hall .panneau-hall h3 { font-size: 14.5px; margin-bottom: 10px; padding-bottom: 10px; }
@@ -356,8 +360,7 @@
     hyphens: manual !important;
   }
   /* La lumière de la scène, fixe sur le mur, passe sur les objets qui glissent. */
-  .hall.en-volume .station-hall .porte .baie::before,
-  .hall.en-volume .station-hall .panneau-hall::after {
+  .hall.en-volume .station-hall .porte .baie::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -370,11 +373,7 @@
     opacity: var(--hall-lumiere-force,0);
   }
   .hall.en-volume .station-hall .porte .baie::before {
-    background-position: calc(var(--ix) - var(--panorama-x,40px) - 10px) calc(var(--iy) - var(--mur-haut));
-  }
-  .hall.en-volume .station-hall .panneau-hall::after {
-    border-radius: inherit;
-    background-position: calc(var(--ix) - var(--panorama-x,40px) - var(--hall-porte-l) - 34px) calc(var(--iy) - var(--mur-haut) - var(--hauteur-mur) * .08);
+    background-position: calc(var(--ix) - var(--panorama-x,40px)) calc(var(--iy) - var(--mur-haut));
   }
 }
 

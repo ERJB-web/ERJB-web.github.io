@@ -18,8 +18,9 @@ window.creerMarcheHall=({hall,scene,monde,stations,surSelection})=>{
    // Le mur de la photographie (2000 × 670) va du pilier x=253 au pilier x=1746, de y=202 à y=526.
    const zoom=parseFloat(getComputedStyle(hall).getPropertyValue('--hall-zoom'))||1;
    const px=Math.max(w/2000,h/670)*zoom,ix=(w-2000*px)/2;
-   const porte=324*px*845/1862;
-   largeur=Math.round(porte+44+Math.min(340,Math.max(290,w*.26)));pas=largeur+24;
+   const style=getComputedStyle(hall),porte=324*px*(parseFloat(style.getPropertyValue('--hall-porte-ratio'))||.454);
+   const espace=parseFloat(style.getPropertyValue('--hall-ecart'))||30;
+   largeur=Math.round(porte+espace+Math.min(360,Math.max(300,w*.27)));pas=largeur+espace;
    hall.style.setProperty('--hall-station-l',largeur+'px');
    murG=Math.max(0,ix+253*px);murD=Math.min(w,ix+1746*px);
    margeG=murG+ecart;margeD=w-murD+ecart;
