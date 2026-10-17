@@ -66,6 +66,10 @@
   const urlImage = (im) => new URL(`${CHEMIN}assets/chapitres/${im.fichier}`, D.baseURI).href;
   const urlVignette = (im) => new URL(`${CHEMIN}assets/chapitres/v/${im.fichier}`, D.baseURI).href;
   function choisirImage(ch, salle, porte, prises, photoSalle) {
+    // La vignette du chapitre de transfert doit illustrer une rencontre scientifique,
+    // sans remplacer le document MSSS conservé dans le contenu du chapitre.
+    if (salle === "recherche" && ch.cle === "transfert")
+      return { url: absolue(`${CHEMIN}assets/portes/transfert-congres.jpg`) };
     const explicite = ch.source?.dataset?.image;
     if (explicite === "aucune") return { url: "" };
     if (explicite) return { url: absolue(explicite) };
