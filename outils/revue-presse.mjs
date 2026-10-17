@@ -85,9 +85,25 @@ const EXCLUS_PUBMED = " AND journal article[pt] NOT (comment[pt] OR editorial[pt
 const TERMES_DOMAINE = ["public health", "population health", "health services", "health policy", "health system", "health systems", "primary care", "primary health care", "social services", "social care", "social work", "community health", "community-based", "community organizations", "health equity", "health inequalities", "health inequities", "social determinants", "social needs", "integrated care", "home care", "long-term care", "mental health services", "health promotion", "implementation science"];
 const domaine = champ => "(" + TERMES_DOMAINE.map(t => `"${t}"[${champ}]`).join(" OR ") + ")";
 const LANGUES = " AND (english[la] OR french[la])";
+const ou = (termes, champ) => "(" + termes.map(t => `"${t}"[${champ}]`).join(" OR ") + ")";
+// Publications : axes de recherche, aînés et intersectorialité.
+const AINES = ["older adults", "older adult", "older people", "older persons", "elderly", "seniors", "aged care", "older population"];
+const AINES_SERVICES = ["home care", "home-based care", "home and community care", "home and community-based services", "aging in place", "ageing in place", "long-term care", "nursing homes", "nursing home", "health services", "social services", "social care", "primary care", "community care", "health policy", "care coordination", "integrated care", "social isolation", "loneliness", "social needs", "unmet needs", "caregivers", "caregiving", "housing", "living arrangements", "health system", "service use", "loss of autonomy", "functional autonomy", "place of residence"];
+const DOMICILE = ["home care", "home-based care", "home and community care", "home and community-based services", "aging in place", "ageing in place", "aged care"];
+const CLINIQUE = ["surgery", "surgical", "cancer", "tumor", "drug", "drugs", "deprescribing", "pharmacotherapy", "mice", "mouse", "rats", "brain", "gene", "genetic", "fracture", "fractures", "children", "child", "pediatric", "paediatric", "adolescents", "adolescent", "students", "school", "postpartum", "maternal", "infant", "infants", "neonatal", "education", "baby", "breastfeeding", "antimicrobial", "genotypes"];
+const INTERSECTORIALITE = ["intersectoral", "intersectorial", "inter-sectoral", "cross-sector", "cross-sectoral", "multisectoral", "multi-sectoral", "health in all policies", "social prescribing", "health and social care", "interorganizational", "inter-organizational", "interagency", "inter-agency", "collaborative governance"];
+const BESOINS_SOCIAUX = ["social needs", "complex needs", "health-related social needs", "co-occurring needs", "multiple needs"];
+const PREMIERE_LIGNE = ["primary care", "primary health care", "social services", "social care", "home care", "older adults", "community health", "health and social services", "integrated care", "health services", "care coordination", "community organizations"];
+const AXES = ["health policy", "health policies", "policy evaluation", "policy analysis", "evidence-informed policy", "knowledge translation", "knowledge mobilization", "health law", "right to health", "patients' rights", "health system performance", "health systems performance", "cross-national", "health systems comparison", "avoidable hospitalization", "avoidable hospitalizations", "avoidable hospitalisations", "ambulatory care sensitive", "preventable hospitalizations", "organizational change", "change management", "primary care reform", "deinstitutionalization", "home care policy"];
+const AXES_CONTEXTE = ["primary care", "primary health care", "health services", "health system", "health systems", "home care", "social services", "older adults", "long-term care", "Quebec", "Canada", "France"];
+const sauf = termes => " NOT " + ou(termes, "ti");
+// Découvertes : essais et synthèses des grandes revues médicales, seulement les avancées majeures.
+const GRANDES_REVUES = ["N Engl J Med", "Lancet", "JAMA", "BMJ", "Nat Med", "Ann Intern Med", "Lancet Public Health", "JAMA Intern Med", "Lancet Healthy Longev"];
 const REQUETES_PUBMED = [
-  { cle: "probantes", jours: 7, tri: "relevance", terme: domaine("tiab") + " AND (systematic review[pt] OR meta-analysis[pt] OR randomized controlled trial[pt])" + LANGUES + EXCLUS_PUBMED },
-  { cle: "domaine", jours: 7, tri: "relevance", terme: domaine("ti") + LANGUES + EXCLUS_PUBMED },
+  { cle: "aines", jours: 14, tri: "relevance", terme: "((" + ou(AINES, "ti") + " AND " + ou(AINES_SERVICES, "ti") + ") OR " + ou(DOMICILE, "ti") + ")" + sauf(CLINIQUE) + LANGUES + EXCLUS_PUBMED },
+  { cle: "intersectorialite", jours: 21, tri: "relevance", terme: "(" + ou(INTERSECTORIALITE, "ti") + " OR (" + ou(INTERSECTORIALITE, "tiab") + " AND " + ou(PREMIERE_LIGNE, "ti") + ") OR (" + ou(BESOINS_SOCIAUX, "ti") + " AND " + ou(PREMIERE_LIGNE, "tiab") + "))" + sauf(CLINIQUE) + LANGUES + EXCLUS_PUBMED },
+  { cle: "axes", jours: 14, tri: "relevance", terme: ou(AXES, "ti") + " AND " + ou(AXES_CONTEXTE, "tiab") + sauf(CLINIQUE) + LANGUES + EXCLUS_PUBMED },
+  { cle: "avancees", jours: 7, terme: ou(GRANDES_REVUES, "ta") + " AND (randomized controlled trial[pt] OR meta-analysis[pt])" + EXCLUS_PUBMED },
   { cle: "crchum", jours: 14, terme: '("CRCHUM"[ad] OR "Centre de recherche du CHUM"[ad] OR "CHUM Research Centre"[ad] OR "Centre hospitalier de l\'Universite de Montreal"[ad])' + EXCLUS_PUBMED },
   { cle: "espum", jours: 45, terme: '("Ecole de sante publique de l\'Universite de Montreal"[ad] OR "School of Public Health, Universite de Montreal"[ad] OR "Universite de Montreal School of Public Health"[ad] OR ESPUM[ad])' + EXCLUS_PUBMED },
   { cle: "inspq", jours: 30, terme: '"Institut national de sante publique du Quebec"[ad]' + EXCLUS_PUBMED },
@@ -426,15 +442,19 @@ async function principal() {
 
   const publications = [];
   const parRevue = new Map();
-  const probantes = pm.probantes || [], domaine = pm.domaine || [];
-  for (let i = 0; publications.length < 10 && (i < probantes.length || i < domaine.length); i++) {
-    for (const a of [probantes[i], domaine[i]]) {
+  const thematiques = [pm.aines || [], pm.intersectorialite || [], pm.axes || []];
+  for (let i = 0; publications.length < 10 && thematiques.some(l => i < l.length); i++) {
+    for (const a of thematiques.map(l => l[i])) {
       if (!a || a.t.length < 45 || publications.length >= 10 || publications.some(p => p.u === a.u) || (parRevue.get(a.r) || 0) >= 2) continue;
       parRevue.set(a.r, (parRevue.get(a.r) || 0) + 1);
       publications.push(a);
     }
   }
-  await conclusions([...pmRecherche, ...publications]);
+  const dejaPublie = new Set([...publications, ...pmRecherche].map(a => a.u));
+  const avancees = plusRecents((pm.avancees || []).filter(a => !dejaPublie.has(a.u) && a.t.length >= 45), 3);
+  for (const [k, a] of avancees.entries()) decouvertes.splice(Math.min(decouvertes.length, 1 + k * 3), 0, a);
+  decouvertes.splice(10);
+  await conclusions([...pmRecherche, ...publications, ...avancees]);
 
   const jour = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Montreal" }).format(new Date(maintenant));
   const bonne = nouvelleEncourageante(articles, precedente, jour);

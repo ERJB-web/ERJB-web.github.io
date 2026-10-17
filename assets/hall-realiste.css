@@ -747,6 +747,8 @@
   .entete .direct-entete { display: none; }
   .hall-tete .direct-hall { display: inline-flex; margin-inline: auto; }
 }
+html.direct-serre .entete .direct-entete { display: none; }
+html.direct-serre .hall-tete .direct-hall { display: inline-flex; margin-inline: auto; }
 @media(max-width:640px) {
   .hall-tete { flex-wrap: wrap; row-gap: 12px; }
   .hall-tete .direct-hall { order: 3; margin-inline: 0; flex-wrap: wrap; row-gap: 10px; max-width: 100%; }

@@ -168,7 +168,22 @@ const ebMeteoMontreal = (() => {
         l.querySelector(".direct-cond").textContent = T.meteo[nom];
       }
     }
+    placer();
   }
+  // Quand la navigation laisse trop peu de place, la ligne d'état passe au-dessus du hall.
+  const nav = entete.querySelector(".nav");
+  function placer() {
+    const racine = document.documentElement;
+    racine.classList.remove("direct-serre");
+    if (!nav || getComputedStyle(lignes[0]).display === "none") return;
+    const r = lignes[0].getBoundingClientRect();
+    const touche = [...nav.querySelectorAll("a, button")].some((e) => {
+      const b = e.getBoundingClientRect();
+      return b.width > 0 && b.right + 16 > r.left && b.left - 16 < r.right && b.bottom > r.top && b.top < r.bottom;
+    });
+    racine.classList.toggle("direct-serre", touche);
+  }
+  if ("ResizeObserver" in window) new ResizeObserver(placer).observe(entete);
   function charger() { ebMeteoMontreal().then((d) => { if (d?.current) { meteo = d.current; afficher(); } }); }
   afficher();
   charger();
