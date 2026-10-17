@@ -81,10 +81,13 @@ const SOURCES = [
 
 const PUBMED = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/";
 const EXCLUS_PUBMED = " AND journal article[pt] NOT (comment[pt] OR editorial[pt] OR letter[pt] OR news[pt] OR published erratum[pt] OR retraction of publication[pt] OR expression of concern[pt] OR interview[pt] OR biography[pt]) AND hasabstract";
-const revues = noms => "(" + noms.map(n => `"${n}"[ta]`).join(" OR ") + ")";
+// Recherche, santé, services sociaux et communautaires, toutes revues confondues ; PubMed classe par pertinence (Best Match).
+const TERMES_DOMAINE = ["public health", "population health", "health services", "health policy", "health system", "health systems", "primary care", "primary health care", "social services", "social care", "social work", "community health", "community-based", "community organizations", "health equity", "health inequalities", "health inequities", "social determinants", "social needs", "integrated care", "home care", "long-term care", "mental health services", "health promotion", "implementation science"];
+const domaine = champ => "(" + TERMES_DOMAINE.map(t => `"${t}"[${champ}]`).join(" OR ") + ")";
+const LANGUES = " AND (english[la] OR french[la])";
 const REQUETES_PUBMED = [
-  { cle: "revues", jours: 7, terme: revues(["N Engl J Med", "Lancet", "JAMA", "BMJ", "Nat Med", "CMAJ", "Lancet Glob Health", "JAMA Intern Med"]) + EXCLUS_PUBMED },
-  { cle: "santePublique", jours: 7, terme: revues(["Lancet Public Health", "Am J Public Health", "Health Aff (Millwood)", "Milbank Q", "Health Policy", "Soc Sci Med", "BMJ Glob Health", "Eur J Public Health", "Int J Equity Health", "J Epidemiol Community Health", "Can J Public Health", "Health Soc Care Community", "Implement Sci"]) + EXCLUS_PUBMED },
+  { cle: "probantes", jours: 7, tri: "relevance", terme: domaine("tiab") + " AND (systematic review[pt] OR meta-analysis[pt] OR randomized controlled trial[pt])" + LANGUES + EXCLUS_PUBMED },
+  { cle: "domaine", jours: 7, tri: "relevance", terme: domaine("ti") + LANGUES + EXCLUS_PUBMED },
   { cle: "crchum", jours: 14, terme: '("CRCHUM"[ad] OR "Centre de recherche du CHUM"[ad] OR "CHUM Research Centre"[ad] OR "Centre hospitalier de l\'Universite de Montreal"[ad])' + EXCLUS_PUBMED },
   { cle: "espum", jours: 45, terme: '("Ecole de sante publique de l\'Universite de Montreal"[ad] OR "School of Public Health, Universite de Montreal"[ad] OR "Universite de Montreal School of Public Health"[ad] OR ESPUM[ad])' + EXCLUS_PUBMED },
   { cle: "inspq", jours: 30, terme: '"Institut national de sante publique du Quebec"[ad]' + EXCLUS_PUBMED },
@@ -269,24 +272,24 @@ function extrait(a) {
 
 const sortir = a => {
   const x = a.x ?? extrait(a);
-  return { t: a.t, u: a.u, s: a.s, d: a.d.toISOString(), ...(x ? { x } : {}), ...(a.l === "en" ? { l: "en" } : {}), ...(a.n > 1 ? { n: a.n } : {}), ...(a.r ? { r: a.r } : {}), ...(a.e ? { e: a.e } : {}) };
+  return { t: a.t, u: a.u, s: a.s, d: a.d.toISOString(), ...(x ? { x } : {}), ...(a.l === "en" ? { l: "en" } : {}), ...(a.n > 1 ? { n: a.n } : {}), ...(a.r ? { r: a.r } : {}), ...(a.e ? { e: a.e } : {}), ...(a.y ? { y: a.y } : {}) };
 };
 
 async function pubmed() {
   const resultats = {};
   for (const req of REQUETES_PUBMED) {
-    const p = new URLSearchParams({ db: "pubmed", term: req.terme, reldate: String(req.jours), datetype: "edat", retmax: "60", retmode: "json", tool: "revue-presse-sante" });
+    const p = new URLSearchParams({ db: "pubmed", term: req.terme, reldate: String(req.jours), datetype: "edat", retmax: "60", retmode: "json", tool: "revue-presse-sante", ...(req.tri ? { sort: req.tri } : {}) });
     const ids = JSON.parse((await lire(PUBMED + "esearch.fcgi?" + p)) || "{}").esearchresult?.idlist || [];
     await pause(400);
     if (!ids.length) { resultats[req.cle] = []; continue; }
     const resume = JSON.parse((await lire(PUBMED + "esummary.fcgi?" + new URLSearchParams({ db: "pubmed", id: ids.join(","), retmode: "json", tool: "revue-presse-sante" }))) || "{}");
     await pause(400);
-    resultats[req.cle] = (resume.result?.uids || []).map(uid => resume.result[uid]).filter(Boolean).map(f => {
+    resultats[req.cle] = ids.map(uid => resume.result?.[uid]).filter(Boolean).map(f => {
       const entree = (f.history || []).find(h => h.pubstatus === "entrez")?.date || f.sortpubdate;
       const date = new Date((entree || "").replace(/\//g, "-").replace(" ", "T"));
       const types = (f.pubtype || []).join(" ");
-      const poids = /Randomized Controlled Trial|Systematic Review|Meta-Analysis/.test(types) ? 3 : /Clinical Trial|Observational/.test(types) ? 2 : 1;
-      return { t: texte(f.title).replace(/\.$/, ""), u: `https://pubmed.ncbi.nlm.nih.gov/${f.uid}/`, pmid: f.uid, s: "PubMed", r: f.source, g: f.source, l: "en", d: isNaN(date) ? new Date(maintenant) : date, poids };
+      const y = /Meta-Analysis/.test(types) ? "meta" : /Systematic Review/.test(types) ? "revue" : /Randomized Controlled Trial/.test(types) ? "essai" : undefined;
+      return { t: texte(f.title).replace(/\.$/, ""), u: `https://pubmed.ncbi.nlm.nih.gov/${f.uid}/`, pmid: f.uid, s: "PubMed", r: f.source, g: f.source, l: "en", d: isNaN(date) ? new Date(maintenant) : date, y };
     }).filter(a => a.t && !/^(correction|erratum|retraction|reply|response)/i.test(a.t));
   }
   return resultats;
@@ -421,10 +424,16 @@ async function principal() {
   const nouvellesRecherche = alterner(articles.filter(a => a.type === "recherche" && recent(a, 24 * 45) && (!a.filtre || SECTEUR.test(tout(a)))), 6);
   const recherche = [...nouvellesRecherche, ...pmRecherche];
 
-  const publications = [
-    ...alterner([...(pm.revues || [])].sort((x, y) => y.poids - x.poids || y.d - x.d), 5, a => a.r),
-    ...alterner([...(pm.santePublique || [])].sort((x, y) => y.poids - x.poids || y.d - x.d), 4, a => a.r),
-  ];
+  const publications = [];
+  const parRevue = new Map();
+  const probantes = pm.probantes || [], domaine = pm.domaine || [];
+  for (let i = 0; publications.length < 10 && (i < probantes.length || i < domaine.length); i++) {
+    for (const a of [probantes[i], domaine[i]]) {
+      if (!a || a.t.length < 45 || publications.length >= 10 || publications.some(p => p.u === a.u) || (parRevue.get(a.r) || 0) >= 2) continue;
+      parRevue.set(a.r, (parRevue.get(a.r) || 0) + 1);
+      publications.push(a);
+    }
+  }
   await conclusions([...pmRecherche, ...publications]);
 
   const jour = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Montreal" }).format(new Date(maintenant));

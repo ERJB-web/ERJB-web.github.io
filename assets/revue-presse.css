@@ -73,6 +73,7 @@
 .revue-meta{display:flex;flex-wrap:wrap;align-items:center;gap:2px 7px;margin:5px 0 0;color:#9fb4c6;font-size:11.5px}
 .revue-source{color:#9ff6db;font-weight:650}
 .revue-etiquette{padding:1px 8px;border:1px solid #9ff6db40;border-radius:999px;background:#9ff6db17;color:#c9fff0;font-weight:600}
+.revue-type{border-color:#c7b8ff59;background:#c7b8ff1f;color:#e6dfff}
 .revue-pied{margin:0;padding:11px 28px 13px;border-top:1px solid #ffffff15;color:#abbecf;font-size:11px;line-height:1.5}
 .revue-pied summary{cursor:pointer;width:max-content;color:#d1fbef;font-weight:700}
 .revue-pied summary:hover{color:#9ff6db}

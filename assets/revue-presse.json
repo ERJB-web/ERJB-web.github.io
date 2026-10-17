@@ -1,5 +1,5 @@
 {
- "maj": "2026-10-17T05:35:52.924Z",
+ "maj": "2026-10-17T05:47:39.702Z",
  "bonne": {
   "jour": "2026-10-17",
   "t": "Un don qui sauve des vies",
@@ -34,8 +34,8 @@
    },
    {
     "t": "Une inhalothérapeute est radiée pour s’être présentée au travail sous l’influence de substances",
-    "u": "https://www.tvanouvelles.ca/2026/10/16/une-inhalotherapeute-est-radiee-pour-setre-presente-au-travail-sous-linfluence-de-substances",
-    "s": "TVA Nouvelles",
+    "u": "https://www.journaldemontreal.com/2026/10/16/une-inhalotherapeute-est-radiee-pour-setre-presente-au-travail-sous-linfluence-de-substances",
+    "s": "Le Journal de Montréal",
     "d": "2026-10-16T19:30:00.000Z",
     "x": "Une inhalothérapeute de Sept-Îles qui s’est présentée au travail intoxiquée au point de chuter au sol a écopé d’une radiation temporaire d’un mois."
    },
@@ -48,8 +48,8 @@
    },
    {
     "t": "Le Kenya annonce un troisième cas d'Ebola sur son sol",
-    "u": "https://www.tvanouvelles.ca/2026/10/16/le-kenya-annonce-un-troisieme-cas-debola-sur-son-sol",
-    "s": "TVA Nouvelles",
+    "u": "https://www.journaldemontreal.com/2026/10/16/le-kenya-annonce-un-troisieme-cas-debola-sur-son-sol",
+    "s": "Le Journal de Montréal",
     "d": "2026-10-16T17:45:43.000Z",
     "x": "Le ministère de la Santé du Kenya a annoncé vendredi un troisième cas d'Ebola sur son sol, une parente du patient qui aamené la maladie dans le pays."
    }
@@ -70,11 +70,11 @@
     "x": "La campagne vaccinale contre l’influenza et la COVID-19 commence en grand."
    },
    {
-    "t": "«On n'est pas obligé de les exposer à ça»: une halte-chaleur pour itinérants s'installe près d'un CPE à Montréal",
-    "u": "https://www.journaldemontreal.com/2026/10/15/on-nest-pas-oblige-de-les-exposer-a-ca-une-halte-chaleur-pour-itinerants-sinstalle-pres-dun-cpe-a-montreal",
+    "t": "Nuit des sans-abri: de plus en plus d’aînés dans le besoin",
+    "u": "https://www.journaldemontreal.com/2026/10/16/nuit-des-sans-abri-de-plus-en-plus-daines-dans-le-besoin",
     "s": "Le Journal de Montréal",
-    "d": "2026-10-15T17:15:03.000Z",
-    "x": "Une halte-chaleur pour itinérants s'installe dans le même bâtiment qu'un CPE à Montréal."
+    "d": "2026-10-16T16:36:55.000Z",
+    "x": "C’est en début de soirée, vendredi, que sera soulignée la 37e Nuit des sans-abri, partout au Québec."
    },
    {
     "t": "Difficile de retenir les jeunes infirmières au sein de la profession",
@@ -104,11 +104,11 @@
     "x": "Que faire en hiver d’un bateau qui ne peut naviguer sur les eaux glacées du fleuve Saint-Laurent ?"
    },
    {
-    "t": "Grand Montréal : une personne sur quatre a connu la pauvreté entre 2016 et 2023",
-    "u": "https://www.journaldemontreal.com/2026/10/15/grand-montreal--une-personne-sur-quatre-a-connu-la-pauvrete-entre-2016-et-2023",
+    "t": "«On n'est pas obligé de les exposer à ça»: une halte-chaleur pour itinérants s'installe près d'un CPE à Montréal",
+    "u": "https://www.journaldemontreal.com/2026/10/15/on-nest-pas-oblige-de-les-exposer-a-ca-une-halte-chaleur-pour-itinerants-sinstalle-pres-dun-cpe-a-montreal",
     "s": "Le Journal de Montréal",
-    "d": "2026-10-15T11:00:00.000Z",
-    "x": "Plus du quart des adultes du grand Montréal ont vécu au moins une année sous le seuil de pauvreté entre 2016 et 2023, selon une étude."
+    "d": "2026-10-15T17:15:03.000Z",
+    "x": "Une halte-chaleur pour itinérants s'installe dans le même bâtiment qu'un CPE à Montréal."
    },
    {
     "t": "Des complications postpartum peuvent survenir bien après les premières semaines",
@@ -488,85 +488,100 @@
   ],
   "publications": [
    {
-    "t": "Long-Acting HIV Therapy in African Adults with Adherence Challenges",
-    "u": "https://pubmed.ncbi.nlm.nih.gov/42874104/",
+    "t": "Scoping review of equity considerations in digitally enabled patient education interventions for self-managing chronic musculoskeletal pain",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42877005/",
     "s": "PubMed",
-    "d": "2026-10-14T21:23:00.000Z",
-    "x": "Among persons with HIV in Africa who have adherence challenges, long-acting cabotegravir plus rilpivirine was noninferior to oral dolutegravir-based therapy for maintaining a viral load of …",
+    "d": "2026-10-15T15:27:00.000Z",
+    "x": "Although there are several digitally enabled patient education tools or interventions to support pain self-management, fewer are available to address the diverse needs.",
     "l": "en",
-    "r": "N Engl J Med"
+    "r": "Front Public Health",
+    "y": "revue"
    },
    {
-    "t": "Reporting completeness of clinical trials evaluating large language model interventions in medicine: systematic review",
-    "u": "https://pubmed.ncbi.nlm.nih.gov/42869550/",
+    "t": "Cost-Effectiveness of Community Health Worker Interventions for Type 2 Diabetes Mellitus: A Systematic Review",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42879091/",
     "s": "PubMed",
-    "d": "2026-10-14T01:11:00.000Z",
-    "x": "Clinical trials of LLM interventions show modest adherence to established reporting guidelines, with persistent underreporting of LLM specific methodological details, reproducibility …",
+    "d": "2026-10-15T22:36:00.000Z",
+    "x": "Available evidence suggests that CHW interventions are likely cost-effective for adults with T2D, particularly when evaluated over longer time horizons.",
     "l": "en",
-    "r": "BMJ"
+    "r": "Appl Health Econ Health Policy",
+    "y": "revue"
    },
    {
-    "t": "Lp(a)-Reducing Agent Pelacarsen Misses the Mark in Phase 3-Now What?",
-    "u": "https://pubmed.ncbi.nlm.nih.gov/42886494/",
+    "t": "Primary healthcare, climate-related health impacts and intercultural dialogue: bibliometric evidence of a fragmented research field",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42876690/",
     "s": "PubMed",
-    "d": "2026-10-16T15:36:00.000Z",
-    "x": "This Medical News article discusses the top-line results from the Lp(a)HORIZON trial, which investigated lipoprotein(a) lowering to reduce major adverse cardiovascular events.",
+    "d": "2026-10-15T12:07:00.000Z",
+    "x": "Systematic Review Registration : PROSPERO CRD420251038912.",
     "l": "en",
-    "r": "JAMA"
+    "r": "Front Health Serv",
+    "y": "revue"
    },
    {
-    "t": "Talazoparib plus enzalutamide in high-volume metastatic hormone-naive prostate cancer: a randomized phase 2 trial",
-    "u": "https://pubmed.ncbi.nlm.nih.gov/42875559/",
+    "t": "Toward an integration model for sustainable school meals: a comparative policy review of five European countries",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42875761/",
     "s": "PubMed",
-    "d": "2026-10-15T03:44:00.000Z",
-    "x": "Overall, talazoparib plus enzalutamide demonstrated clinical activity in patients with high-volume mHNPC but did not establish clear additional clinical benefit over enzalutamide alone in …",
+    "d": "2026-10-15T04:09:00.000Z",
+    "x": "Based on this synthesis, we propose an Integration Model for Sustainable School Meals comprising four interconnected areas: policy and governance, sustainable procurement and supply chains, …",
     "l": "en",
-    "r": "Nat Med"
+    "r": "BMC Public Health",
+    "y": "revue"
    },
    {
-    "t": "2022 WHO estimates for overall and human papillomavirus test-based cervical cancer screening coverage worldwide: a review and synthetic analysis",
-    "u": "https://pubmed.ncbi.nlm.nih.gov/42874626/",
+    "t": "Information theory and diagnostic reasoning in primary care: a framework for navigating uncertainty",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42885772/",
     "s": "PubMed",
-    "d": "2026-10-14T22:52:00.000Z",
-    "x": "Despite policy updates, overall and HPV-specific screening coverage remains far below WHO's 70% target.",
+    "d": "2026-10-16T11:26:00.000Z",
+    "x": "Ultimately, it positions diagnosis as a scientific process of uncertainty reduction central to primary care practice.",
     "l": "en",
-    "r": "Lancet Glob Health"
+    "r": "Fam Pract"
    },
    {
-    "t": "Climate resilience through residential solar energy: Reducing health risks from extreme temperatures",
-    "u": "https://pubmed.ncbi.nlm.nih.gov/42887376/",
+    "t": "State Cannabis Policy and Public Health Research in the United States: Policy Disconnects and Research Gaps",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42887027/",
     "s": "PubMed",
-    "d": "2026-10-16T22:16:00.000Z",
-    "x": "However, because adoption remains concentrated among higher-income households, associated health benefits may accrue unevenly, highlighting the need for targeted policies.",
+    "d": "2026-10-16T21:53:00.000Z",
+    "x": "Future research should incorporate detailed policy coding, implementation measures, market data, surveillance data, and stronger researcher-policymaker linkages.",
     "l": "en",
-    "r": "Soc Sci Med"
+    "r": "Annu Rev Public Health"
    },
    {
-    "t": "Co-developing equity-oriented neighbourhood care for children and young people with multiple long-term conditions: a concept mapping study in South London",
-    "u": "https://pubmed.ncbi.nlm.nih.gov/42880721/",
+    "t": "Prediction accuracy of available early warning systems for air pollution across WHO South-East Asia region: a systematic review",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42877354/",
     "s": "PubMed",
-    "d": "2026-10-16T00:34:00.000Z",
-    "x": "These priorities may inform adaptation in European child health systems.",
+    "d": "2026-10-15T17:49:00.000Z",
+    "x": "While hybrid and deep learning models demonstrated superior forecasting accuracy over traditional methods, widespread policy implementation across SEARO was hindered by poor methodological validation.",
     "l": "en",
-    "r": "Eur J Public Health"
+    "r": "Front Public Health",
+    "y": "revue"
    },
    {
-    "t": "Should the geriatrician host the party? Person-centred hospital care in ageing societies requires placing geriatrics at the centre of care",
-    "u": "https://pubmed.ncbi.nlm.nih.gov/42879823/",
+    "t": "Advocacy and policy leadership training for primary care: a global environmental scan of competency frameworks, interventions, and strategic priorities",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42877277/",
     "s": "PubMed",
-    "d": "2026-10-15T23:43:00.000Z",
-    "x": "Recognizing geriatrics as a supraspecialty is essential for delivering coordinated, sustainable, and future-ready hospital care for older adults living with frailty and multimorbidity.",
+    "d": "2026-10-15T17:33:00.000Z",
+    "x": "The global evidence base supports competency-based, longitudinal, and experiential approaches to advocacy and policy leadership training for primary care but is critically underdeveloped …",
     "l": "en",
-    "r": "Health Policy"
+    "r": "Front Med (Lausanne)"
    },
    {
-    "t": "Decreases in Cancer Mortality During the COVID-19 Pandemic and Mortality Displacement in Aged Societies",
-    "u": "https://pubmed.ncbi.nlm.nih.gov/42879718/",
+    "t": "Improving Musculoskeletal Care Quality With a Web-Based Clinical Decision Support System in UK Primary Care: Mixed Methods Cluster-Randomized Controlled Trial",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42879770/",
     "s": "PubMed",
-    "d": "2026-10-15T23:32:00.000Z",
-    "x": "Decreases in cancer mortality during the COVID-19 pandemic may reflect mortality displacement rather than true improvements, particularly in aging populations.",
+    "d": "2026-10-15T23:39:00.000Z",
+    "x": "When used, the CrossCover CDSS significantly reduced suboptimal primary care MSK management.",
     "l": "en",
-    "r": "Am J Public Health"
+    "r": "J Med Internet Res",
+    "y": "essai"
+   },
+   {
+    "t": "Medical Gaslighting in Urban Healthcare: A Bioecological Framework for Health Equity and Participatory System Transformation",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42881683/",
+    "s": "PubMed",
+    "d": "2026-10-16T05:00:00.000Z",
+    "x": "By connecting individual experiences to system-level transformation, healthcare organizations can strengthen equity, trust and human-centered care.",
+    "l": "en",
+    "r": "Healthcare (Basel)"
    }
   ]
  },
