@@ -1,67 +1,80 @@
-/* Accueil : jeu et actualité santé côte à côte */
-.eb-duo{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(16px,2vw,28px);max-width:1320px;margin:auto;align-items:stretch}
+/* Accueil : jeu et actualité en santé côte à côte, dans le même habillage */
+.eb-duo{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:clamp(16px,2vw,28px);max-width:1320px;margin:auto;align-items:stretch}
 .eb-duo>.eb-game-frame{max-width:none;margin:0;min-width:0}
 .eb-duo:has(.eb-game-play[open]){grid-template-columns:minmax(0,1fr)}
-.eb-duo:has(.eb-game-play[open]) .revue{contain:none!important;max-height:640px}
+.eb-duo:has(.eb-game-play[open]) .revue{contain:none!important;max-height:720px}
 @media(min-width:981px){
+  .eb-duo{grid-auto-rows:minmax(660px,auto)}
+  .eb-duo>.eb-game-frame{display:flex;flex-direction:column}
   .eb-duo .eb-game-top{padding:20px 28px 0}
-  .eb-duo .eb-game-hero{grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:20px;min-height:0;padding:24px 28px 26px}
+  .eb-duo .eb-game-hero{flex:1;grid-template-columns:minmax(0,1fr) auto;align-items:start;align-content:center;gap:20px;min-height:0;padding:24px 28px 26px}
   .eb-duo .eb-game-kicker{font-size:10px;letter-spacing:.18em;margin-bottom:12px}
-  .eb-duo .eb-game-copy h2{font-size:clamp(30px,2.7vw,42px);margin-bottom:14px}
+  .eb-duo .eb-game-copy h2{font-size:clamp(30px,2.6vw,40px);margin-bottom:14px}
   .eb-duo .eb-game-copy p{font-size:14px;line-height:1.6;margin-bottom:16px}
   .eb-duo .eb-game-features{margin-bottom:18px}
-  .eb-duo .eb-game-art{height:auto;width:clamp(92px,8.5vw,128px)}
+  .eb-duo .eb-game-art{height:auto;width:clamp(96px,9vw,136px)}
   .eb-duo .eb-game-art::before,.eb-duo .eb-game-art::after,.eb-duo .eb-game-character-tag{display:none}
   .eb-duo .eb-game-art img{width:100%;height:auto;aspect-ratio:1;border-radius:18px}
   .eb-duo .eb-game-play>summary{padding:14px 28px}
   .eb-duo .eb-game-footer{padding:11px 28px}
   .eb-duo .revue{contain:size}
 }
-@media(max-width:980px){.eb-duo{grid-template-columns:minmax(0,1fr)}.eb-duo .revue{max-height:640px}}
+@media(max-width:980px){.eb-duo{grid-template-columns:minmax(0,1fr)}.eb-duo .revue{max-height:760px}}
 
-.revue{--revue-c:#0879BE;display:flex;flex-direction:column;min-width:0;min-height:420px;background:#fff;border:1px solid var(--line);border-radius:clamp(18px,2vw,32px);box-shadow:var(--shadow);overflow:hidden;font-size:.9375em;color:var(--body)}
-.revue-tete{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 14px;padding:20px 24px 12px}
-.revue-tete h2{margin:0;color:var(--ink-deep);font:700 1.35em/1.2 var(--sans);letter-spacing:-.02em}
-.revue-maj{display:flex;align-items:center;gap:7px;margin:0;color:var(--muted);font-size:.8em}
-.revue-pastille{width:8px;height:8px;border-radius:50%;background:#5AAE38;box-shadow:0 0 0 0 #5aae3866;animation:revue-pouls 2.6s ease-out infinite}
-@keyframes revue-pouls{0%{box-shadow:0 0 0 0 #5aae3866}70%{box-shadow:0 0 0 7px #5aae3800}100%{box-shadow:0 0 0 0 #5aae3800}}
-.revue-langue{flex-basis:100%;margin:0;color:var(--muted);font-size:.78em}
+.revue{--revue-c:#7cc4f0;position:relative;isolation:isolate;display:flex;flex-direction:column;min-width:0;min-height:460px;overflow:hidden;border-radius:clamp(18px,2vw,32px);background:radial-gradient(ellipse at 20% 0%,#25455d,transparent 52%),linear-gradient(135deg,#071320,#10283b 68%,#151c30);color:#f0f8fb;border:1px solid #b8ffff36;box-shadow:0 35px 90px #082b3a29}
+.revue::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(120deg,transparent 40%,#bdffe515 60%,transparent 85%),repeating-linear-gradient(90deg,#fff0 0 80px,#ffffff09 81px 82px);mask-image:linear-gradient(to left,transparent,#000)}
+.revue :focus-visible{outline-color:#9ff6db}
+.revue p,.revue li{text-align:start}
 
-.revue-bonne{margin:0 24px 12px;padding:12px 14px 11px;border-radius:12px;background:linear-gradient(120deg,#eef7e8,#e6f4f3);border:1px solid #cfe6c3}
-.revue-bonne-etiquette{display:flex;align-items:center;gap:8px;margin:0 0 4px;color:#2f6b1d;font:700 .72em/1.2 var(--sans);letter-spacing:.09em;text-transform:uppercase}
-.revue-soleil{width:14px;height:14px;flex:none;border-radius:50%;background:radial-gradient(circle,#f2b84b 0 42%,transparent 44%),conic-gradient(from 0deg,#f2b84b 0 6%,transparent 6% 12.5%,#f2b84b 12.5% 18.5%,transparent 18.5% 25%,#f2b84b 25% 31%,transparent 31% 37.5%,#f2b84b 37.5% 43.5%,transparent 43.5% 50%,#f2b84b 50% 56%,transparent 56% 62.5%,#f2b84b 62.5% 68.5%,transparent 68.5% 75%,#f2b84b 75% 81%,transparent 81% 87.5%,#f2b84b 87.5% 93.5%,transparent 93.5%)}
-.revue-bonne-titre{margin:0 0 3px;font:600 1em/1.4 var(--sans)}
-.revue-bonne-titre a{color:var(--ink-deep);text-decoration:none}
-.revue-bonne-titre a:hover{text-decoration:underline}
+.revue-haut{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;padding:20px 28px 0}
+.revue-marque{font:700 11px var(--sans);letter-spacing:.18em;color:#a7f9db;text-transform:uppercase}
+.revue-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid #9bffe45c;border-radius:30px;color:#d1fbef;padding:6px 12px;font:600 10px var(--sans);letter-spacing:.07em;text-transform:uppercase}
+.revue-pastille{width:7px;height:7px;flex:none;border-radius:50%;background:#7ff0c4;animation:revue-pouls 2.6s ease-out infinite}
+@keyframes revue-pouls{0%{box-shadow:0 0 0 0 #7ff0c480}70%{box-shadow:0 0 0 7px #7ff0c400}100%{box-shadow:0 0 0 0 #7ff0c400}}
 
-.revue-onglets{display:flex;flex-wrap:wrap;gap:6px;padding:0 24px 12px;border-bottom:1px solid var(--line)}
-.revue-onglets [role=tab]{padding:6px 12px;border-radius:999px;background:var(--sea);color:var(--ink);font:600 .8em/1.2 var(--sans);transition:background .2s,color .2s}
-.revue-onglets [role=tab]:hover{background:#dfeaee}
-.revue-onglets [role=tab][aria-selected=true]{background:#0D2A3A;color:#fff}
+.revue-tete{padding:20px 28px 14px}
+.revue-accroche{display:block;margin:0 0 10px;font:700 10px var(--sans);color:#b4e9df;letter-spacing:.18em;text-transform:uppercase}
+.revue-tete h2{margin:0;color:#fff;font:700 clamp(30px,2.6vw,40px)/1.02 var(--sans);letter-spacing:-.05em}
+.revue-tete h2 em{font-style:normal;color:#9ff6db}
+.revue-langue{margin:8px 0 0;color:#a8bccf;font-size:11px}
 
-.revue-panneau{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
-.revue-panneau[data-rubrique=quebec]{--revue-c:#0755AD}
-.revue-panneau[data-rubrique=debats]{--revue-c:#c0612b}
-.revue-panneau[data-rubrique=decouvertes]{--revue-c:#11A7A5}
-.revue-panneau[data-rubrique=recherche]{--revue-c:#0D2A3A}
-.revue-panneau[data-rubrique=publications]{--revue-c:#5AAE38}
-.revue-liste{list-style:none;margin:0;padding:4px 24px 8px}
-.revue-liste li{position:relative;padding:11px 0 11px 14px;border-bottom:1px solid #e3ecee}
+.revue-bonne{margin:0 28px 14px;padding:13px 16px 12px;border-radius:14px;background:linear-gradient(115deg,#9ff6db24,#b8c8f714 70%);border:1px solid #9ff6db57}
+.revue-bonne-etiquette{display:flex;align-items:center;gap:8px;margin:0 0 6px;color:#a7f9db;font:700 10px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.revue-soleil{width:14px;height:14px;flex:none;border-radius:50%;background:radial-gradient(circle,#f6c95a 0 40%,transparent 43%),repeating-conic-gradient(#f6c95a 0 15deg,transparent 15deg 45deg)}
+.revue-bonne-titre{margin:0;font:650 15px/1.4 var(--sans)}
+.revue-bonne-titre a{color:#fff;text-decoration:none}
+.revue-bonne-titre a:hover{text-decoration:underline;text-decoration-color:#9ff6db;text-underline-offset:3px}
+.revue-bonne .revue-resume{-webkit-line-clamp:2}
+
+.revue-onglets{display:flex;flex-wrap:wrap;gap:7px;padding:0 28px 14px;border-bottom:1px solid #caffed31}
+.revue-onglets [role=tab]{padding:7px 11px;border:1px solid #c1ffff35;border-radius:6px;background:#ffffff0b;color:#e1eef4;font:600 11px/1.2 var(--sans);transition:background .2s,color .2s}
+.revue-onglets [role=tab]:hover{background:#ffffff1c}
+.revue-onglets [role=tab][aria-selected=true]{border-color:transparent;background:linear-gradient(105deg,#a1eed7,#b8c8f7);color:#071d2c}
+
+.revue-panneau{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#9ff6db55 transparent}
+.revue-panneau[data-rubrique=quebec]{--revue-c:#8fb4ff}
+.revue-panneau[data-rubrique=debats]{--revue-c:#f2a679}
+.revue-panneau[data-rubrique=decouvertes]{--revue-c:#6fe0dc}
+.revue-panneau[data-rubrique=recherche]{--revue-c:#c7b8ff}
+.revue-panneau[data-rubrique=publications]{--revue-c:#9bd77e}
+.revue-liste{list-style:none;margin:0;padding:4px 28px 6px}
+.revue-liste li{position:relative;padding:13px 0 13px 16px;border-bottom:1px solid #ffffff14}
 .revue-liste li:last-child{border-bottom:0}
-.revue-liste li::before{content:"";position:absolute;inset-inline-start:0;top:18px;width:5px;height:5px;border-radius:50%;background:var(--revue-c)}
-.revue-liste li.revue-vide{padding-inline-start:0;color:var(--muted);font-size:.9em}
+.revue-liste li::before{content:"";position:absolute;inset-inline-start:0;top:20px;width:6px;height:6px;border-radius:50%;background:var(--revue-c);box-shadow:0 0 10px var(--revue-c)}
+.revue-liste li.revue-vide{padding-inline-start:0;color:#a8bccf;font-size:13px}
 .revue-liste li.revue-vide::before{display:none}
-.revue-liste a{display:block;color:var(--ink-deep);font:600 .97em/1.42 var(--sans);text-decoration:none}
-.revue-liste a:hover{text-decoration:underline;text-underline-offset:3px}
-.revue-surtitre{color:var(--muted);font-weight:700}
+.revue-liste a{display:block;color:#fff;font:600 14.5px/1.4 var(--sans);text-decoration:none}
+.revue-liste a:hover{text-decoration:underline;text-decoration-color:#9ff6db;text-underline-offset:3px}
+.revue-surtitre{color:#9ff6db}
 .revue-surtitre::after{content:" ·"}
-.revue-meta{display:flex;flex-wrap:wrap;align-items:center;gap:2px 6px;margin-top:3px;color:var(--muted);font-size:.78em}
-.revue-source{color:var(--ink);font-weight:600}
-.revue-etiquette{padding:1px 7px;border-radius:999px;background:#e6f4f3;color:#0b5f5e;font-weight:600}
-.revue-pied{margin:0;padding:10px 24px 14px;border-top:1px solid var(--line);color:var(--muted);font-size:.72em;line-height:1.5}
-.revue-pied-titre{font-weight:700}
+.revue-resume{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;margin:4px 0 0;color:#c3d4de;font-size:13px;line-height:1.5}
+.revue-meta{display:flex;flex-wrap:wrap;align-items:center;gap:2px 7px;margin:5px 0 0;color:#9fb4c6;font-size:11.5px}
+.revue-source{color:#9ff6db;font-weight:650}
+.revue-etiquette{padding:1px 8px;border:1px solid #9ff6db40;border-radius:999px;background:#9ff6db17;color:#c9fff0;font-weight:600}
+.revue-pied{margin:0;padding:11px 28px 13px;border-top:1px solid #ffffff15;color:#abbecf;font-size:11px;line-height:1.5}
+.revue-pied-titre{font-weight:700;color:#d1fbef}
 
-html.hc .revue,html.lv .revue{border-color:var(--ink)}
-html.hc .revue-liste li,html.lv .revue-liste li{border-color:var(--line)}
+html.hc .revue-resume,html.lv .revue-resume{color:#e6f0f5}
 html.hc .revue-liste a,html.lv .revue-liste a{text-decoration:underline}
+@media(max-width:620px){.revue-haut{padding:16px 20px 0}.revue-tete{padding:16px 20px 12px}.revue-bonne{margin:0 20px 12px}.revue-onglets{padding:0 20px 12px}.revue-liste{padding:2px 20px 6px}.revue-pied{padding:10px 20px 12px}}
 @media(prefers-reduced-motion:reduce){.revue-pastille{animation:none}.revue-onglets [role=tab]{transition:none}}

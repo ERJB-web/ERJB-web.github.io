@@ -187,7 +187,49 @@ function regrouper(articles) {
   });
 }
 
-const sortir = a => ({ t: a.t, u: a.u, s: a.s, d: a.d.toISOString(), ...(a.n > 1 ? { n: a.n } : {}), ...(a.r ? { r: a.r } : {}), ...(a.q ? { q: 1 } : {}), ...(a.i ? { i: 1 } : {}) });
+function premierePhrase(s, derniere = false) {
+  const phrases = (s.match(/[^.!?]{20,}?[.!?](?=\s+[A-ZÀ-ÖØ-Þ«“"(]|\s*$)/g) || [s]).map(p => p.trim()).filter(p => p.length >= 40);
+  if (!phrases.length) return "";
+  const p = derniere ? phrases[phrases.length - 1] : phrases[0];
+  return p.length <= 200 ? p : p.slice(0, 190).replace(/\s+\S*$/, "") + " …";
+}
+
+function extrait(a) {
+  let s = (a.resume || "")
+    .replace(/https?:\/\/\S+/g, "")
+    .replace(/(L’article|L'article|The post) .{0,200}(est apparu en premier sur|appeared first on) .*$/i, "")
+    .replace(/\s*(Lire la suite|Lire l’article|Continuer la lecture|Read more)\b.*$/i, "")
+    .replace(/\s*(\[…\]|\[\.\.\.\]|\[&#8230;\])\s*$/, "")
+    .trim();
+  if (sansAccents(s).startsWith(sansAccents(a.t))) s = s.slice(a.t.length).replace(/^[\s:.,–—|-]+/, "");
+  if (s.length < 40) return "";
+  return premierePhrase(s);
+}
+
+const sortir = a => {
+  const x = a.x ?? extrait(a);
+  return { t: a.t, u: a.u, s: a.s, d: a.d.toISOString(), ...(x ? { x } : {}), ...(a.n > 1 ? { n: a.n } : {}), ...(a.r ? { r: a.r } : {}), ...(a.q ? { q: 1 } : {}), ...(a.i ? { i: 1 } : {}) };
+};
+
+async function conclusions(articles) {
+  const ids = articles.map(a => a.pmid).filter(Boolean);
+  if (!ids.length) return;
+  const xml = await lire(PUBMED + "efetch.fcgi?" + new URLSearchParams({ db: "pubmed", id: ids.join(","), retmode: "xml", rettype: "abstract", tool: "revue-presse-sante" }));
+  const trouves = {};
+  for (const bloc of xml.match(/<PubmedArticle>[\s\S]*?<\/PubmedArticle>/g) || []) {
+    const pmid = (bloc.match(/<PMID[^>]*>(\d+)<\/PMID>/) || [])[1];
+    const parties = [...bloc.matchAll(/<AbstractText([^>]*)>([\s\S]*?)<\/AbstractText>/g)]
+      .map(m => ({
+        etiquette: (m[1].match(/Label="([^"]+)"/) || [])[1] || "",
+        texte: texte(m[2]).replace(/https?:\/\/\S+/g, "").replace(/\([^()]*\b(?:doi|Am J Public Health|PROSPERO|ClinicalTrials\.gov|NCT\d{6,})[^()]*\)?\.?/gi, "").replace(/\s+/g, " ").trim(),
+      }))
+      .filter(p => p.texte);
+    if (!pmid || !parties.length) continue;
+    const conclusion = parties.find(p => /CONCLUSION|INTERPRETATION/i.test(p.etiquette));
+    trouves[pmid] = conclusion ? premierePhrase(conclusion.texte) : premierePhrase(parties.map(p => p.texte).join(" "), true);
+  }
+  for (const a of articles) if (trouves[a.pmid]) a.x = trouves[a.pmid];
+}
 
 async function pubmed() {
   const resultats = {};
@@ -205,14 +247,18 @@ async function pubmed() {
       const date = new Date((entree || "").replace(/\//g, "-").replace(" ", "T"));
       const types = (f.pubtype || []).join(" ");
       const poids = /Randomized Controlled Trial/.test(types) ? 3 : /Systematic Review|Meta-Analysis/.test(types) ? 3 : /Clinical Trial|Observational/.test(types) ? 2 : 1;
-      return { t: texte(f.title).replace(/\.$/, ""), u: `https://pubmed.ncbi.nlm.nih.gov/${f.uid}/`, s: "PubMed", r: f.source, g: f.source, d: isNaN(date) ? new Date(maintenant) : date, poids, q: req.cle === "quebec" };
+      return { t: texte(f.title).replace(/\.$/, ""), u: `https://pubmed.ncbi.nlm.nih.gov/${f.uid}/`, pmid: f.uid, s: "PubMed", r: f.source, g: f.source, d: isNaN(date) ? new Date(maintenant) : date, poids, q: req.cle === "quebec" };
     }).filter(a => a.t && !/^(correction|erratum|retraction|reply|response)/i.test(a.t));
   }
   return resultats;
 }
 
 function bonneNouvelle(articles, precedente, jour) {
-  if (precedente?.bonne?.jour === jour && precedente.bonne.u) return precedente.bonne;
+  if (precedente?.bonne?.jour === jour && precedente.bonne.u) {
+    const meme = articles.find(a => normaliserUrl(a.u) === normaliserUrl(precedente.bonne.u));
+    const x = precedente.bonne.x || (meme && extrait(meme));
+    return { ...precedente.bonne, ...(x ? { x } : {}) };
+  }
   const dejaVues = new Set((precedente?.bonnesRecentes || []).map(normaliserUrl));
   const candidates = articles
     .filter(a => estSante(a) && a.type !== "opinion" && !dejaVues.has(normaliserUrl(a.u)))
@@ -311,6 +357,7 @@ async function principal() {
   const dejaPris = new Set(inspq.map(a => a.u));
   const quebecRecherche = (pm.quebec || []).filter(a => !dejaPris.has(a.u)).sort((x, y) => y.d - x.d).slice(0, 3);
   const recherche = [...revues, ...inspq, ...quebecRecherche];
+  await conclusions(recherche);
 
   const jour = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Montreal" }).format(new Date(maintenant));
   const bonne = bonneNouvelle(articles, precedente, jour);
