@@ -4239,3 +4239,210 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
   }
   :root:not([data-theme="light"]) .these .these-introduction .these-statut .these-evolution{color:#f3f8f9}
 }
+
+
+/* Méthodologie : lecture visuelle des objectifs O1, O2 et O3 */
+.these-methode-parcours {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:15px;
+  margin:28px 0 34px;
+  padding:0;
+}
+.these-methode-parcours a {
+  --meth-color:#237a9a;
+  display:flex;
+  align-items:center;
+  min-width:0;
+  gap:15px;
+  position:relative;
+  padding:18px 20px;
+  border:1px solid #d9e5e9;
+  border-top:3px solid var(--meth-color);
+  border-radius:12px;
+  background:#fff;
+  color:#173f52;
+  text-decoration:none;
+  box-shadow:0 6px 19px -17px rgba(23,63,82,.35);
+  transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease;
+}
+.these-methode-parcours a[data-objectif="O2"] { --meth-color:#4d893a; }
+.these-methode-parcours a[data-objectif="O3"] { --meth-color:#754d8a; }
+.these-methode-parcours a:hover,
+.these-methode-parcours a:focus-visible {
+  border-color:var(--meth-color);
+  transform:translateY(-2px);
+  box-shadow:0 12px 28px -17px rgba(23,63,82,.33);
+}
+.these-methode-parcours .these-parcours-nombre {
+  flex:none;
+  color:var(--meth-color);
+  font:750 25px/1.1 var(--sans);
+  letter-spacing:-.04em;
+  font-variant-numeric:tabular-nums;
+}
+.these-methode-parcours .these-parcours-texte {
+  min-width:0;
+  font:650 14.5px/1.4 var(--sans);
+  overflow-wrap:normal;
+  hyphens:none;
+}
+.these-methode-parcours a::after {
+  content:"↗";
+  flex:none;
+  margin-inline-start:auto;
+  color:var(--meth-color);
+  font:600 16px/1 var(--sans);
+}
+.these-methode-objectif {
+  --meth-color:#237a9a;
+  --meth-soft:#edf6fa;
+  position:relative;
+  min-width:0;
+  margin:24px 0 32px;
+  padding:clamp(20px,2.5vw,32px);
+  border:1px solid #d7e4e9;
+  border-top:4px solid var(--meth-color);
+  border-radius:16px;
+  background:#fff;
+  box-shadow:0 12px 35px -31px rgba(23,63,82,.42);
+  scroll-margin-top:100px;
+}
+.these-methode-objectif[data-objectif="O2"] { --meth-color:#4d893a; --meth-soft:#eff7eb; }
+.these-methode-objectif[data-objectif="O3"] { --meth-color:#754d8a; --meth-soft:#f5f0f8; }
+.these-methode-objectif > h4.titre-bloc {
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin:0 0 24px;
+  padding:0 0 22px;
+  border-bottom:1px solid #e3ebee;
+  color:#173f52;
+  font:700 clamp(20px,2.1vw,27px)/1.35 var(--sans);
+  letter-spacing:-.025em;
+  text-align:start;
+  text-wrap:balance;
+}
+.these-methode-objectif > h4.titre-bloc .objectif-code {
+  display:inline-flex;
+  flex:none;
+  align-items:center;
+  justify-content:center;
+  min-width:50px;
+  padding:8px 11px;
+  border-radius:9px;
+  background:var(--meth-color);
+  color:#fff;
+  font:750 14px/1.2 var(--sans);
+  letter-spacing:.035em;
+}
+.these-methode-objectif .methode-these-corps {
+  padding:0;
+  border-top:0;
+}
+.these-methode-objectif .these-methode-grille {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:stretch;
+  gap:15px;
+  margin:0;
+  counter-reset:these-methode-points;
+}
+.these-methode-objectif .these-methode-item {
+  min-width:0;
+  counter-increment:these-methode-points;
+  padding:20px 22px;
+  border:1px solid #dce6e9;
+  border-radius:12px;
+  background:#f8fafb;
+}
+.these-methode-objectif .these-methode-item[data-type="devis"] {
+  grid-column:1/-1;
+  border-color:#d3e2e7;
+  background:var(--meth-soft);
+}
+.these-methode-objectif .these-methode-item[data-type="produit"] {
+  grid-column:1/-1;
+  border-color:#d3e6d7;
+  background:#f0f8f3;
+}
+.these-methode-objectif .these-methode-item[data-wide="true"] {
+  grid-column:1/-1;
+}
+.these-methode-objectif .these-methode-item[data-volet="quan"] {
+  border-inline-start:3px solid #237a9a;
+}
+.these-methode-objectif .these-methode-item[data-volet="qual"] {
+  border-inline-start:3px solid #4d893a;
+}
+.these-methode-objectif .these-methode-item dt {
+  display:flex;
+  align-items:flex-start;
+  gap:11px;
+  margin:0 0 12px;
+  color:#173f52;
+  font:700 clamp(15px,1.4vw,18px)/1.4 var(--sans);
+  text-align:start;
+  text-wrap:pretty;
+  overflow-wrap:normal;
+  hyphens:none;
+}
+.these-methode-objectif .these-methode-item dt::before {
+  content:counter(these-methode-points, decimal-leading-zero);
+  display:inline-block;
+  flex:none;
+  padding-top:3px;
+  color:var(--meth-color);
+  font:750 11px/1.4 var(--sans);
+  letter-spacing:.03em;
+  font-variant-numeric:tabular-nums;
+}
+.these-methode-objectif .these-methode-item dd {
+  margin:0;
+  max-width:95ch;
+  color:#3d5360;
+  font:400 clamp(15px,1.15vw,17px)/1.74 var(--sans);
+  text-align:start;
+  overflow-wrap:break-word;
+  hyphens:none;
+}
+.these-methode-objectif .ia-reperes {
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:15px;
+  margin:22px 0 0;
+}
+.these-methode-objectif .ia-reperes > article {
+  min-width:0;
+  padding:20px 22px;
+  border:1px solid #d9e5e9;
+  border-inline-start:3px solid var(--meth-color);
+  border-radius:11px;
+  background:#fff;
+}
+.these-methode-objectif .ia-reperes h5,
+.these-methode-objectif .ia-reperes h4 {
+  color:#173f52;
+  font:700 16px/1.5 var(--sans);
+  margin:0 0 10px;
+}
+.these-methode-objectif .ia-reperes p {
+  color:#405762;
+  font-size:15px;
+  line-height:1.7;
+  hyphens:none;
+}
+@media(max-width:920px) {
+  .these-methode-parcours { grid-template-columns:minmax(0,1fr);gap:10px; }
+  .these-methode-parcours a {padding:13px 16px;}
+}
+@media(max-width:780px) {
+  .these-methode-objectif {padding:18px;margin:18px 0 24px;}
+  .these-methode-objectif .these-methode-grille,
+  .these-methode-objectif .ia-reperes {grid-template-columns:minmax(0,1fr);}
+  .these-methode-objectif .these-methode-item {padding:17px 18px;}
+  .these-methode-objectif > h4.titre-bloc {gap:11px;padding-bottom:17px;margin-bottom:17px;}
+}
+@media(prefers-reduced-motion:reduce) {
+  .these-methode-parcours a {transition:none;}
+  .these-methode-parcours a:hover {transform:none;}
+}
