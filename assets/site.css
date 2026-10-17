@@ -3143,3 +3143,13 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
 .entete .nav a:hover,.entete .nav a:focus-visible{transform:translateY(-1px)}
 @media(min-width:1441px) and (max-width:1599px){.entete .nav a{padding:3px 5px}}
 @media(min-width:701px) and (max-width:1440px){.entete .nav a{padding:3px 6px}}
+/* Ligne de contact du haut : pastilles d’icône rondes, numéro mis en valeur */
+.entete-contact{gap:6px 14px}
+.entete-contact a{gap:8px;color:#2a3d45;font-weight:500}
+.entete-contact a svg{box-sizing:content-box;width:13px;height:13px;padding:5px;border-radius:50%;background:#e9f2f5;box-shadow:inset 0 0 0 1px #d3e3e9;color:#1f5a8a;transition:background .2s ease,color .2s ease}
+.entete-contact a[href^="tel:"]{font-weight:650;font-variant-numeric:tabular-nums;letter-spacing:.02em;color:#173f52}
+.entete-contact a[href^="tel:"] svg{background:#1f5a8a;box-shadow:0 2px 6px -2px rgba(31,90,138,.55);color:#fff}
+.entete-contact a.entete-rdv svg{background:#edf6e8;box-shadow:inset 0 0 0 1px #d2e6c6;color:#4f8a32}
+.entete-contact a:hover svg,.entete-contact a:focus-visible svg{background:#1f5a8a;color:#fff}
+.entete-contact a.entete-rdv:hover svg,.entete-contact a.entete-rdv:focus-visible svg{background:#4f8a32}
+.entete-contact-sep{height:18px;background:linear-gradient(180deg,transparent,#cfdadd 30%,#cfdadd 70%,transparent)}
