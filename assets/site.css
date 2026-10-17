@@ -3077,3 +3077,9 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
 .entete .nav a::after{background:var(--gsk-bleu,#237a9a)}
 .entete .nav a:active{background:#eef5f8}
 .entete-contact a.entete-rdv svg{color:#1f5a8a}
+/* Couleurs choisies : barre aux teintes des portes, consignes bleu et vert de la Chaire, titre d’une seule couleur */
+.entete .nav a svg{color:var(--nav-accent,#237a9a)}
+.entete .nav a::after{background:var(--nav-accent,#237a9a)}
+.entete .nav a:active{background:color-mix(in srgb,var(--nav-accent,#237a9a) 8%,#fff)}
+.hall-tete .hall-geste:nth-child(even){background:#f0f7ea;border-color:#cfe3bf;color:#2f4f1f}
+.hall-tete .hall-geste:nth-child(even) svg{color:#4f8a32}
