@@ -3095,3 +3095,11 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
 @media(min-width:1441px) and (max-width:1599px){.entete .nav a{gap:6px;padding:6px 9px 7px 6px;font-size:13px}.entete .nav a::after{left:34px}.entete .nav a svg{width:13px;height:13px}}
 @media(min-width:701px) and (max-width:1440px){.entete .nav a{padding:6px 10px 8px}.entete .nav a::after{left:10px}.entete .nav a:hover::after,.entete .nav a:focus-visible::after{width:calc(100% - 20px)}}
 @media(prefers-reduced-motion:reduce){.entete .nav a svg,.entete .nav a::after{transition:none}}
+/* Sans mini-barre au repos ; encore plus compacte */
+.entete .nav a::after{left:7px;right:7px;width:auto;opacity:0;transform:scaleX(.4);transition:opacity .2s ease,transform .25s ease}
+.entete .nav a:hover::after,.entete .nav a:focus-visible::after{width:auto;opacity:1;transform:scaleX(1)}
+.entete .nav{gap:0;padding:3px}
+.entete .nav a{gap:6px;min-height:36px;padding:5px 9px 5px 5px;font-size:13px}
+.entete .nav a svg{width:13px;height:13px;padding:4px;border-radius:6px}
+@media(min-width:1441px) and (max-width:1599px){.entete .nav a{padding:5px 8px 5px 5px;font-size:13px}}
+@media(min-width:701px) and (max-width:1440px){.entete .nav a{padding:5px 8px}.entete .nav a::after{left:8px;right:8px}}
