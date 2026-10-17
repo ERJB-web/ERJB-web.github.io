@@ -3117,3 +3117,8 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
 .entete .nav a::after{left:5px;right:5px;bottom:2px}
 @media(min-width:1441px) and (max-width:1599px){.entete .nav a{padding:4px 6px 4px 4px}}
 @media(min-width:701px) and (max-width:1440px){.entete .nav a{padding:4px 7px}.entete .nav a::after{left:7px;right:7px}}
+/* Icônes de la barre : trait fin, sans pastille, ardoise au repos, couleur de la porte au survol */
+.entete .nav a svg,.entete .nav a:hover svg,.entete .nav a:focus-visible svg{box-sizing:border-box;width:16px;height:16px;padding:0;border-radius:0;background:none;box-shadow:none}
+.entete .nav a svg{color:#6a7c84;transition:color .2s ease}
+.entete .nav a:hover svg,.entete .nav a:focus-visible svg{color:var(--nav-accent,#237a9a)}
+.entete .nav a{gap:7px;padding:4px 9px}
