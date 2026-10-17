@@ -1235,6 +1235,26 @@
   "duree": 3.7,
   "qui": "eric"
  },
+ "c4_gardien_choix_2": {
+  "duree": 4.64,
+  "qui": "eric"
+ },
+ "c4_gardien_choix_3": {
+  "duree": 4.69,
+  "qui": "eric"
+ },
+ "c4_gardien_r1_001": {
+  "duree": 3.21,
+  "qui": "gardien"
+ },
+ "c4_gardien_r2_001": {
+  "duree": 4.93,
+  "qui": "gardien"
+ },
+ "c4_gardien_r3_001": {
+  "duree": 4.37,
+  "qui": "gardien"
+ },
  "c4_lecon_fin_001": {
   "duree": 5.84,
   "qui": "entraineur_patin"
@@ -1321,6 +1341,30 @@
  },
  "c4_vestiaire_003": {
   "duree": 5.61,
+  "qui": "joueur_hockey_3"
+ },
+ "c4_vestiaire_choix_1": {
+  "duree": 4.23,
+  "qui": "eric"
+ },
+ "c4_vestiaire_choix_2": {
+  "duree": 4.3,
+  "qui": "eric"
+ },
+ "c4_vestiaire_choix_3": {
+  "duree": 2.76,
+  "qui": "eric"
+ },
+ "c4_vestiaire_r1_001": {
+  "duree": 4.65,
+  "qui": "joueur_hockey_3"
+ },
+ "c4_vestiaire_r2_001": {
+  "duree": 4.57,
+  "qui": "joueur_hockey_1"
+ },
+ "c4_vestiaire_r3_001": {
+  "duree": 4.92,
   "qui": "joueur_hockey_3"
  },
  "c4_zamboni_001": {
@@ -1483,6 +1527,30 @@
   "duree": 4.7,
   "qui": "direction_b"
  },
+ "rep_direction_apparition_007": {
+  "duree": 6.37,
+  "qui": "direction_a"
+ },
+ "rep_direction_apparition_008": {
+  "duree": 4.53,
+  "qui": "direction_b"
+ },
+ "rep_direction_apparition_009": {
+  "duree": 2.94,
+  "qui": "direction_a"
+ },
+ "rep_direction_apparition_010": {
+  "duree": 6.12,
+  "qui": "direction_b"
+ },
+ "rep_direction_apparition_011": {
+  "duree": 4.7,
+  "qui": "direction_a"
+ },
+ "rep_direction_apparition_012": {
+  "duree": 4.89,
+  "qui": "direction_b"
+ },
  "rep_direction_perdue_001": {
   "duree": 2.31,
   "qui": "direction_a"
@@ -1505,6 +1573,30 @@
  },
  "rep_direction_perdue_006": {
   "duree": 3.19,
+  "qui": "direction_b"
+ },
+ "rep_direction_perdue_007": {
+  "duree": 4.01,
+  "qui": "direction_a"
+ },
+ "rep_direction_perdue_008": {
+  "duree": 5.17,
+  "qui": "direction_b"
+ },
+ "rep_direction_perdue_009": {
+  "duree": 4.5,
+  "qui": "direction_a"
+ },
+ "rep_direction_perdue_010": {
+  "duree": 4.68,
+  "qui": "direction_b"
+ },
+ "rep_direction_perdue_011": {
+  "duree": 3.7,
+  "qui": "direction_a"
+ },
+ "rep_direction_perdue_012": {
+  "duree": 4.17,
   "qui": "direction_b"
  },
  "rep_direction_poursuite_001": {
@@ -1671,6 +1763,78 @@
   "duree": 2.86,
   "qui": "direction_a"
  },
+ "rep_direction_poursuite_042": {
+  "duree": 3.98,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_043": {
+  "duree": 4.99,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_044": {
+  "duree": 5.65,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_045": {
+  "duree": 5.02,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_046": {
+  "duree": 5.94,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_047": {
+  "duree": 4.5,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_048": {
+  "duree": 5.73,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_049": {
+  "duree": 4.69,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_050": {
+  "duree": 3.74,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_051": {
+  "duree": 3.9,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_052": {
+  "duree": 5.11,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_053": {
+  "duree": 3.24,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_054": {
+  "duree": 6.23,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_055": {
+  "duree": 5.02,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_056": {
+  "duree": 3.77,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_057": {
+  "duree": 4.65,
+  "qui": "direction_b"
+ },
+ "rep_direction_poursuite_058": {
+  "duree": 5.95,
+  "qui": "direction_a"
+ },
+ "rep_direction_poursuite_059": {
+  "duree": 5.16,
+  "qui": "direction_b"
+ },
  "rep_entraineur_bravo_001": {
   "duree": 4.48,
   "qui": "entraineur_patin"
@@ -1717,6 +1881,270 @@
  },
  "rep_entraineur_bravo_012": {
   "duree": 3.09,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_013": {
+  "duree": 3.01,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_014": {
+  "duree": 3.29,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_015": {
+  "duree": 4.07,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_016": {
+  "duree": 4.12,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_017": {
+  "duree": 3.6,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_018": {
+  "duree": 5.49,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_arret_001": {
+  "duree": 3.36,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_arret_002": {
+  "duree": 3.81,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_arret_003": {
+  "duree": 4.58,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_arret_004": {
+  "duree": 3.95,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_arret_005": {
+  "duree": 4.38,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_arret_006": {
+  "duree": 3.65,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_croisement_001": {
+  "duree": 4.25,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_croisement_002": {
+  "duree": 4.97,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_croisement_003": {
+  "duree": 3.31,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_croisement_004": {
+  "duree": 4.51,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_croisement_005": {
+  "duree": 4.32,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_croisement_006": {
+  "duree": 5.41,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_equilibre_001": {
+  "duree": 5.54,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_equilibre_002": {
+  "duree": 3.68,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_equilibre_003": {
+  "duree": 3.04,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_equilibre_004": {
+  "duree": 4.57,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_equilibre_005": {
+  "duree": 3.87,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_equilibre_006": {
+  "duree": 4.88,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_glisse_001": {
+  "duree": 4.26,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_glisse_002": {
+  "duree": 3.53,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_glisse_003": {
+  "duree": 4.16,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_glisse_004": {
+  "duree": 4.7,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_glisse_005": {
+  "duree": 3.79,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_glisse_006": {
+  "duree": 3.68,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_lancer_001": {
+  "duree": 3.34,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_lancer_002": {
+  "duree": 3.85,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_lancer_003": {
+  "duree": 4.14,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_lancer_004": {
+  "duree": 3.03,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_lancer_005": {
+  "duree": 4.35,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_lancer_006": {
+  "duree": 4.26,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_maniement_001": {
+  "duree": 3.8,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_maniement_002": {
+  "duree": 3.81,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_maniement_003": {
+  "duree": 2.74,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_maniement_004": {
+  "duree": 3.55,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_maniement_005": {
+  "duree": 4.65,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_maniement_006": {
+  "duree": 4.81,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_partie_001": {
+  "duree": 5.2,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_partie_002": {
+  "duree": 4.48,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_partie_003": {
+  "duree": 4.45,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_partie_004": {
+  "duree": 4.6,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_partie_005": {
+  "duree": 4.33,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_partie_006": {
+  "duree": 4.57,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_passe_001": {
+  "duree": 3.89,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_passe_002": {
+  "duree": 3.11,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_passe_003": {
+  "duree": 3.38,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_passe_004": {
+  "duree": 3.77,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_passe_005": {
+  "duree": 3.87,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_passe_006": {
+  "duree": 3.57,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_poussee_001": {
+  "duree": 3.98,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_poussee_002": {
+  "duree": 3.91,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_poussee_003": {
+  "duree": 3.73,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_poussee_004": {
+  "duree": 3.73,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_poussee_005": {
+  "duree": 4.17,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_poussee_006": {
+  "duree": 13.64,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_recul_001": {
+  "duree": 3.52,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_recul_002": {
+  "duree": 4.07,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_recul_003": {
+  "duree": 4.57,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_recul_004": {
+  "duree": 4.23,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_recul_005": {
+  "duree": 2.86,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_bravo_recul_006": {
+  "duree": 4.25,
   "qui": "entraineur_patin"
  },
  "rep_entraineur_chute_001": {
@@ -1767,6 +2195,30 @@
   "duree": 2.83,
   "qui": "entraineur_patin"
  },
+ "rep_entraineur_chute_013": {
+  "duree": 5.08,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_chute_014": {
+  "duree": 4.82,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_chute_015": {
+  "duree": 5.03,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_chute_016": {
+  "duree": 3.7,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_chute_017": {
+  "duree": 4.18,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_chute_018": {
+  "duree": 4.06,
+  "qui": "entraineur_patin"
+ },
  "rep_entraineur_conseil_arret_001": {
   "duree": 5.18,
   "qui": "entraineur_patin"
@@ -1789,6 +2241,22 @@
  },
  "rep_entraineur_conseil_arret_006": {
   "duree": 3.63,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_arret_007": {
+  "duree": 6.43,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_arret_008": {
+  "duree": 4.75,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_arret_009": {
+  "duree": 4.55,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_arret_010": {
+  "duree": 4.91,
   "qui": "entraineur_patin"
  },
  "rep_entraineur_conseil_croisement_001": {
@@ -1815,6 +2283,22 @@
   "duree": 8.51,
   "qui": "entraineur_patin"
  },
+ "rep_entraineur_conseil_croisement_007": {
+  "duree": 4.55,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_croisement_008": {
+  "duree": 5.09,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_croisement_009": {
+  "duree": 4.58,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_croisement_010": {
+  "duree": 3.55,
+  "qui": "entraineur_patin"
+ },
  "rep_entraineur_conseil_equilibre_001": {
   "duree": 3.97,
   "qui": "entraineur_patin"
@@ -1837,6 +2321,22 @@
  },
  "rep_entraineur_conseil_equilibre_006": {
   "duree": 6.01,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_equilibre_007": {
+  "duree": 5.22,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_equilibre_008": {
+  "duree": 4.24,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_equilibre_009": {
+  "duree": 4.72,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_equilibre_010": {
+  "duree": 4.76,
   "qui": "entraineur_patin"
  },
  "rep_entraineur_conseil_glisse_001": {
@@ -1863,6 +2363,22 @@
   "duree": 5.19,
   "qui": "entraineur_patin"
  },
+ "rep_entraineur_conseil_glisse_007": {
+  "duree": 5.64,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_glisse_008": {
+  "duree": 3.71,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_glisse_009": {
+  "duree": 3.81,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_glisse_010": {
+  "duree": 3.24,
+  "qui": "entraineur_patin"
+ },
  "rep_entraineur_conseil_lancer_001": {
   "duree": 4.47,
   "qui": "entraineur_patin"
@@ -1885,6 +2401,22 @@
  },
  "rep_entraineur_conseil_lancer_006": {
   "duree": 4.29,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_lancer_007": {
+  "duree": 4.45,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_lancer_008": {
+  "duree": 5.7,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_lancer_009": {
+  "duree": 4.23,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_lancer_010": {
+  "duree": 5.2,
   "qui": "entraineur_patin"
  },
  "rep_entraineur_conseil_maniement_001": {
@@ -1911,6 +2443,22 @@
   "duree": 4.62,
   "qui": "entraineur_patin"
  },
+ "rep_entraineur_conseil_maniement_007": {
+  "duree": 3.5,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_maniement_008": {
+  "duree": 4.02,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_maniement_009": {
+  "duree": 4.59,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_maniement_010": {
+  "duree": 4.78,
+  "qui": "entraineur_patin"
+ },
  "rep_entraineur_conseil_partie_001": {
   "duree": 5.14,
   "qui": "entraineur_patin"
@@ -1933,6 +2481,22 @@
  },
  "rep_entraineur_conseil_partie_006": {
   "duree": 4.64,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_partie_007": {
+  "duree": 5.57,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_partie_008": {
+  "duree": 4.54,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_partie_009": {
+  "duree": 2.83,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_partie_010": {
+  "duree": 3.9,
   "qui": "entraineur_patin"
  },
  "rep_entraineur_conseil_passe_001": {
@@ -1959,6 +2523,22 @@
   "duree": 5.07,
   "qui": "entraineur_patin"
  },
+ "rep_entraineur_conseil_passe_007": {
+  "duree": 3.82,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_passe_008": {
+  "duree": 3.39,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_passe_009": {
+  "duree": 4.32,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_passe_010": {
+  "duree": 3.23,
+  "qui": "entraineur_patin"
+ },
  "rep_entraineur_conseil_poussee_001": {
   "duree": 5.37,
   "qui": "entraineur_patin"
@@ -1981,6 +2561,22 @@
  },
  "rep_entraineur_conseil_poussee_006": {
   "duree": 4.6,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_poussee_007": {
+  "duree": 5.45,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_poussee_008": {
+  "duree": 5.01,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_poussee_009": {
+  "duree": 6.26,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_poussee_010": {
+  "duree": 4.76,
   "qui": "entraineur_patin"
  },
  "rep_entraineur_conseil_recul_001": {
@@ -2007,6 +2603,22 @@
   "duree": 3.28,
   "qui": "entraineur_patin"
  },
+ "rep_entraineur_conseil_recul_007": {
+  "duree": 5.58,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_recul_008": {
+  "duree": 4.89,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_recul_009": {
+  "duree": 5.12,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_conseil_recul_010": {
+  "duree": 4.29,
+  "qui": "entraineur_patin"
+ },
  "rep_entraineur_encore_001": {
   "duree": 2.72,
   "qui": "entraineur_patin"
@@ -2030,5 +2642,81 @@
  "rep_entraineur_encore_006": {
   "duree": 3.32,
   "qui": "entraineur_patin"
+ },
+ "rep_entraineur_encore_007": {
+  "duree": 4.23,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_encore_008": {
+  "duree": 3.57,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_encore_009": {
+  "duree": 3.82,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_encore_010": {
+  "duree": 4.26,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_encore_011": {
+  "duree": 4.55,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_encore_012": {
+  "duree": 3.75,
+  "qui": "entraineur_patin"
+ },
+ "rep_entraineur_entrainement_bravo_001": {
+  "duree": 2.19,
+  "qui": "entraineur"
+ },
+ "rep_entraineur_entrainement_bravo_002": {
+  "duree": 3.03,
+  "qui": "entraineur"
+ },
+ "rep_entraineur_entrainement_bravo_003": {
+  "duree": 3.12,
+  "qui": "entraineur"
+ },
+ "rep_entraineur_entrainement_bravo_004": {
+  "duree": 2.84,
+  "qui": "entraineur"
+ },
+ "rep_entraineur_entrainement_bravo_005": {
+  "duree": 3.75,
+  "qui": "entraineur"
+ },
+ "rep_entraineur_entrainement_bravo_006": {
+  "duree": 2.51,
+  "qui": "entraineur"
+ },
+ "rep_entraineur_entrainement_bravo_007": {
+  "duree": 2.95,
+  "qui": "entraineur"
+ },
+ "rep_entraineur_entrainement_bravo_008": {
+  "duree": 4.2,
+  "qui": "entraineur"
+ },
+ "rep_entraineur_entrainement_conseil_001": {
+  "duree": 2.17,
+  "qui": "entraineur"
+ },
+ "rep_entraineur_entrainement_conseil_002": {
+  "duree": 5.43,
+  "qui": "entraineur"
+ },
+ "rep_entraineur_entrainement_conseil_003": {
+  "duree": 5.3,
+  "qui": "entraineur"
+ },
+ "rep_entraineur_entrainement_conseil_004": {
+  "duree": 5.59,
+  "qui": "entraineur"
+ },
+ "rep_entraineur_entrainement_conseil_005": {
+  "duree": 4.18,
+  "qui": "entraineur"
  }
 }

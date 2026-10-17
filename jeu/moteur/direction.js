@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GROUPES, groupes } from './physique.js?v=17d7a7c565';
+import { GROUPES, groupes } from './physique.js?v=8efd015962';
 
 const SEUIL_APPARITION = 30;
 const FILTRE_VUE = groupes(0xffff, GROUPES.STATIQUE | GROUPES.PORTE);

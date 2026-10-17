@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GROUPES, groupes } from './physique.js?v=17d7a7c565';
+import { GROUPES, groupes } from './physique.js?v=8efd015962';
 
 const DEMI = 0.6, RAYON = 0.28, CENTRE = DEMI + RAYON;
 const FILTRE = groupes(GROUPES.PNJ, GROUPES.STATIQUE | GROUPES.DYNAMIQUE | GROUPES.PORTE | GROUPES.JOUEUR);

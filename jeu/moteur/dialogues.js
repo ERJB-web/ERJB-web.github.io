@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GROUPES, groupes } from './physique.js?v=17d7a7c565';
+import { GROUPES, groupes } from './physique.js?v=8efd015962';
 
 const FILTRE_CAM = groupes(0xffff, GROUPES.STATIQUE | GROUPES.PORTE);
 const COULEURS = {
@@ -54,7 +54,8 @@ export function creerDialogues({ bus, audio, camera, physique, options }) {
     axe.normalize();
     const cote = new THREE.Vector3(-axe.z, 0, axe.x);
     let pos, cible, fov;
-    const choix = plan || 'rapproche';
+    const eric = ['eric', 'eric_hockey'].includes(a?.perso?.role) || ['eric', 'eric_hockey'].includes(a?.perso?.source);
+    const choix = eric ? 'moyen' : plan || 'rapproche';
     if (choix === 'large' && l) {
       const m = s.clone().add(l).multiplyScalar(0.5);
       pos = m.clone().addScaledVector(cote, 3.4).setY(m.y + 0.15);
@@ -64,6 +65,10 @@ export function creerDialogues({ bus, audio, camera, physique, options }) {
       pos = l.clone().addScaledVector(axe, -0.75).addScaledVector(cote, 0.42).setY(l.y + 0.06);
       cible = s.clone().setY(s.y - 0.06);
       fov = 34;
+    } else if (choix === 'moyen') {
+      pos = s.clone().addScaledVector(axe, 2.6).addScaledVector(cote, 0.9).setY(s.y - 0.2);
+      cible = s.clone().setY(s.y - 0.35);
+      fov = 38;
     } else if (choix === 'gros_plan') {
       pos = s.clone().addScaledVector(axe, 0.75).addScaledVector(cote, 0.22).setY(s.y - 0.02);
       cible = s.clone().setY(s.y - 0.03);

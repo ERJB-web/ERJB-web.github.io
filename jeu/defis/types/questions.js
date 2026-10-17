@@ -1,5 +1,5 @@
-import { h, icone, lettre } from '../noyau.js?v=17d7a7c565';
-import { indexCorrecte, texteReponse, scoreQuestions } from '../calculs.js?v=17d7a7c565';
+import { h, icone, lettre } from '../noyau.js?v=8efd015962';
+import { indexCorrecte, texteReponse, scoreQuestions } from '../calculs.js?v=8efd015962';
 
 export function panneauQuestions(questions, coque, { surComplet } = {}) {
   const choix = new Array(questions.length).fill(null);
