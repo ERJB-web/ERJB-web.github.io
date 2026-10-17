@@ -1098,3 +1098,5 @@
 })();
 
 
+// Vidéo de visite : pas de lecture automatique si l’animation est réduite
+(()=>{const v=document.querySelector('.tuto-video video');if(!v)return;if(matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();}})();
