@@ -169,7 +169,7 @@
     return img ? absolue(img.getAttribute("src")) : "";
   }
 
-  function construireChapitre(ch, i, n, couleur, choix) {
+  function construireChapitre(ch, i, n, couleur, choix, salle) {
     const section = ch.surPlace ? ch.source : el("section");
     section.classList.add("gab-chapitre");
     section.style.setProperty("--gab-c", couleur);
@@ -200,7 +200,9 @@
     }
     texte.append(tete, corps);
     const aside = el("aside", "gab-chapitre-aside");
-    if (choix.url) {
+    // Dans le contexte de la thèse, le visuel de chiffres clés du premier chapitre
+    // figure déjà dans le corps : ne pas le dupliquer au-dessus du sommaire.
+    if (choix.url && !(salle === "recherche" && i === 0)) {
       const credit = choix.image ? `${T.photo} : ${echapper(choix.image.auteur || "")}${choix.image.licence ? " · " + echapper(choix.image.licence) : ""}` : "";
       const alt = choix.alt || (langue === "fr" && choix.image?.alt ? choix.image.alt : "");
       aside.innerHTML = `<div class="gab-photo"><img src="${echapper(choix.url)}" alt="${echapper(alt)}" loading="lazy" decoding="async" width="960" height="640">${credit ? `<small class="gab-credit">${choix.image.source_url ? `<a href="${echapper(choix.image.source_url)}" target="_blank" rel="noopener">${credit}</a>` : credit}</small>` : ""}</div>`;
@@ -298,7 +300,7 @@
       table.classList.remove("table", "rubriques");
       table.classList.add("gab-chapitres");
       chapitres.forEach((ch, i) => {
-        const s = construireChapitre(ch, i, n, COULEURS[i % COULEURS.length], ch.choix);
+        const s = construireChapitre(ch, i, n, COULEURS[i % COULEURS.length], ch.choix, salle);
         if (!ch.surPlace) table.append(s);
       });
     } else if (mode === "elements" && n) {
@@ -308,7 +310,7 @@
       while (repere && repere.parentElement && repere.parentElement !== sc && !repere.parentElement.matches(".colonne-outils, .section-corps")) repere = repere.parentElement;
       const parents = chapitres.map((c) => c.source.parentElement).filter(Boolean);
       if (repere) repere.before(conteneur); else corps.append(conteneur);
-      chapitres.forEach((ch, i) => conteneur.append(construireChapitre(ch, i, n, COULEURS[i % COULEURS.length], ch.choix)));
+      chapitres.forEach((ch, i) => conteneur.append(construireChapitre(ch, i, n, COULEURS[i % COULEURS.length], ch.choix, salle)));
       if (chapitres[0].ancre?.isConnected && !chapitres[0].ancre.children.length) chapitres[0].ancre.remove();
       parents.forEach((p) => p.isConnected && nettoyer(p, sc));
     }
