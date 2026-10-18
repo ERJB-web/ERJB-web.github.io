@@ -5812,6 +5812,10 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
 @media(min-width:1000px){
   .salle .salle-onglets{
     display:grid;
+    grid-template-columns:repeat(var(--colonnes,4),minmax(0,1fr));
+  }
+  /* Les six accès tiennent sur une ligne; les autres salles gardent leur nombre de colonnes. */
+  .salle .salle-onglets:has(> .onglet-salle:nth-child(6)){
     grid-template-columns:repeat(6,minmax(0,1fr));
   }
   .salle .salle-onglets .onglet-salle{
