@@ -11,20 +11,11 @@
     if (!document.querySelector("link[data-o3-style]")) {
       const feuille = document.createElement("link");
       feuille.rel = "stylesheet";
-      feuille.href = racine + "assets/o3-reseaux.css";
+      feuille.href = racine + "assets/o3-reseaux.css?v=20261018-galerie-sna";
       feuille.dataset.o3Style = "1";
       document.head.appendChild(feuille);
     }
-    const cls = [
-      "CLSC Parthenais",
-      "CLSC de la Visitation",
-      "CLSC Sainte-Catherine",
-      "CLSC du Plateau-Mont-Royal",
-      "CLSC de Saint-Louis-du-Parc",
-      "CLSC de Saint-Henri",
-      "CLSC de Verdun",
-      "CLSC de Ville-Émard"
-    ];
+    const cls = ["CLSC du Plateau-Mont-Royal", "CLSC de Saint-Henri", "CLSC de Verdun"];
     const echapper = valeur => String(valeur).replace(/[&<>"']/g, caractere => ({
       "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
     })[caractere]);
@@ -84,18 +75,56 @@
       return '<svg viewBox="0 0 660 540" role="img" aria-label="Exemple de carte d’entretien qualitatif avec ego central, six alters anonymisés, cercles concentriques et liens de styles distincts"><rect x="1" y="1" width="658" height="538" rx="22" fill="#f7faf8" stroke="#d8e5df"/><circle cx="315" cy="265" r="215" fill="none" stroke="#b8cfc7" stroke-width="2"/><circle cx="315" cy="265" r="130" fill="#e9f2ed" stroke="#c9dcd3" stroke-width="2"/>' + lien + acteurs + '<circle cx="315" cy="265" r="63" fill="#20594e" stroke="white" stroke-width="5"/><text x="315" y="259" font-size="20" text-anchor="middle" fill="white" font-weight="750">EGO</text><text x="315" y="281" font-size="16" text-anchor="middle" fill="#d9f5e7">CLSC</text><text x="16" y="518" font-size="15" fill="#6d7f78">A1 à A6 : acteurs codés, placement fictif</text></svg>';
     }
     const officiel = "https://ciusss-centresudmtl.gouv.qc.ca/propos/qui-sommes-nous/territoire-et-population-desservie";
-    const module = document.createElement("section");
-    module.className = "o3-atlas";
-    module.id = "o3-atlas-reseaux";
-    module.dataset.o3Atlas = "1";
-    module.setAttribute("aria-labelledby", "o3-atlas-titre");
-    module.innerHTML =
-      '<div class="o3-chapeau"><span>O3 · Support visuel à la délibération</span><span>Analyse de réseaux sociaux · SNA</span></div>' +
-      '<div class="o3-entete"><p class="o3-surtexte">Du réseau égocentré à l’interprétation qualitative</p><h3 id="o3-atlas-titre">Huit CLSC, huit sociogrammes d’application</h3><p>L’analyse de réseaux (O3) décrit les relations autour du CLSC. Ses résultats quantitatifs et qualitatifs pourront ensuite être discutés en atelier (O3). Les huit déclinaisons montréalaises montrent uniquement comment le dispositif pourrait se présenter sur le terrain.</p></div>' +
-      '<div class="o3-partie"><span>APPLICATION AU TERRAIN</span><h4>Un réseau égocentré pour chaque CLSC du Centre-Sud</h4><p>Choisir un CLSC : son nom devient l’<em>ego</em> de la carte, entouré des catégories de partenaires susceptibles d’être interrogées. La disposition est identique pour permettre une lecture comparative, sans supposer que les collaborations sont les mêmes dans les huit territoires.</p></div>' +
-      '<div class="o3-selection" role="group" aria-label="Choisir un CLSC">' + cls.map((nom, i) => '<button type="button" class="o3-clsc-option' + (i === 0 ? " est-actif" : "") + '" data-o3-select="' + i + '" aria-pressed="' + (i === 0) + '"><span class="o3-miniature">' + constellation(nom, true) + '</span><span class="o3-option-num">CLSC ' + String(i + 1).padStart(2, "0") + ' / 08</span><strong>' + echapper(nom) + '</strong></button>').join("") + '</div>' +
-      '<div class="o3-planche"><div class="o3-planche-tete"><div><span>CARTE ÉGOCENTRÉE · APPLICATION ILLUSTRATIVE</span><h5 data-o3-nom>' + echapper(cls[0]) + '</h5></div><span class="o3-planche-badge">Pas de données empiriques</span></div><div class="o3-vue-reseau" data-o3-carte>' + constellation(cls[0]) + '</div><div class="o3-legende"><span><i class="o3-leg-soins"></i>Santé et soins</span><span><i class="o3-leg-communaute"></i>Communautaire</span><span><i class="o3-leg-territoire"></i>Municipal / droits</span><span><i class="o3-leg-ego"></i>Ego (CLSC)</span><span><i class="o3-leg-pointille"></i>Liens entre partenaires à investiguer</span></div><p class="o3-precaution">Les nœuds, les liens et leur intensité ne représentent <strong>aucun partenariat attesté</strong>. Les lignes continues et pointillées sont un exemple graphique du type de relations que le questionnaire et les entretiens pourraient documenter. Elles ne constituent ni une mesure, ni un résultat du projet.</p></div>' +
-      '<p class="o3-credit">Identification des CLSC : <a href="' + officiel + '" target="_blank" rel="noopener noreferrer">répertoire officiel du territoire Centre-Sud</a>. Un CLSC réel n’implique pas un réseau de partenaires mesuré.</p>' +
+
+    // Expérimentations et modèles d'application, distincts de l'enquête SAD.
+    const descriptifs211=[
+      ["Orientations du 211 : ego dirigé et pondéré","01-ego-211.svg","Verdun, 2024–2025. Chaque flèche correspond à une référence du 211 vers un destinataire : aucun lien SAD–partenaire n'est observé."],
+      ["Affiliation domaines–organismes","02-biparti.svg","Verdun, tous âges : des besoins référencés vers des destinataires. Il ne s'agit pas de liens de collaboration entre organismes."],
+      ["Matrice des destinations par origine","03-matrice.svg","Références des 60 ans et plus en 2024–2025. Les arrondissements sont des contextes géographiques, non des organisations qui collaborent."],
+      ["Évolution des destinataires du 211","04-evolution.svg","Trois exercices de références. Une variation de destinataires observés ne prouve pas l'ouverture ou la fermeture d'organismes."]
+    ];
+    const annees=["2023–2024","2024–2025","2025–2026"];
+    const serieR=[{titre:"Évolution temporelle · R",cle:"a1_temporel.svg",
+      lecture:"Comparaison calculée des exercices à Verdun ; l'interprétation dépend de la couverture des extractions."}];
+    annees.forEach((annee,i)=>{
+      const k="a1_y"+(i+1)+"_";
+      serieR.push({titre:"SNA égocentrée 211 · "+annee,cle:k+"ego.svg",
+        lecture:"Le 211 est l'ego. Les liens représentent les références enregistrées vers les destinataires, pas des partenariats SAD."});
+      serieR.push({titre:"SNA bipartie · "+annee,cle:k+"biparti.svg",
+        lecture:"Affiliation entre domaines de besoins et organismes référencés, sans mesurer les besoins concomitants d'une personne."});
+      [0,10,20].forEach(seuil=>serieR.push({
+        titre:"Projection des domaines · "+annee+" · seuil "+(seuil/100).toFixed(2).replace(".",","),
+        cle:k+"projection_"+seuil+".svg",
+        lecture:"Domaines liés parce qu'ils partagent des destinataires, avec seuil de similarité Jaccard ; ces liens dérivés ne mesurent pas les collaborations intersectorielles."
+      }));
+    });
+    const donnees=[
+      ...cls.map(nom=>({type:"clsc",titre:nom+" · exemple de réseau SAD",nom,
+        lecture:"Schéma du type de réseau qui pourrait être étudié autour d'une équipe SAD. Placement des acteurs et intensité des liens entièrement fictifs."})),
+      ...descriptifs211.map(([titre,nom,lecture])=>({type:"figure",titre:"211 · "+titre,url:"/simulations/sna-o3/figures/"+nom,lecture})),
+      ...serieR.map(x=>({...x,type:"r",titre:"211 / R · "+x.titre}))
+    ];
+    const nClsc=cls.length,nFigures=descriptifs211.length,total=donnees.length;
+    const enteteChoix=(debut,fin)=>donnees.slice(debut,fin).map((d,j)=>
+      '<option value="'+(debut+j)+'">'+String(debut+j+1).padStart(2,"0")+' · '+echapper(d.titre)+'</option>').join("");
+    const options='<optgroup label="CLSC · sociogrammes fictifs">'+enteteChoix(0,nClsc)+'</optgroup>'+
+      '<optgroup label="211 · figures de synthèse">'+enteteChoix(nClsc,nClsc+nFigures)+'</optgroup>'+
+      '<optgroup label="211 · seize graphiques calculés avec R">'+enteteChoix(nClsc+nFigures,total)+'</optgroup>';
+    const planches=donnees.map((d,i)=>{
+      let visuel;
+      if(d.type==="clsc")visuel='<div class="o3-galerie-visuel o3-galerie-clsc">'+constellation(d.nom)+'</div>';
+      else if(d.type==="figure")visuel='<a class="o3-galerie-visuel" href="'+d.url+'" target="_blank" rel="noopener" aria-label="Voir la figure vectorielle"><img src="'+d.url+'" alt="'+echapper(d.titre)+'" loading="lazy"></a>';
+      else visuel='<div class="o3-galerie-visuel o3-galerie-r" data-o3-r-key="'+echapper(d.cle)+'"><p>Graphique R chargé lors de sa sélection.</p></div>';
+      return '<figure class="o3-galerie-planche" data-o3-slide="'+i+'"'+(i?' hidden aria-hidden="true"':' aria-hidden="false"')+'>'+visuel+
+        '<figcaption><span class="o3-galerie-statut">'+(d.type==="clsc"?"Modèle CLSC · non observé":"Expérimentation 211 · calculs disponibles")+
+        '</span><h4>'+echapper(d.titre)+'</h4><p>'+echapper(d.lecture)+'</p></figcaption></figure>';
+    }).join("");
+    const module=document.createElement("section");
+    module.className="o3-atlas o3-galerie-unifiee";
+    module.id="o3-atlas-reseaux";
+    module.dataset.o3Atlas="1";
+    module.setAttribute("aria-labelledby","o3-atlas-titre");
+    const qualitatif =
       '<div class="o3-partie o3-partie-quali"><span>VOLET QUALITATIF DU SNA · O3 (QUAN → qual)</span><h4>De la carte à l’explication des relations</h4><p>Le sociogramme devient un support d’entretien : on explore les raisons des liens, les ressources échangées, les difficultés de coordination, les absences de relation et les points de passage entre organisations.</p></div>' +
       '<div class="o3-quali-grille">' +
         '<article class="o3-quali-panneau"><div class="o3-panneau-entete"><span>01 · ÉLICITATION</span><h5>Sociogramme co-construit</h5><p>Le participant nomme les acteurs, les positionne sur une carte concentrique et décrit ses relations avec eux.</p></div><div class="o3-quali-visuel">' + qualitatifSVG() + '</div><div class="o3-panneau-pied"><span>Proximité ou importance perçue</span><span>Alters anonymisés · exemple de méthode</span></div></article>' +
@@ -104,24 +133,66 @@
       '<div class="o3-quali-matrice"><div class="o3-matrice-titre"><span>03 · CODAGE ET INTERPRÉTATION</span><h5>Mise en regard des réseaux et des entretiens</h5><p>Exemples de questions analytiques, sans verbatim attribué à un professionnel ni constat présenté comme acquis.</p></div><div class="o3-table-wrap"><table><thead><tr><th>Observation structurale à vérifier</th><th>Question d’entretien</th><th>Thème à coder</th><th>Discussion possible en O3</th></tr></thead><tbody><tr><td>Un partenaire périphérique sur la carte</td><td>Pourquoi est-il peu mobilisé pour ce profil de besoins ?</td><td>Connaissance des ressources · accès</td><td>Quelles conditions faciliteraient sa mobilisation ?</td></tr><tr><td>Un CLSC placé en position de passage</td><td>Qui relie les organisations en son absence ?</td><td>Coordination · dépendance à un acteur</td><td>Comment renforcer la continuité des liens ?</td></tr><tr><td>Un lien attendu mais non déclaré</td><td>Le mandat, le financement ou les pratiques empêchent-ils l’échange ?</td><td>Frontières institutionnelles · confiance</td><td>Quel ajustement intersectoriel envisager ?</td></tr></tbody></table></div></div>' +
       '<div class="o3-transfert"><div><span>04 · INTÉGRATION ET ATELIER</span><h5>Du constat discuté à une recommandation contextualisée</h5></div><ol><li><strong>Carte de réseau</strong><small>Qui est relié à qui ?</small></li><li><strong>Entretien qualitatif</strong><small>Pourquoi, comment, dans quel contexte ?</small></li><li><strong>Mise en regard</strong><small>Convergences, divergences et incertitudes</small></li><li><strong>Délibération O3</strong><small>Options, désaccords et recommandations</small></li></ol></div>' +
       '<div class="o3-methodo-sources"><h5>Repères méthodologiques vérifiables</h5><p><a href="https://doi.org/10.1177/19375867211013772" target="_blank" rel="noopener noreferrer">Burgette et al. (2021) · Principes et métriques des réseaux égocentrés ↗</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12315688/" target="_blank" rel="noopener noreferrer">Étude qualitative avec sociogrammes et entretiens (2025) ↗</a><a href="https://doi.org/10.1111/glob.12315" target="_blank" rel="noopener noreferrer">Herz (2021) · Cartes égocentrées et analyse qualitative ↗</a></p></div>';
-    // Le module SNA est un prolongement d'O3 dans la méthodologie,
-    // pas une insertion après les trois objectifs de la problématique.
-    const exemplesO3 = cibleO3.querySelector('#exemples-sna-o3');
-    const espaceExemples = document.querySelector('#methode-o3-exemples');
-    if (espaceExemples) espaceExemples.appendChild(module);
-    else if (exemplesO3) exemplesO3.before(module);
+
+    module.innerHTML=
+      '<header class="o3-galerie-intro"><span class="o3-galerie-surtexte">O3 · ATLAS EXPÉRIMENTAL · DISTINCT DU PROTOCOLE</span>'+
+      '<h3 id="o3-atlas-titre">Explorer les réseaux · '+total+' visualisations</h3>'+
+      '<p>Cette galerie rassemble <strong>trois schémas de CLSC fictifs</strong>, <strong>quatre figures de synthèse issues des références du 211</strong> et <strong>seize figures calculées dans R</strong>. Les fichiers du 211 décrivent les orientations vers des organismes, et non les collaborations entre équipes SAD et partenaires. <strong>Ce ne sont ni les données collectées ni les résultats de la SNA de la thèse.</strong></p>'+
+      '<div class="o3-galerie-reperes"><span>3 modèles CLSC</span><span>20 figures du 211</span><span>Analyses R vérifiables</span></div></header>'+
+      '<div class="o3-galerie-commandes"><label for="o3-galerie-select">Choisir un sociogramme ou un graphique</label>'+
+      '<div class="o3-galerie-controles"><select id="o3-galerie-select" data-o3-choix>'+options+'</select>'+
+      '<div class="o3-galerie-fleches"><button type="button" data-o3-prev aria-label="Figure précédente" disabled>←</button>'+
+      '<output data-o3-compteur aria-live="polite">1 / '+total+'</output>'+
+      '<button type="button" data-o3-next aria-label="Figure suivante">→</button></div></div></div>'+
+      '<div class="o3-galerie-planches" aria-label="Figure sélectionnée">'+planches+'</div>'+
+      '<div class="o3-galerie-pied"><p><strong>Statut des données.</strong> Seules des orientations du 211 sont enregistrées ; les relations entre organismes, les collaborations SAD et la réponse effective aux besoins devront être documentées dans le protocole O3. Les variations de couverture des fichiers peuvent influencer les graphes.</p>'+
+      '<a href="/simulations/sna-o3/" target="_blank" rel="noopener">Dossier 211 : figures et sources ↗</a>'+
+      '<a href="/simulations/sna-o3/r/" target="_blank" rel="noopener">Calculs R, graphiques et GraphML ↗</a>'+
+      '<a href="'+officiel+'" target="_blank" rel="noopener">Source des noms des CLSC ↗</a></div>'+
+      '<details class="o3-galerie-qual"><summary>Exemples d’entretiens et de codage qualitatif</summary>'+qualitatif+'</details>';
+    const exemplesO3=document.querySelector("#exemples-sna-o3");
+    const espaceExemples=document.querySelector("#methode-o3-exemples");
+    if(espaceExemples)espaceExemples.insertBefore(module,exemplesO3?.parentNode===espaceExemples?exemplesO3:null);
     else cibleO3.appendChild(module);
-    const boutons = [...module.querySelectorAll("[data-o3-select]")];
-    boutons.forEach((bouton) => bouton.addEventListener("click", () => {
-      const i = Number(bouton.dataset.o3Select);
-      boutons.forEach((autre, j) => {
-        const oui = i === j;
-        autre.classList.toggle("est-actif", oui);
-        autre.setAttribute("aria-pressed", String(oui));
-      });
-      module.querySelector("[data-o3-carte]").innerHTML = constellation(cls[i]);
-      module.querySelector("[data-o3-nom]").textContent = cls[i];
-    }));
+    const el=Array.from(module.querySelectorAll("[data-o3-slide]"));
+    const select=module.querySelector("[data-o3-choix]"),output=module.querySelector("[data-o3-compteur]");
+    const prev=module.querySelector("[data-o3-prev]"),next=module.querySelector("[data-o3-next]");
+    let current=0,sourceR=null,promesseR=null;
+    async function ouvrirGraphique(zone){
+      if(!zone||zone.dataset.charge==="oui")return;
+      zone.innerHTML="<p>Chargement du graphique calculé avec R…</p>";
+      try{
+        if(!promesseR)promesseR=fetch("/simulations/sna-o3/r/graphiques-a1.json")
+          .then(r=>{if(!r.ok)throw Error("Fichier R inaccessible");return r.json()});
+        sourceR=await promesseR;
+        if(!zone.isConnected)return;
+        const svg=sourceR.figures?.[zone.dataset.o3RKey];
+        if(!svg)throw Error("Graphique absent");
+        zone.innerHTML=svg.replace(/^<\\?xml[^>]*>\\s*/i,"");
+        zone.dataset.charge="oui";
+        const image=zone.querySelector("svg");
+        if(image){image.setAttribute("role","img");image.setAttribute("aria-label",donnees[+zone.closest("[data-o3-slide]").dataset.o3Slide].titre)}
+      }catch(erreur){
+        zone.innerHTML='<p>Le chargement a échoué. <a href="/simulations/sna-o3/r/" target="_blank" rel="noopener">Ouvrir les résultats R ↗</a></p>';
+        promesseR=null;
+      }
+    }
+    function afficher(i){
+      current=Math.max(0,Math.min(total-1,i));
+      el.forEach((p,j)=>{p.hidden=j!==current;p.setAttribute("aria-hidden",String(j!==current))});
+      select.value=String(current);output.textContent=(current+1)+" / "+total;
+      prev.disabled=current===0;next.disabled=current===total-1;
+      ouvrirGraphique(el[current].querySelector("[data-o3-r-key]"));
+    }
+    select.addEventListener("change",()=>afficher(+select.value));
+    prev.addEventListener("click",()=>afficher(current-1));
+    next.addEventListener("click",()=>afficher(current+1));
+    module.addEventListener("keydown",event=>{
+      if(!["ArrowLeft","ArrowRight","Home","End"].includes(event.key)||event.altKey||event.ctrlKey||event.metaKey)return;
+      if(event.target.closest("select,input,textarea,a"))return;
+      event.preventDefault();
+      afficher(event.key==="Home"?0:event.key==="End"?total-1:current+(event.key==="ArrowRight"?1:-1));
+    });
     // Raccourci explicite depuis la carte O3 et les méthodes O2 sans déplacer ni modifier leurs formulations.
     const o3 = point.querySelector('.objectif-carte[data-objectif="O3"]');
     if (o3 && !o3.querySelector("[data-o3-raccourci]")) {
@@ -140,7 +211,7 @@
     if (methodes && !methodes.querySelector(".o3-renvoi-methodes")) {
       const note = document.createElement("div");
       note.className = "o3-renvoi-methodes";
-      note.innerHTML = '<strong>Illustrations du SNA quantitatif et qualitatif</strong><p>Huit exemples égocentrés centrés sur les CLSC du Centre-Sud, des figures scientifiques authentiques et une démarche qualitative guidée par la carte.</p><button type="button">Voir l’atlas des réseaux et les schémas qualitatifs →</button>';
+      note.innerHTML = '<strong>Illustrations du SNA quantitatif et qualitatif</strong><p>Trois modèles fictifs de CLSC et vingt figures expérimentales du 211, complétés par des exemples de démarche qualitative.</p><button type="button">Voir l’atlas des réseaux et les schémas qualitatifs →</button>';
       // Garder ce renvoi avec la méthode O3 au lieu d'en faire un bloc flottant.
       const titreO3 = document.querySelector('#methode-o3-exemples > header');
       if (titreO3) titreO3.insertAdjacentElement("afterend", note);
