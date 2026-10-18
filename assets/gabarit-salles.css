@@ -1662,3 +1662,55 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   .salle.gab-lit.gab-avec-chapitres .gab-lecture{max-height:155px!important}
   .gab-index-liste{max-height:145px}
 }
+
+
+/* Hypothèses exploratoires et objectifs spécifiques dans Problématique */
+.gab[data-gab-salle="recherche"] .these-hypotheses{
+  margin:clamp(28px,4vw,54px) 0 0;
+  padding:clamp(18px,2.5vw,30px);
+  border:1px solid #d8e4e6;
+  border-top:4px solid #A77EBA;
+  border-radius:15px;
+  background:#fbfafc;
+}
+.gab[data-gab-salle="recherche"] .these-hypotheses > h4{
+  margin:0 0 12px;
+  color:#65487b;
+  font-weight:740;
+  font-size:clamp(20px,2vw,25px);
+}
+.gab[data-gab-salle="recherche"] .these-hypotheses .note{
+  font-size:14px;
+  color:#5b6771;
+  line-height:1.6;
+}
+.gab[data-gab-salle="recherche"] .these-hypotheses-liste{
+  display:grid;
+  gap:12px;
+  padding:0;
+  margin:18px 0 0;
+  list-style:none;
+  counter-reset:aucun;
+}
+.gab[data-gab-salle="recherche"] .these-hypotheses-liste li{
+  padding:13px 15px;
+  border-inline-start:3px solid #A77EBA;
+  border-radius:9px;
+  background:#fff;
+  color:#253d4d;
+  line-height:1.65;
+  hyphens:none;
+}
+.gab[data-gab-salle="recherche"] .these-hypotheses-liste li strong{
+  color:#6c4a83;
+}
+.gab .gab-sommaire-problematique .gab-sommaire-groupe-titre{
+  display:flex;
+  align-items:flex-start;
+  gap:7px;
+  color:var(--objectif-texte);
+}
+.gab .gab-sommaire-problematique .gab-sommaire-groupe-titre strong{
+  flex:1;
+  min-width:0;
+}
