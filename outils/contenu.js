@@ -4749,4 +4749,6 @@ const es = {
   introuvable: { titre: "Página no encontrada", texte: "Esta página no existe o ha sido trasladada.", retour: "Volver a la página de inicio" },
 };
 
+fr.biographie = require("./biographie-frq");
+
 module.exports = { fr, en, es, LANGUES, AFFICHE };

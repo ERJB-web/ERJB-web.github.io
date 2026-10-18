@@ -896,6 +896,56 @@
     const bandeau = $(":scope > .bandeau", sc);
     const corps = $(":scope > .section-corps", sc);
     if (!corps) return;
+    // Ces deux pages se lisent d'un seul tenant : conserver le récit et la
+    // chronologie sources, sans créer de tuiles, pages ni navigation de chapitres.
+    if (salle === "biographie" || salle === "parcours") {
+      sc.dataset.gabSalle = salle;
+      sc.dataset.gabChapitres = "0";
+      sc.classList.add("gab", "gab-unique", "gab-continu");
+      if (bandeau) {
+        bandeau.classList.add("gab-bandeau");
+        const photo = photoDuBandeau(bandeau);
+        if (photo) bandeau.style.setProperty("--gab-photo", `url("${photo}")`);
+        bandeau.classList.remove("revele");
+        $$(".revele", bandeau).forEach((x) => x.classList.remove("revele"));
+      }
+      // Les anciennes adresses de chapitre restent des ancrages dans la page.
+      if (salle === "biographie") $$(".recit > li", sc).forEach((item, i) => {
+        item.id = "biographie-chapitre-" + (i + 1);
+      });
+      const lectureContinue = el("div", "continu-texte");
+      lectureContinue.append(...Array.from(corps.children));
+      const navigation = el("aside", "continu-aside");
+      const nav = el("nav", "gab-sommaire-chapitre gab-sommaire-objectifs continu-sommaire");
+      const libelles = {
+        fr: ["Dans cette page", "Expériences et recherche", "Engagements et perspectives", "Formations et expériences"],
+        en: ["On this page", "Experience and research", "Commitments and perspectives", "Education and experience"],
+        es: ["En esta página", "Experiencia e investigación", "Compromisos y perspectivas", "Formación y experiencia"],
+        zh: ["本页目录", "经历与研究", "参与和展望", "教育与经历"],
+        ar: ["في هذه الصفحة", "الخبرات والبحث", "المشاركة والآفاق", "التكوين والخبرات"],
+        ru: ["На этой странице", "Опыт и исследования", "Участие и перспективы", "Образование и опыт"]
+      }[langue] || ["Dans cette page", "Expériences et recherche", "Engagements et perspectives", "Formations et expériences"];
+      nav.setAttribute("aria-label", libelles[0]);
+      nav.append(el("span", "", echapper(libelles[0])));
+      const cibles = salle === "biographie" ? $$(".recit h3, .vision h3", lectureContinue)
+        : $$(".colonne-texte > h2, .colonne-texte > h3, .frise h4", lectureContinue);
+      const groupes = [el("section", "gab-sommaire-groupe"), el("section", "gab-sommaire-groupe")];
+      groupes.forEach((g, i) => {
+        g.dataset.objectif = i ? "O2" : "O1";
+        g.append(el("div", "gab-sommaire-groupe-titre", `<strong>${echapper(libelles[salle === "parcours" ? 3 : i + 1])}</strong>`));
+      });
+      cibles.forEach((h, i) => {
+        if (!h.id) h.id = "continu-" + salle + "-" + i;
+        const a = el("a", "", echapper(net(h.textContent)));
+        a.href = "#" + h.id;
+        a.dataset.continuCible = h.id;
+        groupes[salle === "biographie" && i >= 3 ? 1 : 0].append(a);
+      });
+      groupes.forEach((g) => { if (g.querySelector("a")) nav.append(g); });
+      navigation.append(nav);
+      corps.append(navigation, lectureContinue);
+      return;
+    }
     if (salle === "recherche") mettreDevisEnCartes(sc);
     const photoSalle = photoDuBandeau(bandeau);
     const { mode, table, chapitres } = decouper(sc, salle);
@@ -1194,6 +1244,34 @@
   }
 
   D.addEventListener("click", (ev) => {
+    const menuContinu = ev.target.closest("[data-continu-menu]");
+    if (menuContinu) {
+      const ouvert = salle.classList.toggle("continu-rubriques-ouvertes");
+      menuContinu.setAttribute("aria-expanded", String(ouvert));
+      return;
+    }
+    const pasContinu = ev.target.closest("[data-continu-pas], [data-continu-rubrique]");
+    if (pasContinu) {
+      const boutons = $$(".onglet-salle", onglets);
+      const index = boutons.findIndex((b) => b.classList.contains("actif"));
+      const cible = pasContinu.dataset.continuRubrique
+        ? boutons.find((b) => b.dataset.sous === pasContinu.dataset.continuRubrique)
+        : boutons[index + Number(pasContinu.dataset.continuPas)];
+      if (cible) cible.click();
+      return;
+    }
+    const lienContinu = ev.target.closest("[data-continu-cible]");
+    if (lienContinu) {
+      ev.preventDefault();
+      const zone = lienContinu.closest(".gab-continu");
+      const cible = $$("[id]", zone).find((x) => x.id === lienContinu.dataset.continuCible);
+      if (cible) {
+        $$("[data-continu-cible]", zone).forEach((a) => a.removeAttribute("aria-current"));
+        lienContinu.setAttribute("aria-current", "location");
+        defiler(cible);
+      }
+      return;
+    }
     const tuile = ev.target.closest("[data-gab-aller]");
     if (tuile) {
       const zone = tuile.closest(".gab");
@@ -1414,10 +1492,31 @@
     const zone = $(".section-contenu", contenu);
     if (!zone) return;
     if (!zone.classList.contains("gab")) transformer(zone);
+    salle.classList.toggle("gab-continu-active", zone.classList.contains("gab-continu"));
+    if (zone.classList.contains("gab-continu")) salle.classList.remove("gab-lit", "gab-page-chapitre");
     mettreAJourChapitreVulgarisation(zone);
     fusionnerDossierImplantation(zone);
     preparerSalle();
     decorerOnglets();
+    let barreContinue = $(".gab-lecture-continue", barre);
+    if (zone.classList.contains("gab-continu")) {
+      if (!barreContinue) {
+        barreContinue = el("div", "gab-lecture gab-lecture-continue");
+        barre.append(barreContinue);
+      }
+      const boutons = $$(".onglet-salle", onglets);
+      const index = boutons.findIndex((b) => b.dataset.sous === zone.dataset.gabSalle);
+      const titreBouton = (b) => net($(".onglet-titre", b)?.textContent);
+      const lib = langue === "fr" ? ["Toutes les rubriques", "Rubrique précédente", "Rubrique suivante", "Lecture continue"]
+        : langue === "en" ? ["All sections", "Previous section", "Next section", "Continuous reading"]
+        : [T.tous.replace(/chapitres|chapters/g, "rubriques"), T.precedent, T.suivant, ""];
+      barreContinue.innerHTML = `<button type="button" class="gab-tous" data-continu-menu aria-expanded="false"><span aria-hidden="true">▦</span><span>${echapper(lib[0])}</span></button>` +
+        `<button type="button" class="gab-fleche gab-fleche-precedente" data-continu-pas="-1" ${index <= 0 ? "disabled" : ""}><span aria-hidden="true">‹</span><span class="gab-fleche-libelle"><span class="gab-fleche-texte">${echapper(lib[1])}</span><small class="gab-fleche-cible">${echapper(index > 0 ? titreBouton(boutons[index - 1]) : "")}</small></span></button>` +
+        `<div class="gab-actuel"><b>${deux(index + 1)}</b><span><small>${echapper(lib[3])}</small><strong>${echapper(titreBouton(boutons[index]))}</strong></span></div>` +
+        `<button type="button" class="gab-fleche gab-fleche-suivante" data-continu-pas="1" ${index === boutons.length - 1 ? "disabled" : ""}><span class="gab-fleche-libelle"><span class="gab-fleche-texte">${echapper(lib[2])}</span><small class="gab-fleche-cible">${echapper(index < boutons.length - 1 ? titreBouton(boutons[index + 1]) : "")}</small></span><span aria-hidden="true">›</span></button>` +
+        `<div class="gab-segments">${boutons.map((b, i) => `<button type="button" data-continu-rubrique="${echapper(b.dataset.sous)}" style="--gab-c:${COULEURS[i % COULEURS.length]}" aria-label="${echapper(titreBouton(b))}" aria-current="${i === index}"></button>`).join("")}</div>`;
+      salle.classList.remove("continu-rubriques-ouvertes");
+    }
     const titre = net($("#salle-titre")?.textContent).split(" · ");
     const nom = $(".gab-porte-nom", barre);
     if (nom) nom.innerHTML = titre.length >= 3
