@@ -539,6 +539,57 @@
     sc.classList.add("gab");
   }
 
+  // Ma thèse : un seul exemplaire par image dans la page.
+  // Garder les illustrations expliquées dans le texte plutôt que les copies
+  // dans les en-têtes décoratifs et les galeries cartographiques.
+  function retirerImagesRepeteesThese(zone) {
+    if (langue !== "fr" || !zone) return;
+    const parSource = new Map();
+    $("img[src]", zone).forEach((img) => {
+      let source;
+      try {
+        const url = new URL(img.getAttribute("src"), D.baseURI);
+        source = url.origin + url.pathname;
+      } catch { return; }
+      if (!parSource.has(source)) parSource.set(source, []);
+      parSource.get(source).push(img);
+    });
+    const pertinence = (img) => {
+      if (img.closest(".gab-photo")) return -100;
+      if (img.closest(".atlas-these-figure")) return -60;
+      if (img.closest(".gab-chapitre[data-rubrique='methodes']")) return 20;
+      if (img.closest(".gab-chapitre")) return 5;
+      return 10;
+    };
+    parSource.forEach((occurrences) => {
+      if (occurrences.length < 2) return;
+      const conservee = occurrences.reduce((meilleure, courante) =>
+        pertinence(courante) > pertinence(meilleure) ? courante : meilleure);
+      occurrences.forEach((img) => {
+        if (img === conservee || !img.isConnected) return;
+        const photo = img.closest(".gab-photo");
+        if (photo) { photo.remove(); return; }
+        const figure = img.closest("figure");
+        if (figure && $("img", figure).length === 1) {
+          figure.remove();
+          return;
+        }
+        const lien = img.closest("a");
+        if (lien && $("img", lien).length === 1 && !net(lien.textContent)) lien.remove();
+        else img.remove();
+      });
+    });
+    // Numérotation exacte des cartes restantes, sans emplacements vides.
+    const cartes = $(".atlas-these-figure", zone);
+    cartes.forEach((figure, i) => {
+      const etiquette = $(".atlas-these-figure-entete > span", figure);
+      if (etiquette) etiquette.textContent = `Figure ${deux(i + 1)} / ${deux(cartes.length)}`;
+    });
+    $(".atlas-these", zone).forEach((bloc) => {
+      if (!$(".atlas-these-figure", bloc)) bloc.remove();
+    });
+  }
+
   // ---------- Navigation ----------
   const salle = $("#salle");
   const contenu = salle && $(".salle-contenu", salle);
@@ -685,7 +736,13 @@
   };
 
   noterTitres();
-  $$("section.section[data-salle] > .section-contenu").forEach(transformer);
+  $("section.section[data-salle] > .section-contenu").forEach(transformer);
+  // Les figures de l'atlas peuvent être ajoutées après la transformation.
+  if (langue === "fr") $(".these").forEach((zone) => {
+    retirerImagesRepeteesThese(zone);
+    new MutationObserver(() => retirerImagesRepeteesThese(zone))
+      .observe(zone, { childList: true, subtree: true });
+  });
   if (contenu) {
     new MutationObserver(activerSalle).observe(contenu, { childList: true });
     if (onglets) new MutationObserver(decorerOnglets).observe(onglets, { childList: true });
