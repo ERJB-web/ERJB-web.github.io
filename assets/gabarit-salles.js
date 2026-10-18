@@ -226,7 +226,7 @@
         const b = boutons.find((x) => x.dataset.volet === v.dataset.volet);
         return { source: v, titre: texteTitre(b?.querySelector("strong") || b) || texteTitre($(".rubrique-entete span", v)), cle: v.dataset.rubrique || "", surPlace: true };
       });
-      if (salle === "vulgarisation") {
+      if (salle === "vulgarisation" && langue !== "fr") {
         const titres = {
           fr: ["Dossier scientifique approfondi", "État des connaissances, statistiques internationales, tableaux comparatifs et figures authentiques issues de publications scientifiques.", "Lire le dossier scientifique complet"],
           en: ["In-depth scientific dossier (French)", "Research synthesis, international statistics and figures from published studies.", "Read the scientific dossier"],
@@ -1314,49 +1314,62 @@
 
   noterTitres();
   if (langue === "fr") lierReferencesCadreThese();
-  // Remplacement circonscrit à la salle de vulgarisation en français.
-  // Les autres salles et autres langues suivent exactement leur rendu habituel.
-  const salleVul = langue === "fr" ? $("section.section[data-salle='vulgarisation'] > .section-contenu") : null;
-  $$("section.section[data-salle] > .section-contenu").forEach((sc) => {
-    if (sc !== salleVul) transformer(sc);
-  });
-  if (salleVul) {
-    const url = new URL(CHEMIN + "vulgarisation/dossier-contenu-2026.html",D.baseURI).href;
-    fetch(url).then((rep) => {
-      if (!rep.ok) throw new Error("Document vulgarisation introuvable : " + rep.status);
-      return rep.text();
-    }).then((html) => {
-      if (!html.includes('id="vul-section-10"')) throw new Error("Dossier incomplet");
-      const actuel = $(":scope > .section-corps", salleVul);
-      if (!actuel) throw new Error("Contenu de la salle introuvable");
-      const nouveau = el("div","section-corps pleine vulgarisation");
-      const entete = el("div","colonne-texte",
-        '<h2>Vulgarisation scientifique : état des connaissances, pratiques et innovations</h2>' +
-        '<p class="intro">Dossier de recherche scientifique : rapports réels, graphiques, méthodes, travaux en cours et bonnes pratiques.</p>');
-      const zone = el("div","colonne-outils",html);
-      nouveau.append(entete,zone);
-      actuel.replaceWith(nouveau);
-      transformer(salleVul);
-      activerSalle();
-      salleVul.addEventListener("change",(ev)=>{
-        if (!ev.target.matches("[data-vul-checks] input[type=checkbox]")) return;
-        const g=ev.target.closest("[data-vul-checks]");
-        const n=g.querySelectorAll("input[type=checkbox]:checked").length;
-        g.querySelector("progress").value=n;
-        g.querySelector("[data-vul-progress]").textContent=n+"/10";
+  // Uniquement la rubrique française « 04 · Vulgarisation scientifique »
+  // déjà présente dans la salle Implantation (Savoirs en action).
+  // Son contenu complet remplace l'ancienne vignette : aucun nouveau chapitre.
+  $$("section.section[data-salle] > .section-contenu").forEach(transformer);
+  if (langue === "fr") {
+    const zone = $("section.section[data-salle='implantation'] > .section-contenu.gab");
+    const chapitre = zone && $(".gab-chapitre[data-gab-slug='implantation-vulgarisation']", zone);
+    if (chapitre) {
+      const url = new URL(CHEMIN + "vulgarisation/dossier-contenu-2026.html", D.baseURI).href;
+      fetch(url).then((rep) => {
+        if (!rep.ok) throw new Error("Contenu scientifique introuvable : " + rep.status);
+        return rep.text();
+      }).then((html) => {
+        const enveloppe = el("div", "", html);
+        const article = $("article.vul-dossier-chapitre", enveloppe);
+        const titres = article ? $$(":scope > section.vr-section > h4", article) : [];
+        if (titres.length !== 10) throw new Error("La vulgarisation doit contenir exactement dix sections.");
+        const corps = $(".gab-corps", chapitre);
+        const aside = $(".gab-chapitre-aside", chapitre);
+        const grille = $(".gab-chapitre-grille", chapitre);
+        if (!corps || !aside || !grille) throw new Error("Structure du chapitre 04 manquante.");
+        const nav = el("nav", "gab-sommaire-chapitre");
+        nav.setAttribute("aria-label", T.dans);
+        nav.setAttribute("tabindex", "0");
+        nav.innerHTML = '<span>' + echapper(T.dans) + '</span>' +
+          titres.map((h, i) => {
+            const id = h.id || "vul-section-" + (i + 1);
+            h.id = id;
+            return '<a href="#' + echapper(id) + '" data-gab-intertitre="' + i +
+              '" data-gab-cible="' + echapper(id) + '">' + echapper(net(h.textContent)) + '</a>';
+          }).join("");
+        organiserSommaireVulgarisation(nav, titres);
+        // Remplacer seulement l'ancien corps du chapitre 04 et son sommaire.
+        // Les autres chapitres et les autres salles restent intacts.
+        corps.replaceChildren(...Array.from(enveloppe.childNodes));
+        aside.replaceChildren(nav);
+        grille.classList.add("gab-menu-gauche");
+        chapitre.classList.add("vulgarisation-recherche-active");
+        chapitre.addEventListener("change", (ev) => {
+          if (!ev.target.matches("[data-vul-checks] input[type=checkbox]")) return;
+          const g = ev.target.closest("[data-vul-checks]");
+          const n = g.querySelectorAll("input[type=checkbox]:checked").length;
+          g.querySelector("progress").value = n;
+          g.querySelector("[data-vul-progress]").textContent = n + "/10";
+        });
+        chapitre.addEventListener("click", (ev) => {
+          if (!ev.target.closest("[data-vul-reset]")) return;
+          const g = ev.target.closest("[data-vul-checks]");
+          g.querySelectorAll("input[type=checkbox]").forEach((x) => { x.checked = false; });
+          g.querySelector("progress").value = 0;
+          g.querySelector("[data-vul-progress]").textContent = "0/10";
+        });
+      }).catch((err) => {
+        console.warn("Impossible de charger le contenu de vulgarisation dans le chapitre 04.", err);
       });
-      salleVul.addEventListener("click",(ev)=>{
-        if (!ev.target.closest("[data-vul-reset]")) return;
-        const g=ev.target.closest("[data-vul-checks]");
-        g.querySelectorAll("input[type=checkbox]").forEach(x=>x.checked=false);
-        g.querySelector("progress").value=0;
-        g.querySelector("[data-vul-progress]").textContent="0/10";
-      });
-    }).catch((err)=>{
-      console.warn("Vulgarisation : maintien du contenu précédent si le nouveau dossier échoue",err);
-      transformer(salleVul);
-      activerSalle();
-    });
+    }
   }
   // Retour arrière, adresse directe et changement de chapitre sans
   // réafficher l'intégralité des chapitres dans la vue publique.
