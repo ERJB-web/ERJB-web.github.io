@@ -1782,6 +1782,93 @@
     g.querySelector("progress").value = 0;
     g.querySelector("[data-vul-progress]").textContent = "0/10";
   });
+
+  // precision-protocole-20261018 : insertion ciblée O2/O3 avant construction des chapitres.
+  function completerMethodologieO2O3() {
+    if (langue !== "fr") return;
+    const cibleO2 = D.querySelector("#these-methode-o2 #methode-o2-4 .methode-rubrique-contenu");
+    const cibleO3 = D.querySelector("#these-methode-o3 #methode-o3-6 .methode-rubrique-contenu");
+    if (!cibleO2 && !cibleO3) return;
+    if (!D.getElementById("css-precision-protocole-20261018")) {
+      const feuille = D.createElement("style");
+      feuille.id = "css-precision-protocole-20261018";
+      feuille.textContent = [
+        '.these .precision-protocole{--precision:var(--objectif,#167d83);margin:24px 0 7px;padding:clamp(16px,2.5vw,26px);border:1px solid color-mix(in srgb,var(--precision) 27%,#dae5e8);border-top:4px solid var(--precision);border-radius:14px;background:linear-gradient(138deg,color-mix(in srgb,var(--precision) 6%,#fff),#fff 52%);min-width:0}',
+        '.these .precision-kicker{margin:0 0 7px;color:var(--precision);font:800 11px/1.5 var(--sans);letter-spacing:.11em;text-transform:uppercase;text-align:left}',
+        '.these .precision-titre{margin:0 0 12px;color:#183b4c;font:760 clamp(19px,2.1vw,24px)/1.35 var(--sans);letter-spacing:-.016em;text-align:left}',
+        '.these .precision-intro,.these .precision-note{color:#394f5b;text-align:justify;hyphens:auto;font:400 14px/1.75 var(--sans);margin:0 0 15px}',
+        '.these .precision-reperes{display:flex;flex-wrap:wrap;gap:8px;margin:13px 0 18px}',
+        '.these .precision-reperes>span{padding:6px 11px;border-radius:999px;background:color-mix(in srgb,var(--precision) 10%,white);color:#28515d;font:700 12px/1.4 var(--sans)}',
+        '.these .precision-table-scroll{border-radius:10px;border:1px solid #dce6e9;overflow-x:auto;max-width:100%;background:#fff}',
+        '.these .precision-table{width:100%;min-width:725px;margin:0!important;border-collapse:collapse;table-layout:fixed;font:400 13px/1.56 var(--sans)}',
+        '.these .precision-table :is(th,td){padding:13px!important;border:0!important;border-bottom:1px solid #e2eaed!important;vertical-align:top;text-align:left;overflow-wrap:break-word;hyphens:auto}',
+        '.these .precision-table thead th{background:var(--precision)!important;color:white!important;font:750 12px/1.45 var(--sans)}',
+        '.these .precision-table th:nth-child(1){width:23%}.these .precision-table th:nth-child(2){width:34%}.these .precision-table th:nth-child(3){width:27%}.these .precision-table th:nth-child(4){width:16%}',
+        '.these .precision-table tbody tr:nth-child(even){background:#f5f8f9}.these .precision-table tbody th{font-weight:750;color:#193d4c}',
+        '.these .precision-table tbody tr:last-child :is(th,td){border-bottom:0!important}',
+        '.these .precision-table a,.these .precision-inventaire{color:var(--precision);font-weight:750;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}',
+        '.these .precision-inventaire{display:inline-block;font-size:14px;margin:2px 0 0}',
+        '.these .precision-note{font-size:12.5px;line-height:1.7;margin:15px 0 8px}',
+        '.these .precision-cartes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:17px 0}',
+        '.these .precision-carte{min-width:0;background:#fff;border:1px solid color-mix(in srgb,var(--precision) 21%,#dae4e8);border-radius:12px;padding:17px}',
+        '.these .precision-chiffre{display:block;color:var(--precision);font:800 clamp(22px,2.5vw,29px)/1.15 var(--sans);margin:0 0 9px}',
+        '.these .precision-carte strong{display:block;color:#213e4e;font:750 14px/1.4 var(--sans);margin:0 0 8px}',
+        '.these .precision-carte p{color:#3f5663;font:400 13.2px/1.65 var(--sans);margin:0;text-align:justify;hyphens:auto}',
+        '.these .precision-parcours{background:color-mix(in srgb,var(--precision) 8%,white);border-left:3px solid var(--precision);border-radius:0 9px 9px 0;padding:13px 17px;color:#244b5b;font:650 13.3px/1.75 var(--sans);margin:17px 0;text-align:left}',
+        '.these .precision-parcours strong{color:var(--precision)}',
+        '.these .precision-table a:focus-visible,.these .precision-inventaire:focus-visible{outline:3px solid var(--precision);outline-offset:3px}',
+        '@media(max-width:800px){.these .precision-cartes{grid-template-columns:1fr}.these .precision-carte{padding:15px}}',
+        'html.hc .these .precision-protocole,html.lv .these .precision-protocole{background:#fff;border-width:2px}'
+      ].join("\n");
+      D.head.append(feuille);
+    }
+    if (cibleO2 && !cibleO2.parentElement.querySelector(".precision-protocole")) {
+      const sources = [
+        ["Statistique Canada","Profil du Recensement 2021 ; population, âge, logement et aires de diffusion","Quinquennale · millésime 2021","https://www150.statcan.gc.ca/n1/fr/catalogue/98-401-X2021006"],
+        ["MSSS · ISQ","Estimations et projections de population par territoire sociosanitaire","Révisions selon publication institutionnelle · fichier d’août 2025","https://www.quebec.ca/sante/systeme-et-services-de-sante/organisation-des-services/donnees-systeme-sante-quebecois-services/donnees-population-territoire-sociosanitaire"],
+        ["MSSS","Découpage et correspondances territoriales des CLSC, RLS et RSS","Révisions administratives · millésime 2026","https://publications.msss.gouv.qc.ca/msss/fichiers/statistiques/decoupage-territorial/ListeMunParCLSC_avril_26.pdf"],
+        ["211 Grand Montréal","Répertoire des ressources et services sociocommunautaires","Vérification des fiches annuelle · extraction 2026","https://www.211qc.ca/"],
+        ["211 Grand Montréal","Tableaux des demandes, références et besoins non comblés","Périodes et exercices sélectionnables · fréquence de rafraîchissement non indiquée","https://www.211qc.ca/rapport-statistique"],
+        ["MSSS · Données Québec","Installations, services de première ligne et répertoires sectoriels","Variable selon le fichier et le registre","https://www.donneesquebec.ca/recherche/dataset/fichiers-cartographiques-m02-des-installations-et-etablissements"],
+        ["Ville de Montréal","Limites administratives, lieux publics, équipements et logement","Variable selon le jeu de données","https://donnees.montreal.ca/"],
+        ["OpenStreetMap","Réseau piéton, itinéraires et points d’intérêt","Mise à jour continue · extraction datée","https://www.openstreetmap.org/"],
+        ["STM","Arrêts, lignes et horaires planifiés au format GTFS","Trimestrielle · fichier d’octobre 2026","https://www.donneesquebec.ca/recherche/dataset/vmtl-stm-horaires-planifies-et-trajets-des-bus-et-du-metro"],
+        ["INSPQ","Indice de défavorisation matérielle et sociale","Quinquennale · version du recensement 2021","https://www.donneesquebec.ca/recherche/dataset/indice-de-defavorisation-du-quebec-2021"]
+      ];
+      const bloc = D.createElement("section");
+      bloc.className = "precision-protocole";
+      bloc.setAttribute("aria-label","O2 : sources de données, périodicité et accès");
+      bloc.innerHTML =
+        '<p class="precision-kicker">Objectif 2 · Traçabilité des données</p>' +
+        '<p class="precision-titre">Banques mobilisées, rythme de publication et liens d’accès</p>' +
+        '<p class="precision-intro">Le mapping spatial croise des sources de natures différentes : populations et facteurs de besoins, découpages territoriaux, offre de services, demandes adressées au 211 et réseau de déplacements. Les principaux producteurs et le rythme de publication de chaque famille de données sont détaillés ci-dessous.</p>' +
+        '<div class="precision-reperes"><span>55 fichiers documentés</span><span>10 familles de sources</span><span>Millésimes distincts</span></div>' +
+        '<div class="precision-table-scroll" role="region" tabindex="0" aria-label="Tableau défilant des banques de données O2"><table class="precision-table"><thead><tr><th scope="col">Producteur</th><th scope="col">Données utilisées</th><th scope="col">Publication / actualisation</th><th scope="col">Accès</th></tr></thead><tbody>' +
+        sources.map(function(s){return '<tr><th scope="row">'+s[0]+'</th><td>'+s[1]+'</td><td>'+s[2]+'</td><td><a href="'+s[3]+'" target="_blank" rel="noopener noreferrer" aria-label="Accéder à la source '+s[0]+'">Source ↗</a></td></tr>';}).join("") +
+        '</tbody></table></div>' +
+        '<p class="precision-note">Une fréquence de publication ne correspond pas à la date d’extraction dans le projet. Lorsque les fichiers sont actualisés de façon variable, la date propre à chaque jeu est vérifiée et conservée. Les agrégats du 211 ne sont pas assimilés à des parcours individuels du SAD.</p>' +
+        '<a class="precision-inventaire" href="docs/sources-mapping-o2.csv" target="_blank" rel="noopener noreferrer">Inventaire détaillé et provenance des 55 fichiers ↗</a>';
+      cibleO2.insertAdjacentElement("afterend",bloc);
+    }
+    if (cibleO3 && !cibleO3.parentElement.querySelector(".precision-protocole")) {
+      const bloc = D.createElement("section");
+      bloc.className = "precision-protocole";
+      bloc.setAttribute("aria-label","O3 : questionnaire et fenêtre de référence");
+      bloc.innerHTML =
+        '<p class="precision-kicker">Objectif 3 · Paramètres explicites du questionnaire</p>' +
+        '<p class="precision-titre">Réponse attendue, période de rappel et profils d’O1</p>' +
+        '<p class="precision-intro">Le réseau est étudié depuis chaque équipe de soutien à domicile (SAD), puis auprès des organisations qu’elle nomme. Les vignettes issues des profils de besoins sociaux concomitants identifiés en O1 donnent un cadre commun aux questions sur les interactions intersectorielles effectivement entretenues.</p>' +
+        '<div class="precision-cartes">' +
+        '<div class="precision-carte"><span class="precision-chiffre">≥ 80 %</span><strong>Taux de réponse visé</strong><p>Au moins 80 % de retour aux questionnaires adressés aux répondants sollicités, avec un suivi distinct par territoire et catégorie d’acteur. Cible méthodologique, non résultat acquis.</p></div>' +
+        '<div class="precision-carte"><span class="precision-chiffre">12 mois</span><strong>Fenêtre rétrospective</strong><p>Chaque questionnaire porte sur les orientations, échanges, coopérations et coordinations réalisés durant les 12 mois précédant la réponse, et non sur des liens théoriques.</p></div>' +
+        '<div class="precision-carte"><span class="precision-chiffre">O1 → O3</span><strong>Besoins et profils</strong><p>Les vignettes issues d’O1 servent à identifier les partenaires sollicités en réponse aux combinaisons de besoins, la fréquence des liens et leur niveau de collaboration.</p></div></div>' +
+        '<p class="precision-parcours"><strong>O1</strong> Profils et vignettes → <strong>O3</strong> Questionnaires SAD et partenaires, interactions des 12 derniers mois → réseaux par profil et CLSC → comparaison à l’atlas <strong>O2</strong> et entretiens explicatifs.</p>' +
+        '<p class="precision-note">Pour chaque relation : acteur cité, secteur, nature, fréquence et niveau de collaboration (1 à 4). Les non-réponses sont distinguées des absences de liens déclarées.</p>';
+      cibleO3.insertAdjacentElement("afterend",bloc);
+    }
+  }
+  completerMethodologieO2O3();
+
   $$("section.section[data-salle] > .section-contenu").forEach(transformer);
   // Charge les sept contenus existants uniquement pour la fusion du chapitre Implantation.
   if(langue==="fr"){
