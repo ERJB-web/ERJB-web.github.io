@@ -377,7 +377,7 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 }
 
 
-/* Navigation des salles — cartes compactes (dimensions réduites de 15 %).
+/* Navigation des salles — cartes affinées (tailles réduites, largeur conservée).
    Identité de la Chaire conservée ; affichage intégral des six rubriques
    sur grand écran, 3 x 2 sur écran moyen, défilement tactile sur mobile. */
 .salle .salle-barre.gab-barre{
@@ -387,9 +387,9 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 .salle .gab-barre .salle-onglets:not([hidden]){
   display:grid!important;
   grid-template-columns:repeat(6,minmax(0,1fr));
-  gap:10.2px;
-  margin:13.6px 0 1.7px;
-  padding:3.4px 1.7px 5.95px;
+  gap:13px;
+  margin:9px 0 1px;
+  padding:2px 5px 4px;
   max-height:280px;
   overflow-x:visible;
   overflow-y:visible;
@@ -400,19 +400,20 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 .salle .gab-barre .salle-onglets > :last-child{margin-inline:0}
 .salle .gab-barre .salle-onglets .onglet-salle{
   position:relative;
-  width:100%!important;
+  width:95%!important;
+  justify-self:center;
   min-width:0!important;
   max-width:none!important;
-  min-height:79.9px!important;
+  min-height:69.5px!important;
   justify-content:flex-start;
-  gap:11.05px;
-  padding:10.2px 11.05px!important;
+  gap:9.5px;
+  padding:8px 10px!important;
   border:1px solid #dce6e9!important;
-  border-radius:15.3px!important;
+  border-radius:14px!important;
   background:linear-gradient(145deg,#fff 25%,#f5f9f9 100%);
   box-shadow:0 4px 13px rgba(13,42,58,.045);
   color:#244958;
-  font-size:clamp(13.6px,.8755vw,15.3px);
+  font-size:clamp(13.4px,.82vw,14.7px);
   font-weight:700;
   line-height:1.23;
   text-align:start;
@@ -437,10 +438,10 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   color:#fff;
 }
 .salle .gab-barre .gab-onglet-photo{
-  width:45.9px;
-  height:45.9px;
-  border-radius:11.05px;
-  flex:0 0 45.9px;
+  width:40px;
+  height:40px;
+  border-radius:10.5px;
+  flex:0 0 40px;
   opacity:1;
   border:1px solid rgba(13,42,58,.12);
   box-shadow:0 2px 7px rgba(13,42,58,.14);
@@ -467,7 +468,7 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 }
 @media(max-width:1499px){
   .salle .gab-barre .salle-onglets:not([hidden]){grid-template-columns:repeat(3,minmax(0,1fr));gap:8.5px;max-height:290px}
-  .salle .gab-barre .salle-onglets .onglet-salle{min-height:68px!important}
+  .salle .gab-barre .salle-onglets .onglet-salle{width:100%!important;min-height:65px!important}
 }
 @media(max-width:900px){
   .salle .gab-barre .salle-onglets:not([hidden]){
@@ -559,8 +560,8 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 }
 .salle .gab-barre .gab-onglet-photo svg{
   display:block;
-  width:24.65px;
-  height:24.65px;
+  width:23px;
+  height:23px;
   flex:none;
 }
 .salle .gab-barre .onglet-salle.actif .gab-onglet-photo{
