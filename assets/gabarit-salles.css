@@ -1714,3 +1714,185 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   flex:1;
   min-width:0;
 }
+
+
+/* Navigation éditoriale 2026-10-18 : cartes de parcours accessibles.
+   Gabarit partagé par toutes les catégories, salles et chapitres. */
+.gab-bas-chapitre{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+  align-items:stretch;
+  gap:clamp(10px,1.6vw,22px);
+  margin-top:clamp(38px,5vw,72px);
+  padding:clamp(14px,2vw,24px);
+  border:1px solid #dce8ec;
+  border-radius:24px;
+  background:linear-gradient(145deg,#f6fafb 0%,#fff 52%,#f4f8fb 100%);
+  box-shadow:0 15px 40px -34px rgba(13,42,58,.35);
+}
+.gab-bas-chapitre .gab-bas-lien{
+  position:relative;
+  display:flex;
+  flex:1 1 auto;
+  min-width:0;
+  max-width:none;
+  min-height:88px;
+  align-items:center;
+  justify-content:flex-start;
+  gap:18px;
+  overflow:hidden;
+  padding:17px clamp(14px,1.8vw,24px);
+  border:1px solid #d9e6eb;
+  border-radius:17px;
+  color:#14394e;
+  background:#fff;
+  box-shadow:0 5px 15px -12px rgba(13,42,58,.24);
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease,background .2s ease;
+  text-align:start;
+}
+.gab-bas-chapitre .gab-bas-lien::before{
+  content:"";position:absolute;inset-block:0;inset-inline-start:0;
+  width:5px;background:var(--gab-nav-accent,var(--gab-bleu));
+}
+.gab-bas-chapitre .gab-bas-suivant{
+  justify-content:space-between;
+  background:var(--gab-nav-accent,var(--gab-bleu));
+  border-color:transparent;
+  color:#fff;
+  text-align:start;
+}
+.gab-bas-chapitre .gab-bas-suivant::before{background:rgba(255,255,255,.42)}
+.gab-bas-chapitre .gab-bas-lien:hover:not(:disabled){
+  transform:translateY(-3px);
+  box-shadow:0 15px 28px -20px rgba(13,42,58,.52);
+}
+.gab-bas-chapitre .gab-bas-precedent:hover:not(:disabled){
+  border-color:var(--gab-nav-accent,var(--gab-bleu));
+  background:#f8fbfd;
+}
+.gab-bas-chapitre .gab-bas-suivant:hover:not(:disabled){
+  background:var(--gab-nav-accent,var(--gab-bleu));
+  filter:brightness(.94);
+  color:#fff;
+}
+.gab-bas-chapitre .gab-bas-libelle{flex:1;min-width:0;gap:5px}
+.gab-bas-chapitre .gab-bas-libelle small{
+  display:block;font-size:11px;font-weight:750;line-height:1.35;
+  letter-spacing:.075em;text-transform:uppercase;opacity:.78;
+}
+.gab-bas-chapitre .gab-bas-libelle strong{
+  display:block;font-size:clamp(14px,1.18vw,17px);
+  font-weight:750;line-height:1.38;overflow-wrap:normal;word-break:normal;hyphens:none;
+}
+.gab-bas-chapitre .gab-bas-chevron{
+  display:grid;place-items:center;flex:none;
+  width:36px;height:36px;border-radius:50%;
+  background:#edf5f8;color:var(--gab-marine);
+  font-size:27px;font-weight:400;line-height:1;
+}
+.gab-bas-chapitre .gab-bas-suivant .gab-bas-chevron{
+  background:rgba(255,255,255,.17);color:#fff;
+}
+.gab-bas-chapitre .gab-bas-sommaire{
+  align-self:center;display:inline-flex;flex:0 0 auto;
+  align-items:center;justify-content:center;gap:10px;
+  min-height:54px;padding:10px 15px;
+  border:1px solid #d3e2e8;border-radius:15px;
+  background:#fff;color:var(--gab-marine);
+  box-shadow:0 4px 15px -14px rgba(13,42,58,.3);
+  font-size:13px;font-weight:750;
+  white-space:nowrap;
+}
+.gab-bas-chapitre .gab-bas-sommaire:hover:not(:disabled){
+  background:#eaf4f8;border-color:#89c4d9;
+}
+.gab-sommaire-icone{font-size:20px;font-weight:400;line-height:1}
+.gab-sommaire-compteur{
+  padding:4px 7px;border-radius:7px;background:#e9f1f5;
+  color:#436477;font-size:11px;font-weight:750;letter-spacing:.03em;
+  font-variant-numeric:tabular-nums;
+}
+.gab-bas-chapitre .gab-bas-lien:disabled,
+.gab-lecture .gab-fleche:disabled{
+  opacity:1!important;cursor:default;pointer-events:none;
+  background:#f3f6f8;border-color:#e1e8ec;color:#70838f;
+  box-shadow:none;
+}
+.gab-bas-chapitre .gab-bas-lien:disabled::before{background:#cfdce2}
+.gab-bas-chapitre .gab-bas-lien:disabled .gab-bas-chevron{
+  background:#e8edef;color:#81929b;
+}
+.gab-bas-chapitre :is(.gab-bas-lien,.gab-bas-sommaire):focus-visible,
+.gab-lecture :is(.gab-fleche,.gab-tous):focus-visible{
+  outline:3px solid #1887bd;outline-offset:3px;
+}
+/* Les flèches de la barre supérieure annoncent les mêmes destinations. */
+.gab-lecture .gab-fleche-precedente,
+.gab-lecture .gab-fleche-suivante{
+  gap:10px;min-height:56px;height:auto;
+  padding:8px 12px;max-width:clamp(175px,21vw,270px);
+  border:1px solid #d2e2e7;border-radius:14px;
+  background:#fff;box-shadow:0 4px 14px -12px rgba(13,42,58,.25);
+  text-align:start;
+}
+.gab-lecture .gab-fleche-suivante{
+  color:#fff;background:var(--gab-nav-accent,var(--gab-bleu));border-color:transparent;
+}
+.gab-lecture .gab-fleche-suivante:hover:not(:disabled){
+  color:#fff;background:var(--gab-nav-accent,var(--gab-bleu));filter:brightness(.94);
+}
+.gab-lecture .gab-fleche-libelle{gap:4px;min-width:0}
+.gab-lecture .gab-fleche-texte{
+  font-size:11px;letter-spacing:.055em;text-transform:uppercase;font-weight:750;opacity:.83;
+}
+.gab-lecture .gab-fleche-cible{
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;
+  max-height:2.8em;min-height:1.2em;overflow:hidden;
+  white-space:normal;text-overflow:clip;
+  font-size:12.5px;font-weight:750;line-height:1.35;opacity:1;
+  overflow-wrap:normal;word-break:normal;hyphens:none;
+}
+.gab-lecture .gab-fleche-suivante .gab-fleche-icone{
+  color:#fff;background:rgba(255,255,255,.17);
+}
+.gab-lecture .gab-fleche-icone{
+  display:grid;place-items:center;flex:none;
+  width:27px;height:27px;border-radius:50%;
+  background:#ecf3f6;color:var(--gab-marine);font-size:23px;
+}
+.gab-lecture .gab-tous{
+  gap:8px;border:1px solid #d7e5ea;background:#fff;
+  padding:10px 12px;font-size:12px;border-radius:13px;
+}
+.gab-lecture .gab-sommaire-compteur{font-size:10px}
+@media(max-width:870px){
+  .gab-bas-chapitre{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;padding:12px;
+  }
+  .gab-bas-chapitre .gab-bas-lien{
+    min-height:95px;padding:12px;gap:9px;
+  }
+  .gab-bas-chapitre .gab-bas-libelle strong{font-size:13px}
+  .gab-bas-chapitre .gab-bas-chevron{width:28px;height:28px;font-size:23px}
+  .gab-bas-chapitre .gab-bas-sommaire{
+    grid-column:1/-1;grid-row:2;justify-self:stretch;
+    width:100%;min-height:46px;
+  }
+  .gab-lecture .gab-fleche-precedente,
+  .gab-lecture .gab-fleche-suivante{max-width:none;min-width:0}
+  .gab-lecture .gab-sommaire-compteur{display:none}
+}
+@media(max-width:480px){
+  .gab-bas-chapitre .gab-bas-lien{min-height:112px;align-items:flex-start}
+  .gab-bas-chapitre .gab-bas-precedent{flex-direction:column;gap:8px}
+  .gab-bas-chapitre .gab-bas-suivant{flex-direction:column-reverse;align-items:flex-start;gap:8px}
+  .gab-bas-chapitre .gab-bas-chevron{width:27px;height:27px}
+  .gab-bas-chapitre .gab-bas-libelle strong{font-size:12.5px;line-height:1.32}
+  .gab-lecture .gab-fleche-cible{font-size:11px}
+  .gab-lecture .gab-fleche-texte{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){
+  .gab-bas-chapitre .gab-bas-lien{transition:none}
+  .gab-bas-chapitre .gab-bas-lien:hover:not(:disabled){transform:none}
+}
