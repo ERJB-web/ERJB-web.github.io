@@ -539,79 +539,63 @@
     sc.classList.add("gab");
   }
 
-  // Ma thèse : supprimer uniquement les copies du MEME fichier image.
-  // Ne jamais supprimer une figure contenant une légende, un titre ou une
-  // explication, car son commentaire peut être différent et pertinent.
+  // Ma thèse : retirer seulement les éléments <img> qui affichent
+  // EXACTEMENT la même ressource, sans toucher au reste du contenu.
+  // Deux fichiers, variantes d'image ou URLs distincts sont conservés.
   function retirerImagesRepeteesThese(zone) {
     if (langue !== "fr" || !zone) return;
-    const parSource = new Map();
+    const parImage = new Map();
+
     $$("img[src]", zone).forEach((img) => {
+      const src = img.getAttribute("src");
+      if (!src) return;
+      let url;
       try {
-        const url = new URL(img.getAttribute("src"), D.baseURI);
-        // La clé inclut aussi les éventuelles variantes responsive (<picture>).
-        const variantes = [
-          img.getAttribute("srcset") || "",
-          ...(img.closest("picture") ? $$("source[srcset]", img.closest("picture")).map((s) => s.getAttribute("srcset")) : [])
-        ].join("|");
-        const source = url.origin + url.pathname + "|" + variantes;
-        if (!parSource.has(source)) parSource.set(source, []);
-        parSource.get(source).push(img);
-      } catch { /* URL impossible à résoudre : on ne touche pas à l'image. */ }
+        url = new URL(src, D.baseURI).href;
+      } catch {
+        return;
+      }
+      // Une variante srcset / picture constitue une représentation différente.
+      const picture = img.closest("picture");
+      const variantes = [
+        img.getAttribute("srcset") || "",
+        picture ? $$("source", picture).map((x) =>
+          [x.getAttribute("srcset") || "", x.getAttribute("media") || "",
+           x.getAttribute("type") || ""].join(":")
+        ).join("|") : ""
+      ].join("|");
+      const identite = JSON.stringify([url, variantes]);
+      if (!parImage.has(identite)) parImage.set(identite, []);
+      parImage.get(identite).push(img);
     });
 
+    // Préserver la copie la plus utile dans le déroulé scientifique.
     const pertinence = (img) => {
-      const chemin = img.getAttribute("src") || "";
-      if (img.closest(".gab-photo")) return -100; // illustration d'en-tête
-      if (img.closest(".atlas-these-figure")) return -50; // catalogue de cartes
-      const chap = img.closest(".gab-chapitre");
-      if (!chap) return 15;
-      const rubrique = chap.dataset.rubrique || "";
-      // Les cartes d'écarts et de priorisation servent directement aux retombées.
-      if (/carte-(?:06|09)-|diapo-15\.webp/.test(chemin) && rubrique === "retombees") return 45;
-      if (rubrique === "methodes") return 35;
-      if (rubrique === "objectifs") return 30;
-      if (rubrique === "resultats" || rubrique === "retombees") return 25;
-      if (rubrique === "contexte") return 20;
-      return 10;
+      if (img.closest(".gab-photo")) return -100;
+      if (img.closest(".atlas-these-figure")) return -50;
+      const chapitre = img.closest(".gab-chapitre");
+      if (!chapitre) return 15; // Logos dans l'introduction, notamment.
+      const rubrique = chapitre.dataset.rubrique;
+      if (rubrique === "methodes") return 40;
+      if (rubrique === "objectifs") return 35;
+      if (rubrique === "contexte") return 30;
+      if (rubrique === "retombees") return 25;
+      return 20;
     };
 
-    parSource.forEach((images) => {
+    parImage.forEach((images) => {
       if (images.length < 2) return;
-      const originale = images.reduce((a, b) => pertinence(b) > pertinence(a) ? b : a);
+      const garder = images.reduce((a, b) =>
+        pertinence(b) > pertinence(a) ? b : a
+      );
       images.forEach((img) => {
-        if (img === originale || !img.isConnected) return;
-        // L'en-tête n'apporte pas de commentaire scientifique propre.
-        const photo = img.closest(".gab-photo");
-        if (photo) { photo.remove(); return; }
-
-        const figure = img.closest("figure");
-        // Figure purement décorative : aucun texte, aucune légende à perdre.
-        if (figure?.matches(".logos-recherche") && $$("img", figure).length === 1 && !net(figure.textContent)) {
-          figure.remove();
-          return;
-        }
-
-        // Pour toute autre figure, conserver intégralement son titre, son
-        // commentaire, ses citations et sa légende. Seul le bitmap est retiré.
-        if (figure) figure.classList.add("these-illustration-rappel");
-        const lien = img.closest("a");
-        const simpleLienImage = lien && $$("img", lien).length === 1 &&
-          !net(lien.textContent) && !lien.querySelector("video, picture source");
-        if (simpleLienImage && figure?.querySelector("figcaption a[href]")) {
-          // Une liaison vers l'image HD est déjà proposée dans sa légende.
-          lien.remove();
-        } else if (simpleLienImage) {
-          lien.textContent = "Consulter l’illustration en pleine taille ↗";
-          lien.classList.add("these-illustration-renvoi");
-          lien.setAttribute("aria-label", "Consulter l’illustration identique en pleine taille");
-        } else if (figure && !figure.querySelector("a[href]")) {
-          const renvoi = D.createElement("a");
-          renvoi.href = img.currentSrc || img.src;
-          renvoi.target = "_blank";
-          renvoi.rel = "noopener noreferrer";
-          renvoi.className = "these-illustration-renvoi";
-          renvoi.textContent = "Consulter l’illustration en pleine taille ↗";
-          img.replaceWith(renvoi);
+        if (img === garder || !img.isConnected) return;
+        // Ne retirer aucun titre, paragraphe, légende, figure,
+        // lien, schéma différent, ni même un texte dans la figure.
+        // Seul le rendu de l'image strictement identique est supprimé.
+        const picture = img.closest("picture");
+        if (picture && $$("img", picture).length === 1) {
+          picture.remove();
         } else {
           img.remove();
         }
