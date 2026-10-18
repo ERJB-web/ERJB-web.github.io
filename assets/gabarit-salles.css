@@ -500,3 +500,22 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 @media(prefers-reduced-motion:reduce){
   .salle .gab-barre .salle-onglets .onglet-salle{transition:none!important}
 }
+
+
+/* Salle « Ma thèse » : conserver les mots entiers à chaque retour à la ligne. */
+/* Le style général du site force la césure automatique. Dans la salle de thèse,
+   le navigateur revient à la ligne uniquement entre les mots, même dans les
+   paragraphes justifiés, listes, légendes, sommaires et cartes des chapitres. */
+.salle-contenu .gab[data-gab-salle="recherche"],
+.salle-contenu .gab[data-gab-salle="recherche"] * {
+  -webkit-hyphens: none !important;
+  hyphens: none !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}
+
+/* Exception technique pour les identifiants et URL sans espace : ils restent
+   contenus dans leur cadre sans réactiver la césure des mots du texte courant. */
+.salle-contenu .gab[data-gab-salle="recherche"] :is(pre, code, .doi, .url) {
+  overflow-wrap: anywhere !important;
+}
