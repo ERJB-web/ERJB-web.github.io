@@ -5404,3 +5404,47 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
     border-radius:12px;
   }
 }
+
+
+/* O2 — lecture scientifique de la carte 04 conservée près du calcul R → QGIS.
+   Une seule carte, en pleine largeur ; commentaire directement sous l'illustration. */
+.these .o2-carte-500m-principale{
+  min-width:0;
+  width:100%;
+  max-width:none;
+}
+.these .o2-carte-500m-principale img{
+  display:block;
+  width:100%!important;
+  max-width:100%!important;
+  height:auto!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center!important;
+}
+.these .o2-lecture-carte-500m{
+  grid-column:1 / -1;
+  min-width:0;
+  width:100%;
+  max-width:none;
+  margin:20px 0 30px;
+  padding:22px 0 0;
+  border-top:1px solid #cbded9;
+  color:var(--body,#354f59);
+}
+.these .o2-lecture-carte-500m h5{
+  margin:0 0 14px;
+  color:var(--ink-deep,#173f52);
+  font:650 clamp(19px,2vw,25px)/1.3 var(--sans, sans-serif);
+  letter-spacing:-.015em;
+}
+.these .o2-lecture-carte-500m p{
+  max-width:98ch;
+  margin:0 0 14px;
+  font:400 16px/1.78 var(--sans, sans-serif);
+  text-wrap:pretty;
+}
+.these .o2-lecture-carte-500m p strong{
+  color:var(--ink-deep,#173f52);
+  font-weight:650;
+}
