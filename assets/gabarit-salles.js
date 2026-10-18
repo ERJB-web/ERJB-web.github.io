@@ -29,6 +29,7 @@
     axes: { sel: "article.axe-carte", titre: "h4" },
     publications: { sel: "section.publication-bloc", titre: ".publication-titre, h3" },
     methodes: { sel: "article.methode", titre: "h4" },
+    vulgarisation: { sel: "article.vul-dossier-chapitre", titre: "h3" },
     outils: { sel: "article.projet", titre: ".projet-tete h3, h3" },
     biographie: { sel: "ol.recit > li", titre: "h3" },
     juriste: VITRINE, gestionnaire: VITRINE, educateur: VITRINE, entrepreneuriat: VITRINE,
@@ -596,6 +597,39 @@
     });
   }
 
+
+  // Vulgarisation : les dix sections du dossier restent visibles dans le
+  // sommaire latéral, sur le modèle coloré des sections de « Ma thèse ».
+  function organiserSommaireVulgarisation(nav, titres) {
+    const liens = Array.from(nav.querySelectorAll(":scope > a[data-gab-intertitre]"));
+    if (liens.length !== 10 || titres.length !== 10) return;
+    const palette = [
+      ["#365772","#76a2bb","#edf4f8","#f8fbfd"],
+      ["#286c23","#5aae38","#ecf7e8","#f5fbf2"],
+      ["#006e72","#11a7a5","#e9f7f6","#f3fbfa"],
+      ["#18559b","#0755ad","#ebf2fd","#f3f7ff"],
+      ["#80532e","#bf8953","#faf2e9","#fdf9f4"]
+    ];
+    nav.classList.add("gab-sommaire-objectifs","gab-sommaire-sections","gab-sommaire-vulgarisation");
+    const etiquette = nav.querySelector(":scope > span");
+    nav.replaceChildren();
+    if (etiquette) nav.append(etiquette);
+    liens.forEach((lien,k) => {
+      const groupe = el("section","gab-sommaire-groupe");
+      const [texte,trait,fond,cible] = palette[k%palette.length];
+      [["--objectif-texte",texte],["--objectif-trait",trait],["--objectif-fond",fond],["--objectif-lien",cible]]
+        .forEach(([nom,valeur])=>groupe.style.setProperty(nom,valeur));
+      groupe.dataset.section = "vulgarisation-" + (k+1);
+      const numero = el("div","gab-sommaire-groupe-titre");
+      numero.append(el("b","",deux(k+1)));
+      numero.append(el("strong","", "Section " + deux(k+1)));
+      const contenu = el("div","gab-sommaire-groupe-liens");
+      contenu.append(lien);
+      groupe.append(numero,contenu);
+      nav.append(groupe);
+    });
+  }
+
   function construireChapitre(ch, i, n, couleur, choix, salle) {
     const section = ch.surPlace ? ch.source : el("section");
     section.classList.add("gab-chapitre");
@@ -654,7 +688,7 @@
       nav.setAttribute("aria-label", T.dans);
       nav.setAttribute("tabindex", "0");
       const theseFr = salle === "recherche" && langue === "fr";
-      const entrees = theseFr ? intertitres : intertitres.slice(0, 8);
+      const entrees = (theseFr || (salle === "vulgarisation" && langue === "fr")) ? intertitres : intertitres.slice(0, 8);
       nav.innerHTML = `<span>${echapper(T.dans)}</span>` + entrees.map((h, k) => {
         let titre = net(h.textContent);
         // Certains h4 placent le chiffre de l'étape dans un élément distinct :
@@ -679,12 +713,14 @@
         organiserSommaireProblematique(nav, entrees, corps);
       } else if (theseFr) {
         organiserSommaireSections(nav, entrees, ch);
+      } else if (salle === "vulgarisation" && langue === "fr") {
+        organiserSommaireVulgarisation(nav, entrees);
       }
       aside.append(nav);
     }
     // Thèse : seul le sommaire migre à gauche ; l'illustration reste
     // dans la colonne de lecture, suffisamment large pour les cartes.
-    if (salle === "recherche" && aside.querySelector(".gab-sommaire-chapitre")) {
+    if ((salle === "recherche" || (salle === "vulgarisation" && langue === "fr")) && aside.querySelector(".gab-sommaire-chapitre")) {
       const photo = aside.querySelector(".gab-photo");
       if (photo) tete.after(photo);
       grille.classList.add("gab-menu-gauche");
@@ -1278,7 +1314,50 @@
 
   noterTitres();
   if (langue === "fr") lierReferencesCadreThese();
-  $$("section.section[data-salle] > .section-contenu").forEach(transformer);
+  // Remplacement circonscrit à la salle de vulgarisation en français.
+  // Les autres salles et autres langues suivent exactement leur rendu habituel.
+  const salleVul = langue === "fr" ? $("section.section[data-salle='vulgarisation'] > .section-contenu") : null;
+  $("section.section[data-salle] > .section-contenu").forEach((sc) => {
+    if (sc !== salleVul) transformer(sc);
+  });
+  if (salleVul) {
+    const url = new URL(CHEMIN + "vulgarisation/dossier-contenu-2026.html",D.baseURI).href;
+    fetch(url).then((rep) => {
+      if (!rep.ok) throw new Error("Document vulgarisation introuvable : " + rep.status);
+      return rep.text();
+    }).then((html) => {
+      if (!html.includes('id="vul-section-10"')) throw new Error("Dossier incomplet");
+      const actuel = $(":scope > .section-corps", salleVul);
+      if (!actuel) throw new Error("Contenu de la salle introuvable");
+      const nouveau = el("div","section-corps pleine vulgarisation");
+      const entete = el("div","colonne-texte",
+        '<h2>Vulgarisation scientifique : état des connaissances, pratiques et innovations</h2>' +
+        '<p class="intro">Dossier de recherche scientifique : rapports réels, graphiques, méthodes, travaux en cours et bonnes pratiques.</p>');
+      const zone = el("div","colonne-outils",html);
+      nouveau.append(entete,zone);
+      actuel.replaceWith(nouveau);
+      transformer(salleVul);
+      activerSalle();
+      salleVul.addEventListener("change",(ev)=>{
+        if (!ev.target.matches("[data-vul-checks] input[type=checkbox]")) return;
+        const g=ev.target.closest("[data-vul-checks]");
+        const n=g.querySelectorAll("input[type=checkbox]:checked").length;
+        g.querySelector("progress").value=n;
+        g.querySelector("[data-vul-progress]").textContent=n+"/10";
+      });
+      salleVul.addEventListener("click",(ev)=>{
+        if (!ev.target.closest("[data-vul-reset]")) return;
+        const g=ev.target.closest("[data-vul-checks]");
+        g.querySelectorAll("input[type=checkbox]").forEach(x=>x.checked=false);
+        g.querySelector("progress").value=0;
+        g.querySelector("[data-vul-progress]").textContent="0/10";
+      });
+    }).catch((err)=>{
+      console.warn("Vulgarisation : maintien du contenu précédent si le nouveau dossier échoue",err);
+      transformer(salleVul);
+      activerSalle();
+    });
+  }
   // Retour arrière, adresse directe et changement de chapitre sans
   // réafficher l'intégralité des chapitres dans la vue publique.
   const synchroniserPageLibre = () => {
