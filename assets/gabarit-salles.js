@@ -806,6 +806,22 @@
           illustration.style.maxHeight = "260px";
           illustration.style.objectFit = "cover";
         }
+      } else if (photo && salle === "recherche" && langue === "fr" && ch.cle === "methodes") {
+        // La carte de proximité illustre l'analyse spatiale O2, pas l'en-tête général.
+        const cible = $("#methode-o2-7 > .capture-methode", corps);
+        if (cible) {
+          cible.after(photo);
+          photo.style.width = "100%";
+          photo.style.margin = "16px 0 26px";
+          const carte = $("img", photo);
+          if (carte) {
+            carte.style.width = "100%";
+            carte.style.height = "auto";
+            carte.style.maxHeight = "none";
+            carte.style.aspectRatio = "auto";
+            carte.style.objectFit = "contain";
+          }
+        } else tete.after(photo);
       } else if (photo) tete.after(photo);
       grille.classList.add("gab-menu-gauche");
     }
