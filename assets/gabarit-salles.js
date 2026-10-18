@@ -688,6 +688,12 @@
     sc.dataset.gabSalle = salle;
     sc.dataset.gabChapitres = n;
     sc.classList.add("gab");
+    // La page publique (hors salle immersive) doit elle aussi montrer
+    // un seul chapitre dès l'ouverture : le chapitre demandé ou le premier.
+    if (n && !sc.closest("#salle")) {
+      const index = chapitreDansAdresse(sc, chapitresDe(sc));
+      ouvrirPageChapitre(sc, index >= 0 ? index : 0);
+    }
   }
 
   // Ma thèse : retirer seulement les éléments <img> qui affichent
@@ -809,14 +815,19 @@
       salle.classList.toggle("gab-page-chapitre", ouverte);
       salle.classList.toggle("gab-lit", ouverte);
     }
-    if (options.adresse && zone === $(".gab", contenu)) {
+    const dansSalle = !!(contenu && contenu.contains(zone));
+    const dansPageLibre = !dansSalle && !!zone.closest("section.section[data-salle]") && racine.classList.contains("libre");
+    if (options.adresse && (dansSalle || dansPageLibre)) {
       const fragment = "#" + zone.dataset.gabSalle + (ouverte ? "/" + liste[cible].dataset.gabSlug : "");
       if (location.hash !== fragment) {
         try { history.pushState(null, "", location.pathname + location.search + fragment); }
         catch { location.hash = fragment; }
       }
     }
-    if (options.haut && salle) salle.scrollTo({ top: 0, behavior: "instant" });
+    if (options.haut && dansSalle && salle) salle.scrollTo({ top: 0, behavior: "instant" });
+    else if (options.haut && dansPageLibre) {
+      ($(".gab-chapitres", zone) || zone).scrollIntoView({ block: "start", behavior: "instant" });
+    }
   }
 
   D.addEventListener("click", (ev) => {
@@ -944,9 +955,10 @@
       $(".gab-segments", lecture).innerHTML = liste.map((c, k) => `<button type="button" style="--gab-c:${c.style.getPropertyValue("--gab-c")}" data-gab-segment="${k}" aria-label="${echapper(T.aller(net($(".gab-chapitre-titre", c)?.textContent)))}"></button>`).join("");
       $$(".gab-segments button", lecture).forEach((b) => b.addEventListener("click", () => ouvrirPageChapitre(zone, +b.dataset.gabSegment, { adresse: true, haut: true })));
     }
-    // L'adresse désigne une seule page. Sans chapitre dans l'URL,
-    // on affiche uniquement le sommaire et ses tuiles.
-    ouvrirPageChapitre(zone, chapitreDansAdresse(zone, liste));
+    // La salle présente une page de chapitre à la fois. Sans fragment
+    // précis, commencer par le premier chapitre, les autres restant masqués.
+    const indexAdresse = chapitreDansAdresse(zone, liste);
+    ouvrirPageChapitre(zone, indexAdresse >= 0 ? indexAdresse : 0);
     requestAnimationFrame(suivreDefilement);
   }
 
@@ -1010,7 +1022,21 @@
 
   noterTitres();
   if (langue === "fr") lierReferencesCadreThese();
-  $$("section.section[data-salle] > .section-contenu").forEach(transformer);
+  $("section.section[data-salle] > .section-contenu").forEach(transformer);
+  // Retour arrière, adresse directe et changement de chapitre sans
+  // réafficher l'intégralité des chapitres dans la vue publique.
+  const synchroniserPageLibre = () => {
+    if (!racine.classList.contains("libre")) return;
+    const destination = location.hash.slice(1).split("/")[0];
+    const section = Array.from(D.querySelectorAll("section.section[data-salle]"))
+      .find((element) => element.dataset.salle === destination);
+    const zone = section && $(".section-contenu.gab", section);
+    if (!zone) return;
+    const index = chapitreDansAdresse(zone, chapitresDe(zone));
+    ouvrirPageChapitre(zone, index >= 0 ? index : 0);
+  };
+  addEventListener("hashchange", synchroniserPageLibre);
+  addEventListener("popstate", synchroniserPageLibre);
   // Les figures de l'atlas peuvent être ajoutées après la transformation.
   if (langue === "fr") $$(".these").forEach((zone) => {
     retirerImagesRepeteesThese(zone);
