@@ -727,13 +727,26 @@ html:is(.hc,.lv) .these-entete .these-question-principale{
 <figure><a href="assets/these/diapos/diapo-06.webp" target="_blank" rel="noopener" aria-label="Diapositive : le CLSC renouvelé, unité de référence de la réponse intersectorielle, avec le schéma des partenaires du territoire de CLSC · Ouvrir en grand"><img src="assets/these/diapos/diapo-06.webp" alt="Diapositive : le CLSC renouvelé, unité de référence de la réponse intersectorielle, avec le schéma des partenaires du territoire de CLSC" loading="lazy" decoding="async"></a><figcaption>Le schéma des partenaires du territoire de CLSC et les quatre rôles du CLSC. <span class="m-source">Schéma : (MSSS, 2026a).</span></figcaption></figure>
 </div>
 
-<div class="m-secteurs" aria-label="Les six secteurs étudiés et les types de ressources inventoriés">
-<div class="m-secteur"><b>1 · Réseau public</b>CLSC, hôpitaux, CHSLD, points de services locaux</div>
-<div class="m-secteur"><b>2 · Première ligne</b>GMF, cliniques médicales et IPS, pharmacies, cliniques dentaires, réadaptation, aides techniques</div>
-<div class="m-secteur"><b>3 · Parapublic</b>postes de police (SPVM), casernes et premiers répondants, ambulances, bureaux de poste</div>
-<div class="m-secteur"><b>4 · Communauté</b>organismes du 211, aide alimentaire et épiceries, lieux de culte, CPE, jardins communautaires</div>
-<div class="m-secteur"><b>5 · Municipalité</b>bibliothèques et centres, installations sportives, Accès Montréal, écoles, arrêts et feux pour piétons</div>
-<div class="m-secteur"><b>6 · Habitation</b>RPA, HLM pour aînés, OBNL et coopératives d’habitation</div>
+<style id="o2-six-secteurs-harmonises">
+/* Mise en forme limitée aux six cartes de secteurs O2. */
+#o2-six-secteurs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;align-items:stretch;margin:16px 0 12px}
+#o2-six-secteurs>.m-secteur{min-width:0;padding:0;overflow:hidden;border:1px solid var(--m-trait);border-radius:14px;background:#fff;box-shadow:0 5px 17px rgba(20,63,82,.055)}
+#o2-six-secteurs>.m-secteur>b{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px;min-height:81px;box-sizing:border-box;margin:0;padding:12px 13px;border-radius:0;background:var(--m-bleu);color:#fff;line-height:1.32}
+#o2-six-secteurs>.m-secteur:nth-child(even)>b{background:var(--m-vert)}
+#o2-six-secteurs .m-secteur-numero{display:block;font-weight:800;line-height:1;opacity:.9}
+#o2-six-secteurs .m-secteur-titre{display:block;font-weight:750;line-height:1.3;overflow-wrap:normal}
+#o2-six-secteurs>.m-secteur>p{margin:0!important;padding:13px 13px 17px;text-align:justify!important;text-align-last:start;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word;line-height:1.65}
+@media(max-width:1050px){#o2-six-secteurs{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:680px){#o2-six-secteurs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:430px){#o2-six-secteurs{grid-template-columns:minmax(0,1fr)}}
+</style>
+<div class="m-secteurs" id="o2-six-secteurs" aria-label="Les six secteurs étudiés et les types de ressources inventoriés">
+<div class="m-secteur"><b><span class="m-secteur-numero">1 ·</span><span class="m-secteur-titre">Réseau public</span></b><p>CLSC, hôpitaux, CHSLD, points de services locaux</p></div>
+<div class="m-secteur"><b><span class="m-secteur-numero">2 ·</span><span class="m-secteur-titre">Première ligne</span></b><p>GMF, cliniques médicales et IPS, pharmacies, cliniques dentaires, réadaptation, aides techniques</p></div>
+<div class="m-secteur"><b><span class="m-secteur-numero">3 ·</span><span class="m-secteur-titre">Parapublic</span></b><p>postes de police (SPVM), casernes et premiers répondants, ambulances, bureaux de poste</p></div>
+<div class="m-secteur"><b><span class="m-secteur-numero">4 ·</span><span class="m-secteur-titre">Communauté</span></b><p>organismes du 211, aide alimentaire et épiceries, lieux de culte, CPE, jardins communautaires</p></div>
+<div class="m-secteur"><b><span class="m-secteur-numero">5 ·</span><span class="m-secteur-titre">Municipalité</span></b><p>bibliothèques et centres, installations sportives, Accès Montréal, écoles, arrêts et feux pour piétons</p></div>
+<div class="m-secteur"><b><span class="m-secteur-numero">6 ·</span><span class="m-secteur-titre">Habitation</span></b><p>RPA, HLM pour aînés, OBNL et coopératives d’habitation</p></div>
 </div>
 <p class="m-source">Types de ressources rangés par secteur dans le paramétrage du projet (35 types). Le rattachement à un secteur suit une règle écrite, pas la source.</p>
 <div class="m-pourquoi m-v">
