@@ -349,7 +349,8 @@
       const brut = net(h.textContent).replace(/^([1-9])(?=[A-ZÀ-ÖØ-ÞŒ])/u, "");
       const t = normaliser(brut);
       const marqueur = /^(?:o\s*([123])|objectif\s*([123]))\b/.exec(t);
-      let code = marqueur ? "O" + (marqueur[1] || marqueur[2]) : "";
+      const panneau = h.closest(".these-objectif-vue[data-vue-objectif]")?.dataset.vueObjectif || "";
+      let code = /^O[123]$/.test(panneau) ? panneau : (marqueur ? "O" + (marqueur[1] || marqueur[2]) : "");
       // Le titre est prioritaire sur le contexte DOM, notamment pour les
       // outils O1 qui figurent après une carte de présentation O2.
       if (!code && /revue de portee|profils? de besoins|outils? de recherche|recherche documentaire|recherche bibliographique|criteres? d inclusion|criteres? d exclusion|criteres? de selection|strategie de recherche|codebook|covidence|criblage|bibliothecair|selection des etudes|extraction des etudes/.test(t)) code = "O1";
@@ -562,8 +563,14 @@
       aside.innerHTML = `<div class="gab-photo"><img src="${echapper(choix.url)}" alt="${echapper(alt)}" loading="lazy" decoding="async" width="960" height="640">${credit ? `<small class="gab-credit">${choix.image.source_url ? `<a href="${echapper(choix.image.source_url)}" target="_blank" rel="noopener">${credit}</a>` : credit}</small>` : ""}</div>`;
     }
     // Ma thèse : le sommaire repère les parties h3 et h4 d'un chapitre.
-    const intertitres = $$(salle === "recherche" ? "h3, h4, h5.titre-bloc" : "h4", corps)
-      .filter((h) => !h.closest("details:not([open]), [hidden], .gab-source.carte-vitrine"))
+    const methodeThese = salle === "recherche" && langue === "fr" &&
+      (ch.cle === "methodes" || ch.cle === "methode" || /m[ée]thod/i.test(ch.titre));
+    const intertitres = Array.from(corps.querySelectorAll(salle === "recherche" ? "h3, h4, h5.titre-bloc" : "h4"))
+      .filter((h) => {
+        if (h.closest("details:not([open]), .gab-source.carte-vitrine")) return false;
+        const invisible = h.closest("[hidden]");
+        return !invisible || (methodeThese && invisible.matches(".these-objectif-vue[data-vue-objectif]"));
+      })
       .filter((h) => salle !== "recherche" || (
         !h.closest(".gab-sommaire-chapitre, .gab-bas-chapitre, .gab-chapitre-tete") &&
         (net(h.textContent) !== net(ch.titre) || h.tagName !== "H3")
@@ -1008,7 +1015,13 @@
         ? $$("[id]", chapitre).find((x) => x.id === inter.dataset.gabCible)
         : $$("h4", $(".gab-corps", chapitre)).filter((x) => !x.closest("details:not([open]), [hidden], .gab-source.carte-vitrine"))[+inter.dataset.gabIntertitre];
       if (cible) {
-        $$("details", chapitre).filter((d) => d.contains(cible)).forEach((d) => { d.open = true; });
+        const vue = cible.closest(".these-objectif-vue[data-vue-objectif]");
+        if (vue?.hidden) {
+          const code = vue.dataset.vueObjectif;
+          const selection = chapitre.querySelector('.these-methode-parcours[data-objectifs-isoles="oui"] a[data-objectif="' + code + '"]');
+          if (selection) selection.click();
+        }
+        Array.from(chapitre.querySelectorAll("details")).filter((d) => d.contains(cible)).forEach((d) => { d.open = true; });
         defiler(cible);
       }
       return;
