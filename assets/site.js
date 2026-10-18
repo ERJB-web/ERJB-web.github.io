@@ -1272,7 +1272,7 @@
   if (document.querySelector('script[data-o3-reseaux]')) return;
   const script = document.createElement('script');
   script.dataset.o3Reseaux = '1';
-  script.src = (document.documentElement.dataset.racine || './') + 'assets/o3-reseaux.js?v=20261017';
+  script.src = (document.documentElement.dataset.racine || './') + 'assets/o3-reseaux.js?v=20261018-objectifs-ordonnes';
   script.defer = true;
   document.head.appendChild(script);
 })();
