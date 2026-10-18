@@ -736,16 +736,16 @@
     // Ma thèse : le sommaire repère les parties h3 et h4 d'un chapitre.
     const methodeThese = salle === "recherche" && langue === "fr" &&
       (ch.cle === "methodes" || ch.cle === "methode" || /m[ée]thod/i.test(ch.titre));
-    const intertitres = Array.from(corps.querySelectorAll(salle === "recherche" ? "h3, h4, h5.titre-bloc" : "h4"))
+    const intertitres = Array.from(corps.querySelectorAll("h3, h4, h5.titre-bloc"))
       .filter((h) => {
         if (h.closest("details:not([open]), .gab-source.carte-vitrine")) return false;
         const invisible = h.closest("[hidden]");
         return !invisible || (methodeThese && invisible.matches(".these-objectif-vue[data-vue-objectif]"));
       })
-      .filter((h) => salle !== "recherche" || (
+      .filter((h) =>
         !h.closest(".gab-sommaire-chapitre, .gab-bas-chapitre, .gab-chapitre-tete") &&
         (net(h.textContent) !== net(ch.titre) || h.tagName !== "H3")
-      ));
+      );
     if (intertitres.length >= (salle === "recherche" ? 1 : 2)) {
       const nav = el("nav", "gab-sommaire-chapitre");
       nav.setAttribute("aria-label", T.dans);
