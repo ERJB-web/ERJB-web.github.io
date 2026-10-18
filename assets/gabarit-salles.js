@@ -681,12 +681,13 @@
       (ch.cle === "methodes" || ch.cle === "methode" || /m[ée]thod/i.test(ch.titre));
     const intertitres = Array.from(corps.querySelectorAll("h3, h4, h5.titre-bloc"))
       .filter((h) => {
-        if (h.closest("details:not([open]), .gab-source.carte-vitrine")) return false;
+        if (h.closest(".gab-source.carte-vitrine")) return false;
+        if (!methodeThese && h.closest("details:not([open])")) return false;
         const invisible = h.closest("[hidden]");
         return !invisible || (methodeThese && invisible.matches(".these-objectif-vue[data-vue-objectif]"));
       })
       .filter((h) => !h.closest(".gab-sommaire-chapitre, .gab-bas-chapitre, .gab-chapitre-tete") &&
-        (net(h.textContent) !== net(ch.titre) || h.tagName !== "H3")).slice(0, 85);
+        (net(h.textContent) !== net(ch.titre) || h.tagName !== "H3")).slice(0, methodeThese ? 210 : 85);
     if (intertitres.length >= 1) {
       const nav = el("nav", "gab-sommaire-chapitre");
       nav.setAttribute("aria-label", T.dans);
@@ -700,7 +701,8 @@
         const etape = theseFr ? /^([1-9])(?=[A-ZÀ-ÖØ-ÞŒ])/u.exec(titre)?.[1] : "";
         if (etape) titre = net(titre.slice(etape.length));
         const prefixe = /^(?:O|Objectif\s*)([123])\b/i.exec(titre);
-        const code = h.closest("[data-objectif]")?.dataset.objectif || (prefixe ? "O" + prefixe[1] : "");
+        const code = salle === "recherche" && /contexte/i.test(ch.cle || ch.titre) ? "" :
+          (h.closest("[data-objectif]")?.dataset.objectif || (prefixe ? "O" + prefixe[1] : ""));
         const objectif = /^O[123]$/.test(code) ? code : "";
         let libelle = theseFr ? sommaireTheseFr[titre] || titre : titre;
         if (objectif && !/^(?:O|Objectif\s*)[123]\b/i.test(libelle)) libelle = objectif + " · " + libelle;
