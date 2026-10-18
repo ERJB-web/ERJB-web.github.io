@@ -86,7 +86,54 @@
 @media(max-width:610px){.pourquoi-indispensable .mapping-info{padding:0 9px 10px!important;border-radius:16px!important}.mapping-info__head{min-height:116px;padding:21px 6px}.mapping-info__row{grid-template-columns:39px 1fr;gap:5px 12px;padding:13px 14px 15px;min-height:0;border-radius:15px}.mapping-info__number{grid-column:1;grid-row:1;align-self:center;margin:0}.mapping-info__art{grid-column:2;grid-row:1;justify-content:start}.mapping-info__art svg{max-width:160px;max-height:84px}.mapping-info__text{grid-column:1 / -1;grid-row:2;font-size:1rem!important;line-height:1.55!important}}
 @media(prefers-reduced-motion:reduce){.mapping-info__row{transition:none}.mapping-info__row:hover{transform:none}}
 </style>
-<!-- methodologie-ordre-20261018 --><link rel="stylesheet" href="assets/methodologie-ordre.css?v=20261018"></head>
+<!-- methodologie-ordre-20261018 --><link rel="stylesheet" href="assets/methodologie-ordre.css?v=20261018">
+<style>
+/* Mise en tableau des seules references du chapitre Contexte. */
+.these .cadrage-these-sources .cadrage-tableau-ref{
+  margin:5px 0 16px; overflow:hidden; border:1px solid #d9e4e8;
+  border-radius:13px; background:#fff; box-shadow:0 7px 24px rgba(19,56,72,.06);
+}
+.these .cadrage-these-sources .cadrage-tableau-ref-table{
+  width:100%; border-collapse:collapse; table-layout:fixed; text-align:left;
+}
+.these .cadrage-tableau-ref-table thead{background:#edf4f5}
+.these .cadrage-tableau-ref-table thead th{
+  padding:14px 20px; border:0; color:#315968;
+  font-weight:750; font-size:.9em; letter-spacing:.025em; text-align:left;
+}
+.these .cadrage-tableau-ref-table thead th:first-child{width:25%}
+.these .cadrage-tableau-ref-table tbody tr{border-top:1px solid #e3ebed}
+.these .cadrage-tableau-ref-table tbody tr:nth-child(even){background:#f7fafb}
+.these .cadrage-tableau-ref-table tbody tr:hover{background:#eef6f7}
+.these .cadrage-tableau-ref-table tbody th,
+.these .cadrage-tableau-ref-table tbody td{
+  padding:15px 20px; vertical-align:top; text-align:left;
+  overflow-wrap:anywhere; font-weight:400; line-height:1.6;
+}
+.these .cadrage-tableau-ref-table tbody th{color:#315869}
+.these .cadrage-tableau-ref-table tbody th span{
+  display:inline-block; max-width:100%; padding:5px 10px; border-radius:7px;
+  background:#e6f1f0; color:#235d61; font-weight:700; line-height:1.4;
+}
+.these .cadrage-tableau-ref-table tbody td a{
+  color:#0879b9; text-decoration:underline; text-decoration-color:#8abbd3;
+  text-underline-offset:3px; text-decoration-thickness:1px;
+}
+.these .cadrage-tableau-ref-table tbody td a:hover{
+  color:#075677; text-decoration-color:currentColor;
+}
+.these .cadrage-tableau-ref-table tbody td a:focus-visible{
+  outline:2px solid #147ca8; outline-offset:3px; border-radius:2px;
+}
+@media(max-width:680px){
+  .these .cadrage-tableau-ref-table thead th,
+  .these .cadrage-tableau-ref-table tbody th,
+  .these .cadrage-tableau-ref-table tbody td{padding:11px 12px}
+  .these .cadrage-tableau-ref-table thead th:first-child{width:34%}
+  .these .cadrage-tableau-ref-table tbody th span{padding:4px 6px}
+}
+</style>
+</head>
 <body>
 <a class="evitement" href="#contenu">Aller au contenu</a>
 <header class="entete">
@@ -393,16 +440,21 @@ html:is(.hc,.lv) .these-entete .these-question-principale{
   </div>
   <div class="cadrage-these-sources">
     <h4>Références scientifiques et institutionnelles mobilisées</h4>
-    <ul>
-      <li><a href="https://www.who.int/initiatives/decade-of-healthy-ageing" target="_blank" rel="noopener">Organisation mondiale de la Santé (OMS). Décennie pour le vieillissement en bonne santé, 2021–2030.</a></li>
-      <li><a href="https://doi.org/10.1111/1468-0009.12390" target="_blank" rel="noopener">Alderwick, H. et Gottlieb, L. M. (2019). <em>Meanings and Misunderstandings: A Social Determinants of Health Lexicon for Health Care Systems</em>. <em>The Milbank Quarterly</em>, 97(2), 407–419.</a></li>
-      <li><a href="https://www.who.int/publications-detail-redirect/9789241511650" target="_blank" rel="noopener">OMS (2016). <em>Multimorbidity</em>. Technical Series on Safer Primary Care.</a></li>
-      <li><a href="https://www.who.int/publications-detail-redirect/9789241550109" target="_blank" rel="noopener">OMS (2017). <em>Integrated care for older people</em> (ICOPE). Recommandations fondées sur les données probantes.</a></li>
-      <li><a href="https://www.who.int/news-room/fact-sheets/detail/social-determinants-of-health" target="_blank" rel="noopener">OMS (2025). <em>Social determinants of health</em>. Fiche d’information.</a></li>
-      <li><a href="https://doi.org/10.17226/25467" target="_blank" rel="noopener">National Academies of Sciences, Engineering, and Medicine (2019). <em>Integrating Social Care into the Delivery of Health Care</em>. National Academies Press.</a></li>
-      <li><a href="https://www.quebec.ca/nouvelles/actualites/details/mieux-chez-soi-quebec-accelere-le-virage-vers-le-soutien-a-domicile-68236" target="_blank" rel="noopener">MSSS (2026). <em>Mieux chez soi</em>, politique nationale de soutien à domicile — présentation gouvernementale.</a></li>
-      <li><a href="https://publications.msss.gouv.qc.ca/msss/fichiers/2025/25-924-13W.pdf" target="_blank" rel="noopener">MSSS (2026). <em>Politique gouvernementale sur les soins et services de première ligne</em>.</a></li>
-    </ul>
+    <div class="cadrage-tableau-ref">
+      <table class="cadrage-tableau-ref-table">
+        <thead><tr><th scope="col">Organisme ou auteur</th><th scope="col">Référence scientifique ou institutionnelle</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><span>OMS</span></th><td><a href="https://www.who.int/initiatives/decade-of-healthy-ageing" target="_blank" rel="noopener">Organisation mondiale de la Santé (OMS). Décennie pour le vieillissement en bonne santé, 2021–2030.</a></td></tr>
+          <tr><th scope="row"><span>Alderwick et Gottlieb</span></th><td><a href="https://doi.org/10.1111/1468-0009.12390" target="_blank" rel="noopener">Alderwick, H. et Gottlieb, L. M. (2019). <em>Meanings and Misunderstandings: A Social Determinants of Health Lexicon for Health Care Systems</em>. <em>The Milbank Quarterly</em>, 97(2), 407–419.</a></td></tr>
+          <tr><th scope="row"><span>OMS</span></th><td><a href="https://www.who.int/publications-detail-redirect/9789241511650" target="_blank" rel="noopener">OMS (2016). <em>Multimorbidity</em>. Technical Series on Safer Primary Care.</a></td></tr>
+          <tr><th scope="row"><span>OMS</span></th><td><a href="https://www.who.int/publications-detail-redirect/9789241550109" target="_blank" rel="noopener">OMS (2017). <em>Integrated care for older people</em> (ICOPE). Recommandations fondées sur les données probantes.</a></td></tr>
+          <tr><th scope="row"><span>OMS</span></th><td><a href="https://www.who.int/news-room/fact-sheets/detail/social-determinants-of-health" target="_blank" rel="noopener">OMS (2025). <em>Social determinants of health</em>. Fiche d’information.</a></td></tr>
+          <tr><th scope="row"><span>National Academies</span></th><td><a href="https://doi.org/10.17226/25467" target="_blank" rel="noopener">National Academies of Sciences, Engineering, and Medicine (2019). <em>Integrating Social Care into the Delivery of Health Care</em>. National Academies Press.</a></td></tr>
+          <tr><th scope="row"><span>MSSS</span></th><td><a href="https://www.quebec.ca/nouvelles/actualites/details/mieux-chez-soi-quebec-accelere-le-virage-vers-le-soutien-a-domicile-68236" target="_blank" rel="noopener">MSSS (2026). <em>Mieux chez soi</em>, politique nationale de soutien à domicile — présentation gouvernementale.</a></td></tr>
+          <tr><th scope="row"><span>MSSS</span></th><td><a href="https://publications.msss.gouv.qc.ca/msss/fichiers/2025/25-924-13W.pdf" target="_blank" rel="noopener">MSSS (2026). <em>Politique gouvernementale sur les soins et services de première ligne</em>.</a></td></tr>
+        </tbody>
+      </table>
+    </div>
     <p>Références complémentaires et cadre de codage&nbsp;: RUISSS de l’Université de Montréal (2022) ; Bilodeau et al. (2019) ; Kreuter et al. (2021) ; Janssen et al. (2020) ; taxonomie AIRS du 211. Les critères définitifs seront explicités et vérifiés dans les protocoles propres à O1, O2 et O3.</p>
   </div>
 </section>
