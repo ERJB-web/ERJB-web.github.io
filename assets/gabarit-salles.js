@@ -482,9 +482,9 @@
     const bas = el("nav", "gab-bas-chapitre");
     bas.setAttribute("aria-label", T.chapitre(i + 1, n));
     bas.innerHTML =
-      `<button type="button" class="gab-bas-lien" data-gab-pas="-1"${i === 0 ? " disabled" : ""}>‹ <span>${echapper(T.precedent)}</span></button>` +
+      `<button type="button" class="gab-bas-lien gab-bas-precedent" data-gab-pas="-1"${i === 0 ? " disabled" : ""}><span class="gab-bas-chevron" aria-hidden="true">‹</span><span class="gab-bas-libelle"><small>${echapper(T.precedent)}</small><strong class="gab-nav-cible"></strong></span></button>` +
       `<button type="button" class="gab-bas-sommaire" data-gab-pas="tous">${echapper(T.tous)}</button>` +
-      `<button type="button" class="gab-bas-lien gab-bas-suivant" data-gab-pas="1"${i === n - 1 ? " disabled" : ""}><span>${echapper(T.suivant)}</span> ›</button>`;
+      `<button type="button" class="gab-bas-lien gab-bas-suivant" data-gab-pas="1"${i === n - 1 ? " disabled" : ""}><span class="gab-bas-libelle"><small>${echapper(T.suivant)}</small><strong class="gab-nav-cible"></strong></span><span class="gab-bas-chevron" aria-hidden="true">›</span></button>`;
     section.append(bas);
     return section;
   }
@@ -771,7 +771,33 @@
     if (!cible) return;
     cible.scrollIntoView({ block: "start", behavior: calme.matches ? "instant" : "smooth" });
   }
-  const chapitresDe = (zone) => $$(".gab-chapitre", zone).filter((c) => c.closest(".gab") === zone);
+  const chapitresDe = (zone) => $(".gab-chapitre", zone).filter((c) => c.closest(".gab") === zone);
+
+  // Montrer la destination réelle sur les deux navigations (haut et bas),
+  // plutôt qu'une flèche sans indication. Titres lus dans les chapitres existants.
+  function nommerChapitresVoisins(zone, liste, index) {
+    const actif = liste[index];
+    if (!actif) return;
+    const navigations = [$(".gab-bas-chapitre", actif)];
+    if (lecture && contenu && $(".gab", contenu) === zone) navigations.push(lecture);
+    navigations.filter(Boolean).forEach((nav) => {
+      [-1, 1].forEach((sens) => {
+        const bouton = $("[data-gab-pas='" + sens + "']", nav);
+        if (!bouton) return;
+        const voisin = liste[index + sens];
+        const action = sens < 0 ? T.precedent : T.suivant;
+        const titre = voisin ? net($(".gab-chapitre-titre", voisin)?.textContent) : "";
+        const destination = voisin ? deux(index + sens + 1) + " · " + titre : "";
+        bouton.disabled = !voisin;
+        const cible = $(".gab-nav-cible, .gab-fleche-cible", bouton);
+        if (cible) cible.textContent = destination;
+        const annonce = destination ? action + " : " + destination : action;
+        bouton.setAttribute("aria-label", annonce);
+        if (destination) bouton.title = annonce;
+        else bouton.removeAttribute("title");
+      });
+    });
+  }
 
   // Un fragment désigne sa propre page de chapitre ; les anciens liens
   // #salle/rubrique et les ancres internes continuent de fonctionner.
@@ -802,6 +828,7 @@
     });
     zone.classList.toggle("gab-page-chapitre", ouverte);
     zone.classList.toggle("gab-page-sommaire", !ouverte);
+    if (ouverte) nommerChapitresVoisins(zone, liste, cible);
     $$(".gab-tuile[data-gab-aller]", zone).forEach((tuile, i) => {
       if (ouverte && i === cible) tuile.setAttribute("aria-current", "page");
       else tuile.removeAttribute("aria-current");
@@ -881,9 +908,9 @@
       if (onglets) nom.after(onglets);
       lecture = el("div", "gab-lecture");
       lecture.innerHTML = `<button type="button" class="gab-tous" data-gab-pas="tous"><span aria-hidden="true">▦</span><span>${echapper(T.tous)}</span></button>` +
-        `<button type="button" class="gab-fleche" data-gab-pas="-1" aria-label="${echapper(T.precedent)}">‹</button>` +
+        `<button type="button" class="gab-fleche gab-fleche-precedente" data-gab-pas="-1" aria-label="${echapper(T.precedent)}"><span class="gab-fleche-icone" aria-hidden="true">‹</span><span class="gab-fleche-libelle"><span class="gab-fleche-texte">${echapper(T.precedent)}</span><small class="gab-fleche-cible"></small></span></button>` +
         `<div class="gab-actuel" aria-live="polite"><b></b><span><small></small><strong></strong></span></div>` +
-        `<button type="button" class="gab-fleche gab-fleche-suivante" data-gab-pas="1" aria-label="${echapper(T.suivant)}"><span class="gab-fleche-texte">${echapper(T.suivant)}</span><span class="gab-fleche-icone" aria-hidden="true">›</span></button>` +
+        `<button type="button" class="gab-fleche gab-fleche-suivante" data-gab-pas="1" aria-label="${echapper(T.suivant)}"><span class="gab-fleche-libelle"><span class="gab-fleche-texte">${echapper(T.suivant)}</span><small class="gab-fleche-cible"></small></span><span class="gab-fleche-icone" aria-hidden="true">›</span></button>` +
         `<div class="gab-segments"></div>`;
       barre.append(lecture);
       barre.classList.add("gab-barre");
