@@ -637,6 +637,62 @@
     });
   }
 
+
+  // Le menu historique à sections colorées est commun à toutes les portes.
+  // Les sommaires spéciaux de la thèse et de vulgarisation restent inchangés.
+  function organiserSommaireUniversel(nav, intertitres) {
+    const liens = Array.from(nav.querySelectorAll(":scope > a[data-gab-intertitre]"));
+    if (!liens.length || liens.length !== intertitres.length) return;
+    const groupes = [];
+    let groupe = null;
+    liens.forEach((lien, index) => {
+      const titre = intertitres[index];
+      if (titre.tagName === "H3") {
+        groupe = { nom: net(titre.textContent), titreLien: lien, liens: [] };
+        groupes.push(groupe);
+      } else {
+        // Pour les chapitres sans H3, créer de courtes sections colorées
+        // à partir des titres existants, sans les renommer ni les déplacer.
+        if (!groupe || (!groupe.titreLien && groupe.liens.length >= 3)) {
+          groupe = { nom: "", titreLien: null, liens: [] };
+          groupes.push(groupe);
+        }
+        groupe.liens.push(lien);
+      }
+    });
+    const palette = [
+      ["#365772","#76a2bb","#edf4f8","#f8fbfd"],
+      ["#286c23","#5aae38","#ecf7e8","#f5fbf2"],
+      ["#006e72","#11a7a5","#e9f7f6","#f3fbfa"],
+      ["#18559b","#0755ad","#ebf2fd","#f3f7ff"],
+      ["#80532e","#bf8953","#faf2e9","#fdf9f4"]
+    ];
+    nav.classList.add("gab-sommaire-objectifs", "gab-sommaire-sections", "gab-sommaire-universel");
+    const etiquette = nav.querySelector(":scope > span");
+    nav.replaceChildren();
+    if (etiquette) nav.append(etiquette);
+    groupes.forEach((g, index) => {
+      const bloc = el("section", "gab-sommaire-groupe");
+      bloc.dataset.section = "universel-" + (index + 1);
+      const couleurs = palette[index % palette.length];
+      ["--objectif-texte","--objectif-trait","--objectif-fond","--objectif-lien"]
+        .forEach((nom,i)=>bloc.style.setProperty(nom,couleurs[i]));
+      const titre = el("div", "gab-sommaire-groupe-titre");
+      titre.append(el("b", "", deux(index + 1)));
+      if (g.titreLien) {
+        g.titreLien.classList.add("gab-section-lien-titre");
+        titre.append(g.titreLien);
+        bloc.setAttribute("aria-label", g.nom);
+      } else {
+        titre.append(el("strong", "", echapper("Section " + deux(index + 1))));
+      }
+      const liste = el("div", "gab-sommaire-groupe-liens");
+      liste.append(...g.liens);
+      bloc.append(titre, liste);
+      nav.append(bloc);
+    });
+  }
+
   function construireChapitre(ch, i, n, couleur, choix, salle) {
     const section = ch.surPlace ? ch.source : el("section");
     section.classList.add("gab-chapitre");
@@ -695,7 +751,7 @@
       nav.setAttribute("aria-label", T.dans);
       nav.setAttribute("tabindex", "0");
       const theseFr = salle === "recherche" && langue === "fr";
-      const entrees = (theseFr || (salle === "vulgarisation" && langue === "fr")) ? intertitres : intertitres.slice(0, 8);
+      const entrees = intertitres;
       nav.innerHTML = `<span>${echapper(T.dans)}</span>` + entrees.map((h, k) => {
         let titre = net(h.textContent);
         // Certains h4 placent le chiffre de l'étape dans un élément distinct :
@@ -722,8 +778,13 @@
         organiserSommaireSections(nav, entrees, ch);
       } else if (salle === "vulgarisation" && langue === "fr") {
         organiserSommaireVulgarisation(nav, entrees);
+      } else {
+        organiserSommaireUniversel(nav, entrees);
       }
       aside.append(nav);
+      // Seule la grille du chapitre contenant un sommaire universel change :
+      // les onglets des portes, les titres, photos et contenus restent en place.
+      if (nav.classList.contains("gab-sommaire-universel")) grille.classList.add("gab-menu-universel");
     }
     // Thèse : seul le sommaire migre à gauche ; l'illustration reste
     // dans la colonne de lecture, suffisamment large pour les cartes.
