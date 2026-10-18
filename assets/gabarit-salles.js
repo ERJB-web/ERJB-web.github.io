@@ -765,7 +765,7 @@
     if (!cible) return;
     cible.scrollIntoView({ block: "start", behavior: calme.matches ? "instant" : "smooth" });
   }
-  const chapitresDe = (zone) => $(".gab-chapitre", zone).filter((c) => c.closest(".gab") === zone);
+  const chapitresDe = (zone) => $$(".gab-chapitre", zone).filter((c) => c.closest(".gab") === zone);
 
   // Un fragment désigne sa propre page de chapitre ; les anciens liens
   // #salle/rubrique et les ancres internes continuent de fonctionner.
@@ -778,7 +778,7 @@
       chapitre.dataset.gabSlug === repere ||
       chapitre.dataset.rubrique === repere ||
       chapitre.id === repere ||
-      $("[data-rubrique], [data-axe-cible], [id]", chapitre).some((element) =>
+      $$("[data-rubrique], [data-axe-cible], [id]", chapitre).some((element) =>
         element.dataset.rubrique === repere || element.dataset.axeCible === repere || element.id === repere));
   }
 
@@ -796,15 +796,15 @@
     });
     zone.classList.toggle("gab-page-chapitre", ouverte);
     zone.classList.toggle("gab-page-sommaire", !ouverte);
-    $(".gab-tuile[data-gab-aller]", zone).forEach((tuile, i) => {
+    $$(".gab-tuile[data-gab-aller]", zone).forEach((tuile, i) => {
       if (ouverte && i === cible) tuile.setAttribute("aria-current", "page");
       else tuile.removeAttribute("aria-current");
     });
     if (lecture && zone === $(".gab", contenu)) {
       if (ouverte) {
         marquer(cible);
-        $("[data-gab-pas='-1']", lecture).forEach((bouton) => { bouton.disabled = cible === 0; });
-        $("[data-gab-pas='1']", lecture).forEach((bouton) => { bouton.disabled = cible === liste.length - 1; });
+        $$("[data-gab-pas='-1']", lecture).forEach((bouton) => { bouton.disabled = cible === 0; });
+        $$("[data-gab-pas='1']", lecture).forEach((bouton) => { bouton.disabled = cible === liste.length - 1; });
       }
       salle.classList.toggle("gab-page-chapitre", ouverte);
       salle.classList.toggle("gab-lit", ouverte);
@@ -942,7 +942,7 @@
     salle.classList.toggle("gab-avec-chapitres", liste.length >= 2);
     if (lecture) {
       $(".gab-segments", lecture).innerHTML = liste.map((c, k) => `<button type="button" style="--gab-c:${c.style.getPropertyValue("--gab-c")}" data-gab-segment="${k}" aria-label="${echapper(T.aller(net($(".gab-chapitre-titre", c)?.textContent)))}"></button>`).join("");
-      $(".gab-segments button", lecture).forEach((b) => b.addEventListener("click", () => ouvrirPageChapitre(zone, +b.dataset.gabSegment, { adresse: true, haut: true })));
+      $$(".gab-segments button", lecture).forEach((b) => b.addEventListener("click", () => ouvrirPageChapitre(zone, +b.dataset.gabSegment, { adresse: true, haut: true })));
     }
     // L'adresse désigne une seule page. Sans chapitre dans l'URL,
     // on affiche uniquement le sommaire et ses tuiles.
