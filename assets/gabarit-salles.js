@@ -35,7 +35,7 @@
     juriste: VITRINE, gestionnaire: VITRINE, educateur: VITRINE, entrepreneuriat: VITRINE,
     valeurs: { sel: "article.valeur", titre: "h4" },
     representation: { unique: true }, communaute: { unique: true }, distinctions: { unique: true }, citoyen: { unique: true },
-    loisirs: { sel: "figure.loisir", titre: "h4, figcaption strong" },
+    loisirs: { unique: true },
     logiciels: { sel: ".logiciels-cartes > *, aside.logiciels-jeu", titre: "h3" },
     litterature: { sel: "section.rg-articles, details.lecture-theme", titre: "h3.rg-titre, summary" },
     grise: { sel: "section.rg", titre: "h3.rg-titre" },
