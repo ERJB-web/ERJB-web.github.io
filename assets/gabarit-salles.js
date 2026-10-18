@@ -440,6 +440,48 @@
     });
   }
 
+  // Mise en page de la présentation du devis : deux principes clairement
+  // séparés, sans modifier ni supprimer les formulations du protocole.
+  function mettreDevisEnCartes(sc) {
+    $(".these-protocole-detail", sc).forEach((protocole) => {
+      const titre = $(":scope > h4", protocole);
+      const liste = $(":scope > ul.puces", protocole);
+      if (!titre || !liste || liste.dataset.devisCartes || liste.children.length !== 2) return;
+      const enveloppe = el("section", "these-devis-visuel");
+      const grille = el("div", "these-devis-grille");
+      Array.from(liste.children).forEach((li, i) => {
+        const libelle = $(":scope > b", li);
+        if (!libelle) return;
+        const carte = el("article", "these-devis-carte");
+        carte.dataset.devis = i === 0 ? "sequence" : "posture";
+        const entete = el("div", "these-devis-carte-entete");
+        const numero = el("span", "these-devis-num", deux(i + 1));
+        numero.setAttribute("aria-hidden", "true");
+        const titreCarte = el("h5", "these-devis-carte-titre", echapper(net(libelle.textContent)));
+        entete.append(numero, titreCarte);
+        carte.append(entete);
+        if (i === 0) {
+          const fil = el("div", "these-devis-phases");
+          fil.setAttribute("aria-hidden", "true");
+          fil.innerHTML = '<span>O1</span><i>→</i><span>O2</span><i>→</i><span>O3</span>';
+          carte.append(fil);
+        }
+        const description = el("p", "these-devis-description");
+        Array.from(li.childNodes).filter((noeud) => noeud !== libelle)
+          .forEach((noeud) => description.append(noeud));
+        if (description.firstChild?.nodeType === 3)
+          description.firstChild.textContent = description.firstChild.textContent.replace(/^\s*[:：]\s*/, "");
+        carte.append(description);
+        grille.append(carte);
+      });
+      if (grille.children.length !== 2) return;
+      titre.before(enveloppe);
+      titre.classList.add("these-devis-titre");
+      enveloppe.append(titre, grille);
+      liste.remove();
+    });
+  }
+
   function transformer(sc) {
     if (!sc || sc.classList.contains("gab")) return;
     const salle = salleDe(sc);
@@ -448,6 +490,7 @@
     const bandeau = $(":scope > .bandeau", sc);
     const corps = $(":scope > .section-corps", sc);
     if (!corps) return;
+    if (salle === "recherche") mettreDevisEnCartes(sc);
     const photoSalle = photoDuBandeau(bandeau);
     const { mode, table, chapitres } = decouper(sc, salle);
 
