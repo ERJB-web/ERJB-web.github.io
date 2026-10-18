@@ -816,7 +816,7 @@
       salle.classList.toggle("gab-lit", ouverte);
     }
     const dansSalle = !!(contenu && contenu.contains(zone));
-    const dansPageLibre = !dansSalle && !!zone.closest("section.section[data-salle]") && racine.classList.contains("libre");
+    const dansPageLibre = !dansSalle && !!zone.closest("section.section[data-salle]");
     if (options.adresse && (dansSalle || dansPageLibre)) {
       const fragment = "#" + zone.dataset.gabSalle + (ouverte ? "/" + liste[cible].dataset.gabSlug : "");
       if (location.hash !== fragment) {
@@ -858,8 +858,8 @@
       return;
     }
     const pas = ev.target.closest("[data-gab-pas]");
-    if (pas && contenu) {
-      const zone = $(".gab", contenu);
+    if (pas) {
+      const zone = pas.closest(".gab") || (contenu && $(".gab", contenu));
       if (!zone) return;
       if (pas.dataset.gabPas === "tous") ouvrirPageChapitre(zone, -1, { adresse: true, haut: true });
       else {
