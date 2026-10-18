@@ -117,7 +117,9 @@
     // Le module SNA est un prolongement d'O3 dans la méthodologie,
     // pas une insertion après les trois objectifs de la problématique.
     const exemplesO3 = cibleO3.querySelector('#exemples-sna-o3');
-    if (exemplesO3) exemplesO3.before(module);
+    const espaceExemples = document.querySelector('#methode-o3-exemples');
+    if (espaceExemples) espaceExemples.appendChild(module);
+    else if (exemplesO3) exemplesO3.before(module);
     else cibleO3.appendChild(module);
     const boutons = [...module.querySelectorAll("[data-o3-select]")];
     boutons.forEach((bouton) => bouton.addEventListener("click", () => {
@@ -150,7 +152,7 @@
       note.className = "o3-renvoi-methodes";
       note.innerHTML = '<strong>Illustrations du SNA quantitatif et qualitatif</strong><p>Huit exemples égocentrés centrés sur les CLSC du Centre-Sud, des figures scientifiques authentiques et une démarche qualitative guidée par la carte.</p><button type="button">Voir l’atlas des réseaux et les schémas qualitatifs →</button>';
       // Garder ce renvoi avec la méthode O3 au lieu d'en faire un bloc flottant.
-      const titreO3 = cibleO3.querySelector('h4.titre-bloc');
+      const titreO3 = document.querySelector('#methode-o3-exemples > header');
       if (titreO3) titreO3.insertAdjacentElement("afterend", note);
       else cibleO3.prepend(note);
       note.querySelector("button").addEventListener("click", () => {
