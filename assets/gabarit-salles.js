@@ -655,8 +655,8 @@
   function preparerHypothesesProblematique(corps, chapitre) {
     if (langue !== "fr" || !/problematique|objectifs/.test(normaliser(chapitre.titre)) ||
         $(".these-hypotheses", corps)) return;
-    const general = $("h4", corps).find((h) => normaliser(h.textContent) === "objectif general");
-    const point = $("h4", corps).find((h) => normaliser(h.textContent) === "point de these");
+    const general = $$("h4", corps).find((h) => normaliser(h.textContent) === "objectif general");
+    const point = $$("h4", corps).find((h) => normaliser(h.textContent) === "point de these");
     // Afficher l'objectif général avant le point de thèse sans modifier les textes.
     if (general && point && general.compareDocumentPosition(point) & Node.DOCUMENT_POSITION_PRECEDING) {
       const paragraphe = general.nextElementSibling;
