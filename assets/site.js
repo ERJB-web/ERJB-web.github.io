@@ -831,12 +831,22 @@
     propres(".volet").forEach((v) => (v.hidden = v.dataset.volet !== onglet.dataset.volet));
     propres("[data-rubrique-select]").forEach((select) => (select.value = onglet.dataset.volet));
     synchroniserRubriques(table);
-    if(!repriseEnCours && courante && contenu.contains(onglet)){
-      if(onglet.dataset.rubrique)history.replaceState(history.state,'','#'+courante+'/'+onglet.dataset.rubrique);
-      memoriserNavigation();
+    if(!repriseEnCours && onglet.dataset.rubrique){
+      const dansSalle=!!(courante && contenu.contains(onglet));
+      const dansTheseLibre=racine.classList.contains('libre') &&
+        table.dataset.rubriques==='these' && !!onglet.closest('section[data-salle="recherche"]');
+      if(dansSalle || dansTheseLibre){
+        const destination=dansSalle ? courante : 'recherche';
+        history.replaceState(history.state,'','#'+destination+'/'+onglet.dataset.rubrique);
+        memoriserNavigation();
+      }
     }
     signalerAudience();
     const panneau=propres('.volet').find(v=>!v.hidden);
+    // La sélection manuelle d'un chapitre replace la lecture en tête de celui-ci.
+    if(table.dataset.rubriques==='these' && panneau && ev.isTrusted && !repriseEnCours){
+      panneau.scrollIntoView({block:'start',behavior:sansPassage()?'auto':'smooth'});
+    }
     if(table.dataset.navigation==='atelier' && panneau && panneau.animate && !sansPassage() && !repriseEnCours){
       panneau.animate([{opacity:.35,transform:'translateY(8px)'},{opacity:1,transform:'translateY(0)'}],{duration:210,easing:'cubic-bezier(.2,.7,.2,1)'});
     }
@@ -863,7 +873,13 @@
     if (!ev.target.matches("[data-rubrique-select]")) return;
     const table = ev.target.closest("[data-onglets]");
     const bouton = $$("[role=tab]", table).find((b) => b.closest("[data-onglets]") === table && b.dataset.volet === ev.target.value);
-    if (bouton) bouton.click();
+    if (bouton){
+      bouton.click();
+      if(table.dataset.rubriques==='these'){
+        const panneau=$('.volet',table).find(v=>v.closest('[data-onglets]')===table && !v.hidden);
+        panneau?.scrollIntoView({block:'start',behavior:sansPassage()?'auto':'smooth'});
+      }
+    }
   });
 
   document.addEventListener("keydown", (ev) => {
@@ -878,6 +894,10 @@
     const cible = tous[(i + tous.length) % tous.length];
     cible.focus();
     cible.click();
+    if(table.dataset.rubriques==='these'){
+      const panneau=$('.volet',table).find(v=>v.closest('[data-onglets]')===table && !v.hidden);
+      panneau?.scrollIntoView({block:'start',behavior:sansPassage()?'auto':'smooth'});
+    }
   });
 
   // Menus de l'en-tête : un seul ouvert à la fois, fermeture au clic extérieur et avec Échap.
