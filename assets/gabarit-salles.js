@@ -379,13 +379,20 @@
       const theseFr = salle === "recherche" && langue === "fr";
       const entrees = theseFr ? intertitres : intertitres.slice(0, 8);
       nav.innerHTML = `<span>${echapper(T.dans)}</span>` + entrees.map((h, k) => {
-        const titre = net(h.textContent);
+        let titre = net(h.textContent);
+        // Certains h4 placent le chiffre de l'étape dans un élément distinct :
+        // textContent le colle au titre (« 1Les », « 3O3 »). Le séparer.
+        const etape = theseFr ? /^([1-9])(?=[A-ZÀ-ÖØ-ÞŒ])/u.exec(titre)?.[1] : "";
+        if (etape) titre = net(titre.slice(etape.length));
         const prefixe = /^(?:O|Objectif\s*)([123])\b/i.exec(titre);
         const code = h.closest("[data-objectif]")?.dataset.objectif || (prefixe ? "O" + prefixe[1] : "");
         const objectif = /^O[123]$/.test(code) ? code : "";
         let libelle = theseFr ? sommaireTheseFr[titre] || titre : titre;
         if (objectif && !/^(?:O|Objectif\s*)[123]\b/i.test(libelle)) libelle = objectif + " · " + libelle;
-        return `<a href="#" data-gab-intertitre="${k}"${objectif ? ` data-objectif="${objectif}"` : ""}${libelle !== titre ? ` title="${echapper(titre)}"` : ""}>${echapper(libelle)}</a>`;
+        const texteLien = etape
+          ? `<span class="gab-sommaire-etape-num">${deux(Number(etape))}</span><span class="gab-sommaire-etape-texte">${echapper(libelle)}</span>`
+          : echapper(libelle);
+        return `<a href="#" data-gab-intertitre="${k}"${etape ? ' class="gab-sommaire-etape"' : ""}${objectif ? ` data-objectif="${objectif}"` : ""}${libelle !== titre ? ` title="${echapper(titre)}"` : ""}>${texteLien}</a>`;
       }).join("");
       aside.append(nav);
     }
