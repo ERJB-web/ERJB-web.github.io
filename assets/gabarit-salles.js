@@ -391,7 +391,7 @@
     ["O1", "O2", "O3"].forEach((code) => {
       let cibleId = groupes.get(code)[0]?.dataset.gabCible;
       if (!cibleId && contenuMethodes) {
-        const cible = $('[data-objectif="' + code + '"]', contenuMethodes)
+        const cible = $$('[data-objectif="' + code + '"]', contenuMethodes)
           .find((element) => element.matches("article, section, div, details, h3, h4"));
         if (cible) {
           if (!cible.id) cible.id = "gab-objectif-sommaire-" + langue + "-" + code.toLowerCase();
@@ -562,7 +562,7 @@
       aside.innerHTML = `<div class="gab-photo"><img src="${echapper(choix.url)}" alt="${echapper(alt)}" loading="lazy" decoding="async" width="960" height="640">${credit ? `<small class="gab-credit">${choix.image.source_url ? `<a href="${echapper(choix.image.source_url)}" target="_blank" rel="noopener">${credit}</a>` : credit}</small>` : ""}</div>`;
     }
     // Ma thèse : le sommaire repère les parties h3 et h4 d'un chapitre.
-    const intertitres = $(salle === "recherche" ? "h3, h4, h5.titre-bloc" : "h4", corps)
+    const intertitres = $$(salle === "recherche" ? "h3, h4, h5.titre-bloc" : "h4", corps)
       .filter((h) => !h.closest("details:not([open]), [hidden], .gab-source.carte-vitrine"))
       .filter((h) => salle !== "recherche" || (
         !h.closest(".gab-sommaire-chapitre, .gab-bas-chapitre, .gab-chapitre-tete") &&
@@ -904,7 +904,7 @@
     if (!cible) return;
     cible.scrollIntoView({ block: "start", behavior: calme.matches ? "instant" : "smooth" });
   }
-  const chapitresDe = (zone) => $(".gab-chapitre", zone).filter((c) => c.closest(".gab") === zone);
+  const chapitresDe = (zone) => $$(".gab-chapitre", zone).filter((c) => c.closest(".gab") === zone);
 
   // Montrer la destination réelle sur les deux navigations (haut et bas),
   // plutôt qu'une flèche sans indication. Titres lus dans les chapitres existants.
@@ -1005,10 +1005,10 @@
       ev.preventDefault();
       const chapitre = inter.closest(".gab-chapitre");
       const cible = inter.dataset.gabCible
-        ? $("[id]", chapitre).find((x) => x.id === inter.dataset.gabCible)
-        : $("h4", $(".gab-corps", chapitre)).filter((x) => !x.closest("details:not([open]), [hidden], .gab-source.carte-vitrine"))[+inter.dataset.gabIntertitre];
+        ? $$("[id]", chapitre).find((x) => x.id === inter.dataset.gabCible)
+        : $$("h4", $(".gab-corps", chapitre)).filter((x) => !x.closest("details:not([open]), [hidden], .gab-source.carte-vitrine"))[+inter.dataset.gabIntertitre];
       if (cible) {
-        $("details", chapitre).filter((d) => d.contains(cible)).forEach((d) => { d.open = true; });
+        $$("details", chapitre).filter((d) => d.contains(cible)).forEach((d) => { d.open = true; });
         defiler(cible);
       }
       return;
