@@ -616,3 +616,19 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 .gab[data-gab-salle="recherche"] .gab-sommaire-chapitre a[data-objectif="O1"]{--sommaire-objectif:#2e751e;--sommaire-fond:#e8f5e3;--sommaire-trait:#5aae38}
 .gab[data-gab-salle="recherche"] .gab-sommaire-chapitre a[data-objectif="O2"]{--sommaire-objectif:#006d6b;--sommaire-fond:#e0f4f3;--sommaire-trait:#11a7a5}
 .gab[data-gab-salle="recherche"] .gab-sommaire-chapitre a[data-objectif="O3"]{--sommaire-objectif:#0755ad;--sommaire-fond:#e6effc;--sommaire-trait:#0755ad}
+
+
+/* Salle Implantation : cinq chapitres sur deux rangées équilibrées (3 + 2),
+   sans trou et avec des tuiles de même hauteur. */
+@media(min-width:901px){
+  .section[data-salle="implantation"] .gab-tuiles:has(>.gab-tuile:nth-child(5):last-child){
+    grid-template-columns:repeat(6,minmax(0,1fr));
+  }
+  .section[data-salle="implantation"] .gab-tuiles:has(>.gab-tuile:nth-child(5):last-child)>.gab-tuile{
+    grid-column:span 2;
+    grid-row:span 1;
+  }
+  .section[data-salle="implantation"] .gab-tuiles:has(>.gab-tuile:nth-child(5):last-child)>.gab-tuile:nth-child(n+4){
+    grid-column:span 3;
+  }
+}
