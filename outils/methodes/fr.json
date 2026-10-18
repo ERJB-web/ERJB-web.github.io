@@ -39,7 +39,7 @@
     },
     {
       "titre": "Analyse de données secondaires",
-      "texte": "L’analyse secondaire réutilise des données existantes — enquêtes, cohortes, données administratives ou bases institutionnelles — pour répondre à une question définie. Elle exige de comprendre pourquoi, auprès de qui et comment ces données ont été produites.",
+      "texte": "L’analyse secondaire réutilise des données existantes (enquêtes, cohortes, données administratives ou bases institutionnelles) pour répondre à une question définie. Elle exige de comprendre pourquoi, auprès de qui et comment ces données ont été produites.",
       "reperes": [
         ["Adéquation des données", "Examiner population couverte, unité d’observation, calendrier, dictionnaire de variables et comparabilité. Distinguer un indicateur administratif d’une mesure directe du besoin ou de l’expérience."],
         ["Préparation reproductible", "Documenter accès autorisé, nettoyage, recodages, appariements et exclusions. Tenir compte du plan d’enquête et des changements de définition ; tracer les transformations dans des scripts."],
