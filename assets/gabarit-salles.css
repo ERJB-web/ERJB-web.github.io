@@ -1342,10 +1342,10 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   .gab-porte-nom .gab-sous-categorie{font-size:.8em}
 }
 
-/* Bandeau de navigation : largeur réduite de 10 % et centrée sur grand écran. */
+/* Bandeau de navigation : deux réductions successives de 10 %, centré sur grand écran. */
 @media(min-width:1101px){
   .salle .salle-barre.gab-barre{
-    width:90%;
+    width:81%;
     margin-inline:auto;
     box-sizing:border-box;
   }
