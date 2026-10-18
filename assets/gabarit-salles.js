@@ -552,8 +552,7 @@
 
   // Le chapitre Problématique suit son propre raisonnement scientifique :
   // question, objectif général, point de thèse, trois lacunes et hypothèses.
-  function organiserSommaireProblematique(nav, chapitre) {
-    const racine = $(".gab-corps", chapitre);
+  function organiserSommaireProblematique(nav, racine) {
     if (!racine) return false;
     const titres = $("h3, h4", racine);
     const chercher = (re) => titres.find((h) => re.test(normaliser(h.textContent)));
@@ -817,7 +816,7 @@
         return `<a href="#${echapper(id)}" data-gab-intertitre="${k}" data-gab-cible="${echapper(id)}" data-gab-niveau="${h.tagName.toLowerCase()}"${etape ? ' class="gab-sommaire-etape"' : ""}${objectif ? ` data-objectif="${objectif}"` : ""}${libelle !== titre ? ` title="${echapper(titre)}"` : ""}>${texteLien}</a>`;
       }).join("");
       if (theseFr && /problematique|objectifs/.test(normaliser(ch.titre))) {
-        organiserSommaireProblematique(nav, section);
+        organiserSommaireProblematique(nav, corps);
       } else if (theseFr && (ch.cle === "methodes" || ch.cle === "methode" || /m[ée]thod/i.test(ch.titre))) {
         organiserSommaireObjectifs(nav, entrees);
       } else if (theseFr) {
