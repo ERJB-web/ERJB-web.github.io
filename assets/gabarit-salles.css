@@ -1111,3 +1111,124 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 @media(max-width:890px) {
   .these-protocole-detail > ul.puces {grid-template-columns:minmax(0,1fr)}
 }
+
+
+/* Menu de la méthodologie : ensembles O1, O2 et O3 homogènes. */
+.gab[data-gab-salle="recherche"] .gab-sommaire-chapitre.gab-sommaire-objectifs {
+  display:grid;
+  align-content:start;
+  gap:11px;
+  padding:13px 10px;
+  background:#f8fafb;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs > span {
+  padding:0 5px;
+  margin-bottom:2px;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe {
+  --objectif-texte:#4c6170;
+  --objectif-trait:#b8c8d0;
+  --objectif-fond:#f0f4f6;
+  --objectif-lien:#f7f9fa;
+  display:grid;
+  gap:5px;
+  min-width:0;
+  padding:9px 8px 8px;
+  border:1px solid #e0e8ec;
+  border-inline-start:3px solid var(--objectif-trait);
+  border-radius:11px;
+  background:var(--objectif-fond);
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe[data-objectif="O1"] {
+  --objectif-texte:#286c23;
+  --objectif-trait:#5aae38;
+  --objectif-fond:#ecf7e8;
+  --objectif-lien:#f5fbf2;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe[data-objectif="O2"] {
+  --objectif-texte:#006e72;
+  --objectif-trait:#11a7a5;
+  --objectif-fond:#e9f7f6;
+  --objectif-lien:#f3fbfa;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe[data-objectif="O3"] {
+  --objectif-texte:#18559b;
+  --objectif-trait:#0755ad;
+  --objectif-fond:#ebf2fd;
+  --objectif-lien:#f3f7ff;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe-titre {
+  display:flex;
+  gap:7px;
+  align-items:flex-start;
+  padding:2px 3px 7px;
+  color:var(--objectif-texte);
+  border-bottom:1px solid color-mix(in srgb,var(--objectif-trait) 32%,transparent);
+  font-size:12.5px;
+  line-height:1.3;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe-titre b {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:none;
+  min-width:28px;
+  padding:4px;
+  border-radius:6px;
+  background:var(--objectif-trait);
+  color:#fff;
+  font-weight:750;
+  font-size:11px;
+  letter-spacing:.02em;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe-titre strong {
+  font-weight:750;
+  overflow-wrap:break-word;
+  min-width:0;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe-liens {
+  display:grid;
+  gap:3px;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe a,
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe a[data-objectif] {
+  display:block;
+  margin:0;
+  padding:7px 8px !important;
+  border:1px solid transparent;
+  border-inline-start:2px solid var(--objectif-trait) !important;
+  border-radius:7px;
+  background:var(--objectif-lien);
+  color:var(--objectif-texte);
+  text-align:start;
+  font-size:13.5px;
+  font-weight:560;
+  line-height:1.35;
+  overflow-wrap:break-word;
+  hyphens:none;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe a:hover,
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe a:focus-visible {
+  border-color:var(--objectif-trait);
+  background:#fff;
+  color:var(--objectif-texte);
+  box-shadow:0 2px 9px rgba(13,42,58,.06);
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe a:focus-visible {
+  outline:2px solid var(--objectif-trait);
+  outline-offset:1px;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-etape-num {
+  background:var(--objectif-fond);
+  color:var(--objectif-texte);
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe a.gab-sommaire-etape {
+  display:grid;
+  grid-template-columns:1.7em minmax(0,1fr);
+  gap:.65em;
+}
+@media (max-width:979px) {
+  .gab[data-gab-salle="recherche"] .gab-sommaire-chapitre.gab-sommaire-objectifs {
+    max-height:min(420px,50dvh);
+  }
+}
