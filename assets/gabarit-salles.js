@@ -1234,6 +1234,7 @@
     const zone = $(".section-contenu", contenu);
     if (!zone) return;
     if (!zone.classList.contains("gab")) transformer(zone);
+    mettreAJourChapitreVulgarisation(zone);
     preparerSalle();
     decorerOnglets();
     const titre = net($("#salle-titre")?.textContent).split(" · ");
@@ -1314,62 +1315,68 @@
 
   noterTitres();
   if (langue === "fr") lierReferencesCadreThese();
-  // Uniquement la rubrique française « 04 · Vulgarisation scientifique »
-  // déjà présente dans la salle Implantation (Savoirs en action).
-  // Son contenu complet remplace l'ancienne vignette : aucun nouveau chapitre.
+  // Le dossier est affiché uniquement au chapitre 04 existant dans « Savoirs en action ».
+  // La salle immersive utilise un clone DOM ; appliquer le contenu à la source
+  // et à chaque salle active, sans ajouter de chapitre ni de page.
+  let contenuVulgarisation2026 = "";
+  function mettreAJourChapitreVulgarisation(zone) {
+    if (langue !== "fr" || !contenuVulgarisation2026 || !zone || zone.dataset.gabSalle !== "implantation") return;
+    const chapitre = $(".gab-chapitre[data-gab-slug='implantation-vulgarisation']", zone);
+    if (!chapitre || chapitre.classList.contains("vulgarisation-recherche-active")) return;
+    const enveloppe = el("div", "", contenuVulgarisation2026);
+    const article = $("article.vul-dossier-chapitre", enveloppe);
+    const titres = article ? $$(":scope > section.vr-section > h4", article) : [];
+    if (titres.length !== 10) throw new Error("Dix sections requises pour la vulgarisation scientifique.");
+    const corps = $(".gab-corps", chapitre);
+    const aside = $(".gab-chapitre-aside", chapitre);
+    const grille = $(".gab-chapitre-grille", chapitre);
+    if (!corps || !aside || !grille) throw new Error("Chapitre 04 incomplet.");
+    const nav = el("nav", "gab-sommaire-chapitre");
+    nav.setAttribute("aria-label", T.dans);
+    nav.setAttribute("tabindex", "0");
+    nav.innerHTML = '<span>' + echapper(T.dans) + '</span>' +
+      titres.map((h, i) => {
+        const id = h.id || "vul-section-" + (i + 1);
+        h.id = id;
+        return '<a href="#' + echapper(id) + '" data-gab-intertitre="' + i +
+          '" data-gab-cible="' + echapper(id) + '">' + echapper(net(h.textContent)) + '</a>';
+      }).join("");
+    organiserSommaireVulgarisation(nav, titres);
+    corps.replaceChildren(...Array.from(enveloppe.childNodes));
+    aside.replaceChildren(nav);
+    grille.classList.add("gab-menu-gauche");
+    chapitre.classList.add("vulgarisation-recherche-active");
+  }
+  D.addEventListener("change", (ev) => {
+    if (!ev.target.matches("[data-vul-checks] input[type=checkbox]")) return;
+    const g = ev.target.closest("[data-vul-checks]");
+    const n = g.querySelectorAll("input[type=checkbox]:checked").length;
+    g.querySelector("progress").value = n;
+    g.querySelector("[data-vul-progress]").textContent = n + "/10";
+  });
+  D.addEventListener("click", (ev) => {
+    if (!ev.target.closest("[data-vul-reset]")) return;
+    const g = ev.target.closest("[data-vul-checks]");
+    g.querySelectorAll("input[type=checkbox]").forEach((x) => { x.checked = false; });
+    g.querySelector("progress").value = 0;
+    g.querySelector("[data-vul-progress]").textContent = "0/10";
+  });
   $$("section.section[data-salle] > .section-contenu").forEach(transformer);
   if (langue === "fr") {
-    const zone = $("section.section[data-salle='implantation'] > .section-contenu.gab");
-    const chapitre = zone && $(".gab-chapitre[data-gab-slug='implantation-vulgarisation']", zone);
-    if (chapitre) {
-      const url = new URL(CHEMIN + "vulgarisation/dossier-contenu-2026.html", D.baseURI).href;
-      fetch(url).then((rep) => {
-        if (!rep.ok) throw new Error("Contenu scientifique introuvable : " + rep.status);
-        return rep.text();
-      }).then((html) => {
-        const enveloppe = el("div", "", html);
-        const article = $("article.vul-dossier-chapitre", enveloppe);
-        const titres = article ? $$(":scope > section.vr-section > h4", article) : [];
-        if (titres.length !== 10) throw new Error("La vulgarisation doit contenir exactement dix sections.");
-        const corps = $(".gab-corps", chapitre);
-        const aside = $(".gab-chapitre-aside", chapitre);
-        const grille = $(".gab-chapitre-grille", chapitre);
-        if (!corps || !aside || !grille) throw new Error("Structure du chapitre 04 manquante.");
-        const nav = el("nav", "gab-sommaire-chapitre");
-        nav.setAttribute("aria-label", T.dans);
-        nav.setAttribute("tabindex", "0");
-        nav.innerHTML = '<span>' + echapper(T.dans) + '</span>' +
-          titres.map((h, i) => {
-            const id = h.id || "vul-section-" + (i + 1);
-            h.id = id;
-            return '<a href="#' + echapper(id) + '" data-gab-intertitre="' + i +
-              '" data-gab-cible="' + echapper(id) + '">' + echapper(net(h.textContent)) + '</a>';
-          }).join("");
-        organiserSommaireVulgarisation(nav, titres);
-        // Remplacer seulement l'ancien corps du chapitre 04 et son sommaire.
-        // Les autres chapitres et les autres salles restent intacts.
-        corps.replaceChildren(...Array.from(enveloppe.childNodes));
-        aside.replaceChildren(nav);
-        grille.classList.add("gab-menu-gauche");
-        chapitre.classList.add("vulgarisation-recherche-active");
-        chapitre.addEventListener("change", (ev) => {
-          if (!ev.target.matches("[data-vul-checks] input[type=checkbox]")) return;
-          const g = ev.target.closest("[data-vul-checks]");
-          const n = g.querySelectorAll("input[type=checkbox]:checked").length;
-          g.querySelector("progress").value = n;
-          g.querySelector("[data-vul-progress]").textContent = n + "/10";
-        });
-        chapitre.addEventListener("click", (ev) => {
-          if (!ev.target.closest("[data-vul-reset]")) return;
-          const g = ev.target.closest("[data-vul-checks]");
-          g.querySelectorAll("input[type=checkbox]").forEach((x) => { x.checked = false; });
-          g.querySelector("progress").value = 0;
-          g.querySelector("[data-vul-progress]").textContent = "0/10";
-        });
-      }).catch((err) => {
-        console.warn("Impossible de charger le contenu de vulgarisation dans le chapitre 04.", err);
-      });
-    }
+    const url = new URL(CHEMIN + "vulgarisation/dossier-contenu-2026.html", D.baseURI).href;
+    fetch(url).then((rep) => {
+      if (!rep.ok) throw new Error("Contenu scientifique introuvable : " + rep.status);
+      return rep.text();
+    }).then((html) => {
+      if (!html.includes('id="vul-section-10"')) throw new Error("Dossier incomplet.");
+      contenuVulgarisation2026 = html;
+      const source = $("section.section[data-salle='implantation'] > .section-contenu.gab");
+      mettreAJourChapitreVulgarisation(source);
+      const active = contenu && $(".section-contenu.gab", contenu);
+      if (active) mettreAJourChapitreVulgarisation(active);
+    }).catch((err) => {
+      console.warn("Le chapitre 04 conserve son contenu antérieur faute de chargement scientifique.", err);
+    });
   }
   // Retour arrière, adresse directe et changement de chapitre sans
   // réafficher l'intégralité des chapitres dans la vue publique.
