@@ -22,6 +22,21 @@
 
   // Couleurs de la Chaire, en alternance sur les tuiles et les chapitres.
   const COULEURS = ["#0879BE", "#11A7A5", "#5AAE38", "#0755AD", "#0D2A3A", "#0E8F8D", "#3F8F2A", "#1C6FB8"];
+  // Codes couleurs stable et distincts pour les six chapitres de la thèse.
+  const COULEURS_THESE = ["#246A9A", "#A87421", "#4F9B33", "#77559B", "#087F83", "#B65A47"];
+  const couleurChapitre = (salle, index) => {
+    const couleurs = salle === "recherche" ? COULEURS_THESE : COULEURS;
+    return couleurs[index % couleurs.length];
+  };
+  const ARCHITECTURE = {
+    fr: ["Chapitres", "Sections", "Présentation"],
+    en: ["Chapters", "Sections", "Overview"],
+    es: ["Capítulos", "Secciones", "Presentación"],
+    zh: ["章节", "小节", "概览"],
+    ar: ["الفصول", "الأقسام", "نظرة عامة"],
+    ru: ["Главы", "Разделы", "Обзор"]
+  };
+  const A = ARCHITECTURE[langue] || ARCHITECTURE.fr;
 
   // Découpage des salles qui ne sont pas organisées en rubriques.
   const VITRINE = { sel: "article.carte-vitrine", titre: "h3" };
@@ -272,7 +287,14 @@
       return { mode: "elements", chapitres };
     }
     const regle = REGLES[salle];
-    if (regle?.unique) return { mode: "unique", chapitres: [] };
+    if (regle?.unique) {
+      const zone = $(".colonne-outils", sc);
+      const titre = texteTitre($(".section-corps .colonne-texte h2", sc)) ||
+        sc.parentElement?.dataset.titre || A[2];
+      return zone && zone.children.length
+        ? { mode: "elements", chapitres: [{ source: zone, titre }] }
+        : { mode: "unique", chapitres: [] };
+    }
     if (regle) {
       const chapitres = $$(regle.sel, sc).map((el) => {
         const titreEl = $(regle.titre, el);
@@ -283,7 +305,13 @@
     // Salle sans règle : les intertitres h3 de la colonne de contenu ouvrent les chapitres.
     const zone = $(".colonne-outils", sc);
     const h3 = zone ? $$(":scope > h3", zone) : [];
-    if (h3.length < 2) return { mode: "unique", chapitres: [] };
+    if (h3.length < 2) {
+      const titre = texteTitre($(".section-corps .colonne-texte h2", sc)) ||
+        sc.parentElement?.dataset.titre || A[2];
+      return zone && zone.children.length
+        ? { mode: "elements", chapitres: [{ source: zone, titre }] }
+        : { mode: "unique", chapitres: [] };
+    }
     const chapitres = h3.map((h) => {
       const div = D.createElement("div");
       let x = h.nextElementSibling;
@@ -565,22 +593,20 @@
     // Ma thèse : le sommaire repère les parties h3 et h4 d'un chapitre.
     const methodeThese = salle === "recherche" && langue === "fr" &&
       (ch.cle === "methodes" || ch.cle === "methode" || /m[ée]thod/i.test(ch.titre));
-    const intertitres = Array.from(corps.querySelectorAll(salle === "recherche" ? "h3, h4, h5.titre-bloc" : "h4"))
+    const intertitres = Array.from(corps.querySelectorAll("h3, h4, h5.titre-bloc"))
       .filter((h) => {
         if (h.closest("details:not([open]), .gab-source.carte-vitrine")) return false;
         const invisible = h.closest("[hidden]");
         return !invisible || (methodeThese && invisible.matches(".these-objectif-vue[data-vue-objectif]"));
       })
-      .filter((h) => salle !== "recherche" || (
-        !h.closest(".gab-sommaire-chapitre, .gab-bas-chapitre, .gab-chapitre-tete") &&
-        (net(h.textContent) !== net(ch.titre) || h.tagName !== "H3")
-      ));
-    if (intertitres.length >= (salle === "recherche" ? 1 : 2)) {
+      .filter((h) => !h.closest(".gab-sommaire-chapitre, .gab-bas-chapitre, .gab-chapitre-tete") &&
+        (net(h.textContent) !== net(ch.titre) || h.tagName !== "H3")).slice(0, 85);
+    if (intertitres.length >= 1) {
       const nav = el("nav", "gab-sommaire-chapitre");
       nav.setAttribute("aria-label", T.dans);
       nav.setAttribute("tabindex", "0");
       const theseFr = salle === "recherche" && langue === "fr";
-      const entrees = theseFr ? intertitres : intertitres.slice(0, 8);
+      const entrees = intertitres;
       nav.innerHTML = `<span>${echapper(T.dans)}</span>` + entrees.map((h, k) => {
         let titre = net(h.textContent);
         // Certains h4 placent le chiffre de l'étape dans un élément distinct :
@@ -603,6 +629,9 @@
         organiserSommaireObjectifs(nav, entrees);
       } else if (theseFr) {
         organiserSommaireSections(nav, entrees, ch);
+        if (!nav.classList.contains("gab-sommaire-sections")) organiserSommaireUniversel(nav, entrees);
+      } else {
+        organiserSommaireUniversel(nav, entrees);
       }
       aside.append(nav);
     }
