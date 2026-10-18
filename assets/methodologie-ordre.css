@@ -28,3 +28,25 @@
 .these .methode-produit{padding:20px;border-left:4px solid var(--objectif);background:#f3f7f8;margin-bottom:30px}
 .these .methode-produit dd{margin:10px 0 0}
 @media(max-width:600px){.these .methode-objectif-separe{margin-block:40px 56px}.these .methode-rubrique .these-methode-item{padding:16px}.these .methode-exemples{padding:15px}}
+
+/* Une forme par fonction : texte, repère d'échantillonnage, volets, flux, limites. */
+.these .methode-rubrique[id$="-4"] .these-methode-item{background:transparent;border:0;border-radius:0;padding:0 0 14px}
+.these .methode-rubrique[id$="-5"] .these-methode-item{border:0;border-left:4px solid var(--objectif);background:#f3f7f7;border-radius:0 10px 10px 0}
+.these :is(#methode-o1-5,#methode-o2-5) dt{display:none}
+.these .methode-rubrique-contenu:has(>[class] [data-volet]){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.these .methode-rubrique-contenu:has(>[class] [data-volet])>.methode-fiche:not(:has([data-volet])){grid-column:1/-1}
+.these .methode-rubrique [data-volet=quan]{background:#f0f6f3;border-top:3px solid #427b69}
+.these .methode-rubrique [data-volet=qual]{background:#f0f4fa;border-top:3px solid #4b7199}
+.these .methode-rubrique [data-volet] dt{font-size:14px}
+.these .methode-integration-flux{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));list-style:none;gap:12px;padding:0;margin:0;counter-reset:integration}
+.these .methode-integration-flux li{margin:0;padding:15px 16px;background:#fff;border:1px solid #d4e1e6;border-radius:8px;font-size:15px;line-height:1.65}
+.these .methode-integration-flux strong{display:block;color:var(--objectif);margin-bottom:5px}
+.these .methode-rubrique[id$="-9"]{border:0;margin-bottom:12px;padding-bottom:12px}
+.these .methode-rubrique[id$="-9"] .limites-these{background:transparent;padding:0 0 0 22px;line-height:1.8}
+.these .methode-approfondir{margin:26px 0 0;border:1px solid #cadbdf;border-radius:10px;background:#fff}
+.these .methode-approfondir>summary{cursor:pointer;padding:18px 20px;color:var(--objectif);font:700 16px/1.5 var(--sans)}
+.these .methode-detail-corps{padding:8px clamp(14px,2vw,24px) 24px;min-width:0}
+.these .methode-detail-corps>.figure-officielle{margin:24px 0}
+.these .galerie-o2-renvoi{padding:14px 18px;background:#eef5f6;border-left:3px solid #428b91;align-self:center}
+.these .galerie-o2-renvoi a{color:#1c626d;font-weight:650;text-decoration:underline}
+@media(max-width:750px){.these .methode-rubrique-contenu:has(>[class] [data-volet]),.these .methode-integration-flux{grid-template-columns:1fr}}
