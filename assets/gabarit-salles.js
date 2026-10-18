@@ -465,20 +465,18 @@
     $$(".onglet-salle", onglets).forEach((b) => {
       if ($(".gab-onglet-photo", b)) return;
       const sousSalle = b.dataset.sous;
-      const section = $(`section.section[data-salle="${sousSalle}"]`);
-      const source = $(".bandeau", section);
-      const miniature = $(".section-contenu", section)?.dataset.mini || "";
-      // Choisir des photographies propres aux rubriques plutôt que recycler leurs bandeaux.
-      // "Axes" partage son bandeau avec "Thèse" et "IA" celui de la littérature grise.
-      const photosDediees = { axes: "implantation.jpg", ia: "grise.jpg" };
-      const fichier = photosDediees[sousSalle];
-      const racine = D.documentElement.dataset.racine || "./";
-      const url = fichier
-        ? absolue(`${racine}assets/portes-mini/${fichier}`)
-        : absolue(miniature) || photoDuBandeau(source);
+      // Pictogrammes vectoriels explicites : pas de photos arbitraires recadrées.
+      const dessins = {
+        recherche: '<path d="M8 3h8l4 4v14H4V3h4"/><path d="M16 3v5h4M8 12h8M8 16h6"/>',
+        axes: '<circle cx="12" cy="5" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M11 7 6 16M13 7l5 9M7 18h10"/>',
+        publications: '<path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 0-3 1V4Z"/><path d="M5 20V7a3 3 0 0 1 3-3M9 9h6M9 13h6M9 17h4"/>',
+        approche: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/>',
+        methodes: '<path d="M4 5h16M4 12h16M4 19h16"/><circle cx="9" cy="5" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="9" cy="19" r="2"/>',
+        ia: '<rect x="5" y="5" width="14" height="14" rx="3"/><path d="M9 9h6v6H9zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/>'
+      };
       const photo = el("span", "gab-onglet-photo");
       photo.setAttribute("aria-hidden", "true");
-      if (url) photo.style.backgroundImage = `url("${url}")`;
+      photo.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true">' + (dessins[sousSalle] || dessins.recherche) + '</svg>';
       b.prepend(photo);
     });
   }
