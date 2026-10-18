@@ -5135,3 +5135,123 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
 }
 html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-schema,.ov-livrable li,.ov-utilite,.ov-parcours li,.ov-convergence){background:Canvas;color:CanvasText;box-shadow:none;border-color:CanvasText}
 @media(forced-colors:active){:is(#salle,#recherche) .objectifs-visuels .ov-code{background:Highlight;color:HighlightText}:is(#salle,#recherche) .objectifs-visuels .ov-carte{border-color:CanvasText}}
+
+/* Chaîne cartographique O2 : six étapes équilibrées, puis schéma en pleine largeur. */
+:is(#salle,#recherche) .m-o2 .bloc-illustre:has(> ol.m-etapes){
+  container-type:inline-size;
+  container-name:mapping-etapes;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  gap:24px!important;
+  align-items:start!important;
+  margin:20px 0 32px;
+  min-width:0;
+}
+:is(#salle,#recherche) .m-o2 .bloc-illustre > ol.m-etapes{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:stretch;
+  gap:16px;
+  width:100%;
+  min-width:0;
+  margin:0!important;
+  padding:0!important;
+}
+:is(#salle,#recherche) .m-o2 .bloc-illustre > ol.m-etapes > li{
+  display:grid;
+  grid-template-columns:32px minmax(0,1fr);
+  grid-template-rows:auto 1fr;
+  align-content:start;
+  align-items:start;
+  gap:12px;
+  min-width:0;
+  margin:0;
+  padding:20px;
+  border:1px solid #d4e4e7;
+  border-top:3px solid #bde3e2;
+  border-radius:14px;
+  background:#fff;
+  box-shadow:0 3px 12px rgba(13,42,58,.035);
+}
+:is(#salle,#recherche) .m-o2 .bloc-illustre > ol.m-etapes > li::before{
+  position:static;
+  grid-column:1;
+  grid-row:1;
+  width:32px;
+  height:32px;
+  background:#007e7b;
+  color:#fff;
+  font:700 16px/1 var(--sans);
+}
+:is(#salle,#recherche) .m-o2 .bloc-illustre > ol.m-etapes > li > b{
+  grid-column:2;
+  grid-row:1;
+  align-self:center;
+  font:700 17px/1.35 var(--sans);
+  color:#006d6b;
+}
+:is(#salle,#recherche) .m-o2 .bloc-illustre > ol.m-etapes > li > p{
+  grid-column:1/-1;
+  min-width:0;
+  max-width:none;
+  margin:0!important;
+  font:400 16px/1.55 var(--sans)!important;
+  color:#344f5d;
+  text-align:start!important;
+  text-align-last:auto!important;
+  text-justify:none!important;
+  word-spacing:normal!important;
+  letter-spacing:normal;
+  hyphens:none!important;
+}
+:is(#salle,#recherche) .m-o2 .bloc-illustre:has(> ol.m-etapes) > figure{
+  width:100%;
+  min-width:0;
+  max-width:none!important;
+  margin:0!important;
+}
+:is(#salle,#recherche) .m-o2 .bloc-illustre:has(> ol.m-etapes) > figure > a{
+  display:block;
+  width:100%;
+  box-sizing:border-box;
+  padding:16px;
+  border:1px solid #d4e4e7;
+  border-radius:14px;
+  background:#fff;
+  cursor:zoom-in;
+}
+:is(#salle,#recherche) .m-o2 .bloc-illustre:has(> ol.m-etapes) > figure img{
+  display:block;
+  width:100%!important;
+  max-width:100%!important;
+  height:auto!important;
+  max-height:none!important;
+  object-fit:contain;
+  border:0;
+  border-radius:6px;
+}
+:is(#salle,#recherche) .m-o2 .bloc-illustre:has(> ol.m-etapes) > figure > a::after{
+  content:"Voir le schéma en grand ↗";
+  display:block;
+  margin-top:10px;
+  color:#006d6b;
+  font:600 13px/1.4 var(--sans);
+  text-align:end;
+}
+:is(#salle,#recherche) .m-o2 .bloc-illustre:has(> ol.m-etapes) figcaption{
+  margin:10px 4px 0;
+  font:400 14px/1.5 var(--sans);
+  color:#536d7a;
+  text-align:start!important;
+  text-align-last:auto!important;
+}
+:is(#salle,#recherche) .m-o2 .bloc-illustre:has(> ol.m-etapes) figcaption .m-source{
+  display:block;
+  margin-top:3px;
+  font-size:13px;
+}
+@container mapping-etapes (max-width:640px){
+  :is(#salle,#recherche) .m-o2 .bloc-illustre > ol.m-etapes{grid-template-columns:minmax(0,1fr)}
+  :is(#salle,#recherche) .m-o2 .bloc-illustre > ol.m-etapes > li{padding:18px}
+  :is(#salle,#recherche) .m-o2 .bloc-illustre:has(> ol.m-etapes) > figure > a{padding:8px}
+}
