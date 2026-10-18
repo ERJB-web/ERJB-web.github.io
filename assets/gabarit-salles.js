@@ -892,8 +892,85 @@
     });
   }
 
+
+  // Structurer le bandeau doctoral sans recréer ni modifier les URLs
+  // des sept liens directs déjà posés par lierReferencesCadreThese().
+  function harmoniserCadreThese() {
+    const cadre = $("#recherche .these-entete .these-cadre");
+    if (!cadre || cadre.classList.contains("these-cadre--organise")) return;
+    const liens = Array.from(cadre.querySelectorAll("a.these-cadre-lien"));
+    const chercher = (libelle) => liens.find((lien) => lien.textContent.trim() === libelle);
+    const ref = {
+      sourial: chercher("Nadia Sourial"),
+      layani: chercher("Géraldine Layani"),
+      espum: chercher("École de santé publique de l’Université de Montréal (ESPUM)"),
+      doctorat: chercher("Doctorat en santé publique, option systèmes, organisations et politiques de santé (SOPS)"),
+      chaire: chercher("Chaire de recherche GSK en gestion optimale des maladies chroniques"),
+      frq: chercher("Fonds de recherche du Québec"),
+      bourse: chercher("bourse de doctorat (B2)"),
+    };
+    // Si la rédaction évolue, laisser le bloc source intact plutôt que
+    // masquer accidentellement une information ou un hyperlien.
+    if (Object.values(ref).some((lien) => !lien) || liens.length !== 7) return;
+
+    const element = (tag, classe, texte) => {
+      const noeud = D.createElement(tag);
+      if (classe) noeud.className = classe;
+      if (texte) noeud.textContent = texte;
+      return noeud;
+    };
+    const bloc = (classe, legende) => {
+      const section = element("section", "these-identite-bloc " + classe);
+      section.append(element("h3", "these-identite-legende", legende));
+      return section;
+    };
+    const personne = (lien, grade) => {
+      const item = element("div", "these-identite-personne");
+      const nom = element("div", "these-identite-nom");
+      nom.append(element("span", "these-identite-civilite", "Dre "), lien);
+      item.append(nom, element("span", "these-identite-grade", grade));
+      return item;
+    };
+
+    const direction = bloc("these-identite-direction", "Codirection");
+    const personnes = element("div", "these-identite-personnes");
+    personnes.append(
+      personne(ref.sourial, "Ph. D."),
+      personne(ref.layani, "M.D., M. Sc.")
+    );
+    direction.append(personnes);
+
+    const formation = bloc("these-identite-formation", "Parcours doctoral");
+    formation.append(ref.doctorat, element("span", "these-identite-annee", "2e année"));
+
+    const etablissement = bloc("these-identite-etablissement", "Établissement");
+    etablissement.append(ref.espum);
+
+    const chaire = bloc("these-identite-chaire", "Chaire de recherche");
+    chaire.append(ref.chaire);
+
+    const financement = bloc("these-identite-financement", "Financement");
+    const financements = element("div", "these-identite-financements");
+    financements.append(ref.frq, ref.bourse);
+    financement.append(financements);
+
+    const haut = element("div", "these-identite-rangee these-identite-rangee--haut");
+    haut.append(direction, formation);
+    const bas = element("div", "these-identite-rangee these-identite-rangee--bas");
+    bas.append(etablissement, chaire, financement);
+
+    const ensemble = element("div", "these-identite-contenu");
+    ensemble.append(haut, bas);
+    cadre.replaceChildren(ensemble);
+    cadre.classList.add("these-cadre--organise");
+    cadre.setAttribute("aria-label", "Encadrement et affiliations du doctorat");
+  }
+
   noterTitres();
-  if (langue === "fr") lierReferencesCadreThese();
+  if (langue === "fr") {
+    lierReferencesCadreThese();
+    harmoniserCadreThese();
+  }
   $$("section.section[data-salle] > .section-contenu").forEach(transformer);
   // Les figures de l'atlas peuvent être ajoutées après la transformation.
   if (langue === "fr") $$(".these").forEach((zone) => {
