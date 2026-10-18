@@ -191,7 +191,7 @@
       return $(".colonne-outils", section);
     };
 
-    const implantation = fabriquer("implantation-science", 2, l[2], l[5], "assets/chapitres/ia-07.webp");
+    const implantation = fabriquer("implantation-science", 1, l[2], l[5], "assets/chapitres/ia-07.webp");
     implantation.append(titreCadre, dernierCadre);
     if (langue === "fr") {
       // Seul le chapitre « Implantation » reçoit le dossier, avec ses titres et graphiques.
@@ -209,7 +209,7 @@
       implantation.append(lienDossier);
     }
 
-    const vulgarisation = fabriquer("implantation-vulgarisation", 3, l[3], l[6], "assets/chapitres/vulgarisation-01.webp");
+    const vulgarisation = fabriquer("implantation-vulgarisation", 2, l[3], l[6], "assets/chapitres/vulgarisation-01.webp");
     const presentation = D.createElement("div");
     presentation.className = "cadres";
     const article = D.createElement("article");
@@ -1602,7 +1602,7 @@
 
 
   // L'ancien cinquième chapitre pointait vers sept pages externes. Leur
-  // contenu intégral appartient désormais au chapitre 03, avec navigation
+  // contenu intégral appartient désormais au chapitre Implantation, avec navigation
   // interne. Les autres chapitres ne sont pas modifiés.
   function installerStyleImplantationFusion() {
     if (D.getElementById("style-implantation-fusion-2026")) return;
@@ -1684,7 +1684,7 @@
     if(!corps)return;
     installerStyleImplantationFusion();
     const ensemble=el("section","impl-portail-fusion");
-    ensemble.setAttribute("aria-label","Dossier interactif d'implantation intégré au chapitre 03");
+    ensemble.setAttribute("aria-label","Dossier interactif d'implantation intégré au chapitre Implantation");
     api.chapitres.forEach((info,i)=>{
       const bloc=el("section","impl-portail-bloc");
       bloc.id="impl-fusion-"+info.code;bloc.dataset.implPage=info.code;
@@ -1720,7 +1720,7 @@
 
   noterTitres();
   if (langue === "fr") lierReferencesCadreThese();
-  // Le dossier est affiché uniquement au chapitre 04 existant dans « Savoirs en action ».
+  // Le dossier est affiché uniquement au chapitre Vulgarisation existant dans « Savoirs en action ».
   // La salle immersive utilise un clone DOM ; appliquer le contenu à la source
   // et à chaque salle active, sans ajouter de chapitre ni de page.
   let contenuVulgarisation2026 = "";
@@ -1767,7 +1767,7 @@
     g.querySelector("[data-vul-progress]").textContent = "0/10";
   });
   $$("section.section[data-salle] > .section-contenu").forEach(transformer);
-  // Charge les sept contenus existants uniquement pour la fusion du chapitre 03.
+  // Charge les sept contenus existants uniquement pour la fusion du chapitre Implantation.
   if(langue==="fr"){
     const script=D.createElement("script");
     script.src=new URL(CHEMIN+"implantation/portail.js?v=20261018-fusion-ch03",D.baseURI).href;
@@ -1777,7 +1777,7 @@
       const active=contenu&&$(".section-contenu.gab",contenu);
       if(active)fusionnerDossierImplantation(active);
     };
-    script.onerror=()=>console.warn("Dossier d'implantation indisponible : chargement du chapitre 03 incomplet.");
+    script.onerror=()=>console.warn("Dossier d'implantation indisponible : chargement du chapitre Implantation incomplet.");
     D.head.append(script);
   }
   if (langue === "fr") {
@@ -1793,7 +1793,7 @@
       const active = contenu && $(".section-contenu.gab", contenu);
       if (active) mettreAJourChapitreVulgarisation(active);
     }).catch((err) => {
-      console.warn("Le chapitre 04 conserve son contenu antérieur faute de chargement scientifique.", err);
+      console.warn("Le chapitre Vulgarisation conserve son contenu antérieur faute de chargement scientifique.", err);
     });
   }
   // Retour arrière, adresse directe et changement de chapitre sans

@@ -1036,7 +1036,7 @@ ${cartes(m.cadres)}
 
 function sectionImplantation(c) {
  const m=c.implantation,A=ATELIERS.textes(c.lang,"implantation");
- return `<div class="section-corps pleine implantation-approfondie"><div class="colonne-texte"><p class="surtitre">${e(m.surtitre)}</p><h2>${e(m.titre)}</h2><p class="intro">${e(m.intro)}</p></div><div class="colonne-outils">${ongletsRubriques(c,"implantation",A.labels.choisir,[["implantation-atelier",A.labels.atelier,atelierPratique(c,"implantation")],["implantation-reperes",m.transfert.titre,sectionImplantationHistorique(c)]],2)}</div></div>`;
+ return `<div class="section-corps pleine implantation-approfondie"><div class="colonne-texte"><p class="surtitre">${e(m.surtitre)}</p><h2>${e(m.titre)}</h2><p class="intro">${e(m.intro)}</p></div><div class="colonne-outils">${ongletsRubriques(c,"implantation",A.labels.choisir,[["implantation-reperes",m.transfert.titre,sectionImplantationHistorique(c)]],1)}</div></div>`;
 }
 
 function sectionBiographie(c) {
