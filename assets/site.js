@@ -1073,28 +1073,8 @@
 
   // Accès transversal au dossier approfondi : ajouté AVANT la duplication des salles.
   // Conserve intactes les deux rubriques historiques et la navigation du hall.
-  (function portailImplantation(){
-    const langue=(document.documentElement.lang||'fr').split('-')[0];
-    const traductions={
-      fr:['Un dossier complet à explorer','Sept chapitres illustrés pour passer des concepts aux décisions : schémas, exemples en CLSC, cadres, graphiques pédagogiques et laboratoire interactif.','En français · Outils et sources vérifiables',['Vue d’ensemble','Comprendre','Cadres','Stratégies','Évaluer','Laboratoire','Sources']],
-      en:['Explore the full implementation dossier','Seven illustrated chapters with diagrams, primary-care examples, frameworks, charts and an interactive lab.','Available in French · References provided',['Overview','Understanding','Frameworks','Strategies','Evaluation','Workshop','Sources']],
-      es:['Explorar el dosier completo','Siete capítulos ilustrados con esquemas, ejemplos de atención primaria, marcos teóricos, gráficos y un taller interactivo.','Disponible en francés · Con fuentes',['Panorama','Comprender','Marcos','Estrategias','Evaluar','Taller','Fuentes']],
-      zh:['探索完整专题','七个图文并茂的章节，包括科学框架、初级卫生保健案例、图表及交互式练习。','法语内容 · 附有文献来源',['总览','理解','框架','策略','评估','实践','文献']],
-      ar:['استكشف الملف الكامل','سبعة فصول مصورة تتضمن رسوماً وأمثلة من الرعاية الأولية وأطراً علمية ومختبراً تفاعلياً.','المحتوى بالفرنسية · مع المراجع',['نظرة عامة','فهم','أطر','استراتيجيات','تقييم','مختبر','مصادر']],
-      ru:['Изучить полный раздел','Семь иллюстрированных глав: схемы, примеры первичной помощи, научные модели, графики и интерактивная мастерская.','На французском языке · Со ссылками',['Обзор','Основы','Модели','Стратегии','Оценка','Практика','Источники']]
-    };
-    const t=traductions[langue]||traductions.fr,chemin=document.documentElement.dataset.racine||'./';
-    const fichiers=['index.html','comprendre.html','cadres.html','strategies.html','evaluer.html','laboratoire.html','sources.html'];
-    document.querySelectorAll('.implantation-approfondie > .colonne-texte').forEach(zone=>{
-      if(zone.querySelector('.implantation-portail-accueil'))return;
-      const nav=document.createElement('nav');
-      nav.className='implantation-portail-accueil';
-      nav.setAttribute('aria-label',t[0]);
-      const ex=langue==='fr'?'02 · DOSSIER INTERACTIF':'DOSSIER · 7 CHAPTERS';
-      nav.innerHTML='<div class="implantation-portail-tete"><span>'+ex+'</span><strong>'+t[0]+'</strong><p>'+t[1]+'</p><small>'+t[2]+'</small></div><div class="implantation-portail-liens">'+fichiers.map((f,i)=>'<a href="'+chemin+'implantation/'+f+'"><span>'+String(i+1).padStart(2,'0')+'</span>'+t[3][i]+'<b aria-hidden="true">↗</b></a>').join('')+'</div>';
-      zone.appendChild(nav);
-    });
-  })();
+  // Le dossier d'implantation est intégré dans le chapitre 03 par gabarit-salles.js.
+
 
   // Apparitions au défilement : schémas, cartes et figures entrent en douceur.
   const CIBLES = '.schema, .figure-officielle, .cycle, .cadre, .expertises > div, .liste li, .frise li, .lacune, .media, .chiffres > div, .travail, .personne, .notions > div, .cours-carte, .bandeau-texte, .trajectoire li, .valeurs > div, .piliers > div';
