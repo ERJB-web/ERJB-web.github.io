@@ -1234,3 +1234,53 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
     max-height:min(420px,50dvh);
   }
 }
+
+/* Navigation entre chapitres : numéro et titre réel de destination. */
+.gab-lecture .gab-fleche-precedente,
+.gab-lecture .gab-fleche-suivante{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  width:auto;min-width:0;max-width:clamp(165px,19vw,255px);
+  min-height:54px;height:auto;padding:7px 12px;
+  background:var(--gab-fond);border-color:#cbdde4;border-radius:12px;
+  color:var(--gab-marine);text-align:left;white-space:normal
+}
+.gab-lecture .gab-fleche-libelle{display:flex;flex-direction:column;min-width:0;max-width:100%;gap:2px}
+.gab-lecture .gab-fleche-texte{font-size:13px;font-weight:700;line-height:1.15}
+.gab-lecture .gab-fleche-cible{
+  display:block;max-width:100%;min-height:1.2em;overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap;font-size:12px;font-weight:600;line-height:1.2;opacity:.8
+}
+.gab-lecture .gab-fleche-suivante .gab-fleche-libelle{text-align:right}
+.gab-lecture .gab-fleche-precedente .gab-fleche-libelle{text-align:left}
+.gab-lecture .gab-fleche-precedente:hover:not(:disabled){
+  border-color:var(--gab-bleu);background:#eaf5fa;color:var(--gab-bleu)
+}
+[dir=rtl] .gab-lecture .gab-fleche-precedente,
+[dir=rtl] .gab-lecture .gab-fleche-suivante{transform:none}
+.gab-bas-chapitre .gab-bas-lien{
+  display:inline-flex;flex:0 1 315px;align-items:center;justify-content:space-between;
+  gap:12px;min-width:0;max-width:360px;text-align:left
+}
+.gab-bas-chapitre .gab-bas-libelle{display:flex;flex-direction:column;min-width:0;gap:3px}
+.gab-bas-chapitre .gab-bas-libelle small{font-size:12px;font-weight:600;line-height:1.25;opacity:.8}
+.gab-bas-chapitre .gab-bas-libelle strong{font-size:15px;font-weight:700;line-height:1.3;overflow-wrap:break-word}
+.gab-bas-chapitre .gab-bas-chevron{flex:none;font-size:24px;font-weight:400;line-height:1}
+.gab-bas-chapitre .gab-bas-suivant{text-align:right}
+.gab-bas-chapitre .gab-bas-sommaire{flex:0 0 auto}
+@media(max-width:1100px){
+  .gab-lecture .gab-segments{display:none}
+  .gab-lecture .gab-tous{padding:9px 10px;font-size:13px}
+}
+@media(max-width:700px){
+  .gab-lecture{flex-wrap:wrap;column-gap:7px;row-gap:6px}
+  .gab-lecture .gab-tous{flex:0 0 auto}
+  .gab-lecture .gab-actuel{flex:1 1 calc(100% - 80px)}
+  .gab-lecture .gab-actuel strong{font-size:14px}
+  .gab-lecture .gab-fleche-precedente,
+  .gab-lecture .gab-fleche-suivante{flex:1 1 calc(50% - 5px);max-width:none;min-height:44px;padding:6px 9px}
+  .gab-lecture .gab-fleche-cible{font-size:11px}
+  .salle.gab-lit.gab-avec-chapitres .gab-lecture{max-height:145px}
+  .gab-bas-chapitre{gap:8px;flex-wrap:wrap}
+  .gab-bas-chapitre .gab-bas-lien{flex:1 1 calc(50% - 5px);padding:10px}
+  .gab-bas-chapitre .gab-bas-sommaire{order:3;width:100%}
+}
