@@ -1111,6 +1111,24 @@
     const table = document.querySelector('.these [data-rubriques="these"]');
     if (!table || table.querySelector('.atlas-these')) return;
 
+    // La carte à 500 m appartient à l'exemple R → QGIS de l'O2, où elle
+    // figure déjà : expliquer cette version, plutôt que la répéter en fin de chapitre.
+    const lienCarte500 = Array.from(table.querySelectorAll('a[href*="carte-04-ccsmtl-reponse-intersectorielle-a-500-m"]'))
+      .find(lien => !lien.closest('.atlas-these'));
+    if (lienCarte500 && !table.querySelector('.o2-lecture-carte-500m')) {
+      const figureCarte500 = lienCarte500.closest('figure') || lienCarte500;
+      figureCarte500.classList.add('o2-carte-500m-principale');
+      const lectureCarte500 = document.createElement('section');
+      lectureCarte500.className = 'o2-lecture-carte-500m';
+      lectureCarte500.setAttribute('aria-label', 'Interprétation de la réponse intersectorielle à 500 mètres');
+      lectureCarte500.innerHTML =
+        '<h5>Comment interpréter la carte à 500 m ?</h5>' +
+        '<p><strong>Ce qui est mesuré.</strong> Chaque îlot habité reçoit un score de 0 à 12 : le nombre de domaines sociaux disposant d’au moins une ressource à environ dix minutes de marche (500 m) sur le réseau piéton, à condition qu’une ressource de santé soit elle aussi accessible. Sans ressource de santé proche, le score est nul, même si des ressources sociales sont présentes.</p>' +
+        '<p><strong>Lecture des couleurs.</strong> Les bleus foncés correspondent à une réponse potentielle plus faible ; les teintes claires, à davantage de domaines couverts. Pour les personnes de 65 ans et plus du CCSMTL, le score moyen pondéré atteint <strong>7,4 domaines sur 12</strong>. La comparaison des îlots aide à repérer des disparités locales que la seule moyenne par territoire de CLSC masquerait.</p>' +
+        '<p><strong>Portée et limites.</strong> Il s’agit d’un indicateur exploratoire d’accessibilité géographique conjointe, et non d’une preuve de besoins satisfaits ou de collaboration effective. Il ne renseigne pas à lui seul sur l’admissibilité, la capacité, la disponibilité ou la coordination des services. Ces écarts spatiaux alimentent le mapping de l’O2 ; les liens réels entre acteurs relèvent de l’analyse de réseaux de l’O3.</p>';
+      figureCarte500.after(lectureCarte500);
+    }
+
     const dossier = 'assets/these/o2/';
     const cartes = {
       clsc: {
@@ -1180,7 +1198,7 @@
         volet: 'methodes',
         titre: 'Mesurer l’accessibilité et la réponse de proximité',
         introduction: 'Exemples de productions cartographiques utilisées pour expliciter les choix de distance, d’échelle et d’indicateurs. Une ressource proche géographiquement ne suffit pas à établir une coordination effective entre les acteurs.',
-        cartes: ['proximite500', 'proximite1', 'gmf']
+        cartes: ['proximite1', 'gmf']
       },
       {
         volet: ['resultats', 'retombees'],
@@ -1189,13 +1207,14 @@
         cartes: ['ecarts', 'prioritaires', 'lisa']
       }
     ];
+    const nombreFiguresAtlas = blocs.reduce((total, bloc) => total + bloc.cartes.length, 0);
     const creerCarte = (cle, numero) => {
       const c = cartes[cle];
       const url = dossier + c.fichier;
       const fig = document.createElement('figure');
       fig.className = 'atlas-these-figure';
       fig.innerHTML =
-        '<div class="atlas-these-figure-entete"><span>Figure ' + String(numero).padStart(2, '0') + ' / 09</span><h5></h5><p></p></div>' +
+        '<div class="atlas-these-figure-entete"><span>Figure ' + String(numero).padStart(2, '0') + ' / ' + String(nombreFiguresAtlas).padStart(2, '0') + '</span><h5></h5><p></p></div>' +
         '<a class="atlas-these-image" href="' + url + '" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir en pleine définition : ' + c.titre + '">' +
         '<img src="' + url + '" alt="' + c.alt + '" loading="lazy" decoding="async"></a>' +
         '<figcaption><span>Cartographie exploratoire O2 · CCSMTL · octobre 2026</span>' +
