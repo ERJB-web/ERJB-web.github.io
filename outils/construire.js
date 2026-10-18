@@ -74,8 +74,9 @@ const ATTRIBUTION_EXEMPLES = {
   ru: ["Подготовка методологических примеров", "Научное осмысление, выбор методов, структурирование примеров, создание карт в QGIS, анализ, интерпретация и написание научных текстов выполняются автором. Обработка и кодирование данных осуществляются на языке R в среде Positron. Помощь Claude ограничивается графикой и программированием сайта; Claude не используется для кодирования или анализа данных и подготовки научных текстов."],
 };
 function attributionExemples(lang) {
-  const [titre, texte] = ATTRIBUTION_EXEMPLES[lang] || ATTRIBUTION_EXEMPLES.en;
-  return `<p class="note these-exemples-attribution"><strong>${e(titre)}.</strong> ${e(texte)}</p>`;
+  const [, texte] = ATTRIBUTION_EXEMPLES[lang] || ATTRIBUTION_EXEMPLES.en;
+  const labels = {fr:"Nota Bene :",en:"Note:",es:"Nota:",zh:"注意：",ar:"ملاحظة:",ru:"Примечание:"};
+  return `<p class="these-exemples-attribution" style="font-size:9pt!important;line-height:1.5!important;text-align:justify!important;margin:18px 0 4px;padding:10px 0 0;border-top:1px solid #e4e9ec;color:#596977"><strong>${e(labels[lang] || labels.en)}</strong> ${e(texte)}</p>`;
 }
 const URL = "https://erjb-web.github.io/";
 const TELEPHONE = ["(263) 384-3050", "+12633843050"];
@@ -877,7 +878,7 @@ ${lien(
 )}
 <h4 class="titre-bloc">${e(r.codirection.titre)}</h4>
 <div class="codirection">${r.codirection.personnes.map((pe) => `<article class="personne"><h4>${e(pe.nom)}<span class="grade">${e(pe.grade)}</span></h4><ul>${pe.lignes.map((l) => `<li>${e(l)}</li>`).join("")}</ul><p class="chaire">${e(pe.chaire)}</p>${lien(pe.lien, `${e(r.codirection.profil)} <span aria-hidden="true">↗</span>`, "profil")}</article>`).join("")}</div>`;
-  const methodes = `<h3>${e(t.titres[4])}</h3>${attributionExemples(c.lang)}<p class="these-fil"><span data-objectif="O1">O1</span><span aria-hidden="true">→</span><span data-objectif="O2">O2</span><span aria-hidden="true">→</span><span data-objectif="O3">O3</span><strong>${e(f.labels.articulation)}</strong></p><div class="these-methodes">${f.methodes.map((texte, i) => `<article class="objectif-carte" data-objectif="O${i + 1}"><h4><span class="objectif-code">O${i + 1}</span> ${e(n.etapes[i])}</h4><p class="these-formulation">${e(texte)}</p><button class="these-renvoi" type="button" data-these-vers="objectifs" data-these-objectif="O${i + 1}">${e(n.objectif)} <span aria-hidden="true">↗</span></button></article>`).join("")}</div>
+  const methodes = `<p class="these-fil"><span data-objectif="O1">O1</span><span aria-hidden="true">→</span><span data-objectif="O2">O2</span><span aria-hidden="true">→</span><span data-objectif="O3">O3</span><strong>${e(f.labels.articulation)}</strong></p><div class="these-methodes">${f.methodes.map((texte, i) => `<article class="objectif-carte" data-objectif="O${i + 1}"><h4><span class="objectif-code">O${i + 1}</span> ${e(n.etapes[i])}</h4><p class="these-formulation">${e(texte)}</p><button class="these-renvoi" type="button" data-these-vers="objectifs" data-these-objectif="O${i + 1}">${e(n.objectif)} <span aria-hidden="true">↗</span></button></article>`).join("")}</div>
 <details class="protocole-these these-protocole-detail"><summary>${e(p.titre)}</summary>
 <p class="note-protocole">${e(p.etat)}</p>
 <h4>${e(p.devis.titre)}</h4>
@@ -888,7 +889,7 @@ ${lien(
 <div class="comparaison">${figureClsc(c)}
 ${schemaReseau(c)}</div>
 <h4 class="titre-bloc">${e(r.notions.titre)}</h4>
-<div class="notions">${r.notions.items.map(([t, d, ref]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p>${ref ? `<p class="ref">(${e(ref)})</p>` : ""}</div>`).join("")}</div>`;
+<div class="notions">${r.notions.items.map(([t, d, ref]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p>${ref ? `<p class="ref">(${e(ref)})</p>` : ""}</div>`).join("")}</div>${attributionExemples(c.lang)}`;
   const contenus = [
     `<h3>${e(t.titres[0])}</h3><p class="these-concept-label">${e(f.labels.point)}</p><p class="these-point these-formulation">${e(f.point)}</p><div class="these-concept-sequence">${n.etapes.map((nom,i)=>`<button type="button" data-these-vers="objectifs" data-these-objectif="O${i+1}" data-objectif="O${i+1}"><span class="objectif-code">O${i+1}</span><strong>${e(nom)}</strong><span aria-hidden="true">${i<2?'→':'↗'}</span></button>`).join('')}</div><details class="these-fondements"><summary>${icone('papiers')}<span>${e(n.fondements)}</span></summary><p>${e(n.fondementsIntro)}</p>${sectionConceptualisation(c, true)}</details>`,
     contexte,
