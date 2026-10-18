@@ -861,7 +861,7 @@
       table.classList.remove("table", "rubriques");
       table.classList.add("gab-chapitres");
       chapitres.forEach((ch, i) => {
-        const s = construireChapitre(ch, i, n, COULEURS[i % COULEURS.length], ch.choix, salle);
+        const s = construireChapitre(ch, i, n, couleurChapitre(salle, i), ch.choix, salle);
         if (!ch.surPlace) table.append(s);
       });
     } else if (mode === "elements" && n) {
@@ -871,7 +871,7 @@
       while (repere && repere.parentElement && repere.parentElement !== sc && !repere.parentElement.matches(".colonne-outils, .section-corps")) repere = repere.parentElement;
       const parents = chapitres.map((c) => c.source.parentElement).filter(Boolean);
       if (repere) repere.before(conteneur); else corps.append(conteneur);
-      chapitres.forEach((ch, i) => conteneur.append(construireChapitre(ch, i, n, COULEURS[i % COULEURS.length], ch.choix, salle)));
+      chapitres.forEach((ch, i) => conteneur.append(construireChapitre(ch, i, n, couleurChapitre(salle, i), ch.choix, salle)));
       if (chapitres[0].ancre?.isConnected && !chapitres[0].ancre.children.length) chapitres[0].ancre.remove();
       parents.forEach((p) => p.isConnected && nettoyer(p, sc));
     }
@@ -923,7 +923,7 @@
         `<div class="gab-tuiles">` + chapitres.map((ch, i) => {
           const large = (vides === 1 && i === 0) || (vides === 2 && (i === 0 || i === n - 1)) ? " gab-large" : vides >= 3 && i === 0 ? " gab-grande" : "";
           const vignette = ch.choix.image ? urlVignette(ch.choix.image) : ch.choix.url;
-          const photo = vignette ? ` style="--gab-c:${COULEURS[i % COULEURS.length]};--gab-tuile:url('${echapper(vignette)}')"` : ` style="--gab-c:${COULEURS[i % COULEURS.length]}"`;
+          const photo = vignette ? ` style="--gab-c:${couleurChapitre(salle, i)};--gab-tuile:url('${echapper(vignette)}')"` : ` style="--gab-c:${couleurChapitre(salle, i)}"`;
           const destination = ch.urlExterne || ("#" + salle + "/" + (ch.cle || `chapitre-${i + 1}`));
           const aller = ch.urlExterne ? "" : ' data-gab-aller="' + i + '"';
           return `<a class="gab-tuile${large}" href="${echapper(destination)}"${aller}${photo} aria-label="${echapper(T.aller(ch.titre))}"><span class="gab-tuile-num">${deux(i + 1)}</span><span class="gab-tuile-titre">${echapper(ch.titre)}</span></a>`;
@@ -1084,7 +1084,18 @@
     });
     zone.classList.toggle("gab-page-chapitre", ouverte);
     zone.classList.toggle("gab-page-sommaire", !ouverte);
-    if (ouverte) nommerChapitresVoisins(zone, liste, cible);
+    if (ouverte) {
+      nommerChapitresVoisins(zone, liste, cible);
+      const menu = $(".gab-index-chapitres", zone);
+      const aside = $(".gab-chapitre-aside", liste[cible]);
+      if (menu && aside && menu.parentElement !== aside) aside.prepend(menu);
+      if (menu) $("[data-gab-chapitre-index]", menu).forEach((bouton) => {
+        const actif = Number(bouton.dataset.gabChapitreIndex) === cible;
+        bouton.classList.toggle("actif", actif);
+        if (actif) bouton.setAttribute("aria-current", "page");
+        else bouton.removeAttribute("aria-current");
+      });
+    }
     $$(".gab-tuile[data-gab-aller]", zone).forEach((tuile, i) => {
       if (ouverte && i === cible) tuile.setAttribute("aria-current", "page");
       else tuile.removeAttribute("aria-current");
@@ -1114,6 +1125,14 @@
   }
 
   D.addEventListener("click", (ev) => {
+    const lienChapitre = ev.target.closest("[data-gab-chapitre-index]");
+    if (lienChapitre) {
+      ev.preventDefault();
+      const zone = lienChapitre.closest(".gab");
+      if (zone) ouvrirPageChapitre(zone, Number(lienChapitre.dataset.gabChapitreIndex),
+        { adresse: true, haut: true });
+      return;
+    }
     const tuile = ev.target.closest("[data-gab-aller]");
     if (tuile) {
       const zone = tuile.closest(".gab");
@@ -1189,6 +1208,9 @@
   function decorerOnglets() {
     if (!onglets) return;
     $$(".onglet-salle", onglets).forEach((b) => {
+      // L'architecture se lit par les titres, sans pictogrammes générés.
+      $(".gab-onglet-photo", b).forEach((icone) => icone.remove());
+      return;
       if ($(".gab-onglet-photo", b)) return;
       const sousSalle = b.dataset.sous;
       // Pictogrammes vectoriels explicites : pas de photos arbitraires recadrées.
