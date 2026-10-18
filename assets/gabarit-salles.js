@@ -858,7 +858,10 @@
       if (photo) tete.after(photo);
       grille.classList.add("gab-menu-gauche");
     }
-    grille.append(texte, aside);
+    // Thèse : le sommaire coloré est le premier élément de la grille,
+    // toujours à gauche du texte sur écran large (sans nouvel index).
+    if (salle === "recherche" && grille.classList.contains("gab-menu-gauche")) grille.append(aside, texte);
+    else grille.append(texte, aside);
     section.append(grille);
     // Navigation de fin de page : on passe à une autre vue, jamais au
     // chapitre suivant dans une longue page continue.
