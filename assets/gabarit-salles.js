@@ -586,7 +586,7 @@
 
         const figure = img.closest("figure");
         // Figure purement décorative : aucun texte, aucune légende à perdre.
-        if (figure && $$("img", figure).length === 1 && !net(figure.textContent)) {
+        if (figure?.matches(".logos-recherche") && $("img", figure).length === 1 && !net(figure.textContent)) {
           figure.remove();
           return;
         }
