@@ -4,8 +4,8 @@
 .these .galerie-o2-piste{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:#a7c9ca transparent;overscroll-behavior-x:contain;touch-action:pan-x pan-y;cursor:grab;border:1px solid #d3e0e3;border-radius:12px;background:#fff;outline-offset:4px}
 .these .galerie-o2-piste.is-dragging{scroll-snap-type:none;cursor:grabbing;user-select:none}
 .these .galerie-o2-planche{display:flex;flex-direction:column;flex:0 0 100%;width:100%;min-width:0;max-width:100%;margin:0;padding:0;scroll-snap-align:start;scroll-snap-stop:always;box-sizing:border-box}
-.these .galerie-o2-photo{display:flex;align-items:center;justify-content:center;width:100%;height:clamp(260px,52vh,600px);min-width:0;background:#f0f4f5;overflow:hidden}
-.these .galerie-o2-photo img{display:block!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;object-position:center!important;aspect-ratio:auto!important;border:0!important;border-radius:0!important;filter:none!important;transform:none!important;user-select:none;-webkit-user-drag:none}
+.these .galerie-o2-photo{display:flex;align-items:center;justify-content:center;width:100%;height:auto;min-width:0;background:#f0f4f5;overflow:hidden}
+.these .galerie-o2-photo img{display:block!important;width:100%!important;height:auto!important;max-width:100%!important;max-height:none!important;object-fit:contain!important;object-position:center!important;aspect-ratio:auto!important;border:0!important;border-radius:0!important;filter:none!important;transform:none!important;user-select:none;-webkit-user-drag:none}
 .these .galerie-o2-planche figcaption{display:block;min-width:0;margin:0;padding:18px 22px 20px;background:#fff;border-top:1px solid #e1e9eb}
 .these .galerie-o2-planche h5{margin:0 0 7px;color:#143f50;font:750 clamp(17px,1.7vw,23px)/1.35 var(--sans);text-align:start;text-transform:none;letter-spacing:-.015em}
 .these .galerie-o2-planche p{margin:0;color:#475d65;font:400 15px/1.65 var(--sans);text-align:start;max-width:85ch}
@@ -15,4 +15,4 @@
 .these .galerie-o2-commandes button:disabled{opacity:.3;cursor:default}
 .these .galerie-o2-commandes [role=status]{min-width:65px;text-align:center;color:#365b65;font:650 13px/1.4 var(--sans);font-variant-numeric:tabular-nums}
 .these .galerie-o2 :is(button,a,[tabindex]):focus-visible{outline:3px solid #14747e;outline-offset:3px}
-@media(max-width:600px){.these .galerie-o2-photo{height:clamp(230px,45vh,440px)}.these .galerie-o2-planche figcaption{padding:14px 16px}.these .galerie-o2-planche p{font-size:14px}}
+@media(max-width:600px){.these .galerie-o2-photo{height:auto}.these .galerie-o2-planche figcaption{padding:14px 16px}.these .galerie-o2-planche p{font-size:14px}}
