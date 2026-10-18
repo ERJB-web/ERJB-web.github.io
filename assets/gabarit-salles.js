@@ -1564,7 +1564,7 @@
     g.querySelector("progress").value = 0;
     g.querySelector("[data-vul-progress]").textContent = "0/10";
   });
-  $("section.section[data-salle] > .section-contenu").forEach(transformer);
+  $$("section.section[data-salle] > .section-contenu").forEach(transformer);
   // Charge les sept contenus existants uniquement pour la fusion du chapitre 03.
   if(langue==="fr"){
     const script=D.createElement("script");
