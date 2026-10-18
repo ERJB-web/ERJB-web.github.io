@@ -1104,7 +1104,7 @@
 
 /* atlas-these-cartographie-2026
    Figures exploratoires du projet cartographique O2.
-   Réparties dans les onglets de la thèse, sans toucher aux textes du protocole. */
+   Les huit cartes et leurs légendes sont réunies après la démarche de mapping O2. */
 (() => {
   const initialiser = () => {
     if ((document.documentElement.lang || "fr").toLowerCase() !== "fr") return;
@@ -1189,19 +1189,16 @@
 
     const blocs = [
       {
-        volet: 'contexte',
         titre: 'Lire le territoire avant de décrire les réseaux',
         introduction: 'Ces cartes illustrent la distribution des besoins potentiels, celle des services et les différences entre territoires de CLSC. Elles donnent à voir le contexte territorial, sans déduire les profils individuels des seules données géographiques.',
         cartes: ['besoins', 'secteurs', 'clsc']
       },
       {
-        volet: 'methodes',
         titre: 'Mesurer l’accessibilité et la réponse de proximité',
         introduction: 'Exemples de productions cartographiques utilisées pour expliciter les choix de distance, d’échelle et d’indicateurs. Une ressource proche géographiquement ne suffit pas à établir une coordination effective entre les acteurs.',
         cartes: ['proximite1', 'gmf']
       },
       {
-        volet: ['resultats', 'retombees'],
         titre: 'Croiser besoins, réponse et configurations territoriales',
         introduction: 'Ces trois exemples montrent comment des croisements spatiaux peuvent orienter des questions à approfondir. Ils ne doivent pas être interprétés comme les résultats définitifs de la thèse, ni comme une validation des réseaux réellement mobilisés.',
         cartes: ['ecarts', 'prioritaires', 'lisa']
@@ -1224,11 +1221,14 @@
       return fig;
     };
 
+    // L'atlas O2 suit la méthode et les produits de cartographie, sans passer
+    // dans les chapitres Contexte ou Retombées. On n'insère rien si le
+    // point d'ancrage méthodologique manque (évite un bloc mal situé).
+    const methodeO2 = table.querySelector('#methode-o2-donnees');
+    const apresMethode = methodeO2?.querySelector('.pourquoi-indispensable');
+    if (!apresMethode) return;
     let compteur = 0;
     blocs.forEach((bloc) => {
-      const panneau = Array.from(table.querySelectorAll('.rubrique-corps'))
-        .find(el => (Array.isArray(bloc.volet) ? bloc.volet.includes(el.dataset.rubrique) : el.dataset.rubrique === bloc.volet) && el.closest('[data-rubriques="these"]') === table);
-      if (!panneau) return;
       const section = document.createElement('section');
       section.className = 'atlas-these';
       section.setAttribute('aria-label', bloc.titre);
@@ -1243,16 +1243,7 @@
       note.className = 'atlas-these-precaution';
       note.textContent = 'Sources, méthodes, légendes et crédits figurent sur chaque carte. Ces représentations écologiques et spatiales sont des exemples d’analyses exploratoires et ne remplacent ni les données individuelles ni l’étude des relations effectives entre partenaires.';
       section.appendChild(note);
-      // Les cartes produites pour la méthodologie O2 doivent rester avec le mapping,
-      // et non être ajoutées après la fin d'O3 et les limites du chapitre.
-      if (bloc.volet === 'methodes') {
-        const objectif2 = panneau.querySelector('#methode-o2-donnees');
-        const justification = objectif2?.querySelector('.pourquoi-indispensable');
-        if (justification) justification.before(section);
-        else (objectif2 || panneau.querySelector('#these-methode-o2') || panneau).appendChild(section);
-      } else {
-        panneau.appendChild(section);
-      }
+      apresMethode.before(section);
     });
 
     // Les cartes présentes dans d’autres exposés méthodologiques ne doivent plus être recadrées.
