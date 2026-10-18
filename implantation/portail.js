@@ -1,6 +1,6 @@
 "use strict";
 (function(){
-const root=document.getElementById('app');if(!root)return;
+const root=document.getElementById('app');
 const page=document.body.dataset.page||'index';
 const chapters=[
 ['index.html','index','Vue d’ensemble','Le passage de la connaissance à l’action'],
@@ -79,7 +79,12 @@ const pre='<div class="topbar"><div class="top-inner"><a class="brand" href="ind
 root.innerHTML='<a class="skip" href="#contenu-portail">Aller au contenu</a>'+pre+'<main id="contenu-portail" class="shell">'+(pages[page]||pages.index)()+footNext()+'</main><footer class="footer"><div class="footer-inner"><p>Éric Bernier · Dossier pédagogique indépendant · Mise à jour : octobre 2026.<br>Les exemples et chiffres signalés fictifs n’ont aucune portée empirique.</p><p>'+link('../#implantation','Revenir au site principal')+' · '+link('sources.html','Références')+'</p></div></footer>';
 document.getElementById('nav-toggle').addEventListener('click',e=>{const b=e.currentTarget,nav=document.getElementById('topnav');const open=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',String(open));nav.classList.toggle('open',open)});
 }
-render();
+if(root)render();
+function activerInteractionsPortail(conteneur,page){
+const document={
+ querySelectorAll:(selecteur)=>conteneur.querySelectorAll(selecteur),
+ getElementById:(id)=>conteneur.querySelector('[id="'+id+'"]')
+};
 const frameworks={
 cfir:['CFIR actualisé · Comprendre les déterminants','Question utile : pourquoi une équipe peut-elle ou non utiliser le dispositif ? On choisit des construits des cinq domaines, on formule des questions qualitatives ou quantitatives contextualisées et on analyse les leviers et les obstacles.','À ne pas faire : traiter les construits comme une liste obligatoire ou comme une sélection automatique de stratégies.'],
 eric:['ERIC · Nommer les stratégies','Question utile : quelles actions peuvent répondre à un obstacle précis ? Le répertoire aide à décrire facilitation, formation, audit, réseautage, adaptation et autres tactiques.','À ne pas faire : affirmer qu’une stratégie est efficace simplement parce qu’elle figure dans ERIC.'],
@@ -128,5 +133,20 @@ document.getElementById('build-theory')?.addEventListener('click',buildTheory);
 document.getElementById('copy-theory')?.addEventListener('click',async()=>{const status=document.getElementById('lab-status');try{await navigator.clipboard.writeText(savedTheory);status.textContent='Fiche copiée.'}catch{status.textContent='Copie indisponible : sélectionnez le texte dans la fiche ci-dessus.'}});
 document.getElementById('print-theory')?.addEventListener('click',()=>window.print());
 buildTheory();
+}
+}
+// Le dossier historique reste consultable, mais ses sept pages peuvent
+// être incorporées en totalité au chapitre 03 du site principal.
+if(root){
+  activerInteractionsPortail(root,page);
+}else{
+  window.DOSSIER_IMPLANTATION_2026={
+    chapitres:chapters.map(([fichier,code,titre,description])=>({fichier,code,titre,description})),
+    contenu:(code)=>{
+      const fn=pages[code];
+      return typeof fn==="function"?fn():"";
+    },
+    initialiser:(conteneur,code)=>activerInteractionsPortail(conteneur,code)
+  };
 }
 })();
