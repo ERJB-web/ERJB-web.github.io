@@ -5957,3 +5957,152 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
 :is(#salle,#recherche) .objectifs-visuels .ov-lacune-sources a:focus-visible{outline:2px solid var(--ov-accent);outline-offset:2px}
 :is(#salle,#recherche) .objectifs-visuels .ov-entete{border-top:0}
 @media(max-width:700px){:is(#salle,#recherche) .objectifs-visuels .ov-lacune-avant{padding:16px 17px 14px}}
+
+
+/* Navigation intérieure : version éditoriale sobre, sans pictogrammes (2026-10-18). */
+/* Les onglets sont des liens de chapitre, pas des cartes illustrées. */
+.salle .salle-barre{
+  padding-block:5px;
+  gap:10px;
+  box-shadow:none;
+}
+.salle .salle-barre #salle-titre{
+  font-size:14px;
+  line-height:1.25;
+  font-weight:650;
+}
+.salle .salle-barre button[data-retour],
+.salle .salle-barre button[data-suivante],
+.salle .salle-barre button[data-contact]{
+  min-height:36px;
+  padding:7px 12px;
+  border-radius:8px;
+  font-size:13px;
+  line-height:1.2;
+  box-shadow:none;
+}
+.salle .salle-barre button[data-ecouter],
+.salle .salle-barre button[data-arreter]{
+  min-height:36px;
+  padding:7px 11px;
+  border-radius:8px;
+  font-size:13px;
+}
+.salle .salle-barre .salle-actions{gap:8px}
+.salle .salle-onglets{
+  align-items:stretch;
+  gap:0;
+  padding:0 clamp(14px,2.1vw,32px);
+  border-top:1px solid #e5eded;
+  border-bottom:1px solid #dce6e7;
+  background:#fbfdfc;
+  box-shadow:none;
+}
+.salle .salle-onglets .onglet-salle{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  flex-direction:row;
+  gap:8px;
+  min-width:0;
+  min-height:46px;
+  max-width:none;
+  padding:8px 12px;
+  border:0;
+  border-bottom:2px solid transparent;
+  border-radius:0;
+  background:transparent;
+  color:#274c5b;
+  box-shadow:none;
+  transform:none;
+  transition:background-color .15s,border-color .15s,color .15s;
+}
+.salle .salle-onglets .onglet-salle:hover,
+.salle .salle-onglets .onglet-salle:focus-visible{
+  background:#f0f5f4;
+  color:#133e53;
+  box-shadow:none;
+  transform:none;
+}
+.salle .salle-onglets .onglet-salle.actif{
+  border-color:var(--c1,var(--ink));
+  background:#eaf2f2;
+  color:#173f52;
+  box-shadow:none;
+}
+.salle .salle-onglets .onglet-salle.actif:hover{background:#e4eeee}
+.salle .salle-onglets .baie.mini{display:none}
+.salle .salle-onglets .onglet-num,
+.salle .salle-onglets .onglet-salle.actif .onglet-num{
+  display:inline;
+  flex:none;
+  align-self:center;
+  grid-column:auto;
+  grid-row:auto;
+  justify-self:auto;
+  width:auto;
+  min-width:0;
+  height:auto;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:none;
+  color:#6c838b;
+  font:600 10px/1.2 var(--sans,Arial,sans-serif);
+  font-variant-numeric:tabular-nums;
+}
+.salle .salle-onglets .onglet-salle.actif .onglet-num{color:#365e6b}
+.salle .salle-onglets .onglet-titre{
+  min-width:0;
+  align-self:center;
+  grid-column:auto;
+  grid-row:auto;
+  font-size:13px;
+  line-height:1.25;
+  font-weight:620;
+  hyphens:none;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+@media(min-width:1000px){
+  .salle .salle-onglets{display:grid}
+  .salle .salle-onglets .onglet-salle{
+    display:flex;
+    min-height:46px;
+    padding:8px 11px;
+  }
+  .salle .salle-onglets .baie.mini{display:none}
+  .salle .salle-onglets .onglet-num{display:inline}
+  .salle .salle-onglets .onglet-titre{font-size:13px}
+}
+@media(max-width:999px){
+  .salle .salle-onglets{
+    display:flex;
+    gap:0;
+    padding:0 var(--gouttiere);
+    overflow-x:auto;
+  }
+  .salle .salle-onglets .onglet-salle{
+    display:flex;
+    flex:0 0 auto;
+    width:auto;
+    max-width:218px;
+    min-height:44px;
+    padding:8px 12px;
+    gap:7px;
+  }
+  .salle .salle-onglets .onglet-titre{font-size:12px}
+}
+@media(max-width:700px){
+  .salle .salle-barre{padding-block:7px}
+  .salle .salle-barre #salle-titre{font-size:12px}
+  .salle .salle-barre button[data-retour],
+  .salle .salle-barre button[data-suivante],
+  .salle .salle-barre button[data-contact]{
+    min-height:44px;
+    padding:8px 10px;
+    font-size:12px;
+  }
+  .salle .salle-barre button[data-ecouter],
+  .salle .salle-barre button[data-arreter]{min-height:44px}
+}
