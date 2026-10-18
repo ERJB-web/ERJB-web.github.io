@@ -5342,3 +5342,19 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
   :is(#salle,#recherche) .m-o2 .bloc-illustre > ol.m-etapes > li{padding:18px}
   :is(#salle,#recherche) .m-o2 .bloc-illustre:has(> ol.m-etapes) > figure > a{padding:8px}
 }
+
+/* Thèse : suppression du panneau « Parcours de lecture » non demandé.
+   Les chapitres, leur contenu et la pagination restent disponibles. */
+.rubriques[data-rubriques="these"][data-navigation="atelier"]{
+  display:block!important;
+  container-type:normal;
+}
+.rubriques[data-rubriques="these"][data-navigation="atelier"] > .rubriques-console{
+  display:none!important;
+}
+.rubriques[data-rubriques="these"][data-navigation="atelier"] > .rubrique-corps{
+  display:block;
+  width:100%;
+  grid-column:auto;
+  grid-row:auto;
+}
