@@ -113,6 +113,8 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 
 /* Chapitres : texte et photo côte à côte, toute la largeur. */
 .gab .gab-chapitre{position:relative;display:block;margin:64px 0 0;padding:44px 0 0;border:0;border-top:1px solid var(--gab-ligne)!important;background:none;box-shadow:none;scroll-margin-top:6px;scroll-snap-align:none!important;animation:none!important}
+/* Les autres pages de chapitre doivent réellement disparaître, même avec display:block du gabarit. */
+.gab .gab-chapitre[hidden]{display:none!important}
 .gab .gab-chapitres>.gab-chapitre:first-child{border-top:0!important;padding-top:12px}
 .gab .gab-chapitre::before{display:none!important}
 .gab-chapitre-grille{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:56px;align-items:start}
