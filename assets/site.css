@@ -6240,3 +6240,9 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
     line-height:1.6!important;
   }
 }
+
+/* En-tête principal : rapprocher légèrement les coordonnées vers la gauche (écrans > 700 px). */
+@media(min-width:701px){
+  .entete .marque-bloc{flex:0 1 auto}
+  .entete-contact{gap:6px 12px;justify-content:flex-start}
+}
