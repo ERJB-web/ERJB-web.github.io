@@ -6246,3 +6246,15 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
   .entete .marque-bloc{flex:0 1 auto}
   .entete-contact{gap:6px 12px;justify-content:flex-start}
 }
+
+/* Alignement éditorial : paragraphes rédigés uniquement, sans changer les titres,
+   les éléments d'interface, les légendes ni la présentation FALC. */
+body:not(.page-abregee) :is(#contenu .section-corps, #salle .salle-contenu)
+  p:not(:is(.surtitre,.surtexte,.cadrage-these-surtexte,.these-titre-label,
+            .ov-label,.ov-lacune-sources,.ref,.m-source,.a-src,.r-statut,
+            .f-synthese-titre,.etat,.meta,.eyebrow,.overline))
+   :not(:is(.these-devis p,.these-chiffres p,.a-obj p,
+            .rubriques-console p,.rubriques-pagination p,
+            .chiffres p,.barres p)) {
+  text-align:justify!important;
+}
