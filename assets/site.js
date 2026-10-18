@@ -1350,9 +1350,9 @@
 })();
 
 
-/* Thèse : lecture réellement séparée des trois objectifs méthodologiques.
-   Les vues O2/O3 ne défilent plus à la suite de la revue O1.
-   Délégation compatible avec les chapitres reconstruits et leurs clones. */
+/* Thèse : afficher les trois objectifs dans une seule page de méthodologie.
+   Les liens O1/O2/O3 restent des accès directs, sans masquer d'autre contenu.
+   La navigation latérale et le gabarit des chapitres restent inchangés. */
 (() => {
   const choisirObjectif = (navigation, code, defiler = false) => {
     if (!navigation || !/^O[123]$/.test(code)) return false;
@@ -1365,8 +1365,8 @@
     const selection = vues.find(vue => vue.dataset.vueObjectif === code);
     if (!selection) return false;
     vues.forEach(vue => {
-      vue.hidden = vue !== selection;
-      vue.setAttribute('aria-hidden', String(vue !== selection));
+      vue.hidden = false;
+      vue.setAttribute('aria-hidden', 'false');
     });
     navigation.querySelectorAll('a[data-objectif]').forEach(lien => {
       const actif = lien.dataset.objectif === code;
@@ -1375,7 +1375,7 @@
       else lien.removeAttribute('aria-current');
     });
     if (defiler) {
-      navigation.scrollIntoView({
+      (selection.querySelector('[id="these-methode-' + code.toLowerCase() + '"]') || selection).scrollIntoView({
         block: 'start',
         behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
       });
@@ -1387,8 +1387,7 @@
     document.querySelectorAll('.these-methode-parcours[data-objectifs-isoles="oui"]')
   );
 
-  // Liens O1/O2/O3 : ouvrir la section demandée au lieu de faire défiler
-  // une page unique qui montre les objectifs les uns après les autres.
+  // Liens O1/O2/O3 : rejoindre l'objectif demandé dans la page complète.
   document.addEventListener('click', evenement => {
     const lien = evenement.target.closest?.(
       '.these-methode-parcours[data-objectifs-isoles="oui"] a[data-objectif]'
@@ -1423,8 +1422,7 @@
     }
   }, true);
 
-  // Un seul objectif visible à l'ouverture, y compris pour la version non
-  // encore transférée dans le gabarit de lecture des chapitres.
+  // Tous les objectifs sont visibles à l'ouverture, en page publique comme en salle.
   const initialiser = () => navigations().forEach(nav => {
     const actif = nav.querySelector('a[aria-current="step"]')?.dataset.objectif || 'O1';
     choisirObjectif(nav, actif);
