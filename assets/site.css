@@ -5407,20 +5407,40 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
   :is(#salle,#recherche) .m-o2 .bloc-illustre:has(> ol.m-etapes) > figure > a{padding:8px}
 }
 
-/* Thèse : suppression du panneau « Parcours de lecture » non demandé.
-   Les chapitres, leur contenu et la pagination restent disponibles. */
+/* Thèse : un seul chapitre est affiché à la fois.
+   Le sommaire reste accessible et les flèches changent de panneau,
+   sans dérouler l'intégralité de la thèse. */
 .rubriques[data-rubriques="these"][data-navigation="atelier"]{
-  display:block!important;
+  display:grid;
+  grid-template-columns:minmax(205px,244px) minmax(0,1fr);
+  gap:clamp(18px,2.5vw,34px);
+  align-items:start;
   container-type:normal;
 }
 .rubriques[data-rubriques="these"][data-navigation="atelier"] > .rubriques-console{
-  display:none!important;
+  display:block;
+  grid-column:1;
+  grid-row:1;
+  min-width:0;
 }
 .rubriques[data-rubriques="these"][data-navigation="atelier"] > .rubrique-corps{
   display:block;
   width:100%;
-  grid-column:auto;
-  grid-row:auto;
+  min-width:0;
+  grid-column:2;
+  grid-row:1;
+}
+/* Le CSS d'affichage des panneaux ne doit jamais prévaloir sur hidden. */
+.rubriques[data-rubriques="these"][data-navigation="atelier"] > .rubrique-corps[hidden]{
+  display:none!important;
+}
+@media(max-width:1099px){
+  .rubriques[data-rubriques="these"][data-navigation="atelier"]{display:block}
+  .rubriques[data-rubriques="these"][data-navigation="atelier"] > .rubriques-console,
+  .rubriques[data-rubriques="these"][data-navigation="atelier"] > .rubrique-corps{
+    grid-column:auto;
+    grid-row:auto;
+  }
 }
 
 /* Thèse : bandeau des affiliations en pleine largeur, logos nets (octobre 2026). */
