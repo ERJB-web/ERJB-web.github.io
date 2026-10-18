@@ -225,6 +225,22 @@
         const b = boutons.find((x) => x.dataset.volet === v.dataset.volet);
         return { source: v, titre: texteTitre(b?.querySelector("strong") || b) || texteTitre($(".rubrique-entete span", v)), cle: v.dataset.rubrique || "", surPlace: true };
       });
+      if (salle === "vulgarisation") {
+        const titres = {
+          fr: ["Dossier scientifique approfondi", "État des connaissances, statistiques internationales, tableaux comparatifs et figures authentiques issues de publications scientifiques.", "Lire le dossier scientifique complet"],
+          en: ["In-depth scientific dossier (French)", "Research synthesis, international statistics and figures from published studies.", "Read the scientific dossier"],
+          es: ["Dossier científico completo (en francés)", "Estado del conocimiento, estadísticas internacionales y figuras científicas.", "Leer el dossier"],
+          zh: ["科学传播研究专题（法语）", "研究综述、国际数据和原始科学图表。", "阅读专题"],
+          ar: ["ملف علمي معمّق (بالفرنسية)", "مراجعة للأبحاث وبيانات دولية ورسوم علمية منشورة.", "قراءة الملف"],
+          ru: ["Научный обзор (на французском)", "Обзор исследований, международная статистика и научные иллюстрации.", "Читать обзор"],
+        };
+        const t = titres[langue] || titres.fr;
+        const source = el("div", "vul-dossier-invite");
+        source.dataset.image = CHEMIN + "assets/chapitres/vulgarisation-02.webp";
+        source.innerHTML = '<p class="vul-dossier-extrait">' + echapper(t[1]) + '</p>' +
+          '<p><a class="vul-dossier-lien" href="' + CHEMIN + 'vulgarisation/dossier.html">' + echapper(t[2]) + ' ↗</a></p>';
+        chapitres.push({ source, titre: t[0], cle: "dossier", urlExterne: CHEMIN + "vulgarisation/dossier.html" });
+      }
       if (salle === "implantation") {
         const portail = $(".implantation-portail-accueil", sc);
         if (portail) chapitres.push({ source: portail, titre: texteTitre($(".implantation-portail-tete strong", portail)), titreEl: $(".implantation-portail-tete", portail) });
@@ -520,7 +536,9 @@
           const large = (vides === 1 && i === 0) || (vides === 2 && (i === 0 || i === n - 1)) ? " gab-large" : vides >= 3 && i === 0 ? " gab-grande" : "";
           const vignette = ch.choix.image ? urlVignette(ch.choix.image) : ch.choix.url;
           const photo = vignette ? ` style="--gab-c:${COULEURS[i % COULEURS.length]};--gab-tuile:url('${echapper(vignette)}')"` : ` style="--gab-c:${COULEURS[i % COULEURS.length]}"`;
-          return `<a class="gab-tuile${large}" href="#${echapper(salle)}${ch.cle ? "/" + echapper(ch.cle) : ""}" data-gab-aller="${i}"${photo} aria-label="${echapper(T.aller(ch.titre))}"><span class="gab-tuile-num">${deux(i + 1)}</span><span class="gab-tuile-titre">${echapper(ch.titre)}</span></a>`;
+          const destination = ch.urlExterne || ("#" + salle + (ch.cle ? "/" + ch.cle : ""));
+          const aller = ch.urlExterne ? "" : ' data-gab-aller="' + i + '"';
+          return `<a class="gab-tuile${large}" href="${echapper(destination)}"${aller}${photo} aria-label="${echapper(T.aller(ch.titre))}"><span class="gab-tuile-num">${deux(i + 1)}</span><span class="gab-tuile-titre">${echapper(ch.titre)}</span></a>`;
         }).join("") + `</div>`;
       // Ma thèse : le titre provisoire, le statut et la codirection
       // doivent être lus avant les tuiles. Ne déplacer aucun élément
