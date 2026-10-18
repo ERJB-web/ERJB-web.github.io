@@ -367,15 +367,15 @@ const fr = {
       },
       {
         "dimension": "Synthèse intégrée",
-        "etat": "Non identifiée dans les audits PubMed et Cairn",
+        "etat": "Articulation à préciser chez les aînés suivis en SAD",
         "niveau": "Lacune principale",
         "score": 5,
-        "constat": "Aucune synthèse repérée ne réunit, chez les adultes consultant en soins primaires, le caractère non satisfait des besoins, leur mesure multidomaine, leurs configurations de concomitance, la priorité que leur accorde le patient, leurs interrelations, la configuration du réseau mobilisable et la trajectoire jusqu’à leur résolution.",
+        "constat": "La lacune porte sur l’articulation, chez les personnes aînées vivant à domicile et présentant une ou plusieurs morbidités, entre les profils de besoins sociaux concomitants (satisfaits ou non), les ressources mobilisables et les collaborations réellement organisées autour des équipes SAD. Il s’agit de préciser quelles réponses intersectorielles correspondent à quelles combinaisons de besoins, et où ces réponses demeurent incomplètes.",
         "reperes": "Karran 2023; Vest 2025; Chang 2026; Tudrej 2019; Ouanhnon 2022"
       }
     ],
     "principaleTitre": "La lacune principale",
-    "principale": "La littérature n’est pas vide sur chacune des composantes de la question, qu’il s’agisse de la mesure des besoins sociaux multiples, de leur cooccurrence, du désir d’aide des patients ou des dispositifs de réponse. En revanche, aucune synthèse identifiée ne réunit, chez les adultes en soins primaires, le caractère non satisfait des besoins, leur concomitance, leur priorisation par les patients, leurs interrelations, le réseau de réponse et la trajectoire jusqu’à leur résolution. La lacune porte donc sur l’articulation entre la configuration des besoins et celle de la réponse intersectorielle, ainsi que sur les mécanismes qui expliquent pourquoi certains besoins persistent malgré leur identification.",
+    "principale": "Les recherches documentent les profils de besoins, les ressources disponibles et certaines formes d’intégration des services. Leur articulation reste toutefois insuffisamment décrite chez les personnes aînées vivant à domicile et présentant une ou plusieurs morbidités : quelles configurations de besoins sociaux concomitants appellent quels acteurs, quelles collaborations et quelles modalités de coordination, et où la réponse demeure-t-elle incomplète ? La lacune porte sur l’adéquation entre besoins et organisation effective des réponses intersectorielles, non sur la seule délimitation géographique de l’étude.",
     "vigilance": "Par rigueur méthodologique, la formulation retenue est « aucune synthèse identifiée dans les recherches PubMed et Cairn réalisées » et non « aucune synthèse n’existe ».",
     "p5Titre": "Les 39 lectures prioritaires",
     "p4Titre": "Les 83 lectures importantes",
