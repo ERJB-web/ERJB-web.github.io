@@ -550,6 +550,108 @@
     });
   }
 
+  // Le chapitre Problématique suit son propre raisonnement scientifique :
+  // question, objectif général, point de thèse, trois lacunes et hypothèses.
+  function organiserSommaireProblematique(nav, chapitre) {
+    const racine = $(".gab-corps", chapitre);
+    if (!racine) return false;
+    const titres = $("h3, h4", racine);
+    const chercher = (re) => titres.find((h) => re.test(normaliser(h.textContent)));
+    const question = chercher(/^problematique et objectifs|^problematique$/) ||
+      $(".these-question-encadre", racine);
+    const general = chercher(/^objectif general$/);
+    const point = chercher(/^point de these$/);
+    const hypotheses = $(".these-hypotheses h4", racine);
+    const objectifs = ["O1", "O2", "O3"].map((code) =>
+      $(".ov-carte[data-objectif='" + code + "']", racine) ||
+      $(".objectif-carte[data-objectif='" + code + "']", racine));
+    const configurations = [
+      ["Problématique", question],
+      ["Objectif général", general],
+      ["Point de thèse", point],
+      ["Lacune et objectif spécifique · O1", objectifs[0], "O1"],
+      ["Lacune et objectif spécifique · O2", objectifs[1], "O2"],
+      ["Lacune et objectif spécifique · O3", objectifs[2], "O3"],
+      ["Hypothèses", hypotheses]
+    ];
+    const palette = [
+      ["#2B5878","#7398B5","#EBF3F9","#F6FAFD"],
+      ["#92622D","#C89C56","#FAF0E5","#FDF9F4"],
+      ["#286C40","#63A77F","#E9F5ED","#F6FBF7"],
+      ["#286C23","#5AAE38","#ECF7E8","#F5FBF2"],
+      ["#006E72","#11A7A5","#E9F7F6","#F3FBFA"],
+      ["#18559B","#0755AD","#EBF2FD","#F3F7FF"],
+      ["#79548A","#A77EBA","#F4EBF7","#FAF6FC"]
+    ];
+    nav.classList.add("gab-sommaire-objectifs","gab-sommaire-sections","gab-sommaire-universel","gab-sommaire-problematique");
+    nav.replaceChildren(el("span", "", echapper(T.dans)));
+    configurations.forEach(([nom, cible, code], index) => {
+      if (!cible) return;
+      if (!cible.id) cible.id = "gab-problematique-" + (code || String(index + 1)).toLowerCase();
+      const bloc = el("section", "gab-sommaire-groupe");
+      const couleur = palette[index];
+      ["--objectif-texte","--objectif-trait","--objectif-fond","--objectif-lien"]
+        .forEach((variable, j) => bloc.style.setProperty(variable, couleur[j]));
+      bloc.dataset.section = String(index + 1);
+      bloc.setAttribute("aria-label", nom);
+      const tete = el("div", "gab-sommaire-groupe-titre");
+      tete.append(el("b", "", code || deux(index + 1)));
+      tete.append(el("strong", "", echapper(nom)));
+      bloc.append(tete);
+      if (code) {
+        const items = el("div", "gab-sommaire-groupe-liens");
+        const lacune = $(".ov-lacune-avant", cible);
+        const hObjectif = $(".ov-entete h4", cible) || $("h4", cible);
+        const liens = [
+          ["Lacune scientifique", lacune],
+          ["Objectif spécifique : " + net(hObjectif?.textContent), hObjectif]
+        ];
+        liens.forEach(([texte, element], j) => {
+          if (!element) return;
+          if (!element.id) element.id = "gab-problematique-" + code.toLowerCase() + "-" + (j + 1);
+          const lien = el("a", "", echapper(texte));
+          lien.href = "#" + encodeURIComponent(element.id);
+          lien.dataset.gabCible = element.id;
+          items.append(lien);
+        });
+        if (items.children.length) bloc.append(items);
+      } else {
+        const lien = el("div", "gab-sommaire-groupe-liens");
+        const a = el("a", "", echapper(nom === "Problématique" ? "Question et justification" :
+          nom === "Hypothèses" ? "Hypothèses exploratoires" : "Lire cette partie"));
+        a.href = "#" + encodeURIComponent(cible.id);
+        a.dataset.gabCible = cible.id;
+        lien.append(a);
+        bloc.append(lien);
+      }
+      nav.append(bloc);
+    });
+    return nav.querySelectorAll(".gab-sommaire-groupe").length > 0;
+  }
+
+  function preparerHypothesesProblematique(corps, chapitre) {
+    if (langue !== "fr" || !/problematique|objectifs/.test(normaliser(chapitre.titre)) ||
+        $(".these-hypotheses", corps)) return;
+    const general = $("h4", corps).find((h) => normaliser(h.textContent) === "objectif general");
+    const point = $("h4", corps).find((h) => normaliser(h.textContent) === "point de these");
+    // Afficher l'objectif général avant le point de thèse sans modifier les textes.
+    if (general && point && general.compareDocumentPosition(point) & Node.DOCUMENT_POSITION_PRECEDING) {
+      const paragraphe = general.nextElementSibling;
+      point.before(general);
+      if (paragraphe && paragraphe.matches("p")) general.after(paragraphe);
+    }
+    const section = el("section", "these-hypotheses");
+    section.innerHTML = `
+      <h4 class="titre-bloc">Hypothèses</h4>
+      <p class="note">Hypothèses exploratoires de travail, à préciser avec la codirection. Elles n'anticipent pas les résultats et n'impliquent pas un test confirmatoire pour chaque volet.</p>
+      <ol class="these-hypotheses-liste">
+        <li><strong>H1 · Profils de besoins.</strong> Les besoins sociaux des personnes aînées suivies à domicile présentent des configurations concomitantes distinctes, dont le caractère satisfait ou non varie selon les profils.</li>
+        <li><strong>H2 · Cartographie territoriale.</strong> Les ressources susceptibles de répondre à ces besoins sont inégalement réparties et leur accessibilité potentielle varie entre les territoires de CLSC.</li>
+        <li><strong>H3 · Réponse intersectorielle.</strong> La présence géographique de ressources ne garantit pas leur mobilisation par les équipes de soutien à domicile ; les configurations de collaboration varient selon les territoires et les profils de besoins.</li>
+      </ol>`;
+    corps.append(section);
+  }
+
   // Structure commune à toutes les portes : chapitre → section → titres.
   // Les intertitres réels constituent les sections, sans changer les textes.
   function organiserSommaireUniversel(nav, intertitres) {
@@ -667,6 +769,7 @@
       if (ch.photoInterne && ch.choix?.interne) $$("img", source).find((im) => absolue(im.getAttribute("src")) === ch.photoInterne)?.closest("picture, img")?.remove();
       corps.append(source);
     }
+    if (salle === "recherche" && langue === "fr") preparerHypothesesProblematique(corps, ch);
     texte.append(tete, corps);
     const aside = el("aside", "gab-chapitre-aside");
     // Dans le contexte de la thèse, le visuel de chiffres clés du premier chapitre
@@ -713,7 +816,9 @@
         if (!h.id) h.id = id;
         return `<a href="#${echapper(id)}" data-gab-intertitre="${k}" data-gab-cible="${echapper(id)}" data-gab-niveau="${h.tagName.toLowerCase()}"${etape ? ' class="gab-sommaire-etape"' : ""}${objectif ? ` data-objectif="${objectif}"` : ""}${libelle !== titre ? ` title="${echapper(titre)}"` : ""}>${texteLien}</a>`;
       }).join("");
-      if (theseFr && (ch.cle === "methodes" || ch.cle === "methode" || /m[ée]thod/i.test(ch.titre))) {
+      if (theseFr && /problematique|objectifs/.test(normaliser(ch.titre))) {
+        organiserSommaireProblematique(nav, section);
+      } else if (theseFr && (ch.cle === "methodes" || ch.cle === "methode" || /m[ée]thod/i.test(ch.titre))) {
         organiserSommaireObjectifs(nav, entrees);
       } else if (theseFr) {
         organiserSommaireSections(nav, entrees, ch);
