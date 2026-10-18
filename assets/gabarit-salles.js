@@ -336,6 +336,8 @@
     section.classList.add("gab-chapitre");
     section.style.setProperty("--gab-c", couleur);
     section.dataset.gabIndex = i;
+    // Chaque chapitre constitue une vue indépendante, accessible par URL.
+    section.dataset.gabSlug = ch.cle || `chapitre-${i + 1}`;
     if (ch.surPlace) {
       section.hidden = false;
       ["role", "aria-labelledby", "tabindex"].forEach((a) => section.removeAttribute(a));
@@ -396,6 +398,15 @@
     }
     grille.append(texte, aside);
     section.append(grille);
+    // Navigation de fin de page : on passe à une autre vue, jamais au
+    // chapitre suivant dans une longue page continue.
+    const bas = el("nav", "gab-bas-chapitre");
+    bas.setAttribute("aria-label", T.chapitre(i + 1, n));
+    bas.innerHTML =
+      `<button type="button" class="gab-bas-lien" data-gab-pas="-1"${i === 0 ? " disabled" : ""}>‹ <span>${echapper(T.precedent)}</span></button>` +
+      `<button type="button" class="gab-bas-sommaire" data-gab-pas="tous">${echapper(T.tous)}</button>` +
+      `<button type="button" class="gab-bas-lien gab-bas-suivant" data-gab-pas="1"${i === n - 1 ? " disabled" : ""}><span>${echapper(T.suivant)}</span> ›</button>`;
+    section.append(bas);
     return section;
   }
 
@@ -536,7 +547,7 @@
           const large = (vides === 1 && i === 0) || (vides === 2 && (i === 0 || i === n - 1)) ? " gab-large" : vides >= 3 && i === 0 ? " gab-grande" : "";
           const vignette = ch.choix.image ? urlVignette(ch.choix.image) : ch.choix.url;
           const photo = vignette ? ` style="--gab-c:${COULEURS[i % COULEURS.length]};--gab-tuile:url('${echapper(vignette)}')"` : ` style="--gab-c:${COULEURS[i % COULEURS.length]}"`;
-          const destination = ch.urlExterne || ("#" + salle + (ch.cle ? "/" + ch.cle : ""));
+          const destination = ch.urlExterne || ("#" + salle + "/" + (ch.cle || `chapitre-${i + 1}`));
           const aller = ch.urlExterne ? "" : ' data-gab-aller="' + i + '"';
           return `<a class="gab-tuile${large}" href="${echapper(destination)}"${aller}${photo} aria-label="${echapper(T.aller(ch.titre))}"><span class="gab-tuile-num">${deux(i + 1)}</span><span class="gab-tuile-titre">${echapper(ch.titre)}</span></a>`;
         }).join("") + `</div>`;
@@ -632,7 +643,59 @@
     if (!cible) return;
     cible.scrollIntoView({ block: "start", behavior: calme.matches ? "instant" : "smooth" });
   }
-  const chapitresDe = (zone) => $$(".gab-chapitre", zone).filter((c) => c.closest(".gab") === zone);
+  const chapitresDe = (zone) => $(".gab-chapitre", zone).filter((c) => c.closest(".gab") === zone);
+
+  // Un fragment désigne sa propre page de chapitre ; les anciens liens
+  // #salle/rubrique et les ancres internes continuent de fonctionner.
+  function chapitreDansAdresse(zone, liste) {
+    const [destination, segment] = location.hash.slice(1).split("/");
+    if (destination !== zone.dataset.gabSalle || !segment) return -1;
+    let repere;
+    try { repere = decodeURIComponent(segment); } catch { repere = segment; }
+    return liste.findIndex((chapitre) =>
+      chapitre.dataset.gabSlug === repere ||
+      chapitre.dataset.rubrique === repere ||
+      chapitre.id === repere ||
+      $("[data-rubrique], [data-axe-cible], [id]", chapitre).some((element) =>
+        element.dataset.rubrique === repere || element.dataset.axeCible === repere || element.id === repere));
+  }
+
+  function ouvrirPageChapitre(zone, index, options = {}) {
+    if (!zone) return;
+    const liste = chapitresDe(zone);
+    if (!liste.length) return;
+    const cible = index >= 0 && index < liste.length ? index : -1;
+    const ouverte = cible >= 0;
+    liste.forEach((chapitre, i) => {
+      const visible = ouverte && i === cible;
+      chapitre.hidden = !visible;
+      chapitre.inert = !visible;
+      chapitre.classList.toggle("gab-page-active", visible);
+    });
+    zone.classList.toggle("gab-page-chapitre", ouverte);
+    zone.classList.toggle("gab-page-sommaire", !ouverte);
+    $(".gab-tuile[data-gab-aller]", zone).forEach((tuile, i) => {
+      if (ouverte && i === cible) tuile.setAttribute("aria-current", "page");
+      else tuile.removeAttribute("aria-current");
+    });
+    if (lecture && zone === $(".gab", contenu)) {
+      if (ouverte) {
+        marquer(cible);
+        $("[data-gab-pas='-1']", lecture).forEach((bouton) => { bouton.disabled = cible === 0; });
+        $("[data-gab-pas='1']", lecture).forEach((bouton) => { bouton.disabled = cible === liste.length - 1; });
+      }
+      salle.classList.toggle("gab-page-chapitre", ouverte);
+      salle.classList.toggle("gab-lit", ouverte);
+    }
+    if (options.adresse && zone === $(".gab", contenu)) {
+      const fragment = "#" + zone.dataset.gabSalle + (ouverte ? "/" + liste[cible].dataset.gabSlug : "");
+      if (location.hash !== fragment) {
+        try { history.pushState(null, "", location.pathname + location.search + fragment); }
+        catch { location.hash = fragment; }
+      }
+    }
+    if (options.haut && salle) salle.scrollTo({ top: 0, behavior: "instant" });
+  }
 
   D.addEventListener("click", (ev) => {
     const tuile = ev.target.closest("[data-gab-aller]");
@@ -641,9 +704,7 @@
       const cible = chapitresDe(zone)[+tuile.dataset.gabAller];
       if (!cible) return;
       ev.preventDefault();
-      defiler(cible);
-      const cle = cible.dataset.rubrique;
-      if (cle && salle?.classList.contains("visible")) try { history.replaceState(history.state, "", `#${zone.dataset.gabSalle}/${cle}`); } catch {}
+      ouvrirPageChapitre(zone, +tuile.dataset.gabAller, { adresse: true, haut: true });
       return;
     }
     const inter = ev.target.closest("[data-gab-intertitre]");
@@ -659,15 +720,23 @@
       const zone = these.closest(".gab");
       const volet = chapitresDe(zone).find((c) => c.dataset.rubrique === these.dataset.theseVers);
       const article = these.dataset.theseObjectif && volet ? $$("article[data-objectif]", volet).find((a) => a.dataset.objectif === these.dataset.theseObjectif) : null;
+      if (volet) ouvrirPageChapitre(zone, chapitresDe(zone).indexOf(volet), { adresse: true, haut: true });
       defiler(article || volet);
       return;
     }
     const pas = ev.target.closest("[data-gab-pas]");
     if (pas && contenu) {
       const zone = $(".gab", contenu);
-      const liste = chapitresDe(zone);
-      if (pas.dataset.gabPas === "tous") defiler($(".gab-programme", zone) || zone);
-      else defiler(liste[Math.max(0, Math.min(liste.length - 1, courant + Number(pas.dataset.gabPas)))]);
+      if (!zone) return;
+      if (pas.dataset.gabPas === "tous") ouvrirPageChapitre(zone, -1, { adresse: true, haut: true });
+      else {
+        const liste = chapitresDe(zone);
+        const actuel = liste.findIndex((chapitre) => !chapitre.hidden);
+        if (actuel >= 0) {
+          const cible = Math.max(0, Math.min(liste.length - 1, actuel + Number(pas.dataset.gabPas)));
+          ouvrirPageChapitre(zone, cible, { adresse: true, haut: true });
+        }
+      }
     }
   });
 
@@ -681,7 +750,7 @@
       lecture.innerHTML = `<button type="button" class="gab-tous" data-gab-pas="tous"><span aria-hidden="true">▦</span><span>${echapper(T.tous)}</span></button>` +
         `<button type="button" class="gab-fleche" data-gab-pas="-1" aria-label="${echapper(T.precedent)}">‹</button>` +
         `<div class="gab-actuel" aria-live="polite"><b></b><span><small></small><strong></strong></span></div>` +
-        `<button type="button" class="gab-fleche" data-gab-pas="1" aria-label="${echapper(T.suivant)}">›</button>` +
+        `<button type="button" class="gab-fleche gab-fleche-suivante" data-gab-pas="1" aria-label="${echapper(T.suivant)}"><span class="gab-fleche-texte">${echapper(T.suivant)}</span><span class="gab-fleche-icone" aria-hidden="true">›</span></button>` +
         `<div class="gab-segments"></div>`;
       barre.append(lecture);
       barre.classList.add("gab-barre");
@@ -731,8 +800,10 @@
     if (!lecture || !contenu) return;
     const programme = $(".gab .gab-programme", contenu);
     const bas = barre.getBoundingClientRect().bottom;
-    const lit = !!programme && programme.getBoundingClientRect().bottom < bas + 10;
-    salle.classList.toggle("gab-lit", lit);
+    const zone = $(".gab", contenu);
+    const lit = zone?.classList.contains("gab-page-chapitre") ||
+      (!!programme && !zone?.classList.contains("gab-page-sommaire") && programme.getBoundingClientRect().bottom < bas + 10);
+    salle.classList.toggle("gab-lit", !!lit);
   }
 
   function activerSalle() {
@@ -749,15 +820,11 @@
     salle.classList.toggle("gab-avec-chapitres", liste.length >= 2);
     if (lecture) {
       $(".gab-segments", lecture).innerHTML = liste.map((c, k) => `<button type="button" style="--gab-c:${c.style.getPropertyValue("--gab-c")}" data-gab-segment="${k}" aria-label="${echapper(T.aller(net($(".gab-chapitre-titre", c)?.textContent)))}"></button>`).join("");
-      $$(".gab-segments button", lecture).forEach((b) => b.addEventListener("click", () => defiler(liste[+b.dataset.gabSegment])));
+      $(".gab-segments button", lecture).forEach((b) => b.addEventListener("click", () => ouvrirPageChapitre(zone, +b.dataset.gabSegment, { adresse: true, haut: true })));
     }
-    observateur?.disconnect();
-    if (liste.length >= 2 && "IntersectionObserver" in window) {
-      observateur = new IntersectionObserver((entrees) => entrees.forEach((e) => { if (e.isIntersecting) marquer(liste.indexOf(e.target)); }), { rootMargin: "-35% 0px -55% 0px" });
-      liste.forEach((c) => observateur.observe(c));
-    }
-    marquer(0);
-    salle.classList.remove("gab-lit");
+    // L'adresse désigne une seule page. Sans chapitre dans l'URL,
+    // on affiche uniquement le sommaire et ses tuiles.
+    ouvrirPageChapitre(zone, chapitreDansAdresse(zone, liste));
     requestAnimationFrame(suivreDefilement);
   }
 
