@@ -747,7 +747,7 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 }
 .gab.gab-page-chapitre > .gab-bandeau,
 .gab.gab-page-chapitre .gab-programme,
-.gab.gab-page-chapitre .gab-intro {
+.gab.gab-page-chapitre .gab-intro:not(:has(.gab-chapitre)) {
   display:none!important;
 }
 .gab.gab-page-chapitre .gab-chapitre[hidden] {
@@ -802,8 +802,10 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   border-top:1px solid var(--gab-ligne);
 }
 .gab-bas-chapitre button {
-  font:600 14px/1.3 inherit;
   font-family:inherit;
+  font-size:14px;
+  font-weight:600;
+  line-height:1.3;
   cursor:pointer;
   border:1px solid var(--gab-ligne);
   background:#fff;
