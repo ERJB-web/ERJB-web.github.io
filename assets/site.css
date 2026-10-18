@@ -2558,6 +2558,10 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
     [data-hall-sous="entrepreneuriat"],
     [data-hall-sous="representation"]
   ){grid-column:1 / -1}
+  /* Engagements uniquement : Sports et loisirs complète la rangée d'Engagement citoyen. */
+  .hall.en-volume .station-hall[data-hall-station="3"] .sous-portes-murales > [data-hall-sous="loisirs"]{
+    grid-column:2 / 3;
+  }
   .hall.en-volume .panneau-hall h3 span,
   .hall.en-volume .sous-portes-murales>button,
   .hall.en-volume .sous-portes-murales>a{
