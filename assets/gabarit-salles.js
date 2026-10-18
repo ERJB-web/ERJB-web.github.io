@@ -539,54 +539,83 @@
     sc.classList.add("gab");
   }
 
-  // Ma thèse : un seul exemplaire par image dans la page.
-  // Garder les illustrations expliquées dans le texte plutôt que les copies
-  // dans les en-têtes décoratifs et les galeries cartographiques.
+  // Ma thèse : supprimer uniquement les copies du MEME fichier image.
+  // Ne jamais supprimer une figure contenant une légende, un titre ou une
+  // explication, car son commentaire peut être différent et pertinent.
   function retirerImagesRepeteesThese(zone) {
     if (langue !== "fr" || !zone) return;
     const parSource = new Map();
-    $("img[src]", zone).forEach((img) => {
-      let source;
+    $$("img[src]", zone).forEach((img) => {
       try {
         const url = new URL(img.getAttribute("src"), D.baseURI);
-        source = url.origin + url.pathname;
-      } catch { return; }
-      if (!parSource.has(source)) parSource.set(source, []);
-      parSource.get(source).push(img);
+        // La clé inclut aussi les éventuelles variantes responsive (<picture>).
+        const variantes = [
+          img.getAttribute("srcset") || "",
+          ...(img.closest("picture") ? $$("source[srcset]", img.closest("picture")).map((s) => s.getAttribute("srcset")) : [])
+        ].join("|");
+        const source = url.origin + url.pathname + "|" + variantes;
+        if (!parSource.has(source)) parSource.set(source, []);
+        parSource.get(source).push(img);
+      } catch { /* URL impossible à résoudre : on ne touche pas à l'image. */ }
     });
+
     const pertinence = (img) => {
-      if (img.closest(".gab-photo")) return -100;
-      if (img.closest(".atlas-these-figure")) return -60;
-      if (img.closest(".gab-chapitre[data-rubrique='methodes']")) return 20;
-      if (img.closest(".gab-chapitre")) return 5;
+      const chemin = img.getAttribute("src") || "";
+      if (img.closest(".gab-photo")) return -100; // illustration d'en-tête
+      if (img.closest(".atlas-these-figure")) return -50; // catalogue de cartes
+      const chap = img.closest(".gab-chapitre");
+      if (!chap) return 15;
+      const rubrique = chap.dataset.rubrique || "";
+      // Les cartes d'écarts et de priorisation servent directement aux retombées.
+      if (/carte-(?:06|09)-|diapo-15\.webp/.test(chemin) && rubrique === "retombees") return 45;
+      if (rubrique === "methodes") return 35;
+      if (rubrique === "objectifs") return 30;
+      if (rubrique === "resultats" || rubrique === "retombees") return 25;
+      if (rubrique === "contexte") return 20;
       return 10;
     };
-    parSource.forEach((occurrences) => {
-      if (occurrences.length < 2) return;
-      const conservee = occurrences.reduce((meilleure, courante) =>
-        pertinence(courante) > pertinence(meilleure) ? courante : meilleure);
-      occurrences.forEach((img) => {
-        if (img === conservee || !img.isConnected) return;
+
+    parSource.forEach((images) => {
+      if (images.length < 2) return;
+      const originale = images.reduce((a, b) => pertinence(b) > pertinence(a) ? b : a);
+      images.forEach((img) => {
+        if (img === originale || !img.isConnected) return;
+        // L'en-tête n'apporte pas de commentaire scientifique propre.
         const photo = img.closest(".gab-photo");
         if (photo) { photo.remove(); return; }
+
         const figure = img.closest("figure");
-        if (figure && $("img", figure).length === 1) {
+        // Figure purement décorative : aucun texte, aucune légende à perdre.
+        if (figure && $$("img", figure).length === 1 && !net(figure.textContent)) {
           figure.remove();
           return;
         }
+
+        // Pour toute autre figure, conserver intégralement son titre, son
+        // commentaire, ses citations et sa légende. Seul le bitmap est retiré.
+        if (figure) figure.classList.add("these-illustration-rappel");
         const lien = img.closest("a");
-        if (lien && $("img", lien).length === 1 && !net(lien.textContent)) lien.remove();
-        else img.remove();
+        const simpleLienImage = lien && $$("img", lien).length === 1 &&
+          !net(lien.textContent) && !lien.querySelector("video, picture source");
+        if (simpleLienImage && figure?.querySelector("figcaption a[href]")) {
+          // Une liaison vers l'image HD est déjà proposée dans sa légende.
+          lien.remove();
+        } else if (simpleLienImage) {
+          lien.textContent = "Consulter l’illustration en pleine taille ↗";
+          lien.classList.add("these-illustration-renvoi");
+          lien.setAttribute("aria-label", "Consulter l’illustration identique en pleine taille");
+        } else if (figure && !figure.querySelector("a[href]")) {
+          const renvoi = D.createElement("a");
+          renvoi.href = img.currentSrc || img.src;
+          renvoi.target = "_blank";
+          renvoi.rel = "noopener noreferrer";
+          renvoi.className = "these-illustration-renvoi";
+          renvoi.textContent = "Consulter l’illustration en pleine taille ↗";
+          img.replaceWith(renvoi);
+        } else {
+          img.remove();
+        }
       });
-    });
-    // Numérotation exacte des cartes restantes, sans emplacements vides.
-    const cartes = $(".atlas-these-figure", zone);
-    cartes.forEach((figure, i) => {
-      const etiquette = $(".atlas-these-figure-entete > span", figure);
-      if (etiquette) { const titre = `Figure ${deux(i + 1)} / ${deux(cartes.length)}`; if (etiquette.textContent !== titre) etiquette.textContent = titre; }
-    });
-    $(".atlas-these", zone).forEach((bloc) => {
-      if (!$(".atlas-these-figure", bloc)) bloc.remove();
     });
   }
 
