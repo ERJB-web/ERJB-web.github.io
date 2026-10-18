@@ -6106,3 +6106,105 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
   .salle .salle-barre button[data-ecouter],
   .salle .salle-barre button[data-arreter]{min-height:44px}
 }
+
+
+/* Thèse — restauration du sommaire latéral discret (2026-10-18). */
+/* Ne change ni la structure des chapitres ni les commandes de navigation.
+   Supprime l'effet « cartes empilées », les pictogrammes et les traits multicolores. */
+.rubriques[data-rubriques="these"][data-navigation="atelier"] > .rubriques-console{
+  padding:10px 12px 14px 0;
+  border:0;
+  border-inline-end:1px solid #dce6e4;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+}
+.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-console-tete{
+  padding:0 12px 0 6px;
+  gap:8px;
+  color:#55717b;
+  font-size:10px;
+  letter-spacing:.055em;
+}
+.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-progression{
+  height:2px;
+  margin:12px 12px 13px 6px;
+  background:#dde9e7;
+}
+.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-nav{
+  gap:0;
+  padding:0;
+  background:transparent;
+}
+.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-nav button,
+.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-nav button:hover,
+.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-nav button[aria-selected="true"]{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  width:100%;
+  min-height:46px;
+  padding:10px 9px;
+  border:0;
+  border-bottom:1px solid #e1e9e7;
+  border-inline-start:3px solid transparent;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  transform:none;
+  text-align:start;
+  hyphens:none;
+}
+.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-nav button:hover,
+.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-nav button:focus-visible{
+  background:#eef4f3;
+}
+.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-nav button[aria-selected="true"]{
+  border-bottom-color:#ccddda;
+  border-inline-start-color:#26758c;
+  background:#eaf3f2;
+  color:#173f52;
+  font-weight:650;
+}
+.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-nav .rubrique-icone{
+  display:none;
+}
+.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubrique-libelle{
+  gap:4px;
+}
+.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubrique-etape{
+  font-size:10px;
+  letter-spacing:.04em;
+  color:#738b8b;
+}
+.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubrique-libelle strong{
+  font-size:13px;
+  font-weight:600;
+  line-height:1.35;
+  overflow-wrap:break-word;
+  word-break:normal;
+  hyphens:none;
+}
+.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubrique-direction{
+  width:13px;
+  height:13px;
+}
+@media(max-width:1099px){
+  .rubriques[data-rubriques="these"][data-navigation="atelier"] > .rubriques-console{
+    padding:10px 0 12px;
+    border-inline-end:0;
+    border-bottom:1px solid #dce6e4;
+  }
+  .rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-nav button,
+  .rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-nav button:hover,
+  .rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-nav button[aria-selected="true"]{
+    flex:0 0 172px;
+    width:172px;
+    max-width:172px;
+    min-height:52px;
+    padding:9px 10px;
+    border-bottom:0;
+    border-inline-end:1px solid #dce6e4;
+    scroll-snap-align:start;
+  }
+}
