@@ -11,12 +11,12 @@
   const deux = (n) => String(n).padStart(2, "0");
 
   const TEXTES = {
-    fr: { chapitres: (n) => `${n} chapitres`, minutes: (m) => `≈ ${m} min de lecture`, programme: "Les chapitres de cette salle", aide: "Touchez une tuile pour aller directement au chapitre", chapitre: (i, n) => `Chapitre ${i} sur ${n}`, tous: "Tous les chapitres", precedent: "Chapitre précédent", suivant: "Chapitre suivant", dans: "Dans ce chapitre", photo: "Photo", porte: "Porte", aller: (t) => `Aller au chapitre : ${t}`, afficher: (n) => `Afficher les ${n} références` },
-    en: { chapitres: (n) => `${n} chapters`, minutes: (m) => `≈ ${m} min read`, programme: "Chapters in this room", aide: "Select a tile to go straight to a chapter", chapitre: (i, n) => `Chapter ${i} of ${n}`, tous: "All chapters", precedent: "Previous chapter", suivant: "Next chapter", dans: "In this chapter", photo: "Photo", porte: "Door", aller: (t) => `Go to chapter: ${t}`, afficher: (n) => `Show the ${n} references` },
-    es: { chapitres: (n) => `${n} capítulos`, minutes: (m) => `≈ ${m} min de lectura`, programme: "Capítulos de esta sala", aide: "Toque una tarjeta para ir directamente al capítulo", chapitre: (i, n) => `Capítulo ${i} de ${n}`, tous: "Todos los capítulos", precedent: "Capítulo anterior", suivant: "Capítulo siguiente", dans: "En este capítulo", photo: "Foto", porte: "Puerta", aller: (t) => `Ir al capítulo: ${t}`, afficher: (n) => `Mostrar las ${n} referencias` },
-    zh: { chapitres: (n) => `${n} 章`, minutes: (m) => `约 ${m} 分钟阅读`, programme: "本展厅的章节", aide: "点击卡片即可直达该章", chapitre: (i, n) => `第 ${i} 章，共 ${n} 章`, tous: "全部章节", precedent: "上一章", suivant: "下一章", dans: "本章内容", photo: "图片", porte: "门", aller: (t) => `前往章节：${t}`, afficher: (n) => `显示 ${n} 条文献` },
-    ar: { chapitres: (n) => `${n} فصول`, minutes: (m) => `≈ ${m} دقيقة قراءة`, programme: "فصول هذه القاعة", aide: "اختر بطاقة للانتقال مباشرة إلى الفصل", chapitre: (i, n) => `الفصل ${i} من ${n}`, tous: "كل الفصول", precedent: "الفصل السابق", suivant: "الفصل التالي", dans: "في هذا الفصل", photo: "صورة", porte: "الباب", aller: (t) => `الانتقال إلى الفصل: ${t}`, afficher: (n) => `عرض المراجع (${n})` },
-    ru: { chapitres: (n) => `Глав: ${n}`, minutes: (m) => `≈ ${m} мин чтения`, programme: "Главы этого зала", aide: "Нажмите на плитку, чтобы перейти к главе", chapitre: (i, n) => `Глава ${i} из ${n}`, tous: "Все главы", precedent: "Предыдущая глава", suivant: "Следующая глава", dans: "В этой главе", photo: "Фото", porte: "Дверь", aller: (t) => `Перейти к главе: ${t}`, afficher: (n) => `Показать источники (${n})` },
+    fr: { chapitres: (n) => `${n} chapitres`, minutes: (m) => `≈ ${m} min de lecture`, programme: "Les chapitres de cette salle", aide: "Touchez une tuile pour aller directement au chapitre", chapitre: (i, n) => `Chapitre ${i} sur ${n}`, tous: "Tous les chapitres", precedent: "Chapitre précédent", suivant: "Chapitre suivant", debut: "Début du parcours · premier chapitre", fin: "Fin du parcours · dernier chapitre", dans: "Dans ce chapitre", photo: "Photo", porte: "Porte", aller: (t) => `Aller au chapitre : ${t}`, afficher: (n) => `Afficher les ${n} références` },
+    en: { chapitres: (n) => `${n} chapters`, minutes: (m) => `≈ ${m} min read`, programme: "Chapters in this room", aide: "Select a tile to go straight to a chapter", chapitre: (i, n) => `Chapter ${i} of ${n}`, tous: "All chapters", precedent: "Previous chapter", suivant: "Next chapter", debut: "Start of the series · first chapter", fin: "End of the series · last chapter", dans: "In this chapter", photo: "Photo", porte: "Door", aller: (t) => `Go to chapter: ${t}`, afficher: (n) => `Show the ${n} references` },
+    es: { chapitres: (n) => `${n} capítulos`, minutes: (m) => `≈ ${m} min de lectura`, programme: "Capítulos de esta sala", aide: "Toque una tarjeta para ir directamente al capítulo", chapitre: (i, n) => `Capítulo ${i} de ${n}`, tous: "Todos los capítulos", precedent: "Capítulo anterior", suivant: "Capítulo siguiente", debut: "Inicio del recorrido · primer capítulo", fin: "Fin del recorrido · último capítulo", dans: "En este capítulo", photo: "Foto", porte: "Puerta", aller: (t) => `Ir al capítulo: ${t}`, afficher: (n) => `Mostrar las ${n} referencias` },
+    zh: { chapitres: (n) => `${n} 章`, minutes: (m) => `约 ${m} 分钟阅读`, programme: "本展厅的章节", aide: "点击卡片即可直达该章", chapitre: (i, n) => `第 ${i} 章，共 ${n} 章`, tous: "全部章节", precedent: "上一章", suivant: "下一章", debut: "阅读起点 · 第一章", fin: "阅读终点 · 最后一章", dans: "本章内容", photo: "图片", porte: "门", aller: (t) => `前往章节：${t}`, afficher: (n) => `显示 ${n} 条文献` },
+    ar: { chapitres: (n) => `${n} فصول`, minutes: (m) => `≈ ${m} دقيقة قراءة`, programme: "فصول هذه القاعة", aide: "اختر بطاقة للانتقال مباشرة إلى الفصل", chapitre: (i, n) => `الفصل ${i} من ${n}`, tous: "كل الفصول", precedent: "الفصل السابق", suivant: "الفصل التالي", debut: "بداية المسار · الفصل الأول", fin: "نهاية المسار · الفصل الأخير", dans: "في هذا الفصل", photo: "صورة", porte: "الباب", aller: (t) => `الانتقال إلى الفصل: ${t}`, afficher: (n) => `عرض المراجع (${n})` },
+    ru: { chapitres: (n) => `Глав: ${n}`, minutes: (m) => `≈ ${m} мин чтения`, programme: "Главы этого зала", aide: "Нажмите на плитку, чтобы перейти к главе", chapitre: (i, n) => `Глава ${i} из ${n}`, tous: "Все главы", precedent: "Предыдущая глава", suivant: "Следующая глава", debut: "Начало раздела · первая глава", fin: "Конец раздела · последняя глава", dans: "В этой главе", photo: "Фото", porte: "Дверь", aller: (t) => `Перейти к главе: ${t}`, afficher: (n) => `Показать источники (${n})` },
   };
   const T = TEXTES[langue] || TEXTES.fr;
 
@@ -866,7 +866,7 @@
     bas.setAttribute("aria-label", T.chapitre(i + 1, n));
     bas.innerHTML =
       `<button type="button" class="gab-bas-lien gab-bas-precedent" data-gab-pas="-1"${i === 0 ? " disabled" : ""}><span class="gab-bas-chevron" aria-hidden="true">‹</span><span class="gab-bas-libelle"><small>${echapper(T.precedent)}</small><strong class="gab-nav-cible"></strong></span></button>` +
-      `<button type="button" class="gab-bas-sommaire" data-gab-pas="tous">${echapper(T.tous)}</button>` +
+      `<button type="button" class="gab-bas-sommaire" data-gab-pas="tous"><span class="gab-sommaire-icone" aria-hidden="true">▦</span><span>${echapper(T.tous)}</span><span class="gab-sommaire-compteur" aria-hidden="true">${deux(i + 1)} / ${deux(n)}</span></button>` +
       `<button type="button" class="gab-bas-lien gab-bas-suivant" data-gab-pas="1"${i === n - 1 ? " disabled" : ""}><span class="gab-bas-libelle"><small>${echapper(T.suivant)}</small><strong class="gab-nav-cible"></strong></span><span class="gab-bas-chevron" aria-hidden="true">›</span></button>`;
     section.append(bas);
     return section;
@@ -1167,19 +1167,26 @@
     const navigations = [$(".gab-bas-chapitre", actif)];
     if (lecture && contenu && $(".gab", contenu) === zone) navigations.push(lecture);
     navigations.filter(Boolean).forEach((nav) => {
+      const compteur = $(".gab-sommaire-compteur", nav);
+      if (compteur) compteur.textContent = deux(index + 1) + " / " + deux(liste.length);
       [-1, 1].forEach((sens) => {
         const bouton = $("[data-gab-pas='" + sens + "']", nav);
         if (!bouton) return;
         const voisin = liste[index + sens];
         const action = sens < 0 ? T.precedent : T.suivant;
         const titre = voisin ? net($(".gab-chapitre-titre", voisin)?.textContent) : "";
-        const destination = voisin ? deux(index + sens + 1) + " · " + titre : "";
+        const destination = voisin
+          ? deux(index + sens + 1) + " · " + titre
+          : (sens < 0 ? T.debut : T.fin);
         bouton.disabled = !voisin;
+        bouton.classList.toggle("gab-nav-limite", !voisin);
+        bouton.style.setProperty("--gab-nav-accent",
+          voisin ? couleurChapitre(zone.dataset.gabSalle, index + sens) : "#d0dce2");
         const cible = $(".gab-nav-cible, .gab-fleche-cible", bouton);
         if (cible) cible.textContent = destination;
-        const annonce = destination ? action + " : " + destination : action;
+        const annonce = voisin ? action + " : " + destination : destination;
         bouton.setAttribute("aria-label", annonce);
-        if (destination) bouton.title = annonce;
+        if (voisin) bouton.title = annonce;
         else bouton.removeAttribute("title");
       });
     });
@@ -1323,7 +1330,7 @@
       $("[data-retour]", barre).after(nom);
       if (onglets) nom.after(onglets);
       lecture = el("div", "gab-lecture");
-      lecture.innerHTML = `<button type="button" class="gab-tous" data-gab-pas="tous"><span aria-hidden="true">▦</span><span>${echapper(T.tous)}</span></button>` +
+      lecture.innerHTML = `<button type="button" class="gab-tous" data-gab-pas="tous"><span class="gab-sommaire-icone" aria-hidden="true">▦</span><span>${echapper(T.tous)}</span><span class="gab-sommaire-compteur" aria-hidden="true"></span></button>` +
         `<button type="button" class="gab-fleche gab-fleche-precedente" data-gab-pas="-1" aria-label="${echapper(T.precedent)}"><span class="gab-fleche-icone" aria-hidden="true">‹</span><span class="gab-fleche-libelle"><span class="gab-fleche-texte">${echapper(T.precedent)}</span><small class="gab-fleche-cible"></small></span></button>` +
         `<div class="gab-actuel" aria-live="polite"><b></b><span><small></small><strong></strong></span></div>` +
         `<button type="button" class="gab-fleche gab-fleche-suivante" data-gab-pas="1" aria-label="${echapper(T.suivant)}"><span class="gab-fleche-libelle"><span class="gab-fleche-texte">${echapper(T.suivant)}</span><small class="gab-fleche-cible"></small></span><span class="gab-fleche-icone" aria-hidden="true">›</span></button>` +
