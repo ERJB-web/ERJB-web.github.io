@@ -359,7 +359,7 @@
       nav.setAttribute("aria-label", T.dans);
       nav.setAttribute("tabindex", "0");
       const theseFr = salle === "recherche" && langue === "fr";
-      const entrees = theseFr && i === 0 ? intertitres : intertitres.slice(0, 8);
+      const entrees = theseFr ? intertitres : intertitres.slice(0, 8);
       nav.innerHTML = `<span>${echapper(T.dans)}</span>` + entrees.map((h, k) => {
         const titre = net(h.textContent);
         const prefixe = /^(?:O|Objectif\s*)([123])\b/i.exec(titre);
