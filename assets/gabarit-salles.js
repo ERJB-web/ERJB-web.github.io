@@ -1432,12 +1432,16 @@
       const bloc=el("section","impl-portail-bloc");
       bloc.id="impl-fusion-"+info.code;bloc.dataset.implPage=info.code;
       let contenu=api.contenu(info.code);
-      contenu=contenu.replace(/class="section"/g,'class="impl-portail-section"')
-        .replace(/<h1>/g,'<h4 class="impl-portail-grand-titre">').replace(/</h1>/g,'</h4>')
-        .replace(/href="(index|comprendre|cadres|strategies|evaluer|laboratoire|sources).html"/g,(_,slug)=>'href="#impl-fusion-'+slug+'" data-impl-saut="'+slug+'"')
-        .replace(/(src|href)="../(assets|docs)//g,(_,attribut,dir)=>attribut+'="'+CHEMIN+dir+'/');
+      contenu=contenu.replaceAll('class="section"','class="impl-portail-section"')
+        .replaceAll('<h1>','<h4 class="impl-portail-grand-titre">')
+        .replaceAll('</h1>','</h4>')
+        .replace(/href="(index|comprendre|cadres|strategies|evaluer|laboratoire|sources)[.]html"/g,
+          (_,slug)=>'href="#impl-fusion-'+slug+'" data-impl-saut="'+slug+'"')
+        .replaceAll('src="../assets/','src="'+CHEMIN+'assets/')
+        .replaceAll('href="../assets/','href="'+CHEMIN+'assets/')
+        .replaceAll('href="../docs/','href="'+CHEMIN+'docs/');
       bloc.innerHTML=contenu;ensemble.append(bloc);
-      const titres=[bloc.querySelector(".impl-portail-grand-titre"),...$(":scope > .impl-portail-section .section-head h2",bloc)].filter(Boolean);
+      const titres=[bloc.querySelector(".impl-portail-grand-titre"),...Array.from(bloc.querySelectorAll(".impl-portail-section .section-head h2"))].filter(Boolean);
       groupe(info.titre,titres,i+1);
     });
     corps.append(ensemble);
@@ -1512,7 +1516,20 @@
     g.querySelector("progress").value = 0;
     g.querySelector("[data-vul-progress]").textContent = "0/10";
   });
-  $$("section.section[data-salle] > .section-contenu").forEach(transformer);
+  $("section.section[data-salle] > .section-contenu").forEach(transformer);
+  // Charge les sept contenus existants uniquement pour la fusion du chapitre 03.
+  if(langue==="fr"){
+    const script=D.createElement("script");
+    script.src=new URL(CHEMIN+"implantation/portail.js?v=20261018-fusion-ch03",D.baseURI).href;
+    script.onload=()=>{
+      const source=$("section.section[data-salle='implantation'] > .section-contenu.gab");
+      if(source)fusionnerDossierImplantation(source);
+      const active=contenu&&$(".section-contenu.gab",contenu);
+      if(active)fusionnerDossierImplantation(active);
+    };
+    script.onerror=()=>console.warn("Dossier d'implantation indisponible : chargement du chapitre 03 incomplet.");
+    D.head.append(script);
+  }
   if (langue === "fr") {
     const url = new URL(CHEMIN + "vulgarisation/dossier-contenu-2026.html", D.baseURI).href;
     fetch(url).then((rep) => {
