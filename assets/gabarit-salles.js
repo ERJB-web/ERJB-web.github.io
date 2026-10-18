@@ -676,7 +676,7 @@
     const aside = el("aside", "gab-chapitre-aside");
     // Dans le contexte de la thèse, le visuel de chiffres clés du premier chapitre
     // figure déjà dans le corps : ne pas le dupliquer au-dessus du sommaire.
-    if (choix.url && !(salle === "recherche" && i === 0)) {
+    if (choix.url && !(salle === "recherche" && i === 0) && !(salle === "recherche" && ch.cle === "transfert")) {
       const credit = choix.image ? `${T.photo} : ${echapper(choix.image.auteur || "")}${choix.image.licence ? " · " + echapper(choix.image.licence) : ""}` : "";
       const alt = choix.alt || (langue === "fr" && choix.image?.alt ? choix.image.alt : "");
       aside.innerHTML = `<div class="gab-photo"><img src="${echapper(choix.url)}" alt="${echapper(alt)}" loading="lazy" decoding="async" width="960" height="640">${credit ? `<small class="gab-credit">${choix.image.source_url ? `<a href="${echapper(choix.image.source_url)}" target="_blank" rel="noopener">${credit}</a>` : credit}</small>` : ""}</div>`;
