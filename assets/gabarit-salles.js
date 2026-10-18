@@ -462,10 +462,11 @@
     // reconnus restent dans leur section en cours, jamais supprimés.
     const plans = {
       contexte: [
-        { nom: "Notions et ressources" },
-        { nom: "Besoins sociaux et réponse", debut: /le probleme|besoins et offre|besoins sociaux|les besoins se cumulent/ },
-        { nom: "Connaissances et lacune", debut: /etat des connaissances|ce que la litterature/ },
-        { nom: "Territoires et posture", debut: /reponse intersectorielle|territoires vecus/ }
+        { nom: "Contexte" },
+        { nom: "État de la littérature" },
+        { nom: "Lacunes" },
+        { nom: "Idée de thèse" },
+        { nom: "Posture" }
       ],
       objectifs: [
         { nom: "Question et objectifs" },
@@ -509,14 +510,35 @@
       { texte:"#18559b", trait:"#0755ad", fond:"#ebf2fd", lien:"#f3f7ff" },
       { texte:"#80532e", trait:"#bf8953", fond:"#faf2e9", lien:"#fdf9f4" }
     ];
+    // Cinq teintes propres au chapitre « Contexte » : une par section,
+    // tout en conservant la charte du sommaire méthodologique.
+    const paletteContexte = [
+      { texte:"#195680", trait:"#358bc3", fond:"#e9f3fb", lien:"#f6fbff" },
+      { texte:"#176e65", trait:"#16a69b", fond:"#e7f6f3", lien:"#f4fbfa" },
+      { texte:"#87521b", trait:"#d79b48", fond:"#fbf1df", lien:"#fff9ee" },
+      { texte:"#633b8c", trait:"#9463bf", fond:"#f2eafa", lien:"#fbf7ff" },
+      { texte:"#366a31", trait:"#63a857", fond:"#edf7e9", lien:"#f8fcf6" }
+    ];
     const listes = plan.map(() => []);
     let sectionActuelle = 0;
     liens.forEach((a, k) => {
       const valeur = normaliser(intertitres[k].textContent);
-      for (let j = sectionActuelle + 1; j < plan.length; j++) {
-        if (plan[j].debut?.test(valeur)) {
-          sectionActuelle = j;
-          break;
+      if (cle === "contexte") {
+        // Dans le chapitre « Contexte », les titres du sommaire peuvent être
+        // dispersés dans le texte : les classer selon leur sens, et non selon
+        // une succession de blocs dans le DOM. Chaque ancre reste inchangée.
+        if (/posture|positionnement du chercheur|pragmatisme|epistemolog/.test(valeur)) sectionActuelle = 4;
+        else if (/idee de la these|idee de these|projet de these|proposition de recherche/.test(valeur)) sectionActuelle = 3;
+        else if (/lacune|limites? des connaissances|ce qui manque|angle mort/.test(valeur)) sectionActuelle = 2;
+        else if (/etat des connaissances|etat de la litterature|litterature|references? scientifiques?|references? institutionnelles?|travaux existants|synthese des etudes/.test(valeur)) sectionActuelle = 1;
+        else if (intertitres[k].tagName !== "H5") sectionActuelle = 0;
+        // Un sous-titre de niveau H5 conserve la section du titre précédent.
+      } else {
+        for (let j = sectionActuelle + 1; j < plan.length; j++) {
+          if (plan[j].debut?.test(valeur)) {
+            sectionActuelle = j;
+            break;
+          }
         }
       }
       listes[sectionActuelle].push(a);
@@ -530,7 +552,8 @@
       const groupe = el("section", "gab-sommaire-groupe");
       groupe.dataset.section = cle + "-" + k;
       if (g.objectif) groupe.dataset.objectif = g.objectif;
-      const couleur = g.objectif === "O1" ? palette[1] :
+      const couleur = cle === "contexte" ? paletteContexte[k] :
+        g.objectif === "O1" ? palette[1] :
         g.objectif === "O2" ? palette[2] :
         g.objectif === "O3" ? palette[3] : palette[k % palette.length];
       for (const [variable, valeur] of Object.entries({
@@ -542,6 +565,7 @@
       groupe.setAttribute("aria-label", g.nom);
       const enTete = el("div", "gab-sommaire-groupe-titre");
       if (g.objectif) enTete.append(el("b", "", echapper(g.objectif)));
+      else if (cle === "contexte") enTete.append(el("b", "", deux(k + 1)));
       enTete.append(el("strong", "", echapper(g.nom)));
       const items = el("div", "gab-sommaire-groupe-liens");
       items.append(...listes[k]); // conserve data-gab-intertitre et les liens
