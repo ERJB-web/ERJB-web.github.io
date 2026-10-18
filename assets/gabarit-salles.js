@@ -1022,7 +1022,7 @@
 
   noterTitres();
   if (langue === "fr") lierReferencesCadreThese();
-  $("section.section[data-salle] > .section-contenu").forEach(transformer);
+  $$("section.section[data-salle] > .section-contenu").forEach(transformer);
   // Retour arrière, adresse directe et changement de chapitre sans
   // réafficher l'intégralité des chapitres dans la vue publique.
   const synchroniserPageLibre = () => {
