@@ -1276,3 +1276,62 @@
   script.defer = true;
   document.head.appendChild(script);
 })();
+
+
+/* Clarification du produit O2 et de son rôle dans la sélection des terrains O3. */
+(() => {
+  const lang = (document.documentElement.lang || "fr").toLowerCase();
+  const en = lang.startsWith("en");
+  if (!lang.startsWith("fr") && !en) return;
+
+  const actualiserDevis = () => {
+    const devis = document.querySelector('.these .a-apercu .a-devis');
+    if (!devis) return;
+    const cartes = devis.querySelectorAll(':scope > .a-obj');
+    const produitO2 = cartes[1]?.querySelector('.a-prod');
+    if (!produitO2) return;
+    produitO2.textContent = en
+      ? 'CLSC-level atlas of needs, resources and territorial gaps'
+      : 'Atlas des besoins, ressources et écarts territoriaux par CLSC';
+
+    if (devis.nextElementSibling?.classList.contains('a-o2-vers-o3')) return;
+    const note = document.createElement('p');
+    note.className = 'a-o2-vers-o3';
+    const titre = document.createElement('strong');
+    titre.textContent = en ? 'O2 → O3 · From maps to networks.' : 'O2 → O3 · De la cartographie aux réseaux.';
+    const explication = document.createElement('span');
+    explication.textContent = en
+      ? ' The atlas and needs–resources matrix reveal potential mismatches in provision and accessibility. These territorial contrasts guide the selection of CLSC areas for comparison in O3, where actually mobilised intersectoral relationships will be studied.'
+      : ' L’atlas et la matrice besoins–ressources font ressortir les écarts potentiels d’offre et d’accessibilité. Ces contrastes orientent la sélection de territoires de CLSC à comparer en O3, où seront étudiées les relations intersectorielles effectivement mobilisées.';
+    note.append(titre, explication);
+    devis.after(note);
+    if (!document.getElementById('style-a-o2-vers-o3')) {
+      const style = document.createElement('style');
+      style.id = 'style-a-o2-vers-o3';
+      style.textContent = `
+        .these .a-o2-vers-o3 {
+          margin: 15px 0 16px;
+          padding: 13px clamp(15px,2vw,22px);
+          border: 1px solid #cee1d9;
+          border-inline-start: 4px solid #61a644;
+          border-radius: 10px;
+          background: #f5faf7;
+          color: #254840;
+          font-size: clamp(14px,1.08vw,16px);
+          line-height: 1.6;
+          text-align: start;
+          hyphens: none;
+          overflow-wrap: break-word;
+        }
+        .these .a-o2-vers-o3 strong { color: #173f39; font-weight: 750; }
+      `;
+      document.head.appendChild(style);
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', actualiserDevis, { once: true });
+  } else {
+    actualiserDevis();
+  }
+})();
