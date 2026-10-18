@@ -157,7 +157,7 @@
       if (titre) titre.textContent = l[0];
       if (intro) intro.textContent = l[9];
     }
-    transfert.dataset.image = CHEMIN + "assets/chapitres/implantation-02.webp";
+    transfert.dataset.image = CHEMIN + "assets/chapitres/recherche-10.webp";
     const outils = $(".rubrique-contenu .colonne-outils", transfert);
     const cadres = outils ? $(":scope > .cadres", outils) : [];
     const dernierCadre = cadres.length > 1 ? cadres[cadres.length - 1] : null;
@@ -190,7 +190,7 @@
       return $(".colonne-outils", section);
     };
 
-    const implantation = fabriquer("implantation-science", 2, l[2], l[5], "assets/portes/transfert-implantation-pro.jpg");
+    const implantation = fabriquer("implantation-science", 2, l[2], l[5], "assets/chapitres/ia-07.webp");
     implantation.append(titreCadre, dernierCadre);
     const lienDossier = D.createElement("p");
     lienDossier.className = "note";
