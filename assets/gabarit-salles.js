@@ -586,7 +586,7 @@
 
         const figure = img.closest("figure");
         // Figure purement décorative : aucun texte, aucune légende à perdre.
-        if (figure?.matches(".logos-recherche") && $("img", figure).length === 1 && !net(figure.textContent)) {
+        if (figure?.matches(".logos-recherche") && $$("img", figure).length === 1 && !net(figure.textContent)) {
           figure.remove();
           return;
         }
@@ -765,9 +765,9 @@
   };
 
   noterTitres();
-  $("section.section[data-salle] > .section-contenu").forEach(transformer);
+  $$("section.section[data-salle] > .section-contenu").forEach(transformer);
   // Les figures de l'atlas peuvent être ajoutées après la transformation.
-  if (langue === "fr") $(".these").forEach((zone) => {
+  if (langue === "fr") $$(".these").forEach((zone) => {
     retirerImagesRepeteesThese(zone);
     new MutationObserver(() => retirerImagesRepeteesThese(zone))
       .observe(zone, { childList: true, subtree: true });
