@@ -2073,3 +2073,34 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   .salle .gab-barre .salle-onglets .onglet-salle::before{transition:none!important}
 }
 
+/* Ma thèse : supprimer le défilement interne et son encadrement superflu.
+   Le contenu, les liens et les sections colorées restent inchangés. */
+.gab[data-gab-salle="recherche"] .gab-menu-global > .gab-chapitre-aside,
+.gab[data-gab-salle="recherche"] .gab-menu-gauche > .gab-chapitre-aside{
+  position:static!important;
+  top:auto!important;
+  max-height:none!important;
+  height:auto!important;
+  overflow:visible!important;
+  overscroll-behavior:auto!important;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-global .gab-sommaire-chapitre,
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre{
+  max-height:none!important;
+  min-height:0!important;
+  height:auto!important;
+  overflow:visible!important;
+  overscroll-behavior:auto!important;
+  scrollbar-width:none!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.gab[data-gab-salle="recherche"] .gab-index-liste{
+  max-height:none!important;
+  overflow:visible!important;
+  overscroll-behavior:auto!important;
+  scrollbar-width:none!important;
+}
