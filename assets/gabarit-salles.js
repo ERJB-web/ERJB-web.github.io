@@ -374,8 +374,16 @@
           const photo = vignette ? ` style="--gab-c:${COULEURS[i % COULEURS.length]};--gab-tuile:url('${echapper(vignette)}')"` : ` style="--gab-c:${COULEURS[i % COULEURS.length]}"`;
           return `<a class="gab-tuile${large}" href="#${echapper(salle)}${ch.cle ? "/" + echapper(ch.cle) : ""}" data-gab-aller="${i}"${photo} aria-label="${echapper(T.aller(ch.titre))}"><span class="gab-tuile-num">${deux(i + 1)}</span><span class="gab-tuile-titre">${echapper(ch.titre)}</span></a>`;
         }).join("") + `</div>`;
-      (bandeau || corps).after(programme);
-      if (!bandeau) corps.before(programme);
+      // Ma thèse : le titre provisoire, le statut et la codirection
+      // doivent être lus avant les tuiles. Ne déplacer aucun élément
+      // de présentation : insérer simplement le parcours après ce bloc.
+      const cadreThese = salle === "recherche" ? $(".these-entete > .these-cadre", corps) : null;
+      if (cadreThese) {
+        cadreThese.after(programme);
+      } else {
+        (bandeau || corps).after(programme);
+        if (!bandeau) corps.before(programme);
+      }
     }
 
     sc.dataset.gabSalle = salle;
