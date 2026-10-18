@@ -764,8 +764,61 @@
     inventaire: () => $$("section.section[data-salle] > .section-contenu.gab").flatMap((sc) => chapitresDe(sc).map((c, i) => ({ salle: sc.dataset.gabSalle, porte: porteDe(sc.dataset.gabSalle)?.dataset.salle || "", ordre: i + 1, titre: net($(".gab-chapitre-titre", c)?.textContent) }))),
   };
 
+  // Références institutionnelles de l'en-tête de thèse : mêmes destinations
+  // que les liens de l'accueil et du chapitre « Cadre institutionnel ».
+  // On conserve le texte et les éléments de mise en page existants.
+  function lierReferencesCadreThese() {
+    const cadre = $("#recherche .these-entete .these-cadre");
+    if (!cadre) return;
+    const references = [
+      ["Nadia Sourial", "https://www.chumontreal.qc.ca/crchum/chercheurs/nadia-sourial"],
+      ["Géraldine Layani", "https://www.chumontreal.qc.ca/crchum/chercheurs/geraldine-layani"],
+      ["École de santé publique de l’Université de Montréal (ESPUM)", "https://espum.umontreal.ca/"],
+      ["Doctorat en santé publique, option systèmes, organisations et politiques de santé (SOPS)", "https://espum.umontreal.ca/etudes/programmes/doctorats-et-programmes-de-3e-cycle/doctorats/doctorat-en-sante-publique/"],
+      ["Chaire de recherche GSK en gestion optimale des maladies chroniques", "https://www.linkedin.com/company/chaire-glaxosmithkline-gsk-de-recherche-en-gestion-optimale-des-maladies-chroniques/"],
+      ["Fonds de recherche du Québec", "https://frq.gouv.qc.ca/"],
+      ["bourse de doctorat (B2)", "https://doi.org/10.69777/2009461"],
+    ];
+    const marche = D.createTreeWalker(cadre, NodeFilter.SHOW_TEXT);
+    const noeuds = [];
+    while (marche.nextNode()) {
+      const noeud = marche.currentNode;
+      if (!noeud.parentElement?.closest("a, script, style")) noeuds.push(noeud);
+    }
+    noeuds.forEach((noeud) => {
+      const texte = noeud.nodeValue;
+      const correspondances = [];
+      references.forEach(([libelle, href]) => {
+        let debut = 0, pos;
+        while ((pos = texte.indexOf(libelle, debut)) !== -1) {
+          correspondances.push({ debut: pos, fin: pos + libelle.length, href });
+          debut = pos + libelle.length;
+        }
+      });
+      if (!correspondances.length) return;
+      correspondances.sort((a, b) => a.debut - b.debut || b.fin - a.fin);
+      const fragment = D.createDocumentFragment();
+      let precedent = 0;
+      correspondances.forEach(({ debut, fin, href }) => {
+        if (debut < precedent) return;
+        if (debut > precedent) fragment.append(D.createTextNode(texte.slice(precedent, debut)));
+        const lien = D.createElement("a");
+        lien.className = "these-cadre-lien";
+        lien.href = href;
+        lien.target = "_blank";
+        lien.rel = "noopener noreferrer";
+        lien.textContent = texte.slice(debut, fin);
+        fragment.append(lien);
+        precedent = fin;
+      });
+      if (precedent < texte.length) fragment.append(D.createTextNode(texte.slice(precedent)));
+      noeud.replaceWith(fragment);
+    });
+  }
+
   noterTitres();
-  $$("section.section[data-salle] > .section-contenu").forEach(transformer);
+  if (langue === "fr") lierReferencesCadreThese();
+  $("section.section[data-salle] > .section-contenu").forEach(transformer);
   // Les figures de l'atlas peuvent être ajoutées après la transformation.
   if (langue === "fr") $$(".these").forEach((zone) => {
     retirerImagesRepeteesThese(zone);
