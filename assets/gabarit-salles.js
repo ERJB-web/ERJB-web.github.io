@@ -348,13 +348,13 @@
       const h = intertitres[Number(a.dataset.gabIntertitre)];
       const brut = net(h.textContent).replace(/^([1-9])(?=[A-ZÀ-ÖØ-ÞŒ])/u, "");
       const t = normaliser(brut);
-      const marqueur = /^(?:o\\s*([123])|objectif\\s*([123]))\\b/.exec(t);
+      const marqueur = /^(?:o\s*([123])|objectif\s*([123]))\b/.exec(t);
       let code = marqueur ? "O" + (marqueur[1] || marqueur[2]) : "";
       // Le titre est prioritaire sur le contexte DOM, notamment pour les
       // outils O1 qui figurent après une carte de présentation O2.
       if (!code && /revue de portee|profils? de besoins|outils? de recherche|recherche documentaire|recherche bibliographique|criteres? d inclusion|criteres? d exclusion|criteres? de selection|strategie de recherche|codebook|covidence|criblage|bibliothecair|selection des etudes|extraction des etudes/.test(t)) code = "O1";
       if (!code && /mapping|cartograph|atlas|donnees cartographiques|lecture du territoire|accessibilite|proximite|croiser besoins|ressources disponibles|qgis|systeme d information geographique|ecologique|configuration territoriale|ecarts territoriaux/.test(t)) code = "O2";
-      if (!code && /analyse de reseaux|reseaux|reseau egocentre|\\bsna\\b|graphes?|dyades?|matrices?|acteurs du reseau|references reelles du 211|liens entre acteurs|trajectoires intersectorielles/.test(t)) code = "O3";
+      if (!code && /analyse de reseaux|reseaux|reseau egocentre|\bsna\b|graphes?|dyades?|matrices?|acteurs du reseau|references reelles du 211|liens entre acteurs|trajectoires intersectorielles/.test(t)) code = "O3";
       if (!code) {
         const ancetre = h.closest("[data-objectif]");
         if (/^O[123]$/.test(ancetre?.dataset.objectif || "")) code = ancetre.dataset.objectif;
@@ -363,7 +363,7 @@
         let parent = h.parentElement;
         while (parent && !parent.classList.contains("gab-corps")) {
           const noms = typeof parent.className === "string" ? parent.className : "";
-          const m = /(?:^|[\\s-])o([123])(?:[\\s-]|$)/i.exec(parent.id + " " + noms);
+          const m = /(?:^|[\s-])o([123])(?:[\s-]|$)/i.exec(parent.id + " " + noms);
           if (m) { code = "O" + m[1]; break; }
           parent = parent.parentElement;
         }
@@ -373,7 +373,7 @@
         a.dataset.objectif = code;
         a.setAttribute("aria-label", code + " · " + net(a.textContent));
         const cible = a.querySelector(".gab-sommaire-etape-texte") || a;
-        cible.textContent = cible.textContent.replace(/^(?:O|Objectif\\s*)[123]\\s*(?:[·.:\\u2013-]\\s*)?/i, "").trim();
+        cible.textContent = cible.textContent.replace(/^(?:O|Objectif\s*)[123]\s*(?:[·.:\u2013-]\s*)?/i, "").trim();
       } else {
         a.removeAttribute("data-objectif");
       }
