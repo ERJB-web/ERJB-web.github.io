@@ -487,7 +487,9 @@
     reduit = sansPassage();
     bouton.classList.add("ouverte");
     await attendre(mobileTactile.matches ? 95 : 180);
-    const r = bouton.querySelector(".ouverture").getBoundingClientRect();
+    const ouverture = bouton.querySelector(".ouverture");
+    // Sans la miniature décorative, démarrer la transition depuis l’onglet entier.
+    const r = ouverture && ouverture.getClientRects().length ? ouverture.getBoundingClientRect() : bouton.getBoundingClientRect();
     const passage = document.createElement("div");
     passage.className = "passage";
     const c1 = bouton.style.getPropertyValue("--c1").trim();
