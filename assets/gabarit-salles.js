@@ -1317,7 +1317,7 @@
   // Remplacement circonscrit à la salle de vulgarisation en français.
   // Les autres salles et autres langues suivent exactement leur rendu habituel.
   const salleVul = langue === "fr" ? $("section.section[data-salle='vulgarisation'] > .section-contenu") : null;
-  $("section.section[data-salle] > .section-contenu").forEach((sc) => {
+  $$("section.section[data-salle] > .section-contenu").forEach((sc) => {
     if (sc !== salleVul) transformer(sc);
   });
   if (salleVul) {
