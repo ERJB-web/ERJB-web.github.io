@@ -654,3 +654,53 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   outline-offset:3px;
   border-radius:2px;
 }
+
+/* Thèse : sommaires « Dans ce chapitre » harmonisés avec celui du Contexte.
+   Un seul composant visuel pour tous les chapitres ; défilement autonome. */
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre{
+  display:grid;
+  align-content:start;
+  gap:5px;
+  padding:16px 13px;
+  max-height:calc(100dvh - var(--salle-barre-hauteur,90px) - 38px);
+  overflow-y:auto;
+  scrollbar-width:thin;
+  background:#f7fafb;
+  border:1px solid #d7e4e9;
+  border-inline-start:2px solid #d7e4e9;
+  border-radius:16px;
+  box-shadow:none;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre > span{
+  margin:0 0 7px;
+  color:#0879be;
+  font-size:12.5px;
+  line-height:1.5;
+  font-weight:700;
+  letter-spacing:.1em;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre a{
+  display:block;
+  padding:9px 10px;
+  color:#143648;
+  font-size:16px;
+  font-weight:500;
+  line-height:1.4;
+  border-radius:9px;
+  overflow-wrap:normal;
+  word-break:normal;
+  hyphens:none;
+  text-align:start!important;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre a:hover{
+  background:#eaf2f5;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre a:focus-visible{
+  outline:2px solid #0879be;
+  outline-offset:1px;
+}
+@media(max-width:979px){
+  .gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre{
+    max-height:min(380px,48dvh);
+  }
+}
