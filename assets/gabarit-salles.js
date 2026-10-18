@@ -1305,12 +1305,108 @@
 
   function suivreDefilement() {
     if (!lecture || !contenu) return;
+    const zone = $(".gab", contenu);
+    if (zone?.dataset.gabSalle === "loisirs") {
+      // Les activités restent visibles ensemble ; leur barre de lecture reste accessible.
+      salle.classList.add("gab-lit");
+      return;
+    }
     const programme = $(".gab .gab-programme", contenu);
     const bas = barre.getBoundingClientRect().bottom;
-    const zone = $(".gab", contenu);
     const lit = zone?.classList.contains("gab-page-chapitre") ||
       (!!programme && !zone?.classList.contains("gab-page-sommaire") && programme.getBoundingClientRect().bottom < bas + 10);
     salle.classList.toggle("gab-lit", !!lit);
+  }
+
+
+  // Sports et loisirs : conserver la barre de navigation initiale, sans recréer de chapitres.
+  // Les huit figures restent côte à côte dans leur grille ; les flèches les rejoignent par défilement.
+  let navigationLoisirs = null;
+  const NAV_LOISIRS = {
+    fr: { tous: "Toutes les activités", precedent: "Activité précédente", suivant: "Activité suivante", compteur: (i,n) => "Activité " + i + " sur " + n },
+    en: { tous: "All activities", precedent: "Previous activity", suivant: "Next activity", compteur: (i,n) => "Activity " + i + " of " + n },
+    es: { tous: "Todas las actividades", precedent: "Actividad anterior", suivant: "Actividad siguiente", compteur: (i,n) => "Actividad " + i + " de " + n },
+    zh: { tous: "所有活动", precedent: "上一项活动", suivant: "下一项活动", compteur: (i,n) => "活动 " + i + " / " + n },
+    ar: { tous: "كل الأنشطة", precedent: "النشاط السابق", suivant: "النشاط التالي", compteur: (i,n) => "النشاط " + i + " من " + n },
+    ru: { tous: "Все занятия", precedent: "Предыдущее занятие", suivant: "Следующее занятие", compteur: (i,n) => "Занятие " + i + " из " + n }
+  };
+  const motsLoisirs = NAV_LOISIRS[langue] || NAV_LOISIRS.fr;
+
+  function rafraichirBarreLoisirs() {
+    const etat = navigationLoisirs;
+    if (!etat || !lecture || !etat.activites.length) return;
+    const i = etat.index, n = etat.activites.length;
+    lecture.style.setProperty("--gab-c", COULEURS[i % COULEURS.length]);
+    $(".gab-actuel b", lecture).textContent = deux(i + 1);
+    $(".gab-actuel small", lecture).textContent = motsLoisirs.compteur(i + 1, n);
+    $(".gab-actuel strong", lecture).textContent = etat.titres[i];
+    [-1, 1].forEach((sens) => {
+      const btn = $("[data-gab-pas='" + sens + "']", lecture);
+      if (!btn) return;
+      const voisin = i + sens, possible = voisin >= 0 && voisin < n;
+      const cible = $(".gab-fleche-cible", btn);
+      if (cible) cible.textContent = possible ? deux(voisin + 1) + " · " + etat.titres[voisin] : "";
+      btn.disabled = !possible;
+      btn.setAttribute("aria-label", (sens < 0 ? motsLoisirs.precedent : motsLoisirs.suivant) +
+        (possible ? " : " + deux(voisin + 1) + " · " + etat.titres[voisin] : ""));
+    });
+    $(".gab-segments button", lecture).forEach((btn, k) => {
+      btn.classList.toggle("lu", k < i);
+      btn.setAttribute("aria-current", String(k === i));
+    });
+  }
+
+  function configurerBarreLoisirs(zone) {
+    if (!lecture || !zone || zone.dataset.gabSalle !== "loisirs") return false;
+    const activites = $(".loisirs-etendus > figure.loisir", zone);
+    if (!activites.length) return false;
+    const titres = activites.map((fig) => net($("figcaption strong", fig)?.textContent));
+    if (!navigationLoisirs || navigationLoisirs.zone !== zone) {
+      navigationLoisirs = { zone, activites, titres, index: 0 };
+    }
+    // Réutiliser exactement le contenant, les flèches, les pastilles et les dimensions du menu existant.
+    $(".gab-tous span:last-child", lecture).textContent = motsLoisirs.tous;
+    $(".gab-fleche-precedente .gab-fleche-texte", lecture).textContent = motsLoisirs.precedent;
+    $(".gab-fleche-suivante .gab-fleche-texte", lecture).textContent = motsLoisirs.suivant;
+    const segments = $(".gab-segments", lecture);
+    segments.innerHTML = titres.map((titre, i) =>
+      '<button type="button" data-loisirs-cible="' + i + '" style="--gab-c:' +
+      COULEURS[i % COULEURS.length] + '" aria-label="' + echapper(titre) + '"></button>'
+    ).join("");
+    if (!lecture.dataset.loisirsEvenements) {
+      lecture.dataset.loisirsEvenements = "oui";
+      lecture.addEventListener("click", (event) => {
+        if ($(".gab", contenu)?.dataset.gabSalle !== "loisirs" || !navigationLoisirs) return;
+        const bouton = event.target.closest("[data-loisirs-cible], [data-gab-pas]");
+        if (!bouton || !lecture.contains(bouton)) return;
+        // Bloquer seulement l'ancien gestionnaire qui ouvrirait une page de chapitre.
+        event.preventDefault();
+        event.stopPropagation();
+        const etat = navigationLoisirs;
+        let cible = etat.index;
+        if (bouton.dataset.loisirsCible != null) cible = +bouton.dataset.loisirsCible;
+        else if (bouton.dataset.gabPas === "tous") {
+          etat.index = 0;
+          rafraichirBarreLoisirs();
+          defiler($(".loisirs-etendus", etat.zone));
+          return;
+        } else cible += Number(bouton.dataset.gabPas || 0);
+        if (cible < 0 || cible >= etat.activites.length) return;
+        etat.index = cible;
+        rafraichirBarreLoisirs();
+        defiler(etat.activites[cible]);
+      }, true);
+    }
+    rafraichirBarreLoisirs();
+    return true;
+  }
+
+  function restaurerBarreChapitres() {
+    if (!lecture || !navigationLoisirs) return;
+    $(".gab-tous span:last-child", lecture).textContent = T.tous;
+    $(".gab-fleche-precedente .gab-fleche-texte", lecture).textContent = T.precedent;
+    $(".gab-fleche-suivante .gab-fleche-texte", lecture).textContent = T.suivant;
+    navigationLoisirs = null;
   }
 
   function activerSalle() {
@@ -1327,6 +1423,13 @@
     if (nom) nom.innerHTML = titre.length >= 3
       ? `<small>${echapper(T.porte)}</small> ${echapper(titre[1])}${zone.dataset.gabSalle === "recherche" ? ` <span class="gab-sous-categorie">› ${echapper(titre[2])}</span>` : ""}`
       : "";
+    if (configurerBarreLoisirs(zone)) {
+      // Même barre supérieure qu'avant ; toutes les figures sont visibles simultanément.
+      salle.classList.add("gab-avec-chapitres", "gab-lit");
+      requestAnimationFrame(suivreDefilement);
+      return;
+    }
+    restaurerBarreChapitres();
     const liste = chapitresDe(zone);
     salle.classList.toggle("gab-avec-chapitres", liste.length >= 2);
     if (lecture) {
