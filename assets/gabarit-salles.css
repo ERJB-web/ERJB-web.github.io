@@ -1284,3 +1284,56 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   .gab-bas-chapitre .gab-bas-lien{flex:1 1 calc(50% - 5px);padding:10px}
   .gab-bas-chapitre .gab-bas-sommaire{order:3;width:100%}
 }
+
+
+/* Thèse : sommaire des parties, accès direct O1/O2/O3 et hiérarchie éditoriale (2026-10-18). */
+/* Le fil de navigation distingue la porte du hall de sa sous-catégorie « Ma thèse ». */
+.gab-porte-nom .gab-sous-categorie{display:inline;margin-inline-start:7px;font-size:.9em;color:#3c6470;font-weight:650}
+.gab-porte-nom .gab-sous-categorie::first-letter{color:#71919d}
+/* Même sommaire latéral pour chacun des six chapitres de la thèse. */
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre a[data-gab-niveau="h3"]{
+  font-weight:750;
+  color:#173f52;
+  border-inline-start:2px solid #a8c8cf;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre a[data-gab-niveau="h4"]{
+  font-weight:560;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre a[data-gab-niveau="h5"]{
+  font-size:13px;
+  padding-inline-start:18px;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-raccourcis{
+  position:sticky;
+  top:0;
+  z-index:2;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:6px;
+  padding:8px 2px 10px;
+  margin:0 0 7px;
+  background:#f3f8f7;
+  border-bottom:1px solid #d8e5e5;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-raccourcis .gab-sommaire-raccourci{
+  display:grid;
+  place-items:center;
+  min-width:0;
+  min-height:32px;
+  padding:6px 4px;
+  border:1px solid #ccdadb;
+  border-radius:7px;
+  color:#164b60;
+  background:#fff;
+  font:750 12px/1.2 var(--sans,Arial,sans-serif);
+  text-align:center;
+  text-decoration:none;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-raccourcis .gab-sommaire-raccourci:hover,
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-raccourcis .gab-sommaire-raccourci:focus-visible{
+  border-color:#217da0;
+  background:#e4f1f5;
+}
+@media(max-width:750px){
+  .gab-porte-nom .gab-sous-categorie{font-size:.8em}
+}
