@@ -377,7 +377,7 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 }
 
 
-/* Navigation des salles — cartes agrandies et lisibles.
+/* Navigation des salles — cartes compactes (dimensions réduites de 15 %).
    Identité de la Chaire conservée ; affichage intégral des six rubriques
    sur grand écran, 3 x 2 sur écran moyen, défilement tactile sur mobile. */
 .salle .salle-barre.gab-barre{
@@ -387,9 +387,9 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 .salle .gab-barre .salle-onglets:not([hidden]){
   display:grid!important;
   grid-template-columns:repeat(6,minmax(0,1fr));
-  gap:12px;
-  margin:16px 0 2px;
-  padding:4px 2px 7px;
+  gap:10.2px;
+  margin:13.6px 0 1.7px;
+  padding:3.4px 1.7px 5.95px;
   max-height:280px;
   overflow-x:visible;
   overflow-y:visible;
@@ -403,16 +403,16 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   width:100%!important;
   min-width:0!important;
   max-width:none!important;
-  min-height:94px!important;
+  min-height:79.9px!important;
   justify-content:flex-start;
-  gap:13px;
-  padding:12px 13px!important;
+  gap:11.05px;
+  padding:10.2px 11.05px!important;
   border:1px solid #dce6e9!important;
-  border-radius:18px!important;
+  border-radius:15.3px!important;
   background:linear-gradient(145deg,#fff 25%,#f5f9f9 100%);
   box-shadow:0 4px 13px rgba(13,42,58,.045);
   color:#244958;
-  font-size:clamp(16px,1.03vw,18px);
+  font-size:clamp(13.6px,.8755vw,15.3px);
   font-weight:700;
   line-height:1.23;
   text-align:start;
@@ -437,10 +437,10 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   color:#fff;
 }
 .salle .gab-barre .gab-onglet-photo{
-  width:54px;
-  height:54px;
-  border-radius:13px;
-  flex:0 0 54px;
+  width:45.9px;
+  height:45.9px;
+  border-radius:11.05px;
+  flex:0 0 45.9px;
   opacity:1;
   border:1px solid rgba(13,42,58,.12);
   box-shadow:0 2px 7px rgba(13,42,58,.14);
@@ -466,16 +466,16 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   pointer-events:none;
 }
 @media(max-width:1499px){
-  .salle .gab-barre .salle-onglets:not([hidden]){grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-height:290px}
-  .salle .gab-barre .salle-onglets .onglet-salle{min-height:80px!important}
+  .salle .gab-barre .salle-onglets:not([hidden]){grid-template-columns:repeat(3,minmax(0,1fr));gap:8.5px;max-height:290px}
+  .salle .gab-barre .salle-onglets .onglet-salle{min-height:68px!important}
 }
 @media(max-width:900px){
   .salle .gab-barre .salle-onglets:not([hidden]){
     display:flex!important;
     flex-wrap:nowrap;
-    gap:10px;
-    margin:12px calc(-1 * var(--gab-marge)) 0;
-    padding:4px var(--gab-marge) 12px;
+    gap:8.5px;
+    margin:10.2px calc(-1 * var(--gab-marge)) 0;
+    padding:3.4px var(--gab-marge) 10.2px;
     max-height:130px;
     overflow-x:auto;
     overflow-y:hidden;
@@ -487,14 +487,14 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   .salle .gab-barre .salle-onglets::-webkit-scrollbar{display:block;height:5px}
   .salle .gab-barre .salle-onglets::-webkit-scrollbar-thumb{background:#8fb7c4;border-radius:10px}
   .salle .gab-barre .salle-onglets .onglet-salle{
-    flex:0 0 252px!important;
-    width:252px!important;
-    min-height:82px!important;
-    padding:10px 12px!important;
-    font-size:16.5px;
+    flex:0 0 214.2px!important;
+    width:214.2px!important;
+    min-height:69.7px!important;
+    padding:8.5px 10.2px!important;
+    font-size:14.025px;
     scroll-snap-align:start;
   }
-  .salle .gab-barre .gab-onglet-photo{width:49px;height:49px;flex-basis:49px}
+  .salle .gab-barre .gab-onglet-photo{width:41.65px;height:41.65px;flex-basis:41.65px}
   .salle.gab-lit.gab-avec-chapitres .gab-barre .salle-onglets:not([hidden]){max-height:0}
 }
 @media(prefers-reduced-motion:reduce){
@@ -559,8 +559,8 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 }
 .salle .gab-barre .gab-onglet-photo svg{
   display:block;
-  width:29px;
-  height:29px;
+  width:24.65px;
+  height:24.65px;
   flex:none;
 }
 .salle .gab-barre .onglet-salle.actif .gab-onglet-photo{
@@ -570,5 +570,24 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   box-shadow:none!important;
 }
 @media(max-width:900px){
-  .salle .gab-barre .gab-onglet-photo svg{width:27px;height:27px}
+  .salle .gab-barre .gab-onglet-photo svg{width:22.95px;height:22.95px}
+}
+
+/* Bandeau « Ma thèse » : dimensions et typographie réduites de 10 %. */
+.gab[data-gab-salle="recherche"] .bandeau.gab-bandeau{
+  min-height:219.6px;
+  padding:21.6px 37.8px 25.2px;
+  border-radius:25.2px;
+}
+.gab[data-gab-salle="recherche"] .gab-bandeau::after{height:5.4px}
+.gab[data-gab-salle="recherche"] .gab-bandeau .bandeau-texte{gap:7.2px}
+.gab[data-gab-salle="recherche"] .gab-bandeau .bandeau-num{font-size:12.6px}
+.gab[data-gab-salle="recherche"] .gab-bandeau .bandeau-titre{font-size:clamp(36px,4.5vw,59.4px)}
+.gab[data-gab-salle="recherche"] .gab-bandeau .bandeau-legende{font-size:17.1px}
+.gab[data-gab-salle="recherche"] .gab-puces{gap:7.2px;margin-top:5.4px}
+.gab[data-gab-salle="recherche"] .gab-puces span{padding:5.4px 12.6px;font-size:13.05px}
+@media(max-width:900px){
+  .gab[data-gab-salle="recherche"] .bandeau.gab-bandeau{min-height:183.6px;padding:16.2px 19.8px 18px;border-radius:19.8px}
+  .gab[data-gab-salle="recherche"] .gab-bandeau .bandeau-titre{font-size:clamp(30.6px,9vw,41.4px)}
+  .gab[data-gab-salle="recherche"] .gab-bandeau .bandeau-legende{font-size:14.4px}
 }
