@@ -1243,7 +1243,16 @@
       note.className = 'atlas-these-precaution';
       note.textContent = 'Sources, méthodes, légendes et crédits figurent sur chaque carte. Ces représentations écologiques et spatiales sont des exemples d’analyses exploratoires et ne remplacent ni les données individuelles ni l’étude des relations effectives entre partenaires.';
       section.appendChild(note);
-      panneau.appendChild(section);
+      // Les cartes produites pour la méthodologie O2 doivent rester avec le mapping,
+      // et non être ajoutées après la fin d'O3 et les limites du chapitre.
+      if (bloc.volet === 'methodes') {
+        const objectif2 = panneau.querySelector('#methode-o2-donnees');
+        const justification = objectif2?.querySelector('.pourquoi-indispensable');
+        if (justification) justification.before(section);
+        else (objectif2 || panneau.querySelector('#these-methode-o2') || panneau).appendChild(section);
+      } else {
+        panneau.appendChild(section);
+      }
     });
 
     // Les cartes présentes dans d’autres exposés méthodologiques ne doivent plus être recadrées.
