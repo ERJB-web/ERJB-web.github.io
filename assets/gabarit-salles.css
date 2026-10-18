@@ -71,10 +71,11 @@
 .gab-chapitres{display:block}
 
 /* Bandeau transversal */
-.gab .bandeau.gab-bandeau{--gab-voile:linear-gradient(90deg,rgba(13,42,58,.9) 0%,rgba(13,42,58,.66) 38%,rgba(13,42,58,.1) 74%);height:300px;max-width:none;margin:0;border-radius:28px;overflow:hidden;background-image:var(--gab-voile),var(--gab-photo,none)!important;background-size:cover!important;background-position:center 40%!important;box-shadow:0 30px 60px -42px rgba(13,42,58,.7)}
+/* Bandeaux de catégories raccourcis d'environ 1,5 cm (56 px) ; hauteur extensible si le titre passe sur plusieurs lignes. */
+.gab .bandeau.gab-bandeau{--gab-voile:linear-gradient(90deg,rgba(13,42,58,.9) 0%,rgba(13,42,58,.66) 38%,rgba(13,42,58,.1) 74%);height:auto;min-height:244px;box-sizing:border-box;display:grid;align-content:end;padding:24px 42px 28px;max-width:none;margin:0;border-radius:28px;overflow:hidden;background-image:var(--gab-voile),var(--gab-photo,none)!important;background-size:cover!important;background-position:center 40%!important;box-shadow:0 30px 60px -42px rgba(13,42,58,.7)}
 [dir=rtl] .gab .bandeau.gab-bandeau{--gab-voile:linear-gradient(270deg,rgba(13,42,58,.9) 0%,rgba(13,42,58,.66) 38%,rgba(13,42,58,.1) 74%)}
 .gab .gab-bandeau::after{content:"";position:absolute;inset:auto 0 0 0;height:6px;background:var(--gab-degrade)}
-.gab .gab-bandeau .bandeau-texte{inset-inline-start:42px;bottom:40px;gap:10px;max-width:min(760px,74%);animation:none}
+.gab .gab-bandeau .bandeau-texte{position:static;inset:auto;bottom:auto;gap:8px;max-width:min(760px,74%);animation:none}
 .gab .gab-bandeau .bandeau-num{font:700 14px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:#bfe9e8;opacity:1}
 .gab .gab-bandeau .bandeau-titre{font:400 clamp(40px,5vw,66px)/1.02 var(--serif);letter-spacing:-.02em;text-shadow:none}
 .gab .gab-bandeau .bandeau-legende{font-size:19px;opacity:1;color:#e6f0f2}
@@ -205,8 +206,8 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   .gab-tous span:last-child,.gab-segments{display:none}
   .salle.gab-lit.gab-avec-chapitres .gab-lecture{margin-top:0}
   .section-contenu.gab{font-size:17px;padding-top:14px}
-  .gab .bandeau.gab-bandeau{height:260px;border-radius:22px;--gab-voile:linear-gradient(0deg,rgba(13,42,58,.92) 0%,rgba(13,42,58,.55) 52%,rgba(13,42,58,.06) 88%)}
-  .gab .gab-bandeau .bandeau-texte{inset-inline-start:22px;bottom:24px;max-width:calc(100% - 44px)}
+  .gab .bandeau.gab-bandeau{height:auto;min-height:204px;padding:18px 22px 20px;border-radius:22px;--gab-voile:linear-gradient(0deg,rgba(13,42,58,.92) 0%,rgba(13,42,58,.55) 52%,rgba(13,42,58,.06) 88%)}
+  .gab .gab-bandeau .bandeau-texte{inset:auto;bottom:auto;max-width:100%}
   .gab .gab-bandeau .bandeau-titre{font-size:clamp(34px,10vw,46px)}
   .gab .gab-bandeau .bandeau-legende{font-size:16px}
   .gab-programme-tete span{display:none}
