@@ -440,8 +440,14 @@
       const alt = choix.alt || (langue === "fr" && choix.image?.alt ? choix.image.alt : "");
       aside.innerHTML = `<div class="gab-photo"><img src="${echapper(choix.url)}" alt="${echapper(alt)}" loading="lazy" decoding="async" width="960" height="640">${credit ? `<small class="gab-credit">${choix.image.source_url ? `<a href="${echapper(choix.image.source_url)}" target="_blank" rel="noopener">${credit}</a>` : credit}</small>` : ""}</div>`;
     }
-    const intertitres = $$("h4", corps).filter((h) => !h.closest("details:not([open]), [hidden], .gab-source.carte-vitrine"));
-    if (intertitres.length >= 2) {
+    // Ma thèse : le sommaire repère les parties h3 et h4 d'un chapitre.
+    const intertitres = $(salle === "recherche" ? "h3, h4, h5.titre-bloc" : "h4", corps)
+      .filter((h) => !h.closest("details:not([open]), [hidden], .gab-source.carte-vitrine"))
+      .filter((h) => salle !== "recherche" || (
+        !h.closest(".gab-sommaire-chapitre, .gab-bas-chapitre, .gab-chapitre-tete") &&
+        (net(h.textContent) !== net(ch.titre) || h.tagName !== "H3")
+      ));
+    if (intertitres.length >= (salle === "recherche" ? 1 : 2)) {
       const nav = el("nav", "gab-sommaire-chapitre");
       nav.setAttribute("aria-label", T.dans);
       nav.setAttribute("tabindex", "0");
@@ -461,7 +467,9 @@
         const texteLien = etape
           ? `<span class="gab-sommaire-etape-num">${deux(Number(etape))}</span><span class="gab-sommaire-etape-texte">${echapper(libelle)}</span>`
           : echapper(libelle);
-        return `<a href="#" data-gab-intertitre="${k}"${etape ? ' class="gab-sommaire-etape"' : ""}${objectif ? ` data-objectif="${objectif}"` : ""}${libelle !== titre ? ` title="${echapper(titre)}"` : ""}>${texteLien}</a>`;
+        const id = h.id || `gab-partie-${langue}-${ch.cle || "chapitre"}-${i + 1}-${k + 1}`;
+        if (!h.id) h.id = id;
+        return `<a href="#${echapper(id)}" data-gab-intertitre="${k}" data-gab-cible="${echapper(id)}" data-gab-niveau="${h.tagName.toLowerCase()}"${etape ? ' class="gab-sommaire-etape"' : ""}${objectif ? ` data-objectif="${objectif}"` : ""}${libelle !== titre ? ` title="${echapper(titre)}"` : ""}>${texteLien}</a>`;
       }).join("");
       if (theseFr && (ch.cle === "methodes" || ch.cle === "methode" || /m[ée]thod/i.test(ch.titre))) {
         organiserSommaireObjectifs(nav, entrees);
@@ -649,7 +657,7 @@
       const minutes = Math.max(1, Math.round(motsLus / 210));
       if (texte) {
         const puces = el("span", "gab-puces");
-        if (n >= 2) puces.append(el("span", "", echapper(T.chapitres(n))));
+        if (n >= 2) puces.append(el("span", "", echapper(salle === "recherche" && langue === "fr" ? `${n} chapitres de thèse` : T.chapitres(n))));
         if (minutes <= 90) puces.append(el("span", "", echapper(T.minutes(minutes))));
         if (puces.children.length) texte.append(puces);
       }
@@ -660,11 +668,13 @@
     // Tuiles des chapitres, juste sous le bandeau.
     if (n >= 2) {
       const programme = el("nav", "gab-programme");
-      programme.setAttribute("aria-label", T.programme);
+      const titreProgramme = salle === "recherche" && langue === "fr" ? "Les chapitres de ma thèse" : T.programme;
+      const aideProgramme = salle === "recherche" && langue === "fr" ? "Choisir un chapitre" : T.aide;
+      programme.setAttribute("aria-label", titreProgramme);
       const colonnes = n <= 4 ? n : n <= 6 ? 3 : n <= 12 ? 4 : 5;
       const vides = Math.ceil(n / colonnes) * colonnes - n;
       programme.style.setProperty("--gab-colonnes", colonnes);
-      programme.innerHTML = `<div class="gab-programme-tete"><h2>${echapper(T.programme)}</h2><span>${echapper(T.aide)}</span></div>` +
+      programme.innerHTML = `<div class="gab-programme-tete"><h2>${echapper(titreProgramme)}</h2><span>${echapper(aideProgramme)}</span></div>` +
         `<div class="gab-tuiles">` + chapitres.map((ch, i) => {
           const large = (vides === 1 && i === 0) || (vides === 2 && (i === 0 || i === n - 1)) ? " gab-large" : vides >= 3 && i === 0 ? " gab-grande" : "";
           const vignette = ch.choix.image ? urlVignette(ch.choix.image) : ch.choix.url;
@@ -867,12 +877,17 @@
       ouvrirPageChapitre(zone, +tuile.dataset.gabAller, { adresse: true, haut: true });
       return;
     }
-    const inter = ev.target.closest("[data-gab-intertitre]");
+    const inter = ev.target.closest("[data-gab-intertitre], [data-gab-cible]");
     if (inter) {
       ev.preventDefault();
       const chapitre = inter.closest(".gab-chapitre");
-      const h = $$("h4", $(".gab-corps", chapitre)).filter((x) => !x.closest("details:not([open]), [hidden], .gab-source.carte-vitrine"))[+inter.dataset.gabIntertitre];
-      defiler(h);
+      const cible = inter.dataset.gabCible
+        ? $("[id]", chapitre).find((x) => x.id === inter.dataset.gabCible)
+        : $("h4", $(".gab-corps", chapitre)).filter((x) => !x.closest("details:not([open]), [hidden], .gab-source.carte-vitrine"))[+inter.dataset.gabIntertitre];
+      if (cible) {
+        $("details", chapitre).filter((d) => d.contains(cible)).forEach((d) => { d.open = true; });
+        defiler(cible);
+      }
       return;
     }
     const these = ev.target.closest(".gab [data-these-vers]");
