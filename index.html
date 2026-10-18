@@ -133,7 +133,8 @@
   .these .cadrage-tableau-ref-table tbody th span{padding:4px 6px}
 }
 </style>
-<!-- galerie-o2-complete-48 --><link rel="stylesheet" href="assets/galerie-o2.css?v=20261018-atlas-o2-visionneuse"><script src="assets/galerie-o2.js?v=20261018-atlas-o2-visionneuse" defer></script><!-- captures-methodes-uniques-20261018 --></head>
+<!-- galerie-o2-complete-48 --><link rel="stylesheet" href="assets/galerie-o2.css?v=20261018-atlas-o2-visionneuse"><script src="assets/galerie-o2.js?v=20261018-atlas-o2-visionneuse" defer></script>
+<script src="assets/o3-reseaux.js?v=20261018-sna-galerie-visible" data-o3-reseaux="1" defer></script><!-- captures-methodes-uniques-20261018 --></head>
 <body>
 <a class="evitement" href="#contenu">Aller au contenu</a>
 <header class="entete">
@@ -850,7 +851,60 @@ html.hc .these .devis-bandeau-synthese-2026,html.lv .these .devis-bandeau-synthe
 <div class="o1-vis-bases"><span>MEDLINE · Ovid</span><span>Embase · Ovid</span><span>APA PsycInfo · Ovid</span><span>PubMed</span></div>
 <div class="o1-vis-recherche-stats"><div><strong>42</strong><span>lignes de recherche</span></div><div><strong>7</strong><span>blocs thématiques</span></div><div><strong>6</strong><span>articles de référence pour le test</span></div></div>
 <p>Recherche de toutes les études admissibles, sans tirage probabiliste. Stratégie testée ; sélection systématique à venir selon les critères d’admissibilité.</p>
-</div></dd></div></dl></div></section><section class="methode-rubrique" id="methode-o1-6"><h5 class="methode-rubrique-titre"><span>03</span>Collecte de données</h5><div class="methode-rubrique-contenu"><dl class="methode-fiche"><div class="these-methode-item"><dt>Sélection et extraction prévues</dt><dd>Après l’affinement de la grille et le pilote de concordance, deux évaluateurs sélectionneront indépendamment les titres et résumés, puis les textes intégraux. Un troisième arbitre tranchera les désaccords persistants. L’extraction en double recueillera les définitions, instruments, domaines et profils. Les données agrégées du 211 décriront les besoins déclarés, leur statut et les motifs des besoins non comblés.</dd></div></dl></div></section><section class="methode-rubrique" id="methode-o1-7"><h5 class="methode-rubrique-titre"><span>04</span>Analyse des données</h5><div class="methode-rubrique-contenu"><dl class="methode-fiche"><div class="these-methode-item o1-methode-analyse">
+</div></dd></div></dl></div></section><section class="methode-rubrique" id="methode-o1-6"><h5 class="methode-rubrique-titre"><span>03</span>Collecte de données</h5><div class="methode-rubrique-contenu"><dl class="methode-fiche"><div class="these-methode-item"><dt>Sélection et extraction prévues</dt><dd>
+<style id="o1-selection-schema-20261018">
+/* Schéma de sélection et extraction O1 — aucune autre section concernée. */
+#these-methode-o1 #methode-o1-6 .these-methode-item{
+  background:transparent!important;border:0!important;padding:0!important;margin:0!important;border-radius:0!important;
+}
+#these-methode-o1 #methode-o1-6 .these-methode-item>dt{
+  margin:0 0 10px!important;color:#356c2b;font:800 12px/1.4 var(--sans,system-ui,sans-serif)!important;
+  letter-spacing:.085em;text-transform:uppercase;
+}
+#these-methode-o1 #methode-o1-6 .these-methode-item>dd{margin:0!important;max-width:none!important;min-width:0}
+#these-methode-o1 .o1-selection-schema{margin:0;min-width:0;padding:14px;border-radius:12px;border:1px solid #d8e3e6;background:linear-gradient(130deg,#f9fbfc,#fff 85%)}
+#these-methode-o1 .o1-selection-ligne{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;margin:0;list-style:none;padding:0;counter-reset:protocole}
+#these-methode-o1 .o1-selection-ligne li{--etape:#296d89;--fond:#eaf4f9;position:relative;display:flex;flex-direction:column;min-width:0;gap:7px;padding:13px 12px 14px;border:1px solid color-mix(in srgb,var(--etape) 23%,white);border-top:3px solid var(--etape);border-radius:9px;background:linear-gradient(155deg,var(--fond),#fff 90%);text-align:left}
+#these-methode-o1 .o1-selection-ligne li:nth-child(2){--etape:#317e75;--fond:#eaf7f3}
+#these-methode-o1 .o1-selection-ligne li:nth-child(3){--etape:#6b5190;--fond:#f1ecf8}
+#these-methode-o1 .o1-selection-ligne li:nth-child(4){--etape:#80673c;--fond:#faf3e5}
+#these-methode-o1 .o1-selection-ligne li:nth-child(5){--etape:#3d742d;--fond:#eef6e8}
+#these-methode-o1 .o1-selection-ligne li:not(:last-child):after{content:"→";position:absolute;inset-inline-end:-12px;top:50%;transform:translateY(-50%);z-index:1;color:#427c86;font:800 19px/1 var(--sans,system-ui,sans-serif);background:#fff;border-radius:50%;width:17px;text-align:center}
+#these-methode-o1 .o1-selection-num{font:800 11px/1.2 var(--sans,system-ui,sans-serif);color:var(--etape);letter-spacing:.05em}
+#these-methode-o1 .o1-selection-ligne strong{font:780 13px/1.35 var(--sans,system-ui,sans-serif);color:#213e4c}
+#these-methode-o1 .o1-selection-ligne small{font:450 12px/1.52 var(--sans,system-ui,sans-serif);color:#425966;text-align:justify;hyphens:auto}
+#these-methode-o1 .o1-selection-sorties{display:grid;grid-template-columns:1.15fr 1fr;gap:10px;margin:11px 0 0}
+#these-methode-o1 .o1-selection-sortie{display:flex;align-items:flex-start;gap:10px;min-width:0;padding:12px 14px;border:1px solid #d4e1e4;border-radius:9px;background:#edf5f8}
+#these-methode-o1 .o1-selection-sortie:last-child{background:#eff5ed;border-color:#d7e4d2}
+#these-methode-o1 .o1-selection-sortie>.o1-selection-puce{flex:none;display:grid;place-items:center;width:29px;height:29px;border-radius:8px;background:#d6e9f0;color:#226581;font:800 13px/1 var(--sans,system-ui,sans-serif)}
+#these-methode-o1 .o1-selection-sortie:last-child>.o1-selection-puce{color:#41762b;background:#ddebd8}
+#these-methode-o1 .o1-selection-sortie strong{display:block;font:760 13px/1.35 var(--sans,system-ui,sans-serif);color:#203f4b;margin:0 0 3px}
+#these-methode-o1 .o1-selection-sortie p{margin:0!important;font:450 12px/1.52 var(--sans,system-ui,sans-serif)!important;color:#485e69;text-align:justify!important;hyphens:auto}
+#these-methode-o1 .o1-selection-statut{margin:9px 0 0!important;color:#647b84;font:550 11.5px/1.5 var(--sans,system-ui,sans-serif)!important;text-align:left!important}
+@media(max-width:950px){
+ #these-methode-o1 .o1-selection-ligne{grid-template-columns:repeat(3,minmax(0,1fr))}
+ #these-methode-o1 .o1-selection-ligne li:nth-child(3):after{content:none}
+}
+@media(max-width:640px){
+ #these-methode-o1 .o1-selection-ligne{grid-template-columns:minmax(0,1fr);gap:7px}
+ #these-methode-o1 .o1-selection-ligne li{min-height:0;padding:11px 13px}
+ #these-methode-o1 .o1-selection-ligne li:not(:last-child):after{content:none}
+ #these-methode-o1 .o1-selection-sorties{grid-template-columns:minmax(0,1fr)}
+}
+</style><div class="o1-selection-schema" aria-label="Procédure prévue de sélection et d’extraction des études">
+<ol class="o1-selection-ligne">
+<li><span class="o1-selection-num">01 · PRÉPARER</span><strong>Bibliothécaire</strong><small>Réviser la stratégie documentaire et affiner la grille.</small></li>
+<li><span class="o1-selection-num">02 · TESTER</span><strong>Pilote de concordance</strong><small>Éprouver les critères et l’accord entre évaluateurs.</small></li>
+<li><span class="o1-selection-num">03 · SÉLECTIONNER</span><strong>2 évaluateurs</strong><small>Examen indépendant des titres et résumés.</small></li>
+<li><span class="o1-selection-num">04 · VÉRIFIER</span><strong>2 évaluateurs</strong><small>Lecture indépendante des textes intégraux.</small></li>
+<li><span class="o1-selection-num">05 · ARBITRER</span><strong>3ᵉ évaluateur</strong><small>Trancher les désaccords persistants après discussion.</small></li>
+</ol>
+<div class="o1-selection-sorties">
+<div class="o1-selection-sortie"><span class="o1-selection-puce" aria-hidden="true">2×</span><div><strong>Extraction en double</strong><p>Définitions, instruments, domaines et profils de besoins.</p></div></div>
+<div class="o1-selection-sortie"><span class="o1-selection-puce" aria-hidden="true">211</span><div><strong>Données agrégées du 211</strong><p>Besoins déclarés, statut satisfait ou non et motifs de non-réponse.</p></div></div>
+</div>
+<p class="o1-selection-statut">Étapes prévues : le pilote et la sélection systématique ne sont pas présentés comme achevés.</p>
+</div></dd></div></dl></div></section><section class="methode-rubrique" id="methode-o1-7"><h5 class="methode-rubrique-titre"><span>04</span>Analyse des données</h5><div class="methode-rubrique-contenu"><dl class="methode-fiche"><div class="these-methode-item o1-methode-analyse">
 <dt>Analyse</dt>
 <dd>
   <p class="o1-analyse-intro">Synthèse descriptive structurée autour de trois composantes complémentaires.</p>
