@@ -1394,11 +1394,26 @@
     D.head.append(style);
   }
 
+  const interactionsImplantationInitialisees = new WeakSet();
+  function initialiserInteractionsImplantation(chapitre,api) {
+    if(interactionsImplantationInitialisees.has(chapitre))return;
+    api.chapitres.forEach(info=>{
+      const bloc=$(".impl-portail-bloc[data-impl-page='"+info.code+"']",chapitre);
+      if(bloc)api.initialiser(bloc,info.code);
+    });
+    interactionsImplantationInitialisees.add(chapitre);
+  }
   function fusionnerDossierImplantation(zone) {
     const api=window.DOSSIER_IMPLANTATION_2026;
     if(langue!=="fr"||!api||!zone||zone.dataset.gabSalle!=="implantation")return;
     const chapitre=$(".gab-chapitre[data-gab-slug='implantation-science']",zone);
-    if(!chapitre||$(".impl-portail-fusion",chapitre))return;
+    if(!chapitre)return;
+    // Un clone de la salle conserve le HTML, mais pas les écouteurs d'événements.
+    // Réactiver les outils interactifs du clone sans dupliquer le contenu.
+    if($(".impl-portail-fusion",chapitre)){
+      initialiserInteractionsImplantation(chapitre,api);
+      return;
+    }
     const corps=$(".gab-corps",chapitre),aside=$(".gab-chapitre-aside",chapitre);
     if(!corps||!aside)return;
     installerStyleImplantationFusion();
@@ -1449,10 +1464,7 @@
     if(ancien)ancien.replaceWith(sommaire);else aside.append(sommaire);
     const grille=$(".gab-chapitre-grille",chapitre);
     if(grille)grille.classList.add("gab-menu-gauche");
-    api.chapitres.forEach(info=>{
-      const bloc=$(".impl-portail-bloc[data-impl-page='"+info.code+"']",ensemble);
-      if(bloc)api.initialiser(bloc,info.code);
-    });
+    initialiserInteractionsImplantation(chapitre,api);
   }
 
   // Sommaire local : ancrages internes sans quitter la salle immersive.
