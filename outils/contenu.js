@@ -78,7 +78,7 @@ const fr = {
   nav: [
     [
       "recherche",
-      "Recherche et innovations"
+      "Recherche"
     ],
     [
       "conceptualisation",
@@ -1648,7 +1648,7 @@ const en = {
   nav: [
     [
       "recherche",
-      "Research and innovation"
+      "Research"
     ],
     [
       "conceptualisation",
@@ -3218,7 +3218,7 @@ const es = {
   nav: [
     [
       "recherche",
-      "Investigación e innovación"
+      "Investigación"
     ],
     [
       "conceptualisation",

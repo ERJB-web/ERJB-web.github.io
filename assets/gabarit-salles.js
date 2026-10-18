@@ -32,7 +32,7 @@
     vulgarisation: { sel: "article.vul-dossier-chapitre", titre: "h3" },
     outils: { sel: "article.projet", titre: ".projet-tete h3, h3" },
     biographie: { sel: "ol.recit > li", titre: "h3" },
-    juriste: VITRINE, gestionnaire: VITRINE, educateur: VITRINE, entrepreneuriat: VITRINE,
+    juriste: VITRINE, gestionnaire: VITRINE, educateur: VITRINE, entrepreneuriat: { unique: true },
     valeurs: { sel: "article.valeur", titre: "h4" },
     representation: { unique: true }, communaute: { unique: true }, distinctions: { unique: true }, citoyen: { unique: true },
     loisirs: { unique: true },
