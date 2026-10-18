@@ -443,7 +443,7 @@
   // Mise en page de la présentation du devis : deux principes clairement
   // séparés, sans modifier ni supprimer les formulations du protocole.
   function mettreDevisEnCartes(sc) {
-    $(".these-protocole-detail", sc).forEach((protocole) => {
+    sc.querySelectorAll(".these-protocole-detail").forEach((protocole) => {
       const titre = $(":scope > h4", protocole);
       const liste = $(":scope > ul.puces", protocole);
       if (!titre || !liste || liste.dataset.devisCartes || liste.children.length !== 2) return;
