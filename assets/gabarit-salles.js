@@ -729,7 +729,23 @@
     // dans la colonne de lecture, suffisamment large pour les cartes.
     if ((salle === "recherche" || (salle === "vulgarisation" && langue === "fr")) && aside.querySelector(".gab-sommaire-chapitre")) {
       const photo = aside.querySelector(".gab-photo");
-      if (photo) tete.after(photo);
+      if (photo && salle === "recherche" && ch.cle === "retombees") {
+        // Uniquement la photographie d'illustration des Retombées :
+        // conserver le titre avant l'image et limiter sa place.
+        const titreRetombees = $(".r-retombees > h3", corps);
+        if (titreRetombees) titreRetombees.after(photo);
+        else tete.after(photo);
+        photo.style.width = "min(100%, 440px)";
+        photo.style.maxWidth = "440px";
+        photo.style.margin = "16px 0 26px auto";
+        const illustration = $("img", photo);
+        if (illustration) {
+          illustration.style.width = "100%";
+          illustration.style.height = "auto";
+          illustration.style.maxHeight = "260px";
+          illustration.style.objectFit = "cover";
+        }
+      } else if (photo) tete.after(photo);
       grille.classList.add("gab-menu-gauche");
     }
     grille.append(texte, aside);
