@@ -833,7 +833,7 @@
     if (inter) {
       ev.preventDefault();
       const chapitre = inter.closest(".gab-chapitre");
-      const h = $$("h4", $(".gab-corps", chapitre)).filter((x) => !x.closest("details:not([open]), [hidden]"))[+inter.dataset.gabIntertitre];
+      const h = $$("h4", $(".gab-corps", chapitre)).filter((x) => !x.closest("details:not([open]), [hidden], .gab-source.carte-vitrine"))[+inter.dataset.gabIntertitre];
       defiler(h);
       return;
     }
