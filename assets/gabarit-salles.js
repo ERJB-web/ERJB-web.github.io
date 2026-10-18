@@ -253,10 +253,6 @@
           '<p><a class="vul-dossier-lien" href="' + CHEMIN + 'vulgarisation/dossier.html">' + echapper(t[2]) + ' ↗</a></p>';
         chapitres.push({ source, titre: t[0], cle: "dossier", urlExterne: CHEMIN + "vulgarisation/dossier.html" });
       }
-      if (salle === "implantation") {
-        const portail = $(".implantation-portail-accueil", sc);
-        if (portail) chapitres.push({ source: portail, titre: texteTitre($(".implantation-portail-tete strong", portail)), titreEl: $(".implantation-portail-tete", portail) });
-      }
       return { mode: "rubriques", table, chapitres };
     }
     if (salle === "parcours") {
@@ -1246,6 +1242,7 @@
     if (!zone) return;
     if (!zone.classList.contains("gab")) transformer(zone);
     mettreAJourChapitreVulgarisation(zone);
+    fusionnerDossierImplantation(zone);
     preparerSalle();
     decorerOnglets();
     const titre = net($("#salle-titre")?.textContent).split(" · ");
@@ -1322,6 +1319,149 @@
       noeud.replaceWith(fragment);
     });
   }
+
+
+
+  // L'ancien cinquième chapitre pointait vers sept pages externes. Leur
+  // contenu intégral appartient désormais au chapitre 03, avec navigation
+  // interne. Les autres chapitres ne sont pas modifiés.
+  function installerStyleImplantationFusion() {
+    if (D.getElementById("style-implantation-fusion-2026")) return;
+    const style = el("style");
+    style.id = "style-implantation-fusion-2026";
+    style.textContent = `
+.gab[data-gab-salle="implantation"] .gab-chapitre[data-gab-slug="implantation-science"] .gab-chapitre-grille.gab-menu-gauche{display:grid;grid-template-columns:clamp(220px,22vw,290px) minmax(0,1fr);gap:clamp(20px,3vw,42px);align-items:start}
+.gab[data-gab-salle="implantation"] .gab-chapitre[data-gab-slug="implantation-science"] .gab-chapitre-grille.gab-menu-gauche>.gab-chapitre-texte{grid-column:2;grid-row:1;min-width:0}
+.gab[data-gab-salle="implantation"] .gab-chapitre[data-gab-slug="implantation-science"] .gab-chapitre-grille.gab-menu-gauche>.gab-chapitre-aside{grid-column:1;grid-row:1;align-self:start;position:sticky;top:calc(var(--salle-barre-hauteur,90px) + 12px);min-width:0;display:flex;flex-direction:column;gap:14px}
+.gab[data-gab-salle="implantation"] .gab-chapitre[data-gab-slug="implantation-science"] .gab-chapitre-aside>.gab-photo{order:2;max-height:150px;overflow:hidden}
+.gab[data-gab-salle="implantation"] .gab-chapitre[data-gab-slug="implantation-science"] .gab-chapitre-aside>.gab-photo img{max-height:145px;object-fit:cover}
+.gab[data-gab-salle="implantation"] .gab-sommaire-implantation{order:1;display:grid;gap:9px;padding:13px 11px;max-height:calc(100dvh - var(--salle-barre-hauteur,90px) - 40px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;background:#f7fafb;border:1px solid #dae6e9;border-radius:15px}
+.gab[data-gab-salle="implantation"] .gab-sommaire-implantation>.impl-sommaire-titre{font-weight:750;color:#154456;letter-spacing:.02em;margin:0 0 2px;padding:0 4px}
+.gab[data-gab-salle="implantation"] .impl-sommaire-groupe{display:grid;gap:5px;padding:9px;border-radius:10px;border:1px solid #e0e9ed;border-inline-start:3px solid var(--ic,#168995);background:var(--if,#f0f7f8)}
+.gab[data-gab-salle="implantation"] .impl-sommaire-groupe .impl-sommaire-groupe-titre{color:#214d5b;font-weight:770;display:flex;gap:8px;align-items:center}
+.gab[data-gab-salle="implantation"] .impl-sommaire-groupe .impl-sommaire-groupe-titre b{font-variant-numeric:tabular-nums;color:white;background:var(--ic,#168995);border-radius:6px;font-size:12px;padding:3px 6px}
+.gab[data-gab-salle="implantation"] .impl-sommaire-groupe a{display:block;border-radius:6px;color:#234858;background:#ffffffb0;text-decoration:none;padding:7px 8px;font-size:13px!important;line-height:1.4!important}
+.gab[data-gab-salle="implantation"] .impl-sommaire-groupe a:hover,.gab[data-gab-salle="implantation"] .impl-sommaire-groupe a:focus-visible{background:#fff;color:#095f79;text-decoration:underline}
+.gab[data-gab-salle="implantation"] .impl-portail-fusion{min-width:0;max-width:100%;margin:30px 0 0;padding-top:25px;border-top:1px solid #dce8eb}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc{margin:0 0 31px;min-width:0;scroll-margin-top:125px}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .masthead{padding:24px clamp(15px,3vw,35px);border-radius:18px;background:linear-gradient(115deg,#123c50,#177b80);color:white;margin:0 0 22px}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .masthead :is(h4,p,.eyebrow){color:white;margin:8px 0}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .masthead .hero-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .masthead .hero-tags>span{border:1px solid #b4ded6a0;border-radius:99px;padding:5px 10px}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .impl-portail-section{scroll-margin-top:120px;margin:0 0 18px;padding:19px clamp(14px,2vw,25px);border:1px solid #dde8eb;border-radius:13px;background:#fff;min-width:0}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .impl-portail-section :is(h2,h3){color:#173e50;line-height:1.35}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .impl-portail-section .section-head{margin:0 0 14px}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .eyebrow{font-weight:770;color:#187a82;letter-spacing:.07em}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .panel{min-width:0;padding:15px;background:#f6fafb;border:1px solid #deeaed;border-radius:12px}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .panel .label{color:#147a85;letter-spacing:.05em}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .panel :is(h3,p){margin:8px 0}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .split{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,265px),1fr));gap:18px}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc figure{margin:14px 0;max-width:100%;min-width:0}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .diagram{display:block;max-width:100%;width:100%;height:auto;border-radius:11px;background:#f2f8fa}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .diagram .node{fill:#fff;stroke:#89b0b4;stroke-width:2}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .diagram .accent-node{fill:#e3f4ec;stroke:#82b69f;stroke-width:2}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .diagram text{fill:#194355;font-size:16px}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .diagram text.small{font-size:12px}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc figcaption,.gab[data-gab-salle="implantation"] .impl-portail-bloc .disclaimer{font-size:13px!important;color:#536974;line-height:1.5}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc :is(.table-scroll,.chart-wrap){max-width:100%;overflow-x:auto;margin:15px 0}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc table{width:100%;min-width:520px;border-collapse:collapse}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc :is(th,td){padding:10px 12px;border:1px solid #deeaeb;text-align:left}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc th{background:#edf5f6;font-weight:750}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .callout{padding:15px 18px;margin:17px 0;background:#eef7f5;border-inline-start:3px solid #1b8a87;border-radius:0 10px 10px 0}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .chips,.gab[data-gab-salle="implantation"] .impl-portail-bloc .tags{display:flex;flex-wrap:wrap;gap:8px}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .chip,.gab[data-gab-salle="implantation"] .impl-portail-bloc .tag{border:1px solid #bcdedb;border-radius:99px;padding:4px 9px}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .image-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .image-card{overflow:hidden;border-radius:10px;border:1px solid #dce8e9}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .image-card img{width:100%;height:auto}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .image-card>div{padding:12px}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .source-list{padding-left:25px}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .source-list li{padding:10px 0;border-bottom:1px solid #e1e9eb}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .source-list small{display:block}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc :is(button,.primary){border:1px solid #b8d3da;border-radius:8px;padding:9px 11px;cursor:pointer}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .primary{background:#126d80;color:white}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .field :is(label,select){display:block;width:100%;max-width:100%;margin:6px 0}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .field select{padding:9px;border:1px solid #bdd4da;border-radius:8px}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .lab-actions{display:flex;flex-wrap:wrap;gap:9px;margin:15px 0}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .chart-row{display:grid;grid-template-columns:145px minmax(70px,1fr) 70px;gap:10px;align-items:center;margin:10px 0}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .chart-track{height:13px;border-radius:8px;background:#dfeced;overflow:hidden}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .chart-bar{display:block;height:100%;background:#159093}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .stat-card{display:inline-block;padding:12px;border:1px solid #d9e9e8;border-radius:10px}
+.gab[data-gab-salle="implantation"] .impl-portail-bloc .stat-value{font-weight:760;color:#157984}
+@media(max-width:940px){.gab[data-gab-salle="implantation"] .gab-chapitre[data-gab-slug="implantation-science"] .gab-chapitre-grille.gab-menu-gauche{grid-template-columns:minmax(0,1fr);gap:18px}.gab[data-gab-salle="implantation"] .gab-chapitre[data-gab-slug="implantation-science"] .gab-chapitre-grille.gab-menu-gauche>.gab-chapitre-aside{grid-column:1;grid-row:1;position:static}.gab[data-gab-salle="implantation"] .gab-chapitre[data-gab-slug="implantation-science"] .gab-chapitre-grille.gab-menu-gauche>.gab-chapitre-texte{grid-column:1;grid-row:2}.gab[data-gab-salle="implantation"] .gab-sommaire-implantation{max-height:280px}}
+`;
+    D.head.append(style);
+  }
+
+  function fusionnerDossierImplantation(zone) {
+    const api=window.DOSSIER_IMPLANTATION_2026;
+    if(langue!=="fr"||!api||!zone||zone.dataset.gabSalle!=="implantation")return;
+    const chapitre=$(".gab-chapitre[data-gab-slug='implantation-science']",zone);
+    if(!chapitre||$(".impl-portail-fusion",chapitre))return;
+    const corps=$(".gab-corps",chapitre),aside=$(".gab-chapitre-aside",chapitre);
+    if(!corps||!aside)return;
+    installerStyleImplantationFusion();
+    const ensemble=el("section","impl-portail-fusion");
+    ensemble.setAttribute("aria-label","Dossier interactif d'implantation intégré au chapitre 03");
+    const palette=["#1b7b9b","#5aae38","#11a7a5","#0755ad","#ae814d","#158a85","#386b9d","#9a6d95"];
+    const sommaire=el("nav","gab-sommaire-chapitre gab-sommaire-implantation");
+    sommaire.setAttribute("aria-label",T.dans);
+    sommaire.append(el("span","impl-sommaire-titre",echapper(T.dans)));
+    const groupe=(nom,titres,k)=>{
+      const bloc=el("div","impl-sommaire-groupe");
+      bloc.style.setProperty("--ic",palette[k%palette.length]);
+      bloc.style.setProperty("--if",k%2?"#f1f8f6":"#f0f5f9");
+      const h=el("div","impl-sommaire-groupe-titre");
+      h.append(el("b","",deux(k+1)),el("strong","",echapper(nom)));
+      bloc.append(h);
+      titres.forEach((titre,i)=>{
+        if(!titre.id)titre.id="impl-section-"+k+"-"+i;
+        const a=el("a","",echapper(net(titre.textContent)));
+        a.href="#"+titre.id;a.dataset.gabCible=titre.id;
+        bloc.append(a);
+      });
+      sommaire.append(bloc);
+    };
+    const premier=$(".impl-dossier",corps);
+    if(premier){
+      const titres=$("h4",premier).filter(h=>!h.closest(".impl-card,.impl-mini"));
+      groupe("Dossier scientifique",titres.slice(0,15),0);
+    }
+    api.chapitres.forEach((info,i)=>{
+      const bloc=el("section","impl-portail-bloc");
+      bloc.id="impl-fusion-"+info.code;bloc.dataset.implPage=info.code;
+      let contenu=api.contenu(info.code);
+      contenu=contenu.replace(/class="section"/g,'class="impl-portail-section"')
+        .replace(/<h1>/g,'<h4 class="impl-portail-grand-titre">').replace(/</h1>/g,'</h4>')
+        .replace(/href="(index|comprendre|cadres|strategies|evaluer|laboratoire|sources).html"/g,(_,slug)=>'href="#impl-fusion-'+slug+'" data-impl-saut="'+slug+'"')
+        .replace(/(src|href)="../(assets|docs)//g,(_,attribut,dir)=>attribut+'="'+CHEMIN+dir+'/');
+      bloc.innerHTML=contenu;ensemble.append(bloc);
+      const titres=[bloc.querySelector(".impl-portail-grand-titre"),...$(":scope > .impl-portail-section .section-head h2",bloc)].filter(Boolean);
+      groupe(info.titre,titres,i+1);
+    });
+    corps.append(ensemble);
+    const ancien=$(".gab-sommaire-chapitre",aside);
+    if(ancien)ancien.replaceWith(sommaire);else aside.append(sommaire);
+    const grille=$(".gab-chapitre-grille",chapitre);
+    if(grille)grille.classList.add("gab-menu-gauche");
+    api.chapitres.forEach(info=>{
+      const bloc=$(".impl-portail-bloc[data-impl-page='"+info.code+"']",ensemble);
+      if(bloc)api.initialiser(bloc,info.code);
+    });
+  }
+
+  // Sommaire local : ancrages internes sans quitter la salle immersive.
+  D.addEventListener("click",(evenement)=>{
+    const lien=evenement.target.closest(".gab-sommaire-implantation a,.impl-portail-fusion a[data-impl-saut]");
+    if(!lien)return;
+    const chapitre=lien.closest(".gab-chapitre[data-gab-slug='implantation-science']");
+    if(!chapitre)return;
+    const cible=chapitre.querySelector('[id="'+lien.getAttribute("href").slice(1)+'"]');
+    if(!cible)return;
+    evenement.preventDefault();
+    cible.scrollIntoView({block:"start",behavior:"smooth"});
+  });
 
 
   noterTitres();
