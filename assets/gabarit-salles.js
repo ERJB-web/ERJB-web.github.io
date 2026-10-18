@@ -159,7 +159,7 @@
     }
     transfert.dataset.image = CHEMIN + "assets/chapitres/recherche-10.webp";
     const outils = $(".rubrique-contenu .colonne-outils", transfert);
-    const cadres = outils ? $(":scope > .cadres", outils) : [];
+    const cadres = outils ? $$(":scope > .cadres", outils) : [];
     const dernierCadre = cadres.length > 1 ? cadres[cadres.length - 1] : null;
     const titreCadre = dernierCadre?.previousElementSibling;
     if (!dernierCadre || !titreCadre?.matches("h3.titre-bloc")) return;
