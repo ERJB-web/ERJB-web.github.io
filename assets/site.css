@@ -6252,8 +6252,7 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
 body:not(.page-abregee) :is(#contenu .section-corps, #salle .salle-contenu)
   p:not(:is(.surtitre,.surtexte,.cadrage-these-surtexte,.these-titre-label,
             .ov-label,.ov-lacune-sources,.ref,.m-source,.a-src,.r-statut,
-            .f-synthese-titre,.etat,.meta,.eyebrow,.overline))
-   :not(:is(.these-devis p,.these-chiffres p,.a-obj p,
+            .f-synthese-titre,.etat,.meta,.eyebrow,.overline)):not(:is(.these-devis p,.these-chiffres p,.a-obj p,
             .rubriques-console p,.rubriques-pagination p,
             .chiffres p,.barres p)) {
   text-align:justify!important;
