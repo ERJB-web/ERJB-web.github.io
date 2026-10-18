@@ -1,5 +1,6 @@
 // Produit six traductions complètes, deux éditions autochtones à traduction partielle avec accès intégral, la version FALC et 404.html.
 "use strict";
+const OBJECTIFS_VISUELS = require("./objectifs-visuels");
 const fs = require("fs");
 const path = require("path");
 const { fr, en, es, LANGUES, AFFICHE } = require("./contenu");
@@ -878,7 +879,7 @@ ${schemaReseau(c)}</div>
   const contenus = [
     `<h3>${e(t.titres[0])}</h3><p class="these-concept-label">${e(f.labels.point)}</p><p class="these-point these-formulation">${e(f.point)}</p><div class="these-concept-sequence">${n.etapes.map((nom,i)=>`<button type="button" data-these-vers="objectifs" data-these-objectif="O${i+1}" data-objectif="O${i+1}"><span class="objectif-code">O${i+1}</span><strong>${e(nom)}</strong><span aria-hidden="true">${i<2?'→':'↗'}</span></button>`).join('')}</div><details class="these-fondements"><summary>${icone('papiers')}<span>${e(n.fondements)}</span></summary><p>${e(n.fondementsIntro)}</p>${sectionConceptualisation(c, true)}</details>`,
     contexte,
-    `<h3>${e(f.labels.general)}</h3><p class="these-objectif-general these-formulation">${e(f.general)}</p><h4 class="titre-bloc">${e(f.labels.specifiques)}</h4><div class="these-objectifs">${f.objectifs.map((texte, i) => `<article class="objectif-carte" data-objectif="O${i + 1}"><h4><span class="objectif-code">O${i + 1}</span> ${e(n.etapes[i])}</h4><p class="these-formulation">${e(texte)}</p><details class="objectif-lacune"><summary>${e(n.lacune)}</summary><p>${lierCitations(e(f.lacunes[i]))}</p></details><button class="these-renvoi" type="button" data-these-vers="methodes" data-these-objectif="O${i + 1}">${e(n.methode)} <span aria-hidden="true">↗</span></button></article>`).join("")}</div>`,
+    `<h3>${e(f.labels.general)}</h3><p class="these-objectif-general these-formulation">${e(f.general)}</p><h4 class="titre-bloc">${e(f.labels.specifiques)}</h4>${c.lang === "fr" ? OBJECTIFS_VISUELS.render() : `<div class="these-objectifs">${f.objectifs.map((texte, i) => `<article class="objectif-carte" data-objectif="O${i + 1}"><h4><span class="objectif-code">O${i + 1}</span> ${e(n.etapes[i])}</h4><p class="these-formulation">${e(texte)}</p><details class="objectif-lacune"><summary>${e(n.lacune)}</summary><p>${lierCitations(e(f.lacunes[i]))}</p></details><button class="these-renvoi" type="button" data-these-vers="methodes" data-these-objectif="O${i + 1}">${e(n.methode)} <span aria-hidden="true">↗</span></button></article>`).join("")}</div>`}`,
     `<h3>${e(t.titres[3])}</h3><h4 class="titre-bloc">${e(f.labels.question)}</h4><p class="question-these">${e(f.question)}</p><h4 class="titre-bloc">${e(f.labels.point)}</h4><p class="these-point">${e(f.point)}</p>`,
     methodes,
     `<h3>${e(t.titres[5])}</h3><p>${e(t.resultats)}</p><h4 class="titre-bloc">${e(r.retombees.titre)}</h4><ul class="puces">${r.retombees.items.map(([nom, d]) => `<li><b>${e(nom)}</b>${deuxPoints(c)} ${e(d)}</li>`).join("")}</ul>`,
