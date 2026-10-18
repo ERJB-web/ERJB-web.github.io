@@ -5787,3 +5787,85 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
   .these .cadrage-these-secteurs{padding:17px 15px}
   .these .cadrage-these-fiche-tete{gap:10px}
 }
+
+
+/* Navigation des salles : bandeau compact, lecture sans obstruction (2026-10-18). */
+/* Les accès directs restent tous présents au début de la salle,
+   mais ne recouvrent plus les chapitres pendant le défilement. */
+.salle .salle-barre{
+  padding-block:7px;
+}
+.salle .salle-onglets{
+  position:relative;
+  top:auto;
+  z-index:auto;
+  box-sizing:border-box;
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding:8px clamp(14px,2.1vw,32px) 10px;
+  gap:8px;
+  border-bottom:1px solid #d9e5e2;
+  background:#f8fbfb;
+  box-shadow:none;
+}
+@media(min-width:1000px){
+  .salle .salle-onglets{
+    display:grid;
+    grid-template-columns:repeat(6,minmax(0,1fr));
+  }
+  .salle .salle-onglets .onglet-salle{
+    display:flex;
+    flex:initial;
+    align-items:center;
+    gap:9px;
+    width:100%;
+    min-width:0;
+    max-width:none;
+    min-height:54px;
+    padding:7px 10px;
+    border-radius:11px;
+    text-align:start;
+  }
+  .salle .salle-onglets .baie.mini{
+    display:block;
+    flex:0 0 30px;
+    width:30px;
+    grid-column:auto;
+    grid-row:auto;
+  }
+  .salle .salle-onglets .onglet-num{
+    display:none;
+  }
+  .salle .salle-onglets .onglet-titre{
+    min-width:0;
+    grid-column:auto;
+    grid-row:auto;
+    align-self:center;
+    font-size:13px;
+    font-weight:680;
+    line-height:1.25;
+    overflow-wrap:normal;
+    hyphens:none;
+  }
+}
+@media(max-width:999px){
+  .salle .salle-onglets{
+    display:flex;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    padding:7px var(--gouttiere) 9px;
+    scroll-snap-type:x proximity;
+  }
+  .salle .salle-onglets .onglet-salle{
+    flex:0 0 auto;
+    max-width:190px;
+    min-height:44px;
+    padding:7px 11px;
+    gap:7px;
+  }
+  .salle .salle-onglets .onglet-titre{
+    font-size:12px;
+    line-height:1.25;
+  }
+}
