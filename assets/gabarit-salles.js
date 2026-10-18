@@ -434,15 +434,15 @@
     const plans = {
       contexte: [
         { nom: "Notions et ressources" },
-        { nom: "Besoins sociaux et réponse", debut: /besoins et offre|besoins sociaux/ },
+        { nom: "Besoins sociaux et réponse", debut: /le probleme|besoins et offre|besoins sociaux|les besoins se cumulent/ },
         { nom: "Connaissances et lacune", debut: /etat des connaissances|ce que la litterature/ },
         { nom: "Territoires et posture", debut: /reponse intersectorielle|territoires vecus/ }
       ],
       objectifs: [
         { nom: "Question et objectifs" },
-        { nom: "Profils de besoins", objectif: "O1", debut: /^o\s*1\b|^objectif\s*1\b/ },
-        { nom: "Ressources territoriales", objectif: "O2", debut: /^o\s*2\b|^objectif\s*2\b/ },
-        { nom: "Réseaux intersectoriels", objectif: "O3", debut: /^o\s*3\b|^objectif\s*3\b/ }
+        { nom: "Profils de besoins", objectif: "O1", debut: /^o\s*1\b|^objectif\s*1\b|decrire les profils/ },
+        { nom: "Ressources territoriales", objectif: "O2", debut: /^o\s*2\b|^objectif\s*2\b|reperer les ressources/ },
+        { nom: "Réseaux intersectoriels", objectif: "O3", debut: /^o\s*3\b|^objectif\s*3\b|comprendre les reseaux/ }
       ],
       faisabilite: [
         { nom: "Données et conditions" },
@@ -468,7 +468,7 @@
       : /transfert|implantation/.test(titre) ? "transfert" : "";
     const plan = plans[cle];
     if (!plan) return;
-    const liens = $((":scope > a[data-gab-intertitre]"), nav);
+    const liens = Array.from(nav.querySelectorAll(":scope > a[data-gab-intertitre]"));
     if (liens.length !== intertitres.length || liens.length < 2) return;
 
     // Couleurs distinctes pour les sections, cohérentes entre les six
