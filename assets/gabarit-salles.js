@@ -548,7 +548,8 @@
       const numero = index + 1;
       const carte = corps.querySelector('.ov-carte[data-objectif="' + code + '"], .objectif-carte[data-objectif="' + code + '"]');
       const lacune = carte?.querySelector(".ov-lacune-avant");
-      const objectif = lienPour(new RegExp("^o\\s*" + numero + "\\b|^objectif\\s*" + numero + "\\b"));
+      const libelles = ["decrire les profils", "reperer les ressources", "comprendre les reseaux"];
+      const objectif = lienPour(new RegExp("^o\\s*" + numero + "\\b|^objectif\\s*" + numero + "\\b|" + libelles[index]));
       const liensObjectif = [
         ajouterLien(lacune, "Lacune scientifique " + numero),
         objectif
