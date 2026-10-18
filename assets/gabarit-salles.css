@@ -1648,3 +1648,11 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 @media(max-width:979px){
   .gab .gab-sommaire-universel{max-height:min(340px,45dvh)}
 }
+
+/* Réduction de 2 px — police des sommaires latéraux uniquement. */
+@layer typographie-site {
+  body .gab .gab-chapitre-aside nav.gab-sommaire-chapitre,
+  body .gab .gab-chapitre-aside nav.gab-sommaire-chapitre :not(svg):not(svg *) {
+    font-size:14px!important;
+  }
+}
