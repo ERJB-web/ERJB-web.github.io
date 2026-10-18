@@ -155,7 +155,9 @@
 <text x='590.98' y='80.68' text-anchor='middle' style='font-size: 9.96px;fill: #203B48; font-family: "Arial";' textLength='47.56px' lengthAdjust='spacingAndGlyphs'>Sud-Ouest</text>
 <text x='722.74' y='80.62' text-anchor='middle' style='font-size: 9.96px;fill: #203B48; font-family: "Arial";' textLength='33.75px' lengthAdjust='spacingAndGlyphs'>Plateau</text>
 <text x='854.50' y='80.62' text-anchor='middle' style='font-size: 9.96px;fill: #203B48; font-family: "Arial";' textLength='46.84px' lengthAdjust='spacingAndGlyphs'>Ville-Marie</text>
-<text x='28.80' y='583.13' style='font-size: 9.60px;fill: #203B48; font-family: "Arial";' textLength='466.91px' lengthAdjust='spacingAndGlyphs'>Cellule = références du 211 pour une origine donnée; les arrondissements ne sont pas des acteurs émetteurs.</text>
+</g>
+<g clip-path='url(#cpMC4wMHw5MzYuMDB8MC4wMHw2MTIuMDA=)'>
+<text x='28.80' y='609.12' style='font-size: 9.60px;fill: #203B48; font-family: "Arial";' textLength='466.91px' lengthAdjust='spacingAndGlyphs'>Cellule = références du 211 pour une origine donnée; les arrondissements ne sont pas des acteurs émetteurs.</text>
 </g>
 </g>
 </svg>
