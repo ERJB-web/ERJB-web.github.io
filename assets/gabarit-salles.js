@@ -1073,7 +1073,8 @@
     sc.dataset.gabSalle = salle;
     sc.dataset.gabChapitres = n;
     sc.classList.add("gab");
-    creerIndexChapitres(sc);
+    // Le sommaire propre à chaque chapitre reste le seul menu latéral.
+    // Ne pas injecter l'index plat des chapitres qui masque les sections colorées.
     // La page publique (hors salle immersive) doit elle aussi montrer
     // un seul chapitre dès l'ouverture : le chapitre demandé ou le premier.
     if (n && !sc.closest("#salle")) {
