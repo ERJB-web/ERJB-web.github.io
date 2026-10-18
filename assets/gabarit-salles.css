@@ -1012,3 +1012,194 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   #recherche .these-identite-bloc {padding:15px 16px}
   #recherche .these-identite-personnes {gap:14px}
 }
+
+
+/* Devis doctoral — principes déjà rédigés, présentés sans puces denses. */
+.these-protocole-detail .these-devis-visuel {
+  width:100%;
+  max-width:none;
+  margin:30px 0 36px;
+  padding:clamp(19px,2.2vw,30px);
+  border:1px solid #dce7eb;
+  border-radius:22px;
+  background:linear-gradient(145deg,#f7fafb 0%,#f1f7f8 100%);
+  box-shadow:0 10px 28px -24px rgba(13,42,58,.22);
+  box-sizing:border-box;
+}
+.these-protocole-detail .these-devis-titre {
+  display:flex;
+  align-items:center;
+  min-height:32px;
+  gap:14px;
+  margin:0 0 22px!important;
+  padding:0 0 17px!important;
+  border-bottom:1px solid #dae6eb;
+  color:#173a4b;
+  font:750 clamp(20px,1.8vw,26px)/1.3 var(--sans,system-ui,sans-serif)!important;
+  letter-spacing:-.02em;
+  text-align:left;
+  text-transform:none;
+  overflow-wrap:normal;
+  hyphens:none;
+}
+.these-protocole-detail .these-devis-titre::before {
+  content:"";
+  display:block;
+  width:5px;
+  height:28px;
+  border-radius:6px;
+  background:linear-gradient(#0879be,#11a7a5);
+  flex:none;
+}
+.these-protocole-detail .these-devis-grille {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:stretch;
+  gap:18px;
+}
+.these-protocole-detail .these-devis-carte {
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  margin:0;
+  padding:clamp(18px,1.9vw,26px);
+  border:1px solid #dbe7e9;
+  border-top:4px solid #0879be;
+  border-radius:16px;
+  background:#fff;
+  box-shadow:0 8px 20px -19px rgba(11,49,65,.28);
+  color:#355365;
+  box-sizing:border-box;
+}
+.these-protocole-detail .these-devis-carte[data-devis="posture"] {
+  border-top-color:#1b928d;
+}
+.these-protocole-detail .these-devis-carte-entete {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-height:43px;
+  margin:0 0 17px;
+}
+.these-protocole-detail .these-devis-num {
+  flex:none;
+  display:grid;
+  place-items:center;
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  background:#e9f4fa;
+  color:#0879be;
+  font:750 17px/1 var(--sans,system-ui,sans-serif);
+  font-variant-numeric:tabular-nums;
+}
+.these-protocole-detail [data-devis="posture"] .these-devis-num {
+  background:#e5f6f3;
+  color:#177970;
+}
+.these-protocole-detail .these-devis-carte-titre {
+  margin:0!important;
+  padding:0!important;
+  color:#163d50;
+  font:750 clamp(17px,1.4vw,20px)/1.38 var(--sans,system-ui,sans-serif)!important;
+  letter-spacing:-.015em;
+  text-align:left;
+  hyphens:none;
+}
+.these-protocole-detail .these-devis-phases {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;
+  gap:8px;
+  margin:0 0 19px;
+  padding:10px 11px;
+  border-radius:12px;
+  background:#f0f7fa;
+  box-sizing:border-box;
+}
+.these-protocole-detail .these-devis-phases span {
+  flex:1;
+  min-width:0;
+  padding:7px 5px;
+  border:1px solid #c7dee8;
+  border-radius:9px;
+  background:#fff;
+  color:#176481;
+  font:800 13px/1.25 var(--sans,system-ui,sans-serif);
+  text-align:center;
+  letter-spacing:.04em;
+}
+.these-protocole-detail .these-devis-phases span:nth-of-type(2) {
+  border-color:#c9e5d3;
+  color:#3c8c49;
+}
+.these-protocole-detail .these-devis-phases span:nth-of-type(3) {
+  border-color:#bed7e2;
+  color:#174b61;
+}
+.these-protocole-detail .these-devis-phases i {
+  flex:none;
+  color:#5b8798;
+  font:600 18px/1 var(--sans,system-ui,sans-serif);
+  font-style:normal;
+}
+.these-protocole-detail .these-devis-description {
+  margin:0!important;
+  padding:0!important;
+  max-width:65ch;
+  color:#365363!important;
+  font:400 clamp(15px,1.1vw,17px)/1.75 var(--sans,system-ui,sans-serif)!important;
+  text-align:left;
+  overflow-wrap:break-word;
+  hyphens:none;
+  word-break:normal;
+}
+.these-protocole-detail .these-devis-carte[data-devis="posture"] .these-devis-description {
+  margin-top:5px!important;
+}
+@media(max-width:890px) {
+  .these-protocole-detail .these-devis-grille {grid-template-columns:minmax(0,1fr);gap:13px}
+  .these-protocole-detail .these-devis-visuel {padding:19px}
+  .these-protocole-detail .these-devis-carte {padding:20px}
+  .these-protocole-detail .these-devis-description {max-width:80ch}
+}
+@media(max-width:470px) {
+  .these-protocole-detail .these-devis-visuel {padding:14px;border-radius:17px}
+  .these-protocole-detail .these-devis-carte {padding:16px;border-radius:13px}
+  .these-protocole-detail .these-devis-carte-entete {gap:9px}
+  .these-protocole-detail .these-devis-num {width:38px;height:38px}
+  .these-protocole-detail .these-devis-phases {padding:8px;gap:5px}
+}
+/* Fallback visuel si les contenus sont consultés sans JavaScript. */
+.these-protocole-detail > ul.puces {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+  list-style:none;
+  margin:18px 0 30px;
+  padding:0;
+}
+.these-protocole-detail > ul.puces > li {
+  min-width:0;
+  margin:0;
+  padding:22px;
+  border:1px solid #dbe7e9;
+  border-top:3px solid #0879be;
+  border-radius:15px;
+  background:#f8fbfc;
+  color:#365363;
+  line-height:1.7;
+}
+.these-protocole-detail > ul.puces > li:last-child {border-top-color:#1b928d}
+.these-protocole-detail > ul.puces > li::before {content:none}
+.these-protocole-detail > ul.puces > li > b {
+  display:block;
+  margin:0 0 10px;
+  color:#163d50;
+  font-weight:750;
+  font-size:18px;
+}
+@media(max-width:890px) {
+  .these-protocole-detail > ul.puces {grid-template-columns:minmax(0,1fr)}
+}
