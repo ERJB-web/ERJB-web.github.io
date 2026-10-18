@@ -1342,14 +1342,6 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   .gab-porte-nom .gab-sous-categorie{font-size:.8em}
 }
 
-/* Bandeau de navigation : deux réductions successives de 10 %, centré sur grand écran. */
-@media(min-width:1101px){
-  .salle .salle-barre.gab-barre{
-    width:81%;
-    margin-inline:auto;
-    box-sizing:border-box;
-  }
-}
 
 /* Corps des chapitres de la thèse : même police, taille 12 points (16 px).
    Les titres, sommaires et commandes conservent leur typographie. */
