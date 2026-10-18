@@ -4,9 +4,10 @@
   function initialiser() {
     if (!/^fr(?:-|$)/i.test(document.documentElement.lang || "")) return;
     if (document.querySelector("[data-o3-atlas]")) return;
-    const point = document.querySelector(".section-corps.these .these-objectifs");
-    const cibleO3 = document.querySelector('.section-corps.these #these-methode-o3');
-    if (!point || !cibleO3) return;
+    // Le gabarit déplace les chapitres dans la navigation : ne pas dépendre de leur ancien parent.
+    const point = document.querySelector(".section-corps.these .these-objectifs, .these-objectifs");
+    const cibleO3 = document.getElementById("these-methode-o3");
+    if (!cibleO3) return;
     const racine = document.documentElement.dataset.racine || "./";
     if (!document.querySelector("link[data-o3-style]")) {
       const feuille = document.createElement("link");
@@ -194,7 +195,7 @@
       afficher(event.key==="Home"?0:event.key==="End"?total-1:current+(event.key==="ArrowRight"?1:-1));
     });
     // Raccourci explicite depuis la carte O3 et les méthodes O2 sans déplacer ni modifier leurs formulations.
-    const o3 = point.querySelector('.objectif-carte[data-objectif="O3"]');
+    const o3 = point?.querySelector('.objectif-carte[data-objectif="O3"]');
     if (o3 && !o3.querySelector("[data-o3-raccourci]")) {
       const lien = document.createElement("a");
       lien.className = "o3-raccourci";
