@@ -1526,3 +1526,125 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 @media(max-width:979px){
   .gab[data-gab-salle="implantation"] .vulgarisation-recherche-active .gab-sommaire-vulgarisation{max-height:min(360px,46dvh)}
 }
+
+
+/* Sommaire universel 2026-10-18 — restitution du modèle validé.
+   S'applique uniquement aux chapitres dotés du menu universel.
+   Ne modifie ni le hall, ni les en-têtes, ni les autres sommaires spécialisés. */
+@media (min-width:980px) {
+  .gab .gab-chapitre-grille.gab-menu-universel:not(.gab-menu-gauche){
+    display:grid;
+    grid-template-columns:clamp(230px,21vw,280px) minmax(0,1fr);
+    gap:clamp(22px,3vw,43px);
+    align-items:start;
+  }
+  .gab .gab-menu-universel:not(.gab-menu-gauche) > .gab-chapitre-aside{
+    grid-column:1;
+    grid-row:1;
+    position:sticky;
+    top:calc(var(--salle-barre-hauteur,90px) + 18px);
+    align-self:start;
+    justify-self:stretch;
+    width:100%;
+    min-width:0;
+  }
+  .gab .gab-menu-universel:not(.gab-menu-gauche) > .gab-chapitre-texte{
+    grid-column:2;
+    grid-row:1;
+    min-width:0;
+    width:100%;
+  }
+}
+.gab .gab-sommaire-chapitre.gab-sommaire-universel{
+  display:grid;
+  align-content:start;
+  gap:8px;
+  padding:13px 11px;
+  max-height:calc(100dvh - var(--salle-barre-hauteur,90px) - 38px);
+  overflow-y:auto;
+  overscroll-behavior-y:contain;
+  scrollbar-width:thin;
+  background:#f7fafb;
+  border:1px solid #d7e4e9;
+  border-radius:16px;
+}
+.gab .gab-sommaire-universel > span{
+  margin:0 0 4px;
+  color:#1c637c;
+  font-size:12.5px;
+  letter-spacing:.08em;
+  font-weight:750;
+  text-transform:uppercase;
+}
+.gab .gab-sommaire-universel .gab-sommaire-groupe{
+  min-width:0;
+  display:grid;
+  gap:4px;
+  padding:9px;
+  border:1px solid #e0e8ec;
+  border-inline-start:3px solid var(--objectif-trait);
+  border-radius:11px;
+  background:var(--objectif-fond);
+}
+.gab .gab-sommaire-universel .gab-sommaire-groupe-titre{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  min-width:0;
+  color:var(--objectif-texte);
+  font-weight:750;
+  line-height:1.3;
+}
+.gab .gab-sommaire-universel .gab-sommaire-groupe-titre b{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+  width:29px;
+  min-height:29px;
+  border-radius:7px;
+  color:#fff;
+  background:var(--objectif-trait);
+  font-variant-numeric:tabular-nums;
+  font-size:12px;
+}
+.gab .gab-sommaire-universel .gab-sommaire-groupe-titre strong{
+  color:var(--objectif-texte);
+  font-weight:750;
+  font-size:13.5px;
+}
+.gab .gab-sommaire-universel .gab-sommaire-groupe-liens{display:grid;gap:3px;min-width:0}
+.gab .gab-sommaire-universel .gab-sommaire-groupe a{
+  display:block;
+  min-width:0;
+  margin:0;
+  padding:8px 9px;
+  color:var(--objectif-texte);
+  background:var(--objectif-lien);
+  border-inline-start:2px solid var(--objectif-trait);
+  border-radius:7px;
+  font-size:13.5px;
+  font-weight:600;
+  line-height:1.4;
+  white-space:normal;
+  text-decoration:none;
+  overflow-wrap:break-word;
+  hyphens:none;
+}
+.gab .gab-sommaire-universel .gab-sommaire-groupe a:is(:hover,:focus-visible){
+  color:var(--objectif-texte);
+  background:#fff;
+  outline:2px solid var(--objectif-trait);
+  outline-offset:1px;
+}
+.gab .gab-sommaire-universel .gab-sommaire-groupe-titre a.gab-section-lien-titre{
+  flex:1;
+  font-size:13.5px;
+  font-weight:750;
+  background:transparent;
+  border:0;
+  padding:4px 5px;
+}
+@media(max-width:979px){
+  .gab .gab-sommaire-universel{max-height:min(340px,45dvh)}
+}
