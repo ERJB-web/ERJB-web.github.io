@@ -519,3 +519,10 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 .salle-contenu .gab[data-gab-salle="recherche"] :is(pre, code, .doi, .url) {
   overflow-wrap: anywhere !important;
 }
+
+/* Ma thèse : les paragraphes occupent la même largeur que les illustrations
+   de leur colonne, sans la limite typographique globale de 80 caractères. */
+.salle-contenu .gab[data-gab-salle="recherche"] .gab-corps p {
+  width:100%;
+  max-width:none;
+}
