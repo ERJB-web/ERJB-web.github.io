@@ -1416,3 +1416,56 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
     max-height:min(360px,46dvh);
   }
 }
+
+/* En-tête de thèse : titre et logos sur toute la largeur, y compris dans la salle clonée. */
+:is(#recherche,#salle) .these .these-entete{
+  box-sizing:border-box;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0;
+  margin-inline:0!important;
+}
+:is(#recherche,#salle) .these .these-entete > :is(.these-titre-label,h2){
+  box-sizing:border-box;
+  width:100%!important;
+  max-width:none!important;
+  margin-inline:0!important;
+  padding-inline:0!important;
+}
+:is(#recherche,#salle) .these .these-entete > h2{
+  text-align:justify!important;
+  text-align-last:start;
+  text-wrap:wrap;
+  hyphens:none;
+  overflow-wrap:break-word;
+}
+:is(#recherche,#salle) .these .these-entete > .these-cadre{
+  box-sizing:border-box;
+  width:100%;
+  max-width:none;
+  min-width:0;
+}
+:is(#recherche,#salle) .these .these-entete > .these-cadre > img{
+  display:block;
+  flex:0 0 100%;
+  box-sizing:border-box;
+  width:100%!important;
+  max-width:none!important;
+  height:auto!important;
+  max-height:none!important;
+  margin:16px 0 0;
+  padding:18px clamp(8px,1.5vw,24px);
+  border-top:1px solid #d7e3e9;
+  border-radius:0 0 8px 8px;
+  background:#fff;
+  object-fit:contain;
+}
+@media(max-width:600px){
+  :is(#recherche,#salle) .these .these-entete > .these-cadre > img{
+    margin-top:12px;
+    padding:12px 0;
+  }
+  :is(#recherche,#salle) .these .these-entete > h2{
+    text-align:start!important;
+  }
+}
