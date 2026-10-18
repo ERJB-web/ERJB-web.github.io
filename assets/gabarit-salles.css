@@ -1321,18 +1321,22 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   min-width:0;
   min-height:32px;
   padding:6px 4px;
-  border:1px solid #ccdadb;
+  border:1px solid var(--raccourci-trait,#ccdadb);
   border-radius:7px;
-  color:#164b60;
-  background:#fff;
+  color:var(--raccourci-texte,#164b60);
+  background:var(--raccourci-fond,#fff);
   font:750 12px/1.2 var(--sans,Arial,sans-serif);
   text-align:center;
   text-decoration:none;
 }
+/* Raccourcis O1/O2/O3 : palette identique aux sections correspondantes. */
+.gab[data-gab-salle="recherche"] .gab-sommaire-raccourci:nth-child(1){--raccourci-trait:#5aae38;--raccourci-fond:#ecf7e8;--raccourci-texte:#286c23}
+.gab[data-gab-salle="recherche"] .gab-sommaire-raccourci:nth-child(2){--raccourci-trait:#11a7a5;--raccourci-fond:#e9f7f6;--raccourci-texte:#006e72}
+.gab[data-gab-salle="recherche"] .gab-sommaire-raccourci:nth-child(3){--raccourci-trait:#0755ad;--raccourci-fond:#ebf2fd;--raccourci-texte:#18559b}
 .gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-raccourcis .gab-sommaire-raccourci:hover,
 .gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-raccourcis .gab-sommaire-raccourci:focus-visible{
-  border-color:#217da0;
-  background:#e4f1f5;
+  border-color:var(--raccourci-trait,#217da0);
+  background:color-mix(in srgb,var(--raccourci-fond,#e4f1f5) 88%,var(--raccourci-trait,#217da0));
 }
 @media(max-width:750px){
   .gab-porte-nom .gab-sous-categorie{font-size:.8em}
