@@ -863,155 +863,62 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 }
 
 
-/* Identité doctorale : cartes sobres, respirations et liens accessibles.
-   Préserve les sept liens directs, sans toucher au reste de la thèse. */
-#recherche .these-cadre.these-cadre--organise {
-  position:relative;
+/* Bandeau de thèse : une seule surface compacte, sans cartes internes.
+   Les textes et leurs sept liens restent ceux de la page d'origine. */
+#recherche .these-entete .these-cadre {
   display:block;
   width:100%;
   max-width:none;
-  padding:clamp(16px,2.2vw,28px);
-  overflow:hidden;
-  border:1px solid #d8e4e9;
-  border-radius:20px;
-  background:linear-gradient(145deg,#f7fbfc 0%,#f2f8fa 100%);
-  box-shadow:0 10px 28px rgba(13,42,58,.055);
-  color:#274351;
-  text-align:left;
-}
-#recherche .these-cadre--organise::before {
-  content:"";
-  position:absolute;
-  top:0;left:0;right:0;
-  height:4px;
-  background:linear-gradient(90deg,#0879be,#11a7a5 64%,#5aae38);
-}
-#recherche .these-identite-contenu {
-  display:grid;
-  gap:12px;
-  width:100%;
-}
-#recherche .these-identite-rangee {
-  display:grid;
-  gap:12px;
-  min-width:0;
-  align-items:stretch;
-}
-#recherche .these-identite-rangee--haut {
-  grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
-}
-#recherche .these-identite-rangee--bas {
-  grid-template-columns:repeat(3,minmax(0,1fr));
-}
-#recherche .these-identite-bloc {
-  min-width:0;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:10px;
-  padding:18px 20px;
-  border:1px solid #e0eaed;
+  box-sizing:border-box;
+  padding:16px 22px;
+  border:1px solid #d7e3e9;
+  border-left:4px solid #168fa4;
   border-radius:13px;
-  background:#fff;
-  box-shadow:0 2px 8px rgba(13,42,58,.023);
-  overflow-wrap:break-word;
+  background:linear-gradient(110deg,#f6fafb 0%,#ffffff 82%);
+  box-shadow:0 4px 14px rgba(13,42,58,.035);
+  color:#334b58;
+  font:400 clamp(15px,1.08vw,17px)/1.65 var(--sans,system-ui,sans-serif);
+  text-align:left;
+  overflow-wrap:normal;
+  word-break:normal;
   hyphens:none;
 }
-#recherche .these-identite-direction {
-  border-left:3px solid #0879be;
+#recherche .these-entete .these-cadre > :is(p,div) {
+  margin-top:0;
+  margin-bottom:7px;
+  line-height:inherit;
 }
-#recherche .these-identite-formation {
-  border-left:3px solid #11a7a5;
+#recherche .these-entete .these-cadre > :is(p,div):last-child {
+  margin-bottom:0;
 }
-#recherche .these-identite-legende {
-  margin:0!important;
-  padding:0!important;
-  font:700 11px/1.4 var(--sans,system-ui,sans-serif)!important;
-  letter-spacing:.12em!important;
-  text-transform:uppercase;
-  color:#547483!important;
-  text-align:left!important;
+#recherche .these-entete .these-cadre strong {
+  color:#1c4254;
+  font-weight:700;
 }
-#recherche .these-identite-personnes {
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:18px;
-  width:100%;
-}
-#recherche .these-identite-personne {
-  min-width:0;
-  display:flex;
-  flex-direction:column;
-  gap:4px;
-}
-#recherche .these-identite-nom {
-  font:650 clamp(15px,1.15vw,18px)/1.4 var(--sans,system-ui,sans-serif);
-  color:#193d50;
-}
-#recherche .these-identite-civilite {white-space:nowrap}
-#recherche .these-identite-grade {
-  color:#637984;
-  font:500 13px/1.45 var(--sans,system-ui,sans-serif);
-}
-#recherche .these-identite-annee {
-  display:inline-flex;
-  align-items:center;
-  padding:4px 11px;
-  border:1px solid #cde5e3;
-  border-radius:99px;
-  background:#eaf7f5;
-  color:#176f72;
-  font:700 12px/1.4 var(--sans,system-ui,sans-serif);
-}
-#recherche .these-identite-financements {
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-#recherche .these-cadre--organise a.these-cadre-lien {
-  display:inline;
-  max-width:100%;
-  color:#125d86;
-  font:600 clamp(14px,1vw,16px)/1.48 var(--sans,system-ui,sans-serif);
+#recherche .these-entete .these-cadre a.these-cadre-lien {
+  color:#286176;
+  font-weight:550;
   text-decoration:underline;
-  text-decoration-color:rgba(8,121,190,.35);
+  text-decoration-color:rgba(40,97,118,.45);
   text-decoration-thickness:1px;
-  text-underline-offset:4px;
-  border:0;
-  overflow-wrap:break-word;
-  hyphens:none;
-  transition:color .2s ease,text-decoration-color .2s ease;
+  text-underline-offset:3px;
+  border-bottom:0;
+  transition:color .15s ease,text-decoration-color .15s ease;
 }
-#recherche .these-cadre--organise a.these-cadre-lien:hover,
-#recherche .these-cadre--organise a.these-cadre-lien:focus-visible {
+#recherche .these-entete .these-cadre a.these-cadre-lien:hover,
+#recherche .these-entete .these-cadre a.these-cadre-lien:focus-visible {
   color:#0879be;
   text-decoration-color:currentColor;
-  border:0;
+  border-bottom:0;
 }
-#recherche .these-cadre--organise a.these-cadre-lien:focus-visible {
-  outline:2px solid #0879be;
-  outline-offset:4px;
-  border-radius:2px;
-}
-@media (max-width:950px) {
-  #recherche .these-identite-rangee--haut,
-  #recherche .these-identite-rangee--bas {
-    grid-template-columns:repeat(2,minmax(0,1fr));
+@media(max-width:600px){
+  #recherche .these-entete .these-cadre {
+    padding:13px 15px;
+    border-radius:10px;
+    font-size:14px;
+    line-height:1.55;
   }
-  #recherche .these-identite-direction {grid-column:1/-1}
-  #recherche .these-identite-financement {grid-column:1/-1}
-}
-@media (max-width:600px) {
-  #recherche .these-cadre.these-cadre--organise {padding:14px;border-radius:16px}
-  #recherche .these-identite-contenu,
-  #recherche .these-identite-rangee {gap:10px}
-  #recherche .these-identite-rangee--haut,
-  #recherche .these-identite-rangee--bas,
-  #recherche .these-identite-personnes {grid-template-columns:minmax(0,1fr)}
-  #recherche .these-identite-direction,
-  #recherche .these-identite-financement {grid-column:auto}
-  #recherche .these-identite-bloc {padding:15px 16px}
-  #recherche .these-identite-personnes {gap:14px}
+  #recherche .these-entete .these-cadre > :is(p,div) {margin-bottom:6px}
 }
 
 
