@@ -1249,24 +1249,133 @@
     const methodeO2 = table.querySelector('#methode-o2-donnees');
     const apresMethode = methodeO2?.querySelector('.pourquoi-indispensable');
     if (!apresMethode) return;
+    // Un seul album pour ces huit exemples O2 ; les autres cartes du site restent intactes.
+    const galerie = document.createElement('section');
+    galerie.className = 'atlas-these atlas-these-album';
+    galerie.setAttribute('aria-label', 'Cartographies réalisées dans le mapping spatial exploratoire pour l’exemple');
+
+    const entete = document.createElement('header');
+    entete.className = 'atlas-these-entete';
+    entete.innerHTML = '<span class="atlas-these-kicker">Atlas cartographique · Exemples d’analyse</span><h4>Cartographies réalisées dans le mapping spatial exploratoire pour l’exemple</h4>';
+    galerie.appendChild(entete);
+
+    const contexte = document.createElement('div');
+    contexte.className = 'atlas-these-album-contexte';
+    contexte.innerHTML = '<h5></h5><p></p>';
+    galerie.appendChild(contexte);
+
+    const controles = document.createElement('nav');
+    controles.className = 'atlas-these-album-controles';
+    controles.setAttribute('aria-label', 'Parcourir les huit cartes exploratoires');
+    controles.innerHTML =
+      '<button type="button" class="atlas-these-album-fleche" data-album-precedent aria-label="Carte précédente">← <span>Précédente</span></button>' +
+      '<span class="atlas-these-album-compteur" role="status" aria-live="polite" aria-atomic="true"></span>' +
+      '<button type="button" class="atlas-these-album-fleche" data-album-suivant aria-label="Carte suivante"><span>Suivante</span> →</button>';
+    galerie.appendChild(controles);
+
+    const planches = document.createElement('div');
+    planches.className = 'atlas-these-album-planches';
+    const figures = [];
+    const appartenances = [];
     let compteur = 0;
-    blocs.forEach((bloc) => {
-      const section = document.createElement('section');
-      section.className = 'atlas-these';
-      section.setAttribute('aria-label', bloc.titre);
-      const tete = document.createElement('header');
-      tete.className = 'atlas-these-entete';
-      tete.innerHTML = '<span class="atlas-these-kicker">Atlas cartographique · Exemples d’analyse</span><h4></h4><p></p>';
-      tete.querySelector('h4').textContent = bloc.titre;
-      tete.querySelector('p').textContent = bloc.introduction;
-      section.appendChild(tete);
-      bloc.cartes.forEach(cle => section.appendChild(creerCarte(cle, ++compteur)));
-      const note = document.createElement('p');
-      note.className = 'atlas-these-precaution';
-      note.textContent = 'Sources, méthodes, légendes et crédits figurent sur chaque carte. Ces représentations écologiques et spatiales sont des exemples d’analyses exploratoires et ne remplacent ni les données individuelles ni l’étude des relations effectives entre partenaires.';
-      section.appendChild(note);
-      apresMethode.before(section);
+    blocs.forEach((bloc, blocIndex) => {
+      bloc.cartes.forEach((cle) => {
+        const figure = creerCarte(cle, ++compteur);
+        figure.hidden = compteur !== 1;
+        figure.setAttribute('aria-label', 'Carte ' + compteur + ' sur ' + nombreFiguresAtlas + ' : ' + cartes[cle].titre);
+        figures.push(figure);
+        appartenances.push(blocIndex);
+        planches.appendChild(figure);
+      });
     });
+    galerie.appendChild(planches);
+
+    const reperes = document.createElement('div');
+    reperes.className = 'atlas-these-album-reperes';
+    reperes.setAttribute('role', 'group');
+    reperes.setAttribute('aria-label', 'Accès direct aux cartes');
+    const boutonsReperes = figures.map((figure, index) => {
+      const bouton = document.createElement('button');
+      bouton.type = 'button';
+      bouton.setAttribute('aria-label', 'Afficher la carte ' + (index + 1) + ' sur ' + nombreFiguresAtlas);
+      bouton.addEventListener('click', () => afficher(index));
+      reperes.appendChild(bouton);
+      return bouton;
+    });
+    galerie.appendChild(reperes);
+
+    const note = document.createElement('p');
+    note.className = 'atlas-these-precaution';
+    note.textContent = 'Sources, méthodes, légendes et crédits figurent sur chaque carte. Ces représentations écologiques et spatiales sont des exemples d’analyses exploratoires et ne remplacent ni les données individuelles ni l’étude des relations effectives entre partenaires.';
+    galerie.appendChild(note);
+
+    let active = 0;
+    function afficher(index) {
+      active = (index + figures.length) % figures.length;
+      figures.forEach((figure, i) => { figure.hidden = i !== active; });
+      const bloc = blocs[appartenances[active]];
+      contexte.querySelector('h5').textContent = bloc.titre;
+      contexte.querySelector('p').textContent = bloc.introduction;
+      controles.querySelector('.atlas-these-album-compteur').textContent =
+        String(active + 1).padStart(2, '0') + ' / ' + String(figures.length).padStart(2, '0');
+      boutonsReperes.forEach((bouton, i) => {
+        bouton.setAttribute('aria-pressed', String(i === active));
+        if (i === active) bouton.setAttribute('aria-current', 'true');
+        else bouton.removeAttribute('aria-current');
+      });
+    }
+    controles.querySelector('[data-album-precedent]').addEventListener('click', () => afficher(active - 1));
+    controles.querySelector('[data-album-suivant]').addEventListener('click', () => afficher(active + 1));
+    galerie.tabIndex = 0;
+    galerie.addEventListener('keydown', (event) => {
+      if (event.altKey || event.ctrlKey || event.metaKey || event.target.closest('a, button')) return;
+      if (event.key === 'ArrowRight') { event.preventDefault(); afficher(active + 1); }
+      if (event.key === 'ArrowLeft') { event.preventDefault(); afficher(active - 1); }
+    });
+    let debutTactile = null;
+    planches.addEventListener('touchstart', (event) => {
+      if (event.touches.length === 1) debutTactile = { x: event.touches[0].clientX, y: event.touches[0].clientY };
+    }, { passive: true });
+    planches.addEventListener('touchend', (event) => {
+      if (!debutTactile || !event.changedTouches.length) return;
+      const dx = event.changedTouches[0].clientX - debutTactile.x;
+      const dy = event.changedTouches[0].clientY - debutTactile.y;
+      if (Math.abs(dx) > 65 && Math.abs(dx) > Math.abs(dy) * 1.6) afficher(active + (dx < 0 ? 1 : -1));
+      debutTactile = null;
+    }, { passive: true });
+    afficher(0);
+    apresMethode.before(galerie);
+
+    // Styles exclusivement limités à cet album ; aucun changement au style des autres cartes.
+    const styleAlbum = document.createElement('style');
+    styleAlbum.dataset.atlasTheseAlbum = 'o2';
+    styleAlbum.textContent = `
+      .these .atlas-these-album .atlas-these-entete{margin-bottom:20px}
+      .these .atlas-these-album-contexte{padding:17px clamp(16px,3vw,26px);margin-bottom:16px;background:#f2f7f5;border:1px solid #d9e7e1;border-radius:13px}
+      .these .atlas-these-album-contexte h5{font:650 17px/1.35 var(--sans);color:#184a4f;margin:0 0 7px}
+      .these .atlas-these-album-contexte p{font:400 14px/1.65 var(--sans);color:#445e62;margin:0;text-align:justify}
+      .these .atlas-these-album-controles{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:0 0 12px}
+      .these .atlas-these-album-fleche{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:42px;padding:9px 16px;border:1px solid #b9d2ce;border-radius:999px;background:#fff;color:#205a58;font:650 13px/1.3 var(--sans);transition:background .18s,border-color .18s}
+      .these .atlas-these-album-fleche:hover{background:#edf6f2;border-color:#76a9a1}
+      .these .atlas-these-album-compteur{font:700 13px/1.4 var(--sans);letter-spacing:.1em;color:#265953;font-variant-numeric:tabular-nums}
+      .these .atlas-these-album-planches{min-width:0}
+      .these .atlas-these-album .atlas-these-figure{margin:0;border-radius:14px}
+      .these .atlas-these-album .atlas-these-figure[hidden]{display:none!important}
+      .these .atlas-these-album-reperes{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:17px 0 20px}
+      .these .atlas-these-album-reperes button{width:25px;height:9px;border-radius:999px;background:#cedcd9;transition:background .18s,width .18s}
+      .these .atlas-these-album-reperes button[aria-pressed="true"]{width:43px;background:#286d5c}
+      .these .atlas-these-album-reperes button:hover{background:#79a89f}
+      .these .atlas-these-album .atlas-these-precaution{margin-top:0}
+      @media(max-width:600px){
+        .these .atlas-these-album-fleche{padding:9px 12px;min-width:45px}
+        .these .atlas-these-album-fleche span{display:none}
+        .these .atlas-these-album-contexte{padding:14px}
+      }
+      @media(prefers-reduced-motion:reduce){
+        .these .atlas-these-album-fleche,.these .atlas-these-album-reperes button{transition:none}
+      }
+    `;
+    document.head.appendChild(styleAlbum);
 
     // Les cartes présentes dans d’autres exposés méthodologiques ne doivent plus être recadrées.
     document.querySelectorAll('img[src*="/these/o2/carte-"]').forEach(img => {
