@@ -342,7 +342,7 @@
       ["fin", "Limites et articulation"]
     ];
     const groupes = new Map(titres.map(([code]) => [code, []]));
-    const liens = $(":scope > a[data-gab-intertitre]", nav);
+    const liens = $$(":scope > a[data-gab-intertitre]", nav);
     if (liens.length !== intertitres.length) return;
     liens.forEach((a) => {
       const h = intertitres[Number(a.dataset.gabIntertitre)];
