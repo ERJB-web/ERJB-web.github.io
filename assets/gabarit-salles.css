@@ -84,11 +84,11 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 
 /* Tuiles des chapitres : toutes illustrées, couleurs de la Chaire en alternance. */
 .gab-programme{margin:30px 0 8px}
-.gab-programme-tete{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:0 4px 16px}
+.gab-programme-tete{display:flex;align-items:baseline;justify-content:space-between;gap:16px;width:85%;margin:0 auto 14px}
 .gab .gab-programme-tete h2{margin:0;font:700 15px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gab-marine)}
 .gab-programme-tete span{font-size:15.5px;color:var(--gab-doux)}
-.gab-tuiles{display:grid;grid-template-columns:repeat(var(--gab-colonnes,4),minmax(0,1fr));grid-auto-rows:200px;gap:16px}
-.gab-tuile{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;padding:20px 22px;border-radius:var(--gab-rayon);overflow:hidden;color:#fff;text-decoration:none;
+.gab-tuiles{display:grid;width:85%;margin-inline:auto;grid-template-columns:repeat(var(--gab-colonnes,4),minmax(0,1fr));grid-auto-rows:170px;gap:14px}
+.gab-tuile{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;padding:16px 19px;border-radius:var(--gab-rayon);overflow:hidden;color:#fff;text-decoration:none;
   background:linear-gradient(0deg,color-mix(in srgb,var(--gab-c) 92%,black) 0%,color-mix(in srgb,var(--gab-c) 62%,transparent) 34%,rgba(13,42,58,0) 66%),linear-gradient(180deg,rgba(13,42,58,.28),rgba(13,42,58,0) 30%),var(--gab-tuile,none) center/cover,var(--gab-c);
   box-shadow:0 18px 36px -30px rgba(13,42,58,.9);transition:transform .35s var(--gab-ease),box-shadow .35s var(--gab-ease)}
 .gab-tuile:hover,.gab-tuile:focus-visible{transform:translateY(-4px);box-shadow:0 28px 50px -30px rgba(13,42,58,.95)}
@@ -210,8 +210,8 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   .gab .gab-bandeau .bandeau-titre{font-size:clamp(34px,10vw,46px)}
   .gab .gab-bandeau .bandeau-legende{font-size:16px}
   .gab-programme-tete span{display:none}
-  .gab-tuiles{grid-template-columns:1fr 1fr;grid-auto-rows:160px;gap:12px}
-  .gab-tuile{padding:14px 15px;border-radius:20px}
+  .gab-tuiles{grid-template-columns:1fr 1fr;grid-auto-rows:136px;gap:10px}
+  .gab-tuile{padding:12px 13px;border-radius:18px}
   .gab-tuile-num{min-width:38px;height:38px;font-size:18px;border-radius:12px}
   .gab-tuile-titre{font-size:16px}
   .gab-tuile.gab-large,.gab-tuile.gab-grande{grid-column:span 1;grid-row:span 1}
@@ -226,6 +226,10 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   .gab .gab-chapitre-titre{font-size:30px!important}
   .gab-photo img{aspect-ratio:16/9;border-radius:18px}
   .gab-corps{font-size:17px}
+}
+/* Écrans étroits : conserver la largeur des zones tactiles et la lisibilité des titres. */
+@media(max-width:600px){
+  .gab-programme-tete,.gab-tuiles{width:100%}
 }
 /* Téléphone : priorité sur les anciennes règles de la barre de salle. */
 @media(max-width:900px){
