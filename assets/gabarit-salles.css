@@ -1337,3 +1337,328 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 @media(max-width:750px){
   .gab-porte-nom .gab-sous-categorie{font-size:.8em}
 }
+
+
+/* Architecture universelle hall / porte / catégorie / chapitre / section / titre — 2026-10-18 */
+/* Les catégories restent accessibles en permanence dans l'en-tête. */
+.salle .salle-barre.gab-barre{
+  grid-template-columns:auto minmax(0,1fr) auto!important;
+  grid-template-areas:"retour porte actions" "salles salles salles" "lecture lecture lecture"!important;
+  padding:6px clamp(14px,2.2vw,32px)!important;
+  row-gap:0!important;
+  column-gap:12px!important;
+  box-shadow:0 2px 7px rgba(15,49,66,.04)!important;
+}
+.salle .gab-barre .salle-onglets:not([hidden]),
+.salle.gab-lit.gab-avec-chapitres .gab-barre .salle-onglets:not([hidden]){
+  display:flex!important;
+  grid-template-columns:none!important;
+  flex-wrap:nowrap!important;
+  justify-content:space-between!important;
+  align-items:stretch;
+  width:100%;
+  height:auto;
+  max-height:52px!important;
+  min-height:0!important;
+  gap:0!important;
+  margin:5px 0 0!important;
+  padding:0!important;
+  border-top:1px solid #e3ebec;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  opacity:1!important;
+  pointer-events:auto!important;
+  background:#fbfdfd;
+  scroll-snap-type:x proximity;
+}
+.salle .gab-barre .salle-onglets>:first-child,
+.salle .gab-barre .salle-onglets>:last-child{margin-inline:0!important}
+.salle .gab-barre .salle-onglets .onglet-salle{
+  flex:0 0 auto!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  width:auto!important;
+  max-width:32vw!important;
+  min-width:0!important;
+  min-height:38px!important;
+  padding:7px clamp(8px,1.25vw,20px)!important;
+  margin:0!important;
+  gap:0!important;
+  border:0!important;
+  border-bottom:3px solid transparent!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  color:#375866!important;
+  font-size:13px!important;
+  font-weight:650!important;
+  transform:none!important;
+  scroll-snap-align:start;
+}
+.salle .gab-barre .salle-onglets .onglet-salle:is(:hover,:focus-visible){
+  background:#eef5f5!important;
+  color:#174b5f!important;
+}
+.salle .gab-barre .salle-onglets .onglet-salle.actif{
+  border-bottom-color:var(--c1,#147b9f)!important;
+  background:color-mix(in srgb,var(--c1,#147b9f) 9%,#fff)!important;
+  color:#173f52!important;
+}
+.salle .gab-barre .gab-onglet-photo,
+.salle .gab-barre .salle-onglets .baie.mini,
+.salle .gab-barre .salle-onglets .onglet-num{display:none!important}
+.salle .gab-barre .salle-onglets .onglet-titre{
+  font-size:inherit!important;
+  font-weight:inherit!important;
+  line-height:1.25!important;
+  white-space:normal!important;
+  word-break:normal!important;
+  hyphens:none!important;
+}
+.salle.gab-lit.gab-avec-chapitres .gab-lecture{
+  max-height:64px!important;
+  margin-top:4px!important;
+}
+.gab-lecture .gab-fleche-cible{font-size:11px}
+.gab-lecture .gab-actuel b{width:36px;height:36px;font-size:15px}
+.gab-lecture .gab-actuel strong{font-size:15px}
+.gab .gab-chapitre-num b{background:var(--gab-c,#0879be)}
+.gab .gab-chapitre-num{color:var(--gab-c,#0879be)}
+
+/* Un véritable index des chapitres à gauche : un seul index par catégorie. */
+.gab-index-chapitres{
+  flex:0 0 auto;
+  display:grid;
+  gap:8px;
+  padding:12px 10px;
+  background:#f7faf9;
+  border:1px solid #d6e3e5;
+  border-radius:16px;
+  box-shadow:0 2px 8px rgba(11,59,72,.025);
+}
+.gab-index-titre{
+  margin:0 5px 1px;
+  font:750 11px/1.4 var(--sans,Arial,sans-serif);
+  color:#53717d;
+  text-transform:uppercase;
+  letter-spacing:.10em;
+}
+.gab-index-liste{
+  display:grid;
+  gap:3px;
+  max-height:min(240px,32dvh);
+  overflow-y:auto;
+  scrollbar-width:thin;
+  overscroll-behavior-y:contain;
+}
+.gab-index-lien{
+  display:grid;
+  grid-template-columns:30px minmax(0,1fr);
+  align-items:center;
+  gap:8px;
+  width:100%;
+  min-height:34px;
+  padding:6px 7px;
+  border:0;
+  border-inline-start:3px solid transparent;
+  border-radius:7px;
+  text-align:start;
+  color:#365561;
+  font:650 12.5px/1.3 var(--sans,Arial,sans-serif);
+  background:transparent;
+  cursor:pointer;
+}
+.gab-index-lien b{
+  display:grid;
+  place-items:center;
+  width:29px;
+  height:29px;
+  border-radius:8px;
+  color:var(--chap-c,#175f7c);
+  background:color-mix(in srgb,var(--chap-c,#175f7c) 13%,#fff);
+  font:760 12px/1 var(--sans,Arial,sans-serif);
+  font-variant-numeric:tabular-nums;
+}
+.gab-index-lien span{min-width:0;overflow-wrap:normal;word-break:normal;hyphens:none}
+.gab-index-lien:hover,.gab-index-lien:focus-visible{
+  background:#e9f1f3;
+  outline-color:var(--chap-c);
+}
+.gab-index-lien.actif,.gab-index-lien[aria-current="page"]{
+  background:color-mix(in srgb,var(--chap-c,#175f7c) 11%,#fff);
+  border-inline-start-color:var(--chap-c,#175f7c);
+  color:#173f52;
+}
+.gab-index-lien.actif b,.gab-index-lien[aria-current="page"] b{
+  color:#fff;
+  background:var(--chap-c,#175f7c);
+}
+
+/* Même structure en deux colonnes pour toute catégorie possédant un chapitre. */
+@media(min-width:980px){
+  .gab .gab-chapitre-grille.gab-menu-global,
+  .gab[data-gab-salle="recherche"] .gab-chapitre-grille.gab-menu-global{
+    display:grid!important;
+    grid-template-columns:clamp(236px,23vw,292px) minmax(0,1fr)!important;
+    column-gap:clamp(22px,3vw,52px)!important;
+    row-gap:0!important;
+    align-items:start!important;
+  }
+  .gab .gab-menu-global > .gab-chapitre-aside,
+  .gab[data-gab-salle="recherche"] .gab-menu-global > .gab-chapitre-aside{
+    grid-column:1!important;
+    grid-row:1!important;
+    display:flex!important;
+    flex-direction:column!important;
+    gap:12px!important;
+    align-self:start!important;
+    justify-self:stretch!important;
+    width:100%!important;
+    min-width:0!important;
+    max-height:calc(100dvh - var(--salle-barre-hauteur,100px) - 26px)!important;
+    overflow-y:auto!important;
+    overscroll-behavior-y:contain;
+    scrollbar-width:thin;
+    position:sticky!important;
+    top:calc(var(--salle-barre-hauteur,100px) + 12px)!important;
+  }
+  .gab .gab-menu-global > .gab-chapitre-texte,
+  .gab[data-gab-salle="recherche"] .gab-menu-global > .gab-chapitre-texte{
+    grid-column:2!important;
+    grid-row:1!important;
+    min-width:0!important;
+    width:100%!important;
+    max-width:none!important;
+  }
+}
+.gab .gab-menu-global .gab-sommaire-chapitre,
+.gab[data-gab-salle="recherche"] .gab-menu-global .gab-sommaire-chapitre{
+  display:grid;
+  flex:0 0 auto;
+  align-content:start;
+  gap:8px!important;
+  min-width:0;
+  min-height:0!important;
+  max-height:none!important;
+  overflow:visible!important;
+  padding:12px 10px!important;
+  border:1px solid #d8e4e7!important;
+  border-radius:16px!important;
+  background:#f8fafb!important;
+}
+.gab .gab-menu-global .gab-chapitre-texte > .gab-photo{width:100%;max-width:960px;margin:0 0 22px}
+.gab .gab-menu-global .gab-chapitre-texte > .gab-photo img{display:block;width:100%;height:auto;object-fit:contain}
+.gab .gab-sommaire-chapitre > span{font-size:11px;font-weight:750;text-transform:uppercase;letter-spacing:.10em}
+
+/* Les couleurs caractérisent les sections ; les titres appartiennent aux sections. */
+.gab .gab-sommaire-chapitre.gab-sommaire-universel .gab-sommaire-groupe{
+  display:grid;
+  gap:5px;
+  min-width:0;
+  padding:9px 8px;
+  border:1px solid color-mix(in srgb,var(--objectif-trait) 28%,#fff);
+  border-inline-start:3px solid var(--objectif-trait);
+  border-radius:11px;
+  background:var(--objectif-fond);
+}
+.gab .gab-sommaire-universel .gab-sommaire-groupe-titre{
+  display:flex;
+  gap:8px;
+  align-items:flex-start;
+  min-width:0;
+  padding:2px 3px 7px;
+  border-bottom:1px solid color-mix(in srgb,var(--objectif-trait) 34%,transparent);
+  color:var(--objectif-texte);
+  font-size:12.5px;
+  line-height:1.3;
+}
+.gab .gab-sommaire-universel .gab-sommaire-groupe-titre b{
+  flex:none;
+  display:grid;
+  place-items:center;
+  min-width:27px;
+  min-height:23px;
+  padding:4px;
+  border-radius:6px;
+  color:#fff;
+  background:var(--objectif-trait);
+  font:750 11px/1.1 var(--sans,Arial,sans-serif);
+}
+.gab .gab-sommaire-universel .gab-sommaire-groupe-titre > a.gab-section-lien-titre{
+  flex:1;
+  display:block;
+  min-width:0;
+  border:0!important;
+  padding:2px 0!important;
+  border-radius:3px;
+  background:transparent!important;
+  color:var(--objectif-texte)!important;
+  font-weight:760!important;
+  font-size:12.5px!important;
+  line-height:1.3!important;
+  text-decoration:none;
+}
+.gab .gab-sommaire-universel .gab-sommaire-groupe-liens{
+  display:grid;
+  gap:4px;
+  min-width:0;
+}
+.gab .gab-sommaire-universel .gab-sommaire-groupe-liens a{
+  display:block;
+  padding:7px 8px!important;
+  border-inline-start:2px solid var(--objectif-trait)!important;
+  border-radius:7px;
+  background:var(--objectif-lien)!important;
+  color:var(--objectif-texte)!important;
+  font-size:12.5px!important;
+  line-height:1.35!important;
+  font-weight:550!important;
+  overflow-wrap:normal;
+  word-break:normal;
+  hyphens:none;
+}
+.gab .gab-sommaire-universel .gab-sommaire-groupe a:hover,
+.gab .gab-sommaire-universel .gab-sommaire-groupe a:focus-visible{
+  background:#fff!important;
+  text-decoration:underline;
+  text-underline-offset:2px;
+}
+.gab .gab-menu-global .gab-sommaire-chapitre a[data-gab-niveau="h5"]{font-size:12px!important}
+
+/* Petit écran : les chapitres passent au-dessus du contenu sans rognage. */
+@media(max-width:979px){
+  .gab .gab-chapitre-grille.gab-menu-global,
+  .gab[data-gab-salle="recherche"] .gab-chapitre-grille.gab-menu-global{
+    display:flex!important;
+    flex-direction:column!important;
+    gap:18px!important;
+  }
+  .gab .gab-menu-global > .gab-chapitre-aside{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    width:100%!important;
+    max-height:none!important;
+    position:static!important;
+    order:-1!important;
+    gap:10px;
+    overflow:visible!important;
+  }
+  .gab .gab-menu-global > .gab-chapitre-texte{
+    order:1!important;
+    min-width:0!important;
+  }
+  .gab-index-liste{max-height:175px}
+  .gab .gab-menu-global .gab-sommaire-chapitre,
+  .gab[data-gab-salle="recherche"] .gab-menu-global .gab-sommaire-chapitre{
+    max-height:min(300px,43dvh)!important;
+    overflow-y:auto!important;
+  }
+  .salle .gab-barre .salle-onglets .onglet-salle{max-width:228px!important}
+}
+@media(max-width:640px){
+  .salle .salle-barre.gab-barre{padding:7px 10px!important;column-gap:7px!important}
+  .salle .gab-barre .salle-onglets:not([hidden]){max-height:44px!important}
+  .salle .gab-barre .salle-onglets .onglet-salle{font-size:12px!important;padding:8px 10px!important}
+  .salle.gab-lit.gab-avec-chapitres .gab-lecture{max-height:155px!important}
+  .gab-index-liste{max-height:145px}
+}
