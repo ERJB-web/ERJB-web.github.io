@@ -28,6 +28,7 @@ const VULGARISATION = require("./vulgarisation-ressources");
 const IA = require("./ia-recherche");
 const THESE = require("./these-rubriques");
 const CADRAGE_THESE = require("./these-cadrage");
+const SNA_EXEMPLES = require("./sna-exemples");
 const CHIFFRES_IMPACT = require("./chiffres-parcours");
 const LOISIRS_AJOUTS = require("./loisirs-ajouts");
 const ATELIERS = require("./ateliers");
@@ -864,7 +865,7 @@ ${lien(
 )}
 <h4 class="titre-bloc">${e(r.codirection.titre)}</h4>
 <div class="codirection">${r.codirection.personnes.map((pe) => `<article class="personne"><h4>${e(pe.nom)}<span class="grade">${e(pe.grade)}</span></h4><ul>${pe.lignes.map((l) => `<li>${e(l)}</li>`).join("")}</ul><p class="chaire">${e(pe.chaire)}</p>${lien(pe.lien, `${e(r.codirection.profil)} <span aria-hidden="true">↗</span>`, "profil")}</article>`).join("")}</div>`;
-  const methodes = `<h3>${e(t.titres[4])}</h3><p class="these-fil"><span data-objectif="O1">O1</span><span aria-hidden="true">→</span><span data-objectif="O2">O2</span><span aria-hidden="true">→</span><span data-objectif="O3">O3</span><strong>${e(f.labels.articulation)}</strong></p><div class="these-methodes">${f.methodes.map((texte, i) => `<article class="objectif-carte" data-objectif="O${i + 1}"><h4><span class="objectif-code">O${i + 1}</span> ${e(n.etapes[i])}</h4><p class="these-formulation">${e(texte)}</p><button class="these-renvoi" type="button" data-these-vers="objectifs" data-these-objectif="O${i + 1}">${e(n.objectif)} <span aria-hidden="true">↗</span></button></article>`).join("")}</div>
+  const methodes = `<h3>${e(t.titres[4])}</h3>${SNA_EXEMPLES(c.lang)}<p class="these-fil"><span data-objectif="O1">O1</span><span aria-hidden="true">→</span><span data-objectif="O2">O2</span><span aria-hidden="true">→</span><span data-objectif="O3">O3</span><strong>${e(f.labels.articulation)}</strong></p><div class="these-methodes">${f.methodes.map((texte, i) => `<article class="objectif-carte" data-objectif="O${i + 1}"><h4><span class="objectif-code">O${i + 1}</span> ${e(n.etapes[i])}</h4><p class="these-formulation">${e(texte)}</p><button class="these-renvoi" type="button" data-these-vers="objectifs" data-these-objectif="O${i + 1}">${e(n.objectif)} <span aria-hidden="true">↗</span></button></article>`).join("")}</div>
 <details class="protocole-these these-protocole-detail"><summary>${e(p.titre)}</summary>
 <p class="note-protocole">${e(p.etat)}</p>
 <h4>${e(p.devis.titre)}</h4>
