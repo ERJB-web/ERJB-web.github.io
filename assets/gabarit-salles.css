@@ -704,3 +704,35 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
     max-height:min(380px,48dvh);
   }
 }
+
+
+/* Dossier documentaire : accès direct, distinct des ateliers de vulgarisation. */
+.gab[data-gab-salle="vulgarisation"] .vul-dossier-invite{
+  padding:24px 28px;
+  border-left:3px solid #397c80;
+  background:#f1f5f4;
+  max-width:850px;
+  margin-top:12px;
+}
+.gab[data-gab-salle="vulgarisation"] .vul-dossier-extrait{
+  font-size:17px;
+  line-height:1.75;
+  color:#29424e;
+  margin:0 0 18px;
+}
+.gab[data-gab-salle="vulgarisation"] .vul-dossier-lien{
+  display:inline-flex;
+  align-items:center;
+  padding:11px 17px;
+  border:1px solid #266875;
+  border-radius:4px;
+  color:#165665;
+  background:#fff;
+  text-decoration:none;
+  font-weight:700;
+  font-size:14px;
+}
+.gab[data-gab-salle="vulgarisation"] .vul-dossier-lien:hover{
+  color:#fff;
+  background:#1a6874;
+}
