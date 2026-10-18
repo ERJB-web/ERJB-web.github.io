@@ -11,32 +11,17 @@
   const deux = (n) => String(n).padStart(2, "0");
 
   const TEXTES = {
-    fr: { chapitres: (n) => `${n} chapitres`, minutes: (m) => `≈ ${m} min de lecture`, programme: "Les chapitres de cette salle", aide: "Touchez une tuile pour aller directement au chapitre", chapitre: (i, n) => `Chapitre ${i} sur ${n}`, tous: "Tous les chapitres", precedent: "Chapitre précédent", suivant: "Chapitre suivant", debut: "Début du parcours · premier chapitre", fin: "Fin du parcours · dernier chapitre", dans: "Dans ce chapitre", photo: "Photo", porte: "Porte", aller: (t) => `Aller au chapitre : ${t}`, afficher: (n) => `Afficher les ${n} références` },
-    en: { chapitres: (n) => `${n} chapters`, minutes: (m) => `≈ ${m} min read`, programme: "Chapters in this room", aide: "Select a tile to go straight to a chapter", chapitre: (i, n) => `Chapter ${i} of ${n}`, tous: "All chapters", precedent: "Previous chapter", suivant: "Next chapter", debut: "Start of the series · first chapter", fin: "End of the series · last chapter", dans: "In this chapter", photo: "Photo", porte: "Door", aller: (t) => `Go to chapter: ${t}`, afficher: (n) => `Show the ${n} references` },
-    es: { chapitres: (n) => `${n} capítulos`, minutes: (m) => `≈ ${m} min de lectura`, programme: "Capítulos de esta sala", aide: "Toque una tarjeta para ir directamente al capítulo", chapitre: (i, n) => `Capítulo ${i} de ${n}`, tous: "Todos los capítulos", precedent: "Capítulo anterior", suivant: "Capítulo siguiente", debut: "Inicio del recorrido · primer capítulo", fin: "Fin del recorrido · último capítulo", dans: "En este capítulo", photo: "Foto", porte: "Puerta", aller: (t) => `Ir al capítulo: ${t}`, afficher: (n) => `Mostrar las ${n} referencias` },
-    zh: { chapitres: (n) => `${n} 章`, minutes: (m) => `约 ${m} 分钟阅读`, programme: "本展厅的章节", aide: "点击卡片即可直达该章", chapitre: (i, n) => `第 ${i} 章，共 ${n} 章`, tous: "全部章节", precedent: "上一章", suivant: "下一章", debut: "阅读起点 · 第一章", fin: "阅读终点 · 最后一章", dans: "本章内容", photo: "图片", porte: "门", aller: (t) => `前往章节：${t}`, afficher: (n) => `显示 ${n} 条文献` },
-    ar: { chapitres: (n) => `${n} فصول`, minutes: (m) => `≈ ${m} دقيقة قراءة`, programme: "فصول هذه القاعة", aide: "اختر بطاقة للانتقال مباشرة إلى الفصل", chapitre: (i, n) => `الفصل ${i} من ${n}`, tous: "كل الفصول", precedent: "الفصل السابق", suivant: "الفصل التالي", debut: "بداية المسار · الفصل الأول", fin: "نهاية المسار · الفصل الأخير", dans: "في هذا الفصل", photo: "صورة", porte: "الباب", aller: (t) => `الانتقال إلى الفصل: ${t}`, afficher: (n) => `عرض المراجع (${n})` },
-    ru: { chapitres: (n) => `Глав: ${n}`, minutes: (m) => `≈ ${m} мин чтения`, programme: "Главы этого зала", aide: "Нажмите на плитку, чтобы перейти к главе", chapitre: (i, n) => `Глава ${i} из ${n}`, tous: "Все главы", precedent: "Предыдущая глава", suivant: "Следующая глава", debut: "Начало раздела · первая глава", fin: "Конец раздела · последняя глава", dans: "В этой главе", photo: "Фото", porte: "Дверь", aller: (t) => `Перейти к главе: ${t}`, afficher: (n) => `Показать источники (${n})` },
+    fr: { chapitres: (n) => `${n} chapitres`, minutes: (m) => `≈ ${m} min de lecture`, programme: "Les chapitres de cette salle", aide: "Touchez une tuile pour aller directement au chapitre", chapitre: (i, n) => `Chapitre ${i} sur ${n}`, tous: "Tous les chapitres", precedent: "Chapitre précédent", suivant: "Chapitre suivant", dans: "Dans ce chapitre", photo: "Photo", porte: "Porte", aller: (t) => `Aller au chapitre : ${t}`, afficher: (n) => `Afficher les ${n} références` },
+    en: { chapitres: (n) => `${n} chapters`, minutes: (m) => `≈ ${m} min read`, programme: "Chapters in this room", aide: "Select a tile to go straight to a chapter", chapitre: (i, n) => `Chapter ${i} of ${n}`, tous: "All chapters", precedent: "Previous chapter", suivant: "Next chapter", dans: "In this chapter", photo: "Photo", porte: "Door", aller: (t) => `Go to chapter: ${t}`, afficher: (n) => `Show the ${n} references` },
+    es: { chapitres: (n) => `${n} capítulos`, minutes: (m) => `≈ ${m} min de lectura`, programme: "Capítulos de esta sala", aide: "Toque una tarjeta para ir directamente al capítulo", chapitre: (i, n) => `Capítulo ${i} de ${n}`, tous: "Todos los capítulos", precedent: "Capítulo anterior", suivant: "Capítulo siguiente", dans: "En este capítulo", photo: "Foto", porte: "Puerta", aller: (t) => `Ir al capítulo: ${t}`, afficher: (n) => `Mostrar las ${n} referencias` },
+    zh: { chapitres: (n) => `${n} 章`, minutes: (m) => `约 ${m} 分钟阅读`, programme: "本展厅的章节", aide: "点击卡片即可直达该章", chapitre: (i, n) => `第 ${i} 章，共 ${n} 章`, tous: "全部章节", precedent: "上一章", suivant: "下一章", dans: "本章内容", photo: "图片", porte: "门", aller: (t) => `前往章节：${t}`, afficher: (n) => `显示 ${n} 条文献` },
+    ar: { chapitres: (n) => `${n} فصول`, minutes: (m) => `≈ ${m} دقيقة قراءة`, programme: "فصول هذه القاعة", aide: "اختر بطاقة للانتقال مباشرة إلى الفصل", chapitre: (i, n) => `الفصل ${i} من ${n}`, tous: "كل الفصول", precedent: "الفصل السابق", suivant: "الفصل التالي", dans: "في هذا الفصل", photo: "صورة", porte: "الباب", aller: (t) => `الانتقال إلى الفصل: ${t}`, afficher: (n) => `عرض المراجع (${n})` },
+    ru: { chapitres: (n) => `Глав: ${n}`, minutes: (m) => `≈ ${m} мин чтения`, programme: "Главы этого зала", aide: "Нажмите на плитку, чтобы перейти к главе", chapitre: (i, n) => `Глава ${i} из ${n}`, tous: "Все главы", precedent: "Предыдущая глава", suivant: "Следующая глава", dans: "В этой главе", photo: "Фото", porte: "Дверь", aller: (t) => `Перейти к главе: ${t}`, afficher: (n) => `Показать источники (${n})` },
   };
   const T = TEXTES[langue] || TEXTES.fr;
 
   // Couleurs de la Chaire, en alternance sur les tuiles et les chapitres.
   const COULEURS = ["#0879BE", "#11A7A5", "#5AAE38", "#0755AD", "#0D2A3A", "#0E8F8D", "#3F8F2A", "#1C6FB8"];
-  // Codes couleurs stable et distincts pour les six chapitres de la thèse.
-  const COULEURS_THESE = ["#246A9A", "#A87421", "#4F9B33", "#77559B", "#087F83", "#B65A47"];
-  const couleurChapitre = (salle, index) => {
-    const couleurs = salle === "recherche" ? COULEURS_THESE : COULEURS;
-    return couleurs[index % couleurs.length];
-  };
-  const ARCHITECTURE = {
-    fr: ["Chapitres", "Sections", "Présentation"],
-    en: ["Chapters", "Sections", "Overview"],
-    es: ["Capítulos", "Secciones", "Presentación"],
-    zh: ["章节", "小节", "概览"],
-    ar: ["الفصول", "الأقسام", "نظرة عامة"],
-    ru: ["Главы", "Разделы", "Обзор"]
-  };
-  const A = ARCHITECTURE[langue] || ARCHITECTURE.fr;
 
   // Découpage des salles qui ne sont pas organisées en rubriques.
   const VITRINE = { sel: "article.carte-vitrine", titre: "h3" };
@@ -287,14 +272,7 @@
       return { mode: "elements", chapitres };
     }
     const regle = REGLES[salle];
-    if (regle?.unique) {
-      const zone = $(".colonne-outils", sc);
-      const titre = texteTitre($(".section-corps .colonne-texte h2", sc)) ||
-        sc.parentElement?.dataset.titre || A[2];
-      return zone && zone.children.length
-        ? { mode: "elements", chapitres: [{ source: zone, titre }] }
-        : { mode: "unique", chapitres: [] };
-    }
+    if (regle?.unique) return { mode: "unique", chapitres: [] };
     if (regle) {
       const chapitres = $$(regle.sel, sc).map((el) => {
         const titreEl = $(regle.titre, el);
@@ -305,13 +283,7 @@
     // Salle sans règle : les intertitres h3 de la colonne de contenu ouvrent les chapitres.
     const zone = $(".colonne-outils", sc);
     const h3 = zone ? $$(":scope > h3", zone) : [];
-    if (h3.length < 2) {
-      const titre = texteTitre($(".section-corps .colonne-texte h2", sc)) ||
-        sc.parentElement?.dataset.titre || A[2];
-      return zone && zone.children.length
-        ? { mode: "elements", chapitres: [{ source: zone, titre }] }
-        : { mode: "unique", chapitres: [] };
-    }
+    if (h3.length < 2) return { mode: "unique", chapitres: [] };
     const chapitres = h3.map((h) => {
       const div = D.createElement("div");
       let x = h.nextElementSibling;
@@ -462,11 +434,10 @@
     // reconnus restent dans leur section en cours, jamais supprimés.
     const plans = {
       contexte: [
-        { nom: "Contexte" },
-        { nom: "État de la littérature" },
-        { nom: "Lacunes" },
-        { nom: "Idée de thèse" },
-        { nom: "Posture" }
+        { nom: "Notions et ressources" },
+        { nom: "Besoins sociaux et réponse", debut: /le probleme|besoins et offre|besoins sociaux|les besoins se cumulent/ },
+        { nom: "Connaissances et lacune", debut: /etat des connaissances|ce que la litterature/ },
+        { nom: "Territoires et posture", debut: /reponse intersectorielle|territoires vecus/ }
       ],
       objectifs: [
         { nom: "Question et objectifs" },
@@ -510,35 +481,14 @@
       { texte:"#18559b", trait:"#0755ad", fond:"#ebf2fd", lien:"#f3f7ff" },
       { texte:"#80532e", trait:"#bf8953", fond:"#faf2e9", lien:"#fdf9f4" }
     ];
-    // Cinq teintes propres au chapitre « Contexte » : une par section,
-    // tout en conservant la charte du sommaire méthodologique.
-    const paletteContexte = [
-      { texte:"#195680", trait:"#358bc3", fond:"#e9f3fb", lien:"#f6fbff" },
-      { texte:"#176e65", trait:"#16a69b", fond:"#e7f6f3", lien:"#f4fbfa" },
-      { texte:"#87521b", trait:"#d79b48", fond:"#fbf1df", lien:"#fff9ee" },
-      { texte:"#633b8c", trait:"#9463bf", fond:"#f2eafa", lien:"#fbf7ff" },
-      { texte:"#366a31", trait:"#63a857", fond:"#edf7e9", lien:"#f8fcf6" }
-    ];
     const listes = plan.map(() => []);
     let sectionActuelle = 0;
     liens.forEach((a, k) => {
       const valeur = normaliser(intertitres[k].textContent);
-      if (cle === "contexte") {
-        // Dans le chapitre « Contexte », les titres du sommaire peuvent être
-        // dispersés dans le texte : les classer selon leur sens, et non selon
-        // une succession de blocs dans le DOM. Chaque ancre reste inchangée.
-        if (/posture|positionnement du chercheur|pragmatisme|epistemolog/.test(valeur)) sectionActuelle = 4;
-        else if (/idee de la these|idee de these|projet de these|proposition de recherche/.test(valeur)) sectionActuelle = 3;
-        else if (/lacune|limites? des connaissances|ce qui manque|angle mort/.test(valeur)) sectionActuelle = 2;
-        else if (/etat des connaissances|etat de la litterature|litterature|references? scientifiques?|references? institutionnelles?|travaux existants|synthese des etudes/.test(valeur)) sectionActuelle = 1;
-        else if (intertitres[k].tagName !== "H5") sectionActuelle = 0;
-        // Un sous-titre de niveau H5 conserve la section du titre précédent.
-      } else {
-        for (let j = sectionActuelle + 1; j < plan.length; j++) {
-          if (plan[j].debut?.test(valeur)) {
-            sectionActuelle = j;
-            break;
-          }
+      for (let j = sectionActuelle + 1; j < plan.length; j++) {
+        if (plan[j].debut?.test(valeur)) {
+          sectionActuelle = j;
+          break;
         }
       }
       listes[sectionActuelle].push(a);
@@ -552,8 +502,7 @@
       const groupe = el("section", "gab-sommaire-groupe");
       groupe.dataset.section = cle + "-" + k;
       if (g.objectif) groupe.dataset.objectif = g.objectif;
-      const couleur = cle === "contexte" ? paletteContexte[k] :
-        g.objectif === "O1" ? palette[1] :
+      const couleur = g.objectif === "O1" ? palette[1] :
         g.objectif === "O2" ? palette[2] :
         g.objectif === "O3" ? palette[3] : palette[k % palette.length];
       for (const [variable, valeur] of Object.entries({
@@ -565,199 +514,11 @@
       groupe.setAttribute("aria-label", g.nom);
       const enTete = el("div", "gab-sommaire-groupe-titre");
       if (g.objectif) enTete.append(el("b", "", echapper(g.objectif)));
-      else if (cle === "contexte") enTete.append(el("b", "", deux(k + 1)));
       enTete.append(el("strong", "", echapper(g.nom)));
       const items = el("div", "gab-sommaire-groupe-liens");
       items.append(...listes[k]); // conserve data-gab-intertitre et les liens
       groupe.append(enTete, items);
       nav.append(groupe);
-    });
-  }
-
-  // Le chapitre Problématique suit son propre raisonnement scientifique :
-  // question, objectif général, point de thèse, trois lacunes et hypothèses.
-  function organiserSommaireProblematique(nav, racine) {
-    if (!racine) return false;
-    const titres = $("h3, h4", racine);
-    const chercher = (re) => titres.find((h) => re.test(normaliser(h.textContent)));
-    const question = chercher(/^problematique et objectifs|^problematique$/) ||
-      $(".these-question-encadre", racine);
-    const general = chercher(/^objectif general$/);
-    const point = chercher(/^point de these$/);
-    const hypotheses = $(".these-hypotheses h4", racine);
-    const objectifs = ["O1", "O2", "O3"].map((code) =>
-      $(".ov-carte[data-objectif='" + code + "']", racine) ||
-      $(".objectif-carte[data-objectif='" + code + "']", racine));
-    const configurations = [
-      ["Problématique", question],
-      ["Objectif général", general],
-      ["Point de thèse", point],
-      ["Lacune et objectif spécifique · O1", objectifs[0], "O1"],
-      ["Lacune et objectif spécifique · O2", objectifs[1], "O2"],
-      ["Lacune et objectif spécifique · O3", objectifs[2], "O3"],
-      ["Hypothèses", hypotheses]
-    ];
-    const palette = [
-      ["#2B5878","#7398B5","#EBF3F9","#F6FAFD"],
-      ["#92622D","#C89C56","#FAF0E5","#FDF9F4"],
-      ["#286C40","#63A77F","#E9F5ED","#F6FBF7"],
-      ["#286C23","#5AAE38","#ECF7E8","#F5FBF2"],
-      ["#006E72","#11A7A5","#E9F7F6","#F3FBFA"],
-      ["#18559B","#0755AD","#EBF2FD","#F3F7FF"],
-      ["#79548A","#A77EBA","#F4EBF7","#FAF6FC"]
-    ];
-    nav.classList.add("gab-sommaire-objectifs","gab-sommaire-sections","gab-sommaire-universel","gab-sommaire-problematique");
-    nav.replaceChildren(el("span", "", echapper(T.dans)));
-    configurations.forEach(([nom, cible, code], index) => {
-      if (!cible) return;
-      if (!cible.id) cible.id = "gab-problematique-" + (code || String(index + 1)).toLowerCase();
-      const bloc = el("section", "gab-sommaire-groupe");
-      const couleur = palette[index];
-      ["--objectif-texte","--objectif-trait","--objectif-fond","--objectif-lien"]
-        .forEach((variable, j) => bloc.style.setProperty(variable, couleur[j]));
-      bloc.dataset.section = String(index + 1);
-      bloc.setAttribute("aria-label", nom);
-      const tete = el("div", "gab-sommaire-groupe-titre");
-      tete.append(el("b", "", code || deux(index + 1)));
-      tete.append(el("strong", "", echapper(nom)));
-      bloc.append(tete);
-      if (code) {
-        const items = el("div", "gab-sommaire-groupe-liens");
-        const lacune = $(".ov-lacune-avant", cible);
-        const hObjectif = $(".ov-entete h4", cible) || $("h4", cible);
-        const liens = [
-          ["Lacune scientifique", lacune],
-          ["Objectif spécifique : " + net(hObjectif?.textContent), hObjectif]
-        ];
-        liens.forEach(([texte, element], j) => {
-          if (!element) return;
-          if (!element.id) element.id = "gab-problematique-" + code.toLowerCase() + "-" + (j + 1);
-          const lien = el("a", "", echapper(texte));
-          lien.href = "#" + encodeURIComponent(element.id);
-          lien.dataset.gabCible = element.id;
-          items.append(lien);
-        });
-        if (items.children.length) bloc.append(items);
-      } else {
-        const lien = el("div", "gab-sommaire-groupe-liens");
-        const a = el("a", "", echapper(nom === "Problématique" ? "Question et justification" :
-          nom === "Hypothèses" ? "Hypothèses exploratoires" : "Lire cette partie"));
-        a.href = "#" + encodeURIComponent(cible.id);
-        a.dataset.gabCible = cible.id;
-        lien.append(a);
-        bloc.append(lien);
-      }
-      nav.append(bloc);
-    });
-    return nav.querySelectorAll(".gab-sommaire-groupe").length > 0;
-  }
-
-  function preparerHypothesesProblematique(corps, chapitre) {
-    if (langue !== "fr" || !/problematique|objectifs/.test(normaliser(chapitre.titre)) ||
-        $(".these-hypotheses", corps)) return;
-    const general = $$("h4", corps).find((h) => normaliser(h.textContent) === "objectif general");
-    const point = $$("h4", corps).find((h) => normaliser(h.textContent) === "point de these");
-    // Afficher l'objectif général avant le point de thèse sans modifier les textes.
-    if (general && point && general.compareDocumentPosition(point) & Node.DOCUMENT_POSITION_PRECEDING) {
-      const paragraphe = general.nextElementSibling;
-      point.before(general);
-      if (paragraphe && paragraphe.matches("p")) general.after(paragraphe);
-    }
-    const section = el("section", "these-hypotheses");
-    section.innerHTML = `
-      <h4 class="titre-bloc">Hypothèses</h4>
-      <p class="note">Hypothèses exploratoires de travail, à préciser avec la codirection. Elles n'anticipent pas les résultats et n'impliquent pas un test confirmatoire pour chaque volet.</p>
-      <ol class="these-hypotheses-liste">
-        <li><strong>H1 · Profils de besoins.</strong> Les besoins sociaux des personnes aînées suivies à domicile présentent des configurations concomitantes distinctes, dont le caractère satisfait ou non varie selon les profils.</li>
-        <li><strong>H2 · Cartographie territoriale.</strong> Les ressources susceptibles de répondre à ces besoins sont inégalement réparties et leur accessibilité potentielle varie entre les territoires de CLSC.</li>
-        <li><strong>H3 · Réponse intersectorielle.</strong> La présence géographique de ressources ne garantit pas leur mobilisation par les équipes de soutien à domicile ; les configurations de collaboration varient selon les territoires et les profils de besoins.</li>
-      </ol>`;
-    corps.append(section);
-  }
-
-  // Structure commune à toutes les portes : chapitre → section → titres.
-  // Les intertitres réels constituent les sections, sans changer les textes.
-  function organiserSommaireUniversel(nav, intertitres) {
-    const liens = $$(":scope > a[data-gab-intertitre]", nav);
-    if (!liens.length || liens.length !== intertitres.length) return;
-    const groupes = [];
-    let courant = null;
-    liens.forEach((lien, i) => {
-      const h = intertitres[i];
-      if (h.tagName === "H3") {
-        courant = { titre: texteTitre(h), entete: lien, liens: [] };
-        groupes.push(courant);
-      } else {
-        if (!courant || (!courant.entete && courant.liens.length >= 5)) {
-          courant = { titre: "", entete: null, liens: [] };
-          groupes.push(courant);
-        }
-        courant.liens.push(lien);
-      }
-    });
-    if (!groupes.length) return;
-    nav.classList.add("gab-sommaire-objectifs", "gab-sommaire-sections", "gab-sommaire-universel");
-    const etiquette = nav.querySelector(":scope > span");
-    nav.replaceChildren();
-    if (etiquette) nav.append(etiquette);
-    const palette = [
-      ["#2B5878","#7398B5","#EBF3F9","#F6FAFD"],
-      ["#286C40","#63A77F","#E9F5ED","#F6FBF7"],
-      ["#0A6C79","#43A0AC","#E8F5F6","#F4FBFB"],
-      ["#79548A","#A77EBA","#F4EBF7","#FAF6FC"],
-      ["#98612F","#CAA06A","#FAF1E6","#FDF9F4"],
-      ["#945764","#C48792","#FAECEF","#FDF7F9"]
-    ];
-    groupes.forEach((g, i) => {
-      const bloc = el("section", "gab-sommaire-groupe");
-      bloc.dataset.section = String(i + 1);
-      const couleurs = palette[i % palette.length];
-      ["--objectif-texte","--objectif-trait","--objectif-fond","--objectif-lien"]
-        .forEach((nom, j) => bloc.style.setProperty(nom, couleurs[j]));
-      const titre = el("div", "gab-sommaire-groupe-titre");
-      titre.append(el("b", "", deux(i + 1)));
-      if (g.entete) {
-        g.entete.classList.add("gab-section-lien-titre");
-        titre.append(g.entete);
-        bloc.setAttribute("aria-label", g.titre);
-      } else {
-        const libelle = A[1] + " " + deux(i + 1);
-        titre.append(el("strong", "", echapper(libelle)));
-        bloc.setAttribute("aria-label", libelle);
-      }
-      const liste = el("div", "gab-sommaire-groupe-liens");
-      liste.append(...g.liens);
-      bloc.append(titre, liste);
-      nav.append(bloc);
-    });
-  }
-
-  // Un seul menu de chapitres par catégorie ; on le déplace avec la page active.
-  function creerIndexChapitres(zone) {
-    const chapitres = chapitresDe(zone);
-    if (!chapitres.length || $(".gab-index-chapitres", zone)) return;
-    const nav = el("nav", "gab-index-chapitres");
-    nav.setAttribute("aria-label", A[0]);
-    nav.append(el("span", "gab-index-titre", echapper(A[0])));
-    const liste = el("div", "gab-index-liste");
-    chapitres.forEach((ch, i) => {
-      const titre = net($(".gab-chapitre-titre", ch)?.textContent);
-      const bouton = el("button", "gab-index-lien");
-      bouton.type = "button";
-      bouton.dataset.gabChapitreIndex = String(i);
-      bouton.style.setProperty("--chap-c", couleurChapitre(zone.dataset.gabSalle, i));
-      bouton.innerHTML = `<b>${deux(i + 1)}</b><span>${echapper(titre)}</span>`;
-      bouton.setAttribute("aria-label", T.aller(titre));
-      liste.append(bouton);
-    });
-    nav.append(liste);
-    const premier = $(".gab-chapitre-aside", chapitres[0]);
-    if (premier) premier.prepend(nav);
-    chapitres.forEach((ch) => {
-      const photo = $(".gab-chapitre-aside > .gab-photo", ch);
-      const entete = $(".gab-chapitre-tete", ch);
-      if (photo && entete) entete.after(photo);
-      $(".gab-chapitre-grille", ch)?.classList.add("gab-menu-global");
     });
   }
 
@@ -792,7 +553,6 @@
       if (ch.photoInterne && ch.choix?.interne) $$("img", source).find((im) => absolue(im.getAttribute("src")) === ch.photoInterne)?.closest("picture, img")?.remove();
       corps.append(source);
     }
-    if (salle === "recherche" && langue === "fr") preparerHypothesesProblematique(corps, ch);
     texte.append(tete, corps);
     const aside = el("aside", "gab-chapitre-aside");
     // Dans le contexte de la thèse, le visuel de chiffres clés du premier chapitre
@@ -805,21 +565,22 @@
     // Ma thèse : le sommaire repère les parties h3 et h4 d'un chapitre.
     const methodeThese = salle === "recherche" && langue === "fr" &&
       (ch.cle === "methodes" || ch.cle === "methode" || /m[ée]thod/i.test(ch.titre));
-    const intertitres = Array.from(corps.querySelectorAll("h3, h4, h5.titre-bloc"))
+    const intertitres = Array.from(corps.querySelectorAll(salle === "recherche" ? "h3, h4, h5.titre-bloc" : "h4"))
       .filter((h) => {
-        if (h.closest(".gab-source.carte-vitrine")) return false;
-        if (!methodeThese && h.closest("details:not([open])")) return false;
+        if (h.closest("details:not([open]), .gab-source.carte-vitrine")) return false;
         const invisible = h.closest("[hidden]");
         return !invisible || (methodeThese && invisible.matches(".these-objectif-vue[data-vue-objectif]"));
       })
-      .filter((h) => !h.closest(".gab-sommaire-chapitre, .gab-bas-chapitre, .gab-chapitre-tete") &&
-        (net(h.textContent) !== net(ch.titre) || h.tagName !== "H3")).slice(0, methodeThese ? 210 : 85);
-    if (intertitres.length >= 1) {
+      .filter((h) => salle !== "recherche" || (
+        !h.closest(".gab-sommaire-chapitre, .gab-bas-chapitre, .gab-chapitre-tete") &&
+        (net(h.textContent) !== net(ch.titre) || h.tagName !== "H3")
+      ));
+    if (intertitres.length >= (salle === "recherche" ? 1 : 2)) {
       const nav = el("nav", "gab-sommaire-chapitre");
       nav.setAttribute("aria-label", T.dans);
       nav.setAttribute("tabindex", "0");
       const theseFr = salle === "recherche" && langue === "fr";
-      const entrees = intertitres;
+      const entrees = theseFr ? intertitres : intertitres.slice(0, 8);
       nav.innerHTML = `<span>${echapper(T.dans)}</span>` + entrees.map((h, k) => {
         let titre = net(h.textContent);
         // Certains h4 placent le chiffre de l'étape dans un élément distinct :
@@ -827,8 +588,7 @@
         const etape = theseFr ? /^([1-9])(?=[A-ZÀ-ÖØ-ÞŒ])/u.exec(titre)?.[1] : "";
         if (etape) titre = net(titre.slice(etape.length));
         const prefixe = /^(?:O|Objectif\s*)([123])\b/i.exec(titre);
-        const code = salle === "recherche" && /contexte/i.test(ch.cle || ch.titre) ? "" :
-          (h.closest("[data-objectif]")?.dataset.objectif || (prefixe ? "O" + prefixe[1] : ""));
+        const code = h.closest("[data-objectif]")?.dataset.objectif || (prefixe ? "O" + prefixe[1] : "");
         const objectif = /^O[123]$/.test(code) ? code : "";
         let libelle = theseFr ? sommaireTheseFr[titre] || titre : titre;
         if (objectif && !/^(?:O|Objectif\s*)[123]\b/i.test(libelle)) libelle = objectif + " · " + libelle;
@@ -839,15 +599,10 @@
         if (!h.id) h.id = id;
         return `<a href="#${echapper(id)}" data-gab-intertitre="${k}" data-gab-cible="${echapper(id)}" data-gab-niveau="${h.tagName.toLowerCase()}"${etape ? ' class="gab-sommaire-etape"' : ""}${objectif ? ` data-objectif="${objectif}"` : ""}${libelle !== titre ? ` title="${echapper(titre)}"` : ""}>${texteLien}</a>`;
       }).join("");
-      if (theseFr && /problematique|objectifs/.test(normaliser(ch.titre))) {
-        organiserSommaireProblematique(nav, corps);
-      } else if (theseFr && (ch.cle === "methodes" || ch.cle === "methode" || /m[ée]thod/i.test(ch.titre))) {
+      if (theseFr && (ch.cle === "methodes" || ch.cle === "methode" || /m[ée]thod/i.test(ch.titre))) {
         organiserSommaireObjectifs(nav, entrees);
       } else if (theseFr) {
         organiserSommaireSections(nav, entrees, ch);
-        if (!nav.classList.contains("gab-sommaire-sections")) organiserSommaireUniversel(nav, entrees);
-      } else {
-        organiserSommaireUniversel(nav, entrees);
       }
       aside.append(nav);
     }
@@ -858,10 +613,7 @@
       if (photo) tete.after(photo);
       grille.classList.add("gab-menu-gauche");
     }
-    // Thèse : le sommaire coloré est le premier élément de la grille,
-    // toujours à gauche du texte sur écran large (sans nouvel index).
-    if (salle === "recherche" && grille.classList.contains("gab-menu-gauche")) grille.append(aside, texte);
-    else grille.append(texte, aside);
+    grille.append(texte, aside);
     section.append(grille);
     // Navigation de fin de page : on passe à une autre vue, jamais au
     // chapitre suivant dans une longue page continue.
@@ -869,7 +621,7 @@
     bas.setAttribute("aria-label", T.chapitre(i + 1, n));
     bas.innerHTML =
       `<button type="button" class="gab-bas-lien gab-bas-precedent" data-gab-pas="-1"${i === 0 ? " disabled" : ""}><span class="gab-bas-chevron" aria-hidden="true">‹</span><span class="gab-bas-libelle"><small>${echapper(T.precedent)}</small><strong class="gab-nav-cible"></strong></span></button>` +
-      `<button type="button" class="gab-bas-sommaire" data-gab-pas="tous"><span class="gab-sommaire-icone" aria-hidden="true">▦</span><span>${echapper(T.tous)}</span><span class="gab-sommaire-compteur" aria-hidden="true">${deux(i + 1)} / ${deux(n)}</span></button>` +
+      `<button type="button" class="gab-bas-sommaire" data-gab-pas="tous">${echapper(T.tous)}</button>` +
       `<button type="button" class="gab-bas-lien gab-bas-suivant" data-gab-pas="1"${i === n - 1 ? " disabled" : ""}><span class="gab-bas-libelle"><small>${echapper(T.suivant)}</small><strong class="gab-nav-cible"></strong></span><span class="gab-bas-chevron" aria-hidden="true">›</span></button>`;
     section.append(bas);
     return section;
@@ -994,7 +746,7 @@
       table.classList.remove("table", "rubriques");
       table.classList.add("gab-chapitres");
       chapitres.forEach((ch, i) => {
-        const s = construireChapitre(ch, i, n, couleurChapitre(salle, i), ch.choix, salle);
+        const s = construireChapitre(ch, i, n, COULEURS[i % COULEURS.length], ch.choix, salle);
         if (!ch.surPlace) table.append(s);
       });
     } else if (mode === "elements" && n) {
@@ -1004,7 +756,7 @@
       while (repere && repere.parentElement && repere.parentElement !== sc && !repere.parentElement.matches(".colonne-outils, .section-corps")) repere = repere.parentElement;
       const parents = chapitres.map((c) => c.source.parentElement).filter(Boolean);
       if (repere) repere.before(conteneur); else corps.append(conteneur);
-      chapitres.forEach((ch, i) => conteneur.append(construireChapitre(ch, i, n, couleurChapitre(salle, i), ch.choix, salle)));
+      chapitres.forEach((ch, i) => conteneur.append(construireChapitre(ch, i, n, COULEURS[i % COULEURS.length], ch.choix, salle)));
       if (chapitres[0].ancre?.isConnected && !chapitres[0].ancre.children.length) chapitres[0].ancre.remove();
       parents.forEach((p) => p.isConnected && nettoyer(p, sc));
     }
@@ -1056,7 +808,7 @@
         `<div class="gab-tuiles">` + chapitres.map((ch, i) => {
           const large = (vides === 1 && i === 0) || (vides === 2 && (i === 0 || i === n - 1)) ? " gab-large" : vides >= 3 && i === 0 ? " gab-grande" : "";
           const vignette = ch.choix.image ? urlVignette(ch.choix.image) : ch.choix.url;
-          const photo = vignette ? ` style="--gab-c:${couleurChapitre(salle, i)};--gab-tuile:url('${echapper(vignette)}')"` : ` style="--gab-c:${couleurChapitre(salle, i)}"`;
+          const photo = vignette ? ` style="--gab-c:${COULEURS[i % COULEURS.length]};--gab-tuile:url('${echapper(vignette)}')"` : ` style="--gab-c:${COULEURS[i % COULEURS.length]}"`;
           const destination = ch.urlExterne || ("#" + salle + "/" + (ch.cle || `chapitre-${i + 1}`));
           const aller = ch.urlExterne ? "" : ' data-gab-aller="' + i + '"';
           return `<a class="gab-tuile${large}" href="${echapper(destination)}"${aller}${photo} aria-label="${echapper(T.aller(ch.titre))}"><span class="gab-tuile-num">${deux(i + 1)}</span><span class="gab-tuile-titre">${echapper(ch.titre)}</span></a>`;
@@ -1076,8 +828,6 @@
     sc.dataset.gabSalle = salle;
     sc.dataset.gabChapitres = n;
     sc.classList.add("gab");
-    // Le sommaire propre à chaque chapitre reste le seul menu latéral.
-    // Ne pas injecter l'index plat des chapitres qui masque les sections colorées.
     // La page publique (hors salle immersive) doit elle aussi montrer
     // un seul chapitre dès l'ouverture : le chapitre demandé ou le premier.
     if (n && !sc.closest("#salle")) {
@@ -1171,26 +921,19 @@
     const navigations = [$(".gab-bas-chapitre", actif)];
     if (lecture && contenu && $(".gab", contenu) === zone) navigations.push(lecture);
     navigations.filter(Boolean).forEach((nav) => {
-      const compteur = $(".gab-sommaire-compteur", nav);
-      if (compteur) compteur.textContent = deux(index + 1) + " / " + deux(liste.length);
       [-1, 1].forEach((sens) => {
         const bouton = $("[data-gab-pas='" + sens + "']", nav);
         if (!bouton) return;
         const voisin = liste[index + sens];
         const action = sens < 0 ? T.precedent : T.suivant;
         const titre = voisin ? net($(".gab-chapitre-titre", voisin)?.textContent) : "";
-        const destination = voisin
-          ? deux(index + sens + 1) + " · " + titre
-          : (sens < 0 ? T.debut : T.fin);
+        const destination = voisin ? deux(index + sens + 1) + " · " + titre : "";
         bouton.disabled = !voisin;
-        bouton.classList.toggle("gab-nav-limite", !voisin);
-        bouton.style.setProperty("--gab-nav-accent",
-          voisin ? couleurChapitre(zone.dataset.gabSalle, index + sens) : "#d0dce2");
         const cible = $(".gab-nav-cible, .gab-fleche-cible", bouton);
         if (cible) cible.textContent = destination;
-        const annonce = voisin ? action + " : " + destination : destination;
+        const annonce = destination ? action + " : " + destination : action;
         bouton.setAttribute("aria-label", annonce);
-        if (voisin) bouton.title = annonce;
+        if (destination) bouton.title = annonce;
         else bouton.removeAttribute("title");
       });
     });
@@ -1225,18 +968,7 @@
     });
     zone.classList.toggle("gab-page-chapitre", ouverte);
     zone.classList.toggle("gab-page-sommaire", !ouverte);
-    if (ouverte) {
-      nommerChapitresVoisins(zone, liste, cible);
-      const menu = $(".gab-index-chapitres", zone);
-      const aside = $(".gab-chapitre-aside", liste[cible]);
-      if (menu && aside && menu.parentElement !== aside) aside.prepend(menu);
-      if (menu) $$("[data-gab-chapitre-index]", menu).forEach((bouton) => {
-        const actif = Number(bouton.dataset.gabChapitreIndex) === cible;
-        bouton.classList.toggle("actif", actif);
-        if (actif) bouton.setAttribute("aria-current", "page");
-        else bouton.removeAttribute("aria-current");
-      });
-    }
+    if (ouverte) nommerChapitresVoisins(zone, liste, cible);
     $$(".gab-tuile[data-gab-aller]", zone).forEach((tuile, i) => {
       if (ouverte && i === cible) tuile.setAttribute("aria-current", "page");
       else tuile.removeAttribute("aria-current");
@@ -1266,14 +998,6 @@
   }
 
   D.addEventListener("click", (ev) => {
-    const lienChapitre = ev.target.closest("[data-gab-chapitre-index]");
-    if (lienChapitre) {
-      ev.preventDefault();
-      const zone = lienChapitre.closest(".gab");
-      if (zone) ouvrirPageChapitre(zone, Number(lienChapitre.dataset.gabChapitreIndex),
-        { adresse: true, haut: true });
-      return;
-    }
     const tuile = ev.target.closest("[data-gab-aller]");
     if (tuile) {
       const zone = tuile.closest(".gab");
@@ -1334,7 +1058,7 @@
       $("[data-retour]", barre).after(nom);
       if (onglets) nom.after(onglets);
       lecture = el("div", "gab-lecture");
-      lecture.innerHTML = `<button type="button" class="gab-tous" data-gab-pas="tous"><span class="gab-sommaire-icone" aria-hidden="true">▦</span><span>${echapper(T.tous)}</span><span class="gab-sommaire-compteur" aria-hidden="true"></span></button>` +
+      lecture.innerHTML = `<button type="button" class="gab-tous" data-gab-pas="tous"><span aria-hidden="true">▦</span><span>${echapper(T.tous)}</span></button>` +
         `<button type="button" class="gab-fleche gab-fleche-precedente" data-gab-pas="-1" aria-label="${echapper(T.precedent)}"><span class="gab-fleche-icone" aria-hidden="true">‹</span><span class="gab-fleche-libelle"><span class="gab-fleche-texte">${echapper(T.precedent)}</span><small class="gab-fleche-cible"></small></span></button>` +
         `<div class="gab-actuel" aria-live="polite"><b></b><span><small></small><strong></strong></span></div>` +
         `<button type="button" class="gab-fleche gab-fleche-suivante" data-gab-pas="1" aria-label="${echapper(T.suivant)}"><span class="gab-fleche-libelle"><span class="gab-fleche-texte">${echapper(T.suivant)}</span><small class="gab-fleche-cible"></small></span><span class="gab-fleche-icone" aria-hidden="true">›</span></button>` +
@@ -1349,9 +1073,6 @@
   function decorerOnglets() {
     if (!onglets) return;
     $$(".onglet-salle", onglets).forEach((b) => {
-      // L'architecture se lit par les titres, sans pictogrammes générés.
-      $$(".gab-onglet-photo", b).forEach((icone) => icone.remove());
-      return;
       if ($(".gab-onglet-photo", b)) return;
       const sousSalle = b.dataset.sous;
       // Pictogrammes vectoriels explicites : pas de photos arbitraires recadrées.
