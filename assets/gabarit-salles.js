@@ -522,6 +522,79 @@
     });
   }
 
+  // Problématique : titres du sommaire conformes à la structure scientifique,
+  // sans modifier les chapitres, les textes, les classes ni les couleurs.
+  function organiserSommaireProblematique(nav, intertitres, corps) {
+    const liens = Array.from(nav.querySelectorAll(":scope > a[data-gab-intertitre]"));
+    if (liens.length !== intertitres.length || !liens.length) return;
+    const lienPour = (regex) => liens.find((lien, i) => regex.test(normaliser(intertitres[i].textContent)));
+    const ajouterLien = (cible, libelle) => {
+      if (!cible) return null;
+      if (!cible.id) cible.id = "gab-problematique-cible-" + libelle.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+      const lien = el("a", "", echapper(libelle));
+      lien.href = "#" + encodeURIComponent(cible.id);
+      lien.dataset.gabCible = cible.id;
+      return lien;
+    };
+    const groupes = [
+      { nom: "Problématique", liens: [ajouterLien(
+        corps.querySelector(".these-question-encadre") || corps.querySelector(".these-problematique") || corps,
+        "Question de recherche"
+      )] },
+      { nom: "Objectif général", liens: [lienPour(/^objectif general$/)] },
+      { nom: "Point de thèse", liens: [lienPour(/^point de these$/)] }
+    ];
+    ["O1", "O2", "O3"].forEach((code, index) => {
+      const numero = index + 1;
+      const carte = corps.querySelector('.ov-carte[data-objectif="' + code + '"], .objectif-carte[data-objectif="' + code + '"]');
+      const lacune = carte?.querySelector(".ov-lacune-avant");
+      const objectif = lienPour(new RegExp("^o\\s*" + numero + "\\b|^objectif\\s*" + numero + "\\b"));
+      const liensObjectif = [
+        ajouterLien(lacune, "Lacune scientifique " + numero),
+        objectif
+      ].filter(Boolean);
+      groupes.push({ nom: "Lacune scientifique " + numero + " et objectif spécifique " + numero,
+        objectif: code, liens: liensObjectif });
+    });
+    const hypotheses = corps.querySelector(".these-hypotheses h4");
+    if (hypotheses) groupes.push({ nom: "Hypothèses",
+      liens: [lienPour(/^hypotheses/) || ajouterLien(hypotheses, "Hypothèses exploratoires")] });
+    const palette = [
+      { texte:"#365772", trait:"#76a2bb", fond:"#edf4f8", lien:"#f8fbfd" },
+      { texte:"#286c23", trait:"#5aae38", fond:"#ecf7e8", lien:"#f5fbf2" },
+      { texte:"#006e72", trait:"#11a7a5", fond:"#e9f7f6", lien:"#f3fbfa" },
+      { texte:"#18559b", trait:"#0755ad", fond:"#ebf2fd", lien:"#f3f7ff" }
+    ];
+    nav.classList.add("gab-sommaire-objectifs", "gab-sommaire-sections");
+    const etiquette = nav.querySelector(":scope > span");
+    nav.replaceChildren();
+    if (etiquette) nav.append(etiquette);
+    groupes.forEach((g, i) => {
+      const elements = g.liens.filter(Boolean);
+      if (!elements.length) return;
+      const couleur = g.objectif === "O1" ? palette[1] :
+        g.objectif === "O2" ? palette[2] :
+        g.objectif === "O3" ? palette[3] : palette[0];
+      const groupe = el("section", "gab-sommaire-groupe");
+      groupe.dataset.section = "objectifs-" + i;
+      if (g.objectif) groupe.dataset.objectif = g.objectif;
+      for (const [variable, valeur] of Object.entries({
+        "--objectif-texte": couleur.texte,
+        "--objectif-trait": couleur.trait,
+        "--objectif-fond": couleur.fond,
+        "--objectif-lien": couleur.lien
+      })) groupe.style.setProperty(variable, valeur);
+      groupe.setAttribute("aria-label", g.nom);
+      const entete = el("div", "gab-sommaire-groupe-titre");
+      if (g.objectif) entete.append(el("b", "", echapper(g.objectif)));
+      entete.append(el("strong", "", echapper(g.nom)));
+      const items = el("div", "gab-sommaire-groupe-liens");
+      items.append(...elements);
+      groupe.append(entete, items);
+      nav.append(groupe);
+    });
+  }
+
   function construireChapitre(ch, i, n, couleur, choix, salle) {
     const section = ch.surPlace ? ch.source : el("section");
     section.classList.add("gab-chapitre");
@@ -601,6 +674,8 @@
       }).join("");
       if (theseFr && (ch.cle === "methodes" || ch.cle === "methode" || /m[ée]thod/i.test(ch.titre))) {
         organiserSommaireObjectifs(nav, entrees);
+      } else if (theseFr && /problematique|objectifs/.test(normaliser(ch.titre))) {
+        organiserSommaireProblematique(nav, entrees, corps);
       } else if (theseFr) {
         organiserSommaireSections(nav, entrees, ch);
       }
