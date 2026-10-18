@@ -173,6 +173,28 @@
     return img ? absolue(img.getAttribute("src")) : "";
   }
 
+  // Libellés courts du sommaire français ; les titres et le contenu restent intacts.
+  const sommaireTheseFr = {
+    "1. Le problème : des besoins qui dépassent l’offre": "Besoins et offre de services",
+    "2. Quand les besoins se cumulent, la réponse se complique": "Cumul des besoins",
+    "3. Plusieurs portes d’entrée, pas une seule": "Portes d’entrée",
+    "4. Ce qui existe déjà au Québec pour intégrer les services": "Intégration des services",
+    "5. Ce que la littérature a déjà tenté": "État des connaissances",
+    "La lacune principale": "Lacune scientifique",
+    "6. Une réponse intersectorielle, pas seulement une intervention individuelle": "Réponse intersectorielle",
+    "7. Volet secondaire : territoire vécu et territoire administratif": "Territoires vécus et administratifs",
+    "8. L’idée de la thèse": "Idée de la thèse",
+    "9. Ma posture": "Posture de recherche",
+    "Lire le territoire avant de décrire les réseaux": "Lecture du territoire",
+    "Le devis : trois objectifs qui s’enchaînent": "Devis en trois objectifs",
+    "O1 · La revue de portée, de la recherche au tri": "O1 · Revue de portée",
+    "Les outils, tels qu’on les utilise": "Outils de recherche",
+    "Objectif 2 : de la donnée publique à l’atlas par territoire de CLSC": "O2 · Données et atlas",
+    "Les données du mapping : ce qu’on a, ce qu’on en fait": "Données cartographiques",
+    "Pourquoi ces deux méthodes sont indispensables": "Choix des méthodes",
+    "Mesurer l’accessibilité et la réponse de proximité": "Accessibilité et proximité"
+  };
+
   function construireChapitre(ch, i, n, couleur, choix, salle) {
     const section = ch.surPlace ? ch.source : el("section");
     section.classList.add("gab-chapitre");
@@ -216,10 +238,16 @@
       const nav = el("nav", "gab-sommaire-chapitre");
       nav.setAttribute("aria-label", T.dans);
       nav.setAttribute("tabindex", "0");
-      nav.innerHTML = `<span>${echapper(T.dans)}</span>` + intertitres.slice(0, 8).map((h, k) => {
+      const theseFr = salle === "recherche" && langue === "fr";
+      const entrees = theseFr && i === 0 ? intertitres : intertitres.slice(0, 8);
+      nav.innerHTML = `<span>${echapper(T.dans)}</span>` + entrees.map((h, k) => {
         const titre = net(h.textContent);
-        const objectif = /^O([123])\b/i.exec(titre);
-        return `<a href="#" data-gab-intertitre="${k}"${objectif ? ` data-objectif="O${objectif[1]}"` : ""}>${echapper(titre)}</a>`;
+        const prefixe = /^(?:O|Objectif\s*)([123])\b/i.exec(titre);
+        const code = h.closest("[data-objectif]")?.dataset.objectif || (prefixe ? "O" + prefixe[1] : "");
+        const objectif = /^O[123]$/.test(code) ? code : "";
+        let libelle = theseFr ? sommaireTheseFr[titre] || titre : titre;
+        if (objectif && !/^(?:O|Objectif\s*)[123]\b/i.test(libelle)) libelle = objectif + " · " + libelle;
+        return `<a href="#" data-gab-intertitre="${k}"${objectif ? ` data-objectif="${objectif}"` : ""}${libelle !== titre ? ` title="${echapper(titre)}"` : ""}>${echapper(libelle)}</a>`;
       }).join("");
       aside.append(nav);
     }

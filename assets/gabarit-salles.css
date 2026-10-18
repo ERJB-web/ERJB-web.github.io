@@ -591,3 +591,28 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   .gab[data-gab-salle="recherche"] .gab-bandeau .bandeau-titre{font-size:clamp(30.6px,9vw,41.4px)}
   .gab[data-gab-salle="recherche"] .gab-bandeau .bandeau-legende{font-size:14.4px}
 }
+
+/* Sommaire de la thèse : libellés courts et palette des objectifs. */
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre{
+  padding:12px 10px;
+  gap:3px;
+  background:#f7fafb;
+  border-inline-start:2px solid #d7e4e9;
+  border-radius:12px;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre a{
+  padding:7px 9px;
+  border-radius:7px;
+  font-size:14px;
+  font-weight:500;
+  line-height:1.35;
+  text-align:start!important;
+  text-align-last:auto!important;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-chapitre a[data-objectif]{
+  font-weight:700;
+  border-inline-start:3px solid var(--sommaire-trait);
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-chapitre a[data-objectif="O1"]{--sommaire-objectif:#2e751e;--sommaire-fond:#e8f5e3;--sommaire-trait:#5aae38}
+.gab[data-gab-salle="recherche"] .gab-sommaire-chapitre a[data-objectif="O2"]{--sommaire-objectif:#006d6b;--sommaire-fond:#e0f4f3;--sommaire-trait:#11a7a5}
+.gab[data-gab-salle="recherche"] .gab-sommaire-chapitre a[data-objectif="O3"]{--sommaire-objectif:#0755ad;--sommaire-fond:#e6effc;--sommaire-trait:#0755ad}
