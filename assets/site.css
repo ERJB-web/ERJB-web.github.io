@@ -5358,3 +5358,49 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
   grid-column:auto;
   grid-row:auto;
 }
+
+/* Thèse : bandeau des affiliations en pleine largeur, logos nets (octobre 2026). */
+#recherche .section-corps.pleine.these > .colonne-outils{
+  column-count:1 !important;
+  column-width:auto !important;
+  columns:auto !important;
+  width:100%;
+  max-width:none;
+  min-width:0;
+}
+#recherche .these .rubriques[data-rubriques="these"],
+#recherche .these .rubriques[data-rubriques="these"] > .rubrique-corps{
+  width:100%;
+  max-width:none;
+  min-width:0;
+  box-sizing:border-box;
+}
+#recherche .these .logos-recherche{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  max-width:none;
+  min-width:0;
+  box-sizing:border-box;
+  margin:28px 0 12px;
+  padding:clamp(16px,2.6vw,34px);
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+}
+#recherche .these .logos-recherche img{
+  display:block;
+  width:100%;
+  max-width:1300px;
+  height:auto;
+  margin:0 auto;
+  object-fit:contain;
+}
+@media(max-width:640px){
+  #recherche .these .logos-recherche{
+    margin-block:20px 10px;
+    padding:12px 8px;
+    border-radius:12px;
+  }
+}
