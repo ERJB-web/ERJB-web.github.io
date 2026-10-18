@@ -6215,6 +6215,12 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
   body :not(svg,svg *, .entete, .entete *, .accueil, .accueil *) {
     font-size:12pt!important;
   }
+  /* Uniquement les menus de chapitres dans la colonne de gauche :
+     16 px -> 14 px (-2 px). Barre du haut et autres éléments exclus. */
+  body .gab .gab-chapitre-aside .gab-sommaire-chapitre,
+  body .gab .gab-chapitre-aside .gab-sommaire-chapitre * {
+    font-size:14px!important;
+  }
   body :is(h1,h2,h3,h4,h5,h6,[role="heading"],
     .bandeau-titre,.porte-titre,.gab-tuile-titre,.titre-bloc,
     .these-question-principale > span):not(.entete *, .accueil *),
