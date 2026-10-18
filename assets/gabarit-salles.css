@@ -835,3 +835,28 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   .gab-bas-chapitre button{padding:10px 11px;font-size:12px}
   .gab-bas-chapitre .gab-bas-suivant{margin-left:auto}
 }
+
+
+/* Sommaire des chapitres : numéros d'étapes séparés du titre.
+   Évite « 1Les » / « 3O3 » et aligne les retours à la ligne. */
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre a.gab-sommaire-etape {
+  display:grid;
+  grid-template-columns:1.7em minmax(0,1fr);
+  align-items:start;
+  column-gap:.65em;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-etape-num {
+  display:inline-block;
+  padding:.15em .25em;
+  border-radius:5px;
+  background:#e8f2f7;
+  color:#0879be;
+  font-size:.76em;
+  font-weight:700;
+  font-variant-numeric:tabular-nums;
+  line-height:1.5;
+  text-align:center;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-etape-texte {
+  min-width:0;
+}
