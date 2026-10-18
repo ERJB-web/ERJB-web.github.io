@@ -168,7 +168,7 @@
         if(!zone.isConnected)return;
         const svg=sourceR.figures?.[zone.dataset.o3RKey];
         if(!svg)throw Error("Graphique absent");
-        zone.innerHTML=svg.replace(/^<\\?xml[^>]*>\\s*/i,"");
+        zone.innerHTML=svg.replace(/^<\?xml[^>]*>\s*/i,"");
         zone.dataset.charge="oui";
         const image=zone.querySelector("svg");
         if(image){image.setAttribute("role","img");image.setAttribute("aria-label",donnees[+zone.closest("[data-o3-slide]").dataset.o3Slide].titre)}
