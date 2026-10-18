@@ -1370,7 +1370,7 @@
     });
     navigation.querySelectorAll('a[data-objectif]').forEach(lien => {
       const actif = lien.dataset.objectif === code;
-      lien.setAttribute('aria-expanded', String(actif));
+      lien.setAttribute('aria-expanded', 'true');
       if (actif) lien.setAttribute('aria-current', 'step');
       else lien.removeAttribute('aria-current');
     });
