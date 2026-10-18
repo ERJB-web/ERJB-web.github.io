@@ -6208,3 +6208,37 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
     scroll-snap-align:start;
   }
 }
+
+/* Règle commune demandée : titres 18 points, texte 12 points.
+   La couche prioritaire évite que les anciens styles de salles ou styles
+   embarqués réintroduisent des tailles variables. Le zoom accessible reste disponible. */
+@layer typographie-site {
+  body,
+  body :not(svg,svg *) {
+    font-size:12pt!important;
+  }
+  body :is(h1,h2,h3,h4,h5,h6,[role="heading"],
+    .bandeau-titre,.porte-titre,.gab-tuile-titre,.titre-bloc,
+    .these-question-principale > span),
+  body :is(h1,h2,h3,h4,h5,h6,[role="heading"],
+    .bandeau-titre,.porte-titre,.gab-tuile-titre,.titre-bloc,
+    .these-question-principale > span) :not(svg,svg *) {
+    font-size:18pt!important;
+    line-height:1.3!important;
+  }
+  body :is(p,li,dd,dt,blockquote,td,th,figcaption) {
+    line-height:1.6!important;
+  }
+  body .these-question-principale {
+    margin-block:24px!important;
+    padding:20px 24px!important;
+  }
+  body .these-question-principale > span {
+    margin-bottom:12px!important;
+    letter-spacing:.04em!important;
+  }
+  body .these-question-principale p {
+    font-size:12pt!important;
+    line-height:1.6!important;
+  }
+}
