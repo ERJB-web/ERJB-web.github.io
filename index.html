@@ -452,7 +452,126 @@ html:is(.hc,.lv) .these-entete .these-question-principale{
 <div class="o1-critere-col inclusion"><strong>Inclusion</strong><ul><li>Études quantitatives, qualitatives ou mixtes ; revues systématiques ou de portée ; travaux théoriques ou conceptuels définissant les besoins sociaux de cette population ; rapports gouvernementaux ou institutionnels.</li><li>Publications <strong>en français ou en anglais</strong>, depuis <strong>2006</strong>.</li></ul></div>
 <div class="o1-critere-col exclusion"><strong>Exclusion</strong><ul><li>Résumés de congrès, thèses et mémoires, protocoles d’étude, éditoriaux et lettres sans données, ou publications décrivant insuffisamment les besoins sociaux.</li><li>Autres langues que le français ou l’anglais, ou publication antérieure à 2006.</li></ul></div></div></article>
 <div class="o1-suite"><h6>Du test de faisabilité à la sélection des études</h6><ol><li><strong>Ébauche testée.</strong> Les critères et la grille d’extraction servent d’exemple de paramétrage ; une première extraction exploratoire a permis de repérer les ajustements nécessaires.</li><li><strong>Révision avec un bibliothécaire.</strong> La stratégie documentaire, les règles d’admissibilité et les champs d’extraction seront clarifiés et affinés avant le tri systématique, avec un essai pilote de concordance.</li><li><strong>Sélection indépendante et arbitrage.</strong> Deux évaluateurs examineront séparément les titres et résumés, puis les textes intégraux. Les désaccords seront discutés et, s’ils persistent, tranchés par un <strong>troisième évaluateur arbitre</strong>, avant l’extraction en double.</li></ol></div>
-</div></section><article class="these-methode-objectif" data-objectif="O1" id="these-methode-o1"><h4 class="titre-bloc"><span class="objectif-code">O1</span> Profils de besoins</h4><div class="methode-these-corps"><dl class="these-methode-grille"><div class="these-methode-item" data-type="devis"><dt>Devis</dt><dd>Revue de portée (JBI, PRISMA-ScR), plus l’analyse descriptive quantitative des demandes au 211.</dd></div><div class="these-methode-item"><dt>Population</dt><dd>Études sur les 65 ans et plus vivant à domicile ayant une ou plusieurs morbidités ; demandes au 211 des 70 ans et plus sur le territoire du CCSMTL (60 ans et plus en analyse de sensibilité).</dd></div><div class="these-methode-item"><dt>Échantillonnage</dt><dd>Aucun : toute la littérature repérée est examinée. Bases : MEDLINE, Embase, APA PsycInfo (Ovid) et PubMed ; stratégie de 42 lignes en 7 blocs, validée sur 6 articles de référence.</dd></div><div class="these-methode-item"><dt>Collecte</dt><dd>60 957 notices → −8 938 (avant 2006) → 52 021 dans Covidence → −25 412 doublons → 26 609 à trier. À ce stade, les 26 609 notices restent à sélectionner. La grille provisoire et un premier exercice d’extraction ont servi de test de faisabilité ; ils seront affinés avec un bibliothécaire. Après un pilote de concordance, deux évaluateurs indépendants examineront titres et résumés, puis textes intégraux ; un troisième arbitre tranchera les désaccords persistants. Extraction en double prévue (définitions, instruments, domaines, profils).</dd></div><div class="these-methode-item"><dt>Analyse</dt><dd>Synthèse descriptive en une grille de 10 à 14 domaines reliée à la taxonomie du 211 ; besoins satisfaits ou non au 211, avec leurs motifs.</dd></div><div class="these-methode-item" data-type="produit"><dt>Produit</dt><dd>Typologie des profils de besoins concomitants et vignettes.</dd></div></dl></div><div class="ia-reperes"><article><h5>Pourquoi des profils de besoins concomitants, plutôt que 12 domaines séparés ?</h5><p>Une personne aînée ne vit pas ses besoins un à un : l’escalier, l’épicerie, la solitude et les formulaires se renforcent. Garder 12 domaines séparés reproduit la fragmentation que le CSBE reproche au SAD, où chaque service répond à son seul domaine. Le profil décrit la combinaison, donc la réponse à organiser : qui mobiliser ensemble. Il intègre une ou plusieurs morbidités, parce qu’elles changent la nature de la réponse (la moitié des 65 ans et plus vivent avec plusieurs morbidités).</p></article><article><h5>Pourquoi des profils et non la personne ?</h5><p>Faisabilité d’abord : les données individuelles du SAD (OEMC, I-CLSC) exigent une autorisation légale et au moins 2 000 usagers ; la simulation du protocole montre qu’en deçà on ne retrouve pas les profils, et qu’au 211 (1,4 besoin par demande) aucune taille ne suffit. Ensuite, le niveau de décision : un CLSC planifie pour des groupes de situations, pas pour un cas. Enfin, l’éthique et le transfert : un profil traduit en vignette (Madame Protocole) se soumet à toutes les équipes sans exposer personne.</p></article></div><figure class="figure-officielle"><img src="assets/these/covidence-flux.jpg?v=223af49e" alt="Capture de Covidence : 25 412 doublons retirés et 26 609 études à trier" loading="lazy" style="max-width:100%;height:auto"><figcaption class="note">Dédoublonnage effectué dans Covidence : 52 021 notices importées, 25 412 doublons retirés et 26 609 notices restant à sélectionner par deux évaluateurs indépendants. <span class="ref">Capture d’écran : Covidence, revue de portée O1 d’Eric Bernier, octobre 2026.</span></figcaption></figure></article>
+</div></section>
+<style id="o1-methode-visuelle-css">
+/* O1 : étapes 04 et 05 lisibles en largeur, avec bilan, procédure et analyse. */
+#these-methode-o1 .these-methode-grille > :is(.o1-methode-collecte,.o1-methode-analyse){
+  grid-column:1/-1;min-width:0;background:#fff;border-color:#d8e5eb;
+}
+#these-methode-o1 :is(.o1-methode-collecte,.o1-methode-analyse) > dd{
+  max-width:none;min-width:0;font-size:15px;line-height:1.5;
+}
+#these-methode-o1 .o1-methode-flux{
+  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;
+}
+#these-methode-o1 .o1-methode-chiffre{
+  display:flex;flex-direction:column;justify-content:center;gap:7px;min-width:0;
+  padding:17px 13px;border:1px solid #d6e4ea;border-radius:11px;
+  background:#f5f9fb;text-align:center;
+}
+#these-methode-o1 .o1-methode-chiffre strong{
+  color:#164a63;font:750 clamp(21px,1.9vw,30px)/1.1 var(--sans,Arial,sans-serif);
+  letter-spacing:-.035em;font-variant-numeric:tabular-nums;
+}
+#these-methode-o1 .o1-methode-chiffre span{
+  color:#425c69;font:550 13px/1.35 var(--sans,Arial,sans-serif);
+  text-wrap:balance;hyphens:none;
+}
+#these-methode-o1 .o1-methode-retrait{background:#fafbfc}
+#these-methode-o1 .o1-methode-retrait strong{color:#627480}
+#these-methode-o1 .o1-methode-attente{border-color:#a7c9b4;background:#eef7f0}
+#these-methode-o1 .o1-methode-attente strong{color:#226c47}
+#these-methode-o1 .o1-methode-statut{
+  margin:13px 0 19px;padding:10px 14px;border-inline-start:3px solid #3b8a67;
+  border-radius:0 8px 8px 0;background:#f1f7f3;color:#2b5141;
+  font:500 13.5px/1.55 var(--sans,Arial,sans-serif);
+}
+#these-methode-o1 .o1-methode-procedure{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;
+}
+#these-methode-o1 .o1-methode-phase{
+  min-width:0;padding:15px 18px;border:1px solid #e0e8eb;
+  border-radius:10px;background:#fbfcfd;
+}
+#these-methode-o1 .o1-methode-phase-num{
+  display:block;margin-bottom:7px;color:#357691;
+  font:750 11px/1.3 var(--sans,Arial,sans-serif);
+  letter-spacing:.055em;text-transform:uppercase;
+}
+#these-methode-o1 .o1-methode-phase > strong{
+  display:block;margin-bottom:5px;color:#213f4c;
+  font:700 15px/1.35 var(--sans,Arial,sans-serif);
+}
+#these-methode-o1 .o1-methode-phase p{
+  margin:0;color:#425866;font:400 13.5px/1.55 var(--sans,Arial,sans-serif);
+  text-align:start;hyphens:none;text-wrap:pretty;
+}
+#these-methode-o1 .o1-analyse-intro{
+  margin:0 0 14px;color:#3e5865;font:450 15px/1.55 var(--sans,Arial,sans-serif);
+}
+#these-methode-o1 .o1-analyse-piliers{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+}
+#these-methode-o1 .o1-analyse-pilier{
+  min-width:0;padding:20px 21px;border:1px solid #dce8ec;border-radius:11px;
+  background:#f5f9fb;
+}
+#these-methode-o1 .o1-analyse-valeur{
+  display:block;margin-bottom:11px;color:#1c6988;
+  font:750 clamp(24px,2.1vw,32px)/1.12 var(--sans,Arial,sans-serif);
+  letter-spacing:-.025em;
+}
+#these-methode-o1 .o1-analyse-valeur-texte{
+  font-size:clamp(17px,1.5vw,23px);line-height:1.25;
+}
+#these-methode-o1 .o1-analyse-titre{
+  display:block;margin-bottom:6px;color:#203f4d;
+  font:700 15px/1.35 var(--sans,Arial,sans-serif);
+}
+#these-methode-o1 .o1-analyse-pilier p{
+  margin:0;color:#49606c;font:400 13.5px/1.55 var(--sans,Arial,sans-serif);
+  text-align:start;hyphens:none;text-wrap:pretty;
+}
+@media(max-width:850px){
+  #these-methode-o1 .o1-methode-flux{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #these-methode-o1 .o1-methode-attente{grid-column:1/-1}
+  #these-methode-o1 .o1-analyse-piliers{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:560px){
+  #these-methode-o1 :is(.o1-methode-collecte,.o1-methode-analyse){padding:17px 15px}
+  #these-methode-o1 .o1-methode-procedure{grid-template-columns:minmax(0,1fr)}
+  #these-methode-o1 .o1-methode-chiffre{padding:14px 10px}
+  #these-methode-o1 .o1-methode-chiffre strong{font-size:23px}
+  #these-methode-o1 .o1-methode-phase{padding:13px 15px}
+}
+</style>
+<article class="these-methode-objectif" data-objectif="O1" id="these-methode-o1"><h4 class="titre-bloc"><span class="objectif-code">O1</span> Profils de besoins</h4><div class="methode-these-corps"><dl class="these-methode-grille"><div class="these-methode-item" data-type="devis"><dt>Devis</dt><dd>Revue de portée (JBI, PRISMA-ScR), plus l’analyse descriptive quantitative des demandes au 211.</dd></div><div class="these-methode-item"><dt>Population</dt><dd>Études sur les 65 ans et plus vivant à domicile ayant une ou plusieurs morbidités ; demandes au 211 des 70 ans et plus sur le territoire du CCSMTL (60 ans et plus en analyse de sensibilité).</dd></div><div class="these-methode-item"><dt>Échantillonnage</dt><dd>Aucun : toute la littérature repérée est examinée. Bases : MEDLINE, Embase, APA PsycInfo (Ovid) et PubMed ; stratégie de 42 lignes en 7 blocs, validée sur 6 articles de référence.</dd></div><div class="these-methode-item o1-methode-collecte">
+<dt>Collecte</dt>
+<dd>
+  <div class="o1-methode-flux" aria-label="Bilan des notices de la recherche documentaire">
+    <div class="o1-methode-chiffre"><strong>60 957</strong><span>Notices repérées</span></div>
+    <div class="o1-methode-chiffre o1-methode-retrait"><strong>−8 938</strong><span>Avant 2006</span></div>
+    <div class="o1-methode-chiffre"><strong>52 021</strong><span>Importées dans Covidence</span></div>
+    <div class="o1-methode-chiffre o1-methode-retrait"><strong>−25 412</strong><span>Doublons retirés</span></div>
+    <div class="o1-methode-chiffre o1-methode-attente"><strong>26 609</strong><span>Notices à sélectionner</span></div>
+  </div>
+  <p class="o1-methode-statut"><strong>État d’avancement :</strong> les 26 609 notices restent à sélectionner ; le tri systématique est à venir.</p>
+  <div class="o1-methode-procedure" aria-label="Étapes de sélection et d’extraction">
+    <div class="o1-methode-phase"><span class="o1-methode-phase-num">01 · Réalisé</span><strong>Test de faisabilité</strong><p>Grille provisoire rédigée et premier exercice d’extraction effectué pour vérifier sa faisabilité.</p></div>
+    <div class="o1-methode-phase"><span class="o1-methode-phase-num">02 · Prévu</span><strong>Affinement du protocole</strong><p>Révision de la grille avec un bibliothécaire, puis pilote de concordance entre évaluateurs.</p></div>
+    <div class="o1-methode-phase"><span class="o1-methode-phase-num">03 · Prévu</span><strong>Sélection indépendante</strong><p>Deux évaluateurs examineront les titres et résumés, puis les textes intégraux ; un troisième arbitre tranchera les désaccords persistants.</p></div>
+    <div class="o1-methode-phase"><span class="o1-methode-phase-num">04 · Prévu</span><strong>Extraction en double</strong><p>Recueil des définitions, instruments, domaines et profils par deux évaluateurs.</p></div>
+  </div>
+</dd></div><div class="these-methode-item o1-methode-analyse">
+<dt>Analyse</dt>
+<dd>
+  <p class="o1-analyse-intro">Synthèse descriptive structurée autour de trois composantes complémentaires.</p>
+  <div class="o1-analyse-piliers">
+    <div class="o1-analyse-pilier"><strong class="o1-analyse-valeur">10 à 14</strong><span class="o1-analyse-titre">Domaines</span><p>Organisation de la grille de synthèse descriptive.</p></div>
+    <div class="o1-analyse-pilier"><strong class="o1-analyse-valeur">211</strong><span class="o1-analyse-titre">Taxonomie de référence</span><p>Mise en correspondance des domaines avec ceux des demandes au 211.</p></div>
+    <div class="o1-analyse-pilier"><strong class="o1-analyse-valeur o1-analyse-valeur-texte">Satisfaits / non satisfaits</strong><span class="o1-analyse-titre">Statut des besoins</span><p>Description des besoins déclarés au 211, accompagnés de leurs motifs.</p></div>
+  </div>
+</dd></div><div class="these-methode-item" data-type="produit"><dt>Produit</dt><dd>Typologie des profils de besoins concomitants et vignettes.</dd></div></dl></div><div class="ia-reperes"><article><h5>Pourquoi des profils de besoins concomitants, plutôt que 12 domaines séparés ?</h5><p>Une personne aînée ne vit pas ses besoins un à un : l’escalier, l’épicerie, la solitude et les formulaires se renforcent. Garder 12 domaines séparés reproduit la fragmentation que le CSBE reproche au SAD, où chaque service répond à son seul domaine. Le profil décrit la combinaison, donc la réponse à organiser : qui mobiliser ensemble. Il intègre une ou plusieurs morbidités, parce qu’elles changent la nature de la réponse (la moitié des 65 ans et plus vivent avec plusieurs morbidités).</p></article><article><h5>Pourquoi des profils et non la personne ?</h5><p>Faisabilité d’abord : les données individuelles du SAD (OEMC, I-CLSC) exigent une autorisation légale et au moins 2 000 usagers ; la simulation du protocole montre qu’en deçà on ne retrouve pas les profils, et qu’au 211 (1,4 besoin par demande) aucune taille ne suffit. Ensuite, le niveau de décision : un CLSC planifie pour des groupes de situations, pas pour un cas. Enfin, l’éthique et le transfert : un profil traduit en vignette (Madame Protocole) se soumet à toutes les équipes sans exposer personne.</p></article></div><figure class="figure-officielle"><img src="assets/these/covidence-flux.jpg?v=223af49e" alt="Capture de Covidence : 25 412 doublons retirés et 26 609 études à trier" loading="lazy" style="max-width:100%;height:auto"><figcaption class="note">Dédoublonnage effectué dans Covidence : 52 021 notices importées, 25 412 doublons retirés et 26 609 notices restant à sélectionner par deux évaluateurs indépendants. <span class="ref">Capture d’écran : Covidence, revue de portée O1 d’Eric Bernier, octobre 2026.</span></figcaption></figure></article>
 <h4 class="titre-bloc these-objectif-limites-titre">Limites et parades</h4><ul class="puces limites-these">
 <li><b>Une demande au 211 n’est pas une personne</b> : on analyse les besoins réunis dans une même demande.</li>
 </ul>
