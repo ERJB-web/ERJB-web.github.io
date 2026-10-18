@@ -802,7 +802,7 @@
 
   noterTitres();
   if (langue === "fr") lierReferencesCadreThese();
-  $("section.section[data-salle] > .section-contenu").forEach(transformer);
+  $$("section.section[data-salle] > .section-contenu").forEach(transformer);
   // Les figures de l'atlas peuvent être ajoutées après la transformation.
   if (langue === "fr") $$(".these").forEach((zone) => {
     retirerImagesRepeteesThese(zone);
