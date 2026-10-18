@@ -65,6 +65,18 @@ const AUTEUR_SITE = {
   ar: "المحتوى والتفكير الأصليان من إنشاء Éric Bernier وتحريره، على مسؤولية المؤلف وحده. ربما استُخدم الذكاء الاصطناعي للمساعدة في البرمجة والتصميم الجرافيكي.",
   ru: "Оригинальное содержание и размышления созданы и написаны Éric Bernier под исключительную ответственность автора. ИИ мог использоваться для помощи в программировании и создании графики.",
 };
+const ATTRIBUTION_EXEMPLES = {
+  fr: ["Réalisation des exemples méthodologiques", "La réflexion scientifique, les choix méthodologiques, la structuration des exemples, la réalisation des cartes dans QGIS, l’analyse, l’interprétation et la rédaction sont assurées par l’auteur. Le traitement et le codage des données sont effectués en R dans l’environnement Positron. L’assistance de Claude est limitée aux graphismes et à la programmation du site Internet ; Claude n’intervient ni dans le codage ou l’analyse des données, ni dans la rédaction scientifique."],
+  en: ["Production of methodological examples", "The scientific reasoning, methodological choices, organisation of the examples, creation of maps in QGIS, analysis, interpretation and writing are carried out by the author. Data processing and coding are carried out in R using Positron. Claude’s assistance is limited to graphics and website programming; Claude is not used for data coding or analysis, or for scientific writing."],
+  es: ["Realización de los ejemplos metodológicos", "La reflexión científica, las decisiones metodológicas, la estructuración de los ejemplos, la elaboración de mapas en QGIS, el análisis, la interpretación y la redacción son responsabilidad del autor. El tratamiento y la codificación de los datos se realizan en R con Positron. La asistencia de Claude se limita a los gráficos y a la programación del sitio web; Claude no interviene en la codificación o el análisis de los datos ni en la redacción científica."],
+  zh: ["方法示例的制作", "科学思考、方法选择、示例结构设计、使用 QGIS 制作地图、分析、解释和科学写作均由作者本人完成。数据处理和编码使用 Positron 环境中的 R 语言完成。Claude 的辅助仅限于图形设计和网站编程，不参与数据编码、数据分析或科学写作。"],
+  ar: ["إعداد الأمثلة المنهجية", "يتولى المؤلف بنفسه التفكير العلمي والاختيارات المنهجية وتنظيم الأمثلة وإعداد الخرائط باستخدام QGIS والتحليل والتفسير والكتابة العلمية. وتُعالج البيانات وتُبرمج بلغة R في بيئة Positron. وتقتصر مساعدة Claude على الرسوم والتصميم البصري وبرمجة الموقع الإلكتروني، دون المشاركة في ترميز البيانات أو تحليلها أو كتابة المحتوى العلمي."],
+  ru: ["Подготовка методологических примеров", "Научное осмысление, выбор методов, структурирование примеров, создание карт в QGIS, анализ, интерпретация и написание научных текстов выполняются автором. Обработка и кодирование данных осуществляются на языке R в среде Positron. Помощь Claude ограничивается графикой и программированием сайта; Claude не используется для кодирования или анализа данных и подготовки научных текстов."],
+};
+function attributionExemples(lang) {
+  const [titre, texte] = ATTRIBUTION_EXEMPLES[lang] || ATTRIBUTION_EXEMPLES.en;
+  return `<p class="note these-exemples-attribution"><strong>${e(titre)}.</strong> ${e(texte)}</p>`;
+}
 const URL = "https://erjb-web.github.io/";
 const TELEPHONE = ["(263) 384-3050", "+12633843050"];
 const GROUPES = [
@@ -865,7 +877,7 @@ ${lien(
 )}
 <h4 class="titre-bloc">${e(r.codirection.titre)}</h4>
 <div class="codirection">${r.codirection.personnes.map((pe) => `<article class="personne"><h4>${e(pe.nom)}<span class="grade">${e(pe.grade)}</span></h4><ul>${pe.lignes.map((l) => `<li>${e(l)}</li>`).join("")}</ul><p class="chaire">${e(pe.chaire)}</p>${lien(pe.lien, `${e(r.codirection.profil)} <span aria-hidden="true">↗</span>`, "profil")}</article>`).join("")}</div>`;
-  const methodes = `<h3>${e(t.titres[4])}</h3>${SNA_EXEMPLES(c.lang)}<p class="these-fil"><span data-objectif="O1">O1</span><span aria-hidden="true">→</span><span data-objectif="O2">O2</span><span aria-hidden="true">→</span><span data-objectif="O3">O3</span><strong>${e(f.labels.articulation)}</strong></p><div class="these-methodes">${f.methodes.map((texte, i) => `<article class="objectif-carte" data-objectif="O${i + 1}"><h4><span class="objectif-code">O${i + 1}</span> ${e(n.etapes[i])}</h4><p class="these-formulation">${e(texte)}</p><button class="these-renvoi" type="button" data-these-vers="objectifs" data-these-objectif="O${i + 1}">${e(n.objectif)} <span aria-hidden="true">↗</span></button></article>`).join("")}</div>
+  const methodes = `<h3>${e(t.titres[4])}</h3>${attributionExemples(c.lang)}${SNA_EXEMPLES(c.lang)}<p class="these-fil"><span data-objectif="O1">O1</span><span aria-hidden="true">→</span><span data-objectif="O2">O2</span><span aria-hidden="true">→</span><span data-objectif="O3">O3</span><strong>${e(f.labels.articulation)}</strong></p><div class="these-methodes">${f.methodes.map((texte, i) => `<article class="objectif-carte" data-objectif="O${i + 1}"><h4><span class="objectif-code">O${i + 1}</span> ${e(n.etapes[i])}</h4><p class="these-formulation">${e(texte)}</p><button class="these-renvoi" type="button" data-these-vers="objectifs" data-these-objectif="O${i + 1}">${e(n.objectif)} <span aria-hidden="true">↗</span></button></article>`).join("")}</div>
 <details class="protocole-these these-protocole-detail"><summary>${e(p.titre)}</summary>
 <p class="note-protocole">${e(p.etat)}</p>
 <h4>${e(p.devis.titre)}</h4>
