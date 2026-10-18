@@ -8,3 +8,8 @@
 @media print{.topbar,.nav-toggle,.page-next,.lab-actions{display:none!important}.shell{padding:0}body{background:white}.masthead{color:#111;background:white;min-height:auto;padding:20px;border:1px solid #ddd}.masthead:before,.masthead:after{display:none}.masthead h1,.masthead p{color:#111}.section{break-inside:avoid}.panel,.illustration{box-shadow:none}}
 
 .image-card>img{display:block;width:100%;height:210px;object-fit:cover;object-position:center}
+
+/* Alignement des paragraphes rédigés dans le dossier Implantation uniquement. */
+#app :is(.section,.masthead,.panel) p:not(:is(.eyebrow,.overline,.kicker,.figure-note)) {
+  text-align:justify;
+}
