@@ -553,7 +553,7 @@
   // Structure commune à toutes les portes : chapitre → section → titres.
   // Les intertitres réels constituent les sections, sans changer les textes.
   function organiserSommaireUniversel(nav, intertitres) {
-    const liens = $(":scope > a[data-gab-intertitre]", nav);
+    const liens = $$(":scope > a[data-gab-intertitre]", nav);
     if (!liens.length || liens.length !== intertitres.length) return;
     const groupes = [];
     let courant = null;
@@ -1089,7 +1089,7 @@
       const menu = $(".gab-index-chapitres", zone);
       const aside = $(".gab-chapitre-aside", liste[cible]);
       if (menu && aside && menu.parentElement !== aside) aside.prepend(menu);
-      if (menu) $("[data-gab-chapitre-index]", menu).forEach((bouton) => {
+      if (menu) $$("[data-gab-chapitre-index]", menu).forEach((bouton) => {
         const actif = Number(bouton.dataset.gabChapitreIndex) === cible;
         bouton.classList.toggle("actif", actif);
         if (actif) bouton.setAttribute("aria-current", "page");
@@ -1209,7 +1209,7 @@
     if (!onglets) return;
     $$(".onglet-salle", onglets).forEach((b) => {
       // L'architecture se lit par les titres, sans pictogrammes générés.
-      $(".gab-onglet-photo", b).forEach((icone) => icone.remove());
+      $$(".gab-onglet-photo", b).forEach((icone) => icone.remove());
       return;
       if ($(".gab-onglet-photo", b)) return;
       const sousSalle = b.dataset.sous;
