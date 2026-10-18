@@ -550,6 +550,92 @@
     });
   }
 
+  // Structure commune à toutes les portes : chapitre → section → titres.
+  // Les intertitres réels constituent les sections, sans changer les textes.
+  function organiserSommaireUniversel(nav, intertitres) {
+    const liens = $(":scope > a[data-gab-intertitre]", nav);
+    if (!liens.length || liens.length !== intertitres.length) return;
+    const groupes = [];
+    let courant = null;
+    liens.forEach((lien, i) => {
+      const h = intertitres[i];
+      if (h.tagName === "H3") {
+        courant = { titre: texteTitre(h), entete: lien, liens: [] };
+        groupes.push(courant);
+      } else {
+        if (!courant || (!courant.entete && courant.liens.length >= 5)) {
+          courant = { titre: "", entete: null, liens: [] };
+          groupes.push(courant);
+        }
+        courant.liens.push(lien);
+      }
+    });
+    if (!groupes.length) return;
+    nav.classList.add("gab-sommaire-objectifs", "gab-sommaire-sections", "gab-sommaire-universel");
+    const etiquette = nav.querySelector(":scope > span");
+    nav.replaceChildren();
+    if (etiquette) nav.append(etiquette);
+    const palette = [
+      ["#2B5878","#7398B5","#EBF3F9","#F6FAFD"],
+      ["#286C40","#63A77F","#E9F5ED","#F6FBF7"],
+      ["#0A6C79","#43A0AC","#E8F5F6","#F4FBFB"],
+      ["#79548A","#A77EBA","#F4EBF7","#FAF6FC"],
+      ["#98612F","#CAA06A","#FAF1E6","#FDF9F4"],
+      ["#945764","#C48792","#FAECEF","#FDF7F9"]
+    ];
+    groupes.forEach((g, i) => {
+      const bloc = el("section", "gab-sommaire-groupe");
+      bloc.dataset.section = String(i + 1);
+      const couleurs = palette[i % palette.length];
+      ["--objectif-texte","--objectif-trait","--objectif-fond","--objectif-lien"]
+        .forEach((nom, j) => bloc.style.setProperty(nom, couleurs[j]));
+      const titre = el("div", "gab-sommaire-groupe-titre");
+      titre.append(el("b", "", deux(i + 1)));
+      if (g.entete) {
+        g.entete.classList.add("gab-section-lien-titre");
+        titre.append(g.entete);
+        bloc.setAttribute("aria-label", g.titre);
+      } else {
+        const libelle = A[1] + " " + deux(i + 1);
+        titre.append(el("strong", "", echapper(libelle)));
+        bloc.setAttribute("aria-label", libelle);
+      }
+      const liste = el("div", "gab-sommaire-groupe-liens");
+      liste.append(...g.liens);
+      bloc.append(titre, liste);
+      nav.append(bloc);
+    });
+  }
+
+  // Un seul menu de chapitres par catégorie ; on le déplace avec la page active.
+  function creerIndexChapitres(zone) {
+    const chapitres = chapitresDe(zone);
+    if (!chapitres.length || $(".gab-index-chapitres", zone)) return;
+    const nav = el("nav", "gab-index-chapitres");
+    nav.setAttribute("aria-label", A[0]);
+    nav.append(el("span", "gab-index-titre", echapper(A[0])));
+    const liste = el("div", "gab-index-liste");
+    chapitres.forEach((ch, i) => {
+      const titre = net($(".gab-chapitre-titre", ch)?.textContent);
+      const bouton = el("button", "gab-index-lien");
+      bouton.type = "button";
+      bouton.dataset.gabChapitreIndex = String(i);
+      bouton.style.setProperty("--chap-c", couleurChapitre(zone.dataset.gabSalle, i));
+      bouton.innerHTML = `<b>${deux(i + 1)}</b><span>${echapper(titre)}</span>`;
+      bouton.setAttribute("aria-label", T.aller(titre));
+      liste.append(bouton);
+    });
+    nav.append(liste);
+    const premier = $(".gab-chapitre-aside", chapitres[0]);
+    if (premier) premier.prepend(nav);
+    chapitres.forEach((ch) => {
+      const photo = $(".gab-chapitre-aside > .gab-photo", ch);
+      const entete = $(".gab-chapitre-tete", ch);
+      if (photo && entete) entete.after(photo);
+      $(".gab-chapitre-grille", ch)?.classList.add("gab-menu-global");
+    });
+  }
+
   function construireChapitre(ch, i, n, couleur, choix, salle) {
     const section = ch.surPlace ? ch.source : el("section");
     section.classList.add("gab-chapitre");
@@ -857,6 +943,7 @@
     sc.dataset.gabSalle = salle;
     sc.dataset.gabChapitres = n;
     sc.classList.add("gab");
+    creerIndexChapitres(sc);
     // La page publique (hors salle immersive) doit elle aussi montrer
     // un seul chapitre dès l'ouverture : le chapitre demandé ou le premier.
     if (n && !sc.closest("#salle")) {
