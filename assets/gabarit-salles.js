@@ -583,7 +583,7 @@
     const cartes = $(".atlas-these-figure", zone);
     cartes.forEach((figure, i) => {
       const etiquette = $(".atlas-these-figure-entete > span", figure);
-      if (etiquette) etiquette.textContent = `Figure ${deux(i + 1)} / ${deux(cartes.length)}`;
+      if (etiquette) { const titre = `Figure ${deux(i + 1)} / ${deux(cartes.length)}`; if (etiquette.textContent !== titre) etiquette.textContent = titre; }
     });
     $(".atlas-these", zone).forEach((bloc) => {
       if (!$(".atlas-these-figure", bloc)) bloc.remove();
