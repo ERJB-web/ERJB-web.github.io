@@ -375,3 +375,128 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   hyphens:none!important;
   color:var(--gab-marine)!important;
 }
+
+
+/* Navigation des salles — cartes agrandies et lisibles.
+   Identité de la Chaire conservée ; affichage intégral des six rubriques
+   sur grand écran, 3 x 2 sur écran moyen, défilement tactile sur mobile. */
+.salle .salle-barre.gab-barre{
+  background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(246,250,250,.97));
+  box-shadow:0 10px 26px rgba(13,42,58,.055);
+}
+.salle .gab-barre .salle-onglets:not([hidden]){
+  display:grid!important;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:12px;
+  margin:16px 0 2px;
+  padding:4px 2px 7px;
+  max-height:280px;
+  overflow-x:visible;
+  overflow-y:visible;
+  scrollbar-width:thin;
+  transition:max-height .35s var(--gab-ease),opacity .25s,margin .25s;
+}
+.salle .gab-barre .salle-onglets > :first-child,
+.salle .gab-barre .salle-onglets > :last-child{margin-inline:0}
+.salle .gab-barre .salle-onglets .onglet-salle{
+  position:relative;
+  width:100%!important;
+  min-width:0!important;
+  max-width:none!important;
+  min-height:94px!important;
+  justify-content:flex-start;
+  gap:13px;
+  padding:12px 13px!important;
+  border:1px solid #dce6e9!important;
+  border-radius:18px!important;
+  background:linear-gradient(145deg,#fff 25%,#f5f9f9 100%);
+  box-shadow:0 4px 13px rgba(13,42,58,.045);
+  color:#244958;
+  font-size:clamp(16px,1.03vw,18px);
+  font-weight:700;
+  line-height:1.23;
+  text-align:start;
+  white-space:normal;
+  transform:none!important;
+  transition:background .2s,border-color .2s,box-shadow .2s,color .2s!important;
+}
+.salle .gab-barre .salle-onglets .onglet-salle:hover{
+  background:#eff7f7;
+  border-color:#a6c7ce!important;
+  color:#0d2a3a;
+  box-shadow:0 7px 19px rgba(13,42,58,.1);
+}
+.salle .gab-barre .salle-onglets .onglet-salle:focus-visible{
+  outline:3px solid #0879be;
+  outline-offset:2px;
+}
+.salle .gab-barre .salle-onglets .onglet-salle.actif{
+  background:linear-gradient(120deg,#0d2a3a,#164759);
+  border-color:#0d2a3a!important;
+  box-shadow:inset 0 4px 0 var(--c1,#11a7a5),0 7px 22px rgba(13,42,58,.2);
+  color:#fff;
+}
+.salle .gab-barre .gab-onglet-photo{
+  width:54px;
+  height:54px;
+  border-radius:13px;
+  flex:0 0 54px;
+  opacity:1;
+  border:1px solid rgba(13,42,58,.12);
+  box-shadow:0 2px 7px rgba(13,42,58,.14);
+}
+.salle .gab-barre .onglet-salle.actif .gab-onglet-photo{
+  border-color:rgba(255,255,255,.55);
+  box-shadow:0 0 0 2px rgba(255,255,255,.3);
+}
+.salle .gab-barre .onglet-titre{
+  min-width:0;
+  overflow-wrap:normal;
+  white-space:normal;
+  hyphens:auto;
+}
+.salle.gab-lit.gab-avec-chapitres .gab-barre .salle-onglets:not([hidden]){
+  max-height:0;
+  margin-top:0;
+  margin-bottom:0;
+  padding-top:0;
+  padding-bottom:0;
+  opacity:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+@media(max-width:1499px){
+  .salle .gab-barre .salle-onglets:not([hidden]){grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-height:290px}
+  .salle .gab-barre .salle-onglets .onglet-salle{min-height:80px!important}
+}
+@media(max-width:900px){
+  .salle .gab-barre .salle-onglets:not([hidden]){
+    display:flex!important;
+    flex-wrap:nowrap;
+    gap:10px;
+    margin:12px calc(-1 * var(--gab-marge)) 0;
+    padding:4px var(--gab-marge) 12px;
+    max-height:130px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scroll-snap-type:x proximity;
+    scrollbar-width:thin;
+    scrollbar-color:#8fb7c4 #ecf2f3;
+    overscroll-behavior-x:contain;
+  }
+  .salle .gab-barre .salle-onglets::-webkit-scrollbar{display:block;height:5px}
+  .salle .gab-barre .salle-onglets::-webkit-scrollbar-thumb{background:#8fb7c4;border-radius:10px}
+  .salle .gab-barre .salle-onglets .onglet-salle{
+    flex:0 0 252px!important;
+    width:252px!important;
+    min-height:82px!important;
+    padding:10px 12px!important;
+    font-size:16.5px;
+    scroll-snap-align:start;
+  }
+  .salle .gab-barre .gab-onglet-photo{width:49px;height:49px;flex-basis:49px}
+  .salle.gab-lit.gab-avec-chapitres .gab-barre .salle-onglets:not([hidden]){max-height:0}
+}
+@media(prefers-reduced-motion:reduce){
+  .salle .gab-barre .salle-onglets .onglet-salle{transition:none!important}
+}
