@@ -58,6 +58,11 @@ footer{padding-top:35px;color:var(--muted);font-size:12px}
 @media(max-width:980px){.page{padding:0 18px 65px}.layout{display:block}.toc{position:static;max-height:none;border-right:0;border-bottom:1px solid var(--line);padding:0 0 20px;display:flex;flex-wrap:wrap;gap:5px 17px}.toc b{flex-basis:100%;margin:0 0 7px}.toc a{font-size:12px;border:0;padding:5px 0}.hero{grid-template-columns:1fr}.hero figure{max-width:700px}.process{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.facts{grid-template-columns:1fr}.barrow{grid-template-columns:90px minmax(0,1fr) 43px;gap:9px}.hero{padding:33px 0}.section{padding:32px 0}.process{grid-template-columns:1fr}td,th{padding:10px 9px}}
 @media print{.page{max-width:none;padding:0}.toc{display:none}.layout{display:block}.section{break-inside:auto}.docfig,.barfig{break-inside:avoid}a{color:inherit}}
+
+/* Seuls les paragraphes rédigés du dossier de vulgarisation sont justifiés. */
+main :is(.hero,.article) p:not(:is(.meta,.source,.sourcenote)) {
+  text-align:justify;
+}
 </style>
 </head>
 <body>
