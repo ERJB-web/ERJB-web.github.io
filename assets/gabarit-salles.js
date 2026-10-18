@@ -331,6 +331,75 @@
     "Mesurer l’accessibilité et la réponse de proximité": "Accessibilité et proximité"
   };
 
+  // Navigation de la méthodologie : un même objectif regroupe et colore
+  // toutes ses sous-parties, sans toucher à leur contenu ou à leurs cibles.
+  function organiserSommaireObjectifs(nav, intertitres) {
+    const titres = [
+      ["commun", "Cadre méthodologique"],
+      ["O1", "Revue de portée et profils de besoins"],
+      ["O2", "Cartographie des ressources"],
+      ["O3", "Analyse des réseaux (SNA)"],
+      ["fin", "Limites et articulation"]
+    ];
+    const groupes = new Map(titres.map(([code]) => [code, []]));
+    const liens = $(":scope > a[data-gab-intertitre]", nav);
+    if (liens.length !== intertitres.length) return;
+    liens.forEach((a) => {
+      const h = intertitres[Number(a.dataset.gabIntertitre)];
+      const brut = net(h.textContent).replace(/^([1-9])(?=[A-ZÀ-ÖØ-ÞŒ])/u, "");
+      const t = normaliser(brut);
+      const marqueur = /^(?:o\\s*([123])|objectif\\s*([123]))\\b/.exec(t);
+      let code = marqueur ? "O" + (marqueur[1] || marqueur[2]) : "";
+      // Le titre est prioritaire sur le contexte DOM, notamment pour les
+      // outils O1 qui figurent après une carte de présentation O2.
+      if (!code && /revue de portee|profils? de besoins|outils? de recherche|recherche documentaire|recherche bibliographique|criteres? d inclusion|criteres? d exclusion|criteres? de selection|strategie de recherche|codebook|covidence|criblage|bibliothecair|selection des etudes|extraction des etudes/.test(t)) code = "O1";
+      if (!code && /mapping|cartograph|atlas|donnees cartographiques|lecture du territoire|accessibilite|proximite|croiser besoins|ressources disponibles|qgis|systeme d information geographique|ecologique|configuration territoriale|ecarts territoriaux/.test(t)) code = "O2";
+      if (!code && /analyse de reseaux|reseaux|reseau egocentre|\\bsna\\b|graphes?|dyades?|matrices?|acteurs du reseau|references reelles du 211|liens entre acteurs|trajectoires intersectorielles/.test(t)) code = "O3";
+      if (!code) {
+        const ancetre = h.closest("[data-objectif]");
+        if (/^O[123]$/.test(ancetre?.dataset.objectif || "")) code = ancetre.dataset.objectif;
+      }
+      if (!code) {
+        let parent = h.parentElement;
+        while (parent && !parent.classList.contains("gab-corps")) {
+          const noms = typeof parent.className === "string" ? parent.className : "";
+          const m = /(?:^|[\\s-])o([123])(?:[\\s-]|$)/i.exec(parent.id + " " + noms);
+          if (m) { code = "O" + m[1]; break; }
+          parent = parent.parentElement;
+        }
+      }
+      if (!code) code = /limites?|parades|precautions|integration|articulation des methodes/.test(t) ? "fin" : "commun";
+      if (/^O[123]$/.test(code)) {
+        a.dataset.objectif = code;
+        a.setAttribute("aria-label", code + " · " + net(a.textContent));
+        const cible = a.querySelector(".gab-sommaire-etape-texte") || a;
+        cible.textContent = cible.textContent.replace(/^(?:O|Objectif\\s*)[123]\\s*(?:[·.:\\u2013-]\\s*)?/i, "").trim();
+      } else {
+        a.removeAttribute("data-objectif");
+      }
+      groupes.get(code).push(a);
+    });
+    nav.classList.add("gab-sommaire-objectifs");
+    const etiquette = nav.querySelector(":scope > span");
+    nav.replaceChildren();
+    if (etiquette) nav.append(etiquette);
+    titres.forEach(([code, nom]) => {
+      const liensDuGroupe = groupes.get(code);
+      if (!liensDuGroupe.length) return;
+      const groupe = el("section", "gab-sommaire-groupe");
+      if (/^O[123]$/.test(code)) groupe.dataset.objectif = code;
+      else groupe.dataset.transversal = code;
+      groupe.setAttribute("aria-label", nom);
+      const titre = el("div", "gab-sommaire-groupe-titre");
+      if (/^O[123]$/.test(code)) titre.append(el("b", "", echapper(code)));
+      titre.append(el("strong", "", echapper(nom)));
+      const corps = el("div", "gab-sommaire-groupe-liens");
+      corps.append(...liensDuGroupe);
+      groupe.append(titre, corps);
+      nav.append(groupe);
+    });
+  }
+
   function construireChapitre(ch, i, n, couleur, choix, salle) {
     const section = ch.surPlace ? ch.source : el("section");
     section.classList.add("gab-chapitre");
@@ -394,6 +463,9 @@
           : echapper(libelle);
         return `<a href="#" data-gab-intertitre="${k}"${etape ? ' class="gab-sommaire-etape"' : ""}${objectif ? ` data-objectif="${objectif}"` : ""}${libelle !== titre ? ` title="${echapper(titre)}"` : ""}>${texteLien}</a>`;
       }).join("");
+      if (theseFr && (ch.cle === "methodes" || ch.cle === "methode" || /m[ée]thod/i.test(ch.titre))) {
+        organiserSommaireObjectifs(nav, entrees);
+      }
       aside.append(nav);
     }
     // Thèse : seul le sommaire migre à gauche ; l'illustration reste
