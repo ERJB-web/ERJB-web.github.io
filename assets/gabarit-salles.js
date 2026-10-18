@@ -96,9 +96,129 @@
   const salleDe = (sc) => sc.dataset.gabSalle || sc.closest("[data-salle]")?.dataset.salle || salleDuNumero.get(sc.dataset.numero) || "";
   const porteDe = (salle) => $$(".porte").find((p) => (p.dataset.sections || "").split(" ").includes(salle));
 
+  // Dans cette salle, transfert, implantation et vulgarisation sont trois
+  // démarches distinctes. On conserve les contenus existants, en déplaçant
+  // les cadres d'implantation dans leur propre chapitre.
+  function preparerChapitresImplantation(sc, table) {
+    const transfert = $(":scope > .volet[data-rubrique='implantation-reperes']", table);
+    if (!transfert || transfert.dataset.chapitresDistincts) return;
+    const textes = {
+      fr: ["Des connaissances aux pratiques et aux publics", "Transfert de connaissances", "Implantation", "Vulgarisation scientifique",
+        "Le transfert organise l’échange, la mobilisation et l’utilisation des connaissances entre la recherche, les personnes et les milieux concernés. Il ne garantit pas, à lui seul, l’adoption durable d’une pratique.",
+        "L’implantation examine les conditions dans lesquelles une intervention ou une pratique est adoptée, adaptée, mise en œuvre et maintenue. Elle mobilise ses propres cadres, stratégies et critères d’évaluation.",
+        "La vulgarisation scientifique vise à rendre la recherche compréhensible et discutable par des publics non spécialistes, en conservant ses nuances, ses limites et ses incertitudes.",
+        "Approfondir les sciences de l’implantation", "Explorer la vulgarisation scientifique",
+        "Trois démarches complémentaires, mais distinctes : transférer les connaissances, implanter des pratiques et rendre la science accessible."],
+      en: ["From knowledge to practice and public dialogue", "Knowledge translation", "Implementation", "Science outreach",
+        "Knowledge translation organises the exchange and use of evidence among research, people and practice settings. On its own, it does not ensure the sustained adoption of a practice.",
+        "Implementation examines how an intervention or practice is adopted, adapted, delivered and sustained in context, using its own frameworks, strategies and evaluation outcomes.",
+        "Science outreach makes research accessible to non-specialist audiences while retaining its nuances, limitations and uncertainties.",
+        "Explore implementation science", "Explore science outreach",
+        "Three complementary but distinct approaches: knowledge translation, implementation and science outreach."],
+      es: ["Del conocimiento a la práctica y al diálogo", "Transferencia de conocimientos", "Implementación", "Divulgación científica",
+        "La transferencia organiza el intercambio y el uso del conocimiento entre la investigación, las personas y los entornos de práctica; no garantiza por sí sola la adopción sostenible de una práctica.",
+        "La implementación estudia cómo se adopta, adapta, aplica y mantiene una intervención en su contexto, mediante marcos, estrategias y resultados propios.",
+        "La divulgación hace comprensible la investigación para públicos no especializados, sin ocultar matices, límites ni incertidumbres.",
+        "Explorar la ciencia de la implementación", "Explorar la divulgación científica",
+        "Tres enfoques complementarios, pero distintos: transferencia de conocimientos, implementación y divulgación científica."],
+      zh: ["从知识到实践与公众对话", "知识转化", "实施科学", "科学普及",
+        "知识转化促进研究者、公众及实践机构之间的知识交流与应用，但本身不能保证实践得到持续采纳。",
+        "实施科学研究干预或实践在特定情境中如何被采纳、调整、执行和维持，并采用专门的框架、策略和评价指标。",
+        "科学普及让非专业公众理解并讨论研究，同时保留其细微差别、局限性与不确定性。",
+        "深入了解实施科学", "探索科学普及",
+        "三种相互补充却各不相同的工作：知识转化、实践实施与科学普及。"],
+      ar: ["من المعرفة إلى الممارسة والحوار العام", "نقل المعارف", "التنفيذ", "التبسيط العلمي",
+        "يساعد نقل المعارف على تبادل المعرفة واستخدامها بين البحث والأشخاص وبيئات الممارسة، لكنه لا يضمن وحده تبني الممارسات بصورة مستدامة.",
+        "يدرس علم التنفيذ كيفية تبني التدخلات وتكييفها وتطبيقها واستدامتها في سياقاتها، باستخدام أطر واستراتيجيات ومؤشرات تقييم خاصة.",
+        "يجعل التبسيط العلمي نتائج البحث مفهومة للجمهور غير المتخصص مع الحفاظ على دقائقها وحدودها وأوجه عدم اليقين.",
+        "استكشاف علم التنفيذ", "استكشاف التبسيط العلمي",
+        "ثلاث مقاربات متكاملة ولكن مختلفة: نقل المعرفة والتنفيذ والتبسيط العلمي."],
+      ru: ["От знаний к практике и общественному диалогу", "Передача знаний", "Внедрение", "Популяризация науки",
+        "Передача знаний организует обмен и использование научных результатов исследователями, людьми и практическими организациями, но сама по себе не гарантирует устойчивое внедрение.",
+        "Наука о внедрении изучает принятие, адаптацию, реализацию и устойчивость вмешательств в конкретных условиях, используя собственные модели, стратегии и показатели.",
+        "Популяризация науки делает исследования понятными широкой аудитории, сохраняя нюансы, ограничения и неопределённость.",
+        "Узнать о науке внедрения", "Изучить популяризацию науки",
+        "Три взаимодополняющих, но разных направления: передача знаний, внедрение и популяризация науки."]
+    };
+    const l = textes[langue] || textes.fr;
+    const t = $(".rubriques-nav [data-rubrique='implantation-reperes'] strong", table);
+    if (t) t.textContent = l[1];
+    const entete = $(".rubrique-entete span", transfert);
+    if (entete) entete.textContent = l[1];
+    const transfertTexte = $(".rubrique-contenu .colonne-texte", transfert);
+    if (transfertTexte) {
+      const titre = $("h2", transfertTexte), intro = $("p.intro", transfertTexte);
+      if (titre) titre.textContent = l[1];
+      if (intro) intro.textContent = l[4];
+    }
+    const introSalle = $(".implantation-approfondie > .colonne-texte", sc);
+    if (introSalle) {
+      const titre = $("h2", introSalle), intro = $("p.intro", introSalle);
+      if (titre) titre.textContent = l[0];
+      if (intro) intro.textContent = l[9];
+    }
+    transfert.dataset.image = CHEMIN + "assets/chapitres/implantation-02.webp";
+    const outils = $(".rubrique-contenu .colonne-outils", transfert);
+    const cadres = outils ? $(":scope > .cadres", outils) : [];
+    const dernierCadre = cadres.length > 1 ? cadres[cadres.length - 1] : null;
+    const titreCadre = dernierCadre?.previousElementSibling;
+    if (!dernierCadre || !titreCadre?.matches("h3.titre-bloc")) return;
+
+    const fabriquer = (cle, numero, titre, texte, image) => {
+      const volet = D.createElement("div");
+      volet.className = "volet rubrique-corps";
+      volet.dataset.volet = String(numero);
+      volet.dataset.rubrique = cle;
+      volet.dataset.image = CHEMIN + image;
+      volet.hidden = true;
+      const entete = D.createElement("div");
+      entete.className = "rubrique-entete";
+      const n = D.createElement("bdi");
+      n.dir = "ltr";
+      n.textContent = deux(numero + 1);
+      const nom = D.createElement("span");
+      nom.textContent = titre;
+      entete.append(n, nom);
+      const contenu = D.createElement("div");
+      contenu.className = "rubrique-contenu";
+      const section = D.createElement("div");
+      section.className = "section-corps pleine";
+      section.innerHTML = '<div class="colonne-texte"><h2>' + echapper(titre) + '</h2><p class="intro">' + echapper(texte) + '</p></div><div class="colonne-outils"></div>';
+      contenu.append(section);
+      volet.append(entete, contenu);
+      table.append(volet);
+      return $(".colonne-outils", section);
+    };
+
+    const implantation = fabriquer("implantation-science", 2, l[2], l[5], "assets/portes/transfert-implantation-pro.jpg");
+    implantation.append(titreCadre, dernierCadre);
+    const lienDossier = D.createElement("p");
+    lienDossier.className = "note";
+    lienDossier.innerHTML = '<a href="' + CHEMIN + 'implantation/comprendre.html">' + echapper(l[7]) + ' ↗</a>';
+    implantation.append(lienDossier);
+
+    const vulgarisation = fabriquer("implantation-vulgarisation", 3, l[3], l[6], "assets/chapitres/vulgarisation-01.webp");
+    const presentation = D.createElement("div");
+    presentation.className = "cadres";
+    const article = D.createElement("article");
+    article.className = "cadre";
+    const titreVul = D.createElement("h4");
+    titreVul.textContent = l[3];
+    const texteVul = D.createElement("p");
+    const introExistante = $("section.section[data-salle='vulgarisation'] .section-corps .intro");
+    texteVul.textContent = introExistante?.textContent?.trim() || l[6];
+    const lienVul = D.createElement("p");
+    lienVul.innerHTML = '<a href="#vulgarisation">' + echapper(l[8]) + ' ↗</a>';
+    article.append(titreVul, texteVul, lienVul);
+    presentation.append(article);
+    vulgarisation.append(presentation);
+    transfert.dataset.chapitresDistincts = "oui";
+  }
+
   function decouper(sc, salle) {
     const table = $(".table.rubriques[data-rubriques], [data-rubriques][data-navigation=atelier]", sc);
     if (table) {
+      if (salle === "implantation") preparerChapitresImplantation(sc, table);
       const boutons = $$(".rubriques-nav [role=tab]", table);
       const volets = Array.from(table.children).filter((v) => v.classList.contains("volet"));
       const chapitres = volets.map((v) => {
