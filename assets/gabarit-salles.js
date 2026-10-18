@@ -423,6 +423,104 @@
     });
   }
 
+
+  // Thèse : un sommaire structuré par sections colorées dans chaque chapitre.
+  // Même composants, même hiérarchie et mêmes destinations que le modèle de la
+  // méthodologie (Cadre / O1 / O2 / O3). Les titres h4 restent intacts.
+  function organiserSommaireSections(nav, intertitres, chapitre) {
+    const titre = normaliser(chapitre.titre);
+    // Débuts des sections dans l'ordre de lecture : les sous-titres non
+    // reconnus restent dans leur section en cours, jamais supprimés.
+    const plans = {
+      contexte: [
+        { nom: "Notions et ressources" },
+        { nom: "Besoins sociaux et réponse", debut: /besoins et offre|besoins sociaux/ },
+        { nom: "Connaissances et lacune", debut: /etat des connaissances|ce que la litterature/ },
+        { nom: "Territoires et posture", debut: /reponse intersectorielle|territoires vecus/ }
+      ],
+      objectifs: [
+        { nom: "Question et objectifs" },
+        { nom: "Profils de besoins", objectif: "O1", debut: /^o\s*1\b|^objectif\s*1\b/ },
+        { nom: "Ressources territoriales", objectif: "O2", debut: /^o\s*2\b|^objectif\s*2\b/ },
+        { nom: "Réseaux intersectoriels", objectif: "O3", debut: /^o\s*3\b|^objectif\s*3\b/ }
+      ],
+      faisabilite: [
+        { nom: "Données et conditions" },
+        { nom: "Terrain et partenariats", debut: /o3 sur le terrain|associer le terrain|partenariats/ },
+        { nom: "Calendrier", debut: /calendrier|planification/ }
+      ],
+      retombees: [
+        { nom: "Productions et premiers résultats" },
+        { nom: "Retombées et échelles d'action", debut: /retombees concretes|a l echelle du quebec/ },
+        { nom: "Évaluation et références", debut: /comment on s assure|references/ }
+      ],
+      transfert: [
+        { nom: "Transfert de connaissances" },
+        { nom: "Implantation", debut: /preparer les conditions|mise en oeuvre|implantation/ },
+        { nom: "Diffusion et évaluation", debut: /diffuser|evaluer l usage|evaluation de l usage/ },
+        { nom: "Participation et cadre institutionnel", debut: /partenaires patients|cadre institutionnel|codirection/ }
+      ]
+    };
+    const cle = /problematique|objectifs/.test(titre) ? "objectifs"
+      : /contexte/.test(titre) ? "contexte"
+      : /faisabilite/.test(titre) ? "faisabilite"
+      : /retombees/.test(titre) ? "retombees"
+      : /transfert|implantation/.test(titre) ? "transfert" : "";
+    const plan = plans[cle];
+    if (!plan) return;
+    const liens = $((":scope > a[data-gab-intertitre]"), nav);
+    if (liens.length !== intertitres.length || liens.length < 2) return;
+
+    // Couleurs distinctes pour les sections, cohérentes entre les six
+    // chapitres ; O1/O2/O3 conservent leurs teintes de la méthodologie.
+    const palette = [
+      { texte:"#365772", trait:"#76a2bb", fond:"#edf4f8", lien:"#f8fbfd" },
+      { texte:"#286c23", trait:"#5aae38", fond:"#ecf7e8", lien:"#f5fbf2" },
+      { texte:"#006e72", trait:"#11a7a5", fond:"#e9f7f6", lien:"#f3fbfa" },
+      { texte:"#18559b", trait:"#0755ad", fond:"#ebf2fd", lien:"#f3f7ff" },
+      { texte:"#80532e", trait:"#bf8953", fond:"#faf2e9", lien:"#fdf9f4" }
+    ];
+    const listes = plan.map(() => []);
+    let sectionActuelle = 0;
+    liens.forEach((a, k) => {
+      const valeur = normaliser(intertitres[k].textContent);
+      for (let j = sectionActuelle + 1; j < plan.length; j++) {
+        if (plan[j].debut?.test(valeur)) {
+          sectionActuelle = j;
+          break;
+        }
+      }
+      listes[sectionActuelle].push(a);
+    });
+    nav.classList.add("gab-sommaire-objectifs", "gab-sommaire-sections");
+    const etiquette = nav.querySelector(":scope > span");
+    nav.replaceChildren();
+    if (etiquette) nav.append(etiquette);
+    plan.forEach((g, k) => {
+      if (!listes[k].length) return;
+      const groupe = el("section", "gab-sommaire-groupe");
+      groupe.dataset.section = cle + "-" + k;
+      if (g.objectif) groupe.dataset.objectif = g.objectif;
+      const couleur = g.objectif === "O1" ? palette[1] :
+        g.objectif === "O2" ? palette[2] :
+        g.objectif === "O3" ? palette[3] : palette[k % palette.length];
+      for (const [variable, valeur] of Object.entries({
+        "--objectif-texte": couleur.texte,
+        "--objectif-trait": couleur.trait,
+        "--objectif-fond": couleur.fond,
+        "--objectif-lien": couleur.lien
+      })) groupe.style.setProperty(variable, valeur);
+      groupe.setAttribute("aria-label", g.nom);
+      const enTete = el("div", "gab-sommaire-groupe-titre");
+      if (g.objectif) enTete.append(el("b", "", echapper(g.objectif)));
+      enTete.append(el("strong", "", echapper(g.nom)));
+      const items = el("div", "gab-sommaire-groupe-liens");
+      items.append(...listes[k]); // conserve data-gab-intertitre et les liens
+      groupe.append(enTete, items);
+      nav.append(groupe);
+    });
+  }
+
   function construireChapitre(ch, i, n, couleur, choix, salle) {
     const section = ch.surPlace ? ch.source : el("section");
     section.classList.add("gab-chapitre");
@@ -496,6 +594,8 @@
       }).join("");
       if (theseFr && (ch.cle === "methodes" || ch.cle === "methode" || /m[ée]thod/i.test(ch.titre))) {
         organiserSommaireObjectifs(nav, entrees);
+      } else if (theseFr) {
+        organiserSommaireSections(nav, entrees, ch);
       }
       aside.append(nav);
     }
