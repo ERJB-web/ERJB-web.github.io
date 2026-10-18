@@ -383,6 +383,29 @@
     const etiquette = nav.querySelector(":scope > span");
     nav.replaceChildren();
     if (etiquette) nav.append(etiquette);
+
+    // Trois accès directs toujours visibles : les détails du sommaire
+    // défilent librement, mais O1, O2 et O3 restent immédiatement repérables.
+    const raccourcis = el("div", "gab-sommaire-raccourcis");
+    const contenuMethodes = intertitres[0]?.closest(".gab-corps");
+    ["O1", "O2", "O3"].forEach((code) => {
+      let cibleId = groupes.get(code)[0]?.dataset.gabCible;
+      if (!cibleId && contenuMethodes) {
+        const cible = $('[data-objectif="' + code + '"]', contenuMethodes)
+          .find((element) => element.matches("article, section, div, details, h3, h4"));
+        if (cible) {
+          if (!cible.id) cible.id = "gab-objectif-sommaire-" + langue + "-" + code.toLowerCase();
+          cibleId = cible.id;
+        }
+      }
+      if (!cibleId) return;
+      const lienObjectif = el("a", "gab-sommaire-raccourci", echapper(code));
+      lienObjectif.href = "#" + encodeURIComponent(cibleId);
+      lienObjectif.dataset.gabCible = cibleId;
+      lienObjectif.setAttribute("aria-label", code + " · " + titres.find(([id]) => id === code)[1]);
+      raccourcis.append(lienObjectif);
+    });
+    if (raccourcis.children.length) nav.append(raccourcis);
     titres.forEach(([code, nom]) => {
       const liensDuGroupe = groupes.get(code);
       if (!liensDuGroupe.length) return;
@@ -990,7 +1013,9 @@
     decorerOnglets();
     const titre = net($("#salle-titre")?.textContent).split(" · ");
     const nom = $(".gab-porte-nom", barre);
-    if (nom) nom.innerHTML = titre.length >= 3 ? `<small>${echapper(T.porte)}</small> ${echapper(titre[1])}` : "";
+    if (nom) nom.innerHTML = titre.length >= 3
+      ? `<small>${echapper(T.porte)}</small> ${echapper(titre[1])}${zone.dataset.gabSalle === "recherche" ? ` <span class="gab-sous-categorie">› ${echapper(titre[2])}</span>` : ""}`
+      : "";
     const liste = chapitresDe(zone);
     salle.classList.toggle("gab-avec-chapitres", liste.length >= 2);
     if (lecture) {
