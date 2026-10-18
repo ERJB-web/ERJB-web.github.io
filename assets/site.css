@@ -3167,10 +3167,10 @@ html.chargement main,html.chargement body>footer{visibility:hidden}
 .entete .nav a[href="#implantation/implantation-reperes"]::before,.entete .nav a[href="#biographie"]::before{content:none}
 /* Bande du haut aérée : plus d’air entre les lignes et dans la barre */
 @media(min-width:701px){
- .entete{padding-top:16px;padding-bottom:14px}
+ .entete{padding-top:10px;padding-bottom:8px}
  .entete .marque-bloc{gap:10px}
  .entete-contact{gap:4px 20px}
- .entete .nav{margin-top:16px;padding:3px;gap:2px}
+ .entete .nav{margin-top:9px;padding:3px;gap:2px}
  .entete .nav a{gap:7px;min-height:36px;padding:5px 11px;font-size:13px}
  .entete .nav a::after{left:11px;right:11px}
 }
