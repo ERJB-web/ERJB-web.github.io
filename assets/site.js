@@ -1346,3 +1346,90 @@
     actualiserDevis();
   }
 })();
+
+
+/* Thèse : lecture réellement séparée des trois objectifs méthodologiques.
+   Les vues O2/O3 ne défilent plus à la suite de la revue O1.
+   Délégation compatible avec les chapitres reconstruits et leurs clones. */
+(() => {
+  const choisirObjectif = (navigation, code, defiler = false) => {
+    if (!navigation || !/^O[123]$/.test(code)) return false;
+    const parent = navigation.parentElement;
+    if (!parent) return false;
+    const vues = Array.from(parent.children).filter(
+      element => element.matches?.('.these-objectif-vue[data-vue-objectif]')
+    );
+    if (vues.length !== 3) return false;
+    const selection = vues.find(vue => vue.dataset.vueObjectif === code);
+    if (!selection) return false;
+    vues.forEach(vue => {
+      vue.hidden = vue !== selection;
+      vue.setAttribute('aria-hidden', String(vue !== selection));
+    });
+    navigation.querySelectorAll('a[data-objectif]').forEach(lien => {
+      const actif = lien.dataset.objectif === code;
+      lien.setAttribute('aria-expanded', String(actif));
+      if (actif) lien.setAttribute('aria-current', 'step');
+      else lien.removeAttribute('aria-current');
+    });
+    if (defiler) {
+      navigation.scrollIntoView({
+        block: 'start',
+        behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+      });
+    }
+    return true;
+  };
+
+  const navigations = () => Array.from(
+    document.querySelectorAll('.these-methode-parcours[data-objectifs-isoles="oui"]')
+  );
+
+  // Liens O1/O2/O3 : ouvrir la section demandée au lieu de faire défiler
+  // une page unique qui montre les objectifs les uns après les autres.
+  document.addEventListener('click', evenement => {
+    const lien = evenement.target.closest?.(
+      '.these-methode-parcours[data-objectifs-isoles="oui"] a[data-objectif]'
+    );
+    if (lien) {
+      evenement.preventDefault();
+      choisirObjectif(lien.closest('.these-methode-parcours'), lien.dataset.objectif, true);
+      return;
+    }
+
+    // Les renvois situés dans « Problématique et objectifs », ainsi que les
+    // renvois internes à la SNA, doivent ouvrir la bonne vue AVANT que le
+    // gestionnaire général des chapitres déplace le focus vers l'article.
+    const renvoi = evenement.target.closest?.('[data-these-vers="methodes"][data-these-objectif]');
+    if (renvoi && /^O[123]$/.test(renvoi.dataset.theseObjectif)) {
+      navigations().forEach(nav => choisirObjectif(nav, renvoi.dataset.theseObjectif));
+      return;
+    }
+
+    // Conserver aussi les liens d'ancrage historiques vers O1/O2/O3.
+    const ancre = evenement.target.closest?.('a[href^="#these-methode-o"]');
+    if (ancre) {
+      const correspondance = /^#these-methode-o([123])$/.exec(ancre.getAttribute('href') || '');
+      if (correspondance) {
+        const code = 'O' + correspondance[1];
+        if (navigations().some(nav => choisirObjectif(nav, code))) {
+          evenement.preventDefault();
+          const cible = document.getElementById('these-methode-o' + correspondance[1]);
+          if (cible && !cible.closest('[hidden]')) cible.scrollIntoView({block:'start',behavior:'smooth'});
+        }
+      }
+    }
+  }, true);
+
+  // Un seul objectif visible à l'ouverture, y compris pour la version non
+  // encore transférée dans le gabarit de lecture des chapitres.
+  const initialiser = () => navigations().forEach(nav => {
+    const actif = nav.querySelector('a[aria-current="step"]')?.dataset.objectif || 'O1';
+    choisirObjectif(nav, actif);
+  });
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialiser, {once:true});
+  } else {
+    initialiser();
+  }
+})();
