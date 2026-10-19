@@ -383,7 +383,7 @@
     const liste=$('#publication-articles .travaux-grille',root);
     if(!liste)return;
     const ordre=['travail-hospitalisations','travail-pl2','travail-droit','travail-epistemique'];
-    const notices=$(':scope > article.travail',liste);
+    const notices=$$(':scope > article.travail',liste);
     notices.sort((a,b)=>{
       const x=ordre.indexOf(a.dataset.axeCible),y=ordre.indexOf(b.dataset.axeCible);
       return (x<0?ordre.length:x)-(y<0?ordre.length:y);
@@ -404,10 +404,10 @@
     });
   }
   function initialiserPublications(zone=document) {
-    $('.publications-page',zone).forEach(root=>{
+    $$('.publications-page',zone).forEach(root=>{
       ordonnerNoticesPublications(root);
-      const frag=location.hash.slice(1).split('/')[1],panels=$('.publication-bloc',root);
-      const target=panels.find(p=>p.id===frag)||$('[data-axe-cible]',root).find(el=>el.dataset.axeCible===frag)?.closest('.publication-bloc');
+      const frag=location.hash.slice(1).split('/')[1],panels=$$('.publication-bloc',root);
+      const target=panels.find(p=>p.id===frag)||$$('[data-axe-cible]',root).find(el=>el.dataset.axeCible===frag)?.closest('.publication-bloc');
       selectionnerPublication(root,target?.id||'publication-articles');
     });
   }
@@ -827,7 +827,7 @@
     if (bouton){
       bouton.click();
       if(table.dataset.rubriques==='these'){
-        const panneau=$('.volet',table).find(v=>v.closest('[data-onglets]')===table && !v.hidden);
+        const panneau=$$('.volet',table).find(v=>v.closest('[data-onglets]')===table && !v.hidden);
         panneau?.scrollIntoView({block:'start',behavior:sansPassage()?'auto':'smooth'});
       }
     }
@@ -846,7 +846,7 @@
     cible.focus();
     cible.click();
     if(table.dataset.rubriques==='these'){
-      const panneau=$('.volet',table).find(v=>v.closest('[data-onglets]')===table && !v.hidden);
+      const panneau=$$('.volet',table).find(v=>v.closest('[data-onglets]')===table && !v.hidden);
       panneau?.scrollIntoView({block:'start',behavior:sansPassage()?'auto':'smooth'});
     }
   });
