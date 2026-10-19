@@ -827,6 +827,15 @@
       } else if (photo) tete.after(photo);
       grille.classList.add("gab-menu-gauche");
     }
+    // Conserver le Nota Bene intégral de la méthodologie, visible après O1–O3
+    // et juste avant la navigation, hors des vues d'objectif potentiellement masquées.
+    if (salle === "recherche" && langue === "fr" && ch.cle === "methodes") {
+      const nota = corps.querySelector(".these-exemples-attribution");
+      if (nota) {
+        nota.removeAttribute("hidden");
+        texte.append(nota);
+      }
+    }
     grille.append(texte, aside);
     section.append(grille);
     // Navigation de fin de page : on passe à une autre vue, jamais au
