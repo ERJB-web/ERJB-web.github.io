@@ -1179,3 +1179,254 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', demarrer, {once:true});
   else demarrer();
 })();
+
+
+/* Lecture grand public de la méthodologie. Module isolé : aucun menu ni protocole modifié. */
+;(() => {
+  "use strict";
+  if ((document.documentElement.lang || "fr").slice(0,2) !== "fr") return;
+  const vulgarisee = new URLSearchParams(location.search).get("lecture") === "grand-public";
+  const ancienChemin = "#recherche/methodes";
+  const urlPour = mode => {
+    const u = new URL(location.href);
+    if (mode) u.searchParams.set("lecture","grand-public");
+    else u.searchParams.delete("lecture");
+    u.hash = ancienChemin;
+    return u.pathname + u.search + u.hash;
+  };
+  const feuille = document.createElement("style");
+  feuille.textContent = '.gab [data-gab-slug="methodes"]>.gab-chapitre-tete{display:flex;align-items:center;justify-content:space-between;gap:14px 24px;flex-wrap:wrap}.gab [data-gab-slug="methodes"] .methode-lien-grand-public{display:inline-flex;align-items:center;justify-content:center;gap:8px;max-width:100%;padding:11px 16px;border:1px solid #b9d8e5;border-radius:11px;background:#eaf4f8;color:#15536c;font:750 13px/1.35 var(--sans,system-ui,sans-serif);letter-spacing:0;text-transform:none;text-decoration:none;box-shadow:0 3px 10px #173b5310}.gab [data-gab-slug="methodes"] .methode-lien-grand-public:hover{background:#d9edf6}.gab [data-gab-slug="methodes"] .methode-lien-grand-public:focus-visible{outline:3px solid #267595;outline-offset:3px}.methode-grand-public-intro{margin:0 0 20px;padding:16px 19px;border-left:4px solid #1c7797;border-radius:10px;background:#eff6fa;color:#1e465b;font:400 14px/1.7 var(--sans,system-ui,sans-serif)}.methode-grand-public-intro p{margin:5px 0 0}@media(max-width:680px){.gab [data-gab-slug="methodes"] .methode-lien-grand-public{width:100%}}';
+  document.head.appendChild(feuille);
+  const lexique = [
+    ["devis séquentiel explicatif","enquête en deux temps : mesurer les liens, puis en comprendre les raisons"],
+    ["méthodes mixtes","données chiffrées et entretiens combinés"],
+    ["posture pragmatique","démarche qui choisit les outils adaptés à la question"],
+    ["approche multiphase","recherche en plusieurs étapes liées"],
+    ["analyse écologique","analyse à l’échelle des territoires, non des individus"],
+    ["cartographie écologique","cartographie à l’échelle des territoires"],
+    ["étude écologique","étude des territoires plutôt que des personnes prises séparément"],
+    ["revue de portée","examen d’ensemble des études publiées"],
+    ["revue systématique","examen détaillé des études sur une question précise"],
+    ["bases bibliographiques","bases d’articles scientifiques"],
+    ["sources bibliographiques","bases d’articles scientifiques"],
+    ["stratégie documentaire","méthode de recherche des études"],
+    ["références bibliographiques","articles repérés"],
+    ["critères d’admissibilité","conditions pour être retenu"],
+    ["admissibilité","conditions pour être retenu"],
+    ["extraction en double","relevé des informations par deux lecteurs"],
+    ["sélection indépendante","tri fait séparément par deux personnes"],
+    ["pilote de concordance","essai pour vérifier l’accord entre les deux évaluateurs"],
+    ["arbitrage","résolution d’un désaccord"],
+    ["codebook","grille de classement"],
+    ["double codage","classement vérifié par deux personnes"],
+    ["codage","classement"],
+    ["concomitance","présence simultanée"],
+    ["concomitants","présents ensemble"],
+    ["cooccurrence","présence chez la même personne"],
+    ["co-accessibilité","possibilité d’accéder à plusieurs services"],
+    ["morbidités","problèmes de santé"],
+    ["morbidité","problème de santé"],
+    ["typologie","classement en portraits-types"],
+    ["vignettes","portraits-types illustratifs"],
+    ["vignette","portrait-type illustratif"],
+    ["matrice","tableau de comparaison"],
+    ["prévalence","fréquence dans la population"],
+    ["inférence","conclusion tirée des données"],
+    ["inférer","conclure"],
+    ["données agrégées","données regroupées"],
+    ["agrégés","regroupés"],
+    ["appariement","mise en correspondance"],
+    ["apparier","mettre en correspondance"],
+    ["géolocalisation","localisation sur une carte"],
+    ["dédoublonnage","retrait des entrées comptées plusieurs fois"],
+    ["dédoublonnées","comptées une seule fois"],
+    ["dénominateur","nombre total servant au calcul"],
+    ["analyses de sensibilité","vérifications avec d’autres choix de calcul"],
+    ["robustesse","stabilité des résultats"],
+    ["biais écologique","erreur qui attribuerait à un individu les caractéristiques de son quartier"],
+    ["intersectoriels","entre services de différents secteurs"],
+    ["intersectoriel","entre plusieurs secteurs de services"],
+    ["réseau dirigé","réseau montrant qui contacte qui"],
+    ["égocentré","étudié à partir d’une équipe centrale"],
+    ["ego","équipe de départ"],
+    ["alters","organisations partenaires"],
+    ["alter–alter","entre les partenaires eux-mêmes"],
+    ["sociogramme","carte des relations"],
+    ["analyse de réseaux sociaux","étude des collaborations"],
+    ["non-réciprocité","relation signalée dans un seul sens"],
+    ["non réciproques","signalés dans un seul sens"],
+    ["échantillonnage raisonné","choix de personnes selon leur expérience et leur place dans le réseau"],
+    ["stratification","répartition en groupes avant le choix"],
+    ["saturation","moment où les entretiens apportent peu de nouvelles informations"],
+    ["puissance informationnelle","qualité et richesse des témoignages recueillis"],
+    ["indicateurs","mesures"],
+    ["indicateur","mesure"],
+    ["écarts territoriaux","différences entre territoires"],
+    ["indice de Blau","mesure de la diversité des partenaires"],
+    ["contrainte de Burt","mesure du rôle des intermédiaires"],
+    ["trous structuraux","liens qui n’existent pas entre certains organismes"],
+    ["Moran local","calcul qui repère les zones voisines ayant des valeurs semblables"],
+    ["E2SFCA","calcul prenant en compte l’offre de services, la population et le temps de trajet"],
+    ["PRISMA-ScR","règles reconnues pour expliquer la recherche et le tri des études"],
+    ["AIRS","classification des besoins utilisée par le 211"],
+    ["QUAN","chiffres"],
+    ["volet qual","entretiens"],
+    ["qualitatif","fondé sur des entretiens et des explications"],
+    ["quantitatif","fondé sur des chiffres"],
+    ["CLSC","CLSC"],
+    ["SAD","soutien à domicile (SAD)"]
+  ];
+  // Les textes longs qui demandent une explication particulière sont reformulés complètement.
+  const paragraphes = [
+    [/^La revue de portée \(JBI/i,"Nous allons examiner les recherches publiées pour savoir quels besoins sociaux sont étudiés chez les personnes aînées et lesquels ont vraiment été observés ensemble. Le but n’est pas d’estimer la fréquence d’un problème dans toute la population. Nous suivrons quatre étapes : rechercher, lire, comparer et présenter les études."],
+    [/^Classe A, profils directement documentés/i,"Toutes les études n’apportent pas le même niveau de certitude. A : plusieurs difficultés ont été observées chez les mêmes personnes ; on peut en faire un portrait-type. B : les difficultés paraissent liées, sans portrait individuel assez précis. C : chaque difficulté a été comptée séparément. Deux pourcentages séparés ne prouvent jamais que les mêmes personnes cumulent ces difficultés."],
+    [/^Règle de décision : les vignettes/i,"Seules les combinaisons clairement observées chez les mêmes personnes pourront former des portraits-types. Les informations moins solides resteront présentées comme telles. Si les études ne permettent pas d’établir de profils, le projet présentera les connaissances et leurs limites ; la suite sera adaptée avec l’équipe scientifique."],
+    [/^Unité de synthèse : les résultats/i,"Un même groupe de participants peut apparaître dans plusieurs articles. Pour ne pas compter les mêmes personnes plusieurs fois, les publications portant sur une même étude seront rapprochées. Les résultats indirects ou incertains seront signalés et vérifiés."],
+    [/^Source et traçabilité des profils/i,"Chaque portrait-type sera relié aux études qui le justifient. On indiquera ce qui est connu, ce qui manque et ce qui reste incertain. Ces portraits proviennent de la littérature et ne sont pas des dossiers de personnes identifiables."],
+    [/^Sexe, genre et équité/i,"Lorsque les données existent, nous examinerons les différences selon l’âge, le revenu, la vie seule, le soutien des proches et les informations disponibles sur le sexe et le genre. Nous ne conclurons pas à des différences entre groupes si les études ne permettent pas de les mesurer correctement."],
+    [/^Place du 211/i,"Le 211 donne des informations sur les demandes d’aide et sur certains besoins restés sans réponse. Ces chiffres ne montrent pas quels besoins se cumulent chez une même personne, ni la fréquence des besoins dans la population."],
+    [/^Vers O3/i,"Après les autorisations nécessaires, les équipes de soutien à domicile chercheront des situations réelles comparables aux portraits décrits dans les études. Cette première étape ne recueille pas de dossiers individuels."],
+    [/^Si les études incluses ne documentent/i,"Si les études ne permettent pas de confirmer des difficultés vécues ensemble, nous ne créerons pas artificiellement de portraits-types. Nous décrirons les connaissances disponibles et adapterons la suite de l’étude avec les responsables scientifiques."],
+    [/^Les besoins se renforcent mutuellement/i,"Les difficultés de transport, d’alimentation et d’isolement peuvent se renforcer. Les regarder une par une risque de cacher le problème d’ensemble. Nous chercherons donc à comprendre les combinaisons de besoins, en tenant compte de la santé."],
+    [/^Un même territoire est étudié/i,"Pour chaque territoire, nous examinerons les caractéristiques de la population aînée, les services recensés et les demandes d’aide. Ces trois sources donnent des éclairages différents : elles ne permettent pas de suivre une personne particulière."],
+    [/^Les données décrivent des unités différentes/i,"Les sources concernent tantôt des quartiers, tantôt des services ou des demandes regroupées. On ne peut pas déduire les besoins d’une personne simplement à partir de son lieu de résidence."],
+    [/^L’objectif 2 prévoit une analyse écologique/i,"Avec R et QGIS, nous comparerons la localisation des ressources, la distance ou le temps nécessaire pour les rejoindre, et les différences entre territoires. Un organisme présent sur une carte n’est pas forcément accessible, admissible ou disponible. Les données du 211 seront utilisées comme un éclairage complémentaire, en tenant compte des années concernées."],
+    [/^Une fréquence de publication ne correspond/i,"Nous conserverons la date exacte de chaque fichier, car les données ne sont pas toutes mises à jour en même temps. Les appels au 211 ne permettent pas de reconstituer un suivi individuel des personnes accompagnées."],
+    [/^Première séquence · par domaine/i,"Nous regarderons d’abord les ressources pour chaque type de besoin séparément : logement, alimentation, mobilité, santé et autres services. Les catégories de l’atlas ne seront pas supposées identiques à celles des études."],
+    [/^Seconde séquence · par profil/i,"Une fois les portraits-types établis, nous regarderons si tous les services qui leur correspondent sont accessibles depuis les mêmes zones. Aucun profil ne sera inventé avant de vérifier les études."],
+    [/^Correspondances documentées/i,"Avant d’associer un besoin à une catégorie de services, nous vérifierons que le rapprochement est justifié. Chaque choix sera daté et contrôlé. Les catégories qui ne correspondent pas vraiment seront signalées ou exclues des calculs."],
+    [/^Du territoire au réseau/i,"Les cartes serviront à comparer les territoires et à proposer des lieux pour la troisième étape, si les autorisations sont obtenues. Une carte ne prouve pas que les services travaillent ensemble."],
+    [/^Un réseau centré sur l’équipe SAD/i,"Pour étudier les collaborations, nous partirons d’une équipe de soutien à domicile. Nous regarderons les organismes réellement contactés pour répondre à des situations vécues, sans exclure les situations où aucun partenaire extérieur n’a été sollicité."],
+    [/^Unité d’analyse : l’équipe de soutien/i,"L’équipe de soutien à domicile est le point de départ de chaque réseau. Les autres points représentent les organismes réellement contactés, pas les patients ou chaque professionnel. Les situations sans contact extérieur seront aussi étudiées. Aucun terrain n’est encore confirmé ; les autorisations sont nécessaires."],
+    [/^Intervenants et gestionnaires SAD ainsi/i,"Les professionnels, gestionnaires et organismes concernés pourront expliquer les liens observés. Deux personnes ayant une expérience vécue sont envisagées comme partenaires du projet, sous réserve de leur accord et recrutement. Elles aideront notamment à juger la clarté des outils et des résultats ; elles ne seront pas automatiquement interrogées comme participantes."],
+    [/^Plan cible : deux CLSC contrastés/i,"Le projet envisage deux territoires de CLSC différents, deux à trois portraits-types solides et quatre situations réelles par combinaison : 16 à 24 situations au total. Ce plan reste provisoire, comme les autorisations. L’objectif est de comprendre les parcours en profondeur, pas de comparer statistiquement tous les territoires."],
+    [/^La projection méthodologique utilise/i,"Centre-Sud de Montréal sert uniquement d’exemple de préparation. Aucun CLSC n’a confirmé la collecte. Les lieux définitifs restent à déterminer."],
+    [/^Plusieurs professionnels par équipe/i,"La cible est d’obtenir les réponses d’au moins 80 % des professionnels admissibles effectivement invités. Le taux des organismes partenaires sera calculé séparément. Une absence de réponse ne sera jamais traitée comme une absence de relation."],
+    [/^Choix raisonné selon les positions/i,"Les entretiens serviront à écouter des partenaires très présents, moins visibles ou dont les relations sont décrites différemment. Environ 8 à 10 entretiens par CLSC sont envisagés, selon la richesse des informations recueillies. Un lien inconnu ne sera pas déclaré absent."],
+    [/^Chaque situation sera décrite selon deux dimensions/i,"Pour chaque situation, nous distinguerons l’action entreprise (aucun contact, contact envisagé, tentative ou collaboration) et le résultat connu (aide reçue, partielle, refus ou résultat inconnu). Ne pas orienter n’est pas nécessairement une erreur : le soutien à domicile peut déjà répondre au besoin ou la personne peut refuser."],
+    [/^Vérification du statut des besoins/i,"Nous distinguerons cinq choses : le besoin identifié, la décision de demander de l’aide, le contact réellement effectué, l’aide éventuellement reçue et l’avis documenté sur sa pertinence. Être dirigé vers un organisme ne signifie pas que le besoin est réglé."],
+    [/^Le périmètre commence au repérage/i,"Le suivi commencera quand le besoin est repéré, même sans orientation. Si des organismes sont contactés, nous suivrons jusqu’à deux relais successifs. Le parcours réel peut continuer au-delà : la recherche ne prétendra pas qu’il s’arrête là."],
+    [/^Repérage sans présélection sur la réponse/i,"Toutes les situations correspondant aux critères seront considérées, même sans orientation extérieure. Les documents ne seront examinés que si l’accès est autorisé. L’absence de contact ne sera pas automatiquement qualifiée d’échec."],
+    [/^Questionnaire et borne des relais/i,"Le questionnaire permettra de savoir quel besoin a été évalué, quelle aide était envisagée et quels contacts ont effectivement eu lieu. Jusqu’à deux relais entre organismes pourront être suivis. Aucune absence de contact ne sera déduite d’un silence."],
+    [/^Consolidation des liens entre organisations/i,"Chaque lien gardera la trace de qui l’a signalé, dans quel sens et avec quel niveau de confirmation. Des témoignages concordants renforcent une information ; les désaccords seront vérifiés. Une absence de réponse ne prouve jamais une absence de lien."],
+    [/^Parcours : présenter des effectifs bruts/i,"Nous compterons, par territoire et portrait-type, les situations sélectionnées, avec ou sans contact, les parcours encore en cours et les résultats inconnus. Les données manquantes resteront visibles."],
+    [/^Réseaux : dédupliquer les organisations/i,"Chaque organisme sera compté une seule fois par équipe et profil. Les cartes montreront combien de partenaires participent, de quels secteurs ils viennent et l’intensité déclarée de leurs relations. Ce ne sera pas un inventaire complet de toutes les relations du territoire."],
+    [/^Couverture : rapporter séparément/i,"Nous distinguerons les réponses des professionnels, celles des partenaires et les liens confirmés. Même 80 % de participation ne garantit pas d’avoir observé 80 % des liens existants."],
+    [/^Comparabilité : juxtaposer les descriptions/i,"Les réseaux ne seront pas classés si les nombres de situations et les réponses recueillies diffèrent trop. Les comparaisons resteront descriptives et prudentes."],
+    [/^Structure et absences : ne calculer/i,"Les mesures complexes ne seront calculées que si les liens entre les partenaires sont suffisamment documentés. Un organisme non cité n’est pas automatiquement un partenaire absent du territoire."],
+    [/^Dénominateurs séparés : calculer/i,"La participation des équipes et celle des organismes seront calculées à part. Une cible d’au moins 80 % est prévue. Entre 65 et 79 %, davantage de vérifications seront nécessaires. Sous 65 %, les conclusions seront limitées. Ces seuils sont des précautions du projet, pas des normes universelles."],
+    [/^Contrôle du biais : comparer fonctions/i,"Nous vérifierons si certains métiers ou secteurs répondent moins que d’autres. Les résultats seront comparés avec tous les liens déclarés puis avec les liens confirmés, afin de voir si les conclusions changent."],
+    [/^Le sociogramme devient un support/i,"Les cartes de relations serviront à discuter avec les acteurs : pourquoi travaillent-ils ensemble ? Où la collaboration devient-elle difficile ? Quels organismes pourraient participer davantage ?"]
+  ];
+  const textesBrefs = [
+    [/^Synthèse vulgarisée :/i,"En trois étapes, nous chercherons à savoir quels besoins se présentent ensemble, où se trouvent les services pour y répondre et comment ces services collaborent réellement."],
+    [/^Synthèse scientifique$/i,"Faire le point sur les études publiées"],
+    [/^Population de la revue$/i,"Les personnes décrites dans les études"],
+    [/^Vie à domicile · une ou plusieurs/i,"À domicile, avec un ou plusieurs problèmes de santé"],
+    [/^4 sources bibliographiques$/i,"4 bases d’articles scientifiques"],
+    [/^lignes de recherche$/i,"recherches préparées"],
+    [/^blocs thématiques$/i,"groupes de mots-clés"],
+    [/^Extraction et codage$/i,"Relever et classer les informations"],
+    [/^Titres et résumés$/i,"Premier tri des articles"],
+    [/^Textes intégraux$/i,"Lecture des articles complets"],
+    [/^Désaccord persistant$/i,"Si les lecteurs ne sont pas d’accord"],
+    [/^→ troisième évaluateur/i,"→ une troisième personne départage"],
+    [/^Extraction en double$/i,"Informations relevées deux fois pour contrôle"],
+    [/^Champs renseignés$/i,"Ce que l’on relève dans chaque étude"],
+    [/^Instruments$/i,"Outils de mesure"],
+    [/^Domaines$/i,"Catégories de besoins"],
+    [/^Hétérogénéité conceptuelle$/i,"Études qui ne définissent pas les besoins de la même manière"],
+    [/^Repérage documentaire$/i,"Risque de manquer des études"],
+    [/^Portée des conclusions$/i,"Ce que l’étude ne pourra pas affirmer"],
+    [/^Population, volet QUAN$/i,"Qui est concerné par l’analyse des chiffres ?"],
+    [/^Population, volet qual$/i,"Qui sera interrogé pour expliquer les résultats ?"],
+    [/^Échantillonnage, volet QUAN$/i,"Comment seront choisies les situations ?"],
+    [/^Échantillonnage, volet qual$/i,"Comment seront choisies les personnes interrogées ?"],
+    [/^Analyse, volet QUAN$/i,"Comment compter les relations entre organismes ?"],
+    [/^Analyse, volet qual$/i,"Comment comprendre ce que disent les participants ?"],
+    [/^RÉSEAU ÉGOCENTRÉ$/i,"Réseau construit autour du soutien à domicile"],
+    [/^Version technique · variables, formules/i,"Comment interpréter les calculs"],
+    [/^Afficher les précisions scientifiques complètes$/i,"En savoir plus sur cette étape"]
+  ];
+  const deja = new WeakSet();
+  function vocabulaire(txt) {
+    let v = txt;
+    for (const paire of lexique) {
+      const terme = paire[0], explication = paire[1];
+      const escaped = terme.replace(/[.*+?^$()|[\]\\]/g,"\\$&");
+      const re = new RegExp("(^|[^\\p{L}])(" + escaped + ")(?=$|[^\\p{L}])","giu");
+      v = v.replace(re, (tout,prefix,original) => prefix + (original[0] === original[0].toUpperCase() && original[0] !== original[0].toLowerCase() ? explication[0].toUpperCase()+explication.slice(1) : explication));
+    }
+    return v;
+  }
+  function reformuler(s, region) {
+    const court = textesBrefs.find(p=>p[0].test(s));
+    if (court) return court[1];
+    if (s.length > 160) {
+      const p = paragraphes.find(p=>p[0].test(s));
+      if (p) return p[1];
+      if (/[∑Σ∏𝟙]/.test(s) || /^\s*[A-Z][a-z]?,[a-z]+\s*=/.test(s)) {
+        if (region === "o2") return "Ce calcul sert à comparer l’accès aux services selon les lieux, les temps de trajet et les informations disponibles. Il ne prouve pas qu’une personne a reçu de l’aide.";
+        if (region === "o3") return "Cette mesure décrit le nombre d’organismes, leur diversité ou la force de leurs relations. Elle ne sera utilisée que si les réponses sont assez complètes.";
+        return "Cette mesure sert à comparer des informations sans supposer qu’un besoin existe chez une personne.";
+      }
+      let v = vocabulaire(s);
+      if (v.length > 800) {
+        const phrases = v.split(/(?<=[.!?])\s+(?=[A-ZÀ-Ÿ])/u).filter(Boolean);
+        if (phrases.length > 4) v = phrases.slice(0,3).join(" ") + " Les limites et informations manquantes seront signalées.";
+      }
+      return v;
+    }
+    return vocabulaire(s);
+  }
+  function vulgariser(corps) {
+    const marche = document.createTreeWalker(corps,NodeFilter.SHOW_TEXT), liste=[];
+    while (marche.nextNode()) liste.push(marche.currentNode);
+    for (const noeud of liste) {
+      if (deja.has(noeud)) continue;
+      deja.add(noeud);
+      const el=noeud.parentElement, original=noeud.nodeValue, txt=original.trim();
+      if (!el || !txt || !/[\p{L}]/u.test(txt)) continue;
+      if (el.closest("style,script,svg,math,pre,code,.methode-grand-public-intro")) continue;
+      // Les titres h3–h6 servent à fabriquer le menu : ils restent identiques.
+      if (el.closest("h1,h2,h3,h4,h5,h6")) continue;
+      if (el.closest("a[href]") && txt.length < 80) continue;
+      const region=el.closest("#these-methode-o2")?"o2":el.closest("#these-methode-o3")?"o3":"o1";
+      const nouveau=reformuler(txt,region);
+      if (nouveau!==txt) noeud.nodeValue=original.replace(txt,nouveau);
+    }
+  }
+  function installer(chapitre) {
+    if (chapitre.dataset.lienGrandPublic) return;
+    const entete=chapitre.querySelector(":scope > .gab-chapitre-tete"),corps=chapitre.querySelector(".gab-corps");
+    if(!entete||!corps)return;
+    chapitre.dataset.lienGrandPublic="oui";
+    const bouton=document.createElement("a");
+    bouton.className="methode-lien-grand-public";
+    bouton.href=urlPour(!vulgarisee);
+    bouton.textContent=vulgarisee?"← Revenir à la version scientifique":"Consulter la version vulgarisée →";
+    entete.appendChild(bouton);
+    if(!vulgarisee) return;
+    const intro=document.createElement("div");
+    intro.className="methode-grand-public-intro";
+    intro.innerHTML="<strong>La méthode, expliquée simplement.</strong><p>Même projet, mêmes chiffres, cartes et schémas. Les mots scientifiques sont expliqués. Les étapes encore prévues ne sont pas présentées comme des résultats obtenus.</p>";
+    corps.prepend(intro);
+    vulgariser(corps);
+    let planifie=false;
+    new MutationObserver(()=>{
+      if(planifie)return;
+      planifie=true;
+      requestAnimationFrame(()=>{planifie=false;vulgariser(corps);});
+    }).observe(corps,{childList:true,subtree:true,characterData:true});
+  }
+  function trouver() {
+    const chapitre=document.querySelector('.gab-chapitre[data-gab-slug="methodes"]');
+    if(!chapitre)return false;
+    installer(chapitre);
+    return true;
+  }
+  if(!trouver()) {
+    const obs=new MutationObserver(()=>{if(trouver())obs.disconnect();});
+    obs.observe(document.body||document.documentElement,{childList:true,subtree:true});
+  }
+})();
