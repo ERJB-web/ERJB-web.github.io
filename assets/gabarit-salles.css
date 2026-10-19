@@ -2334,3 +2334,107 @@ html:is(.hc,.lv) .gab[data-gab-salle="gestionnaire"] .carte-vitrine{
     font-size:12px;
   }
 }
+
+
+/* Chapitre 04 Faisabilité : bilan visuel des capacités, sans modifier les menus. */
+.gab[data-gab-salle="recherche"] .fais-capacites-projet{
+  --fais-bleu:#245d85;--fais-vert:#22746a;
+  margin:20px 0 30px;padding:clamp(16px,2.4vw,26px);
+  max-width:100%;min-width:0;box-sizing:border-box;
+  border:1px solid #cddfe6;border-top:4px solid var(--fais-bleu);border-radius:15px;
+  background:linear-gradient(140deg,#f6fbfd,#fff 65%);color:#24475a
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-entete>span{
+  font-size:11px;font-weight:800;letter-spacing:.1em;color:var(--fais-bleu)
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-entete>h3{
+  margin:5px 0 8px!important;font:800 clamp(19px,2vw,25px)/1.3 var(--sans)!important;color:#16425a!important;
+  text-align:left!important;hyphens:none
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-entete>p{
+  margin:0 0 15px;line-height:1.5!important;font-size:14px!important;color:#4b6877;max-width:none;text-align:justify
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-chiffres{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:15px
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-chiffres>div{
+  display:flex;flex-direction:column;gap:5px;min-width:0;padding:14px 13px;
+  border-radius:10px;border:1px solid #d3e2e8;border-top:3px solid var(--fais-vert);background:white
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-chiffres>div:nth-child(2){border-top-color:#436eae}
+.gab[data-gab-salle="recherche"] .fais-capacites-chiffres>div:nth-child(3){border-top-color:#b3772e}
+.gab[data-gab-salle="recherche"] .fais-capacites-chiffres strong{
+  font:850 clamp(19px,2.5vw,27px)/1.15 var(--sans);color:#176977;letter-spacing:-.02em
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-chiffres span{
+  font-size:13px;font-weight:750;line-height:1.32;color:#294c5d;text-align:left
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-chiffres small{
+  color:#5a7280;font-size:11.5px;line-height:1.45;text-align:left
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-cols{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0 0 15px
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-cols>article{
+  min-width:0;padding:15px;border:1px solid #dae6e9;border-radius:12px;background:#fff
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-cols h4{
+  font:800 16px/1.4 var(--sans)!important;margin:0 0 12px!important;color:#22576a!important;text-align:left
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-puces{
+  display:flex;flex-wrap:wrap;gap:6px;margin:0 0 11px
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-puces span{
+  padding:5px 9px;border-radius:7px;background:#eaf3f6;color:#1d5869;font-size:12px;font-weight:750;line-height:1.4
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-cols p{
+  margin:0;font-size:13px!important;line-height:1.55!important;color:#4a6674;text-align:justify
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-formation{display:grid;gap:9px}
+.gab[data-gab-salle="recherche"] .fais-capacites-formation>div{
+  display:grid;grid-template-columns:minmax(112px,.75fr) minmax(0,1.6fr);
+  gap:9px;border-bottom:1px solid #e6eef0;padding-bottom:7px;
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-formation>div:last-child{border:0;padding:0}
+.gab[data-gab-salle="recherche"] .fais-capacites-formation b{
+  font-size:12px;line-height:1.4;color:#267481
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-formation span{
+  font-size:12.5px;line-height:1.45;color:#445d6a
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-flux{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:12px
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-flux>div{
+  min-width:0;display:grid;gap:5px;align-content:start;
+  background:#eef5f8;border-left:3px solid #307e92;border-radius:5px;padding:11px 12px
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-flux b{
+  color:#24637e;font-size:12px;line-height:1.4
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-flux span{
+  color:#4a6775;font-size:12px;line-height:1.48
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-ia{
+  padding:13px 15px;border-radius:10px;border:1px solid #d9d0e6;border-left:4px solid #8562a3;background:#f8f5fb
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-ia>strong{
+  font-size:14px;color:#68488c;line-height:1.4
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-ia>p{
+  margin:6px 0 8px;font-size:13px!important;line-height:1.56!important;color:#514b62;text-align:justify
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-ia>small{
+  display:block;font-size:12px;line-height:1.5;color:#685d73;text-align:justify
+}
+@media(max-width:880px){
+  .gab[data-gab-salle="recherche"] .fais-capacites-cols{grid-template-columns:minmax(0,1fr)}
+  .gab[data-gab-salle="recherche"] .fais-capacites-chiffres{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gab[data-gab-salle="recherche"] .fais-capacites-chiffres>div:last-child{grid-column:1/-1}
+}
+@media(max-width:600px){
+  .gab[data-gab-salle="recherche"] .fais-capacites-chiffres,
+  .gab[data-gab-salle="recherche"] .fais-capacites-flux{grid-template-columns:minmax(0,1fr)}
+  .gab[data-gab-salle="recherche"] .fais-capacites-chiffres>div:last-child{grid-column:auto}
+  .gab[data-gab-salle="recherche"] .fais-capacites-formation>div{grid-template-columns:minmax(0,1fr);gap:3px}
+}
