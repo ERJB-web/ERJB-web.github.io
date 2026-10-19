@@ -98,7 +98,7 @@
         document.getElementById("maturite-scientifique-loader")) return;
     const style = document.createElement("link");
     style.rel = "stylesheet";
-    style.href = new URL("assets/maturite-scientifique.css?v=20261019-10", document.baseURI).href;
+    style.href = new URL("assets/maturite-scientifique.css?v=20261019-11", document.baseURI).href;
     document.head.appendChild(style);
     const script = document.createElement("script");
     script.id = "maturite-scientifique-loader";
