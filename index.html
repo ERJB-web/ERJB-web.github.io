@@ -963,30 +963,47 @@ nav.these-methode-parcours[data-objectifs-isoles="oui"] .these-produit-descripti
 <p class="o1-circuit-status">État d’avancement : codebook et essai pilote réalisés ; révision bibliothécaire, sélection systématique et extraction prévues.</p>
 </div></div></section><section class="methode-rubrique" id="methode-o1-7"><h5 class="methode-rubrique-titre"><span>04</span>Analyse des données</h5>
 <style id="o1-codage-protocole-20261019">
-/* O1 seulement : de la grille de codage à la synthèse publiable. */
-#methode-o1-7 .o1-codage-methodique{width:100%;min-width:0;grid-column:1/-1;color:#284657}
-#methode-o1-7 .o1-codage-intro{margin:0 0 15px!important;color:#49616e;font-size:14px;line-height:1.65;text-align:justify}
-#methode-o1-7 .o1-codage-table-wrapper{max-width:100%;overflow-x:auto;border:1px solid #dce6e9;border-radius:13px;background:white}
-#methode-o1-7 table.o1-codage-table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;font-family:var(--sans,Arial,sans-serif)}
-#methode-o1-7 .o1-codage-table th,#methode-o1-7 .o1-codage-table td{padding:14px 13px;border:0;border-bottom:1px solid #e1eaed;vertical-align:top;text-align:left;hyphens:auto;overflow-wrap:break-word}
-#methode-o1-7 .o1-codage-table thead th{background:#ecf4f7;color:#345d70;font-size:12px!important;font-weight:800;letter-spacing:.035em}
-#methode-o1-7 .o1-codage-table tbody th{width:27%;background:#f7fafb;color:#24516a;font-size:14px!important;font-weight:750;line-height:1.55}
-#methode-o1-7 .o1-codage-table tbody td{color:#3d5562;font-size:13.5px!important;line-height:1.62}
-#methode-o1-7 .o1-codage-table tbody tr:last-child :is(th,td){border-bottom:0}
-#methode-o1-7 .o1-codage-step{display:block;margin-bottom:5px;color:#448d69;font-size:11px;font-weight:850;letter-spacing:.08em}
-#methode-o1-7 .o1-codage-example{margin:14px 0 0!important;padding:13px 16px;border-left:3px solid #6681a7;background:#f4f7fb;border-radius:0 9px 9px 0;color:#3e5262;font-size:13px!important;line-height:1.6;text-align:justify}
-#methode-o1-7 .o1-codage-example strong{color:#2e5270}
-@media(max-width:650px){#methode-o1-7 .o1-codage-table th,#methode-o1-7 .o1-codage-table td{padding:11px 9px}#methode-o1-7 .o1-codage-table tbody th{width:35%}}
+/* O1 seulement : un tableau unique, quatre étapes, aucun pictogramme. */
+#methode-o1-7 .o1-codage-methodique{width:100%;min-width:0;grid-column:1/-1;color:#294759}
+#methode-o1-7 .o1-codage-title{margin:0 0 5px!important;color:#214f66!important;font:780 clamp(17px,1.8vw,22px)/1.32 var(--sans,Arial,sans-serif)!important;letter-spacing:-.02em}
+#methode-o1-7 .o1-codage-intro{margin:0 0 15px!important;color:#637985!important;font:450 12.5px/1.5 var(--sans,Arial,sans-serif)!important;text-align:left!important}
+#methode-o1-7 .o1-codage-table-wrapper{width:100%;max-width:100%;min-width:0;overflow:hidden;border:1px solid #d8e5e9;border-radius:14px;background:#fff}
+#methode-o1-7 table.o1-codage-table{width:100%;max-width:100%;border-spacing:0;border-collapse:collapse;table-layout:fixed;font-family:var(--sans,Arial,sans-serif)}
+#methode-o1-7 .o1-codage-table thead th{padding:12px 16px!important;background:#edf4f6;color:#31596b;font:800 11px/1.3 var(--sans,Arial,sans-serif)!important;letter-spacing:.065em;text-transform:uppercase;text-align:left!important;vertical-align:middle}
+#methode-o1-7 .o1-codage-table thead th:nth-child(1){width:23%}
+#methode-o1-7 .o1-codage-table thead th:nth-child(2){width:43%}
+#methode-o1-7 .o1-codage-table thead th:nth-child(3){width:34%}
+#methode-o1-7 .o1-codage-table tbody tr{border-top:1px solid #e4ecef}
+#methode-o1-7 .o1-codage-table tbody tr:nth-child(even){background:#f8fbfc}
+#methode-o1-7 .o1-codage-table tbody :is(th,td){min-width:0;padding:17px 16px!important;vertical-align:middle!important;text-align:left!important;hyphens:none!important;overflow-wrap:break-word}
+#methode-o1-7 .o1-codage-table tbody th{font:750 14px/1.37 var(--sans,Arial,sans-serif)!important;color:#244d62!important}
+#methode-o1-7 .o1-codage-table tbody td{font:450 13.3px/1.55 var(--sans,Arial,sans-serif)!important;color:#455f6e!important}
+#methode-o1-7 .o1-codage-table tbody td.o1-codage-produit{font-weight:640!important;color:#2b5664!important}
+#methode-o1-7 .o1-codage-step{display:inline-block;margin:0 0 4px;color:#2b8a73;font:800 11px/1.3 var(--sans,Arial,sans-serif)!important;letter-spacing:.07em}
+#methode-o1-7 .o1-codage-preuve{margin:12px 0 0!important;padding:0!important;border:0!important;background:transparent!important}
+#methode-o1-7 .o1-codage-preuve summary{cursor:pointer;font:700 12px/1.55 var(--sans,Arial,sans-serif);color:#316a77;list-style:revert!important}
+#methode-o1-7 .o1-codage-preuve summary:focus-visible{outline:2px solid #318a8a;outline-offset:3px}
+#methode-o1-7 .o1-codage-preuve p{margin:7px 0 0!important;max-width:850px;color:#556d79;font:450 12.5px/1.6 var(--sans,Arial,sans-serif)!important;text-align:justify!important}
+@media(max-width:680px){
+ #methode-o1-7 .o1-codage-table-wrapper{border:0;border-radius:0;background:transparent}
+ #methode-o1-7 table.o1-codage-table,#methode-o1-7 .o1-codage-table tbody,#methode-o1-7 .o1-codage-table tbody tr,#methode-o1-7 .o1-codage-table tbody th,#methode-o1-7 .o1-codage-table tbody td{display:block!important;width:100%!important}
+ #methode-o1-7 .o1-codage-table thead{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip-path:inset(50%)!important;white-space:nowrap!important}
+ #methode-o1-7 .o1-codage-table tbody tr{margin:0 0 10px;padding:13px 14px;border:1px solid #d8e5e9;border-radius:12px;background:#fff}
+ #methode-o1-7 .o1-codage-table tbody tr:nth-child(even){background:#f8fbfc}
+ #methode-o1-7 .o1-codage-table tbody :is(th,td){padding:2px 0 8px!important;border:0!important}
+ #methode-o1-7 .o1-codage-table tbody th{padding-bottom:9px!important;border-bottom:1px solid #e3ecee!important}
+ #methode-o1-7 .o1-codage-table tbody td:before{content:attr(data-label);display:block;font:750 10px/1.4 var(--sans,Arial,sans-serif);letter-spacing:.04em;text-transform:uppercase;color:#618092;margin:8px 0 3px}
+}
 </style>
 <div class="methode-rubrique-contenu"><div class="o1-codage-methodique" aria-label="Procédure de codage et de synthèse de la revue de portée">
-<p class="o1-codage-intro"><strong>Unité de codage : l’étude incluse.</strong> Dans la grille d’extraction de Covidence, chaque information est associée à sa référence et à sa page ou à son tableau. Une configuration de besoins fait l’objet d’un relevé distinct lorsqu’elle est effectivement décrite.</p>
-<div class="o1-codage-table-wrapper"><table class="o1-codage-table"><thead><tr><th scope="col">Étape</th><th scope="col">Codage et décision</th><th scope="col">Résultat</th></tr></thead><tbody>
-<tr><th scope="row"><span class="o1-codage-step">01</span>Extraire les études</th><td>Population, contexte, morbidités, définitions des besoins, outils de mesure et résultats pertinents.</td><td>Une fiche structurée par étude, avec les sources des données.</td></tr>
-<tr><th scope="row"><span class="o1-codage-step">02</span>Coder les domaines</th><td>Associer chaque besoin à un code défini dans le <i>codebook</i> ; conserver le terme original et la règle de classement.</td><td>Une matrice « études × domaines de besoins ».</td></tr>
-<tr><th scope="row"><span class="o1-codage-step">03</span>Vérifier la concomitance</th><td>Coder une combinaison seulement si l’étude documente plusieurs besoins chez les <strong>mêmes personnes</strong> ; noter la preuve (résultat, effectif ou extrait).</td><td>Associations documentées, ou mention « concomitance non documentée ».</td></tr>
-<tr><th scope="row"><span class="o1-codage-step">04</span>Synthétiser et publier</th><td>Comparer les configurations rapportées, leur contexte et le nombre d’études qui les étayent, sans inventer de profils statistiques.</td><td>Tableaux de synthèse, typologie descriptive si étayée, vignettes et article de revue de portée (PRISMA-ScR).</td></tr>
+<h6 class="o1-codage-title">Construire les profils de besoins à partir de la revue de portée</h6><p class="o1-codage-intro">Quatre étapes · des études sélectionnées aux vignettes pour O3</p>
+<div class="o1-codage-table-wrapper"><table class="o1-codage-table" aria-label="De la revue de portée aux profils et vignettes"><thead><tr><th scope="col">Étape</th><th scope="col">Ce qu’on fait</th><th scope="col">Ce que ça produit</th></tr></thead><tbody>
+<tr><th scope="row"><span class="o1-codage-step">01</span>Revue de portée</th><td data-label="Ce qu’on fait">Sélectionner les études admissibles sur les besoins sociaux des aînés à domicile.</td><td data-label="Ce que ça produit" class="o1-codage-produit">Corpus d’études incluses.</td></tr>
+<tr><th scope="row"><span class="o1-codage-step">02</span>Extraction et codage</th><td data-label="Ce qu’on fait">Dans Covidence : relever populations, besoins, outils et domaines du <i>codebook</i>.</td><td data-label="Ce que ça produit" class="o1-codage-produit">Fiches par étude + matrice « études × besoins ».</td></tr>
+<tr><th scope="row"><span class="o1-codage-step">03</span>Synthèse des profils</th><td data-label="Ce qu’on fait">Vérifier les besoins concomitants chez les <strong>mêmes personnes</strong> ; qualifier les preuves.</td><td data-label="Ce que ça produit" class="o1-codage-produit">Associations documentées + profils étayés.</td></tr>
+<tr><th scope="row"><span class="o1-codage-step">04</span>Typologie et vignettes</th><td data-label="Ce qu’on fait">Synthétiser les configurations étayées en vignettes pour O3.</td><td data-label="Ce que ça produit" class="o1-codage-produit">Typologie descriptive (si étayée) + vignettes + article de revue (PRISMA-ScR).</td></tr>
 </tbody></table></div>
-<p class="o1-codage-example"><strong>Règle de codage :</strong> « isolement + difficultés de transport » forme une configuration uniquement si les deux besoins sont observés chez les mêmes personnes. Deux fréquences distinctes ne permettent pas de conclure à leur concomitance.</p>
+<details class="o1-codage-preuve"><summary>Précision : quand deux besoins sont-ils concomitants ?</summary><p>Une association n’est retenue que si les besoins sont décrits chez les mêmes personnes. Deux fréquences distinctes ne prouvent pas la concomitance.</p></details>
 </div></div></section><section class="methode-rubrique" id="methode-o1-8"><h5 class="methode-rubrique-titre"><span>05</span>Intégration et articulation des données</h5><div class="methode-rubrique-contenu"><dl class="methode-fiche"><div class="these-methode-item"><dt>Articulation avec les objectifs suivants</dt><dd>Les définitions, instruments et profils recensés dans les études incluses serviront à construire les vignettes de synthèse. Celles-ci pourront ensuite guider la lecture de l’atlas O2 et l’examen des relations intersectorielles dans O3. O1 demeure une revue de portée, sans collecte de données individuelles.</dd></div></dl></div></section><style id="o1-profils-4-etapes-20261019">
 /* O1 uniquement : tableau scientifique de fabrication des profils, vignette et plan B. */
 #these-methode-o1 .o1-fabrication{margin:23px 0 21px;max-width:100%;min-width:0;color:#2d4956}
@@ -1012,14 +1029,8 @@ nav.these-methode-parcours[data-objectifs-isoles="oui"] .these-produit-descripti
  #these-methode-o1 .o1-vignette-scientifique{padding:16px}
 }
 </style>
-<section class="o1-fabrication" aria-labelledby="o1-fabrication-titre">
-<h6 class="o1-fabrication-titre" id="o1-fabrication-titre">Construire les profils de besoins à partir de la revue de portée</h6>
-<table class="o1-fabrication-tableau"><thead><tr><th scope="col">Étape</th><th scope="col">Démarche prévue</th></tr></thead><tbody>
-<tr><th scope="row">Étape 1 · Revue de portée</th><td>Tu sélectionnes les études sur les besoins sociaux des aînés vivant à domicile, notamment ceux présentant une ou plusieurs morbidités.</td></tr>
-<tr><th scope="row">Étape 2 · Extraction dans Covidence</th><td>Tu relèves les besoins décrits, les outils de mesure, les populations et surtout les <strong>combinaisons de besoins réellement rapportées chez les mêmes personnes</strong>.</td></tr>
-<tr><th scope="row">Étape 3 · Synthèse et regroupement</th><td>Tu construis une matrice des domaines et de leurs associations documentées. Tu identifies des configurations récurrentes, en précisant leur niveau de preuve.</td></tr>
-<tr><th scope="row">Étape 4 · Typologie et vignettes</th><td>Tu traduis les configurations suffisamment étayées en vignettes de situations, qui serviront ensuite à interroger les équipes SAD et leurs partenaires en O3.</td></tr>
-</tbody></table>
+<section class="o1-fabrication" aria-label="Vignette illustrative et alternative méthodologique">
+
 <section class="o1-vignette-scientifique" aria-labelledby="o1-vignette-titre">
 <h6 id="o1-vignette-titre">Vignette illustrative : à construire à partir des études</h6>
 <p>Une personne de 78 ans vivant à domicile avec un diabète, présentant des difficultés de mobilité, un isolement social et des obstacles d'accès aux services.</p>
