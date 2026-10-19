@@ -2476,3 +2476,35 @@ html:is(.hc,.lv) .gab[data-gab-salle="gestionnaire"] .carte-vitrine{
 @media(max-width:620px){
  .gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture .methode-lien-grand-public{width:100%;flex:1 1 auto}
 }
+
+/* Méthodologie : accès grand public visible, hors menus de navigation. */
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture{
+ justify-content:flex-end!important;margin:0 0 24px!important;min-height:52px!important;
+}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture .methode-lien-grand-public{
+ padding:14px 22px!important;background:#0879be!important;color:#fff!important;border:2px solid #0755ad!important;
+ font-size:15px!important;font-weight:800!important;box-shadow:0 6px 17px rgba(8,92,152,.19)!important;
+}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture .methode-lien-grand-public:hover{background:#0755ad!important;color:#fff!important}
+.methode-grand-public{max-width:1060px;color:#284251;font-size:17px;line-height:1.68}
+.methode-grand-public p{margin:0 0 13px;line-height:1.68;text-align:left!important}
+.methode-grand-public h4{font-size:25px;line-height:1.23;margin:0 0 15px;color:#153c52}
+.methode-grand-public h5{font-size:20px;line-height:1.3;margin:8px 0 10px;color:#143e52}
+.methode-grand-public .mgp-kicker{color:#076b9a;font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+.mgp-intro{border-left:6px solid #0879be;padding:19px 24px;background:#f1f8fc;border-radius:0 16px 16px 0;margin-bottom:24px}
+.mgp-histoire{display:grid;grid-template-columns:195px 1fr;gap:24px;align-items:center;padding:22px;border-radius:17px;background:#fff6e9;border:1px solid #efca98;margin:0 0 30px}
+.mgp-personnage{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;font-size:18px;color:#885112}
+.mgp-personnage strong{font-size:23px;color:#693b0e}
+.mgp-personnage small{font-size:12px;line-height:1.45}
+.mgp-etapes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0 27px}
+.mgp-etapes article{background:#fff;border:1px solid #dce8e9;border-top:5px solid #54ac39;padding:18px;border-radius:13px;min-width:0}
+.mgp-etapes article:nth-child(2){border-top-color:#0aa3a3}
+.mgp-etapes article:nth-child(3){border-top-color:#356dc3}
+.mgp-etapes article>span{font-size:13px;font-weight:850;letter-spacing:.06em;color:#397747;text-transform:uppercase}
+.mgp-etapes article:nth-child(2)>span{color:#087b7b}
+.mgp-etapes article:nth-child(3)>span{color:#275ea9}
+.mgp-etapes .mgp-sortie{background:#f1f7f9;border-radius:8px;padding:10px 12px;margin:12px 0 0}
+.mgp-definitions{border:1px solid #cde1eb;background:#f4f9fc;padding:22px 24px;border-radius:16px;margin-bottom:24px}
+.mgp-conclusion{border-left:6px solid #58a837;padding:20px 24px;background:#f4f9f0;border-radius:0 14px 14px 0;margin-bottom:22px}
+@media(max-width:850px){.mgp-etapes{grid-template-columns:1fr}.mgp-histoire{grid-template-columns:1fr}.methode-grand-public{font-size:16px}}
+@media(max-width:620px){.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture{justify-content:stretch!important}}
