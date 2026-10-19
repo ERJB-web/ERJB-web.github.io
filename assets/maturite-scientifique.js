@@ -64,18 +64,40 @@
         addOnce(o2Collecte, "matTracabiliteO2", mk("mat-sc--o2 mat-sc--harmonie", `
           <span class="mat-sc__eyebrow">O2 · Harmonisation et reproductibilité</span>
           <p class="mat-sc__title" role="heading" aria-level="6">Six champs comparables, sans données inventées</p>
-          <p class="mat-sc__small">Localisation, CLSC, secteur, domaine, millésime et identifiant interne : ils sont <strong>observés, recodés ou dérivés</strong> à partir des sources. Ils ne constituent pas six colonnes identiques dans chaque répertoire.</p>
-          <details class="mat-sc__detail-six"><summary>Tableau · Comment sont obtenus les six champs</summary>
+          <p class="mat-sc__lead">Les banques ne contiennent pas toutes les mêmes colonnes. Les scripts R rapprochent les informations disponibles par <strong>géocodage, rattachement géographique, recodage et création d’un identifiant interne</strong>. Les observations de départ restent traçables ; aucun besoin individuel n’est créé.</p>
+          <div class="mat-sc__exemple" aria-label="Exemple fictif de codage et d'harmonisation">
+            <div class="mat-sc__exemple-source">
+              <small>01 · Donnée fournie par le répertoire</small>
+              <b>Service alimentaire A</b>
+              <span>Adresse à Montréal · Catégorie 211 : « Aide alimentaire »</span>
+              <em>Exemple fictif, destiné à illustrer la méthode</em>
+            </div>
+            <div class="mat-sc__exemple-arrow" aria-hidden="true">→</div>
+            <div class="mat-sc__exemple-result">
+              <small>02 · Résultat du traitement R</small>
+              <div><span>CLSC</span><b>Rattaché par localisation</b></div>
+              <div><span>Secteur</span><b>Communauté</b></div>
+              <div><span>Domaine</span><b>Alimentation</b></div>
+              <div><span>Millésime / ID</span><b>Source datée + code interne</b></div>
+            </div>
+          </div>
+
+          <details class="mat-sc__detail-six" open><summary>Tableau · Les six champs, leur traitement et leur nature</summary>
             <div class="mat-sc__table-wrap"><table class="mat-sc__table"><thead><tr><th>Champ harmonisé</th><th>Traitement réalisé dans R</th><th>Nature</th></tr></thead><tbody>
-              <tr><th>Position géographique</th><td>Coordonnées de source ou géocodage d'une adresse</td><td>Observée / géocodée</td></tr>
-              <tr><th>Territoire de CLSC</th><td>Position rapprochée des contours officiels</td><td>Dérivé spatialement</td></tr>
-              <tr><th>Secteur</th><td>Type de service rapproché des six secteurs</td><td>Recodé</td></tr>
-              <tr><th>Domaine de besoin</th><td>Catégories 211 ou types de service rapprochés d'une nomenclature</td><td>Codé ; plusieurs domaines possibles</td></tr>
-              <tr><th>Millésime</th><td>Date de référence du fichier conservée pour chaque source</td><td>Métadonnée harmonisée</td></tr>
-              <tr><th>Identifiant interne</th><td>Code créé après nettoyage et dédoublonnage ; identifiant de source conservé</td><td>Construit ; non stable entre versions</td></tr>
+              <tr><th>Position géographique</th><td>Coordonnées de la source ou géocodage d’une adresse, puis projection commune</td><td>Observée / géocodée</td></tr>
+              <tr><th>Territoire de CLSC</th><td>Rattachement spatial du point aux polygones officiels des CLSC</td><td>Dérivé spatialement</td></tr>
+              <tr><th>Secteur</th><td>Correspondance du type de service avec le référentiel des six secteurs</td><td>Recodé</td></tr>
+              <tr><th>Domaine de besoin</th><td>Correspondances entre catégories du 211, types de services et domaines ; plusieurs domaines possibles</td><td>Codé ; plusieurs domaines possibles</td></tr>
+              <tr><th>Millésime</th><td>Année ou date de référence du jeu conservée à l’import</td><td>Métadonnée harmonisée</td></tr>
+              <tr><th>Identifiant interne</th><td>Code créé après nettoyage et rapprochement des doublons ; identifiant de source conservé</td><td>Construit ; non stable entre versions</td></tr>
             </tbody></table></div>
           </details>
-          <p class="mat-sc__small"><strong>Traçabilité déjà en place :</strong> scripts R en texte, fichiers sources et empreintes, journal des décisions, contrôles de doublons, rattachement aux CLSC, calculs et exports QGIS ; suivi PRISMA distinct pour O1.</p>
+          
+          <div class="mat-sc__verif">
+            <div class="mat-sc__verif-stat"><small>Essai · double codage des catégories du 211</small><strong>κ = 0,94</strong><span>Forte concordance corrigée du hasard</span></div>
+            <div class="mat-sc__verif-desc"><b>Codage assisté puis contrôlé</b>Les règles de correspondance sont appliquées dans R et deux grilles de codage des catégories du 211 sont comparées. Le coefficient κ de Cohen est calculé ; les désaccords sont consignés pour arbitrage. Cet accord porte sur les <strong>catégories</strong>, pas sur la validité des coordonnées, des doublons ou des prestations.</div>
+          </div>
+<p class="mat-sc__small"><strong>Traçabilité déjà en place :</strong> scripts R en texte, fichiers sources et empreintes, journal des décisions, contrôles de doublons, rattachement aux CLSC, calculs et exports QGIS ; suivi PRISMA distinct pour O1.</p>
           <p class="mat-sc__small"><strong>Statut des figures :</strong> les cartes actuelles illustrent la faisabilité technique ; les résultats définitifs seront calculés selon les profils O1 et la couverture des sources.</p>
         `));
       }
