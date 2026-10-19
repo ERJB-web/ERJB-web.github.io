@@ -333,7 +333,7 @@
     // Une rubrique sans découpage éditorial explicite reste un seul chapitre.
     if (REGLES[salle]?.unique || salle === "biographie" || salle === "parcours") {
       const corps = $(":scope > .section-corps", sc);
-      if (SALLES_ENGAGEMENTS.includes(salle)) {
+      if (SALLES_ENGAGEMENTS.includes(salle) && salle !== "loisirs") {
         sc.classList.add("gab-engagements");
         if (salle === "representation") preparerRepresentation(corps);
         else preparerAutresEngagements(corps,salle);
