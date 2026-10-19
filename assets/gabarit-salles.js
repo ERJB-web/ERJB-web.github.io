@@ -26,7 +26,7 @@
   // Découpage des salles qui ne sont pas organisées en rubriques.
   const VITRINE = { sel: "article.carte-vitrine", titre: "h3" };
   const REGLES = {
-    axes: { sel: "article.axe-carte", titre: "h4" },
+    axes: { unique: true },
     publications: { sel: "section.publication-bloc", titre: ".publication-titre, h3" },
     methodes: { sel: "article.methode", titre: "h4" },
     vulgarisation: { sel: "article.vul-dossier-chapitre", titre: "h3" },
@@ -228,6 +228,19 @@
   }
 
   function decouper(sc, salle) {
+    // Une rubrique sans découpage éditorial explicite reste un seul chapitre.
+    if (REGLES[salle]?.unique || salle === "biographie" || salle === "parcours") {
+      const corps = $(":scope > .section-corps", sc);
+      const source = el("div", "gab-lecture-integrale");
+      const titre = texteTitre($("h2", corps)) || texteTitre($(".bandeau-titre", sc));
+      if (salle === "axes") $$(".axe-carte", corps).forEach((carte, i) => {
+        carte.id = "axes-chapitre-" + (i + 1);
+        carte.style.setProperty("--axe", COULEURS[i % COULEURS.length]);
+      });
+      source.append(...Array.from(corps.children));
+      corps.append(source);
+      return { mode: "elements", chapitres: [{ source, titre, cle: "chapitre-1" }] };
+    }
     const table = $(".table.rubriques[data-rubriques], [data-rubriques][data-navigation=atelier]", sc);
     if (table) {
       if (salle === "implantation") preparerChapitresImplantation(sc, table);
@@ -634,7 +647,6 @@
       }
     });
     const palette = [
-      ["#365772","#76a2bb","#edf4f8","#f8fbfd"],
       ["#286c23","#5aae38","#ecf7e8","#f5fbf2"],
       ["#006e72","#11a7a5","#e9f7f6","#f3fbfa"],
       ["#18559b","#0755ad","#ebf2fd","#f3f7ff"],
@@ -674,9 +686,9 @@
     const o2 = $("#these-methode-o2", corps);
     if (!o2) return;
     const section = o2;
-    const titre = (prefixe) => $("h3,h4,h5,h6,dt,strong,b,span", section)
+    const titre = (prefixe) => $$("h3,h4,h5,h6,dt,strong,b,span", section)
       .find((n) => net(n.textContent).startsWith(prefixe) && net(n.textContent).length < 110);
-    const paragraphe = (prefixe) => $("p", section)
+    const paragraphe = (prefixe) => $$("p", section)
       .find((n) => net(n.textContent).startsWith(prefixe));
 
     // Retirer l'enveloppe entière uniquement si elle ne contient rien d'autre.
@@ -769,7 +781,7 @@
     const aside = el("aside", "gab-chapitre-aside");
     // Dans le contexte de la thèse, le visuel de chiffres clés du premier chapitre
     // figure déjà dans le corps : ne pas le dupliquer au-dessus du sommaire.
-    if (choix.url && !(salle === "recherche" && i === 0) && !(salle === "recherche" && ch.cle === "transfert")) {
+    if (choix.url && !REGLES[salle]?.unique && !(salle === "biographie" || salle === "parcours") && !(salle === "recherche" && i === 0) && !(salle === "recherche" && ch.cle === "transfert")) {
       const credit = choix.image ? `${T.photo} : ${echapper(choix.image.auteur || "")}${choix.image.licence ? " · " + echapper(choix.image.licence) : ""}` : "";
       const alt = choix.alt || (langue === "fr" && choix.image?.alt ? choix.image.alt : "");
       aside.innerHTML = `<div class="gab-photo"><img src="${echapper(choix.url)}" alt="${echapper(alt)}" loading="lazy" decoding="async" width="960" height="640">${credit ? `<small class="gab-credit">${choix.image.source_url ? `<a href="${echapper(choix.image.source_url)}" target="_blank" rel="noopener">${credit}</a>` : credit}</small>` : ""}</div>`;
@@ -975,62 +987,12 @@
     const bandeau = $(":scope > .bandeau", sc);
     const corps = $(":scope > .section-corps", sc);
     if (!corps) return;
-    // Ces deux pages se lisent d'un seul tenant : conserver le récit et la
-    // chronologie sources, sans créer de tuiles, pages ni navigation de chapitres.
-    if (salle === "biographie" || salle === "parcours") {
-      sc.dataset.gabSalle = salle;
-      sc.dataset.gabChapitres = "0";
-      sc.classList.add("gab", "gab-unique", "gab-continu");
-      if (bandeau) {
-        bandeau.classList.add("gab-bandeau");
-        const photo = photoDuBandeau(bandeau);
-        if (photo) bandeau.style.setProperty("--gab-photo", `url("${photo}")`);
-        bandeau.classList.remove("revele");
-        $$(".revele", bandeau).forEach((x) => x.classList.remove("revele"));
-      }
-      // Les anciennes adresses de chapitre restent des ancrages dans la page.
-      if (salle === "biographie") $$(".recit > li", sc).forEach((item, i) => {
-        item.id = "biographie-chapitre-" + (i + 1);
-      });
-      const lectureContinue = el("div", "continu-texte");
-      lectureContinue.append(...Array.from(corps.children));
-      const navigation = el("aside", "continu-aside");
-      const nav = el("nav", "gab-sommaire-chapitre gab-sommaire-objectifs continu-sommaire");
-      const libelles = {
-        fr: ["Dans cette page", "Expériences et recherche", "Engagements et perspectives", "Formations et expériences"],
-        en: ["On this page", "Experience and research", "Commitments and perspectives", "Education and experience"],
-        es: ["En esta página", "Experiencia e investigación", "Compromisos y perspectivas", "Formación y experiencia"],
-        zh: ["本页目录", "经历与研究", "参与和展望", "教育与经历"],
-        ar: ["في هذه الصفحة", "الخبرات والبحث", "المشاركة والآفاق", "التكوين والخبرات"],
-        ru: ["На этой странице", "Опыт и исследования", "Участие и перспективы", "Образование и опыт"]
-      }[langue] || ["Dans cette page", "Expériences et recherche", "Engagements et perspectives", "Formations et expériences"];
-      nav.setAttribute("aria-label", libelles[0]);
-      nav.append(el("span", "", echapper(libelles[0])));
-      const cibles = salle === "biographie" ? $$(".recit h3, .vision h3", lectureContinue)
-        : $$(".colonne-texte > h2, .colonne-texte > h3, .frise h4", lectureContinue);
-      const groupes = [el("section", "gab-sommaire-groupe"), el("section", "gab-sommaire-groupe")];
-      groupes.forEach((g, i) => {
-        g.dataset.objectif = i ? "O2" : "O1";
-        g.append(el("div", "gab-sommaire-groupe-titre", `<strong>${echapper(libelles[salle === "parcours" ? 3 : i + 1])}</strong>`));
-      });
-      cibles.forEach((h, i) => {
-        if (!h.id) h.id = "continu-" + salle + "-" + i;
-        const a = el("a", "", echapper(net(h.textContent)));
-        a.href = "#" + h.id;
-        a.dataset.continuCible = h.id;
-        groupes[salle === "biographie" && i >= 3 ? 1 : 0].append(a);
-      });
-      groupes.forEach((g) => { if (g.querySelector("a")) nav.append(g); });
-      navigation.append(nav);
-      corps.append(navigation, lectureContinue);
-      return;
-    }
     if (salle === "recherche") mettreDevisEnCartes(sc);
     const photoSalle = photoDuBandeau(bandeau);
     const { mode, table, chapitres } = decouper(sc, salle);
 
     // Introduction : un seul chapeau, sans surtitre (le bandeau dit déjà où l'on est).
-    const intro = Array.from(corps.children).find((c) => c.querySelector("h2") || c.matches(".colonne-texte"));
+    const intro = Array.from(corps.children).find((c) => !c.matches(".gab-lecture-integrale") && (c.querySelector("h2") || c.matches(".colonne-texte")));
     if (intro) {
       intro.classList.add("gab-intro");
       $$(":scope > .surtitre", intro).forEach((s) => s.remove());
@@ -1121,7 +1083,7 @@
     }
 
     // Tuiles des chapitres, juste sous le bandeau.
-    if (n >= 2) {
+    if (n >= 1) {
       const programme = el("nav", "gab-programme");
       const titreProgramme = salle === "recherche" && langue === "fr" ? "Les chapitres de ma thèse" : T.programme;
       const aideProgramme = salle === "recherche" && langue === "fr" ? "Choisir un chapitre" : T.aide;
@@ -1480,96 +1442,6 @@
   }
 
 
-  // Sports et loisirs : conserver la barre de navigation initiale, sans recréer de chapitres.
-  // Les huit figures restent côte à côte dans leur grille ; les flèches les rejoignent par défilement.
-  let navigationLoisirs = null;
-  const NAV_LOISIRS = {
-    fr: { tous: "Toutes les activités", precedent: "Activité précédente", suivant: "Activité suivante", compteur: (i,n) => "Activité " + i + " sur " + n },
-    en: { tous: "All activities", precedent: "Previous activity", suivant: "Next activity", compteur: (i,n) => "Activity " + i + " of " + n },
-    es: { tous: "Todas las actividades", precedent: "Actividad anterior", suivant: "Actividad siguiente", compteur: (i,n) => "Actividad " + i + " de " + n },
-    zh: { tous: "所有活动", precedent: "上一项活动", suivant: "下一项活动", compteur: (i,n) => "活动 " + i + " / " + n },
-    ar: { tous: "كل الأنشطة", precedent: "النشاط السابق", suivant: "النشاط التالي", compteur: (i,n) => "النشاط " + i + " من " + n },
-    ru: { tous: "Все занятия", precedent: "Предыдущее занятие", suivant: "Следующее занятие", compteur: (i,n) => "Занятие " + i + " из " + n }
-  };
-  const motsLoisirs = NAV_LOISIRS[langue] || NAV_LOISIRS.fr;
-
-  function rafraichirBarreLoisirs() {
-    const etat = navigationLoisirs;
-    if (!etat || !lecture || !etat.activites.length) return;
-    const i = etat.index, n = etat.activites.length;
-    lecture.style.setProperty("--gab-c", COULEURS[i % COULEURS.length]);
-    $(".gab-actuel b", lecture).textContent = deux(i + 1);
-    $(".gab-actuel small", lecture).textContent = motsLoisirs.compteur(i + 1, n);
-    $(".gab-actuel strong", lecture).textContent = etat.titres[i];
-    [-1, 1].forEach((sens) => {
-      const btn = $("[data-gab-pas='" + sens + "']", lecture);
-      if (!btn) return;
-      const voisin = i + sens, possible = voisin >= 0 && voisin < n;
-      const cible = $(".gab-fleche-cible", btn);
-      if (cible) cible.textContent = possible ? deux(voisin + 1) + " · " + etat.titres[voisin] : "";
-      btn.disabled = !possible;
-      btn.setAttribute("aria-label", (sens < 0 ? motsLoisirs.precedent : motsLoisirs.suivant) +
-        (possible ? " : " + deux(voisin + 1) + " · " + etat.titres[voisin] : ""));
-    });
-    $(".gab-segments button", lecture).forEach((btn, k) => {
-      btn.classList.toggle("lu", k < i);
-      btn.setAttribute("aria-current", String(k === i));
-    });
-  }
-
-  function configurerBarreLoisirs(zone) {
-    if (!lecture || !zone || zone.dataset.gabSalle !== "loisirs") return false;
-    const activites = $(".loisirs-etendus > figure.loisir", zone);
-    if (!activites.length) return false;
-    const titres = activites.map((fig) => net($("figcaption strong", fig)?.textContent));
-    if (!navigationLoisirs || navigationLoisirs.zone !== zone) {
-      navigationLoisirs = { zone, activites, titres, index: 0 };
-    }
-    // Réutiliser exactement le contenant, les flèches, les pastilles et les dimensions du menu existant.
-    $(".gab-tous span:last-child", lecture).textContent = motsLoisirs.tous;
-    $(".gab-fleche-precedente .gab-fleche-texte", lecture).textContent = motsLoisirs.precedent;
-    $(".gab-fleche-suivante .gab-fleche-texte", lecture).textContent = motsLoisirs.suivant;
-    const segments = $(".gab-segments", lecture);
-    segments.innerHTML = titres.map((titre, i) =>
-      '<button type="button" data-loisirs-cible="' + i + '" style="--gab-c:' +
-      COULEURS[i % COULEURS.length] + '" aria-label="' + echapper(titre) + '"></button>'
-    ).join("");
-    if (!lecture.dataset.loisirsEvenements) {
-      lecture.dataset.loisirsEvenements = "oui";
-      lecture.addEventListener("click", (event) => {
-        if ($(".gab", contenu)?.dataset.gabSalle !== "loisirs" || !navigationLoisirs) return;
-        const bouton = event.target.closest("[data-loisirs-cible], [data-gab-pas]");
-        if (!bouton || !lecture.contains(bouton)) return;
-        // Bloquer seulement l'ancien gestionnaire qui ouvrirait une page de chapitre.
-        event.preventDefault();
-        event.stopPropagation();
-        const etat = navigationLoisirs;
-        let cible = etat.index;
-        if (bouton.dataset.loisirsCible != null) cible = +bouton.dataset.loisirsCible;
-        else if (bouton.dataset.gabPas === "tous") {
-          etat.index = 0;
-          rafraichirBarreLoisirs();
-          defiler($(".loisirs-etendus", etat.zone));
-          return;
-        } else cible += Number(bouton.dataset.gabPas || 0);
-        if (cible < 0 || cible >= etat.activites.length) return;
-        etat.index = cible;
-        rafraichirBarreLoisirs();
-        defiler(etat.activites[cible]);
-      }, true);
-    }
-    rafraichirBarreLoisirs();
-    return true;
-  }
-
-  function restaurerBarreChapitres() {
-    if (!lecture || !navigationLoisirs) return;
-    $(".gab-tous span:last-child", lecture).textContent = T.tous;
-    $(".gab-fleche-precedente .gab-fleche-texte", lecture).textContent = T.precedent;
-    $(".gab-fleche-suivante .gab-fleche-texte", lecture).textContent = T.suivant;
-    navigationLoisirs = null;
-  }
-
   function activerSalle() {
     if (!contenu) return;
     const zone = $(".section-contenu", contenu);
@@ -1581,39 +1453,13 @@
     fusionnerDossierImplantation(zone);
     preparerSalle();
     decorerOnglets();
-    let barreContinue = $(".gab-lecture-continue", barre);
-    if (zone.classList.contains("gab-continu")) {
-      if (!barreContinue) {
-        barreContinue = el("div", "gab-lecture gab-lecture-continue");
-        barre.append(barreContinue);
-      }
-      const boutons = $$(".onglet-salle", onglets);
-      const index = boutons.findIndex((b) => b.dataset.sous === zone.dataset.gabSalle);
-      const titreBouton = (b) => net($(".onglet-titre", b)?.textContent);
-      const lib = langue === "fr" ? ["Toutes les rubriques", "Rubrique précédente", "Rubrique suivante", "Lecture continue"]
-        : langue === "en" ? ["All sections", "Previous section", "Next section", "Continuous reading"]
-        : [T.tous.replace(/chapitres|chapters/g, "rubriques"), T.precedent, T.suivant, ""];
-      barreContinue.innerHTML = `<button type="button" class="gab-tous" data-continu-menu aria-expanded="false"><span aria-hidden="true">▦</span><span>${echapper(lib[0])}</span></button>` +
-        `<button type="button" class="gab-fleche gab-fleche-precedente" data-continu-pas="-1" ${index <= 0 ? "disabled" : ""}><span aria-hidden="true">‹</span><span class="gab-fleche-libelle"><span class="gab-fleche-texte">${echapper(lib[1])}</span><small class="gab-fleche-cible">${echapper(index > 0 ? titreBouton(boutons[index - 1]) : "")}</small></span></button>` +
-        `<div class="gab-actuel"><b>${deux(index + 1)}</b><span><small>${echapper(lib[3])}</small><strong>${echapper(titreBouton(boutons[index]))}</strong></span></div>` +
-        `<button type="button" class="gab-fleche gab-fleche-suivante" data-continu-pas="1" ${index === boutons.length - 1 ? "disabled" : ""}><span class="gab-fleche-libelle"><span class="gab-fleche-texte">${echapper(lib[2])}</span><small class="gab-fleche-cible">${echapper(index < boutons.length - 1 ? titreBouton(boutons[index + 1]) : "")}</small></span><span aria-hidden="true">›</span></button>` +
-        `<div class="gab-segments">${boutons.map((b, i) => `<button type="button" data-continu-rubrique="${echapper(b.dataset.sous)}" style="--gab-c:${COULEURS[i % COULEURS.length]}" aria-label="${echapper(titreBouton(b))}" aria-current="${i === index}"></button>`).join("")}</div>`;
-      salle.classList.remove("continu-rubriques-ouvertes");
-    }
     const titre = net($("#salle-titre")?.textContent).split(" · ");
     const nom = $(".gab-porte-nom", barre);
     if (nom) nom.innerHTML = titre.length >= 3
-      ? `<small>${echapper(T.porte)}</small> ${echapper(titre[1])}${zone.dataset.gabSalle === "recherche" ? ` <span class="gab-sous-categorie">› ${echapper(titre[2])}</span>` : ""}`
+      ? `<small>${echapper(T.porte)}</small> ${echapper(titre[1])} <span class="gab-sous-categorie">› ${echapper(titre[2])}</span>`
       : "";
-    if (configurerBarreLoisirs(zone)) {
-      // Même barre supérieure qu'avant ; toutes les figures sont visibles simultanément.
-      salle.classList.add("gab-avec-chapitres", "gab-lit");
-      requestAnimationFrame(suivreDefilement);
-      return;
-    }
-    restaurerBarreChapitres();
     const liste = chapitresDe(zone);
-    salle.classList.toggle("gab-avec-chapitres", liste.length >= 2);
+    salle.classList.toggle("gab-avec-chapitres", liste.length >= 1);
     if (lecture) {
       $(".gab-segments", lecture).innerHTML = liste.map((c, k) => `<button type="button" style="--gab-c:${c.style.getPropertyValue("--gab-c")}" data-gab-segment="${k}" aria-label="${echapper(T.aller(nomChapitre(c)))}"></button>`).join("");
       $$(".gab-segments button", lecture).forEach((b) => b.addEventListener("click", () => ouvrirPageChapitre(zone, +b.dataset.gabSegment, { adresse: true, haut: true })));

@@ -22,3 +22,7 @@ python -m http.server 8770
 ```
 
 puis ouvrir http://localhost:8770.
+
+## Navigation et charte graphique
+
+Le gabarit de Projet de thèse est la référence commune : barre de lecture, boutons Tous les chapitres / Chapitre précédent / Chapitre suivant, compteur et sommaire latéral à groupes colorés. Ne pas créer de menus alternatifs ni découper artificiellement une rubrique. Les axes de recherche se lisent ensemble dans un seul chapitre ; une rubrique peut afficher Chapitre 1 sur 1. Conserver les découpages éditoriaux explicitement établis et les textes à jour.

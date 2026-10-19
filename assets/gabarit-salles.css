@@ -1801,3 +1801,30 @@ html.hc .gab.gab-continu .vision{background:#fff;color:#000;border-color:#000}
   .gab .gab-chapitre-tete .gab-chapitre-num{font-size:clamp(17px,4vw,22px);gap:11px;letter-spacing:.035em}
   .gab .gab-chapitre-tete .gab-chapitre-num b{flex-basis:48px;width:48px;height:48px;border-radius:14px;font-size:19px}
 }
+
+/* Axes de recherche : lecture continue et sommaire du gabarit de la thèse. */
+.gab[data-gab-salle="axes"] .axes-introduction{margin:0 0 28px;padding:0;border:0;background:none}
+.gab[data-gab-salle="axes"] .axes-introduction>.surtitre{display:none}
+.gab[data-gab-salle="axes"] .axes-famille{margin:0 0 34px}
+.gab[data-gab-salle="axes"] .axes-famille>header{margin:0 0 10px;padding:0 0 12px;border-bottom:1px solid #d7e4e9}
+.gab[data-gab-salle="axes"] .axes-famille>header h3{font:650 23px/1.4 var(--sans);color:var(--gab-marine)}
+.gab[data-gab-salle="axes"] .axes-famille>header>span{display:none}
+.gab[data-gab-salle="axes"] .axes-cartes{display:block}
+.gab[data-gab-salle="axes"] .axe-carte{display:block;min-width:0;margin:0;padding:24px 0;border:0;border-bottom:1px solid #d7e4e9;border-radius:0;box-shadow:none;background:none;scroll-margin-top:calc(var(--salle-barre-hauteur,130px) + 24px)}
+.gab[data-gab-salle="axes"] .axe-carte::before{display:none}
+.gab[data-gab-salle="axes"] .axe-carte-tete{margin:0 0 12px;color:var(--axe)}
+.gab[data-gab-salle="axes"] .axe-carte-tete>svg{display:none}
+.gab[data-gab-salle="axes"] .axe-carte h4{font:650 clamp(21px,2.4vw,25px)/1.4 var(--sans);margin:0 0 14px}
+.gab[data-gab-salle="axes"] .axe-carte h4 a{color:var(--gab-marine)}
+.gab[data-gab-salle="axes"] .axe-description{margin:0 0 18px}
+.gab[data-gab-salle="axes"] .axe-associations{margin:0;padding:0;background:none;border:0}
+.gab[data-gab-salle="axes"] .axe-associations ul{display:grid;gap:8px}
+.gab[data-gab-salle="axes"] .axe-associations li a{border:1px solid #d7e4e9;border-inline-start:3px solid var(--axe);border-radius:10px;padding:12px 14px;background:#f7fafb}
+@media(max-width:979px){.gab[data-gab-salle="axes"] .section-corps{grid-template-columns:minmax(0,1fr)!important;gap:24px}.gab[data-gab-salle="axes"] .continu-texte{max-width:none}}
+
+/* Le menu de lecture reste disponible pour un chapitre unique. */
+.gab[data-gab-salle="axes"] .gab-lecture-integrale .axes-introduction>:is(h2,.surtitre){display:none}
+.gab[data-gab-salle="axes"] .gab-lecture-integrale{display:block;width:100%;max-width:none}
+.gab[data-gab-salle="axes"] .gab-corps .axes-famille{width:100%;max-width:none}
+
+.gab[data-gab-salle="axes"] .gab-corps p{text-align:start!important;text-align-last:auto!important;word-spacing:normal;hyphens:none}
