@@ -2559,3 +2559,32 @@ html:is(.hc,.lv) .gab[data-gab-salle="gestionnaire"] .carte-vitrine{
     flex-wrap:wrap!important;
   }
 }
+
+
+/* BIOGRAPHIE_NAVIGATION_CIBLEE_20261019 */
+/* Biographie : retirer uniquement le sommaire latéral superflu,
+   tout en conservant intégralement le contenu et la navigation de la porte. */
+.gab[data-gab-salle="biographie"] .gab-chapitre-aside{
+  display:none!important;
+}
+.gab[data-gab-salle="biographie"] .gab-chapitre-grille,
+.gab[data-gab-salle="biographie"] .gab-chapitre-grille.gab-menu-universel{
+  display:block!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  gap:0!important;
+}
+.gab[data-gab-salle="biographie"] .gab-chapitre-texte{
+  width:100%;
+  max-width:none;
+  min-width:0;
+}
+/* Le menu supérieur reprend son agencement commun : précédent à gauche,
+   chapitre courant centré, suivant à droite, sans barre supplémentaire. */
+.salle.gab-salle.gab-avec-chapitres.gab-page-chapitre:has(.gab[data-gab-salle="biographie"]) .salle-barre.gab-barre > .gab-lecture{
+  display:grid!important;
+}
+@media(max-width:700px){
+  .salle.gab-salle.gab-avec-chapitres.gab-page-chapitre:has(.gab[data-gab-salle="biographie"]) .salle-barre.gab-barre > .gab-lecture{
+    flex-wrap:initial!important;
+  }
+}
