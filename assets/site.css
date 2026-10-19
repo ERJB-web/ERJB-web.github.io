@@ -6035,3 +6035,10 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
 @media(min-width:1280px){
  .entete .nav{max-width:calc(100% - var(--direct-largeur,420px) - 24px)}
 }
+
+/* O2 : exception d'alignement pour la ligne 05 du tableau des limites. */
+#methode-o2-9 .o2-limites-tableau tbody tr:nth-child(5) .o2-limites-libelle strong {
+  text-align:left!important;
+  text-align-last:left!important;
+  text-justify:auto!important;
+}
