@@ -743,10 +743,11 @@
     }
     const grille = el("div", "gab-chapitre-grille");
     const texte = el("div", "gab-chapitre-texte");
-    const apercuMethode = salle === "recherche" && ch.cle === "methodes" && langue === "fr";
-    const titreAffiche = salle === "recherche" && langue === "fr" && ch.cle === "problematique" ? "Problématisation" : apercuMethode ? "Méthodologie" : ch.titre;
+    // Titre de chapitre unique et transversal : numéro et intitulé sur la même ligne.
+    const titreAffiche = salle === "recherche" && langue === "fr" && ch.cle === "problematique" ? "Problématisation" :
+      salle === "recherche" && langue === "fr" && ch.cle === "methodes" ? "Méthodologie" : ch.titre;
     section.dataset.gabTitre = titreAffiche || "";
-    const tete = el("header", "gab-chapitre-tete", `<span class="gab-chapitre-num"${apercuMethode ? ' role="heading" aria-level="3"' : ""}><b>${deux(i + 1)}</b>${apercuMethode ? "Méthodologie" : echapper(T.chapitre(i + 1, n))}</span>${apercuMethode ? "" : `<h3 class="gab-chapitre-titre">${echapper(titreAffiche)}</h3>`}`);
+    const tete = el("header", "gab-chapitre-tete", `<span class="gab-chapitre-num" role="heading" aria-level="3"><b aria-hidden="true">${deux(i + 1)}</b><span>${echapper(titreAffiche)}</span></span>`);
     const corps = el("div", "gab-corps");
     if (ch.surPlace) {
       Array.from(section.childNodes).forEach((x) => corps.append(x));
