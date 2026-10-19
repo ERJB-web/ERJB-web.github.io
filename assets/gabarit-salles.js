@@ -1035,7 +1035,7 @@
     // Sur la copie grand public, proposer une lecture autonome et réellement
     // accessible, sans reproduire les formulaires et calculs scientifiques.
     if (salle === "recherche" && ch.cle === "methodes" && langue === "fr" &&
-        /\\/methode-vulgarisee\\.html$/i.test(location.pathname)) {
+        /\/methode-vulgarisee\.html$/i.test(location.pathname)) {
       corps.innerHTML = `
 <section class="methode-grand-public" aria-label="Comment la recherche va se dérouler">
   <div class="mgp-intro"><p class="mgp-kicker">La recherche expliquée simplement</p>
