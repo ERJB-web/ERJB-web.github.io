@@ -395,6 +395,7 @@
     if (galerie) {
       galerie.classList.add("engagements-galerie");
       items.forEach(item=>{
+        if (salle === "loisirs") item.tabIndex = 0; // Les détails restent accessibles au clavier dans la mosaïque compacte.
         const fort=$("figcaption > strong",item);
         if (fort) {const titre=el("h4","",fort.innerHTML);fort.replaceWith(titre);}
       });
