@@ -164,3 +164,16 @@
 html.lv .gab[data-gab-salle="juriste"] .gab-chapitres{grid-template-columns:repeat(2,minmax(0,1fr))!important}
 @media(max-width:759px){html.lv .gab[data-gab-salle="juriste"] .gab-chapitres{grid-template-columns:1fr!important}}
 @media(prefers-reduced-motion:reduce){.gab[data-gab-salle="juriste"] .juriste-dialog::backdrop{backdrop-filter:none}}
+
+/* Dans la vue de chapitre, réafficher uniquement l'en-tête compact de Juriste :
+   le gabarit général masque normalement tous les bandeaux et introductions. */
+#juriste .gab.gab-page-chapitre.gab-rubrique-complete>.gab-bandeau{
+  display:grid!important;
+}
+#juriste .gab.gab-page-chapitre.gab-rubrique-complete .gab-intro:not(:has(.gab-chapitre)){
+  display:grid!important;
+}
+/* Le lien de navigation final reste sous la mosaïque et non dans le sixième dossier. */
+#juriste .gab.gab-rubrique-complete .gab-chapitres>.gab-chapitre:last-child>.gab-bas-chapitre:not([hidden]){
+  inset:auto 0 0!important;
+}
