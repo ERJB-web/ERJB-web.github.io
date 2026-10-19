@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="assets/vulgarisation-studio.css?v=20261015studio5">
 <link rel="stylesheet" href="assets/vulgarisation-editorial.css?v=6501e1f73c">
 <link rel="stylesheet" href="assets/revue-presse.css?v=1398f2cb44">
-<link rel="stylesheet" href="assets/gabarit-salles.css?v=57358830ab">
+<link rel="stylesheet" href="assets/gabarit-salles.css?v=20261019-lecture5">
 <link rel="stylesheet" href="assets/navigation-chapitres.css?v=df39f69bb1">
 <link rel="stylesheet" href="assets/these-methodologie-diagramme.css?v=o3-analyse-20261019b">
 <style>
@@ -60,12 +60,12 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Éric Bernier","url":"https://erjb-web.github.io/","image":"https://erjb-web.github.io/assets/portrait.jpg","jobTitle":"Doctorant en santé publique · ESPUM · CRCHUM","email":"mailto:eric.bernier.1@umontreal.ca","affiliation":[{"@type":"CollegeOrUniversity","name":"École de santé publique de l’Université de Montréal (ESPUM)"},{"@type":"ResearchOrganization","name":"Centre de recherche du CHUM (CRCHUM)"}],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Université Paris Panthéon-Assas"},{"@type":"CollegeOrUniversity","name":"Université de Bretagne Occidentale"}],"knowsAbout":["Gouvernance et évaluation des politiques de santé","Approche intersectorielle en première ligne","Vieillissement, perte d’autonomie et politiques du maintien à domicile"],"sameAs":["https://orcid.org/0009-0001-4236-4932"]}</script>
 <script src="assets/hall-marche.js?v=b4807498ff" defer></script>
 <script src="assets/hall-ciel.js?v=2da27089a1" defer></script>
-<script src="assets/site.js?v=20261019vulg2" defer></script>
+<script src="assets/site.js?v=20261019-lecture5" defer></script>
 <script src="assets/revue-presse.js?v=afc8d93127" defer></script>
 <script src="assets/vulgarisation-studio.js?v=616a84e6b8" defer></script>
 <script src="assets/vulgarisation-editorial.js?v=1c60acd3f4" defer></script>
 <script src="assets/chapitres/catalogue.js?v=ac6a16e852" defer></script>
-<script src="assets/gabarit-salles.js?v=ca3afffbc9" defer></script>
+<script src="assets/gabarit-salles.js?v=20261019-lecture5" defer></script>
 <script src="assets/these-methodologie-diagramme.js?v=scientifique-independant-20261019-1536" defer></script>
 <script src="assets/audience.js?v=32f18e181a" data-audience-website-id="782c7df7-c2cf-4578-bddc-fa02662324af" data-audience-domaines="erjb-web.github.io" defer></script>
 
@@ -589,7 +589,7 @@ html:is(.hc,.lv) .these-entete .these-question-principale{
 @media(max-width:540px){.these .these-vulgarisation-ensemble>.these-vulgarisation-exemple{padding:13px 14px;margin-top:2.2em}.these .these-vulgarisation-exemple p{font-size:13px;line-height:1.6}}
 </style>
 <div class="these-vulgarisation-ensemble" aria-label="Synthèse vulgarisée et exemple méthodologique">
-<p class="these-synthese-vulgarisee"><strong>Synthèse vulgarisée :</strong> Nous examinerons d’abord les recherches pour comprendre quels besoins sociaux se cumulent chez les personnes aînées vivant à domicile avec des problèmes de santé, puis les regrouper en <strong>profils de besoins</strong> (O1). Nous cartographierons les services disponibles et leur accessibilité selon les territoires pour voir dans quelle mesure ils peuvent répondre à ces profils (O2). Enfin, les profils documentés dans les études guideront, avec les équipes SAD, le repérage de situations réelles comparables ; nous examinerons les collaborations effectivement mobilisées pour ces situations, puis leurs mécanismes et leurs obstacles (O3).</p>
+<p class="these-synthese-vulgarisee"><strong>Synthèse vulgarisée :</strong> Nous examinerons d’abord les recherches pour comprendre quels besoins sociaux se cumulent chez des personnes aînées vivant à domicile avec des problèmes de santé, et déterminer quels <strong>profils de besoins</strong> sont réellement documentés (O1). Nous cartographierons ensuite <strong>la réponse intersectorielle potentiellement disponible</strong> et son accessibilité (O2), dans six secteurs : réseau public (CLSC et établissements), première ligne (cliniques et pharmacies), parapublic (missions de service collectif), communauté (organismes d’entraide), ville et municipalité (services locaux) et habitation (logement et soutien résidentiel). Cette démarche rejoint la vision d’un <strong>CLSC renouvelé</strong>, centre local de services communautaires davantage relié aux partenaires de son quartier. Enfin, les équipes de soutien à domicile (SAD) repéreront des situations réelles correspondant aux profils pour étudier les collaborations effectivement mobilisées, leurs mécanismes et leurs obstacles (O3). La carte montre des possibilités d’aide ; elle ne prouve ni coordination réelle ni besoin satisfait.</p>
 <p class="these-synthese-vulgarisee these-vulgarisation-but"><strong>Le but :</strong> repérer les manques et proposer une réponse mieux organisée, adaptée aux différents profils.</p>
 <section class="these-vulgarisation-exemple" aria-label="Exemple fictif illustrant les trois objectifs">
 <h5>Exemple concret · Pourquoi cette recherche ?</h5>
@@ -4275,58 +4275,5 @@ footer.pied.pied-compacte .pied-haut{display:inline-block;white-space:nowrap;pad
 </div>
 <div class="salle-contenu"></div>
 </div>
-<!-- Accès grand public : indépendant du chargement asynchrone des chapitres. -->
-<style id="methodo-grand-public-style">
-.gab [data-gab-slug="methodes"] .gab-chapitre-tete{display:flex;align-items:center;justify-content:space-between;gap:12px 22px;flex-wrap:wrap}
-.gab [data-gab-slug="methodes"] a.methode-lien-grand-public{display:inline-flex!important;align-items:center;justify-content:center;padding:12px 16px;border-radius:11px;border:1px solid #b9d8e5;background:#eaf4f8;color:#15536c;font:750 13px/1.35 var(--sans,system-ui,sans-serif);text-transform:none;letter-spacing:0;text-decoration:none;max-width:100%;box-shadow:0 3px 10px #173b5310}
-.gab [data-gab-slug="methodes"] a.methode-lien-grand-public:hover{background:#d9edf6}
-.gab [data-gab-slug="methodes"] a.methode-lien-grand-public:focus-visible{outline:3px solid #247b93;outline-offset:3px}
-.gab [data-gab-slug="methodes"] .methode-grand-public-repere{margin:0 0 15px;padding:11px 15px;border-radius:8px;border-left:4px solid #176b88;background:#eff7fa;color:#15546b;font:700 14px/1.6 var(--sans,system-ui,sans-serif)}
-@media(max-width:700px){.gab [data-gab-slug="methodes"] a.methode-lien-grand-public{width:100%}}
-</style>
-<script id="methodo-grand-public-acces-script">
-;(() => {
- "use strict";
- if ((document.documentElement.lang||"fr").slice(0,2)!=="fr")return;
- const grandPublic = new URLSearchParams(location.search).get("lecture")==="grand-public";
- let planifie=false;
- function poser(c) {
-   const tete=c.querySelector(".gab-chapitre-tete"),corps=c.querySelector(".gab-corps");
-   if(!tete||!corps)return;
-   let bouton=tete.querySelector(".methode-lien-grand-public");
-   if(!bouton){bouton=document.createElement("a");bouton.className="methode-lien-grand-public";tete.append(bouton);}
-   const href=grandPublic?"/#recherche/methodes":"/?lecture=grand-public#recherche/methodes";
-   const libelle=grandPublic?"← Revenir à la version scientifique":"Consulter la version vulgarisée →";
-   if(bouton.getAttribute("href")!==href)bouton.setAttribute("href",href);
-   if(bouton.textContent!==libelle)bouton.textContent=libelle;
-   c.dataset.lienGrandPublic="oui";
-   if(!grandPublic)return;
-   if(!corps.querySelector(".methode-grand-public-repere")){
-     const identifiant=document.createElement("div");
-     identifiant.className="methode-grand-public-repere";
-     identifiant.textContent="VERSION VULGARISÉE · La même méthodologie, avec des situations concrètes, les acteurs et les mots-clés expliqués.";
-     corps.prepend(identifiant);
-   }
-   if(!corps.querySelector(".methode-grand-public-intro")){
-     const intro=document.createElement("div");
-     intro.className="methode-grand-public-intro";
-     intro.textContent="Le guide présente le protocole en langage clair. Les exemples fictifs ne sont pas des résultats et les collectes prévues ne sont pas présentées comme déjà réalisées.";
-     corps.prepend(intro);
-   }
- }
- function appliquer() {
-   planifie=false;
-   document.querySelectorAll(".gab-chapitre").forEach(c=>{
-     if(c.dataset.gabSlug==="methodes"||c.dataset.gabTitre==="Méthodologie")poser(c);
-   });
- }
- function demander(){if(planifie)return;planifie=true;requestAnimationFrame(appliquer);}
- new MutationObserver(demander).observe(document.documentElement,{childList:true,subtree:true});
- demander();
- document.addEventListener("DOMContentLoaded",demander);
- window.addEventListener("hashchange",demander);
-})();
-</script>
-<script src="assets/these-vulgarisation-guide.js?v=20261019guide3" defer></script>
 </body>
 </html>
