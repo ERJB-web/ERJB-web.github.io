@@ -1761,6 +1761,13 @@ html.hc .gab.gab-continu .vision{background:#fff;color:#000;border-color:#000}
 }
 .gab-barre .gab-lecture .gab-actuel > span{min-width:0}
 .gab-barre .gab-lecture .gab-actuel :is(small,strong){overflow:hidden;text-overflow:ellipsis}
+/* Rapprocher « Chapitre précédent » du bord gauche, sans déplacer le titre central. */
+@media(min-width:1201px){
+  .gab-barre .gab-lecture > .gab-fleche-precedente{
+    position:relative;
+    inset-inline-start:clamp(-72px,-5vw,-40px);
+  }
+}
 @media(max-width:1200px){
   .gab-barre .gab-lecture{
     grid-template-columns:minmax(0,1fr) minmax(0,1.12fr) minmax(0,1fr);
