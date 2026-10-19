@@ -6056,3 +6056,186 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
   text-align-last:left!important;
   text-justify:auto!important;
 }
+
+/* Publications scientifiques : notices bibliographiques pleine largeur.
+   Limitées au panneau des articles : ne modifie ni l'en-tête ni les menus. */
+.publications-page #publication-articles{
+  padding:clamp(17px,2.5vw,28px);
+  background:#f8fafb;
+  border:1px solid #dfe8e9;
+}
+.publications-page #publication-articles .travaux,
+.publications-page #publication-articles .travaux-grille{width:100%;max-width:none;min-width:0}
+.publications-page #publication-articles .travaux-tete{
+  padding:0 2px 15px;
+  margin:0 0 16px;
+  border-bottom:1px solid #dce6e8;
+}
+.publications-page #publication-articles .travaux-tete h3{
+  font-size:clamp(20px,2vw,25px);
+  font-weight:650;
+}
+.publications-page #publication-articles .travaux-tete p{font-size:13.5px;line-height:1.5}
+.publications-page #publication-articles .travaux-grille{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:12px;
+  counter-reset:notice-publication;
+}
+.publications-page #publication-articles .travail,
+.publications-page #publication-articles .travail.vedette{
+  display:grid!important;
+  grid-column:auto!important;
+  grid-template-columns:48px minmax(0,1fr) minmax(150px,max-content)!important;
+  grid-template-rows:auto auto auto auto;
+  align-items:start;
+  column-gap:21px;
+  row-gap:7px;
+  width:100%;
+  min-width:0;
+  margin:0;
+  padding:22px 25px 21px 19px!important;
+  background:#fff;
+  border:1px solid #dce7e7;
+  border-radius:13px;
+  box-shadow:0 3px 12px rgba(22,59,73,.045);
+  transform:none;
+}
+.publications-page #publication-articles .travail::before{
+  counter-increment:notice-publication;
+  content:counter(notice-publication,decimal-leading-zero);
+  grid-column:1;
+  grid-row:1 / span 4;
+  display:grid;
+  place-items:center;
+  width:40px;
+  height:40px;
+  border-radius:10px;
+  background:#e9f2f3;
+  color:#266272;
+  font:700 13px/1 var(--sans);
+  letter-spacing:.02em;
+}
+.publications-page #publication-articles .travail[data-axe-cible="travail-hospitalisations"]{
+  border-color:#bad6ce;
+  box-shadow:inset 4px 0 #287964,0 3px 12px rgba(22,59,73,.045);
+}
+.publications-page #publication-articles .travail[data-axe-cible="travail-hospitalisations"]::before{
+  background:#e0f0e8;
+  color:#1e6955;
+}
+.publications-page #publication-articles .travail > .domaine{
+  grid-column:2;
+  grid-row:1;
+  align-self:center;
+  color:#406b70;
+  font-size:11px;
+  letter-spacing:.065em;
+  overflow-wrap:normal;
+}
+.publications-page #publication-articles .travail > .statut-pastille{
+  grid-column:3;
+  grid-row:1;
+  justify-self:end;
+  align-self:start;
+  max-width:280px;
+  padding:5px 11px;
+  background:#edf3f4;
+  color:#3d6469;
+  font-size:11.5px;
+  font-weight:650;
+  line-height:1.35;
+  text-align:center;
+}
+.publications-page #publication-articles .travail[data-axe-cible="travail-hospitalisations"] > .statut-pastille{
+  background:#e5f2ec;
+  color:#215d4d;
+}
+.publications-page #publication-articles .travail > h4,
+.publications-page #publication-articles .travail.vedette > h4{
+  grid-column:2 / -1;
+  grid-row:2;
+  margin:1px 0 0;
+  font-size:clamp(18px,1.65vw,21px)!important;
+  font-weight:630!important;
+  line-height:1.34!important;
+  color:#173d4e;
+  overflow-wrap:break-word;
+}
+.publications-page #publication-articles .travail > .auteurs{
+  grid-column:2 / -1;
+  grid-row:3;
+  margin:0;
+  max-width:100%;
+  font-size:13.5px;
+  line-height:1.6;
+  color:#536d75;
+}
+.publications-page #publication-articles .travail > .etiquettes{display:none}
+.publications-page #publication-articles .travail > .pub-details{
+  grid-column:2 / -1;
+  grid-row:4;
+  min-width:0;
+  margin-top:7px;
+  padding-top:10px;
+  border-top:1px solid #ecf1f1;
+}
+.publications-page #publication-articles .pub-details summary{
+  display:list-item;
+  width:max-content;
+  max-width:100%;
+  cursor:pointer;
+  color:#246777;
+  font-size:13px;
+  font-weight:650;
+  line-height:1.5;
+}
+.publications-page #publication-articles .pub-details summary:focus-visible{
+  outline:2px solid #226c7d;
+  outline-offset:4px;
+}
+.publications-page #publication-articles .pub-details .resume{
+  margin:13px 0 0;
+  max-width:95ch;
+  font-size:14px;
+  line-height:1.7;
+  text-align:justify;
+  grid-column:auto;
+  grid-row:auto;
+  align-self:auto;
+}
+.publications-page #publication-articles .pub-details .etiquettes{
+  display:flex;
+  grid-column:auto;
+  grid-row:auto;
+  margin-top:12px;
+}
+@media(max-width:760px){
+  .publications-page #publication-articles{padding:15px 12px}
+  .publications-page #publication-articles .travail,
+  .publications-page #publication-articles .travail.vedette{
+    grid-template-columns:35px minmax(0,1fr)!important;
+    grid-template-rows:auto auto auto auto auto;
+    column-gap:11px;
+    row-gap:7px;
+    padding:17px 14px!important;
+  }
+  .publications-page #publication-articles .travail::before{
+    grid-row:1 / span 5;
+    width:32px;
+    height:32px;
+    font-size:11px;
+  }
+  .publications-page #publication-articles .travail > .domaine{grid-column:2;grid-row:1}
+  .publications-page #publication-articles .travail > .statut-pastille{
+    grid-column:2;
+    grid-row:2;
+    justify-self:start;
+    max-width:100%;
+    text-align:start;
+  }
+  .publications-page #publication-articles .travail > h4,
+  .publications-page #publication-articles .travail.vedette > h4{grid-column:2;grid-row:3}
+  .publications-page #publication-articles .travail > .auteurs{grid-column:2;grid-row:4}
+  .publications-page #publication-articles .travail > .pub-details{grid-column:2;grid-row:5}
+}
