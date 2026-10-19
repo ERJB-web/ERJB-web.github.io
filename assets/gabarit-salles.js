@@ -33,7 +33,7 @@
     outils: { sel: "article.projet", titre: ".projet-tete h3, h3" },
     biographie: { sel: "ol.recit > li", titre: "h3" },
     juriste: VITRINE, gestionnaire: { unique: true }, educateur: VITRINE, entrepreneuriat: { unique: true },
-    valeurs: { sel: "article.valeur", titre: "h4" },
+    valeurs: { unique: true },
     representation: { unique: true }, communaute: { unique: true }, distinctions: { unique: true }, citoyen: { unique: true },
     loisirs: { unique: true },
     logiciels: { sel: ".logiciels-chapitre", titre: ".ressources-chapitre-titre" },
