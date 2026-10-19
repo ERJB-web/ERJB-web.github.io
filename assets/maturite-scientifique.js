@@ -38,12 +38,23 @@
         const titreCommun = Array.from(o2Collecte.querySelectorAll("h2,h3,h4,h5,h6,p,strong"))
           .find(e => e.textContent.trim() === "Six variables communes pour rapprocher les sources");
         if (titreCommun) titreCommun.textContent = "Six champs harmonisés pour rapprocher les sources";
-        addOnce(o2Collecte, "matTracabiliteO2", mk("mat-sc--o2",
-          '<span class="mat-sc__eyebrow">Faisabilité O2 · Éléments déjà opérationnalisés</span>' +
-          '<p class="mat-sc__small"><strong>Six champs présents dans le traitement R :</strong> localisation, CLSC, secteur, domaine, millésime et identifiant interne. Ils sont harmonisés ou construits, et non fournis identiquement par toutes les sources ; l’identifiant n’est pas une clé commune native.</p>' +
-          '<p class="mat-sc__small"><strong>Traçabilité déjà organisée :</strong> scripts R conservés en texte, inventaire et empreintes des sources, journal des décisions, dédoublonnage, rattachement CLSC, indicateurs et exports QGIS. O1 dispose séparément du suivi PRISMA.</p>' +
-          '<p class="mat-sc__small"><strong>Statut :</strong> les cartes présentées sont des exemples de faisabilité, pas des résultats de la thèse. Les analyses prévues seront adaptées aux profils O1 et aux données disponibles.</p>'
-        ));
+        addOnce(o2Collecte, "matTracabiliteO2", mk("mat-sc--o2 mat-sc--harmonie", `
+          <span class="mat-sc__eyebrow">O2 · Harmonisation et reproductibilité</span>
+          <p class="mat-sc__title" role="heading" aria-level="6">Six champs comparables, sans données inventées</p>
+          <p class="mat-sc__small">Localisation, CLSC, secteur, domaine, millésime et identifiant interne : ils sont <strong>observés, recodés ou dérivés</strong> à partir des sources. Ils ne constituent pas six colonnes identiques dans chaque répertoire.</p>
+          <details class="mat-sc__detail-six"><summary>Tableau · Comment sont obtenus les six champs</summary>
+            <div class="mat-sc__table-wrap"><table class="mat-sc__table"><thead><tr><th>Champ harmonisé</th><th>Traitement réalisé dans R</th><th>Nature</th></tr></thead><tbody>
+              <tr><th>Position géographique</th><td>Coordonnées de source ou géocodage d'une adresse</td><td>Observée / géocodée</td></tr>
+              <tr><th>Territoire de CLSC</th><td>Position rapprochée des contours officiels</td><td>Dérivé spatialement</td></tr>
+              <tr><th>Secteur</th><td>Type de service rapproché des six secteurs</td><td>Recodé</td></tr>
+              <tr><th>Domaine de besoin</th><td>Catégories 211 ou types de service rapprochés d'une nomenclature</td><td>Codé ; plusieurs domaines possibles</td></tr>
+              <tr><th>Millésime</th><td>Date de référence du fichier conservée pour chaque source</td><td>Métadonnée harmonisée</td></tr>
+              <tr><th>Identifiant interne</th><td>Code créé après nettoyage et dédoublonnage ; identifiant de source conservé</td><td>Construit ; non stable entre versions</td></tr>
+            </tbody></table></div>
+          </details>
+          <p class="mat-sc__small"><strong>Traçabilité déjà en place :</strong> scripts R en texte, fichiers sources et empreintes, journal des décisions, contrôles de doublons, rattachement aux CLSC, calculs et exports QGIS ; suivi PRISMA distinct pour O1.</p>
+          <p class="mat-sc__small"><strong>Statut des figures :</strong> les cartes actuelles illustrent la faisabilité technique ; les résultats définitifs seront calculés selon les profils O1 et la couverture des sources.</p>
+        `));
       }
       // Chapitre 03 : les trois niveaux ne sont pas interchangeables ; pas de lien causal supposé.
       addOnce(o1,"matConcept",mk("mat-sc--concept",
@@ -91,6 +102,55 @@
         '<tr><th>Éthique et accès</th><td>Autorisations, modalités de consentement, possibilités de pseudonymisation.</td><td>Aucune collecte principale sans accords et approbation éthique.</td></tr>'+
         '</tbody></table></div><p class="mat-sc__small">Les seuils de poursuite et les adaptations seront arrêtés avec la codirection après le pilote et consignés avant la collecte principale. Ni les 16 à 24 situations ni les deux CLSC envisagés ne sont présentés comme confirmés.</p>'
       ));
+
+      // Les objectifs conservent leur numéro : seul le calendrier de réalisation est adaptable.
+      addOnce(o3, "matOrdreFlexible", mk("mat-sc--flex",
+        `<span class="mat-sc__eyebrow">Organisation de l'étude · Calendrier adaptable</span>
+        <p class="mat-sc__title" role="heading" aria-level="5">O2 et O3 : ordre flexible, intégration finale commune</p>
+        <div class="mat-sc__fleche"><span class="mat-sc__fleche-o1">O1 <b>Profils documentés</b></span><span class="mat-sc__fleche-link" aria-hidden="true">↓</span></div>
+        <div class="mat-sc__parallel">
+          <div><b>O2 · Cartographie définitive</b><small>Offre et accessibilité potentielles par profil et territoire</small></div>
+          <span aria-label="Ordre interchangeable">↔</span>
+          <div><b>O3 · Réseaux SAD</b><small>Situations réelles et mobilisations documentées ; CLSC présélectionnés par l'exploration</small></div>
+        </div>
+        <div class="mat-sc__fleche"><span class="mat-sc__fleche-link" aria-hidden="true">↓</span><span class="mat-sc__fleche-out">Analyse conjointe des résultats définitifs</span></div>
+        <p class="mat-sc__small"><strong>Devis :</strong> échantillonnage raisonné à variation maximale pour les CLSC. O2 avant O3, O3 avant O2 ou travaux parallèles selon les autorisations ; les profils O1 doivent être stabilisés avant le repérage des situations O3. Les critères de sélection seront consignés avant recrutement, sans requalification a posteriori.</p>
+        `), "before");
+
+      // Recrutement O3 : 2 CLSC dans un territoire par défaut ; 4 dans 2 territoires si faisable.
+      addOnce(o3recrutement, "matTerrainsContrastes", mk("mat-sc--terrain",
+        `<span class="mat-sc__eyebrow">Choix des terrains · O3</span>
+        <p class="mat-sc__title" role="heading" aria-level="6">Deux CLSC contrastés, extension envisageable à quatre</p>
+        <div class="mat-sc__terrain-grille">
+          <div class="mat-sc__scenario mat-sc__scenario--base">
+            <small>SCÉNARIO PRINCIPAL</small><strong>2 <em>CLSC</em></strong>
+            <b>1 territoire · 2 CLSC différents</b>
+            <p>Deux équipes SAD présentant un contraste maximal admissible dans le même territoire, sous réserve des accès et autorisations.</p>
+          </div>
+          <div class="mat-sc__scenario mat-sc__scenario--option">
+            <small>EXTENSION CONDITIONNELLE</small><strong>4 <em>CLSC</em></strong>
+            <b>2 territoires · 2 CLSC par territoire</b>
+            <p>Un territoire de la CMM et un territoire en région ; deux CLSC contrastés dans chacun, si partenariats, données et moyens le permettent.</p>
+          </div>
+        </div>
+        <div class="mat-sc__kpis" aria-label="Exercice cartographique exploratoire">
+          <div><strong>8</strong><span>CLSC étudiés</span></div>
+          <div><strong>7 216</strong><span>lieux de services</span></div>
+          <div><strong>35</strong><span>types recensés</span></div>
+        </div>
+        <p class="mat-sc__hint">Repères issus de l'exercice cartographique exploratoire du CCSMTL ; <strong>pas des résultats définitifs de thèse</strong>.</p>
+        <div class="mat-sc__exemple-titre">Contrastes exploratoires · Part des 65 ans et plus dans la classe d'écart bivarié</div>
+        <div class="mat-sc__barres" role="img" aria-label="Saint-Paul 36,8 %, Centre-Sud 21,3 %, Verdun 14,7 %, Plateau-Mont-Royal 3,6 %, Centre-Ville 0 %">
+          <div><span>Saint-Paul</span><i><u style="width:92%"></u></i><b>36,8 %</b></div>
+          <div><span>Centre-Sud</span><i><u style="width:53.25%"></u></i><b>21,3 %</b></div>
+          <div><span>Verdun</span><i><u style="width:36.75%"></u></i><b>14,7 %</b></div>
+          <div><span>Plateau-Mont-Royal</span><i><u style="width:9%"></u></i><b>3,6 %</b></div>
+          <div><span>Centre-Ville</span><i><u style="width:0%"></u></i><b>0 %</b></div>
+        </div>
+        <p class="mat-sc__hint">Source : <code>09_indice_clsc.csv</code> (exemple bivarié). Ces valeurs appuient une <strong>présélection</strong>, pas la désignation automatique des CLSC recrutés. Le contraste sera évalué avec les profils O1, les autres indicateurs disponibles et la faisabilité du terrain.</p>
+        <div class="mat-sc__quebec"><strong>166 territoires de CLSC · Québec</strong><span>Le script national permet déjà d'étudier certains indicateurs de santé et d'habitation à cette échelle. L'extension à une région hors CMM nécessitera des sources comparables : répertoires sociaux et couverture du 211 non uniformes. La couverture complète des six secteurs n'est pas présumée.</span></div>
+      `), "prepend");
+
       // Volet qualitatif : une décision concertée traçable au-delà des entretiens explicatifs.
       const o3qual=$("#methode-o3-6 .methode-rubrique-contenu",zone);
       addOnce(o3qual,"matO3qual",mk("mat-sc--o3",
