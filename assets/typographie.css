@@ -5,7 +5,8 @@
 html body{font-family:var(--type-police)!important;font-size:var(--type-corps);line-height:1.7}
 html body :is(p,li,dd){font-size:var(--type-corps)!important;line-height:1.7!important}
 /* Les indicateurs du parcours restent des chiffres mis en valeur, pas du texte courant. */
-html body .bande-accueil.bande-restauree .impact-ensemble dd{font-size:clamp(42px,3.6vw,52px)!important;}
+html body .bande-accueil.bande-restauree .impact-ensemble dd{font-size:clamp(42px,3.6vw,52px)!important;line-height:1.02!important;white-space:nowrap!important;overflow-wrap:normal!important;word-break:normal!important;text-align:start!important;}
+html body .bande-accueil.bande-restauree .impact-ensemble dt{text-align:start!important;text-align-last:start!important;word-spacing:normal!important;}
 
 html body :is(h1,h2,h3,h4,h5,h6){font-family:var(--type-police)!important;font-weight:550!important;line-height:1.4!important;letter-spacing:0!important;text-transform:none!important}
 html body h1{font-size:var(--type-page)!important}
