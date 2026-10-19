@@ -1260,3 +1260,53 @@
     initialiser();
   }
 })();
+
+
+/* Acces Projet de these : libelles et geste du guide. */
+(() => {
+  const actualiser = (zone) => {
+    zone.querySelectorAll('a.acces-these').forEach(lien => {
+      if (lien.getAttribute('aria-label') === 'Ma thèse') lien.setAttribute('aria-label', 'Projet de thèse');
+      lien.querySelectorAll('span').forEach(texte => {
+        if (texte.textContent.trim() === 'Ma thèse') texte.textContent = 'Projet de thèse';
+      });
+    });
+    zone.querySelectorAll('[data-hall-sous="recherche"],[data-sous="recherche"]').forEach(element => {
+      if (element.textContent.trim() === 'Ma thèse') element.textContent = 'Projet de thèse';
+    });
+    zone.querySelectorAll('section[data-salle="recherche"]').forEach(section => {
+      if (section.dataset.titre === 'Ma thèse') section.dataset.titre = 'Projet de thèse';
+      section.querySelectorAll('.bandeau[aria-label="Ma thèse"]').forEach(b => b.setAttribute('aria-label', 'Projet de thèse'));
+      section.querySelectorAll('.bandeau-titre').forEach(t => {
+        if (t.textContent.trim() === 'Ma thèse') t.textContent = 'Projet de thèse';
+      });
+      section.querySelectorAll('[aria-label="Explorer Ma thèse"]').forEach(t => t.setAttribute('aria-label', 'Explorer Projet de thèse'));
+    });
+    zone.querySelectorAll('.publication-these-note').forEach(note => {
+      const premier = note.firstChild;
+      if (premier && premier.nodeType === 3 && premier.textContent.includes('« Ma thèse »')) {
+        premier.textContent = premier.textContent.replace('« Ma thèse »', '« Projet de thèse »');
+      }
+      note.querySelectorAll('a[href="#recherche"]').forEach(lien => {
+        for (const enfant of lien.childNodes) {
+          if (enfant.nodeType === 3 && enfant.textContent.includes('Voir ma thèse'))
+            enfant.textContent = enfant.textContent.replace('Voir ma thèse', 'Voir le projet de thèse');
+        }
+      });
+    });
+  };
+  const demarrer = () => {
+    const style = document.createElement('style');
+    style.id = 'guide-these-bras-animation';
+    style.textContent = '.these-guide-bras{transform-origin:25px 30px;transform-box:view-box;animation:these-guide-pointer-visible 1.65s ease-in-out infinite}@keyframes these-guide-pointer-visible{0%,100%{transform:rotate(-15deg)}50%{transform:rotate(14deg)}}@media(prefers-reduced-motion:reduce){.these-guide-bras{animation:none}}';
+    if (!document.getElementById(style.id)) document.head.appendChild(style);
+    actualiser(document);
+    const salle = document.getElementById('salle');
+    if (salle) {
+      const observateur = new MutationObserver(() => actualiser(salle));
+      observateur.observe(salle, {childList:true,subtree:true});
+    }
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', demarrer, {once:true});
+  else demarrer();
+})();
