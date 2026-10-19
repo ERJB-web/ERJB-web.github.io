@@ -29,6 +29,8 @@ jobs:
         run: node outils/verifier-navigation.js
       - name: Tester le vrai générateur sans réécrire les pages
         run: node tests/generation-navigation.cjs
+      - name: Mettre à jour les liens de la charte dans les pages de publication
+        run: node outils/harmoniser-typographie.js
       - name: Vérifier la charte typographique
         run: node outils/harmoniser-typographie.js --check
       - name: Tester les commandes dans les huit éditions
@@ -39,7 +41,7 @@ jobs:
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         run: |
           mkdir _site
-          git archive HEAD | tar -x -C _site
+          git ls-files -z | tar --null -T - -cf - | tar -x -C _site
       - uses: actions/upload-pages-artifact@v3
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         with:
