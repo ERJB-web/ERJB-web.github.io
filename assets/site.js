@@ -684,7 +684,11 @@
     });
     mode.addEventListener('click',()=>{simple=!simple;actualiser();});
     choix.forEach((b,i)=>{
-      b.addEventListener('click',()=>choisir(i));
+      b.addEventListener('click',()=>{
+        if (mobile && matchMedia('(max-width:700px)').matches) {
+          entrer(groupes[i].sections[0] || groupes[i].nom);
+        } else choisir(i);
+      });
       b.addEventListener('keydown',ev=>{
         if (!['ArrowLeft','ArrowRight','Home','End'].includes(ev.key))return;
         ev.preventDefault();
