@@ -141,3 +141,50 @@
 #these-methode-o3 .methode-objectif-tete .o3-acces-galerie:hover{background:#d9eee3;border-color:#7db99d}
 #these-methode-o3 .methode-objectif-tete .o3-acces-galerie:focus-visible{outline:3px solid #247b63;outline-offset:3px}
 #o3-atlas-reseaux{scroll-margin-top:100px}
+
+
+/* O3 seulement — méthode CLSC séparée de la galerie des 20 figures du 211. */
+.o3-clsc-methodo{margin:21px 0 22px;padding:clamp(14px,2vw,23px);border:1px solid #d8e3e5;border-left:4px solid #2c6f70;border-radius:13px;background:#f9fbfb;max-width:100%;min-width:0}
+.o3-clsc-methodo .o3-clsc-surtitre{display:block;font:800 11px/1.4 var(--sans,system-ui,sans-serif);letter-spacing:.08em;text-transform:uppercase;color:#397178;margin:0 0 7px}
+.o3-clsc-methodo header h4{font:780 clamp(19px,2.1vw,25px)/1.35 var(--sans,system-ui,sans-serif);letter-spacing:-.016em;margin:0 0 9px;color:#214b55;text-align:left}
+.o3-clsc-methodo header p{margin:0 0 15px;color:#425d64;font:440 13.5px/1.65 var(--sans,system-ui,sans-serif);text-align:justify;hyphens:auto}
+.o3-clsc-methodo .o3-clsc-miniatures{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.o3-clsc-methodo .o3-clsc-exemple{min-width:0;border:1px solid #d1e1df;border-radius:10px;background:#fff;overflow:hidden}
+.o3-clsc-methodo .o3-clsc-exemple>summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;gap:5px;padding:10px;color:#214e57}
+.o3-clsc-methodo .o3-clsc-exemple>summary::-webkit-details-marker{display:none}
+.o3-clsc-methodo .o3-clsc-exemple>summary strong{font:740 13px/1.35 var(--sans,system-ui,sans-serif);text-align:center}
+.o3-clsc-methodo .o3-clsc-exemple>summary small{font:550 11px/1.5 var(--sans,system-ui,sans-serif);color:#567078;text-align:center}
+.o3-clsc-methodo .o3-clsc-apercu{display:block;border-radius:7px;background:#eef5f3}
+.o3-clsc-methodo .o3-clsc-apercu svg{display:block;width:100%;height:auto;max-height:150px}
+.o3-clsc-methodo .o3-clsc-grand{padding:8px;border-top:1px solid #dfebe7;background:white}
+.o3-clsc-methodo .o3-clsc-grand svg{display:block;width:100%;height:auto;max-height:380px}
+.o3-clsc-methodo .o3-clsc-exemple[open]{grid-column:span 3}
+.o3-clsc-methodo .o3-clsc-exemple[open]>summary{flex-direction:row;align-items:center;flex-wrap:wrap;justify-content:center}
+.o3-clsc-methodo .o3-clsc-exemple[open] .o3-clsc-apercu{display:none}
+.o3-clsc-methodo .o3-clsc-reference{margin:11px 0 0;color:#55706b;font:450 12px/1.6 var(--sans,system-ui,sans-serif);text-align:justify}
+.o3-clsc-methodo .o3-clsc-reference a{color:#267069;font-weight:680}
+.o3-clsc-methodo .o3-galerie-qual{margin:13px 0 0;border:1px solid #d1e0dd;border-radius:10px;background:white;overflow:hidden}
+.o3-clsc-methodo .o3-galerie-qual>summary{padding:13px 15px;font:750 13px/1.5 var(--sans,system-ui,sans-serif);color:#2b665b;cursor:pointer}
+.o3-clsc-methodo .o3-galerie-qual[open]{padding:0 13px 15px}
+.o3-clsc-methodo .o3-galerie-qual[open]>summary{margin:0 -13px 12px;border-bottom:1px solid #dce7e3}
+.o3-clsc-methodo :is(summary,a):focus-visible{outline:3px solid #247b63;outline-offset:3px}
+
+/* Légendes documentées pour chaque graphique R, sous la figure correspondante. */
+.o3-galerie-unifiee .o3-r-legende{margin:18px 0 0;padding:15px;border:1px solid #d5e3e7;border-radius:11px;background:#f8fbfd;color:#254753}
+.o3-galerie-unifiee .o3-r-legende h5{margin:0 0 9px!important;font:790 16px/1.35 var(--sans,system-ui,sans-serif)!important;color:#1a5771;text-transform:none}
+.o3-galerie-unifiee .o3-r-legende h6{margin:14px 0 9px!important;font:770 13px/1.45 var(--sans,system-ui,sans-serif)!important;color:#2a5267}
+.o3-galerie-unifiee .o3-r-legende p{margin:0 0 11px!important;color:#3c5a65!important;font:450 12.8px/1.65 var(--sans,system-ui,sans-serif)!important;text-align:justify!important;hyphens:auto}
+.o3-galerie-unifiee .o3-r-reperes{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.o3-galerie-unifiee .o3-r-repere{display:inline-flex;align-items:center;gap:7px;border:1px solid #d3e0e8;border-radius:7px;background:white;padding:7px 10px;color:#315367;font:680 12px/1.4 var(--sans,system-ui,sans-serif)}
+.o3-galerie-unifiee .o3-r-repere i{display:inline-block;flex:none;width:13px;height:13px;border:1px solid #a4b4c0;border-radius:4px}
+.o3-galerie-unifiee .o3-r-deux-colonnes{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.o3-galerie-unifiee .o3-r-codes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;list-style:none;margin:0;padding:0}
+.o3-galerie-unifiee .o3-r-deux-colonnes .o3-r-codes{grid-template-columns:minmax(0,1fr)}
+.o3-galerie-unifiee .o3-r-codes li{display:flex;align-items:baseline;gap:8px;padding:8px 10px;margin:0;min-width:0;border:1px solid #e1e9ed;border-radius:8px;background:#fff;color:#294a5a;font:530 11.8px/1.4 var(--sans,system-ui,sans-serif);overflow-wrap:anywhere}
+.o3-galerie-unifiee .o3-r-codes li>b{flex:none;min-width:27px;color:var(--o3-code,#176B91);font:800 12.3px/1.3 var(--sans,system-ui,sans-serif)}
+.o3-galerie-unifiee .o3-r-codes li>span{display:block;min-width:0}
+.o3-galerie-unifiee .o3-r-codes li small{display:block;color:#66808a;font:440 11px/1.45 var(--sans,system-ui,sans-serif);margin-top:2px}
+.o3-galerie-unifiee .o3-r-legende .o3-r-limite{padding:10px 0 0;border-top:1px solid #dbe6ea;margin:13px 0 7px!important;color:#4d656e!important}
+.o3-galerie-unifiee .o3-r-source{display:inline-block;font:700 12px/1.5 var(--sans,system-ui,sans-serif);color:#226a84;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:790px){.o3-clsc-methodo .o3-clsc-miniatures{grid-template-columns:minmax(0,1fr)}.o3-clsc-methodo .o3-clsc-exemple[open]{grid-column:span 1}.o3-galerie-unifiee .o3-r-deux-colonnes{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:520px){.o3-galerie-unifiee .o3-r-codes{grid-template-columns:minmax(0,1fr)}.o3-galerie-unifiee .o3-r-legende{padding:11px}}
