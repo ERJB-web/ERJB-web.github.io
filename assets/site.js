@@ -1448,3 +1448,14 @@
     obs.observe(document.body||document.documentElement,{childList:true,subtree:true});
   }
 })();
+
+/* Charger les exemples et le glossaire uniquement dans la lecture grand public.
+   Le protocole scientifique et les navigations ne sont jamais modifiés. */
+;(() => {
+  if (new URLSearchParams(location.search).get("lecture") !== "grand-public") return;
+  if ((document.documentElement.lang || "fr").slice(0, 2) !== "fr") return;
+  const chargeur = document.createElement("script");
+  chargeur.src = new URL("these-vulgarisation-guide.js?v=1", document.currentScript?.src || new URL("assets/site.js", location.href)).href;
+  chargeur.async = true;
+  document.head.appendChild(chargeur);
+})();
