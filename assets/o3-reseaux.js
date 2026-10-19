@@ -124,7 +124,8 @@
       else visuel='<div class="o3-galerie-visuel o3-galerie-r" data-o3-r-key="'+echapper(d.cle)+'"><p>Graphique R chargé lors de sa sélection.</p></div>';
       return '<figure class="o3-galerie-planche" data-o3-slide="'+i+'"'+(i?' hidden aria-hidden="true"':' aria-hidden="false"')+'>'+visuel+
         '<figcaption><span class="o3-galerie-statut">'+"Exercice SNA sur les références du 211 · non assimilable au protocole de thèse"+
-        '</span><h4>'+echapper(d.titre)+'</h4><p>'+echapper(d.lecture)+'</p></figcaption></figure>';
+        '</span><h4>'+echapper(d.titre)+'</h4><p>'+echapper(d.lecture)+'</p>'+
+        (d.type==="r"?'<section class="o3-r-legende" data-o3-r-legende aria-label="Codes, couleurs et nombres de la figure R"><p>Légende en cours de chargement…</p></section>':'')+'</figcaption></figure>';
     }).join("");
     const module=document.createElement("section");
     module.className="o3-atlas o3-galerie-unifiee";
@@ -196,7 +197,56 @@
     const el=Array.from(module.querySelectorAll("[data-o3-slide]"));
     const select=module.querySelector("[data-o3-choix]"),output=module.querySelector("[data-o3-compteur]");
     const prev=module.querySelector("[data-o3-prev]"),next=module.querySelector("[data-o3-next]");
-    let current=0,sourceR=null,promesseR=null;
+    let current=0,sourceR=null,promesseR=null,promesseAnalyses=null;
+    // analyses.json et analyse_sna.R définissent tous les codes, groupes et poids.
+    const paletteR=['#176B91','#D67A25','#568447','#9861AB','#C34D68','#3C9190','#A78A28','#647A94','#903F40','#295F48','#774E95','#BD6054','#3759A0','#79773B'];
+    const nombreR=x=>Number(x).toLocaleString('fr-CA',{maximumFractionDigits:3});
+    function legendeR(fig,resultats) {
+      const cle=String(fig.cle||'');
+      const couleur=(c,t)=>'<span class="o3-r-repere"><i aria-hidden="true" style="background:'+c+'"></i>'+t+'</span>';
+      const codes=liste=>'<ul class="o3-r-codes">'+liste.map(x=>
+        '<li><b style="--o3-code:'+x.c+'">'+echapper(x.code)+'</b><span>'+echapper(x.name)+
+        (x.note?'<small>'+echapper(x.note)+'</small>':'')+'</span></li>').join('')+'</ul>';
+      const afficher=(titre,explication,cles,details)=>
+        '<h5>Comment lire la figure · '+titre+'</h5><p>'+explication+'</p>'+
+        '<div class="o3-r-reperes">'+cles.join('')+'</div>'+details+
+        '<p class="o3-r-limite">Prudence : les fichiers du 211 décrivent des références vers des destinataires, pas des collaborations SAD–organismes, des prestations reçues ou des besoins concomitants individuels.</p>'+
+        '<a class="o3-r-source" href="/simulations/sna-o3/r/" target="_blank" rel="noopener noreferrer">Calculs R, mesures et listes complètes ↗</a>';
+      if(cle==='a1_temporel.svg'){
+        const top=resultats.temporal?.a1?.top;
+        if(!Array.isArray(top))throw Error('Codes temporels absents');
+        return afficher('suivi temporel',
+          'Trois colonnes = trois exercices. Les chiffres près des cercles indiquent le nombre de références de l’année. Le signe — indique qu’aucune référence n’est enregistrée dans cette extraction.',
+          [couleur('#176B91','Bleu : destinataire référencé'),couleur('#ffffff','Blanc : absence de référence'),couleur('#8DB4C6','Trait : références dans deux années consécutives')],
+          '<p>La taille du cercle dépend du compte ; la largeur du trait est liée au compte minimum des deux exercices. Une absence de référence ne prouve pas une fermeture.</p><h6>Numéros O1–O10 : noms des destinataires</h6>'+
+          codes(top.map(x=>({code:x.code,name:x.name,note:'ID '+x.id,c:'#176B91'}))));
+      }
+      const m=/^a1_y([1-3])_(ego|biparti|projection_(0|10|20))\.svg$/.exec(cle);
+      if(!m)throw Error('Figure non reconnue');
+      const a=resultats.analyses?.['a1_y'+m[1]];
+      if(!a)throw Error('Analyse absente');
+      if(m[2]==='ego')return afficher('réseau égocentré',
+        '211 est le centre ; les cercles numérotés 1 à 8 sont les huit destinataires les plus référencés. Le nombre placé sur une flèche est le compte des références du 211 vers ce destinataire.',
+        [couleur('#173F55','Bleu foncé : ego 211'),couleur('#176B91','Bleu : destinataires'),couleur('#8DB4C6','Flèche : référence dirigée')],
+        '<p>La largeur de la flèche croît avec la racine carrée des références. Huit destinataires sont affichés pour la lisibilité, mais les indicateurs portent sur l’ensemble du réseau.</p><h6>Codes 1–8 : destinataires et nombres</h6>'+
+        codes(a.ego_top.map(x=>({code:x.code,name:x.name,note:'ID '+x.id+' · '+nombreR(x.in_strength)+' références',c:'#176B91'}))));
+      if(m[2]==='biparti')return afficher('réseau à deux modes',
+        'Les carrés D1–D14 sont des domaines de besoins ; les cercles O1–O12 représentent les organismes les plus référencés. Une arête relie un domaine à un destinataire lorsqu’une référence l’associe à ce domaine.',
+        [couleur('#D67A25','Carrés orange D : domaines'),couleur('#176B91','Cercles bleus O : organismes'),couleur('#568CA4','Trait : références enregistrées')],
+        '<p>L’épaisseur des arêtes augmente avec les comptes. Ces résultats concernent tous les âges ; ils ne mesurent pas les liens entre organismes.</p>'+
+        '<div class="o3-r-deux-colonnes"><div><h6>Domaines D1 à D14</h6>'+
+        codes(a.domains.map(x=>({code:x.code,name:x.name,c:'#D67A25'})))+
+        '</div><div><h6>Organismes O1 à O12</h6>'+
+        codes(a.biparti_top.map(x=>({code:x.code,name:x.name,note:'ID '+x.id,c:'#176B91'})))+'</div></div>');
+      const seuil=Number(m[3])/100,proj=a.projection?.[String(seuil)];
+      if(!proj?.nodes)throw Error('Projection absente');
+      const groupes=[...new Set(proj.nodes.map(x=>+x.community))].sort((x,y)=>x-y);
+      return afficher('projection des domaines · seuil Jaccard '+seuil.toLocaleString('fr-CA',{minimumFractionDigits:2}),
+        'D1–D14 représentent les domaines. Deux domaines sont liés s’ils partagent des organismes référencés ; Jaccard (0–1) mesure leur similarité de destinataires.',
+        groupes.map(g=>couleur(paletteR[(g-1)%paletteR.length],'Couleur : communauté Louvain '+g)),
+        '<p>Ces couleurs représentent des groupes calculés, pas des secteurs de services. La taille des nœuds augmente avec l’intermédiarité ; l’épaisseur des liens avec Jaccard. Les groupes peuvent changer entre exercices et seuils.</p><h6>Codes D1–D14, noms et groupes</h6>'+
+        codes(proj.nodes.map(x=>({code:x.code,name:x.name,note:'Groupe '+x.community+' · intermédiarité '+nombreR(x.betweenness),c:paletteR[(+x.community-1)%paletteR.length]}))));
+    }
     async function ouvrirGraphique(zone){
       if(!zone||zone.dataset.charge==="oui")return;
       zone.innerHTML="<p>Chargement du graphique calculé avec R…</p>";
@@ -209,8 +259,21 @@
         if(!svg)throw Error("Graphique absent");
         zone.innerHTML=svg.replace(/^<\?xml[^>]*>\s*/i,"");
         zone.dataset.charge="oui";
+        const figure=zone.closest("[data-o3-slide]");
         const image=zone.querySelector("svg");
-        if(image){image.setAttribute("role","img");image.setAttribute("aria-label",donnees[+zone.closest("[data-o3-slide]").dataset.o3Slide].titre)}
+        if(image){image.setAttribute("role","img");image.setAttribute("aria-label",donnees[+figure.dataset.o3Slide].titre)}
+        const cleLegende=figure.querySelector("[data-o3-r-legende]");
+        if(cleLegende){
+          try{
+            if(!promesseAnalyses)promesseAnalyses=fetch("/simulations/sna-o3/r/analyses.json")
+              .then(r=>{if(!r.ok)throw Error("Analyses R indisponibles");return r.json()});
+            const calculs=await promesseAnalyses;
+            if(cleLegende.isConnected)cleLegende.innerHTML=legendeR(donnees[+figure.dataset.o3Slide],calculs);
+          }catch(erreur){
+            if(cleLegende.isConnected)cleLegende.innerHTML='<p>La légende détaillée est indisponible. <a href="/simulations/sna-o3/r/" target="_blank" rel="noopener">Consulter les correspondances des codes dans les calculs R ↗</a></p>';
+            promesseAnalyses=null;
+          }
+        }
       }catch(erreur){
         zone.innerHTML='<p>Le chargement a échoué. <a href="/simulations/sna-o3/r/" target="_blank" rel="noopener">Ouvrir les résultats R ↗</a></p>';
         promesseR=null;
