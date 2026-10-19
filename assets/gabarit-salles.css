@@ -2729,3 +2729,7 @@ html:is(.hc,.lv) .gab[data-gab-salle="gestionnaire"] .carte-vitrine{
 @media(max-width:640px){
   .gab-chapitre[data-gab-slug="contexte"] .these-titre-contexte{padding:16px 18px;margin-bottom:19px}
 }
+
+/* Les pages de CV sans sommaire latéral utilisent réellement toute la largeur. */
+.gab .gab-chapitre-grille.gab-sans-aside{display:block!important;grid-template-columns:minmax(0,1fr)!important;gap:0!important}
+.gab .gab-chapitre-grille.gab-sans-aside>.gab-chapitre-texte{width:100%;min-width:0;max-width:none}
