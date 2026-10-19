@@ -256,6 +256,7 @@
       // Garder ce renvoi avec la méthode O3 au lieu d'en faire un bloc flottant.
       const titreO3 = zone.querySelector('#methode-o3-exemples > header');
       if (titreO3) titreO3.insertAdjacentElement("afterend", note);
+      else if (espaceExemples) espaceExemples.insertBefore(note, espaceExemples.querySelector(":scope > .o3-clsc-methodo") || espaceExemples.firstChild);
       else cibleO3.prepend(note);
       modulesInitialises.add(note);
       note.querySelector("button").addEventListener("click", () => {
