@@ -1828,6 +1828,20 @@
         '#methode-o2-4 .precision-protocole-o2 .precision-reperes span{background:#f1f8f8;color:#255c64;border-color:#d7e6e8}',
         '#methode-o2-4 .precision-protocole-o2 .precision-table-scroll{max-width:100%;min-width:0}',
         '#methode-o2-4 .precision-protocole-o2 .precision-note{margin:15px 0 9px!important;text-align:justify!important}',
+        '/* O3 uniquement : chiffres grands, légendes courtes, sans paragraphes */',
+        '.these .precision-protocole-o3{margin:16px 0 8px!important;padding:17px 19px!important}',
+        '.these .precision-protocole-o3 .precision-titre{font:680 15px/1.45 var(--sans)!important;margin:0 0 13px!important;letter-spacing:0!important;color:#254d62!important}',
+        '.these .precision-protocole-o3 .precision-cartes{gap:13px!important;margin:0 0 13px!important}',
+        '.these .precision-protocole-o3 .precision-carte{display:flex;flex-direction:column;align-items:flex-start;min-width:0;padding:16px 17px 18px!important;border-radius:12px}',
+        '.these .precision-protocole-o3 .precision-chiffre{font:800 clamp(43px,4.3vw,62px)/1.09 var(--sans)!important;margin:0 0 9px!important;letter-spacing:-.035em!important;white-space:nowrap}',
+        '.these .precision-protocole-o3 .precision-carte:first-child .precision-chiffre{color:#c53939!important;font-size:clamp(50px,5.3vw,73px)!important}',
+        '.these .precision-protocole-o3 .precision-carte:nth-child(3) .precision-chiffre{font-size:clamp(32px,3.4vw,51px)!important}',
+        '.these .precision-protocole-o3 .precision-carte strong{font:710 11px/1.4 var(--sans)!important;margin:0 0 4px!important;letter-spacing:.035em!important;color:#536c79!important}',
+        '.these .precision-protocole-o3 .precision-carte p{font:440 12.5px/1.45 var(--sans)!important;margin:0!important;text-align:left!important;hyphens:none!important;color:#566b76!important}',
+        '.these .precision-protocole-o3 .precision-parcours{margin:0 0 9px!important;padding:10px 13px!important;font:560 12.5px/1.55 var(--sans)!important;text-align:justify!important}',
+        '.these .precision-protocole-o3 .precision-note{margin:0!important;font:450 12px/1.6 var(--sans)!important;text-align:justify!important}',
+        '@media(max-width:800px){.these .precision-protocole-o3 .precision-cartes{grid-template-columns:repeat(3,minmax(0,1fr))}}',
+        '@media(max-width:650px){.these .precision-protocole-o3 .precision-cartes{grid-template-columns:1fr}.these .precision-protocole-o3 .precision-carte{padding:13px 16px!important}.these .precision-protocole-o3 .precision-chiffre{font-size:50px!important}.these .precision-protocole-o3 .precision-carte:first-child .precision-chiffre{font-size:57px!important}.these .precision-protocole-o3 .precision-carte:nth-child(3) .precision-chiffre{font-size:43px!important}}',
         '@media(max-width:800px){.these .precision-cartes{grid-template-columns:1fr}.these .precision-carte{padding:15px}}',
         'html.hc .these .precision-protocole,html.lv .these .precision-protocole{background:#fff;border-width:2px}'
       ].join("\n");
@@ -1861,18 +1875,16 @@
     }
     if (cibleO3 && !cibleO3.parentElement.querySelector(".precision-protocole")) {
       const bloc = D.createElement("section");
-      bloc.className = "precision-protocole";
-      bloc.setAttribute("aria-label","O3 : questionnaire et fenêtre de référence");
+      bloc.className = "precision-protocole precision-protocole-o3";
+      bloc.setAttribute("aria-label","O3 : repères du questionnaire de réseau");
       bloc.innerHTML =
-        '<p class="precision-kicker">Objectif 3 · Paramètres explicites du questionnaire</p>' +
-        '<p class="precision-titre">Réponse attendue, période de rappel et profils d’O1</p>' +
-        '<p class="precision-intro">Le réseau est étudié depuis chaque équipe de soutien à domicile (SAD), puis auprès des organisations qu’elle nomme. Les vignettes issues des profils de besoins sociaux concomitants identifiés en O1 donnent un cadre commun aux questions sur les interactions intersectorielles effectivement entretenues.</p>' +
+        '<p class="precision-titre">Questionnaire de réseau · O3</p>' +
         '<div class="precision-cartes">' +
-        '<div class="precision-carte"><span class="precision-chiffre">≥ 80 %</span><strong>Réponse visée</strong><p>Au moins 80 % de retour aux questionnaires adressés aux répondants sollicités, avec un suivi distinct par territoire et catégorie d’acteur. Cible méthodologique, non résultat acquis.</p></div>' +
-        '<div class="precision-carte"><span class="precision-chiffre">12 mois</span><strong>Période étudiée</strong><p>Chaque questionnaire porte sur les orientations, échanges, coopérations et coordinations réalisés durant les 12 mois précédant la réponse, et non sur des liens théoriques.</p></div>' +
-        '<div class="precision-carte"><span class="precision-chiffre">O1 → O3</span><strong>Profils et liens</strong><p>Les vignettes issues d’O1 servent à identifier les partenaires sollicités en réponse aux combinaisons de besoins, la fréquence des liens et leur niveau de collaboration.</p></div></div>' +
-        '<p class="precision-parcours"><strong>O1</strong> Profils et vignettes → <strong>O3</strong> Questionnaires SAD et partenaires, interactions des 12 derniers mois → réseaux par profil et CLSC → comparaison à l’atlas <strong>O2</strong> et entretiens explicatifs.</p>' +
-        '<p class="precision-note">Pour chaque relation : acteur cité, secteur, nature, fréquence et niveau de collaboration (1 à 4). Les non-réponses sont distinguées des absences de liens déclarées.</p>';
+        '<div class="precision-carte"><span class="precision-chiffre">&gt; 80 %</span><strong>Réponse visée</strong><p>Cible méthodologique</p></div>' +
+        '<div class="precision-carte"><span class="precision-chiffre">12 mois</span><strong>Période étudiée</strong><p>Interactions déclarées</p></div>' +
+        '<div class="precision-carte"><span class="precision-chiffre">O1 → O3</span><strong>Profils et liens</strong><p>Vignettes : cadre commun</p></div></div>' +
+        '<p class="precision-parcours"><strong>O1</strong> Vignettes → <strong>O3</strong> Questionnaires SAD–partenaires → réseaux par profil et CLSC → comparaison à <strong>O2</strong> et entretiens.</p>' +
+        '<p class="precision-note"><strong>Par lien :</strong> acteur · secteur · nature · fréquence · collaboration (1–4). Non-réponse ≠ absence de lien.</p>';
       cibleO3.insertAdjacentElement("afterend",bloc);
     }
   }
