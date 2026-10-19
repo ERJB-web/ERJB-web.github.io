@@ -1083,6 +1083,18 @@
       `<button type="button" class="gab-bas-lien gab-bas-precedent" data-gab-pas="-1"${i === 0 ? " disabled" : ""}><span class="gab-bas-chevron" aria-hidden="true">‹</span><span class="gab-bas-libelle"><small>${echapper(T.precedent)}</small><strong class="gab-nav-cible"></strong></span></button>` +
       `<button type="button" class="gab-bas-sommaire" data-gab-pas="tous">${echapper(T.tous)}</button>` +
       `<button type="button" class="gab-bas-lien gab-bas-suivant" data-gab-pas="1"${i === n - 1 ? " disabled" : ""}><span class="gab-bas-libelle"><small>${echapper(T.suivant)}</small><strong class="gab-nav-cible"></strong></span><span class="gab-bas-chevron" aria-hidden="true">›</span></button>`;
+    // Éducation spécialisée (FR) : conserver la navigation native de la porte
+    // Parcours. Seul le contrôle central devient l'intitulé du chapitre.
+    // Aucun changement au découpage, à la destination des flèches ni aux autres salles.
+    if (salle === "educateur" && langue === "fr") {
+      bas.classList.add("educ-bas-nav");
+      const sommaire = $(".gab-bas-sommaire", bas);
+      if (sommaire) {
+        const titreActuel = el("span", "gab-bas-centre",
+          "<small>Chapitre en cours</small><strong>Éducation spécialisée</strong>");
+        sommaire.replaceWith(titreActuel);
+      }
+    }
     section.append(bas);
     return section;
   }
