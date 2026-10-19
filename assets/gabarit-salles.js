@@ -950,6 +950,16 @@
       salle === "recherche" && langue === "fr" && ch.cle === "methodes" ? "Méthodologie" : ch.titre;
     section.dataset.gabTitre = titreAffiche || "";
     const tete = el("header", "gab-chapitre-tete", `<span class="gab-chapitre-num" role="heading" aria-level="3"><b aria-hidden="true">${deux(i + 1)}</b><span>${echapper(titreAffiche)}</span></span>`);
+    // Seule la Méthodologie possède un lien vers sa copie en langage courant.
+    // Ajouter le lien dans l'en-tête du chapitre, jamais dans les menus.
+    if (salle === "recherche" && ch.cle === "methodes" && langue === "fr") {
+      const lectureSimplifiee = /\/methode-vulgarisee\.html$/i.test(location.pathname);
+      const lienLecture = el("a", "methode-lien-grand-public",
+        lectureSimplifiee ? "← Revenir à la version scientifique" : "Consulter la version vulgarisée →");
+      lienLecture.href = lectureSimplifiee ? "./index.html#recherche/methodes" : "./methode-vulgarisee.html#recherche/methodes";
+      lienLecture.setAttribute("aria-label", lectureSimplifiee ? "Lire la méthodologie scientifique" : "Lire la méthodologie vulgarisée");
+      tete.append(lienLecture);
+    }
     const corps = el("div", "gab-corps");
     if (ch.surPlace) {
       Array.from(section.childNodes).forEach((x) => corps.append(x));
