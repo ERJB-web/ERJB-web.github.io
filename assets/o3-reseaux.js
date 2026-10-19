@@ -20,7 +20,7 @@
     if (!document.querySelector("link[data-o3-style]")) {
       const feuille = document.createElement("link");
       feuille.rel = "stylesheet";
-      feuille.href = racine + "assets/o3-reseaux.css?v=20261018-galerie-visible-ba518";
+      feuille.href = racine + "assets/o3-reseaux.css?v=20261018-o3-legendes-3a993";
       feuille.dataset.o3Style = "1";
       document.head.appendChild(feuille);
     }
