@@ -947,7 +947,7 @@
     const texte = el("div", "gab-chapitre-texte");
     // Titre de chapitre unique et transversal : numéro et intitulé sur la même ligne.
     const titreAffiche = salle === "recherche" && langue === "fr" && ch.cle === "problematique" ? "Problématisation" :
-      salle === "recherche" && langue === "fr" && ch.cle === "methodes" ? "Méthodologie" : ch.titre;
+      salle === "recherche" && langue === "fr" && ch.cle === "methodes" ? (/\/methode-vulgarisee\.html$/i.test(location.pathname) ? "Méthodologie vulgarisée" : "Méthodologie") : ch.titre;
     section.dataset.gabTitre = titreAffiche || "";
     const tete = el("header", "gab-chapitre-tete", `<span class="gab-chapitre-num" role="heading" aria-level="3"><b aria-hidden="true">${deux(i + 1)}</b><span>${echapper(titreAffiche)}</span></span>`);
     // Seule la Méthodologie possède un lien vers sa copie en langage courant.
