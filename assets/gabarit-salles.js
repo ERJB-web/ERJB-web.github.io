@@ -976,6 +976,14 @@
       corps.append(source);
     }
     if (salle === "recherche" && ch.cle === "methodes") condenserExplicationsO2(corps);
+    // La page Contexte ouvre sur le titre complet du projet de thèse.
+    if (salle === "recherche" && langue === "fr" && ch.cle === "contexte" &&
+        !corps.textContent.includes("Organiser la réponse intersectorielle aux aînés à domicile qui cumulent besoins sociaux et morbidité")) {
+      const titreThese = el("div", "these-titre-contexte",
+        '<span class="these-titre-contexte-label">Titre de la thèse</span>' +
+        '<div class="these-titre-contexte-principal">Organiser la réponse intersectorielle aux aînés à domicile qui cumulent besoins sociaux et morbidité :<span>Profils, cartographie des ressources et analyse des réseaux</span></div>');
+      corps.prepend(titreThese);
+    }
     texte.append(tete, corps);
     const aside = el("aside", "gab-chapitre-aside");
     // Dans le contexte de la thèse, le visuel de chiffres clés du premier chapitre
