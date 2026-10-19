@@ -867,6 +867,10 @@
   }
 
   function fabriquerSommaire(corps, salle, chapitre, index) {
+    // Les anciens sommaires automatiques "Dans ce chapitre" sont supprimés
+    // des portes de parcours et de compétences : navigation précédente/suivante inchangée.
+    // Les dossiers scientifiques conservent leurs sommaires structurés dédiés.
+    if (!["recherche", "implantation", "vulgarisation"].includes(salle)) return null;
     const titres = titresSommaire(corps, salle, chapitre);
     if (!titres.length) return null;
     const nav = el("nav", "gab-sommaire-chapitre");
@@ -909,7 +913,11 @@
       cle: chapitre.dataset.gabSlug, titre: chapitre.dataset.gabTitre
     }, Number(chapitre.dataset.gabIndex || 0));
     const ancien = $(".gab-sommaire-chapitre", aside);
-    if (!nouveau) { ancien?.remove(); return; }
+    if (!nouveau) {
+      ancien?.remove();
+      $(".gab-chapitre-grille", chapitre)?.classList.remove("gab-menu-universel");
+      return;
+    }
     if (ancien?.innerHTML === nouveau.innerHTML && ancien.className === nouveau.className) return;
     if(ancien?.dataset.gabReplie === "non") {
       nouveau.dataset.gabReplie="non";$(".gab-sommaire-basculer",nouveau)?.setAttribute("aria-expanded","true");
@@ -1046,7 +1054,13 @@
       nota = el("p", "these-exemples-attribution");
       nota.innerHTML = "<strong>Nota Bene :</strong> La réflexion scientifique, les choix méthodologiques, la structuration des exemples, la réalisation des cartes dans QGIS, l’analyse, l’interprétation et la rédaction sont assurées par l’auteur. Le traitement et le codage des données sont effectués en R dans l’environnement Positron. L’assistance de Claude est limitée aux graphismes et à la programmation du site Internet ; Claude n’intervient ni dans le codage ou l’analyse des données, ni dans la rédaction scientifique.";
     }
-    grille.append(texte, aside);
+    // Ne jamais réserver une colonne vide à l’ancien menu latéral.
+    grille.append(texte);
+    if (aside.hasChildNodes() || ["recherche", "implantation", "vulgarisation"].includes(salle)) {
+      grille.append(aside);
+    } else {
+      grille.classList.add("gab-sans-aside");
+    }
     section.append(grille);
     if (nota) {
       nota.removeAttribute("hidden");
