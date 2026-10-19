@@ -154,6 +154,87 @@ html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab
   font-size:15px!important;line-height:1.58!important;
 }
 
+
+/* Harmonisation de lecture de TOUS les chapitres du projet de thèse,
+   scientifique et grand public. Dans la couche prioritaire de la charte.
+   Ne touche ni les menus/boutons ni aux nombres mis en valeur. */
+html body .these :is(p,li,dt,dd,blockquote,td,th,summary,label),
+html body .cadrage-these :is(p,li,dt,dd,blockquote,td,th,summary,label) {
+  font-size:var(--type-corps)!important;
+  line-height:1.65!important;
+}
+html body .these :is(p,li,dt,dd,blockquote,td,th,summary) :is(span,b,strong,em,a,code,small),
+html body .cadrage-these :is(p,li,dt,dd,blockquote,td,th,summary) :is(span,b,strong,em,a,code,small){
+  font-size:inherit!important;
+  line-height:inherit!important;
+}
+html body .these :is(figcaption,caption,.legende,.disclaimer,.methode-refs,.o2-these-references,.o3-v3-citation,.o3-analyse-note),
+html body .cadrage-these :is(figcaption,caption,.legende,.disclaimer){
+  font-size:var(--type-note)!important;
+  line-height:1.6!important;
+}
+/* Textes dans les cartes, étapes, schémas et synthèses des trois objectifs. */
+html body .these :is(
+ .o1-profils-intro,.o1-profils-besoins span,.o1-profils-centre span,
+ .o1-profils-raison p,.o1-profils-raison strong,.o1-profils-sortie strong,
+ .o1-circuit-label,.o1-circuit-bifurcation,.o1-circuit-tags span,
+ .o1-guidance,.o1-compact-context .o1-intro,
+ .o2-sources-groupe p,.o2-sources-rôles span,.o2-sources-repere p,
+ .o2-these-analyse,.o2-these-phase p,.o2-these-version-intro,
+ .o2-these-etape p,.o2-these-formule p,.o2-these-livrable p,
+ .o3-v3-etude,.o3-analyse-vue,.o3-analyse-carte p,
+ .o3-analyse-detail p,.o3-analyse-produit,
+ .o3-reperes-compact span,.o3-profils-qual small,
+ .o3-processus small,.o3-conditions span,.o3-qual-cible small,
+ .o3-criteres span,.o3viz-actor span,.o3viz-limit span,
+ .methode-produit-court,.o1-profils-clairs details p,
+ .these-synthese-vulgarisee,.these-vulgarisation-exemple p
+) {
+  font-size:var(--type-corps)!important;
+  line-height:1.65!important;
+}
+/* Étiquettes, surtitres, notes et explications brèves : jamais des micro-polices. */
+html body .these :is(
+ .o1-surtitre,.o1-profils-surtitre,.o1-profils-sortie small,
+ .o1-profils-num,.o1-profils-chiffre span,.o1-compact-count span,
+ .o1-critere-name small,.o1-action,
+ .o2-sources-parcours>strong,.o2-sources-etapes li,
+ .o2-these-etape span,.o2-sources-repere strong,
+ .o3-analyse-sur,.o3-analyse-tech,.o3-analyse-index,
+ .o3-analyse-outils small,.o3-v3-indicateur,
+ .o3viz-head small,.o3viz-step,.o3viz-tags span,
+ .o3-reperes-compact b,.o3-phases span,.o3-cible-entete span,
+ .o3-processus b,.o3-conditions>b,.o3-protocole-texte
+) {
+  font-size:var(--type-note)!important;
+  line-height:1.55!important;
+}
+/* La version grand public utilise exactement la même taille de texte courant. */
+html body .vg-guide :is(p,li,dt,dd,summary,.vg-box p,.vg-rows span,.vg-rows b,.vg-flow span,.vg-t){
+  font-size:var(--type-corps)!important;
+  line-height:1.65!important;
+}
+html body .vg-guide :is(.vg-k,.vg-n,.vg-note){
+  font-size:var(--type-note)!important;
+  line-height:1.55!important;
+}
+/* Composants éditoriaux dont les textes sont dans des spans plutôt que des p.
+   Exclusions explicites des menus, commandes, métriques et illustrations. */
+html body .these :is(
+ [class*="-description"],[class*="-desc"],[class*="-explication"],
+ [class*="-texte"],[class*="-text"],[class*="-intro"]
+):not(:is(nav *,button *,[role="navigation"] *,[role="button"] *)){
+  font-size:var(--type-corps)!important;
+  line-height:1.65!important;
+}
+html body .these :is(
+ [class*="-kicker"],[class*="-legende"],[class*="-etiquette"],
+ [class*="-caption"],[class*="-note"]
+):not(:is(nav *,button *,[role="navigation"] *,[role="button"] *)){
+  font-size:var(--type-note)!important;
+  line-height:1.55!important;
+}
+
 }
 
 /* O3 · typographie de la section Analyse, sans modifier les autres sections. */
@@ -263,31 +344,4 @@ html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo .
  .these #these-methode-o3 #methode-o3-7{padding:8px!important}
  .these #these-methode-o3 #methode-o3-7 .these-methode-item:has(>dd>.revision-demo){padding:0!important;border:0!important;background:transparent!important}
  .these #these-methode-o3 #methode-o3-7 .these-methode-item:has(>dd>.revision-demo)>dt{text-align:left!important;padding:12px 4px!important}
-}
-
-
-/* Harmonisation lecture méthodologie scientifique et vulgarisée — 2026-10-19 */
-/* Styles limités aux textes explicatifs : les chiffres, titres et menus sont préservés. */
-html body .vg-guide :is(p,dd,li),
-html body .vg-guide .vg-box p,
-html body .vg-guide .vg-rows span,
-html body .vg-guide .vg-note,
-html body .vg-guide .vg-flow span,
-html body .vg-guide .vg-rows b,
-html body .vg-guide dt,
-html body .vg-guide summary {
-  font-size:var(--type-corps,16px)!important;
-  line-height:1.65!important;
-}
-html body .vg-guide :is(.vg-k,.vg-n){font-size:var(--type-note,14px)!important;line-height:1.5!important}
-html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) :is(p,li,dd),
-html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) :is(.o1-circuit-label,.o1-circuit-bifurcation,.o1-circuit-tags span,.methode-produit-court,.o1-profils-surtitre) {
-  font-size:var(--type-corps,16px)!important;
-  line-height:1.65!important;
-}
-html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) :is(figcaption,.legende,.disclaimer,small),
-html body .these .these-synthese-vulgarisee,
-html body .these .these-vulgarisation-exemple p {
-  font-size:var(--type-note,14px)!important;
-  line-height:1.65!important;
 }
