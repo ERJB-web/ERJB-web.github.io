@@ -1187,7 +1187,7 @@
     // Chapitres.
     const n = chapitres.length;
     // Les rubriques de CV se lisent directement, sans sommaire de chapitre.
-    if (n === 1 && (SALLES_ENGAGEMENTS.includes(salle) || salle === "gestionnaire")) sc.classList.add("gab-cv-direct");
+    if (n === 1 && SALLES_ENGAGEMENTS.includes(salle)) sc.classList.add("gab-cv-direct");
     if (mode === "rubriques") {
       $$(":scope > .rubriques-console", table).forEach((x) => x.remove());
       ["data-onglets", "data-navigation", "role"].forEach((a) => table.removeAttribute(a));
