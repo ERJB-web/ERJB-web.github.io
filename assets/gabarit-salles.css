@@ -2438,3 +2438,20 @@ html:is(.hc,.lv) .gab[data-gab-salle="gestionnaire"] .carte-vitrine{
   .gab[data-gab-salle="recherche"] .fais-capacites-chiffres>div:last-child{grid-column:auto}
   .gab[data-gab-salle="recherche"] .fais-capacites-formation>div{grid-template-columns:minmax(0,1fr);gap:3px}
 }
+
+/* Lien de lecture réservé à l'en-tête de la Méthodologie, adjacent au titre. */
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-chapitre-tete{
+ display:flex!important;align-items:center!important;justify-content:flex-start!important;
+ flex-wrap:wrap!important;column-gap:22px!important;row-gap:12px!important;
+}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .methode-lien-grand-public{
+ display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;
+ width:auto;max-width:100%;padding:11px 16px;border:1px solid #b9d8e5;border-radius:11px;
+ background:#eaf4f8;color:#16516c;font:750 13px/1.3 var(--sans,system-ui,sans-serif);
+ letter-spacing:0;text-transform:none;text-decoration:none;box-shadow:0 3px 10px #173b5310;
+}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .methode-lien-grand-public:hover{background:#d4eaf4}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .methode-lien-grand-public:focus-visible{outline:3px solid #216a8b;outline-offset:3px}
+@media(max-width:640px){
+ .gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .methode-lien-grand-public{width:100%;flex:1 1 100%}
+}
