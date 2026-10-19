@@ -170,20 +170,22 @@ const ebMeteoMontreal = (() => {
     }
     placer();
   }
-  // Quand la navigation laisse trop peu de place, la ligne d'état passe au-dessus du hall.
-  const nav = entete.querySelector(".nav");
+  // Réserver la largeur réelle de la météo, sans déplacer la ligne d'état.
   function placer() {
-    const racine = document.documentElement;
-    racine.classList.remove("direct-serre");
-    if (!nav || getComputedStyle(lignes[0]).display === "none") return;
-    const r = lignes[0].getBoundingClientRect();
-    const touche = [...nav.querySelectorAll("a, button")].some((e) => {
-      const b = e.getBoundingClientRect();
-      return b.width > 0 && b.right + 16 > r.left && b.left - 16 < r.right && b.bottom > r.top && b.top < r.bottom;
-    });
-    racine.classList.toggle("direct-serre", touche);
+    document.documentElement.classList.remove("direct-serre");
+    if (getComputedStyle(lignes[0]).display === "none") return;
+    const largeur = Math.ceil(lignes[0].getBoundingClientRect().width);
+    const valeur = largeur + "px";
+    if (entete.style.getPropertyValue("--direct-largeur") !== valeur) {
+      entete.style.setProperty("--direct-largeur", valeur);
+    }
   }
-  if ("ResizeObserver" in window) new ResizeObserver(placer).observe(entete);
+  if ("ResizeObserver" in window) {
+    const observation = new ResizeObserver(placer);
+    observation.observe(entete);
+    observation.observe(lignes[0]);
+  }
+  document.fonts?.ready.then(placer);
   function charger() { ebMeteoMontreal().then((d) => { if (d?.current) { meteo = d.current; afficher(); } }); }
   afficher();
   charger();

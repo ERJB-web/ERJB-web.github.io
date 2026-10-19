@@ -51,6 +51,8 @@ html body :is(p,li,dt,dd,blockquote,td,th,figcaption,caption,.legende,.disclaime
 html body :is(table,td,th){font-family:var(--type-police)!important;font-size:var(--type-corps)!important;line-height:1.7!important}
 html body :is(td,th) :is(p,li,dt,dd){font-size:inherit!important;line-height:inherit!important}
 html body :is(h1,h2,h3,h4,h5,h6){font-family:var(--type-police)!important;text-align:start!important;text-align-last:auto!important;hyphens:none!important}
+/* La ligne d'état conserve sa taille et son alignement d'interface. */
+html body p.direct-montreal{font-size:13px!important;line-height:1.2!important;text-align:start!important;text-align-last:auto!important;hyphens:none!important}
 /* Les commandes et sommaires conservent leur alignement fonctionnel. */
 html body .rs-page :is(.rs-card-category,.rs-art-label,.rs-art-note,.rs-filters button,.representation-date .date){font-size:var(--type-note)!important;line-height:1.5!important}
 html body .rs-page .rs-filter-count{font-size:12px!important;font-weight:550}
