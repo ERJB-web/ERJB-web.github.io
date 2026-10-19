@@ -342,96 +342,69 @@
   // Navigation de la méthodologie : un même objectif regroupe et colore
   // toutes ses sous-parties, sans toucher à leur contenu ou à leurs cibles.
   function organiserSommaireObjectifs(nav, intertitres) {
-    const titres = [
-      ["commun", "Cadre méthodologique"],
-      ["O1", "Revue de portée et profils de besoins"],
-      ["O2", "Cartographie des ressources"],
-      ["O3", "Analyse des réseaux (SNA)"],
-      ["fin", "Limites et articulation"]
+    // Chapitre Méthodologie uniquement : le sommaire reprend les véritables
+    // sections numérotées de chacun des trois objectifs, et non les illustrations.
+    // Les rubriques du corps scientifique, les autres menus et le gabarit ne bougent pas.
+    const corps = intertitres.find((h) => h.closest(".gab-corps"))?.closest(".gab-corps");
+    if (!corps) return;
+    const objectifs = [
+      ["O1", "Objectif 1 · Revue de portée et profils de besoins"],
+      ["O2", "Objectif 2 · Cartographie des ressources"],
+      ["O3", "Objectif 3 · Analyse des réseaux (SNA)"]
     ];
-    const groupes = new Map(titres.map(([code]) => [code, []]));
-    const liens = $$(":scope > a[data-gab-intertitre]", nav);
-    if (liens.length !== intertitres.length) return;
-    liens.forEach((a) => {
-      const h = intertitres[Number(a.dataset.gabIntertitre)];
-      const brut = net(h.textContent).replace(/^([1-9])(?=[A-ZÀ-ÖØ-ÞŒ])/u, "");
-      const t = normaliser(brut);
-      const marqueur = /^(?:o\s*([123])|objectif\s*([123]))\b/.exec(t);
-      const panneau = h.closest(".these-objectif-vue[data-vue-objectif]")?.dataset.vueObjectif || "";
-      let code = /^O[123]$/.test(panneau) ? panneau : (marqueur ? "O" + (marqueur[1] || marqueur[2]) : "");
-      // Le titre est prioritaire sur le contexte DOM, notamment pour les
-      // outils O1 qui figurent après une carte de présentation O2.
-      if (!code && /revue de portee|profils? de besoins|outils? de recherche|recherche documentaire|recherche bibliographique|criteres? d inclusion|criteres? d exclusion|criteres? de selection|strategie de recherche|codebook|covidence|criblage|bibliothecair|selection des etudes|extraction des etudes/.test(t)) code = "O1";
-      if (!code && /mapping|cartograph|atlas|donnees cartographiques|lecture du territoire|accessibilite|proximite|croiser besoins|ressources disponibles|qgis|systeme d information geographique|ecologique|configuration territoriale|ecarts territoriaux/.test(t)) code = "O2";
-      if (!code && /analyse de reseaux|reseaux|reseau egocentre|\bsna\b|graphes?|dyades?|matrices?|acteurs du reseau|references reelles du 211|liens entre acteurs|trajectoires intersectorielles/.test(t)) code = "O3";
-      if (!code) {
-        const ancetre = h.closest("[data-objectif]");
-        if (/^O[123]$/.test(ancetre?.dataset.objectif || "")) code = ancetre.dataset.objectif;
-      }
-      if (!code) {
-        let parent = h.parentElement;
-        while (parent && !parent.classList.contains("gab-corps")) {
-          const noms = typeof parent.className === "string" ? parent.className : "";
-          const m = /(?:^|[\s-])o([123])(?:[\s-]|$)/i.exec(parent.id + " " + noms);
-          if (m) { code = "O" + m[1]; break; }
-          parent = parent.parentElement;
-        }
-      }
-      if (!code) code = /limites?|parades|precautions|integration|articulation des methodes/.test(t) ? "fin" : "commun";
-      if (/^O[123]$/.test(code)) {
-        a.dataset.objectif = code;
-        a.setAttribute("aria-label", code + " · " + net(a.textContent));
-        const cible = a.querySelector(".gab-sommaire-etape-texte") || a;
-        cible.textContent = cible.textContent.replace(/^(?:O|Objectif\s*)[123]\s*(?:[·.:\u2013-]\s*)?/i, "").trim();
-      } else {
-        a.removeAttribute("data-objectif");
-      }
-      groupes.get(code).push(a);
+    const sections = objectifs.map(([code, nom]) => {
+      const source = corps.querySelector("#these-methode-" + code.toLowerCase());
+      if (!source) return null;
+      const rubriques = $$(":scope > .methode-these-corps > section.methode-rubrique[id]", source)
+        .filter((partie) => !!partie.querySelector(":scope > h5.methode-rubrique-titre"));
+      if (!rubriques.length) return null;
+      return { code, nom, source, rubriques };
     });
+    // Conserver le menu existant si les rubriques réelles ne sont pas encore disponibles.
+    if (sections.some((section) => !section)) return;
+
     nav.classList.add("gab-sommaire-objectifs");
     const etiquette = nav.querySelector(":scope > span");
     nav.replaceChildren();
     if (etiquette) nav.append(etiquette);
 
-    // Trois accès directs toujours visibles : les détails du sommaire
-    // défilent librement, mais O1, O2 et O3 restent immédiatement repérables.
+    // Trois raccourcis compacts, attachés aux en-têtes O1/O2/O3.
     const raccourcis = el("div", "gab-sommaire-raccourcis");
-    const contenuMethodes = intertitres[0]?.closest(".gab-corps");
-    ["O1", "O2", "O3"].forEach((code) => {
-      let cibleId = groupes.get(code)[0]?.dataset.gabCible;
-      if (!cibleId && contenuMethodes) {
-        const cible = $$('[data-objectif="' + code + '"]', contenuMethodes)
-          .find((element) => element.matches("article, section, div, details, h3, h4"));
-        if (cible) {
-          if (!cible.id) cible.id = "gab-objectif-sommaire-" + langue + "-" + code.toLowerCase();
-          cibleId = cible.id;
-        }
-      }
-      if (!cibleId) return;
-      const lienObjectif = el("a", "gab-sommaire-raccourci", echapper(code));
-      lienObjectif.href = "#" + encodeURIComponent(cibleId);
-      lienObjectif.dataset.gabCible = cibleId;
-      lienObjectif.setAttribute("aria-label", code + " · " + titres.find(([id]) => id === code)[1]);
-      raccourcis.append(lienObjectif);
+    sections.forEach(({ code, nom, source }) => {
+      const lien = el("a", "gab-sommaire-raccourci", echapper(code));
+      lien.href = "#" + encodeURIComponent(source.id);
+      lien.dataset.gabCible = source.id;
+      lien.setAttribute("aria-label", nom);
+      raccourcis.append(lien);
     });
-    if (raccourcis.children.length) nav.append(raccourcis);
-    titres.forEach(([code, nom]) => {
-      const liensDuGroupe = groupes.get(code);
-      if (!liensDuGroupe.length) return;
+    nav.append(raccourcis);
+
+    sections.forEach(({ code, nom, rubriques }) => {
       const groupe = el("section", "gab-sommaire-groupe");
-      if (/^O[123]$/.test(code)) groupe.dataset.objectif = code;
-      else groupe.dataset.transversal = code;
+      groupe.dataset.objectif = code;
       groupe.setAttribute("aria-label", nom);
       const titre = el("div", "gab-sommaire-groupe-titre");
-      if (/^O[123]$/.test(code)) titre.append(el("b", "", echapper(code)));
-      titre.append(el("strong", "", echapper(nom)));
-      const corps = el("div", "gab-sommaire-groupe-liens");
-      corps.append(...liensDuGroupe);
-      groupe.append(titre, corps);
+      titre.append(el("b", "", echapper(code)), el("strong", "", echapper(nom)));
+      const liens = el("div", "gab-sommaire-groupe-liens");
+      rubriques.forEach((rubrique, position) => {
+        const enTete = rubrique.querySelector(":scope > h5.methode-rubrique-titre");
+        const numero = net(enTete.querySelector("span")?.textContent) || deux(position + 1);
+        const libelle = net(enTete.textContent).replace(/^\\d{1,2}\\s*/, "").trim();
+        const lien = el("a", "gab-sommaire-etape");
+        lien.href = "#" + encodeURIComponent(rubrique.id);
+        lien.dataset.gabCible = rubrique.id;
+        lien.dataset.gabNiveau = "h5";
+        lien.dataset.objectif = code;
+        lien.setAttribute("aria-label", code + " · " + numero + " · " + libelle);
+        lien.innerHTML =
+          '<span class="gab-sommaire-etape-num" style="background:var(--objectif-fond);color:var(--objectif-texte)">' + echapper(numero) + '</span>' +
+          '<span class="gab-sommaire-etape-texte">' + echapper(libelle) + '</span>';
+        liens.append(lien);
+      });
+      groupe.append(titre, liens);
       nav.append(groupe);
     });
   }
-
 
   // Thèse : un sommaire structuré par sections colorées dans chaque chapitre.
   // Même composants, même hiérarchie et mêmes destinations que le modèle de la
