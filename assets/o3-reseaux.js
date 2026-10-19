@@ -1,13 +1,21 @@
 "use strict";
 (function o3Atlas() {
   "use strict";
-  function initialiser() {
+  // Une instance par élément DOM réel. Les clones de la navigation
+  // ne reprennent pas les gestionnaires d'événements du module initial.
+  const modulesInitialises = new WeakSet();
+  function initialiser(zone) {
     if (!/^fr(?:-|$)/i.test(document.documentElement.lang || "")) return;
-    if (document.querySelector("[data-o3-atlas]")) return;
-    // Le gabarit déplace les chapitres dans la navigation : ne pas dépendre de leur ancien parent.
-    const point = document.querySelector(".section-corps.these .these-objectifs, .these-objectifs");
-    const cibleO3 = document.getElementById("these-methode-o3");
+    if (!zone) return;
+    const cibleO3 = zone.querySelector("#these-methode-o3");
     if (!cibleO3) return;
+    const espaceExistant = zone.querySelector("#methode-o3-exemples");
+    const ancienModule = espaceExistant?.querySelector("[data-o3-atlas]") ||
+      cibleO3.querySelector("[data-o3-atlas]");
+    if (ancienModule && modulesInitialises.has(ancienModule)) return;
+    // Une galerie clonée doit être recréée pour restituer ses contrôles.
+    if (ancienModule) ancienModule.remove();
+    const point = zone.querySelector(".these-objectifs");
     const racine = document.documentElement.dataset.racine || "./";
     if (!document.querySelector("link[data-o3-style]")) {
       const feuille = document.createElement("link");
@@ -151,10 +159,14 @@
       '<a href="/simulations/sna-o3/r/" target="_blank" rel="noopener">Calculs R, graphiques et GraphML ↗</a>'+
       '<a href="'+officiel+'" target="_blank" rel="noopener">Source des noms des CLSC ↗</a></div>'+
       '<details class="o3-galerie-qual"><summary>Exemples d’entretiens et de codage qualitatif</summary>'+qualitatif+'</details>';
-    const exemplesO3=document.querySelector("#exemples-sna-o3");
-    const espaceExemples=document.querySelector("#methode-o3-exemples");
-    if(espaceExemples)espaceExemples.insertBefore(module,exemplesO3?.parentNode===espaceExemples?exemplesO3:null);
-    else cibleO3.appendChild(module);
+    const espaceExemples=zone.querySelector("#methode-o3-exemples");
+    if (espaceExemples) {
+      // Galerie directement après le titre O3 : visible sans traverser les annexes.
+      const entete=espaceExemples.querySelector(":scope > header");
+      if (entete) entete.insertAdjacentElement("afterend",module);
+      else espaceExemples.prepend(module);
+    } else cibleO3.appendChild(module);
+    modulesInitialises.add(module);
     const el=Array.from(module.querySelectorAll("[data-o3-slide]"));
     const select=module.querySelector("[data-o3-choix]"),output=module.querySelector("[data-o3-compteur]");
     const prev=module.querySelector("[data-o3-prev]"),next=module.querySelector("[data-o3-next]");
@@ -208,24 +220,42 @@
       lien.addEventListener('click', (event) => event.preventDefault());
       o3.appendChild(lien);
     }
-    const methodes = document.querySelector(".section-corps.these .these-methodes");
+    const methodes = zone.querySelector(".these-methodes");
+    const ancienRenvoi = methodes?.querySelector(".o3-renvoi-methodes");
+    if (ancienRenvoi && !modulesInitialises.has(ancienRenvoi)) ancienRenvoi.remove();
     if (methodes && !methodes.querySelector(".o3-renvoi-methodes")) {
       const note = document.createElement("div");
       note.className = "o3-renvoi-methodes";
       note.innerHTML = '<strong>Illustrations du SNA quantitatif et qualitatif</strong><p>Trois modèles fictifs de CLSC et vingt figures expérimentales du 211, complétés par des exemples de démarche qualitative.</p><button type="button">Voir l’atlas des réseaux et les schémas qualitatifs →</button>';
       // Garder ce renvoi avec la méthode O3 au lieu d'en faire un bloc flottant.
-      const titreO3 = document.querySelector('#methode-o3-exemples > header');
+      const titreO3 = zone.querySelector('#methode-o3-exemples > header');
       if (titreO3) titreO3.insertAdjacentElement("afterend", note);
       else cibleO3.prepend(note);
+      modulesInitialises.add(note);
       note.querySelector("button").addEventListener("click", () => {
         const table = note.closest('[data-rubriques="these"]');
         const ongletMethode = table?.querySelector('[role="tab"][data-rubrique="methodes"]');
         if (ongletMethode && ongletMethode.getAttribute('aria-selected') !== 'true') ongletMethode.click();
-        const carte = document.querySelector("#o3-atlas-reseaux");
+        const carte = zone.querySelector("#o3-atlas-reseaux");
         if (carte) carte.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
       });
     }
   }
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initialiser, { once: true });
-  else initialiser();
+  function synchroniserGaleries() {
+    // Source statique pour la lecture libre, puis copie effectivement affichée dans la salle.
+    initialiser(document.querySelector('section.section[data-salle="recherche"]'));
+    initialiser(document.querySelector("#salle .salle-contenu"));
+  }
+  function installer() {
+    synchroniserGaleries();
+    const contenuSalle = document.querySelector("#salle .salle-contenu");
+    if (contenuSalle) {
+      // L'ouverture d'une porte remplace les enfants directs de .salle-contenu.
+      // Ne pas observer toute la page et ne modifier aucun autre chapitre.
+      new MutationObserver(() => initialiser(contenuSalle))
+        .observe(contenuSalle, { childList: true });
+    }
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", installer, { once: true });
+  else installer();
 })();
