@@ -636,38 +636,38 @@ const fr = {
     "intro": "Six valeurs qui orientent mon travail, du terrain à la recherche.",
     "devise": [
       "Devise",
-      "Ad astra per aspera",
+      "Per aspera ad astra",
       "Par des sentiers ardus jusqu’aux étoiles"
     ],
     "items": [
       [
         "Pensée critique",
-        "Explorer d’autres disciplines et façons de penser, confronter les idées et questionner les évidences, les données et les institutions, à commencer par ses propres convictions.",
+        "Confronter les idées aux faits, questionner les évidences et réexaminer mes propres convictions.",
         0
       ],
       [
         "Résilience",
-        "Faire des épreuves traversées une ressource pour avancer.",
+        "Transformer les épreuves traversées en ressources pour continuer d’avancer.",
         1
       ],
       [
         "Autonomie",
-        "Penser par soi-même et soutenir chez chacun la capacité de choisir sa vie.",
+        "Penser par soi-même et soutenir la capacité de chacun à choisir sa vie.",
         2
       ],
       [
         "Coconstruire pour le bien collectif",
-        "Faire avec les personnes, et non pour elles : une recherche à impact, menée avec et pour les gens.",
+        "Agir avec les personnes, et non à leur place, pour produire des réponses utiles.",
         4
       ],
       [
         "Audace d’innover",
-        "Oser proposer, innover, créer et mettre en œuvre de nouvelles réponses.",
+        "Oser imaginer, expérimenter et mettre en œuvre des solutions nouvelles.",
         5
       ],
       [
         "Équité",
-        "Permettre, autant que possible, à toutes et tous de développer pleinement leurs capacités et de concrétiser leurs volontés.",
+        "Lever les obstacles pour permettre à chacun d’exercer ses capacités et ses choix.",
         3
       ]
     ]
