@@ -1213,7 +1213,7 @@
     // La rubrique Biographie constitue une seule page de lecture :
     // cinq étapes accessibles sans cinq grands blocs affichés simultanément.
     if (salle === "biographie" && langue === "fr") {
-      $(".gab-chapitres > .gab-chapitre", sc).forEach((chapitre) => {
+      Array.from(sc.querySelectorAll(".gab-chapitres > .gab-chapitre")).forEach((chapitre) => {
         const tete = $(".gab-chapitre-tete", chapitre);
         const corpsBio = $(".gab-corps", chapitre);
         const texteBio = $(".gab-chapitre-texte", chapitre);
