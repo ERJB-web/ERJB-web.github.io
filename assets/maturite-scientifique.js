@@ -234,3 +234,38 @@
   if (contenu) new MutationObserver(actualiser).observe(contenu,{childList:true});
   addEventListener("hashchange", actualiser, {passive:true});
 })();
+
+/* FAISABILITE_QUATRE_DECISIONS_20261019. Enrichissement scientifique limité au chapitre 4. */
+(function () {
+  "use strict";
+  if ((document.documentElement.lang || "fr").slice(0,2)!=="fr") return;
+  const bloc="\n<div class=\"f-valid-head\">\n<span class=\"f-valid-eyebrow\">Faisabilité · Vérifications de passage</span>\n<h4 id=\"f-valid-title\">Quatre contrôles avant les analyses définitives</h4>\n<p>Les outils et premiers essais sont déjà documentés. Ces contrôles précisent les décisions encore à prendre.</p>\n</div>\n<div class=\"f-valid-grid\">\n<article class=\"f-valid-card\" data-o=\"o1\"><span class=\"f-valid-code\">01 · O1</span><h5>Profils appuyés sur des données conjointes</h5><p><b>Contrôle :</b> besoins observés chez les mêmes personnes, morbidités rapportées, populations, sources et incertitudes.</p><p><b>Décision :</b> profil étayé pour O2/O3, sinon synthèse des domaines séparés.</p></article>\n<article class=\"f-valid-card\" data-o=\"o2\"><span class=\"f-valid-code\">02 · O2</span><h5>Correspondance besoins et services</h5><p><b>Contrôle :</b> grille O1 → domaines 211 → ressources ; missions, conditions d'accès et pertinence du volet santé selon les morbidités.</p><p><b>Décision :</b> justifier les correspondances ; signaler les catégories ambiguës ou inconnues, sans présumer une prise en charge.</p></article>\n<article class=\"f-valid-card\" data-o=\"o3\"><span class=\"f-valid-code\">03 · O3</span><h5>Pilote de quatre situations réelles</h5><p><b>Contrôle :</b> situations avec et sans orientation, durée, données manquantes, partenaires joignables et liens vérifiables.</p><p><b>Décision :</b> maintenir ou ajuster le nombre de profils, de situations et la profondeur du réseau après les autorisations.</p></article>\n<article class=\"f-valid-card\" data-o=\"qa\"><span class=\"f-valid-code\">04 · R / QGIS</span><h5>Alignement des calculs et du protocole</h5><p><b>Contrôle :</b> scripts, sources, millésimes, unités, seuils, indices, permutations, imputations et sorties.</p><p><b>Décision :</b> figer les paramètres définitifs dans le journal ; distinguer les exemples exploratoires.</p></article>\n</div>\n<p class=\"f-valid-foot\"><strong>Calendrier :</strong> les contrastes cartographiques exploratoires permettent déjà de présélectionner les CLSC. O2 et O3 peuvent avancer dans un ordre flexible ; O3 nécessite les profils O1 stabilisés, les accords et l'approbation éthique.</p>\n<p class=\"f-valid-refs\">Références méthodologiques : <a href=\"https://jbi-global.atlassian.net/wiki/spaces/MANUAL/pages/2051473426/10.2.9.2%2BPiloting%2Bthe%2Bdata%2Bextraction\" rel=\"noopener noreferrer\" target=\"_blank\">JBI Manual</a> et <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC4595218/\" rel=\"noopener noreferrer\" target=\"_blank\">RECORD (Benchimol et al., 2015)</a>.</p>";
+  function appliquerFaisabilite() {
+    const chapitre=document.querySelector("#rubrique-fr-these-panneau-3 .f-faisa");
+    if(!chapitre) return;
+    if(!chapitre.querySelector("#f-validation-preuves")) {
+      const repere=chapitre.querySelector(".f-synthese")||chapitre.querySelector(".f-chapeau");
+      if(repere) {
+        const section=document.createElement("section");
+        section.id="f-validation-preuves";
+        section.className="f-valid";
+        section.setAttribute("aria-labelledby","f-valid-title");
+        section.innerHTML=bloc;
+        repere.insertAdjacentElement("afterend",section);
+      }
+    }
+    const corrections=[
+      ["choisis selon les résultats définitifs d’O2 et la faisabilité","présélectionnés à partir des contrastes cartographiques exploratoires, puis retenus selon la faisabilité et les autorisations"],
+      ["le choix des CLSC d’O3 dépendra des contrastes établis en O2","la présélection des CLSC d’O3 pourra s’appuyer sur les contrastes exploratoires déjà documentés"],
+      ["L’ordre prévisionnel suit le devis : O1 définit les profils documentés, O2 propose des territoires contrastés et O3 repère des situations réelles","L’ordre d’O2 et d’O3 peut être adapté : les profils O1 guident les situations, le mapping exploratoire présélectionne les terrains et O3 repère des situations réelles"]
+    ];
+    chapitre.querySelectorAll("p").forEach(p=>{
+      for(const [avant,apres] of corrections) {
+        if(p.innerHTML.includes(avant)) p.innerHTML=p.innerHTML.replace(avant,apres);
+      }
+    });
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",appliquerFaisabilite,{once:true});
+  else appliquerFaisabilite();
+  window.addEventListener("hashchange",appliquerFaisabilite,{passive:true});
+})();
