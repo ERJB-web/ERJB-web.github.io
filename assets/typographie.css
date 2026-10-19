@@ -152,3 +152,18 @@ html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab
 }
 
 }
+
+/* O3 · typographie de la section Analyse, sans modifier les autres sections. */
+#these-methode-o3 #methode-o3-7 .o3-analyse-vue{font-size:13px;line-height:1.5}
+#these-methode-o3 #methode-o3-7 .o3-analyse-sur{font-size:10px;line-height:1.4;letter-spacing:.09em;font-weight:750}
+#these-methode-o3 #methode-o3-7 .o3-analyse-outils strong{font-size:18px;font-weight:760;line-height:1.3}
+#these-methode-o3 #methode-o3-7 .o3-analyse-tech{font-size:11px;font-weight:700}
+#these-methode-o3 #methode-o3-7 .o3-analyse-outils small{font-size:12px;line-height:1.5}
+#these-methode-o3 #methode-o3-7 .o3-analyse-index{font-size:10px;line-height:1.3;letter-spacing:.08em;font-weight:750}
+#these-methode-o3 #methode-o3-7 .o3-analyse-carte>strong{font-size:14px;line-height:1.3;font-weight:750}
+#these-methode-o3 #methode-o3-7 .o3-analyse-formule{font-size:clamp(12px,1.1vw,15px);line-height:1.5;font-weight:750}
+#these-methode-o3 #methode-o3-7 .o3-analyse-carte p{font-size:12px;line-height:1.55}
+#these-methode-o3 #methode-o3-7 .o3-analyse-detail summary{font-size:11.5px;font-weight:720}
+#these-methode-o3 #methode-o3-7 .o3-analyse-detail p{font-size:12px;line-height:1.65}
+#these-methode-o3 #methode-o3-7 .o3-analyse-produit,#these-methode-o3 #methode-o3-7 .o3-analyse-note{font-size:12px;line-height:1.57}
+@media(max-width:690px){#these-methode-o3 #methode-o3-7 .o3-analyse-vue{font-size:14px}#these-methode-o3 #methode-o3-7 .o3-analyse-formule{font-size:15px}}
