@@ -2553,3 +2553,144 @@ html:is(.hc,.lv) .gab[data-gab-salle="gestionnaire"] .carte-vitrine{
   .gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale .grille-vitrine{gap:8px!important}
   .gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale .carte-vitrine{padding-top:10px!important;padding-bottom:10px!important}
 }
+
+
+/* Valeurs : page unique, six cartes et devise. Octobre 2026.
+   Portée limitée à la rubrique Valeurs, sans modifier les autres salles. */
+.gab[data-gab-salle="valeurs"] .gab-bandeau,
+#valeurs .bandeau{
+  background-image:linear-gradient(112deg,#233c59 0%,#46517b 47%,#755e83 100%)!important;
+  min-height:92px!important;
+  height:auto!important;
+  padding:12px 24px!important;
+  border-radius:15px!important;
+  box-shadow:none!important;
+}
+.gab[data-gab-salle="valeurs"] .gab-bandeau::before,
+.gab[data-gab-salle="valeurs"] .gab-bandeau::after{display:none!important}
+.gab[data-gab-salle="valeurs"] .gab-bandeau .bandeau-titre{font-size:clamp(27px,2.55vw,36px)!important;line-height:1.06!important}
+.gab[data-gab-salle="valeurs"] .gab-bandeau .bandeau-legende{font-size:13px!important;line-height:1.2!important}
+.gab[data-gab-salle="valeurs"] .gab-programme,
+.gab[data-gab-salle="valeurs"] .gab-photo,
+.gab[data-gab-salle="valeurs"] .gab-chapitre-aside{display:none!important}
+.gab[data-gab-salle="valeurs"] .section-corps.pleine,
+.gab[data-gab-salle="valeurs"] .gab-chapitres,
+.gab[data-gab-salle="valeurs"] .gab-chapitre,
+.gab[data-gab-salle="valeurs"] .gab-chapitre-grille,
+.gab[data-gab-salle="valeurs"] .gab-chapitre-texte,
+.gab[data-gab-salle="valeurs"] .gab-corps{
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+}
+.gab[data-gab-salle="valeurs"] .section-corps.pleine{display:block!important;margin-top:10px!important}
+.gab[data-gab-salle="valeurs"] .gab-chapitre{border-top:0!important;padding-top:0!important}
+.gab[data-gab-salle="valeurs"] .gab-chapitre-grille{display:block!important}
+.gab[data-gab-salle="valeurs"] .gab-chapitre-tete{margin:0 0 6px!important}
+.gab[data-gab-salle="valeurs"] .gab-chapitre-num{font-size:clamp(19px,2vw,25px)!important;gap:10px!important;letter-spacing:0!important;text-transform:none!important}
+.gab[data-gab-salle="valeurs"] .gab-chapitre-num b{width:31px!important;min-width:31px!important;height:31px!important;font-size:13px!important}
+.gab[data-gab-salle="valeurs"] .gab-corps{margin:0!important;padding:0!important}
+.gab[data-gab-salle="valeurs"] .gab-lecture-integrale{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  gap:0!important;
+  width:100%!important;
+  max-width:none!important;
+}
+.gab[data-gab-salle="valeurs"] .gab-lecture-integrale > .colonne-texte{display:contents!important}
+.gab[data-gab-salle="valeurs"] .gab-lecture-integrale .surtitre,
+.gab[data-gab-salle="valeurs"] .gab-lecture-integrale .colonne-texte > h2{display:none!important}
+.gab[data-gab-salle="valeurs"] .gab-lecture-integrale .intro{
+  grid-row:1;
+  max-width:none!important;
+  margin:0 0 11px!important;
+  font-size:14px!important;
+  line-height:1.35!important;
+  color:#48616e!important;
+  text-align:left!important;
+}
+.gab[data-gab-salle="valeurs"] .gab-lecture-integrale > .colonne-outils{
+  grid-row:2;
+  width:100%!important;
+  max-width:none!important;
+  columns:auto!important;
+  margin:0!important;
+  padding:0!important;
+}
+.gab[data-gab-salle="valeurs"] .valeurs-grille,
+#valeurs .valeurs-grille{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:11px!important;
+  width:100%!important;
+  margin:0!important;
+}
+.gab[data-gab-salle="valeurs"] .valeur,
+#valeurs .valeur{
+  min-width:0!important;
+  min-height:128px!important;
+  height:auto!important;
+  padding:17px 19px 16px!important;
+  border-radius:13px!important;
+  box-shadow:0 3px 12px rgba(18,38,55,.075)!important;
+}
+.gab[data-gab-salle="valeurs"] .valeur-num{inset-inline-end:15px!important;top:10px!important;font-size:31px!important;opacity:.22!important}
+.gab[data-gab-salle="valeurs"] .gab-corps .valeur h4,
+#valeurs .valeur h4{
+  margin:0 33px 8px 0!important;
+  padding:0!important;
+  border:0!important;
+  color:#fff!important;
+  font:700 clamp(16px,1.35vw,19px)/1.19 var(--sans)!important;
+  letter-spacing:-.015em!important;
+  text-transform:none!important;
+}
+.gab[data-gab-salle="valeurs"] .gab-corps .valeur h4::before,
+#valeurs .valeur h4::before{display:none!important}
+.gab[data-gab-salle="valeurs"] .gab-corps .valeur p,
+#valeurs .valeur p{
+  margin:0!important;
+  max-width:none!important;
+  color:#f5f8fb!important;
+  font-size:13.5px!important;
+  line-height:1.43!important;
+  font-weight:400!important;
+  text-align:justify!important;
+  hyphens:auto!important;
+}
+.gab[data-gab-salle="valeurs"] .gab-lecture-integrale .devise{
+  grid-row:3;
+  display:flex!important;
+  align-items:baseline!important;
+  justify-content:center!important;
+  gap:8px 18px!important;
+  width:100%!important;
+  margin:28px 0 3px!important;
+  padding:16px 18px!important;
+  border-top:1px solid #d2dce5!important;
+  border-right:0!important;
+  border-bottom:0!important;
+  border-left:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#2e405a!important;
+  box-shadow:none!important;
+  text-align:center!important;
+}
+.gab[data-gab-salle="valeurs"] .devise-libelle{font-size:11px!important;color:#7c668a!important;letter-spacing:.16em!important}
+.gab[data-gab-salle="valeurs"] .devise-latin{font:italic 600 clamp(23px,2.1vw,30px)/1.2 Georgia,serif!important;color:#34456b!important}
+.gab[data-gab-salle="valeurs"] .devise-traduction{font-size:13px!important;color:#59717d!important}
+@media(max-width:1040px){
+  .gab[data-gab-salle="valeurs"] .valeurs-grille,#valeurs .valeurs-grille{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:640px){
+  .gab[data-gab-salle="valeurs"] .valeurs-grille,#valeurs .valeurs-grille{grid-template-columns:minmax(0,1fr)!important}
+  .gab[data-gab-salle="valeurs"] .valeur{min-height:0!important;padding:14px 17px!important}
+  .gab[data-gab-salle="valeurs"] .gab-lecture-integrale .devise{flex-direction:column!important;align-items:center!important;margin-top:20px!important}
+}
+@media(min-width:1041px) and (max-height:780px){
+  .gab[data-gab-salle="valeurs"] .gab-bandeau{min-height:77px!important;padding:9px 18px!important}
+  .gab[data-gab-salle="valeurs"] .valeur{min-height:114px!important;padding:13px 17px!important}
+  .gab[data-gab-salle="valeurs"] .valeur p{font-size:12.9px!important}
+  .gab[data-gab-salle="valeurs"] .gab-lecture-integrale .devise{margin-top:18px!important;padding-top:12px!important}
+}
