@@ -2455,3 +2455,24 @@ html:is(.hc,.lv) .gab[data-gab-salle="gestionnaire"] .carte-vitrine{
 @media(max-width:640px){
  .gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .methode-lien-grand-public{width:100%;flex:1 1 100%}
 }
+
+/* Page Méthodologie seulement : bouton au-dessus du menu et du titre,
+   dans l'espace libre de l'entête, et jamais à droite de « Méthodologie ». */
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture{
+ box-sizing:border-box;display:flex;align-items:center;justify-content:flex-start;
+ margin:0 0 23px;padding:0 1px;min-height:42px;width:100%;
+}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture .methode-lien-grand-public{
+ display:inline-flex!important;flex:0 0 auto;width:auto;max-width:100%;
+ align-items:center;justify-content:center;padding:11px 17px;
+ border:1px solid #b9d8e5;border-radius:10px;background:#ebf5f9;color:#15516b;
+ font:750 13px/1.35 var(--sans,system-ui,sans-serif);
+ text-decoration:none;text-transform:none;letter-spacing:0;
+ box-shadow:0 3px 10px rgba(23,59,83,.06);
+}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture .methode-lien-grand-public:hover{background:#d9edf6}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture .methode-lien-grand-public:focus-visible{outline:3px solid #24758e;outline-offset:3px}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-chapitre-tete{justify-content:flex-start!important}
+@media(max-width:620px){
+ .gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture .methode-lien-grand-public{width:100%;flex:1 1 auto}
+}
