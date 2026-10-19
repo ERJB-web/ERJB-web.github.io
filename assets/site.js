@@ -77,7 +77,7 @@
         const nav=$('.onglets',table);
         return {rubrique:actif?.dataset.rubrique || '',volet:actif?.dataset.volet || '0',defilement:nav ? nav.scrollLeft : 0};
       }) : [],
-      details:zone ? $$('details:not(.menu)',zone).map(d=>d.open) : []
+      details:zone ? $$('details:not(.menu)',zone).map(d=>d.matches('.o2-these-tech') ? false : d.open) : []
     };
     try {
       const precedent=history.state && typeof history.state==='object' ? history.state : {};
@@ -170,7 +170,7 @@
         bouton?.click();
       });
     }
-    if(zone && Array.isArray(etat.details))$$('details:not(.menu)',zone).forEach((d,i)=>{if(typeof etat.details[i]==='boolean')d.open=etat.details[i];});
+    if(zone && Array.isArray(etat.details))$$('details:not(.menu)',zone).forEach((d,i)=>{if(d.matches('.o2-these-tech'))d.open=false;else if(typeof etat.details[i]==='boolean')d.open=etat.details[i];});
     let interrompue=false;
     const interrompre=ev=>{if(ev.isTrusted)interrompue=true;};
     const gestes=['pointerdown','touchstart','wheel','keydown'];
