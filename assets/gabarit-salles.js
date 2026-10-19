@@ -682,6 +682,7 @@
     const texte = el("div", "gab-chapitre-texte");
     const apercuMethode = salle === "recherche" && ch.cle === "methodes" && langue === "fr";
     const titreAffiche = salle === "recherche" && langue === "fr" && ch.cle === "problematique" ? "Problématisation" : apercuMethode ? "Méthodologie" : ch.titre;
+    section.dataset.gabTitre = titreAffiche || "";
     const tete = el("header", "gab-chapitre-tete", `<span class="gab-chapitre-num"${apercuMethode ? ' role="heading" aria-level="3"' : ""}><b>${deux(i + 1)}</b>${apercuMethode ? "Méthodologie" : echapper(T.chapitre(i + 1, n))}</span>${apercuMethode ? "" : `<h3 class="gab-chapitre-titre">${echapper(titreAffiche)}</h3>`}`);
     const corps = el("div", "gab-corps");
     if (ch.surPlace) {
@@ -1164,6 +1165,10 @@
 
   // Montrer la destination réelle sur les deux navigations (haut et bas),
   // plutôt qu'une flèche sans indication. Titres lus dans les chapitres existants.
+  // Le titre peut figurer dans le bandeau du chapitre, sans h3 dédié.
+  const nomChapitre = (chapitre) => chapitre
+    ? net($(".gab-chapitre-titre", chapitre)?.textContent) || net(chapitre.dataset.gabTitre)
+    : "";
   function nommerChapitresVoisins(zone, liste, index) {
     const actif = liste[index];
     if (!actif) return;
@@ -1175,7 +1180,7 @@
         if (!bouton) return;
         const voisin = liste[index + sens];
         const action = sens < 0 ? T.precedent : T.suivant;
-        const titre = voisin ? net($(".gab-chapitre-titre", voisin)?.textContent) : "";
+        const titre = nomChapitre(voisin);
         const destination = voisin ? deux(index + sens + 1) + " · " + titre : "";
         bouton.disabled = !voisin;
         const cible = $(".gab-nav-cible, .gab-fleche-cible", bouton);
@@ -1375,7 +1380,7 @@
     if (!liste.length) return;
     courant = Math.max(0, Math.min(liste.length - 1, i));
     const ch = liste[courant];
-    const titre = net($(".gab-chapitre-titre", ch)?.textContent);
+    const titre = nomChapitre(ch);
     const couleur = ch.style.getPropertyValue("--gab-c");
     lecture.style.setProperty("--gab-c", couleur);
     $(".gab-actuel b", lecture).textContent = deux(courant + 1);
@@ -1535,7 +1540,7 @@
     const liste = chapitresDe(zone);
     salle.classList.toggle("gab-avec-chapitres", liste.length >= 2);
     if (lecture) {
-      $(".gab-segments", lecture).innerHTML = liste.map((c, k) => `<button type="button" style="--gab-c:${c.style.getPropertyValue("--gab-c")}" data-gab-segment="${k}" aria-label="${echapper(T.aller(net($(".gab-chapitre-titre", c)?.textContent)))}"></button>`).join("");
+      $(".gab-segments", lecture).innerHTML = liste.map((c, k) => `<button type="button" style="--gab-c:${c.style.getPropertyValue("--gab-c")}" data-gab-segment="${k}" aria-label="${echapper(T.aller(nomChapitre(c)))}"></button>`).join("");
       $$(".gab-segments button", lecture).forEach((b) => b.addEventListener("click", () => ouvrirPageChapitre(zone, +b.dataset.gabSegment, { adresse: true, haut: true })));
     }
     // La salle présente une page de chapitre à la fois. Sans fragment
@@ -1547,7 +1552,7 @@
 
   // Inventaire des chapitres (sert à constituer le catalogue d'images).
   window.gabaritSalles = {
-    inventaire: () => $$("section.section[data-salle] > .section-contenu.gab").flatMap((sc) => chapitresDe(sc).map((c, i) => ({ salle: sc.dataset.gabSalle, porte: porteDe(sc.dataset.gabSalle)?.dataset.salle || "", ordre: i + 1, titre: net($(".gab-chapitre-titre", c)?.textContent) }))),
+    inventaire: () => $$("section.section[data-salle] > .section-contenu.gab").flatMap((sc) => chapitresDe(sc).map((c, i) => ({ salle: sc.dataset.gabSalle, porte: porteDe(sc.dataset.gabSalle)?.dataset.salle || "", ordre: i + 1, titre: nomChapitre(c) }))),
   };
 
   // Références institutionnelles de l'en-tête de thèse : mêmes destinations
