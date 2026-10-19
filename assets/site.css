@@ -5962,3 +5962,161 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
     max-width:420px;
   }
 }
+
+
+/* Accueil téléphone : trois écrans successifs, scène interactive préservée. */
+@media (max-width:700px) {
+  /* Uniquement l'accueil ; les autres pages et l'ordinateur restent identiques. */
+  html:has(body > main > .accueil) {
+    scroll-snap-type:y proximity;
+    scroll-padding-top:0;
+  }
+  body:has(> main > .accueil) > .entete {
+    scroll-snap-align:start;
+  }
+
+  /* La météo remonte avec les outils ; l'heure est déjà sur le téléphone. */
+  body:has(> main > .accueil) > .entete .direct-entete {
+    display:flex!important;
+    position:static!important;
+    order:2;
+    flex:1 1 100%;
+    width:100%;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:8px 14px;
+    margin:0;
+    padding:3px 0 1px;
+    white-space:normal;
+  }
+  body:has(> main > .accueil) > .entete .direct-entete .direct-texte,
+  body:has(> main > .accueil) > .entete .direct-entete .direct-filet {
+    display:none!important;
+  }
+  body:has(> main > .accueil) > .entete .direct-entete .direct-activite {
+    white-space:normal;
+  }
+  body:has(> main > .accueil) .hall-tete .direct-hall {
+    display:none!important;
+  }
+
+  /* Écran 1 : l'identité occupe l'espace sous l'en-tête, avant les portes. */
+  body:has(> main > .accueil) > main > .accueil {
+    gap:0;
+    padding-top:10px;
+  }
+  body:has(> main > .accueil) > main > .accueil > .presentation > .identite {
+    min-height:max(290px,calc(100svh - var(--entete-h,180px) - 16px));
+    align-self:stretch;
+    display:flex;
+    align-items:center;
+    padding-block:22px 30px;
+    margin:0;
+  }
+  body:has(> main > .accueil) > main > .accueil > .hall {
+    margin:0;
+    padding:0;
+    border:0;
+  }
+
+  /* Écran 2 : une porte et son vrai décor de Montréal ; le rail reste actif. */
+  body:has(> main > .accueil) .hall.en-mobile .hall-espace {
+    order:3;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
+  }
+  body:has(> main > .accueil) .hall.en-mobile .hall-univers {
+    flex:0 0 auto;
+  }
+  /* Aucun geste obligatoire ni consigne superflue affichée. */
+  body:has(> main > .accueil) .hall.en-mobile .hall-tete .hall-gestes,
+  body:has(> main > .accueil) .hall.en-mobile .hall-indice,
+  body:has(> main > .accueil) .hall.en-mobile .hall-guide-mobile {
+    display:none!important;
+  }
+
+  /* Écran 3 : le titre est juste au-dessus des six carrés, après la scène. */
+  body:has(> main > .accueil) .hall.en-mobile .hall-tete {
+    order:4;
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
+    padding:24px 2px 14px;
+    margin:0;
+  }
+  body:has(> main > .accueil) .hall.en-mobile .hall-tete .hall-outils {
+    display:none!important;
+  }
+  body:has(> main > .accueil) .hall.en-mobile .hall-tete .hall-titre-nom {
+    font-size:clamp(21px,5.8vw,26px);
+    line-height:1.2;
+  }
+  body:has(> main > .accueil) .hall.en-mobile .hall-reperes {
+    order:5;
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:11px!important;
+    overflow:visible!important;
+    scroll-snap-type:none!important;
+    margin:0!important;
+    padding:0 0 26px!important;
+    border:0!important;
+    border-radius:0;
+    background:none!important;
+    box-shadow:none!important;
+  }
+  body:has(> main > .accueil) .hall.en-mobile .hall-reperes > button {
+    box-sizing:border-box;
+    display:flex;
+    flex:initial!important;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    min-width:0!important;
+    max-width:none!important;
+    min-height:0!important;
+    aspect-ratio:1;
+    padding:12px!important;
+    border:1px solid color-mix(in srgb,var(--c1) 38%,white)!important;
+    border-radius:15px;
+    background:linear-gradient(145deg,
+      color-mix(in srgb,var(--c1) 19%,white),
+      color-mix(in srgb,var(--c1) 6%,white))!important;
+    color:var(--ink);
+    box-shadow:inset 0 3px 0 var(--c1),0 3px 9px rgba(23,63,82,.06)!important;
+    scroll-snap-align:none!important;
+    white-space:normal;
+  }
+  body:has(> main > .accueil) .hall.en-mobile .hall-reperes > button bdi {
+    display:grid;
+    place-items:center;
+    width:36px;
+    height:36px;
+    border-radius:10px;
+    background:var(--c1)!important;
+    color:#fff!important;
+    font-size:13px;
+    font-weight:700;
+  }
+  body:has(> main > .accueil) .hall.en-mobile .hall-reperes > button span {
+    font-size:clamp(13px,3.8vw,16px);
+    line-height:1.25;
+    font-weight:650;
+    overflow-wrap:break-word;
+  }
+  body:has(> main > .accueil) .hall.en-mobile .hall-reperes > button[aria-pressed="true"] {
+    outline:2px solid var(--c1);
+    outline-offset:-3px;
+  }
+
+  /* Le jeu disparaît de l'accueil mobile, la presse reste présente. */
+  body:has(> main > .accueil) > main > .eb-game-entry,
+  body:has(> main > .accueil) .logiciels-jeu {
+    display:none!important;
+  }
+}
