@@ -172,7 +172,7 @@
         const top=resultats.temporal?.a1?.top;
         if(!Array.isArray(top))throw Error('Codes temporels absents');
         return afficher('suivi temporel',
-          'Trois colonnes = trois exercices. Les chiffres près des cercles indiquent le nombre de références de l’année. Le signe — indique qu’aucune référence n’est enregistrée dans cette extraction.',
+          'Trois colonnes = trois exercices. Les chiffres près des cercles indiquent le nombre de références de l’année. Un symbole d’absence indique qu’aucune référence n’est enregistrée dans cette extraction.',
           [couleur('#176B91','Bleu : destinataire référencé'),couleur('#ffffff','Blanc : absence de référence'),couleur('#8DB4C6','Trait : références dans deux années consécutives')],
           '<p>La taille du cercle dépend du compte ; la largeur du trait est liée au compte minimum des deux exercices. Une absence de référence ne prouve pas une fermeture.</p><h6>Numéros O1–O10 : noms des destinataires</h6>'+
           codes(top.map(x=>({code:x.code,name:x.name,note:'ID '+x.id,c:'#176B91'}))));
