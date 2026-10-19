@@ -184,7 +184,9 @@
           <div><strong>35</strong><span>types recensés</span></div>
         </div>
         <p class="mat-sc__hint">Repères issus de l'exercice cartographique exploratoire du CCSMTL ; <strong>pas des résultats définitifs de thèse</strong>.</p>
-        <div class="mat-sc__exemple-titre">Contrastes exploratoires · Part des 65 ans et plus dans la classe d'écart bivarié</div>
+        <div class="mat-sc__exemple-titre">Tests préliminaires · Contrastes mesurables entre les CLSC</div>
+        <p class="mat-sc__hint">Le script 09 compare la part des aînés vivant dans des îlots cumulant un indice élevé de besoins potentiels et une faible accessibilité à 500 m. <strong>Ce sont des écarts écologiques exploratoires, pas des taux de besoins individuels non comblés.</strong></p>
+        <p class="mat-sc__exemple-titre mat-sc__exemple-titre--suite">Part des 65 ans et plus dans la classe d’écart bivarié</p>
         <div class="mat-sc__barres" role="img" aria-label="Saint-Paul 36,8 %, Centre-Sud 21,3 %, Verdun 14,7 %, Plateau-Mont-Royal 3,6 %, Centre-Ville 0 %">
           <div><span>Saint-Paul</span><i><u style="width:92%"></u></i><b>36,8 %</b></div>
           <div><span>Centre-Sud</span><i><u style="width:53.25%"></u></i><b>21,3 %</b></div>
@@ -192,7 +194,7 @@
           <div><span>Plateau-Mont-Royal</span><i><u style="width:9%"></u></i><b>3,6 %</b></div>
           <div><span>Centre-Ville</span><i><u style="width:0%"></u></i><b>0 %</b></div>
         </div>
-        <p class="mat-sc__hint">Source : <code>09_indice_clsc.csv</code> (exemple bivarié). Ces valeurs appuient une <strong>présélection</strong>, pas la désignation automatique des CLSC recrutés. Le contraste sera évalué avec les profils O1, les autres indicateurs disponibles et la faisabilité du terrain.</p>
+        <p class="mat-sc__hint"><strong>Contrôle des sorties :</strong> <code>09_indice_clsc.csv</code> et <code>09_ecarts_clsc.csv</code> concordent : <strong>172 îlots · 6 913 aînés · 15,9 %</strong> pour l’écart bivarié dans les huit CLSC. Les 150 îlots du script 08 relèvent d’un <em>autre indicateur</em>. Ces résultats exploratoires orientent une présélection raisonnée, sans présumer les CLSC effectivement recrutés.</p>
         <div class="mat-sc__quebec"><strong>166 territoires de CLSC · Québec</strong><span>Le script national permet déjà d'étudier certains indicateurs de santé et d'habitation à cette échelle. L'extension à une région hors CMM nécessitera des sources comparables : répertoires sociaux et couverture du 211 non uniformes. La couverture complète des six secteurs n'est pas présumée.</span></div>
       `), "prepend");
 
