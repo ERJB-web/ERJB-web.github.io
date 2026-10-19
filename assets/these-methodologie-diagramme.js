@@ -98,11 +98,11 @@
         document.getElementById("maturite-scientifique-loader")) return;
     const style = document.createElement("link");
     style.rel = "stylesheet";
-    style.href = new URL("assets/maturite-scientifique.css?v=20261019-5", document.baseURI).href;
+    style.href = new URL("assets/maturite-scientifique.css?v=20261019-6", document.baseURI).href;
     document.head.appendChild(style);
     const script = document.createElement("script");
     script.id = "maturite-scientifique-loader";
-    script.src = new URL("assets/maturite-scientifique.js?v=20261019-4", document.baseURI).href;
+    script.src = new URL("assets/maturite-scientifique.js?v=20261019-6", document.baseURI).href;
     document.head.appendChild(script);
   };
   if (document.readyState === "complete") installer();
