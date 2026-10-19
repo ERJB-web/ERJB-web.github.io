@@ -2588,3 +2588,32 @@ html:is(.hc,.lv) .gab[data-gab-salle="gestionnaire"] .carte-vitrine{
     flex-wrap:initial!important;
   }
 }
+
+/* Statut du sujet doctoral, discret et visible sur chaque vue Recherche. */
+.gab[data-gab-salle="recherche"] > .these-validation-bandeau {
+  display:block;
+  width:fit-content;
+  max-width:100%;
+  margin:0 0 10px auto;
+  padding:6px 12px;
+  border:1px solid #8c202c;
+  border-radius:8px;
+  background:#a52a37;
+  color:#fff;
+  box-shadow:0 2px 8px rgba(100,27,38,.12);
+  font-family:var(--type-police,Inter,Arial,sans-serif);
+  font-size:12px;
+  font-weight:750;
+  line-height:1.35;
+  letter-spacing:.005em;
+  text-align:center;
+  text-align-last:center;
+  white-space:normal;
+}
+@media(max-width:640px) {
+  .gab[data-gab-salle="recherche"] > .these-validation-bandeau {
+    max-width:min(100%,310px);
+    padding:6px 10px;
+    font-size:11px;
+  }
+}
