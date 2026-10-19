@@ -1350,7 +1350,6 @@
   const salle = $("#salle");
   const contenu = salle && $(".salle-contenu", salle);
   const barre = salle && $(".salle-barre", salle);
-  const onglets = salle && $(".salle-onglets", salle);
   let lecture = null, observateur = null, courant = 0;
 
   function defiler(cible) {
@@ -1586,7 +1585,6 @@
     if (!$(".gab-porte-nom", barre)) {
       const nom = el("span", "gab-porte-nom");
       $("[data-retour]", barre).after(nom);
-      if (onglets) nom.after(onglets);
       lecture = el("div", "gab-lecture");
       lecture.innerHTML = `<button type="button" class="gab-tous" data-gab-pas="tous"><span aria-hidden="true">▦</span><span>${echapper(T.tous)}</span></button>` +
         `<button type="button" class="gab-fleche gab-fleche-precedente" data-gab-pas="-1" aria-label="${echapper(T.precedent)}"><span class="gab-fleche-icone" aria-hidden="true">‹</span><span class="gab-fleche-libelle"><span class="gab-fleche-texte">${echapper(T.precedent)}</span><small class="gab-fleche-cible"></small></span></button>` +
@@ -1598,32 +1596,6 @@
       salle.classList.add("gab-salle");
       salle.addEventListener("scroll", suivreDefilement, { passive: true });
     }
-  }
-
-  function decorerOnglets() {
-    if (!onglets) return;
-    $$(".onglet-salle", onglets).forEach((b) => {
-      if ($(".gab-onglet-photo", b)) return;
-      const sousSalle = b.dataset.sous;
-      // Pictogrammes vectoriels explicites : pas de photos arbitraires recadrées.
-      const dessins = {
-        representation: '<path d="M4 5h16v11H9l-5 4V5Z"/><path d="M8 9h8M8 12h5"/>',
-        communaute: '<circle cx="12" cy="5" r="3"/><circle cx="5" cy="17" r="3"/><circle cx="19" cy="17" r="3"/><path d="m10 8-3 6m7-6 3 6M8 17h8"/>',
-        distinctions: '<circle cx="12" cy="9" r="6"/><path d="m8 14-2 8 6-3 6 3-2-8m-4-8v6m-3-3h6"/>',
-        citoyen: '<path d="M12 20S3 14 3 8a4 4 0 0 1 9-2 4 4 0 0 1 9 2c0 6-9 12-9 12Z"/>',
-        loisirs: '<path d="m9 18 6-12M5 10l-3 2 3 2m14-4 3 2-3 2"/><circle cx="12" cy="12" r="10"/>',
-        recherche: '<path d="M8 3h8l4 4v14H4V3h4"/><path d="M16 3v5h4M8 12h8M8 16h6"/>',
-        axes: '<circle cx="12" cy="5" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M11 7 6 16M13 7l5 9M7 18h10"/>',
-        publications: '<path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 0-3 1V4Z"/><path d="M5 20V7a3 3 0 0 1 3-3M9 9h6M9 13h6M9 17h4"/>',
-        approche: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/>',
-        methodes: '<path d="M4 5h16M4 12h16M4 19h16"/><circle cx="9" cy="5" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="9" cy="19" r="2"/>',
-        ia: '<rect x="5" y="5" width="14" height="14" rx="3"/><path d="M9 9h6v6H9zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/>'
-      };
-      const photo = el("span", "gab-onglet-photo");
-      photo.setAttribute("aria-hidden", "true");
-      photo.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true">' + (dessins[sousSalle] || dessins.recherche) + '</svg>';
-      b.prepend(photo);
-    });
   }
 
   function marquer(i) {
@@ -1669,7 +1641,6 @@
     fusionnerDossierImplantation(zone);
     observerSommaires(zone);
     preparerSalle();
-    decorerOnglets();
     const titre = net($("#salle-titre")?.textContent).split(" · ");
     const nom = $(".gab-porte-nom", barre);
     if (nom) nom.innerHTML = titre.length >= 3
@@ -2073,7 +2044,6 @@
   });
   if (contenu) {
     new MutationObserver(activerSalle).observe(contenu, { childList: true });
-    if (onglets) new MutationObserver(decorerOnglets).observe(onglets, { childList: true });
     if (contenu.children.length) activerSalle();
   }
 })();

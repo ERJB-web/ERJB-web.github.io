@@ -35,10 +35,6 @@
 .gab.gab-cv-direct .gab-chapitre-grille{display:block!important}
 .gab.gab-cv-direct .gab-chapitre-texte{width:100%;min-width:0}
 .salle:has(.salle-contenu .gab-cv-direct:not(.gab-rubrique-complete)) .gab-lecture{display:none!important}
-.salle:has(.salle-contenu .gab-cv-direct) .gab-barre .salle-onglets:not([hidden]){display:flex!important;max-height:80px!important;overflow-x:auto;overflow-y:hidden;gap:8px;padding:6px 0;scrollbar-width:thin}
-.salle:has(.salle-contenu .gab-cv-direct) .gab-barre .salle-onglets .onglet-salle{flex:1 0 auto!important;width:auto!important;max-width:none!important;min-height:48px!important;padding:6px 12px!important}
-.salle:has(.salle-contenu .gab-cv-direct) .gab-barre .onglet-salle .gab-onglet-photo{width:30px;height:30px}
-.salle.gab-lit.gab-avec-chapitres:has(.salle-contenu .gab-cv-direct) .gab-barre .salle-onglets{max-height:60px;opacity:1;margin-top:10px;pointer-events:auto}
 .gab.gab-cv-direct .gab-chapitre{border-top:0;padding-top:0}
 .gab.gab-cv-direct .bandeau.gab-bandeau{min-height:180px}
 .gab.gab-engagements .rs-page{--rs-blue:#0879be;--rs-navy:#0d2a3a;--rs-teal:#11a7a5;min-width:0}
@@ -101,7 +97,7 @@
 .salle.gab-salle .gab :is(.bandeau,.section-corps,.rubrique-corps){scroll-snap-align:none}
 .salle .salle-contenu .gab .gab-chapitre,.gab .gab-chapitre{scroll-margin-top:6px!important}
 .salle.gab-salle .salle-progres{display:none}
-.salle-barre.gab-barre{display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"retour porte actions" "salles salles salles" "lecture lecture lecture";align-items:center;column-gap:18px;row-gap:0;padding:12px var(--gab-marge);background:rgba(255,255,255,.93);border-bottom:1px solid var(--gab-ligne);font-size:16px}
+.salle-barre.gab-barre{display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"retour porte actions" "lecture lecture lecture";align-items:center;column-gap:18px;row-gap:0;padding:12px var(--gab-marge);background:rgba(255,255,255,.93);border-bottom:1px solid var(--gab-ligne);font-size:16px}
 .gab-barre>[data-retour]{grid-area:retour;display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:999px;border:1.5px solid var(--gab-marine);color:var(--gab-marine)!important;font-weight:600;font-size:15.5px;white-space:nowrap;transition:background .2s,color .2s}
 .gab-barre>[data-retour]:hover{background:var(--gab-marine);color:#fff!important}
 .gab-barre #salle-titre{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -114,22 +110,6 @@
 .gab-barre [data-ecouter],.gab-barre [data-arreter]{border:1.5px solid var(--gab-marine);color:var(--gab-marine)!important}
 .gab-barre [data-suivante],.gab-barre [data-contact]{background:var(--gab-marine);color:#fff!important;border:1.5px solid var(--gab-marine)}
 .gab-barre [data-suivante]:hover,.gab-barre [data-contact]:hover{background:var(--gab-bleu);border-color:var(--gab-bleu)}
-
-/* Salles de la porte : onglets avec vignette photo (sans petites portes). */
-.gab-barre .salle-onglets{grid-area:salles;display:flex!important;gap:6px;margin:10px 0 0;padding:0;max-width:none;max-height:60px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;transition:max-height .4s var(--gab-ease),opacity .3s,margin .3s}
-.gab-barre .salle-onglets>:first-child{margin-inline-start:auto}
-.gab-barre .salle-onglets>:last-child{margin-inline-end:auto}
-.salle.gab-lit.gab-avec-chapitres .gab-barre .salle-onglets{max-height:0;opacity:0;margin-top:0;pointer-events:none}
-.gab-barre .salle-onglets[hidden]{display:none!important}
-.gab-barre .salle-onglets::-webkit-scrollbar{display:none}
-.salle .gab-barre .salle-onglets .onglet-salle{flex:none!important;display:inline-flex!important;align-items:center;gap:10px;width:auto!important;max-width:none!important;min-width:0;min-height:0!important;padding:5px 16px 5px 5px!important;border:0;border-radius:14px!important;background:transparent;box-shadow:none;color:var(--gab-doux);font-size:16px;font-weight:600;transform:none!important;transition:background .2s,color .2s}
-.salle .gab-barre .salle-onglets .onglet-salle:hover{background:var(--gab-fond);color:var(--gab-marine);box-shadow:none}
-.salle .gab-barre .salle-onglets .onglet-salle :is(.baie,.onglet-num){display:none!important}
-.gab-onglet-photo{width:34px;height:34px;border-radius:10px;background:#e6eef0 center/cover no-repeat;flex:none;opacity:.96;box-shadow:inset 0 0 0 1px rgba(13,42,58,.12);transition:opacity .2s,box-shadow .2s}
-.gab-barre .onglet-salle:hover .gab-onglet-photo{opacity:1}
-.salle .gab-barre .salle-onglets .onglet-salle.actif{background:var(--gab-marine);color:#fff;box-shadow:none;border:0}
-.gab-barre .onglet-salle.actif .gab-onglet-photo{opacity:1;box-shadow:0 0 0 2px rgba(255,255,255,.7)}
-.gab-barre .onglet-titre{white-space:nowrap}
 
 /* Barre de lecture : apparaît quand les tuiles sont dépassées. */
 .gab-lecture{grid-area:lecture;display:flex;align-items:center;gap:12px;max-height:0;opacity:0;overflow:hidden;visibility:hidden;transition:max-height .4s var(--gab-ease),opacity .3s,margin .3s,visibility 0s .4s}
@@ -286,11 +266,8 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 }
 @media(max-width:900px){
   :root{--gab-marge:16px}
-  .salle-barre.gab-barre{grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"retour . actions" "salles salles salles" "lecture lecture lecture";padding:10px var(--gab-marge)}
-  .gab-barre .salle-onglets>:first-child{margin-inline-start:0}
+  .salle-barre.gab-barre{grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"retour . actions" "lecture lecture lecture";padding:10px var(--gab-marge)}
   .gab-porte-nom{display:none}
-  .gab-barre .salle-onglets{justify-content:flex-start;margin:0 calc(-1 * var(--gab-marge));padding:0 var(--gab-marge)}
-  .gab-barre .onglet-salle{font-size:15px}
   .gab-barre .salle-actions button{padding:8px 13px;font-size:14.5px}
   .gab-barre [data-ecouter] span{display:none}
   .gab-tous span:last-child,.gab-segments{display:none}
@@ -467,129 +444,10 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 }
 
 
-/* Navigation des salles — cartes affinées (tailles réduites, largeur conservée).
-   Identité de la Chaire conservée ; affichage intégral des six rubriques
-   sur grand écran, 3 x 2 sur écran moyen, défilement tactile sur mobile. */
+
 .salle .salle-barre.gab-barre{
   background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(246,250,250,.97));
   box-shadow:0 10px 26px rgba(13,42,58,.055);
-}
-.salle .gab-barre .salle-onglets:not([hidden]){
-  display:grid!important;
-  grid-template-columns:repeat(6,minmax(0,1fr));
-  gap:13px;
-  margin:9px 0 1px;
-  padding:2px 5px 4px;
-  max-height:280px;
-  overflow-x:visible;
-  overflow-y:visible;
-  scrollbar-width:thin;
-  transition:max-height .35s var(--gab-ease),opacity .25s,margin .25s;
-}
-.salle .gab-barre .salle-onglets > :first-child,
-.salle .gab-barre .salle-onglets > :last-child{margin-inline:0}
-.salle .gab-barre .salle-onglets .onglet-salle{
-  position:relative;
-  width:95%!important;
-  justify-self:center;
-  min-width:0!important;
-  max-width:none!important;
-  min-height:69.5px!important;
-  justify-content:flex-start;
-  gap:9.5px;
-  padding:8px 10px!important;
-  border:1px solid #dce6e9!important;
-  border-radius:14px!important;
-  background:linear-gradient(145deg,#fff 25%,#f5f9f9 100%);
-  box-shadow:0 4px 13px rgba(13,42,58,.045);
-  color:#244958;
-  font-size:clamp(13.4px,.82vw,14.7px);
-  font-weight:700;
-  line-height:1.23;
-  text-align:start;
-  white-space:normal;
-  transform:none!important;
-  transition:background .2s,border-color .2s,box-shadow .2s,color .2s!important;
-}
-.salle .gab-barre .salle-onglets .onglet-salle:hover{
-  background:#eff7f7;
-  border-color:#a6c7ce!important;
-  color:#0d2a3a;
-  box-shadow:0 7px 19px rgba(13,42,58,.1);
-}
-.salle .gab-barre .salle-onglets .onglet-salle:focus-visible{
-  outline:3px solid #0879be;
-  outline-offset:2px;
-}
-.salle .gab-barre .salle-onglets .onglet-salle.actif{
-  background:linear-gradient(120deg,#0d2a3a,#164759);
-  border-color:#0d2a3a!important;
-  box-shadow:inset 0 4px 0 var(--c1,#11a7a5),0 7px 22px rgba(13,42,58,.2);
-  color:#fff;
-}
-.salle .gab-barre .gab-onglet-photo{
-  width:40px;
-  height:40px;
-  border-radius:10.5px;
-  flex:0 0 40px;
-  opacity:1;
-  border:1px solid rgba(13,42,58,.12);
-  box-shadow:0 2px 7px rgba(13,42,58,.14);
-}
-.salle .gab-barre .onglet-salle.actif .gab-onglet-photo{
-  border-color:rgba(255,255,255,.55);
-  box-shadow:0 0 0 2px rgba(255,255,255,.3);
-}
-.salle .gab-barre .onglet-titre{
-  min-width:0;
-  overflow-wrap:normal;
-  white-space:normal;
-  hyphens:auto;
-}
-.salle.gab-lit.gab-avec-chapitres .gab-barre .salle-onglets:not([hidden]){
-  max-height:0;
-  margin-top:0;
-  margin-bottom:0;
-  padding-top:0;
-  padding-bottom:0;
-  opacity:0;
-  overflow:hidden;
-  pointer-events:none;
-}
-@media(max-width:1499px){
-  .salle .gab-barre .salle-onglets:not([hidden]){grid-template-columns:repeat(3,minmax(0,1fr));gap:8.5px;max-height:290px}
-  .salle .gab-barre .salle-onglets .onglet-salle{width:100%!important;min-height:65px!important}
-}
-@media(max-width:900px){
-  .salle .gab-barre .salle-onglets:not([hidden]){
-    display:flex!important;
-    flex-wrap:nowrap;
-    gap:8.5px;
-    margin:10.2px calc(-1 * var(--gab-marge)) 0;
-    padding:3.4px var(--gab-marge) 10.2px;
-    max-height:130px;
-    overflow-x:auto;
-    overflow-y:hidden;
-    scroll-snap-type:x proximity;
-    scrollbar-width:thin;
-    scrollbar-color:#8fb7c4 #ecf2f3;
-    overscroll-behavior-x:contain;
-  }
-  .salle .gab-barre .salle-onglets::-webkit-scrollbar{display:block;height:5px}
-  .salle .gab-barre .salle-onglets::-webkit-scrollbar-thumb{background:#8fb7c4;border-radius:10px}
-  .salle .gab-barre .salle-onglets .onglet-salle{
-    flex:0 0 214.2px!important;
-    width:214.2px!important;
-    min-height:69.7px!important;
-    padding:8.5px 10.2px!important;
-    font-size:14.025px;
-    scroll-snap-align:start;
-  }
-  .salle .gab-barre .gab-onglet-photo{width:41.65px;height:41.65px;flex-basis:41.65px}
-  .salle.gab-lit.gab-avec-chapitres .gab-barre .salle-onglets:not([hidden]){max-height:0}
-}
-@media(prefers-reduced-motion:reduce){
-  .salle .gab-barre .salle-onglets .onglet-salle{transition:none!important}
 }
 
 
@@ -616,52 +474,6 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 .salle-contenu .gab[data-gab-salle="recherche"] .gab-corps p {
   width:100%;
   max-width:none;
-}
-
-/* Navigation des six rubriques : pictogrammes thématiques et centrage vertical cohérent. */
-.salle .gab-barre .salle-onglets .onglet-salle{
-  align-items:center!important;
-  justify-content:flex-start!important;
-  hyphens:none!important;
-  text-align:left!important;
-  line-height:1.3!important;
-}
-.salle .gab-barre .salle-onglets .onglet-titre{
-  display:flex!important;
-  align-items:center!important;
-  align-self:stretch;
-  margin:0!important;
-  padding:0!important;
-  min-width:0;
-  font-size:inherit;
-  line-height:1.3!important;
-  text-wrap:balance;
-  overflow-wrap:break-word;
-  word-break:normal;
-  hyphens:none!important;
-}
-.salle .gab-barre .gab-onglet-photo{
-  display:grid!important;
-  place-items:center!important;
-  background:#eaf3f4!important;
-  color:#205367!important;
-  border:1px solid #cbdfe3!important;
-  box-shadow:none!important;
-}
-.salle .gab-barre .gab-onglet-photo svg{
-  display:block;
-  width:23px;
-  height:23px;
-  flex:none;
-}
-.salle .gab-barre .onglet-salle.actif .gab-onglet-photo{
-  background:rgba(255,255,255,.13)!important;
-  color:#fff!important;
-  border-color:rgba(255,255,255,.35)!important;
-  box-shadow:none!important;
-}
-@media(max-width:900px){
-  .salle .gab-barre .gab-onglet-photo svg{width:22.95px;height:22.95px}
 }
 
 /* Bandeau « Ma thèse » : dimensions et typographie réduites de 10 %. */

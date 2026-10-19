@@ -72,7 +72,6 @@
       lecture:salle && courante ? salle.scrollTop : 0,
       porte:Number(($('.station-hall.selectionnee') || {}).dataset?.hallStation) || 0,
       simple:!!$('[data-hall-mode][aria-pressed="false"]:not([hidden])'),
-      menu:onglets ? onglets.scrollLeft : 0,
       tables:zone ? $$('[data-onglets]',zone).map(table=>{
         const actif=$$('[role=tab]',table).find(b=>b.closest('[data-onglets]')===table && b.getAttribute('aria-selected')==='true');
         const nav=$('.onglets',table);
@@ -181,7 +180,6 @@
       if(interrompue || reprise!==numeroReprise)return;
       window.scrollTo({top:nombre(etat.page),left:0,behavior:'instant'});
       if(salle && courante)salle.scrollTo({top:nombre(etat.lecture),left:0,behavior:'instant'});
-      if(onglets && Number.isFinite(etat.menu))onglets.scrollLeft=etat.menu;
       if(etat.ancre){
         const ancre=cibleRepere || zone?.querySelector('#'+CSS.escape(etat.ancre)) || document.getElementById(etat.ancre);
         ancre?.scrollIntoView({block:'start',behavior:'instant'});
@@ -245,7 +243,13 @@
       return;
     }
     const cible = groupe.sections.includes(nom) ? nom : groupe.sections[0];
-    if (courante && groupeDe(courante) === groupe) return passerSous(cible);
+    if (courante && groupeDe(courante) === groupe) {
+      if (occupe || cible === courante) return;
+      reserverNavigation(cible);
+      afficher(cible);
+      terminerNavigation();
+      return;
+    }
     if (occupe) return;
     reserverNavigation(cible);
     occupe = true;
@@ -352,7 +356,6 @@
   addEventListener('popstate',demanderAdresse);
   addEventListener('hashchange',demanderAdresse);
 
-  const onglets = salle && $(".salle-onglets", salle);
   if(salle){
     const barre=$(".salle-barre",salle);
     const actualiserHauteur=()=>{const h=barre?.getBoundingClientRect().height||0;if(h>0)salle.style.setProperty('--salle-barre-hauteur',Math.ceil(h)+'px');};
@@ -417,44 +420,9 @@
     });
     contenu.querySelectorAll(".revele").forEach((el) => el.classList.remove("revele", "vu"));
     if (typeof preparer === "function") setTimeout(() => preparer(contenu), 0);
-    const gi = groupes.indexOf(groupe);
-    const avecSalles = groupes.filter((g) => g.sections.length);
     salle.style.setProperty("--c1", getComputedStyle(groupe.porte).getPropertyValue("--c1"));
     $$(".salle-progres span").forEach((x, k) => x.classList.toggle("actif", k <= ordre.indexOf(s)));
     $("#salle-titre").textContent = `${String(ordre.indexOf(s) + 1).padStart(2, "0")} / ${String(ordre.length).padStart(2, "0")} · ${groupe.porte.dataset.titre} · ${section.dataset.titre}`;
-    onglets.hidden = groupe.sections.length < 2;
-    const nb = groupe.sections.length;
-    onglets.style.setProperty("--colonnes", nb > 5 ? Math.ceil(nb / 2) : nb);
-    onglets.replaceChildren(
-      ...groupe.sections.map((x) => {
-        const sx = $(`section[data-salle="${x}"]`);
-        const bouton = document.createElement("button");
-        bouton.type = "button";
-        bouton.className = "onglet-salle" + (x === s ? " actif" : "");
-        bouton.setAttribute("aria-current", x === s ? "true" : "false");
-        bouton.style.setProperty("--c1", sx.querySelector(".bandeau").style.getPropertyValue("--c1"));
-        const n = document.createElement("span");
-        n.className = "onglet-num";
-        n.textContent = sx.querySelector(".section-contenu").dataset.numero;
-        const t = document.createElement("span");
-        t.className = "onglet-titre";
-        t.textContent = sx.dataset.titre;
-        const d = document.createElement("span");
-        d.className = "baie mini";
-        d.setAttribute("aria-hidden", "true");
-        d.innerHTML = "<span class=\"ouverture\"><span class=\"battant\"><span class=\"vignette\"></span><span class=\"poignee\"></span></span></span>";
-        const mini = sx.querySelector(".section-contenu").dataset.mini;
-        if (mini) d.querySelector(".vignette").style.setProperty("background-image", `url("${mini}")`, "important");
-        bouton.append(d, n, t);
-        bouton.dataset.sous = x;
-        bouton.addEventListener("click", () => passerSous(x));
-        return bouton;
-      })
-    );
-    if (matchMedia('(max-width:999px)').matches) {
-      const actif = $('.onglet-salle.actif',onglets);
-      if (actif) onglets.scrollLeft += actif.getBoundingClientRect().left - onglets.getBoundingClientRect().left - (onglets.clientWidth-actif.offsetWidth)/2;
-    }
     const i = ordre.indexOf(s);
     $("[data-suivante]", salle).hidden = i === ordre.length - 1;
     $("[data-contact]", salle).hidden = i !== ordre.length - 1;
@@ -466,51 +434,6 @@
     $$('[data-navigation="atelier"]',contenu).forEach(synchroniserRubriques);
     signalerAudience();
     demanderMemoire();
-    if(!matchMedia('(min-width:1000px)').matches){
-      requestAnimationFrame(()=>{
-        if(!onglets?.isConnected)return;
-        const tab=$('.onglet-salle.actif',onglets);
-        if(!tab || !tab.getBoundingClientRect().width)return;
-        const a=tab.getBoundingClientRect(),b=onglets.getBoundingClientRect();
-        onglets.scrollLeft+=a.left-b.left-(b.width-a.width)/2;
-      });
-    }
-  }
-
-  // Petite porte : même transition que les grandes (la porte s’ouvre, on passe à travers).
-  async function passerSous(x) {
-    if (occupe || x === courante) return;
-    reserverNavigation(x);
-    const bouton = onglets.querySelector(`[data-sous="${x}"]`);
-    if (!bouton) {afficher(x);terminerNavigation();return;}
-    occupe = true;
-    reduit = sansPassage();
-    bouton.classList.add("ouverte");
-    await attendre(mobileTactile.matches ? 95 : 180);
-    const ouverture = bouton.querySelector(".ouverture");
-    // Sans la miniature décorative, démarrer la transition depuis l’onglet entier.
-    const r = ouverture && ouverture.getClientRects().length ? ouverture.getBoundingClientRect() : bouton.getBoundingClientRect();
-    const passage = document.createElement("div");
-    passage.className = "passage";
-    const c1 = bouton.style.getPropertyValue("--c1").trim();
-    passage.style.background = `radial-gradient(120% 70% at 50% 75%, color-mix(in srgb, ${c1} 12%, rgba(255,255,255,.78)) 0%, color-mix(in srgb, ${c1} 32%, rgba(255,255,255,.55)) 100%)`;
-    Object.assign(passage.style, { left: r.left + "px", top: r.top + "px", width: r.width + "px", height: r.height + "px" });
-    document.body.append(passage);
-    if (!reduit && passage.animate) {
-      const anim = passage.animate(
-        [
-          { left: r.left + "px", top: r.top + "px", width: r.width + "px", height: r.height + "px" },
-          { left: "0px", top: "0px", width: innerWidth + "px", height: innerHeight + "px" },
-        ],
-        { duration: mobileTactile.matches ? 170 : 280, easing: "cubic-bezier(.6,0,.2,1)", fill: "forwards" }
-      );
-      await Promise.race([anim.finished, attendre(mobileTactile.matches ? 210 : 330)]);
-    }
-    afficher(x);
-    if (!reduit && passage.animate) await Promise.race([passage.animate([{ opacity: 1 }, { opacity: 0 }], { duration: mobileTactile.matches ? 100 : 160, fill: "forwards" }).finished, attendre(mobileTactile.matches ? 130 : 200)]);
-    passage.remove();
-    occupe = false;
-    terminerNavigation();
   }
 
   async function sortir(rendreFocus = true, changerAdresse = true) {
@@ -528,7 +451,6 @@
     document.querySelectorAll("body > main, body > header, body > footer").forEach(el => { el.inert = false; });
     const porte = groupeDe(nom).porte;
     porte.classList.remove("ouverte");
-    $$(".salle-onglets .onglet-salle.ouverte").forEach(p=>p.classList.remove("ouverte"));
     marquer(null);
     if (rendreFocus) porte.focus({ preventScroll: true });
     if(rendreFocus)signalerAudience();

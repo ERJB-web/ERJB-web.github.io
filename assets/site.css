@@ -938,29 +938,11 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 .porte-contact .vignette{background:linear-gradient(160deg,var(--c1),var(--c2))}
 .sous-portes{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
 .sous-portes span{padding:3px 9px;border-radius:999px;background:color-mix(in srgb,var(--c1) 12%,transparent);color:var(--c2);font-size:12px;font-weight:600}
-.salle-onglets{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;max-width:1240px;margin:18px auto 0;padding:0 var(--gouttiere)}
-.salle-onglets[hidden]{display:none}
-.onglet-salle{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:14px;border:1px solid var(--line);background:var(--white);font:inherit;font-size:15.5px;font-weight:600;color:var(--ink);text-align:start;cursor:pointer;transition:background .25s,color .25s,transform .25s var(--ease),box-shadow .25s}
-.onglet-salle:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
-.onglet-salle.actif{background:var(--c1);border-color:var(--c1);color:#fff}
-.onglet-num{display:inline-grid;place-items:center;min-width:38px;height:28px;padding:0 6px;border-radius:8px;background:var(--c1);color:#fff;font-size:12px;font-variant-numeric:tabular-nums}
-.onglet-salle.actif .onglet-num{background:rgba(255,255,255,.22)}
 @media (max-width:1100px){.portes{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.portes{grid-template-columns:1fr}.porte{grid-template-columns:92px minmax(0,1fr)}.baie{width:92px}}
 /* Équilibre : en-têtes et textes dans une colonne centrée, grilles en pleine largeur */
 .section-corps.pleine .colonne-texte>:is(p,h2,h3,blockquote,.badge-these){max-width:880px;margin-inline-start:max(0px,calc((100% - 880px) / 2))}
-.salle-onglets{margin-bottom:18px}
 .porte-contact .vignette::before{content:"@";position:absolute;inset:0;display:grid;place-items:center;font:400 46px/1 var(--serif);color:rgba(255,255,255,.92)}
-/* Petites portes dans chaque pièce */
-.onglet-salle{gap:14px;padding:10px 18px 10px 12px}
-.onglet-salle .baie.mini{width:40px;flex:none;box-shadow:0 0 0 3px #fff,0 0 0 4px #d6e1e2,0 8px 12px -8px rgba(15,49,66,.5)}
-.onglet-salle .vignette{inset-inline-start:12%;inset-inline-end:12%;top:8%;height:62%;background:linear-gradient(160deg,var(--c1),color-mix(in srgb,var(--c1) 55%,#000))}
-.onglet-salle .battant::after{top:76%;height:14%}
-.onglet-salle .poignee{background:var(--c1)}
-.onglet-salle:hover .battant,.onglet-salle:focus-visible .battant{transform:rotateY(-34deg)}
-.onglet-salle.actif{background:color-mix(in srgb,var(--c1) 10%,var(--white));border-color:var(--c1);color:var(--ink);box-shadow:inset 0 -3px 0 var(--c1)}
-.onglet-salle.actif .battant{transform:rotateY(-72deg)}
-.onglet-salle.actif .onglet-num{background:var(--c1)}
 /* Ressources : français puis anglais l'un sous l'autre, cartes et vidéos centrées */
 .rg .rg-langues{grid-template-columns:1fr}
 .rg .liens-contact.suggestions{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:12px}
@@ -986,10 +968,6 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 /* Couleurs des sous-catégories : chaque salle garde sa teinte, partout */
 .porte{background:linear-gradient(180deg,color-mix(in srgb,var(--c1) 7%,var(--white)),var(--white) 70%);border-top:4px solid var(--c1)}
 .sous-portes span{background:var(--c1);color:#fff}
-.onglet-salle{background:color-mix(in srgb,var(--c1) 9%,var(--white));border-color:color-mix(in srgb,var(--c1) 40%,transparent)}
-.onglet-salle .onglet-num{background:var(--c1)}
-.onglet-salle.actif{background:var(--c1);border-color:var(--c1);color:#fff;box-shadow:0 10px 24px -12px var(--c1)}
-.onglet-salle.actif .onglet-num{background:rgba(255,255,255,.24)}
 
 /* Accueil : portes plus grandes et plus visibles, carte autour discrète */
 .portes{gap:22px}
@@ -1001,11 +979,6 @@ html.hc .bandeau,html.lv .bandeau{--degrade:linear-gradient(100deg,var(--c1) 0%,
 .plaque{font-size:19px}
 .sous-portes span{cursor:pointer;transition:transform .2s,box-shadow .2s}
 .sous-portes span:hover{transform:translateY(-1px);box-shadow:0 4px 10px -4px var(--c1)}
-/* Petites portes épurées : cadre blanc, seule la porte est colorée */
-.onglet-salle{background:var(--white);border-color:var(--line);box-shadow:none;color:var(--ink)}
-.onglet-salle.actif{background:var(--white);border-color:var(--c1);color:var(--ink);box-shadow:inset 0 -3px 0 var(--c1)}
-.onglet-salle.actif .onglet-num{background:var(--c1)}
-.onglet-salle .onglet-num{background:var(--c1)}
 /* Engagements : éléments en cartes alignées ; loisirs sur une ligne */
 .liste-cartes{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
 .liste.liste-cartes li{display:block;padding:16px 18px;background:var(--white);border:1px solid var(--line);border-radius:14px}
@@ -1056,34 +1029,30 @@ html.hc .lexique .notion-usage,html.lv .lexique .notion-usage{background:var(--w
 .sous-portes span{display:inline-flex;align-items:center;gap:6px;background:var(--white);color:var(--ink);border:1px solid var(--line);font-weight:500}
 .sous-portes span::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--c1)}
 .sous-portes span:hover{border-color:var(--c1);box-shadow:none}
-.onglet-salle .battant{transition-duration:.35s}
-.onglet-salle.ouverte .battant{transform:rotateY(-78deg);box-shadow:inset -10px 0 12px rgba(15,49,66,.12),6px 0 10px rgba(15,49,66,.16)}
 /* Icônes courriel et téléphone */
 .coordonnees a{gap:7px}
 .coordonnees a svg,.contact .courriel a svg{flex:none;width:16px;height:16px}
 .contact .courriel a{display:inline-flex;align-items:center;gap:8px}
 .porte .battant{transition-duration:.6s}
 /* Poignée ronde dorée */
-.poignee,.porte .poignee,.onglet-salle .poignee{width:11px;height:11px;top:54%;inset-inline-end:9%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff6cf 0%,#e8c25a 38%,#b8861f 70%,#7a5510 100%);box-shadow:0 1px 2px rgba(40,25,0,.45),inset 0 -1px 1px rgba(80,50,0,.35)}
+.poignee,.porte .poignee{width:11px;height:11px;top:54%;inset-inline-end:9%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff6cf 0%,#e8c25a 38%,#b8861f 70%,#7a5510 100%);box-shadow:0 1px 2px rgba(40,25,0,.45),inset 0 -1px 1px rgba(80,50,0,.35)}
 .porte .poignee{width:13px;height:13px}
-.onglet-salle .poignee{width:6px;height:6px;top:56%;box-shadow:0 .5px 1px rgba(40,25,0,.45)}
-.poignee,.porte .poignee,.onglet-salle .poignee{top:72.5%;inset-inline-end:7%}
+.poignee,.porte .poignee{top:72.5%;inset-inline-end:7%}
 /* Barre colorée, poignée ronde dorée au-dessus ; ouverture teintée de la couleur de la porte */
-.poignee,.porte .poignee,.onglet-salle .poignee{width:3px;height:12%;top:78%;inset-inline-end:8%;border-radius:2px;background:var(--c1);box-shadow:none}
+.poignee,.porte .poignee{width:3px;height:12%;top:78%;inset-inline-end:8%;border-radius:2px;background:var(--c1);box-shadow:none}
 .poignee::before{content:"";position:absolute;left:50%;top:-13px;width:11px;height:11px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff6cf 0%,#e8c25a 38%,#b8861f 70%,#7a5510 100%);box-shadow:0 1px 2px rgba(40,25,0,.45),inset 0 -1px 1px rgba(80,50,0,.35)}
 .porte .poignee::before{width:13px;height:13px;top:-16px}
-.onglet-salle .poignee::before{width:6px;height:6px;top:-7px;box-shadow:0 .5px 1px rgba(40,25,0,.45)}
 .ouverture{background:radial-gradient(120% 70% at 50% 75%,color-mix(in srgb,var(--c1) 10%,rgba(255,255,255,.7)) 0%,color-mix(in srgb,var(--c1) 30%,rgba(255,255,255,.4)) 100%);box-shadow:inset 0 8px 12px color-mix(in srgb,var(--c1) 22%,transparent)}
 .apercu{color:color-mix(in srgb,var(--c1) 80%,#000)}
 /* Poignée réaliste : plaque colorée sur le montant, rosace et bec-de-cane dorés qui s'abaissent à l'ouverture */
 .vignette{inset-inline-end:27%}
-.poignee,.porte .poignee,.onglet-salle .poignee{top:40%;inset-inline-end:8%;width:6%;min-width:3px;height:17%;border-radius:3px;background:var(--c1);box-shadow:0 1px 2px rgba(15,30,40,.3)}
+.poignee,.porte .poignee{top:40%;inset-inline-end:8%;width:6%;min-width:3px;height:17%;border-radius:3px;background:var(--c1);box-shadow:0 1px 2px rgba(15,30,40,.3)}
 .poignee::before{content:"";position:absolute;left:50%;top:30%;width:180%;aspect-ratio:1;height:auto;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff6cf 0%,#e8c25a 38%,#b8861f 70%,#7a5510 100%);box-shadow:0 1px 2px rgba(40,25,0,.45);z-index:2}
 .poignee::after{content:"";position:absolute;right:50%;top:30%;width:420%;height:22%;min-height:2px;transform:translateY(-50%) rotate(0deg);transform-origin:100% 50%;border-radius:2px;background:linear-gradient(180deg,#fbe7a1 0%,#d9ac3c 55%,#8a6512 100%);box-shadow:0 1px 1.5px rgba(40,25,0,.4);transition:transform .3s var(--ease);z-index:1}
-.porte .poignee::before,.onglet-salle .poignee::before{top:30%;width:180%}
-.porte:hover .poignee::after,.porte:focus-visible .poignee::after,.porte.ouverte .poignee::after,.onglet-salle:hover .poignee::after,.onglet-salle.ouverte .poignee::after{transform:translateY(-50%) rotate(-40deg)}
+.porte .poignee::before{top:30%;width:180%}
+.porte:hover .poignee::after,.porte:focus-visible .poignee::after,.porte.ouverte .poignee::after{transform:translateY(-50%) rotate(-40deg)}
 .poignee::after{width:250%;height:18%}
-.poignee::before,.porte .poignee::before,.onglet-salle .poignee::before{width:150%}
+.poignee::before,.porte .poignee::before{width:150%}
 .vignette{inset-inline-end:28%}
 .poignee::after{width:215%}
 
@@ -1106,18 +1075,15 @@ html.hc .lexique .notion-usage,html.lv .lexique .notion-usage{background:var(--w
 .galerie-spheres .ecran-tab:first-child{grid-column:1 / -1}
 .ecran-tab{width:100%;border-radius:12px;border:4px solid #1d2a33;box-shadow:0 10px 22px -12px rgba(10,30,40,.55)}
 @media (max-width:900px){.projet-corps{grid-template-columns:1fr}}
-/* Petites portes illustrées */
-.onglet-salle .baie.mini{width:50px}
-.onglet-salle .vignette{background-size:cover;background-position:center}
 
 /* Portes académiques : porte peinte, moulures, vitrage, plaque et poignée en laiton, chambranle crème */
-.porte .baie,.onglet-salle .baie.mini{background:#f6f1e6;box-shadow:0 0 0 6px #efe8d8,0 0 0 7px #d6cbb3,0 18px 26px -14px rgba(15,49,66,.5)}
+.porte .baie{background:#f6f1e6;box-shadow:0 0 0 6px #efe8d8,0 0 0 7px #d6cbb3,0 18px 26px -14px rgba(15,49,66,.5)}
 .battant,.porte .battant{background:repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 2px,rgba(0,0,0,.035) 2px 5px),linear-gradient(165deg,color-mix(in srgb,var(--c1) 88%,#fff),var(--c1) 45%,color-mix(in srgb,var(--c1) 72%,#000));border:1px solid color-mix(in srgb,var(--c1) 60%,#000);box-shadow:inset 0 0 0 3px color-mix(in srgb,var(--c1) 85%,#000),inset 0 0 0 4px rgba(255,255,255,.12)}
 .vignette{border-radius:1px;box-shadow:0 0 0 3px color-mix(in srgb,var(--c1) 70%,#000),0 0 0 4px rgba(255,255,255,.22),inset 0 0 12px rgba(0,0,0,.18)}
 .battant::after{border:1px solid rgba(255,255,255,.16);background:linear-gradient(180deg,rgba(0,0,0,.14),rgba(255,255,255,.04));box-shadow:inset 0 2px 5px rgba(0,0,0,.28),0 1px 0 rgba(255,255,255,.12)}
 
 .porte .vignette{height:58%}
-.poignee,.porte .poignee,.onglet-salle .poignee{background:linear-gradient(90deg,#9c7424,#e7c66d 45%,#a97f2a)}
+.poignee,.porte .poignee{background:linear-gradient(90deg,#9c7424,#e7c66d 45%,#a97f2a)}
 .porte-contact .vignette{background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.05))}
 .porte:hover,.porte:focus-visible{background:transparent}
 /* Teintes de porte plus sobres (peinture profonde, veinage discret) */
@@ -1131,12 +1097,12 @@ html.hc .lexique .notion-usage,html.lv .lexique .notion-usage{background:var(--w
 .porte-contact .vignette::before{color:#fff}
 
 /* Porte moderne : battant blanc mat, grande vitre, liseré de couleur côté charnière, barre de tirage en acier brossé */
-.porte .baie,.onglet-salle .baie.mini{background:#eef1f1;box-shadow:0 0 0 1px #d5dcde,0 16px 28px -16px rgba(15,49,66,.45)}
+.porte .baie{background:#eef1f1;box-shadow:0 0 0 1px #d5dcde,0 16px 28px -16px rgba(15,49,66,.45)}
 .battant,.porte .battant{background:linear-gradient(180deg,#ffffff,#f3f5f5);border:1px solid #dde3e4;box-shadow:inset 4px 0 0 var(--c1)}
 [dir="rtl"] .battant{box-shadow:inset -4px 0 0 var(--c1)}
 .vignette,.porte .vignette{inset-inline-start:11%;inset-inline-end:22%;top:7%;height:76%;border-radius:4px;box-shadow:0 1px 3px rgba(15,30,40,.18)}
 .battant::after{display:none}
-.poignee,.porte .poignee,.onglet-salle .poignee{top:34%;inset-inline-end:8%;width:3.5%;min-width:2px;height:32%;aspect-ratio:auto;border-radius:3px;background:linear-gradient(90deg,#6f787c,#d8dee0 45%,#7d878b);box-shadow:1px 1px 2px rgba(15,30,40,.3)}
+.poignee,.porte .poignee{top:34%;inset-inline-end:8%;width:3.5%;min-width:2px;height:32%;aspect-ratio:auto;border-radius:3px;background:linear-gradient(90deg,#6f787c,#d8dee0 45%,#7d878b);box-shadow:1px 1px 2px rgba(15,30,40,.3)}
 .poignee::before,.poignee::after{display:none}
 .porte-contact .vignette{background:linear-gradient(160deg,color-mix(in srgb,var(--c1) 55%,#fff),var(--c1))}
 
@@ -1148,10 +1114,10 @@ html.hc .lexique .notion-usage,html.lv .lexique .notion-usage{background:var(--w
 .porte:focus-visible{outline:2px solid var(--c1);outline-offset:4px}
 /* Poignée moderne grise : plaque, rosace et bec-de-cane en acier qui s'abaisse à l'ouverture */
 .vignette,.porte .vignette{inset-inline-end:26%}
-.poignee,.porte .poignee,.onglet-salle .poignee{top:46%;inset-inline-end:9%;width:4%;min-width:2px;height:10%;aspect-ratio:auto;border-radius:2px;background:linear-gradient(90deg,#7d878b,#cfd5d8 50%,#7d878b);box-shadow:0 1px 1.5px rgba(15,30,40,.3)}
-.poignee::before,.porte .poignee::before,.onglet-salle .poignee::before{display:block;content:"";position:absolute;left:50%;top:35%;right:auto;bottom:auto;width:210%;height:auto;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 35% 30%,#f6f8f9 0%,#bcc4c7 55%,#737d81 100%);box-shadow:0 1px 2px rgba(15,30,40,.35);z-index:2}
+.poignee,.porte .poignee{top:46%;inset-inline-end:9%;width:4%;min-width:2px;height:10%;aspect-ratio:auto;border-radius:2px;background:linear-gradient(90deg,#7d878b,#cfd5d8 50%,#7d878b);box-shadow:0 1px 1.5px rgba(15,30,40,.3)}
+.poignee::before,.porte .poignee::before{display:block;content:"";position:absolute;left:50%;top:35%;right:auto;bottom:auto;width:210%;height:auto;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 35% 30%,#f6f8f9 0%,#bcc4c7 55%,#737d81 100%);box-shadow:0 1px 2px rgba(15,30,40,.35);z-index:2}
 .poignee::after{display:block;content:"";position:absolute;right:50%;top:35%;width:340%;height:26%;min-height:2px;transform:translateY(-50%) rotate(0deg);transform-origin:100% 50%;border-radius:2px;background:linear-gradient(180deg,#f1f3f4 0%,#aeb7bb 55%,#6c767a 100%);box-shadow:0 1px 1.5px rgba(15,30,40,.35);transition:transform .3s var(--ease);z-index:1}
-.porte:hover .poignee::after,.porte:focus-visible .poignee::after,.porte.ouverte .poignee::after,.onglet-salle:hover .poignee::after,.onglet-salle.ouverte .poignee::after{transform:translateY(-50%) rotate(-40deg)}
+.porte:hover .poignee::after,.porte:focus-visible .poignee::after,.porte.ouverte .poignee::after{transform:translateY(-50%) rotate(-40deg)}
 .poignee::after{width:280%}
 .porte:focus,.porte:focus-visible{outline:none}
 
@@ -1173,7 +1139,6 @@ html.hc .lexique .notion-usage,html.lv .lexique .notion-usage{background:var(--w
 .salle .salle-barre button[data-retour]{border-color:var(--ink);color:var(--ink)}
 .salle .salle-barre button[data-retour]:hover,.salle .salle-barre button[data-retour]:focus-visible{background:var(--ink);color:#fff}
 .salle .salle-barre button[data-retour]:focus:not(:hover){color:var(--ink)}
-.onglet-salle.actif{border-color:var(--ink);box-shadow:inset 0 -2px 0 var(--ink)}
 
 /* Vitrines d'expertise */
 .grille-vitrine{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -1187,7 +1152,6 @@ html.hc .lexique .notion-usage,html.lv .lexique .notion-usage{background:var(--w
 .lien-salle:hover{filter:brightness(1.15)}
 @media (max-width:1100px){.grille-vitrine{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:700px){.grille-vitrine{grid-template-columns:1fr}}
-.salle-onglets{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
 /* Monogramme : r et j en diagonale autour d'une barre dorée */
 
 .carte-vitrine.carte-large{grid-column:1 / -1;background:linear-gradient(180deg,#f4f8fb,#fff)}
@@ -1206,19 +1170,8 @@ html.hc .lexique .notion-usage,html.lv .lexique .notion-usage{background:var(--w
 .section-corps .colonne-texte>p:not(.surtitre):not(.badge-these),.section-corps .intro,.groupe-corps>p,.carte-notion .groupe-corps>p:not(.notion-refs-titre),.projet-bloc p,.liste p,.chapeau p,.presentation p:not(.surtitre):not(.roles):not(.encadrement),.travaux p,.lacunes p,.notions p,.cadres p,.valeurs-grille p,.faits span,.rg .apport,.suggestions small.apport{text-align:start;hyphens:auto;-webkit-hyphens:auto;text-wrap:pretty}
 .section-corps .colonne-texte>h2,.groupe-corps h3,.vitrine-liste li,.lectures-liste li,.notion-refs li{text-align:start}
 .porte{align-items:start}.porte-texte{padding-top:6px}.portes{align-items:start}
-@media (max-width:700px){.salle-onglets{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.onglet-salle{min-width:0}.onglet-titre{min-width:0;overflow-wrap:anywhere;hyphens:auto}
 
 .porte .plaque{flex-direction:column;align-items:flex-start;gap:6px;font-size:18px;line-height:1.25;min-height:calc(26px + 6px + 2.5em)}
-/* Petites portes : mots entiers, numéro au-dessus du titre */
-.onglet-salle{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto auto;column-gap:14px;row-gap:4px;align-items:center;text-align:start}
-.onglet-salle .baie.mini{grid-row:1 / 3}
-.onglet-salle .onglet-num{justify-self:start;align-self:end;min-width:0;height:22px;font-size:11.5px}
-.onglet-titre{align-self:start;hyphens:none;-webkit-hyphens:none;overflow-wrap:normal;word-break:normal;line-height:1.25}
-@media (max-width:700px){.onglet-salle{column-gap:10px;padding:8px 10px}.onglet-salle .baie.mini{width:36px}.onglet-titre{font-size:13.5px}}
-/* Petites portes : au-delà de 5, deux rangées égales */
-.salle-onglets{grid-template-columns:repeat(var(--colonnes,4),minmax(0,1fr))}
-@media (max-width:700px){.salle-onglets{grid-template-columns:repeat(2,minmax(0,1fr))}}
 /* Hall clair : murs, sol continu en perspective et lumière naturelle. */
 .hall{position:relative;isolation:isolate}
 .hall::before,.hall::after{content:"";position:absolute;inset:-14px -12px -10px;pointer-events:none}
@@ -1261,18 +1214,7 @@ html.lv .hall::before,html.lv .hall::after,html.lv .portes>.porte::before{displa
 @media (max-width:380px){.porte{--largeur-porte:77px;column-gap:10px;padding-inline:4px}.porte .sous-portes span{padding-inline:5px}}
 
 /* Modèle de porte : huisserie, vitrage et panneau mouluré, mêmes couleurs et ouverture. */
-.porte .baie,.onglet-salle .baie.mini{background:linear-gradient(90deg,#d9dedc,#fafbf7 4%,#e9ede8 8%,#e9ede8 92%,#fafbf7 96%,#c7cecb);border-radius:1px;box-shadow:inset 1px 1px 0 #fff,inset -1px -1px 0 rgba(72,87,79,.24),inset 2px 2px 0 rgba(255,255,255,.5),inset -2px -2px 0 rgba(72,87,79,.1),0 0 0 1px #bdc6c4,0 1px 0 1px #fff,0 13px 20px -13px rgba(15,49,66,.5)}
-:is(.porte,.onglet-salle) .ouverture{inset:2.5% 3.5% 1.5%;box-shadow:inset 2px 1px 4px rgba(15,30,40,.28),inset -1px 0 2px rgba(15,30,40,.16)}
-:is(.porte,.onglet-salle) .battant{background:linear-gradient(100deg,#fcfdf9,#f3f5ef 55%,#e5e9e3);border:1px solid #b9c1bd;border-radius:1px;box-shadow:inset 1px 1px 0 #fff,inset -1px -1px 0 rgba(42,54,45,.2),inset 3px 3px 3px rgba(255,255,255,.3),inset -3px -3px 3px rgba(42,54,45,.07),0 0 0 1px rgba(34,46,40,.12)}
-:is(.porte,.onglet-salle) .battant::before{content:none}
-:is(.porte,.onglet-salle) .battant::after{display:block;inset-inline-start:14%;inset-inline-end:14%;top:73%;height:18%;border:1px solid #bcc5bf;border-radius:1px;background:linear-gradient(155deg,#f7f9f3,#e8ede5);box-shadow:0 0 0 2px #f9fbf6,0 0 0 3px #d0d8cf,inset 2px 2px 3px rgba(32,46,36,.18),inset -1px -1px 0 rgba(255,255,255,.75),0 4px 5px -4px rgba(32,46,36,.3);pointer-events:none}
-:is(.porte,.onglet-salle) .vignette{inset-inline-start:13%;inset-inline-end:25%;top:9%;height:56%;border:1px solid #aeb9b7;border-radius:1px;box-shadow:0 0 0 2px #fafbf6,0 0 0 3px #c4cdc7,1px 2px 4px rgba(24,42,35,.22)}
-:is(.porte,.onglet-salle) .vignette::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.2),transparent 38%,transparent 72%,rgba(255,255,255,.08));box-shadow:inset 1px 1px 3px rgba(20,38,31,.16);pointer-events:none}
-:is(.porte,.onglet-salle) .poignee{top:53%;inset-inline-end:8%;width:3.8%;height:9%;min-width:2px;min-height:0;border-radius:1.5px;background:linear-gradient(90deg,#7e898d,#e3e8e8 42%,#bfc9cd 62%,#778388);box-shadow:1px 1px 2px rgba(15,30,40,.28)}
-:is(.porte,.onglet-salle) .poignee::before{top:38%;width:175%;height:auto;aspect-ratio:1;background:radial-gradient(circle at 35% 30%,#fff 0%,#d1d9db 48%,#88969b 78%,#59686e 100%);box-shadow:0 1px 1px rgba(15,30,40,.35)}
-:is(.porte,.onglet-salle) .poignee::after{top:38%;width:310%;height:17%;min-height:1.5px;border-radius:2px;background:linear-gradient(180deg,#fff 0%,#d3dbde 35%,#a4b2b8 60%,#68787f 100%);box-shadow:0 1px 1px rgba(15,30,40,.38)}
-.onglet-salle .battant::after{box-shadow:inset 0 1px 1px rgba(32,46,36,.13),0 0 0 1px #f9fbf6}
-.onglet-salle .vignette{box-shadow:0 0 0 1px #c4cdc7,inset 0 1px 1px rgba(24,42,35,.2)}
+.porte .baie{background:linear-gradient(90deg,#d9dedc,#fafbf7 4%,#e9ede8 8%,#e9ede8 92%,#fafbf7 96%,#c7cecb);border-radius:1px;box-shadow:inset 1px 1px 0 #fff,inset -1px -1px 0 rgba(72,87,79,.24),inset 2px 2px 0 rgba(255,255,255,.5),inset -2px -2px 0 rgba(72,87,79,.1),0 0 0 1px #bdc6c4,0 1px 0 1px #fff,0 13px 20px -13px rgba(15,49,66,.5)}
 
 /* En-tête : initiales et domaines d'expertise plus lisibles. */
 .entete .marque{flex:1 1 420px;max-width:100%}
@@ -1303,11 +1245,6 @@ html.lv .hall::before,html.lv .hall::after,html.lv .portes>.porte::before{displa
   .hall-pied{margin-top:10px;font-size:12px}
   .accueil .trajectoire{grid-template-columns:repeat(2,minmax(0,1fr))}
   .accueil .trajectoire-texte,.accueil .chiffres span{overflow-wrap:anywhere}
-  .salle-onglets{gap:8px;margin-block:12px;padding-inline:var(--gouttiere)}
-  .onglet-salle{column-gap:8px;padding:8px;row-gap:3px;border-radius:6px}
-  .onglet-salle .baie.mini{width:26px}
-  .onglet-salle .onglet-num{height:20px;font-size:10.5px}
-  .onglet-titre{font-size:12.5px;line-height:1.3;overflow-wrap:break-word}
   .salle .salle-barre{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:7px;padding:10px var(--gouttiere)}
   .salle-barre #salle-titre{grid-column:1 / -1;grid-row:2;font-size:12px}
   .salle .salle-barre .salle-actions{min-width:0;gap:5px;flex-wrap:wrap;justify-content:flex-end}
@@ -1736,12 +1673,6 @@ html.lv .axes-cartes{grid-template-columns:1fr}
  .hall.en-mobile.en-marche .panneau-hall>*{opacity:.22;transition:opacity .2s}
  .hall.en-mobile.en-marche .hall-reperes,.hall.en-mobile.en-marche .hall-commandes{pointer-events:none;opacity:.4}
  html[dir=rtl] .hall.en-mobile .panneau-hall{direction:rtl}
- .salle .salle-onglets{display:flex;gap:8px;min-width:0;margin:0;padding:12px var(--gouttiere);overflow-x:auto;scroll-snap-type:x proximity;overscroll-behavior-x:contain;scrollbar-width:thin;direction:ltr}
- .salle .salle-onglets .onglet-salle{display:flex;align-items:center;gap:7px;flex:0 0 auto;min-width:0;max-width:210px;min-height:48px;padding:8px 12px;scroll-snap-align:center;border-radius:8px}
- .salle .salle-onglets .baie.mini{display:none}
- .salle .salle-onglets .onglet-num{flex:none;font-size:11px}
- .salle .salle-onglets .onglet-titre{min-width:0;font-size:12px;line-height:1.35;text-align:start}
- html[dir=rtl] .salle .onglet-salle{direction:rtl}
 }
 @media(min-width:540px) and (max-width:999px){
  .hall.en-mobile .station-hall{gap:25px;padding:30px 28px 54px;min-height:360px}
@@ -1762,8 +1693,7 @@ html.lv .axes-cartes{grid-template-columns:1fr}
 .lacune .niveau{white-space:normal;max-width:100%;overflow-wrap:anywhere}
 .chiffres>div,.chiffres span,.chiffres small{min-width:0;overflow-wrap:anywhere;hyphens:auto}
 .salle-barre>*{min-width:0}
-.salle-barre #salle-titre{overflow-wrap:anywhere;line-height:1.4}
-.salle-onglets,.rubriques,.rubrique-corps,.volet,.cadre,.ia-reperes>article{min-width:0}
+.salle-barre #salle-titre{overflow-wrap:anywhere;line-height:1.4}.rubriques,.rubrique-corps,.volet,.cadre,.ia-reperes>article{min-width:0}
 .rubriques-choix select{min-width:0;max-width:100%;width:100%}
 .ref,.references-courtes,.methode-refs,.references-transmission,.ia-references{overflow-wrap:anywhere}
 [dir=rtl] .coordonnees a[href^="mailto:"],[dir=rtl] a[href^="tel:"],[dir=rtl] .doi{direction:ltr;unicode-bidi:isolate}
@@ -2044,11 +1974,6 @@ html[dir=rtl] .bande-parcours .trajectoire{direction:rtl}
 
 /* Portes miniatures et navigation du hall. */
 @media(min-width:1000px){
- .salle .salle-onglets{display:grid;grid-template-columns:repeat(var(--colonnes,4),minmax(0,1fr));max-width:1460px;gap:10px;margin-top:12px;margin-bottom:14px}
- .salle .salle-onglets .onglet-salle{display:grid;grid-template-columns:35px minmax(0,1fr);grid-template-rows:auto auto;column-gap:12px;row-gap:3px;width:100%;min-width:0;max-width:none;min-height:81px;padding:11px 12px;border-radius:12px}
- .salle .salle-onglets .baie.mini{display:block;grid-column:1;grid-row:1/3;width:34px;align-self:center}
- .salle .salle-onglets .onglet-num{grid-column:2;grid-row:1;justify-self:start;min-width:42px;height:23px;font-size:11px}
- .salle .salle-onglets .onglet-titre{grid-column:2;grid-row:2;align-self:start;font-size:15px;line-height:1.25;font-weight:650;overflow-wrap:anywhere}
  .hall.en-volume .panneau-hall{top:30px;max-height:calc(100% - 34px)}
 }
 .hall .porte .vignette{inset-inline-start:13%;inset-inline-end:25%;top:9%;height:56%;background-position:center;background-size:cover;background-repeat:no-repeat}
@@ -2098,9 +2023,6 @@ html[dir=rtl] .bande-parcours .trajectoire{direction:rtl}
 .publication-vide{margin:0;color:var(--muted);font-size:15px;line-height:1.5}
 .publication-these-note{margin:17px 0 0;padding:14px 17px;border-inline-start:3px solid #327a66;background:#eff6f3;font-size:15px}
 .publication-these-note a{font-weight:800;color:#1c6653}
-.onglet-salle.actif:not(.ouverte) .battant{transform:rotateY(0deg)!important}
-.onglet-salle.actif:not(.ouverte):hover .battant,.onglet-salle.actif:not(.ouverte):focus-visible .battant{transform:rotateY(-25deg)!important}
-.onglet-salle .vignette{background-position:center!important;background-size:cover!important}
 @media(max-width:1150px){.pub-formats{grid-template-columns:repeat(2,minmax(0,1fr))}.pub-format{min-height:215px}.pub-format-visuel{min-height:100px}.pub-format-visuel svg{height:94px}}
 @media(max-width:760px){.pub-hero{grid-template-columns:1fr;padding:26px 23px;gap:23px}.pub-parcours{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.pub-parcours li{flex-direction:column;text-align:center;gap:7px;padding:10px 5px;font-size:10.5px}.pub-parcours b{width:28px;height:28px;font-size:10px}.pub-format strong{font-size:15.5px}.pub-format-corps{padding:13px}}
 @media(max-width:520px){.pub-formats{gap:9px}.pub-format{min-height:192px;border-radius:13px}.pub-format-visuel{min-height:79px;padding:4px}.pub-format-visuel svg{height:76px}.pub-format-corps{padding:10px;gap:6px}.pub-format strong{font-size:14.5px}.pub-format small{font-size:9px}.pub-format-bas{font-size:11px}.pub-format-bas b{font-size:15px}.pub-hero{border-radius:14px}.pub-hero h3{font-size:26px}.pub-hero p{font-size:13.5px}.publication-bloc{padding:16px 13px}}
@@ -2129,11 +2051,6 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
  .hall.en-mobile .hall-commandes>button{min-width:46px;min-height:46px;box-shadow:0 3px 10px rgba(23,63,82,.09)}
  .hall.en-mobile .hall-commandes>button:disabled{opacity:.32;cursor:default;box-shadow:none}
  .salle .salle-barre{z-index:12;gap:10px;padding-block:10px;box-shadow:0 4px 13px rgba(23,63,82,.07)}
- .salle .salle-onglets{position:sticky;top:var(--salle-barre-hauteur,78px);z-index:11;gap:9px;padding-block:10px;background:rgba(248,251,250,.98);border-bottom:1px solid #d9e5e2;box-shadow:0 5px 12px -11px #173f52;scroll-snap-type:x proximity;scrollbar-width:none;-webkit-overflow-scrolling:touch}
- .salle .salle-onglets::-webkit-scrollbar{display:none}
- .salle .salle-onglets .onglet-salle{flex:0 0 auto;max-width:220px;min-height:52px;padding:9px 13px;border-radius:11px;scroll-snap-align:center;touch-action:manipulation}
- .salle .salle-onglets .onglet-titre{font-size:13px;font-weight:690;line-height:1.3}
- .salle .salle-onglets .onglet-num{font-size:11.5px}
  .salle-contenu .section-corps{padding-top:31px}
  .rubriques[data-navigation=atelier] .rubriques-nav{scroll-padding-inline:10px;-webkit-overflow-scrolling:touch}
  .rubriques[data-navigation=atelier] .rubriques-nav button{min-height:65px;scroll-snap-align:start;touch-action:manipulation}
@@ -2175,8 +2092,6 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
  .salle .salle-barre .salle-actions{grid-column:2;grid-row:1;display:flex;justify-content:flex-end;gap:6px;align-items:center;flex-wrap:nowrap}
  .salle .salle-barre .salle-actions button{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:8px;border:1px solid #cbdad5;border-radius:10px;background:#fff;font-size:12px;line-height:1.2;font-weight:700;text-align:center}
  .salle .salle-barre .salle-actions button[data-suivante],.salle .salle-barre .salle-actions button[data-contact]{max-width:112px;white-space:normal}
- .salle .salle-onglets .onglet-salle{max-width:190px;padding-inline:10px}
- .salle .salle-onglets .onglet-titre{font-size:12.5px}
  .salle-contenu .section-corps{padding:27px var(--gouttiere) 42px}
  .section h2,.salle h2{font-size:clamp(28px,8vw,37px)}
  .intro{font-size:15px;line-height:1.7}
@@ -2230,9 +2145,8 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
  .pub-hero{padding:20px 16px}
  .pub-kicker{font-size:10px;letter-spacing:.09em}
 }
-@media(max-height:530px) and (max-width:999px){.salle .salle-onglets{position:relative;top:auto}}
 @media(hover:none) and (pointer:coarse){.pub-format:hover,.pub-format:hover svg{transform:none}}
-@media(prefers-reduced-motion:reduce){.salle .salle-onglets,.hall.en-mobile .hall-reperes,.entete .nav{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){.hall.en-mobile .hall-reperes,.entete .nav{scroll-behavior:auto}}
 
 /* Hall panoramique : dimensions. */
 @media(min-width:1000px){
@@ -2576,8 +2490,7 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
 .hall .hall-reperes>button span,
 .hall.en-mobile .panneau-hall h3 button,
 .hall.en-mobile .sous-portes-murales>button,
-.hall.en-mobile .sous-portes-murales>a,
-.salle .salle-onglets .onglet-titre{
+.hall.en-mobile .sous-portes-murales>a{
   overflow-wrap:normal;
   word-break:normal;
   hyphens:none;
@@ -5793,89 +5706,11 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
 }
 
 
-/* Navigation des salles : bandeau compact, lecture sans obstruction (2026-10-18). */
+
 /* Les accès directs restent tous présents au début de la salle,
    mais ne recouvrent plus les chapitres pendant le défilement. */
 .salle .salle-barre{
   padding-block:7px;
-}
-.salle .salle-onglets{
-  position:relative;
-  top:auto;
-  z-index:auto;
-  box-sizing:border-box;
-  width:100%;
-  max-width:none;
-  margin:0;
-  padding:8px clamp(14px,2.1vw,32px) 10px;
-  gap:8px;
-  border-bottom:1px solid #d9e5e2;
-  background:#f8fbfb;
-  box-shadow:none;
-}
-@media(min-width:1000px){
-  .salle .salle-onglets{
-    display:grid;
-    grid-template-columns:repeat(var(--colonnes,4),minmax(0,1fr));
-  }
-  /* Les six accès tiennent sur une ligne; les autres salles gardent leur nombre de colonnes. */
-  .salle .salle-onglets:has(> .onglet-salle:nth-child(6)){
-    grid-template-columns:repeat(6,minmax(0,1fr));
-  }
-  .salle .salle-onglets .onglet-salle{
-    display:flex;
-    flex:initial;
-    align-items:center;
-    gap:9px;
-    width:100%;
-    min-width:0;
-    max-width:none;
-    min-height:54px;
-    padding:7px 10px;
-    border-radius:11px;
-    text-align:start;
-  }
-  .salle .salle-onglets .baie.mini{
-    display:block;
-    flex:0 0 30px;
-    width:30px;
-    grid-column:auto;
-    grid-row:auto;
-  }
-  .salle .salle-onglets .onglet-num{
-    display:none;
-  }
-  .salle .salle-onglets .onglet-titre{
-    min-width:0;
-    grid-column:auto;
-    grid-row:auto;
-    align-self:center;
-    font-size:13px;
-    font-weight:680;
-    line-height:1.25;
-    overflow-wrap:normal;
-    hyphens:none;
-  }
-}
-@media(max-width:999px){
-  .salle .salle-onglets{
-    display:flex;
-    overflow-x:auto;
-    overscroll-behavior-x:contain;
-    padding:7px var(--gouttiere) 9px;
-    scroll-snap-type:x proximity;
-  }
-  .salle .salle-onglets .onglet-salle{
-    flex:0 0 auto;
-    max-width:190px;
-    min-height:44px;
-    padding:7px 11px;
-    gap:7px;
-  }
-  .salle .salle-onglets .onglet-titre{
-    font-size:12px;
-    line-height:1.25;
-  }
 }
 
 /* Le fil de la thèse : centrage fiable des numéros O1, O2 et O3 dans les cercles. */
@@ -5993,110 +5828,6 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
   font-size:13px;
 }
 .salle .salle-barre .salle-actions{gap:8px}
-.salle .salle-onglets{
-  align-items:stretch;
-  gap:0;
-  padding:0 clamp(14px,2.1vw,32px);
-  border-top:1px solid #e5eded;
-  border-bottom:1px solid #dce6e7;
-  background:#fbfdfc;
-  box-shadow:none;
-}
-.salle .salle-onglets .onglet-salle{
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;
-  flex-direction:row;
-  gap:8px;
-  min-width:0;
-  min-height:46px;
-  max-width:none;
-  padding:8px 12px;
-  border:0;
-  border-bottom:2px solid transparent;
-  border-radius:0;
-  background:transparent;
-  color:#274c5b;
-  box-shadow:none;
-  transform:none;
-  transition:background-color .15s,border-color .15s,color .15s;
-}
-.salle .salle-onglets .onglet-salle:hover,
-.salle .salle-onglets .onglet-salle:focus-visible{
-  background:#f0f5f4;
-  color:#133e53;
-  box-shadow:none;
-  transform:none;
-}
-.salle .salle-onglets .onglet-salle.actif{
-  border-color:var(--c1,var(--ink));
-  background:#eaf2f2;
-  color:#173f52;
-  box-shadow:none;
-}
-.salle .salle-onglets .onglet-salle.actif:hover{background:#e4eeee}
-.salle .salle-onglets .baie.mini{display:none}
-.salle .salle-onglets .onglet-num,
-.salle .salle-onglets .onglet-salle.actif .onglet-num{
-  display:inline;
-  flex:none;
-  align-self:center;
-  grid-column:auto;
-  grid-row:auto;
-  justify-self:auto;
-  width:auto;
-  min-width:0;
-  height:auto;
-  padding:0;
-  border:0;
-  border-radius:0;
-  background:none;
-  color:#6c838b;
-  font:600 10px/1.2 var(--sans,Arial,sans-serif);
-  font-variant-numeric:tabular-nums;
-}
-.salle .salle-onglets .onglet-salle.actif .onglet-num{color:#365e6b}
-.salle .salle-onglets .onglet-titre{
-  min-width:0;
-  align-self:center;
-  grid-column:auto;
-  grid-row:auto;
-  font-size:13px;
-  line-height:1.25;
-  font-weight:620;
-  hyphens:none;
-  overflow-wrap:normal;
-  word-break:normal;
-}
-@media(min-width:1000px){
-  .salle .salle-onglets{display:grid}
-  .salle .salle-onglets .onglet-salle{
-    display:flex;
-    min-height:46px;
-    padding:8px 11px;
-  }
-  .salle .salle-onglets .baie.mini{display:none}
-  .salle .salle-onglets .onglet-num{display:inline}
-  .salle .salle-onglets .onglet-titre{font-size:13px}
-}
-@media(max-width:999px){
-  .salle .salle-onglets{
-    display:flex;
-    gap:0;
-    padding:0 var(--gouttiere);
-    overflow-x:auto;
-  }
-  .salle .salle-onglets .onglet-salle{
-    display:flex;
-    flex:0 0 auto;
-    width:auto;
-    max-width:218px;
-    min-height:44px;
-    padding:8px 12px;
-    gap:7px;
-  }
-  .salle .salle-onglets .onglet-titre{font-size:12px}
-}
 @media(max-width:700px){
   .salle .salle-barre{padding-block:7px}
   .salle .salle-barre #salle-titre{font-size:12px}
