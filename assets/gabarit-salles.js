@@ -1807,12 +1807,18 @@
         '.these .precision-parcours{background:color-mix(in srgb,var(--precision) 8%,white);border-left:3px solid var(--precision);border-radius:0 9px 9px 0;padding:13px 17px;color:#244b5b;font:650 13.3px/1.75 var(--sans);margin:17px 0;text-align:left}',
         '.these .precision-parcours strong{color:var(--precision)}',
         '.these .precision-table a:focus-visible,.these .precision-inventaire:focus-visible{outline:3px solid var(--precision);outline-offset:3px}',
+        '#methode-o2-4 .precision-protocole-o2{display:block;width:100%;max-width:100%;min-width:0;margin:0!important;padding:20px 0 0!important;border:0!important;border-top:1px solid #d6e2e6!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;grid-column:1/-1;color:#294657}',
+        '#methode-o2-4 .precision-protocole-o2 .precision-titre{margin:0 0 14px!important;padding:0!important;color:#496475!important;font-size:12px!important;font-weight:750!important;line-height:1.5!important;letter-spacing:.055em!important;text-transform:uppercase!important;text-align:left!important}',
+        '#methode-o2-4 .precision-protocole-o2 .precision-reperes{margin:0 0 16px!important;gap:8px}',
+        '#methode-o2-4 .precision-protocole-o2 .precision-reperes span{background:#f1f8f8;color:#255c64;border-color:#d7e6e8}',
+        '#methode-o2-4 .precision-protocole-o2 .precision-table-scroll{max-width:100%;min-width:0}',
+        '#methode-o2-4 .precision-protocole-o2 .precision-note{margin:15px 0 9px!important;text-align:justify!important}',
         '@media(max-width:800px){.these .precision-cartes{grid-template-columns:1fr}.these .precision-carte{padding:15px}}',
         'html.hc .these .precision-protocole,html.lv .these .precision-protocole{background:#fff;border-width:2px}'
       ].join("\n");
       D.head.append(feuille);
     }
-    if (cibleO2 && !cibleO2.parentElement.querySelector(".precision-protocole")) {
+    if (cibleO2 && !cibleO2.querySelector(".precision-protocole-o2")) {
       const sources = [
         ["Statistique Canada","Profil du Recensement 2021 ; population, âge, logement et aires de diffusion","Quinquennale · millésime 2021","https://www150.statcan.gc.ca/n1/fr/catalogue/98-401-X2021006"],
         ["MSSS · ISQ","Estimations et projections de population par territoire sociosanitaire","Révisions selon publication institutionnelle · fichier d’août 2025","https://www.quebec.ca/sante/systeme-et-services-de-sante/organisation-des-services/donnees-systeme-sante-quebecois-services/donnees-population-territoire-sociosanitaire"],
@@ -1826,19 +1832,17 @@
         ["INSPQ","Indice de défavorisation matérielle et sociale","Quinquennale · version du recensement 2021","https://www.donneesquebec.ca/recherche/dataset/indice-de-defavorisation-du-quebec-2021"]
       ];
       const bloc = D.createElement("section");
-      bloc.className = "precision-protocole";
-      bloc.setAttribute("aria-label","O2 : sources de données, périodicité et accès");
+      bloc.className = "precision-protocole precision-protocole-o2";
+      bloc.setAttribute("aria-label","Sources de données : provenance, actualisation et accès");
       bloc.innerHTML =
-        '<p class="precision-kicker">Objectif 2 · Traçabilité des données</p>' +
-        '<p class="precision-titre">Banques mobilisées, rythme de publication et liens d’accès</p>' +
-        '<p class="precision-intro">Le mapping spatial croise des sources de natures différentes : populations et facteurs de besoins, découpages territoriaux, offre de services, demandes adressées au 211 et réseau de déplacements. Les principaux producteurs et le rythme de publication de chaque famille de données sont détaillés ci-dessous.</p>' +
+        '<p class="precision-titre">Sources mobilisées · publication et accès</p>' +
         '<div class="precision-reperes"><span>55 fichiers documentés</span><span>10 familles de sources</span><span>Millésimes distincts</span></div>' +
         '<div class="precision-table-scroll" role="region" tabindex="0" aria-label="Tableau défilant des banques de données O2"><table class="precision-table"><thead><tr><th scope="col">Producteur</th><th scope="col">Données utilisées</th><th scope="col">Publication / actualisation</th><th scope="col">Accès</th></tr></thead><tbody>' +
         sources.map(function(s){return '<tr><th scope="row">'+s[0]+'</th><td>'+s[1]+'</td><td>'+s[2]+'</td><td><a href="'+s[3]+'" target="_blank" rel="noopener noreferrer" aria-label="Accéder à la source '+s[0]+'">Source ↗</a></td></tr>';}).join("") +
         '</tbody></table></div>' +
         '<p class="precision-note">Une fréquence de publication ne correspond pas à la date d’extraction dans le projet. Lorsque les fichiers sont actualisés de façon variable, la date propre à chaque jeu est vérifiée et conservée. Les agrégats du 211 ne sont pas assimilés à des parcours individuels du SAD.</p>' +
         '<a class="precision-inventaire" href="docs/sources-mapping-o2.csv" target="_blank" rel="noopener noreferrer">Inventaire détaillé et provenance des 55 fichiers ↗</a>';
-      cibleO2.insertAdjacentElement("afterend",bloc);
+      (cibleO2.querySelector(".o2-sources-modernes") || cibleO2).append(bloc);
     }
     if (cibleO3 && !cibleO3.parentElement.querySelector(".precision-protocole")) {
       const bloc = D.createElement("section");
