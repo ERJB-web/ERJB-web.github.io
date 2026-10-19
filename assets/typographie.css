@@ -68,6 +68,18 @@ html body .rs-page .rs-card-category{font-weight:550}
 html body .rs-page .representation-date .date{text-align:start!important;hyphens:none!important}
 html body :is(nav,[role="navigation"],button,[role="button"],.gab-menu-gauche,.gab-sommaire-chapitre) :is(p,li,dt,dd){text-align:start!important;text-align-last:auto!important;hyphens:none!important}
 
+/* Sommaire méthodologique : alignement naturel des intitulés, sans espaces étirés.
+   Les numéros restent dans leur colonne et les autres menus sont inchangés. */
+html body .gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre a.gab-sommaire-etape,
+html body .gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre a.gab-sommaire-etape .gab-sommaire-etape-texte {
+  text-align:start!important;
+  text-align-last:start!important;
+  text-justify:none!important;
+  word-spacing:normal!important;
+  hyphens:none!important;
+}
+
+
 /* Page « Capacités de gestion » : densité éditoriale d'un tableau de direction.
    Exception limitée au mode standard ; les options d'accessibilité conservent
    les dimensions communes et l'agrandissement demandé. */
