@@ -1738,3 +1738,52 @@ html.hc .gab.gab-continu .vision{background:#fff;color:#000;border-color:#000}
 .gab.gab-continu .continu-aside{top:calc(var(--salle-barre-hauteur,130px) + 18px)}
 #salle .gab.gab-continu .continu-texte :is(p,h2,h3,h4),.gab.gab-continu .continu-texte :is(p,h2,h3,h4){text-align:start!important;text-align-last:auto!important;text-justify:none!important;word-spacing:normal}
 @media(max-width:979px){.gab.gab-continu .continu-aside{position:static}}
+
+/* Navigation globale : chapitre actif centré entre précédent et suivant — 2026-10-18. */
+/* Navigation du haut, commune à toutes les salles. Aucun lien ou bouton n'est supprimé. */
+.gab-barre .gab-lecture{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,max-content) minmax(0,1fr) minmax(0,1fr);
+  align-items:center;column-gap:clamp(7px,1vw,13px);
+  row-gap:7px;min-width:0;width:100%;box-sizing:border-box;
+}
+.salle.gab-salle.gab-continu-active .gab-lecture-continue{display:grid!important}
+.gab-barre .gab-lecture > .gab-tous{grid-column:1;grid-row:1;justify-self:start;min-width:0;max-width:100%}
+.gab-barre .gab-lecture > .gab-fleche-precedente{grid-column:2;grid-row:1;justify-self:start}
+.gab-barre .gab-lecture > .gab-actuel{
+  grid-column:3;grid-row:1;justify-self:center;justify-content:center;flex:none;
+  width:max-content;max-width:min(32vw,400px);min-width:0;margin:0;
+}
+.gab-barre .gab-lecture > .gab-fleche-suivante{grid-column:4;grid-row:1;justify-self:end}
+.gab-barre .gab-lecture > .gab-segments{grid-column:5;grid-row:1;justify-self:end;min-width:0;max-width:100%}
+.gab-barre .gab-lecture > :is(.gab-fleche-precedente,.gab-fleche-suivante){
+  width:100%;max-width:255px;min-width:0;box-sizing:border-box;
+}
+.gab-barre .gab-lecture .gab-actuel > span{min-width:0}
+.gab-barre .gab-lecture .gab-actuel :is(small,strong){overflow:hidden;text-overflow:ellipsis}
+@media(max-width:1200px){
+  .gab-barre .gab-lecture{
+    grid-template-columns:minmax(0,1fr) minmax(0,1.12fr) minmax(0,1fr);
+  }
+  .gab-barre .gab-lecture > .gab-fleche-precedente{grid-column:1;grid-row:1;justify-self:start}
+  .gab-barre .gab-lecture > .gab-actuel{grid-column:2;grid-row:1;max-width:100%}
+  .gab-barre .gab-lecture > .gab-fleche-suivante{grid-column:3;grid-row:1;justify-self:end}
+  .gab-barre .gab-lecture > .gab-tous{grid-column:1 / 3;grid-row:2;justify-self:start}
+  .gab-barre .gab-lecture > .gab-segments{grid-column:3;grid-row:2;justify-self:end}
+  .salle.gab-lit.gab-avec-chapitres .gab-lecture{max-height:155px}
+}
+@media(max-width:700px){
+  .gab-barre .gab-lecture{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr) minmax(0,1fr);gap:6px}
+  .gab-barre .gab-lecture > .gab-actuel{gap:7px;min-width:0}
+  .gab-barre .gab-lecture .gab-actuel b{width:34px;height:38px;font-size:16px}
+  .gab-barre .gab-lecture .gab-actuel small{font-size:10px;letter-spacing:.02em}
+  .gab-barre .gab-lecture .gab-actuel strong{font-size:13px;line-height:1.25}
+  .gab-barre .gab-lecture > :is(.gab-fleche-precedente,.gab-fleche-suivante){
+    flex:none;min-width:0;max-width:100%;height:auto;min-height:44px;
+  }
+  .gab-barre .gab-lecture .gab-fleche-texte{font-size:11px}
+  .gab-barre .gab-lecture .gab-fleche-cible{font-size:10px}
+  .gab-barre .gab-lecture > .gab-tous{grid-column:1 / 4;grid-row:2;justify-self:center}
+  .gab-barre .gab-lecture > .gab-segments{display:none}
+  .salle.gab-lit.gab-avec-chapitres .gab-lecture{max-height:155px}
+}
