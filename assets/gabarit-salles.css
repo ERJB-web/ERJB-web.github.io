@@ -31,10 +31,10 @@
 .ds-medal{width:120px;align-self:center;margin:12px 0 0;color:#b18a34;opacity:.8}.ds-medal svg{width:100%;display:block}
 @media(max-width:900px){.gab.gab-engagements .engagements-loisirs .engagements-galerie{grid-template-columns:repeat(2,minmax(0,1fr))!important}.gab.gab-engagements .engagements-loisirs .loisir,.gab.gab-engagements .engagements-loisirs .loisir:nth-child(2){grid-column:span 1}.gab.gab-engagements .engagements-loisirs .loisir:first-child{grid-column:1/-1}.gab.gab-engagements .engagements-loisirs .loisir:nth-child(2)>img{height:230px!important}}
 @media(max-width:650px){.gab.gab-engagements .engagements-loisirs .engagements-galerie{grid-template-columns:minmax(0,1fr)!important}.gab.gab-engagements .engagements-loisirs .loisir:first-child{grid-column:auto}.gab.gab-engagements .engagements-loisirs .loisir:first-child>img{height:240px!important}.gab.gab-engagements .ds-page .ds-list{grid-template-columns:1fr}.gab.gab-engagements .ds-page .ds-award-0{grid-row:auto}.gab.gab-engagements .ds-page .ds-award-3{grid-column:auto;display:flex}.gab.gab-engagements .ds-page .ds-award{padding:24px}.ds-medal{width:86px}}
-.gab.gab-cv-direct .gab-chapitre-aside,.gab.gab-cv-direct .gab-bas-chapitre,.gab.gab-cv-direct .gab-chapitre-tete,.gab.gab-cv-direct .gab-programme{display:none!important}
+.gab.gab-cv-direct .gab-chapitre-aside,.gab.gab-cv-direct:not(.gab-rubrique-complete) .gab-bas-chapitre,.gab.gab-cv-direct .gab-chapitre-tete,.gab.gab-cv-direct .gab-programme{display:none!important}
 .gab.gab-cv-direct .gab-chapitre-grille{display:block!important}
 .gab.gab-cv-direct .gab-chapitre-texte{width:100%;min-width:0}
-.salle:has(.salle-contenu .gab-cv-direct) .gab-lecture{display:none!important}
+.salle:has(.salle-contenu .gab-cv-direct:not(.gab-rubrique-complete)) .gab-lecture{display:none!important}
 .salle:has(.salle-contenu .gab-cv-direct) .gab-barre .salle-onglets:not([hidden]){display:flex!important;max-height:80px!important;overflow-x:auto;overflow-y:hidden;gap:8px;padding:6px 0;scrollbar-width:thin}
 .salle:has(.salle-contenu .gab-cv-direct) .gab-barre .salle-onglets .onglet-salle{flex:1 0 auto!important;width:auto!important;max-width:none!important;min-height:48px!important;padding:6px 12px!important}
 .salle:has(.salle-contenu .gab-cv-direct) .gab-barre .onglet-salle .gab-onglet-photo{width:30px;height:30px}
@@ -833,7 +833,7 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
    une page de sommaire, puis un seul chapitre visible à la fois. */
 .gab.gab-page-sommaire .gab-chapitres,
 .gab.gab-page-sommaire .gab-chapitre,
-.gab.gab-page-chapitre .gab-chapitre:not(.gab-page-active) {
+.gab.gab-page-chapitre:not(.gab-rubrique-complete) .gab-chapitre:not(.gab-page-active) {
   display:none!important;
 }
 .gab.gab-page-chapitre > .gab-bandeau,

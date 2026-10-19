@@ -1364,19 +1364,72 @@
   const nomChapitre = (chapitre) => chapitre
     ? net($(".gab-chapitre-titre", chapitre)?.textContent) || net(chapitre.dataset.gabTitre)
     : "";
+  const navigationParPorte = (zone) => ["engagements", "ressources", "parcours"].includes(porteDe(zone.dataset.gabSalle)?.dataset.salle);
+  function chapitresDeLaPorte(zone) {
+    const salles = (porteDe(zone.dataset.gabSalle)?.dataset.sections || "").split(/\s+/).filter(Boolean);
+    return salles.flatMap((nom) => {
+      const section = $$("section.section[data-salle]").find((s) => s.dataset.salle === nom);
+      const source = nom === zone.dataset.gabSalle ? zone : section && $(".section-contenu.gab", section);
+      const chapitre = source && chapitresDe(source)[0];
+      return chapitre ? [{ zone: source, chapitre, index: 0, externe: source !== zone, titre: section.dataset.titre }] : [];
+    });
+  }
+  function positionDansPorte(zone, chapitre) {
+    if (!navigationParPorte(zone)) return { index: chapitresDe(zone).indexOf(chapitre), total: chapitresDe(zone).length };
+    const liste = chapitresDeLaPorte(zone);
+    const index = liste.findIndex((c) => c.zone === zone);
+    return { index: index < 0 ? chapitresDe(zone).indexOf(chapitre) : index, total: liste.length || chapitresDe(zone).length };
+  }
+  // Ces trois portes ont pour chapitres les rubriques du panneau du hall.
+  // Recherche et Savoirs en action conservent leur découpage interne.
+  function chapitreVoisin(zone, liste, index, sens) {
+    if (navigationParPorte(zone)) {
+      const chapitres = chapitresDeLaPorte(zone);
+      return chapitres[chapitres.findIndex((c) => c.zone === zone) + sens] || null;
+    }
+    const chapitre = liste[index + sens];
+    return chapitre ? { zone, chapitre, index: index + sens, externe: false } : null;
+  }
+  function ouvrirDestinationChapitre(destination) {
+    if (destination.externe) location.hash = "#" + destination.zone.dataset.gabSalle + "/" + destination.chapitre.dataset.gabSlug;
+    else ouvrirPageChapitre(destination.zone, destination.index, { adresse: true, haut: true });
+  }
+  function sommaireDeLaPorte(zone) {
+    const programme = el("nav", "gab-programme gab-programme-porte");
+    programme.setAttribute("aria-label", T.tous);
+    programme.style.setProperty("--gab-colonnes", 3);
+    programme.innerHTML = '<div class="gab-programme-tete"><h2>' + echapper(T.tous) + '</h2></div><div class="gab-tuiles"></div>';
+    const tuiles = $(".gab-tuiles", programme);
+    chapitresDeLaPorte(zone).forEach((destination, i) => {
+      const tuile = $(".gab-tuile", destination.zone)?.cloneNode(true) || el("a", "gab-tuile");
+      tuile.removeAttribute("data-gab-aller");
+      tuile.className = "gab-tuile";
+      tuile.href = "#" + destination.zone.dataset.gabSalle + "/" + destination.chapitre.dataset.gabSlug;
+      tuile.innerHTML = '<span class="gab-tuile-num">' + deux(i + 1) + '</span><span class="gab-tuile-titre">' + echapper(destination.titre) + '</span>';
+      tuile.setAttribute("aria-label", T.aller(destination.titre));
+      tuile.addEventListener("click", (ev) => { ev.preventDefault(); programme.remove(); zone.hidden = false; ouvrirDestinationChapitre(destination); });
+      tuiles.append(tuile);
+    });
+    zone.hidden = true;
+    zone.before(programme);
+    salle.scrollTo({ top: 0, behavior: "instant" });
+  }
   function nommerChapitresVoisins(zone, liste, index) {
     const actif = liste[index];
     if (!actif) return;
-    const navigations = [$(".gab-bas-chapitre", actif)];
+    const navigations = navigationParPorte(zone)
+      ? liste.map((chapitre) => $(".gab-bas-chapitre", chapitre))
+      : [$(".gab-bas-chapitre", actif)];
     if (lecture && contenu && $(".gab", contenu) === zone) navigations.push(lecture);
     navigations.filter(Boolean).forEach((nav) => {
       [-1, 1].forEach((sens) => {
         const bouton = $("[data-gab-pas='" + sens + "']", nav);
         if (!bouton) return;
-        const voisin = liste[index + sens];
+        const dansPorte = navigationParPorte(zone);
+        const voisin = chapitreVoisin(zone, liste, index, sens);
         const action = sens < 0 ? T.precedent : T.suivant;
-        const titre = nomChapitre(voisin);
-        const destination = voisin ? deux(index + sens + 1) + " · " + titre : "";
+        const titre = dansPorte ? voisin?.titre : nomChapitre(voisin?.chapitre);
+        const destination = voisin ? deux((dansPorte ? positionDansPorte(voisin.zone, voisin.chapitre).index : voisin.index) + 1) + " · " + titre : "";
         bouton.disabled = !voisin;
         const cible = $(".gab-nav-cible, .gab-fleche-cible", bouton);
         if (cible) cible.textContent = destination;
@@ -1405,15 +1458,28 @@
 
   function ouvrirPageChapitre(zone, index, options = {}) {
     if (!zone) return;
+    zone.hidden = false;
+    $(".gab-programme-porte", zone.parentElement)?.remove();
     const liste = chapitresDe(zone);
     if (!liste.length) return;
     const cible = index >= 0 && index < liste.length ? index : -1;
     const ouverte = cible >= 0;
+    zone.classList.toggle("gab-rubrique-complete", navigationParPorte(zone));
     liste.forEach((chapitre, i) => {
-      const visible = ouverte && i === cible;
+      const visible = ouverte && (navigationParPorte(zone) || i === cible);
       chapitre.hidden = !visible;
       chapitre.inert = !visible;
-      chapitre.classList.toggle("gab-page-active", visible);
+      chapitre.classList.toggle("gab-page-active", ouverte && i === cible);
+      if (navigationParPorte(zone)) {
+        // Tout le contenu de la rubrique se lit dans le même chapitre.
+        // Une seule navigation de fin, après la dernière subdivision.
+        const bas = $(".gab-bas-chapitre", chapitre);
+        if (bas) bas.hidden = i < liste.length - 1;
+        if (i === 0) {
+          const numero = $(".gab-chapitre-num b", chapitre);
+          if (numero) numero.textContent = deux(positionDansPorte(zone, chapitre).index + 1);
+        }
+      }
     });
     zone.classList.toggle("gab-page-chapitre", ouverte);
     zone.classList.toggle("gab-page-sommaire", !ouverte);
@@ -1425,8 +1491,6 @@
     if (lecture && zone === $(".gab", contenu)) {
       if (ouverte) {
         marquer(cible);
-        $$("[data-gab-pas='-1']", lecture).forEach((bouton) => { bouton.disabled = cible === 0; });
-        $$("[data-gab-pas='1']", lecture).forEach((bouton) => { bouton.disabled = cible === liste.length - 1; });
       }
       salle.classList.toggle("gab-page-chapitre", ouverte);
       salle.classList.toggle("gab-lit", ouverte);
@@ -1493,13 +1557,23 @@
     if (pas) {
       const zone = pas.closest(".gab") || (contenu && $(".gab", contenu));
       if (!zone) return;
-      if (pas.dataset.gabPas === "tous") ouvrirPageChapitre(zone, -1, { adresse: true, haut: true });
+      if (pas.dataset.gabPas === "tous") {
+        if (navigationParPorte(zone)) { if (!$(".gab-programme-porte", zone.parentElement)) sommaireDeLaPorte(zone); }
+        else ouvrirPageChapitre(zone, -1, { adresse: true, haut: true });
+      }
       else {
         const liste = chapitresDe(zone);
         const actuel = liste.findIndex((chapitre) => !chapitre.hidden);
         if (actuel >= 0) {
-          const cible = Math.max(0, Math.min(liste.length - 1, actuel + Number(pas.dataset.gabPas)));
-          ouvrirPageChapitre(zone, cible, { adresse: true, haut: true });
+          const sens = Number(pas.dataset.gabPas);
+          if (sens !== -1 && sens !== 1) return;
+          const voisin = chapitreVoisin(zone, liste, actuel, sens);
+          if (!voisin) return;
+          if (voisin.externe) {
+            // Le routeur existant ouvre la rubrique et restaure le chapitre
+            // explicite, y compris au retour arrière et au rechargement.
+            location.hash = "#" + voisin.zone.dataset.gabSalle + "/" + voisin.chapitre.dataset.gabSlug;
+          } else ouvrirPageChapitre(zone, voisin.index, { adresse: true, haut: true });
         }
       }
     }
@@ -1560,10 +1634,11 @@
     const titre = nomChapitre(ch);
     const couleur = ch.style.getPropertyValue("--gab-c");
     lecture.style.setProperty("--gab-c", couleur);
-    $(".gab-actuel b", lecture).textContent = deux(courant + 1);
-    $(".gab-actuel small", lecture).textContent = T.chapitre(courant + 1, liste.length);
-    $(".gab-actuel strong", lecture).textContent = titre;
-    $$(".gab-segments button", lecture).forEach((s, k) => { s.classList.toggle("lu", k < courant); s.setAttribute("aria-current", k === courant); });
+    const position = positionDansPorte(zone, ch);
+    $(".gab-actuel b", lecture).textContent = deux(position.index + 1);
+    $(".gab-actuel small", lecture).textContent = T.chapitre(position.index + 1, position.total);
+    $(".gab-actuel strong", lecture).textContent = (navigationParPorte(zone) && chapitresDeLaPorte(zone).find((c) => c.zone === zone)?.titre) || titre;
+    $$(".gab-segments button", lecture).forEach((s, k) => { s.classList.toggle("lu", k < (navigationParPorte(zone) ? position.index : courant)); s.setAttribute("aria-current", k === (navigationParPorte(zone) ? position.index : courant)); });
   }
 
   function suivreDefilement() {
@@ -1584,6 +1659,7 @@
 
   function activerSalle() {
     if (!contenu) return;
+    if ($(".gab-programme-porte", contenu)) return;
     const zone = $(".section-contenu", contenu);
     if (!zone) return;
     if (!zone.classList.contains("gab")) transformer(zone);
@@ -1600,8 +1676,9 @@
     const liste = chapitresDe(zone);
     salle.classList.toggle("gab-avec-chapitres", liste.length >= 1);
     if (lecture) {
-      $(".gab-segments", lecture).innerHTML = liste.map((c, k) => `<button type="button" style="--gab-c:${c.style.getPropertyValue("--gab-c")}" data-gab-segment="${k}" aria-label="${echapper(T.aller(nomChapitre(c)))}"></button>`).join("");
-      $$(".gab-segments button", lecture).forEach((b) => b.addEventListener("click", () => ouvrirPageChapitre(zone, +b.dataset.gabSegment, { adresse: true, haut: true })));
+      const destinations = navigationParPorte(zone) ? chapitresDeLaPorte(zone) : liste.map((chapitre, index) => ({ zone, chapitre, index, externe: false, titre: nomChapitre(chapitre) }));
+      $(".gab-segments", lecture).innerHTML = destinations.map((c, k) => '<button type="button" style="--gab-c:' + c.chapitre.style.getPropertyValue("--gab-c") + '" data-gab-segment="' + k + '" aria-label="' + echapper(T.aller(c.titre)) + '"></button>').join("");
+      $$(".gab-segments button", lecture).forEach((b) => b.addEventListener("click", () => ouvrirDestinationChapitre(destinations[+b.dataset.gabSegment])));
     }
     // La salle présente une page de chapitre à la fois. Sans fragment
     // précis, commencer par le premier chapitre, les autres restant masqués.
