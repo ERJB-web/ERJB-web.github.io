@@ -120,8 +120,9 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 .gab-chapitre-grille{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:56px;align-items:start}
 .gab-chapitre-texte{min-width:0}
 .gab-chapitre-tete{margin:0 0 22px}
-.gab-chapitre-num{display:inline-flex;align-items:center;gap:14px;font:700 14px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gab-c,var(--gab-bleu))}
-.gab-chapitre-num b{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;font:400 22px var(--serif);letter-spacing:0;color:#fff;background:var(--gab-c,var(--gab-bleu));box-shadow:0 14px 26px -14px var(--gab-c,var(--gab-bleu))}
+.gab-chapitre-num{display:flex;align-items:center;gap:16px;min-width:0;font:750 clamp(22px,2.3vw,30px)/1.23 var(--sans);letter-spacing:.07em;text-transform:uppercase;color:var(--gab-c,var(--gab-bleu));text-align:left;text-align-last:left;word-spacing:normal;white-space:normal}
+.gab-chapitre-num>span{min-width:0}
+.gab-chapitre-num b{display:grid;place-items:center;flex:0 0 64px;width:64px;height:64px;border-radius:18px;font:400 22px var(--serif);letter-spacing:0;color:#fff;background:var(--gab-c,var(--gab-bleu));box-shadow:0 14px 26px -14px var(--gab-c,var(--gab-bleu))}
 .gab .gab-chapitre-titre{margin:16px 0 0!important;font:400 clamp(30px,3vw,42px)/1.15 var(--serif)!important;color:var(--gab-marine)!important;letter-spacing:-.01em;text-transform:none!important;max-width:none!important}
 .gab-chapitre-aside{position:sticky;top:calc(var(--salle-barre-hauteur,90px) + 24px);display:grid;gap:18px}
 .gab-photo{margin:0}
@@ -1793,4 +1794,10 @@ html.hc .gab.gab-continu .vision{background:#fff;color:#000;border-color:#000}
   .gab-barre .gab-lecture > .gab-tous{grid-column:1 / 4;grid-row:2;justify-self:center}
   .gab-barre .gab-lecture > .gab-segments{display:none}
   .salle.gab-lit.gab-avec-chapitres .gab-lecture{max-height:155px}
+}
+
+/* Titres de chapitre unifiés : conservation de l'alignement horizontal sur mobile. */
+@media(max-width:700px){
+  .gab .gab-chapitre-tete .gab-chapitre-num{font-size:clamp(17px,4vw,22px);gap:11px;letter-spacing:.035em}
+  .gab .gab-chapitre-tete .gab-chapitre-num b{flex-basis:48px;width:48px;height:48px;border-radius:14px;font-size:19px}
 }
