@@ -958,7 +958,10 @@
         lectureSimplifiee ? "← Revenir à la version scientifique" : "Consulter la version vulgarisée →");
       lienLecture.href = lectureSimplifiee ? "./index.html#recherche/methodes" : "./methode-vulgarisee.html#recherche/methodes";
       lienLecture.setAttribute("aria-label", lectureSimplifiee ? "Lire la méthodologie scientifique" : "Lire la méthodologie vulgarisée");
-      tete.append(lienLecture);
+      // Lien déplacé dans le bandeau libre au-dessus du sommaire et du titre.
+      // Aucun changement aux menus ni à la navigation des chapitres.
+      section.dataset.lectureDisponible = "oui";
+      section.__lienLecture = lienLecture;
     }
     const corps = el("div", "gab-corps");
     if (ch.surPlace) {
@@ -1099,6 +1102,12 @@
       grille.classList.add("gab-sans-aside");
     }
     section.append(grille);
+    if (section.__lienLecture) {
+      const ligneLecture = el("div", "gab-methode-ligne-lecture");
+      ligneLecture.append(section.__lienLecture);
+      section.prepend(ligneLecture);
+      delete section.__lienLecture;
+    }
     if (nota) {
       nota.removeAttribute("hidden");
       nota.style.setProperty("display", "block", "important");
