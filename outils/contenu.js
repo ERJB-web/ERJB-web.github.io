@@ -145,7 +145,7 @@ const fr = {
     "consigne": "Cliquez sur une porte pour entrer",
     "portes": {
       "recherche": [
-        "Ma thèse",
+        "Projet de thèse",
         "Projet de doctorat"
       ],
       "conceptualisation": [
