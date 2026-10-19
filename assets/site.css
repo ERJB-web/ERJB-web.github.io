@@ -106,11 +106,6 @@ body,.salle{background-color:#f9fbfa;background-image:var(--fond-editorial);back
 @media(max-width:700px){body,.salle{background-size:160px 160px,100% 40rem,100% 44rem,100% 100%}}
 @media(forced-colors:active){body,.salle{background:Canvas}}
 .salle.visible{opacity:1}
-.salle-barre{position:sticky;top:0;z-index:1;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding:16px var(--gouttiere);background:rgba(252,253,251,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);font-size:14px}
-.salle-barre #salle-titre{color:var(--muted);text-align:center}
-.salle-barre button{color:var(--ink);justify-self:start}
-.salle-barre [data-contact]{justify-self:end}
-.salle-barre button:hover{color:var(--green)}
 .salle-contenu .section-corps{padding-top:56px}
 
 /* Sections */
@@ -373,8 +368,6 @@ body,.salle{background-color:#f9fbfa;background-image:var(--fond-editorial);back
 .affiche-vignette{width:84px;height:84px;flex:none;object-fit:cover;object-position:top;border-radius:8px;border:1px solid var(--line);background:var(--sea)}
 
 /* Bouton Écouter de la salle */
-.salle-actions{justify-self:end;display:flex;align-items:center;gap:18px}
-.salle-barre .salle-actions button{display:inline-flex;align-items:center;gap:6px}
 
 /* Daltonisme : palette Okabe-Ito et repères qui ne reposent pas sur la couleur */
 html.cb{--green:#0072b2;--green-deep:#005a8c;--sage:#e1edf6}
@@ -395,7 +388,7 @@ html.cb .vedette .statut-pastille{background:#fff3d6;color:#5c4300;border:1px so
 /* Contraste élevé et basse vision */
 html.hc,html.lv{--ink:#06202d;--ink-deep:#000;--body:#111;--muted:#2a3a40;--line:#56686e;--green:#0a4a3a;--green-deep:#06372b;--paper:#fff;--sea:#e6eef0;--sage:#dfeae3}
 html.hc body,html.lv body,html.hc .salle,html.lv .salle{background:#fff}
-html.hc .entete,html.lv .entete,html.hc .salle-barre,html.lv .salle-barre{background:#fff}
+html.hc .entete,html.lv .entete{background:#fff}
 html.hc a,html.lv a{text-decoration-thickness:2px}
 html.hc .section-contenu a:not(.carte-lien):not(.primaire),html.lv .section-contenu a:not(.carte-lien):not(.primaire),html.hc .salle-contenu a:not(.carte-lien):not(.primaire),html.lv .salle-contenu a:not(.carte-lien):not(.primaire){text-decoration:underline}
 html.hc :focus-visible,html.lv :focus-visible{outline:3px solid #000;outline-offset:3px;box-shadow:0 0 0 7px #ffd400}
@@ -461,8 +454,6 @@ html:lang(ar) .surtitre,html:lang(ar) .menu-titre,html:lang(ar) .statut,html:lan
   .menu{position:static}
   .menu-panneau{inset-inline:var(--gouttiere);top:calc(100% + 6px);width:auto;min-width:0;max-width:none}
   .menu>summary{padding:6px 9px;gap:5px}
-  .salle-actions{gap:12px}
-  .salle-actions [data-ecouter] span{display:none}
   .page-abregee .marque strong{font-size:15px}
 }
 
@@ -513,7 +504,6 @@ a,button,summary{-webkit-tap-highlight-color:rgba(31,111,178,.18)}
 .bouton-ecouter:hover{background:var(--accent-pale);border-color:var(--accent);color:var(--accent-fonce)}
 .cadre,.travail,.personne,.notions>div,.expertises>*,.valeurs>*{transition:border-color .2s,box-shadow .2s,transform .2s var(--ease)}
 .cadre:hover,.travail:hover,.personne:hover,.notions>div:hover{border-color:var(--accent);box-shadow:0 12px 30px rgba(31,111,178,.12);transform:translateY(-2px)}
-.salle-barre button:hover{color:var(--accent)}
 .profil:hover{color:var(--accent);border-color:var(--accent)}
 @media (prefers-reduced-motion:reduce){.liens-contact a:hover,.carte-lien:hover,.cadre:hover,.travail:hover,.personne:hover,.notions>div:hover{transform:none}}
 
@@ -586,8 +576,6 @@ a,button,summary{-webkit-tap-highlight-color:rgba(31,111,178,.18)}
   h1{font-size:38px;white-space:normal}
   .roles{font-size:14.5px}
   .chapeau{font-size:16px}
-  .salle-barre{grid-template-columns:auto 1fr auto;padding:12px var(--gouttiere);font-size:13.5px}
-  .salle-barre #salle-titre{font-size:12.5px}
   .section-corps{padding:52px var(--gouttiere)}
   .travaux{padding-bottom:52px}
   .liste li,.faits li{grid-template-columns:1fr;gap:4px}
@@ -652,10 +640,6 @@ html.cb .schema-reseau .n0{fill:#0072b2}html.cb .schema-reseau .n1{fill:#009e73}
 
 /* Barre de salle : couleur de la salle et progression des portes */
 .salle{border-top:5px solid var(--c1,var(--ink))}
-.salle-progres{position:sticky;top:57px;z-index:1;display:flex;gap:4px;padding:0 var(--gouttiere) 0;background:transparent;height:4px}
-.salle-progres span{flex:1;border-radius:2px;background:var(--line)}
-.salle-progres span.actif{background:var(--c1,var(--ink))}
-#salle-titre{font-weight:600;color:var(--c1,var(--ink))!important}
 
 @media (max-width:640px){
   .frise li{grid-template-columns:40px 1fr;gap:12px}
@@ -1136,23 +1120,7 @@ html.hc .lexique .notion-usage,html.lv .lexique .notion-usage{background:var(--w
 .porte:focus,.porte:focus-visible{outline:none}
 
 .sous-portes{flex-direction:column;align-items:flex-start;flex-wrap:nowrap}
-
-/* Barre de salle : boutons Le hall et Porte suivante bien visibles */
-.salle .salle-barre button[data-retour]{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:999px;border:1.5px solid var(--c1);background:var(--white);color:var(--c1);font:600 15px/1.2 var(--sans,inherit);cursor:pointer;box-shadow:0 6px 16px -10px rgba(15,49,66,.45);transition:background .2s,color .2s,transform .2s var(--ease)}
-.salle .salle-barre button[data-retour]:hover,.salle .salle-barre button[data-retour]:focus-visible{background:var(--c1);color:#fff;transform:translateX(-2px)}
-.salle .salle-barre button[data-contact]{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:999px;border:0;background:var(--c1);color:#fff;font:600 15px/1.2 var(--sans,inherit);cursor:pointer;box-shadow:0 10px 22px -10px var(--c1);transition:filter .2s,transform .2s var(--ease)}
-.salle .salle-barre button[data-contact]:hover{filter:brightness(1.1);transform:translateX(2px)}
-.salle .salle-barre button[data-ecouter],.salle .salle-barre button[data-arreter]{border-radius:999px;padding:8px 14px;border:1px solid var(--line);background:var(--white)}
-.salle .salle-barre .salle-actions{display:flex;align-items:center;gap:10px}
-.salle .salle-barre button[data-retour]:focus:not(:hover){outline:none;background:var(--white);color:var(--c1);transform:none}
-
-/* Barre de salle sobre : une seule couleur, sur « Porte suivante » */
 .salle{border-top:0}
-#salle-titre{color:var(--ink)!important}
-.salle-progres span.actif{background:var(--ink)}
-.salle .salle-barre button[data-retour]{border-color:var(--ink);color:var(--ink)}
-.salle .salle-barre button[data-retour]:hover,.salle .salle-barre button[data-retour]:focus-visible{background:var(--ink);color:#fff}
-.salle .salle-barre button[data-retour]:focus:not(:hover){color:var(--ink)}
 
 /* Vitrines d'expertise */
 .grille-vitrine{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -1259,13 +1227,6 @@ html.lv .hall::before,html.lv .hall::after,html.lv .portes>.porte::before{displa
   .hall-pied{margin-top:10px;font-size:12px}
   .accueil .trajectoire{grid-template-columns:repeat(2,minmax(0,1fr))}
   .accueil .trajectoire-texte,.accueil .chiffres span{overflow-wrap:anywhere}
-  .salle .salle-barre{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:7px;padding:10px var(--gouttiere)}
-  .salle-barre #salle-titre{grid-column:1 / -1;grid-row:2;font-size:12px}
-  .salle .salle-barre .salle-actions{min-width:0;gap:5px;flex-wrap:wrap;justify-content:flex-end}
-  .salle .salle-barre button[data-retour],.salle .salle-barre button[data-contact]{padding:7px 9px;font-size:12px;line-height:1.3;gap:4px;border-radius:7px}
-  .salle .salle-barre button[data-ecouter],.salle .salle-barre button[data-arreter]{padding:6px;font-size:11px;border-radius:7px}
-  .salle-actions [data-ecouter] span{display:none}
-  .salle-progres{position:static}
   .salle-contenu .section-corps{padding-top:28px}
   .menu:not([open]) .menu-panneau{display:none}
   .menu-panneau .taille span{min-width:0}
@@ -1686,9 +1647,7 @@ html.lv .axes-cartes{grid-template-columns:1fr}
 .conceptualisation-outils,.lacunes,.lacune{min-width:0;max-width:100%}
 .lacune-tete{flex-wrap:wrap;align-items:flex-start}
 .lacune .niveau{white-space:normal;max-width:100%;overflow-wrap:anywhere}
-.chiffres>div,.chiffres span,.chiffres small{min-width:0;overflow-wrap:anywhere;hyphens:auto}
-.salle-barre>*{min-width:0}
-.salle-barre #salle-titre{overflow-wrap:anywhere;line-height:1.4}.chapitre-source,.volet,.cadre,.ia-reperes>article{min-width:0}
+.chiffres>div,.chiffres span,.chiffres small{min-width:0;overflow-wrap:anywhere;hyphens:auto}.chapitre-source,.volet,.cadre,.ia-reperes>article{min-width:0}
 .ref,.references-courtes,.methode-refs,.references-transmission,.ia-references{overflow-wrap:anywhere}
 [dir=rtl] .coordonnees a[href^="mailto:"],[dir=rtl] a[href^="tel:"],[dir=rtl] .doi{direction:ltr;unicode-bidi:isolate}
 :lang(iu),:lang(iu-Latn){font-family:"Gadugi","Euphemia","Noto Sans Canadian Aboriginal",var(--sans);line-height:1.75;overflow-wrap:anywhere}
@@ -1782,9 +1741,7 @@ html:is(.hc,.lv) .these :is(.these-point,.objectif-carte,.these-parcours>button)
 .edition-actions{display:flex;flex-wrap:wrap;gap:8px 20px;border-top:1px solid var(--line);padding-top:12px}
 .edition-actions a{font-size:12px;line-height:1.55;text-underline-offset:3px;color:var(--ink)}
 @media(max-width:1320px){.edition-linguistique{margin-inline:var(--gouttiere)}}
-@media(max-width:700px){.edition-linguistique{padding:16px;margin-top:18px}.edition-presentation{grid-template-columns:minmax(0,1fr);gap:14px}.edition-linguistique h2{font-size:21px}.edition-actions{display:grid;gap:12px}.edition-linguistique-tete{gap:8px}.salle-barre button{white-space:normal}}
-
-@media(min-width:701px){.salle .salle-barre{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr) minmax(0,1fr)}.salle .salle-barre .salle-actions{min-width:0;flex-wrap:wrap;justify-content:flex-end}}
+@media(max-width:700px){.edition-linguistique{padding:16px;margin-top:18px}.edition-presentation{grid-template-columns:minmax(0,1fr);gap:14px}.edition-linguistique h2{font-size:21px}.edition-actions{display:grid;gap:12px}.edition-linguistique-tete{gap:8px}}
 .menu-panneau [aria-current] .langue-statut{color:rgba(255,255,255,.8)}
 .menu-panneau a>span:last-child,.menu-panneau [aria-current]>span:last-child{min-width:0;overflow-wrap:anywhere}
 
@@ -1983,7 +1940,6 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
  .hall.en-mobile .sous-portes-murales>button,.hall.en-mobile .sous-portes-murales>a{min-height:48px;padding:9px 10px;border-radius:8px;font-size:13px;line-height:1.38;touch-action:manipulation}
  .hall.en-mobile .hall-commandes>button{min-width:46px;min-height:46px;box-shadow:0 3px 10px rgba(23,63,82,.09)}
  .hall.en-mobile .hall-commandes>button:disabled{opacity:.32;cursor:default;box-shadow:none}
- .salle .salle-barre{z-index:12;gap:10px;padding-block:10px;box-shadow:0 4px 13px rgba(23,63,82,.07)}
  .salle-contenu .section-corps{padding-top:31px}
  .pub-format{touch-action:manipulation}
  .pub-format strong{hyphens:none;overflow-wrap:break-word}
@@ -2016,12 +1972,6 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
  .accueil .encadrement{font-size:12.5px;margin-bottom:15px}
  .accueil .actions{gap:12px}
  .accueil .actions :is(a,button){min-height:44px}
- .salle .salle-barre{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;gap:6px 8px;padding:9px var(--gouttiere)}
- .salle .salle-barre [data-retour]{grid-column:1;grid-row:1;justify-self:start;min-height:44px;padding:8px 11px;border-radius:10px;border:1px solid #cbdad5;background:#fff;font-size:12.5px;font-weight:730}
- .salle .salle-barre #salle-titre{grid-column:1/-1;grid-row:2;text-align:start;max-width:100%;font-size:12.5px;font-weight:650;line-height:1.35;color:#3a5963}
- .salle .salle-barre .salle-actions{grid-column:2;grid-row:1;display:flex;justify-content:flex-end;gap:6px;align-items:center;flex-wrap:nowrap}
- .salle .salle-barre .salle-actions button{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:8px;border:1px solid #cbdad5;border-radius:10px;background:#fff;font-size:12px;line-height:1.2;font-weight:700;text-align:center}
- .salle .salle-barre .salle-actions button[data-contact]{max-width:112px;white-space:normal}
  .salle-contenu .section-corps{padding:27px var(--gouttiere) 42px}
  .section h2,.salle h2{font-size:clamp(28px,8vw,37px)}
  .intro{font-size:15px;line-height:1.7}
@@ -2059,8 +2009,6 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
 }
 @media(max-width:400px){
  .entete .bouton-cv{font-size:12px;padding-inline:9px}
- .salle .salle-barre [data-retour]{font-size:12px;padding:7px 9px}
- .salle .salle-barre .salle-actions button{padding-inline:6px}
  .pub-formats{grid-template-columns:minmax(0,1fr);gap:9px}
  .pub-format{display:grid;grid-template-columns:108px minmax(0,1fr);min-height:112px;border-radius:13px}
  .pub-format-visuel{min-height:112px;height:100%;border-bottom:0;border-inline-end:1px solid #e1eae5}
@@ -2764,9 +2712,6 @@ html.hc .implantation-portail-liens a{border-color:currentColor}
   .entete .menu-acces summary .menu-libelle{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   .entete .nav{order:3;flex:1 1 100%;margin:6px 0 0}
 }
-
-/* Barre de salle : « Porte suivante » garde sa couleur pleine, même parmi les petits boutons blancs. */
-.salle .salle-barre .salle-actions button[data-contact]{background:var(--c1);border-color:var(--c1);color:#fff}
 /* Téléphone : la grande question de thèse n'est pas justifiée (pas de trous entre les mots). */
 @media(max-width:640px){:root .salle .these-formulation{text-align:start!important;text-wrap:pretty}}
 @media(hover:hover) and (pointer:fine){.hall .hall-reperes>button:hover{background:color-mix(in srgb,var(--c1) 14%,white);border-color:color-mix(in srgb,var(--c1) 60%,white);color:color-mix(in srgb,var(--c1) 70%,var(--ink));box-shadow:0 4px 12px color-mix(in srgb,var(--c1) 22%,transparent)}.hall .hall-reperes>button:hover bdi{background:var(--c1);color:#fff}.hall .hall-reperes>button[aria-pressed=true]:hover{background:color-mix(in srgb,var(--c1) 16%,white)}}
@@ -5547,12 +5492,8 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
 }
 
 
-
 /* Les accès directs restent tous présents au début de la salle,
    mais ne recouvrent plus les chapitres pendant le défilement. */
-.salle .salle-barre{
-  padding-block:7px;
-}
 
 /* Le fil de la thèse : centrage fiable des numéros O1, O2 et O3 dans les cercles. */
 .these-parcours.these-cartes > button > bdi {
@@ -5641,45 +5582,6 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
 
 /* Navigation intérieure : version éditoriale sobre, sans pictogrammes (2026-10-18). */
 /* Les onglets sont des liens de chapitre, pas des cartes illustrées. */
-.salle .salle-barre{
-  padding-block:5px;
-  gap:10px;
-  box-shadow:none;
-}
-.salle .salle-barre #salle-titre{
-  font-size:14px;
-  line-height:1.25;
-  font-weight:650;
-}
-.salle .salle-barre button[data-retour],
-.salle .salle-barre button[data-contact]{
-  min-height:36px;
-  padding:7px 12px;
-  border-radius:8px;
-  font-size:13px;
-  line-height:1.2;
-  box-shadow:none;
-}
-.salle .salle-barre button[data-ecouter],
-.salle .salle-barre button[data-arreter]{
-  min-height:36px;
-  padding:7px 11px;
-  border-radius:8px;
-  font-size:13px;
-}
-.salle .salle-barre .salle-actions{gap:8px}
-@media(max-width:700px){
-  .salle .salle-barre{padding-block:7px}
-  .salle .salle-barre #salle-titre{font-size:12px}
-  .salle .salle-barre button[data-retour],
-  .salle .salle-barre button[data-contact]{
-    min-height:44px;
-    padding:8px 10px;
-    font-size:12px;
-  }
-  .salle .salle-barre button[data-ecouter],
-  .salle .salle-barre button[data-arreter]{min-height:44px}
-}
 
 /* Typographie éditoriale : préserver l'accueil et l'en-tête d'origine.
    La règle ne modifie plus le hall, ses portes, son sol, ni sa météo. */

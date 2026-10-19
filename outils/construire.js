@@ -36,6 +36,7 @@ const LOGICIELS = require("./logiciels");
 const JEUX_ACCUEIL = require("./jeu-accueil.json");
 const SPHERES_PUBLIC = require("./spheres-publication.json");
 const LIBELLES_THESE = require("./libelles-these");
+const NAVIGATION_CHAPITRES = require("./navigation-chapitres");
 const TYPES_ETUDES = require("./typologies-multilingues");
 const AUDIENCE = require("./audience.json");
 const AUDIENCE_LIBELLES = require("./audience-libelles");
@@ -886,7 +887,7 @@ ${lien(
 )}
 <h4 class="titre-bloc">${e(r.codirection.titre)}</h4>
 <div class="codirection">${r.codirection.personnes.map((pe) => `<article class="personne"><h4>${e(pe.nom)}<span class="grade">${e(pe.grade)}</span></h4><ul>${pe.lignes.map((l) => `<li>${e(l)}</li>`).join("")}</ul><p class="chaire">${e(pe.chaire)}</p>${lien(pe.lien, `${e(r.codirection.profil)} <span aria-hidden="true">↗</span>`, "profil")}</article>`).join("")}</div>`;
-  const methodes = `<p class="these-fil"><span data-objectif="O1">O1</span><span aria-hidden="true">→</span><span data-objectif="O2">O2</span><span aria-hidden="true">→</span><span data-objectif="O3">O3</span><strong>${e(f.labels.articulation)}</strong></p><div class="these-methodes">${f.methodes.map((texte, i) => `<article class="objectif-carte" data-objectif="O${i + 1}"><h4><span class="objectif-code">O${i + 1}</span> ${e(n.etapes[i])}</h4><p class="these-formulation">${e(texte)}</p><button class="these-renvoi" type="button" data-these-vers="objectifs" data-these-objectif="O${i + 1}">${e(n.objectif)} <span aria-hidden="true">↗</span></button></article>`).join("")}</div>
+  const methodes = `<p class="these-fil"><span data-objectif="O1">O1</span><span aria-hidden="true">→</span><span data-objectif="O2">O2</span><span aria-hidden="true">→</span><span data-objectif="O3">O3</span><strong>${e(f.labels.articulation)}</strong></p><div class="these-methodes">${f.methodes.map((texte, i) => `<article class="objectif-carte" data-objectif="O${i + 1}"><h4><span class="objectif-code">O${i + 1}</span> ${e(n.etapes[i])}</h4><p class="these-formulation">${e(texte)}</p><button class="these-renvoi" type="button" data-these-vers="problematique" data-these-objectif="O${i + 1}">${e(n.objectif)} <span aria-hidden="true">↗</span></button></article>`).join("")}</div>
 <details class="protocole-these these-protocole-detail"><summary>${e(p.titre)}</summary>
 <p class="note-protocole">${e(p.etat)}</p>
 <h4>${e(p.devis.titre)}</h4>
@@ -899,7 +900,7 @@ ${schemaReseau(c)}</div>
 <h4 class="titre-bloc">${e(r.notions.titre)}</h4>
 <div class="notions">${r.notions.items.map(([t, d, ref]) => `<div><h4>${e(t)}</h4><p>${e(d)}</p>${ref ? `<p class="ref">(${e(ref)})</p>` : ""}</div>`).join("")}</div>${attributionExemples(c.lang)}`;
   const contenus = [
-    `<h3>${e(t.titres[0])}</h3><p class="these-concept-label">${e(f.labels.point)}</p><p class="these-point these-formulation">${e(f.point)}</p><div class="these-concept-sequence">${n.etapes.map((nom,i)=>`<button type="button" data-these-vers="objectifs" data-these-objectif="O${i+1}" data-objectif="O${i+1}"><span class="objectif-code">O${i+1}</span><strong>${e(nom)}</strong><span aria-hidden="true">${i<2?'→':'↗'}</span></button>`).join('')}</div><details class="these-fondements"><summary>${icone('papiers')}<span>${e(n.fondements)}</span></summary><p>${e(n.fondementsIntro)}</p>${sectionConceptualisation(c, true)}</details>`,
+    `<h3>${e(t.titres[0])}</h3><p class="these-concept-label">${e(f.labels.point)}</p><p class="these-point these-formulation">${e(f.point)}</p><div class="these-concept-sequence">${n.etapes.map((nom,i)=>`<button type="button" data-these-vers="problematique" data-these-objectif="O${i+1}" data-objectif="O${i+1}"><span class="objectif-code">O${i+1}</span><strong>${e(nom)}</strong><span aria-hidden="true">${i<2?'→':'↗'}</span></button>`).join('')}</div><details class="these-fondements"><summary>${icone('papiers')}<span>${e(n.fondements)}</span></summary><p>${e(n.fondementsIntro)}</p>${sectionConceptualisation(c, true)}</details>`,
     contexte,
     `<h3>${e(f.labels.general)}</h3><p class="these-objectif-general these-formulation">${e(f.general)}</p><h4 class="titre-bloc">${e(f.labels.specifiques)}</h4>${c.lang === "fr" ? OBJECTIFS_VISUELS.render() : `<div class="these-objectifs">${f.objectifs.map((texte, i) => `<article class="objectif-carte" data-objectif="O${i + 1}"><h4><span class="objectif-code">O${i + 1}</span> ${e(n.etapes[i])}</h4><p class="these-formulation">${e(texte)}</p><details class="objectif-lacune"><summary>${e(n.lacune)}</summary><p>${lierCitations(e(f.lacunes[i]))}</p></details><button class="these-renvoi" type="button" data-these-vers="methodes" data-these-objectif="O${i + 1}">${e(n.methode)} <span aria-hidden="true">↗</span></button></article>`).join("")}</div>`}`,
     `<h3>${e(t.titres[3])}</h3><h4 class="titre-bloc">${e(f.labels.question)}</h4><p class="question-these">${e(f.question)}</p><h4 class="titre-bloc">${e(f.labels.point)}</h4><p class="these-point">${e(f.point)}</p>`,
@@ -911,7 +912,7 @@ ${schemaReseau(c)}</div>
     `<h3>${e(t.titres[9])}</h3>${cartesRubrique(t.transfert)}`,
     institution,
   ];
-  return `<div class="section-corps pleine these"><div class="colonne-texte these-introduction"><div class="these-statut"><p class="badge-these">${e(r.etiquette)}</p><p class="these-evolution"><strong>${e(r.avertissement)}</strong></p></div><p class="these-titre-label">${e(f.labels.titre)}</p><h2>${e(f.titre)}</h2><div class="these-question-principale"><span>${e(f.labels.question)}</span><p class="these-formulation">${e(f.question)}</p></div><nav class="these-parcours" aria-label="${e(n.fil)}">${n.etapes.map((nom,i)=>`<button type="button" data-these-vers="objectifs" data-these-objectif="O${i+1}" data-objectif="O${i+1}"><bdi dir="ltr">O${i+1}</bdi><span>${e(nom)}</span><span aria-hidden="true">↗</span></button>`).join("")}</nav></div><div class="colonne-outils">${chapitresSource(c, "these", t.explorer, contenus.map((html, i) => [THESE.cles[i] || "cadre", t.titres[i] || f.labels.cadre, html]))}</div></div>`;
+  return `<div class="section-corps pleine these"><div class="colonne-texte these-introduction"><div class="these-statut"><p class="badge-these">${e(r.etiquette)}</p><p class="these-evolution"><strong>${e(r.avertissement)}</strong></p></div><p class="these-titre-label">${e(f.labels.titre)}</p><h2>${e(f.titre)}</h2><div class="these-question-principale"><span>${e(f.labels.question)}</span><p class="these-formulation">${e(f.question)}</p></div><nav class="these-parcours" aria-label="${e(n.fil)}">${n.etapes.map((nom,i)=>`<button type="button" data-these-vers="problematique" data-these-objectif="O${i+1}" data-objectif="O${i+1}"><bdi dir="ltr">O${i+1}</bdi><span>${e(nom)}</span><span aria-hidden="true">↗</span></button>`).join("")}</nav></div><div class="colonne-outils">${chapitresSource(c, "these", t.explorer, NAVIGATION_CHAPITRES.regrouperThese(contenus, c.lang))}</div></div>`;
 }
 
 function sectionIA(c) {
@@ -1521,6 +1522,7 @@ ${c.lang === 'fr' ? `<link rel="stylesheet" href="${p}assets/enseignement-immers
 <link rel="stylesheet" href="${p}assets/hall-realiste.css?v=${VERSION_HALL_CSS}">
 <link rel="stylesheet" href="${p}assets/vulgarisation-studio.css?v=20261015studio5">
 <link rel="stylesheet" href="${p}assets/vulgarisation-editorial.css?v=6501e1f73c">
+${NAVIGATION_CHAPITRES.styles(p)}
 <meta property="og:type" content="profile">
 <meta property="og:title" content="${e(c.meta.titre)}">
 <meta property="og:description" content="${e(c.meta.description)}">
@@ -1534,6 +1536,7 @@ ${c.lang === 'fr' ? `<link rel="stylesheet" href="${p}assets/enseignement-immers
 <script src="${p}assets/site.js?v=${VERSION_JS}" defer></script>
 <script src="${p}assets/vulgarisation-studio.js?v=616a84e6b8" defer></script>
 <script src="${p}assets/vulgarisation-editorial.js?v=1c60acd3f4" defer></script>
+${NAVIGATION_CHAPITRES.scripts(p)}
 ${baliseAudience(p)}
 <link rel="stylesheet" href="${p}assets/bibliographie.css?v=${empreinte("assets/bibliographie.css")}"><script src="${p}assets/bibliographie.js?v=${empreinte("assets/bibliographie.js")}" defer></script>
 <link rel="stylesheet" href="${p}assets/typographie.css?v=bc0fdd3359">
@@ -1605,7 +1608,6 @@ ${JEUX_ACCUEIL[c.lang] || ""}
 <div class="salle-actions"><button type="button" data-ecouter aria-label="${e(c.ui.ecouter)}">${icone("casque")}<span>${e(c.ui.ecouter)}</span></button><button type="button" data-arreter aria-label="${e(c.ui.arreter)}" hidden>${e(c.ui.arreter)}</button>
 <button type="button" data-contact hidden>${e(c.ui.contact)} →</button></div>
 </div>
-<div class="salle-progres" aria-hidden="true">${SALLES.map(() => "<span></span>").join("")}</div>
 <div class="salle-contenu"></div>
 </div>
 </body>

@@ -431,7 +431,6 @@
     contenu.querySelectorAll(".revele").forEach((el) => el.classList.remove("revele", "vu"));
     if (typeof preparer === "function") setTimeout(() => preparer(contenu), 0);
     salle.style.setProperty("--c1", getComputedStyle(groupe.porte).getPropertyValue("--c1"));
-    $$(".salle-progres span").forEach((x, k) => x.classList.toggle("actif", k <= ordre.indexOf(s)));
     $("#salle-titre").textContent = `${String(ordre.indexOf(s) + 1).padStart(2, "0")} / ${String(ordre.length).padStart(2, "0")} · ${groupe.porte.dataset.titre} · ${section.dataset.titre}`;
     const i = ordre.indexOf(s);
     $("[data-contact]", salle).hidden = i !== ordre.length - 1;

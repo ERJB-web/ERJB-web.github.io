@@ -1,0 +1,61 @@
+name: Vérifier et publier le site
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verifier:
+    name: Navigation, génération, typographie et interactions
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Installer le DOM de test
+        run: npm install --no-save --no-package-lock jsdom@26
+      - name: Vérifier les contrôleurs
+        run: |
+          node --check assets/site.js
+          node --check assets/gabarit-salles.js
+          node --check outils/construire.js
+      - name: Auditer tous les fichiers de navigation
+        run: node outils/verifier-navigation.js
+      - name: Tester le vrai générateur sans réécrire les pages
+        run: node tests/generation-navigation.cjs
+      - name: Vérifier la charte typographique
+        run: node outils/harmoniser-typographie.js --check
+      - name: Tester les commandes dans les huit éditions
+        run: node tests/navigation-unique.cjs
+      - name: Tester les interactions de vulgarisation
+        run: node tests/vulgarisation-smoke.mjs
+      - name: Préparer les seuls fichiers suivis par Git
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: |
+          mkdir _site
+          git archive HEAD | tar -x -C _site
+      - uses: actions/upload-pages-artifact@v3
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        with:
+          path: _site
+  publier:
+    name: Publier après réussite des contrôles
+    needs: verifier
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v5
+      - uses: actions/deploy-pages@v4
+        id: deployment

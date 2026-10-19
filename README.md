@@ -4,14 +4,19 @@ Site statique publié avec GitHub Pages : https://erjb-web.github.io/
 
 - Les pages complètes en français, anglais, espagnol, chinois, arabe et russe, les versions abrégées et `404.html` sont produites par `outils/construire.js`.
 - Les textes français, anglais et espagnols sont dans `outils/contenu.js`. Les autres langues complètes sont dans `outils/i18n/`, avec la même structure. Les salles d’expertise sont dans `outils/vitrines.json` ; les compléments russes sont dans `outils/i18n/ru-complements.json`.
-- `assets/site.css` et `assets/site.js` : mise en page, hall à six portes, salles et onglets.
+- `assets/site.css` et `assets/site.js` : mise en page, hall à six portes et routeur des salles.
+- `assets/navigation-chapitres.css` : seule feuille de la barre de navigation des salles.
+- `assets/gabarit-salles.js` : seul contrôleur des chapitres et des sommaires dédiés.
+- `outils/navigation-chapitres.js` : chargement commun du gabarit dans les pages générées ; `outils/chapitres-these.json` fixe les six chapitres et leurs traductions.
 - `docs/` : CV publiés (sans numéro de téléphone ni coordonnées des références).
 
 ## Modifier un texte
 
-1. Changer le texte source et ses traductions dans les fichiers correspondants.
-2. `node outils/construire.js`
-3. `node outils/verifier.js`, vérifier en local sur ordinateur et téléphone, puis publier (`git commit` et `git push`).
+Les pages HTML publiées comportent des retouches éditoriales plus récentes que certaines sources historiques. Modifier la page et sa source concernées de façon ciblée, puis vérifier les différences. Une modification graphique ne demande aucune régénération du contenu.
+
+`outils/construire.js` sert à une reconstruction complète délibérée. Le tester avec `node tests/generation-navigation.cjs` exécute le vrai générateur en mémoire et ne réécrit aucune page. Ne pas lancer une reconstruction complète pour retoucher le graphisme d'une page.
+
+Avant publication : `node outils/verifier-navigation.js`, `node tests/generation-navigation.cjs`, `node tests/navigation-unique.cjs` (jsdom@26), puis le contrôle typographique et la vérification visuelle sur ordinateur et téléphone.
 
 La version russe renvoie vers l’affiche française existante. La lecture des sections dont le texte a changé utilise la voix de l’appareil pour éviter de lire un ancien enregistrement.
 
@@ -29,11 +34,13 @@ Le gabarit de Projet de thèse est la référence commune : barre de lecture, bo
 
 La typographie éditoriale commune est définie dans `assets/typographie.css`, chargée après les styles des modules : corps 16 px, sections 22 px, sous-sections 19 px, encadrés 18 px et graisse modérée. Conserver cette échelle lors des modifications.
 
-Les cinq rubriques Engagements sont des pages de lecture directe : aucun sommaire latéral, compteur de chapitre ou bouton de chapitre précédent/suivant. Représentation présente les mandats actuels et précédents avec des filtres ; Distinctions met les prix et soutiens en valeur ; Sports et loisirs conserve les huit images dans une galerie occupant toute la largeur. Une image interne à une page unique ne doit pas être retirée pour alimenter une colonne latérale absente. Ces compositions sont définies dans `assets/gabarit-salles.js` et `assets/gabarit-salles.css` ; les textes restent dans leurs sources multilingues et la typographie dans la feuille commune.
+Les rubriques Parcours, Engagements et Ressources utilisent les mêmes commandes pour passer entre les rubriques d'une porte. Une rubrique de lecture directe conserve son contenu ensemble, sans sommaire latéral artificiel. Les dossiers scientifiques conservent leurs sommaires colorés. Les compositions du contenu restent dans `assets/gabarit-salles.css` et leurs modules spécialisés ; elles ne doivent pas redéfinir la barre supérieure.
 
 ## Entretien du dépôt
 
 Conserver les pages et ressources publiées, les sources multilingues, les générateurs des galeries et applications, les contrôles et les workflows actifs. Les scripts ponctuels de migration déjà appliqués et les variantes de menus abandonnées sont retirés. Les caches et dossiers de travail locaux sont exclus par `.gitignore`.
+
+Le workflow `pages.yml` audite tous les fichiers de code, de styles, de données et les pages, teste le générateur et les interactions, puis publie seulement si tous les contrôles réussissent. Il ne lance jamais de régénération des pages publiées. Le workflow de revue de presse reste indépendant.
 
 ## Charte typographique obligatoire pour toute évolution
 

@@ -62,8 +62,8 @@ for (const l of LANGUES.filter((x) => x.hreflang)) {
   verifier(`${l.code} : axes dans une sous-catégorie distincte`, sallesGroupe("recherche").includes("axes"));
   verifier(`${l.code} : axes juste après la thèse`, sallesGroupe("recherche")[1] === "axes");
   verifier(`${l.code} : conceptualisation dans la thèse, IA dans la porte Recherche`, !sallesGroupe("recherche").includes("conceptualisation") && sallesGroupe("recherche").includes("ia") && section("recherche").includes('class="conceptualisation-these"'));
-  const rubriquesThese = [...section("recherche").matchAll(/role="tab"[^>]*data-rubrique="([^"]+)"/g)].map((m) => m[1]);
-  verifier(`${l.code} : dix rubriques de thèse`, rubriquesThese.join(" ") === "conceptualisation contexte objectifs problematique methodes resultats limites faisabilite ethique transfert");
+  const rubriquesThese = [...h.matchAll(/class="chapitre-source"[^>]*data-rubrique="([^"]+)"/g)].map((m) => m[1]);
+  verifier(`${l.code} : six chapitres de thèse`, ["contexte", "problematique", "methodes", "faisabilite", "retombees", "transfert"].every(id => rubriquesThese.includes(id)));
   verifier(`${l.code} : PAIRR et usages avancés documentés`, ["PAIRR", "Positron", "10.1016/j.compcom.2025.102921", "6517041"].every((x) => section("ia").includes(x)) && !section("ia").includes("Problem, AI, Interaction"));
   verifier(`${l.code} : quatre lectures indiquées et sources de 2026`, ["PIIS2542-5196(26)00048-3", "17_0017", "fdae026", "376200", "9789240124073", "10.3389/feduc.2026.1831419"].every((x) => section("ia").includes(x)));
   verifier(`${l.code} : enseignement et vulgarisation distincts`, sallesGroupe("implantation").includes("transmission") && sallesGroupe("implantation").includes("vulgarisation") && section("transmission").includes("SPU 7001") && !section("vulgarisation").includes("SPU 7001"));

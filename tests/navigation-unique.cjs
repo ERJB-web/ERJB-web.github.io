@@ -2,12 +2,9 @@
 const fs=require('node:fs'),assert=require('node:assert/strict');
 const {JSDOM}=require('jsdom');
 const languages=['','en','es','zh','ar','ru','iu','innu'];
-for(const file of ['outils/construire.js','assets/site.js','assets/site.css','assets/gabarit-salles.js']){
-  assert(!/rubriques-console|rubriques-nav|rubriques-pagination|data-suivante/.test(fs.readFileSync(file,'utf8')),file+': abandoned menu code must stay absent');
-}
+require('../outils/verifier-navigation').verifierNavigation();
 async function verify(lang){
   const html=fs.readFileSync((lang?lang+'/':'')+'index.html','utf8');
-  assert(!/rubriques-console|rubriques-nav|rubriques-pagination|data-suivante/.test(html),'No abandoned menus in published HTML');
   // CSS layout is checked in the browser; omit large inline sheets in this DOM test.
   const dom=new JSDOM(html.replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,''),{runScripts:'outside-only',pretendToBeVisual:true,url:'https://erjb-web.github.io/'+(lang?lang+'/':'')+'#recherche'});
   const w=dom.window,d=w.document;

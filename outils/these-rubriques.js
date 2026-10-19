@@ -1,6 +1,5 @@
 "use strict";
 module.exports = {
-  cles: ["conceptualisation", "contexte", "objectifs", "problematique", "methodes", "resultats", "limites", "faisabilite", "ethique", "transfert"],
   ethiqueLien: "https://ethics.gc.ca/eng/tcps2-eptc2_2022_chapter5-chapitre5.html",
   langues: {
     fr: {

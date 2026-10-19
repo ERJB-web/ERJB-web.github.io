@@ -261,7 +261,7 @@
       lien.dataset.theseVers = "methodes";
       lien.dataset.theseObjectif = "O3";
       lien.textContent = "Explorer les 20 figures de la galerie SNA du 211 →";
-      // Le gestionnaire de rubriques change d'onglet et défile jusqu'à O3.
+      // Le gabarit commun ouvre la méthodologie et défile jusqu'à O3.
       lien.addEventListener('click', (event) => event.preventDefault());
       o3.appendChild(lien);
     }
@@ -279,9 +279,6 @@
       else cibleO3.prepend(note);
       modulesInitialises.add(note);
       note.querySelector("button").addEventListener("click", () => {
-        const table = note.closest('[data-rubriques="these"]');
-        const ongletMethode = table?.querySelector('[role="tab"][data-rubrique="methodes"]');
-        if (ongletMethode && ongletMethode.getAttribute('aria-selected') !== 'true') ongletMethode.click();
         const carte = zone.querySelector("#o3-atlas-reseaux");
         if (carte) carte.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
       });
