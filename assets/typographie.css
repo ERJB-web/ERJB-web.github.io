@@ -1,15 +1,16 @@
 /* Échelle typographique commune aux pages éditoriales. */
-:root{--type-corps:16px;--type-note:14px;--type-page:clamp(28px,3vw,36px);--type-chapitre:clamp(23px,2.5vw,28px);--type-section:22px;--type-sous-section:19px;--type-encadre:18px;--type-detail:17px}
+@layer charte-typographique {
+:root{--type-police:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;--type-corps:16px;--type-note:14px;--type-page:clamp(28px,3vw,36px);--type-chapitre:clamp(23px,2.5vw,28px);--type-section:22px;--type-sous-section:19px;--type-encadre:18px;--type-detail:17px}
 /* Les sélecteurs communs remplacent les variantes de taille des modules. */
-html body :is(.section-contenu,.page,#app){font-size:var(--type-corps);line-height:1.7}
-html body :is(.section-contenu,.page,#app) :is(p,li,dd){font-size:var(--type-corps)!important;line-height:1.7!important}
-html body :is(.section-contenu,.page,#app) :is(h1,h2,h3,h4,h5,h6){font-family:var(--sans,Inter,"Segoe UI",Arial,sans-serif)!important;font-weight:550!important;line-height:1.4!important;letter-spacing:0!important;text-transform:none!important}
-html body :is(.section-contenu,.page,#app) h1{font-size:var(--type-page)!important}
-html body :is(.section-contenu,.page,#app) h2{font-size:var(--type-chapitre)!important}
-html body :is(.section-contenu,.page,#app) h3{font-size:var(--type-section)!important}
-html body :is(.section-contenu,.page,#app) h4{font-size:var(--type-sous-section)!important}
-html body :is(.section-contenu,.page,#app) h5{font-size:var(--type-detail)!important}
-html body :is(.section-contenu,.page,#app) h6{font-size:var(--type-corps)!important}
+html body{font-family:var(--type-police)!important;font-size:var(--type-corps);line-height:1.7}
+html body :is(p,li,dd){font-size:var(--type-corps)!important;line-height:1.7!important}
+html body :is(h1,h2,h3,h4,h5,h6){font-family:var(--type-police)!important;font-weight:550!important;line-height:1.4!important;letter-spacing:0!important;text-transform:none!important}
+html body h1{font-size:var(--type-page)!important}
+html body h2{font-size:var(--type-chapitre)!important}
+html body h3{font-size:var(--type-section)!important}
+html body h4{font-size:var(--type-sous-section)!important}
+html body h5{font-size:var(--type-detail)!important}
+html body h6{font-size:var(--type-corps)!important}
 /* Même hiérarchie dans la salle immersive et la page complète. */
 html body :is(#salle,#contenu) .gab .gab-corps :is(p,li,dd){font-size:var(--type-corps)!important;line-height:1.7!important}
 html body :is(#salle,#contenu) .gab .gab-corps h3{font-size:var(--type-section)!important;font-weight:550!important}
@@ -18,10 +19,10 @@ html body :is(#salle,#contenu) .gab .gab-corps h5{font-size:var(--type-detail)!i
 html body :is(#salle,#contenu) .gab .gab-corps h6{font-size:var(--type-corps)!important;font-weight:550!important}
 /* Encadrés : titres de même rang, quelle que soit leur balise historique. */
 html body :is(#salle,#contenu,.page,#app) :is(.gab-corps,.section-corps,.section) :is(.notion-carte,.concept-carte,.these-devis-carte,.o1-critere-carte,.panel,.vr-panel,.methode-exemples-tete) :is(h3,h4,h5,h6){font-size:var(--type-encadre)!important;font-weight:550!important}
-html body :is(.section-contenu,.page,#app) :is(h2,h3,h4,h5,h6) :is(strong,b,a,span){font-size:inherit!important;font-weight:inherit!important}
-html body :is(.section-contenu,.page,#app) :is(p,li,dd) :is(strong,b){font-weight:600!important}
-html body :is(.section-contenu,.page,#app) :is(td,th,figcaption,.legende,.disclaimer){font-size:var(--type-note)!important;line-height:1.55!important}
-html body :is(.section-contenu,.page,#app) :is(.surtitre,.eyebrow,.o1-surtitre,.impl-index,.vr-position){font-size:12px!important;font-weight:600!important;line-height:1.5!important;letter-spacing:.06em!important}
+html body :is(h2,h3,h4,h5,h6) :is(strong,b,a,span){font-size:inherit!important;font-weight:inherit!important}
+html body :is(p,li,dd) :is(strong,b){font-weight:600!important}
+html body :is(figcaption,.legende,.disclaimer){font-size:var(--type-note)!important;line-height:1.55!important}
+html body :is(.surtitre,.eyebrow,.o1-surtitre,.impl-index,.vr-position){font-size:12px!important;font-weight:600!important;line-height:1.5!important;letter-spacing:.06em!important}
 html body .gab .gab-bandeau .bandeau-titre{font-size:var(--type-page)!important;font-weight:450!important;line-height:1.2!important}
 html body .gab .gab-bandeau .bandeau-legende{font-size:var(--type-corps)!important;line-height:1.6!important}
 html body .gab .gab-chapitre-tete .gab-chapitre-num{font-size:var(--type-chapitre)!important;font-weight:550!important;line-height:1.35!important;letter-spacing:0!important;text-transform:none!important}
@@ -34,3 +35,22 @@ html body .gab .gab-sommaire-chapitre>span{font-size:13px!important;font-weight:
 html body .gab .gab-corps .these-exemples-attribution{font-size:12px!important}
 @media(max-width:700px){:root{--type-page:28px;--type-chapitre:23px;--type-section:21px;--type-sous-section:18px;--type-encadre:18px}}
 html.lv{--type-corps:20px;--type-note:18px;--type-section:26px;--type-sous-section:23px;--type-encadre:22px;--type-detail:21px}
+
+/* Les déclarations importantes de cette couche priment sur les styles locaux.
+   Les nouveaux contenus et modules héritent ainsi de la charte sans retouche. */
+html body :is(p,li,dt,dd,blockquote,td,th,figcaption,caption,.legende,.disclaimer,.gab-bandeau .bandeau-legende){
+  font-family:var(--type-police)!important;
+  text-align:justify!important;
+  text-align-last:auto!important;
+  text-justify:auto!important;
+  hyphens:auto!important;
+  overflow-wrap:anywhere;
+  word-break:normal;
+  word-spacing:normal!important;
+}
+html body :is(table,td,th){font-family:var(--type-police)!important;font-size:var(--type-corps)!important;line-height:1.7!important}
+html body :is(td,th) :is(p,li,dt,dd){font-size:inherit!important;line-height:inherit!important}
+html body :is(h1,h2,h3,h4,h5,h6){font-family:var(--type-police)!important;text-align:start!important;text-align-last:auto!important;hyphens:none!important}
+/* Les commandes et sommaires conservent leur alignement fonctionnel. */
+html body :is(nav,[role="navigation"],button,[role="button"],.gab-menu-gauche,.gab-sommaire-chapitre) :is(p,li,dt,dd){text-align:start!important;text-align-last:auto!important;hyphens:none!important}
+}

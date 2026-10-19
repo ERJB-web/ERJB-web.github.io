@@ -1742,3 +1742,6 @@ for (const cle of ["fr", "en", "falc"]) fs.writeFileSync(path.join(__dirname, "n
 for (const code of ["iu", "moe"]) ecrire(langue(code).dossier, pageAutochtone(code));
 fs.writeFileSync(path.join(RACINE, "404.html"), introuvable());
 console.log("pages produites : " + LANGUES.map((l) => l.dossier || "/").join(", ") + " et 404.html");
+
+// Finaliser toutes les pages avec la charte commune et son empreinte de cache.
+require("./harmoniser-typographie")();

@@ -32,3 +32,13 @@ La typographie éditoriale commune est définie dans `assets/typographie.css`, c
 ## Entretien du dépôt
 
 Conserver les pages et ressources publiées, les sources multilingues, les générateurs des galeries et applications, les contrôles et les workflows actifs. Les scripts ponctuels de migration déjà appliqués et les variantes de menus abandonnées sont retirés. Les caches et dossiers de travail locaux sont exclus par `.gitignore`.
+
+## Charte typographique obligatoire pour toute évolution
+
+La police, les tailles et la justification sont centralisées dans `assets/typographie.css`. Corps et texte des tableaux : 16 px ; notes : 14 px ; titres de page : 28–36 px ; chapitres : 23–28 px ; sections : 22 px ; sous-sections : 19 px ; encadrés : 18 px. Les adaptations mobiles et le mode grands caractères restent définis dans cette même feuille.
+
+Tout texte rédigé est justifié, y compris les paragraphes et listes dans les tableaux, les encadrés et les modules injectés. Les titres, commandes et sommaires gardent leur alignement fonctionnel. La police commune est Inter avec des polices système de remplacement. Aucun module ne doit définir une nouvelle échelle ou imposer un alignement local au texte rédigé. Les exceptions fonctionnelles se définissent dans la charte centrale.
+
+La couche CSS `charte-typographique` donne la priorité aux règles communes sur les déclarations locales importantes. Ne pas ajouter de styles typographiques importants en ligne.
+
+`node outils/construire.js` applique automatiquement la feuille commune en dernier dans chaque page HTML, y compris les applications et simulations, avec une empreinte de cache recalculée. Après toute autre génération de page ou modification de la charte, exécuter `node outils/harmoniser-typographie.js`, puis `node outils/harmoniser-typographie.js --check`. Le workflow GitHub vérifie cette couverture à chaque modification du dépôt.
