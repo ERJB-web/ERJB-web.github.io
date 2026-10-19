@@ -227,12 +227,55 @@
     transfert.dataset.chapitresDistincts = "oui";
   }
 
+  // Une page éditoriale : les sept mandats restent des entrées, jamais des chapitres.
+  function preparerRepresentation(corps) {
+    const liste = $(".liste-cartes", corps);
+    const introduction = $(".colonne-texte", corps);
+    if (!liste || !introduction) return;
+    const mandats = Array.from(liste.children);
+    const page = el("div", "representation-editorial");
+    const ouverture = el("header", "representation-ouverture");
+    const texte = el("div", "representation-presentation");
+    texte.append(...Array.from(introduction.children));
+    const chiffre = el("div", "representation-repere");
+    chiffre.setAttribute("aria-hidden", "true");
+    chiffre.innerHTML = '<span>' + deux(mandats.length) + '</span><small>' +
+      echapper(langue === "fr" ? "mandats · un même engagement" : net($(".groupe-large > h3", corps)?.textContent).replace(/\d+$/, "")) + '</small>';
+    ouverture.append(texte, chiffre);
+    page.append(ouverture);
+    const labels = langue === "fr" ? ["Engagements actuels", "Repères précédents"] : null;
+    const courts = langue === "fr" ? ["Doctorat · AÉÉSPUM", "Mentorat solidaire", "Comité de programme", "Doctorat · DGEPS", "Ambassadeur · UdeM", "Conseil d’administration · CROUS", "Présidence · Askoria"] : [];
+    [mandats.slice(0,4), mandats.slice(4)].forEach((groupe,k) => {
+      if (!groupe.length) return;
+      const section = el("section", "representation-periode");
+      section.dataset.periode = k ? "precedent" : "actuel";
+      if (labels) section.append(el("h3", "representation-section-titre", echapper(labels[k])));
+      const nouvelleListe = el("ol", "representation-mandats");
+      groupe.forEach((mandat,j) => {
+        const i = k ? j+4 : j;
+        mandat.className = "representation-mandat";
+        const date = $(".date", mandat);
+        if (date) {
+          const repere = el("div", "representation-date");
+          repere.append(el("span", "representation-numero", deux(i+1)), date);
+          mandat.prepend(repere);
+        }
+        const h = $("h4", mandat);
+        if (h && courts[i]) h.dataset.representationMenu = courts[i];
+        nouvelleListe.append(mandat);
+      });
+      section.append(nouvelleListe);page.append(section);
+    });
+    corps.replaceChildren(page);
+  }
+
   function decouper(sc, salle) {
     // Une rubrique sans découpage éditorial explicite reste un seul chapitre.
     if (REGLES[salle]?.unique || salle === "biographie" || salle === "parcours") {
       const corps = $(":scope > .section-corps", sc);
+      if (salle === "representation") preparerRepresentation(corps);
       const source = el("div", "gab-lecture-integrale");
-      const titre = texteTitre($("h2", corps)) || texteTitre($(".bandeau-titre", sc));
+      const titre = salle === "representation" ? texteTitre($(".bandeau-titre", sc)) : texteTitre($("h2", corps)) || texteTitre($(".bandeau-titre", sc));
       if (salle === "axes") $$(".axe-carte", corps).forEach((carte, i) => {
         carte.id = "axes-chapitre-" + (i + 1);
         carte.style.setProperty("--axe", COULEURS[i % COULEURS.length]);
@@ -815,6 +858,7 @@
         const code = h.closest("[data-objectif]")?.dataset.objectif || (prefixe ? "O" + prefixe[1] : "");
         const objectif = /^O[123]$/.test(code) ? code : "";
         let libelle = theseFr ? sommaireTheseFr[titre] || titre : titre;
+        if (salle === "representation" && h.dataset.representationMenu) libelle = h.dataset.representationMenu;
         if (objectif && !/^(?:O|Objectif\s*)[123]\b/i.test(libelle)) libelle = objectif + " · " + libelle;
         const texteLien = etape
           ? `<span class="gab-sommaire-etape-num">${deux(Number(etape))}</span><span class="gab-sommaire-etape-texte">${echapper(libelle)}</span>`
