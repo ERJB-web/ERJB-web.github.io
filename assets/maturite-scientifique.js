@@ -19,6 +19,14 @@
     zones.forEach(zone => {
       const o1=$("#these-methode-o1",zone),o2=$("#these-methode-o2",zone),o3=$("#these-methode-o3",zone);
       if (!(o1 && o2 && o3)) return;
+      // Encadré central dans l'introduction, avant la synthèse vulgarisée.
+      const introMethode = $(".these p", document).find(p => zone.contains(p) &&
+        p.textContent.includes("Synthèse vulgarisée") && p.textContent.includes("Nous examinerons"));
+      if (introMethode) {
+        addOnce(introMethode, "matForceProjet", mk("mat-sc--force", "<span class=\"mat-sc__ampoule\" aria-hidden=\"true\">💡</span><div class=\"mat-sc__force-text\"><span class=\"mat-sc__eyebrow\">Contribution scientifique centrale</span><p class=\"mat-sc__force-phrase\">La force de cette recherche est de confronter, pour des profils documentés de besoins sociaux et sanitaires concomitants, <strong>ce que les territoires rendent potentiellement accessible</strong> et <strong>ce que les équipes SAD mobilisent effectivement</strong> autour des aînés à domicile.</p><p class=\"mat-sc__force-bas\">Leurs convergences et leurs écarts permettront d’examiner les obstacles et les leviers d’une réponse intersectorielle mieux organisée, sans confondre disponibilité, collaboration et aide reçue.</p></div>"), "before");
+      } else {
+        addOnce(o1, "matForceProjet", mk("mat-sc--force", "<span class=\"mat-sc__ampoule\" aria-hidden=\"true\">💡</span><div class=\"mat-sc__force-text\"><span class=\"mat-sc__eyebrow\">Contribution scientifique centrale</span><p class=\"mat-sc__force-phrase\">La force de cette recherche est de confronter, pour des profils documentés de besoins sociaux et sanitaires concomitants, <strong>ce que les territoires rendent potentiellement accessible</strong> et <strong>ce que les équipes SAD mobilisent effectivement</strong> autour des aînés à domicile.</p><p class=\"mat-sc__force-bas\">Leurs convergences et leurs écarts permettront d’examiner les obstacles et les leviers d’une réponse intersectorielle mieux organisée, sans confondre disponibilité, collaboration et aide reçue.</p></div>"), "before");
+      }
       // REVISION_COURTE_O1_O2_20261019 : repères vérifiables, sans toucher aux menus ni aux galeries.
       // Remplace le précédent chiffrage indicatif, sans modifier le nombre de notices.
       const blocCharge = $(".revision-demo--workload .revision-note", zone);
