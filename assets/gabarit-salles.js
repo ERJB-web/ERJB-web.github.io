@@ -685,7 +685,7 @@
       const base = net(entete.textContent + " " + texte.textContent);
       let commune = entete.parentElement;
       while (commune && commune !== section && !commune.contains(texte)) commune = commune.parentElement;
-      const seule = commune && commune !== section && net(commune.textContent) === base;
+      const seule = commune && commune !== section && net(commune.textContent).replace(/\s/g, "") === base.replace(/\s/g, "");
       if (seule) {
         if (remplacement) commune.replaceWith(remplacement);
         else commune.remove();
