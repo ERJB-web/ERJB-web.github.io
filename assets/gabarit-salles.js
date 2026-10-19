@@ -1032,6 +1032,27 @@
         '<div class="these-titre-contexte-principal">Organiser la réponse intersectorielle aux aînés à domicile qui cumulent besoins sociaux et morbidité :<span>Profils, cartographie des ressources et analyse des réseaux</span></div>');
       corps.prepend(titreThese);
     }
+    // Sur la copie grand public, proposer une lecture autonome et réellement
+    // accessible, sans reproduire les formulaires et calculs scientifiques.
+    if (salle === "recherche" && ch.cle === "methodes" && langue === "fr" &&
+        /\\/methode-vulgarisee\\.html$/i.test(location.pathname)) {
+      corps.innerHTML = `
+<section class="methode-grand-public" aria-label="Comment la recherche va se dérouler">
+  <div class="mgp-intro"><p class="mgp-kicker">La recherche expliquée simplement</p>
+  <h4>Pourquoi plusieurs aides ne suffisent-elles pas toujours ?</h4>
+  <p>Une personne âgée peut avoir besoin de soins, mais aussi d'aide pour se nourrir, se déplacer, payer son logement ou rester en contact avec ses proches. Ces difficultés peuvent se renforcer entre elles. La question de cette recherche est simple : <strong>comment faire travailler ensemble les organismes concernés pour que personne ne reste entre deux portes ?</strong></p></div>
+  <div class="mgp-histoire"><div class="mgp-personnage">72 ans <strong>Mme Protocole</strong><small>Un personnage fictif pour comprendre, pas une participante réelle.</small></div>
+  <div><h4>Suivons Mme Protocole</h4><p>Mme Protocole vit chez elle. Elle a du diabète, redoute de tomber et peine à faire ses courses. Elle a aussi moins de contacts avec ses proches. Le médecin peut suivre son diabète, mais qui l'aide pour les courses, l'isolement et la sécurité à domicile ? Et surtout, <strong>ces personnes se parlent-elles ?</strong></p></div></div>
+  <h4>Les trois questions de la recherche</h4>
+  <div class="mgp-etapes">
+  <article><span>01 · Comprendre</span><h5>Quels problèmes vont souvent ensemble ?</h5><p>Nous lirons les recherches existantes pour voir quels besoins ont été observés <strong>chez les mêmes personnes</strong>. Par exemple, a-t-on constaté à la fois des difficultés à se déplacer et un isolement social ? Quand les études ne permettent pas de le savoir, nous le dirons.</p><p class="mgp-sortie"><strong>À quoi cela sert ?</strong> Décrire les situations à examiner, sans prétendre qu'elles sont toutes identiques.</p></article>
+  <article><span>02 · Situer</span><h5>Quelles aides existent selon les quartiers ?</h5><p>Nous placerons sur des cartes les besoins repérables dans les données disponibles et les ressources connues : par exemple une aide alimentaire, un organisme de transport accompagné ou un soutien aux proches. Une carte peut montrer où une aide semble manquer, <strong>mais elle ne prouve pas qu'une personne précise n'y a pas accès</strong>.</p><p class="mgp-sortie"><strong>À quoi cela sert ?</strong> Comparer les territoires et identifier des questions à approfondir sur le terrain.</p></article>
+  <article><span>03 · Relier</span><h5>Les acteurs collaborent-ils réellement ?</h5><p>À partir du service de soutien à domicile d'un CLSC participant, nous demanderons quelles organisations ont été contactées pour des situations comparables à celle de Mme Protocole, au cours des douze derniers mois. Nous regarderons aussi les situations <strong>sans orientation</strong> : l'absence de contact est une information importante.</p><p class="mgp-sortie"><strong>À quoi cela sert ?</strong> Comprendre les liens de travail, les relais et les ruptures possibles, sans confondre un contact avec un besoin résolu.</p></article>
+  </div>
+  <div class="mgp-definitions"><h4>Qui fait quoi ?</h4><p><strong>CLSC</strong> : centre local de services communautaires, porte d'entrée de certains soins et services de proximité au Québec. <strong>Soutien à domicile (SAD)</strong> : équipes qui accompagnent des personnes ayant besoin d'aide pour continuer à vivre chez elles. <strong>Organismes communautaires</strong> : associations locales proposant, selon leur mission, repas, accompagnement, activités ou soutien. <strong>Acteurs municipaux</strong> : services de la ville pouvant intervenir sur le transport, l'habitat ou la vie de quartier. <strong>Partenaires privés</strong> : prestataires pouvant, selon la situation, fournir une aide complémentaire.</p><p><strong>Réponse intersectorielle</strong> signifie que ces mondes différents ne travaillent pas chacun dans leur coin : ils se coordonnent autour de besoins concrets, avec la personne concernée.</p></div>
+  <div class="mgp-conclusion"><h4>Et après ?</h4><p>Nous réunirons des personnes concernées et des acteurs de terrain pour discuter des différences entre les ressources visibles sur les cartes et les collaborations réellement décrites. Ensemble, ils pourront formuler des pistes d'amélioration <strong>adaptées aux territoires</strong>. Il s'agit d'un projet de recherche en cours de validation, pas de résultats déjà obtenus.</p></div>
+</section>`;
+    }
     texte.append(tete, corps);
     const aside = el("aside", "gab-chapitre-aside");
     // Dans le contexte de la thèse, le visuel de chiffres clés du premier chapitre
