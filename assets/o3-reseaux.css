@@ -130,3 +130,14 @@
 .o3-galerie-unifiee .o3-galerie-qual[open]>summary{margin:0 -15px 17px;border-bottom:1px solid #dce8e0}
 .o3-galerie-unifiee :is(button,select,a,summary):focus-visible{outline:3px solid #248775;outline-offset:3px}
 @media(max-width:680px){.o3-galerie-unifiee{padding:14px;border-radius:16px}.o3-galerie-unifiee .o3-galerie-controles{flex-direction:column;align-items:stretch}.o3-galerie-unifiee .o3-galerie-fleches{justify-content:space-between}.o3-galerie-unifiee .o3-galerie-planche figcaption{padding:16px}}
+
+/* Accès direct depuis le titre de l'objectif O3, sans modifier les autres chapitres. */
+#these-methode-o3 .methode-objectif-tete .o3-acces-galerie{
+  display:inline-flex;align-items:center;max-width:100%;margin:11px 0 0;
+  padding:9px 13px;border:1px solid #b5d7cb;border-radius:9px;
+  background:#e8f5ef;color:#195845;font:750 13px/1.45 var(--sans,system-ui,sans-serif);
+  text-decoration:none!important;box-shadow:none;
+}
+#these-methode-o3 .methode-objectif-tete .o3-acces-galerie:hover{background:#d9eee3;border-color:#7db99d}
+#these-methode-o3 .methode-objectif-tete .o3-acces-galerie:focus-visible{outline:3px solid #247b63;outline-offset:3px}
+#o3-atlas-reseaux{scroll-margin-top:100px}
