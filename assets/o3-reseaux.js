@@ -24,52 +24,6 @@
       feuille.dataset.o3Style = "1";
       document.head.appendChild(feuille);
     }
-    const cls = ["CLSC du Plateau-Mont-Royal", "CLSC de Saint-Henri", "CLSC de Verdun"];
-    const echapper = valeur => String(valeur).replace(/[&<>"']/g, caractere => ({
-      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
-    })[caractere]);
-    const actes = [
-      { texte: ["Soins à", "domicile"], categorie: "soins", x: 420, y: 21 },
-      { texte: ["GMF / première", "ligne"], categorie: "soins", x: 673, y: 78 },
-      { texte: ["Pharmacie"], categorie: "soins", x: 810, y: 196 },
-      { texte: ["Aide", "alimentaire"], categorie: "communaute", x: 792, y: 345 },
-      { texte: ["Ressources", "pour aînés"], categorie: "communaute", x: 659, y: 467 },
-      { texte: ["Soutien au", "logement"], categorie: "communaute", x: 418, y: 512 },
-      { texte: ["Services", "municipaux"], categorie: "territoire", x: 166, y: 459 },
-      { texte: ["Accès aux", "droits"], categorie: "territoire", x: 42, y: 344 },
-      { texte: ["Organismes de", "proximité"], categorie: "communaute", x: 31, y: 195 },
-      { texte: ["Hôpital"], categorie: "soins", x: 167, y: 72 }
-    ];
-    const couleurs = { soins: "#2d718c", communaute: "#257c6b", territoire: "#b47a42" };
-    function constellation(nom, miniature = false) {
-      const cx = 500, cy = 299;
-      const centreTexte = nom.replace(/^CLSC (?:de la |du |de )?/, "");
-      if (miniature) {
-        const points = actes.map(({ x, y, categorie }) => {
-          const xx = x + 87, yy = y + 34;
-          return '<line x1="500" y1="300" x2="' + xx + '" y2="' + yy + '" stroke="' + couleurs[categorie] + '" stroke-opacity=".5" stroke-width="7"/>' +
-            '<circle cx="' + xx + '" cy="' + yy + '" r="17" fill="' + couleurs[categorie] + '" stroke="white" stroke-width="5"/>';
-        }).join("");
-        return '<svg viewBox="0 0 1000 620" aria-hidden="true" focusable="false"><circle cx="500" cy="300" r="250" fill="none" stroke="#bdd9cf" stroke-dasharray="6 12" stroke-width="4"/>' + points + '<circle cx="500" cy="300" r="65" fill="#1c594c" stroke="white" stroke-width="10"/><text x="500" y="309" text-anchor="middle" font-size="37" fill="#fff" font-weight="700">CLSC</text></svg>';
-      }
-      const lignes = actes.map((a, i) => {
-        const nx = a.x + 88, ny = a.y + 33;
-        const accent = couleurs[a.categorie];
-        const quart = (i % 3) * 8 - 8;
-        return '<path d="M' + cx + ',' + cy + ' Q' + (cx + nx) / 2 + ',' + ((cy + ny) / 2 + quart) + ' ' + nx + ',' + ny + '" fill="none" stroke="' + accent + '" stroke-opacity=".73" stroke-width="3.3" stroke-linecap="round"/>';
-      }).join("");
-      const croisements = [[0, 1], [1, 2], [3, 4], [4, 5], [6, 7], [8, 9], [5, 6]].map(([a, b]) => {
-        const p = actes[a], q = actes[b];
-        return '<path d="M' + (p.x + 88) + ',' + (p.y + 33) + ' L' + (q.x + 88) + ',' + (q.y + 33) + '" fill="none" stroke="#8ea79d" stroke-width="2.2" stroke-dasharray="5 9" opacity=".5"/>';
-      }).join("");
-      const noeuds = actes.map(a => {
-        const couleur = couleurs[a.categorie];
-        const texte = a.texte.map((ligne, j) => '<tspan x="' + (a.x + 88) + '" dy="' + (j ? 21 : 0) + '">' + echapper(ligne) + '</tspan>').join("");
-        return '<g><rect x="' + a.x + '" y="' + a.y + '" width="176" height="66" rx="18" fill="#fff" stroke="' + couleur + '" stroke-width="2.8"/><rect x="' + (a.x + 12) + '" y="' + (a.y + 12) + '" width="6" height="42" rx="3" fill="' + couleur + '"/><text x="' + (a.x + 96) + '" y="' + (a.y + (a.texte.length === 2 ? 27 : 39)) + '" fill="#183a38" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" font-weight="650">' + texte + '</text></g>';
-      }).join("");
-      const taille = centreTexte.length > 20 ? 18 : centreTexte.length > 15 ? 21 : 25;
-      return '<svg class="o3-grand-svg" viewBox="0 0 1000 622" role="img" aria-label="Sociogramme égocentré illustratif autour du ' + echapper(nom) + ' : liens conceptuels avec dix familles d’acteurs, sans données empiriques"><rect width="1000" height="622" rx="23" fill="#f7faf8"/><circle cx="500" cy="299" r="245" fill="none" stroke="#bad7ce" stroke-width="2" stroke-dasharray="4 11"/><circle cx="500" cy="299" r="153" fill="#e8f2ed" stroke="#d2e5dc" stroke-width="2"/>' + croisements + lignes + noeuds + '<circle cx="500" cy="299" r="104" fill="#1e594c" stroke="#fff" stroke-width="9"/><text x="500" y="279" text-anchor="middle" fill="#b9e6d3" font-family="system-ui,sans-serif" font-size="19" font-weight="700">EGO · CLSC</text><text x="500" y="310" text-anchor="middle" fill="white" font-family="system-ui,sans-serif" font-size="' + taille + '" font-weight="750">' + echapper(centreTexte) + '</text><text x="500" y="337" text-anchor="middle" fill="#d8f1e6" font-family="system-ui,sans-serif" font-size="14">Territoire d’intervention</text></svg>';
-    }
     function qualitatifSVG() {
       const points = [
         { x: 290, y: 92, txt: "A1", type: "#307c8b" },
@@ -83,7 +37,6 @@
       const acteurs = points.map(p => '<circle cx="' + p.x + '" cy="' + p.y + '" r="26" fill="#fff" stroke="' + p.type + '" stroke-width="3"/><text x="' + p.x + '" y="' + (p.y + 5) + '" text-anchor="middle" font-size="16" fill="#173f3b" font-weight="700">' + p.txt + '</text>').join("");
       return '<svg viewBox="0 0 660 540" role="img" aria-label="Exemple de carte d’entretien qualitatif avec ego central, six alters anonymisés, cercles concentriques et liens de styles distincts"><rect x="1" y="1" width="658" height="538" rx="22" fill="#f7faf8" stroke="#d8e5df"/><circle cx="315" cy="265" r="215" fill="none" stroke="#b8cfc7" stroke-width="2"/><circle cx="315" cy="265" r="130" fill="#e9f2ed" stroke="#c9dcd3" stroke-width="2"/>' + lien + acteurs + '<circle cx="315" cy="265" r="63" fill="#20594e" stroke="white" stroke-width="5"/><text x="315" y="259" font-size="20" text-anchor="middle" fill="white" font-weight="750">EGO</text><text x="315" y="281" font-size="16" text-anchor="middle" fill="#d9f5e7">CLSC</text><text x="16" y="518" font-size="15" fill="#6d7f78">A1 à A6 : acteurs codés, placement fictif</text></svg>';
     }
-    const officiel = "https://ciusss-centresudmtl.gouv.qc.ca/propos/qui-sommes-nous/territoire-et-population-desservie";
 
     // Expérimentations et modèles d'application, distincts de l'enquête SAD.
     const descriptifs211=[
@@ -107,8 +60,7 @@
         lecture:"Domaines liés parce qu'ils partagent des destinataires, avec seuil de similarité Jaccard ; ces liens dérivés ne mesurent pas les collaborations intersectorielles."
       }));
     });
-    // Galerie : seules les analyses du 211. Les trois schémas CLSC restent
-    // des illustrations du protocole, indépendantes de la visionneuse.
+    // Galerie : uniquement les figures d'analyse des orientations du 211.
     const donnees=[
       ...descriptifs211.map(([titre,nom,lecture])=>({type:"figure",titre:"211 · "+titre,url:"/simulations/sna-o3/figures/"+nom,lecture})),
       ...serieR.map(x=>({...x,type:"r",titre:"211 / R · "+x.titre}))
@@ -159,17 +111,8 @@
       '</div>';
     const methodo = document.createElement("section");
     methodo.className = "o3-clsc-methodo";
-    methodo.setAttribute("aria-label", "Illustrations fictives du protocole SNA égocentré sur le CLSC");
-    methodo.innerHTML =
-      '<header><span class="o3-clsc-surtitre">O3 · Illustrations du protocole · distinctes des données du 211</span>'+
-      '<h4>Trois exemples de réseaux CLSC · schémas fictifs</h4>'+
-      '<p>Ces trois illustrations servent à expliquer le futur questionnaire égocentré sur les équipes SAD des CLSC. Les noms des CLSC sont réels, mais les nœuds, les liens, leur intensité et leur disposition sont fictifs : aucun réseau d’acteurs n’a été observé ici.</p></header>'+
-      '<div class="o3-clsc-miniatures">'+cls.map(nom=>
-        '<details class="o3-clsc-exemple"><summary><span class="o3-clsc-apercu">'+constellation(nom,true)+'</span><strong>'+echapper(nom)+'</strong><small>Schéma illustratif · agrandir</small></summary>'+
-        '<div class="o3-clsc-grand">'+constellation(nom)+'</div></details>'
-      ).join("")+'</div>'+
-      '<p class="o3-clsc-reference"><a href="'+officiel+'" target="_blank" rel="noopener noreferrer">Source institutionnelle des noms des CLSC ↗</a> · Les relations sont fictives et ne constituent pas des résultats.</p>'+
-      '<details class="o3-galerie-qual"><summary>Exemples méthodologiques d’entretiens et de codage qualitatif</summary>'+qualitatif+'</details>';
+    methodo.setAttribute("aria-label", "Exemples méthodologiques d’entretiens et de codage qualitatif");
+    methodo.innerHTML = '<details class="o3-galerie-qual"><summary>Exemples méthodologiques d’entretiens et de codage qualitatif</summary>'+qualitatif+'</details>';
     const espaceExemples=zone.querySelector("#methode-o3-exemples");
     if (espaceExemples) {
       const precedent=espaceExemples.querySelector(":scope > .o3-clsc-methodo");
@@ -315,7 +258,7 @@
     if (methodes && !methodes.querySelector(".o3-renvoi-methodes")) {
       const note = document.createElement("div");
       note.className = "o3-renvoi-methodes";
-      note.innerHTML = '<strong>Illustrations du protocole et exercice sur le 211</strong><p>Trois réseaux CLSC fictifs sont présentés à part ; la galerie contient uniquement quatre figures de synthèse et seize graphiques R issus du 211.</p><button type="button">Voir la galerie SNA du 211 (20 figures) →</button>';
+      note.innerHTML = '<strong>Exemples qualitatifs et analyse du 211</strong><p>Les exemples d’entretiens et de codage sont présentés séparément ; la galerie contient quatre figures de synthèse et seize graphiques R issus du 211.</p><button type="button">Voir la galerie SNA du 211 (20 figures) →</button>';
       // Garder ce renvoi avec la méthode O3 au lieu d'en faire un bloc flottant.
       const titreO3 = zone.querySelector('#methode-o3-exemples > header');
       if (titreO3) titreO3.insertAdjacentElement("afterend", note);
