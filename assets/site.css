@@ -1556,7 +1556,7 @@ html.lv .axes-cartes{grid-template-columns:1fr}
 .bande-restauree .impact-ensemble dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:18px;row-gap:13px;margin:0}
 .bande-restauree .impact-ensemble dl>div{display:flex;flex-direction:column;min-width:0;gap:5px}
 .bande-restauree .impact-ensemble dt{font-size:12.5px;line-height:1.45;color:#e6f1f6;max-width:205px;overflow-wrap:break-word}
-.bande-restauree .impact-ensemble dd{order:-1;margin:0;color:#f2c14e;font:400 clamp(29px,2.6vw,35px)/1.05 var(--serif);font-variant-numeric:tabular-nums}
+.bande-restauree .impact-ensemble dd{order:-1;margin:0;color:#f2c14e;font:750 clamp(42px,3.6vw,52px)/1.02 var(--sans);font-variant-numeric:tabular-nums;letter-spacing:-.025em}
 .bande-restauree .impact-ensemble dl>div:nth-child(4n+2) dd{color:#7fd1b9}
 .bande-restauree .impact-ensemble dl>div:nth-child(4n+3) dd{color:#8ec5ff}
 .bande-restauree .impact-ensemble dl>div:nth-child(4n+4) dd{color:#f5a65b}
@@ -1565,7 +1565,7 @@ html.lv .axes-cartes{grid-template-columns:1fr}
 .bande-restauree .impact-precisions ul{padding-inline-start:20px;margin:14px 0 0;max-width:900px}
 .bande-restauree .impact-precisions li+li{margin-top:6px}
 @media(max-width:900px){.bande-restauree .impact-ensembles{grid-template-columns:minmax(0,1fr);gap:18px}.bande-restauree .impact-ensemble+.impact-ensemble{padding-inline-start:0;border-inline-start:0;border-top:1px solid rgba(255,255,255,.22);padding-top:16px}.bande-restauree .impact-ensemble dl{grid-template-columns:repeat(4,minmax(0,1fr))}.bande-restauree .impact-ensemble h3{margin-bottom:14px}}
-@media(max-width:600px){.bande-accueil.bande-restauree{padding:18px 18px 16px}.bande-restauree .impact-ensemble dl{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:14px}.bande-restauree .impact-ensemble dt{font-size:12px}.bande-restauree .impact-ensemble dd{font-size:30px}}
+@media(max-width:600px){.bande-accueil.bande-restauree{padding:18px 18px 16px}.bande-restauree .impact-ensemble dl{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:14px}.bande-restauree .impact-ensemble dt{font-size:12px}.bande-restauree .impact-ensemble dd{font-size:38px}}
 
 /* Hall en volume : architecture continue, panneaux muraux et portes. */
 .station-hall{display:contents}
