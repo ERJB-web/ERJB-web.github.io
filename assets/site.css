@@ -6267,3 +6267,39 @@ body:not(.page-abregee) :is(#contenu .section-corps, #salle .salle-contenu)
             .chiffres p,.barres p)) {
   text-align:justify!important;
 }
+
+
+/* Porte Recherche uniquement : police -1 px (hors menus), cartes rapprochées. */
+/* Les six sous-sections de la porte Recherche seulement.
+   Toute navigation (nav), les sommaires, les panneaux latéraux et la barre supérieure sont exclus. */
+@layer typographie-site {
+  body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-salle="recherche"],.gab[data-gab-salle="axes"],.gab[data-gab-salle="publications"],.gab[data-gab-salle="approche"],.gab[data-gab-salle="methodes"],.gab[data-gab-salle="ia"]) :is(.section-corps,.gab-corps,.bandeau-texte,.gab-chapitre-tete) :not(:is(svg,svg *,nav,nav *,aside,aside *,.rubriques-console,.rubriques-console *,.rubriques-choix,.rubriques-choix *,.gab-programme,.gab-programme *,.gab-tuiles,.gab-tuiles *,.gab-chapitre-aside,.gab-chapitre-aside *)) {
+    font-size:15px!important; /* 12 pt (=16 px) moins 1 px */
+  }
+  body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-salle="recherche"],.gab[data-gab-salle="axes"],.gab[data-gab-salle="publications"],.gab[data-gab-salle="approche"],.gab[data-gab-salle="methodes"],.gab[data-gab-salle="ia"]) :is(.section-corps,.gab-corps,.bandeau-texte,.gab-chapitre-tete) :is(h1,h2,h3,h4,h5,h6,[role="heading"],.bandeau-titre,.titre-bloc,.gab-chapitre-titre,.these-question-principale > span),
+  body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-salle="recherche"],.gab[data-gab-salle="axes"],.gab[data-gab-salle="publications"],.gab[data-gab-salle="approche"],.gab[data-gab-salle="methodes"],.gab[data-gab-salle="ia"]) :is(.section-corps,.gab-corps,.bandeau-texte,.gab-chapitre-tete) :is(h1,h2,h3,h4,h5,h6,[role="heading"],.bandeau-titre,.titre-bloc,.gab-chapitre-titre,.these-question-principale > span) :not(svg,svg *) {
+    font-size:23px!important; /* 18 pt (=24 px) moins 1 px */
+  }
+  /* Les chiffres de l'inventaire O2 doivent rester dominants et lisibles. */
+  body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-salle="recherche"],.gab[data-gab-salle="axes"],.gab[data-gab-salle="publications"],.gab[data-gab-salle="approche"],.gab[data-gab-salle="methodes"],.gab[data-gab-salle="ia"]) #methode-o2-4 .o2-sources-indicateurs dt{
+    font-size:clamp(36px,4vw,52px)!important;
+    line-height:1.05!important;
+  }
+  body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-salle="recherche"],.gab[data-gab-salle="axes"],.gab[data-gab-salle="publications"],.gab[data-gab-salle="approche"],.gab[data-gab-salle="methodes"],.gab[data-gab-salle="ia"]) #methode-o2-4 .o2-sources-indicateurs dd{
+    font-size:14px!important;
+    line-height:1.35!important;
+  }
+}
+/* Espaces verticaux et grilles de cartes : ni sommaires ni onglets. */
+body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-salle="recherche"],.gab[data-gab-salle="axes"],.gab[data-gab-salle="publications"],.gab[data-gab-salle="approche"],.gab[data-gab-salle="methodes"],.gab[data-gab-salle="ia"]) .gab-corps :is(
+  .methode-rubrique,.o1-circuit,.o2-sources-modernes,.o3-quali-matrice,
+  .these-methode-objectif,.publication-bloc,.axe-carte
+){margin-bottom:14px!important}
+body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-salle="recherche"],.gab[data-gab-salle="axes"],.gab[data-gab-salle="publications"],.gab[data-gab-salle="approche"],.gab[data-gab-salle="methodes"],.gab[data-gab-salle="ia"]) :is(.gab-corps,.section-corps) :is(
+  .o2-sources-grille,.o2-var-grille,.o1-circuit-steps,.o1-methode-flux,
+  .o3-quali-grille,.o2-sources-indicateurs,.o1-analyse-piliers,
+  .these-methode-grille,.axe-cartes,.publication-cartes
+){gap:clamp(9px,1.3vw,15px)!important}
+body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-salle="recherche"],.gab[data-gab-salle="axes"],.gab[data-gab-salle="publications"],.gab[data-gab-salle="approche"],.gab[data-gab-salle="methodes"],.gab[data-gab-salle="ia"]) :is(.gab-corps,.section-corps) :is(
+  .o2-sources-grille,.o2-sources-modernes,.o1-circuit,.o3-quali-matrice
+){margin-bottom:16px!important}
