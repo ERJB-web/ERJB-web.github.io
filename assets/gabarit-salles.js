@@ -36,7 +36,7 @@
     valeurs: { sel: "article.valeur", titre: "h4" },
     representation: { unique: true }, communaute: { unique: true }, distinctions: { unique: true }, citoyen: { unique: true },
     loisirs: { unique: true },
-    logiciels: { sel: ".logiciels-cartes > *, aside.logiciels-jeu", titre: "h3" },
+    logiciels: { sel: ".logiciels-chapitre", titre: ".ressources-chapitre-titre" },
     litterature: { sel: "section.rg-articles, details.lecture-theme", titre: "h3.rg-titre, summary" },
     grise: { sel: "section.rg", titre: "h3.rg-titre" },
     presse: { unique: true }, capsules: { unique: true }, balados: { unique: true },
@@ -968,6 +968,7 @@
         source = div;
       }
       source.classList.add("gab-source");
+      if (salle === "logiciels") source.classList.remove("gab-intro");
       // Une page unique conserve ses images dans le contenu : aucune photo
       // n'est transférée dans la colonne latérale pour ce type de rubrique.
       if (!REGLES[salle]?.unique && ch.photoInterne && ch.choix?.interne) $$("img", source).find((im) => absolue(im.getAttribute("src")) === ch.photoInterne)?.closest("picture, img")?.remove();
@@ -1448,6 +1449,7 @@
     if (destination !== zone.dataset.gabSalle || !segment) return -1;
     let repere;
     try { repere = decodeURIComponent(segment); } catch { repere = segment; }
+    if (destination === "logiciels" && repere === "chapitre-3") return 0;
     return liste.findIndex((chapitre) =>
       chapitre.dataset.gabSlug === repere ||
       chapitre.dataset.rubrique === repere ||
