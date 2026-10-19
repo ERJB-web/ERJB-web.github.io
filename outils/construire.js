@@ -1027,7 +1027,7 @@ ${tableOnglets(tr.titre, tr.detail, tr.etapes.map(([verbe, titre, texte, tags]) 
 <p class="note">${e(tr.note)}</p>
 <p class="note note-avant">${e(m.chantiers.intro)}</p>
 ${tableOnglets(m.chantiers.titre, m.chantiers.detail, m.chantiers.items.map(([court, titre, texte, refs]) => ["", court, titre, texte, refs]), "")}
-${cartes(m.plan)}
+${c.lang === 'fr' ? require('./cadres-pedagogiques').render() : cartes(m.plan)}
 ${cartes(m.cadres)}
 <details class="biblio"><summary>${e(m.bibliographie.titre)}</summary><ol>${m.bibliographie.items.map((r) => `<li>${lienDoi(r)}</li>`).join("")}</ol></details>
 </div>
@@ -1508,6 +1508,7 @@ ${LANGUES.filter((l) => l.hreflang).map((l) => `<link rel="alternate" hreflang="
 <link rel="alternate" hreflang="x-default" href="${URL}">
 <link rel="icon" href="${p}assets/favicon.svg?v=${VERSION_ICONE}" type="image/svg+xml">
 <link rel="stylesheet" href="${p}assets/site.css?v=${VERSION_CSS}">
+${c.lang === 'fr' ? `<link rel="stylesheet" href="${p}assets/cadres-pedagogiques.css?v=20261019-1"><script src="${p}assets/cadres-pedagogiques.js?v=20261019-1" defer></script>` : ''}
 <link rel="stylesheet" href="${p}assets/hall-realiste.css?v=${VERSION_HALL_CSS}">
 <link rel="stylesheet" href="${p}assets/vulgarisation-studio.css?v=20261015studio5">
 <link rel="stylesheet" href="${p}assets/vulgarisation-editorial.css?v=20261015editorial4">
