@@ -797,7 +797,7 @@
             carte.style.aspectRatio = "auto";
             carte.style.objectFit = "contain";
           }
-        } else tete.after(photo);
+        } else photo.remove();
       } else if (photo) tete.after(photo);
       grille.classList.add("gab-menu-gauche");
     }
