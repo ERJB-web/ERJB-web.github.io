@@ -1,6 +1,5 @@
 "use strict";
-// Indicateurs fournis par l’auteur : 12 chiffres organisés en trois ensembles.
-// Répit estimé ; participations cumulées, sans supposer des personnes distinctes.
+// Ordres de grandeur déclaratifs ; les publics liés ne sont pas additionnables.
 module.exports = {
   "fr": {
     "groupes": [
@@ -19,12 +18,13 @@ module.exports = {
         "séjours adaptés dirigés"
       ],
       [
-        "1 000",
+        "≈1 000",
         "personnes ayant bénéficié de vacances hors institution"
       ],
       [
-        "≈200",
-        "familles ayant bénéficié de temps de répit"
+        "≈1 000",
+        "familles et professionnels concernés par le répit",
+        "Estimation de l’entourage des personnes accompagnées"
       ],
       [
         "4",
@@ -65,6 +65,7 @@ module.exports = {
       ]
     ],
     "notes": [
+      "Handicap et répit : ordres de grandeur estimatifs sur l’ensemble du parcours. Le répit concerne les familles et les professionnels accompagnants. Les deux estimations décrivent des publics liés ; elles ne s’additionnent pas et ne constituent pas un décompte individuel vérifié.",
       "Enseignement : Université de Montréal.",
       "Meilleure affiche : GFSP, 2026, 3e cycle et postdoctorat.",
       "Réseau médico-social : contribution à l’animation du réseau d’experts.",
@@ -90,12 +91,13 @@ module.exports = {
         "adapted holiday stays directed"
       ],
       [
-        "1,000",
+        "≈1,000",
         "people benefiting from holidays outside institutions"
       ],
       [
-        "≈200",
-        "families benefiting from respite stays"
+        "≈1,000",
+        "families and professionals concerned by respite",
+        "Estimated support network of the people accompanied"
       ],
       [
         "4",
@@ -136,6 +138,7 @@ module.exports = {
       ]
     ],
     "notes": [
+      "Disability support and respite: estimated orders of magnitude over the full career. Respite concerns families and support professionals. The two estimates describe related groups; they must not be added together and are not a verified individual count.",
       "Teaching: Université de Montréal.",
       "Best poster: GFSP, 2026, doctoral and postdoctoral category.",
       "Health and social care network: contribution to facilitating the expert network.",
@@ -161,12 +164,13 @@ module.exports = {
         "estancias adaptadas dirigidas"
       ],
       [
-        "1 000",
+        "≈1 000",
         "personas beneficiarias de vacaciones fuera de instituciones"
       ],
       [
-        "≈200",
-        "familias beneficiarias de períodos de respiro"
+        "≈1 000",
+        "familias y profesionales vinculados al respiro",
+        "Estimación del entorno de las personas acompañadas"
       ],
       [
         "4",
@@ -207,6 +211,7 @@ module.exports = {
       ]
     ],
     "notes": [
+      "Discapacidad y respiro: órdenes de magnitud estimados para el conjunto de la trayectoria. El respiro concierne a las familias y a los profesionales de apoyo. Ambas estimaciones describen colectivos relacionados; no se suman ni constituyen un recuento individual verificado.",
       "Docencia: Université de Montréal.",
       "Mejor póster: GFSP, 2026, categoría doctoral y posdoctoral.",
       "Red médico-social: contribución a la dinamización de la red de expertos.",
@@ -232,12 +237,13 @@ module.exports = {
         "次负责管理的适应性度假活动"
       ],
       [
-        "1 000",
+        "≈1 000",
         "名机构外度假活动受益者"
       ],
       [
-        "≈200",
-        "个获得喘息服务的家庭"
+        "≈1 000",
+        "与喘息支持相关的家庭及专业人员",
+        "对受支持者身边支持群体的估算"
       ],
       [
         "4",
@@ -278,6 +284,7 @@ module.exports = {
       ]
     ],
     "notes": [
+      "残障支持与喘息服务：数字为整个职业历程的估算量级。喘息支持涉及家庭及陪护专业人员。两项估算描述相互关联的群体，不应相加，也不是经核实的个人统计。",
       "教学：蒙特利尔大学。",
       "最佳海报：GFSP，2026 年，博士及博士后组。",
       "医疗社会服务网络：参与专家网络的组织与交流工作。",
@@ -303,12 +310,13 @@ module.exports = {
         "إقامة مكيّفة أُديرت"
       ],
       [
-        "1 000",
+        "≈1 000",
         "شخص استفاد من عطلات خارج المؤسسات"
       ],
       [
-        "≈200",
-        "أسرة استفادت من فترات إراحة"
+        "≈1 000",
+        "أسر ومهنيون معنيون بخدمات الراحة المؤقتة",
+        "تقدير للمحيط الداعم للأشخاص المستفيدين"
       ],
       [
         "4",
@@ -349,6 +357,7 @@ module.exports = {
       ]
     ],
     "notes": [
+      "الإعاقة والراحة المؤقتة: أرقام تقديرية على امتداد المسار المهني. تشمل الراحة الأسر والمهنيين المرافقين. يصف التقديران فئات مترابطة، ولا يجوز جمعهما، ولا يمثلان إحصاءً فردياً موثقاً.",
       "التدريس: جامعة مونتريال.",
       "أفضل ملصق: GFSP، 2026، فئة الدكتوراه وما بعد الدكتوراه.",
       "الشبكة الطبية الاجتماعية: مساهمة في تنشيط شبكة الخبراء.",
@@ -374,12 +383,13 @@ module.exports = {
         "адаптированных программ отдыха под руководством"
       ],
       [
-        "1 000",
+        "≈1 000",
         "человек, отдохнувших вне учреждений"
       ],
       [
-        "≈200",
-        "семей, получивших время для передышки"
+        "≈1 000",
+        "семьи и специалисты, которых касается временная разгрузка",
+        "Оценка круга поддержки сопровождаемых людей"
       ],
       [
         "4",
@@ -420,6 +430,7 @@ module.exports = {
       ]
     ],
     "notes": [
+      "Поддержка людей с инвалидностью и временная разгрузка: приблизительные оценки за весь профессиональный путь. Разгрузка касается семей и сопровождающих специалистов. Две оценки описывают связанные группы; их нельзя складывать, и они не являются проверенным индивидуальным подсчётом.",
       "Преподавание: Монреальский университет.",
       "Лучший постер: GFSP, 2026, категория докторантов и постдоков.",
       "Медико-социальная сеть: участие в организации работы экспертной сети.",
