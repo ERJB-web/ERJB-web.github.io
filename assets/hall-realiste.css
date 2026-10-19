@@ -773,3 +773,59 @@ html.direct-serre .hall-tete .direct-hall { display: inline-flex; margin-inline:
 @media(forced-colors:active) {
   .direct-montreal .direct-ciel { border: 1px solid CanvasText; }
 }
+
+
+/* Accueil mobile : le décor et les six portes occupent une scène de hauteur stable. */
+@media (max-width:700px) {
+  /* Les règles sont limitées au hall de l'accueil sur téléphone. */
+  body:has(> main > .accueil) .hall.en-mobile .hall-espace {
+    display:block;
+    position:relative;
+    box-sizing:border-box;
+    width:calc(100% + 2 * var(--gouttiere));
+    max-width:none;
+    margin-inline:calc(-1 * var(--gouttiere));
+    height:100svh;
+    min-height:100svh;
+    max-height:100svh;
+    padding:0;
+    overflow:hidden;
+    border-radius:0;
+  }
+  body:has(> main > .accueil) .hall.en-mobile .hall-univers {
+    width:100%;
+    height:100%;
+    min-height:0;
+  }
+  /* Le script mesure les panneaux et donne au rail une hauteur variable.
+     La hauteur fixe prime sur cette mesure : passer d'une porte à l'autre
+     ne déplace plus la page verticalement. */
+  body:has(> main > .accueil) .hall.en-mobile .portes {
+    height:100%!important;
+    min-height:0;
+    align-items:stretch;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scroll-snap-type:x mandatory;
+    scroll-padding-inline:0;
+    overscroll-behavior-x:contain;
+  }
+  body:has(> main > .accueil) .hall.en-mobile .station-hall {
+    /* Une scène plein écran, identique pour les six stations.
+       Garder la perspective et les fonds de Montréal existants. */
+    --m:clamp(.76px,min(calc(100cqw / 345),calc((100svh - 236px) / 438)),1.45px);
+    box-sizing:border-box;
+    height:100%;
+    min-height:100%;
+    max-height:100%;
+    flex:0 0 100cqw;
+    overflow:hidden;
+  }
+  /* Les flèches restent accessibles sans ajouter de hauteur sous la scène. */
+  body:has(> main > .accueil) .hall.en-mobile .hall-commandes {
+    position:absolute;
+    z-index:5;
+    inset:auto 0 0;
+    margin:0;
+  }
+}
