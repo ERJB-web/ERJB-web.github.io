@@ -285,3 +285,23 @@ html.hc .these .mat-sc,html.lv .these .mat-sc{background:#fff;border-width:2px}
 .these #methode-o3-6 .mat-sc--o3 .mat-sc__step {
   line-height:1.65;
 }
+
+/* F_VALIDATIONS_DECISIONS_20261019 : uniquement le contenu du chapitre Faisabilité. */
+#rubrique-fr-these-panneau-3 .f-valid{margin:18px 0 20px;padding:17px clamp(13px,2vw,21px);border:1px solid #d9e4e6;border-top:3px solid #3c7a8d;border-radius:12px;background:linear-gradient(120deg,#f7fbfc,#fff 68%);box-sizing:border-box;max-width:100%}
+#rubrique-fr-these-panneau-3 .f-valid-head{margin:0 0 12px}
+#rubrique-fr-these-panneau-3 .f-valid-eyebrow{display:block;font-size:.72rem;letter-spacing:.055em;font-weight:800;text-transform:uppercase;color:#2b7186;margin-bottom:4px}
+#rubrique-fr-these-panneau-3 .f-valid-head h4{font-size:1.08rem;line-height:1.35;color:#23475a;font-weight:800;margin:0 0 6px;text-align:left}
+#rubrique-fr-these-panneau-3 .f-valid-head>p{font-size:.78rem;line-height:1.55;color:#4c626f;margin:0;text-align:justify}
+#rubrique-fr-these-panneau-3 .f-valid-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#rubrique-fr-these-panneau-3 .f-valid-card{min-width:0;padding:12px 13px;border:1px solid #dce5eb;border-top:3px solid #568aa6;background:#fff;border-radius:9px}
+#rubrique-fr-these-panneau-3 .f-valid-card[data-o=o2]{border-top-color:#368475}
+#rubrique-fr-these-panneau-3 .f-valid-card[data-o=o3]{border-top-color:#7175a9}
+#rubrique-fr-these-panneau-3 .f-valid-card[data-o=qa]{border-top-color:#a58c57}
+#rubrique-fr-these-panneau-3 .f-valid-code{display:block;color:#59778b;font-size:.71rem;font-weight:850;letter-spacing:.025em;margin-bottom:4px;text-align:left}
+#rubrique-fr-these-panneau-3 .f-valid-card h5{font-size:.83rem;line-height:1.4;color:#254658;font-weight:800;text-align:left;margin:0 0 7px}
+#rubrique-fr-these-panneau-3 .f-valid-card p{font-size:.75rem;line-height:1.53;color:#465e6b;text-align:justify;hyphens:auto;margin:5px 0}
+#rubrique-fr-these-panneau-3 .f-valid-card p b{color:#2d5e72}
+#rubrique-fr-these-panneau-3 .f-valid-foot{padding:10px 12px;margin:12px 0 0;border-left:3px solid #53828f;border-radius:6px;background:#edf4f6;font-size:.76rem;line-height:1.54;color:#375969;text-align:justify}
+#rubrique-fr-these-panneau-3 .f-valid-refs{font-size:.68rem;color:#657780;margin:10px 0 0;text-align:left}
+#rubrique-fr-these-panneau-3 .f-valid-refs a{color:#1f6881;text-decoration:underline;text-underline-offset:2px}
+@media(max-width:700px){#rubrique-fr-these-panneau-3 .f-valid-grid{grid-template-columns:1fr}#rubrique-fr-these-panneau-3 .f-valid{padding:13px}}
