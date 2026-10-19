@@ -173,3 +173,30 @@ html.hc .these .mat-sc,html.lv .these .mat-sc{background:#fff;border-width:2px}
 .these .mat-sc__exemple-titre--suite{border:0;margin:7px 0;padding:0;font-size:.75rem}
 @media(max-width:790px){.these .mat-sc__secteurs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.these .mat-sc__secteurs-grid,.these .mat-sc__exemple,.these .mat-sc__verif{grid-template-columns:1fr}.these .mat-sc__exemple-arrow{transform:rotate(90deg)}}
+
+/* MAT_POTENTIEL_05B_08 · Exclusivement contenu de la méthodologie O2. */
+.these .mat-sc--potentiel{--mat-accent:#267e92;background:linear-gradient(120deg,#f5f9fc,#fff 75%)}
+.these .mat-sc__potentiel-diagram{display:grid;grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr) 24px minmax(0,1.18fr);gap:7px;align-items:stretch;margin:11px 0 14px}
+.these .mat-sc__potentiel-box{padding:11px 12px;border:1px solid #d8e5ed;border-top:3px solid #347e9f;border-radius:9px;background:#fff;min-width:0}
+.these .mat-sc__potentiel-box:nth-of-type(2){border-top-color:#668d62}
+.these .mat-sc__potentiel-box--answer{background:#eff8f5;border-color:#cde5dc;border-top-color:#2d9170}
+.these .mat-sc__potentiel-box small{display:block;font-size:.65rem;font-weight:850;letter-spacing:.06em;color:#607d8c;margin-bottom:5px}
+.these .mat-sc__potentiel-box b{display:block;font-size:.81rem;color:#23495d;line-height:1.35;text-align:left;margin-bottom:5px}
+.these .mat-sc__potentiel-box span{display:block;font-size:.71rem;color:#4c6470;line-height:1.5;text-align:justify}
+.these .mat-sc__potentiel-plus{align-self:center;justify-self:center;color:#337e8c;font-size:1.12rem;font-weight:850}
+.these .mat-sc__potentiel-methods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:12px 0}
+.these .mat-sc__potentiel-methods>div{border:1px solid #d8e5ed;border-radius:9px;padding:12px;background:#fff}
+.these .mat-sc__potentiel-methods strong{display:block;font-size:.79rem;color:#275d84;text-align:left;margin-bottom:5px}
+.these .mat-sc__potentiel-methods p{font-size:.73rem;line-height:1.55;color:#445d6a;margin:0;text-align:justify}
+.these .mat-sc__potentiel-claims{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:12px 0}
+.these .mat-sc__potentiel-claims>div{padding:12px;border:1px solid #d4e6d9;border-radius:9px;background:#f2faf4}
+.these .mat-sc__potentiel-claims>div:last-child{background:#fff9f0;border-color:#ecdfc7}
+.these .mat-sc__potentiel-claims b{display:block;font-size:.79rem;line-height:1.35;color:#2b6e49;text-align:left;margin-bottom:4px}
+.these .mat-sc__potentiel-claims>div:last-child b{color:#866025}
+.these .mat-sc__potentiel-claims p{margin:0;font-size:.73rem;line-height:1.55;color:#46575c;text-align:justify}
+.these .mat-sc__potentiel-reason{display:flex;gap:12px;align-items:center;background:#ebf3fc;border-left:4px solid #4775ad;border-radius:8px;padding:12px;margin:13px 0 8px}
+.these .mat-sc__potentiel-arrow{flex-shrink:0;color:#245e94;font-size:1rem;font-weight:850;white-space:nowrap}
+.these .mat-sc__potentiel-reason p{font-size:.76rem;line-height:1.55;color:#284e71;text-align:justify;margin:0}
+.these .mat-sc__potentiel-sad{margin:10px 0 0}
+@media(max-width:900px){.these .mat-sc__potentiel-diagram{grid-template-columns:minmax(0,1fr)}.these .mat-sc__potentiel-plus{transform:rotate(90deg)}.these .mat-sc__potentiel-box{padding:12px}}
+@media(max-width:690px){.these .mat-sc__potentiel-methods,.these .mat-sc__potentiel-claims{grid-template-columns:1fr}.these .mat-sc__potentiel-reason{align-items:flex-start;flex-direction:column;gap:6px}}
