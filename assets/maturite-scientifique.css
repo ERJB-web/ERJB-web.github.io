@@ -1,0 +1,44 @@
+/* Complément limité au protocole de thèse : ne touche ni au menu ni aux galeries. */
+.these .mat-sc{--mat-accent:#176a7b;margin:20px 0 25px;padding:19px clamp(14px,2vw,23px);border:1px solid #d1e1e7;border-top:4px solid var(--mat-accent);border-radius:13px;background:#fbfdfd;max-width:100%;min-width:0;box-sizing:border-box}
+.these .mat-sc--concept{--mat-accent:#265c9f;background:linear-gradient(115deg,#f5f8fe,#fff 55%)}
+.these .mat-sc--o1{--mat-accent:#45812b}.these .mat-sc--o2{--mat-accent:#167d83}.these .mat-sc--o3{--mat-accent:#245f9f}
+.these .mat-sc__eyebrow{display:block;margin:0 0 5px;color:var(--mat-accent);font-size:.71rem;font-weight:800;letter-spacing:.085em;text-transform:uppercase;text-align:left}
+.these .mat-sc__title{display:block;margin:0 0 12px;color:#143a4f;font-size:1.02rem;font-weight:800;line-height:1.35;text-align:left}
+.these .mat-sc__lead{margin:0 0 13px;font-size:.84rem;line-height:1.6;color:#38515f;text-align:justify}
+.these .mat-sc__cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-items:stretch}
+.these .mat-sc__cards--four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.these .mat-sc__card{min-width:0;padding:13px 13px 14px;border:1px solid #dce7eb;border-radius:10px;background:#fff;position:relative;overflow-wrap:anywhere}
+.these .mat-sc__number{font-size:1.45rem;line-height:1.2;letter-spacing:-.03em;font-weight:850;color:var(--mat-accent);display:block;margin-bottom:5px;font-variant-numeric:tabular-nums}
+.these .mat-sc__card strong{display:block;color:#1c3d50;font-size:.77rem;line-height:1.4;text-align:left;margin-bottom:5px}
+.these .mat-sc__card p{font-size:.76rem;line-height:1.5;margin:0;color:#475e69;text-align:justify;hyphens:auto}
+.these .mat-sc__tag{display:inline-flex;align-items:center;gap:5px;margin:8px 0 0;padding:4px 9px;background:#eaf3f7;color:#1f5471;border-radius:99px;font-size:.66rem;font-weight:750;line-height:1.4}
+.these .mat-sc__tag--pending{background:#fff3da;color:#835818}
+.these .mat-sc__tag--rule{background:#eaf4ea;color:#2d663f}
+.these .mat-sc__levels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:13px}
+.these .mat-sc__level{padding:14px;border-radius:9px;border:1px solid #dbe4ec;background:#fff;min-width:0}
+.these .mat-sc__level:nth-child(1){border-top:4px solid #518637}
+.these .mat-sc__level:nth-child(2){border-top:4px solid #10818b}
+.these .mat-sc__level:nth-child(3){border-top:4px solid #2f67b0}
+.these .mat-sc__level small{font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;font-weight:800;color:#5a6f7e}
+.these .mat-sc__level strong{display:block;margin:6px 0;color:#1c4053;font-size:.84rem;text-align:left}
+.these .mat-sc__level p{margin:0;color:#405968;font-size:.76rem;line-height:1.55;text-align:justify}
+.these .mat-sc__bottom{margin:11px 0 0;padding:9px 12px;border-radius:7px;background:#eaf3fa;color:#294b68;font-size:.78rem;line-height:1.55;text-align:justify}
+.these .mat-sc__table-wrap{overflow-x:auto;border:1px solid #d9e5e9;border-radius:9px}
+.these .mat-sc__table{width:100%;border-collapse:collapse;min-width:550px;background:white;margin:0!important;font-size:.77rem;line-height:1.5}
+.these .mat-sc__table th,.these .mat-sc__table td{padding:10px 12px!important;border:0!important;border-bottom:1px solid #e2e8eb!important;vertical-align:top;text-align:justify;hyphens:auto}
+.these .mat-sc__table th{background:#eef5f7;color:#274a57;font-size:.72rem;font-weight:800;text-align:left}
+.these .mat-sc__table tbody th{background:#f8fafb;width:22%;color:#224b5c}
+.these .mat-sc__table tr:last-child >*{border-bottom:0!important}
+.these .mat-sc__small{font-size:.73rem;color:#536c78;line-height:1.55;margin:10px 0 0;text-align:justify}
+.these .mat-sc details{margin-top:12px;border:1px solid #cddfe4;background:#fff;border-radius:8px;padding:0 12px}
+.these .mat-sc summary{cursor:pointer;padding:11px 4px;color:#22596b;font-size:.82rem;font-weight:750;text-align:left}
+.these .mat-sc details[open] summary{border-bottom:1px solid #e1e9ed;margin-bottom:11px}
+.these .mat-sc details p{font-size:.77rem;line-height:1.62;text-align:justify}
+.these .mat-sc__steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;padding-bottom:12px}
+.these .mat-sc__step{border-left:3px solid var(--mat-accent);background:#f4f8fa;padding:10px 11px;font-size:.76rem;line-height:1.5}
+.these .mat-sc__step b{display:block;color:var(--mat-accent);margin-bottom:4px}
+.these .mat-sc__status{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+.these .mat-sc__alert{margin-top:11px;padding:11px 13px;border-left:3px solid #ad6925;background:#fff7ea;color:#664c31;font-size:.78rem;line-height:1.58;text-align:justify}
+@media(max-width:920px){.these .mat-sc__cards--four{grid-template-columns:repeat(2,minmax(0,1fr))}.these .mat-sc__steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:690px){.these .mat-sc__cards,.these .mat-sc__cards--four,.these .mat-sc__levels,.these .mat-sc__steps{grid-template-columns:1fr}.these .mat-sc{padding:15px 13px;margin:15px 0 19px}.these .mat-sc__number{font-size:1.3rem}.these .mat-sc__table{font-size:.74rem}}
+html.hc .these .mat-sc,html.lv .these .mat-sc{background:#fff;border-width:2px}
