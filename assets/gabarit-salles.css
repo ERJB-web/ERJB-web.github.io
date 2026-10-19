@@ -1830,32 +1830,49 @@ html.hc .gab.gab-continu .vision{background:#fff;color:#000;border-color:#000}
 .gab[data-gab-salle="axes"] .gab-corps p{text-align:start!important;text-align-last:auto!important;word-spacing:normal;hyphens:none}
 
 /* Représentation étudiante : un récit de mandats, dans un chapitre unique. */
-.gab[data-gab-salle="representation"] .gab-lecture-integrale{width:100%;min-width:0}
-.gab[data-gab-salle="representation"] .representation-editorial{min-width:0}
-.gab[data-gab-salle="representation"] .representation-ouverture{display:grid;grid-template-columns:minmax(0,1fr) 160px;gap:30px;align-items:center;padding:30px;margin:0 0 34px;background:linear-gradient(120deg,#eef7f7,#f4f7fc);border:1px solid #d7e7e8;border-radius:20px;position:relative;overflow:hidden}
-.gab[data-gab-salle="representation"] .representation-presentation{position:relative;min-width:0}
-.gab[data-gab-salle="representation"] .representation-presentation>.surtitre{display:none}
-.gab[data-gab-salle="representation"] .representation-presentation h2{margin:0 0 12px;max-width:25ch;color:#173f52}
-.gab[data-gab-salle="representation"] .representation-presentation p{margin:0;color:#506974;text-align:start!important}
-.gab[data-gab-salle="representation"] .representation-repere{display:grid;justify-items:center;gap:4px;border-inline-start:1px solid #c5dddd;padding-inline-start:24px;color:#116c7b}
-.gab[data-gab-salle="representation"] .representation-repere>span{font:400 64px/1 var(--serif);letter-spacing:-.05em}
-.gab[data-gab-salle="representation"] .representation-repere small{max-width:13ch;text-align:center;font:500 12px/1.5 var(--sans)}
-.gab[data-gab-salle="representation"] .representation-periode{margin:0 0 34px}
-.gab[data-gab-salle="representation"] .representation-section-titre{display:flex;align-items:center;gap:14px;margin:0 0 20px;color:#173f52}
-.gab[data-gab-salle="representation"] .representation-section-titre::after{content:"";height:1px;background:#d7e5e8;flex:1}
-.gab[data-gab-salle="representation"] .representation-mandats{display:grid;gap:0;list-style:none;margin:0;padding:0}
-.gab[data-gab-salle="representation"] .representation-mandat{position:relative;display:grid;grid-template-columns:155px minmax(0,1fr);gap:24px;margin:0;padding:23px 0;border:0;border-bottom:1px solid #e0e9ec;background:none;box-shadow:none;border-radius:0}
-.gab[data-gab-salle="representation"] .representation-mandat::before{display:none}
-.gab[data-gab-salle="representation"] .representation-date{display:flex;align-items:flex-start;gap:12px;padding-top:3px;min-width:0}
-.gab[data-gab-salle="representation"] .representation-numero{display:grid;place-items:center;flex:0 0 30px;height:30px;border-radius:50%;background:#e6f3f0;color:#267362;font:550 12px/1 var(--sans)}
-.gab[data-gab-salle="representation"] .representation-date .date{display:block;padding:0;margin:0;background:none;border:0;color:#526c77;font:500 12px/1.5 var(--sans);text-transform:none;letter-spacing:0;min-width:0}
-.gab[data-gab-salle="representation"] .representation-mandat>div:last-child{min-width:0}
-.gab[data-gab-salle="representation"] .representation-mandat h4{margin:0 0 8px;text-align:start!important;hyphens:none;overflow-wrap:normal;color:#173f52}
-.gab[data-gab-salle="representation"] .representation-mandat p{margin:0;color:#526974;text-align:start!important}
-.gab[data-gab-salle="representation"] [data-periode="precedent"] .representation-mandats{padding:0 22px;border:1px solid #e0e9ec;border-radius:16px;background:#f7f9fb}
-.gab[data-gab-salle="representation"] [data-periode="precedent"] .representation-mandat:last-child{border-bottom:0}
-.gab[data-gab-salle="representation"] [data-periode="precedent"] .representation-numero{background:#e9eff7;color:#426b94}
-@media(max-width:700px){.gab[data-gab-salle="representation"] .representation-ouverture{grid-template-columns:minmax(0,1fr);gap:20px;padding:22px}.gab[data-gab-salle="representation"] .representation-repere{display:flex;gap:16px;border-inline-start:0;border-top:1px solid #c5dddd;padding:18px 0 0}.gab[data-gab-salle="representation"] .representation-repere>span{font-size:44px}.gab[data-gab-salle="representation"] .representation-repere small{text-align:start;max-width:18ch}.gab[data-gab-salle="representation"] .representation-mandat{grid-template-columns:minmax(0,1fr);gap:12px;padding:20px 0}.gab[data-gab-salle="representation"] .representation-date{align-items:center}.gab[data-gab-salle="representation"] [data-periode="precedent"] .representation-mandats{padding:0 16px}}
+.gab.gab-engagements .gab-lecture-integrale{width:100%;min-width:0}
+.gab.gab-engagements .representation-editorial{min-width:0}
+.gab.gab-engagements .representation-ouverture{display:grid;grid-template-columns:minmax(0,1fr) 160px;gap:30px;align-items:center;padding:30px;margin:0 0 34px;background:linear-gradient(120deg,#eef7f7,#f4f7fc);border:1px solid #d7e7e8;border-radius:20px;position:relative;overflow:hidden}
+.gab.gab-engagements .representation-presentation{position:relative;min-width:0}
+.gab.gab-engagements .representation-presentation>.surtitre{display:none}
+.gab.gab-engagements .representation-presentation h2{margin:0 0 12px;max-width:25ch;color:#173f52}
+.gab.gab-engagements .representation-presentation p{margin:0;color:#506974;text-align:start!important}
+.gab.gab-engagements .representation-repere{display:grid;justify-items:center;gap:4px;border-inline-start:1px solid #c5dddd;padding-inline-start:24px;color:#116c7b}
+.gab.gab-engagements .representation-repere>span{font:400 64px/1 var(--serif);letter-spacing:-.05em}
+.gab.gab-engagements .representation-repere small{max-width:13ch;text-align:center;font:500 12px/1.5 var(--sans)}
+.gab.gab-engagements .representation-periode{margin:0 0 34px}
+.gab.gab-engagements .representation-section-titre{display:flex;align-items:center;gap:14px;margin:0 0 20px;color:#173f52}
+.gab.gab-engagements .representation-section-titre::after{content:"";height:1px;background:#d7e5e8;flex:1}
+.gab.gab-engagements .representation-mandats{display:grid;gap:0;list-style:none;margin:0;padding:0}
+.gab.gab-engagements .representation-mandat{position:relative;display:grid;grid-template-columns:155px minmax(0,1fr);gap:24px;margin:0;padding:23px 0;border:0;border-bottom:1px solid #e0e9ec;background:none;box-shadow:none;border-radius:0}
+.gab.gab-engagements .representation-mandat::before{display:none}
+.gab.gab-engagements .representation-date{display:flex;align-items:flex-start;gap:12px;padding-top:3px;min-width:0}
+.gab.gab-engagements .representation-numero{display:grid;place-items:center;flex:0 0 30px;height:30px;border-radius:50%;background:#e6f3f0;color:#267362;font:550 12px/1 var(--sans)}
+.gab.gab-engagements .representation-date .date{display:block;padding:0;margin:0;background:none;border:0;color:#526c77;font:500 12px/1.5 var(--sans);text-transform:none;letter-spacing:0;min-width:0}
+.gab.gab-engagements .representation-mandat>div:last-child{min-width:0}
+.gab.gab-engagements .representation-mandat h4{margin:0 0 8px;text-align:start!important;hyphens:none;overflow-wrap:normal;color:#173f52}
+.gab.gab-engagements .representation-mandat p{margin:0;color:#526974;text-align:start!important}
+.gab.gab-engagements [data-periode="precedent"] .representation-mandats{padding:0 22px;border:1px solid #e0e9ec;border-radius:16px;background:#f7f9fb}
+.gab.gab-engagements [data-periode="precedent"] .representation-mandat:last-child{border-bottom:0}
+.gab.gab-engagements [data-periode="precedent"] .representation-numero{background:#e9eff7;color:#426b94}
+@media(max-width:700px){.gab.gab-engagements .representation-ouverture{grid-template-columns:minmax(0,1fr);gap:20px;padding:22px}.gab.gab-engagements .representation-repere{display:flex;gap:16px;border-inline-start:0;border-top:1px solid #c5dddd;padding:18px 0 0}.gab.gab-engagements .representation-repere>span{font-size:44px}.gab.gab-engagements .representation-repere small{text-align:start;max-width:18ch}.gab.gab-engagements .representation-mandat{grid-template-columns:minmax(0,1fr);gap:12px;padding:20px 0}.gab.gab-engagements .representation-date{align-items:center}.gab.gab-engagements [data-periode="precedent"] .representation-mandats{padding:0 16px}}
 
-.gab[data-gab-salle="representation"] .representation-presentation h2{text-align:start!important;max-width:none}
-.gab[data-gab-salle="representation"] .representation-date :is(.date,.representation-numero){text-align:start!important;text-align-last:auto!important;word-spacing:normal}
+.gab.gab-engagements .representation-presentation h2{text-align:start!important;max-width:none}
+.gab.gab-engagements .representation-date :is(.date,.representation-numero){text-align:start!important;text-align-last:auto!important;word-spacing:normal}
+
+/* Engagements : même langage éditorial pour les cinq rubriques. */
+.gab.gab-engagements .engagements-reseau{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px;list-style:none;margin:0;padding:0}
+.gab.gab-engagements .engagements-reseau>li{display:flex;gap:14px;align-items:flex-start;padding:18px 0;margin:0;border-bottom:1px solid #e0e9ec;text-align:start}
+.gab.gab-engagements .engagements-reseau-numero{flex:0 0 27px;padding-top:2px;color:#34867d;font:500 12px/1.5 var(--sans)}
+.gab.gab-engagements .engagements-reseau>li>span:last-child{min-width:0;color:#244b5b;line-height:1.65}
+.gab.gab-engagements .engagements-galerie{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:26px!important;margin:0!important;padding:0!important}
+.gab.gab-engagements .engagements-galerie .loisir{display:flex!important;flex-direction:column;min-width:0;margin:0!important;padding:0!important;border:1px solid #dfE8eb!important;border-radius:16px!important;overflow:hidden;background:#fff;box-shadow:none!important;transition:transform .2s,border-color .2s}
+.gab.gab-engagements .engagements-galerie .loisir:hover{transform:translateY(-3px);border-color:#9abfc7!important}
+.gab.gab-engagements .engagements-galerie .loisir>img{display:block;width:100%!important;height:auto!important;aspect-ratio:16/10;object-fit:cover;border-radius:0!important;margin:0!important}
+.gab.gab-engagements .engagements-galerie .loisir figcaption{position:static!important;display:grid;gap:10px;padding:22px!important;background:#fff!important;color:#244b5b!important;min-height:0!important;text-align:start}
+.gab.gab-engagements .engagements-galerie figcaption>span{font:500 12px/1.4 var(--sans);letter-spacing:.05em;color:#287b79;text-transform:uppercase}
+.gab.gab-engagements .engagements-galerie figcaption h4{margin:0;color:#173f52;text-align:start!important}
+.gab.gab-engagements .engagements-galerie figcaption small{font:400 14px/1.6 var(--sans);color:#526974;text-align:start}
+.gab.gab-engagements .engagements-galerie figcaption .credit-image{font-size:11px;color:#6b8189}
+@media(max-width:700px){.gab.gab-engagements .engagements-reseau,.gab.gab-engagements .engagements-galerie{grid-template-columns:minmax(0,1fr)!important}.gab.gab-engagements .engagements-galerie{gap:20px!important}}
+@media(prefers-reduced-motion:reduce){.gab.gab-engagements .engagements-galerie .loisir{transition:none}}

@@ -269,13 +269,77 @@
     corps.replaceChildren(page);
   }
 
+  const SALLES_ENGAGEMENTS = ["representation", "communaute", "distinctions", "citoyen", "loisirs"];
+  function preparerAutresEngagements(corps, salle) {
+    const intro = $(".colonne-texte", corps);
+    const liste = $(".liste-cartes", corps);
+    const galerie = $(".loisirs-etendus", corps);
+    if (!intro || (!liste && !galerie)) return;
+    const titreSource = $(".groupe-large > h3", corps);
+    const titre = net(titreSource?.textContent).replace(/\d+$/, "").trim();
+    const items = liste ? Array.from(liste.children) : Array.from(galerie.children);
+    const affiliations = $(".etiquettes", intro);
+    const titreAffiliations = affiliations?.previousElementSibling;
+    const page = el("div", "representation-editorial engagements-" + salle);
+    const ouverture = el("header", "representation-ouverture");
+    const texte = el("div", "representation-presentation");
+    // L'intitulé appartient au chapitre ; le chapeau présente son contenu.
+    const h2 = $("h2", intro);
+    if (h2 && langue === "fr") h2.textContent = {
+      communaute:"Faire partie de la conversation scientifique",
+      distinctions:"Un parcours reconnu et soutenu",
+      citoyen:"S’engager au service des autres",
+      loisirs:"Des pratiques qui ouvrent d’autres horizons"
+    }[salle];
+    $$(":scope > .surtitre", intro).forEach(x=>x.remove());
+    if (affiliations) affiliations.remove();
+    if (titreAffiliations) titreAffiliations.remove();
+    texte.append(...Array.from(intro.children));
+    const repere = el("div", "representation-repere");repere.setAttribute("aria-hidden","true");
+    const labels = {communaute:"comités scientifiques",distinctions:"bourses et distinctions",citoyen:"engagements citoyens",loisirs:"pratiques et horizons"};
+    repere.innerHTML = '<span>'+deux(items.length)+'</span><small>'+echapper(langue === "fr" ? labels[salle] : titre)+'</small>';
+    ouverture.append(texte,repere);page.append(ouverture);
+    if (affiliations) {
+      const section = el("section", "representation-periode engagements-affiliations");
+      if (titreAffiliations) {titreAffiliations.className="representation-section-titre";section.append(titreAffiliations);}
+      const reseau = el("ul", "engagements-reseau");
+      Array.from(affiliations.children).forEach((aff,i)=>{
+        const item=el("li");item.append(el("span","engagements-reseau-numero",deux(i+1)),el("span","",echapper(net(aff.textContent))));reseau.append(item);
+      });section.append(reseau);page.append(section);
+    }
+    const section=el("section","representation-periode");
+    const sectionTitre = langue === "fr" ? {communaute:"Contribuer aux rencontres scientifiques",distinctions:"Prix et soutiens académiques",citoyen:"Sur le terrain",loisirs:"Sports, création et curiosité"}[salle] : titre;
+    section.append(el("h3","representation-section-titre",echapper(sectionTitre)));
+    if (galerie) {
+      galerie.classList.add("engagements-galerie");
+      items.forEach(item=>{
+        const fort=$("figcaption > strong",item);
+        if (fort) {const titre=el("h4","",fort.innerHTML);fort.replaceWith(titre);}
+      });
+      section.append(galerie);
+    } else {
+      const chronologie=el("ol","representation-mandats");
+      items.forEach((item,i)=>{
+        item.className="representation-mandat";
+        const date=$(".date",item);
+        if(date){const bloc=el("div","representation-date");bloc.append(el("span","representation-numero",deux(i+1)),date);item.prepend(bloc);}
+        chronologie.append(item);
+      });section.append(chronologie);
+    }
+    page.append(section);corps.replaceChildren(page);
+  }
+
   function decouper(sc, salle) {
     // Une rubrique sans découpage éditorial explicite reste un seul chapitre.
     if (REGLES[salle]?.unique || salle === "biographie" || salle === "parcours") {
       const corps = $(":scope > .section-corps", sc);
-      if (salle === "representation") preparerRepresentation(corps);
+      if (SALLES_ENGAGEMENTS.includes(salle)) {
+        sc.classList.add("gab-engagements");
+        if (salle === "representation") preparerRepresentation(corps);
+        else preparerAutresEngagements(corps,salle);
+      }
       const source = el("div", "gab-lecture-integrale");
-      const titre = salle === "representation" ? texteTitre($(".bandeau-titre", sc)) : texteTitre($("h2", corps)) || texteTitre($(".bandeau-titre", sc));
+      const titre = SALLES_ENGAGEMENTS.includes(salle) ? texteTitre($(".bandeau-titre", sc)) : texteTitre($("h2", corps)) || texteTitre($(".bandeau-titre", sc));
       if (salle === "axes") $$(".axe-carte", corps).forEach((carte, i) => {
         carte.id = "axes-chapitre-" + (i + 1);
         carte.style.setProperty("--axe", COULEURS[i % COULEURS.length]);
