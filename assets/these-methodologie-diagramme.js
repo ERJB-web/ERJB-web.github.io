@@ -102,7 +102,7 @@
     document.head.appendChild(style);
     const script = document.createElement("script");
     script.id = "maturite-scientifique-loader";
-    script.src = new URL("assets/maturite-scientifique.js?v=20261019-2", document.baseURI).href;
+    script.src = new URL("assets/maturite-scientifique.js?v=20261019-3", document.baseURI).href;
     document.head.appendChild(script);
   };
   if (document.readyState === "complete") installer();
