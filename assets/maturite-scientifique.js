@@ -27,7 +27,7 @@
       }
       const ancienneSimulation = "30 à 60 secondes par notice représenteraient 443 à 887 heures-personnes";
       const nouvelleSimulation = "25 à 35 secondes par notice représenteraient environ 370 à 517 heures-personnes";
-      o1.querySelectorAll("p").forEach(p => {
+      zone.querySelectorAll("p").forEach(p => {
         if (p.innerHTML.includes(ancienneSimulation)) {
           p.innerHTML = p.innerHTML.replace(ancienneSimulation, nouvelleSimulation);
         }
