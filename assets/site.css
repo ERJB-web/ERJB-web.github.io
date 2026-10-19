@@ -6268,29 +6268,35 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
 @media(max-width:700px){.entete .nav .these-guide{width:32px;height:36px}.entete .nav .acces-these{padding:5px 8px;font-size:12px}.entete .nav>a{padding:4px 6px}}
 @media(forced-colors:active){.entete .nav>a:hover,.entete .nav>a:focus-visible{background:Highlight;color:HighlightText}.entete .nav>a:hover svg,.entete .nav>a:focus-visible svg{color:HighlightText}}
 
-/* Un coucou, puis l’index désigne le bouton de thèse. */
-.entete .nav .these-guide-bras{transform-box:view-box;transform-origin:29px 32px;animation:these-coucou-puis-pointer 7s ease-in-out infinite}
+/* Main ouverte pour saluer, puis index dirigé vers le projet de thèse. */
+.entete .nav .these-guide-bras{transform-box:view-box;transform-origin:29px 32px;animation:these-coucou-puis-pointer 8s ease-in-out infinite}
+.these-guide-main-coucou{animation:these-main-coucou 8s step-end infinite}
+.these-guide-main-index{animation:these-main-index 8s step-end infinite}
 @keyframes these-coucou-puis-pointer{
- 0%,5%{transform:rotate(-70deg)}
- 10%{transform:rotate(-100deg)}
- 15%{transform:rotate(-60deg)}
- 20%{transform:rotate(-100deg)}
- 25%{transform:rotate(-60deg)}
- 30%{transform:rotate(-85deg)}
- 40%,90%{transform:rotate(12deg)}
- 100%{transform:rotate(-70deg)}
+ 0%,4%{transform:rotate(-75deg)}
+ 9%,19%{transform:rotate(-105deg)}
+ 14%,24%{transform:rotate(-65deg)}
+ 29%,34%{transform:rotate(-85deg)}
+ 44%,91%{transform:rotate(-8deg)}
+ 100%{transform:rotate(-75deg)}
 }
-@media(prefers-reduced-motion:reduce){.entete .nav .these-guide-bras{animation:none;transform:rotate(12deg)}}
+@keyframes these-main-coucou{0%,36%{opacity:1}37%,96%{opacity:0}97%,100%{opacity:1}}
+@keyframes these-main-index{0%,36%{opacity:0}37%,96%{opacity:1}97%,100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){
+ .entete .nav .these-guide-bras{animation:none;transform:rotate(-8deg)}
+ .these-guide-main-coucou{animation:none;opacity:0}
+ .these-guide-main-index{animation:none;opacity:1}
+}
 
-/* En-tête plus serré, ancré à gauche et survol plus coloré. */
-.entete .nav{justify-content:flex-start;gap:0;padding:1px;margin-inline-start:0;margin-inline-end:auto}
-.entete .nav .these-nav{gap:0;margin-inline-end:1px;padding-inline:0 3px}
-.entete .nav .these-guide{width:30px;height:35px;margin-inline-end:-3px}
-.entete .nav .acces-these{gap:4px;min-height:32px;height:32px;padding:4px 7px;font-size:12px;box-shadow:0 1px 4px rgba(31,90,138,.24)}
-.entete .nav .acces-these>svg{width:14px;height:14px}
-.entete .nav>a{gap:4px;padding:4px 6px;min-height:32px;font-size:12px}
+/* Menu légèrement agrandi, guide bien visible et survol coloré. */
+.entete .nav{justify-content:flex-start;gap:2px;padding:3px;align-items:center;margin-inline-start:0;margin-inline-end:auto}
+.entete .nav .these-nav{gap:2px;margin-inline-end:3px;padding-inline:0 5px}
+.entete .nav .these-guide{width:58px;height:52px;margin-inline-end:0}
+.entete .nav .acces-these{gap:6px;min-height:38px;height:38px;padding:6px 10px;font-size:13px;box-shadow:0 1px 4px rgba(31,90,138,.24)}
+.entete .nav .acces-these>svg{width:16px;height:16px}
+.entete .nav>a{gap:5px;padding:6px 8px;min-height:38px;font-size:13px}
 .entete .nav>a:is(:hover,:focus-visible){background:color-mix(in srgb,var(--nav-accent,#237a9a) 86%,#000);color:#fff;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--nav-accent,#237a9a) 65%,#000),0 3px 10px color-mix(in srgb,var(--nav-accent,#237a9a) 45%,transparent)}
 .entete .nav>a:is(:hover,:focus-visible) svg{color:#fff;stroke-width:2}
 .entete .nav .acces-these:is(:hover,:focus-visible){background:linear-gradient(120deg,#074980,#0086a5);color:#fff;box-shadow:0 3px 12px rgba(0,112,156,.5)}
-@media(max-width:700px){.entete .nav .these-guide{width:28px;height:33px}.entete .nav .acces-these{padding:4px 6px}.entete .nav>a{padding:4px 5px}}
+@media(max-width:700px){.entete .nav .these-guide{width:50px;height:46px}.entete .nav .acces-these{padding:6px 8px}.entete .nav>a{padding:6px 7px}}
 @media(forced-colors:active){.entete .nav>a:is(:hover,:focus-visible),.entete .nav .acces-these:is(:hover,:focus-visible){background:Highlight;color:HighlightText}}
