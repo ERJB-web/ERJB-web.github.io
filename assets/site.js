@@ -1405,7 +1405,26 @@
     bouton.href=urlPour(!vulgarisee);
     bouton.textContent=vulgarisee?"← Revenir à la version scientifique":"Consulter la version vulgarisée →";
     entete.appendChild(bouton);
-    if(!vulgarisee) return;
+    if (!vulgarisee) {
+      // Uniquement le paragraphe introductif de la méthodologie scientifique.
+      // Ni les menus, ni les autres cartes, ni la page de lecture vulgarisée ne changent.
+      const synthese = Array.from(corps.querySelectorAll("p")).find(p =>
+        p.textContent.includes("Nous examinerons d’abord les recherches") &&
+        p.textContent.includes("Nous cartographierons les services disponibles") &&
+        p.textContent.includes("collaborations effectivement mobilisées")
+      );
+      if (synthese && !synthese.dataset.intersectorialitePrecisée) {
+        synthese.dataset.intersectorialitePrecisée = "oui";
+        synthese.innerHTML =
+          '<strong>Synthèse vulgarisée :</strong> Nous examinerons d’abord les recherches pour comprendre quels besoins sociaux se cumulent chez les personnes aînées vivant à domicile avec des problèmes de santé, puis les regrouper en <strong>profils de besoins</strong> (O1). ' +
+          'Nous cartographierons <strong>la réponse intersectorielle disponible</strong>, c’est-à-dire les ressources susceptibles de se compléter, et leur accessibilité (O2). ' +
+          'Six secteurs seront étudiés : <strong>réseau public</strong> (établissements de santé et services sociaux), <strong>première ligne</strong> (cliniques et pharmacies), <strong>parapublic</strong> (organismes à mission publique), <strong>communauté</strong> (associations et entraide), <strong>ville et municipalité</strong> (services municipaux) et <strong>habitation</strong> (logement et soutien résidentiel). ' +
+          'Cette approche rejoint l’idée d’un <strong>CLSC renouvelé</strong> : un centre local de services communautaires mieux ancré dans son milieu, qui relie soins, accompagnement social et partenaires du quartier. ' +
+          'Enfin, à partir des profils d’O1, les équipes de soutien à domicile (SAD) repéreront des situations réelles pour comprendre quels partenaires collaborent effectivement, comment et avec quels obstacles (O3). ' +
+          'La carte d’O2 montre les possibilités de réponse ; O3 examinera les collaborations réellement mobilisées.';
+      }
+      return;
+    }
     const intro=document.createElement("div");
     intro.className="methode-grand-public-intro";
     intro.innerHTML="<strong>La méthode, expliquée simplement.</strong><p>Même projet, mêmes chiffres, cartes et schémas. Les mots scientifiques sont expliqués. CLSC : centre local de services communautaires ; SAD : soutien à domicile ; 211 : service d’information et d’orientation. Les étapes encore prévues ne sont pas présentées comme des résultats obtenus.</p>";
