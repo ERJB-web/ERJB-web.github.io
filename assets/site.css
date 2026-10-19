@@ -109,7 +109,7 @@ body,.salle{background-color:#f9fbfa;background-image:var(--fond-editorial);back
 .salle-barre{position:sticky;top:0;z-index:1;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding:16px var(--gouttiere);background:rgba(252,253,251,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);font-size:14px}
 .salle-barre #salle-titre{color:var(--muted);text-align:center}
 .salle-barre button{color:var(--ink);justify-self:start}
-.salle-barre [data-suivante],.salle-barre [data-contact]{justify-self:end}
+.salle-barre [data-contact]{justify-self:end}
 .salle-barre button:hover{color:var(--green)}
 .salle-contenu .section-corps{padding-top:56px}
 
@@ -1140,8 +1140,8 @@ html.hc .lexique .notion-usage,html.lv .lexique .notion-usage{background:var(--w
 /* Barre de salle : boutons Le hall et Porte suivante bien visibles */
 .salle .salle-barre button[data-retour]{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:999px;border:1.5px solid var(--c1);background:var(--white);color:var(--c1);font:600 15px/1.2 var(--sans,inherit);cursor:pointer;box-shadow:0 6px 16px -10px rgba(15,49,66,.45);transition:background .2s,color .2s,transform .2s var(--ease)}
 .salle .salle-barre button[data-retour]:hover,.salle .salle-barre button[data-retour]:focus-visible{background:var(--c1);color:#fff;transform:translateX(-2px)}
-.salle .salle-barre button[data-suivante],.salle .salle-barre button[data-contact]{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:999px;border:0;background:var(--c1);color:#fff;font:600 15px/1.2 var(--sans,inherit);cursor:pointer;box-shadow:0 10px 22px -10px var(--c1);transition:filter .2s,transform .2s var(--ease)}
-.salle .salle-barre button[data-suivante]:hover,.salle .salle-barre button[data-contact]:hover,.salle .salle-barre button[data-suivante]:focus-visible{filter:brightness(1.1);transform:translateX(2px)}
+.salle .salle-barre button[data-contact]{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:999px;border:0;background:var(--c1);color:#fff;font:600 15px/1.2 var(--sans,inherit);cursor:pointer;box-shadow:0 10px 22px -10px var(--c1);transition:filter .2s,transform .2s var(--ease)}
+.salle .salle-barre button[data-contact]:hover{filter:brightness(1.1);transform:translateX(2px)}
 .salle .salle-barre button[data-ecouter],.salle .salle-barre button[data-arreter]{border-radius:999px;padding:8px 14px;border:1px solid var(--line);background:var(--white)}
 .salle .salle-barre .salle-actions{display:flex;align-items:center;gap:10px}
 .salle .salle-barre button[data-retour]:focus:not(:hover){outline:none;background:var(--white);color:var(--c1);transform:none}
@@ -1262,7 +1262,7 @@ html.lv .hall::before,html.lv .hall::after,html.lv .portes>.porte::before{displa
   .salle .salle-barre{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:7px;padding:10px var(--gouttiere)}
   .salle-barre #salle-titre{grid-column:1 / -1;grid-row:2;font-size:12px}
   .salle .salle-barre .salle-actions{min-width:0;gap:5px;flex-wrap:wrap;justify-content:flex-end}
-  .salle .salle-barre button[data-retour],.salle .salle-barre button[data-suivante],.salle .salle-barre button[data-contact]{padding:7px 9px;font-size:12px;line-height:1.3;gap:4px;border-radius:7px}
+  .salle .salle-barre button[data-retour],.salle .salle-barre button[data-contact]{padding:7px 9px;font-size:12px;line-height:1.3;gap:4px;border-radius:7px}
   .salle .salle-barre button[data-ecouter],.salle .salle-barre button[data-arreter]{padding:6px;font-size:11px;border-radius:7px}
   .salle-actions [data-ecouter] span{display:none}
   .salle-progres{position:static}
@@ -1372,16 +1372,10 @@ html.lv .hall::before,html.lv .hall::after,html.lv .portes>.porte::before{displa
 }
 
 /* Rubriques de la thèse et de l'IA : onglets sur ordinateur, sélection compacte sur mobile. */
-.rubriques .rubriques-nav{grid-template-columns:repeat(var(--rubriques-colonnes,5),minmax(0,1fr))}
-.rubriques-nav button{min-width:0;overflow-wrap:break-word;padding:15px 16px;font-weight:600}
-.rubriques[data-rubriques=ia] .rubriques-nav button:nth-child(n+5),.rubriques:is([data-rubriques=these],[data-rubriques=ia],[data-rubriques=posture],[data-rubriques=enseignement],[data-rubriques=vulgarisation]) .rubriques-nav button:nth-child(n+6){border-top:1px solid var(--line)}
-.rubriques-choix{display:none;padding:16px;gap:8px}
-.rubriques-choix span{font-size:13px;font-weight:600;color:var(--ink)}
-.rubriques-choix select{width:100%;min-width:0;padding:12px;border:1px solid var(--line);border-radius:6px;background:var(--white);color:var(--ink);font:inherit;font-size:14px}
-.rubrique-corps{padding:28px}
-.rubrique-corps>h3{font-size:28px;margin-bottom:16px}
-.rubrique-corps p{text-align:start;hyphens:none;-webkit-hyphens:none;overflow-wrap:break-word}
-.rubrique-corps .titre-bloc{margin-block:26px 14px}
+.chapitre-source{padding:28px}
+.chapitre-source>h3{font-size:28px;margin-bottom:16px}
+.chapitre-source p{text-align:start;hyphens:none;-webkit-hyphens:none;overflow-wrap:break-word}
+.chapitre-source .titre-bloc{margin-block:26px 14px}
 .ia-reperes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-block:22px}
 .ia-reperes article{min-width:0;padding:20px;border:1px solid var(--line);border-radius:10px;background:var(--white)}
 .ia-reperes article:last-child:nth-child(odd){grid-column:1/-1}
@@ -1392,8 +1386,8 @@ html.lv .hall::before,html.lv .hall::after,html.lv .portes>.porte::before{displa
 .note-ia,.question-these{padding:16px 18px;background:var(--sea);border-inline-start:3px solid var(--accent);border-radius:0 6px 6px 0}
 .conceptualisation-these{display:grid;gap:30px}
 .conceptualisation-these .intro{max-width:880px}
-.rubrique-corps .lectures-ia{overflow-wrap:break-word}
-.rubrique-corps .lectures-ia li{margin-block:10px;line-height:1.7;text-align:start}
+.chapitre-source .lectures-ia{overflow-wrap:break-word}
+.chapitre-source .lectures-ia li{margin-block:10px;line-height:1.7;text-align:start}
 .these .colonne-outils,.section-ia .colonne-outils{min-width:0}
 .posture-philosophique .colonne-outils{min-width:0}
 .posture-essai{max-width:880px;margin:20px auto 28px}
@@ -1412,14 +1406,6 @@ html.lv .hall::before,html.lv .hall::after,html.lv .portes>.porte::before{displa
 @media(max-width:760px){.posture-perspectives{grid-template-columns:minmax(0,1fr)}.posture-perspectives article{padding:20px}.posture-essai p{font-size:16px}}
 .these .these-titre-label{margin-block:0 8px;font:600 14px/1.4 var(--sans);color:var(--muted)}
 .these .colonne-texte>h2{font-size:clamp(25px,2.5vw,40px);line-height:1.24}
-.rubriques:is([data-rubriques=these],[data-rubriques=ia],[data-rubriques=posture],[data-rubriques=enseignement],[data-rubriques=vulgarisation]){border:0;box-shadow:none;background:transparent;overflow:visible}
-.rubriques:is([data-rubriques=these],[data-rubriques=ia],[data-rubriques=posture],[data-rubriques=enseignement],[data-rubriques=vulgarisation]) .rubriques-nav{display:flex;flex-wrap:wrap;gap:10px;padding:0 0 22px;border:0;background:transparent}
-.rubriques:is([data-rubriques=these],[data-rubriques=ia],[data-rubriques=posture],[data-rubriques=enseignement],[data-rubriques=vulgarisation]) .rubriques-nav button{display:flex;align-items:center;gap:10px;flex:0 1 auto;max-width:310px;min-height:52px;padding:12px 16px;border:1px solid var(--line);border-radius:10px;background:var(--white);color:var(--ink);font-size:14px;line-height:1.4;transition:background .18s,border-color .18s,color .18s}
-.rubriques:is([data-rubriques=these],[data-rubriques=ia],[data-rubriques=posture],[data-rubriques=enseignement],[data-rubriques=vulgarisation]) .rubriques-nav button:hover{background:var(--sea);border-color:var(--ink)}
-.rubriques:is([data-rubriques=these],[data-rubriques=ia],[data-rubriques=posture],[data-rubriques=enseignement],[data-rubriques=vulgarisation]) .rubriques-nav button[aria-selected=true]{background:var(--ink);border-color:var(--ink);color:#fff}
-.rubrique-numero{display:grid;place-items:center;flex:0 0 25px;height:25px;border-radius:6px;background:var(--sea);color:var(--ink);font-size:11px;font-weight:700;line-height:1}
-.rubriques:is([data-rubriques=these],[data-rubriques=ia],[data-rubriques=posture],[data-rubriques=enseignement],[data-rubriques=vulgarisation]) button[aria-selected=true] .rubrique-numero{background:#fff;color:var(--ink)}
-.rubriques:is([data-rubriques=these],[data-rubriques=ia],[data-rubriques=posture],[data-rubriques=enseignement],[data-rubriques=vulgarisation])>.rubrique-corps{border:1px solid var(--line);border-radius:14px;background:var(--white)}
 .these [data-objectif=O1]{--objectif:#24659b;--objectif-fond:#eef5fc}
 .these [data-objectif=O2]{--objectif:#286e5b;--objectif-fond:#edf6f1}
 .these [data-objectif=O3]{--objectif:#754d8a;--objectif-fond:#f6f0f9}
@@ -1440,19 +1426,14 @@ html.lv .hall::before,html.lv .hall::after,html.lv .portes>.porte::before{displa
 html.hc .these [data-objectif],html.lv .these [data-objectif]{--objectif:#06202d;--objectif-fond:#fff}
 @media(max-width:900px){.these-contextes{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:600px){
-  .rubriques:is([data-rubriques=these],[data-rubriques=ia],[data-rubriques=posture],[data-rubriques=enseignement],[data-rubriques=vulgarisation]) .rubriques-nav{display:none}
-  .rubriques:is([data-rubriques=these],[data-rubriques=ia],[data-rubriques=posture],[data-rubriques=enseignement],[data-rubriques=vulgarisation]) .rubriques-choix{padding:0 0 18px}
   .these .objectif-carte{padding:18px 16px}
 }
-@media(max-width:900px){.rubriques .rubriques-nav{grid-template-columns:repeat(2,minmax(0,1fr))}.rubriques-nav button:nth-child(n+3){border-top:1px solid var(--line)}}
 @media(max-width:600px){
-  .rubriques .rubriques-nav{display:none}
-  .rubriques-choix{display:grid}
-  .rubrique-corps{padding:20px 16px}
-  .rubrique-corps>h3{font-size:24px}
+  .chapitre-source{padding:20px 16px}
+  .chapitre-source>h3{font-size:24px}
   .ia-reperes{grid-template-columns:minmax(0,1fr)}
   .ia-reperes article{padding:16px}
-  .rubrique-corps .faits-these li{padding:16px}
+  .chapitre-source .faits-these li{padding:16px}
 }
 
 /* Enseignement : projet intellectuel, passerelles et séquence pédagogique. */
@@ -1707,8 +1688,7 @@ html.lv .axes-cartes{grid-template-columns:1fr}
 .lacune .niveau{white-space:normal;max-width:100%;overflow-wrap:anywhere}
 .chiffres>div,.chiffres span,.chiffres small{min-width:0;overflow-wrap:anywhere;hyphens:auto}
 .salle-barre>*{min-width:0}
-.salle-barre #salle-titre{overflow-wrap:anywhere;line-height:1.4}.rubriques,.rubrique-corps,.volet,.cadre,.ia-reperes>article{min-width:0}
-.rubriques-choix select{min-width:0;max-width:100%;width:100%}
+.salle-barre #salle-titre{overflow-wrap:anywhere;line-height:1.4}.chapitre-source,.volet,.cadre,.ia-reperes>article{min-width:0}
 .ref,.references-courtes,.methode-refs,.references-transmission,.ia-references{overflow-wrap:anywhere}
 [dir=rtl] .coordonnees a[href^="mailto:"],[dir=rtl] a[href^="tel:"],[dir=rtl] .doi{direction:ltr;unicode-bidi:isolate}
 :lang(iu),:lang(iu-Latn){font-family:"Gadugi","Euphemia","Noto Sans Canadian Aboriginal",var(--sans);line-height:1.75;overflow-wrap:anywhere}
@@ -1716,42 +1696,8 @@ html.lv .axes-cartes{grid-template-columns:1fr}
 .langue-statut{display:block;color:var(--muted);font-size:10px;line-height:1.4;font-weight:400}
 
 /* Espace de lecture : sommaire latéral, progression et navigation continue. */
-.rubriques[data-navigation=atelier]{display:grid;grid-template-columns:260px minmax(0,1fr);gap:28px;align-items:start;min-width:0;border:0;box-shadow:none;background:transparent;overflow:visible;container-type:inline-size}
-.rubriques[data-navigation=atelier] .rubriques-console{position:sticky;top:112px;min-width:0;padding:18px 12px 12px;border:1px solid #d9e4e1;border-radius:18px;background:linear-gradient(145deg,#f6f9f5,#eff5f5);box-shadow:0 12px 32px -30px #173f52}
-.rubriques[data-navigation=atelier] .rubriques-console-tete{display:flex;align-items:start;justify-content:space-between;gap:14px;padding:0 7px;color:var(--muted);font:600 10px/1.5 var(--sans);letter-spacing:.045em;text-transform:uppercase}
-.rubriques-console-tete [data-rubrique-compteur]{flex:none;color:var(--ink);font-variant-numeric:tabular-nums;direction:ltr}
-.rubriques[data-navigation=atelier] .rubriques-progression{height:3px;margin:13px 7px 17px;border-radius:3px;overflow:hidden;background:#dde8e4}
-.rubriques-progression>span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#286d5c,#27899a);transition:width .28s ease}
-.rubriques[data-navigation=atelier] .rubriques-nav{display:flex;flex-direction:column;flex-wrap:nowrap;gap:5px;max-height:calc(100dvh - 240px);margin:0;padding:0 3px;border:0;background:transparent;overflow-y:auto;overscroll-behavior-y:contain;scrollbar-width:thin;scroll-padding-block:8px}
-.rubriques[data-navigation=atelier] .rubriques-nav button{display:flex;align-items:center;gap:10px;flex:0 0 auto;width:100%;min-width:0;max-width:none;min-height:56px;margin:0;padding:9px 10px;border:1px solid transparent;border-radius:11px;background:transparent;color:#355561;text-align:start;line-height:1.35;transition:background .18s,box-shadow .18s,border-color .18s,transform .18s}
-.rubriques[data-navigation=atelier] .rubriques-nav button:hover{border-color:#ceddd7;background:rgba(255,255,255,.72);transform:translateX(2px)}
-.rubriques[data-navigation=atelier] .rubriques-nav button[aria-selected=true]{border-color:#bfd2cb;background:#fff;color:var(--ink);box-shadow:0 5px 13px -10px #173f52,inset 3px 0 #286d5c}
-.rubrique-icone{display:grid;place-items:center;flex:none;width:34px;height:34px;border:1px solid rgba(195,214,205,.55);border-radius:10px;background:rgba(255,255,255,.7);color:#5f7c73}
-.rubrique-icone .ic{width:17px;height:17px;stroke-width:1.6}
-[aria-selected=true]>.rubrique-icone{background:#eaf3ee;border-color:#c8ddd1;color:#286d5c}
-.rubrique-libelle{display:flex;flex:1;flex-direction:column;gap:3px;min-width:0}
-.rubrique-etape{color:#748c89;font:500 9px/1 var(--sans);letter-spacing:.07em;direction:ltr}
-.rubrique-libelle strong{font:550 12px/1.35 var(--sans);overflow-wrap:anywhere}
-.rubrique-direction{flex:none;width:15px;height:15px;opacity:0;transform:translateX(-4px);transition:opacity .18s,transform .18s}
-.rubrique-direction svg,.rubriques-pagination svg{display:block;width:100%;height:100%}
-[aria-selected=true]>.rubrique-direction{opacity:1;transform:translateX(0)}
-.rubriques[data-navigation=atelier]>.rubrique-corps{grid-column:2;grid-row:1;min-width:0;padding:30px;border:1px solid #d8e3e0;border-radius:20px;background:#fff;box-shadow:0 15px 45px -40px #173f52;scroll-margin-top:130px}
-.rubrique-entete{display:flex;align-items:center;gap:9px;padding-bottom:20px;margin-bottom:26px;border-bottom:1px solid #edf1ed;color:var(--muted);font:500 11px/1.5 var(--sans)}
-.rubrique-entete bdi{display:grid;place-items:center;flex:none;width:28px;height:28px;border:1px solid #d8e5dd;border-radius:8px;background:#f5f8f4;color:var(--green);font-size:10px;font-weight:600}
-.rubrique-entete>span{min-width:0;overflow-wrap:anywhere}
-.rubrique-contenu{min-width:0}
-.rubrique-contenu>h3{margin:0 0 24px;font:400 clamp(25px,2.4vw,34px)/1.22 var(--serif);color:var(--ink);text-wrap:pretty}
-.rubriques[data-navigation=atelier] .rubriques-choix{display:none}
-.rubriques-pagination{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-top:34px;padding-top:22px;border-top:1px solid #e2eae5}
-.rubriques-pagination>button{display:flex;align-items:center;gap:12px;min-width:0;min-height:60px;padding:12px 14px;border:1px solid #d7e4df;border-radius:12px;background:#f8faf7;text-align:start;color:var(--ink);transition:background .18s,border-color .18s;touch-action:manipulation}
-.rubriques-pagination>button:hover{border-color:#9fbcaf;background:#eef5ef}
-.rubriques-pagination>button>span:not(.rubrique-precedente){display:flex;flex:1;flex-direction:column;gap:5px;min-width:0}
-.rubriques-pagination small{font:500 10px/1.3 var(--sans);color:var(--muted)}
-.rubriques-pagination strong{font:550 12px/1.4 var(--sans);overflow-wrap:anywhere}
-.rubriques-pagination svg,.rubrique-precedente{flex:none;width:17px;height:17px}
-.rubrique-precedente{transform:rotate(180deg)}
-.rubriques-pagination>button:last-child{text-align:end;background:#eef5ef}
-.rubriques[data-navigation=atelier] :is(button,a):focus-visible{outline:2px solid #247d71;outline-offset:3px}
+.chapitre-contenu{min-width:0}
+.chapitre-contenu>h3{margin:0 0 24px;font:400 clamp(25px,2.4vw,34px)/1.22 var(--serif);color:var(--ink);text-wrap:pretty}
 .these-introduction{max-width:1050px}
 .these-statut{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-bottom:26px}
 .these-statut .badge-these{display:inline-flex;align-items:center;gap:8px;flex:none;margin:0;padding:7px 12px;border:1px solid #bad7c8;border-radius:99px;background:#edf5ef;color:#286d5c;font:600 12px/1.4 var(--sans)}
@@ -1786,34 +1732,7 @@ html.lv .axes-cartes{grid-template-columns:1fr}
 .these-fondements>summary .ic{display:inline-block;width:16px;height:16px;margin-inline:5px 9px;vertical-align:middle}
 .these-fondements>p{margin-top:18px;color:var(--muted);font-size:14px}
 .these-fondements .conceptualisation-these{margin-top:26px}
-html[dir=rtl] .rubrique-direction,html[dir=rtl] .rubriques-pagination>button>svg{transform:rotate(180deg)}
-html[dir=rtl] .rubrique-precedente{transform:none}
-html[dir=rtl] .rubriques[data-navigation=atelier] .rubriques-nav button[aria-selected=true]{box-shadow:0 5px 13px -10px #173f52,inset -3px 0 #286d5c}
-@media(max-width:1099px){
- .rubriques[data-navigation=atelier]{display:block}
- .rubriques[data-navigation=atelier] .rubriques-console{position:relative;top:auto;margin-bottom:18px;padding:14px 12px 10px;border-radius:16px}
- .rubriques[data-navigation=atelier] .rubriques-console-tete{font-size:10px}
- .rubriques[data-navigation=atelier] .rubriques-progression{margin-block:11px 12px}
- .rubriques[data-navigation=atelier] .rubriques-nav{display:flex;flex-direction:row;flex-wrap:nowrap;gap:8px;max-height:none;padding:0 1px 5px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scroll-padding-inline:12px;direction:ltr}
- .rubriques[data-navigation=atelier] .rubriques-nav button{flex:0 0 180px;width:180px;max-width:180px;min-height:62px;padding:10px;border:1px solid #d6e3dd;border-radius:10px;background:rgba(255,255,255,.6);scroll-snap-align:center}
- .rubriques[data-navigation=atelier] .rubriques-nav button:hover{transform:none}
- .rubriques[data-navigation=atelier] .rubriques-nav button[aria-selected=true]{border-color:#94baa7;box-shadow:inset 0 -3px #286d5c;background:#fff}
- .rubrique-libelle strong{font-size:12px}
- .rubrique-direction{display:none}
- html[dir=rtl] .rubriques[data-navigation=atelier] .rubriques-nav button{direction:rtl}
- html[dir=rtl] .rubriques[data-navigation=atelier] .rubriques-nav{direction:rtl}
- .rubriques[data-navigation=atelier]>.rubrique-corps{padding:24px;border-radius:16px}
-}
 @media(max-width:600px){
- .rubriques[data-navigation=atelier] .rubriques-console{padding:13px 10px 10px}
- .rubriques[data-navigation=atelier] .rubriques-nav button{flex-basis:165px;width:165px;max-width:165px;min-height:64px}
- .rubriques[data-navigation=atelier]>.rubrique-corps{padding:20px 16px}
- .rubrique-entete{margin-bottom:22px;padding-bottom:16px}
- .rubrique-icone{width:30px;height:30px;border-radius:9px}
- .rubriques-pagination{gap:8px;margin-top:26px;padding-top:18px}
- .rubriques-pagination>button{align-items:start;gap:7px;padding:11px 9px}
- .rubriques-pagination strong{font-size:11px}
- .rubriques-pagination svg,.rubrique-precedente{width:13px;height:13px;margin-top:3px}
  .these .these-statut{gap:12px;margin-bottom:22px}
  .these-question-principale{grid-template-columns:minmax(0,1fr);gap:10px;margin-block:22px}
  .these-parcours{gap:7px}
@@ -1828,8 +1747,8 @@ html[dir=rtl] .rubriques[data-navigation=atelier] .rubriques-nav button[aria-sel
  .these-concept-sequence button>span:last-child{align-self:center;transform:rotate(90deg)}
  .these-fondements,.these-protocole-detail{padding:16px}
 }
-@media(prefers-reduced-motion:reduce){.rubriques-progression>span,.rubriques[data-navigation=atelier] .rubriques-nav button,.rubrique-direction,.these-parcours>button{transition:none}}
-html:is(.hc,.lv) .rubriques[data-navigation=atelier] :is(.rubriques-console,.rubrique-corps,.rubriques-nav button,.rubrique-icone),html:is(.hc,.lv) .these :is(.these-point,.objectif-carte,.these-parcours>button){background:white;color:var(--ink);border-color:var(--ink);box-shadow:none}
+@media(prefers-reduced-motion:reduce){.these-parcours>button{transition:none}}
+html:is(.hc,.lv) .these :is(.these-point,.objectif-carte,.these-parcours>button){background:white;color:var(--ink);border-color:var(--ink);box-shadow:none}
 .pied-informations{display:flex;flex-direction:column;gap:10px;min-width:0;max-width:1000px}
 .pied-informations>small{color:var(--muted);font-size:11px;line-height:1.7}
 .audience-info{max-width:760px;font-size:12px;line-height:1.75}
@@ -2066,9 +1985,6 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
  .hall.en-mobile .hall-commandes>button:disabled{opacity:.32;cursor:default;box-shadow:none}
  .salle .salle-barre{z-index:12;gap:10px;padding-block:10px;box-shadow:0 4px 13px rgba(23,63,82,.07)}
  .salle-contenu .section-corps{padding-top:31px}
- .rubriques[data-navigation=atelier] .rubriques-nav{scroll-padding-inline:10px;-webkit-overflow-scrolling:touch}
- .rubriques[data-navigation=atelier] .rubriques-nav button{min-height:65px;scroll-snap-align:start;touch-action:manipulation}
- .rubriques-pagination>button{min-height:54px;touch-action:manipulation}
  .pub-format{touch-action:manipulation}
  .pub-format strong{hyphens:none;overflow-wrap:break-word}
  .pub-format:active{border-color:var(--pub-c);background:#f8fbf9;transform:scale(.99)}
@@ -2105,7 +2021,7 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
  .salle .salle-barre #salle-titre{grid-column:1/-1;grid-row:2;text-align:start;max-width:100%;font-size:12.5px;font-weight:650;line-height:1.35;color:#3a5963}
  .salle .salle-barre .salle-actions{grid-column:2;grid-row:1;display:flex;justify-content:flex-end;gap:6px;align-items:center;flex-wrap:nowrap}
  .salle .salle-barre .salle-actions button{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:8px;border:1px solid #cbdad5;border-radius:10px;background:#fff;font-size:12px;line-height:1.2;font-weight:700;text-align:center}
- .salle .salle-barre .salle-actions button[data-suivante],.salle .salle-barre .salle-actions button[data-contact]{max-width:112px;white-space:normal}
+ .salle .salle-barre .salle-actions button[data-contact]{max-width:112px;white-space:normal}
  .salle-contenu .section-corps{padding:27px var(--gouttiere) 42px}
  .section h2,.salle h2{font-size:clamp(28px,8vw,37px)}
  .intro{font-size:15px;line-height:1.7}
@@ -2122,10 +2038,6 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
  .pub-en-cours{margin:8px 0 14px}
  .publication-bloc{padding:18px 14px}
  .publication-bloc .travail{padding:17px}
- .rubriques[data-navigation=atelier]>.rubrique-corps{padding:18px 15px}
- .rubriques[data-navigation=atelier] .rubriques-nav button{flex-basis:170px;width:170px;max-width:170px}
- .rubriques-pagination{gap:9px}
- .rubriques-pagination>button{min-height:58px;padding:10px}
 }
 @media(max-width:520px){
  .hall.en-mobile .station-hall{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto;gap:10px;min-height:0;padding:17px 15px 22px;align-items:start;border-radius:14px}
@@ -2539,7 +2451,7 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
   .salle:not([hidden]){scroll-snap-type:y proximity;scroll-padding-top:calc(var(--salle-barre-hauteur,78px) + 16px)}
   .salle:not([hidden]) .salle-contenu .bandeau,
   .salle:not([hidden]) .salle-contenu .section-corps,
-  .salle:not([hidden]) .salle-contenu .rubrique-corps{
+  .salle:not([hidden]) .salle-contenu .chapitre-source{
     scroll-snap-align:start;scroll-snap-stop:normal;
     scroll-margin-top:calc(var(--salle-barre-hauteur,78px) + 18px);
   }
@@ -2548,22 +2460,6 @@ html[dir=rtl] .pub-hero,html[dir=rtl] .pub-format{text-align:right}
 }
 /* Accents légers bleu/vert de la chaire, sans écraser les codes thématiques. */
 :root{--gsk-bleu:#237a9a;--gsk-vert:#65a946}
-.rubriques[data-navigation=atelier] .rubriques-progression>span{
-  background:linear-gradient(90deg,var(--gsk-bleu),var(--gsk-vert));
-}
-.rubriques[data-navigation=atelier] .rubriques-console{
-  border-color:#d1e2dc;
-  background:linear-gradient(130deg,#f5fafb,#f2f8f2);
-}
-.rubriques[data-navigation=atelier] .rubriques-nav button{
-  border-top:3px solid color-mix(in srgb,var(--c1,var(--gsk-bleu)) 65%,white);
-}
-.rubriques[data-navigation=atelier] .rubriques-nav button[aria-selected=true]{
-  border-top-color:var(--c1,var(--gsk-bleu));
-  box-shadow:inset 0 -3px var(--gsk-vert),0 5px 17px -14px #214a50;
-}
-.rubriques[data-navigation=atelier]>.rubrique-corps{background:linear-gradient(180deg,#fff,#fdfefd)}
-@media(forced-colors:active){.rubriques[data-navigation=atelier] .rubriques-nav button[aria-selected=true]{outline:2px solid Highlight}}
 /* La vulgarisation montre une vraie photographie éditoriale, sans portrait de faux intervenant. */
 .section[data-salle=vulgarisation] .bandeau{
   background-position:center,center 48%;
@@ -2702,32 +2598,11 @@ html.hc .implantation-portail-liens a{border-color:currentColor}
 @media(max-width:750px){.logiciels-jeu{flex-direction:column;align-items:stretch;gap:20px}.logiciels-jeu-lien{width:100%}}
 
 /* Salle Enseignement : présentation éditoriale, sans cartes ni pictogrammes. */
-.enseignement,.enseignement .colonne-outils,.enseignement .rubriques,.enseignement .rubrique-corps,.enseignement .rubrique-contenu{min-width:0;max-width:100%;overflow-wrap:normal}
-.enseignement .rubriques[data-navigation=atelier]{grid-template-columns:minmax(182px,210px) minmax(0,1fr);column-gap:clamp(22px,2.5vw,40px);width:100%;container-type:normal}
-.enseignement .rubriques[data-navigation=atelier] .rubriques-console{border:0;border-right:1px solid #d8e3de;border-radius:0;box-shadow:none;background:none;padding:11px 13px 18px 0;top:92px}
-.enseignement .rubriques[data-navigation=atelier] .rubriques-console-tete{padding:0 5px;font-size:10px}
-.enseignement .rubriques[data-navigation=atelier] .rubriques-progression{height:2px;margin:14px 5px 14px}
-.enseignement .rubriques[data-navigation=atelier] .rubriques-nav{max-height:none;overflow-y:visible;gap:0;padding:0}
-.enseignement .rubriques[data-navigation=atelier] .rubriques-nav button,
-.enseignement .rubriques[data-navigation=atelier] .rubriques-nav button[aria-selected=true],
-.enseignement .rubriques[data-navigation=atelier] .rubriques-nav button:hover{display:flex;gap:9px;min-height:44px;height:auto;width:100%;padding:10px 5px;border:0;border-top:0;border-radius:0;background:transparent;box-shadow:none;transform:none}
-.enseignement .rubriques[data-navigation=atelier] .rubriques-nav button{border-bottom:1px solid #e4ebe7}
-.enseignement .rubriques[data-navigation=atelier] .rubriques-nav button:hover{background:#eef4f2}
-.enseignement .rubriques[data-navigation=atelier] .rubriques-nav button[aria-selected=true]{border-bottom:1px solid #9bbab0;box-shadow:inset 2px 0 #2d756f;color:#143f52;background:#eaf2ee}
-.enseignement .rubriques[data-navigation=atelier] .rubriques-nav button .rubrique-icone,
-.enseignement .rubriques[data-navigation=atelier] .rubriques-nav button .rubrique-direction{display:none}
-.enseignement .rubriques[data-navigation=atelier] .rubrique-etape{font-size:10px;letter-spacing:.08em;color:#638079}
-.enseignement .rubriques[data-navigation=atelier] .rubrique-libelle strong{font-size:12.5px;font-weight:560;line-height:1.45;hyphens:none;overflow-wrap:break-word}
-.enseignement .rubriques[data-navigation=atelier]>.rubrique-corps{min-width:0;max-width:100%;padding:clamp(15px,2.3vw,32px);border:0;border-radius:0;background:#fff;box-shadow:none}
-.enseignement .rubrique-entete{padding-bottom:14px;margin-bottom:30px;border-color:#d9e3e1}
-.enseignement .rubrique-entete bdi{border:0;background:transparent;color:#27695f;width:auto;padding:0 5px}
-.enseignement .rubriques-pagination>button{background:transparent!important;border:0;border-radius:0;box-shadow:none;padding:10px 0}
-.enseignement .rubriques-pagination>button:hover{text-decoration:underline;background:none}
-.enseignement .rubriques-pagination{border-color:#dce5e0}
-.enseignement .rubrique-contenu,.enseignement .rubrique-contenu>*,.enseignement .atelier-pratique,.enseignement .pedago-vitrine{width:100%;max-width:100%;min-width:0}
-.enseignement .rubrique-contenu p,.enseignement .rubrique-contenu li,.enseignement .rubrique-contenu td,.enseignement .rubrique-contenu th{text-align:start!important;text-justify:auto!important;word-spacing:normal!important;hyphens:none;overflow-wrap:break-word}
-.enseignement .rubrique-contenu p{line-height:1.72}
-.enseignement .rubrique-contenu .enseignement-essai{max-width:830px}
+.enseignement,.enseignement .colonne-outils,.enseignement .chapitre-source,.enseignement .chapitre-contenu{min-width:0;max-width:100%;overflow-wrap:normal}
+.enseignement .chapitre-contenu,.enseignement .chapitre-contenu>*,.enseignement .atelier-pratique,.enseignement .pedago-vitrine{width:100%;max-width:100%;min-width:0}
+.enseignement .chapitre-contenu p,.enseignement .chapitre-contenu li,.enseignement .chapitre-contenu td,.enseignement .chapitre-contenu th{text-align:start!important;text-justify:auto!important;word-spacing:normal!important;hyphens:none;overflow-wrap:break-word}
+.enseignement .chapitre-contenu p{line-height:1.72}
+.enseignement .chapitre-contenu .enseignement-essai{max-width:830px}
 .enseignement .enseignement-essai p{font-size:clamp(15px,1.15vw,17px);line-height:1.82}
 .enseignement .enseignement-ponts{grid-template-columns:1fr;gap:0;max-width:930px}
 .enseignement .enseignement-ponts article{background:transparent;border:0;border-top:1px solid var(--line);border-radius:0;padding:19px 0}
@@ -2850,7 +2725,6 @@ html.hc .implantation-portail-liens a{border-color:currentColor}
 .enseignement .pedago-limites-editoriales p{font-size:14px}
 .enseignement .pedago-references{font-size:12px;line-height:1.8;padding-top:18px;border-top:1px solid var(--line);overflow-wrap:anywhere}
 @media(max-width:1290px){
- .enseignement .rubriques[data-navigation=atelier]{grid-template-columns:minmax(176px,190px) minmax(0,1fr);gap:15px}
  .enseignement .pedago-edition-2026 .pedago-introduction{grid-template-columns:minmax(0,1fr)}
  .enseignement .pedago-photo img{aspect-ratio:2/1;max-height:410px}
  .enseignement .pedago-processus{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -2858,14 +2732,6 @@ html.hc .implantation-portail-liens a{border-color:currentColor}
  .enseignement .pedago-processus li{border-bottom:1px solid #d7e5e0}
  .enseignement .pedago-correspondances section{grid-template-columns:minmax(0,.8fr) minmax(0,1fr)}
  .enseignement .pedago-correspondances section .pedago-preuve-observable{grid-column:2}
-}
-@media(max-width:1099px){
- .enseignement .rubriques[data-navigation=atelier]{display:block;max-width:100%}
- .enseignement .rubriques[data-navigation=atelier] .rubriques-console{position:relative;top:auto;margin-bottom:16px;border:0;border-bottom:1px solid var(--line);padding:10px 0 14px}
- .enseignement .rubriques[data-navigation=atelier] .rubriques-nav{display:flex;flex-direction:row;flex-wrap:nowrap;max-height:none;overflow-x:auto;overflow-y:hidden;gap:5px}
- .enseignement .rubriques[data-navigation=atelier] .rubriques-nav button{flex:0 0 168px;max-width:168px;min-height:48px;padding:9px}
- .enseignement .rubriques[data-navigation=atelier]>.rubrique-corps{padding:18px 2px}
- .enseignement .rubriques[data-navigation=atelier] .rubriques-nav button[aria-selected=true]{border-bottom:2px solid #30786b}
 }
 @media(max-width:720px){
  .enseignement .pedago-principes,.enseignement .pedago-processus,.enseignement .pedago-cadres-editoriaux,.enseignement .pedago-nombres{grid-template-columns:1fr}
@@ -2885,7 +2751,6 @@ html.hc .implantation-portail-liens a{border-color:currentColor}
  .enseignement .atelier-reponse>div{grid-template-columns:1fr}
  .enseignement .enseignement-sequence ol{grid-template-columns:1fr}
 }
-@media(forced-colors:active){.enseignement .rubriques[data-navigation=atelier] button[aria-selected=true]{outline:2px solid Highlight}}
 
 /* En-tête sur tablette et petit portable : deux lignes (domaines, contact et outils ; puis rubriques). */
 @media(min-width:640px) and (max-width:1279px){
@@ -2901,7 +2766,7 @@ html.hc .implantation-portail-liens a{border-color:currentColor}
 }
 
 /* Barre de salle : « Porte suivante » garde sa couleur pleine, même parmi les petits boutons blancs. */
-.salle .salle-barre .salle-actions button[data-suivante],.salle .salle-barre .salle-actions button[data-contact]{background:var(--c1);border-color:var(--c1);color:#fff}
+.salle .salle-barre .salle-actions button[data-contact]{background:var(--c1);border-color:var(--c1);color:#fff}
 /* Téléphone : la grande question de thèse n'est pas justifiée (pas de trous entre les mots). */
 @media(max-width:640px){:root .salle .these-formulation{text-align:start!important;text-wrap:pretty}}
 @media(hover:hover) and (pointer:fine){.hall .hall-reperes>button:hover{background:color-mix(in srgb,var(--c1) 14%,white);border-color:color-mix(in srgb,var(--c1) 60%,white);color:color-mix(in srgb,var(--c1) 70%,var(--ink));box-shadow:0 4px 12px color-mix(in srgb,var(--c1) 22%,transparent)}.hall .hall-reperes>button:hover bdi{background:var(--c1);color:#fff}.hall .hall-reperes>button[aria-pressed=true]:hover{background:color-mix(in srgb,var(--c1) 16%,white)}}
@@ -5341,38 +5206,7 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
 /* Thèse : un seul chapitre est affiché à la fois.
    Le sommaire reste accessible et les flèches changent de panneau,
    sans dérouler l'intégralité de la thèse. */
-.rubriques[data-rubriques="these"][data-navigation="atelier"]{
-  display:grid;
-  grid-template-columns:minmax(205px,244px) minmax(0,1fr);
-  gap:clamp(18px,2.5vw,34px);
-  align-items:start;
-  container-type:normal;
-}
-.rubriques[data-rubriques="these"][data-navigation="atelier"] > .rubriques-console{
-  display:block;
-  grid-column:1;
-  grid-row:1;
-  min-width:0;
-}
-.rubriques[data-rubriques="these"][data-navigation="atelier"] > .rubrique-corps{
-  display:block;
-  width:100%;
-  min-width:0;
-  grid-column:2;
-  grid-row:1;
-}
 /* Le CSS d'affichage des panneaux ne doit jamais prévaloir sur hidden. */
-.rubriques[data-rubriques="these"][data-navigation="atelier"] > .rubrique-corps[hidden]{
-  display:none!important;
-}
-@media(max-width:1099px){
-  .rubriques[data-rubriques="these"][data-navigation="atelier"]{display:block}
-  .rubriques[data-rubriques="these"][data-navigation="atelier"] > .rubriques-console,
-  .rubriques[data-rubriques="these"][data-navigation="atelier"] > .rubrique-corps{
-    grid-column:auto;
-    grid-row:auto;
-  }
-}
 
 /* Thèse : bandeau des affiliations en pleine largeur, logos nets (octobre 2026). */
 #recherche .section-corps.pleine.these > .colonne-outils{
@@ -5382,13 +5216,6 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
   width:100%;
   max-width:none;
   min-width:0;
-}
-#recherche .these .rubriques[data-rubriques="these"],
-#recherche .these .rubriques[data-rubriques="these"] > .rubrique-corps{
-  width:100%;
-  max-width:none;
-  min-width:0;
-  box-sizing:border-box;
 }
 #recherche .these .logos-recherche{
   display:flex;
@@ -5825,7 +5652,6 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
   font-weight:650;
 }
 .salle .salle-barre button[data-retour],
-.salle .salle-barre button[data-suivante],
 .salle .salle-barre button[data-contact]{
   min-height:36px;
   padding:7px 12px;
@@ -5846,7 +5672,6 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
   .salle .salle-barre{padding-block:7px}
   .salle .salle-barre #salle-titre{font-size:12px}
   .salle .salle-barre button[data-retour],
-  .salle .salle-barre button[data-suivante],
   .salle .salle-barre button[data-contact]{
     min-height:44px;
     padding:8px 10px;
@@ -5854,108 +5679,6 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
   }
   .salle .salle-barre button[data-ecouter],
   .salle .salle-barre button[data-arreter]{min-height:44px}
-}
-
-
-/* Thèse — restauration du sommaire latéral discret (2026-10-18). */
-/* Ne change ni la structure des chapitres ni les commandes de navigation.
-   Supprime l'effet « cartes empilées », les pictogrammes et les traits multicolores. */
-.rubriques[data-rubriques="these"][data-navigation="atelier"] > .rubriques-console{
-  padding:10px 12px 14px 0;
-  border:0;
-  border-inline-end:1px solid #dce6e4;
-  border-radius:0;
-  background:transparent;
-  box-shadow:none;
-}
-.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-console-tete{
-  padding:0 12px 0 6px;
-  gap:8px;
-  color:#55717b;
-  font-size:10px;
-  letter-spacing:.055em;
-}
-.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-progression{
-  height:2px;
-  margin:12px 12px 13px 6px;
-  background:#dde9e7;
-}
-.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-nav{
-  gap:0;
-  padding:0;
-  background:transparent;
-}
-.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-nav button,
-.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-nav button:hover,
-.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-nav button[aria-selected="true"]{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  width:100%;
-  min-height:46px;
-  padding:10px 9px;
-  border:0;
-  border-bottom:1px solid #e1e9e7;
-  border-inline-start:3px solid transparent;
-  border-radius:0;
-  background:transparent;
-  box-shadow:none;
-  transform:none;
-  text-align:start;
-  hyphens:none;
-}
-.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-nav button:hover,
-.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-nav button:focus-visible{
-  background:#eef4f3;
-}
-.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-nav button[aria-selected="true"]{
-  border-bottom-color:#ccddda;
-  border-inline-start-color:#26758c;
-  background:#eaf3f2;
-  color:#173f52;
-  font-weight:650;
-}
-.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-nav .rubrique-icone{
-  display:none;
-}
-.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubrique-libelle{
-  gap:4px;
-}
-.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubrique-etape{
-  font-size:10px;
-  letter-spacing:.04em;
-  color:#738b8b;
-}
-.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubrique-libelle strong{
-  font-size:13px;
-  font-weight:600;
-  line-height:1.35;
-  overflow-wrap:break-word;
-  word-break:normal;
-  hyphens:none;
-}
-.rubriques[data-rubriques="these"][data-navigation="atelier"] .rubrique-direction{
-  width:13px;
-  height:13px;
-}
-@media(max-width:1099px){
-  .rubriques[data-rubriques="these"][data-navigation="atelier"] > .rubriques-console{
-    padding:10px 0 12px;
-    border-inline-end:0;
-    border-bottom:1px solid #dce6e4;
-  }
-  .rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-nav button,
-  .rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-nav button:hover,
-  .rubriques[data-rubriques="these"][data-navigation="atelier"] .rubriques-nav button[aria-selected="true"]{
-    flex:0 0 172px;
-    width:172px;
-    max-width:172px;
-    min-height:52px;
-    padding:9px 10px;
-    border-bottom:0;
-    border-inline-end:1px solid #dce6e4;
-    scroll-snap-align:start;
-  }
 }
 
 /* Typographie éditoriale : préserver l'accueil et l'en-tête d'origine.
@@ -5970,14 +5693,6 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
 
 /* Alignement éditorial : paragraphes rédigés uniquement, sans changer les titres,
    les éléments d'interface, les légendes ni la présentation FALC. */
-body:not(.page-abregee) :is(#contenu .section-corps, #salle .salle-contenu)
-  p:not(:is(.surtitre,.surtexte,.cadrage-these-surtexte,.these-titre-label,
-            .ov-label,.ov-lacune-sources,.ref,.m-source,.a-src,.r-statut,
-            .f-synthese-titre,.etat,.meta,.eyebrow,.overline)):not(:is(.these-devis p,.these-chiffres p,.a-obj p,
-            .rubriques-console p,.rubriques-pagination p,
-            .chiffres p,.barres p)) {
-  text-align:justify!important;
-}
 
 
 /* Porte Recherche uniquement : police -1 px (hors menus), cartes rapprochées. */

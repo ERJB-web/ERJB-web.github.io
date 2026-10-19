@@ -158,7 +158,7 @@
       if(bouton)bouton.click();
     });
     const repere=location.hash.slice(1).split('/')[1];
-    const cibleRepere=repere && zone ? $$('.volet[data-rubrique],[data-axe-cible],.publication-bloc[id]',zone).find(el=>el.dataset.rubrique===repere || el.dataset.axeCible===repere || el.id===repere) : null;
+    const cibleRepere=repere && zone ? $$('.chapitre-source[data-rubrique],[data-axe-cible],.publication-bloc[id]',zone).find(el=>el.dataset.rubrique===repere || el.dataset.axeCible===repere || el.id===repere) : null;
     if(cibleRepere){
       const pub=cibleRepere.closest('.publication-bloc');
       if(pub)selectionnerPublication(pub.closest('.publications-page'),pub.id);
@@ -210,26 +210,9 @@
     points.forEach((p, i) => p.classList.toggle("actif", ordre[i] === nom));
   }
 
-  function synchroniserRubriques(table) {
-    if (!table || table.dataset.navigation!=='atelier') return;
-    const boutons=$$('[role=tab]',table).filter(b=>b.closest('[data-onglets]')===table);
-    const actif=boutons.find(b=>b.getAttribute('aria-selected')==='true');
-    const index=Math.max(0,boutons.indexOf(actif)), nav=$('.rubriques-nav',table);
-    const compteur=$('[data-rubrique-compteur]',table), progression=$('[data-rubrique-progression]',table);
-    if(compteur)compteur.textContent=String(index+1).padStart(2,'0')+' / '+String(boutons.length).padStart(2,'0');
-    if(progression)progression.style.width=(100*(index+1)/boutons.length)+'%';
-    if(nav){
-      const horizontal=matchMedia('(max-width:1099px)').matches;
-      nav.setAttribute('aria-orientation',horizontal?'horizontal':'vertical');
-      if(actif && horizontal)nav.scrollLeft+=actif.getBoundingClientRect().left-nav.getBoundingClientRect().left-(nav.clientWidth-actif.offsetWidth)/2;
-      else if(actif)nav.scrollTop+=actif.getBoundingClientRect().top-nav.getBoundingClientRect().top-(nav.clientHeight-actif.offsetHeight)/2;
-    }
-  }
-
   function signalerAudience() {
-    const table=contenu && $('[data-navigation="atelier"]',contenu);
-    const actif=table && $$('[role=tab]',table).find(b=>b.closest('[data-onglets]')===table && b.getAttribute('aria-selected')==='true');
-    const etat={salle:courante || '',rubrique:actif?.dataset.rubrique || ''};
+    const actif=contenu && $('.gab-page-active',contenu);
+    const etat={salle:courante || '',rubrique:actif?.dataset.gabSlug || ''};
     racine.dataset.audienceSalle=etat.salle;
     racine.dataset.audienceRubrique=etat.rubrique;
     document.dispatchEvent(new CustomEvent('eb:page',{detail:etat}));
@@ -317,7 +300,7 @@
     const zone = libre ? $('section[data-salle="' + destination + '"]') : contenu;
     if (!zone) return;
     const cible = repere
-      ? zone.querySelector('[data-axe-cible="' + repere + '"], .rubrique-corps[data-rubrique="' + repere + '"]')
+      ? zone.querySelector('[data-axe-cible="' + repere + '"], .chapitre-source[data-rubrique="' + repere + '"]')
       : zone;
     if (cible) {
       const pub=cible.closest('.publication-bloc');
@@ -451,14 +434,12 @@
     $$(".salle-progres span").forEach((x, k) => x.classList.toggle("actif", k <= ordre.indexOf(s)));
     $("#salle-titre").textContent = `${String(ordre.indexOf(s) + 1).padStart(2, "0")} / ${String(ordre.length).padStart(2, "0")} · ${groupe.porte.dataset.titre} · ${section.dataset.titre}`;
     const i = ordre.indexOf(s);
-    $("[data-suivante]", salle).hidden = i === ordre.length - 1;
     $("[data-contact]", salle).hidden = i !== ordre.length - 1;
     salle.scrollTop = 0;
     courante = s;
     lectureAReprendre=null;
     const reprise=$('[data-reprendre-lecture]');
     if(reprise)reprise.hidden=true;
-    $$('[data-navigation="atelier"]',contenu).forEach(synchroniserRubriques);
     signalerAudience();
     demanderMemoire();
   }
@@ -510,11 +491,6 @@
   });
   $("#visite").addEventListener("click", () => entrer(ordre[0]));
   $("[data-retour]", salle).addEventListener("click", () => sortir());
-  $("[data-suivante]", salle).addEventListener("click", () => {
-    const suivante = ordre[ordre.indexOf(courante) + 1];
-    if (suivante) entrer(suivante);
-    salle.scrollTop = 0;
-  });
   $("[data-contact]", salle).addEventListener("click", async () => {
     await sortir(false,false);
     reserverNavigation("contact",null);
@@ -780,57 +756,7 @@
       b.tabIndex = b === onglet ? 0 : -1;
     });
     propres(".volet").forEach((v) => (v.hidden = v.dataset.volet !== onglet.dataset.volet));
-    propres("[data-rubrique-select]").forEach((select) => (select.value = onglet.dataset.volet));
-    synchroniserRubriques(table);
-    if(!repriseEnCours && onglet.dataset.rubrique){
-      const dansSalle=!!(courante && contenu.contains(onglet));
-      const dansTheseLibre=racine.classList.contains('libre') &&
-        table.dataset.rubriques==='these' && !!onglet.closest('section[data-salle="recherche"]');
-      if(dansSalle || dansTheseLibre){
-        const destination=dansSalle ? courante : 'recherche';
-        history.replaceState(history.state,'','#'+destination+'/'+onglet.dataset.rubrique);
-        memoriserNavigation();
-      }
-    }
     signalerAudience();
-    const panneau=propres('.volet').find(v=>!v.hidden);
-    // La sélection manuelle d'un chapitre replace la lecture en tête de celui-ci.
-    if(table.dataset.rubriques==='these' && panneau && ev.isTrusted && !repriseEnCours){
-      panneau.scrollIntoView({block:'start',behavior:sansPassage()?'auto':'smooth'});
-    }
-    if(table.dataset.navigation==='atelier' && panneau && panneau.animate && !sansPassage() && !repriseEnCours){
-      panneau.animate([{opacity:.35,transform:'translateY(8px)'},{opacity:1,transform:'translateY(0)'}],{duration:210,easing:'cubic-bezier(.2,.7,.2,1)'});
-    }
-  });
-
-  document.addEventListener('click',ev=>{
-    const pas=ev.target.closest('[data-rubrique-pas]');
-    const renvoi=ev.target.closest('[data-these-vers]');
-    if(!pas && !renvoi)return;
-    const table=(pas || renvoi).closest('[data-onglets]') || (renvoi && renvoi.closest('.these')?.querySelector('[data-rubriques="these"]'));
-    if(!table)return;
-    const boutons=$$('[role=tab]',table).filter(b=>b.closest('[data-onglets]')===table);
-    const actuel=boutons.findIndex(b=>b.getAttribute('aria-selected')==='true');
-    const cible=renvoi ? boutons.find(b=>b.dataset.rubrique===renvoi.dataset.theseVers) : boutons[actuel+Number(pas.dataset.rubriquePas)];
-    if(!cible)return;
-    cible.click();
-    const panneau=$$('.volet',table).find(v=>v.closest('[data-onglets]')===table && !v.hidden);
-    const article=renvoi?.dataset.theseObjectif && panneau ? $$('article[data-objectif]',panneau).find(a=>a.dataset.objectif===renvoi.dataset.theseObjectif) : null;
-    const destination=article || panneau;
-    if(destination){destination.tabIndex=-1;destination.focus({preventScroll:true});destination.scrollIntoView({block:'start',behavior:sansPassage()?'instant':'smooth'});}
-  });
-
-  document.addEventListener("change", (ev) => {
-    if (!ev.target.matches("[data-rubrique-select]")) return;
-    const table = ev.target.closest("[data-onglets]");
-    const bouton = $$("[role=tab]", table).find((b) => b.closest("[data-onglets]") === table && b.dataset.volet === ev.target.value);
-    if (bouton){
-      bouton.click();
-      if(table.dataset.rubriques==='these'){
-        const panneau=$$('.volet',table).find(v=>v.closest('[data-onglets]')===table && !v.hidden);
-        panneau?.scrollIntoView({block:'start',behavior:sansPassage()?'auto':'smooth'});
-      }
-    }
   });
 
   document.addEventListener("keydown", (ev) => {
@@ -838,17 +764,13 @@
     if (!onglet || !["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End"].includes(ev.key)) return;
     ev.preventDefault();
     const table = onglet.closest("[data-onglets]");
-    const tous = $$("[role=tab]", table).filter((b) => b.closest("[data-onglets]") === table);
+    const tous = $("[role=tab]", table).filter((b) => b.closest("[data-onglets]") === table);
     const sens = racine.dir === "rtl" ? -1 : 1;
     const delta=ev.key==='ArrowDown'?1:ev.key==='ArrowUp'?-1:ev.key==='ArrowRight'?sens:-sens;
     const i = ev.key === "Home" ? 0 : ev.key === "End" ? tous.length - 1 : tous.indexOf(onglet) + delta;
     const cible = tous[(i + tous.length) % tous.length];
     cible.focus();
     cible.click();
-    if(table.dataset.rubriques==='these'){
-      const panneau=$$('.volet',table).find(v=>v.closest('[data-onglets]')===table && !v.hidden);
-      panneau?.scrollIntoView({block:'start',behavior:sansPassage()?'auto':'smooth'});
-    }
   });
 
   // Menus de l'en-tête : un seul ouvert à la fois, fermeture au clic extérieur et avec Échap.
@@ -1030,7 +952,6 @@
   const preparer = (racineZone) => $$(CIBLES, racineZone).forEach((el) => el.classList.add('revele'));
   preparer(document);
   initialiserPublications(document);
-  $$('[data-navigation="atelier"]').forEach(synchroniserRubriques);
 
   document.addEventListener('scroll',demanderMemoire,{capture:true,passive:true});
   document.addEventListener('eb:hallposition',demanderMemoire);

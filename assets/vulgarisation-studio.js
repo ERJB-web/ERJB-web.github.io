@@ -184,7 +184,7 @@
     return el;
   };
   const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const panel = n => section.querySelector('[data-volet="' + n + '"] .rubrique-contenu');
+  const panel = n => section.querySelector('[data-volet="' + n + '"] .chapitre-contenu');
   const chain = h('section','vs-hero','<div class="vs-hero-copy"><p class="vs-eyebrow">' + escape(t.eyebrow) + '</p><h3>' + escape(t.hero) + '</h3><p>' + escape(t.sub) + '</p><div class="vs-principle"><strong>' + escape(t.key) + '</strong><span>' + escape(t.keyText) + '</span></div></div><div class="vs-hero-art" aria-label="' + escape(t.trail.join(' → ')) + '"><div class="vs-art-orbit"><span>01</span><span>02</span><span>03</span><span>04</span><i></i></div><ol>' + t.trail.map((v,i) => '<li><b>' + escape(v) + '</b><small>' + escape(t.trailDesc[i]) + '</small></li>').join('') + '</ol></div>');
   const gallery = $('.vul-galerie');
   const firstChapter=section.querySelector(".gab-chapitre .gab-corps");

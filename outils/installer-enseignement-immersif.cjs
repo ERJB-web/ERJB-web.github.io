@@ -5,7 +5,7 @@ const root=path.resolve(__dirname,'..');
 const version=f=>crypto.createHash('sha256').update(fs.readFileSync(path.join(root,f))).digest('hex').slice(0,10);
 const cssVersion=version('assets/enseignement-immersif.css'),jsVersion=version('assets/enseignement-immersif.js');
 let html=fs.readFileSync(path.join(root,'index.html'),'utf8');
-const panel=/(<div class="volet rubrique-corps"[^>]*data-rubrique="enseignement-0"[^>]*><div class="rubrique-entete">[\s\S]*?<\/div><div class="rubrique-contenu">)([\s\S]*?)(<\/div><nav class="rubriques-pagination"[\s\S]*?<\/nav><\/div>)(?=\s*<div class="volet rubrique-corps"[^>]*data-rubrique="enseignement-1")/;
+const panel=/(<div class="chapitre-source"[^>]*data-rubrique="enseignement-0"[^>]*><div class="chapitre-contenu">)([\s\S]*?)(<\/div><\/div>)(?=\s*<div class="chapitre-source"[^>]*data-rubrique="enseignement-1")/;
 if(!panel.test(html))throw Error('Chapitre Vision de l’enseignement introuvable ; aucune modification écrite.');
 html=html.replace(panel,(_,open,old,close)=>open+render()+close);
 html=html.replace(/<link[^>]+href="assets\/enseignement-immersif\.css[^>]*>\s*/g,'').replace(/<script[^>]+src="assets\/enseignement-immersif\.js[^>]*><\/script>\s*/g,'');

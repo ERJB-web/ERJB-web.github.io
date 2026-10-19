@@ -115,7 +115,7 @@
     bound.add(section);
     section.querySelectorAll(".ve-theatre,.ve-audio,.ve-library,.ve-jargon").forEach(el=>el.remove());
     const find=(q)=>section.querySelector(q);
-    const panel=n=>section.querySelector('[data-volet="'+n+'"] .rubrique-contenu');
+    const panel=n=>section.querySelector('[data-volet="'+n+'"] .chapitre-contenu');
     // Les schémas du studio restent des schémas : aucune photo décorative hors sujet.
     const heroArt=find('.vs-hero-art');
     heroArt?.querySelectorAll('.vs-art-orbit,.ve-hero-image').forEach(x=>x.remove());

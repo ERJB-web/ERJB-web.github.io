@@ -94,7 +94,7 @@
 /* ---------- En-tête de la salle : hall, porte, salles, écoute ---------- */
 .salle.gab-salle{border-top:0}
 .salle.gab-salle:not([hidden]){scroll-snap-type:none}
-.salle.gab-salle .gab :is(.bandeau,.section-corps,.rubrique-corps){scroll-snap-align:none}
+.salle.gab-salle .gab :is(.bandeau,.section-corps,.chapitre-source){scroll-snap-align:none}
 .salle .salle-contenu .gab .gab-chapitre,.gab .gab-chapitre{scroll-margin-top:6px!important}
 .salle.gab-salle .salle-progres{display:none}
 .salle-barre.gab-barre{display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"retour porte actions" "lecture lecture lecture";align-items:center;column-gap:18px;row-gap:0;padding:12px var(--gab-marge);background:rgba(255,255,255,.93);border-bottom:1px solid var(--gab-ligne);font-size:16px}
@@ -108,8 +108,8 @@
 .gab-barre .salle-actions{grid-area:actions;display:flex;align-items:center;gap:10px}
 .gab-barre .salle-actions button{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:999px;font-weight:600;font-size:15.5px;white-space:nowrap}
 .gab-barre [data-ecouter],.gab-barre [data-arreter]{border:1.5px solid var(--gab-marine);color:var(--gab-marine)!important}
-.gab-barre [data-suivante],.gab-barre [data-contact]{background:var(--gab-marine);color:#fff!important;border:1.5px solid var(--gab-marine)}
-.gab-barre [data-suivante]:hover,.gab-barre [data-contact]:hover{background:var(--gab-bleu);border-color:var(--gab-bleu)}
+.gab-barre [data-contact]{background:var(--gab-marine);color:#fff!important;border:1.5px solid var(--gab-marine)}
+.gab-barre [data-contact]:hover{background:var(--gab-bleu);border-color:var(--gab-bleu)}
 
 /* Barre de lecture : apparaît quand les tuiles sont dépassées. */
 .gab-lecture{grid-area:lecture;display:flex;align-items:center;gap:12px;max-height:0;opacity:0;overflow:hidden;visibility:hidden;transition:max-height .4s var(--gab-ease),opacity .3s,margin .3s,visibility 0s .4s}
@@ -213,9 +213,9 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 .gab-corps p{max-width:80ch}
 .gab-corps h3{font:700 23px/1.32 var(--sans)!important;color:var(--gab-marine)!important;letter-spacing:0!important;text-transform:none!important;margin:34px 0 10px}
 .gab-corps h4{font:700 19.5px/1.35 var(--sans)!important;color:var(--gab-marine)!important;letter-spacing:0!important;text-transform:none!important;margin:28px 0 8px}
-.gab-corps>:first-child,.gab-corps>.gab-source>:first-child,.gab-corps .rubrique-contenu>:first-child{margin-top:0}
+.gab-corps>:first-child,.gab-corps>.gab-source>:first-child,.gab-corps .chapitre-contenu>:first-child{margin-top:0}
 .gab-corps a:not([class]){color:var(--gab-bleu);text-decoration-thickness:1px;text-underline-offset:3px}
-.gab-corps .rubrique-contenu{display:block;max-width:none;padding:0;margin:0;background:none;border:0;box-shadow:none}
+.gab-corps .chapitre-contenu{display:block;max-width:none;padding:0;margin:0;background:none;border:0;box-shadow:none}
 .gab .gab-source{position:static;display:block;margin:0;padding:0;border:0!important;border-radius:0;background:none!important;box-shadow:none!important;color:inherit;min-height:0;transform:none!important;animation:none!important}
 .gab .gab-source::before,.gab .gab-source::after{display:none}
 .gab .gab-source .titre-bloc{margin-top:0}
@@ -225,9 +225,9 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 .gab .gab-corps :is(.methode-refs,.references,.lectures-liste,.refs,.vs-refs) :is(li,p){font-size:15.5px;line-height:1.55}
 
 /* Onglets internes (choix d'atelier, formats…) : un seul style de commutateur. */
-.gab .onglets:not(.rubriques-nav){display:flex;flex-wrap:wrap;gap:4px;padding:5px;border-radius:14px;background:var(--gab-fond);border:0;width:fit-content;max-width:100%}
-.gab .onglets:not(.rubriques-nav) [role=tab]{padding:9px 16px;border-radius:10px;border:0;background:transparent;color:var(--gab-texte);font:600 15.5px var(--sans);box-shadow:none}
-.gab .onglets:not(.rubriques-nav) [role=tab][aria-selected=true]{background:#fff;color:var(--gab-marine);box-shadow:0 2px 10px -4px rgba(13,42,58,.4)}
+.gab .onglets{display:flex;flex-wrap:wrap;gap:4px;padding:5px;border-radius:14px;background:var(--gab-fond);border:0;width:fit-content;max-width:100%}
+.gab .onglets [role=tab]{padding:9px 16px;border-radius:10px;border:0;background:transparent;color:var(--gab-texte);font:600 15.5px var(--sans);box-shadow:none}
+.gab .onglets [role=tab][aria-selected=true]{background:#fff;color:var(--gab-marine);box-shadow:0 2px 10px -4px rgba(13,42,58,.4)}
 
 /* Blocs dépliables */
 .gab-corps details:not(.lecture-theme){border:1px solid var(--gab-ligne);border-radius:16px;background:#fff;margin:12px 0;padding:0 18px}
@@ -304,7 +304,7 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   .salle .salle-barre.gab-barre .salle-actions{grid-area:actions!important;grid-column:auto!important;grid-row:auto!important;gap:8px}
   .salle .salle-barre.gab-barre [data-retour]{grid-area:retour!important;grid-column:auto!important;grid-row:auto!important;padding:8px 14px!important;font-size:14.5px!important;border-radius:999px!important}
   .salle .salle-barre.gab-barre .salle-actions button{min-height:42px;padding:8px 13px!important;border-radius:999px!important;font-size:14px!important;white-space:nowrap!important;max-width:none!important}
-  .salle .salle-barre.gab-barre .salle-actions button[data-suivante],.salle .salle-barre.gab-barre .salle-actions button[data-contact]{background:var(--c1,var(--gab-marine))!important;border-color:var(--c1,var(--gab-marine))!important;color:#fff!important}
+  .salle .salle-barre.gab-barre .salle-actions button[data-contact]{background:var(--c1,var(--gab-marine))!important;border-color:var(--c1,var(--gab-marine))!important;color:#fff!important}
   .gab .gab-bandeau .gab-k-porte{display:none}
 }
 @media(prefers-reduced-motion:reduce){.gab-tuile,.gab-lecture,.gab-segments button{transition:none}}
@@ -1578,13 +1578,6 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 }
 .gab-barre .gab-lecture .gab-actuel > span{min-width:0}
 .gab-barre .gab-lecture .gab-actuel :is(small,strong){overflow:hidden;text-overflow:ellipsis}
-/* Rapprocher « Chapitre précédent » du bord gauche, sans déplacer le titre central. */
-@media(min-width:1201px){
-  .gab-barre .gab-lecture > .gab-fleche-precedente{
-    position:relative;
-    inset-inline-start:clamp(-72px,-5vw,-40px);
-  }
-}
 @media(max-width:1200px){
   .gab-barre .gab-lecture{
     grid-template-columns:minmax(0,1fr) minmax(0,1.12fr) minmax(0,1fr);
@@ -2541,7 +2534,7 @@ html:is(.hc,.lv) .gab[data-gab-salle="gestionnaire"] .carte-vitrine{
    Conserver le menu précédent / chapitre en cours / suivant déjà présent
    dans le gabarit, sans recréer d'ancienne barre ni modifier la grille du site. */
 .salle.gab-salle.gab-avec-chapitres.gab-page-chapitre .salle-barre.gab-barre > .gab-lecture{
-  display:flex!important;
+  display:grid!important;
   opacity:1!important;
   visibility:visible!important;
   max-height:145px!important;
@@ -2556,7 +2549,6 @@ html:is(.hc,.lv) .gab[data-gab-salle="gestionnaire"] .carte-vitrine{
 @media(max-width:700px){
   .salle.gab-salle.gab-avec-chapitres.gab-page-chapitre .salle-barre.gab-barre > .gab-lecture{
     max-height:190px!important;
-    flex-wrap:wrap!important;
   }
 }
 

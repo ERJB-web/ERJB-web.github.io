@@ -35,7 +35,7 @@ const ATELIERS = require("./ateliers");
 const LOGICIELS = require("./logiciels");
 const JEUX_ACCUEIL = require("./jeu-accueil.json");
 const SPHERES_PUBLIC = require("./spheres-publication.json");
-const NAV_RUBRIQUES = require("./navigation-rubriques");
+const LIBELLES_THESE = require("./libelles-these");
 const TYPES_ETUDES = require("./typologies-multilingues");
 const AUDIENCE = require("./audience.json");
 const AUDIENCE_LIBELLES = require("./audience-libelles");
@@ -209,7 +209,7 @@ function sectionTransmission(c) {
   const sources = '<div class="enseignement-essai"><h3>' + e(p.sources.titre) + '</h3><p>' + e(p.sources.intro) + '</p></div><ul class="methode-refs references-transmission enseignement-references">' + Object.values(ENSEIGNEMENT.references).sort((a,b) => a.citation.localeCompare(b.citation, 'en')).map(r => '<li>' + e(r.citation) + ' ' + lien(r.href, e(r.href)) + '</li>').join('') + '</ul>';
   const contenus = [c.lang === 'fr' ? require('./enseignement-immersif.cjs').render() : essai(p.vision), pont, pratique, valeurs, apprendre, avenir, sources];
   const titresEns=[...p.onglets];titresEns[3]=DISPOSITIFS_PEDAGOGIQUES[c.lang].onglet;titresEns.splice(5,0,ATELIERS.textes(c.lang,'enseignement').labels.atelier);contenus.splice(5,0,atelierPratique(c,'enseignement'));
-  return '<div class="section-corps pleine enseignement"><div class="colonne-texte"><p class="surtitre">' + e(s.salle[0]) + '</p><h2>' + e(p.titre) + '</h2><p class="intro">' + e(p.intro) + '</p></div><div class="colonne-outils">' + ongletsRubriques(c, 'enseignement', p.explorer, titresEns.map((titre, i) => ['enseignement-' + i, titre, contenus[i]]), 4) + '</div></div>';
+  return '<div class="section-corps pleine enseignement"><div class="colonne-texte"><p class="surtitre">' + e(s.salle[0]) + '</p><h2>' + e(p.titre) + '</h2><p class="intro">' + e(p.intro) + '</p></div><div class="colonne-outils">' + chapitresSource(c, 'enseignement', p.explorer, titresEns.map((titre, i) => ['enseignement-' + i, titre, contenus[i]]), 4) + '</div></div>';
 }
 function sectionVulgarisation(c) {
   const s = MEDIATION.LANGUES[c.lang].vulgarisation;
@@ -238,7 +238,7 @@ function sectionVulgarisation(c) {
     return '<article><p class="vul-type">' + e(type) + '</p><h4>' + e(r.court) + '</h4><p>' + e(apport) + '</p><details><summary>' + e(L.usage) + '</summary><p>' + e(usage) + '</p><p><strong>' + e(L.limite) + '.</strong> ' + e(limite) + '</p><p class="vul-citation">' + e(r.citation) + '</p></details><p class="vul-source">' + lien(r.href, e(L.source) + ' ↗') + '</p></article>';
   }).join('') + '</div><h4 class="titre-bloc">' + e(v.ressources.suite) + '</h4><div class="vul-liens">' + ['litterature','grise','capsules','balados'].map((k,i) => '<a href="#' + k + '">' + e(v.ressources.liens[i]) + ' →</a>').join('') + '</div><h4 class="titre-bloc">' + e(s.supports) + '</h4>' + liste([{date:'2026',titre:T.affiche[0],detail:T.affiche[1],lien:affiche ? affiche[2] : AFFICHE}]);
   const contenus = [vision, preuve, communicationVisuelle(c, s.pratiques), formats, dialogue, outils, ressources];
-  return '<div class="section-corps pleine vulgarisation"><div class="colonne-texte"><p class="surtitre">' + e(s.salle[0]) + '</p><h2>' + e(v.titre) + '</h2><p class="intro">' + e(v.intro) + '</p></div><figure class="vul-galerie"><figcaption>' + e(v.galerie.titre) + '</figcaption><div>' + v.galerie.legendes.map((legende,i) => '<div>' + image(i) + '<p>' + e(legende) + '</p></div>').join('') + '</div></figure><div class="colonne-outils">' + ongletsRubriques(c, 'vulgarisation', v.explorer, v.onglets.map((t,i) => ['vulgarisation-' + i,t,contenus[i]]), 4) + '</div></div>';
+  return '<div class="section-corps pleine vulgarisation"><div class="colonne-texte"><p class="surtitre">' + e(s.salle[0]) + '</p><h2>' + e(v.titre) + '</h2><p class="intro">' + e(v.intro) + '</p></div><figure class="vul-galerie"><figcaption>' + e(v.galerie.titre) + '</figcaption><div>' + v.galerie.legendes.map((legende,i) => '<div>' + image(i) + '<p>' + e(legende) + '</p></div>').join('') + '</div></figure><div class="colonne-outils">' + chapitresSource(c, 'vulgarisation', v.explorer, v.onglets.map((t,i) => ['vulgarisation-' + i,t,contenus[i]]), 4) + '</div></div>';
 }
 const SOUS_RESSOURCES = {
   fr: { litterature: ["Littérature scientifique", "Articles en libre accès et lectures par thème"], grise: ["Littérature grise", "Rapports, politiques, guides et outils"], presse: [null, "Articles de presse et de magazines"], capsules: [null, "Vidéos en français et en anglais"], balados: [null, "Balados en français et en anglais"], rapports: "Rapports, politiques et cadres de référence" },
@@ -281,7 +281,7 @@ function sectionNotions(c) {
     return `<article class="groupe-carte carte-notion notion-cadre"><div class="groupe-corps"><header class="notion-entete"><span class="notion-numero" aria-hidden="true">${num(cles.indexOf(k))}</span><h4 class="titre-bloc">${e(titre)}</h4></header><p class="notion-definition">${e(definition)}</p><div class="notion-usage"><p class="notion-libelle">${e(N.usage)}</p><p>${e(usage)}</p></div><p class="notion-precision"><strong>${e(N.precision)}.</strong> ${e(precision)}</p><details class="notion-biblio"><summary>${e(k === "epistemique" ? N.appuis : N.sources)}</summary><ol class="notion-refs">${refs.map((r) => `<li>${referenceNotion(r)}</li>`).join("")}</ol></details></div></article>`;
   };
   const rubriques = NOTIONS.groupes.map((g, i) => [`notions-${i + 1}`, N.familles[i], `<h3 class="lexique-famille">${e(N.familles[i])}</h3><div class="lexique-grille">${g.map(carte).join("")}</div>`]);
-  return `<div class="section-corps pleine lexique"><div class="colonne-texte"><p class="surtitre">${e(N.surtitre)}</p><h2>${e(N.titre)}</h2><p class="intro">${e(N.intro)}</p></div><div class="colonne-outils">${ongletsRubriques(c, "notions", N.explorer, rubriques, 4)}</div></div>`;
+  return `<div class="section-corps pleine lexique"><div class="colonne-texte"><p class="surtitre">${e(N.surtitre)}</p><h2>${e(N.titre)}</h2><p class="intro">${e(N.intro)}</p></div><div class="colonne-outils">${chapitresSource(c, "notions", N.explorer, rubriques, 4)}</div></div>`;
 }
 
 const OUTILS = {
@@ -854,14 +854,9 @@ function confidentialiteAudience(code) {
   return `<details class="audience-info"><summary>${e(t.titre)}</summary><div><p>${e(AUDIENCE.websiteId ? t.actif : t.inactif)}</p><p>${e(t.local)}</p>${AUDIENCE.websiteId ? `<p><a href="https://umami.is/privacy" target="_blank" rel="noopener noreferrer">${e(t.service)} ↗</a></p><button type="button" data-audience-refuser aria-pressed="false">${e(t.refuser)}</button><p class="audience-etat" data-audience-etat data-autorisee="${e(t.autorisee)}" data-refusee="${e(t.refusee)}" data-navigateur="${e(t.navigateur)}"></p>` : ''}</div></details>`;
 }
 
-function ongletsRubriques(c, cle, explorer, rubriques, colonnes = 5) {
-  const n = NAV_RUBRIQUES.langues[c.lang];
-  const fleche = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>';
-  return `<div class="table rubriques" data-onglets data-rubriques="${cle}" data-navigation="atelier" style="--rubriques-colonnes:${colonnes}">
-<aside class="rubriques-console"><div class="rubriques-console-tete"><span>${e(n.parcours)}</span><span data-rubrique-compteur aria-live="polite" aria-atomic="true">01 / ${num(rubriques.length - 1)}</span></div><div class="rubriques-progression" aria-hidden="true"><span data-rubrique-progression style="width:${100 / rubriques.length}%"></span></div>
-<label class="rubriques-choix"><span>${e(n.aller)}</span><select data-rubrique-select aria-label="${e(explorer)}">${rubriques.map(([, nom], i) => `<option value="${i}">${num(i)} · ${e(nom)}</option>`).join("")}</select></label>
-<div class="onglets rubriques-nav" role="tablist" aria-label="${e(explorer)}" aria-orientation="vertical">${rubriques.map(([id, nom], i) => `<button type="button" role="tab" id="rubrique-${c.lang}-${cle}-onglet-${i}" aria-controls="rubrique-${c.lang}-${cle}-panneau-${i}" aria-selected="${i === 0}" tabindex="${i ? -1 : 0}" data-volet="${i}" data-rubrique="${id}">${cle === "enseignement" ? "" : '<span class="rubrique-icone">' + icone((NAV_RUBRIQUES.icones[cle] || [])[i] || "papiers") + '</span>'}<span class="rubrique-libelle"><span class="rubrique-etape" aria-hidden="true">${num(i)}</span><strong>${e(nom)}</strong></span>${cle === "enseignement" ? "" : '<span class="rubrique-direction">' + fleche + '</span>'}</button>`).join("")}</div></aside>
-${rubriques.map(([id, , contenu], i) => `<div class="volet rubrique-corps" role="tabpanel" id="rubrique-${c.lang}-${cle}-panneau-${i}" aria-labelledby="rubrique-${c.lang}-${cle}-onglet-${i}" data-volet="${i}" data-rubrique="${id}"${i ? " hidden" : ""}><div class="rubrique-entete"><bdi dir="ltr">${num(i)}</bdi><span>${e(rubriques[i][1])}</span></div><div class="rubrique-contenu">${contenu}</div><nav class="rubriques-pagination" aria-label="${e(n.parcours)}">${i ? `<button type="button" data-rubrique-pas="-1"><span class="rubrique-precedente">${fleche}</span><span><small>${e(n.precedent)}</small><strong>${e(rubriques[i-1][1])}</strong></span></button>` : '<span></span>'}${i < rubriques.length - 1 ? `<button type="button" data-rubrique-pas="1"><span><small>${e(n.suivant)}</small><strong>${e(rubriques[i+1][1])}</strong></span>${fleche}</button>` : '<span></span>'}</nav></div>`).join("")}</div>`;
+function chapitresSource(c, cle, explorer, rubriques) {
+  return `<div class="chapitres-source" data-rubriques="${cle}">
+${rubriques.map(([id, titre, contenu], i) => `<div class="chapitre-source" id="chapitre-${c.lang}-${cle}-${i}" data-volet="${i}" data-rubrique="${id}" data-chapitre-titre="${e(titre)}"><div class="chapitre-contenu">${contenu}</div></div>`).join("")}</div>`;
 }
 
 function referencesIA(cles = []) {
@@ -874,7 +869,7 @@ function cartesRubrique(items) {
 
 function sectionRecherche(c) {
   const f = CADRAGE_THESE.langues[c.lang];
-  const n = NAV_RUBRIQUES.langues[c.lang];
+  const n = LIBELLES_THESE.langues[c.lang];
   const r = { ...c.recherche, titre: f.titre, question: f.question, but: f.general };
   const p = METHODOLOGIE[c.lang];
   const t = THESE.langues[c.lang];
@@ -916,7 +911,7 @@ ${schemaReseau(c)}</div>
     `<h3>${e(t.titres[9])}</h3>${cartesRubrique(t.transfert)}`,
     institution,
   ];
-  return `<div class="section-corps pleine these"><div class="colonne-texte these-introduction"><div class="these-statut"><p class="badge-these">${e(r.etiquette)}</p><p class="these-evolution"><strong>${e(r.avertissement)}</strong></p></div><p class="these-titre-label">${e(f.labels.titre)}</p><h2>${e(f.titre)}</h2><div class="these-question-principale"><span>${e(f.labels.question)}</span><p class="these-formulation">${e(f.question)}</p></div><nav class="these-parcours" aria-label="${e(n.fil)}">${n.etapes.map((nom,i)=>`<button type="button" data-these-vers="objectifs" data-these-objectif="O${i+1}" data-objectif="O${i+1}"><bdi dir="ltr">O${i+1}</bdi><span>${e(nom)}</span><span aria-hidden="true">↗</span></button>`).join("")}</nav></div><div class="colonne-outils">${ongletsRubriques(c, "these", t.explorer, contenus.map((html, i) => [THESE.cles[i] || "cadre", t.titres[i] || f.labels.cadre, html]))}</div></div>`;
+  return `<div class="section-corps pleine these"><div class="colonne-texte these-introduction"><div class="these-statut"><p class="badge-these">${e(r.etiquette)}</p><p class="these-evolution"><strong>${e(r.avertissement)}</strong></p></div><p class="these-titre-label">${e(f.labels.titre)}</p><h2>${e(f.titre)}</h2><div class="these-question-principale"><span>${e(f.labels.question)}</span><p class="these-formulation">${e(f.question)}</p></div><nav class="these-parcours" aria-label="${e(n.fil)}">${n.etapes.map((nom,i)=>`<button type="button" data-these-vers="objectifs" data-these-objectif="O${i+1}" data-objectif="O${i+1}"><bdi dir="ltr">O${i+1}</bdi><span>${e(nom)}</span><span aria-hidden="true">↗</span></button>`).join("")}</nav></div><div class="colonne-outils">${chapitresSource(c, "these", t.explorer, contenus.map((html, i) => [THESE.cles[i] || "cadre", t.titres[i] || f.labels.cadre, html]))}</div></div>`;
 }
 
 function sectionIA(c) {
@@ -925,7 +920,7 @@ function sectionIA(c) {
   const rubriques = s.rubriques.map((r, i) => ["ia-" + i, r.nom, `<h3>${e(r.titre)}</h3><p>${e(r.intro)}</p>${referencesIA(r.refs)}${cartesRubrique(r.items)}<p class="note note-ia">${e(r.note)}</p>${referencesIA(r.noteRefs)}`]);
   rubriques.splice(2,0,["ia-atelier",ATELIERS.textes(c.lang,"ia").labels.atelier,atelierPratique(c,"ia")]);
   rubriques.push(["ia-lectures", s.sources, `<h3>${e(s.lectures.titre)}</h3><p>${e(s.lectures.intro)}</p>${biblio(Object.keys(IA.references))}`]);
-  return `<div class="section-corps pleine section-ia"><div class="colonne-texte"><p class="surtitre">${e(s.date)}</p><h2>${e(s.titre)}</h2><p class="intro">${e(s.intro)}</p></div><div class="colonne-outils">${ongletsRubriques(c, "ia", s.explorer, rubriques, 4)}</div></div>`;
+  return `<div class="section-corps pleine section-ia"><div class="colonne-texte"><p class="surtitre">${e(s.date)}</p><h2>${e(s.titre)}</h2><p class="intro">${e(s.intro)}</p></div><div class="colonne-outils">${chapitresSource(c, "ia", s.explorer, rubriques, 4)}</div></div>`;
 }
 
 function schemaDiscours([social, discursive, texte], titre) {
@@ -947,7 +942,7 @@ function sectionApproche(c) {
 <p class="intro">${e(s.titre)}</p>
 <p>${e(s.intro)}</p>
 </div>
-<div class="colonne-outils">${ongletsRubriques(c, "posture", s.explorer, rubriques, 3)}</div>
+<div class="colonne-outils">${chapitresSource(c, "posture", s.explorer, rubriques, 3)}</div>
 </div>`;
 }
 
@@ -1050,7 +1045,7 @@ ${cartes(m.cadres)}
 
 function sectionImplantation(c) {
  const m=c.implantation,A=ATELIERS.textes(c.lang,"implantation");
- return `<div class="section-corps pleine implantation-approfondie"><div class="colonne-texte"><p class="surtitre">${e(m.surtitre)}</p><h2>${e(m.titre)}</h2><p class="intro">${e(m.intro)}</p></div><div class="colonne-outils">${ongletsRubriques(c,"implantation",A.labels.choisir,[["implantation-reperes",m.transfert.titre,sectionImplantationHistorique(c)]],1)}</div></div>`;
+ return `<div class="section-corps pleine implantation-approfondie"><div class="colonne-texte"><p class="surtitre">${e(m.surtitre)}</p><h2>${e(m.titre)}</h2><p class="intro">${e(m.intro)}</p></div><div class="colonne-outils">${chapitresSource(c,"implantation",A.labels.choisir,[["implantation-reperes",m.transfert.titre,sectionImplantationHistorique(c)]],1)}</div></div>`;
 }
 
 function sectionBiographie(c) {
@@ -1608,7 +1603,6 @@ ${JEUX_ACCUEIL[c.lang] || ""}
 <button type="button" data-retour>← ${e(c.ui.hall)}</button>
 <span id="salle-titre"></span>
 <div class="salle-actions"><button type="button" data-ecouter aria-label="${e(c.ui.ecouter)}">${icone("casque")}<span>${e(c.ui.ecouter)}</span></button><button type="button" data-arreter aria-label="${e(c.ui.arreter)}" hidden>${e(c.ui.arreter)}</button>
-<button type="button" data-suivante>${e(c.ui.suivante)} →</button>
 <button type="button" data-contact hidden>${e(c.ui.contact)} →</button></div>
 </div>
 <div class="salle-progres" aria-hidden="true">${SALLES.map(() => "<span></span>").join("")}</div>
