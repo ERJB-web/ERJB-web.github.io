@@ -52,5 +52,11 @@ html body :is(table,td,th){font-family:var(--type-police)!important;font-size:va
 html body :is(td,th) :is(p,li,dt,dd){font-size:inherit!important;line-height:inherit!important}
 html body :is(h1,h2,h3,h4,h5,h6){font-family:var(--type-police)!important;text-align:start!important;text-align-last:auto!important;hyphens:none!important}
 /* Les commandes et sommaires conservent leur alignement fonctionnel. */
+html body .rs-page :is(.rs-card-category,.rs-art-label,.rs-art-note,.rs-filters button,.representation-date .date){font-size:var(--type-note)!important;line-height:1.5!important}
+html body .rs-page .rs-filter-count{font-size:12px!important;font-weight:550}
+html body .rs-page .rs-card-seal>span{font-size:clamp(30px,4vw,48px);font-weight:550;line-height:1.1;letter-spacing:-.04em}
+html body .rs-page .rs-department-mark{font-size:clamp(30px,4vw,48px);font-weight:550;line-height:1.1;letter-spacing:-.04em}
+html body .rs-page .rs-card-category{font-weight:550}
+html body .rs-page .representation-date .date{text-align:start!important;hyphens:none!important}
 html body :is(nav,[role="navigation"],button,[role="button"],.gab-menu-gauche,.gab-sommaire-chapitre) :is(p,li,dt,dd){text-align:start!important;text-align-last:auto!important;hyphens:none!important}
 }

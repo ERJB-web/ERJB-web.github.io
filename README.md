@@ -29,6 +29,8 @@ Le gabarit de Projet de thèse est la référence commune : barre de lecture, bo
 
 La typographie éditoriale commune est définie dans `assets/typographie.css`, chargée après les styles des modules : corps 16 px, sections 22 px, sous-sections 19 px, encadrés 18 px et graisse modérée. Conserver cette échelle lors des modifications.
 
+Les cinq rubriques Engagements sont des pages de lecture directe : aucun sommaire latéral, compteur de chapitre ou bouton de chapitre précédent/suivant. Représentation présente les mandats actuels et précédents avec des filtres ; Distinctions met les prix et soutiens en valeur ; Sports et loisirs conserve les huit images dans une galerie occupant toute la largeur. Une image interne à une page unique ne doit pas être retirée pour alimenter une colonne latérale absente. Ces compositions sont définies dans `assets/gabarit-salles.js` et `assets/gabarit-salles.css` ; les textes restent dans leurs sources multilingues et la typographie dans la feuille commune.
+
 ## Entretien du dépôt
 
 Conserver les pages et ressources publiées, les sources multilingues, les générateurs des galeries et applications, les contrôles et les workflows actifs. Les scripts ponctuels de migration déjà appliqués et les variantes de menus abandonnées sont retirés. Les caches et dossiers de travail locaux sont exclus par `.gitignore`.

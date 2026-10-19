@@ -270,8 +270,86 @@
       });
       section.append(nouvelleListe);page.append(section);
     });
+    composerRepresentation(page);
     corps.replaceChildren(page);
   }
+
+  // Une composition visuelle fondée sur les mandats existants, dans chaque langue.
+  function composerRepresentation(page) {
+    const traductions = {
+      fr: ["Tout le parcours", "En cours", "Précédents", "Étudiants", "Instances", "Une même voix, plusieurs espaces", "Représentation", "Mentorat", "Vie du programme", "Vie du département", "Engagements actuels", "Repères précédents", "Afficher les mandats"],
+      en: ["Full journey", "Current", "Previous", "Students", "Committees", "One voice, many spaces", "Representation", "Mentoring", "Program life", "Department life", "Current commitments", "Previous roles", "Show roles"],
+      es: ["Todo el recorrido", "Actuales", "Anteriores", "Estudiantes", "Instancias", "Una voz, varios espacios", "Representación", "Mentoría", "Vida del programa", "Vida del departamento", "Compromisos actuales", "Experiencias anteriores", "Mostrar los mandatos"],
+      zh: ["全部经历", "现任", "曾任", "学生", "委员会", "同一个声音，多个交流空间", "学生代表", "指导支持", "项目事务", "系部事务", "当前参与", "过往经历", "显示任职"],
+      ar: ["المسار الكامل", "الحالية", "السابقة", "الطلاب", "الهيئات", "صوت واحد في فضاءات متعددة", "التمثيل", "الإرشاد", "شؤون البرنامج", "شؤون القسم", "المهام الحالية", "المهام السابقة", "عرض المهام"],
+      ru: ["Весь путь", "Текущие", "Предыдущие", "Студенты", "Органы управления", "Один голос, разные площадки", "Представительство", "Наставничество", "Жизнь программы", "Жизнь кафедры", "Текущие обязанности", "Предыдущий опыт", "Показать обязанности"]
+    };
+    const t = traductions[langue];
+    if (!t) return;
+    page.classList.add("rs-page");
+    const dessins = [
+      '<path d="M4 5h16v11H9l-5 4V5Z"/><path d="M8 9h8M8 12h5"/>',
+      '<circle cx="8" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M2 21v-3a6 6 0 0 1 12 0v3m1-7a5 5 0 0 1 7 4v3"/>',
+      '<path d="M4 4h16v17H4zM8 2v4m8-4v4M8 10h8m-8 4h5m-5 4h8"/>',
+      '<path d="m2 9 10-6 10 6H2Zm2 12h16M6 11v7m6-7v7m6-7v7"/>'
+    ];
+    const icone = (i) => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + dessins[i] + '</svg>';
+    const ouverture = $(".representation-ouverture", page);
+    ouverture.classList.add("rs-hero");
+    $(".representation-repere", ouverture)?.remove();
+    const art = el("div", "rs-illustration");
+    art.setAttribute("aria-hidden", "true");
+    art.innerHTML = '<div class="rs-art-grid"></div><div class="rs-art-ring"></div><div class="rs-art-ring rs-art-inner"></div><span class="rs-art-label rs-art-students">' + echapper(t[3]) + '</span><div class="rs-art-center">' + icone(0) + '</div><span class="rs-art-label rs-art-instances">' + echapper(t[4]) + '</span><i class="rs-dot rs-dot-one"></i><i class="rs-dot rs-dot-two"></i><i class="rs-dot rs-dot-three"></i><span class="rs-art-note">' + echapper(t[5]) + '</span>';
+    ouverture.append(art);
+    const commandes = el("div", "rs-filters");
+    commandes.setAttribute("role", "group");
+    commandes.setAttribute("aria-label", t[12]);
+    const periodes = $$(".representation-periode", page);
+    ["all", "actuel", "precedent"].forEach((valeur, i) => {
+      const nombre = i ? $$(".representation-mandat", periodes[i - 1]).length : $$(".representation-mandat", page).length;
+      const bouton = el("button", "", echapper(t[i]) + '<span class="rs-filter-count">' + nombre + '</span>');
+      bouton.type = "button";
+      bouton.dataset.rsFilter = valeur;
+      bouton.setAttribute("aria-pressed", String(i === 0));
+      commandes.append(bouton);
+    });
+    ouverture.after(commandes);
+    periodes.forEach((periode, k) => {
+      let titre = $("h3", periode);
+      if (!titre) { titre = el("h3", "representation-section-titre"); periode.prepend(titre); }
+      titre.textContent = t[10 + k];
+      $(".representation-mandats", periode).classList.add(k ? "rs-timeline" : "rs-bento");
+      $$(".representation-mandat", periode).forEach((mandat, j) => {
+        mandat.classList.add(k ? "rs-past" : "rs-mandat", "rs-mandat-" + j);
+        if (k) return;
+        const haut = el("div", "rs-card-top");
+        haut.innerHTML = '<span class="rs-card-icon">' + icone(j) + '</span><span class="rs-card-category">' + echapper(t[6 + j]) + '</span>';
+        const date = $(".representation-date", mandat);
+        if (date) haut.append(date);
+        mandat.prepend(haut);
+        if (j === 0) {
+          const sceau = el("div", "rs-card-seal", '<span>AÉÉSPUM</span><div><i></i><i></i><i></i><i></i><i></i></div>');
+          sceau.setAttribute("aria-hidden", "true");
+          mandat.append(sceau);
+        }
+        if (j === 3) {
+          const marque = el("span", "rs-department-mark", "DGEPS");
+          marque.setAttribute("aria-hidden", "true");
+          mandat.append(marque);
+        }
+      });
+    });
+  }
+
+  // La salle immersive clone le contenu : déléguer les commandes au document.
+  D.addEventListener("click", (event) => {
+    const bouton = event.target.closest("button[data-rs-filter]");
+    const page = bouton?.closest(".rs-page");
+    if (!page) return;
+    const valeur = bouton.dataset.rsFilter;
+    $$("button[data-rs-filter]", page).forEach(b => b.setAttribute("aria-pressed", String(b === bouton)));
+    $$(".representation-periode", page).forEach(p => { p.hidden = valeur !== "all" && p.dataset.periode !== valeur; });
+  });
 
   const SALLES_ENGAGEMENTS = ["representation", "communaute", "distinctions", "citoyen", "loisirs"];
   function preparerAutresEngagements(corps, salle) {
@@ -330,6 +408,20 @@
         chronologie.append(item);
       });section.append(chronologie);
     }
+    if (salle === "distinctions") {
+      page.classList.add("ds-page");
+      const recompenses = $(".representation-mandats", section);
+      recompenses?.classList.add("ds-list");
+      $$(".representation-mandat", section).forEach((item, i) => {
+        item.classList.add("ds-award", "ds-award-" + i);
+        if (i === 0) {
+          const medaille = el("div", "ds-medal");
+          medaille.setAttribute("aria-hidden", "true");
+          medaille.innerHTML = '<svg viewBox="0 0 120 140" fill="none"><path d="m37 74-8 52 31-17 31 17-8-52" stroke="currentColor" stroke-width="2"/><circle cx="60" cy="51" r="37" stroke="currentColor" stroke-width="2"/><circle cx="60" cy="51" r="29" stroke="currentColor" stroke-dasharray="2 5"/><path d="m60 29 6 14 15 2-11 10 3 16-13-8-13 8 3-16-11-10 15-2Z" fill="currentColor"/></svg>';
+          item.append(medaille);
+        }
+      });
+    }
     page.append(section);corps.replaceChildren(page);
   }
 
@@ -337,7 +429,7 @@
     // Une rubrique sans découpage éditorial explicite reste un seul chapitre.
     if (REGLES[salle]?.unique || salle === "biographie" || salle === "parcours") {
       const corps = $(":scope > .section-corps", sc);
-      if (SALLES_ENGAGEMENTS.includes(salle) && salle !== "loisirs") {
+      if (SALLES_ENGAGEMENTS.includes(salle)) {
         sc.classList.add("gab-engagements");
         if (salle === "representation") preparerRepresentation(corps);
         else preparerAutresEngagements(corps,salle);
@@ -876,7 +968,9 @@
         source = div;
       }
       source.classList.add("gab-source");
-      if (ch.photoInterne && ch.choix?.interne) $$("img", source).find((im) => absolue(im.getAttribute("src")) === ch.photoInterne)?.closest("picture, img")?.remove();
+      // Une page unique conserve ses images dans le contenu : aucune photo
+      // n'est transférée dans la colonne latérale pour ce type de rubrique.
+      if (!REGLES[salle]?.unique && ch.photoInterne && ch.choix?.interne) $$("img", source).find((im) => absolue(im.getAttribute("src")) === ch.photoInterne)?.closest("picture, img")?.remove();
       corps.append(source);
     }
     if (salle === "recherche" && ch.cle === "methodes") condenserExplicationsO2(corps);
@@ -1082,6 +1176,8 @@
 
     // Chapitres.
     const n = chapitres.length;
+    // Les rubriques de CV se lisent directement, sans sommaire de chapitre.
+    if (n === 1 && SALLES_ENGAGEMENTS.includes(salle)) sc.classList.add("gab-cv-direct");
     if (mode === "rubriques") {
       $$(":scope > .rubriques-console", table).forEach((x) => x.remove());
       ["data-onglets", "data-navigation", "role"].forEach((a) => table.removeAttribute(a));
@@ -1435,6 +1531,11 @@
       const sousSalle = b.dataset.sous;
       // Pictogrammes vectoriels explicites : pas de photos arbitraires recadrées.
       const dessins = {
+        representation: '<path d="M4 5h16v11H9l-5 4V5Z"/><path d="M8 9h8M8 12h5"/>',
+        communaute: '<circle cx="12" cy="5" r="3"/><circle cx="5" cy="17" r="3"/><circle cx="19" cy="17" r="3"/><path d="m10 8-3 6m7-6 3 6M8 17h8"/>',
+        distinctions: '<circle cx="12" cy="9" r="6"/><path d="m8 14-2 8 6-3 6 3-2-8m-4-8v6m-3-3h6"/>',
+        citoyen: '<path d="M12 20S3 14 3 8a4 4 0 0 1 9-2 4 4 0 0 1 9 2c0 6-9 12-9 12Z"/>',
+        loisirs: '<path d="m9 18 6-12M5 10l-3 2 3 2m14-4 3 2-3 2"/><circle cx="12" cy="12" r="10"/>',
         recherche: '<path d="M8 3h8l4 4v14H4V3h4"/><path d="M16 3v5h4M8 12h8M8 16h6"/>',
         axes: '<circle cx="12" cy="5" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M11 7 6 16M13 7l5 9M7 18h10"/>',
         publications: '<path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 0-3 1V4Z"/><path d="M5 20V7a3 3 0 0 1 3-3M9 9h6M9 13h6M9 17h4"/>',
