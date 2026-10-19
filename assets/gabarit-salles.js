@@ -1378,7 +1378,7 @@
     if (salle === "recherche") {
       const bandeauValidation = el("div", "these-validation-bandeau");
       bandeauValidation.setAttribute("role", "note");
-      bandeauValidation.textContent = "Sujet de thèse en réflexion provisoire soumis à validation";
+      bandeauValidation.textContent = "Sujet de thèse suggéré par l'étudiant, en réflexion provisoire soumis à validation";
       sc.prepend(bandeauValidation);
     }
     // La page publique (hors salle immersive) doit elle aussi montrer
