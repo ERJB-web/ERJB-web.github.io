@@ -1525,6 +1525,7 @@ ${LANGUES.filter((l) => l.hreflang).map((l) => `<link rel="alternate" hreflang="
 <script src="${p}assets/vulgarisation-studio.js?v=quizfix20261016" defer></script>
 <script src="${p}assets/vulgarisation-editorial.js?v=20261015editorial4" defer></script>
 ${baliseAudience(p)}
+<link rel="stylesheet" href="${p}assets/typographie.css?v=bc0fdd3359">
 </head>
 <body>
 <a class="evitement" href="#contenu">${e(c.ui.evitement)}</a>

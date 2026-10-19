@@ -6215,41 +6215,7 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
 
 /* Typographie éditoriale : préserver l'accueil et l'en-tête d'origine.
    La règle ne modifie plus le hall, ses portes, son sol, ni sa météo. */
-@layer typographie-site {
-  body :not(svg,svg *, .entete, .entete *, .accueil, .accueil *) {
-    font-size:12pt!important;
-  }
-  /* Uniquement les menus de chapitres dans la colonne de gauche :
-     16 px -> 14 px (-2 px). Barre du haut et autres éléments exclus. */
-  body .gab .gab-chapitre-aside .gab-sommaire-chapitre,
-  body .gab .gab-chapitre-aside .gab-sommaire-chapitre * {
-    font-size:14px!important;
-  }
-  body :is(h1,h2,h3,h4,h5,h6,[role="heading"],
-    .bandeau-titre,.porte-titre,.gab-tuile-titre,.titre-bloc,
-    .these-question-principale > span):not(.entete *, .accueil *),
-  body :is(h1,h2,h3,h4,h5,h6,[role="heading"],
-    .bandeau-titre,.porte-titre,.gab-tuile-titre,.titre-bloc,
-    .these-question-principale > span):not(.entete *, .accueil *) :not(svg,svg *) {
-    font-size:18pt!important;
-    line-height:1.3!important;
-  }
-  body :is(p,li,dd,dt,blockquote,td,th,figcaption):not(.entete *, .accueil *) {
-    line-height:1.6!important;
-  }
-  body .these-question-principale {
-    margin-block:24px!important;
-    padding:20px 24px!important;
-  }
-  body .these-question-principale > span {
-    margin-bottom:12px!important;
-    letter-spacing:.04em!important;
-  }
-  body .these-question-principale p {
-    font-size:12pt!important;
-    line-height:1.6!important;
-  }
-}
+
 
 /* En-tête principal : rapprocher légèrement les coordonnées vers la gauche (écrans > 700 px). */
 @media(min-width:701px){
@@ -6272,24 +6238,7 @@ body:not(.page-abregee) :is(#contenu .section-corps, #salle .salle-contenu)
 /* Porte Recherche uniquement : police -1 px (hors menus), cartes rapprochées. */
 /* Les six sous-sections de la porte Recherche seulement.
    Toute navigation (nav), les sommaires, les panneaux latéraux et la barre supérieure sont exclus. */
-@layer typographie-site {
-  body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-salle="recherche"],.gab[data-gab-salle="axes"],.gab[data-gab-salle="publications"],.gab[data-gab-salle="approche"],.gab[data-gab-salle="methodes"],.gab[data-gab-salle="ia"]) :is(.section-corps,.gab-corps,.bandeau-texte,.gab-chapitre-tete) :not(:is(svg,svg *,nav,nav *,aside,aside *,.rubriques-console,.rubriques-console *,.rubriques-choix,.rubriques-choix *,.gab-programme,.gab-programme *,.gab-tuiles,.gab-tuiles *,.gab-chapitre-aside,.gab-chapitre-aside *)) {
-    font-size:15px!important; /* 12 pt (=16 px) moins 1 px */
-  }
-  body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-salle="recherche"],.gab[data-gab-salle="axes"],.gab[data-gab-salle="publications"],.gab[data-gab-salle="approche"],.gab[data-gab-salle="methodes"],.gab[data-gab-salle="ia"]) :is(.section-corps,.gab-corps,.bandeau-texte,.gab-chapitre-tete) :is(h1,h2,h3,h4,h5,h6,[role="heading"],.bandeau-titre,.titre-bloc,.gab-chapitre-titre,.these-question-principale > span):not(:is(nav *,aside *,.rubriques-console *,.rubriques-choix *,.gab-programme *,.gab-tuiles *)),
-  body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-salle="recherche"],.gab[data-gab-salle="axes"],.gab[data-gab-salle="publications"],.gab[data-gab-salle="approche"],.gab[data-gab-salle="methodes"],.gab[data-gab-salle="ia"]) :is(.section-corps,.gab-corps,.bandeau-texte,.gab-chapitre-tete) :is(h1,h2,h3,h4,h5,h6,[role="heading"],.bandeau-titre,.titre-bloc,.gab-chapitre-titre,.these-question-principale > span) :not(:is(svg,svg *,nav *,aside *,.rubriques-console *,.rubriques-choix *,.gab-programme *,.gab-tuiles *)) {
-    font-size:23px!important; /* 18 pt (=24 px) moins 1 px */
-  }
-  /* Les chiffres de l'inventaire O2 doivent rester dominants et lisibles. */
-  body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-salle="recherche"],.gab[data-gab-salle="axes"],.gab[data-gab-salle="publications"],.gab[data-gab-salle="approche"],.gab[data-gab-salle="methodes"],.gab[data-gab-salle="ia"]) #methode-o2-4 .o2-sources-indicateurs dt{
-    font-size:clamp(36px,4vw,52px)!important;
-    line-height:1.05!important;
-  }
-  body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-salle="recherche"],.gab[data-gab-salle="axes"],.gab[data-gab-salle="publications"],.gab[data-gab-salle="approche"],.gab[data-gab-salle="methodes"],.gab[data-gab-salle="ia"]) #methode-o2-4 .o2-sources-indicateurs dd{
-    font-size:14px!important;
-    line-height:1.35!important;
-  }
-}
+
 /* Espaces verticaux et grilles de cartes : ni sommaires ni onglets. */
 body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-salle="recherche"],.gab[data-gab-salle="axes"],.gab[data-gab-salle="publications"],.gab[data-gab-salle="approche"],.gab[data-gab-salle="methodes"],.gab[data-gab-salle="ia"]) .gab-corps :is(
   .methode-rubrique,.o1-circuit,.o2-sources-modernes,.o3-quali-matrice,

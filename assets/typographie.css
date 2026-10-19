@@ -1,0 +1,36 @@
+/* Échelle typographique commune aux pages éditoriales. */
+:root{--type-corps:16px;--type-note:14px;--type-page:clamp(28px,3vw,36px);--type-chapitre:clamp(23px,2.5vw,28px);--type-section:22px;--type-sous-section:19px;--type-encadre:18px;--type-detail:17px}
+/* Les sélecteurs communs remplacent les variantes de taille des modules. */
+html body :is(.section-contenu,.page,#app){font-size:var(--type-corps);line-height:1.7}
+html body :is(.section-contenu,.page,#app) :is(p,li,dd){font-size:var(--type-corps)!important;line-height:1.7!important}
+html body :is(.section-contenu,.page,#app) :is(h1,h2,h3,h4,h5,h6){font-family:var(--sans,Inter,"Segoe UI",Arial,sans-serif)!important;font-weight:550!important;line-height:1.4!important;letter-spacing:0!important;text-transform:none!important}
+html body :is(.section-contenu,.page,#app) h1{font-size:var(--type-page)!important}
+html body :is(.section-contenu,.page,#app) h2{font-size:var(--type-chapitre)!important}
+html body :is(.section-contenu,.page,#app) h3{font-size:var(--type-section)!important}
+html body :is(.section-contenu,.page,#app) h4{font-size:var(--type-sous-section)!important}
+html body :is(.section-contenu,.page,#app) h5{font-size:var(--type-detail)!important}
+html body :is(.section-contenu,.page,#app) h6{font-size:var(--type-corps)!important}
+/* Même hiérarchie dans la salle immersive et la page complète. */
+html body :is(#salle,#contenu) .gab .gab-corps :is(p,li,dd){font-size:var(--type-corps)!important;line-height:1.7!important}
+html body :is(#salle,#contenu) .gab .gab-corps h3{font-size:var(--type-section)!important;font-weight:550!important}
+html body :is(#salle,#contenu) .gab .gab-corps h4{font-size:var(--type-sous-section)!important;font-weight:550!important}
+html body :is(#salle,#contenu) .gab .gab-corps h5{font-size:var(--type-detail)!important;font-weight:550!important}
+html body :is(#salle,#contenu) .gab .gab-corps h6{font-size:var(--type-corps)!important;font-weight:550!important}
+/* Encadrés : titres de même rang, quelle que soit leur balise historique. */
+html body :is(#salle,#contenu,.page,#app) :is(.gab-corps,.section-corps,.section) :is(.notion-carte,.concept-carte,.these-devis-carte,.o1-critere-carte,.panel,.vr-panel,.methode-exemples-tete) :is(h3,h4,h5,h6){font-size:var(--type-encadre)!important;font-weight:550!important}
+html body :is(.section-contenu,.page,#app) :is(h2,h3,h4,h5,h6) :is(strong,b,a,span){font-size:inherit!important;font-weight:inherit!important}
+html body :is(.section-contenu,.page,#app) :is(p,li,dd) :is(strong,b){font-weight:600!important}
+html body :is(.section-contenu,.page,#app) :is(td,th,figcaption,.legende,.disclaimer){font-size:var(--type-note)!important;line-height:1.55!important}
+html body :is(.section-contenu,.page,#app) :is(.surtitre,.eyebrow,.o1-surtitre,.impl-index,.vr-position){font-size:12px!important;font-weight:600!important;line-height:1.5!important;letter-spacing:.06em!important}
+html body .gab .gab-bandeau .bandeau-titre{font-size:var(--type-page)!important;font-weight:450!important;line-height:1.2!important}
+html body .gab .gab-bandeau .bandeau-legende{font-size:var(--type-corps)!important;line-height:1.6!important}
+html body .gab .gab-chapitre-tete .gab-chapitre-num{font-size:var(--type-chapitre)!important;font-weight:550!important;line-height:1.35!important;letter-spacing:0!important;text-transform:none!important}
+html body .gab .gab-chapitre-tete .gab-chapitre-num>b{font-size:20px!important;font-weight:450!important}
+html body .gab .gab-tuile .gab-tuile-titre{font-size:18px!important;font-weight:550!important;line-height:1.4!important}
+html body .gab .gab-programme-tete h2{font-size:14px!important;font-weight:550!important}
+html body .gab .gab-sommaire-chapitre :is(a,strong){font-size:14px!important;font-weight:500!important;line-height:1.45!important}
+html body .gab .gab-sommaire-chapitre>span{font-size:13px!important;font-weight:600!important}
+/* Préserver la taille spécifique de la note d'attribution et le zoom accessible. */
+html body .gab .gab-corps .these-exemples-attribution{font-size:12px!important}
+@media(max-width:700px){:root{--type-page:28px;--type-chapitre:23px;--type-section:21px;--type-sous-section:18px;--type-encadre:18px}}
+html.lv{--type-corps:20px;--type-note:18px;--type-section:26px;--type-sous-section:23px;--type-encadre:22px;--type-detail:21px}

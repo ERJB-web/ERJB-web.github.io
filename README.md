@@ -26,3 +26,5 @@ puis ouvrir http://localhost:8770.
 ## Navigation et charte graphique
 
 Le gabarit de Projet de thèse est la référence commune : barre de lecture, boutons Tous les chapitres / Chapitre précédent / Chapitre suivant, compteur et sommaire latéral à groupes colorés. Ne pas créer de menus alternatifs ni découper artificiellement une rubrique. Les axes de recherche se lisent ensemble dans un seul chapitre ; une rubrique peut afficher Chapitre 1 sur 1. Conserver les découpages éditoriaux explicitement établis et les textes à jour.
+
+La typographie éditoriale commune est définie dans `assets/typographie.css`, chargée après les styles des modules : corps 16 px, sections 22 px, sous-sections 19 px, encadrés 18 px et graisse modérée. Conserver cette échelle lors des modifications.
