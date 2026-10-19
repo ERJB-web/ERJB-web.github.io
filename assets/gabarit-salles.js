@@ -800,17 +800,20 @@
       } else if (photo) tete.after(photo);
       grille.classList.add("gab-menu-gauche");
     }
-    // Conserver le Nota Bene intégral de la méthodologie, visible après O1–O3
-    // et juste avant la navigation, hors des vues d'objectif potentiellement masquées.
-    if (salle === "recherche" && langue === "fr" && ch.cle === "methodes") {
-      const nota = corps.querySelector(".these-exemples-attribution");
-      if (nota) {
-        nota.removeAttribute("hidden");
-        texte.append(nota);
-      }
-    }
+    // Le Nota Bene est un élément de fin de chapitre : après O1–O3 et
+    // hors des vues d'objectif / du menu, immédiatement avant la navigation.
+    const nota = salle === "recherche" && langue === "fr" && ch.cle === "methodes"
+      ? corps.querySelector(".these-exemples-attribution") : null;
     grille.append(texte, aside);
     section.append(grille);
+    if (nota) {
+      nota.removeAttribute("hidden");
+      nota.style.setProperty("display", "block", "important");
+      nota.style.setProperty("font-size", "9pt", "important");
+      nota.style.setProperty("text-align", "justify", "important");
+      nota.style.setProperty("width", "100%");
+      section.append(nota);
+    }
     // Navigation de fin de page : on passe à une autre vue, jamais au
     // chapitre suivant dans une longue page continue.
     const bas = el("nav", "gab-bas-chapitre");
@@ -1795,10 +1798,10 @@
         '.these .precision-note{font-size:12.5px;line-height:1.7;margin:15px 0 8px}',
         '.these .precision-cartes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:17px 0}',
         '.these .precision-carte{min-width:0;background:#fff;border:1px solid color-mix(in srgb,var(--precision) 21%,#dae4e8);border-radius:14px;padding:20px 18px}',
-        '.these .precision-chiffre{display:block;font:850 clamp(38px,4.4vw,52px)/1.05 var(--sans);letter-spacing:-.04em;margin:0 0 12px;font-variant-numeric:lining-nums}',
-        '.these .precision-carte:nth-child(1) .precision-chiffre{color:#17704f}',
-        '.these .precision-carte:nth-child(2) .precision-chiffre{color:#086f7d}',
-        '.these .precision-carte:nth-child(3) .precision-chiffre{color:#2559a7}',
+        '.these .precision-chiffre{display:block!important;font:850 clamp(44px,4.8vw,60px)/1.05 var(--sans)!important;letter-spacing:-.045em!important;margin:0 0 12px!important;font-variant-numeric:lining-nums}',
+        '.these .precision-carte:nth-child(1) .precision-chiffre{color:#17704f!important}',
+        '.these .precision-carte:nth-child(2) .precision-chiffre{color:#086f7d!important}',
+        '.these .precision-carte:nth-child(3) .precision-chiffre{color:#2559a7!important}',
         '.these .precision-carte strong{display:block;color:#526977;font:750 11.5px/1.4 var(--sans);letter-spacing:.07em;text-transform:uppercase;margin:0 0 10px}',
         '.these .precision-carte p{color:#3f5663;font:400 13.2px/1.65 var(--sans);margin:0;text-align:justify;hyphens:auto}',
         '.these .precision-parcours{background:color-mix(in srgb,var(--precision) 8%,white);border-left:3px solid var(--precision);border-radius:0 9px 9px 0;padding:13px 17px;color:#244b5b;font:650 13.3px/1.75 var(--sans);margin:17px 0;text-align:left}',
