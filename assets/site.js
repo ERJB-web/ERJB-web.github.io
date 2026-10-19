@@ -684,7 +684,13 @@
     });
     mode.addEventListener('click',()=>{simple=!simple;actualiser();});
     choix.forEach((b,i)=>{
-      b.addEventListener('click',()=>choisir(i));
+      b.addEventListener('click',()=>{
+        choisir(i);
+        // Les six carrés sont placés après le décor sur téléphone :
+        // ramener la porte sélectionnée à l'écran, sans modifier le comportement ordinateur.
+        if(mobile && matchMedia('(max-width:700px)').matches)
+          scene.scrollIntoView({behavior:calme.matches?'auto':'smooth',block:'start'});
+      });
       b.addEventListener('keydown',ev=>{
         if (!['ArrowLeft','ArrowRight','Home','End'].includes(ev.key))return;
         ev.preventDefault();
