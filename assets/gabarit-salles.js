@@ -970,35 +970,6 @@
       corps.append(source);
     }
     if (salle === "recherche" && ch.cle === "methodes") condenserExplicationsO2(corps);
-    // Lisibilité ciblée du schéma des acteurs O3 : +2 px, sans toucher aux autres blocs.
-    if (salle === "recherche" && langue === "fr" && ch.cle === "methodes") {
-      const labelsO3 = new Set([
-        "Équipes SAD",
-        "Point de départ de la trajectoire",
-        "Organisations partenaires mobilisées",
-        "Intervenants et gestionnaires engagés dans la réponse",
-        "Personnes aînées · proches aidants · partenaires patients",
-        "Entretiens et validation des résultats",
-        "Périmètre du réseau"
-      ]);
-      const agrandirO3 = () => {
-        if (!corps.isConnected) return;
-        const walker = document.createTreeWalker(corps, NodeFilter.SHOW_TEXT);
-        let texte;
-        while ((texte = walker.nextNode())) {
-          const libelle = (texte.nodeValue || "").trim();
-          if (!labelsO3.has(libelle) && !libelle.startsWith("Le périmètre commence au repérage du besoin")) continue;
-          const element = texte.parentElement;
-          if (!element || element.dataset.o3PolicePlusDeux === "oui") continue;
-          const taille = Number.parseFloat(getComputedStyle(element).fontSize);
-          if (!Number.isFinite(taille) || taille <= 0) continue;
-          element.style.setProperty("font-size", (taille + 2) + "px", "important");
-          element.dataset.o3PolicePlusDeux = "oui";
-        }
-      };
-      requestAnimationFrame(agrandirO3);
-    }
-
     if (salle === "recherche" && langue === "fr" && ch.cle === "methodes") {
       // L'outil d'analyse qualitative affiché dans le volet O3 est ATLAS.ti.
       // Corriger le texte rendu, sans toucher aux menus ni à la structure du chapitre.
