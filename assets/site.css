@@ -6281,3 +6281,16 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
  100%{transform:rotate(-70deg)}
 }
 @media(prefers-reduced-motion:reduce){.entete .nav .these-guide-bras{animation:none;transform:rotate(12deg)}}
+
+/* En-tête plus serré, ancré à gauche et survol plus coloré. */
+.entete .nav{justify-content:flex-start;gap:0;padding:1px;margin-inline-start:0;margin-inline-end:auto}
+.entete .nav .these-nav{gap:0;margin-inline-end:1px;padding-inline:0 3px}
+.entete .nav .these-guide{width:30px;height:35px;margin-inline-end:-3px}
+.entete .nav .acces-these{gap:4px;min-height:32px;height:32px;padding:4px 7px;font-size:12px;box-shadow:0 1px 4px rgba(31,90,138,.24)}
+.entete .nav .acces-these>svg{width:14px;height:14px}
+.entete .nav>a{gap:4px;padding:4px 6px;min-height:32px;font-size:12px}
+.entete .nav>a:is(:hover,:focus-visible){background:color-mix(in srgb,var(--nav-accent,#237a9a) 86%,#000);color:#fff;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--nav-accent,#237a9a) 65%,#000),0 3px 10px color-mix(in srgb,var(--nav-accent,#237a9a) 45%,transparent)}
+.entete .nav>a:is(:hover,:focus-visible) svg{color:#fff;stroke-width:2}
+.entete .nav .acces-these:is(:hover,:focus-visible){background:linear-gradient(120deg,#074980,#0086a5);color:#fff;box-shadow:0 3px 12px rgba(0,112,156,.5)}
+@media(max-width:700px){.entete .nav .these-guide{width:28px;height:33px}.entete .nav .acces-these{padding:4px 6px}.entete .nav>a{padding:4px 5px}}
+@media(forced-colors:active){.entete .nav>a:is(:hover,:focus-visible),.entete .nav .acces-these:is(:hover,:focus-visible){background:Highlight;color:HighlightText}}
