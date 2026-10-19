@@ -708,7 +708,7 @@
     const grille = el("div", "gab-chapitre-grille");
     const texte = el("div", "gab-chapitre-texte");
     const apercuMethode = salle === "recherche" && ch.cle === "methodes" && langue === "fr";
-    const titreAffiche = apercuMethode ? "La méthode en un coup d’œil" : ch.titre;
+    const titreAffiche = salle === "recherche" && langue === "fr" && ch.cle === "problematique" ? "Problématisation" : apercuMethode ? "Méthodologie" : ch.titre;
     const tete = el("header", "gab-chapitre-tete", `<span class="gab-chapitre-num"><b>${deux(i + 1)}</b>${echapper(T.chapitre(i + 1, n))}</span><h3 class="gab-chapitre-titre"${apercuMethode ? ' style="text-align:center;width:100%"' : ""}>${echapper(titreAffiche)}</h3>`);
     const corps = el("div", "gab-corps");
     if (ch.surPlace) {
