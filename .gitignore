@@ -1,0 +1,7 @@
+# Fichiers de travail locaux, jamais requis par GitHub Pages
+node_modules/
+__pycache__/
+*.py[cod]
+.spheres-travail/
+.DS_Store
+Thumbs.db

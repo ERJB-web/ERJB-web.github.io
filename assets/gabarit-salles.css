@@ -1658,88 +1658,6 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   }
 }
 
-/* Biographie et parcours : une page continue, sans cartes de chapitres. */
-.gab.gab-continu{max-width:1120px;--continu-texte:#233c48;--continu-trait:#dbe4e7}
-.gab.gab-continu .bandeau.gab-bandeau{min-height:188px;border-radius:12px;padding:28px 36px;box-shadow:none}
-.gab.gab-continu .gab-bandeau::after{display:none}
-.gab.gab-continu .gab-bandeau .bandeau-titre{font:600 clamp(30px,4vw,44px)/1.15 var(--sans);letter-spacing:-.025em}
-.gab.gab-continu .gab-bandeau .bandeau-num{font-size:12px;letter-spacing:.1em}
-.gab.gab-continu .gab-bandeau .bandeau-legende{font-size:17px;line-height:1.5}
-.gab.gab-continu .section-corps{width:min(100%,780px);margin:44px auto 0!important;color:var(--continu-texte)}
-.gab.gab-continu .colonne-texte{position:static;width:auto;max-width:none;margin:0 0 40px;padding:0}
-.gab.gab-continu .colonne-texte>.surtitre{display:none}
-.gab.gab-continu h2{font:600 clamp(26px,3vw,34px)/1.25 var(--sans);letter-spacing:-.025em;margin:0 0 24px;max-width:26ch}
-.gab.gab-continu :is(p,.bio-intro p,.recit p,.vision p,.frise p){font-size:17px;line-height:1.85;hyphens:none;overflow-wrap:break-word}
-.gab.gab-continu .bio-intro p+p{margin-top:16px}
-.gab.gab-continu .bio-figure{margin:28px 0 0;padding:8px 0 8px 22px;border-inline-start:3px solid #7a4a8c}
-.gab.gab-continu .citation{background:none;border:0;border-radius:0;padding:0;margin:0;font:italic 21px/1.6 var(--serif);color:var(--ink);box-shadow:none}
-.gab.gab-continu .recit{display:block;padding:0;margin:0;list-style:none}
-.gab.gab-continu .recit>li{display:block;position:relative;padding:30px 0;margin:0;border-top:1px solid var(--continu-trait);background:none;border-radius:0;box-shadow:none;scroll-margin-top:24px}
-.gab.gab-continu .recit>li::before,.gab.gab-continu .recit-num{display:none}
-.gab.gab-continu :is(.recit h3,.vision h3){font:600 clamp(21px,2.4vw,25px)/1.4 var(--sans);letter-spacing:-.015em;margin:0 0 16px;color:var(--ink);hyphens:none;overflow-wrap:normal;text-wrap:pretty}
-.gab.gab-continu .recit p+p{margin-top:14px}
-.gab.gab-continu .vision{padding:26px 28px;margin:12px 0 26px;border:1px solid var(--continu-trait);border-radius:8px;background:#f4f7f8;color:var(--continu-texte)}
-.gab.gab-continu .vision strong{color:var(--ink)}
-.gab.gab-continu .recit-fin{margin:0;font:italic 20px/1.6 var(--serif);color:var(--ink)}
-.gab.gab-continu .frise{display:block;margin:0;padding:0;border-top:1px solid var(--continu-trait)}
-.gab.gab-continu .frise li{display:grid;grid-template-columns:125px minmax(0,1fr);gap:24px;padding:24px 0;margin:0;border:0;border-bottom:1px solid var(--continu-trait);border-radius:0;background:none;box-shadow:none}
-.gab.gab-continu .frise .date{font-size:16px;line-height:1.6;color:#5e4668;padding:0}
-.gab.gab-continu .frise h4{font-size:20px;line-height:1.45;margin:8px 0}
-.gab.gab-continu .frise .type{padding:0;background:none;border:0;border-radius:0;font-size:12px;letter-spacing:.04em;color:var(--muted)}
-.gab.gab-continu .frise .discret{font-size:15px;color:var(--muted)}
-.salle.gab-salle.gab-continu-active .gab-lecture{display:none!important}
-.salle.gab-continu-active .gab-barre .salle-onglets{display:flex!important;flex-wrap:nowrap!important;justify-content:flex-start;gap:4px;max-height:none!important;margin:12px 0 0!important;padding:8px 0 0;border-top:1px solid var(--continu-trait,#dbe4e7);overflow-x:auto;opacity:1!important;pointer-events:auto!important}
-.salle.gab-continu-active .gab-barre .salle-onglets .onglet-salle{flex:0 0 auto!important;min-height:40px!important;padding:8px 14px!important;border:0!important;border-radius:6px!important;background:none!important;box-shadow:none!important;font-size:14px!important;line-height:1.4!important;white-space:nowrap}
-.salle.gab-continu-active .gab-barre .salle-onglets .onglet-salle[aria-selected=true]{background:#f0e9f3!important;color:#553263!important;box-shadow:inset 0 -2px #7a4a8c!important}
-.salle.gab-continu-active .gab-barre .salle-onglets .gab-onglet-photo{display:none!important}
-html.hc .gab.gab-continu{--continu-texte:#000;--continu-trait:#000}
-html.hc .gab.gab-continu .vision{background:#fff;color:#000;border-color:#000}
-@media(max-width:700px){
- .gab.gab-continu .bandeau.gab-bandeau{min-height:160px;padding:24px;border-radius:8px}
- .gab.gab-continu .gab-bandeau .bandeau-texte{max-width:100%}
- .gab.gab-continu .section-corps{margin-top:30px!important}
- .gab.gab-continu .colonne-texte{margin-bottom:28px}
- .gab.gab-continu .recit>li{padding:24px 0}
- .gab.gab-continu .vision{padding:22px 18px}
- .gab.gab-continu .frise li{grid-template-columns:minmax(0,1fr);gap:6px}
- .gab.gab-continu .frise li>.date,.gab.gab-continu .frise li>div{grid-column:1}
- .salle.gab-continu-active .gab-barre{padding-inline:16px}
-}
-
-/* Même composant de sommaire et même palette que « Ma thèse ». */
-.gab.gab-continu .section-corps{display:grid!important;grid-template-columns:270px minmax(0,1fr);gap:38px;width:100%;max-width:none!important}
-.gab.gab-continu .continu-texte{min-width:0;max-width:780px}
-.gab.gab-continu .continu-texte p{text-align:start;text-align-last:auto}
-.gab.gab-continu .continu-aside{position:sticky;top:20px;align-self:start;min-width:0}
-.gab.gab-continu .continu-sommaire{display:grid;align-content:start;gap:12px;padding:16px 13px;max-height:calc(100dvh - var(--salle-barre-hauteur,90px) - 38px);overflow-y:auto;scrollbar-width:thin;background:#f7fafb;border:1px solid #d7e4e9;border-inline-start:2px solid #d7e4e9;border-radius:16px;box-shadow:none}
-.gab.gab-continu .continu-sommaire>span{margin:0 0 7px;color:#0879be;font-size:14px}
-.gab.gab-continu .gab-sommaire-groupe{--objectif-texte:#286c23;--objectif-trait:#5aae38;--objectif-fond:#ecf7e8;--objectif-lien:#f5fbf2;display:grid;gap:5px;min-width:0;padding:9px 8px 8px;border:1px solid #e0e8ec;border-inline-start:3px solid var(--objectif-trait);border-radius:11px;background:var(--objectif-fond)}
-.gab.gab-continu .gab-sommaire-groupe[data-objectif=O2]{--objectif-texte:#006e72;--objectif-trait:#11a7a5;--objectif-fond:#e9f7f6;--objectif-lien:#f3fbfa}
-.gab.gab-continu .gab-sommaire-groupe-titre{display:flex;gap:7px;align-items:flex-start;padding:2px 3px 7px;color:var(--objectif-texte);border-bottom:1px solid color-mix(in srgb,var(--objectif-trait) 32%,transparent);font-size:14px;line-height:1.3}
-.gab.gab-continu .gab-sommaire-groupe a{display:block;margin:0;padding:7px 8px;border:1px solid transparent;border-inline-start:2px solid var(--objectif-trait);border-radius:7px;background:var(--objectif-lien);color:var(--objectif-texte);text-align:start;font-size:14px;font-weight:560;line-height:1.4;overflow-wrap:break-word;hyphens:none}
-.gab.gab-continu .gab-sommaire-groupe a:is(:hover,:focus-visible,[aria-current]){border-color:var(--objectif-trait);background:#fff;color:var(--objectif-texte)}
-.gab.gab-continu .continu-texte :is(h2,h3,h4){scroll-margin-top:28px}
-.salle.gab-continu-active .gab-barre .salle-onglets .onglet-salle{width:auto!important;min-width:0!important;color:#244958!important}
-.salle.gab-continu-active .gab-barre .salle-onglets .onglet-salle.actif{background:#e8f1f4!important;color:#0d2a3a!important;box-shadow:inset 0 -2px #0879be!important}
-.salle.gab-continu-active .gab-barre .salle-onglets .onglet-titre{position:static!important;display:block!important;visibility:visible!important;opacity:1!important;white-space:nowrap!important;font-size:14px!important;color:inherit!important}
-.salle.gab-continu-active .gab-barre .salle-onglets :is(.baie,.onglet-num){display:none!important}
-@media(max-width:979px){
- .gab.gab-continu .section-corps{grid-template-columns:minmax(0,1fr);gap:28px}
- .gab.gab-continu .continu-aside{position:static}
- .gab.gab-continu .continu-sommaire{max-height:min(340px,42dvh)}
- .gab.gab-continu .continu-texte{max-width:none}
-}
-/* Barre de lecture identique à celle de la thèse, appliquée aux rubriques. */
-.salle .gab-lecture-continue{display:none}
-.salle.gab-salle.gab-continu-active .gab-lecture-continue{display:flex!important;max-height:none;opacity:1;visibility:visible;margin-top:8px;overflow:visible;transition:none}
-.salle.gab-continu-active .gab-barre .salle-onglets{display:none!important}
-.salle.gab-continu-active.continu-rubriques-ouvertes .gab-barre .salle-onglets{display:flex!important}
-.gab.gab-continu .continu-sommaire{scroll-margin-top:24px}
-@media(max-width:700px){.salle.gab-continu-active .gab-lecture-continue{flex-wrap:wrap;gap:8px}.salle.gab-continu-active .gab-lecture-continue .gab-actuel{flex:1 1 calc(100% - 160px)}.salle.gab-continu-active .gab-lecture-continue .gab-fleche{order:2;flex:1;max-width:none}.salle.gab-continu-active .gab-lecture-continue .gab-tous{font-size:13px;padding:10px}.salle.gab-continu-active .gab-lecture-continue .gab-actuel strong{font-size:16px}}
-.gab.gab-continu .continu-aside{top:calc(var(--salle-barre-hauteur,130px) + 18px)}
-#salle .gab.gab-continu .continu-texte :is(p,h2,h3,h4),.gab.gab-continu .continu-texte :is(p,h2,h3,h4){text-align:start!important;text-align-last:auto!important;text-justify:none!important;word-spacing:normal}
-@media(max-width:979px){.gab.gab-continu .continu-aside{position:static}}
-
 /* Navigation globale : chapitre actif centré entre précédent et suivant — 2026-10-18. */
 /* Navigation du haut, commune à toutes les salles. Aucun lien ou bouton n'est supprimé. */
 .gab-barre .gab-lecture{
@@ -1748,7 +1666,6 @@ html.hc .gab.gab-continu .vision{background:#fff;color:#000;border-color:#000}
   align-items:center;column-gap:clamp(7px,1vw,13px);
   row-gap:7px;min-width:0;width:100%;box-sizing:border-box;
 }
-.salle.gab-salle.gab-continu-active .gab-lecture-continue{display:grid!important}
 .gab-barre .gab-lecture > .gab-tous{grid-column:1;grid-row:1;justify-self:start;min-width:0;max-width:100%}
 .gab-barre .gab-lecture > .gab-fleche-precedente{grid-column:2;grid-row:1;justify-self:start}
 .gab-barre .gab-lecture > .gab-actuel{
@@ -1820,7 +1737,7 @@ html.hc .gab.gab-continu .vision{background:#fff;color:#000;border-color:#000}
 .gab[data-gab-salle="axes"] .axe-associations{margin:0;padding:0;background:none;border:0}
 .gab[data-gab-salle="axes"] .axe-associations ul{display:grid;gap:8px}
 .gab[data-gab-salle="axes"] .axe-associations li a{border:1px solid #d7e4e9;border-inline-start:3px solid var(--axe);border-radius:10px;padding:12px 14px;background:#f7fafb}
-@media(max-width:979px){.gab[data-gab-salle="axes"] .section-corps{grid-template-columns:minmax(0,1fr)!important;gap:24px}.gab[data-gab-salle="axes"] .continu-texte{max-width:none}}
+@media(max-width:979px){.gab[data-gab-salle="axes"] .section-corps{grid-template-columns:minmax(0,1fr)!important;gap:24px}}
 
 /* Le menu de lecture reste disponible pour un chapitre unique. */
 .gab[data-gab-salle="axes"] .gab-lecture-integrale .axes-introduction>:is(h2,.surtitre){display:none}

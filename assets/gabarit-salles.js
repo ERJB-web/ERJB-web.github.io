@@ -400,7 +400,6 @@
       return { mode: "elements", chapitres };
     }
     const regle = REGLES[salle];
-    if (regle?.unique) return { mode: "unique", chapitres: [] };
     if (regle) {
       const chapitres = $$(regle.sel, sc).map((el) => {
         const titreEl = $(regle.titre, el);
@@ -1397,34 +1396,6 @@
   }
 
   D.addEventListener("click", (ev) => {
-    const menuContinu = ev.target.closest("[data-continu-menu]");
-    if (menuContinu) {
-      const ouvert = salle.classList.toggle("continu-rubriques-ouvertes");
-      menuContinu.setAttribute("aria-expanded", String(ouvert));
-      return;
-    }
-    const pasContinu = ev.target.closest("[data-continu-pas], [data-continu-rubrique]");
-    if (pasContinu) {
-      const boutons = $$(".onglet-salle", onglets);
-      const index = boutons.findIndex((b) => b.classList.contains("actif"));
-      const cible = pasContinu.dataset.continuRubrique
-        ? boutons.find((b) => b.dataset.sous === pasContinu.dataset.continuRubrique)
-        : boutons[index + Number(pasContinu.dataset.continuPas)];
-      if (cible) cible.click();
-      return;
-    }
-    const lienContinu = ev.target.closest("[data-continu-cible]");
-    if (lienContinu) {
-      ev.preventDefault();
-      const zone = lienContinu.closest(".gab-continu");
-      const cible = $$("[id]", zone).find((x) => x.id === lienContinu.dataset.continuCible);
-      if (cible) {
-        $$("[data-continu-cible]", zone).forEach((a) => a.removeAttribute("aria-current"));
-        lienContinu.setAttribute("aria-current", "location");
-        defiler(cible);
-      }
-      return;
-    }
     const tuile = ev.target.closest("[data-gab-aller]");
     if (tuile) {
       const zone = tuile.closest(".gab");
@@ -1555,8 +1526,6 @@
     const zone = $(".section-contenu", contenu);
     if (!zone) return;
     if (!zone.classList.contains("gab")) transformer(zone);
-    salle.classList.toggle("gab-continu-active", zone.classList.contains("gab-continu"));
-    if (zone.classList.contains("gab-continu")) salle.classList.remove("gab-lit", "gab-page-chapitre");
     mettreAJourChapitreVulgarisation(zone);
     fusionnerDossierImplantation(zone);
     preparerSalle();
