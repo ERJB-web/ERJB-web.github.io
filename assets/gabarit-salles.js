@@ -673,7 +673,7 @@
     if (langue !== "fr") return;
     const o2 = $("#these-methode-o2", corps);
     if (!o2) return;
-    const section = $("#methode-o2-6", o2) || o2;
+    const section = o2;
     const titre = (prefixe) => $("h3,h4,h5,h6,dt,strong,b,span", section)
       .find((n) => net(n.textContent).startsWith(prefixe) && net(n.textContent).length < 110);
     const paragraphe = (prefixe) => $("p", section)
