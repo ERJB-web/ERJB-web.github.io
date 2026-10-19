@@ -2033,18 +2033,6 @@
   }
   completerMethodologieO2O3();
 
-  // Module scientifique autonome : n’altère ni les sommaires, ni la navigation, ni les galeries.
-  if (langue === "fr" && !D.getElementById("maturite-scientifique-script")) {
-    const cssMat = D.createElement("link");
-    cssMat.rel = "stylesheet";
-    cssMat.href = new URL(CHEMIN + "assets/maturite-scientifique.css?v=20261019", D.baseURI).href;
-    D.head.append(cssMat);
-    const jsMat = D.createElement("script");
-    jsMat.id = "maturite-scientifique-script";
-    jsMat.src = new URL(CHEMIN + "assets/maturite-scientifique.js?v=20261019", D.baseURI).href;
-    D.head.append(jsMat);
-  }
-
   $("section.section[data-salle] > .section-contenu").forEach(transformer);
   observerSommaires(D);
 
