@@ -1612,7 +1612,6 @@ ${JEUX_ACCUEIL[c.lang] || ""}
 <button type="button" data-contact hidden>${e(c.ui.contact)} →</button></div>
 </div>
 <div class="salle-progres" aria-hidden="true">${SALLES.map(() => "<span></span>").join("")}</div>
-<nav class="salle-onglets" aria-label="${e(c.hall.titre)}" hidden></nav>
 <div class="salle-contenu"></div>
 </div>
 </body>
