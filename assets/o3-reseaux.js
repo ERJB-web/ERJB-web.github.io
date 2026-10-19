@@ -107,25 +107,23 @@
         lecture:"Domaines liés parce qu'ils partagent des destinataires, avec seuil de similarité Jaccard ; ces liens dérivés ne mesurent pas les collaborations intersectorielles."
       }));
     });
+    // Galerie : seules les analyses du 211. Les trois schémas CLSC restent
+    // des illustrations du protocole, indépendantes de la visionneuse.
     const donnees=[
-      ...cls.map(nom=>({type:"clsc",titre:nom+" · exemple de réseau SAD",nom,
-        lecture:"Schéma du type de réseau qui pourrait être étudié autour d'une équipe SAD. Placement des acteurs et intensité des liens entièrement fictifs."})),
       ...descriptifs211.map(([titre,nom,lecture])=>({type:"figure",titre:"211 · "+titre,url:"/simulations/sna-o3/figures/"+nom,lecture})),
       ...serieR.map(x=>({...x,type:"r",titre:"211 / R · "+x.titre}))
     ];
-    const nClsc=cls.length,nFigures=descriptifs211.length,total=donnees.length;
+    const nFigures=descriptifs211.length,total=donnees.length;
     const enteteChoix=(debut,fin)=>donnees.slice(debut,fin).map((d,j)=>
       '<option value="'+(debut+j)+'">'+String(debut+j+1).padStart(2,"0")+' · '+echapper(d.titre)+'</option>').join("");
-    const options='<optgroup label="CLSC · sociogrammes fictifs">'+enteteChoix(0,nClsc)+'</optgroup>'+
-      '<optgroup label="211 · figures de synthèse">'+enteteChoix(nClsc,nClsc+nFigures)+'</optgroup>'+
-      '<optgroup label="211 · seize graphiques calculés avec R">'+enteteChoix(nClsc+nFigures,total)+'</optgroup>';
+    const options='<optgroup label="211 · quatre figures de synthèse">'+enteteChoix(0,nFigures)+'</optgroup>'+
+      '<optgroup label="211 · seize graphiques calculés avec R">'+enteteChoix(nFigures,total)+'</optgroup>';
     const planches=donnees.map((d,i)=>{
       let visuel;
-      if(d.type==="clsc")visuel='<div class="o3-galerie-visuel o3-galerie-clsc">'+constellation(d.nom)+'</div>';
-      else if(d.type==="figure")visuel='<a class="o3-galerie-visuel" href="'+d.url+'" target="_blank" rel="noopener" aria-label="Voir la figure vectorielle"><img src="'+d.url+'" alt="'+echapper(d.titre)+'" loading="lazy"></a>';
+      if(d.type==="figure")visuel='<a class="o3-galerie-visuel" href="'+d.url+'" target="_blank" rel="noopener" aria-label="Voir la figure vectorielle"><img src="'+d.url+'" alt="'+echapper(d.titre)+'" loading="lazy"></a>';
       else visuel='<div class="o3-galerie-visuel o3-galerie-r" data-o3-r-key="'+echapper(d.cle)+'"><p>Graphique R chargé lors de sa sélection.</p></div>';
       return '<figure class="o3-galerie-planche" data-o3-slide="'+i+'"'+(i?' hidden aria-hidden="true"':' aria-hidden="false"')+'>'+visuel+
-        '<figcaption><span class="o3-galerie-statut">'+(d.type==="clsc"?"Modèle CLSC · non observé":"Expérimentation 211 · calculs disponibles")+
+        '<figcaption><span class="o3-galerie-statut">'+"Exercice SNA sur les références du 211 · non assimilable au protocole de thèse"+
         '</span><h4>'+echapper(d.titre)+'</h4><p>'+echapper(d.lecture)+'</p></figcaption></figure>';
     }).join("");
     const module=document.createElement("section");
@@ -145,9 +143,9 @@
 
     module.innerHTML=
       '<header class="o3-galerie-intro"><span class="o3-galerie-surtexte">O3 · ATLAS EXPÉRIMENTAL · DISTINCT DU PROTOCOLE</span>'+
-      '<h3 id="o3-atlas-titre">Explorer les réseaux · '+total+' visualisations</h3>'+
-      '<p>Cette galerie rassemble <strong>trois schémas de CLSC fictifs</strong>, <strong>quatre figures de synthèse issues des références du 211</strong> et <strong>seize figures calculées dans R</strong>. Les fichiers du 211 décrivent les orientations vers des organismes, et non les collaborations entre équipes SAD et partenaires. <strong>Ce ne sont ni les données collectées ni les résultats de la SNA de la thèse.</strong></p>'+
-      '<div class="o3-galerie-reperes"><span>3 modèles CLSC</span><span>20 figures du 211</span><span>Analyses R vérifiables</span></div></header>'+
+      '<h3 id="o3-atlas-titre">Galerie SNA du 211 · '+total+' figures</h3>'+
+      '<p>La galerie suivante rassemble <strong>quatre figures de synthèse</strong> et <strong>seize figures calculées dans R</strong> afin d’illustrer une analyse de réseaux (SNA) fondée sur les fichiers du 211, qui décrivent des orientations vers des organismes, et non les collaborations entre équipes SAD et partenaires. <strong>Il s’agit d’un exercice méthodologique à titre d’exemple : ces données et figures ne sont ni les données collectées ni les résultats de la SNA prévue dans la thèse, laquelle sera égocentrée sur les équipes des CLSC en soutien à domicile.</strong></p>'+
+      '<div class="o3-galerie-reperes"><span>4 figures de synthèse</span><span>16 graphiques R</span><span>Exercice exploratoire · 211</span></div></header>'+
       '<div class="o3-galerie-commandes"><label for="o3-galerie-select">Choisir un sociogramme ou un graphique</label>'+
       '<div class="o3-galerie-controles"><select id="o3-galerie-select" data-o3-choix>'+options+'</select>'+
       '<div class="o3-galerie-fleches"><button type="button" data-o3-prev aria-label="Figure précédente" disabled>←</button>'+
@@ -157,15 +155,29 @@
       '<div class="o3-galerie-pied"><p><strong>Statut des données.</strong> Seules des orientations du 211 sont enregistrées ; les relations entre organismes, les collaborations SAD et la réponse effective aux besoins devront être documentées dans le protocole O3. Les variations de couverture des fichiers peuvent influencer les graphes.</p>'+
       '<a href="/simulations/sna-o3/" target="_blank" rel="noopener">Dossier 211 : figures et sources ↗</a>'+
       '<a href="/simulations/sna-o3/r/" target="_blank" rel="noopener">Calculs R, graphiques et GraphML ↗</a>'+
-      '<a href="'+officiel+'" target="_blank" rel="noopener">Source des noms des CLSC ↗</a></div>'+
-      '<details class="o3-galerie-qual"><summary>Exemples d’entretiens et de codage qualitatif</summary>'+qualitatif+'</details>';
+      '</div>';
+    const methodo = document.createElement("section");
+    methodo.className = "o3-clsc-methodo";
+    methodo.setAttribute("aria-label", "Illustrations fictives du protocole SNA égocentré sur le CLSC");
+    methodo.innerHTML =
+      '<header><span class="o3-clsc-surtitre">O3 · Illustrations du protocole · distinctes des données du 211</span>'+
+      '<h4>Trois exemples de réseaux CLSC · schémas fictifs</h4>'+
+      '<p>Ces trois illustrations servent à expliquer le futur questionnaire égocentré sur les équipes SAD des CLSC. Les noms des CLSC sont réels, mais les nœuds, les liens, leur intensité et leur disposition sont fictifs : aucun réseau d’acteurs n’a été observé ici.</p></header>'+
+      '<div class="o3-clsc-miniatures">'+cls.map(nom=>
+        '<details class="o3-clsc-exemple"><summary><span class="o3-clsc-apercu">'+constellation(nom,true)+'</span><strong>'+echapper(nom)+'</strong><small>Schéma illustratif · agrandir</small></summary>'+
+        '<div class="o3-clsc-grand">'+constellation(nom)+'</div></details>'
+      ).join("")+'</div>'+
+      '<p class="o3-clsc-reference"><a href="'+officiel+'" target="_blank" rel="noopener noreferrer">Source institutionnelle des noms des CLSC ↗</a> · Les relations sont fictives et ne constituent pas des résultats.</p>'+
+      '<details class="o3-galerie-qual"><summary>Exemples méthodologiques d’entretiens et de codage qualitatif</summary>'+qualitatif+'</details>';
     const espaceExemples=zone.querySelector("#methode-o3-exemples");
     if (espaceExemples) {
-      // Galerie directement après le titre O3 : visible sans traverser les annexes.
+      const precedent=espaceExemples.querySelector(":scope > .o3-clsc-methodo");
+      if (precedent) precedent.remove();
+      // Les modèles CLSC sont hors de la galerie des données du 211.
       const entete=espaceExemples.querySelector(":scope > header");
-      if (entete) entete.insertAdjacentElement("afterend",module);
-      else espaceExemples.prepend(module);
-    } else cibleO3.appendChild(module);
+      if (entete) entete.after(methodo,module);
+      else espaceExemples.prepend(methodo,module);
+    } else cibleO3.append(methodo,module);
     modulesInitialises.add(module);
     // Accès immédiat à la galerie depuis le début de l'objectif O3.
     const teteO3 = cibleO3.querySelector(":scope > .methode-objectif-tete");
@@ -174,7 +186,7 @@
       acces.dataset.o3AccesGalerie = "1";
       acces.className = "o3-acces-galerie";
       acces.href = "#o3-atlas-reseaux";
-      acces.textContent = "Voir la galerie SNA · 23 visualisations ↓";
+      acces.textContent = "Voir la galerie SNA du 211 · 20 figures ↓";
       acces.addEventListener("click", event => {
         event.preventDefault();
         module.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
@@ -229,7 +241,7 @@
       lien.href = "#o3-atlas-reseaux";
       lien.dataset.theseVers = "methodes";
       lien.dataset.theseObjectif = "O3";
-      lien.textContent = "Explorer les sociogrammes et le volet qualitatif →";
+      lien.textContent = "Explorer les 20 figures de la galerie SNA du 211 →";
       // Le gestionnaire de rubriques change d'onglet et défile jusqu'à O3.
       lien.addEventListener('click', (event) => event.preventDefault());
       o3.appendChild(lien);
@@ -240,7 +252,7 @@
     if (methodes && !methodes.querySelector(".o3-renvoi-methodes")) {
       const note = document.createElement("div");
       note.className = "o3-renvoi-methodes";
-      note.innerHTML = '<strong>Illustrations du SNA quantitatif et qualitatif</strong><p>Trois modèles fictifs de CLSC et vingt figures expérimentales du 211, complétés par des exemples de démarche qualitative.</p><button type="button">Voir l’atlas des réseaux et les schémas qualitatifs →</button>';
+      note.innerHTML = '<strong>Illustrations du protocole et exercice sur le 211</strong><p>Trois réseaux CLSC fictifs sont présentés à part ; la galerie contient uniquement quatre figures de synthèse et seize graphiques R issus du 211.</p><button type="button">Voir la galerie SNA du 211 (20 figures) →</button>';
       // Garder ce renvoi avec la méthode O3 au lieu d'en faire un bloc flottant.
       const titreO3 = zone.querySelector('#methode-o3-exemples > header');
       if (titreO3) titreO3.insertAdjacentElement("afterend", note);
