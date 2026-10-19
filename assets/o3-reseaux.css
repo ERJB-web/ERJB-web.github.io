@@ -45,25 +45,51 @@
 .o3-leg-soins{background:#2d718c}.o3-leg-communaute{background:#257c6b}.o3-leg-territoire{background:#b47a42}.o3-leg-ego{background:#1e594c}
 .o3-legende .o3-leg-pointille{width:20px;height:0;border-top:3px dashed #8ea79d;border-radius:0}
 .o3-precaution{padding:15px 22px;border-top:1px solid #e2ece6;background:#fbfdfb;font-size:12px;line-height:1.7;color:#526d60}
-.o3-partie-quali{margin-top:32px;padding-top:29px}
-.o3-quali-grille{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.o3-quali-panneau{overflow:hidden;min-width:0;border:1px solid #d5e4db;border-radius:16px;background:#fff}
-.o3-panneau-entete{padding:21px 23px 13px}
-.o3-panneau-entete>span,.o3-matrice-titre>span,.o3-transfert>div>span{font-size:10.5px;font-weight:850;letter-spacing:.1em;color:#38856e}
-.o3-panneau-entete h5,.o3-matrice-titre h5,.o3-transfert h5{margin:8px 0 10px;font-size:clamp(20px,2vw,26px);line-height:1.2;color:#1b5446}
-.o3-panneau-entete p,.o3-matrice-titre p{font-size:13px;line-height:1.65;color:#587064}
-.o3-quali-visuel{margin:0 12px;padding:0 7px}
-.o3-quali-visuel svg{display:block;width:100%;height:auto}
-.o3-panneau-pied{display:flex;gap:8px;justify-content:space-between;flex-wrap:wrap;padding:12px 22px 18px;color:#638174;font-size:11px}
-.o3-qualifications{display:grid;gap:12px;padding:12px 20px}
-.o3-qualifications>div{display:grid;grid-template-columns:55px 1fr;column-gap:12px;align-items:center;padding:13px 11px;border:1px solid #e3eee7;border-radius:10px;background:#f9fcfa}
-.o3-qualifications strong{font-size:13px;color:#265446}
-.o3-qualifications small{grid-column:2;font-size:11.5px;line-height:1.5;color:#5d756a}
-.o3-qual-repere{grid-row:span 2;display:block;width:46px;height:16px;background:linear-gradient(transparent 6px,#2d718c 6px,#2d718c 10px,transparent 10px)}
-.o3-qual-repere.double{background:linear-gradient(transparent 3px,#257c6b 3px,#257c6b 5px,transparent 5px,transparent 10px,#257c6b 10px,#257c6b 12px,transparent 12px)}
-.o3-qual-repere.pointille{height:0;border-top:4px dashed #b47a42;background:none}
-.o3-qual-repere.manque{height:0;border-top:2px dotted #a2b8ae;background:none}
-.o3-qual-note{padding:6px 23px 22px;color:#687c71;font-size:11px;line-height:1.65}
+/* O3 · 06.1–06.2 : panneaux d'entretien resserrés et palette différenciée. */
+.o3-partie-quali{margin-top:24px;padding-top:20px;border-top-color:#dde5ed}
+.o3-atlas .o3-partie-quali>span{color:#536d98}
+.o3-atlas .o3-partie-quali h4{color:#294c66}
+.o3-atlas .o3-partie-quali>p{color:#536775;line-height:1.55}
+.o3-quali-grille{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:stretch}
+.o3-quali-panneau{min-width:0;overflow:hidden;display:flex;flex-direction:column;border:1px solid #dce4ea;border-top:3px solid #456e91;border-radius:12px;background:#fff}
+.o3-quali-panneau:nth-child(2){border-top-color:#826696}
+.o3-panneau-entete{padding:15px 17px 10px}
+.o3-atlas .o3-panneau-entete>span{display:block;color:#426d95;font-size:10.5px;font-weight:850;letter-spacing:.045em;line-height:1.35}
+.o3-atlas .o3-quali-panneau:nth-child(2) .o3-panneau-entete>span{color:#7b6095}
+.o3-atlas .o3-panneau-entete h5{margin:5px 0 7px!important;color:#294e67;font-size:clamp(18px,1.75vw,22px);line-height:1.25;letter-spacing:-.018em;text-align:left!important}
+.o3-atlas .o3-quali-panneau:nth-child(2) .o3-panneau-entete h5{color:#654e7c}
+.o3-atlas .o3-panneau-entete p{margin:0!important;color:#556c78;font-size:12.5px;line-height:1.5;text-align:left!important;word-spacing:normal!important;hyphens:none}
+.o3-quali-visuel{margin:3px 15px 0;padding:0;min-width:0;background:#f6f8fb;border:1px solid #e0e8f0;border-radius:10px;overflow:hidden}
+.o3-quali-visuel svg{display:block;width:100%;height:auto;max-height:315px;object-fit:contain;margin:0 auto}
+.o3-panneau-pied{display:flex;gap:5px 10px;align-items:center;justify-content:flex-start;flex-wrap:wrap;padding:9px 17px 12px;color:#607582;font-size:10.5px;line-height:1.35}
+.o3-panneau-pied span+span{border-left:1px solid #ccd8df;padding-left:10px}
+.o3-qualifications{display:grid;gap:8px;padding:4px 15px 8px}
+.o3-qualifications>div{display:grid;grid-template-columns:43px minmax(0,1fr);column-gap:11px;align-items:center;min-height:59px;padding:9px 11px;border:1px solid #d9e4ef;border-left:3px solid #3c759a;border-radius:9px;background:#f3f8fc}
+.o3-qualifications>div:nth-child(2){border-color:#d2e8e3;border-left-color:#278677;background:#f2faf8}
+.o3-qualifications>div:nth-child(3){border-color:#efdec8;border-left-color:#b57940;background:#fcf7f0}
+.o3-qualifications>div:nth-child(4){border-color:#e0e4ec;border-left-color:#7c8598;background:#f7f8fa}
+.o3-qualifications strong{min-width:0;font-size:12.5px;line-height:1.35;font-weight:750;color:#285b7b;text-align:left}
+.o3-qualifications>div:nth-child(2) strong{color:#246b5e}
+.o3-qualifications>div:nth-child(3) strong{color:#94612f}
+.o3-qualifications>div:nth-child(4) strong{color:#526174}
+.o3-qualifications small{grid-column:2;margin-top:3px;font-size:11px;line-height:1.38;color:#576e79;text-align:left}
+.o3-qual-repere{grid-row:span 2;display:block;width:38px;height:15px;background:linear-gradient(transparent 6px,#2d718c 6px,#2d718c 10px,transparent 10px)}
+.o3-qual-repere.double{background:linear-gradient(transparent 2px,#278677 2px,#278677 4px,transparent 4px,transparent 10px,#278677 10px,#278677 12px,transparent 12px)}
+.o3-qual-repere.pointille{height:0;border-top:3px dashed #b57940;background:none}
+.o3-qual-repere.manque{height:0;border-top:2px dotted #8591a2;background:none}
+.o3-qual-note{margin-top:auto!important;padding:5px 17px 12px;color:#657583;font-size:10.5px;line-height:1.45;text-align:left}
+@media(max-width:820px){
+ .o3-quali-panneau{min-height:0}
+ .o3-quali-visuel svg{max-height:290px}
+ .o3-qualifications{padding-top:5px}
+}
+@media(max-width:540px){
+ .o3-panneau-entete{padding:13px 14px 9px}
+ .o3-quali-visuel{margin:2px 12px 0}
+ .o3-panneau-pied{padding:9px 13px 12px}
+ .o3-qualifications{padding:4px 12px 8px}
+ .o3-qual-note{padding:6px 13px 12px}
+}
 .o3-quali-matrice{margin-top:17px;overflow:hidden;border:1px solid #d4e3d9;border-radius:16px;background:#fff}
 .o3-matrice-titre{padding:22px 24px 16px}
 .o3-table-wrap{max-width:100%;overflow-x:auto}
