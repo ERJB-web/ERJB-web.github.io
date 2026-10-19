@@ -967,51 +967,197 @@ html.hc .these .devis-bandeau-synthese-2026,html.lv .these .devis-bandeau-synthe
 <div class="o1-essai"><strong>Exemple de configuration · premier test de faisabilité, et non protocole définitif.</strong><p>Une première ébauche des critères de sélection et du cahier d’extraction (<i>codebook</i>) a été construite puis essayée dans Covidence pour vérifier sa pertinence et sa faisabilité. Le mode descriptif « Extraction 2 — Mapping and describing the evidence », adapté à une revue de portée, a été retenu pour cet essai : il permet de cartographier les caractéristiques et les résultats des études sans imposer de groupes comparatifs. Les décomptes ci-dessus documentent l’importation et le dédoublonnage initiaux ; ils ne correspondent pas à des études déjà sélectionnées.</p></div>
 <div class="o1-protocole o1-compact" aria-labelledby="o1-criteres-titre">
 <style id="o1-grille-interactive-20261018">
-/* O1 seulement : une grille de lecture courte, details natifs au clavier et au clic. */
-.o1-protocole.o1-compact{margin:22px 0 14px;padding:clamp(15px,2.5vw,24px);border:1px solid #dbe6e0;border-radius:19px;background:linear-gradient(145deg,#f8fbf9 0%,#fff 65%);box-shadow:0 12px 30px -26px rgba(15,57,46,.32)}
-.o1-compact .o1-compact-head{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:16px}
-.o1-compact .o1-compact-heading{min-width:0}
-.o1-compact .o1-surtitre{margin:0 0 5px;color:#438368;font-size:10px;letter-spacing:.13em;font-weight:780;text-transform:uppercase}
-.o1-compact h5#o1-criteres-titre{margin:0;font-size:clamp(19px,2vw,24px);color:#173b36;line-height:1.2;letter-spacing:-.025em}
-.o1-compact .o1-guidance{margin:7px 0 0;color:#596f69;font-size:13px;line-height:1.45}
-.o1-compact .o1-compact-count{display:flex;flex:none;align-items:center;gap:9px;padding:9px 12px;border:1px solid #d5e7db;background:#ecf5ef;border-radius:12px;color:#2d704c}
-.o1-compact .o1-compact-count b{font-size:27px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
-.o1-compact .o1-compact-count span{font-size:10px;font-weight:750;line-height:1.25;letter-spacing:.05em;text-transform:uppercase}
-.o1-compact .o1-compact-list{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
-.o1-compact details.o1-critere-carte{position:relative;margin:0;padding:0;min-width:0;border:1px solid #dce6e2;border-radius:12px;background:#fff;overflow:hidden;box-shadow:0 3px 13px -12px #1e5142;transition:border-color .2s ease,box-shadow .2s ease}
-.o1-compact details.o1-critere-carte:hover{border-color:#a6c8b4;box-shadow:0 5px 17px -14px #1e5142}
-.o1-compact details.o1-critere-carte[open]{border-color:#92b69f;box-shadow:0 9px 22px -19px #1e5142}
-.o1-compact .o1-critere-carte>summary{display:grid;grid-template-columns:39px minmax(0,1fr) auto;gap:14px;align-items:center;min-height:69px;padding:10px 16px;cursor:pointer;list-style:none;user-select:none}
-.o1-compact .o1-critere-carte>summary::-webkit-details-marker,.o1-compact .o1-compact-context>summary::-webkit-details-marker{display:none}
-.o1-compact .o1-critere-carte>summary::marker,.o1-compact .o1-compact-context>summary::marker{content:''}
-.o1-compact .o1-critere-carte>summary:focus-visible,.o1-compact .o1-compact-context>summary:focus-visible{outline:3px solid #599d78;outline-offset:-3px;border-radius:10px}
-.o1-compact .o1-number{display:grid;place-items:center;width:39px;height:39px;border-radius:10px;background:#edf4ef;color:#2a7151;font-size:12px;font-weight:800;font-variant-numeric:tabular-nums}
-.o1-compact .o1-critere-carte[open] .o1-number{background:#2d7555;color:#fff}
-.o1-compact .o1-critere-name{display:block;min-width:0}
-.o1-compact .o1-critere-name b{display:block;color:#1e4038;font-size:15px;font-weight:750;line-height:1.3;letter-spacing:-.01em}
-.o1-compact .o1-critere-name small{display:block;color:#647670;font-size:12px;line-height:1.4;margin-top:3px}
-.o1-compact .o1-action{display:flex;align-items:center;gap:10px;white-space:nowrap;color:#377356;font-size:11px;font-weight:750;letter-spacing:.015em}
-.o1-compact .o1-arrow{display:block;width:8px;height:8px;border-bottom:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg);transition:transform .2s ease;margin:-4px 2px 0 0}
-.o1-compact details[open] .o1-arrow{transform:rotate(225deg);margin:3px 2px 0 0}
-.o1-compact .o1-critere-body{padding:0 16px 16px;border-top:1px solid #e8eeea}
-.o1-compact .o1-critere-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding-top:14px}
-.o1-compact .o1-critere-col{min-width:0;margin:0;padding:14px 16px;border:1px solid #e3ebe7;border-radius:10px;box-shadow:none}
-.o1-compact .o1-critere-col.inclusion{border-top:2px solid #3a9167;background:#f8fbf9}
-.o1-compact .o1-critere-col.exclusion{border-top:2px solid #b87c75;background:#fcfaf9}
-.o1-compact .o1-critere-col>strong{display:block;margin:0 0 9px;font-size:12px;letter-spacing:.035em;color:#2e7754}
-.o1-compact .o1-critere-col.exclusion>strong{color:#965c58}
-.o1-compact .o1-critere-col ul{margin:0;padding-left:18px}
-.o1-compact .o1-critere-col li{margin:0 0 8px;font-size:13px;line-height:1.55;color:#344c45;overflow-wrap:break-word}
-.o1-compact .o1-critere-col li:last-child{margin-bottom:0}
-.o1-compact .o1-critere-col li strong{display:inline;margin:0;font-size:inherit;color:inherit;letter-spacing:normal}
-.o1-compact .o1-compact-context{margin:11px 0 0;border-top:1px solid #e2eae5;padding:10px 0 0}
-.o1-compact .o1-compact-context>summary{cursor:pointer;list-style:none;color:#4c7060;font-size:12px;font-weight:650}
-.o1-compact .o1-compact-context>summary span{float:right;color:#758b80;font-weight:500}
-.o1-compact .o1-compact-context .o1-intro{max-width:90ch;margin:10px 0 3px;font-size:13px;line-height:1.65;color:#4b6358;text-align:justify}
-@media(max-width:650px){.o1-compact .o1-compact-count{display:none}.o1-compact .o1-critere-carte>summary{gap:10px;padding:11px;grid-template-columns:36px minmax(0,1fr) auto}.o1-compact .o1-number{width:36px;height:36px}.o1-compact .o1-action{font-size:0;gap:0}.o1-compact .o1-action .o1-arrow{font-size:12px}.o1-compact .o1-critere-cols{grid-template-columns:1fr}.o1-compact .o1-critere-body{padding:0 11px 11px}.o1-compact .o1-compact-context>summary span{float:none;margin-left:6px}}
-@media(prefers-reduced-motion:reduce){.o1-compact details.o1-critere-carte,.o1-compact .o1-arrow{transition:none}}
+/* Grille Covidence O1 exclusivement - quatre registres visuels distincts.
+   Aucun style de navigation ou des autres objectifs n'est modifie. */
+.o1-protocole.o1-compact{
+  position:relative;isolation:isolate;overflow:hidden;
+  margin:21px 0 15px;padding:clamp(18px,2.6vw,26px);
+  border:1px solid #e0e5e3;border-radius:19px;background:#fff;
+  box-shadow:0 16px 38px -34px rgba(21,38,48,.22);
+}
+.o1-protocole.o1-compact::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,#247a60 0 25%,#7958b3 25% 50%,#267db4 50% 75%,#bd793f 75% 100%);
+}
+.o1-protocole.o1-compact .o1-compact-head{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:16px;
+  margin:0 0 18px;
+}
+.o1-protocole.o1-compact .o1-compact-heading{min-width:0}
+.o1-protocole.o1-compact .o1-surtitre{
+  display:block;margin:0 0 6px;color:#59766e;
+  font-size:11px;line-height:1.35;font-weight:750;letter-spacing:.115em;text-transform:uppercase;
+}
+.o1-protocole.o1-compact h5#o1-criteres-titre{
+  margin:0;color:#1e343a;font-size:clamp(20px,2.15vw,28px);
+  font-weight:780;line-height:1.22;letter-spacing:-.027em;
+}
+.o1-protocole.o1-compact .o1-guidance{
+  margin:7px 0 0;color:#687981;font-size:13px;line-height:1.45;
+}
+.o1-protocole.o1-compact .o1-compact-count{
+  display:inline-flex;align-items:center;flex:none;gap:7px;
+  padding:8px 11px;border:1px solid #e4e6ed;border-radius:999px;
+  background:#f7f8fa;box-shadow:none;color:#4d5962;white-space:nowrap;
+}
+.o1-protocole.o1-compact .o1-compact-count b{
+  font-size:13px;font-weight:800;line-height:1;color:#38536b;font-variant-numeric:tabular-nums;
+}
+.o1-protocole.o1-compact .o1-compact-count span{
+  font-size:11px;font-weight:650;letter-spacing:0;line-height:1.1;text-transform:none;
+}
+.o1-protocole.o1-compact .o1-compact-list{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;
+}
+.o1-protocole.o1-compact details.o1-critere-carte{
+  --tone:#247a60;--pale:#f0f8f4;--line:#d5e8dd;
+  position:relative;min-width:0;margin:0;padding:0;overflow:hidden;
+  border:1px solid #e0e5e6;border-radius:15px;
+  background:linear-gradient(118deg,var(--pale) 0%,#fff 61%);
+  box-shadow:0 9px 21px -21px rgba(24,38,49,.35);
+  transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease;
+}
+.o1-protocole.o1-compact details.o1-critere-carte:nth-child(2){
+  --tone:#7958b3;--pale:#f6f2fc;--line:#e6dcf1;
+}
+.o1-protocole.o1-compact details.o1-critere-carte:nth-child(3){
+  --tone:#267db4;--pale:#f0f7fd;--line:#d6e7f4;
+}
+.o1-protocole.o1-compact details.o1-critere-carte:nth-child(4){
+  --tone:#b87337;--pale:#fff7ed;--line:#f2e3d1;
+}
+.o1-protocole.o1-compact details.o1-critere-carte::before{
+  content:"";position:absolute;top:0;left:18px;width:57px;height:3px;
+  border-radius:0 0 5px 5px;background:var(--tone);
+}
+.o1-protocole.o1-compact details.o1-critere-carte:not([open]):hover{
+  transform:translateY(-2px);border-color:var(--line);
+  box-shadow:0 16px 25px -21px rgba(30,48,59,.34);
+}
+.o1-protocole.o1-compact details.o1-critere-carte[open]{
+  grid-column:1/-1;border-color:var(--line);
+  box-shadow:0 16px 30px -27px rgba(27,45,56,.35);
+}
+.o1-protocole.o1-compact details.o1-critere-carte>summary{
+  display:grid!important;grid-template-columns:45px minmax(0,1fr) auto;
+  align-items:center;gap:13px;min-height:104px;padding:15px 16px!important;
+  cursor:pointer;list-style:none;text-align:left;user-select:none;
+}
+.o1-protocole.o1-compact details.o1-critere-carte>summary::-webkit-details-marker,
+.o1-protocole.o1-compact .o1-compact-context>summary::-webkit-details-marker{display:none}
+.o1-protocole.o1-compact details.o1-critere-carte>summary::marker,
+.o1-protocole.o1-compact .o1-compact-context>summary::marker{content:""}
+.o1-protocole.o1-compact details.o1-critere-carte>summary:focus-visible,
+.o1-protocole.o1-compact .o1-compact-context>summary:focus-visible{
+  outline:3px solid var(--tone,#267db4);outline-offset:-4px;border-radius:12px;
+}
+.o1-protocole.o1-compact .o1-number{
+  display:grid;place-items:center;box-sizing:border-box;
+  width:45px;height:45px;border-radius:12px;
+  background:var(--tone);color:#fff;font-size:16px;
+  line-height:1;font-weight:800;font-variant-numeric:tabular-nums;
+  box-shadow:0 5px 12px -9px var(--tone);
+}
+.o1-protocole.o1-compact .o1-critere-name{display:block;min-width:0}
+.o1-protocole.o1-compact .o1-critere-name b{
+  display:block;margin:0;color:#213b41;font-size:clamp(14px,1.2vw,17px);
+  font-weight:775;line-height:1.27;letter-spacing:-.015em;
+}
+.o1-protocole.o1-compact .o1-critere-name small{
+  display:block;margin-top:5px;color:#63747b;font-size:12px;
+  font-weight:480;line-height:1.45;letter-spacing:0;
+}
+.o1-protocole.o1-compact .o1-action{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  min-height:32px;padding:7px 12px;border:1px solid var(--line);
+  border-radius:999px;background:#fff;color:var(--tone);
+  font-size:11px;line-height:1.25;font-weight:750;white-space:nowrap;letter-spacing:0;
+  box-shadow:0 2px 7px -7px rgba(0,0,0,.25);
+}
+.o1-protocole.o1-compact details.o1-critere-carte[open] .o1-action{
+  background:var(--pale);border-color:var(--line);
+}
+.o1-protocole.o1-compact .o1-arrow{
+  display:inline-block;flex:none;width:7px;height:7px;margin:-4px 0 0;
+  border:0;border-right:1.8px solid currentColor;border-bottom:1.8px solid currentColor;
+  transform:rotate(45deg);transition:transform .2s ease;
+}
+.o1-protocole.o1-compact details[open] .o1-arrow{
+  transform:rotate(225deg);margin:4px 0 0;
+}
+.o1-protocole.o1-compact .o1-critere-body{
+  margin:0;padding:0 16px 16px;border-top:1px solid var(--line);background:#fff;
+}
+.o1-protocole.o1-compact .o1-critere-cols{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;padding-top:15px;
+}
+.o1-protocole.o1-compact .o1-critere-col{
+  min-width:0;margin:0;padding:14px 16px;border:1px solid #e5e9e8;
+  border-radius:12px;box-shadow:none;background:#fbfcfc;
+}
+.o1-protocole.o1-compact .o1-critere-col.inclusion{
+  border-top:3px solid #3a956c;background:#f7fbf8;
+}
+.o1-protocole.o1-compact .o1-critere-col.exclusion{
+  border-top:3px solid #bc776e;background:#fdf9f8;
+}
+.o1-protocole.o1-compact .o1-critere-col>strong{
+  display:block;margin:0 0 9px;color:#28734e;font-size:12px;
+  font-weight:800;letter-spacing:.045em;
+}
+.o1-protocole.o1-compact .o1-critere-col.exclusion>strong{color:#9b5e58}
+.o1-protocole.o1-compact .o1-critere-col ul{margin:0;padding-left:17px}
+.o1-protocole.o1-compact .o1-critere-col li{
+  margin:0 0 9px;color:#354d55;font-size:13px;line-height:1.6;
+  overflow-wrap:break-word;word-break:normal;
+}
+.o1-protocole.o1-compact .o1-critere-col li:last-child{margin-bottom:0}
+.o1-protocole.o1-compact .o1-critere-col li strong{
+  display:inline;margin:0;color:inherit;font-size:inherit;letter-spacing:normal;
+}
+.o1-protocole.o1-compact details.o1-compact-context{
+  margin:14px 0 0;padding:11px 0 0;border:0;border-top:1px solid #e7ebed;
+  border-radius:0;background:transparent;
+}
+.o1-protocole.o1-compact .o1-compact-context>summary{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  cursor:pointer;list-style:none;color:#465e69;font-size:12px;
+  font-weight:700;line-height:1.45;padding:3px 1px;
+}
+.o1-protocole.o1-compact .o1-compact-context>summary span{
+  float:none;margin:0;color:#849199;font-size:11px;font-weight:500;
+}
+.o1-protocole.o1-compact .o1-compact-context .o1-intro{
+  margin:10px 0 1px;max-width:85ch;color:#596d72;
+  font-size:13px;line-height:1.65;text-align:justify;
+}
+@media(max-width:850px){
+  .o1-protocole.o1-compact .o1-compact-list{grid-template-columns:minmax(0,1fr)}
+  .o1-protocole.o1-compact details.o1-critere-carte>summary{
+    min-height:75px;padding:12px 14px!important;
+  }
+}
+@media(max-width:600px){
+  .o1-protocole.o1-compact{padding:15px;border-radius:14px}
+  .o1-protocole.o1-compact .o1-compact-head{flex-wrap:wrap}
+  .o1-protocole.o1-compact .o1-compact-count{padding:6px 10px}
+  .o1-protocole.o1-compact details.o1-critere-carte>summary{
+    grid-template-columns:39px minmax(0,1fr) auto;gap:10px;min-height:76px;
+    padding:12px!important;
+  }
+  .o1-protocole.o1-compact .o1-number{width:39px;height:39px;font-size:14px}
+  .o1-protocole.o1-compact .o1-action{padding:7px 9px;font-size:10px}
+  .o1-protocole.o1-compact .o1-critere-cols{grid-template-columns:1fr}
+  .o1-protocole.o1-compact .o1-critere-body{padding:0 12px 12px}
+  .o1-protocole.o1-compact .o1-compact-context>summary{display:block}
+  .o1-protocole.o1-compact .o1-compact-context>summary span{display:block;margin-top:2px}
+}
+@media(prefers-reduced-motion:reduce){
+  .o1-protocole.o1-compact details.o1-critere-carte,
+  .o1-protocole.o1-compact .o1-arrow{transition:none}
+}
 </style>
-<div class="o1-compact-head"><div class="o1-compact-heading"><span class="o1-surtitre">Grille provisoire issue de l’essai Covidence</span><h5 id="o1-criteres-titre">Critères d’inclusion et d’exclusion proposés</h5><p class="o1-guidance">Sélectionnez un volet pour consulter les inclusions et exclusions détaillées.</p></div><div class="o1-compact-count" aria-hidden="true"><b>04</b><span>volets de<br>sélection</span></div></div>
+<div class="o1-compact-head"><div class="o1-compact-heading"><span class="o1-surtitre">Grille provisoire issue de l’essai Covidence</span><h5 id="o1-criteres-titre">Critères d’inclusion et d’exclusion proposés</h5><p class="o1-guidance">Sélectionnez un volet pour consulter les inclusions et exclusions détaillées.</p></div><div class="o1-compact-count" aria-hidden="true"><b>04</b><span>volets à explorer</span></div></div>
 <div class="o1-compact-list"><details class="o1-critere-carte"><summary><span class="o1-number" aria-hidden="true">01</span><span class="o1-critere-name"><b>Population</b><small>65 ans et plus · vie à domicile</small></span><span class="o1-action">Explorer<span class="o1-arrow" aria-hidden="true"></span></span></summary><div class="o1-critere-body"><div class="o1-critere-cols">
 <div class="o1-critere-col inclusion"><strong>Inclusion</strong><ul><li>Personnes de <strong>65 ans et plus</strong> vivant à domicile : logement privé, résidence privée pour aînés (RPA) ou résidence avec services.</li><li>Études dont tous les participants ont 65 ans ou plus, ou dont les résultats pour ce groupe sont isolables, ou dont l’âge moyen ou médian atteint 65 ans.</li><li>Personnes présentant une ou plusieurs morbidités, ou suivies dans un contexte de soins ou de soutien à domicile, selon les règles provisoires de l’essai.</li></ul></div>
 <div class="o1-critere-col exclusion"><strong>Exclusion</strong><ul><li>Participants de moins de 65 ans sans résultats distincts pour les 65 ans et plus et avec un âge moyen ou médian inférieur à 65 ans.</li><li>Personnes vivant exclusivement en CHSLD ou en établissement de soins de longue durée, hospitalisées ou en réadaptation, sauf résultats distincts pour celles vivant à domicile.</li><li>Études sans morbidité documentée ni contexte de soins ou de soutien à domicile.</li></ul></div></div></div></details>
