@@ -19,6 +19,32 @@
     zones.forEach(zone => {
       const o1=$("#these-methode-o1",zone),o2=$("#these-methode-o2",zone),o3=$("#these-methode-o3",zone);
       if (!(o1 && o2 && o3)) return;
+      // REVISION_COURTE_O1_O2_20261019 : repères vérifiables, sans toucher aux menus ni aux galeries.
+      // Remplace le précédent chiffrage indicatif, sans modifier le nombre de notices.
+      const blocCharge = $(".revision-demo--workload .revision-note", zone);
+      if (blocCharge && blocCharge.textContent.includes("443–887")) {
+        blocCharge.innerHTML = "<strong>Hypothèse rapide : 25–35 s par décision</strong> · <strong>370–517 heures-personnes</strong> pour deux évaluateurs. Repère de rythme : 4 000 notices en deux semaines, soit environ 2 h 45 à 3 h 55 par jour ouvré et par évaluateur. À confirmer par un essai chronométré ; hors textes intégraux, arbitrage et extraction.";
+      }
+      const ancienneSimulation = "30 à 60 secondes par notice représenteraient 443 à 887 heures-personnes";
+      const nouvelleSimulation = "25 à 35 secondes par notice représenteraient environ 370 à 517 heures-personnes";
+      o1.querySelectorAll("p").forEach(p => {
+        if (p.innerHTML.includes(ancienneSimulation)) {
+          p.innerHTML = p.innerHTML.replace(ancienneSimulation, nouvelleSimulation);
+        }
+      });
+      // Ces six CHAMPS sont bien produits dans 03_geocodage.R ; les sources ne les fournissent pas tous nativement.
+      const o2Collecte = $("#methode-o2-3 .methode-rubrique-contenu", zone);
+      if (o2Collecte) {
+        const titreCommun = Array.from(o2Collecte.querySelectorAll("h2,h3,h4,h5,h6,p,strong"))
+          .find(e => e.textContent.trim() === "Six variables communes pour rapprocher les sources");
+        if (titreCommun) titreCommun.textContent = "Six champs harmonisés pour rapprocher les sources";
+        addOnce(o2Collecte, "matTracabiliteO2", mk("mat-sc--o2",
+          '<span class="mat-sc__eyebrow">Faisabilité O2 · Éléments déjà opérationnalisés</span>' +
+          '<p class="mat-sc__small"><strong>Six champs présents dans le traitement R :</strong> localisation, CLSC, secteur, domaine, millésime et identifiant interne. Ils sont harmonisés ou construits, et non fournis identiquement par toutes les sources ; l’identifiant n’est pas une clé commune native.</p>' +
+          '<p class="mat-sc__small"><strong>Traçabilité déjà organisée :</strong> scripts R conservés en texte, inventaire et empreintes des sources, journal des décisions, dédoublonnage, rattachement CLSC, indicateurs et exports QGIS. O1 dispose séparément du suivi PRISMA.</p>' +
+          '<p class="mat-sc__small"><strong>Statut :</strong> les cartes présentées sont des exemples de faisabilité, pas des résultats de la thèse. Les analyses prévues seront adaptées aux profils O1 et aux données disponibles.</p>'
+        ));
+      }
       // Chapitre 03 : les trois niveaux ne sont pas interchangeables ; pas de lien causal supposé.
       addOnce(o1,"matConcept",mk("mat-sc--concept",
         '<span class="mat-sc__eyebrow">Cadre conceptuel · Chaîne des observations</span>'+
