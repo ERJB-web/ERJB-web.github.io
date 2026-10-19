@@ -32,6 +32,29 @@
           p.innerHTML = p.innerHTML.replace(ancienneSimulation, nouvelleSimulation);
         }
       });
+      // POPULATION O2 : expliciter les secteurs, sans confondre offre et réponse effective.
+      const o2Population = $("#methode-o2-1 .methode-rubrique-contenu", zone);
+      addOnce(o2Population, "matSecteursExploratoires", mk("mat-sc--o2 mat-sc--secteurs", `
+        <span class="mat-sc__eyebrow">O2 · Population, ressources et sources</span>
+        <p class="mat-sc__title" role="heading" aria-level="6">Pourquoi retenir six secteurs de ressources ?</p>
+        <p class="mat-sc__lead">Le maintien à domicile peut mobiliser des ressources sanitaires, sociales, collectives et résidentielles. Les <strong>35 types recensés</strong> dans l'exercice exploratoire sont regroupés en six secteurs pour décrire l'offre sans la réduire aux seuls soins.</p>
+        <div class="mat-sc__secteurs-grid" aria-label="Les six secteurs analytiques">
+          <div><span>01</span><b>Réseau public</b><small>Installations et services du réseau de santé et de services sociaux</small></div>
+          <div><span>02</span><b>Première ligne</b><small>Soins et services professionnels de proximité, dont GMF et pharmacies</small></div>
+          <div><span>03</span><b>Parapublic</b><small>Services collectifs de mission publique classés hors des autres secteurs</small></div>
+          <div><span>04</span><b>Communauté</b><small>Organismes d'aide et de soutien social, notamment répertoriés au 211</small></div>
+          <div><span>05</span><b>Municipalité</b><small>Équipements, lieux et services municipaux soutenant la vie quotidienne</small></div>
+          <div><span>06</span><b>Habitation</b><small>RPA, hébergement et solutions de logement recensées</small></div>
+        </div>
+        <p class="mat-sc__small"><strong>Pourquoi cette typologie ?</strong> Un secteur classe le <em>type de ressource</em> ; un domaine classe le <em>besoin susceptible d'être couvert</em>. Un même service peut correspondre à plusieurs domaines. La présence d'une ressource ne prouve ni son admissibilité, ni son utilisation, ni une réponse effective.</p>
+        <div class="mat-sc__resultats">
+          <strong>Tests préliminaires : ce qui a été démontré</strong>
+          <div class="mat-sc__resultats-row"><span><b>01 · Inventorier</b>55 fichiers documentés, dédoublonnage et lieux de service géolocalisés</span><span class="mat-sc__tag mat-sc__tag--rule">Réalisé</span></div>
+          <div class="mat-sc__resultats-row"><span><b>02 · Harmoniser</b>Six champs, rattachement spatial aux CLSC et catégories de besoins</span><span class="mat-sc__tag mat-sc__tag--rule">Codé dans R</span></div>
+          <div class="mat-sc__resultats-row"><span><b>03 · Comparer</b>Indicateurs calculés et contrastes territoriaux exploratoires visualisés</span><span class="mat-sc__tag mat-sc__tag--rule">Sorties produites</span></div>
+        </div>
+        <p class="mat-sc__hint">Les essais attestent la <strong>faisabilité technique</strong> sur les sources disponibles, sans constituer des résultats définitifs de thèse ni garantir une couverture uniforme au Québec.</p>
+      `));
       // Ces six CHAMPS sont bien produits dans 03_geocodage.R ; les sources ne les fournissent pas tous nativement.
       const o2Collecte = $("#methode-o2-3 .methode-rubrique-contenu", zone);
       if (o2Collecte) {
