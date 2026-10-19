@@ -103,20 +103,20 @@ html.hc .these .mat-sc,html.lv .these .mat-sc{background:#fff;border-width:2px}
 
 
 /* O3 / atelier : occuper les deux colonnes du contenu, jamais celle du menu latéral. */
-.these #methode-o3-6 .methode-rubrique-contenu > .mat-sc--o3 {
+.these #methode-o3-8 .methode-rubrique-contenu > .mat-sc--o3 {
   grid-column:1 / -1;
   width:100%;
   max-width:none;
   min-width:0;
   container:integration-o3 / inline-size;
 }
-.these #methode-o3-6 .mat-sc--o3 .mat-sc__steps {
+.these #methode-o3-8 .mat-sc--o3 .mat-sc__steps {
   width:100%;
   grid-template-columns:repeat(4,minmax(0,1fr));
   align-items:stretch;
   gap:12px;
 }
-.these #methode-o3-6 .mat-sc--o3 .mat-sc__step {
+.these #methode-o3-8 .mat-sc--o3 .mat-sc__step {
   min-width:0;
   padding:13px 15px;
   text-align:left!important;
@@ -126,18 +126,18 @@ html.hc .these .mat-sc,html.lv .these .mat-sc{background:#fff;border-width:2px}
   word-break:normal;
   line-height:1.55;
 }
-.these #methode-o3-6 .mat-sc--o3 .mat-sc__title {
+.these #methode-o3-8 .mat-sc--o3 .mat-sc__title {
   text-align:left!important;
   text-align-last:left;
   hyphens:none;
 }
 @container integration-o3 (max-width:850px) {
-  .these #methode-o3-6 .mat-sc--o3 .mat-sc__steps {
+  .these #methode-o3-8 .mat-sc--o3 .mat-sc__steps {
     grid-template-columns:repeat(2,minmax(0,1fr));
   }
 }
 @container integration-o3 (max-width:490px) {
-  .these #methode-o3-6 .mat-sc--o3 .mat-sc__steps {
+  .these #methode-o3-8 .mat-sc--o3 .mat-sc__steps {
     grid-template-columns:minmax(0,1fr);
   }
 }
@@ -305,3 +305,6 @@ html.hc .these .mat-sc,html.lv .these .mat-sc{background:#fff;border-width:2px}
 #rubrique-fr-these-panneau-3 .f-valid-refs{font-size:.68rem;color:#657780;margin:10px 0 0;text-align:left}
 #rubrique-fr-these-panneau-3 .f-valid-refs a{color:#1f6881;text-decoration:underline;text-underline-offset:2px}
 @media(max-width:700px){#rubrique-fr-these-panneau-3 .f-valid-grid{grid-template-columns:1fr}#rubrique-fr-these-panneau-3 .f-valid{padding:13px}}
+
+/* Les encadrés restaurés occupent la largeur du contenu scientifique, pas une seule colonne. */
+.these .methode-rubrique-contenu > .mat-sc{grid-column:1 / -1;width:100%;min-width:0;max-width:100%}
