@@ -3,6 +3,10 @@
   "use strict";
   // Une instance par élément DOM réel. Les clones de la navigation
   // ne reprennent pas les gestionnaires d'événements du module initial.
+  // Échappement des légendes et attributs injectés dans la galerie O3.
+  const echapper = (valeur) => String(valeur).replace(/[&<>"']/g, (caractere) => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  }[caractere]));
   const modulesInitialises = new WeakSet();
   function initialiser(zone) {
     if (!/^fr(?:-|$)/i.test(document.documentElement.lang || "")) return;
