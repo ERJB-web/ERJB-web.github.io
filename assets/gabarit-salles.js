@@ -994,7 +994,7 @@
             '<article><h4>Compétences déjà mobilisées</h4><div class="fais-capacites-puces"><span>R · Positron</span><span>Scripts Shell</span><span>QGIS et cartographie</span><span>ATLAS.ti</span><span>Analyse qualitative avancée</span><span>Assistance à la programmation par IA</span></div><p>Les travaux qualitatifs antérieurs fournissent une expérience de codage thématique et d’analyse de contenu dans ATLAS.ti ; les scripts R et Shell facilitent la reproductibilité des préparations et des contrôles.</p></article>' +
             '<article><h4>Appui scientifique et perfectionnement</h4><div class="fais-capacites-formation">' +
               '<div><b>Accompagnement actuel</b><span>Appui d’une biostatisticienne pour les choix et vérifications analytiques.</span></div>' +
-              '<div><b>Formation déjà suivie</b><span>MOOC en cartographie spatiale (Université de Louvain).</span></div>' +
+              '<div><b>Formation déjà suivie</b><span>MOOC « Systèmes d’information géographique » (École polytechnique fédérale de Lausanne, EPFL, Suisse) · <a href="https://actu.epfl.ch/news/mooc-systemes-d-information-geographique-parties-1/" target="_blank" rel="noopener">Présentation officielle des parties 1 et 2 ↗</a>.</span></div>' +
               '<div><b>Automne 2026 · A26</b><span>Enseignement quantitatif.</span></div>' +
               '<div><b>Hiver 2027 · H27</b><span>Cartographie spatiale à l’Université de Sherbrooke et cours d’analyse des données.</span></div>' +
               '<div><b>Formation prévue</b><span>MOOC consacré à l’analyse de réseaux sociaux (SNA).</span></div>' +
