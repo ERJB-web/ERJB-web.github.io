@@ -1,61 +1,61 @@
 /* Éducation spécialisée : présentation synthétique, une seule vue.
    Styles limités à la section française ; les autres rubriques restent intactes. */
-#educateur{--educ-encre:#143b42;--educ-vert:#236958;--educ-bord:#d6e3dd;--educ-sauge:#edf5f0}
-.salle #educateur .section-contenu.gab{max-width:1560px;padding:6px clamp(18px,2.7vw,38px) 8px!important}
-#educateur .gab .bandeau.gab-bandeau{min-height:61px!important;height:61px!important;padding:9px 24px 10px!important;background:linear-gradient(112deg,#123f44 0%,#246a5c 62%,#538b77 100%)!important;border-radius:14px!important;box-shadow:none!important}
-#educateur .gab .gab-bandeau::after{height:3px;background:#d5b678}
-#educateur .gab .gab-bandeau .bandeau-texte{max-width:100%;gap:2px;display:flex;flex-direction:row;flex-wrap:wrap;align-items:baseline;column-gap:20px}
-#educateur .gab .gab-bandeau .bandeau-num{font-size:11px!important;letter-spacing:.08em}
-#educateur .gab .gab-bandeau .bandeau-titre{font:650 clamp(19px,1.8vw,25px)/1.1 var(--sans)!important;letter-spacing:-.012em!important;color:#fff!important}
-#educateur .gab .gab-bandeau .bandeau-legende{font-size:13px!important;line-height:1.3!important;color:#d8ede4}
-#educateur .gab .gab-puces,#educateur .gab .gab-programme{display:none!important}
-#educateur .gab .section-corps,#educateur .gab .gab-chapitres{margin:0!important;padding:0!important}
-#educateur .gab .gab-chapitre{margin:8px 0 0!important;padding:0!important;border:0!important;animation:none!important}
-#educateur .gab .gab-chapitre-grille{display:block!important;grid-template-columns:1fr!important}
-#educateur .gab .gab-chapitre-tete,#educateur .gab .gab-chapitre-aside{display:none!important}
-#educateur .gab .gab-chapitre-texte,#educateur .gab .gab-corps,#educateur .gab .gab-lecture-integrale{width:100%;max-width:none;min-width:0}
-#educateur .gab .gab-lecture-integrale.gab-intro{margin:0!important;padding:0!important;display:block}
-#educateur .gab .gab-lecture-integrale>.colonne-texte,#educateur .gab .gab-lecture-integrale>.colonne-outils{margin:0!important;max-width:none!important;width:100%;columns:auto!important;column-count:auto!important;padding:0!important}
-#educateur .gab .educ-presentation{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(250px,340px);gap:clamp(18px,2.3vw,36px);align-items:center;border:1px solid var(--educ-bord);border-radius:15px;padding:14px 20px!important;background:linear-gradient(105deg,#fff 10%,#f6faf7);min-height:156px}
-#educateur .educ-kicker{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 6px}
-#educateur .educ-kicker span{display:inline-block;padding:3px 9px;border-radius:5px;background:#e6f0e9;border:1px solid #d0e0d6;font:700 10.5px/1.3 var(--sans);letter-spacing:.055em;text-transform:uppercase;color:#285d4f}
-#educateur .gab .educ-presentation h2{font-family:var(--sans)!important;font-size:clamp(25px,2.35vw,34px)!important;line-height:1.13!important;font-weight:720!important;letter-spacing:-.038em!important;margin:0 0 8px!important;color:var(--educ-encre)!important;max-width:none!important}
-html body #educateur .educ-presentation p.educ-intro{margin:0!important;max-width:75ch!important;font-size:14.5px!important;line-height:1.42!important;color:#39575a!important;text-align:justify!important}
-#educateur .educ-presentation-figure{margin:0;display:flex;justify-content:flex-end;align-items:center;min-width:0}
-#educateur .educ-presentation-figure img{display:block;width:100%;max-height:139px;object-fit:contain;border:0;border-radius:10px}
-#educateur .educ-grille{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
-#educateur .educ-carte{min-width:0;margin:0;background:#fff;border:1px solid var(--educ-bord);border-radius:12px;box-shadow:0 3px 11px rgba(21,64,62,.035);overflow:hidden}
-#educateur .educ-carte:nth-child(3n + 2){border-top:3px solid #4b8b83}
-#educateur .educ-carte:nth-child(3n + 1){border-top:3px solid #cfad6b}
-#educateur .educ-carte:nth-child(3n){border-top:3px solid #6381aa}
-#educateur .educ-carte>summary{display:flex;align-items:center;gap:12px;padding:13px 14px;min-height:79px;cursor:pointer;list-style:none}
-#educateur .educ-carte>summary::-webkit-details-marker,#educateur .educ-quebec>summary::-webkit-details-marker{display:none}
-#educateur .educ-num{flex:0 0 auto;display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:#eaf2ed;color:var(--educ-vert);font:750 12px/1 var(--sans);letter-spacing:.03em}
-#educateur .educ-carte-texte{display:grid;gap:3px;min-width:0;flex:1}
-#educateur .educ-carte-texte strong{font:700 clamp(13px,1.02vw,15.5px)/1.25 var(--sans);color:var(--educ-encre)}
-#educateur .educ-carte-texte small{font:450 12px/1.35 var(--sans);color:#57706d}
-#educateur .educ-chevron{flex:0 0 auto;display:grid;place-items:center;height:23px;width:23px;border:1px solid #d2e1d8;border-radius:50%;color:var(--educ-vert);font:600 18px/1 var(--sans);transition:transform .15s}
-#educateur .educ-carte[open] .educ-chevron{transform:rotate(45deg)}
-#educateur .educ-carte[open]{box-shadow:0 9px 25px rgba(23,66,61,.09)}
-#educateur .educ-carte .educ-details-list{margin:0;padding:4px 18px 15px 28px;list-style:disc;border-top:1px solid #e6eeea;display:grid;gap:4px}
-html body #educateur .educ-carte .educ-details-list li{font-size:13px!important;line-height:1.4!important;hyphens:auto!important}
-#educateur .educ-carte:focus-within,#educateur .educ-quebec:focus-within{outline:2px solid #4b8b83;outline-offset:2px}
-#educateur .educ-quebec{margin-top:10px;background:#f4f8f6;border:1px solid var(--educ-bord);border-radius:11px;overflow:hidden}
-#educateur .educ-quebec>summary{display:flex;align-items:center;gap:10px;min-height:41px;padding:8px 15px;cursor:pointer;list-style:none;font:650 13px/1.4 var(--sans);color:var(--educ-encre)}
-#educateur .educ-quebec>summary span:first-child{color:var(--educ-vert)}
-#educateur .educ-quebec>summary .educ-secondaire{font-size:11.5px;color:#60746e;font-weight:450}
-#educateur .educ-quebec>summary .educ-deplier{margin-inline-start:auto;font-size:18px;line-height:1}
-#educateur .educ-quebec[open]>summary .educ-deplier{transform:rotate(45deg)}
-#educateur .educ-quebec-contenu{padding:0 16px 14px}
-#educateur .educ-quebec-contenu .groupe-carte{box-shadow:none;border:0;border-top:1px solid #d8e6df;border-radius:0;background:transparent}
-#educateur .educ-quebec-contenu .groupe-corps{padding:14px 0 0}
-#educateur .educ-quebec-contenu .cnp-reperes{gap:15px;margin-bottom:14px}
-#educateur .educ-quebec-contenu .cnp-reperes>div{padding:12px;border:1px solid #d8e6df;border-radius:9px;background:#fff}
-#educateur .educ-quebec-contenu .cnp-competences{margin:12px 0 8px}
-#educateur .educ-quebec-contenu .vitrine-liste{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px 15px}
-#educateur .gab .gab-bas-chapitre{margin-top:6px!important;padding-top:8px!important;padding-bottom:0!important}
-@media(max-height:760px) and (min-width:1120px){#educateur .gab .educ-presentation{min-height:132px;padding:9px 17px!important}#educateur .educ-presentation-figure img{max-height:110px}#educateur .educ-grille{gap:8px;margin-top:8px}#educateur .educ-carte>summary{min-height:72px;padding:9px 13px}#educateur .gab .bandeau.gab-bandeau{height:55px!important;min-height:55px!important}}
-@media(max-width:1120px){#educateur .gab .educ-presentation{grid-template-columns:minmax(0,1fr) 230px}#educateur .educ-grille{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:720px){.salle #educateur .section-contenu.gab{padding:6px 12px 18px!important}#educateur .gab .bandeau.gab-bandeau{height:auto!important;min-height:60px!important;padding:10px 14px!important}#educateur .gab .gab-bandeau .bandeau-legende{display:none}#educateur .gab .educ-presentation{grid-template-columns:1fr;padding:15px!important;gap:8px}#educateur .educ-presentation-figure{display:none}#educateur .educ-grille{grid-template-columns:1fr}#educateur .educ-carte>summary{min-height:70px}#educateur .educ-quebec>summary{flex-wrap:wrap}#educateur .educ-quebec>summary .educ-secondaire{display:none}#educateur .educ-quebec-contenu .cnp-reperes,#educateur .educ-quebec-contenu .vitrine-liste{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){#educateur .educ-chevron{transition:none}}
-@media(forced-colors:active){#educateur .educ-carte,#educateur .educ-quebec,#educateur .educ-presentation{border:1px solid CanvasText}#educateur .educ-num,#educateur .educ-kicker span{background:Canvas;color:CanvasText}}
+.gab[data-gab-salle="educateur"]{--educ-encre:#143b42;--educ-vert:#236958;--educ-bord:#d6e3dd;--educ-sauge:#edf5f0}
+.salle .gab[data-gab-salle="educateur"] .section-contenu.gab{max-width:1560px;padding:6px clamp(18px,2.7vw,38px) 8px!important}
+.gab[data-gab-salle="educateur"] .bandeau.gab-bandeau{min-height:61px!important;height:61px!important;padding:9px 24px 10px!important;background:linear-gradient(112deg,#123f44 0%,#246a5c 62%,#538b77 100%)!important;border-radius:14px!important;box-shadow:none!important}
+.gab[data-gab-salle="educateur"] .gab-bandeau::after{height:3px;background:#d5b678}
+.gab[data-gab-salle="educateur"] .gab-bandeau .bandeau-texte{max-width:100%;gap:2px;display:flex;flex-direction:row;flex-wrap:wrap;align-items:baseline;column-gap:20px}
+.gab[data-gab-salle="educateur"] .gab-bandeau .bandeau-num{font-size:11px!important;letter-spacing:.08em}
+.gab[data-gab-salle="educateur"] .gab-bandeau .bandeau-titre{font:650 clamp(19px,1.8vw,25px)/1.1 var(--sans)!important;letter-spacing:-.012em!important;color:#fff!important}
+.gab[data-gab-salle="educateur"] .gab-bandeau .bandeau-legende{font-size:13px!important;line-height:1.3!important;color:#d8ede4}
+.gab[data-gab-salle="educateur"] .gab-puces,.gab[data-gab-salle="educateur"] .gab-programme{display:none!important}
+.gab[data-gab-salle="educateur"] .section-corps,.gab[data-gab-salle="educateur"] .gab-chapitres{margin:0!important;padding:0!important}
+.gab[data-gab-salle="educateur"] .gab-chapitre{margin:8px 0 0!important;padding:0!important;border:0!important;animation:none!important}
+.gab[data-gab-salle="educateur"] .gab-chapitre-grille{display:block!important;grid-template-columns:1fr!important}
+.gab[data-gab-salle="educateur"] .gab-chapitre-tete,.gab[data-gab-salle="educateur"] .gab-chapitre-aside{display:none!important}
+.gab[data-gab-salle="educateur"] .gab-chapitre-texte,.gab[data-gab-salle="educateur"] .gab-corps,.gab[data-gab-salle="educateur"] .gab-lecture-integrale{width:100%;max-width:none;min-width:0}
+.gab[data-gab-salle="educateur"] .gab-lecture-integrale.gab-intro{margin:0!important;padding:0!important;display:block}
+.gab[data-gab-salle="educateur"] .gab-lecture-integrale>.colonne-texte,.gab[data-gab-salle="educateur"] .gab-lecture-integrale>.colonne-outils{margin:0!important;max-width:none!important;width:100%;columns:auto!important;column-count:auto!important;padding:0!important}
+.gab[data-gab-salle="educateur"] .educ-presentation{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(250px,340px);gap:clamp(18px,2.3vw,36px);align-items:center;border:1px solid var(--educ-bord);border-radius:15px;padding:14px 20px!important;background:linear-gradient(105deg,#fff 10%,#f6faf7);min-height:156px}
+.gab[data-gab-salle="educateur"] .educ-kicker{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 6px}
+.gab[data-gab-salle="educateur"] .educ-kicker span{display:inline-block;padding:3px 9px;border-radius:5px;background:#e6f0e9;border:1px solid #d0e0d6;font:700 10.5px/1.3 var(--sans);letter-spacing:.055em;text-transform:uppercase;color:#285d4f}
+.gab[data-gab-salle="educateur"] .educ-presentation h2{font-family:var(--sans)!important;font-size:clamp(25px,2.35vw,34px)!important;line-height:1.13!important;font-weight:720!important;letter-spacing:-.038em!important;margin:0 0 8px!important;color:var(--educ-encre)!important;max-width:none!important}
+html body .gab[data-gab-salle="educateur"] .educ-presentation p.educ-intro{margin:0!important;max-width:75ch!important;font-size:14.5px!important;line-height:1.42!important;color:#39575a!important;text-align:justify!important}
+.gab[data-gab-salle="educateur"] .educ-presentation-figure{margin:0;display:flex;justify-content:flex-end;align-items:center;min-width:0}
+.gab[data-gab-salle="educateur"] .educ-presentation-figure img{display:block;width:100%;max-height:139px;object-fit:contain;border:0;border-radius:10px}
+.gab[data-gab-salle="educateur"] .educ-grille{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+.gab[data-gab-salle="educateur"] .educ-carte{min-width:0;margin:0;background:#fff;border:1px solid var(--educ-bord);border-radius:12px;box-shadow:0 3px 11px rgba(21,64,62,.035);overflow:hidden}
+.gab[data-gab-salle="educateur"] .educ-carte:nth-child(3n + 2){border-top:3px solid #4b8b83}
+.gab[data-gab-salle="educateur"] .educ-carte:nth-child(3n + 1){border-top:3px solid #cfad6b}
+.gab[data-gab-salle="educateur"] .educ-carte:nth-child(3n){border-top:3px solid #6381aa}
+.gab[data-gab-salle="educateur"] .educ-carte>summary{display:flex;align-items:center;gap:12px;padding:13px 14px;min-height:79px;cursor:pointer;list-style:none}
+.gab[data-gab-salle="educateur"] .educ-carte>summary::-webkit-details-marker,.gab[data-gab-salle="educateur"] .educ-quebec>summary::-webkit-details-marker{display:none}
+.gab[data-gab-salle="educateur"] .educ-num{flex:0 0 auto;display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:#eaf2ed;color:var(--educ-vert);font:750 12px/1 var(--sans);letter-spacing:.03em}
+.gab[data-gab-salle="educateur"] .educ-carte-texte{display:grid;gap:3px;min-width:0;flex:1}
+.gab[data-gab-salle="educateur"] .educ-carte-texte strong{font:700 clamp(13px,1.02vw,15.5px)/1.25 var(--sans);color:var(--educ-encre)}
+.gab[data-gab-salle="educateur"] .educ-carte-texte small{font:450 12px/1.35 var(--sans);color:#57706d}
+.gab[data-gab-salle="educateur"] .educ-chevron{flex:0 0 auto;display:grid;place-items:center;height:23px;width:23px;border:1px solid #d2e1d8;border-radius:50%;color:var(--educ-vert);font:600 18px/1 var(--sans);transition:transform .15s}
+.gab[data-gab-salle="educateur"] .educ-carte[open] .educ-chevron{transform:rotate(45deg)}
+.gab[data-gab-salle="educateur"] .educ-carte[open]{box-shadow:0 9px 25px rgba(23,66,61,.09)}
+.gab[data-gab-salle="educateur"] .educ-carte .educ-details-list{margin:0;padding:4px 18px 15px 28px;list-style:disc;border-top:1px solid #e6eeea;display:grid;gap:4px}
+html body .gab[data-gab-salle="educateur"] .educ-carte .educ-details-list li{font-size:13px!important;line-height:1.4!important;hyphens:auto!important}
+.gab[data-gab-salle="educateur"] .educ-carte:focus-within,.gab[data-gab-salle="educateur"] .educ-quebec:focus-within{outline:2px solid #4b8b83;outline-offset:2px}
+.gab[data-gab-salle="educateur"] .educ-quebec{margin-top:10px;background:#f4f8f6;border:1px solid var(--educ-bord);border-radius:11px;overflow:hidden}
+.gab[data-gab-salle="educateur"] .educ-quebec>summary{display:flex;align-items:center;gap:10px;min-height:41px;padding:8px 15px;cursor:pointer;list-style:none;font:650 13px/1.4 var(--sans);color:var(--educ-encre)}
+.gab[data-gab-salle="educateur"] .educ-quebec>summary span:first-child{color:var(--educ-vert)}
+.gab[data-gab-salle="educateur"] .educ-quebec>summary .educ-secondaire{font-size:11.5px;color:#60746e;font-weight:450}
+.gab[data-gab-salle="educateur"] .educ-quebec>summary .educ-deplier{margin-inline-start:auto;font-size:18px;line-height:1}
+.gab[data-gab-salle="educateur"] .educ-quebec[open]>summary .educ-deplier{transform:rotate(45deg)}
+.gab[data-gab-salle="educateur"] .educ-quebec-contenu{padding:0 16px 14px}
+.gab[data-gab-salle="educateur"] .educ-quebec-contenu .groupe-carte{box-shadow:none;border:0;border-top:1px solid #d8e6df;border-radius:0;background:transparent}
+.gab[data-gab-salle="educateur"] .educ-quebec-contenu .groupe-corps{padding:14px 0 0}
+.gab[data-gab-salle="educateur"] .educ-quebec-contenu .cnp-reperes{gap:15px;margin-bottom:14px}
+.gab[data-gab-salle="educateur"] .educ-quebec-contenu .cnp-reperes>div{padding:12px;border:1px solid #d8e6df;border-radius:9px;background:#fff}
+.gab[data-gab-salle="educateur"] .educ-quebec-contenu .cnp-competences{margin:12px 0 8px}
+.gab[data-gab-salle="educateur"] .educ-quebec-contenu .vitrine-liste{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px 15px}
+.gab[data-gab-salle="educateur"] .gab-bas-chapitre{margin-top:6px!important;padding-top:8px!important;padding-bottom:0!important}
+@media(max-height:760px) and (min-width:1120px){.gab[data-gab-salle="educateur"] .educ-presentation{min-height:132px;padding:9px 17px!important}.gab[data-gab-salle="educateur"] .educ-presentation-figure img{max-height:110px}.gab[data-gab-salle="educateur"] .educ-grille{gap:8px;margin-top:8px}.gab[data-gab-salle="educateur"] .educ-carte>summary{min-height:72px;padding:9px 13px}.gab[data-gab-salle="educateur"] .bandeau.gab-bandeau{height:55px!important;min-height:55px!important}}
+@media(max-width:1120px){.gab[data-gab-salle="educateur"] .educ-presentation{grid-template-columns:minmax(0,1fr) 230px}.gab[data-gab-salle="educateur"] .educ-grille{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.salle .gab[data-gab-salle="educateur"] .section-contenu.gab{padding:6px 12px 18px!important}.gab[data-gab-salle="educateur"] .bandeau.gab-bandeau{height:auto!important;min-height:60px!important;padding:10px 14px!important}.gab[data-gab-salle="educateur"] .gab-bandeau .bandeau-legende{display:none}.gab[data-gab-salle="educateur"] .educ-presentation{grid-template-columns:1fr;padding:15px!important;gap:8px}.gab[data-gab-salle="educateur"] .educ-presentation-figure{display:none}.gab[data-gab-salle="educateur"] .educ-grille{grid-template-columns:1fr}.gab[data-gab-salle="educateur"] .educ-carte>summary{min-height:70px}.gab[data-gab-salle="educateur"] .educ-quebec>summary{flex-wrap:wrap}.gab[data-gab-salle="educateur"] .educ-quebec>summary .educ-secondaire{display:none}.gab[data-gab-salle="educateur"] .educ-quebec-contenu .cnp-reperes,.gab[data-gab-salle="educateur"] .educ-quebec-contenu .vitrine-liste{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.gab[data-gab-salle="educateur"] .educ-chevron{transition:none}}
+@media(forced-colors:active){.gab[data-gab-salle="educateur"] .educ-carte,.gab[data-gab-salle="educateur"] .educ-quebec,.gab[data-gab-salle="educateur"] .educ-presentation{border:1px solid CanvasText}.gab[data-gab-salle="educateur"] .educ-num,.gab[data-gab-salle="educateur"] .educ-kicker span{background:Canvas;color:CanvasText}}
