@@ -114,3 +114,20 @@ html body .gab[data-gab-salle="educateur"] .educ-carte .educ-details-list li{fon
   .gab[data-gab-salle="educateur"] .educ-bas-nav .gab-bas-suivant{grid-column:2;grid-row:2}
   .gab[data-gab-salle="educateur"] .educ-bas-nav .gab-nav-cible{font-size:11px}
 }
+
+/* EDUCATEUR_MENU_HAUT_20261019 : réafficher la navigation native déjà utilisée pour la thèse. */
+.salle.gab-salle:has(.salle-contenu .gab[data-gab-salle="educateur"]) .salle-barre.gab-barre > .gab-lecture{
+  display:grid!important;
+  opacity:1!important;
+  visibility:visible!important;
+  max-height:155px!important;
+  height:auto!important;
+  overflow:visible!important;
+  margin-top:8px!important;
+  transition:none!important;
+}
+@media(max-width:700px){
+  .salle.gab-salle:has(.salle-contenu .gab[data-gab-salle="educateur"]) .salle-barre.gab-barre > .gab-lecture{
+    max-height:180px!important;
+  }
+}
