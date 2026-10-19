@@ -1365,17 +1365,14 @@
     if (s.length > 160) {
       const p = paragraphes.find(p=>p[0].test(s));
       if (p) return p[1];
-      if (/[∑Σ∏𝟙]/.test(s) || /^\s*[A-Z][a-z]?,[a-z]+\s*=/.test(s)) {
+      if (s.length < 300 && (/[∑Σ∏𝟙]/.test(s) || /^\s*[A-Z][a-z]?,[a-z]+\s*=/.test(s))) {
         if (region === "o2") return "Ce calcul sert à comparer l’accès aux services selon les lieux, les temps de trajet et les informations disponibles. Il ne prouve pas qu’une personne a reçu de l’aide.";
         if (region === "o3") return "Cette mesure décrit le nombre d’organismes, leur diversité ou la force de leurs relations. Elle ne sera utilisée que si les réponses sont assez complètes.";
         return "Cette mesure sert à comparer des informations sans supposer qu’un besoin existe chez une personne.";
       }
-      let v = vocabulaire(s);
-      if (v.length > 800) {
-        const phrases = v.split(/(?<=[.!?])\s+(?=[A-ZÀ-Ÿ])/u).filter(Boolean);
-        if (phrases.length > 4) v = phrases.slice(0,3).join(" ") + " Les limites et informations manquantes seront signalées.";
-      }
-      return v;
+      // Conserver toutes les informations des passages non réécrits,
+      // plutôt que supprimer arbitrairement les dernières phrases.
+      return vocabulaire(s);
     }
     return vocabulaire(s);
   }
