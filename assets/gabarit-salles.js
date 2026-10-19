@@ -976,8 +976,8 @@
       const textes = document.createTreeWalker(corps, NodeFilter.SHOW_TEXT);
       let noeud;
       while ((noeud = textes.nextNode())) {
-        if (/\\bNVivo\\b/.test(noeud.nodeValue))
-          noeud.nodeValue = noeud.nodeValue.replace(/\\bNVivo\\b/g, "ATLAS.ti");
+        if (noeud.nodeValue.includes("NVivo"))
+          noeud.nodeValue = noeud.nodeValue.replaceAll("NVivo", "ATLAS.ti");
       }
     }
     if (salle === "recherche" && langue === "fr" && ch.cle === "faisabilite") {
