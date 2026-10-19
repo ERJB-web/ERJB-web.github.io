@@ -110,4 +110,33 @@ html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab
   }
 }
 
+
+/* Densité de la salle Juriste sur écran standard : toutes les rubriques tiennent
+   dans une vue synthétique. Les réglages de grossissement et de contraste restent
+   soumis à la charte accessible commune. */
+html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="juriste"] .gab-bandeau .bandeau-titre{
+  font-size:clamp(26px,2.4vw,32px)!important;line-height:1.1!important;
+}
+html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="juriste"] .gab-bandeau .bandeau-legende{
+  font-size:13px!important;line-height:1.35!important;
+}
+html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="juriste"] .gab-intro h2{
+  font-size:clamp(19px,1.8vw,23px)!important;line-height:1.18!important;font-weight:570!important;
+}
+html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="juriste"] .gab-intro p{
+  font-size:13.5px!important;line-height:1.4!important;
+}
+html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="juriste"] .gab-chapitre-tete .gab-chapitre-num{
+  font-size:15px!important;line-height:1.3!important;font-weight:620!important;
+}
+html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="juriste"] .gab-chapitre-tete .gab-chapitre-num>b{
+  font-size:11px!important;line-height:1!important;
+}
+html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="juriste"] .gab-corps .juriste-resume{
+  font-size:13.5px!important;line-height:1.4!important;
+}
+html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="juriste"] .juriste-dialog .vitrine-liste li{
+  font-size:15px!important;line-height:1.58!important;
+}
+
 }
