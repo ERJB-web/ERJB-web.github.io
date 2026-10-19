@@ -71,6 +71,10 @@
     // sans remplacer le document MSSS conservé dans le contenu du chapitre.
     if (salle === "recherche" && ch.cle === "transfert")
       return { url: absolue(`${CHEMIN}assets/portes/transfert-congres.jpg`) };
+    if (salle === "transmission" && ch.cle === "enseignement-0") {
+      const photo = CATALOGUE.find(im => im.fichier === "parcours-03.webp");
+      if (photo) return { url: urlImage(photo), image: photo };
+    }
     const explicite = ch.source?.dataset?.image;
     if (explicite === "aucune") return { url: "" };
     if (explicite) return { url: absolue(explicite) };
@@ -436,27 +440,40 @@
     return img ? absolue(img.getAttribute("src")) : "";
   }
 
-  // Libellés courts du sommaire français ; les titres et le contenu restent intacts.
-  const sommaireTheseFr = {
-    "1. Le problème : des besoins qui dépassent l’offre": "Besoins et offre de services",
-    "2. Quand les besoins se cumulent, la réponse se complique": "Cumul des besoins",
-    "3. Plusieurs portes d’entrée, pas une seule": "Portes d’entrée",
-    "4. Ce qui existe déjà au Québec pour intégrer les services": "Intégration des services",
-    "5. Ce que la littérature a déjà tenté": "État des connaissances",
-    "La lacune principale": "Lacune scientifique",
-    "6. Une réponse intersectorielle, pas seulement une intervention individuelle": "Réponse intersectorielle",
-    "7. Volet secondaire : territoire vécu et territoire administratif": "Territoires vécus et administratifs",
-    "8. L’idée de la thèse": "Idée de la thèse",
-    "9. Ma posture": "Posture de recherche",
-    "Lire le territoire avant de décrire les réseaux": "Lecture du territoire",
-    "Le devis : trois objectifs qui s’enchaînent": "Devis en trois objectifs",
-    "O1 · La revue de portée, de la recherche au tri": "O1 · Revue de portée",
-    "Les outils, tels qu’on les utilise": "Outils de recherche",
-    "Objectif 2 : de la donnée publique à l’atlas par territoire de CLSC": "O2 · Données et atlas",
-    "Les données du mapping : ce qu’on a, ce qu’on en fait": "Données cartographiques",
-    "Pourquoi ces deux méthodes sont indispensables": "Choix des méthodes",
-    "Mesurer l’accessibilité et la réponse de proximité": "Accessibilité et proximité"
-  };
+  // Un seul intitulé : celui du contenu. Ne pas utiliser de paraphrases de menu.
+  function titreSommaire(titre) {
+    if (!titre) return "";
+    const source = titre.matches(".cp-module > summary") ? $(".cp-summary strong", titre)
+      : titre.matches(".ei-gesture > summary") ? $("strong", titre) : titre;
+    const copie = (source || titre).cloneNode(true);
+    $$("svg, .compte, .rg-compte, .objectif-code, [aria-hidden='true']", copie).forEach(n => n.remove());
+    $$("br", copie).forEach(n => n.replaceWith(D.createTextNode(" ")));
+    // Les badges sont visuels et restent séparés du texte, comme en méthodologie.
+    const numero = $(":scope > span", copie);
+    if (titre.matches(".methode-rubrique-titre") && /^\d+$/.test(net(numero?.textContent))) numero.remove();
+    return net(copie.textContent);
+  }
+  function niveauSommaire(titre) {
+    if (titre.matches(".impl-portail-grand-titre")) return 3;
+    if (titre.closest(".impl-portail-fusion")) return Math.min(6, Number(titre.tagName.slice(1)) + 2);
+    if (titre.matches("summary")) return 4;
+    if (titre.matches("h4") && /^\d+[.)]\s/.test(titreSommaire(titre))) return 3;
+    return Number(titre.tagName.slice(1)) || 5;
+  }
+  function titresSommaire(corps, salle, chapitre) {
+    const methode = salle === "recherche" && langue === "fr" && /methode/.test(chapitre.cle || "");
+    return $$("h3, h4, h5, .impl-portail-fusion h2, .cp-module > summary, .ei-gesture > summary", corps).filter(h => {
+      if (!titreSommaire(h) || h.closest("figure, svg, table, .gab-bas-chapitre, .gab-chapitre-tete")) return false;
+      // Les questions et réponses qui changent sont des contrôles, pas des rubriques.
+      if (h.closest(".cp-step-content, .cp-challenge, .cp-quiz-board, .ei-stage, .ei-lens, .ei-purpose-content, .ei-society, .ei-lab-output, .ei-quiz-results")) return false;
+      if (h.closest("[data-ei-root]") && !h.matches("h3, .ei-gesture > summary")) return false;
+      const detail = h.closest("details:not([open])");
+      if (detail && corps.contains(detail) && !h.matches("summary") && !(methode && detail.matches(".methode-these"))) return false;
+      const cache = h.closest("[hidden]");
+      if (cache && corps.contains(cache) && !(methode && cache.matches(".these-objectif-vue"))) return false;
+      return titreSommaire(h) !== net(chapitre.titre) || h.tagName !== "H3";
+    });
+  }
 
   // Navigation de la méthodologie : un même objectif regroupe et colore
   // toutes ses sous-parties, sans toucher à leur contenu ou à leurs cibles.
@@ -477,7 +494,8 @@
       const rubriques = $$(":scope > .methode-these-corps > section.methode-rubrique[id]", source)
         .filter((partie) => !!partie.querySelector(":scope > h5.methode-rubrique-titre"));
       if (!rubriques.length) return null;
-      return { code, nom, source, rubriques };
+      const enTete = $(".methode-objectif-tete h4", source);
+      return { code, nom: enTete ? titreSommaire(enTete) : nom, source, rubriques };
     });
     // Conserver le menu existant si les rubriques réelles ne sont pas encore disponibles.
     if (sections.some((section) => !section)) return;
@@ -508,11 +526,13 @@
       rubriques.forEach((rubrique, position) => {
         const enTete = rubrique.querySelector(":scope > h5.methode-rubrique-titre");
         const numero = net(enTete.querySelector("span")?.textContent) || deux(position + 1);
-        const libelle = net(enTete.textContent).slice(numero.length).trim();
+        const libelle = titreSommaire(enTete);
+        if (!enTete.id) enTete.id = rubrique.id + "-titre";
         const lien = el("a", "gab-sommaire-etape");
         lien.href = "#" + encodeURIComponent(rubrique.id);
         lien.dataset.gabCible = rubrique.id;
         lien.dataset.gabNiveau = "h5";
+        lien.dataset.gabTitre = enTete.id;
         lien.dataset.objectif = code;
         lien.setAttribute("aria-label", code + " · " + numero + " · " + libelle);
         lien.innerHTML =
@@ -521,103 +541,6 @@
         liens.append(lien);
       });
       groupe.append(titre, liens);
-      nav.append(groupe);
-    });
-  }
-
-  // Thèse : un sommaire structuré par sections colorées dans chaque chapitre.
-  // Même composants, même hiérarchie et mêmes destinations que le modèle de la
-  // méthodologie (Cadre / O1 / O2 / O3). Les titres h4 restent intacts.
-  function organiserSommaireSections(nav, intertitres, chapitre) {
-    const titre = normaliser(chapitre.titre);
-    // Débuts des sections dans l'ordre de lecture : les sous-titres non
-    // reconnus restent dans leur section en cours, jamais supprimés.
-    const plans = {
-      contexte: [
-        { nom: "Notions et ressources" },
-        { nom: "Besoins sociaux et réponse", debut: /le probleme|besoins et offre|besoins sociaux|les besoins se cumulent/ },
-        { nom: "Connaissances et lacune", debut: /etat des connaissances|ce que la litterature/ },
-        { nom: "Territoires et posture", debut: /reponse intersectorielle|territoires vecus/ }
-      ],
-      objectifs: [
-        { nom: "Question et objectifs" },
-        { nom: "Profils de besoins", objectif: "O1", debut: /^o\s*1\b|^objectif\s*1\b|decrire les profils/ },
-        { nom: "Ressources territoriales", objectif: "O2", debut: /^o\s*2\b|^objectif\s*2\b|reperer les ressources/ },
-        { nom: "Réseaux intersectoriels", objectif: "O3", debut: /^o\s*3\b|^objectif\s*3\b|comprendre les reseaux/ }
-      ],
-      faisabilite: [
-        { nom: "Données et conditions" },
-        { nom: "Terrain et partenariats", debut: /o3 sur le terrain|associer le terrain|partenariats/ },
-        { nom: "Calendrier", debut: /calendrier|planification/ }
-      ],
-      retombees: [
-        { nom: "Productions et premiers résultats" },
-        { nom: "Retombées et échelles d'action", debut: /retombees concretes|a l echelle du quebec/ },
-        { nom: "Évaluation et références", debut: /comment on s assure|references/ }
-      ],
-      transfert: [
-        { nom: "Transfert de connaissances" },
-        { nom: "Implantation", debut: /preparer les conditions|mise en oeuvre|implantation/ },
-        { nom: "Diffusion et évaluation", debut: /diffuser|evaluer l usage|evaluation de l usage/ },
-        { nom: "Participation et cadre institutionnel", debut: /partenaires patients|cadre institutionnel|codirection/ }
-      ]
-    };
-    const cle = /problematique|objectifs/.test(titre) ? "objectifs"
-      : /contexte/.test(titre) ? "contexte"
-      : /faisabilite/.test(titre) ? "faisabilite"
-      : /retombees/.test(titre) ? "retombees"
-      : /transfert|implantation/.test(titre) ? "transfert" : "";
-    const plan = plans[cle];
-    if (!plan) return;
-    const liens = Array.from(nav.querySelectorAll(":scope > a[data-gab-intertitre]"));
-    if (liens.length !== intertitres.length || liens.length < 2) return;
-
-    // Couleurs distinctes pour les sections, cohérentes entre les six
-    // chapitres ; O1/O2/O3 conservent leurs teintes de la méthodologie.
-    const palette = [
-      { texte:"#365772", trait:"#76a2bb", fond:"#edf4f8", lien:"#f8fbfd" },
-      { texte:"#286c23", trait:"#5aae38", fond:"#ecf7e8", lien:"#f5fbf2" },
-      { texte:"#006e72", trait:"#11a7a5", fond:"#e9f7f6", lien:"#f3fbfa" },
-      { texte:"#18559b", trait:"#0755ad", fond:"#ebf2fd", lien:"#f3f7ff" },
-      { texte:"#80532e", trait:"#bf8953", fond:"#faf2e9", lien:"#fdf9f4" }
-    ];
-    const listes = plan.map(() => []);
-    let sectionActuelle = 0;
-    liens.forEach((a, k) => {
-      const valeur = normaliser(intertitres[k].textContent);
-      for (let j = sectionActuelle + 1; j < plan.length; j++) {
-        if (plan[j].debut?.test(valeur)) {
-          sectionActuelle = j;
-          break;
-        }
-      }
-      listes[sectionActuelle].push(a);
-    });
-    nav.classList.add("gab-sommaire-objectifs", "gab-sommaire-sections");
-    const etiquette = nav.querySelector(":scope > span");
-    nav.replaceChildren();
-    if (etiquette) nav.append(etiquette);
-    plan.forEach((g, k) => {
-      if (!listes[k].length) return;
-      const groupe = el("section", "gab-sommaire-groupe");
-      groupe.dataset.section = cle + "-" + k;
-      if (g.objectif) groupe.dataset.objectif = g.objectif;
-      const couleur = g.objectif === "O1" ? palette[1] :
-        g.objectif === "O2" ? palette[2] :
-        g.objectif === "O3" ? palette[3] : palette[k % palette.length];
-      for (const [variable, valeur] of Object.entries({
-        "--objectif-texte": couleur.texte,
-        "--objectif-trait": couleur.trait,
-        "--objectif-fond": couleur.fond,
-        "--objectif-lien": couleur.lien
-      })) groupe.style.setProperty(variable, valeur);
-      groupe.setAttribute("aria-label", g.nom);
-      const enTete = el("div", "gab-sommaire-groupe-titre");
-      if (g.objectif) enTete.append(el("b", "", echapper(g.objectif)));
-      enTete.append(el("strong", "", echapper(g.nom)));
-      const items = el("div", "gab-sommaire-groupe-liens");
-      items.append(...listes[k]); // conserve data-gab-intertitre et les liens
-      groupe.append(enTete, items);
       nav.append(groupe);
     });
   }
@@ -631,35 +554,38 @@
     const ajouterLien = (cible, libelle) => {
       if (!cible) return null;
       if (!cible.id) cible.id = "gab-problematique-cible-" + libelle.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-      const lien = el("a", "", echapper(libelle));
+      const lien = el("a", "", echapper(titreSommaire(cible) || libelle));
       lien.href = "#" + encodeURIComponent(cible.id);
       lien.dataset.gabCible = cible.id;
+      lien.dataset.gabTitre = cible.id;
       return lien;
     };
     const groupes = [
       { nom: "Problématique", liens: [ajouterLien(
-        corps.querySelector(".these-question-encadre") || corps.querySelector(".these-problematique") || corps,
+        corps.querySelector(".these-problematique-bandeau__titre, .these-question-encadre :is(.surtitre,.these-question-label)"),
         "Question de recherche"
       )] },
       { nom: "Objectif général", liens: [lienPour(/^objectif general$/)] },
-      { nom: "Point de thèse", liens: [lienPour(/^point de these$/)] }
+      { nom: "Point de thèse", liens: [lienPour(/^point de these$/)] },
+      { nom: "Objectifs spécifiques", liens: [lienPour(/^objectifs specifiques$/)] }
     ];
     ["O1", "O2", "O3"].forEach((code, index) => {
       const numero = index + 1;
       const carte = corps.querySelector('.ov-carte[data-objectif="' + code + '"], .objectif-carte[data-objectif="' + code + '"]');
-      const lacune = carte?.querySelector(".ov-lacune-avant");
+      const lacune = carte?.querySelector(".ov-lacune-titre");
       const libelles = ["decrire les profils", "reperer les ressources", "comprendre les reseaux"];
       const objectif = lienPour(new RegExp("^o\\s*" + numero + "\\b|^objectif\\s*" + numero + "\\b|" + libelles[index]));
       const liensObjectif = [
         ajouterLien(lacune, "Lacune scientifique " + numero),
-        objectif
+        objectif,
+        ...liens.filter((lien, i) => carte?.contains(intertitres[i]) && lien !== objectif)
       ].filter(Boolean);
-      groupes.push({ nom: "Lacune scientifique " + numero + " et objectif spécifique " + numero,
-        objectif: code, liens: liensObjectif });
+      groupes.push({ nom: titreSommaire(carte?.querySelector("h4")) || "Objectif " + numero,
+        objectif: code, titreLien: objectif, liens: liensObjectif });
     });
     const hypotheses = corps.querySelector(".these-hypotheses h4");
     if (hypotheses) groupes.push({ nom: "Hypothèses",
-      liens: [lienPour(/^hypotheses/) || ajouterLien(hypotheses, "Hypothèses exploratoires")] });
+      liens: [lienPour(/^hypotheses/) || ajouterLien(hypotheses, titreSommaire(hypotheses))] });
     const palette = [
       { texte:"#365772", trait:"#76a2bb", fond:"#edf4f8", lien:"#f8fbfd" },
       { texte:"#286c23", trait:"#5aae38", fond:"#ecf7e8", lien:"#f5fbf2" },
@@ -670,6 +596,11 @@
     const etiquette = nav.querySelector(":scope > span");
     nav.replaceChildren();
     if (etiquette) nav.append(etiquette);
+    groupes.sort((a,b) => {
+      const cible = g => $$("[id]",corps).find(n => n.id === g.liens.find(Boolean)?.dataset.gabCible);
+      const x=cible(a), y=cible(b);
+      return x && y ? (x.compareDocumentPosition(y) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1) : 0;
+    });
     groupes.forEach((g, i) => {
       const elements = g.liens.filter(Boolean);
       if (!elements.length) return;
@@ -685,12 +616,15 @@
         "--objectif-fond": couleur.fond,
         "--objectif-lien": couleur.lien
       })) groupe.style.setProperty(variable, valeur);
-      groupe.setAttribute("aria-label", g.nom);
+      const titreLien = g.titreLien || elements[0];
+      const nom = net(titreLien.textContent);
+      groupe.setAttribute("aria-label", nom);
       const entete = el("div", "gab-sommaire-groupe-titre");
       if (g.objectif) entete.append(el("b", "", echapper(g.objectif)));
-      entete.append(el("strong", "", echapper(g.nom)));
+      titreLien.classList.add("gab-section-lien-titre");
+      entete.append(titreLien);
       const items = el("div", "gab-sommaire-groupe-liens");
-      items.append(...elements);
+      items.append(...elements.filter(a => a !== titreLien));
       groupe.append(entete, items);
       nav.append(groupe);
     });
@@ -721,9 +655,9 @@
       groupe.dataset.section = "vulgarisation-" + (k+1);
       const numero = el("div","gab-sommaire-groupe-titre");
       numero.append(el("b","",deux(k+1)));
-      numero.append(el("strong","", "Section " + deux(k+1)));
+      lien.classList.add("gab-section-lien-titre");
+      numero.append(lien);
       const contenu = el("div","gab-sommaire-groupe-liens");
-      contenu.append(lien);
       groupe.append(numero,contenu);
       nav.append(groupe);
     });
@@ -739,16 +673,12 @@
     let groupe = null;
     liens.forEach((lien, index) => {
       const titre = intertitres[index];
-      if (titre.tagName === "H3") {
-        groupe = { nom: net(titre.textContent), titreLien: lien, liens: [] };
+      const niveau = niveauSommaire(titre);
+      if (!groupe || niveau <= groupe.niveau) {
+        groupe = { nom: titreSommaire(titre), titreLien: lien, liens: [], niveau };
         groupes.push(groupe);
       } else {
-        // Pour les chapitres sans H3, créer de courtes sections colorées
-        // à partir des titres existants, sans les renommer ni les déplacer.
-        if (!groupe || (!groupe.titreLien && groupe.liens.length >= 3)) {
-          groupe = { nom: "", titreLien: null, liens: [] };
-          groupes.push(groupe);
-        }
+        lien.dataset.gabProfondeur = String(niveau - groupe.niveau);
         groupe.liens.push(lien);
       }
     });
@@ -770,13 +700,9 @@
         .forEach((nom,i)=>bloc.style.setProperty(nom,couleurs[i]));
       const titre = el("div", "gab-sommaire-groupe-titre");
       titre.append(el("b", "", deux(index + 1)));
-      if (g.titreLien) {
-        g.titreLien.classList.add("gab-section-lien-titre");
-        titre.append(g.titreLien);
-        bloc.setAttribute("aria-label", g.nom);
-      } else {
-        titre.append(el("strong", "", echapper("Section " + deux(index + 1))));
-      }
+      g.titreLien.classList.add("gab-section-lien-titre");
+      titre.append(g.titreLien);
+      bloc.setAttribute("aria-label", g.nom);
       const liste = el("div", "gab-sommaire-groupe-liens");
       liste.append(...g.liens);
       bloc.append(titre, liste);
@@ -847,6 +773,77 @@
     remplacerPaire(titreKappa, texteKappa, bandeau);
   }
 
+  function fabriquerSommaire(corps, salle, chapitre, index) {
+    const titres = titresSommaire(corps, salle, chapitre);
+    if (!titres.length) return null;
+    const nav = el("nav", "gab-sommaire-chapitre");
+    nav.setAttribute("aria-label", T.dans);
+    nav.setAttribute("tabindex", "0");
+    nav.append(el("span", "", echapper(T.dans)));
+    const ids = new Map();
+    $$("[id]", corps).forEach(n => { if (!ids.has(n.id)) ids.set(n.id,n); });
+    titres.forEach((h, k) => {
+      if (!h.id || ids.get(h.id) !== h) {
+        const base = "gab-partie-" + langue + "-" + (chapitre.cle || "chapitre") + "-" + (index + 1) + "-" + (k + 1);
+        let id = base, suffixe = 1;
+        while (ids.has(id)) id = base + "-" + suffixe++;
+        h.id = id; ids.set(id,h);
+      }
+      const lien = el("a", "", echapper(titreSommaire(h)));
+      lien.href = "#" + encodeURIComponent(h.id);
+      lien.dataset.gabIntertitre = String(k);
+      lien.dataset.gabCible = h.id;
+      lien.dataset.gabTitre = h.id;
+      lien.dataset.gabNiveau = h.tagName.toLowerCase();
+      const code = h.closest("[data-objectif]")?.dataset.objectif;
+      if (/^O[123]$/.test(code || "")) lien.dataset.objectif = code;
+      nav.append(lien);
+    });
+    const these = salle === "recherche" && langue === "fr";
+    if (these && /methode/.test(chapitre.cle || "")) organiserSommaireObjectifs(nav, titres);
+    else if (these && /problematique|objectifs/.test((chapitre.cle || "") + " " + normaliser(chapitre.titre))) organiserSommaireProblematique(nav, titres, corps);
+    else organiserSommaireUniversel(nav, titres);
+    const bascule=el("button","gab-sommaire-basculer",echapper(T.dans)+' <span aria-hidden="true">⌄</span>');
+    bascule.type="button";bascule.setAttribute("aria-expanded","false");nav.dataset.gabReplie="oui";nav.prepend(bascule);
+    return nav;
+  }
+  const corpsSommairesObserves = new WeakSet();
+  function actualiserSommaire(chapitre) {
+    const corps = $(".gab-corps", chapitre), aside = $(".gab-chapitre-aside", chapitre);
+    if (!corps || !aside) return;
+    const salle = chapitre.closest("[data-gab-salle]")?.dataset.gabSalle || "";
+    const nouveau = fabriquerSommaire(corps, salle, {
+      cle: chapitre.dataset.gabSlug, titre: chapitre.dataset.gabTitre
+    }, Number(chapitre.dataset.gabIndex || 0));
+    const ancien = $(".gab-sommaire-chapitre", aside);
+    if (!nouveau) { ancien?.remove(); return; }
+    if (ancien?.innerHTML === nouveau.innerHTML && ancien.className === nouveau.className) return;
+    if(ancien?.dataset.gabReplie === "non") {
+      nouveau.dataset.gabReplie="non";$(".gab-sommaire-basculer",nouveau)?.setAttribute("aria-expanded","true");
+    }
+    const position = ancien?.scrollTop || 0;
+    const focus = ancien?.contains(D.activeElement) ? D.activeElement.dataset.gabCible : null;
+    if (ancien) ancien.replaceWith(nouveau); else aside.append(nouveau);
+    nouveau.scrollTop = position;
+    const grille = $(".gab-chapitre-grille", chapitre);
+    grille?.classList.toggle("gab-menu-universel", nouveau.classList.contains("gab-sommaire-universel"));
+    if (focus) $$("a", nouveau).find(a => a.dataset.gabCible === focus)?.focus({ preventScroll: true });
+  }
+  function observerSommaires(zone) {
+    $$(".gab-chapitre", zone).forEach(chapitre => {
+      const corps = $(".gab-corps", chapitre);
+      if (!corps || corpsSommairesObserves.has(corps)) return;
+      corpsSommairesObserves.add(corps);
+      actualiserSommaire(chapitre);
+      let attente = false;
+      new MutationObserver(() => {
+        if (attente || !chapitre.isConnected) return;
+        attente = true;
+        requestAnimationFrame(() => { attente = false; actualiserSommaire(chapitre); });
+      }).observe(corps, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ["hidden", "open"] });
+    });
+  }
+
   function construireChapitre(ch, i, n, couleur, choix, salle) {
     const section = ch.surPlace ? ch.source : el("section");
     section.classList.add("gab-chapitre");
@@ -887,66 +884,14 @@
     const aside = el("aside", "gab-chapitre-aside");
     // Dans le contexte de la thèse, le visuel de chiffres clés du premier chapitre
     // figure déjà dans le corps : ne pas le dupliquer au-dessus du sommaire.
-    if (choix.url && !REGLES[salle]?.unique && !(salle === "biographie" || salle === "parcours") && !(salle === "recherche" && i === 0) && !(salle === "recherche" && ch.cle === "transfert")) {
+    if (choix.url && salle !== "vulgarisation" && !REGLES[salle]?.unique && !(salle === "biographie" || salle === "parcours") && !(salle === "recherche" && i === 0) && !(salle === "recherche" && ch.cle === "transfert")) {
       const credit = choix.image ? `${T.photo} : ${echapper(choix.image.auteur || "")}${choix.image.licence ? " · " + echapper(choix.image.licence) : ""}` : "";
       const alt = choix.alt || (langue === "fr" && choix.image?.alt ? choix.image.alt : "");
       aside.innerHTML = `<div class="gab-photo"><img src="${echapper(choix.url)}" alt="${echapper(alt)}" loading="lazy" decoding="async" width="960" height="640">${credit ? `<small class="gab-credit">${choix.image.source_url ? `<a href="${echapper(choix.image.source_url)}" target="_blank" rel="noopener">${credit}</a>` : credit}</small>` : ""}</div>`;
     }
-    // Ma thèse : le sommaire repère les parties h3 et h4 d'un chapitre.
-    const methodeThese = salle === "recherche" && langue === "fr" &&
-      (ch.cle === "methodes" || ch.cle === "methode" || /m[ée]thod/i.test(ch.titre));
-    const intertitres = Array.from(corps.querySelectorAll("h3, h4, h5.titre-bloc"))
-      .filter((h) => {
-        // Le parcours d'enseignement garde ses rubriques stables dans le menu ;
-        // les titres des situations et des réponses changent pendant l'exploration.
-        if (h.closest('[data-ei-root]') && h.tagName !== 'H3') return false;
-        if (h.closest("details:not([open]), .gab-source.carte-vitrine")) return false;
-        const invisible = h.closest("[hidden]");
-        return !invisible || (methodeThese && invisible.matches(".these-objectif-vue[data-vue-objectif]"));
-      })
-      .filter((h) =>
-        !h.closest(".gab-sommaire-chapitre, .gab-bas-chapitre, .gab-chapitre-tete") &&
-        (net(h.textContent) !== net(ch.titre) || h.tagName !== "H3")
-      );
-    if (intertitres.length >= (salle === "recherche" ? 1 : 2)) {
-      const nav = el("nav", "gab-sommaire-chapitre");
-      nav.setAttribute("aria-label", T.dans);
-      nav.setAttribute("tabindex", "0");
-      const theseFr = salle === "recherche" && langue === "fr";
-      const entrees = intertitres;
-      nav.innerHTML = `<span>${echapper(T.dans)}</span>` + entrees.map((h, k) => {
-        let titre = net(h.textContent);
-        // Certains h4 placent le chiffre de l'étape dans un élément distinct :
-        // textContent le colle au titre (« 1Les », « 3O3 »). Le séparer.
-        const etape = theseFr ? /^([1-9])(?=[A-ZÀ-ÖØ-ÞŒ])/u.exec(titre)?.[1] : "";
-        if (etape) titre = net(titre.slice(etape.length));
-        const prefixe = /^(?:O|Objectif\s*)([123])\b/i.exec(titre);
-        const code = h.closest("[data-objectif]")?.dataset.objectif || (prefixe ? "O" + prefixe[1] : "");
-        const objectif = /^O[123]$/.test(code) ? code : "";
-        let libelle = theseFr ? sommaireTheseFr[titre] || titre : titre;
-        if (salle === "representation" && h.dataset.representationMenu) libelle = h.dataset.representationMenu;
-        if (objectif && !/^(?:O|Objectif\s*)[123]\b/i.test(libelle)) libelle = objectif + " · " + libelle;
-        const texteLien = etape
-          ? `<span class="gab-sommaire-etape-num">${deux(Number(etape))}</span><span class="gab-sommaire-etape-texte">${echapper(libelle)}</span>`
-          : echapper(libelle);
-        const id = h.id || `gab-partie-${langue}-${ch.cle || "chapitre"}-${i + 1}-${k + 1}`;
-        if (!h.id) h.id = id;
-        return `<a href="#${echapper(id)}" data-gab-intertitre="${k}" data-gab-cible="${echapper(id)}" data-gab-niveau="${h.tagName.toLowerCase()}"${etape ? ' class="gab-sommaire-etape"' : ""}${objectif ? ` data-objectif="${objectif}"` : ""}${libelle !== titre ? ` title="${echapper(titre)}"` : ""}>${texteLien}</a>`;
-      }).join("");
-      if (theseFr && (ch.cle === "methodes" || ch.cle === "methode" || /m[ée]thod/i.test(ch.titre))) {
-        organiserSommaireObjectifs(nav, entrees);
-      } else if (theseFr && /problematique|objectifs/.test(normaliser(ch.titre))) {
-        organiserSommaireProblematique(nav, entrees, corps);
-      } else if (theseFr) {
-        organiserSommaireSections(nav, entrees, ch);
-      } else if (salle === "vulgarisation" && langue === "fr") {
-        organiserSommaireVulgarisation(nav, entrees);
-      } else {
-        organiserSommaireUniversel(nav, entrees);
-      }
+    const nav = fabriquerSommaire(corps, salle, ch, i);
+    if (nav) {
       aside.append(nav);
-      // Seule la grille du chapitre contenant un sommaire universel change :
-      // les onglets des portes, les titres, photos et contenus restent en place.
       if (nav.classList.contains("gab-sommaire-universel")) grille.classList.add("gab-menu-universel");
     }
     // Thèse : seul le sommaire migre à gauche ; l'illustration reste
@@ -1156,6 +1101,13 @@
       chapitres.forEach((ch, i) => conteneur.append(construireChapitre(ch, i, n, COULEURS[i % COULEURS.length], ch.choix, salle)));
       if (chapitres[0].ancre?.isConnected && !chapitres[0].ancre.children.length) chapitres[0].ancre.remove();
       parents.forEach((p) => p.isConnected && nettoyer(p, sc));
+    }
+    // L’introduction du laboratoire appartient au premier chapitre, sans se répéter avant chaque vue.
+    if (salle === "vulgarisation") {
+      const premierCorps = $(".gab-chapitre .gab-corps", sc);
+      const intro = $(".vs-hero", sc), galerie = $(".vul-galerie", sc);
+      if (premierCorps && intro) premierCorps.prepend(intro);
+      if (premierCorps && galerie) premierCorps.append(galerie);
     }
     if (mode === "unique") sc.classList.add("gab-unique");
 
@@ -1408,6 +1360,11 @@
       ouvrirPageChapitre(zone, +tuile.dataset.gabAller, { adresse: true, haut: true });
       return;
     }
+    const basculeSommaire=ev.target.closest(".gab-sommaire-basculer");
+    if(basculeSommaire){
+      const nav=basculeSommaire.closest(".gab-sommaire-chapitre"), ouvert=nav.dataset.gabReplie!=="non";
+      nav.dataset.gabReplie=ouvert?"non":"oui";basculeSommaire.setAttribute("aria-expanded",String(ouvert));return;
+    }
     const inter = ev.target.closest("[data-gab-intertitre], [data-gab-cible]");
     if (inter) {
       ev.preventDefault();
@@ -1531,6 +1488,7 @@
     if (!zone.classList.contains("gab")) transformer(zone);
     mettreAJourChapitreVulgarisation(zone);
     fusionnerDossierImplantation(zone);
+    observerSommaires(zone);
     preparerSalle();
     decorerOnglets();
     const titre = net($("#salle-titre")?.textContent).split(" · ");
@@ -1882,6 +1840,8 @@
   completerMethodologieO2O3();
 
   $$("section.section[data-salle] > .section-contenu").forEach(transformer);
+  observerSommaires(D);
+
   // Charge les sept contenus existants uniquement pour la fusion du chapitre Implantation.
   if(langue==="fr"){
     const script=D.createElement("script");

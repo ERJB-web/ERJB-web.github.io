@@ -184,10 +184,12 @@
     return el;
   };
   const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const panel = n => section.querySelector('[data-rubriques="vulgarisation"] > [data-volet="' + n + '"] .rubrique-contenu');
+  const panel = n => section.querySelector('[data-volet="' + n + '"] .rubrique-contenu');
   const chain = h('section','vs-hero','<div class="vs-hero-copy"><p class="vs-eyebrow">' + escape(t.eyebrow) + '</p><h3>' + escape(t.hero) + '</h3><p>' + escape(t.sub) + '</p><div class="vs-principle"><strong>' + escape(t.key) + '</strong><span>' + escape(t.keyText) + '</span></div></div><div class="vs-hero-art" aria-label="' + escape(t.trail.join(' → ')) + '"><div class="vs-art-orbit"><span>01</span><span>02</span><span>03</span><span>04</span><i></i></div><ol>' + t.trail.map((v,i) => '<li><b>' + escape(v) + '</b><small>' + escape(t.trailDesc[i]) + '</small></li>').join('') + '</ol></div>');
   const gallery = $('.vul-galerie');
-  if (gallery) gallery.before(chain);
+  const firstChapter=section.querySelector(".gab-chapitre .gab-corps");
+  if(firstChapter) firstChapter.prepend(chain);
+  else if (gallery) gallery.before(chain);
 
   const map = h('figure','vs-map','<figcaption><strong>' + escape(t.mapTitle) + '</strong><span>' + escape(t.mapSub) + '</span></figcaption><div class="vs-map-nodes">' + t.mapNodes.map((n,i) => '<article><div class="vs-map-symbol">' + ['◎','◇','↗'][i] + '</div><h5>' + escape(n) + '</h5><p>' + escape(t.mapDetail[i]) + '</p></article>').join('') + '</div><p class="vs-micro">' + escape(t.mapCaption) + '</p>');
   if (panel(0)) panel(0).insertBefore(map,panel(0).firstChild);
@@ -198,6 +200,11 @@
   const risk = h('section','vs-lab');
   risk.innerHTML = '<header class="vs-head"><span class="vs-kicker">01 / DATA LAB</span><h4>' + escape(t.riskTitle) + '</h4><p>' + escape(t.riskIntro) + '</p></header><div class="vs-risk-controls"><label for="vs-risk-range">' + escape(t.change) + '</label><output id="vs-risk-count" for="vs-risk-range">10 / 100</output><input id="vs-risk-range" type="range" min="0" max="60" step="1" value="10"></div><div class="vs-bars" role="img"><div><label>' + escape(t.groupA) + '</label><div class="vs-bar-rail"><span class="vs-bar-a" style="width:20%"></span></div><b>20 / 100</b></div><div><label>' + escape(t.groupB) + '</label><div class="vs-bar-rail"><span class="vs-bar-b" style="width:10%"></span></div><b id="vs-risk-bar-text">10 / 100</b></div></div><div class="vs-risk-stats"><article><small>' + escape(t.absolute) + '</small><strong id="vs-absolute">10</strong><span>' + escape(t.ppts) + '</span></article><article><small>' + escape(t.relative) + '</small><strong id="vs-relative">50 %</strong><span id="vs-relative-label">' + escape(t.less) + '</span></article></div><div class="vs-table-wrap"><table><caption>' + escape(t.riskTitle) + '</caption><thead><tr>' + [t.headG,t.headN,t.headWithout,t.headRate].map(x=>'<th scope="col">' + escape(x) + '</th>').join('') + '</tr></thead><tbody><tr><th scope="row">' + escape(t.groupA) + '</th><td>20</td><td>80</td><td>20 %</td></tr><tr><th scope="row">' + escape(t.groupB) + '</th><td id="vs-table-yes">10</td><td id="vs-table-no">90</td><td id="vs-table-percent">10 %</td></tr></tbody></table></div><p class="vs-micro">' + escape(t.riskNote) + '</p>';
   if (panel(1)) panel(1).append(risk);
+  if(lang==='fr') {
+    const source=h('p','vs-micro');
+    source.innerHTML='Pour approfondir : <a href="https://www.cochrane.org/CD006776/COMMUN_using-different-statistical-formats-for-presenting-health-information" target="_blank" rel="noopener">Cochrane — les effets des différentes façons de présenter un risque</a>. Comparez toujours les fréquences et la période avant de lire un pourcentage relatif.';
+    risk.append(source);
+  }
   const slider = $('#vs-risk-range');
   if (slider) slider.addEventListener('input',()=>{
     const n=Number(slider.value),d=Math.abs(20-n),ratio=Math.round((n-20)/20*100);

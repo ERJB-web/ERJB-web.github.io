@@ -1,5 +1,5 @@
 "use strict";
-/* Edition média de la rubrique 02.4 : médias publiés, photographies sous licence Unsplash.
+/* Edition média de la rubrique 02.4 : médias publiés, photographies documentaires sous licence libre.
  * Réinitialise chaque exemplaire de la salle clonée par le hall.
  */
 (() => {
@@ -7,10 +7,10 @@
   const i18n={
     fr:{
       heroLabel:'LA SCIENCE EN IMAGES, EN VOIX ET EN MOUVEMENT',
-      galleryTitle:'Un studio de communication, pas une suite de diapositives',
-      galleryIntro:'Photographies éditoriales illustrant trois gestes complémentaires : prendre la parole, filmer une explication et enregistrer une discussion. Elles ne représentent pas mes activités personnelles.',
-      photos:['Prendre la parole et partager les données','Concevoir une vidéo pédagogique','Enregistrer et écouter plusieurs voix'],
-      credit:'Photographies : Vitaly Gariev, Detail.co et Gabriel Weyand · Unsplash',
+      galleryTitle:'Comprendre ensemble, expliquer avec les autres',
+      galleryIntro:'Apprendre, confronter les points de vue et construire une explication : trois situations de travail collectif. Ces photographies documentaires illustrent la démarche ; elles ne représentent pas mes activités personnelles.',
+      photos:['Apprendre ensemble à Montréal','Rendre le raisonnement visible en atelier','Discuter les savoirs en formation'],
+      credit:'Photographies documentaires : Jami (Wiki Ed), UCT MOOCs et Benoit Rochon · Wikimedia Commons · licences CC BY-SA 4.0 et CC BY 3.0',
       videoTag:'VIDÉOTHÈQUE • 6 ÉPISODES AUTHENTIFIÉS',
       videoTitle:'Voir comment la santé publique se raconte',
       videoIntro:'Sélection d’épisodes de « Balade santé », production du ministère de la Santé et des Services sociaux du Québec. Vidéos officielles accompagnées de leur contexte et de leur durée.',
@@ -92,10 +92,11 @@
     }
   };
   const t=i18n[local]||i18n.fr;
+  const assetBase=new URL('./',document.querySelector('script[src*="vulgarisation-editorial.js"]').src);
   const photos=[
-    {url:'https://images.unsplash.com/photo-1758691736545-5c33b6255dca?auto=format&fit=crop&w=1300&q=80',link:'https://unsplash.com/photos/woman-presenting-a-graph-to-an-audience-LzBMjkvZfh8'},
-    {url:'https://images.unsplash.com/photo-1764664035154-379971f0e936?auto=format&fit=crop&w=1300&q=80',link:'https://unsplash.com/photos/podcast-recording-setup-with-camera-microphone-and-laptop-d5Tifmm4ILk'},
-    {url:'https://images.unsplash.com/photo-1776690329305-fb4141bd528a?auto=format&fit=crop&w=1300&q=80',link:'https://unsplash.com/photos/a-professional-microphone-in-a-recording-studio-lwR2vJy1zgs'}
+    {url:new URL('chapitres/parcours-03.webp',assetBase).href,link:'https://commons.wikimedia.org/wiki/File:Wiki_Education_pre-Wikimania_workshop_6.jpg',alt:'Atelier Wiki Education à Montréal : échanges autour d’une table',credit:'Jami (Wiki Ed) · CC BY-SA 4.0'},
+    {url:new URL('chapitres/transmission-06.webp',assetBase).href,link:'https://commons.wikimedia.org/wiki/File:Team_workshop.jpg',alt:'Trois participants construisent une carte de travail avec des notes autocollantes',credit:'UCT MOOCs · CC BY-SA 4.0'},
+    {url:new URL('chapitres/transmission-03.webp',assetBase).href,link:'https://commons.wikimedia.org/wiki/File:Journ%C3%A9e_contributive_WikiPhys_de_l%27Universit%C3%A9_de_Montr%C3%A9al_02.jpg',alt:'Travail en binôme lors d’une activité WikiPhys à l’Université de Montréal',credit:'Benoit Rochon · CC BY 3.0'}
   ];
   // Identifiants vérifiés dans les lecteurs de vidéos officiels sur Québec.ca.
   const videos=[
@@ -112,44 +113,21 @@
   function mount(section){
     if(!section||bound.has(section))return;
     bound.add(section);
+    section.querySelectorAll(".ve-theatre,.ve-audio,.ve-library,.ve-jargon").forEach(el=>el.remove());
     const find=(q)=>section.querySelector(q);
-    const panel=n=>section.querySelector('[data-rubriques="vulgarisation"] > [data-volet="'+n+'"] .rubrique-contenu');
+    const panel=n=>section.querySelector('[data-volet="'+n+'"] .rubrique-contenu');
+    // Les schémas du studio restent des schémas : aucune photo décorative hors sujet.
     const heroArt=find('.vs-hero-art');
-    if(heroArt){
-      const orbit=heroArt.querySelector('.vs-art-orbit');if(orbit)orbit.remove();
-      const heroPhoto=h('figure','ve-hero-image','<img src="https://images.unsplash.com/photo-1766853042063-e7fbaccb42c2?auto=format&fit=crop&w=1300&q=80" loading="lazy" decoding="async" width="900" height="620" alt="'+escape(t.photos[0])+'"><figcaption>Giorgio Tomassetti · Unsplash</figcaption>');
-      heroArt.prepend(heroPhoto);
-    }
-    // Replace the initial icon-based format templates and rudimentary storyboard art.
-    const formatPhotos=[
-      'https://images.unsplash.com/photo-1758873269117-d5845126928a?auto=format&fit=crop&w=1100&q=80',
-      'https://images.unsplash.com/photo-1775559052522-2f7a4abbce8e?auto=format&fit=crop&w=1100&q=80',
-      photos[2].url
-    ];
-    section.querySelectorAll('.vul-format-entete img').forEach((img,i)=>{
-      if(i>=formatPhotos.length)return;
-      img.src=formatPhotos[i];img.alt=t.photos[i];img.width=1000;img.height=650;
-      img.classList.add('ve-format-photo');
+    heroArt?.querySelectorAll('.vs-art-orbit,.ve-hero-image').forEach(x=>x.remove());
+    if(heroArt) Array.from(heroArt.querySelectorAll('li')).forEach((li,i)=>{
+      const button=h('button','ve-start');button.type='button';button.dataset.gabAller=[1,2,5,6][i];
+      button.innerHTML='<span class="ve-step-number" aria-hidden="true">0'+(i+1)+'</span><span>'+li.innerHTML+'</span><span aria-hidden="true">↗</span>';
+      li.replaceChildren(button);
     });
-    const stageArt=find('.vs-screen-art');
-    if(stageArt){
-      const old=stageArt.querySelector('.vs-scene');if(old)old.remove();
-      const stagePhoto=h('img','ve-stage-photo');
-      stagePhoto.alt='';stagePhoto.loading='lazy';stagePhoto.decoding='async';
-      stageArt.append(stagePhoto);
-      const frames=[formatPhotos[0],formatPhotos[1],photos[0].url,'https://images.unsplash.com/photo-1766853042063-e7fbaccb42c2?auto=format&fit=crop&w=1100&q=80',photos[2].url];
-      const syncStage=()=>{
-        const label=find('#vs-slide-number');
-        const num=Number(label?.textContent.match(/\d+/)?.[0]||1);
-        stagePhoto.src=frames[Math.min(4,Math.max(0,num-1))];
-      };
-      section.querySelectorAll('.vs-stage-prev,.vs-stage-next').forEach(button=>button.addEventListener('click',syncStage));
-      syncStage();
-    }
     const gallery=find('.vul-galerie');
     if(gallery){
       gallery.classList.add('ve-gallery');
-      gallery.innerHTML='<figcaption><span class="ve-overline">'+escape(t.heroLabel)+'</span><strong>'+escape(t.galleryTitle)+'</strong><p>'+escape(t.galleryIntro)+'</p></figcaption><div class="ve-gallery-grid">'+photos.map((p,i)=>'<figure><img src="'+p.url+'" alt="'+escape(t.photos[i])+'" loading="'+(i?'lazy':'eager')+'" decoding="async" width="700" height="520"><figcaption><b>0'+(i+1)+'</b><span>'+escape(t.photos[i])+'</span></figcaption></figure>').join('')+'</div><p class="ve-credit">'+escape(t.credit)+'</p>';
+      gallery.innerHTML='<figcaption><span class="ve-overline">'+escape(t.heroLabel)+'</span><strong>'+escape(t.galleryTitle)+'</strong><p>'+escape(t.galleryIntro)+'</p></figcaption><div class="ve-gallery-grid">'+photos.map((p,i)=>'<figure><img src="'+p.url+'" alt="'+escape(p.alt)+'" loading="'+(i?'lazy':'eager')+'" decoding="async" width="700" height="520"><figcaption><b>0'+(i+1)+'</b><span>'+escape(local==='fr'?t.photos[i]:p.alt)+'</span></figcaption></figure>').join('')+'</div><p class="ve-credit">'+photos.map(p=>'<a href="'+p.link+'" target="_blank" rel="noopener">'+escape(p.credit)+'</a>').join(' · ')+'</p>';
     }
     const videoSection=panel(3);
     if(videoSection){
@@ -182,7 +160,7 @@
     }
     const resource=panel(6);
     if(resource){
-      const media=h('section','ve-audio','<div class="ve-audio-photo"><img alt="" loading="lazy" src="'+photos[2].url+'"></div><div class="ve-audio-content"><p class="ve-overline">'+escape(t.audioTag)+'</p><h4>'+escape(t.audioTitle)+'</h4><p>'+escape(t.audioIntro)+'</p><div class="ve-audio-actions"><button type="button" class="ve-load-podcast">♫ '+escape(t.audioCta)+'</button><a target="_blank" rel="noopener noreferrer" href="https://podcasts.apple.com/us/podcast/balade-sant%C3%A9/id1821260656?l=fr-FR">'+escape(t.audioOpen)+' ↗</a><a target="_blank" rel="noopener noreferrer" href="https://baladoquebec.ca/baladesante/">'+escape(t.audioAnother)+' ↗</a></div><p class="ve-audio-disclaimer">'+escape(t.audioConsent)+'</p><div class="ve-audio-embed" hidden></div></div>');
+      const media=h('section','ve-audio','<div class="ve-audio-content"><p class="ve-overline">'+escape(t.audioTag)+'</p><h4>'+escape(t.audioTitle)+'</h4><p>'+escape(t.audioIntro)+'</p><div class="ve-audio-actions"><button type="button" class="ve-load-podcast">♫ '+escape(t.audioCta)+'</button><a target="_blank" rel="noopener noreferrer" href="https://podcasts.apple.com/us/podcast/balade-sant%C3%A9/id1821260656?l=fr-FR">'+escape(t.audioOpen)+' ↗</a><a target="_blank" rel="noopener noreferrer" href="https://baladoquebec.ca/baladesante/">'+escape(t.audioAnother)+' ↗</a></div><p class="ve-audio-disclaimer">'+escape(t.audioConsent)+'</p><div class="ve-audio-embed" hidden></div></div>');
       resource.prepend(media);
       media.querySelector('.ve-load-podcast').addEventListener('click',()=>{
         const embed=media.querySelector('.ve-audio-embed');

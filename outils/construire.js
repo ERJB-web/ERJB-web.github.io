@@ -1522,7 +1522,7 @@ ${c.lang === 'fr' ? `<link rel="stylesheet" href="${p}assets/cadres-pedagogiques
 ${c.lang === 'fr' ? `<link rel="stylesheet" href="${p}assets/enseignement-immersif.css?v=${empreinte('assets/enseignement-immersif.css')}"><script src="${p}assets/enseignement-immersif.js?v=${empreinte('assets/enseignement-immersif.js')}" defer></script>` : ''}
 <link rel="stylesheet" href="${p}assets/hall-realiste.css?v=${VERSION_HALL_CSS}">
 <link rel="stylesheet" href="${p}assets/vulgarisation-studio.css?v=20261015studio5">
-<link rel="stylesheet" href="${p}assets/vulgarisation-editorial.css?v=20261015editorial4">
+<link rel="stylesheet" href="${p}assets/vulgarisation-editorial.css?v=6501e1f73c">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="${e(c.meta.titre)}">
 <meta property="og:description" content="${e(c.meta.description)}">
@@ -1534,8 +1534,8 @@ ${c.lang === 'fr' ? `<link rel="stylesheet" href="${p}assets/enseignement-immers
 <script src="${p}assets/hall-marche.js?v=${VERSION_MARCHE}" defer></script>
 <script src="${p}assets/hall-ciel.js?v=${VERSION_CIEL}" defer></script>
 <script src="${p}assets/site.js?v=${VERSION_JS}" defer></script>
-<script src="${p}assets/vulgarisation-studio.js?v=quizfix20261016" defer></script>
-<script src="${p}assets/vulgarisation-editorial.js?v=20261015editorial4" defer></script>
+<script src="${p}assets/vulgarisation-studio.js?v=616a84e6b8" defer></script>
+<script src="${p}assets/vulgarisation-editorial.js?v=1c60acd3f4" defer></script>
 ${baliseAudience(p)}
 <link rel="stylesheet" href="${p}assets/typographie.css?v=bc0fdd3359">
 </head>
