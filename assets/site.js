@@ -1195,7 +1195,7 @@
     return u.pathname + u.search + u.hash;
   };
   const feuille = document.createElement("style");
-  feuille.textContent = '.gab [data-gab-slug="methodes"]>.gab-chapitre-tete{display:flex;align-items:center;justify-content:space-between;gap:14px 24px;flex-wrap:wrap}.gab [data-gab-slug="methodes"] .methode-lien-grand-public{display:inline-flex;align-items:center;justify-content:center;gap:8px;max-width:100%;padding:11px 16px;border:1px solid #b9d8e5;border-radius:11px;background:#eaf4f8;color:#15536c;font:750 13px/1.35 var(--sans,system-ui,sans-serif);letter-spacing:0;text-transform:none;text-decoration:none;box-shadow:0 3px 10px #173b5310}.gab [data-gab-slug="methodes"] .methode-lien-grand-public:hover{background:#d9edf6}.gab [data-gab-slug="methodes"] .methode-lien-grand-public:focus-visible{outline:3px solid #267595;outline-offset:3px}.methode-grand-public-intro{margin:0 0 20px;padding:16px 19px;border-left:4px solid #1c7797;border-radius:10px;background:#eff6fa;color:#1e465b;font:400 14px/1.7 var(--sans,system-ui,sans-serif)}.methode-grand-public-intro p{margin:5px 0 0}@media(max-width:680px){.gab [data-gab-slug="methodes"] .methode-lien-grand-public{width:100%}}';
+  feuille.textContent = '.gab [data-gab-slug="methodes"] .gab-chapitre-tete{display:flex;align-items:center;justify-content:space-between;gap:14px 24px;flex-wrap:wrap}.gab [data-gab-slug="methodes"] .methode-lien-grand-public{display:inline-flex;align-items:center;justify-content:center;gap:8px;max-width:100%;padding:11px 16px;border:1px solid #b9d8e5;border-radius:11px;background:#eaf4f8;color:#15536c;font:750 13px/1.35 var(--sans,system-ui,sans-serif);letter-spacing:0;text-transform:none;text-decoration:none;box-shadow:0 3px 10px #173b5310}.gab [data-gab-slug="methodes"] .methode-lien-grand-public:hover{background:#d9edf6}.gab [data-gab-slug="methodes"] .methode-lien-grand-public:focus-visible{outline:3px solid #267595;outline-offset:3px}.methode-grand-public-intro{margin:0 0 20px;padding:16px 19px;border-left:4px solid #1c7797;border-radius:10px;background:#eff6fa;color:#1e465b;font:400 14px/1.7 var(--sans,system-ui,sans-serif)}.methode-grand-public-intro p{margin:5px 0 0}@media(max-width:680px){.gab [data-gab-slug="methodes"] .methode-lien-grand-public{width:100%}}';
   document.head.appendChild(feuille);
   const lexique = [
     ["devis séquentiel explicatif","enquête en deux temps : mesurer les liens, puis en comprendre les raisons"],
@@ -1400,7 +1400,7 @@
   }
   function installer(chapitre) {
     if (chapitre.dataset.lienGrandPublic) return;
-    const entete=chapitre.querySelector(":scope > .gab-chapitre-tete"),corps=chapitre.querySelector(".gab-corps");
+    const entete=chapitre.querySelector(".gab-chapitre-tete"),corps=chapitre.querySelector(".gab-corps");
     if(!entete||!corps)return;
     chapitre.dataset.lienGrandPublic="oui";
     const bouton=document.createElement("a");
