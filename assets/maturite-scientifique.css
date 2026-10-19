@@ -141,3 +141,35 @@ html.hc .these .mat-sc,html.lv .these .mat-sc{background:#fff;border-width:2px}
     grid-template-columns:minmax(0,1fr);
   }
 }
+
+/* Méthodologie O2 : secteurs, exemple et contrôles. */
+.these .mat-sc__secteurs-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:12px 0}
+.these .mat-sc__secteurs-grid>div{min-width:0;padding:12px;border:1px solid #d6e3e5;border-top:3px solid #4a8685;border-radius:9px;background:#fff}
+.these .mat-sc__secteurs-grid>div:nth-child(3n+2){border-top-color:#8c77a4}
+.these .mat-sc__secteurs-grid>div:nth-child(3n+3){border-top-color:#a17d44}
+.these .mat-sc__secteurs-grid span{display:block;font-size:.65rem;font-weight:800;color:#637984}
+.these .mat-sc__secteurs-grid b{display:block;font-size:.82rem;color:#254c5a;text-align:left;margin:4px 0}
+.these .mat-sc__secteurs-grid small{display:block;font-size:.72rem;line-height:1.5;color:#546874;text-align:justify}
+.these .mat-sc__resultats{padding:12px;border:1px solid #d8e6de;border-radius:9px;background:#f3f9f5;margin-top:12px}
+.these .mat-sc__resultats>strong{display:block;font-size:.82rem;color:#2d6952;margin-bottom:6px}
+.these .mat-sc__resultats-row{display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid #e0ebe2;padding:8px 0;font-size:.73rem}
+.these .mat-sc__resultats-row b{color:#315b4a;margin-right:5px}
+.these .mat-sc__resultats-row .mat-sc__tag{margin:0;white-space:nowrap}
+.these .mat-sc__exemple{display:grid;grid-template-columns:minmax(0,1fr) 26px minmax(0,1fr);gap:8px;align-items:center;margin:14px 0 12px}
+.these .mat-sc__exemple-source,.these .mat-sc__exemple-result{min-width:0;border:1px solid #d5e4e7;border-radius:10px;background:#f6fafb;padding:12px}
+.these .mat-sc__exemple-result{background:#f2f9f5}
+.these .mat-sc__exemple small{display:block;font-size:.67rem;font-weight:800;color:#4e6c77;margin-bottom:7px}
+.these .mat-sc__exemple-source b,.these .mat-sc__exemple-source span,.these .mat-sc__exemple-source em{display:block;margin:5px 0;font-size:.75rem}
+.these .mat-sc__exemple-source em{font-size:.66rem;color:#67767f;font-style:normal}
+.these .mat-sc__exemple-arrow{text-align:center;color:#598a98;font-size:1.4rem}
+.these .mat-sc__exemple-result>div{display:flex;justify-content:space-between;gap:8px;padding:5px 0;border-top:1px solid #e0e9e4;font-size:.72rem}
+.these .mat-sc__exemple-result>div span{color:#52706e}
+.these .mat-sc__exemple-result>div b{color:#276a5b;text-align:right}
+.these .mat-sc__verif{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.2fr);gap:11px;background:#f3f9f5;border:1px solid #d7e9df;border-radius:9px;padding:12px;margin:12px 0}
+.these .mat-sc__verif-stat small,.these .mat-sc__verif-stat span{display:block;font-size:.69rem;color:#4d7460}
+.these .mat-sc__verif-stat strong{font-size:1.8rem;font-weight:850;color:#227254}
+.these .mat-sc__verif-desc{font-size:.74rem;line-height:1.57;color:#38574d;text-align:justify}
+.these .mat-sc__verif-desc b{display:block;color:#2f7057;font-size:.81rem}
+.these .mat-sc__exemple-titre--suite{border:0;margin:7px 0;padding:0;font-size:.75rem}
+@media(max-width:790px){.these .mat-sc__secteurs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.these .mat-sc__secteurs-grid,.these .mat-sc__exemple,.these .mat-sc__verif{grid-template-columns:1fr}.these .mat-sc__exemple-arrow{transform:rotate(90deg)}}
