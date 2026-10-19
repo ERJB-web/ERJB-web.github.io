@@ -32,7 +32,7 @@
     vulgarisation: { sel: "article.vul-dossier-chapitre", titre: "h3" },
     outils: { sel: "article.projet", titre: ".projet-tete h3, h3" },
     biographie: { sel: "ol.recit > li", titre: "h3" },
-    juriste: VITRINE, gestionnaire: VITRINE, educateur: VITRINE, entrepreneuriat: { unique: true },
+    juriste: VITRINE, gestionnaire: { unique: true }, educateur: VITRINE, entrepreneuriat: { unique: true },
     valeurs: { sel: "article.valeur", titre: "h4" },
     representation: { unique: true }, communaute: { unique: true }, distinctions: { unique: true }, citoyen: { unique: true },
     loisirs: { unique: true },
@@ -1179,7 +1179,7 @@
     // Chapitres.
     const n = chapitres.length;
     // Les rubriques de CV se lisent directement, sans sommaire de chapitre.
-    if (n === 1 && SALLES_ENGAGEMENTS.includes(salle)) sc.classList.add("gab-cv-direct");
+    if (n === 1 && (SALLES_ENGAGEMENTS.includes(salle) || salle === "gestionnaire")) sc.classList.add("gab-cv-direct");
     if (mode === "rubriques") {
       $$(":scope > .rubriques-console", table).forEach((x) => x.remove());
       ["data-onglets", "data-navigation", "role"].forEach((a) => table.removeAttribute(a));
