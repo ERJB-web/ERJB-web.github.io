@@ -682,7 +682,7 @@
     const texte = el("div", "gab-chapitre-texte");
     const apercuMethode = salle === "recherche" && ch.cle === "methodes" && langue === "fr";
     const titreAffiche = salle === "recherche" && langue === "fr" && ch.cle === "problematique" ? "Problématisation" : apercuMethode ? "Méthodologie" : ch.titre;
-    const tete = el("header", "gab-chapitre-tete", `<span class="gab-chapitre-num"><b>${deux(i + 1)}</b>${echapper(T.chapitre(i + 1, n))}</span><h3 class="gab-chapitre-titre"${apercuMethode ? ' style="text-align:center;width:100%"' : ""}>${echapper(titreAffiche)}</h3>`);
+    const tete = el("header", "gab-chapitre-tete", `<span class="gab-chapitre-num"${apercuMethode ? ' role="heading" aria-level="3"' : ""}><b>${deux(i + 1)}</b>${apercuMethode ? "Méthodologie" : echapper(T.chapitre(i + 1, n))}</span>${apercuMethode ? "" : `<h3 class="gab-chapitre-titre">${echapper(titreAffiche)}</h3>`}`);
     const corps = el("div", "gab-corps");
     if (ch.surPlace) {
       Array.from(section.childNodes).forEach((x) => corps.append(x));
