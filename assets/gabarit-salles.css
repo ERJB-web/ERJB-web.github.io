@@ -2129,203 +2129,6 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 }
 
 
-/* BIOGRAPHIE_COMPACTE_20261019
-   Exception locale : Biographie (porte Parcours). Cinq étapes repliées,
-   contenu scientifique/biographique inchangé et aucun sommaire latéral. */
-html:lang(fr) .gab[data-gab-salle="biographie"] .gab-bandeau{
-  min-height:118px!important;
-  padding-block:18px!important;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .gab-intro{
-  margin:14px 0 16px!important;
-  padding:0!important;
-  max-width:none!important;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .gab-intro h2{
-  margin:0 0 10px!important;
-  font-size:clamp(23px,2.1vw,31px)!important;
-  line-height:1.18!important;
-  max-width:none!important;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .gab-intro p,
-html:lang(fr) .gab[data-gab-salle="biographie"] .bio-intro p{
-  max-width:none!important;
-  margin:0 0 8px!important;
-  font-size:14.5px!important;
-  line-height:1.53!important;
-  color:#354d59!important;
-  text-align:justify;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .bio-intro p:first-child{
-  font-size:15.5px!important;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .citation{
-  margin:9px 0 13px!important;
-  padding:5px 0 5px 14px!important;
-  border-inline-start:3px solid #40a6a1!important;
-  font:italic 15.5px/1.5 Georgia,serif!important;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .gab-chapitres{
-  display:grid!important;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px!important;
-  align-items:start;
-  margin:16px 0 0!important;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .gab-chapitres>.gab-chapitre{
-  display:block;
-  min-width:0;
-  margin:0!important;
-  padding:0!important;
-  border:0!important;
-  background:transparent!important;
-  box-shadow:none!important;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .gab-chapitres>.gab-chapitre[hidden]{
-  display:none!important;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .gab-chapitres>.gab-chapitre:last-child{
-  grid-column:1 / -1;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .gab-chapitre-grille{
-  display:block!important;
-  gap:0!important;
-  grid-template-columns:minmax(0,1fr)!important;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .gab-chapitre-texte{
-  width:100%!important;
-  max-width:none!important;
-  min-width:0;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .gab-chapitre-aside{
-  display:none!important;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .bio-etape{
-  min-width:0;
-  overflow:hidden;
-  border:1px solid #d8e4e9;
-  border-radius:13px;
-  background:#fff;
-  box-shadow:0 3px 12px rgba(19,66,80,.035);
-  transition:border-color .2s ease,box-shadow .2s ease;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .bio-etape:hover{
-  border-color:#99c5ce;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .bio-etape[open]{
-  border-color:#8bb9c8;
-  box-shadow:0 8px 24px rgba(19,66,80,.07);
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .bio-etape-resume{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) auto;
-  column-gap:12px;
-  align-items:center;
-  cursor:pointer;
-  list-style:none;
-  padding:15px 18px 14px;
-  min-height:101px;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .bio-etape-resume::-webkit-details-marker{
-  display:none;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .bio-etape-resume:focus-visible{
-  outline:2px solid #1e7da3;
-  outline-offset:-3px;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .bio-etape-resume .gab-chapitre-tete{
-  margin:0!important;
-  grid-column:1 / -1;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .bio-etape-resume .gab-chapitre-num{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  color:#183f51!important;
-  font:700 15.5px/1.28 var(--sans)!important;
-  letter-spacing:0!important;
-  text-transform:none!important;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .bio-etape-resume .gab-chapitre-num b{
-  width:32px!important;
-  height:32px!important;
-  flex:0 0 32px!important;
-  border-radius:9px!important;
-  font:700 12px/1 var(--sans)!important;
-  background:#e6f4f5!important;
-  color:#176879!important;
-  box-shadow:none!important;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .bio-etape-apercu{
-  display:-webkit-box;
-  -webkit-box-orient:vertical;
-  -webkit-line-clamp:2;
-  overflow:hidden;
-  max-width:62ch;
-  padding-inline-start:42px;
-  color:#5a707a;
-  font-size:12.7px;
-  line-height:1.4;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .bio-etape-action{
-  justify-self:end;
-  align-self:end;
-  white-space:nowrap;
-  font:700 12px/1.4 var(--sans);
-  color:#18778b;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .bio-etape-action::after{
-  content:"  +";
-  font-size:16px;
-  vertical-align:-1px;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .bio-etape[open] .bio-etape-action{
-  font-size:0;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .bio-etape[open] .bio-etape-action::before{
-  content:"Réduire";
-  font-size:12px;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .bio-etape[open] .bio-etape-action::after{
-  content:"  −";
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .bio-etape .gab-corps{
-  padding:16px 20px 20px!important;
-  border-top:1px solid #e5edef;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .bio-etape .gab-corps .recit-num{
-  display:none!important;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .bio-etape .gab-corps p{
-  margin:0 0 9px!important;
-  max-width:none!important;
-  font-size:14px!important;
-  line-height:1.6!important;
-  text-align:justify;
-  hyphens:auto;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .bio-etape .gab-corps p:last-child{
-  margin-bottom:0!important;
-}
-html:lang(fr) .gab[data-gab-salle="biographie"] .gab-bas-chapitre{
-  margin-top:17px!important;
-}
-@media (max-width:860px){
-  html:lang(fr) .gab[data-gab-salle="biographie"] .gab-chapitres{
-    grid-template-columns:minmax(0,1fr)!important;
-  }
-  html:lang(fr) .gab[data-gab-salle="biographie"] .gab-chapitres>.gab-chapitre:last-child{
-    grid-column:auto;
-  }
-  html:lang(fr) .gab[data-gab-salle="biographie"] .bio-etape-resume{
-    min-height:92px;
-    padding:13px 14px;
-  }
-  html:lang(fr) .gab[data-gab-salle="biographie"] .bio-etape .gab-corps{
-    padding:13px 15px!important;
-  }
-}
-
 
 /* GESTIONNAIRE | une seule page de direction, sans illustrations génériques.
    Les six compétences restent intégrales et lisibles ; le gabarit des autres
@@ -2733,3 +2536,26 @@ html:is(.hc,.lv) .gab[data-gab-salle="gestionnaire"] .carte-vitrine{
 /* Les pages de CV sans sommaire latéral utilisent réellement toute la largeur. */
 .gab .gab-chapitre-grille.gab-sans-aside{display:block!important;grid-template-columns:minmax(0,1fr)!important;gap:0!important}
 .gab .gab-chapitre-grille.gab-sans-aside>.gab-chapitre-texte{width:100%;min-width:0;max-width:none}
+
+/* NAVIGATION_CHAPITRES_RESTAUREE_20261019
+   Conserver le menu précédent / chapitre en cours / suivant déjà présent
+   dans le gabarit, sans recréer d'ancienne barre ni modifier la grille du site. */
+.salle.gab-salle.gab-avec-chapitres.gab-page-chapitre .salle-barre.gab-barre > .gab-lecture{
+  display:flex!important;
+  opacity:1!important;
+  visibility:visible!important;
+  max-height:145px!important;
+  overflow:visible!important;
+  margin-top:8px!important;
+  transition:none!important;
+}
+.gab.gab-page-chapitre .gab-chapitre .gab-bas-chapitre:not([hidden]){
+  display:flex!important;
+  visibility:visible!important;
+}
+@media(max-width:700px){
+  .salle.gab-salle.gab-avec-chapitres.gab-page-chapitre .salle-barre.gab-barre > .gab-lecture{
+    max-height:190px!important;
+    flex-wrap:wrap!important;
+  }
+}
