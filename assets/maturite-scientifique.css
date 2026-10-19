@@ -253,3 +253,7 @@ html.hc .these .mat-sc,html.lv .these .mat-sc{background:#fff;border-width:2px}
 @media(max-width:980px){.these .mat-sc__profil-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.these .mat-sc--force{grid-template-columns:36px minmax(0,1fr);gap:10px;padding:14px}.these .mat-sc__ampoule{width:35px;height:35px;font-size:1.25rem}.these .mat-sc__force-phrase{font-size:.9rem}.these .mat-sc__profil-steps,.these .mat-sc__profil-mesure{grid-template-columns:1fr}.these .mat-sc__potentiel-trois{gap:5px}.these .mat-sc__potentiel-trois>div{padding:8px 5px}.these .mat-sc__potentiel-trois small{font-size:.65rem}}
 @media(max-width:420px){.these .mat-sc__potentiel-questions>div{grid-template-columns:1fr;gap:3px}.these .mat-sc__potentiel-trois{grid-template-columns:1fr}.these .mat-sc__potentiel-trois>div{display:block}.these .mat-sc__potentiel-trois>div>span{display:inline-grid;margin-right:4px}.these .mat-sc__potentiel-trois b{display:inline}.these .mat-sc__potentiel-trois small{display:block}}
+
+/* Schéma spécifique par profil : quatre cartes équilibrées, sans répétition du pipeline général. */
+.these .mat-sc--profils .mat-sc__profil-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:650px){.these .mat-sc--profils .mat-sc__profil-steps{grid-template-columns:1fr}}
