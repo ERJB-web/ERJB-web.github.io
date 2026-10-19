@@ -247,6 +247,10 @@ body,.salle{background-color:#f9fbfa;background-image:var(--fond-editorial);back
 .recit strong,.vision strong,.bio-intro strong{color:var(--ink)}
 .bio-intro p{margin:0 0 14px;font-size:16.5px;line-height:1.75}
 .bio-intro p:first-child{font-size:18px;color:var(--ink)}
+/* Biographie : l'introduction utilise toute la largeur de lecture du chapitre. */
+.gab[data-gab-salle="biographie"] .bio-intro,
+.gab[data-gab-salle="biographie"] .bio-intro p{width:100%;max-width:none}
+
 .bio-figure{margin:22px 0 0}
 .citation{margin:20px 0 0;padding:0 0 0 0;font:italic 21px/1.45 var(--serif);color:var(--green-deep);quotes:"«\00a0" "\00a0»"}
 .citation:lang(en){quotes:"“" "”"}
