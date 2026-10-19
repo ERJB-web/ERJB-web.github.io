@@ -389,7 +389,7 @@
       rubriques.forEach((rubrique, position) => {
         const enTete = rubrique.querySelector(":scope > h5.methode-rubrique-titre");
         const numero = net(enTete.querySelector("span")?.textContent) || deux(position + 1);
-        const libelle = net(enTete.textContent).replace(/^\\d{1,2}\\s*/, "").trim();
+        const libelle = net(enTete.textContent).slice(numero.length).trim();
         const lien = el("a", "gab-sommaire-etape");
         lien.href = "#" + encodeURIComponent(rubrique.id);
         lien.dataset.gabCible = rubrique.id;
