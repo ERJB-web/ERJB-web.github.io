@@ -897,6 +897,9 @@
       (ch.cle === "methodes" || ch.cle === "methode" || /m[ée]thod/i.test(ch.titre));
     const intertitres = Array.from(corps.querySelectorAll("h3, h4, h5.titre-bloc"))
       .filter((h) => {
+        // Le parcours d'enseignement garde ses rubriques stables dans le menu ;
+        // les titres des situations et des réponses changent pendant l'exploration.
+        if (h.closest('[data-ei-root]') && h.tagName !== 'H3') return false;
         if (h.closest("details:not([open]), .gab-source.carte-vitrine")) return false;
         const invisible = h.closest("[hidden]");
         return !invisible || (methodeThese && invisible.matches(".these-objectif-vue[data-vue-objectif]"));

@@ -204,7 +204,7 @@ function sectionTransmission(c) {
   const apprendre = '<div class="enseignement-essai"><h3>' + e(p.apprendre.titre) + '</h3>' + paragraphes(p.apprendre.paragraphes) + '</div><section class="enseignement-sequence"><header><p class="surtitre">' + e(p.apprendre.scenarioTitre) + '</p><p>' + e(p.apprendre.scenarioIntro) + '</p></header><ol>' + p.apprendre.etapes.map(([titre, texte], i) => '<li><span class="enseignement-repere" aria-hidden="true">' + num(i) + '</span><div><h4>' + e(titre) + '</h4><p>' + e(texte) + '</p></div></li>').join('') + '</ol></section>' + appuis(p.apprendre.refs);
   const avenir = essai(p.avenir) + '<p class="enseignement-lien"><a href="#ia">' + e(p.suiteIA) + ' →</a></p>';
   const sources = '<div class="enseignement-essai"><h3>' + e(p.sources.titre) + '</h3><p>' + e(p.sources.intro) + '</p></div><ul class="methode-refs references-transmission enseignement-references">' + Object.values(ENSEIGNEMENT.references).sort((a,b) => a.citation.localeCompare(b.citation, 'en')).map(r => '<li>' + e(r.citation) + ' ' + lien(r.href, e(r.href)) + '</li>').join('') + '</ul>';
-  const contenus = [essai(p.vision), pont, pratique, valeurs, apprendre, avenir, sources];
+  const contenus = [c.lang === 'fr' ? require('./enseignement-immersif.cjs').render() : essai(p.vision), pont, pratique, valeurs, apprendre, avenir, sources];
   const titresEns=[...p.onglets];titresEns[3]=DISPOSITIFS_PEDAGOGIQUES[c.lang].onglet;titresEns.splice(5,0,ATELIERS.textes(c.lang,'enseignement').labels.atelier);contenus.splice(5,0,atelierPratique(c,'enseignement'));
   return '<div class="section-corps pleine enseignement"><div class="colonne-texte"><p class="surtitre">' + e(s.salle[0]) + '</p><h2>' + e(p.titre) + '</h2><p class="intro">' + e(p.intro) + '</p></div><div class="colonne-outils">' + ongletsRubriques(c, 'enseignement', p.explorer, titresEns.map((titre, i) => ['enseignement-' + i, titre, contenus[i]]), 4) + '</div></div>';
 }
@@ -1509,6 +1509,7 @@ ${LANGUES.filter((l) => l.hreflang).map((l) => `<link rel="alternate" hreflang="
 <link rel="icon" href="${p}assets/favicon.svg?v=${VERSION_ICONE}" type="image/svg+xml">
 <link rel="stylesheet" href="${p}assets/site.css?v=${VERSION_CSS}">
 ${c.lang === 'fr' ? `<link rel="stylesheet" href="${p}assets/cadres-pedagogiques.css?v=20261019-1"><script src="${p}assets/cadres-pedagogiques.js?v=20261019-1" defer></script>` : ''}
+${c.lang === 'fr' ? `<link rel="stylesheet" href="${p}assets/enseignement-immersif.css?v=${empreinte('assets/enseignement-immersif.css')}"><script src="${p}assets/enseignement-immersif.js?v=${empreinte('assets/enseignement-immersif.js')}" defer></script>` : ''}
 <link rel="stylesheet" href="${p}assets/hall-realiste.css?v=${VERSION_HALL_CSS}">
 <link rel="stylesheet" href="${p}assets/vulgarisation-studio.css?v=20261015studio5">
 <link rel="stylesheet" href="${p}assets/vulgarisation-editorial.css?v=20261015editorial4">
