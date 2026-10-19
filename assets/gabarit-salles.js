@@ -970,6 +970,47 @@
       corps.append(source);
     }
     if (salle === "recherche" && ch.cle === "methodes") condenserExplicationsO2(corps);
+    if (salle === "recherche" && langue === "fr" && ch.cle === "methodes") {
+      // L'outil d'analyse qualitative affiché dans le volet O3 est ATLAS.ti.
+      // Corriger le texte rendu, sans toucher aux menus ni à la structure du chapitre.
+      const textes = document.createTreeWalker(corps, NodeFilter.SHOW_TEXT);
+      let noeud;
+      while ((noeud = textes.nextNode())) {
+        if (/\\bNVivo\\b/.test(noeud.nodeValue))
+          noeud.nodeValue = noeud.nodeValue.replace(/\\bNVivo\\b/g, "ATLAS.ti");
+      }
+    }
+    if (salle === "recherche" && langue === "fr" && ch.cle === "faisabilite") {
+      // Cette synthèse est réservée au chapitre 04 Faisabilité, jamais au chapitre 03 Méthodologie.
+      if (!corps.querySelector(".fais-capacites-projet")) {
+        const synthese = el("section", "fais-capacites-projet",
+          '<div class="fais-capacites-entete"><span>04 · FAISABILITÉ OPÉRATIONNELLE</span><h3>Un dispositif déjà outillé, des compétences mobilisables</h3><p>La préparation exploratoire d’O2 est engagée. Les besoins encore conditionnels concernent principalement les actualisations documentaires, les validations scientifiques et l’accès au terrain d’O3.</p></div>' +
+          '<div class="fais-capacites-chiffres" aria-label="Repères de calendrier et de disponibilité">' +
+            '<div><strong>O2</strong><span>Principales sources déjà disponibles</span><small>Accès et traitements initiaux opérationnels</small></div>' +
+            '<div><strong>Quelques jours</strong><span>Cartographie exploratoire réalisée</span><small>Retour d’expérience, non durée garantie du protocole final</small></div>' +
+            '<div><strong>≈ 1 semaine</strong><span>Nettoyage et codage O2 projetés</span><small>Hypothèse pour la reprise automatisée, à vérifier</small></div>' +
+          '</div>' +
+          '<div class="fais-capacites-cols">' +
+            '<article><h4>Compétences déjà mobilisées</h4><div class="fais-capacites-puces"><span>R · Positron</span><span>Scripts Shell</span><span>QGIS et cartographie</span><span>ATLAS.ti</span><span>Analyse qualitative avancée</span><span>Assistance à la programmation par IA</span></div><p>Les travaux qualitatifs antérieurs fournissent une expérience de codage thématique et d’analyse de contenu dans ATLAS.ti ; les scripts R et Shell facilitent la reproductibilité des préparations et des contrôles.</p></article>' +
+            '<article><h4>Appui scientifique et perfectionnement</h4><div class="fais-capacites-formation">' +
+              '<div><b>Accompagnement actuel</b><span>Appui d’une biostatisticienne pour les choix et vérifications analytiques.</span></div>' +
+              '<div><b>Formation déjà suivie</b><span>MOOC en cartographie spatiale (Université de Louvain).</span></div>' +
+              '<div><b>Automne 2026 · A26</b><span>Enseignement quantitatif.</span></div>' +
+              '<div><b>Hiver 2027 · H27</b><span>Cartographie spatiale à l’Université de Sherbrooke et cours d’analyse des données.</span></div>' +
+              '<div><b>Formation prévue</b><span>MOOC consacré à l’analyse de réseaux sociaux (SNA).</span></div>' +
+            '</div></article>' +
+          '</div>' +
+          '<div class="fais-capacites-flux"><div><b>01 · Données accessibles</b><span>Inventaire et vérification des versions des sources O2</span></div><div><b>02 · Reprise automatisée</b><span>Nettoyage, harmonisation et codage, estimés à environ cinq jours ouvrables si les fichiers sont conformes</span></div><div><b>03 · Contrôle et atlas</b><span>Validation des sorties R, contrôles de concordance, cartes QGIS et analyses de sensibilité</span></div></div>' +
+          '<div class="fais-capacites-ia"><strong>Codage assisté par IA : transparence et responsabilité</strong><p>Une assistance au code ou à la préclassification pourra accélérer certains traitements, uniquement si elle est autorisée et compatible avec la confidentialité des données. Outils, versions, instructions, modifications, vérifications manuelles et décisions seront consignés dans un journal reproductible. L’auteur conserve la responsabilité des catégories, des analyses et des interprétations.</p><small><b>Gain de temps attendu :</b> potentiellement important par rapport à une procédure entièrement manuelle, mais non quantifié à ce stade. Un essai chronométré comparatif précisera les durées réelles, les corrections et les reprises nécessaires ; cette hypothèse ne réduit ni le double contrôle ni les exigences éthiques.</small></div>'
+        );
+        const titreFaisabilite = Array.from(corps.querySelectorAll("h3")).find(e => e.textContent.trim() === "Faisabilité");
+        const introFaisabilite = titreFaisabilite?.nextElementSibling;
+        if (introFaisabilite?.tagName === "P") introFaisabilite.after(synthese);
+        else if (titreFaisabilite) titreFaisabilite.after(synthese);
+        else corps.prepend(synthese);
+      }
+    }
+
     // La page Contexte ouvre sur le titre complet du projet de thèse.
     if (salle === "recherche" && langue === "fr" && ch.cle === "contexte" &&
         !corps.textContent.includes("Organiser la réponse intersectorielle aux aînés à domicile qui cumulent besoins sociaux et morbidité")) {
