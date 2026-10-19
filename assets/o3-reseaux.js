@@ -24,7 +24,7 @@
     if (!document.querySelector("link[data-o3-style]")) {
       const feuille = document.createElement("link");
       feuille.rel = "stylesheet";
-      feuille.href = racine + "assets/o3-reseaux.css?v=20261018-o3-legendes-3a993";
+      feuille.href = racine + "assets/o3-reseaux.css?v=20261019-o3-qualif-compact-v2";
       feuille.dataset.o3Style = "1";
       document.head.appendChild(feuille);
     }
@@ -38,8 +38,8 @@
         { x: 113, y: 125, txt: "A6", type: "#307c8b" }
       ];
       const lien = points.map((p, i) => '<path d="M315 265 L' + p.x + " " + p.y + '" fill="none" stroke="' + p.type + '" stroke-width="' + (i % 2 ? 4 : 2) + '" stroke-dasharray="' + (i > 3 ? "8 7" : "none") + '"/>').join("");
-      const acteurs = points.map(p => '<circle cx="' + p.x + '" cy="' + p.y + '" r="26" fill="#fff" stroke="' + p.type + '" stroke-width="3"/><text x="' + p.x + '" y="' + (p.y + 5) + '" text-anchor="middle" font-size="16" fill="#173f3b" font-weight="700">' + p.txt + '</text>').join("");
-      return '<svg viewBox="0 0 660 540" role="img" aria-label="Exemple de carte d’entretien qualitatif avec ego central, six alters anonymisés, cercles concentriques et liens de styles distincts"><rect x="1" y="1" width="658" height="538" rx="22" fill="#f7faf8" stroke="#d8e5df"/><circle cx="315" cy="265" r="215" fill="none" stroke="#b8cfc7" stroke-width="2"/><circle cx="315" cy="265" r="130" fill="#e9f2ed" stroke="#c9dcd3" stroke-width="2"/>' + lien + acteurs + '<circle cx="315" cy="265" r="63" fill="#20594e" stroke="white" stroke-width="5"/><text x="315" y="259" font-size="20" text-anchor="middle" fill="white" font-weight="750">EGO</text><text x="315" y="281" font-size="16" text-anchor="middle" fill="#d9f5e7">CLSC</text><text x="16" y="518" font-size="15" fill="#6d7f78">A1 à A6 : acteurs codés, placement fictif</text></svg>';
+      const acteurs = points.map(p => '<circle cx="' + p.x + '" cy="' + p.y + '" r="26" fill="#fff" stroke="' + p.type + '" stroke-width="3"/><text x="' + p.x + '" y="' + (p.y + 5) + '" text-anchor="middle" font-size="16" fill="#284a60" font-weight="700">' + p.txt + '</text>').join("");
+      return '<svg viewBox="0 0 660 540" role="img" aria-label="Exemple de carte d’entretien qualitatif avec ego central, six alters anonymisés, cercles concentriques et liens de styles distincts"><rect x="1" y="1" width="658" height="538" rx="22" fill="#f6f8fb" stroke="#dae3ed"/><circle cx="315" cy="265" r="215" fill="none" stroke="#b7c9d8" stroke-width="2"/><circle cx="315" cy="265" r="130" fill="#eaf0f7" stroke="#c9d9e8" stroke-width="2"/>' + lien + acteurs + '<circle cx="315" cy="265" r="63" fill="#274f68" stroke="white" stroke-width="5"/><text x="315" y="259" font-size="20" text-anchor="middle" fill="white" font-weight="750">EGO</text><text x="315" y="281" font-size="16" text-anchor="middle" fill="#dcebf6">CLSC</text><text x="16" y="518" font-size="15" fill="#657888">A1 à A6 : acteurs codés, placement fictif</text></svg>';
     }
 
     // Expérimentations et modèles d'application, distincts de l'enquête SAD.
