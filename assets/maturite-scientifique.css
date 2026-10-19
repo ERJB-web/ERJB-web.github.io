@@ -257,3 +257,31 @@ html.hc .these .mat-sc,html.lv .these .mat-sc{background:#fff;border-width:2px}
 /* Schéma spécifique par profil : quatre cartes équilibrées, sans répétition du pipeline général. */
 .these .mat-sc--profils .mat-sc__profil-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:650px){.these .mat-sc--profils .mat-sc__profil-steps{grid-template-columns:1fr}}
+
+
+/* Harmonisation O3 : taille du corps de thèse (12 pt), sans effet sur les menus. */
+/* Carte 03 « Collecte de données » : même corps que les paragraphes de la page.
+   Conserver les niveaux de titre, les couleurs, les bordures et les chiffres du schéma. */
+.these #these-methode-o3 .these-schema-card[data-num="03"] dd,
+.these #these-methode-o3 .these-schema-card[data-num="03"] dd :is(div,p,li,small,span,b,strong,em),
+.these #these-methode-o3 #methode-o3-3 dd,
+.these #these-methode-o3 #methode-o3-3 dd :is(div,p,li,small,span,b,strong,em) {
+  font-family:var(--sans,system-ui,sans-serif)!important;
+  font-size:12pt!important;
+}
+/* Synthèse délibérative O3, située en fin du bloc « Collecte » :
+   étapes, libellés et contenu dépliable à la même taille de lecture. */
+.these #methode-o3-6 .mat-sc--o3 :is(
+  .mat-sc__eyebrow,
+  .mat-sc__step,
+  .mat-sc__step b,
+  details > summary,
+  details p,
+  .mat-sc__status .mat-sc__tag
+) {
+  font-family:var(--sans,system-ui,sans-serif)!important;
+  font-size:12pt!important;
+}
+.these #methode-o3-6 .mat-sc--o3 .mat-sc__step {
+  line-height:1.65;
+}
