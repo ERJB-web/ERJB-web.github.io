@@ -6006,11 +6006,12 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
     padding-top:10px;
   }
   body:has(> main > .accueil) > main > .accueil > .presentation > .identite {
-    min-height:max(290px,calc(100svh - var(--entete-h,180px) - 16px));
-    align-self:stretch;
+    /* Ne pas étirer l'identité sur un écran : le contenu reprend sa hauteur naturelle. */
+    min-height:0;
+    align-self:auto;
     display:flex;
     align-items:center;
-    padding-block:22px 30px;
+    padding-block:8px 12px;
     margin:0;
   }
   body:has(> main > .accueil) > main > .accueil > .hall {
@@ -6112,6 +6113,11 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
   body:has(> main > .accueil) .hall.en-mobile .hall-reperes > button[aria-pressed="true"] {
     outline:2px solid var(--c1);
     outline-offset:-3px;
+  }
+
+  /* Sur téléphone seulement : masquer la vidéo de visite au bas de la page. */
+  body:has(> main > .accueil) > main .contact .contact-visite .tuto-video {
+    display:none!important;
   }
 
   /* Le jeu disparaît de l'accueil mobile, la presse reste présente. */
