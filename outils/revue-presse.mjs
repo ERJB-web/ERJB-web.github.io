@@ -399,22 +399,22 @@ async function principal() {
   const francophones = nouvelles.filter(a => a.l === "fr" && a.zone !== "fr" && (a.type === "sante" || a.type === "general"));
   while (fenetre <= 96) {
     groupes = regrouper(francophones.filter(a => recent(a, fenetre)));
-    if (groupes.length >= 6) break;
+    if (groupes.length >= 14) break;
     fenetre *= 2;
   }
   const repris = groupes.filter(g => g.n > 1).sort((x, y) => y.n - x.n || y.dernier - x.dernier).map(g => ({ ...g.tete, n: g.n }));
   const seuls = groupes.filter(g => g.n === 1).sort((x, y) => y.dernier - x.dernier).map(g => g.tete);
-  const une = [...repris, ...alterner(seuls, 6)].slice(0, 6);
+  const une = [...repris, ...alterner(seuls, 14)].slice(0, 14);
 
-  const quebec = alterner(parRegion("quebec").filter(a => recent(a, a.type === "loi" ? 24 * 21 : a.type === "institution" ? 24 * 14 : 96)), 10);
-  const canada = alterner(parRegion("canada").filter(a => recent(a, a.type === "institution" ? 24 * 14 : 96)), 8);
-  const france = alterner(parRegion("france").filter(a => recent(a, a.type === "institution" ? 24 * 14 : 72)), 8);
+  const quebec = alterner(parRegion("quebec").filter(a => recent(a, a.type === "loi" ? 24 * 21 : a.type === "institution" ? 24 * 14 : 96)), 16);
+  const canada = alterner(parRegion("canada").filter(a => recent(a, a.type === "institution" ? 24 * 14 : 96)), 14);
+  const france = alterner(parRegion("france").filter(a => recent(a, a.type === "institution" ? 24 * 14 : 72)), 14);
 
   const debats = alterner(articles.filter(a => recent(a, 24 * 7) && (
     (a.type === "opinion" && titreSecteur(a) && compter(SECTEUR, tout(a)) >= 2) ||
     a.type === "analyse" ||
     ((a.type === "sante" || a.type === "general") && a.l === "fr" && dansLeSecteur(a) && DEBAT.test(sansAccents(a.t)))
-  )), 8);
+  )), 14);
 
   const decouvertes = alterner(
     articles

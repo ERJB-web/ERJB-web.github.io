@@ -1,93 +1,178 @@
 {
- "maj": "2026-10-17T05:47:39.702Z",
+ "maj": "2026-10-19T11:28:51.866Z",
  "bonne": {
-  "jour": "2026-10-17",
-  "t": "Un don qui sauve des vies",
-  "u": "https://ici.radio-canada.ca/en-bref/1-10786221/un-don-qui-sauve-vies",
-  "s": "Radio-Canada",
-  "d": "2026-10-16T21:25:59.000Z",
-  "x": "Plus de 200 personnes qui ont fait des dons d’organe au cours de la dernière année ont été honorés à Sherbrooke vendredi."
+  "jour": "2026-10-19",
+  "t": "\"13h15 le dimanche\". Du cœur au don d’organes > Episode 1",
+  "u": "https://www.franceinfo.fr/replay-magazine/france-2/13h15/13h15-le-dimanche-du-c-ur-au-don-d-organes-episode-1_8240326.html#xtor=RSS-3-%5Bgeneral%5D",
+  "s": "franceinfo",
+  "d": "2026-10-19T09:09:36.000Z",
+  "x": "À l'occasion de la Journée mondiale du don d’organes et de la greffe le 17 octobre, \"13h15 le dimanche\" présente un document exceptionnel sur la greffe cardiaque."
  },
  "rubriques": {
   "une": [
    {
-    "t": "Prévenir l’itinérance : un refuge inusité sur un bateau",
-    "u": "https://ici.radio-canada.ca/ohdio/premiere/emissions/c-est-encore-mieux-l-apres-midi/segments/rattrapage/2505369/un-bateau-servira-refuge-pour-jeunes-a-quebec",
+    "t": "Tout ce que vous devez savoir sur la vaccination contre la grippe",
+    "u": "https://ici.radio-canada.ca/ohdio/premiere/emissions/des-matins-en-or/segments/rattrapage/2503561/entrevue",
     "s": "Radio-Canada",
-    "d": "2026-10-16T21:12:38.000Z",
-    "x": "Le navire Écomaris2 sera ancré dans le port de Québec cet hiver afin de servir de refuge temporaire à des jeunes adultes en situation d’itinérance.",
+    "d": "2026-10-15T12:08:16.000Z",
+    "x": "La campagne de vaccination grippale est amorcée en Abitibi-Témiscamingue.",
     "n": 2
    },
    {
-    "t": "Les effets de la COVID longue et le retour au travail",
-    "u": "https://ici.radio-canada.ca/en-bref/1-10786382/effets-covid-longue-et-retour-au-travail",
-    "s": "Radio-Canada",
-    "d": "2026-10-16T23:36:15.000Z",
-    "x": "Le 4ème Symposium canadien sur la COVID longue se poursuit à l’UBC, à Vancouver."
+    "t": "« J’ai vu pleurer mon mari »: Un patient âgé réclame 50 000 $ à l’hôpital de Verdun",
+    "u": "https://www.tvanouvelles.ca/2026/10/17/jai-vu-pleurer-mon-mari--un-patient-age-reclame-50-000--a-lhopital-de-verdun",
+    "s": "TVA Nouvelles",
+    "d": "2026-10-19T04:00:00.000Z",
+    "x": "Un homme de 71 ans déplore avoir vécu un séjour infernal aux soins intensifs à l’hôpital de Verdun et réclame 50 000 $ en dédommagement."
    },
    {
-    "t": "Vaccination contre la grippe | Déjà 500 000 rendez-vous attribués",
-    "u": "https://www.lapresse.ca/actualites/sante/2026-10-16/vaccination-contre-la-grippe/deja-500-000-rendez-vous-attribues.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites&utm_content=sante",
+    "t": "«Souffrir au féminin»: la médecine peine encore à accorder le féminin",
+    "u": "https://www.ledevoir.com/lire/1017803/souffrir-feminin-medecine-peine-encore-accorder-feminin",
+    "s": "Le Devoir",
+    "d": "2026-10-19T04:00:00.000Z",
+    "x": "Florence Meney explore les angles morts qui persistent en santé des femmes."
+   },
+   {
+    "t": "Santé Québec corrige le tir en matière d’aide à domicile après des erreurs coûteuses",
+    "u": "https://www.lapresse.ca/actualites/sante/2026-10-18/sante-quebec-corrige-le-tir-en-matiere-d-aide-a-domicile-apres-des-erreurs-couteuses.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites&utm_content=sante",
     "s": "La Presse",
-    "d": "2026-10-16T21:19:52.000Z",
-    "x": "La campagne vaccinale contre l’influenza et la COVID-19 commence en grand."
+    "d": "2026-10-18T15:18:53.000Z",
+    "x": "Les cris d’alarme des entreprises d’économie sociale et la détresse exprimée par de nombreux bénéficiaires de leurs services, qui ont vu leurs aides à domicile de longue date soudainement …"
    },
    {
-    "t": "Une inhalothérapeute est radiée pour s’être présentée au travail sous l’influence de substances",
-    "u": "https://www.journaldemontreal.com/2026/10/16/une-inhalotherapeute-est-radiee-pour-setre-presente-au-travail-sous-linfluence-de-substances",
-    "s": "Le Journal de Montréal",
-    "d": "2026-10-16T19:30:00.000Z",
-    "x": "Une inhalothérapeute de Sept-Îles qui s’est présentée au travail intoxiquée au point de chuter au sol a écopé d’une radiation temporaire d’un mois."
-   },
-   {
-    "t": "L'IA pour aider à diagnostiquer des maladies génétiques rares au CHEO",
-    "u": "https://ici.radio-canada.ca/info/videos/1-10786374/ia-pour-aider-a-diagnostiquer-maladies-genetiques-rares-au-cheo",
+    "t": "Mieux faire connaître les services de santé et de bien-être dans le Grand Gaspé",
+    "u": "https://ici.radio-canada.ca/info/videos/1-10786940/mieux-faire-connaitre-services-sante-et-bien-etre-dans-grand-gaspe",
     "s": "Radio-Canada",
-    "d": "2026-10-16T23:18:57.000Z",
-    "x": "L'hôpital CHEO utilise une nouvelle intelligence artificielle ThinkRare pour diagnostiquer plus facilement les maladies génétiques rares chez les enfants."
+    "d": "2026-10-18T13:31:27.000Z",
+    "x": "Le premier Salon santé et bien-être organisé par le Groupe de médecine familiale du Grand Gaspé se tenait samedi."
    },
    {
-    "t": "Le Kenya annonce un troisième cas d'Ebola sur son sol",
-    "u": "https://www.journaldemontreal.com/2026/10/16/le-kenya-annonce-un-troisieme-cas-debola-sur-son-sol",
+    "t": "Infertilité masculine: six mois pour se prendre en main avant de procréer",
+    "u": "https://www.journaldemontreal.com/2026/10/07/infertilite-masculine--six-mois-pour-se-prendre-en-main-avant-de-procreer",
     "s": "Le Journal de Montréal",
-    "d": "2026-10-16T17:45:43.000Z",
-    "x": "Le ministère de la Santé du Kenya a annoncé vendredi un troisième cas d'Ebola sur son sol, une parente du patient qui aamené la maladie dans le pays."
+    "d": "2026-10-18T04:00:00.000Z",
+    "x": "Face à la montée de l’infertilité, les hommes qui souhaitent avoir un enfant devraient changer leurs habitudes de vie six mois avant de procréer."
+   },
+   {
+    "t": "Hôpital de Chicoutimi | Un laboratoire plus rapide qui pourrait sauver des vies",
+    "u": "https://www.lapresse.ca/actualites/sante/2026-10-17/hopital-de-chicoutimi/un-laboratoire-plus-rapide-qui-pourrait-sauver-des-vies.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites&utm_content=sante",
+    "s": "La Presse",
+    "d": "2026-10-17T09:00:00.000Z",
+    "x": "Quand un patient fait une crise cardiaque, chaque minute compte."
+   },
+   {
+    "t": "Une marche pour le don d'organes à Rivière-du-Loup",
+    "u": "https://ici.radio-canada.ca/info/videos/1-10786944/une-marche-pour-don-organes-a-riviere-loup",
+    "s": "Radio-Canada",
+    "d": "2026-10-18T13:30:53.000Z",
+    "x": "Une trentaine de personnes ont participé à cette marche organisée par l'organisme Chaîne de vie au Parc des Chutes."
+   },
+   {
+    "t": "« Spermaggedon » : La fertilité des hommes en chute libre",
+    "u": "https://www.journaldemontreal.com/2026/10/17/ca-fait-peur---la-fertilite-des-hommes-en-chute-libre",
+    "s": "Le Journal de Montréal",
+    "d": "2026-10-17T04:00:00.000Z",
+    "x": "Les hommes produisent aujourd’hui deux fois moins de spermatozoïdes que leur père."
+   },
+   {
+    "t": "Saison de la grippe : peut-on réellement « attraper froid »?",
+    "u": "https://ici.radio-canada.ca/ohdio/premiere/emissions/ca-promet/segments/rattrapage/2505785/vaccination-et-covid-sante-publique-avec-dre-michelle-houde",
+    "s": "Radio-Canada",
+    "d": "2026-10-18T12:06:33.000Z",
+    "x": "Ce fameux mythe selon lequel le froid nous rendrait malades est-il avéré par les scientifiques?"
+   },
+   {
+    "t": "«C’est tabou»: un jeune père veut démystifier l'infertilité masculine",
+    "u": "https://www.journaldemontreal.com/2026/10/07/cest-tabou---un-jeune-pere-veut-demystifier-linfertilite-masculine",
+    "s": "Le Journal de Montréal",
+    "d": "2026-10-17T04:00:00.000Z",
+    "x": "Un homme qui est devenu père trois ans après un diagnostic d’infertilité veut faire tomber les tabous qui persistent."
+   },
+   {
+    "t": "L’hospitalisation à domicile : guérir chez soi grâce à la technologie",
+    "u": "https://ici.radio-canada.ca/nouvelle/2292857/hospitalisation-domicile-hopital-general-juif",
+    "s": "Radio-Canada",
+    "d": "2026-10-18T08:00:00.000Z",
+    "x": "Des patients du CHU général juif, à Montréal, reçoivent des soins virtuels, à la maison."
+   },
+   {
+    "t": "Un bateau transformé en refuge pour aider les jeunes adultes vulnérables à Québec",
+    "u": "https://www.journaldemontreal.com/2026/10/16/un-bateau-transforme-en-refuge-pour-aider-les-jeunes-adultes-vulnerables-a-quebec",
+    "s": "Le Journal de Montréal",
+    "d": "2026-10-16T23:07:57.000Z",
+    "x": "À Québec, un bateau amarré au bassin Louise s’apprête à accueillir des jeunes adultes en situation de précarité."
+   },
+   {
+    "t": "Le PQ doit faire de la lutte à la pauvreté une priorité, disent des organismes",
+    "u": "https://ici.radio-canada.ca/nouvelle/2293471/communautaire-logement-inegalites-parti-quebecois",
+    "s": "Radio-Canada",
+    "d": "2026-10-17T20:11:41.000Z",
+    "x": "Des organismes et des citoyens ont manifesté à Québec, samedi."
    }
   ],
   "quebec": [
    {
-    "t": "37e Nuit des sans-abris : « L’itinérance peut toucher tout le monde »",
-    "u": "https://ici.radio-canada.ca/nouvelle/2293388/itinerance-37e-nuit-des-sans-abris",
-    "s": "Radio-Canada",
-    "d": "2026-10-16T23:12:48.000Z",
-    "x": "Une rupture ou une éviction suffisent pour se retrouver à la rue, rappellent les travailleurs sur le terrain."
-   },
-   {
-    "t": "Vaccination contre la grippe | Déjà 500 000 rendez-vous attribués",
-    "u": "https://www.lapresse.ca/actualites/sante/2026-10-16/vaccination-contre-la-grippe/deja-500-000-rendez-vous-attribues.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites&utm_content=sante",
+    "t": "Santé Québec corrige le tir en matière d’aide à domicile après des erreurs coûteuses",
+    "u": "https://www.lapresse.ca/actualites/sante/2026-10-18/sante-quebec-corrige-le-tir-en-matiere-d-aide-a-domicile-apres-des-erreurs-couteuses.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites&utm_content=sante",
     "s": "La Presse",
-    "d": "2026-10-16T21:19:52.000Z",
-    "x": "La campagne vaccinale contre l’influenza et la COVID-19 commence en grand."
+    "d": "2026-10-18T15:18:53.000Z",
+    "x": "Les cris d’alarme des entreprises d’économie sociale et la détresse exprimée par de nombreux bénéficiaires de leurs services, qui ont vu leurs aides à domicile de longue date soudainement …"
    },
    {
-    "t": "Nuit des sans-abri: de plus en plus d’aînés dans le besoin",
-    "u": "https://www.journaldemontreal.com/2026/10/16/nuit-des-sans-abri-de-plus-en-plus-daines-dans-le-besoin",
+    "t": "L’hospitalisation à domicile : guérir chez soi grâce à la technologie",
+    "u": "https://ici.radio-canada.ca/nouvelle/2292857/hospitalisation-domicile-hopital-general-juif",
+    "s": "Radio-Canada",
+    "d": "2026-10-18T08:00:00.000Z",
+    "x": "Des patients du CHU général juif, à Montréal, reçoivent des soins virtuels, à la maison."
+   },
+   {
+    "t": "Montreal borough tightens rules on e-scooters as youth injuries skyrocket",
+    "u": "https://www.cbc.ca/news/canada/montreal/e-scooters-safety-concerns-montreal-9.7383665?cmp=rss",
+    "s": "CBC",
+    "d": "2026-10-18T08:00:00.000Z",
+    "x": "The Montreal borough of Saint-Laurent has adopted a new bylaw banning electric scooters and other motorized personal mobility devices in public areas that fall within its jurisdiction.",
+    "l": "en"
+   },
+   {
+    "t": "Un bateau transformé en refuge pour aider les jeunes adultes vulnérables à Québec",
+    "u": "https://www.journaldemontreal.com/2026/10/16/un-bateau-transforme-en-refuge-pour-aider-les-jeunes-adultes-vulnerables-a-quebec",
     "s": "Le Journal de Montréal",
-    "d": "2026-10-16T16:36:55.000Z",
-    "x": "C’est en début de soirée, vendredi, que sera soulignée la 37e Nuit des sans-abri, partout au Québec."
-   },
-   {
-    "t": "Difficile de retenir les jeunes infirmières au sein de la profession",
-    "u": "https://www.ledevoir.com/actualites/sante/1017083/difficile-retenir-jeunes-infirmieres-sein-profession",
-    "s": "Le Devoir",
-    "d": "2026-10-15T10:44:05.000Z",
-    "x": "37% des infirmières de moins de 35 ans ne renouvellent pas leur permis au Québec, note l’Institut économique de Montréal."
+    "d": "2026-10-16T23:07:57.000Z",
+    "x": "À Québec, un bateau amarré au bassin Louise s’apprête à accueillir des jeunes adultes en situation de précarité."
    },
    {
     "t": "Le conseil d’administration de Santé Québec annonce la nomination de la présidente-directrice générale adjointe de Santé Québec – Centre hospitalier de l’Université de Montréal",
     "u": "https://sante.quebec/actualites/communiques-presse/le-conseil-dadministration-de-sante-quebec-annonce-la-nomination-de-2/",
     "s": "Santé Québec",
     "d": "2026-10-08T16:00:00.000Z"
+   },
+   {
+    "t": "Vaccination contre la grippe | Déjà 500 000 rendez-vous attribués",
+    "u": "https://www.lapresse.ca/actualites/sante/2026-10-16/vaccination-contre-la-grippe/deja-500-000-rendez-vous-attribues.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites&utm_content=sante",
+    "s": "La Presse",
+    "d": "2026-10-16T21:19:52.000Z",
+    "x": "La campagne vaccinale contre l’influenza et la COVID-19 commence en grand."
+   },
+   {
+    "t": "Le PQ doit faire de la lutte à la pauvreté une priorité, disent des organismes",
+    "u": "https://ici.radio-canada.ca/nouvelle/2293471/communautaire-logement-inegalites-parti-quebecois",
+    "s": "Radio-Canada",
+    "d": "2026-10-17T20:11:41.000Z",
+    "x": "Des organismes et des citoyens ont manifesté à Québec, samedi."
+   },
+   {
+    "t": "Elle veut amasser 20 000 $ pour combattre le cancer: depuis quatre ans, une artiste de Québec déjoue les pronostics",
+    "u": "https://www.journaldemontreal.com/2026/10/12/elle-veut-amasser-20-000--pour-combattre-le-cancer--depuis-quatre-ans-une-artiste-de-quebec-dejoue-les-pronostics",
+    "s": "Le Journal de Montréal",
+    "d": "2026-10-16T23:00:00.000Z",
+    "x": "Sophie Williams souhaite financer la recherche et permettre à d’autres de rester en vie."
+   },
+   {
+    "t": "37e Nuit des sans-abris : « L’itinérance peut toucher tout le monde »",
+    "u": "https://ici.radio-canada.ca/nouvelle/2293388/itinerance-37e-nuit-des-sans-abris",
+    "s": "Radio-Canada",
+    "d": "2026-10-16T23:12:48.000Z",
+    "x": "Une rupture ou une éviction suffisent pour se retrouver à la rue, rappellent les travailleurs sur le terrain."
    },
    {
     "t": "La Nuit des sans-abri à Rimouski : le portrait de l’itinérance change",
@@ -97,35 +182,57 @@
     "x": "Au Bas-Saint-Laurent, des rassemblements ont lieu ce soir à Rivière-du-Loup, Mont-Joli, Trois-Pistoles et à Rimouski notamment pour la Nuit des sans-abri."
    },
    {
-    "t": "Crise de l’itinérance | Un bateau servira de refuge pour des jeunes à Québec",
-    "u": "https://www.lapresse.ca/actualites/2026-10-16/crise-de-l-itinerance/un-bateau-servira-de-refuge-pour-des-jeunes-a-quebec.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites",
-    "s": "La Presse",
-    "d": "2026-10-16T16:00:00.000Z",
-    "x": "Que faire en hiver d’un bateau qui ne peut naviguer sur les eaux glacées du fleuve Saint-Laurent ?"
-   },
-   {
-    "t": "«On n'est pas obligé de les exposer à ça»: une halte-chaleur pour itinérants s'installe près d'un CPE à Montréal",
-    "u": "https://www.journaldemontreal.com/2026/10/15/on-nest-pas-oblige-de-les-exposer-a-ca-une-halte-chaleur-pour-itinerants-sinstalle-pres-dun-cpe-a-montreal",
-    "s": "Le Journal de Montréal",
-    "d": "2026-10-15T17:15:03.000Z",
-    "x": "Une halte-chaleur pour itinérants s'installe dans le même bâtiment qu'un CPE à Montréal."
-   },
-   {
-    "t": "Des complications postpartum peuvent survenir bien après les premières semaines",
-    "u": "https://www.ledevoir.com/actualites/sante/1016876/complications-postpartum-peuvent-survenir-bien-apres-premieres-semaines",
-    "s": "Le Devoir",
-    "d": "2026-10-15T04:00:00.000Z",
-    "x": "Ces risques doivent être mieux connus, estiment deux médecins de l’hôpital Sainte-Justine."
-   },
-   {
     "t": "Un don qui sauve des vies",
     "u": "https://ici.radio-canada.ca/en-bref/1-10786221/un-don-qui-sauve-vies",
     "s": "Radio-Canada",
     "d": "2026-10-16T21:25:59.000Z",
     "x": "Plus de 200 personnes qui ont fait des dons d’organe au cours de la dernière année ont été honorés à Sherbrooke vendredi."
+   },
+   {
+    "t": "Prévenir l’itinérance : un refuge inusité sur un bateau",
+    "u": "https://ici.radio-canada.ca/ohdio/premiere/emissions/c-est-encore-mieux-l-apres-midi/segments/rattrapage/2505369/un-bateau-servira-refuge-pour-jeunes-a-quebec",
+    "s": "Radio-Canada",
+    "d": "2026-10-16T21:12:38.000Z",
+    "x": "Le navire Écomaris2 sera ancré dans le port de Québec cet hiver afin de servir de refuge temporaire à des jeunes adultes en situation d’itinérance."
+   },
+   {
+    "t": "Itinérance : comment garder espoir?",
+    "u": "https://ici.radio-canada.ca/ohdio/premiere/emissions/premiere-heure/segments/rattrapage/2504509/vendredi-vip-eric-boulay-directeur-general-lauberiviere",
+    "s": "Radio-Canada",
+    "d": "2026-10-16T13:08:18.000Z",
+    "x": "Éric Boulay, directeur général de Lauberivière, était de passage au micro d’Alexandre Duval dans le cadre du Vendredi VIP et également afin de discuter de la 37e édition de la Nuit des sans-abris."
+   },
+   {
+    "t": "Un policier urine sur un sans-abri : « dégradant et violent », selon le RAPSIM",
+    "u": "https://ici.radio-canada.ca/ohdio/premiere/emissions/tout-un-matin/segments/rattrapage/2504472/un-policier-suspendu-pour-avoir-urine-sur-un-sans-abri",
+    "s": "Radio-Canada",
+    "d": "2026-10-16T12:08:01.000Z",
+    "x": "Un policier de la Ville de Montréal qui a uriné sur une personne en situation d’itinérance a été dénoncé par ses collègues."
+   },
+   {
+    "t": "Le quart des Montréalais a vécu la pauvreté dans les dernières années",
+    "u": "https://ici.radio-canada.ca/nouvelle/2292951/quart-montrealais-pauvrete-etude-inrs",
+    "s": "Radio-Canada",
+    "d": "2026-10-15T14:26:16.000Z",
+    "x": "L’étude de l’Institut national de la recherche scientifique a été commandée par Centraide du Grand Montréal."
+   },
+   {
+    "t": "Tout ce que vous devez savoir sur la vaccination contre la grippe",
+    "u": "https://ici.radio-canada.ca/ohdio/premiere/emissions/des-matins-en-or/segments/rattrapage/2503561/entrevue",
+    "s": "Radio-Canada",
+    "d": "2026-10-15T12:08:16.000Z",
+    "x": "La campagne de vaccination grippale est amorcée en Abitibi-Témiscamingue."
    }
   ],
   "canada": [
+   {
+    "t": "Could this 93-year-old sprinter's muscles hold clues to healthy aging? Scientists think so",
+    "u": "https://www.cbc.ca/news/world/emma-mazzenga-italian-sprinter-longevity-9.7383784?cmp=rss",
+    "s": "CBC",
+    "d": "2026-10-18T08:00:00.000Z",
+    "x": "At 93, Italian sprinter Emma Mazzenga is giving scientists a rare look at just how much of the physical decline we associate with aging may not actually be inevitable.",
+    "l": "en"
+   },
    {
     "t": "Les effets de la COVID longue et le retour au travail",
     "u": "https://ici.radio-canada.ca/en-bref/1-10786382/effets-covid-longue-et-retour-au-travail",
@@ -142,33 +249,19 @@
     "l": "en"
    },
    {
-    "t": "Measles outbreak declared over in Manitoba",
-    "u": "https://www.cbc.ca/news/canada/manitoba/measles-outbreak-declared-over-9.7384397?cmp=rss",
-    "s": "CBC",
-    "d": "2026-10-16T20:20:55.000Z",
-    "x": "​A measles outbreak first declared in Manitoba more than a year and a half ago is now over, the province says.",
-    "l": "en"
-   },
-   {
-    "t": "Rappel de certains fromages en raison d’un risque de listériose",
-    "u": "https://www.lapresse.ca/actualites/sante/2026-10-14/rappel-de-certains-fromages-en-raison-d-un-risque-de-listeriose.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites&utm_content=sante",
-    "s": "La Presse",
-    "d": "2026-10-14T19:43:44.000Z",
-    "x": "L’Agence canadienne d’inspection des aliments procède au rappel de certains fromages biologiques des marques Farm Boy, L’Ancêtre et Life Smart en raison d’un risque de contamination par la …"
-   },
-   {
-    "t": "Santé en français hors Québec : plus d’un francophone sur trois n’ose plus réclamer ses services",
-    "u": "https://onfr.tfo.org/sante-en-francais-hors-quebec-plus-dun-francophone-sur-trois-nose-plus-reclamer-ses-services/",
-    "s": "ONFR",
-    "d": "2026-10-14T15:18:24.000Z",
-    "x": "OTTAWA — La gêne ou la peur de déranger prend-elle le dessus sur le besoin d’être soigné dans sa langue?"
-   },
-   {
     "t": "Le gouvernement du Canada annonce la nomination du Dr George Mutwiri au Conseil d’administration des Instituts de recherche en santé du Canada",
     "u": "https://www.canada.ca/fr/sante-canada/nouvelles/2026/10/le-gouvernement-du-canada-annonce-la-nomination-du-dr-george-mutwiri-au-conseil-dadministration-des-instituts-de-recherche-en-sante-du-canada.html",
     "s": "Gouvernement du Canada",
     "d": "2026-10-13T19:00:00.000Z",
     "x": "Aujourd’hui, l’honorable Marjorie Michel, ministre de la Santé, a annoncé la nomination de George Mutwiri au conseil d’administration des Instituts de recherche en santé du Canada (IRSC)."
+   },
+   {
+    "t": "1 in 4 Ebola deaths are children in Democratic Republic of Congo's worst outbreak",
+    "u": "https://www.cbc.ca/news/health/ebola-congo-children-deaths-9.7384641?cmp=rss",
+    "s": "CBC",
+    "d": "2026-10-17T08:00:00.000Z",
+    "x": "The Democratic Republic of Congo is battling its deadliest outbreak of Ebola, caused by a rare strain with no approved treatment.",
+    "l": "en"
    },
    {
     "t": "Le Canada a besoin de plus d’inspecteurs en santé publique",
@@ -184,36 +277,95 @@
     "d": "2026-10-16T19:09:17.000Z",
     "x": "As peptides are pushed by self-prescribed 'wellness influencers,' experts weigh in on their targeted uses, consequences of misuse, and how they became a social media trend.",
     "l": "en"
+   },
+   {
+    "t": "La croissance de l’effectif en santé au Canada",
+    "u": "https://www.canada.ca/fr/sante-canada/nouvelles/2026/10/la-croissance-de-leffectif-en-sante-au-canada.html",
+    "s": "Gouvernement du Canada",
+    "d": "2026-10-07T13:00:57.000Z",
+    "x": "Le gouvernement du Canada octroie un financement fédéral de plus de 31 millions de dollars à six projets qui permettront aux professionnels de la santé formés à l’étranger de se joindre …"
+   },
+   {
+    "t": "Young people want to know if they're neurodivergent. Here's what doctors say is going on",
+    "u": "https://www.cbc.ca/radio/whitecoat/young-people-seeking-diagnoses-autism-and-adhd-9.7375950?cmp=rss",
+    "s": "CBC",
+    "d": "2026-10-17T08:00:00.000Z",
+    "x": "Mental health experts say they're seeing an increasing number of young patients leaning on advice from social media to connect symptoms to a potential diagnosis, even before consulting with …",
+    "l": "en"
+   },
+   {
+    "t": "La Société canadienne du cancer demande au fédéral un financement dédié",
+    "u": "https://ici.radio-canada.ca/ohdio/premiere/emissions/le-6-a-9/segments/rattrapage/2504967/ministres-sante-a-winnipeg-demandes-societe-canadienne-cancer",
+    "s": "Radio-Canada",
+    "d": "2026-10-16T14:11:38.000Z",
+    "x": "La Société canadienne du cancer (SCC) veut profiter de la rencontre des ministres de la Santé du fédéral, des provinces et des territoires à Winnipeg pour obtenir un financement dédié."
+   },
+   {
+    "t": "4 in 10 women don’t know where to seek support for menopause: report",
+    "u": "https://globalnews.ca/news/12105289/menopause-healthcare-canada/",
+    "s": "Global News",
+    "d": "2026-10-16T17:14:39.000Z",
+    "x": "Around four in 10 (40 per cent) Canadian women reported that they do not know where to seek menopause care, a report by health care and insurance organization GreenShield said.",
+    "l": "en"
+   },
+   {
+    "t": "Plus de professionnels de la santé, de meilleurs soins pour les Canadiennes et les Canadiens",
+    "u": "https://www.canada.ca/fr/sante-canada/nouvelles/2026/10/plus-de-professionnels-de-la-sante-de-meilleurs-soins-pour-les-canadiennes-et-les-canadiens.html",
+    "s": "Gouvernement du Canada",
+    "d": "2026-10-07T13:00:17.000Z",
+    "x": "Aujourd’hui, l’honorable Marjorie Michel, ministre de la Santé, et l’honorable Sylvia Jones, ministre de la Santé de l’Ontario, ont annoncé un financement fédéral de plus de 31 millions de …"
+   },
+   {
+    "t": "Measles outbreak declared over in Manitoba",
+    "u": "https://www.cbc.ca/news/canada/manitoba/measles-outbreak-declared-over-9.7384397?cmp=rss",
+    "s": "CBC",
+    "d": "2026-10-16T20:20:55.000Z",
+    "x": "​A measles outbreak first declared in Manitoba more than a year and a half ago is now over, the province says.",
+    "l": "en"
+   },
+   {
+    "t": "Le financement en santé devrait être perçu comme « un investissement et non un coût »",
+    "u": "https://ici.radio-canada.ca/ohdio/premiere/emissions/le-6-a-9/segments/rattrapage/2503741/ministres-sante-a-winnipeg-demandes-syndicat-infirmieres",
+    "s": "Radio-Canada",
+    "d": "2026-10-15T14:07:53.000Z",
+    "x": "La Fédération canadienne des syndicats d’infirmières et d’infirmiers (FCSII) saisit l'occasion de la rencontre des ministres de la Santé du fédéral, des provinces et des territoires à …"
    }
   ],
   "france": [
    {
-    "t": "Dangers du gaz lacrymogène : «C’est évident qu’il y a un risque plus important pour les plus jeunes»",
-    "u": "https://www.liberation.fr/societe/police-justice/dangers-du-gaz-lacrymogene-cest-evident-quil-y-a-un-risque-plus-important-pour-les-plus-jeunes-20261017_NFAZPGVAQZGDHOY5DCLBWT6PXU/",
+    "t": "Victoria’s Secret revient : c’est officiel, on est dans la mouise",
+    "u": "https://www.liberation.fr/lifestyle/mode/victorias-secret-revient-cest-officiel-on-est-dans-la-mouise-20261019_7KPGZNVZ45EX3D4W3A2SFIAX6E/",
     "s": "Libération",
-    "d": "2026-10-17T05:00:00.000Z",
-    "x": "Le docteur en microbiologie Alexander Samuel revient pour «Libé» sur l’état de la connaissance scientifique au sujet des risques réels de l’exposition, ponctuelle ou répétée, au gaz …"
+    "d": "2026-10-19T11:01:49.000Z",
+    "x": "Dans une société shootée à l’Ozempic, aux régimes drastiques et aux injonctions sexistes, le retour en force de la marque de lingerie, apôtre des physiques uniformes et inatteignables, est …"
    },
    {
-    "t": "Avant la mobilisation du 17 octobre, visualisez comment le coût de l'alimentation a explosé en dix ans en France",
-    "u": "https://www.franceinfo.fr/economie/inflation/avant-la-mobilisation-du-17-octobre-visualisez-comment-le-cout-de-l-alimentation-a-explose-en-dix-ans-en-france_8202725.html#xtor=RSS-3-%5Bgeneral%5D",
+    "t": "\"Décréter l'état d'urgence, ça montre que l'État prend en compte ce qu'il s'est passé\" dit Frédéric Péchenard, vice-président LR de la région Île-de-France",
+    "u": "https://www.franceinfo.fr/societe/mobilisation-du-17-octobre/decreter-l-etat-d-urgence-ca-montre-que-l-etat-prend-en-compte-ce-qu-il-s-est-passe-dit-frederic-pechenard-vice-president-lr-de-la-region-ile-de-france_8243836.html#xtor=RSS-3-%5Bgeneral%5D",
     "s": "franceinfo",
-    "d": "2026-10-17T04:58:28.000Z",
-    "x": "L'indice des prix de l'alimentation, calculé par l'Insee, a augmenté de près de 35 points en dix ans."
+    "d": "2026-10-19T10:17:28.000Z",
+    "x": "Le vice-président LR de la région Île-de-France soutient la proposition du président de son parti d'instaurer l'état d'urgence, \"Je pense que décréter l'état d'urgence, même pour quelques …"
    },
    {
-    "t": "« Je chéris mon nouveau cœur autant que j’ai aimé l’ancien » : le quotidien de Sandra, greffée depuis quatorze ans",
-    "u": "https://www.lemonde.fr/intimites/article/2026/10/17/je-cheris-mon-nouveau-c-ur-autant-que-j-ai-aime-l-ancien-le-quotidien-de-sandra-greffee-depuis-quatorze-ans_6795854_6190330.html",
+    "t": "Accès aux soins et déserts médicaux : le gouvernement défend son bilan sans convaincre des professionnels de santé éprouvés",
+    "u": "https://www.lemonde.fr/societe/article/2026/10/19/acces-aux-soins-et-deserts-medicaux-le-gouvernement-defend-son-bilan-sans-convaincre-des-professionnels-de-sante-eprouves_6797508_3224.html",
     "s": "Le Monde",
-    "d": "2026-10-17T04:00:48.000Z",
-    "x": "Sandra Lartoni, 32 ans, vit avec le cœur d’un autre."
+    "d": "2026-10-19T09:01:08.000Z",
+    "x": "Alors que débute, mardi, l’examen du projet de budget de la Sécurité sociale à l’Assemblée, le ministère de la santé multiplie les annonces tout en vantant les résultats de sa politique."
    },
    {
-    "t": "Assises de la ménopause : les annonces de Stéphanie Rist pour améliorer la prise en charge",
-    "u": "http://www.lequotidiendumedecin.fr/actu-medicale/assises-de-la-menopause-les-annonces-de-stephanie-rist-pour-ameliorer-la-prise-en-charge",
+    "t": "«Douleur chronique, pour une grande cause nationale en 2028» : l’appel des sociétés savantes et des associations de patients",
+    "u": "https://sante.lefigaro.fr/social/sante-publique/douleur-chronique-pour-une-grande-cause-nationale-en-2028-l-appel-des-societes-savantes-et-des-associations-de-patients-20261019",
+    "s": "Le Figaro",
+    "d": "2026-10-19T05:15:00.000Z",
+    "x": "TRIBUNE - Un ensemble d’acteurs réuni au sein du Collectif France Douleur réclame l’adoption d’une stratégie nationale dédiée pour les années 2027 à 2032, pour répondre à cet enjeu de santé publique."
+   },
+   {
+    "t": "Cumul emploi-retraite : les nouvelles règles qui bouleversent la donne",
+    "u": "http://www.lequotidiendumedecin.fr/liberal-soins-de-ville/retraite/cumul-emploi-retraite-les-nouvelles-regles-qui-bouleversent-la-donne",
     "s": "Le Quotidien du médecin",
-    "d": "2026-10-16T16:19:00.000Z",
-    "x": "Stéphanie Rist, ministre de la Santé, a annoncé plusieurs mesures visant à améliorer la prise en charge des femmes concernées par la ménopause, comme la possibilité pour les sages-femmes de …"
+    "d": "2026-10-19T03:00:00.000Z",
+    "x": "Le cumul emploi-retraite se durcit pour les médecins libéraux de moins de 67 ans."
    },
    {
     "t": "Les infirmiers de bloc opératoire du Centre hospitalier de Martigues en grève",
@@ -223,28 +375,77 @@
     "x": "Les infirmiers de bloc opératoire du Centre Hospitalier de Martigues (près de Marseille) sont mobilisés depuis le début du mois de juillet pour défendre leur temps de travail, leurs …"
    },
    {
-    "t": "«Le seul traitement qui ralentit l’évolution de la maladie» : l’activité physique, une vraie arme contre Parkinson",
-    "u": "https://sante.lefigaro.fr/medecine/le-seul-traitement-qui-ralentit-l-evolution-de-la-maladie-l-activite-physique-une-vraie-arme-contre-parkinson-20261016",
-    "s": "Le Figaro",
-    "d": "2026-10-16T06:15:00.000Z",
-    "x": "DÉCRYPTAGE - Une étude montre que bouger régulièrement s’avère bénéfique pour les patients, en freinant la progression motrice et cognitive de la maladie."
-   },
-   {
-    "t": "Mexique : l’amibe «mangeuse de cerveau» détectée dans six lacs artificiels du Yucatán, désormais fermés",
-    "u": "https://www.liberation.fr/environnement/biodiversite/mexique-lamibe-mangeuse-de-cerveau-detectee-dans-six-lacs-artificiels-du-yucatan-desormais-fermes-20261016_QFVNDFZYDVEUPBLQRTLTOBR6PE/",
+    "t": "A Gaza, des coupes budgétaires contraignent le Programme alimentaire mondial à réduire son aide humanitaire",
+    "u": "https://www.liberation.fr/international/moyen-orient/a-gaza-des-coupes-budgetaires-contraignent-le-programme-alimentaire-mondial-a-reduire-son-aide-humanitaire-20261019_NWWEUADK7BDXVIRMNKRNKM6MQI/",
     "s": "Libération",
-    "d": "2026-10-16T14:48:23.000Z",
-    "x": "La présence de ce micro-organisme a été repérée dans cette région très touristique du pays."
+    "d": "2026-10-19T09:05:27.000Z",
+    "x": "Sur les 1,6 million de Palestiniens qui bénéficiaient d’une aide alimentaire, seuls 1,1 million continueront à avoir accès à des repas chauds."
    },
    {
-    "t": "Santé : peut-on faire taire les ronflements ?",
-    "u": "https://www.franceinfo.fr/sante/sante-peut-on-faire-taire-les-ronflements_8240914.html#xtor=RSS-3-%5Bgeneral%5D",
+    "t": "\"13h15 le dimanche\". Du cœur au don d’organes > Episode 1",
+    "u": "https://www.franceinfo.fr/replay-magazine/france-2/13h15/13h15-le-dimanche-du-c-ur-au-don-d-organes-episode-1_8240326.html#xtor=RSS-3-%5Bgeneral%5D",
     "s": "franceinfo",
-    "d": "2026-10-16T18:53:32.000Z",
-    "x": "Dix à 20 millions de Français ronfleraient la nuit."
+    "d": "2026-10-19T09:09:36.000Z",
+    "x": "À l'occasion de la Journée mondiale du don d’organes et de la greffe le 17 octobre, \"13h15 le dimanche\" présente un document exceptionnel sur la greffe cardiaque."
+   },
+   {
+    "t": "Le modèle des plateformes de télémédecine et « les dérives de certaines entreprises financiarisées » remis en cause",
+    "u": "https://www.lemonde.fr/economie/article/2026/10/19/le-modele-des-plateformes-de-telemedecine-et-les-derives-de-certaines-entreprises-financiarisees-remis-en-cause_6797490_3234.html",
+    "s": "Le Monde",
+    "d": "2026-10-19T05:30:03.000Z",
+    "x": "Les interfaces spécialisées ont cumulé 7 millions de téléconsultations en 2025, assurées par des médecins qui trouvent dans cette activité un complément de revenu."
+   },
+   {
+    "t": "Alzheimer, Parkinson, dépression: et si l’origine de certaines maladies du cerveau se trouvait dans notre microbiote?",
+    "u": "https://sante.lefigaro.fr/medecine/alzheimer-parkinson-depression-et-si-l-origine-de-certaines-maladies-du-cerveau-se-trouvait-dans-notre-microbiote-20261017",
+    "s": "Le Figaro",
+    "d": "2026-10-17T07:30:00.000Z",
+    "x": "DÉCRYPTAGE - À l’occasion des vingt ans du Pasteurdon, organisés du 8 au 11 octobre, les chercheurs de l’Institut Pasteur, à Paris, ont présenté leurs travaux sur les interactions entre le …"
+   },
+   {
+    "t": "Un avatar d'expert médical pour aider les professionnels de santé dans leur diagnostic",
+    "u": "http://www.lequotidiendumedecin.fr/sante-societe/e-sante/un-avatar-dexpert-medical-pour-aider-les-professionnels-de-sante-dans-leur-diagnostic",
+    "s": "Le Quotidien du médecin",
+    "d": "2026-10-18T05:00:00.000Z",
+    "x": "care, une plateforme d’avatars d’experts réservée aux professionnels de santé."
+   },
+   {
+    "t": "Lamia El Aaraje et Julien Parelon, un couple face à la maladie de Charcot : «Entre la vie et la mort, nous sommes confrontés à des épreuves insurmontables»",
+    "u": "https://www.liberation.fr/societe/sante/elle-est-devenue-mon-punching-ball-lamia-el-aaraje-et-julien-parelon-livrent-le-quotidien-dun-couple-face-a-la-maladie-de-charcot-20261017_GZ5GABPRSZGWXIVDGJK4I7GG3Y/",
+    "s": "Libération",
+    "d": "2026-10-17T11:30:00.000Z",
+    "x": "La première adjointe à la mairie de Paris et son époux retracent, dans le livre «les Empêchés», paru jeudi 15 octobre, leur combat face à la pathologie neurodégénérative."
+   },
+   {
+    "t": "\"13h15 le dimanche\". Du cœur au don d’organes > Episode 2",
+    "u": "https://www.franceinfo.fr/replay-magazine/france-2/13h15/13h15-le-dimanche-du-c-ur-au-don-d-organes-episode-2_8240434.html#xtor=RSS-3-%5Bgeneral%5D",
+    "s": "franceinfo",
+    "d": "2026-10-19T09:09:26.000Z",
+    "x": "À l'occasion de la Journée mondiale du don d’organes et de la greffe le 17 octobre, \"13h15 le dimanche\" présente un document exceptionnel sur la greffe cardiaque."
+   },
+   {
+    "t": "Peut-on rire du cancer du sein ? Oui, répond l’humoriste Nathalie Gallagher",
+    "u": "https://www.lemonde.fr/m-perso/article/2026/10/19/peut-on-rire-du-cancer-du-sein-oui-repond-l-humoriste-nathalie-gallagher_6797483_4497916.html",
+    "s": "Le Monde",
+    "d": "2026-10-19T04:00:46.000Z",
+    "x": "A 50 ans, cette habitante de La Roche-sur-Yon se lance dans un seule-en-scène retraçant son combat contre la maladie."
    }
   ],
   "debats": [
+   {
+    "t": "« J’ai vu pleurer mon mari »: Un patient âgé réclame 50 000 $ à l’hôpital de Verdun",
+    "u": "https://www.tvanouvelles.ca/2026/10/17/jai-vu-pleurer-mon-mari--un-patient-age-reclame-50-000--a-lhopital-de-verdun",
+    "s": "TVA Nouvelles",
+    "d": "2026-10-19T04:00:00.000Z",
+    "x": "Un homme de 71 ans déplore avoir vécu un séjour infernal aux soins intensifs à l’hôpital de Verdun et réclame 50 000 $ en dédommagement."
+   },
+   {
+    "t": "Itinérance et lâcheté politique",
+    "u": "https://www.lapresse.ca/dialogue/chroniques/2026-10-18/itinerance-et-lachete-politique.php?utm_source=rss&utm_medium=fil&utm_campaign=dialogue",
+    "s": "La Presse",
+    "d": "2026-10-18T23:00:00.000Z",
+    "x": "Trêve d’introduction, je vous l’écris comme je le pense : je suis complètement écœuré par la lâcheté politique des dernières années concernant ce drame social de l’itinérance au Québec."
+   },
    {
     "t": "Avant la mobilisation du 17 octobre, visualisez comment le coût de l'alimentation a explosé en dix ans en France",
     "u": "https://www.franceinfo.fr/economie/inflation/avant-la-mobilisation-du-17-octobre-visualisez-comment-le-cout-de-l-alimentation-a-explose-en-dix-ans-en-france_8202725.html#xtor=RSS-3-%5Bgeneral%5D",
@@ -301,6 +502,34 @@
     "d": "2026-10-13T14:54:47.000Z",
     "x": "Why have cities had so little success in reducing rat numbers?",
     "l": "en"
+   },
+   {
+    "t": "Comment fonctionne le Veoza, un médicament contre les symptômes de la ménopause ? Et en quoi est-il différent du traitement hormonal ?",
+    "u": "https://theconversation.com/comment-fonctionne-le-veoza-un-medicament-contre-les-symptomes-de-la-menopause-et-en-quoi-est-il-different-du-traitement-hormonal-294504",
+    "s": "The Conversation France",
+    "d": "2026-10-16T12:09:59.000Z",
+    "x": "Le Veoza, un traitement non hormonal de la ménopause, permet de réduire les bouffées de chaleur et les sueurs nocturnes."
+   },
+   {
+    "t": "Fusillade au collège d'Aubagne : le SNICS-FSU dénonce \"la surenchère sécuritaire\", réponse inadaptée",
+    "u": "http://www.infirmiers.com/profession-ide/actualite-sociale/fusillade-au-college-daubagne-le-snics-fsu-denonce-la-surenchere-securitaire-reponse-inadaptee",
+    "s": "Infirmiers.com",
+    "d": "2026-10-13T12:30:47.000Z",
+    "x": "Un adolescent de 14 ans a ouvert le feu au fusil de chasse lundi 12 octobre dans son collège d'Aubagne (Bouches-du-Rhône), blessant le principal de l'établissement et une enseignante avant …"
+   },
+   {
+    "t": "Doit-on s'inquiéter de la grippe aviaire chez l'humain?",
+    "u": "https://ici.radio-canada.ca/en-bref/1-10581769/doit-on-s-inquieter-grippe-aviaire-chez-humain",
+    "s": "Radio-Canada",
+    "d": "2026-10-14T15:08:31.000Z",
+    "x": "La grippe aviaire touche des oiseaux, mais pas seulement."
+   },
+   {
+    "t": "Aux États-Unis, la ménopause reste largement absente des dossiers médicaux (et c’est un problème)",
+    "u": "https://theconversation.com/aux-etats-unis-la-menopause-reste-largement-absente-des-dossiers-medicaux-et-cest-un-probleme-294503",
+    "s": "The Conversation France",
+    "d": "2026-10-16T09:07:30.000Z",
+    "x": "Une étude portant sur près de 240 000 dossiers médicaux aux États-Unis révèle que la ménopause y est rarement mentionnée."
    }
   ],
   "decouvertes": [
@@ -310,6 +539,16 @@
     "s": "Futura",
     "d": "2026-10-16T12:08:51.000Z",
     "x": "Certaines cellules abîmées refusent de mourir et s’accumulent avec l’âge, alimentant l'inflammation et le déclin physique."
+   },
+   {
+    "t": "Long-Acting HIV Therapy in African Adults with Adherence Challenges",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42874104/",
+    "s": "PubMed",
+    "d": "2026-10-14T21:23:00.000Z",
+    "x": "Among persons with HIV in Africa who have adherence challenges, long-acting cabotegravir plus rilpivirine was noninferior to oral dolutegravir-based therapy for maintaining a viral load of …",
+    "l": "en",
+    "r": "N Engl J Med",
+    "y": "essai"
    },
    {
     "t": "L'IA pour aider à diagnostiquer des maladies génétiques rares au CHEO",
@@ -326,6 +565,16 @@
     "x": "L’IA et de nouveaux dispositifs connectés simplifient le ­diagnostic des apnées du sommeil, sans parvenir encore à détrôner la polysomnographie."
    },
    {
+    "t": "Phase 2 Trial of Icotrokinra for Patients with Ulcerative Colitis",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42874103/",
+    "s": "PubMed",
+    "d": "2026-10-14T21:23:00.000Z",
+    "x": "Among participants with moderately to severely active ulcerative colitis, a clinical response at week 12 was significantly more common with once-daily oral icotrokinra at each of three …",
+    "l": "en",
+    "r": "N Engl J Med",
+    "y": "essai"
+   },
+   {
     "t": "Intelligence artificielle : quel impact dans la pratique infirmière ?",
     "u": "http://www.infirmiers.com/profession-ide/actualite-sociale/intelligence-artificielle-quel-impact-dans-la-pratique-infirmiere",
     "s": "Infirmiers.com",
@@ -340,40 +589,28 @@
     "x": "Pourquoi ces cancers sont-ils souvent plus agressifs chez les jeunes femmes ?"
    },
    {
+    "t": "Ponatinib-Blinatumomab or Imatinib-Chemotherapy for Adult Ph-Positive ALL",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42874102/",
+    "s": "PubMed",
+    "d": "2026-10-14T21:23:00.000Z",
+    "x": "In this phase 3 trial, a frontline chemotherapy-free targeted and immunotherapeutic approach was superior to the use of imatinib and chemotherapy.",
+    "l": "en",
+    "r": "N Engl J Med",
+    "y": "essai"
+   },
+   {
+    "t": "Alzheimer, Parkinson, dépression: et si l’origine de certaines maladies du cerveau se trouvait dans notre microbiote?",
+    "u": "https://sante.lefigaro.fr/medecine/alzheimer-parkinson-depression-et-si-l-origine-de-certaines-maladies-du-cerveau-se-trouvait-dans-notre-microbiote-20261017",
+    "s": "Le Figaro",
+    "d": "2026-10-17T07:30:00.000Z",
+    "x": "DÉCRYPTAGE - À l’occasion des vingt ans du Pasteurdon, organisés du 8 au 11 octobre, les chercheurs de l’Institut Pasteur, à Paris, ont présenté leurs travaux sur les interactions entre le …"
+   },
+   {
     "t": "Étude | La musculation pourrait contribuer au soulagement de l’anxiété chez les femmes",
     "u": "https://www.lapresse.ca/actualites/sciences/2026-10-16/etude/la-musculation-pourrait-contribuer-au-soulagement-de-l-anxiete-chez-les-femmes.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites&utm_content=sciences",
     "s": "La Presse",
     "d": "2026-10-16T13:02:21.000Z",
     "x": "La pratique de plusieurs types d’entraînement de musculation a été associée à une diminution des symptômes de dépression chez des femmes souffrant de troubles anxieux, dans le cadre d’une …"
-   },
-   {
-    "t": "« Suis-je une bonne mère » ? La dépression post-partum à l'étude",
-    "u": "https://www.tvanouvelles.ca/2026/10/13/suis-je-une-bonne-mere----la-depression-post-partum-a-letude",
-    "s": "TVA Nouvelles",
-    "d": "2026-10-13T04:00:00.000Z",
-    "x": "Une étude longitudinale menée auprès de familles québécoises jette un éclairage différent sur la dépression post-partum"
-   },
-   {
-    "t": "David Dupuis : Entre voix rituelles et voix psychiatriques",
-    "u": "https://www.inserm.fr/actualite/portrait/david-dupuis-entre-voix-rituelles-et-voix-psychiatriques/",
-    "s": "Inserm",
-    "d": "2026-10-15T06:00:00.000Z",
-    "x": "Pourquoi certaines expériences hallucinatoires sont-elles vécues comme pathologiques et menaçantes, tandis que d’autres peuvent acquérir une valeur signifiante, voire thérapeutique ?"
-   },
-   {
-    "t": "Doctolib : Nvidia va entrer au capital en tant qu’actionnaire minoritaire pour « lancer la révolution de l’IA en Europe »",
-    "u": "https://www.lemonde.fr/pixels/article/2026/10/13/ia-l-entreprise-americaine-nvidia-entre-au-capital-du-francais-doctolib-en-tant-qu-actionnaire-minoritaire_6793162_4408996.html",
-    "s": "Le Monde",
-    "d": "2026-10-13T17:06:01.000Z",
-    "x": "L’entreprise américaine a investi au moins 8 milliards de dollars en Europe l’année dernière, a précisé son patron, Jensen Huang, affirmant avoir également investi dans les entreprises d’IA …"
-   },
-   {
-    "t": "Ethnic inequalities in stroke explained by differences in stroke risk factors",
-    "u": "https://medicalxpress.com/news/2026-10-ethnic-inequalities-differences-factors.html",
-    "s": "Medical Xpress",
-    "d": "2026-10-17T02:00:01.000Z",
-    "x": "Stroke risk is primarily linked to differences in traditional stroke risk factors, like diabetes and high blood pressure, rather than ethnicity, according to findings from a new south …",
-    "l": "en"
    }
   ],
   "recherche": [
@@ -416,23 +653,23 @@
     "d": "2026-10-16T16:00:00.000Z"
    },
    {
-    "t": "Temporal Step Supervision for Robust Step Counting from Wearable Accelerometers",
-    "u": "https://pubmed.ncbi.nlm.nih.gov/42884435/",
+    "t": "Canadian evidence-based guidelines on spinal procedures for chronic pain",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42893967/",
     "s": "PubMed",
-    "d": "2026-10-16T05:09:00.000Z",
-    "x": "These results suggest that temporal step supervision improves robustness under irregular walking and can reduce dependence on large-scale external pretraining.",
+    "d": "2026-10-19T03:04:00.000Z",
+    "x": "The recommendations are based on the strength of the available research as well as perspectives from various stakeholders and are supplemented by advice about good and safe clinical practice.",
     "l": "en",
-    "r": "Sensors (Basel)",
+    "r": "Anaesthesia",
     "e": "CRCHUM"
    },
    {
-    "t": "Risk Factors Associated with Spinal Cord Stimulation Failure in Patients with Chronic Pain: A Single-Center Retrospective Cohort Study",
-    "u": "https://pubmed.ncbi.nlm.nih.gov/42882142/",
+    "t": "Cardiovascular exercise mitigates inflammation in the early subacute phase of stroke recovery: a secondary analysis of a randomized controlled trial",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42893242/",
     "s": "PubMed",
-    "d": "2026-10-16T05:02:00.000Z",
-    "x": "These findings require confirmation through prospective, prespecified multivariable and time-to-event analyses.",
+    "d": "2026-10-18T09:22:00.000Z",
+    "x": "When introduced in the early subacute phase of stroke recovery, moderate-to-vigorous CE mitigates increases in inflammation, but the effect differs across mediators.",
     "l": "en",
-    "r": "J Clin Med",
+    "r": "Brain Behav Immun Health",
     "e": "CRCHUM"
    },
    {
@@ -466,122 +703,117 @@
     "e": "INSPQ"
    },
    {
-    "t": "Altered sperm DNA methylation provides an epigenetic route from overweight and older men to intergenerational disease transmission",
-    "u": "https://pubmed.ncbi.nlm.nih.gov/42886706/",
+    "t": "Harm reduction among refugees and displaced populations in Lebanon: a systematic review",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42894244/",
     "s": "PubMed",
-    "d": "2026-10-16T17:43:00.000Z",
-    "x": "These results suggest that sperm methylome alterations that are linked to an elevated BMI may influence key embryonic transcriptional processes, notably those associated with trophectoderm …",
+    "d": "2026-10-19T04:18:00.000Z",
+    "x": "The findings suggest that current policies require adaptation, as they inadequately address the specific vulnerabilities and barriers faced by refugee populations.",
     "l": "en",
-    "r": "Proc Natl Acad Sci U S A",
-    "e": "Québec"
+    "r": "Harm Reduct J",
+    "e": "Québec",
+    "y": "revue"
    },
    {
-    "t": "Collaborative Technology-Assisted Depression Program for Chronic Disease Patients in Santiago, Chile",
-    "u": "https://pubmed.ncbi.nlm.nih.gov/42885588/",
+    "t": "Examining intersections of biographies & biologies: Diversity & outcomes of people with multiple sclerosis in Canada (iBio(2)Div-MS) protocol",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42892300/",
     "s": "PubMed",
-    "d": "2026-10-16T10:06:00.000Z",
-    "x": "While results did not demonstrate statistical difference within the programs to treat the health problems included in the study, the findings support the use of computer-assisted …",
+    "d": "2026-10-18T05:40:00.000Z",
+    "x": "This study will provide insight into the joint contributions of contextual, biographical, and biological factors to health outcomes among underrepresented groups with MS.",
     "l": "en",
-    "r": "Clin Gerontol",
+    "r": "Mult Scler Relat Disord",
     "e": "Québec"
    }
   ],
   "publications": [
    {
-    "t": "Scoping review of equity considerations in digitally enabled patient education interventions for self-managing chronic musculoskeletal pain",
-    "u": "https://pubmed.ncbi.nlm.nih.gov/42877005/",
+    "t": "HALP Score as a Mortality Predictor in Elderly Home-Care Patients",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42847962/",
     "s": "PubMed",
-    "d": "2026-10-15T15:27:00.000Z",
-    "x": "Although there are several digitally enabled patient education tools or interventions to support pain self-management, fewer are available to address the diverse needs.",
+    "d": "2026-10-08T19:36:00.000Z",
+    "x": "The HALP and modified HALP may serve as useful prognostic markers for mortality prediction in elderly home-care patients.",
     "l": "en",
-    "r": "Front Public Health",
-    "y": "revue"
+    "r": "Clin Lab"
    },
    {
-    "t": "Cost-Effectiveness of Community Health Worker Interventions for Type 2 Diabetes Mellitus: A Systematic Review",
-    "u": "https://pubmed.ncbi.nlm.nih.gov/42879091/",
+    "t": "Artificial intelligence in multidisciplinary and cross-sector public health practice: A scoping review",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42893662/",
     "s": "PubMed",
-    "d": "2026-10-15T22:36:00.000Z",
-    "x": "Available evidence suggests that CHW interventions are likely cost-effective for adults with T2D, particularly when evaluated over longer time horizons.",
+    "d": "2026-10-18T22:03:00.000Z",
+    "x": "Artificial intelligence applications in public health are expanding, but the evidence base remains heterogeneous and empirically limited.",
     "l": "en",
-    "r": "Appl Health Econ Health Policy",
-    "y": "revue"
+    "r": "Public Health"
    },
    {
-    "t": "Primary healthcare, climate-related health impacts and intercultural dialogue: bibliometric evidence of a fragmented research field",
-    "u": "https://pubmed.ncbi.nlm.nih.gov/42876690/",
+    "t": "Strengthening health systems to prioritise, provide care, and prevent osteoarthritis: a roadmap for global health policy",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42860133/",
     "s": "PubMed",
-    "d": "2026-10-15T12:07:00.000Z",
-    "x": "Systematic Review Registration : PROSPERO CRD420251038912.",
+    "d": "2026-10-11T22:53:00.000Z",
+    "x": "These priorities are supported by accelerators requiring global collaboration, within and outside the osteoarthritis community.",
     "l": "en",
-    "r": "Front Health Serv",
-    "y": "revue"
+    "r": "Lancet"
    },
    {
-    "t": "Toward an integration model for sustainable school meals: a comparative policy review of five European countries",
-    "u": "https://pubmed.ncbi.nlm.nih.gov/42875761/",
+    "t": "What Comes Next? When and How Medicaid Home- and Community-Based Services End",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42834564/",
     "s": "PubMed",
-    "d": "2026-10-15T04:09:00.000Z",
-    "x": "Based on this synthesis, we propose an Integration Model for Sustainable School Meals comprising four interconnected areas: policy and governance, sustainable procurement and supply chains, …",
+    "d": "2026-10-06T05:44:00.000Z",
+    "x": "Extended duration of HCBS use was common across our sample, which may affect Medicaid's ability to fund HCBS programs.",
     "l": "en",
-    "r": "BMC Public Health",
-    "y": "revue"
+    "r": "J Am Geriatr Soc"
    },
    {
-    "t": "Information theory and diagnostic reasoning in primary care: a framework for navigating uncertainty",
-    "u": "https://pubmed.ncbi.nlm.nih.gov/42885772/",
+    "t": "Multisectoral Emergence of Multidrug-Resistant Campylobacter coli Sequence Type 10042 Lineage, Europe, 2018-2025",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42811282/",
     "s": "PubMed",
-    "d": "2026-10-16T11:26:00.000Z",
-    "x": "Ultimately, it positions diagnosis as a scientific process of uncertainty reduction central to primary care practice.",
+    "d": "2026-09-30T03:34:00.000Z",
+    "x": "coli infections can involve sustained international transmission rather than sporadic cases and highlight the need for coordinated, cross-sector genomic surveillance to detect emerging …",
     "l": "en",
-    "r": "Fam Pract"
+    "r": "Emerg Infect Dis"
    },
    {
-    "t": "State Cannabis Policy and Public Health Research in the United States: Policy Disconnects and Research Gaps",
-    "u": "https://pubmed.ncbi.nlm.nih.gov/42887027/",
+    "t": "Assessment of potentially avoidable hospitalizations in Ningxia, China: application of a China-specific ACSCs list",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42871150/",
     "s": "PubMed",
-    "d": "2026-10-16T21:53:00.000Z",
-    "x": "Future research should incorporate detailed policy coding, implementation measures, market data, surveillance data, and stronger researcher-policymaker linkages.",
+    "d": "2026-10-14T12:00:00.000Z",
+    "x": "Notable differences in the rates of potentially avoidable hospitalizations and disease burden were identified in Ningxia, accompanied by significant spatial clustering and variations among …",
     "l": "en",
-    "r": "Annu Rev Public Health"
+    "r": "Front Public Health"
    },
    {
-    "t": "Prediction accuracy of available early warning systems for air pollution across WHO South-East Asia region: a systematic review",
-    "u": "https://pubmed.ncbi.nlm.nih.gov/42877354/",
+    "t": "Conditional pathways to loneliness in older adults with vision impairment: a decision-tree analysis",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42847076/",
     "s": "PubMed",
-    "d": "2026-10-15T17:49:00.000Z",
-    "x": "While hybrid and deep learning models demonstrated superior forecasting accuracy over traditional methods, widespread policy implementation across SEARO was hindered by poor methodological validation.",
+    "d": "2026-10-08T18:59:00.000Z",
+    "x": "By identifying conditional configurations of psychosocial and health-related factors, interpretable decision-tree models may inform more targeted screening, evaluation, and intervention strategies.",
     "l": "en",
-    "r": "Front Public Health",
-    "y": "revue"
+    "r": "Innov Aging"
    },
    {
-    "t": "Advocacy and policy leadership training for primary care: a global environmental scan of competency frameworks, interventions, and strategic priorities",
-    "u": "https://pubmed.ncbi.nlm.nih.gov/42877277/",
+    "t": "Digital Exclusion and Sleep Problems in Middle-Aged and Older Adults: A Multi-Cohort Cross-National Study",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42845769/",
     "s": "PubMed",
-    "d": "2026-10-15T17:33:00.000Z",
-    "x": "The global evidence base supports competency-based, longitudinal, and experiential approaches to advocacy and policy leadership training for primary care but is critically underdeveloped …",
+    "d": "2026-10-08T12:33:00.000Z",
+    "x": "Digital inclusion warrants further investigation as a potential target for sleep-health intervention research.",
     "l": "en",
-    "r": "Front Med (Lausanne)"
+    "r": "Res Sq"
    },
    {
-    "t": "Improving Musculoskeletal Care Quality With a Web-Based Clinical Decision Support System in UK Primary Care: Mixed Methods Cluster-Randomized Controlled Trial",
-    "u": "https://pubmed.ncbi.nlm.nih.gov/42879770/",
+    "t": "Stakeholder Perspectives on Needs, Preferences, and Perceived Barriers for a Smart Integrated Care Platform for Older Adults with Cardiometabolic Multimorbidity: A Qualitative Study",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42890694/",
     "s": "PubMed",
-    "d": "2026-10-15T23:39:00.000Z",
-    "x": "When used, the CrossCover CDSS significantly reduced suboptimal primary care MSK management.",
+    "d": "2026-10-17T22:26:00.000Z",
+    "x": "From multiple stakeholder perspectives, the perceived needs of older adults with CMM for smart integrated care platforms are diverse.",
     "l": "en",
-    "r": "J Med Internet Res",
-    "y": "essai"
+    "r": "Patient Prefer Adherence"
    },
    {
-    "t": "Medical Gaslighting in Urban Healthcare: A Bioecological Framework for Health Equity and Participatory System Transformation",
-    "u": "https://pubmed.ncbi.nlm.nih.gov/42881683/",
+    "t": "Navigating Health Information Sharing to Address Social Needs: Practice, Research, and Policy Recommendations from Hospital-Based Violence Intervention",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42894472/",
     "s": "PubMed",
-    "d": "2026-10-16T05:00:00.000Z",
-    "x": "By connecting individual experiences to system-level transformation, healthcare organizations can strengthen equity, trust and human-centered care.",
+    "d": "2026-10-19T07:04:00.000Z",
+    "x": "In this article, we consider the real and perceived barriers to information sharing to address social needs and we make recommendations for practice, research, and policy to improve how …",
     "l": "en",
-    "r": "Healthcare (Basel)"
+    "r": "J Law Med Ethics"
    }
   ]
  },
@@ -629,6 +861,7 @@
   "PubMed"
  ],
  "bonnesRecentes": [
+  "https://www.franceinfo.fr/replay-magazine/france-2/13h15/13h15-le-dimanche-du-c-ur-au-don-d-organes-episode-1_8240326.html#xtor=RSS-3-%5Bgeneral%5D",
   "https://ici.radio-canada.ca/en-bref/1-10786221/un-don-qui-sauve-vies"
  ],
  "etat": {
@@ -642,7 +875,7 @@
   "rc-montreal": 50,
   "rc-societe": 50,
   "lp-actualites": 10,
-  "ld-manchettes": 34,
+  "ld-manchettes": 32,
   "ld-societe": 10,
   "jdm-societe": 16,
   "metro": 7,
@@ -662,14 +895,14 @@
   "franceinfo-sante": 20,
   "liberation-sante": 50,
   "qdm": 50,
-  "infirmiers": 60,
+  "infirmiers": 57,
   "lemonde-societe": 20,
   "franceinfo-societe": 20,
   "spf": 2,
   "tc-fr": 25,
-  "ld-idees": 25,
-  "ld-lettres": 23,
-  "ld-libre": 10,
+  "ld-idees": 0,
+  "ld-lettres": 21,
+  "ld-libre": 9,
   "ld-editoriaux": 10,
   "lp-dialogue": 10,
   "tc-ca": 25,
@@ -679,7 +912,7 @@
   "qs": 6,
   "asp": 10,
   "lemonde-sciences": 20,
-  "sciencesetavenir": 41,
+  "sciencesetavenir": 37,
   "futura": 20,
   "inserm": 10,
   "sciencedaily": 60,
