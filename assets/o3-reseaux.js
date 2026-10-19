@@ -14,11 +14,14 @@
     const cibleO3 = zone.querySelector("#these-methode-o3");
     if (!cibleO3) return;
     const espaceExistant = zone.querySelector("#methode-o3-exemples");
-    const ancienModule = espaceExistant?.querySelector("[data-o3-atlas]") ||
-      cibleO3.querySelector("[data-o3-atlas]");
-    if (ancienModule && modulesInitialises.has(ancienModule)) return;
-    // Une galerie clonée doit être recréée pour restituer ses contrôles.
-    if (ancienModule) ancienModule.remove();
+    // La galerie est placée dans la vue O3, après l'article du protocole.
+    // L'ancienne recherche dans l'article seul la manquait et la dupliquait.
+    const galeriesExistantes = Array.from(zone.querySelectorAll(
+      "#these-objectif-vue-o3 [data-o3-atlas], #methode-o3-exemples [data-o3-atlas], #these-methode-o3 [data-o3-atlas]"
+    ));
+    if (galeriesExistantes.length === 1 && modulesInitialises.has(galeriesExistantes[0])) return;
+    // Nettoyer les copies clonées et reconstruire une seule visionneuse active.
+    galeriesExistantes.forEach(galerie => galerie.remove());
     const point = zone.querySelector(".these-objectifs");
     const racine = document.documentElement.dataset.racine || "./";
     if (!document.querySelector("link[data-o3-style]")) {
