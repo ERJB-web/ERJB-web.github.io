@@ -40,7 +40,8 @@ async function verify(lang){
     assert(barre.querySelector('.menu-langues'));
     assert(barre.querySelector('a[href^="mailto:"]'));
     assert(barre.querySelector('a[href^="tel:"]'));
-    assert.equal(barre.querySelectorAll('[data-ecouter],.bouton-cv').length,0);
+    assert.equal(barre.querySelectorAll('.salle-actions,.bouton-cv').length,0);
+    assert([...barre.querySelectorAll('[data-ecouter]')].every(button=>button.closest('.menu-acces')),'Listening remains available only inside accessibility');
     assert.equal(barre.querySelectorAll('.gab-lecture > *').length,3,'Previous, centered current chapter, next only');
     assert(barre.querySelector('.chapitre-retour-chapitres[data-gab-pas="tous"]'));
     d.querySelector('#salle').hidden=true;
