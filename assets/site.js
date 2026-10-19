@@ -1298,7 +1298,7 @@
   const demarrer = () => {
     const style = document.createElement('style');
     style.id = 'guide-these-bras-animation';
-    style.textContent = '.these-guide-bras{animation:none}';
+    style.textContent = ''; 
     if (!document.getElementById(style.id)) document.head.appendChild(style);
     actualiser(document);
     const salle = document.getElementById('salle');
