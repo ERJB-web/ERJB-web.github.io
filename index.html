@@ -1629,6 +1629,19 @@ nav.these-methode-parcours[data-objectifs-isoles="oui"] .these-produit-descripti
 #methode-o2-7 .o2-these-version[open]>summary:after{content:"−"}
 #methode-o2-7 .o2-these-tech>summary{color:#67518b;background:#f5f1fa}
 #methode-o2-7 .o2-these-tech>summary:after{color:#67518b}
+#methode-o2-7 .o2-these-tech{border-color:#e2dbea;border-left:3px solid #876ba5}
+#methode-o2-7 .o2-these-tech>summary{justify-content:flex-start;gap:11px;background:linear-gradient(90deg,#f8f6fc,#fdfcff);padding:12px 16px}
+#methode-o2-7 .o2-tech-entete{display:flex;flex:1;flex-direction:column;min-width:0}
+#methode-o2-7 .o2-tech-sous-titre{display:block;margin-top:2px;color:#647582;font-weight:400;line-height:1.4}
+#methode-o2-7 .o2-tech-action{display:inline-flex;flex:none;align-items:center;justify-content:center;padding:5px 11px;border:1px solid #e2dbea;border-radius:999px;background:#fff;color:#67518b;white-space:nowrap}
+#methode-o2-7 .o2-tech-masquer{display:none}
+#methode-o2-7 .o2-these-tech[open] .o2-tech-voir{display:none}
+#methode-o2-7 .o2-these-tech[open] .o2-tech-masquer{display:inline}
+#methode-o2-7 .o2-these-tech>summary:after{content:"⌄";flex:none;transition:transform .18s ease}
+#methode-o2-7 .o2-these-tech[open]>summary:after{content:"⌄";transform:rotate(180deg)}
+#methode-o2-7 .o2-these-tech>summary:hover{background:#f3eff9}
+#methode-o2-7 .o2-these-tech>summary:focus-visible{outline:2px solid #876ba5;outline-offset:-3px}
+@media(max-width:650px){#methode-o2-7 .o2-tech-action{display:none}}
 #methode-o2-7 .o2-these-version-corps{padding:17px 18px 19px}
 #methode-o2-7 .o2-these-version-intro{color:#5e737c;font-size:12.5px}
 #methode-o2-7 .o2-these-etapes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:15px 0}
@@ -1685,8 +1698,11 @@ nav.these-methode-parcours[data-objectifs-isoles="oui"] .these-produit-descripti
 </div></div>
 </div>
 </details>
-<details class="o2-these-version o2-these-tech" open>
-<summary>Version technique · variables, formules et règles de calcul</summary>
+<details class="o2-these-version o2-these-tech">
+<summary>
+<span class="o2-tech-entete"><span class="o2-tech-titre">Version technique · variables, formules et règles de calcul</span><small class="o2-tech-sous-titre">Définitions, équations et hypothèses méthodologiques, accessibles à la demande.</small></span>
+<span class="o2-tech-action" aria-hidden="true"><span class="o2-tech-voir">Afficher</span><span class="o2-tech-masquer">Masquer</span></span>
+</summary>
 <div class="o2-these-version-corps">
 <p class="o2-these-version-intro"><strong>Notation :</strong> <em>i</em> désigne une petite unité de résidence (îlot habité, lorsque la résolution des données le permet) ; <em>t</em>, un territoire de CLSC ; <em>d</em>, un domaine de besoin ; <em>j</em>, un lieu de service ; <em>u</em>, une unité de publication du 211 ; et <em>p</em>, un profil issu d’O1. Les analyses fines seront agrégées au CLSC ; les données du 211 ne seront pas désagrégées artificiellement.</p>
 <div class="o2-these-formule">
