@@ -666,6 +666,69 @@
     });
   }
 
+
+  // O2 : supprimer une redite et condenser le résultat de double codage.
+  // Transformation ciblée du chapitre, avant le calcul du menu latéral.
+  function condenserExplicationsO2(corps) {
+    if (langue !== "fr") return;
+    const o2 = $("#these-methode-o2", corps);
+    if (!o2) return;
+    const section = $("#methode-o2-6", o2) || o2;
+    const titre = (prefixe) => $("h3,h4,h5,h6,dt,strong,b,span", section)
+      .find((n) => net(n.textContent).startsWith(prefixe) && net(n.textContent).length < 110);
+    const paragraphe = (prefixe) => $("p", section)
+      .find((n) => net(n.textContent).startsWith(prefixe));
+
+    // Retirer l'enveloppe entière uniquement si elle ne contient rien d'autre.
+    function remplacerPaire(entete, texte, remplacement = null) {
+      if (!entete || !texte) return;
+      const base = net(entete.textContent + " " + texte.textContent);
+      let commune = entete.parentElement;
+      while (commune && commune !== section && !commune.contains(texte)) commune = commune.parentElement;
+      const seule = commune && commune !== section && net(commune.textContent) === base;
+      if (seule) {
+        if (remplacement) commune.replaceWith(remplacement);
+        else commune.remove();
+      } else {
+        if (remplacement) entete.before(remplacement);
+        const enveloppeTitre = entete.closest("h3,h4,h5,h6,dt,p") || entete;
+        enveloppeTitre.remove();
+        texte.remove();
+      }
+    }
+
+    remplacerPaire(
+      titre("Comment les fichiers sont rapprochés"),
+      paragraphe("Le territoire de CLSC et le domaine de besoin")
+    );
+    const titreKappa = titre("Ce que mesure le double codage");
+    const texteKappa = paragraphe("Lors de l’essai, les catégories de besoins");
+    if (!titreKappa || !texteKappa) return;
+
+    if (!D.getElementById("css-o2-kappa-compact")) {
+      const style = el("style");
+      style.id = "css-o2-kappa-compact";
+      style.textContent = [
+        ".these .o2-kappa-bandeau{display:grid;grid-template-columns:minmax(140px,.8fr) auto minmax(0,2.2fr);align-items:center;gap:15px;width:100%;margin:15px 0;padding:15px 19px;border:1px solid #cbe4e3;border-left:4px solid #148b85;border-radius:13px;background:linear-gradient(110deg,#f0f9f7,#fff 74%);box-shadow:0 4px 14px rgba(21,80,83,.045);box-sizing:border-box}",
+        ".these .o2-kappa-bandeau .o2-kappa-label{font-size:11px;font-weight:800;line-height:1.35;letter-spacing:.07em;text-transform:uppercase;color:#27726e}",
+        ".these .o2-kappa-bandeau .o2-kappa-valeur{font-size:clamp(22px,2.5vw,31px);line-height:1.1;font-weight:850;white-space:nowrap;color:#087e79;font-variant-numeric:tabular-nums}",
+        ".these .o2-kappa-bandeau .o2-kappa-lecture{font-size:13px;line-height:1.5;color:#29444a;text-align:left;min-width:0}",
+        ".these .o2-kappa-bandeau .o2-kappa-lecture strong{font-weight:780;color:#165b59}",
+        ".these .o2-kappa-bandeau .o2-kappa-limite{display:block;margin-top:3px;color:#736044;font-size:12px}",
+        "@media(max-width:680px){.these .o2-kappa-bandeau{grid-template-columns:1fr auto;gap:7px 12px;padding:13px 15px}.these .o2-kappa-lecture{grid-column:1/-1}}"
+      ].join("\n");
+      D.head.append(style);
+    }
+    const bandeau = el("aside", "o2-kappa-bandeau");
+    bandeau.setAttribute("aria-label", "Concordance du double codage de l’essai");
+    bandeau.innerHTML =
+      '<span class="o2-kappa-label">Essai · Double codage des besoins</span>' +
+      '<span class="o2-kappa-valeur">κ = 0,94</span>' +
+      '<div class="o2-kappa-lecture"><strong>Accord très élevé</strong> entre deux codages, au-delà du hasard.' +
+      '<span class="o2-kappa-limite">≠ 94 % de données exactes ; ne valide ni les doublons ni les rapprochements géographiques.</span></div>';
+    remplacerPaire(titreKappa, texteKappa, bandeau);
+  }
+
   function construireChapitre(ch, i, n, couleur, choix, salle) {
     const section = ch.surPlace ? ch.source : el("section");
     section.classList.add("gab-chapitre");
@@ -700,6 +763,7 @@
       if (ch.photoInterne && ch.choix?.interne) $$("img", source).find((im) => absolue(im.getAttribute("src")) === ch.photoInterne)?.closest("picture, img")?.remove();
       corps.append(source);
     }
+    if (salle === "recherche" && ch.cle === "methodes") condenserExplicationsO2(corps);
     texte.append(tete, corps);
     const aside = el("aside", "gab-chapitre-aside");
     // Dans le contexte de la thèse, le visuel de chiffres clés du premier chapitre
