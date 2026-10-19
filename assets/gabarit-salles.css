@@ -2694,3 +2694,39 @@ html:is(.hc,.lv) .gab[data-gab-salle="gestionnaire"] .carte-vitrine{
   .gab[data-gab-salle="valeurs"] .valeur p{font-size:12.9px!important}
   .gab[data-gab-salle="valeurs"] .gab-lecture-integrale .devise{margin-top:18px!important;padding-top:12px!important}
 }
+
+/* Titre intégral de la thèse, visible en ouverture du chapitre Contexte. */
+.gab-chapitre[data-gab-slug="contexte"] .these-titre-contexte{
+  box-sizing:border-box;
+  margin:2px 0 24px;
+  padding:clamp(17px,2vw,24px) clamp(18px,2.4vw,30px);
+  border:1px solid #d5e5ef;
+  border-left:4px solid #0879be;
+  border-radius:14px;
+  background:linear-gradient(110deg,#f5faff 0%,#fff 100%);
+  box-shadow:0 4px 16px rgba(17,51,77,.04);
+}
+.gab-chapitre[data-gab-slug="contexte"] .these-titre-contexte-label{
+  display:block;
+  margin:0 0 8px;
+  font:650 12px/1.3 var(--sans,Arial,sans-serif);
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  color:#32617c;
+}
+.gab-chapitre[data-gab-slug="contexte"] .these-titre-contexte-principal{
+  font:650 clamp(19px,2.15vw,25px)/1.38 var(--sans,Arial,sans-serif);
+  letter-spacing:-.015em;
+  color:#123a50;
+  text-wrap:pretty;
+}
+.gab-chapitre[data-gab-slug="contexte"] .these-titre-contexte-principal span{
+  display:block;
+  margin-top:8px;
+  font:500 clamp(16px,1.6vw,19px)/1.45 var(--sans,Arial,sans-serif);
+  letter-spacing:0;
+  color:#2a607e;
+}
+@media(max-width:640px){
+  .gab-chapitre[data-gab-slug="contexte"] .these-titre-contexte{padding:16px 18px;margin-bottom:19px}
+}
