@@ -6252,3 +6252,18 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
 body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-salle="recherche"],.gab[data-gab-salle="axes"],.gab[data-gab-salle="publications"],.gab[data-gab-salle="approche"],.gab[data-gab-salle="methodes"],.gab[data-gab-salle="ia"]) :is(.gab-corps,.section-corps) :is(
   .o2-sources-grille,.o2-sources-modernes,.o1-circuit,.o3-quali-matrice
 ){margin-bottom:16px!important}
+
+/* Navigation compacte : le guide désigne directement le projet de thèse. */
+.entete .nav{justify-content:flex-start;gap:1px;margin-inline-start:0;margin-inline-end:auto;width:fit-content;max-width:100%;padding:2px}
+.entete .nav .these-nav{gap:0;margin-inline-end:3px;padding-inline:0 5px}
+.entete .nav .these-guide{width:36px;height:40px;margin-inline-end:-1px}
+.these-guide-bras{animation:none}
+.entete .nav .acces-these{gap:5px;min-height:34px;height:34px;padding:5px 9px;font-size:12.5px;letter-spacing:0}
+.entete .nav .acces-these>svg{width:16px;height:16px}
+.entete .nav>a{gap:4px;padding:4px 7px;min-height:34px}
+.entete .nav>a:hover,.entete .nav>a:focus-visible{background:var(--nav-accent,#237a9a);color:#fff;box-shadow:0 3px 9px color-mix(in srgb,var(--nav-accent,#237a9a) 35%,transparent);transform:none}
+.entete .nav>a:hover svg,.entete .nav>a:focus-visible svg{color:#fff}
+.entete .nav>a:hover::after,.entete .nav>a:focus-visible::after{background:#fff;opacity:.8}
+.entete .nav>a:focus-visible{outline:2px solid var(--nav-accent,#237a9a);outline-offset:2px}
+@media(max-width:700px){.entete .nav .these-guide{width:32px;height:36px}.entete .nav .acces-these{padding:5px 8px;font-size:12px}.entete .nav>a{padding:4px 6px}}
+@media(forced-colors:active){.entete .nav>a:hover,.entete .nav>a:focus-visible{background:Highlight;color:HighlightText}.entete .nav>a:hover svg,.entete .nav>a:focus-visible svg{color:HighlightText}}

@@ -724,6 +724,16 @@ ${tr.etapes.map(([verbe], i) => `<button type="button" class="cycle-noeud${i ? "
 </div>`;
 }
 
+const ICONES_MENU = {
+  "recherche": "<path d=\"m9 3 5 5-3 3-5-5zM12 10l-2 2M6 8l-2 2 4 4 2-2M5 21h14M10 17a6 6 0 0 0 6-10M12 17v4M4 17h7\"/>",
+  "entrepreneuriat": "<rect x=\"2\" y=\"3\" width=\"20\" height=\"14\" rx=\"2\"/><path d=\"m9 7-3 3 3 3m6-6 3 3-3 3M8 21h8M12 17v4\"/>",
+  "implantation": "<path d=\"M9 16h6m-6 3h6m-5 3h4M8 13a6 6 0 1 1 8 0c-1 1-1 2-1 3H9c0-1 0-2-1-3M12 1v1M3 5l1 1m16-1-1 1M1 11h2m18 0h2\"/>",
+  "biographie": "<rect x=\"3\" y=\"7\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M8 7V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v3M3 12a24 24 0 0 0 18 0M10 12v3h4v-3\"/>",
+  "representation": "<path d=\"M12 12 7 7a3 3 0 0 1 5-4 3 3 0 0 1 5 4zM2 14h4l4 3h5a2 2 0 0 1 0 4H8l-6-3m13-1 4-3a2 2 0 0 1 3 2l-5 5\"/>",
+  "logiciels": "<path d=\"M12 5v16M12 5C9 3 5 3 2 4v15c3-1 7-1 10 2 3-3 7-3 10-2V4c-3-1-7-1-10 1M5 8h3m-3 4h3m8-4h3m-3 4h3\"/>"
+};
+function iconeMenu(g){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'+(ICONES_MENU[g]||'')+'</svg>';}
+
 const ICONES_GROUPES = {
   engagements: ["bulles", "chapeau", "loupe", "etoile", "coeur", "course"],
   publications: ["bulles", "papiers", "chapeau", "outils", "papiers", "papiers"],
@@ -1425,7 +1435,7 @@ ${ici === "falc" ? `<span aria-current="page" lang="fr"><img class="logo-falc" s
 
 function accesThese(c) {
   const libelle = ({ fr: "Projet de thèse", en: "My PhD", es: "Mi tesis", zh: "我的博士论文", ar: "أطروحتي", ru: "Моя диссертация" })[c.lang] || "Projet de thèse";
-  return `<span class="these-nav"><svg class="these-guide" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="18" cy="27" r="17" fill="#e8f3f7"/><path d="m13 39-2 6m11-6 2 6" fill="none" stroke="#173f52" stroke-width="4" stroke-linecap="round"/><path d="M9 40v-9c0-5 4-8 9-8s9 3 9 8v9Z" fill="#287a94"/><path d="m14 24 4 7 4-7" fill="#fff"/><path d="M10 29c-4 2-5 7-1 9" fill="none" stroke="#287a94" stroke-width="5" stroke-linecap="round"/><g class="these-guide-bras"><path d="m25 30 7-7h8" fill="none" stroke="#edbfa7" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="m25 30 4-4" fill="none" stroke="#287a94" stroke-width="5.5" stroke-linecap="round"/><path d="M38 22h7m-7 3h3" fill="none" stroke="#edbfa7" stroke-width="2.7" stroke-linecap="round"/></g><circle cx="18" cy="15.5" r="7" fill="#f3ccb5"/><path d="M11 16c-2-6 1-10 7-10 5 0 8 4 7 9-2-1-3-3-3-5-3 3-6 3-10 2Z" fill="#173f52"/><g fill="#173f52"><circle cx="16" cy="16" r=".8"/><circle cx="21" cy="16" r=".8"/></g><path d="M16 19c1 1 3 1 4 0" fill="none" stroke="#a96e58" stroke-width="1" stroke-linecap="round"/><path d="M39 9v5m-2.5-2.5h5" fill="none" stroke="#d4a84d" stroke-width="1.4" stroke-linecap="round"/></svg><a class="acces-these" href="#recherche" aria-label="${e(libelle)}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9 12 4.5 21.5 9 12 13.5z"/><path d="M6.5 11v4.6c0 1.3 2.5 2.9 5.5 2.9s5.5-1.6 5.5-2.9V11"/><path d="M21.5 9v5"/></svg><span>${e(libelle)}</span><span class="acces-these-fleche" aria-hidden="true">→</span></a></span>`;
+  return `<span class="these-nav"><svg class="these-guide" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="21" cy="25" r="20" fill="#e4f1f5"/><path d="M12 44v-9c0-6 4-10 10-10s10 4 10 10v9" fill="#205b76"/><path d="m18 26 4 9 4-9" fill="#fff"/><path d="m21 30 1-2 2 2-1 9" fill="#d4a34e"/><path d="M14 34v7" fill="none" stroke="#327f96" stroke-width="5" stroke-linecap="round"/><path d="m29 32 5-4" fill="none" stroke="#205b76" stroke-width="6" stroke-linecap="round"/><g class="these-guide-bras"><path d="m33 28 5-2h7" fill="none" stroke="#efbea0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="m39 29 3-1" fill="none" stroke="#efbea0" stroke-width="2.5" stroke-linecap="round"/></g><path d="M19 23v5l3 3 3-3v-5" fill="#e5a987"/><ellipse cx="22" cy="17" rx="8" ry="9" fill="#f4ccb0"/><path d="M14 18c-2-8 2-12 8-12 6 0 10 5 8 11l-3-5c-3 2-7 2-11 1l-1 5" fill="#193e52"/><path d="M16 16h5v4h-5zm7 0h5v4h-5zm-2 1h2" fill="none" stroke="#29566a" stroke-width="1.1" stroke-linejoin="round"/><path d="M21 23c1.5 1 3 1 4-.5" fill="none" stroke="#ad7058" stroke-width="1.1" stroke-linecap="round"/></svg><a class="acces-these" href="#recherche" aria-label="${e(libelle)}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9 12 4.5 21.5 9 12 13.5z"/><path d="M6.5 11v4.6c0 1.3 2.5 2.9 5.5 2.9s5.5-1.6 5.5-2.9V11"/><path d="M21.5 9v5"/></svg><span>${e(libelle)}</span><span class="acces-these-fleche" aria-hidden="true">→</span></a></span>`;
 }
 
 function page(c, options = {}) {
@@ -1534,7 +1544,7 @@ ${baliseAudience(p)}
 <header class="entete">
 <a class="marque" href="${p || "./"}"><span class="marque-domaines">${e(c.ui.sousTitre)}</span></a>
 <p class="coordonnees coordonnees-haut"><a href="mailto:${e(c.contact.courriel)}">${icone("enveloppe")}${e(c.contact.courriel)}</a><a href="tel:${TELEPHONE[1]}">${icone("telephone")}${TELEPHONE[0]}</a></p>
-<nav class="nav" aria-label="${e(c.ui.navigation)}">${accesThese(c)}${GROUPES.map(([g, ss]) => `<a href="#${ss[0] || g}" style="--nav-accent:${TEINTES_GROUPES[g][0]}">${e(texteGroupe(c, g)[0])}</a>`).join("")}</nav>
+<nav class="nav" aria-label="${e(c.ui.navigation)}">${accesThese(c)}${GROUPES.map(([g, ss]) => `<a href="#${ss[0] || g}" style="--nav-accent:${TEINTES_GROUPES[g][0]}">${iconeMenu(g)}${e(texteGroupe(c, g)[0])}</a>`).join("")}</nav>
 <div class="outils">
 ${menuLangues(c, edition)}
 ${menuAcces(c, c.lang)}

@@ -1298,7 +1298,7 @@
   const demarrer = () => {
     const style = document.createElement('style');
     style.id = 'guide-these-bras-animation';
-    style.textContent = '.these-guide-bras{transform-origin:25px 30px;transform-box:view-box;animation:these-guide-pointer-visible 1.65s ease-in-out infinite}@keyframes these-guide-pointer-visible{0%,100%{transform:rotate(-15deg)}50%{transform:rotate(14deg)}}@media(prefers-reduced-motion:reduce){.these-guide-bras{animation:none}}';
+    style.textContent = '.these-guide-bras{animation:none}';
     if (!document.getElementById(style.id)) document.head.appendChild(style);
     actualiser(document);
     const salle = document.getElementById('salle');
