@@ -803,16 +803,26 @@
     }
     // Le Nota Bene est un élément de fin de chapitre : après O1–O3 et
     // hors des vues d'objectif / du menu, immédiatement avant la navigation.
-    const nota = salle === "recherche" && langue === "fr" && ch.cle === "methodes"
-      ? corps.querySelector(".these-exemples-attribution") : null;
+    const estChapitreMethode = salle === "recherche" && langue === "fr" && ch.cle === "methodes";
+    let nota = estChapitreMethode ? corps.querySelector(".these-exemples-attribution") : null;
+    // Uniquement en fin du chapitre Méthodologie, jamais en page de garde.
+    if (estChapitreMethode && !nota) {
+      nota = el("p", "these-exemples-attribution");
+      nota.innerHTML = "<strong>Nota Bene :</strong> La réflexion scientifique, les choix méthodologiques, la structuration des exemples, la réalisation des cartes dans QGIS, l’analyse, l’interprétation et la rédaction sont assurées par l’auteur. Le traitement et le codage des données sont effectués en R dans l’environnement Positron. L’assistance de Claude est limitée aux graphismes et à la programmation du site Internet ; Claude n’intervient ni dans le codage ou l’analyse des données, ni dans la rédaction scientifique.";
+    }
     grille.append(texte, aside);
     section.append(grille);
     if (nota) {
       nota.removeAttribute("hidden");
       nota.style.setProperty("display", "block", "important");
       nota.style.setProperty("font-size", "9pt", "important");
+      nota.style.setProperty("line-height", "1.5", "important");
       nota.style.setProperty("text-align", "justify", "important");
       nota.style.setProperty("width", "100%");
+      nota.style.setProperty("margin", "20px 0 6px", "important");
+      nota.style.setProperty("padding", "10px 0 0", "important");
+      nota.style.setProperty("border-top", "1px solid #e4e9ec", "important");
+      nota.style.setProperty("color", "#596977", "important");
       section.append(nota);
     }
     // Navigation de fin de page : on passe à une autre vue, jamais au
