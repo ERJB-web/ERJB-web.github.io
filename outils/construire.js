@@ -1605,8 +1605,6 @@ ${JEUX_ACCUEIL[c.lang] || ""}
 <div class="salle-barre">
 <button type="button" data-retour>← ${e(c.ui.hall)}</button>
 <span id="salle-titre"></span>
-<div class="salle-actions"><button type="button" data-ecouter aria-label="${e(c.ui.ecouter)}">${icone("casque")}<span>${e(c.ui.ecouter)}</span></button><button type="button" data-arreter aria-label="${e(c.ui.arreter)}" hidden>${e(c.ui.arreter)}</button>
-<button type="button" data-contact hidden>${e(c.ui.contact)} →</button></div>
 </div>
 <div class="salle-contenu"></div>
 </div>

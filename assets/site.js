@@ -433,7 +433,6 @@
     salle.style.setProperty("--c1", getComputedStyle(groupe.porte).getPropertyValue("--c1"));
     $("#salle-titre").textContent = `${String(ordre.indexOf(s) + 1).padStart(2, "0")} / ${String(ordre.length).padStart(2, "0")} · ${groupe.porte.dataset.titre} · ${section.dataset.titre}`;
     const i = ordre.indexOf(s);
-    $("[data-contact]", salle).hidden = i !== ordre.length - 1;
     salle.scrollTop = 0;
     courante = s;
     lectureAReprendre=null;
@@ -490,11 +489,6 @@
   });
   $("#visite").addEventListener("click", () => entrer(ordre[0]));
   $("[data-retour]", salle).addEventListener("click", () => sortir());
-  $("[data-contact]", salle).addEventListener("click", async () => {
-    await sortir(false,false);
-    reserverNavigation("contact",null);
-    suivreAdresse();
-  });
 
   }
 

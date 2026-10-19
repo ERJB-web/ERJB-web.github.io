@@ -30,7 +30,7 @@ puis ouvrir http://localhost:8770.
 
 ## Navigation et charte graphique
 
-Le gabarit de Projet de thèse est la référence commune : barre de lecture, boutons Tous les chapitres / Chapitre précédent / Chapitre suivant, compteur et sommaire latéral à groupes colorés. Ne pas créer de menus alternatifs ni découper artificiellement une rubrique. Les axes de recherche se lisent ensemble dans un seul chapitre ; une rubrique peut afficher Chapitre 1 sur 1. Conserver les découpages éditoriaux explicitement établis et les textes à jour.
+Toutes les salles partagent deux barres. La première reprend les coordonnées, la langue et l'accessibilité de l'accueil, avec « Revenir aux Halls » à gauche et « Revenir aux Chapitres » à droite, sans Écouter, CV ni Affiche. La seconde place précédent au bord gauche, le chapitre courant exactement au centre et suivant au bord droit. Le compteur et les sommaires colorés sont conservés. L'accueil reste inchangé. Ne pas créer de menus alternatifs ni découper artificiellement une rubrique. Les axes se lisent ensemble ; une rubrique peut afficher Chapitre 1 sur 1.
 
 La typographie éditoriale commune est définie dans `assets/typographie.css`, chargée après les styles des modules : corps 16 px, sections 22 px, sous-sections 19 px, encadrés 18 px et graisse modérée. Conserver cette échelle lors des modifications.
 

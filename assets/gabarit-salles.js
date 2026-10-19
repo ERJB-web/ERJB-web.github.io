@@ -1606,22 +1606,58 @@
     }
   });
 
+  const LIBELLES_ENTETE = {
+    fr: ["Revenir aux Halls", "Revenir aux Chapitres"],
+    en: ["Back to the halls", "Back to chapters"],
+    es: ["Volver a los vestíbulos", "Volver a los capítulos"],
+    zh: ["返回大厅", "返回章节"],
+    ar: ["العودة إلى القاعات", "العودة إلى الفصول"],
+    ru: ["Вернуться в холл", "Вернуться к главам"]
+  };
+  const elementsEntete = [];
+  function synchroniserEnteteChapitre() {
+    if (!barre || !lecture) return;
+    if (salle.hidden) {
+      elementsEntete.splice(0).forEach(({noeud, repere}) => repere.replaceWith(noeud));
+      return;
+    }
+    if (elementsEntete.length) return;
+    const accueil = D.querySelector("body > header.entete");
+    if (!accueil) return;
+    const contact = $(".entete-contact, .coordonnees-haut", accueil);
+    const menus = $$(".outils > .menu-langues, .outils > .menu-acces", accueil);
+    const deplacer = (noeud, cible) => {
+      if (!noeud) return;
+      const repere = D.createComment("emplacement de l’en-tête d’accueil");
+      noeud.before(repere);elementsEntete.push({noeud, repere});cible.append(noeud);
+    };
+    deplacer(contact, $(".chapitre-coordonnees", barre));
+    menus.forEach(menu => deplacer(menu, $(".chapitre-outils", barre)));
+  }
   function preparerSalle() {
     if (!salle || !barre) return;
-    if (!$(".gab-porte-nom", barre)) {
-      const nom = el("span", "gab-porte-nom");
-      $("[data-retour]", barre).after(nom);
+    if (!lecture) {
+      const libelles = LIBELLES_ENTETE[langue] || LIBELLES_ENTETE.fr;
+      const retour = $("[data-retour]", barre);
+      retour.textContent = "← " + libelles[0];
+      const utilitaires = el("div", "chapitre-utilitaires");
+      const coordonnees = el("div", "chapitre-coordonnees");
+      const outils = el("div", "chapitre-outils outils");
+      const chapitres = el("button", "chapitre-retour-chapitres", echapper(libelles[1]) + " →");
+      chapitres.type = "button";chapitres.dataset.gabPas = "tous";
+      utilitaires.append(retour, coordonnees, outils, chapitres);
+      barre.prepend(utilitaires);
       lecture = el("div", "gab-lecture");
-      lecture.innerHTML = `<button type="button" class="gab-tous" data-gab-pas="tous"><span aria-hidden="true">▦</span><span>${echapper(T.tous)}</span></button>` +
-        `<button type="button" class="gab-fleche gab-fleche-precedente" data-gab-pas="-1" aria-label="${echapper(T.precedent)}"><span class="gab-fleche-icone" aria-hidden="true">‹</span><span class="gab-fleche-libelle"><span class="gab-fleche-texte">${echapper(T.precedent)}</span><small class="gab-fleche-cible"></small></span></button>` +
-        `<div class="gab-actuel" aria-live="polite"><b></b><span><small></small><strong></strong></span></div>` +
-        `<button type="button" class="gab-fleche gab-fleche-suivante" data-gab-pas="1" aria-label="${echapper(T.suivant)}"><span class="gab-fleche-libelle"><span class="gab-fleche-texte">${echapper(T.suivant)}</span><small class="gab-fleche-cible"></small></span><span class="gab-fleche-icone" aria-hidden="true">›</span></button>` +
-        `<div class="gab-segments"></div>`;
+      lecture.innerHTML =
+        '<button type="button" class="gab-fleche gab-fleche-precedente" data-gab-pas="-1" aria-label="' + echapper(T.precedent) + '"><span class="gab-fleche-icone" aria-hidden="true">‹</span><span class="gab-fleche-libelle"><span class="gab-fleche-texte">' + echapper(T.precedent) + '</span><small class="gab-fleche-cible"></small></span></button>' +
+        '<div class="gab-actuel" aria-live="polite"><b></b><span><small></small><strong></strong></span></div>' +
+        '<button type="button" class="gab-fleche gab-fleche-suivante" data-gab-pas="1" aria-label="' + echapper(T.suivant) + '"><span class="gab-fleche-libelle"><span class="gab-fleche-texte">' + echapper(T.suivant) + '</span><small class="gab-fleche-cible"></small></span><span class="gab-fleche-icone" aria-hidden="true">›</span></button>';
       barre.append(lecture);
-      barre.classList.add("gab-barre");
-      salle.classList.add("gab-salle");
-      salle.addEventListener("scroll", suivreDefilement, { passive: true });
+      barre.classList.add("gab-barre");salle.classList.add("gab-salle");
+      salle.addEventListener("scroll", suivreDefilement, {passive:true});
+      new MutationObserver(synchroniserEnteteChapitre).observe(salle, {attributes:true, attributeFilter:["hidden"]});
     }
+    synchroniserEnteteChapitre();
   }
 
   function marquer(i) {
@@ -1667,18 +1703,8 @@
     fusionnerDossierImplantation(zone);
     observerSommaires(zone);
     preparerSalle();
-    const titre = net($("#salle-titre")?.textContent).split(" · ");
-    const nom = $(".gab-porte-nom", barre);
-    if (nom) nom.innerHTML = titre.length >= 3
-      ? `<small>${echapper(T.porte)}</small> ${echapper(titre[1])} <span class="gab-sous-categorie">› ${echapper(titre[2])}</span>`
-      : "";
     const liste = chapitresDe(zone);
     salle.classList.toggle("gab-avec-chapitres", liste.length >= 1);
-    if (lecture) {
-      const destinations = navigationParPorte(zone) ? chapitresDeLaPorte(zone) : liste.map((chapitre, index) => ({ zone, chapitre, index, externe: false, titre: nomChapitre(chapitre) }));
-      $(".gab-segments", lecture).innerHTML = destinations.map((c, k) => '<button type="button" style="--gab-c:' + c.chapitre.style.getPropertyValue("--gab-c") + '" data-gab-segment="' + k + '" aria-label="' + echapper(T.aller(c.titre)) + '"></button>').join("");
-      $$(".gab-segments button", lecture).forEach((b) => b.addEventListener("click", () => ouvrirDestinationChapitre(destinations[+b.dataset.gabSegment])));
-    }
     // La salle présente une page de chapitre à la fois. Sans fragment
     // précis, commencer par le premier chapitre, les autres restant masqués.
     const indexAdresse = chapitreDansAdresse(zone, liste);

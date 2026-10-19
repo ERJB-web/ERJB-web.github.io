@@ -8,6 +8,9 @@ async function verify(lang){
   // CSS layout is checked in the browser; omit large inline sheets in this DOM test.
   const dom=new JSDOM(html.replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,''),{runScripts:'outside-only',pretendToBeVisual:true,url:'https://erjb-web.github.io/'+(lang?lang+'/':'')+'#recherche'});
   const w=dom.window,d=w.document;
+  const accueil=d.querySelector('body > header.entete');
+  const accueilAvant=accueil.innerHTML;
+  const accessibilite=accueil.querySelector('.menu-acces');
   w.matchMedia=()=>({matches:true,addEventListener(){},removeEventListener(){}});
   w.IntersectionObserver=class{observe(){} disconnect(){}};
   w.ResizeObserver=class{observe(){} disconnect(){}};
@@ -20,6 +23,7 @@ async function verify(lang){
     assert(source.classList.contains('gab'),'Gabarit initializes without exceptions');
     assert.equal(source.querySelectorAll('.gab-chapitre').length,6);
     const room=d.querySelector('.salle-contenu');
+    d.querySelector('#salle').hidden=false;
     room.replaceChildren(source.cloneNode(true));
     await new Promise(r=>setTimeout(r,20));
     const active=()=>room.querySelector('.gab-page-active')?.dataset.gabSlug;
@@ -31,6 +35,17 @@ async function verify(lang){
     next.click();assert.equal(active(),'methodes');
     prev.click();assert.equal(active(),'problematique');
     assert.equal(d.querySelectorAll('.gab-lecture').length,1);
+    const barre=d.querySelector('.salle-barre');
+    assert.equal(barre.querySelector('.menu-acces'),accessibilite,'Original accessibility controls retain their listeners');
+    assert(barre.querySelector('.menu-langues'));
+    assert(barre.querySelector('a[href^="mailto:"]'));
+    assert(barre.querySelector('a[href^="tel:"]'));
+    assert.equal(barre.querySelectorAll('[data-ecouter],.bouton-cv').length,0);
+    assert.equal(barre.querySelectorAll('.gab-lecture > *').length,3,'Previous, centered current chapter, next only');
+    assert(barre.querySelector('.chapitre-retour-chapitres[data-gab-pas="tous"]'));
+    d.querySelector('#salle').hidden=true;
+    await new Promise(r=>setTimeout(r,0));
+    assert.equal(accueil.innerHTML,accueilAvant,'Homepage header restored exactly');
     for(const el of source.querySelectorAll('.chapitre-source'))assert(el.dataset.chapitreTitre,'Chapter title retained independently of old menu');
     console.log((lang||'fr')+': initialization, previous/next, chapter count OK');
   } finally {w.close();}
