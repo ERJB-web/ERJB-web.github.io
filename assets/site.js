@@ -1392,7 +1392,9 @@
       if (el.closest("h1,h2,h3,h4,h5,h6")) continue;
       if (el.closest("a[href]") && txt.length < 80) continue;
       const region=el.closest("#these-methode-o2")?"o2":el.closest("#these-methode-o3")?"o3":"o1";
-      const nouveau=reformuler(txt,region);
+      let nouveau=reformuler(txt,region);
+      // Les mini-cartes gardent des libellés courts : pas de débordement graphique.
+      if (txt.length <= 35 && nouveau.length > Math.max(28, txt.length * 2.2)) nouveau=txt;
       if (nouveau!==txt) noeud.nodeValue=original.replace(txt,nouveau);
     }
   }
@@ -1409,7 +1411,7 @@
     if(!vulgarisee) return;
     const intro=document.createElement("div");
     intro.className="methode-grand-public-intro";
-    intro.innerHTML="<strong>La méthode, expliquée simplement.</strong><p>Même projet, mêmes chiffres, cartes et schémas. Les mots scientifiques sont expliqués. Les étapes encore prévues ne sont pas présentées comme des résultats obtenus.</p>";
+    intro.innerHTML="<strong>La méthode, expliquée simplement.</strong><p>Même projet, mêmes chiffres, cartes et schémas. Les mots scientifiques sont expliqués. CLSC : centre local de services communautaires ; SAD : soutien à domicile ; 211 : service d’information et d’orientation. Les étapes encore prévues ne sont pas présentées comme des résultats obtenus.</p>";
     corps.prepend(intro);
     vulgariser(corps);
     let planifie=false;
