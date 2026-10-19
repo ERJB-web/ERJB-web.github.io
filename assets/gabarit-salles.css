@@ -1692,6 +1692,117 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 .gab.gab-engagements .engagements-galerie figcaption .credit-image{font-size:11px;color:#6b8189}
 @media(max-width:700px){.gab.gab-engagements .engagements-reseau,.gab.gab-engagements .engagements-galerie{grid-template-columns:minmax(0,1fr)!important}.gab.gab-engagements .engagements-galerie{gap:20px!important}}
 @media(prefers-reduced-motion:reduce){.gab.gab-engagements .engagements-galerie .loisir{transition:none}}
+/* Sports et loisirs : huit images dans une mosaïque de deux rangées sur ordinateur.
+   Les descriptions complètes sont révélées au survol ou à la prise de focus,
+   et restent toujours visibles dans les cartes sur les écrans plus étroits. */
+@media (min-width:981px){
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie{
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    gap:12px!important;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir,
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir:first-child,
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir:nth-child(2){
+    grid-column:auto!important;
+    position:relative;
+    height:clamp(116px,18vh,170px);
+    min-height:0;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir>img,
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir:nth-child(-n+2)>img{
+    display:block;
+    width:100%!important;
+    height:100%!important;
+    aspect-ratio:auto!important;
+    object-fit:cover;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir figcaption{
+    position:absolute!important;
+    inset:auto 0 0;
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+    padding:28px 12px 10px!important;
+    max-height:100%;
+    overflow:auto;
+    background:linear-gradient(to bottom,transparent,rgba(7,30,45,.94))!important;
+    color:#fff!important;
+    text-align:left;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie figcaption>span{
+    color:#d2f0ee!important;
+    font-size:10px;
+    line-height:1.2;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie figcaption h4{
+    color:#fff!important;
+    font:650 14px/1.2 var(--sans);
+    text-align:left!important;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie figcaption small,
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie figcaption .credit-image{
+    max-height:0;
+    opacity:0;
+    overflow:hidden;
+    color:#f1f7f8!important;
+    font:400 11px/1.35 var(--sans);
+    transition:max-height .15s ease,opacity .15s ease;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir:is(:hover,:focus-within) figcaption small,
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir:is(:hover,:focus-within) figcaption .credit-image{
+    max-height:160px;
+    opacity:1;
+    overflow:auto;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir:focus-visible{
+    outline:3px solid #0879be;
+    outline-offset:3px;
+  }
+  .gab.gab-engagements .engagements-loisirs .representation-ouverture{
+    padding:14px 20px;
+    margin-bottom:14px;
+    gap:18px;
+  }
+  .gab.gab-engagements .engagements-loisirs .representation-presentation h2{
+    margin-bottom:5px;
+    font-size:clamp(20px,1.8vw,26px);
+    line-height:1.2;
+  }
+  .gab.gab-engagements .engagements-loisirs .representation-repere>span{font-size:42px}
+  .gab.gab-engagements .engagements-loisirs .representation-section-titre{margin-bottom:10px}
+  .gab.gab-engagements .engagements-loisirs .representation-periode{margin-bottom:0}
+}
+@media (max-width:980px){
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:12px!important;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir,
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir:first-child,
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir:nth-child(2){
+    grid-column:auto!important;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir>img,
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir:nth-child(-n+2)>img{
+    height:145px!important;
+    aspect-ratio:auto!important;
+    object-fit:cover;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir figcaption{
+    padding:12px!important;
+    gap:5px;
+  }
+}
+@media (max-width:700px){
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir>img,
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir:nth-child(-n+2)>img{
+    height:155px!important;
+  }
+}
+
 /* Sommaires fidèles aux niveaux de titres, sans modifier la palette commune. */
 .gab .gab-sommaire-groupe-liens a[data-gab-profondeur="2"]{margin-inline-start:12px;max-width:calc(100% - 12px)}
 .gab .gab-sommaire-groupe-liens a[data-gab-profondeur="3"]{margin-inline-start:18px;max-width:calc(100% - 18px)}
