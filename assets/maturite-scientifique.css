@@ -100,3 +100,44 @@ html.hc .these .mat-sc,html.lv .these .mat-sc{background:#fff;border-width:2px}
   .these .mat-sc__quebec{grid-template-columns:1fr;gap:5px}
 }
 @media(prefers-reduced-motion:reduce){.these .mat-sc__barres i u{transition:none}}
+
+
+/* O3 / atelier : occuper les deux colonnes du contenu, jamais celle du menu latéral. */
+.these #methode-o3-6 .methode-rubrique-contenu > .mat-sc--o3 {
+  grid-column:1 / -1;
+  width:100%;
+  max-width:none;
+  min-width:0;
+  container:integration-o3 / inline-size;
+}
+.these #methode-o3-6 .mat-sc--o3 .mat-sc__steps {
+  width:100%;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  align-items:stretch;
+  gap:12px;
+}
+.these #methode-o3-6 .mat-sc--o3 .mat-sc__step {
+  min-width:0;
+  padding:13px 15px;
+  text-align:left!important;
+  text-align-last:left;
+  hyphens:none;
+  overflow-wrap:normal;
+  word-break:normal;
+  line-height:1.55;
+}
+.these #methode-o3-6 .mat-sc--o3 .mat-sc__title {
+  text-align:left!important;
+  text-align-last:left;
+  hyphens:none;
+}
+@container integration-o3 (max-width:850px) {
+  .these #methode-o3-6 .mat-sc--o3 .mat-sc__steps {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+@container integration-o3 (max-width:490px) {
+  .these #methode-o3-6 .mat-sc--o3 .mat-sc__steps {
+    grid-template-columns:minmax(0,1fr);
+  }
+}
