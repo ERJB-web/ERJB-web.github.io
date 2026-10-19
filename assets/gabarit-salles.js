@@ -1209,6 +1209,35 @@
     }
     if (mode === "unique") sc.classList.add("gab-unique");
 
+    /* BIOGRAPHIE_COMPACTE_20261019 */
+    // La rubrique Biographie constitue une seule page de lecture :
+    // cinq étapes accessibles sans cinq grands blocs affichés simultanément.
+    if (salle === "biographie" && langue === "fr") {
+      $(".gab-chapitres > .gab-chapitre", sc).forEach((chapitre) => {
+        const tete = $(".gab-chapitre-tete", chapitre);
+        const corpsBio = $(".gab-corps", chapitre);
+        const texteBio = $(".gab-chapitre-texte", chapitre);
+        if (!tete || !corpsBio || !texteBio || $(".bio-etape", chapitre)) return;
+        const details = D.createElement("details");
+        details.className = "bio-etape";
+        const resume = D.createElement("summary");
+        resume.className = "bio-etape-resume";
+        const premier = $("p", corpsBio);
+        const apercu = D.createElement("span");
+        apercu.className = "bio-etape-apercu";
+        if (premier) {
+          const extrait = net(premier.textContent);
+          const coupe = extrait.length > 145 ? extrait.slice(0, 145).replace(/\s+\S*$/, "") + "…" : extrait;
+          apercu.textContent = coupe;
+        }
+        const action = el("span", "bio-etape-action", "Lire cette étape");
+        resume.append(tete, apercu, action);
+        details.append(resume, corpsBio);
+        texteBio.append(details);
+      });
+    }
+
+
     // Publications : tous les blocs sont visibles, les tuiles remplacent les onglets de formats.
     if (salle === "publications") {
       $$(".pub-formats", sc).forEach((x) => x.remove());
