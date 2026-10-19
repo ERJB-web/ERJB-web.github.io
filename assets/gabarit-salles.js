@@ -2106,20 +2106,7 @@
         '<a class="precision-inventaire" href="docs/sources-mapping-o2.csv" target="_blank" rel="noopener noreferrer">Inventaire détaillé et provenance des 55 fichiers ↗</a>';
       (cibleO2.querySelector(".o2-sources-modernes") || cibleO2).append(bloc);
     }
-    if (cibleO3 && !cibleO3.parentElement.querySelector(".precision-protocole")) {
-      const bloc = D.createElement("section");
-      bloc.className = "precision-protocole precision-protocole-o3";
-      bloc.setAttribute("aria-label","O3 : repères du questionnaire de réseau");
-      bloc.innerHTML =
-        '<p class="precision-titre">Questionnaire de réseau · O3</p>' +
-        '<div class="precision-cartes">' +
-        '<div class="precision-carte"><span class="precision-chiffre">&gt; 80 %</span><strong>Réponse visée</strong><p>Cible méthodologique</p></div>' +
-        '<div class="precision-carte"><span class="precision-chiffre">12 mois</span><strong>Période étudiée</strong><p>Interactions déclarées</p></div>' +
-        '<div class="precision-carte"><span class="precision-chiffre">O1 → O3</span><strong>Profils et liens</strong><p>Vignettes : cadre commun</p></div></div>' +
-        '<p class="precision-parcours"><strong>O1</strong> Vignettes → <strong>O3</strong> Questionnaires SAD–partenaires → réseaux par profil et CLSC → comparaison à <strong>O2</strong> et entretiens.</p>' +
-        '<p class="precision-note"><strong>Par lien :</strong> acteur · secteur · nature · fréquence · collaboration (1–4). Non-réponse ≠ absence de lien.</p>';
-      cibleO3.insertAdjacentElement("afterend",bloc);
-    }
+
   }
   completerMethodologieO2O3();
 
