@@ -1,0 +1,162 @@
+[
+  {
+    "before": "<p>D’où l’idée de départ : identifier les profils de besoins sociaux concomitants les plus fréquents chez les aînés suivis en SAD ; pour chaque profil, repérer les ressources disponibles sur chaque territoire de CLSC ; puis comprendre comment la réponse s’organise aujourd’hui, afin de l’améliorer. La thèse porte sur les personnes aînées ayant une ou plusieurs morbidités, qui vivent à domicile et sont suivies par le SAD des huit territoires de CLSC du CIUSSS du Centre-Sud-de-l’Île-de-Montréal (48 575 personnes de 65 ans et plus en 2026).</p>",
+    "after": "<p>Le projet relie trois questions : quels besoins sociaux sont documentés ensemble chez les personnes aînées vivant à domicile avec une ou plusieurs morbidités (O1), quelles ressources sont potentiellement accessibles sur un territoire (O2), et comment les équipes SAD mobilisent leurs partenaires dans des situations réelles (O3). Les huit territoires du Centre-Sud-de-l’Île-de-Montréal servent actuellement de terrain exploratoire pour O2. L’établissement et les deux CLSC envisagés pour O3 restent à confirmer. Les 48 575 personnes de 65 ans et plus projetées en 2026 décrivent la population territoriale, pas le nombre de personnes suivies en SAD ni l’échantillon d’O3.</p>"
+  },
+  {
+    "before": "<p class=\"note\">Avec les équipes de soutien à domicile du CIUSSS du Centre-Sud-de-l’Île-de-Montréal.</p>",
+    "after": "<p class=\"note\">Avec des équipes de soutien à domicile de deux CLSC contrastés envisagés ; établissement, accès au terrain et participation à confirmer.</p>"
+  },
+  {
+    "before": "<p>Elle ne dit pas encore quelles combinaisons de besoins reviennent chez les personnes suivies en SAD, ni lesquelles restent non satisfaites ; elle relie rarement, sur un territoire, ces combinaisons aux ressources accessibles ; et ses analyses de réseaux notent la présence d’un lien, rarement son niveau de collaboration, presque jamais à partir des équipes SAD de plusieurs CLSC. La revue de portée d’O1 part de 60 957 notices de quatre bases (MEDLINE, Embase, APA PsycInfo, PubMed) : 8 938 antérieures à 2006 retirées, 52 021 importées dans Covidence, 25 412 doublons retirés, 26 609 études à trier par deux évaluateurs.</p>",
+    "after": "<p>La littérature documente encore imparfaitement les combinaisons de besoins des personnes suivies en SAD et leur articulation avec les ressources et les collaborations locales. O1 part de 60 957 notices exportées de quatre bases ; Covidence indique 52 021 notices importées, 25 412 doublons retirés et 26 609 notices à examiner. Le bilan avant importation présente un écart de deux notices à réconcilier avant le diagramme PRISMA final. Ces notices ne sont pas encore des études incluses.</p>"
+  },
+  {
+    "before": "<p class=\"note these-produit\"><strong>Produit final :</strong> la carte du réseau de chaque CLSC et de chaque profil, avec les maillons manquants. <strong>Ce que ça donne :</strong> savoir qui travaille déjà ensemble, qui devrait le faire, et sur quels liens agir.</p>",
+    "after": "<p class=\"note these-produit\"><strong>Produit final :</strong> des cartes des liens déclarés dans les situations étudiées, par profil et CLSC. <strong>Utilité :</strong> discuter les partenaires mobilisés, les relations peu documentées et les obstacles possibles. Un partenaire non cité ne sera pas automatiquement qualifié de maillon manquant.</p>"
+  },
+  {
+    "before": "<p>Comprendre les collaborations réelles et les maillons manquants.</p>",
+    "after": "<p>Comprendre les collaborations déclarées dans des situations réelles et les obstacles à explorer avec les acteurs.</p>"
+  },
+  {
+    "before": "<p>La même vignette est soumise à toutes les équipes et à toutes les organisations. Elle sert à deux choses : désigner les ressources à cartographier (O2) et demander « à qui adressez-vous cette personne ? » (O3). Elle peut ensuite servir à la formation des nouvelles intervenantes et aux discussions de cas intersectorielles.</p>",
+    "after": "<p>Les vignettes d’O1 servent de repères communs pour sélectionner les domaines à cartographier en O2 et repérer des situations réelles admissibles en O3. Les questionnaires portent ensuite sur les contacts et les aides documentables de ces situations au cours des douze derniers mois. Ils ne demandent pas aux organisations d’inventer une réponse à un scénario fictif. Les vignettes pourront aussi soutenir la formation et les discussions de cas.</p>"
+  },
+  {
+    "before": "<p class=\"r-intro\">Chaque objectif livre un produit final, et chaque produit sert au suivant. Les besoins (O1) disent quelles ressources chercher (O2) ; l’atlas (O2) décrit leur répartition et permet de proposer les territoires à comparer en O3 ; les réseaux (O3) disent qui travaille déjà ensemble et quel maillon manque.</p>",
+    "after": "<p class=\"r-intro\">Chaque produit prépare le suivant : O1 étaye les profils et les vignettes ; O2 décrit l’offre et l’accessibilité potentielles et aide à proposer les territoires d’O3 ; O3 documente les liens déclarés dans les situations réelles sélectionnées. Les écarts deviennent des questions d’entretien, puis des pistes d’amélioration contextualisées.</p>"
+  },
+  {
+    "before": "<p>En O3, trois réseaux sont comparés pour chaque CLSC étudié : le réseau déclaré par les équipes SAD, le réseau observé dans les références du 211 et l’offre potentielle de l’atlas. Une ressource présente dans l’atlas mais absente des deux réseaux est disponible et non mobilisée.</p>",
+    "after": "<p>Trois sources seront mises en regard, selon leurs périodes et leur couverture : les liens SAD–partenaires déclarés en O3, les orientations enregistrées par le 211 et l’offre potentielle cartographiée en O2. Leurs unités diffèrent. Une ressource inventoriée mais non citée dans les situations étudiées sera dite « non observée dans ce corpus » ; sa disponibilité réelle, sa mobilisation habituelle et la raison de son absence devront être explorées en entretien.</p>"
+  },
+  {
+    "before": "<p>Pour un même profil, le réseau change d’un territoire à l’autre. Dans l’exemple fictif, l’équipe SAD de Verdun mobilise une popote roulante, un centre d’action bénévole et une pharmacie, mais aucune ressource de logement ; à Centre-Sud, le maillon manquant est la proche aidance.</p>",
+    "after": "<p>Cette illustration fictive montre comment deux configurations pourraient différer pour un même profil. Un secteur absent de la carte représente une question à examiner, et non un manque démontré. En O3, cette interprétation dépendra des situations observées, de la couverture des réponses, du mandat des partenaires et des entretiens.</p>"
+  },
+  {
+    "before": "<figcaption>Produit 3 : deux trajectoires fictives du profil D, avec le maillon à créer en pointillé.</figcaption>",
+    "after": "<figcaption>Produit 3 : deux trajectoires fictives du profil D. Les pointillés indiquent une relation possible à discuter, sans démontrer un besoin de créer ce lien.</figcaption>"
+  },
+  {
+    "before": "<h5>O3 · Le réseau qui peut répondre, et le maillon qui manque</h5>",
+    "after": "<h5>O3 · Les collaborations observées et les obstacles à explorer</h5>"
+  },
+  {
+    "before": "<dd>Pour les situations étudiées par profil et CLSC : quels acteurs sont déclarés mobilisés, avec quelle nature de lien et quel niveau de collaboration (niveaux 1 à 4 du RUISSS, 2022, p. 16-17), quelles ressources disponibles ne sont pas mobilisées et quels maillons manquent.</dd>",
+    "after": "<dd>Pour les situations réelles étudiées, par profil et CLSC : acteurs déclarés mobilisés, nature et niveau des liens (1 à 4), aide rapportée et état documenté du besoin. Les relations non observées et les obstacles possibles seront discutés en entretien ; leur absence dans le corpus ne prouve pas un défaut du réseau territorial.</dd>"
+  },
+  {
+    "before": "<p>Au total, 172 îlots sont en écart. 6 913 personnes de 65 ans et plus y vivent, soit 15,9 %. La part atteint 36,8 % à Saint-Paul et 0 % au Centre-Ville (Bernier, 2026b).</p>",
+    "after": "<p>L’exercice bivarié croise vulnérabilité territoriale et co-accessibilité potentielle. Son décompte demeure provisoire : deux versions des résultats ne sont pas encore réconciliées. Le bilan de traçabilité ci-dessous précise les valeurs concernées ; aucune ne sera utilisée pour chiffrer des besoins individuels non satisfaits.</p>"
+  },
+  {
+    "before": "<p>Dans l’exercice exploratoire d’O2, 164 îlots présentent un écart entre indicateurs de vulnérabilité territoriale et couverture géographique, et 15,4&nbsp;% des 65 ans et plus y résident (Bernier, 2026). Ces chiffres issus de données réelles illustrent la faisabilité du calcul, mais ne démontrent ni des besoins individuels insatisfaits ni une réponse intersectorielle effective. Les indicateurs définitifs seront recalculés par profil étayé dans O1.</p>",
+    "after": "<p>Les cartes exploratoires montrent que le croisement entre vulnérabilité territoriale et couverture géographique peut être calculé. Le nombre d’îlots concernés et la part des aînés restent à réconcilier entre les versions de sortie avant d’être retenus comme résultats de référence. Ces cartes ne mesurent ni les besoins individuels insatisfaits ni une réponse intersectorielle effective.</p>"
+  },
+  {
+    "before": "<figcaption>Atlas QGIS, page de Verdun : 164 îlots en écart, 15,4&nbsp;% des 65 ans et plus (Bernier, 2026).</figcaption>",
+    "after": "<figcaption>Atlas QGIS : exemple de mise en page. Les chiffres inscrits dans cette capture historique restent à réconcilier avec la synthèse ; ils ne constituent pas un résultat validé pour Verdun.</figcaption>"
+  },
+  {
+    "before": "<p>La carte bivariée croise un indice de besoins potentiels tiré du recensement (faible revenu, vivre seul, grand âge, langue, logement) et la faiblesse de la réponse à 500 m. Les 172 îlots où les deux sont dans le tercile défavorable regroupent 6 913 personnes de 65 ans et plus, soit 15,9 % de celles du CCSMTL (Bernier, 2026a).</p>",
+    "after": "<p>La carte bivariée croise un indice territorial de besoins potentiels (revenu, isolement, âge, langue, logement) et la faible co-accessibilité à 500 m. Elle sert à repérer des zones à examiner, sans identifier les personnes présentant des besoins concomitants. Le décompte et son dénominateur seront validés après réconciliation des versions ; voir le bilan de traçabilité de la méthodologie.</p>"
+  },
+  {
+    "before": "<p class=\"r-statut\"><b>Statut des chiffres.</b> Les résultats de la cartographie (O2) sont réels : ils viennent des scripts R et des cartes QGIS produits le 17 octobre 2026 (Bernier, 2026a). Les profils (O1) et les réseaux (O3) sont à venir : les exemples qui les illustrent sont fictifs. Les retombées sont anticipées ; elles ne sont pas présentées comme la preuve qu’une intervention fonctionne. Chaque estimation donne son calcul et sa source.</p>",
+    "after": "<p class=\"r-statut\"><strong>Statut des chiffres.</strong> Les cartes sont des exercices exploratoires, distincts des futurs résultats de thèse par profil O1. Les chiffres de l’écart bivarié sont en cours de réconciliation. Les projections de 2026, les populations du recensement de 2021 et les demandes au 211 ont des périmètres différents : leurs dénominateurs ne sont pas interchangeables. Les exemples de profils et de réseaux sont fictifs.</p>"
+  },
+  {
+    "before": "<p><strong>Indicateurs et conditions :</strong> l’analyse indiquera par profil et CLSC les <strong>effectifs de situations</strong> selon la décision d’orientation, les contacts effectifs, l’aide rapportée et l’état du besoin (réponse documentée, partielle, persistante, en cours ou inconnue). Les dénominateurs, sources de déclaration et trajectoires tronquées seront précisés. Ces effectifs décrivent les cas sélectionnés : avec deux CLSC et 16 à 24 situations, aucun test de différence ou résultat généralisable statistiquement au Québec n’est prévu. Les réseaux agrégés par équipe SAD seront étudiés séparément (taille, diversité de Blau, proportion de liens 3–4 parmi ceux renseignés). Les trous structuraux exigeront des données fiables sur les liens entre alters ; sinon, ils ne seront pas calculés. Les comparaisons finales seront déterminées après le pilote. La série de 16 à 24 situations ne constituera jamais un échantillon probabiliste de tous les aînés ni 16 à 24 réseaux indépendants : les conclusions et recommandations resteront descriptives et contextualisées, sans inférence statistique entre CLSC ou profils.</p>",
+    "after": "<p><strong>Portée des analyses.</strong> Les 16 à 24 situations prévues constituent une série descriptive approfondie. Quatre situations par profil et CLSC permettent de documenter des parcours et de préparer les entretiens ; elles ne garantissent ni la saturation des partenaires ni la représentativité du réseau habituel. Les situations ne sont pas autant de réseaux indépendants. Aucun test de différence entre profils ou CLSC n’est prévu.</p><details class=\"revision-details\"><summary>Indicateurs, dénominateurs et règles de comparaison</summary><p><strong>Parcours :</strong> présenter des effectifs bruts par profil et CLSC : admissibles, sélectionnés, documentables, avec ou sans orientation, ouverts, tronqués ou inconnus. Pour l’aide rapportée et l’état du besoin, donner le nombre de situations renseignées et les inconnues séparément ; ne pas traiter l’absence d’information comme une absence d’aide.</p><p><strong>Réseaux :</strong> dédupliquer les organisations par équipe SAD et profil. Décrire la taille, la diversité de Blau et la part des liens de niveau 3–4 parmi les liens renseignés, en indiquant leurs effectifs et leurs sources. Ces mesures reflètent les occasions d’observer des partenaires dans les cas sélectionnés ; elles n’estiment pas l’ensemble du réseau territorial.</p><p><strong>Couverture :</strong> rapporter séparément répondants SAD / professionnels admissibles invités, partenaires répondants / partenaires invités et liens corroborés / liens déclarés vérifiables. Une cible de participation de 80 % ne garantit pas 80 % des liens observés. Présenter les mesures par source, avec et sans corroboration lorsque les données le permettent.</p><p><strong>Comparabilité :</strong> juxtaposer les descriptions uniquement avec leurs nombres de situations et leur couverture. Si ces éléments diffèrent, ne pas classer les territoires ou les profils selon leur taille de réseau ou leur diversité. Une analyse secondaire à effectif égal de situations ne sera envisagée que si les données le permettent, avec sa règle fixée après le pilote et avant l’analyse principale ; elle ne corrigera pas les biais de sélection.</p><p><strong>Structure et absences :</strong> ne calculer la contrainte de Burt que si les liens entre partenaires sont suffisamment renseignés et fiables ; sinon, l’omettre. Une organisation non citée sera « non observée dans les situations étudiées ». Parler de maillon manquant exigera un besoin et une indication documentés, une vérification du mandat et de l’accès, puis une discussion avec les acteurs.</p></details><p>Les critères de poursuite, la couverture minimale requise pour chaque mesure et les éventuels ajustements seront consignés après le pilote, avant la collecte principale. Les recommandations resteront contextualisées et ne seront pas présentées comme des effets démontrés.</p>"
+  },
+  {
+    "before": "<p>L’exercice bivarié croise vulnérabilité territoriale et co-accessibilité potentielle. Son décompte demeure provisoire : deux versions des résultats ne sont pas encore réconciliées. Le bilan de traçabilité ci-dessous précise les valeurs concernées ; aucune ne sera utilisée pour chiffrer des besoins individuels non satisfaits.</p>",
+    "after": "<p>Le croisement bivarié est réalisable, mais son résultat chiffré reste provisoire.</p><details class=\"revision-details\"><summary>Traçabilité : pourquoi deux versions des chiffres d’écart ?</summary><p>Les paramètres et le périmètre exacts des deux sorties ne sont pas établis dans les sources actuellement disponibles. Aucune différence de seuil ou de territoire n’est supposée pour expliquer l’écart.</p><div class=\"revision-table\"><table><caption>Valeurs historiques à réconcilier — aucun total validé à ce stade</caption><thead><tr><th>Version citée</th><th>Îlots</th><th>65 ans et plus</th><th>Statut</th></tr></thead><tbody><tr><td>Capture reprise en faisabilité</td><td>164</td><td>15,4 % ; effectif non précisé</td><td>Périmètre et règle à retrouver</td></tr><tr><td>Synthèse méthodologique et retombées</td><td>172</td><td>6 913 ; 15,9 %</td><td>Dénominateur exact et sortie à retrouver</td></tr></tbody></table></div><p><strong>Validation attendue :</strong> relancer le script sur une version identifiée des données ; consigner le millésime, le territoire, les îlots analysables et exclus, la distance de 500 m, les règles de terciles et d’ex æquo, les effectifs de 65 ans et plus dans les îlots retenus et dans tout le périmètre. Le pourcentage sera recalculé comme 100 × effectif dans les îlots retenus / effectif total du même périmètre, avec un arrondi à une décimale.</p><p>Les 150 îlots prioritaires fondés sur trois critères constituent un autre indicateur : ils ne sont pas le total de l’écart bivarié. Les captures conservées illustrent les versions historiques ; leurs annotations ne remplacent pas cette validation.</p></details><p>Les résultats définitifs seront recalculés par profil O1 étayé ; ni la proximité des ressources ni une vulnérabilité territoriale ne démontrent une réponse effective au besoin.</p>"
+  },
+  {
+    "before": "<p>Les acteurs de terrain seront associés à la collecte et à l’interprétation des résultats, et pas seulement sollicités comme répondants. L’analyse de réseaux donnera la parole aux équipes et à leurs partenaires pour décrire les liens existants et ceux qui manquent. Les résultats leur seront soumis pour validation avant publication.</p>",
+    "after": "<p>Les acteurs de terrain seront associés à l’interprétation des résultats. Le partenariat envisagé avec des personnes aînées et des proches aidants sera distinct de leur éventuelle participation comme répondants à la recherche.</p><details class=\"revision-details\"><summary>Participation des personnes partenaires : modalités à formaliser</summary><p>Le recrutement sera proposé avec les comités des usagers et les organismes d’aînés et de proche aidance, en recherchant une diversité de situations de vie, de langues et d’expériences des services. Aucun partenaire ni nombre de places n’est confirmé. Le rôle, la charge, le consentement et les besoins d’accessibilité seront convenus avant la participation ; remboursement et reconnaissance financière seront prévus selon les ressources et les règles institutionnelles applicables.</p><p>Les contributions porteront sur la lisibilité et la plausibilité des vignettes, les priorités d’analyse, l’interprétation des parcours et les formats de restitution. Un relevé indiquera les propositions retenues, adaptées ou non retenues et leurs raisons, y compris les désaccords. La reconnaissance des contributions et une éventuelle signature scientifique seront discutées selon le travail effectivement réalisé. La lecture des résultats par les partenaires ne sera pas assimilée à une validation de leur représentativité.</p></details><p>Ces modalités seront précisées avec la direction et les milieux participants avant la collecte.</p>"
+  },
+  {
+    "before": "réponse faible à 500 m",
+    "after": "co-accessibilité potentielle faible à 500 m"
+  },
+  {
+    "before": "faible réponse à 500 m",
+    "after": "faible co-accessibilité potentielle à 500 m"
+  },
+  {
+    "before": "faiblesse de la réponse spatiale",
+    "after": "faiblesse de la co-accessibilité potentielle"
+  },
+  {
+    "before": "réponse faible ou forte à 1 km",
+    "after": "co-accessibilité potentielle faible ou forte à 1 km"
+  },
+  {
+    "before": "Réponse intersectorielle à 1 km",
+    "after": "Co-accessibilité potentielle à 1 km"
+  },
+  {
+    "before": "Réponse intersectorielle à 500 m",
+    "after": "Co-accessibilité potentielle à 500 m"
+  },
+  {
+    "before": "leur réponse conjointe à domicile",
+    "after": "leur offre potentielle de proximité"
+  },
+  {
+    "before": "26 609 études à trier",
+    "after": "26 609 notices à examiner"
+  },
+  {
+    "before": "<p>Une première ébauche du cahier de codage (<i>codebook</i>) a été rédigée à titre d’exemple pour définir les variables à extraire et préciser les règles de codage. Elle a été testée par une première extraction dans Covidence afin d’en apprécier la faisabilité et de repérer les ajustements nécessaires. La grille provisoire reprend les critères d’inclusion et d’exclusion selon population, concept, contexte et document. La configuration descriptive « Extraction 2 » a été essayée dans Covidence. Avant la sélection systématique, le protocole sera révisé avec un bibliothécaire. <strong>Charge de travail à tester :</strong> les 26 609 notices impliquent jusqu’à 53 218 décisions de titres et résumés pour deux évaluateurs, hors textes intégraux. Un essai chronométré sur au moins 100 notices par évaluateur mesurera la durée de décision (moyenne et médiane), la proportion sélectionnée pour le texte intégral et les désaccords ; un essai distinct sur les textes intégraux disponibles estimera leur temps de lecture. <strong>Calcul prévisionnel :</strong> H<sub>titres</sub> = (26 609 × 2 × t<sub>titres</sub>)/3 600 heures-personnes, avec t en secondes par notice et par évaluateur ; H<sub>intégraux</sub> = (2 × n<sub>intégraux</sub> × t<sub>intégraux</sub>)/60, avec t en minutes. S’y ajouteront arbitrages, récupération des textes et extraction. À titre de <em>simulation uniquement</em>, 30 à 60 secondes par notice représenteraient 443 à 887 heures-personnes pour le premier tri en double ; ce n’est pas une durée déjà mesurée. Après les pilotes, le volume estimé et les heures réellement disponibles par évaluateur permettront de fixer les jalons, une marge pour les désaccords et, si besoin, un renfort en évaluateurs formés ; le calendrier sera révisé sans exclure arbitrairement d’études. Les notices ont par ailleurs été dédoublonnées dans Covidence (Bernier, 2026). <strong>Contrôle documentaire en attente :</strong> la soustraction des 8 938 notices antérieures à 2006 aux 60 957 notices exportées donne 52 019, alors que la capture Covidence indique 52 021 importées. Cet écart de deux notices doit être vérifié dans les journaux de recherche, de filtrage et d’import avant la finalisation du diagramme PRISMA-ScR ; les valeurs de la capture sont conservées, sans correction arbitraire.</p>",
+    "after": "<p>Le codebook a été testé dans Covidence. Avant le tri systématique, la stratégie et les critères seront révisés avec une bibliothécaire ; un pilote de concordance et un essai chronométré permettront de confirmer les moyens humains et le calendrier.</p><details class=\"revision-details\"><summary>Charge de sélection : hypothèses et calcul des heures</summary><p>Une première ébauche du cahier de codage (<i>codebook</i>) a été rédigée à titre d’exemple pour définir les variables à extraire et préciser les règles de codage. Elle a été testée par une première extraction dans Covidence afin d’en apprécier la faisabilité et de repérer les ajustements nécessaires. La grille provisoire reprend les critères d’inclusion et d’exclusion selon population, concept, contexte et document. La configuration descriptive « Extraction 2 » a été essayée dans Covidence. Avant la sélection systématique, le protocole sera révisé avec un bibliothécaire. <strong>Charge de travail à tester :</strong> les 26 609 notices impliquent jusqu’à 53 218 décisions de titres et résumés pour deux évaluateurs, hors textes intégraux. Un essai chronométré sur au moins 100 notices par évaluateur mesurera la durée de décision (moyenne et médiane), la proportion sélectionnée pour le texte intégral et les désaccords ; un essai distinct sur les textes intégraux disponibles estimera leur temps de lecture. <strong>Calcul prévisionnel :</strong> H<sub>titres</sub> = (26 609 × 2 × t<sub>titres</sub>)/3 600 heures-personnes, avec t en secondes par notice et par évaluateur ; H<sub>intégraux</sub> = (2 × n<sub>intégraux</sub> × t<sub>intégraux</sub>)/60, avec t en minutes. S’y ajouteront arbitrages, récupération des textes et extraction. À titre de <em>simulation uniquement</em>, 30 à 60 secondes par notice représenteraient 443 à 887 heures-personnes pour le premier tri en double ; ce n’est pas une durée déjà mesurée. Après les pilotes, le volume estimé et les heures réellement disponibles par évaluateur permettront de fixer les jalons, une marge pour les désaccords et, si besoin, un renfort en évaluateurs formés ; le calendrier sera révisé sans exclure arbitrairement d’études. Les notices ont par ailleurs été dédoublonnées dans Covidence (Bernier, 2026). <strong>Contrôle documentaire en attente :</strong> la soustraction des 8 938 notices antérieures à 2006 aux 60 957 notices exportées donne 52 019, alors que la capture Covidence indique 52 021 importées. Cet écart de deux notices doit être vérifié dans les journaux de recherche, de filtrage et d’import avant la finalisation du diagramme PRISMA-ScR ; les valeurs de la capture sont conservées, sans correction arbitraire.</p></details>"
+  },
+  {
+    "before": "<p>Des partenariats avec des CISSS ou CIUSSS sont envisagés, mais aucun accès à la collecte d’O3 n’est acquis. Les CLSC seront choisis selon les contrastes documentés en O2 et la possibilité de mobiliser des équipes SAD. <strong>Jalons décisionnels proposés (à confirmer avec la direction scientifique) :</strong> 31 mars 2027 : obtenir un accord de principe écrit d’un établissement et identifier au moins deux CLSC potentiels ; 30 juin 2027 : vérifier l’avancement des autorisations, de l’approbation éthique et du recrutement ; 30 septembre 2027 : décider de maintenir ou réviser le calendrier selon le démarrage réel de la collecte. <strong>Repli :</strong> si l’accès initial échoue, contacter un autre établissement avec des CLSC comparables, idéalement dans la CMM pour préserver la cohérence géographique avec les données du 211. Si un seul CLSC peut participer, un devis approfondi de cas unique ne pourrait être retenu qu’après modification explicite du protocole. Si aucun terrain SAD n’est accessible, O1 et O2 resteraient autonomes, mais O3 serait redéfini avec la direction de recherche plutôt que remplacé abusivement par les orientations du 211. <strong>Décision à l’issue du pilote :</strong> documenter la disponibilité réelle de chaque profil, la fréquence des cas avec et sans orientation, la charge de travail par situation, la part des partenaires joignables et les preuves accessibles d’aide reçue. Réduire au besoin le nombre de profils ou la profondeur de la collecte, sans multiplier les comparaisons impossibles. Les critères définitifs de cas, l’effectif et le périmètre seront arrêtés avec la direction avant la collecte principale ; aucun accord institutionnel ni approbation éthique n’est présenté comme acquis. La Politique de première ligne retient le territoire de CLSC comme unité de référence et souligne que l’offre « demeure souvent méconnue » (Ministère de la Santé et des Services sociaux [MSSS], 2026, p. 25).</p>",
+    "after": "<p>Aucun établissement ni CLSC n’a confirmé sa participation à O3. Les accords institutionnels, l’éthique et le pilote conditionnent la collecte. Trois jalons proposés structurent la décision : accord de principe en mars 2027, point sur les autorisations en juin, puis révision du calendrier en septembre si nécessaire.</p><details class=\"revision-details\"><summary>Accès au terrain : jalons et scénarios de repli</summary><p>Des partenariats avec des CISSS ou CIUSSS sont envisagés, mais aucun accès à la collecte d’O3 n’est acquis. Les CLSC seront choisis selon les contrastes documentés en O2 et la possibilité de mobiliser des équipes SAD. <strong>Jalons décisionnels proposés (à confirmer avec la direction scientifique) :</strong> 31 mars 2027 : obtenir un accord de principe écrit d’un établissement et identifier au moins deux CLSC potentiels ; 30 juin 2027 : vérifier l’avancement des autorisations, de l’approbation éthique et du recrutement ; 30 septembre 2027 : décider de maintenir ou réviser le calendrier selon le démarrage réel de la collecte. <strong>Repli :</strong> si l’accès initial échoue, contacter un autre établissement avec des CLSC comparables, idéalement dans la CMM pour préserver la cohérence géographique avec les données du 211. Si un seul CLSC peut participer, un devis approfondi de cas unique ne pourrait être retenu qu’après modification explicite du protocole. Si aucun terrain SAD n’est accessible, O1 et O2 resteraient autonomes, mais O3 serait redéfini avec la direction de recherche plutôt que remplacé abusivement par les orientations du 211. <strong>Décision à l’issue du pilote :</strong> documenter la disponibilité réelle de chaque profil, la fréquence des cas avec et sans orientation, la charge de travail par situation, la part des partenaires joignables et les preuves accessibles d’aide reçue. Réduire au besoin le nombre de profils ou la profondeur de la collecte, sans multiplier les comparaisons impossibles. Les critères définitifs de cas, l’effectif et le périmètre seront arrêtés avec la direction avant la collecte principale ; aucun accord institutionnel ni approbation éthique n’est présenté comme acquis. La Politique de première ligne retient le territoire de CLSC comme unité de référence et souligne que l’offre « demeure souvent méconnue » (Ministère de la Santé et des Services sociaux [MSSS], 2026, p. 25).</p></details>"
+  },
+  {
+    "before": "part pondérée de 34,9 % × 1 908 944",
+    "after": "calcul à partir de la part affichée : 0,349 × 1 908 944 ≈ 666 221 ; estimation arrondie, à vérifier sur les données sources"
+  },
+  {
+    "before": "Territoires où la méthode s’applique telle quelle",
+    "after": "Territoires visés par la transposition de la méthode"
+  },
+  {
+    "before": "tous les territoires de CLSC ; indicateurs complets vérifiés par le script",
+    "after": "166 territoires de CLSC ; complétude variable des répertoires, adaptations régionales nécessaires"
+  },
+  {
+    "before": "Heures de SAD requises non fournies par le public, à couvrir par les aidants, le communautaire ou le privé",
+    "after": "Écart estimé entre heures de SAD requises et heures publiques fournies"
+  },
+  {
+    "before": "234,7 M − 25,4 M (2023)",
+    "after": "234,7 M − 25,4 M (2023) ; cet écart ne mesure pas les heures effectivement assurées par les proches ou les autres secteurs"
+  },
+  {
+    "before": "offre saturée ou absente, preuve pour le financement",
+    "after": "offre inventoriée et lacunes géographiques à vérifier"
+  },
+  {
+    "before": "savoir qui fera quoi, et dans quel ordre",
+    "after": "discuter les rôles et la coordination des aides"
+  },
+  {
+    "before": "corridors à créer en premier",
+    "after": "liens à approfondir et ajustements à discuter"
+  },
+  {
+    "before": "modèles de réponse transférables",
+    "after": "pistes contextualisées à examiner ailleurs"
+  },
+  {
+    "before": "666 314",
+    "after": "≈ 666 221"
+  }
+]

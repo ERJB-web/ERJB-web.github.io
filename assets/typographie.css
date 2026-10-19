@@ -167,3 +167,97 @@ html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab
 #these-methode-o3 #methode-o3-7 .o3-analyse-detail p{font-size:12px;line-height:1.65}
 #these-methode-o3 #methode-o3-7 .o3-analyse-produit,#these-methode-o3 #methode-o3-7 .o3-analyse-note{font-size:12px;line-height:1.57}
 @media(max-width:690px){#these-methode-o3 #methode-o3-7 .o3-analyse-vue{font-size:14px}#these-methode-o3 #methode-o3-7 .o3-analyse-formule{font-size:15px}}
+/* Révision scientifique : lecture progressive, charte typographique commune. */
+.these .revision-details{margin:18px 0;padding:0 18px;border:1px solid #cadbdd;border-radius:10px;background:#fafcfc;min-width:0}
+.these .revision-details>summary{padding:14px 0;cursor:pointer;color:#195365;font-weight:600;text-align:left}
+.these .revision-details[open]>summary{border-bottom:1px solid #dce7e8;margin-bottom:14px}
+.these .revision-details p{margin:12px 0;text-align:justify;overflow-wrap:break-word;hyphens:auto}
+.these .revision-table{max-width:100%;overflow-x:auto;margin:14px 0}
+.these .revision-table table{width:100%;border-collapse:collapse}
+.these .revision-table caption{text-align:left;padding:8px 0;color:#405c65}
+.these .revision-table th,.these .revision-table td{padding:12px;border-bottom:1px solid #dce7e8;vertical-align:top;text-align:justify}
+.these .revision-table th{background:#edf4f5}
+@media(max-width:600px){.these .revision-details{padding:0 12px}.these .revision-table table{min-width:530px}}
+/* Démonstration O3 : chiffres saillants, étapes et décisions. */
+.these .revision-demo{--rev-accent:#176979;--rev-soft:#edf6f6;margin:8px 0 22px;padding:24px;border:1px solid #cddfe2;border-radius:14px;background:#fff;min-width:0;overflow-wrap:break-word}
+.these .revision-demo-head{padding-bottom:18px;border-bottom:1px solid #e1ebed;margin-bottom:20px}
+.these .revision-kicker{display:block;color:var(--rev-accent);font-size:12px;font-weight:700;letter-spacing:.08em;text-align:left;margin-bottom:7px}
+.these .revision-demo-head h6{margin:0 0 8px;color:#173f51;font-size:var(--type-encadre)!important}
+.these .revision-demo-head p{margin:0;color:#536774}
+.these .revision-reperes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:22px 0}
+.these .revision-reperes>div{display:flex;flex-direction:column;gap:6px;padding:6px 0 6px 16px;border-left:3px solid #93c4ca;min-width:0;text-align:left}
+.these .revision-number{display:block;color:var(--rev-accent);font-size:36px;font-weight:750;line-height:1.15;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.these .revision-number small{font-size:16px;font-weight:600;letter-spacing:0}
+.these .revision-reperes>div>span:last-child{font-size:14px;color:#526975;line-height:1.5}
+.these .revision-process{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;list-style:none;margin:26px 0;padding:0;counter-reset:none}
+.these .revision-process>li{display:flex;align-items:flex-start;gap:12px;padding:18px 15px;background:#f4f8f9;border:1px solid #deeaec;border-radius:10px;min-width:0}
+.these .revision-process>li::before{content:none!important}
+.these .revision-step{flex:0 0 32px;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#1c6677;color:#fff;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+.these .revision-process h6{margin:2px 0 8px;color:#204b5b}
+.these .revision-process p{margin:0;color:#526875}
+.these .revision-distinction{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:19px 15px;background:#edf5f7;border-radius:10px;margin:22px 0}
+.these .revision-distinction>span{flex:1;min-width:0;text-align:center}
+.these .revision-distinction b{display:block;color:#214e60;font-size:16px}
+.these .revision-distinction small{display:block;margin-top:5px;color:#526875;font-size:13px;line-height:1.4}
+.these .revision-distinction em{color:#6a8594;font-size:24px;font-style:normal}
+.these .revision-demo .revision-note{color:#4c6573;margin:16px 0;padding:0;text-align:justify}
+.these .revision-proof{margin-top:24px;padding-top:20px;border-top:1px solid #dce7e9}
+.these .revision-proof>h6{margin:0 0 16px;color:#21485a}
+.these .revision-proof-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 22px}
+.these .revision-proof-grid>div{padding-left:13px;border-left:2px solid #bad6db}
+.these .revision-proof-label{display:inline-block;color:#20596c;background:#eaf3f5;border-radius:5px;padding:3px 9px;font-weight:650;font-size:14px;text-align:left}
+.these .revision-proof-label--doute{color:#885426;background:#fcf0dc}
+.these .revision-proof-grid p{margin:7px 0 0;color:#526875}
+.these .revision-demo--scope{--rev-accent:#2b5e92;--rev-soft:#edf3fa;border-color:#d3dfed}
+.these .revision-status{display:inline-block;background:#edf3fa;color:#355c80;border-radius:6px;padding:5px 9px;font-size:13px;line-height:1.5;text-align:left}
+.these .revision-equation{display:flex;align-items:center;justify-content:space-between;gap:7px;margin:26px 0;padding:18px 10px;border-radius:10px;background:#f4f7fb}
+.these .revision-equation>span{flex:1;text-align:center;min-width:0}
+.these .revision-equation b{display:block;font-size:34px;font-weight:750;line-height:1.2;color:#285e92;font-variant-numeric:tabular-nums}
+.these .revision-equation small{display:block;font-size:13px;line-height:1.45;color:#4d6780;margin-top:8px}
+.these .revision-equation em{font-size:20px;line-height:1;color:#7592a9;font-style:normal}
+.these .revision-equation .revision-equation-total{flex:1.25;border-left:1px solid #cbdbea;padding-left:12px}
+.these .revision-equation-total b{color:#153e68}
+.these .revision-scope-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin:20px 0}
+.these .revision-scope-grid>div{min-width:0;padding-left:15px;border-left:3px solid #93b3d2}
+.these .revision-scope-grid h6{margin:0 0 8px;color:#244c75}
+.these .revision-scope-grid p{margin:0;color:#526875}
+.these .revision-demo--participation{border-color:#d4dfe6}
+.these .revision-thresholds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:22px 0}
+.these .revision-threshold{--threshold:#216c68;--threshold-bg:#f0f8f5;min-width:0;padding:18px 14px;border:1px solid #dce5e7;border-top:4px solid var(--threshold);border-radius:9px;background:var(--threshold-bg)}
+.these .revision-threshold--watch{--threshold:#91651f;--threshold-bg:#fdf8ed}
+.these .revision-threshold--limited{--threshold:#985640;--threshold-bg:#fbf3ef}
+.these .revision-threshold-label{display:block;color:var(--threshold);font-size:11px;font-weight:750;letter-spacing:.04em;line-height:1.5;min-height:32px;text-align:left}
+.these .revision-threshold-number{display:block;font-size:32px;font-weight:750;color:var(--threshold);line-height:1.2;margin:10px 0 14px;letter-spacing:-.03em;font-variant-numeric:tabular-nums;text-align:left;white-space:nowrap}
+.these .revision-threshold h6{margin:0 0 10px;color:#254757}
+.these .revision-threshold p{margin:0;color:#506571}
+.these .revision-denominators{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:24px 0 14px}
+.these .revision-denominators>div{border:1px solid #d8e4e8;border-radius:9px;padding:16px;background:#f7fafb;min-width:0}
+.these .revision-denominators h6{margin:0 0 12px;color:#25526a}
+.these .revision-denominators p{margin:0;text-align:center!important}
+.these .revision-denominators b{display:block;border-bottom:1px solid #b5cdd6;padding-bottom:7px;margin-bottom:7px;color:#244e62}
+.these .revision-denominators p>span{display:block}
+@media(max-width:1100px){.these .revision-thresholds{grid-template-columns:1fr}.these .revision-threshold{display:grid;grid-template-columns:125px minmax(0,1fr);gap:4px 18px}.these .revision-threshold-label{grid-column:1;min-height:0}.these .revision-threshold-number{grid-column:1;grid-row:2/4;margin:0}.these .revision-threshold h6{grid-column:2;grid-row:1;margin:0 0 6px}.these .revision-threshold p{grid-column:2;grid-row:2/4}}
+@media(max-width:700px){.these .revision-demo{padding:18px 14px}.these .revision-process{grid-template-columns:1fr}.these .revision-reperes{gap:12px}.these .revision-reperes>div{padding-left:10px}.these .revision-number{font-size:30px}.these .revision-number small{display:block;font-size:14px}.these .revision-proof-grid,.these .revision-scope-grid,.these .revision-denominators{grid-template-columns:1fr}.these .revision-equation{flex-wrap:wrap;justify-content:center;gap:10px 4px}.these .revision-equation>span{flex:0 0 25%}.these .revision-equation>em:last-of-type{display:none}.these .revision-equation .revision-equation-total{flex:0 0 100%;border-left:0;border-top:1px solid #cbdbea;padding:14px 0 0;margin-top:8px}.these .revision-equation-total small{margin-top:4px}.these .revision-threshold{display:block}.these .revision-threshold-label{min-height:0}.these .revision-threshold-number{margin:8px 0 14px}.these .revision-distinction{flex-direction:column;align-items:stretch}.these .revision-distinction em{text-align:center;line-height:1}.these .revision-distinction small{display:inline;margin-left:5px}.these .revision-distinction b{display:inline}}
+/* Exceptions sémantiques de la charte : les nombres sont des repères, hors corps rédigé. */
+html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo .revision-number{font-size:36px!important;line-height:1.15!important}
+html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo .revision-threshold-number{font-size:32px!important;line-height:1.2!important}
+html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo .revision-equation b{font-size:34px!important;line-height:1.2!important;font-weight:750!important}
+html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo .revision-number small{font-size:16px!important}
+html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo :is(.revision-kicker,.revision-threshold-label){font-size:12px!important}
+html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo :is(.revision-step,.revision-status){font-size:13px!important}
+html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo .revision-proof-label{font-size:14px!important}
+@media(max-width:700px){html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo .revision-number{font-size:30px!important}html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo .revision-number small{font-size:14px!important}}
+@media(max-width:700px){
+ .these #methode-o3-7{padding:10px}
+ .these #methode-o3-7 .these-methode-item:has(>dd>.revision-demo){padding:0;border:0;background:transparent}
+ .these #methode-o3-7 .these-methode-item:has(>dd>.revision-demo)>dt{padding:12px 4px;text-align:left!important}
+ .these #methode-o3-7 .revision-demo{margin-top:0}
+ .these .revision-demo--workload .revision-equation>span{flex-basis:38%}
+ .these .revision-demo--workload .revision-equation>.revision-equation-total{flex-basis:100%}
+ html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo--workload .revision-equation b{font-size:28px!important}
+}
+@media(max-width:700px){
+ .these #these-methode-o3 #methode-o3-7{padding:8px!important}
+ .these #these-methode-o3 #methode-o3-7 .these-methode-item:has(>dd>.revision-demo){padding:0!important;border:0!important;background:transparent!important}
+ .these #these-methode-o3 #methode-o3-7 .these-methode-item:has(>dd>.revision-demo)>dt{text-align:left!important;padding:12px 4px!important}
+}

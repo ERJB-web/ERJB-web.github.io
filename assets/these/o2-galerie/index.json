@@ -3,7 +3,7 @@
   "planches": [
     {
       "id": "planche-01",
-      "titre": "Les 8 territoires de CLSC et leur réponse conjointe à domicile",
+      "titre": "Les 8 territoires de CLSC et leur offre potentielle de proximité",
       "description": "Les huit territoires de CLSC sont comparés selon les domaines disposant d’une réponse conjointe santé et social à domicile.",
       "image": "assets/these/o2-galerie/planche-01.webp",
       "original": "assets/these/o2-galerie/planche-01-grand.webp",
@@ -25,7 +25,7 @@
     },
     {
       "id": "planche-03",
-      "titre": "Réponse intersectorielle à 1 km (20 min de marche), par îlot",
+      "titre": "Co-accessibilité potentielle à 1 km (20 min de marche), par îlot",
       "description": "Le score compte les domaines sociaux accessibles à 1 km de marche en présence d’une ressource de santé.",
       "image": "assets/these/o2-galerie/planche-03.webp",
       "original": "assets/these/o2-galerie/planche-03-grand.webp",
@@ -36,7 +36,7 @@
     },
     {
       "id": "planche-04",
-      "titre": "Réponse intersectorielle à 500 m (10 min de marche), par îlot",
+      "titre": "Co-accessibilité potentielle à 500 m (10 min de marche), par îlot",
       "description": "Le score compte les domaines sociaux accessibles à 500 m de marche en présence d’une ressource de santé.",
       "image": "assets/these/o2-galerie/planche-04.webp",
       "original": "assets/these/o2-galerie/planche-04-grand.webp",
@@ -59,7 +59,7 @@
     {
       "id": "planche-06",
       "titre": "Zones prioritaires (65 ans et plus, réponse faible, défavorisation)",
-      "description": "Ces zones combinent une forte présence de personnes aînées, une faible réponse à 500 m et une défavorisation élevée.",
+      "description": "Ces zones combinent une forte présence de personnes aînées, une faible co-accessibilité potentielle à 500 m et une défavorisation élevée.",
       "image": "assets/these/o2-galerie/planche-06.webp",
       "original": "assets/these/o2-galerie/planche-06-grand.webp",
       "fichier_source": "3 - Zones prioritaires/Carte 06 - CCSMTL - Zones prioritaires (65 ans et plus, réponse faible, défavorisation).png",
@@ -69,8 +69,8 @@
     },
     {
       "id": "planche-07",
-      "titre": "Grappes de réponse faible ou forte à 1 km (LISA)",
-      "description": "L’analyse spatiale repère les regroupements d’îlots présentant une réponse faible ou forte à 1 km.",
+      "titre": "Grappes de co-accessibilité potentielle faible ou forte à 1 km (LISA)",
+      "description": "L’analyse spatiale repère les regroupements d’îlots présentant une co-accessibilité potentielle faible ou forte à 1 km.",
       "image": "assets/these/o2-galerie/planche-07.webp",
       "original": "assets/these/o2-galerie/planche-07-grand.webp",
       "fichier_source": "3 - Zones prioritaires/Carte 07 - CCSMTL - Grappes de réponse faible ou forte à 1 km (LISA).png",
