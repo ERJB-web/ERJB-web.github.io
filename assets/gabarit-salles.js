@@ -1309,6 +1309,14 @@
     sc.dataset.gabSalle = salle;
     sc.dataset.gabChapitres = n;
     sc.classList.add("gab");
+    // Avertissement éditorial commun à toutes les vues de la porte Recherche.
+    // Il reste dans le contenu, en dehors des menus et de la navigation.
+    if (salle === "recherche") {
+      const bandeauValidation = el("div", "these-validation-bandeau");
+      bandeauValidation.setAttribute("role", "note");
+      bandeauValidation.textContent = "Sujet de thèse provisoire soumis à validation";
+      sc.prepend(bandeauValidation);
+    }
     // La page publique (hors salle immersive) doit elle aussi montrer
     // un seul chapitre dès l'ouverture : le chapitre demandé ou le premier.
     if (n && !sc.closest("#salle")) {
