@@ -220,3 +220,40 @@ html.hc .these .these-schema-nav-btn,html.lv .these .these-schema-nav-btn{
 html.hc #these-methode-o3 .o3-lecture-vis,html.lv #these-methode-o3 .o3-lecture-vis{color:inherit}
 html.hc #these-methode-o3 .o3-lecture-vis :is(.o3-acteur,.o3-processus>div,.o3-reperes-compact>div,.o3-profils-qual>span,.o3-conditions,.o3-qual-cible,.o3-partenaires),
 html.lv #these-methode-o3 .o3-lecture-vis :is(.o3-acteur,.o3-processus>div,.o3-reperes-compact>div,.o3-profils-qual>span,.o3-conditions,.o3-qual-cible,.o3-partenaires){background:#fff;border-width:2px}
+
+/* O3 uniquement : présentation synthétique de la rubrique 04 Analyse. */
+#these-methode-o3 #methode-o3-7 .these-methode-item[data-volet] dd{display:block!important;text-align:left!important}
+#these-methode-o3 #methode-o3-7 .o3-analyse-vue{container-type:inline-size;width:100%;display:grid;gap:11px;min-width:0;box-sizing:border-box}
+#these-methode-o3 #methode-o3-7 .o3-analyse-vue *{box-sizing:border-box;min-width:0}
+#these-methode-o3 #methode-o3-7 .o3-analyse-outils{border:1px solid #d5e3e9;border-left:4px solid #608f9a;background:#fff;padding:11px 13px;border-radius:10px;display:flex;align-items:center;flex-wrap:wrap;gap:5px 10px}
+#these-methode-o3 #methode-o3-7 .o3-analyse-qual .o3-analyse-outils{border-color:#e0d3ea;border-left-color:#997bb1}
+#these-methode-o3 #methode-o3-7 .o3-analyse-sur{flex:1 0 100%;color:#637b8a}
+#these-methode-o3 #methode-o3-7 .o3-analyse-outils strong{color:#295e72}
+#these-methode-o3 #methode-o3-7 .o3-analyse-qual .o3-analyse-outils strong{color:#704b8b}
+#these-methode-o3 #methode-o3-7 .o3-analyse-tech{padding:3px 9px;border-radius:999px;border:1px solid #cbdfe3;color:#376b76;background:#f2f8f9}
+#these-methode-o3 #methode-o3-7 .o3-analyse-qual .o3-analyse-tech{color:#73548b;background:#f7f2fc;border-color:#e2d5ec}
+#these-methode-o3 #methode-o3-7 .o3-analyse-outils small{flex:1 0 100%;color:#5d7480;text-align:justify;hyphens:auto}
+#these-methode-o3 #methode-o3-7 .o3-analyse-cartes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+#these-methode-o3 #methode-o3-7 .o3-analyse-carte{display:grid;align-content:start;gap:6px;border:1px solid #d7e4ea;border-top:3px solid #678fa0;background:#fff;padding:13px 12px;border-radius:10px}
+#these-methode-o3 #methode-o3-7 .o3-analyse-qual .o3-analyse-carte{border-color:#e3daed;border-top-color:#9c7ab1}
+#these-methode-o3 #methode-o3-7 .o3-analyse-option{border-top-color:#bb976d}
+#these-methode-o3 #methode-o3-7 .o3-analyse-index{color:#628397;text-align:left}
+#these-methode-o3 #methode-o3-7 .o3-analyse-qual .o3-analyse-index{color:#836b97}
+#these-methode-o3 #methode-o3-7 .o3-analyse-carte>strong{color:#30586c;text-align:left}
+#these-methode-o3 #methode-o3-7 .o3-analyse-qual .o3-analyse-carte>strong{color:#654b7c}
+#these-methode-o3 #methode-o3-7 .o3-analyse-formule{display:block;padding:6px 7px;border-radius:7px;background:#eef6f7;color:#205a6a;overflow-wrap:anywhere;text-align:left}
+#these-methode-o3 #methode-o3-7 .o3-analyse-option .o3-analyse-formule{background:#faf4e9;color:#735b3b}
+#these-methode-o3 #methode-o3-7 .o3-analyse-carte p{margin:0!important;color:#516b79;text-align:justify!important;hyphens:auto}
+#these-methode-o3 #methode-o3-7 .o3-analyse-detail{border-top:1px solid #dce5e9;padding-top:7px}
+#these-methode-o3 #methode-o3-7 .o3-analyse-detail>summary{cursor:pointer;color:#6f6684;text-align:left!important;list-style:disclosure-closed inside}
+#these-methode-o3 #methode-o3-7 .o3-analyse-detail[open]>summary{list-style:disclosure-open inside}
+#these-methode-o3 #methode-o3-7 .o3-analyse-detail p{margin:8px 0 0!important;background:#fff;border:1px solid #dce5e9;padding:11px;border-radius:8px;text-align:justify!important;hyphens:auto}
+#these-methode-o3 #methode-o3-7 .o3-analyse-produit{display:grid;grid-template-columns:auto 1fr;gap:9px;border-left:3px solid #5d9994;background:#eaf5f3;padding:10px 12px;border-radius:0 9px 9px 0}
+#these-methode-o3 #methode-o3-7 .o3-analyse-produit b{color:#2e716a;text-align:left}
+#these-methode-o3 #methode-o3-7 .o3-analyse-produit span{text-align:justify;hyphens:auto;color:#42656e}
+#these-methode-o3 #methode-o3-7 .o3-analyse-qual .o3-analyse-produit{border-left-color:#9d7dac;background:#f3edf9}
+#these-methode-o3 #methode-o3-7 .o3-analyse-qual .o3-analyse-produit b{color:#795989}
+#these-methode-o3 #methode-o3-7 .o3-analyse-note{margin:0!important;border:1px solid #e5dcec;background:#fff;padding:10px 12px;border-radius:8px;text-align:justify!important;hyphens:auto;color:#615573}
+@container (max-width:420px){#these-methode-o3 #methode-o3-7 .o3-analyse-cartes{grid-template-columns:1fr}#these-methode-o3 #methode-o3-7 .o3-analyse-produit{grid-template-columns:1fr;gap:3px}}
+html.hc #these-methode-o3 #methode-o3-7 :is(.o3-analyse-outils,.o3-analyse-carte,.o3-analyse-produit,.o3-analyse-formule),
+html.lv #these-methode-o3 #methode-o3-7 :is(.o3-analyse-outils,.o3-analyse-carte,.o3-analyse-produit,.o3-analyse-formule){background:#fff;border-width:2px}
