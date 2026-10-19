@@ -377,10 +377,37 @@
     if(options.focus&&tab)tab.focus({preventScroll:true});
     if(options.defiler)active.scrollIntoView({block:'nearest',behavior:sansPassage()?'auto':'smooth'});
   }
+  // Les articles se lisent comme une liste bibliographique : HPE d'abord,
+  // le manuscrit sur le retour épistémique en dernier. Aucun menu n'est modifié.
+  function ordonnerNoticesPublications(root) {
+    const liste=$('#publication-articles .travaux-grille',root);
+    if(!liste)return;
+    const ordre=['travail-hospitalisations','travail-pl2','travail-droit','travail-epistemique'];
+    const notices=$(':scope > article.travail',liste);
+    notices.sort((a,b)=>{
+      const x=ordre.indexOf(a.dataset.axeCible),y=ordre.indexOf(b.dataset.axeCible);
+      return (x<0?ordre.length:x)-(y<0?ordre.length:y);
+    }).forEach(article=>liste.appendChild(article));
+    const traductions={fr:'Lire le résumé',en:'Read abstract',es:'Leer resumen',zh:'阅读摘要',ar:'قراءة الملخص',ru:'Читать аннотацию'};
+    notices.forEach(article=>{
+      const resume=$('.resume',article);
+      if(!resume || $('.pub-details',article))return;
+      const details=document.createElement('details');
+      details.className='pub-details';
+      const titre=document.createElement('summary');
+      titre.textContent=traductions[document.documentElement.lang?.slice(0,2)]||traductions.fr;
+      details.appendChild(titre);
+      resume.before(details);
+      details.appendChild(resume);
+      const motsCles=$('.etiquettes',article);
+      if(motsCles)details.appendChild(motsCles);
+    });
+  }
   function initialiserPublications(zone=document) {
-    $$('.publications-page',zone).forEach(root=>{
-      const frag=location.hash.slice(1).split('/')[1],panels=$$('.publication-bloc',root);
-      const target=panels.find(p=>p.id===frag)||$$('[data-axe-cible]',root).find(el=>el.dataset.axeCible===frag)?.closest('.publication-bloc');
+    $('.publications-page',zone).forEach(root=>{
+      ordonnerNoticesPublications(root);
+      const frag=location.hash.slice(1).split('/')[1],panels=$('.publication-bloc',root);
+      const target=panels.find(p=>p.id===frag)||$('[data-axe-cible]',root).find(el=>el.dataset.axeCible===frag)?.closest('.publication-bloc');
       selectionnerPublication(root,target?.id||'publication-articles');
     });
   }
