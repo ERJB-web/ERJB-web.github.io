@@ -6115,8 +6115,9 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
     outline-offset:-3px;
   }
 
-  /* Sur téléphone seulement : masquer la vidéo de visite au bas de la page. */
-  body:has(> main > .accueil) > main .contact .contact-visite .tuto-video {
+  /* Sur téléphone seulement : masquer tout le bloc du tutoriel,
+     titre et texte compris, et pas seulement le lecteur vidéo. */
+  body:has(> main > .accueil) > main .contact .contact-visite {
     display:none!important;
   }
 
