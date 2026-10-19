@@ -1803,6 +1803,118 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
   }
 }
 
+/* Page Parcours uniquement : frise compacte, sans sommaire latéral.
+   Les menus des autres rubriques et le contenu des étapes restent inchangés. */
+.gab[data-gab-salle="parcours"] .gab-chapitre-grille,
+.gab[data-gab-salle="parcours"] .gab-chapitre-grille.gab-menu-universel:not(.gab-menu-gauche){
+  display:block!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  gap:0!important;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre-aside{
+  display:none!important;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre-texte,
+.gab[data-gab-salle="parcours"] .gab-lecture-integrale{
+  width:100%!important;
+  max-width:none!important;
+  min-width:0;
+  grid-column:auto!important;
+  grid-row:auto!important;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre-tete{
+  margin-bottom:12px;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre-num b{
+  width:48px;
+  height:48px;
+  flex-basis:48px;
+  border-radius:12px;
+  font-size:18px;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre-num{
+  gap:12px;
+  font-size:clamp(18px,1.8vw,23px);
+}
+.gab[data-gab-salle="parcours"] .gab-lecture-integrale>.colonne-texte{
+  max-width:100%;
+}
+.gab[data-gab-salle="parcours"] .gab-lecture-integrale .intro,
+.gab[data-gab-salle="parcours"] .gab-lecture-integrale .sous-titre{
+  max-width:86ch;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre .frise{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:11px!important;
+  width:100%;
+  margin:0!important;
+  padding:0!important;
+  align-items:stretch;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre .frise>li{
+  display:flex!important;
+  flex-direction:column;
+  min-width:0;
+  gap:6px!important;
+  margin:0!important;
+  padding:13px 15px!important;
+  border:1px solid #dce6e9;
+  border-inline-start:3px solid var(--accent,#36718b);
+  border-radius:10px;
+  background:#fff;
+  box-shadow:none!important;
+  height:auto;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre .frise>li.formation{
+  border-inline-start-color:#286d5c;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre .frise>li.entreprise{
+  border-inline-start-color:#c08a2e;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre .frise .date{
+  display:block;
+  padding:0;
+  margin:0;
+  font:650 12px/1.3 var(--sans);
+  color:#446679;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre .frise>li>div{
+  min-width:0;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre .frise .type{
+  padding:2px 7px;
+  font-size:10px;
+  letter-spacing:.025em;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre .frise h4{
+  font:650 15px/1.3 var(--sans)!important;
+  margin:7px 0 4px!important;
+  color:#173f52!important;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre .frise p{
+  font-size:13px!important;
+  line-height:1.42!important;
+  margin:3px 0 0!important;
+  max-width:none;
+  color:#526974;
+  text-align:justify;
+  hyphens:auto;
+}
+@media(max-width:1100px){
+  .gab[data-gab-salle="parcours"] .gab-chapitre .frise{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+@media(max-width:680px){
+  .gab[data-gab-salle="parcours"] .gab-chapitre .frise{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  .gab[data-gab-salle="parcours"] .gab-chapitre .frise>li{
+    padding:12px 14px!important;
+  }
+}
+
 /* Sommaires fidèles aux niveaux de titres, sans modifier la palette commune. */
 .gab .gab-sommaire-groupe-liens a[data-gab-profondeur="2"]{margin-inline-start:12px;max-width:calc(100% - 12px)}
 .gab .gab-sommaire-groupe-liens a[data-gab-profondeur="3"]{margin-inline-start:18px;max-width:calc(100% - 18px)}
