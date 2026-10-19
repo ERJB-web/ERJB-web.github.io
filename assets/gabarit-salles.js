@@ -1793,10 +1793,13 @@
         '.these .precision-table a,.these .precision-inventaire{color:var(--precision);font-weight:750;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}',
         '.these .precision-inventaire{display:inline-block;font-size:14px;margin:2px 0 0}',
         '.these .precision-note{font-size:12.5px;line-height:1.7;margin:15px 0 8px}',
-        '.these .precision-cartes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:17px 0}',
-        '.these .precision-carte{min-width:0;background:#fff;border:1px solid color-mix(in srgb,var(--precision) 21%,#dae4e8);border-radius:12px;padding:17px}',
-        '.these .precision-chiffre{display:block;color:var(--precision);font:800 clamp(22px,2.5vw,29px)/1.15 var(--sans);margin:0 0 9px}',
-        '.these .precision-carte strong{display:block;color:#213e4e;font:750 14px/1.4 var(--sans);margin:0 0 8px}',
+        '.these .precision-cartes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:17px 0}',
+        '.these .precision-carte{min-width:0;background:#fff;border:1px solid color-mix(in srgb,var(--precision) 21%,#dae4e8);border-radius:14px;padding:20px 18px}',
+        '.these .precision-chiffre{display:block;font:850 clamp(38px,4.4vw,52px)/1.05 var(--sans);letter-spacing:-.04em;margin:0 0 12px;font-variant-numeric:lining-nums}',
+        '.these .precision-carte:nth-child(1) .precision-chiffre{color:#17704f}',
+        '.these .precision-carte:nth-child(2) .precision-chiffre{color:#086f7d}',
+        '.these .precision-carte:nth-child(3) .precision-chiffre{color:#2559a7}',
+        '.these .precision-carte strong{display:block;color:#526977;font:750 11.5px/1.4 var(--sans);letter-spacing:.07em;text-transform:uppercase;margin:0 0 10px}',
         '.these .precision-carte p{color:#3f5663;font:400 13.2px/1.65 var(--sans);margin:0;text-align:justify;hyphens:auto}',
         '.these .precision-parcours{background:color-mix(in srgb,var(--precision) 8%,white);border-left:3px solid var(--precision);border-radius:0 9px 9px 0;padding:13px 17px;color:#244b5b;font:650 13.3px/1.75 var(--sans);margin:17px 0;text-align:left}',
         '.these .precision-parcours strong{color:var(--precision)}',
@@ -1843,9 +1846,9 @@
         '<p class="precision-titre">Réponse attendue, période de rappel et profils d’O1</p>' +
         '<p class="precision-intro">Le réseau est étudié depuis chaque équipe de soutien à domicile (SAD), puis auprès des organisations qu’elle nomme. Les vignettes issues des profils de besoins sociaux concomitants identifiés en O1 donnent un cadre commun aux questions sur les interactions intersectorielles effectivement entretenues.</p>' +
         '<div class="precision-cartes">' +
-        '<div class="precision-carte"><span class="precision-chiffre">≥ 80 %</span><strong>Taux de réponse visé</strong><p>Au moins 80 % de retour aux questionnaires adressés aux répondants sollicités, avec un suivi distinct par territoire et catégorie d’acteur. Cible méthodologique, non résultat acquis.</p></div>' +
-        '<div class="precision-carte"><span class="precision-chiffre">12 mois</span><strong>Fenêtre rétrospective</strong><p>Chaque questionnaire porte sur les orientations, échanges, coopérations et coordinations réalisés durant les 12 mois précédant la réponse, et non sur des liens théoriques.</p></div>' +
-        '<div class="precision-carte"><span class="precision-chiffre">O1 → O3</span><strong>Besoins et profils</strong><p>Les vignettes issues d’O1 servent à identifier les partenaires sollicités en réponse aux combinaisons de besoins, la fréquence des liens et leur niveau de collaboration.</p></div></div>' +
+        '<div class="precision-carte"><span class="precision-chiffre">≥ 80 %</span><strong>Réponse visée</strong><p>Au moins 80 % de retour aux questionnaires adressés aux répondants sollicités, avec un suivi distinct par territoire et catégorie d’acteur. Cible méthodologique, non résultat acquis.</p></div>' +
+        '<div class="precision-carte"><span class="precision-chiffre">12 mois</span><strong>Période étudiée</strong><p>Chaque questionnaire porte sur les orientations, échanges, coopérations et coordinations réalisés durant les 12 mois précédant la réponse, et non sur des liens théoriques.</p></div>' +
+        '<div class="precision-carte"><span class="precision-chiffre">O1 → O3</span><strong>Profils et liens</strong><p>Les vignettes issues d’O1 servent à identifier les partenaires sollicités en réponse aux combinaisons de besoins, la fréquence des liens et leur niveau de collaboration.</p></div></div>' +
         '<p class="precision-parcours"><strong>O1</strong> Profils et vignettes → <strong>O3</strong> Questionnaires SAD et partenaires, interactions des 12 derniers mois → réseaux par profil et CLSC → comparaison à l’atlas <strong>O2</strong> et entretiens explicatifs.</p>' +
         '<p class="precision-note">Pour chaque relation : acteur cité, secteur, nature, fréquence et niveau de collaboration (1 à 4). Les non-réponses sont distinguées des absences de liens déclarées.</p>';
       cibleO3.insertAdjacentElement("afterend",bloc);
