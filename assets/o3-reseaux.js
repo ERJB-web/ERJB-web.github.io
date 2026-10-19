@@ -167,6 +167,20 @@
       else espaceExemples.prepend(module);
     } else cibleO3.appendChild(module);
     modulesInitialises.add(module);
+    // Accès immédiat à la galerie depuis le début de l'objectif O3.
+    const teteO3 = cibleO3.querySelector(":scope > .methode-objectif-tete");
+    if (teteO3 && !teteO3.querySelector("[data-o3-acces-galerie]")) {
+      const acces = document.createElement("a");
+      acces.dataset.o3AccesGalerie = "1";
+      acces.className = "o3-acces-galerie";
+      acces.href = "#o3-atlas-reseaux";
+      acces.textContent = "Voir la galerie SNA · 23 visualisations ↓";
+      acces.addEventListener("click", event => {
+        event.preventDefault();
+        module.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+      });
+      teteO3.append(acces);
+    }
     const el=Array.from(module.querySelectorAll("[data-o3-slide]"));
     const select=module.querySelector("[data-o3-choix]"),output=module.querySelector("[data-o3-compteur]");
     const prev=module.querySelector("[data-o3-prev]"),next=module.querySelector("[data-o3-next]");
