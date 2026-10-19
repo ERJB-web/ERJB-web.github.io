@@ -1652,135 +1652,77 @@ html.hc .these .devis-bandeau-synthese-2026,html.lv .these .devis-bandeau-synthe
 #methode-o3-exemples .o3-v3-comparatif>span:last-child{grid-column:auto}
 }
 
-/* Justification de la SNA O3 — mise en page éditoriale, strictement locale à ce bloc. */
-#methode-o3-exemples .o3-essentiel-bandeau{
-  box-sizing:border-box;container-type:inline-size;margin:8px 0 30px;padding:0;
-  width:100%;min-width:0;overflow:visible;border:0;border-radius:0;
-  background:transparent;box-shadow:none;
+/* O3 — justification : présentation éditoriale sobre, sans cartes ni graphiques décoratifs. */
+#methode-o3-exemples .o3-justification{
+  container-type:inline-size;
+  box-sizing:border-box;
+  width:100%;min-width:0;max-width:100%;
+  margin:8px 0 30px;padding:0;
+  border:0;border-radius:0;background:transparent;box-shadow:none;
+  color:#263f50;
 }
-#methode-o3-exemples .o3-essentiel-bandeau *{box-sizing:border-box}
-#methode-o3-exemples .o3-essentiel-titre{
-  display:block;margin:0;padding:0 0 21px;
-  background:transparent!important;border:0;border-bottom:1px solid #d5e0e6;
-  color:#213c4e;
+#methode-o3-exemples .o3-justification,
+#methode-o3-exemples .o3-justification *{box-sizing:border-box}
+#methode-o3-exemples .o3-justification-entete{
+  margin:0;padding:0 0 21px;border:0;border-bottom:1px solid #d8e0e5;
+  background:transparent;
 }
-#methode-o3-exemples .o3-essentiel-titre span{
-  display:block;margin:0 0 8px;color:#52697c;
-  font:750 10.5px/1.5 var(--sans,system-ui,sans-serif);
-  letter-spacing:.095em;text-transform:uppercase;
+#methode-o3-exemples .o3-justification-repere{
+  display:block;margin:0 0 10px!important;color:#645b74!important;
+  font:700 11px/1.5 var(--sans,system-ui,sans-serif)!important;
+  text-align:left!important;letter-spacing:.075em;text-transform:uppercase;
 }
-#methode-o3-exemples .o3-essentiel-titre h5{
-  margin:0!important;max-width:32ch;color:#1e374a!important;
-  font:700 clamp(21px,2.3vw,27px)/1.28 var(--sans,system-ui,sans-serif)!important;
-  letter-spacing:-.018em;text-transform:none!important;text-wrap:balance;
+#methode-o3-exemples .o3-justification-entete h5{
+  margin:0 0 10px!important;max-width:100%;
+  color:#243c4d!important;
+  font:650 clamp(21px,2.2vw,26px)/1.3 var(--sans,system-ui,sans-serif)!important;
+  letter-spacing:-.013em;text-transform:none!important;text-align:left!important;
 }
-#methode-o3-exemples .o3-essentiel-titre p{
-  margin:9px 0 0!important;max-width:none;color:#59707e!important;
-  font:450 14px/1.55 var(--sans,system-ui,sans-serif)!important;
-  text-align:left!important;
-}
-#methode-o3-exemples .o3-essentiel-grille{
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:0 30px;margin:0;padding:0;
-}
-#methode-o3-exemples .o3-essentiel-grille article{
-  min-width:0;display:flex;flex-direction:column;align-items:stretch;gap:10px;
-  margin:0!important;padding:23px 9px 23px 0!important;
-  background:transparent!important;border:0;border-bottom:1px solid #e0e7eb;
-  border-radius:0!important;box-shadow:none!important;
-}
-#methode-o3-exemples .o3-essentiel-grille article:nth-child(even){
-  padding-left:30px!important;padding-right:0!important;
-  border-left:1px solid #e0e7eb;
-}
-#methode-o3-exemples .o3-essentiel-grille article:nth-last-child(-n+2){border-bottom:0}
-#methode-o3-exemples .o3-essentiel-lab{
-  display:block;color:#49677e!important;
-  font:750 10px/1.5 var(--sans,system-ui,sans-serif)!important;
-  letter-spacing:.065em;text-transform:uppercase;
-}
-#methode-o3-exemples .o3-essentiel-grille article:nth-child(1) .o3-essentiel-lab::before{content:"01  /  ";color:#80749a}
-#methode-o3-exemples .o3-essentiel-grille article:nth-child(2) .o3-essentiel-lab::before{content:"02  /  ";color:#80749a}
-#methode-o3-exemples .o3-essentiel-grille article:nth-child(3) .o3-essentiel-lab::before{content:"03  /  ";color:#80749a}
-#methode-o3-exemples .o3-essentiel-grille article:nth-child(4) .o3-essentiel-lab::before{content:"04  /  ";color:#80749a}
-#methode-o3-exemples .o3-essentiel-grille h6{
-  margin:0!important;color:#243e51!important;
-  font:700 clamp(17px,1.7vw,20px)/1.35 var(--sans,system-ui,sans-serif)!important;
-  letter-spacing:-.012em;text-align:left!important;text-transform:none!important;
-  text-wrap:balance;
-}
-#methode-o3-exemples .o3-essentiel-grille p{
-  margin:7px 0 0!important;color:#455f6c!important;
-  font:440 13px/1.68 var(--sans,system-ui,sans-serif)!important;
+#methode-o3-exemples .o3-justification-intro{
+  max-width:80ch;margin:0!important;color:#526775!important;
+  font:440 14px/1.75 var(--sans,system-ui,sans-serif)!important;
   text-align:justify!important;hyphens:auto;
 }
-#methode-o3-exemples .o3-essentiel-grille p strong{color:#254d63;font-weight:750}
-#methode-o3-exemples .o3-essentiel-duo{
-  display:grid;grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr);
-  align-items:center;gap:9px;min-width:0;margin:3px 0 0;
+#methode-o3-exemples .o3-justification-arguments{
+  display:block;margin:0!important;padding:0!important;
+  list-style:none!important;
 }
-#methode-o3-exemples .o3-essentiel-duo div{
-  display:flex;flex-direction:column;justify-content:center;gap:3px;
-  min-width:0;min-height:65px;padding:9px 11px;
-  border:1px solid #dbe4e8;border-radius:6px;
-  background:#f8fafb!important;text-align:left;
+#methode-o3-exemples .o3-justification-arguments>li{
+  display:grid;grid-template-columns:minmax(0,34%) minmax(0,1fr);
+  gap:clamp(20px,3vw,42px);align-items:start;
+  min-width:0;margin:0!important;padding:22px 0!important;
+  border:0;border-bottom:1px solid #e2e7eb;
+  background:transparent;list-style:none!important;
 }
-#methode-o3-exemples .o3-essentiel-duo div:last-child{border-color:#d8e4df;background:#f8faf9!important}
-#methode-o3-exemples .o3-essentiel-duo b{font:700 12px/1.4 var(--sans,system-ui,sans-serif);color:#244d62}
-#methode-o3-exemples .o3-essentiel-duo small{font:450 11px/1.4 var(--sans,system-ui,sans-serif);color:#607581}
-#methode-o3-exemples .o3-essentiel-duo>span{font:500 17px/1 var(--sans,system-ui,sans-serif);color:#78909f;text-align:center}
-#methode-o3-exemples .o3-essentiel-niveaux{
-  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;
-  margin:4px 0 0!important;padding:0!important;list-style:none!important;
+#methode-o3-exemples .o3-justification-arguments>li:last-child{border-bottom:0}
+#methode-o3-exemples .o3-justification-arguments>li::before{display:none!important}
+#methode-o3-exemples .o3-justification-axe{
+  display:grid;grid-template-columns:28px minmax(0,1fr);
+  gap:9px;align-items:baseline;min-width:0;
 }
-#methode-o3-exemples .o3-essentiel-niveaux li{
-  min-width:0;display:flex;flex-direction:column;align-items:center;gap:7px;
-  margin:0!important;padding:9px 3px 6px!important;
-  background:transparent!important;border:0!important;border-radius:0!important;
-  list-style:none!important;text-align:center;
+#methode-o3-exemples .o3-justification-num{
+  color:#81718b;font:700 12px/1.5 var(--sans,system-ui,sans-serif);
+  font-variant-numeric:tabular-nums;
 }
-#methode-o3-exemples .o3-essentiel-niveaux li::before{display:none!important}
-#methode-o3-exemples .o3-essentiel-niveaux li b{
-  display:grid;place-items:center;width:29px;height:29px;
-  border:1px solid #b9cbd6;border-radius:50%;background:#fff!important;
-  color:#4e697b!important;font:700 12px/1 var(--sans,system-ui,sans-serif);
+#methode-o3-exemples .o3-justification-axe h6{
+  min-width:0;margin:0!important;color:#2b4658!important;
+  font:650 15.5px/1.45 var(--sans,system-ui,sans-serif)!important;
+  letter-spacing:-.006em;text-align:left!important;text-transform:none!important;
 }
-#methode-o3-exemples .o3-essentiel-niveaux li.fort b{
-  border-color:#657ea2;background:#f0f3f9!important;color:#294b71!important;
+#methode-o3-exemples .o3-justification-arguments>li>p{
+  min-width:0;margin:0!important;color:#475f6a!important;
+  font:440 13.5px/1.75 var(--sans,system-ui,sans-serif)!important;
+  text-align:justify!important;hyphens:auto;
 }
-#methode-o3-exemples .o3-essentiel-niveaux li small{
-  color:#5a6f7a;font:500 10.5px/1.35 var(--sans,system-ui,sans-serif);
-  hyphens:auto;overflow-wrap:normal;
-}
-#methode-o3-exemples .o3-essentiel-trio{
-  display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:5px 0 0;
-}
-#methode-o3-exemples .o3-essentiel-trio span{
-  padding:7px 10px;background:#f7f9fa!important;
-  border:1px solid #dde5e8!important;border-left:2px solid #6d8297!important;
-  border-radius:4px;color:#345366;
-  font:650 11.5px/1.4 var(--sans,system-ui,sans-serif);
-}
-#methode-o3-exemples .o3-essentiel-trio span:nth-child(2){border-left-color:#8d7ea3!important}
-#methode-o3-exemples .o3-essentiel-trio span:nth-child(3){border-left-color:#759588!important}
-#methode-o3-exemples .o3-essentiel-ouverte div{min-height:60px}
-@container (max-width:690px){
-  #methode-o3-exemples .o3-essentiel-grille{grid-template-columns:minmax(0,1fr)}
-  #methode-o3-exemples .o3-essentiel-grille article,
-  #methode-o3-exemples .o3-essentiel-grille article:nth-child(even){
-    padding:20px 0!important;border-left:0;border-bottom:1px solid #e0e7eb;
+@container (max-width:680px){
+  #methode-o3-exemples .o3-justification-arguments>li{
+    grid-template-columns:minmax(0,1fr);gap:9px;padding:19px 0!important;
   }
-  #methode-o3-exemples .o3-essentiel-grille article:last-child{border-bottom:0}
 }
 @media(max-width:700px){
-  #methode-o3-exemples .o3-essentiel-titre h5{font-size:22px!important}
-  #methode-o3-exemples .o3-essentiel-titre{padding-bottom:17px}
-  #methode-o3-exemples .o3-essentiel-grille{grid-template-columns:minmax(0,1fr)}
-  #methode-o3-exemples .o3-essentiel-grille article,
-  #methode-o3-exemples .o3-essentiel-grille article:nth-child(even){
-    padding:20px 0!important;border-left:0;border-bottom:1px solid #e0e7eb;
+  #methode-o3-exemples .o3-justification-arguments>li{
+    grid-template-columns:minmax(0,1fr);gap:9px;padding:19px 0!important;
   }
-  #methode-o3-exemples .o3-essentiel-grille article:last-child{border-bottom:0}
 }
 </style><style id="o3-titres-palette-fix">
 /* Titres et repères 01–06 : même palette violette que l’objectif O3. */
@@ -1797,14 +1739,19 @@ html.hc .these .devis-bandeau-synthese-2026,html.lv .these .devis-bandeau-synthe
 </svg>
 <p class="schema-legende">Dans ma thèse, l’analyse de réseau part de l’équipe de soutien à domicile de chaque CLSC. Pour chaque vignette, l’équipe nomme les organisations vers lesquelles elle a orienté une personne aînée, ou avec lesquelles elle a collaboré, au cours des 12 derniers mois ; l’épaisseur du trait indique le niveau de collaboration, de 1 à 4. Ce réseau déclaré est comparé aux références du 211 et à l’offre de l’atlas, puis expliqué en entretien. Réseau illustratif, non observé.</p>
 </figure><section class="m-o2 m-o3-complements" style="--m-bleu:#754d8a;--m-vert:#754d8a" aria-label="Justification et articulation de la SNA (O3)">
-<section class="o3-essentiel-bandeau" aria-labelledby="o3-sna-raison">
-<header class="o3-essentiel-titre"><div><span>O3 · JUSTIFICATION MÉTHODOLOGIQUE</span><h5 id="o3-sna-raison">Pourquoi l’analyse de réseaux est indispensable</h5></div><p>De l’offre disponible aux liens réellement mobilisés.</p></header>
-<div class="o3-essentiel-grille">
-<article><span class="o3-essentiel-lab">OFFRE ≠ MOBILISATION</span><h6>La présence ne suffit pas</h6><div class="o3-essentiel-duo"><div><b>Atlas O2</b><small>Offre possible</small></div><span aria-hidden="true">→</span><div><b>Réseau SAD</b><small>Acteurs mobilisés</small></div></div><p>La carte situe les ressources. Le réseau identifie <strong>qui travaille réellement avec le SAD</strong> et à quel niveau.</p></article>
-<article><span class="o3-essentiel-lab">MESURER LES LIENS</span><h6>Une échelle de collaboration</h6><ol class="o3-essentiel-niveaux"><li><b>1</b><small>Information</small></li><li><b>2</b><small>Coopération</small></li><li class="fort"><b>3</b><small>Coordination</small></li><li class="fort"><b>4</b><small>Intégration</small></li></ol><p><strong>Niveaux 3–4</strong> : collaboration plus structurée (Bilodeau et al., 2019 ; RUISSS de l’Université de Montréal, 2022, p. 33).</p></article>
-<article><span class="o3-essentiel-lab">COMPARER LES SOURCES</span><h6>Faire ressortir les maillons manquants</h6><div class="o3-essentiel-trio"><span>Réseau déclaré</span><span>Références du 211</span><span>Atlas O2</span></div><p>Repérer les ressources disponibles <strong>mais non mobilisées</strong>, en tenant compte de la capacité limitée des partenaires communautaires (Hogg-Graham et al., 2021).</p></article>
-<article><span class="o3-essentiel-lab">DÉCOUVRIR ET ÉPROUVER</span><h6>Des partenaires sans liste imposée</h6><div class="o3-essentiel-duo o3-essentiel-ouverte"><div><b>Équipe SAD</b></div><span aria-hidden="true">→</span><div><b>Acteurs cités librement</b></div></div><p>Des partenaires <strong>imprévus, privés ou autres</strong>, peuvent apparaître. Usage documenté en démence (Lemieux-Charles et al., 2005) et en services intégrés (Urbanoski et al., 2018).</p></article>
-</div></section>
+<section class="o3-justification" aria-labelledby="o3-sna-raison">
+<header class="o3-justification-entete">
+<p class="o3-justification-repere">O3 · Justification méthodologique</p>
+<h5 id="o3-sna-raison">Ce que l’analyse de réseaux apporte</h5>
+<p class="o3-justification-intro">La cartographie décrit les ressources présentes sur un territoire ; les données du 211 documentent des orientations. Pour comprendre la réponse intersectorielle autour du soutien à domicile, il faut également examiner les relations déclarées par les équipes SAD.</p>
+</header>
+<ol class="o3-justification-arguments">
+<li><div class="o3-justification-axe"><span class="o3-justification-num" aria-hidden="true">01</span><h6>Distinguer offre et mobilisation</h6></div><p>L’atlas O2 recense les ressources par territoire. O3 permettra d’identifier les organisations que les équipes SAD déclarent avoir sollicitées ou avec lesquelles elles ont collaboré au cours des douze derniers mois. Une ressource recensée n’est pas nécessairement mobilisée.</p></li>
+<li><div class="o3-justification-axe"><span class="o3-justification-num" aria-hidden="true">02</span><h6>Qualifier les relations</h6></div><p>Chaque lien déclaré sera caractérisé selon quatre niveaux : information (1), coopération (2), coordination (3) et intégration (4). Les niveaux 3 et 4 correspondent aux formes les plus structurées de collaboration (Bilodeau et al., 2019 ; RUISSS de l’Université de Montréal, 2022, p. 33).</p></li>
+<li><div class="o3-justification-axe"><span class="o3-justification-num" aria-hidden="true">03</span><h6>Mettre les sources en regard</h6></div><p>Les réseaux déclarés seront rapprochés des orientations du 211 et de l’offre cartographiée en O2. Ces sources ne mesurent pas le même phénomène : leurs écarts guideront les entretiens, en tenant compte notamment des capacités limitées de certains partenaires communautaires (Hogg-Graham et al., 2021).</p></li>
+<li><div class="o3-justification-axe"><span class="o3-justification-num" aria-hidden="true">04</span><h6>Laisser émerger les partenaires</h6></div><p>Les équipes SAD nommeront librement leurs interlocuteurs, sans liste fermée d’organisations. Cette démarche peut révéler des acteurs non anticipés, dont le rôle sera approfondi en entretien. L’analyse des réseaux interorganisationnels a notamment été mobilisée dans les soins aux personnes atteintes de démence et dans les services intégrés (Lemieux-Charles et al., 2005 ; Urbanoski et al., 2018).</p></li>
+</ol>
+</section>
 <div class="bloc-illustre m-egal m-inverse">
 <div>
 <p class="o3-v3-comparatif"><b>La carte et le réseau se complètent.</b> <span>La carte répond à « qu’est-ce qui existe, et où ? ». </span><span>Le réseau répond à « qui travaille avec qui ? ». </span><span>Les entretiens répondent à « pourquoi ? ». </span><span>Là où les trois ne se recouvrent pas, on trouve les ressources disponibles mais jamais mobilisées. Ces écarts deviennent les questions des entretiens.</span></p>
