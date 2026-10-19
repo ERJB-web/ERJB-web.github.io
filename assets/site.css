@@ -5857,7 +5857,7 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
   .publications-page #publication-articles .travail > .pub-details{grid-column:2;grid-row:5}
 }
 
-/* Accueil mobile 2026-10-19 : six accès directs, sans toucher aux menus des salles. */
+/* Accueil mobile : uniquement les commandes au-dessus des portes et les doublons en pied. */
 @media (max-width:700px) {
   body:has(> main > .accueil) { overflow-anchor:none; }
   body:has(> main > .accueil) > .entete {
@@ -5883,10 +5883,7 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
     font-size:12px;
     line-height:1.4;
   }
-  body:has(> main > .accueil) > .entete .entete-contact a {
-    min-height:28px;
-    overflow-wrap:anywhere;
-  }
+  body:has(> main > .accueil) > .entete .entete-contact a { min-height:28px; }
   body:has(> main > .accueil) > .entete .outils {
     display:flex;
     flex:1 1 100%;
@@ -5901,115 +5898,10 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
     max-width:100%;
   }
   body:has(> main > .accueil) > .entete .outils .bouton-cv,
-  body:has(> main > .accueil) > .entete .menu > summary {
-    min-height:38px;
-  }
-  /* Les rubriques sont proposées ci-dessous sous forme de six accès visibles. */
+  body:has(> main > .accueil) > .entete .menu > summary { min-height:38px; }
+  /* Barre supérieure trop étroite : les portes interactives restent intégralement présentes en dessous. */
   body:has(> main > .accueil) > .entete .nav { display:none !important; }
-  main > .accueil {
-    padding-top:12px;
-    padding-bottom:30px;
-    gap:16px;
-  }
-  main > .accueil .identite {
-    margin:0;
-    gap:12px;
-  }
-  main > .accueil .portrait { width:clamp(68px,19vw,80px); }
-  main > .accueil .identite h1 { font-size:clamp(29px,8vw,36px); }
-  main > .accueil > .hall {
-    padding-top:4px;
-    border-top:0;
-  }
-  main > .accueil .hall.en-mobile .hall-tete {
-    margin:0 0 11px;
-    gap:8px;
-  }
-  main > .accueil .hall.en-mobile .hall-tete .hall-titre-nom {
-    font-size:clamp(20px,5.2vw,24px);
-    line-height:1.2;
-  }
-  main > .accueil .hall.en-mobile .hall-tete .hall-gestes,
-  main > .accueil .hall.en-mobile .hall-tete .direct-hall { display:none !important; }
-  main > .accueil .hall.en-mobile .hall-reperes {
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:9px;
-    padding:0;
-    overflow:visible;
-    border:0;
-    border-radius:0;
-    background:none;
-    box-shadow:none;
-    scroll-snap-type:none;
-  }
-  main > .accueil .hall.en-mobile .hall-reperes > button {
-    display:flex;
-    flex:1 1 auto;
-    align-items:center;
-    gap:8px;
-    width:100%;
-    min-width:0;
-    max-width:none;
-    min-height:79px;
-    padding:11px 9px;
-    border:1px solid color-mix(in srgb,var(--c1) 27%,#fff);
-    border-inline-start:4px solid var(--c1);
-    border-radius:12px;
-    background:linear-gradient(135deg,#fff,color-mix(in srgb,var(--c1) 7%,#fff));
-    box-shadow:0 3px 9px rgba(18,55,70,.06);
-    font-size:12.5px;
-    line-height:1.28;
-    white-space:normal;
-    scroll-snap-align:none;
-  }
-  main > .accueil .hall.en-mobile .hall-reperes > button bdi {
-    flex:0 0 26px;
-    width:26px;
-    height:26px;
-    font-size:11px;
-  }
-  main > .accueil .hall.en-mobile .hall-reperes > button span {
-    flex:1 1 auto;
-    min-width:0;
-    overflow-wrap:anywhere;
-    font-size:inherit;
-    line-height:inherit;
-  }
-  main > .accueil .hall.en-mobile .hall-reperes > button::after {
-    content:"›";
-    flex:none;
-    margin-inline-start:auto;
-    color:var(--c1);
-    font-size:20px;
-    line-height:1;
-  }
-  main > .accueil .hall.en-mobile .hall-reperes > button:focus-visible {
-    outline:3px solid var(--c1);
-    outline-offset:2px;
-  }
-  /* Les commandes et le carrousel deviennent inutiles : clic direct sur chaque rubrique. */
-  main > .accueil .hall.en-mobile .hall-espace,
-  main > .accueil .hall.en-mobile .hall-commandes,
-  main > .accueil .hall.en-mobile .hall-guide-mobile,
-  main > .accueil .hall.en-mobile .hall-indice,
-  main > .accueil .hall.en-mobile .hall-pied { display:none !important; }
-  /* Coordonnées disponibles en haut : éviter les doublons en pied d'accueil mobile. */
   body:has(> main > .accueil) > footer.pied a:is([href^="mailto:"],[href^="tel:"],[href*="orcid.org"]) {
     display:none;
-  }
-}
-@media (max-width:360px) {
-  main > .accueil .hall.en-mobile .hall-reperes { gap:7px; }
-  main > .accueil .hall.en-mobile .hall-reperes > button {
-    gap:5px;
-    min-height:83px;
-    padding:8px 6px;
-    font-size:11.5px;
-  }
-  main > .accueil .hall.en-mobile .hall-reperes > button bdi {
-    flex-basis:23px;
-    width:23px;
-    height:23px;
   }
 }
