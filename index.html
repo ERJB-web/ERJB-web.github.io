@@ -567,7 +567,49 @@ html.hc .these .devis-bandeau-synthese-2026,html.lv .these .devis-bandeau-synthe
     <div class="ds-indicateur"><strong>80 %</strong><span>taux de réponse visé (O3)</span></div>
   </div>
   <p class="ds-bas"><span><b>Intégration :</b> vignettes O1, atlas O2 et réseaux O3 mis en relation.</span><span><b>Participation :</b> aînés, proches, équipes SAD, partenaires et gestionnaires.</span></p>
-</div><nav class="these-methode-parcours" data-objectifs-isoles="oui" aria-label="Parcours des trois objectifs de la méthodologie"><a href="#these-methode-o1" data-objectif="O1" aria-controls="these-objectif-vue-o1" aria-expanded="true" aria-current="step"><span class="these-parcours-nombre">01</span><span class="these-parcours-texte">Profils de besoins</span></a><a href="#these-methode-o2" data-objectif="O2" aria-controls="these-objectif-vue-o2" aria-expanded="false"><span class="these-parcours-nombre">02</span><span class="these-parcours-texte">Ressources disponibles (cartographie)</span></a><a href="#these-methode-o3" data-objectif="O3" aria-controls="these-objectif-vue-o3" aria-expanded="false"><span class="these-parcours-nombre">03</span><span class="these-parcours-texte">Réseaux (analyse de réseaux)</span></a></nav>
+</div><style id="these-produits-cartes-o1-o3">
+/* Produits attendus O1/O2/O3 : ajout visuel limité à la navigation de la méthodologie. */
+nav.these-methode-parcours[data-objectifs-isoles="oui"]{row-gap:8px;align-items:stretch}
+nav.these-methode-parcours[data-objectifs-isoles="oui"] > .these-parcours-produit{
+  --produit-couleur:#237a9a;--produit-fond:#f2f8fb;
+  grid-row:2;display:flex;flex-direction:column;min-width:0;align-items:stretch;
+}
+nav.these-methode-parcours[data-objectifs-isoles="oui"] > .these-parcours-produit[data-produit="O1"]{grid-column:1}
+nav.these-methode-parcours[data-objectifs-isoles="oui"] > .these-parcours-produit[data-produit="O2"]{grid-column:2;--produit-couleur:#4d893a;--produit-fond:#f3f9f1}
+nav.these-methode-parcours[data-objectifs-isoles="oui"] > .these-parcours-produit[data-produit="O3"]{grid-column:3;--produit-couleur:#754d8a;--produit-fond:#faf5fc}
+nav.these-methode-parcours[data-objectifs-isoles="oui"] .these-produit-fleche{
+  display:grid;place-items:center;align-self:center;margin:2px 0 10px;
+  width:30px;height:30px;border:1px solid #dce6e9;border-radius:50%;
+  background:#fff;color:var(--produit-couleur);font:750 21px/1 var(--sans,Arial,sans-serif);
+}
+nav.these-methode-parcours[data-objectifs-isoles="oui"] .these-produit-cadre{
+  box-sizing:border-box;flex:1;min-width:0;min-height:122px;
+  padding:17px 18px 19px;border:1px solid #dbe5e9;border-left:4px solid var(--produit-couleur);
+  border-radius:13px;background:var(--produit-fond);
+  box-shadow:0 9px 25px -23px rgba(20,53,70,.4);
+}
+nav.these-methode-parcours[data-objectifs-isoles="oui"] .these-produit-etiquette{
+  display:block;margin:0 0 8px;color:var(--produit-couleur);
+  font:800 12px/1.35 var(--sans,Arial,sans-serif);letter-spacing:.075em;text-transform:uppercase;
+}
+nav.these-methode-parcours[data-objectifs-isoles="oui"] .these-produit-description{
+  margin:0;color:#344c59;font:500 14.5px/1.58 var(--sans,Arial,sans-serif);
+  text-align:justify;hyphens:auto;overflow-wrap:break-word;
+}
+@media(max-width:920px){
+  nav.these-methode-parcours[data-objectifs-isoles="oui"]{row-gap:7px}
+  nav.these-methode-parcours[data-objectifs-isoles="oui"] > a[data-objectif="O1"]{order:1}
+  nav.these-methode-parcours[data-objectifs-isoles="oui"] > .these-parcours-produit[data-produit="O1"]{order:2}
+  nav.these-methode-parcours[data-objectifs-isoles="oui"] > a[data-objectif="O2"]{order:3}
+  nav.these-methode-parcours[data-objectifs-isoles="oui"] > .these-parcours-produit[data-produit="O2"]{order:4}
+  nav.these-methode-parcours[data-objectifs-isoles="oui"] > a[data-objectif="O3"]{order:5}
+  nav.these-methode-parcours[data-objectifs-isoles="oui"] > .these-parcours-produit[data-produit="O3"]{order:6}
+  nav.these-methode-parcours[data-objectifs-isoles="oui"] > .these-parcours-produit{
+    grid-row:auto!important;grid-column:1!important;margin:0 0 14px;
+  }
+  nav.these-methode-parcours[data-objectifs-isoles="oui"] .these-produit-cadre{min-height:0}
+}
+</style><nav class="these-methode-parcours" data-objectifs-isoles="oui" aria-label="Parcours des trois objectifs de la méthodologie"><a href="#these-methode-o1" data-objectif="O1" aria-controls="these-objectif-vue-o1" aria-expanded="true" aria-current="step"><span class="these-parcours-nombre">01</span><span class="these-parcours-texte">Profils de besoins</span></a><a href="#these-methode-o2" data-objectif="O2" aria-controls="these-objectif-vue-o2" aria-expanded="false"><span class="these-parcours-nombre">02</span><span class="these-parcours-texte">Ressources disponibles (cartographie)</span></a><a href="#these-methode-o3" data-objectif="O3" aria-controls="these-objectif-vue-o3" aria-expanded="false"><span class="these-parcours-nombre">03</span><span class="these-parcours-texte">Réseaux (analyse de réseaux)</span></a><div class="these-parcours-produit" data-produit="O1" aria-label="Produit de l’objectif 1"><span class="these-produit-fleche" aria-hidden="true">↓</span><div class="these-produit-cadre"><span class="these-produit-etiquette">Produit attendu</span><p class="these-produit-description">Typologie des profils de besoins sociaux concomitants issus de la revue de portée, accompagnée de vignettes de synthèse.</p></div></div><div class="these-parcours-produit" data-produit="O2" aria-label="Produit de l’objectif 2"><span class="these-produit-fleche" aria-hidden="true">↓</span><div class="these-produit-cadre"><span class="these-produit-etiquette">Produit attendu</span><p class="these-produit-description">Atlas cartographique des besoins sociaux potentiels, des ressources, de leur accessibilité et des écarts territoriaux à l’échelle des CLSC.</p></div></div><div class="these-parcours-produit" data-produit="O3" aria-label="Produit de l’objectif 3"><span class="these-produit-fleche" aria-hidden="true">↓</span><div class="these-produit-cadre"><span class="these-produit-etiquette">Produit attendu</span><p class="these-produit-description">Cartes des réseaux intersectoriels par profil de besoins et par CLSC, permettant de repérer les partenaires mobilisés et les liens à renforcer.</p></div></div></nav>
 <p class="these-methode-consigne">Les trois objectifs méthodologiques sont affichés à la suite sur cette page. Utilisez les liens O1, O2 et O3 pour accéder directement à chacun.</p>
 <section class="these-objectif-vue methode-objectif-separe" id="these-objectif-vue-o1" data-vue-objectif="O1" aria-label="Méthodologie de l’objectif 1"><style id="o1-methode-visuelle-css">
 /* O1 : étapes 04 et 05 lisibles en largeur, avec bilan, procédure et analyse. */
