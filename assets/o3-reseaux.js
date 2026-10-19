@@ -117,11 +117,19 @@
     if (espaceExemples) {
       const precedent=espaceExemples.querySelector(":scope > .o3-clsc-methodo");
       if (precedent) precedent.remove();
-      // Les modèles CLSC sont hors de la galerie des données du 211.
+      // Conserver le contenu illustratif de la méthode à sa place.
       const entete=espaceExemples.querySelector(":scope > header");
-      if (entete) entete.after(methodo,module);
-      else espaceExemples.prepend(methodo,module);
-    } else cibleO3.append(methodo,module);
+      if (entete) entete.after(methodo);
+      else espaceExemples.prepend(methodo);
+    } else cibleO3.append(methodo);
+    // La galerie du 211 vient après TOUT le contenu de l'objectif O3,
+    // jamais au milieu des sous-sections méthodologiques ni des annexes.
+    // Elle reste dans la vue O3 (masquée lorsque O1 ou O2 est sélectionné).
+    const vueO3 = cibleO3.closest(".these-objectif-vue[data-vue-objectif='O3']") ||
+      zone.querySelector("#these-objectif-vue-o3");
+    if (vueO3) vueO3.append(module);
+    else if (espaceExemples) espaceExemples.append(module);
+    else cibleO3.append(module);
     modulesInitialises.add(module);
     // Accès immédiat à la galerie depuis le début de l'objectif O3.
     const teteO3 = cibleO3.querySelector(":scope > .methode-objectif-tete");
