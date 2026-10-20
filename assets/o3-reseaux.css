@@ -441,3 +441,10 @@
 /* Contribution scientifique centrale : justifier le texte, sans étirer les titres. */
 .these-contribution-texte-justifie{text-align:justify!important;text-align-last:left!important;hyphens:auto!important;overflow-wrap:break-word;line-height:1.57!important}
 .these-contribution-texte-justifie strong{font-weight:780}
+
+/* Un accordéon commun aux deux modalités, replié au chargement. */
+details.o3-choix-quantitatif>summary{display:block;list-style:none;cursor:pointer}
+details.o3-choix-quantitatif>summary::-webkit-details-marker{display:none}
+details.o3-choix-quantitatif>summary:focus-visible{outline:3px solid #247b63;outline-offset:-3px}
+.o3-choix-chevron{display:inline-block;margin-left:.4em}
+details.o3-choix-quantitatif[open] .o3-choix-chevron{transform:rotate(180deg)}

@@ -25,7 +25,7 @@
     '<span class="o3-devis-retro__kicker"><span aria-hidden="true">●</span> DEVIS PRINCIPAL · O3</span>',
     '<h3>Analyse de réseaux sociaux <em>(SNA) rétrospective</em></h3>',
     '<p>À partir de situations réelles correspondant aux profils de besoins, les équipes de soutien à domicile (SAD) reconstituent la réponse intersectorielle sur une <strong>fenêtre de repérage rétrospective de 12 mois</strong> : actions, contacts, coordinations, relais et aide effectivement reçue ou non. Les situations <strong>sans orientation extérieure</strong> sont également retenues. Questionnaires, traces accessibles et vérifications auprès des partenaires servent à qualifier les liens.</p>',
-    '<button class="o3-devis-retro__renvoi" type="button" data-o3-ouvrir-prospectif>Autre modalité envisageable : cohorte prospective <span aria-hidden="true">↘</span></button>',
+    '<button class="o3-devis-retro__renvoi" type="button" data-o3-ouvrir-prospectif>Comparer les modalités rétrospective et prospective <span aria-hidden="true">↘</span></button>',
     '</div>',
     '<div class="o3-devis-retro__chiffres" aria-label="Repères du devis rétrospectif">',
     '<div><strong>12 <small>mois</small></strong><span>Fenêtre de repérage</span></div>',
@@ -158,135 +158,15 @@
     if (vueO3) vueO3.append(module);
     else if (espaceExemples) espaceExemples.append(module);
     else cibleO3.append(module);
-    function ajouterOptionProspective(vueO3, espaceExemples, cibleO3, zone) {
-  zone.querySelectorAll("[data-o3-devis-prospectif]").forEach(el=>el.remove());
-  const volet=document.createElement("details");
-  volet.id="o3-option-prospective";
-  volet.className="o3-devis-prospectif";
-  volet.dataset.o3DevisProspectif="1";
-  volet.innerHTML=`
-    <summary class="o3-devis-prospectif__summary">
-      <span class="o3-pros__eyebrow"><span class="o3-pros__dot" aria-hidden="true"></span> OPTION POSSIBLE · À DISCUTER AVEC LA CODIRECTION</span>
-      <span class="o3-pros__header">
-        <span><strong>Autre modalité de SNA : cohorte prospective</strong><span class="o3-pros__subline">Des patients traceurs suivis tous les 3 mois pour observer l’évolution réelle des collaborations intersectorielles.</span></span>
-        <span class="o3-pros__chevron" aria-hidden="true">⌄</span>
-      </span>
-      <span class="o3-pros__quickfacts">
-        <span><b>4–6</b> patients traceurs</span><span><b>12</b> mois de suivi</span><span><b>5</b> temps de mesure</span>
-      </span>
-      <span class="o3-pros__invite">Afficher l’option prospective <span aria-hidden="true">↗</span></span>
-    </summary>
-    <div class="o3-pros__contenu">
-      <div class="o3-pros__ouverture">
-        <span class="o3-pros__pastille">Sous-volet longitudinal exploratoire · non arrêté</span>
-        <h4>Observer les collaborations pendant qu’elles évoluent</h4>
-        <p>Cette <strong>option prospective</strong> pourrait remplacer la modalité rétrospective, sous réserve des conditions d’accès au terrain : suivre dans le temps la mobilisation, la coordination, les interruptions et les adaptations des organisations autour d’un profil associant <strong>besoins sociaux concomitants et morbidité</strong>. Il s’agirait d’une petite cohorte exploratoire de cas traceurs, non d’une cohorte représentative.</p>
-      </div>
-      <section class="o3-pros__partie" aria-labelledby="o3-pros-timeline-title">
-        <div class="o3-pros__titre"><span>01 · SUIVI LONGITUDINAL</span><h4 id="o3-pros-timeline-title">Cinq observations en douze mois</h4><p>Une évaluation initiale et quatre questionnaires trimestriels ; chaque suivi documente les changements survenus depuis le précédent.</p></div>
-        <ol class="o3-pros__timeline">
-          <li><span class="o3-pros__temps">T0</span><strong>Inclusion</strong><small>Profil, besoins et réseau initial</small></li>
-          <li><span class="o3-pros__temps">T3</span><strong>3 mois</strong><small>Premières mobilisations et réponses</small></li>
-          <li><span class="o3-pros__temps">T6</span><strong>6 mois</strong><small>Échanges et nouveaux relais</small></li>
-          <li><span class="o3-pros__temps">T9</span><strong>9 mois</strong><small>Coordination et continuité</small></li>
-          <li><span class="o3-pros__temps">T12</span><strong>12 mois</strong><small>Évolution et aide reçue ou non</small></li>
-        </ol>
-        <p class="o3-pros__note">Ces douze mois de <strong>suivi après inclusion</strong> sont distincts des douze mois de <strong>repérage rétrospectif</strong> du devis principal. Un tel ajout modifierait le calendrier et les autorisations nécessaires.</p>
-      </section>
-      <section class="o3-pros__partie" aria-labelledby="o3-pros-cas-title">
-        <div class="o3-pros__titre"><span>02 · ÉCHANTILLON TRACEUR</span><h4 id="o3-pros-cas-title">Un ou deux cas par profil et par CLSC, à titre exploratoire</h4><p>Patients correspondant aux profils d’O1, inclus à T0 avec relevé du réseau préexistant. L’effectif dépendra des profils retenus et de l’accès au terrain.</p></div>
-        <div class="o3-pros__effectifs">
-          <div><strong>4</strong><span>patients traceurs</span><small>2 profils × 2 CLSC</small></div>
-          <div><strong>6</strong><span>patients traceurs</span><small>3 profils × 2 CLSC</small></div>
-          <div class="o3-pros__effectifs-plus"><strong>8–12</strong><span>si deux cas par combinaison profil–CLSC</span><small>Pour confronter des trajectoires avec et sans mobilisation extérieure ; option plus exigeante.</small></div>
-        </div>
-        <p class="o3-pros__note">Inclure, dans la mesure du possible, <strong>des parcours avec et sans orientation intersectorielle</strong>. Un seul cas par profil et CLSC ne représente pas toutes les trajectoires.</p>
-      </section>
-      <details class="o3-pros__approfondir"><summary>Afficher le protocole détaillé · mesures, trajectoire et faisabilité <span aria-hidden="true">⌄</span></summary><div class="o3-pros__approfondir-corps">
-      <section class="o3-pros__partie" aria-labelledby="o3-pros-mesures-title">
-        <div class="o3-pros__titre"><span>03 · QUESTIONNAIRE TRIMESTRIEL</span><h4 id="o3-pros-mesures-title">Six dimensions documentées à chaque échéance</h4><p>Questionnaire bref au professionnel SAD référent, confronté selon autorisations et consentements aux traces accessibles, aux partenaires et au patient ou à son proche.</p></div>
-        <div class="o3-pros__mesures">
-          <article><span class="o3-pros__mesure-num">01</span><strong>Besoins et morbidité</strong><p>Les besoins ont-ils évolué, augmenté ou disparu ?</p></article>
-          <article><span class="o3-pros__mesure-num">02</span><strong>Mobilisation</strong><p>Quels organismes ont été contactés, puis sont intervenus ?</p></article>
-          <article><span class="o3-pros__mesure-num">03</span><strong>Collaboration</strong><p>Qui échange, décide ou coordonne concrètement ?</p></article>
-          <article><span class="o3-pros__mesure-num">04</span><strong>Continuité</strong><p>Quels liens persistent, cessent ou sont réorganisés ?</p></article>
-          <article><span class="o3-pros__mesure-num">05</span><strong>Réponse aux besoins</strong><p>Une aide a-t-elle été reçue, partiellement reçue ou non reçue ?</p></article>
-          <article><span class="o3-pros__mesure-num">06</span><strong>Point de vue du patient</strong><p>La réponse correspond-elle à ses besoins et priorités ?</p></article>
-        </div>
-      </section>
-      <section class="o3-pros__partie" aria-labelledby="o3-pros-reseaux-title">
-        <div class="o3-pros__titre"><span>04 · RÉSEAUX ÉVOLUTIFS</span><h4 id="o3-pros-reseaux-title">D’un contact à une coordination documentée</h4><p>Des sociogrammes successifs, propres à <strong>chaque situation</strong>, permettent de visualiser les modifications du réseau sans supposer qu’un réseau agrégé équivaut à une collaboration autour de la même personne. <strong>Le patient sert de traceur de situation ; les nœuds du SNA demeurent l’équipe SAD et les organisations mobilisées.</strong></p></div>
-        <div class="o3-pros__parcours" aria-label="Exemple fictif de progression d'une trajectoire intersectorielle">
-          <div><span>T0</span><strong>Besoin repéré</strong><p>Alimentation et transport, dans un contexte de morbidité.</p></div>
-          <div><span>T6</span><strong>Contacts</strong><p>Deux organismes sollicités ; coordination encore inconnue.</p></div>
-          <div><span>T9</span><strong>Coordination</strong><p>Plan partagé et échanges corroborés entre intervenants.</p></div>
-          <div><span>T12</span><strong>Réponse vérifiée</strong><p>Aide reçue ; adéquation examinée avec la personne.</p></div>
-        </div>
-        <p class="o3-pros__note">Exemple fictif, non résultat de thèse. <strong>Contact ≠ collaboration ≠ aide effectivement reçue.</strong> Une coordination peut être documentée sans que tous les besoins soient résolus.</p>
-      </section>
-      <section class="o3-pros__precautions" aria-label="Conditions et limites de cette option">
-        <div class="o3-pros__titre"><span>05 · CONDITIONS DE FAISABILITÉ</span><h4>Une option à confirmer lors du pilote</h4></div>
-        <div class="o3-pros__garde-fous">
-          <article><strong>Accès et consentement</strong><p>Accords institutionnels et éthiques, consentements adaptés notamment aux troubles cognitifs, pseudonymisation et accès répété aux données.</p></article>
-          <article><strong>Événements de parcours</strong><p>Prévoir hospitalisation, décès, entrée en institution et retrait, sans les interpréter automatiquement comme des échecs de coordination.</p></article>
-          <article><strong>Portée des résultats</strong><p>Quatre à six cas éclairent des mécanismes, sans estimer une fréquence représentative ni démontrer une causalité.</p></article>
-        </div>
-        <div class="o3-pros__conclusion"><strong>Décision méthodologique à venir</strong><p>Soumettre cette option à la codirection et en vérifier la charge, l’accès aux données et la faisabilité au pilote de quatre situations. <b>Le SNA rétrospectif demeure le devis actuellement décrit.</b></p></div>
-      </section>
-      </div></details>
-    </div>`;
-  if(vueO3)vueO3.append(volet);
-  else if(espaceExemples)espaceExemples.append(volet);
-  else cibleO3.append(volet);
-}
-
-    // Comparaison des deux modalités — insertion en fin d'O3, avant l'option et la galerie.
-    zone.querySelectorAll("[data-o3-choix-quantitatif]").forEach(el=>el.remove());
-    const comparatif = document.createElement("section");
+    // Un seul accordéon, fermé par défaut, pour comparer les modalités et approfondir le prospectif.
+    zone.querySelectorAll("[data-o3-choix-quantitatif], [data-o3-devis-prospectif]").forEach(el => el.remove());
+    const comparatif = document.createElement("details");
+    comparatif.id = "o3-option-prospective";
     comparatif.className = "o3-choix-quantitatif";
     comparatif.dataset.o3ChoixQuantitatif = "1";
     comparatif.setAttribute("aria-labelledby", "o3-choix-quantitatif-titre");
-    comparatif.innerHTML = `
-      <header class="o3-choix-quantitatif__entete">
-        <span>O3 · Volet quantitatif</span>
-        <h3 id="o3-choix-quantitatif-titre">Deux modalités de collecte, un même objectif</h3>
-      </header>
-      <p class="o3-choix-quantitatif__intro"><strong>Comparer deux façons de documenter la réponse intersectorielle</strong> autour des situations correspondant aux profils d’O1 : <b>O3-A</b> reconstitue les liens mobilisés au cours des 12 derniers mois ; <b>O3-B</b> suit des cas traceurs pendant 12 mois. Le choix sera arrêté avant le recrutement, selon les partenariats, les autorisations et la qualité attendue des données.</p>
-      <div class="o3-choix-quantitatif__tableau-wrap">
-        <div class="o3-choix-quantitatif__defilement" role="region" tabindex="0" aria-label="Principales différences entre les deux modalités de collecte">
-          <table>
-            <thead><tr><th scope="col">Critère</th><th scope="col"><span>O3-A</span> Rétrospectif <small>Modalité privilégiée</small></th><th scope="col"><span>O3-B</span> Prospectif <small>Alternative à évaluer</small></th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Principe</th><td>Reconstituer les relations interorganisationnelles autour de situations identifiées à partir d’O1.</td><td>Suivre <strong>un ou deux patients par profil</strong> et les organisations mobilisées au fil de leur trajectoire.</td></tr>
-              <tr><th scope="row">Porte d’entrée</th><td><strong>SAD ou GMF :</strong> repérage des situations, puis des liens entre organisations.</td><td><strong>Patient traceur :</strong> inclusion à T0 et relevé du réseau déjà mobilisé.</td></tr>
-              <tr><th scope="row">Collecte</th><td><strong>12 derniers mois</strong> · Questionnaires rétrospectifs auprès des organisations.</td><td><strong>12 mois de suivi</strong> · T0, puis questionnaires à 3, 6, 9 et 12 mois.</td></tr>
-              <tr><th scope="row">Réponse intersectorielle</th><td>Relations et coordinations <strong>reconstituées après coup</strong>.</td><td>Collaborations et changements <strong>documentés dans le temps</strong>.</td></tr>
-              <tr><th scope="row">Faisabilité</th><td>Plus favorable avec les partenariats envisagés à ce stade.</td><td>Soumise au recrutement, aux partenariats et aux autorisations.</td></tr>
-              <tr><th scope="row">Contrainte principale</th><td>Oublis et reconstruction parfois incomplète ; logistique plus légère.</td><td>Attrition, sollicitations répétées et exigences éthiques et logistiques accrues.</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <details class="o3-choix-quantitatif__complements">
-          <summary>Voir les trois critères complémentaires <span aria-hidden="true">⌄</span></summary>
-          <div class="o3-choix-quantitatif__defilement" role="region" tabindex="0" aria-label="Critères méthodologiques complémentaires">
-            <table><tbody>
-              <tr><th scope="row">Biais de mémoire</th><td>Plus élevé en collecte rétrospective.</td><td>Réduit par des mesures répétées, sans être supprimé.</td></tr>
-              <tr><th scope="row">Place du patient</th><td>Participation possible, mais plus indirecte.</td><td>Point de vue plus facilement intégré aux suivis.</td></tr>
-              <tr><th scope="row">Portée scientifique</th><td>Décrire les relations, coordinations et limites de leur reconstitution.</td><td>Étudier les évolutions et mécanismes de collaboration, sans inférence causale.</td></tr>
-            </tbody></table>
-          </div>
-        </details>
-      </div>
-      <div class="o3-choix-quantitatif__decision"><span>Choix provisoire</span><p><strong>O3-A</strong> demeure le devis principal ; <strong>O3-B</strong> reste une alternative conditionnelle à la faisabilité.</p></div>`;
-    ajouterOptionProspective(vueO3, espaceExemples, cibleO3, zone);
-    const optionProspective = zone.querySelector("[data-o3-devis-prospectif]");
-    if (optionProspective) {
-      optionProspective.before(comparatif);
-      // Toujours : paragraphe et tableau → option dépliable → galerie.
-      if (module.parentElement === optionProspective.parentElement) optionProspective.after(module);
-    } else if (vueO3) {
-      vueO3.insertBefore(comparatif,module);
-    }
+    comparatif.innerHTML = "\n      <summary class=\"o3-choix-quantitatif__entete\">\n        <span>O3 · Modalités de collecte à discuter</span>\n        <h3 id=\"o3-choix-quantitatif-titre\">Rétrospectif ou prospectif : comparer les deux modalités <span class=\"o3-choix-chevron\" aria-hidden=\"true\">⌄</span></h3>\n      </summary>\n      <p class=\"o3-choix-quantitatif__intro\">Deux façons de documenter la réponse intersectorielle autour des situations correspondant aux profils d’O1. <strong>O3-A reste la modalité privilégiée ; O3-B est une alternative exploratoire.</strong> Le choix sera arrêté avant le recrutement, avec la codirection, selon les partenariats, les autorisations et la qualité attendue des données.</p>\n      <div class=\"o3-choix-quantitatif__tableau-wrap\">\n        <div class=\"o3-choix-quantitatif__defilement\" role=\"region\" tabindex=\"0\" aria-label=\"Comparaison des modalités rétrospective et prospective\">\n          <table><thead><tr><th scope=\"col\">Critère</th><th scope=\"col\">O3-A · Rétrospectif<small>Modalité privilégiée</small></th><th scope=\"col\">O3-B · Prospectif<small>Alternative à évaluer</small></th></tr></thead><tbody>\n          <tr><th scope=\"row\">Principe</th><td>Reconstituer les relations interorganisationnelles autour de situations correspondant aux profils d’O1.</td><td>Suivre des patients traceurs et les organisations mobilisées au fil de leur trajectoire.</td></tr>\n          <tr><th scope=\"row\">Porte d’entrée</th><td>SAD ou GMF : repérage des situations, puis des liens entre organisations.</td><td>Patient traceur : inclusion à T0 et relevé du réseau déjà mobilisé.</td></tr>\n          <tr><th scope=\"row\">Collecte</th><td>Questionnaires auprès des organisations sur les 12 derniers mois.</td><td>12 mois de suivi : T0, puis questionnaires à 3, 6, 9 et 12 mois.</td></tr>\n          <tr><th scope=\"row\">Faisabilité</th><td>Plus favorable avec les partenariats envisagés à ce stade ; logistique plus légère.</td><td>Soumise au recrutement, aux partenariats et aux autorisations ; sollicitations répétées.</td></tr>\n          <tr><th scope=\"row\">Limites</th><td>Oublis et reconstruction parfois incomplète.</td><td>Attrition et exigences éthiques accrues ; biais de mémoire réduit, sans être supprimé.</td></tr>\n          <tr><th scope=\"row\">Place du patient</th><td>Participation possible, mais plus indirecte.</td><td>Point de vue intégré aux suivis, selon les autorisations et consentements.</td></tr>\n          <tr><th scope=\"row\">Portée scientifique</th><td>Décrire les relations et les limites de leur reconstitution.</td><td>Documenter leur évolution dans le temps, sans inférence causale.</td></tr>\n          </tbody></table>\n        </div>\n      </div>\n      <div class=\"o3-pros__contenu\">\n        <p><strong>Effectif prospectif envisagé :</strong> un ou deux cas par profil et par CLSC, soit 4–6 patients pour 2–3 profils dans 2 CLSC, ou 8–12 avec deux cas par combinaison. Inclure, dans la mesure du possible, des parcours avec et sans orientation intersectorielle. Un cas par profil et CLSC ne représente pas toutes les trajectoires.</p>\n        <details class=\"o3-pros__approfondir\"><summary>Afficher le protocole détaillé · mesures, trajectoire et faisabilité <span aria-hidden=\"true\">⌄</span></summary><div class=\"o3-pros__approfondir-corps\">\n      <section class=\"o3-pros__partie\" aria-labelledby=\"o3-pros-mesures-title\">\n        <div class=\"o3-pros__titre\"><span>01 · QUESTIONNAIRE TRIMESTRIEL</span><h4 id=\"o3-pros-mesures-title\">Six dimensions documentées à chaque échéance</h4><p>Questionnaire bref au professionnel SAD référent, confronté selon autorisations et consentements aux traces accessibles, aux partenaires et au patient ou à son proche.</p></div>\n        <div class=\"o3-pros__mesures\">\n          <article><span class=\"o3-pros__mesure-num\">01</span><strong>Besoins et morbidité</strong><p>Les besoins ont-ils évolué, augmenté ou disparu ?</p></article>\n          <article><span class=\"o3-pros__mesure-num\">02</span><strong>Mobilisation</strong><p>Quels organismes ont été contactés, puis sont intervenus ?</p></article>\n          <article><span class=\"o3-pros__mesure-num\">03</span><strong>Collaboration</strong><p>Qui échange, décide ou coordonne concrètement ?</p></article>\n          <article><span class=\"o3-pros__mesure-num\">04</span><strong>Continuité</strong><p>Quels liens persistent, cessent ou sont réorganisés ?</p></article>\n          <article><span class=\"o3-pros__mesure-num\">05</span><strong>Réponse aux besoins</strong><p>Une aide a-t-elle été reçue, partiellement reçue ou non reçue ?</p></article>\n          <article><span class=\"o3-pros__mesure-num\">06</span><strong>Point de vue du patient</strong><p>La réponse correspond-elle à ses besoins et priorités ?</p></article>\n        </div>\n      </section>\n      <section class=\"o3-pros__partie\" aria-labelledby=\"o3-pros-reseaux-title\">\n        <div class=\"o3-pros__titre\"><span>02 · RÉSEAUX ÉVOLUTIFS</span><h4 id=\"o3-pros-reseaux-title\">D’un contact à une coordination documentée</h4><p>Des sociogrammes successifs, propres à <strong>chaque situation</strong>, permettent de visualiser les modifications du réseau sans supposer qu’un réseau agrégé équivaut à une collaboration autour de la même personne. <strong>Le patient sert de traceur de situation ; les nœuds du SNA demeurent l’équipe SAD et les organisations mobilisées.</strong></p></div>\n        <div class=\"o3-pros__parcours\" aria-label=\"Exemple fictif de progression d'une trajectoire intersectorielle\">\n          <div><span>T0</span><strong>Besoin repéré</strong><p>Alimentation et transport, dans un contexte de morbidité.</p></div>\n          <div><span>T6</span><strong>Contacts</strong><p>Deux organismes sollicités ; coordination encore inconnue.</p></div>\n          <div><span>T9</span><strong>Coordination</strong><p>Plan partagé et échanges corroborés entre intervenants.</p></div>\n          <div><span>T12</span><strong>Réponse vérifiée</strong><p>Aide reçue ; adéquation examinée avec la personne.</p></div>\n        </div>\n        <p class=\"o3-pros__note\">Exemple fictif, non résultat de thèse. <strong>Contact ≠ collaboration ≠ aide effectivement reçue.</strong> Une coordination peut être documentée sans que tous les besoins soient résolus.</p>\n      </section>\n      <section class=\"o3-pros__precautions\" aria-label=\"Conditions et limites de cette option\">\n        <div class=\"o3-pros__titre\"><span>03 · CONDITIONS DE FAISABILITÉ</span><h4>Une option à confirmer lors du pilote</h4></div>\n        <div class=\"o3-pros__garde-fous\">\n          <article><strong>Accès et consentement</strong><p>Accords institutionnels et éthiques, consentements adaptés notamment aux troubles cognitifs, pseudonymisation et accès répété aux données.</p></article>\n          <article><strong>Événements de parcours</strong><p>Prévoir hospitalisation, décès, entrée en institution et retrait, sans les interpréter automatiquement comme des échecs de coordination.</p></article>\n          <article><strong>Portée des résultats</strong><p>Quatre à six cas éclairent des mécanismes, sans estimer une fréquence représentative ni démontrer une causalité.</p></article>\n        </div>\n        \n      </section>\n      </div></details>\n      </div>";
+    module.before(comparatif);
     modulesInitialises.add(module);
     // Accès immédiat à la galerie depuis le début de l'objectif O3.
     const teteO3 = cibleO3.querySelector(":scope > .methode-objectif-tete");
