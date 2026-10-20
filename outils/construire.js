@@ -1428,6 +1428,7 @@ function menuAcces(c, ici) {
 <button type="button" data-arreter hidden><span>${e(u.arreter)}</span></button>
 <p class="note-voix" data-sans-voix hidden>${e(u.sansVoix)}</p>
 ${ici === "falc" ? `<span aria-current="page" lang="fr"><img class="logo-falc" src="${c.chemin}assets/logo-falc-mini.jpg" alt="" width="22" height="22"><span>${e(u.falc)}</span></span>` : `<a href="${c.chemin}falc/" lang="fr"><img class="logo-falc" src="${c.chemin}assets/logo-falc-mini.jpg" alt="" width="22" height="22"><span>${e(u.falc)}</span></a>`}
+${`<a href="${c.chemin}methode-vulgarisee.html#recherche/methodes" lang="fr"><img class="logo-falc" src="${c.chemin}assets/grand-public-mini.jpg" alt="" width="22" height="22" style="border-radius:50%;object-fit:cover;object-position:center 18%"><span>${e(({fr:"Consulter la version vulgarisée",en:"Plain-language version (in French)",es:"Versión en lenguaje sencillo (en francés)",zh:"通俗版（法语）",ar:"النسخة المبسّطة (بالفرنسية)",ru:"Версия простым языком (на французском)"})[c.lang]||"Consulter la version vulgarisée")}</span></a>`}
 </div></details>`;
 }
 
