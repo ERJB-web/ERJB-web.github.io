@@ -57,7 +57,7 @@
     if (!document.querySelector("link[data-o3-style]")) {
       const feuille = document.createElement("link");
       feuille.rel = "stylesheet";
-      feuille.href = racine + "assets/o3-reseaux.css?v=20261019-o3-devis-retro-v3";
+      feuille.href = racine + "assets/o3-reseaux.css?v=20261019-compare-20261020";
       feuille.dataset.o3Style = "1";
       document.head.appendChild(feuille);
     }
@@ -187,7 +187,7 @@
       <div class="o3-pros__ouverture">
         <span class="o3-pros__pastille">Sous-volet longitudinal exploratoire · non arrêté</span>
         <h4>Observer les collaborations pendant qu’elles évoluent</h4>
-        <p>Cette <strong>option prospective</strong> pourrait compléter l’analyse rétrospective principale, sans la remplacer : suivre dans le temps la mobilisation, la coordination, les interruptions et les adaptations des organisations autour d’un profil associant <strong>besoins sociaux concomitants et morbidité</strong>. Il s’agirait d’une petite cohorte exploratoire de cas traceurs, non d’une cohorte représentative.</p>
+        <p>Cette <strong>option prospective</strong> pourrait remplacer la modalité rétrospective, sous réserve des conditions d’accès au terrain : suivre dans le temps la mobilisation, la coordination, les interruptions et les adaptations des organisations autour d’un profil associant <strong>besoins sociaux concomitants et morbidité</strong>. Il s’agirait d’une petite cohorte exploratoire de cas traceurs, non d’une cohorte représentative.</p>
       </div>
       <section class="o3-pros__partie" aria-labelledby="o3-pros-timeline-title">
         <div class="o3-pros__titre"><span>01 · SUIVI LONGITUDINAL</span><h4 id="o3-pros-timeline-title">Cinq observations en douze mois</h4><p>Une évaluation initiale et quatre questionnaires trimestriels ; chaque suivi documente les changements survenus depuis le précédent.</p></div>
@@ -201,7 +201,7 @@
         <p class="o3-pros__note">Ces douze mois de <strong>suivi après inclusion</strong> sont distincts des douze mois de <strong>repérage rétrospectif</strong> du devis principal. Un tel ajout modifierait le calendrier et les autorisations nécessaires.</p>
       </section>
       <section class="o3-pros__partie" aria-labelledby="o3-pros-cas-title">
-        <div class="o3-pros__titre"><span>02 · ÉCHANTILLON TRACEUR</span><h4 id="o3-pros-cas-title">Un cas par profil et par CLSC, à titre exploratoire</h4><p>Sélection possible parmi les 16 à 24 situations du volet principal si leur inclusion permet encore un suivi prospectif. Le nombre final dépendrait des profils retenus et de l’accès au terrain.</p></div>
+        <div class="o3-pros__titre"><span>02 · ÉCHANTILLON TRACEUR</span><h4 id="o3-pros-cas-title">Un ou deux cas par profil et par CLSC, à titre exploratoire</h4><p>Patients correspondant aux profils d’O1, inclus à T0 avec relevé du réseau préexistant. L’effectif dépendra des profils retenus et de l’accès au terrain.</p></div>
         <div class="o3-pros__effectifs">
           <div><strong>4</strong><span>patients traceurs</span><small>2 profils × 2 CLSC</small></div>
           <div><strong>6</strong><span>patients traceurs</span><small>3 profils × 2 CLSC</small></div>
