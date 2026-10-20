@@ -2156,7 +2156,70 @@
   }
   completerMethodologieO2O3();
 
-  $$("section.section[data-salle] > .section-contenu").forEach(transformer);
+  // O3 : une seule synthèse visible, placée au premier pilote.
+  // Les définitions et les règles de contrôle restent accessibles dans les détails.
+  function synthetiserPilotageO3() {
+    if (langue !== "fr") return;
+    const o3 = D.querySelector("#these-methode-o3");
+    if (!o3 || o3.dataset.pilotageSynthese === "ok") return;
+    const normaliser = (s) => (s || "").replace(/\s+/g, " ").trim().toLocaleLowerCase("fr");
+    const titre = Array.from(o3.querySelectorAll("h3,h4,h5,h6"))
+      .find((h) => normaliser(h.textContent).startsWith("pilote de quatre situations"));
+    const ancien = o3.querySelector(".revision-demo--participation");
+    if (!titre || !ancien) return;
+
+    // Détecter strictement les quatre anciennes cartes, sans toucher au tableau du pilote.
+    const etiquettes = ["situations pilotes", "fenêtre de repérage", "borne de collecte", "participation visée"];
+    const grille = Array.from(o3.querySelectorAll("div,section,ul"))
+      .filter((e) => e !== o3 && !e.contains(titre) && !e.querySelector("table") &&
+        e.children.length >= 3 && e.children.length <= 8 &&
+        e.textContent.length < 1500 &&
+        etiquettes.every((mot) => normaliser(e.textContent).includes(mot)))
+      .sort((a,b) => a.textContent.length - b.textContent.length)[0];
+    if (!grille) return; // Ne jamais ajouter une seconde synthèse si l'ancienne ne peut être isolée.
+
+    const bloc = D.createElement("section");
+    bloc.className = "o3-pilote-synthese";
+    bloc.setAttribute("aria-label","Repères du pilote et scénarios de participation");
+    bloc.innerHTML =
+      '<div class="o3-pilote-reperes" aria-label="Paramètres de collecte">'+
+        '<div class="o3-pilote-repere o3-pilote-repere--a"><strong>4</strong><span>Situations pilotes</span></div>'+
+        '<div class="o3-pilote-repere o3-pilote-repere--b"><strong>12 <small>mois</small></strong><span>Repérage rétrospectif</span></div>'+
+        '<div class="o3-pilote-repere o3-pilote-repere--c"><strong>2 <small>relais</small></strong><span>Maximum après le SAD</span></div>'+
+        '<div class="o3-pilote-repere o3-pilote-repere--d"><strong>2 <small>relances</small></strong><span>Par partenaire · 3 semaines</span></div>'+
+      '</div>'+
+      '<p class="o3-pilote-seuil-titre">Participation des professionnels SAD · trois scénarios</p>'+
+      '<div class="revision-thresholds o3-pilote-seuils">'+
+        '<div class="revision-threshold revision-threshold--target"><span class="revision-threshold-label">CIBLE</span><span class="revision-threshold-number">≥ 80 %</span><p>Vérifier la couverture.</p></div>'+
+        '<div class="revision-threshold revision-threshold--watch"><span class="revision-threshold-label">VIGILANCE</span><span class="revision-threshold-number">65–79 %</span><p>Relancer et comparer.</p></div>'+
+        '<div class="revision-threshold revision-threshold--limited"><span class="revision-threshold-label">PRUDENCE</span><span class="revision-threshold-number">&lt; 65 %</span><p>Limiter l’interprétation.</p></div>'+
+      '</div>'+
+      '<p class="o3-pilote-note">Seuils de prudence propres à l’étude, non garanties de validité. Taux des organisations partenaires calculé séparément.</p>';
+    const details = ancien.querySelector("details.revision-details");
+    if (details) {
+      const copie = details.cloneNode(true);
+      const resume = copie.querySelector("summary");
+      if (resume) resume.textContent = "Précisions techniques · calcul des taux et non-réponses";
+      bloc.append(copie);
+    }
+    grille.replaceWith(bloc);
+    // Les étapes du réseau sont conservées : seuls les chiffres déjà affichés au pilote disparaissent.
+    const construction = o3.querySelector(".revision-demo:not(.revision-demo--participation) .revision-reperes");
+    if (construction) construction.remove();
+
+    // Retirer le second panneau de participation, devenu redondant.
+    const ancienTitre = ancien.previousElementSibling;
+    if (ancienTitre && /^H[3-6]$/.test(ancienTitre.tagName) &&
+        /non.réponse et robustesse du réseau/i.test(normaliser(ancienTitre.textContent))) {
+      ancienTitre.remove();
+    }
+    ancien.remove();
+    o3.dataset.pilotageSynthese = "ok";
+  }
+  synthetiserPilotageO3();
+
+
+  $("section.section[data-salle] > .section-contenu").forEach(transformer);
   observerSommaires(D);
 
   // Charge les sept contenus existants uniquement pour la fusion du chapitre Implantation.
