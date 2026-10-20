@@ -346,3 +346,23 @@ html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo .
  .these #these-methode-o3 #methode-o3-7 .these-methode-item:has(>dd>.revision-demo){padding:0!important;border:0!important;background:transparent!important}
  .these #these-methode-o3 #methode-o3-7 .these-methode-item:has(>dd>.revision-demo)>dt{text-align:left!important;padding:12px 4px!important}
 }
+
+
+/* O3 consolidé : priorité aux trois scénarios côte à côte dans la synthèse du pilote.
+   Exceptions de présentation des chiffres, sans modification de la charte du texte courant. */
+.these .o3-pilote-synthese .o3-pilote-seuils{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0;
+}
+.these .o3-pilote-synthese .revision-threshold{
+  display:block;padding:13px 14px;min-width:0;
+}
+.these .o3-pilote-synthese .revision-threshold-label{min-height:0}
+.these .o3-pilote-synthese .revision-threshold-number{
+  display:block;margin:6px 0;font-size:34px;line-height:1.2;white-space:nowrap;
+}
+.these .o3-pilote-synthese .revision-threshold p{
+  font-size:16px;line-height:1.45;margin:4px 0 0;text-align:left;
+}
+@media(max-width:760px){
+ .these .o3-pilote-synthese .o3-pilote-seuils{grid-template-columns:1fr;gap:8px}
+}
