@@ -6295,3 +6295,46 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
   body:has(> main > .accueil) > .entete .outils .menu > summary {min-width:40px;padding-inline:4px}
   body:has(> main > .accueil) > .entete .outils .bouton-cv {padding-inline:5px;font-size:11px}
 }
+
+/* Cartes Explorer mon univers : densite mobile du 20 octobre 2026.
+   Six memes destinations, memes couleurs, grille intacte. */
+@media (max-width:700px) {
+  body:has(> main > .accueil) .hall.en-mobile .hall-tete {
+    padding:18px 2px 10px;
+  }
+  body:has(> main > .accueil) .hall.en-mobile .hall-reperes {
+    column-gap:10px!important;
+    row-gap:10px!important;
+    padding-bottom:17px!important;
+  }
+  body:has(> main > .accueil) .hall.en-mobile .hall-reperes > button {
+    aspect-ratio:auto;
+    min-height:118px!important;
+    height:auto;
+    padding:13px!important;
+    gap:9px;
+    justify-content:center;
+    align-items:flex-start;
+    border-radius:13px;
+  }
+  body:has(> main > .accueil) .hall.en-mobile .hall-reperes > button bdi {
+    width:31px;
+    height:31px;
+    border-radius:9px;
+    font-size:12px;
+  }
+  body:has(> main > .accueil) .hall.en-mobile .hall-reperes > button span {
+    font-size:clamp(13px,3.55vw,15px);
+    line-height:1.25;
+    text-wrap:balance;
+    overflow-wrap:break-word;
+  }
+}
+@media (max-width:360px) {
+  body:has(> main > .accueil) .hall.en-mobile .hall-reperes {gap:8px!important}
+  body:has(> main > .accueil) .hall.en-mobile .hall-reperes > button {
+    min-height:114px!important;
+    padding:11px!important;
+    gap:7px;
+  }
+}
