@@ -829,3 +829,32 @@ html.direct-serre .hall-tete .direct-hall { display: inline-flex; margin-inline:
     margin:0;
   }
 }
+
+/* Audit mobile du 20 octobre 2026 : scene vitree.
+   Recadrage proportionnel sur telephone ; aucune modification des positions desktop. */
+@media (max-width:700px) {
+  body:has(> main > .accueil) .hall.en-mobile .station-hall {
+    --m:clamp(.72px,min(calc(100cqw / 400),calc((100svh - 240px) / 490)),1.10px);
+    padding-inline:clamp(12px,3.7vw,18px);
+    background-position:center calc(var(--m) * -88);
+  }
+  body:has(> main > .accueil) .hall.en-mobile .station-hall .porte {
+    left:calc(50% - var(--porte-l) / 2);
+    top:calc(var(--verre-b) - var(--porte-h));
+    width:var(--porte-l);
+    height:var(--porte-h);
+    margin:0;
+  }
+  body:has(> main > .accueil) .hall.en-mobile .station-hall .panneau-hall {
+    box-sizing:border-box;
+    width:100%;
+    max-width:min(100%,440px);
+    min-width:0;
+    margin-inline:auto;
+  }
+  body:has(> main > .accueil) .hall.en-mobile .portes {
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+  body:has(> main > .accueil) .hall.en-mobile .portes::-webkit-scrollbar {display:none}
+}
