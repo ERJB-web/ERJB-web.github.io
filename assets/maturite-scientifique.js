@@ -231,7 +231,7 @@
       ));
     });
   }
-  function actualiser(){applique(document);}
+  function actualiser(){applique(document); window.dispatchEvent(new Event("o3:contenu-pret"));}
   if (document.readyState==="loading") document.addEventListener("DOMContentLoaded",actualiser,{once:true});
   else actualiser();
   const contenu=$("#contenu");

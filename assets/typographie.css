@@ -528,3 +528,78 @@ html:not([data-methodo-lecture="grand-public"]) body .these #these-methode-o3 .r
 .these .mat-sc__force-text .mat-sc__force-phrase{font-weight:400;margin:0 0 .9em}
 .these .mat-sc__force-text .mat-sc__force-phrase:last-child{margin-bottom:0}
 .these .mat-sc__force-text .mat-sc__force-phrase strong{font-weight:650}
+
+/* O3 : vue synthétique et lecture progressive du protocole. */
+.these #these-methode-o3 .o3-devis-retro{display:block!important;padding:20px!important;margin:14px 0 18px!important;border:1px solid #dddce7!important;border-radius:14px!important;background:#faf9fc!important;box-shadow:none!important}
+.these #these-methode-o3 .o3-devis-retro h3{font-size:var(--type-sous-section)!important;margin:5px 0 10px!important}
+.these #these-methode-o3 .o3-devis-retro__kicker{font-size:12px!important;color:#705580!important}
+.o3-lecture-volets{display:flex;align-items:center;gap:12px;color:#665073}
+.o3-lecture-volets>span:not([aria-hidden]){padding:5px 10px;border:1px solid #ded8e5;border-radius:6px;background:white;font-size:var(--type-note);font-weight:600}
+.o3-lecture-chiffres{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0}
+.o3-lecture-chiffres>div{display:grid;gap:4px;border-left:2px solid #cbbbd6;padding:3px 12px;min-width:0}
+.o3-lecture-chiffres strong{font-size:27px;font-weight:550;color:#614775;line-height:1.15}
+.o3-lecture-chiffres span{font-size:var(--type-note);color:#53646d;line-height:1.45}
+.these #these-methode-o3 .o3-lecture-parcours{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;list-style:none!important;margin:0 0 14px!important;padding:0!important}
+.these #these-methode-o3 .o3-lecture-parcours>li{display:grid;grid-template-columns:24px 1fr;gap:3px 7px;align-content:start;padding:10px!important;border:1px solid #e1dce6;background:#fff;border-radius:8px;min-width:0}
+.these #these-methode-o3 .o3-lecture-parcours>li>span{grid-row:1/3;color:#877093;font-size:12px;font-weight:600}
+.these #these-methode-o3 .o3-lecture-parcours strong{font-size:var(--type-note)!important;font-weight:600!important;color:#354b58}
+.these #these-methode-o3 .o3-lecture-parcours small{font-size:var(--type-note);color:#596a74;line-height:1.45}
+.these #these-methode-o3 .o3-lecture-principe{border:0;background:none;margin:3px 0 10px;padding:0}
+.o3-lecture-principe>summary{cursor:pointer;font-size:var(--type-note);color:#5c4870;padding:5px 0}
+.these #these-methode-o3 .o3-lecture-principe p{padding-top:8px}
+.these #these-methode-o3 .o3-devis-retro__renvoi{font-size:var(--type-note)!important;padding:7px 10px!important;margin:0!important;min-height:0;background:#fff!important;border-color:#d9d2e1!important;color:#5f4673!important}
+.o3-lecture-commandes{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:18px 0 12px}
+.o3-lecture-commandes>span{margin-right:auto;color:#51616d;font-size:var(--type-note)}
+.o3-lecture-commandes button{padding:6px 10px;border:1px solid #d9dce2;border-radius:6px;background:white;color:#57446b;font-family:inherit;font-size:var(--type-note);cursor:pointer}
+.these #these-methode-o3 .methode-these-corps{display:block!important}
+html body .these #these-methode-o3 .o3-lecture-rubrique{display:block!important;min-height:0!important;padding:0!important;margin:0 0 10px!important;background:#fff!important;border:1px solid #dce0e6!important;border-radius:10px!important;box-shadow:none!important;overflow:hidden}
+.o3-lecture-details>summary{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:7px 15px;list-style:none;cursor:pointer;padding:14px 18px}
+.o3-lecture-details>summary::-webkit-details-marker{display:none}
+.o3-lecture-details>summary::after{content:'+';grid-column:2;grid-row:1/3;font-size:22px;font-weight:400;color:#776288}
+.o3-lecture-details[open]>summary::after{content:'−'}
+html body .these #these-methode-o3 .o3-lecture-details>summary .methode-rubrique-titre{display:flex!important;gap:10px!important;align-items:center;grid-column:1;min-height:0!important;border:0!important;padding:0!important;margin:0!important;background:none!important;font-size:var(--type-detail)!important;font-weight:550!important;line-height:1.4!important;box-shadow:none!important}
+html body .these #these-methode-o3 .o3-lecture-details>summary .methode-rubrique-titre>span{position:static!important;transform:none!important;min-width:27px!important;width:27px!important;height:27px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;font-size:12px!important;border-radius:6px!important;background:#eee9f3!important;color:#715585!important}
+.o3-lecture-apercu{display:flex;grid-column:1;flex-wrap:wrap;gap:6px 20px;padding-left:37px;color:#586a74;font-size:var(--type-note);line-height:1.45}
+.o3-lecture-apercu>span{display:inline-flex;gap:6px;flex-wrap:wrap}
+.o3-lecture-apercu b{font-weight:550;color:#6a527a}
+.o3-lecture-details[open]>summary{background:#f9f8fb;border-bottom:1px solid #e4e0e8}
+.o3-lecture-details[open]>summary .o3-lecture-apercu{display:none}
+.o3-lecture-contenu{padding:16px;min-width:0}
+.o3-lecture-contenu .o3-lecture-sousdetail{margin:0 0 12px;padding:0;border:1px solid #e0e4e8;border-radius:8px;background:white;overflow:hidden}
+.o3-lecture-sousdetail>summary{padding:12px 15px;cursor:pointer;color:#4e4760;font-weight:550;font-size:var(--type-corps)}
+.o3-lecture-sousdetail[open]>summary{border-bottom:1px solid #e1e4e8;background:#faf9fc}
+.o3-lecture-sousdetail>.methode-fiche{padding:14px;margin:0}
+.o3-lecture-sousdetail>.methode-fiche>.these-methode-item>dt{display:none}
+.o3-lecture-notes{margin:14px 0;border:1px solid #dfe3e8;border-radius:8px;padding:12px 15px}
+.o3-lecture-notes>summary{color:#5c5668;cursor:pointer;font-size:var(--type-note)}
+.o3-lecture-notes>summary~*{margin-top:14px}
+.o3-lecture-details>summary:focus-visible,.o3-lecture-commandes button:focus-visible{outline:3px solid #8f70a6;outline-offset:-3px}
+@media(max-width:750px){
+ .o3-lecture-chiffres{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+ .these #these-methode-o3 .o3-lecture-parcours{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .these #these-methode-o3 .o3-devis-retro{padding:15px!important}
+ .o3-lecture-details>summary{padding:12px}
+ .o3-lecture-apercu{padding-left:0;gap:5px 12px}
+ .o3-lecture-contenu{padding:10px}
+ .o3-lecture-commandes>span{flex-basis:100%}
+}
+/* Les titres sources restent disponibles pour le sommaire, sans doublon visuel. */
+html body .these #these-methode-o3 .o3-lecture-rubrique>.methode-rubrique-titre{display:none!important}
+html body .these #these-methode-o3>.methode-objectif-tete{display:flex!important;flex-wrap:wrap;gap:8px 18px;align-items:center;padding:12px 0!important;margin:0 0 6px!important;background:none!important;border:0!important;box-shadow:none!important;color:#354756!important}
+html body .these #these-methode-o3>.methode-objectif-tete>p:first-child{display:none!important}
+html body .these #these-methode-o3>.methode-objectif-tete>h4{margin:0!important;padding:0!important;font-size:var(--type-detail)!important;color:#544261!important}
+html body .these #these-methode-o3>.methode-objectif-tete .o3-acces-galerie{margin:0 0 0 auto!important;min-height:0;padding:7px 10px!important;font-size:var(--type-note)!important;background:#f7f5fa!important;border:1px solid #ddd6e5!important;color:#654b78!important}
+@layer charte-typographique{
+html body .these #these-methode-o3 .o3-lecture-parcours>li{text-align:start!important;hyphens:none!important}
+html body .these #these-methode-o3 .o3-lecture-parcours small{text-align:start!important;hyphens:none!important}
+}
+/* Une seule bordure par rubrique ; les repères ne sont pas des paragraphes en gras. */
+html body .these #these-methode-o3 .o3-lecture-details{padding:0!important;margin:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important}
+html body .these #these-methode-o3 .o3-lecture-details>summary{border:0!important;border-radius:0!important;margin:0!important;background:none!important}
+html body .these #these-methode-o3 .o3-lecture-details[open]>summary{background:#f9f8fb!important;border-bottom:1px solid #e4e0e8!important}
+html body .these #these-methode-o3 .o3-lecture-apercu{font-weight:400!important}
+html body .these #these-methode-o3 .o3-lecture-details>summary .methode-rubrique-titre{color:#5b476c!important}
+.these #these-methode-o3 .o3-lecture-parcours>li{grid-template-columns:24px minmax(0,1fr)}
+.these #these-methode-o3 .o3-lecture-parcours :is(strong,small){min-width:0;overflow-wrap:anywhere}
+.o3-lecture-volets{flex-wrap:wrap}
+@media(max-width:750px){html.lv .these #these-methode-o3 .o3-lecture-parcours{grid-template-columns:1fr!important}}

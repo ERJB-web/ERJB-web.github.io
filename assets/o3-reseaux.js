@@ -8,6 +8,7 @@
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
   }[caractere]));
   const modulesInitialises = new WeakSet();
+  const controlesCompacts = new WeakSet();
   function initialiser(zone) {
     if (!/^fr(?:-|$)/i.test(document.documentElement.lang || "")) return;
     if (!zone) return;
@@ -20,19 +21,7 @@
   bandeau.className = "o3-devis-retro";
   bandeau.dataset.o3DevisRetro = "1";
   bandeau.setAttribute("aria-label", "Devis principal : analyse de réseaux rétrospective");
-  bandeau.innerHTML = [
-    '<div class="o3-devis-retro__intro">',
-    '<span class="o3-devis-retro__kicker"><span aria-hidden="true">●</span> DEVIS PRINCIPAL · O3</span>',
-    '<h3>Analyse de réseaux sociaux <em>(SNA) rétrospective</em></h3>',
-    '<p>À partir de situations réelles correspondant aux profils de besoins, les équipes de soutien à domicile (SAD) reconstituent la réponse intersectorielle sur une <strong>fenêtre de repérage rétrospective de 12 mois</strong> : actions, contacts, coordinations, relais et aide effectivement reçue ou non. Les situations <strong>sans orientation extérieure</strong> sont également retenues. Questionnaires, traces accessibles et vérifications auprès des partenaires servent à qualifier les liens.</p>',
-    '<button class="o3-devis-retro__renvoi" type="button" data-o3-ouvrir-prospectif>Comparer les modalités rétrospective et prospective <span aria-hidden="true">↘</span></button>',
-    '</div>',
-    '<div class="o3-devis-retro__chiffres" aria-label="Repères du devis rétrospectif">',
-    '<div><strong>12 <small>mois</small></strong><span>Fenêtre de repérage</span></div>',
-    '<div><strong>16–24</strong><span>Situations étudiées</span></div>',
-    '<div><strong>2</strong><span>Territoires CLSC prévus</span></div>',
-    '</div>'
-  ].join("");
+  bandeau.innerHTML = "<div class=\"o3-lecture-intro\"><span class=\"o3-devis-retro__kicker\">DEVIS PRINCIPAL · O3</span><h3>Analyse de réseaux rétrospective</h3><div class=\"o3-lecture-volets\"><span>QUAN · Réseaux</span><span aria-hidden=\"true\">→</span><span>qual · Entretiens</span></div></div><div class=\"o3-lecture-chiffres\"><div><strong>12</strong><span>mois rétrospectifs</span></div><div><strong>16–24</strong><span>situations envisagées</span></div><div><strong>2</strong><span>CLSC prévus</span></div><div><strong>4</strong><span>situations pilotes</span></div></div><ol class=\"o3-lecture-parcours\" aria-label=\"Parcours méthodologique\"><li><span>01</span><strong>Situations réelles</strong><small>Profils O1 · avec ou sans orientation</small></li><li><span>02</span><strong>Relations déclarées</strong><small>Organisations · contacts · relais</small></li><li><span>03</span><strong>Réseaux</strong><small>Par profil et territoire</small></li><li><span>04</span><strong>Entretiens</strong><small>Explications des acteurs</small></li></ol><details class=\"o3-lecture-principe\"><summary>Principe et périmètre</summary><p>À partir de situations réelles correspondant aux profils de besoins, les équipes de soutien à domicile (SAD) reconstituent la réponse intersectorielle sur une <strong>fenêtre de repérage rétrospective de 12 mois</strong> : actions, contacts, coordinations, relais et aide effectivement reçue ou non. Les situations <strong>sans orientation extérieure</strong> sont également retenues. Questionnaires, traces accessibles et vérifications auprès des partenaires servent à qualifier les liens.</p></details><button class=\"o3-devis-retro__renvoi\" type=\"button\" data-o3-ouvrir-prospectif>Comparer rétrospectif et prospectif <span aria-hidden=\"true\">↘</span></button>";
   const entete = cibleO3.querySelector(":scope > .methode-objectif-tete");
   if (entete) entete.insertAdjacentElement("afterend",bandeau);
   else cibleO3.prepend(bandeau);
@@ -316,10 +305,114 @@
       });
     }
   }
+  // Lecture à deux niveaux : repères visuels, puis protocole intégral à la demande.
+  function compacterO3(zone) {
+    if (!zone) return;
+    const article = zone.querySelector('#these-methode-o3');
+    if (!article) return;
+
+    // Garder la phrase de cadrage accessible dans le principe, sans doubler la synthèse visuelle.
+    const entete = article.querySelector(':scope > .methode-objectif-tete');
+    const chapeau = entete?.querySelector(':scope > p:not(:first-child)');
+    const reperes = {
+      'methode-o3-4': [['QUAN', 'Organisations'], ['qual', 'Acteurs des réseaux']],
+      'methode-o3-5': [['2 CLSC', '× 2–3 profils × 4 situations'], ['Pilote', '4 situations']],
+      'methode-o3-6': [['12 mois', 'Repérage rétrospectif'], ['2 relais', 'Borne de collecte']],
+      'methode-o3-7': [['QUAN', 'Taille · diversité · relations'], ['qual', 'Matrice thématique']],
+      'methode-o3-8': [['O1', 'Profils'], ['O2', 'Ressources'], ['O3', 'Réseaux']],
+      'methode-o3-9': [['Sociogrammes', '→ entretiens'], ['Exemples', 'Codage · justification']],
+      'methode-o3-10': [['Vigilance', 'Sélection · mémoire · non-réponse']]
+    };
+    article.querySelectorAll('.methode-rubrique').forEach(section => {
+      if (section.querySelector(':scope > .o3-lecture-details')) return;
+      const titre = section.querySelector(':scope > .methode-rubrique-titre');
+      if (!titre) return;
+      section.classList.add('o3-lecture-rubrique');
+      const detail = document.createElement('details');
+      detail.className = 'o3-lecture-details';
+      const summary = document.createElement('summary');
+      const titreVisible = titre.cloneNode(true);
+      titreVisible.removeAttribute("id");
+      titreVisible.querySelectorAll("[id]").forEach(el => el.removeAttribute("id"));
+      summary.append(titreVisible);
+      titre.remove();
+      const apercu = document.createElement('span');
+      apercu.className = 'o3-lecture-apercu';
+      (reperes[section.id] || []).forEach(([valeur, label]) => {
+        const repere = document.createElement('span');
+        const valeurNode = document.createElement('b');
+        valeurNode.textContent = valeur;
+        repere.append(valeurNode, document.createTextNode(' ' + label));
+        apercu.append(repere);
+      });
+      summary.append(apercu);
+      const contenu = document.createElement('div');
+      contenu.className = 'o3-lecture-contenu';
+      while (section.firstChild) contenu.append(section.firstChild);
+      detail.append(summary, contenu);
+      section.append(titre, detail);
+    });
+    // Les longues sous-analyses restent disponibles sans ouvrir plusieurs écrans de cartes.
+    article.querySelectorAll('#methode-o3-7 .methode-fiche').forEach(fiche => {
+      if (fiche.closest('.o3-lecture-sousdetail')) return;
+      const titre = fiche.querySelector('dt');
+      if (!titre) return;
+      const detail = document.createElement('details');
+      detail.className = 'o3-lecture-sousdetail';
+      const summary = document.createElement('summary');
+      summary.textContent = titre.textContent;
+      fiche.before(detail);
+      detail.append(summary, fiche);
+    });
+    const corps = article.querySelector('.methode-these-corps');
+    if (corps && !corps.querySelector(':scope > .o3-lecture-notes')) {
+      const notes = document.createElement('details');
+      notes.className = 'o3-lecture-notes';
+      const summary = document.createElement('summary');
+      summary.textContent = 'Cadrage du terrain, calendrier et études d’appui';
+      notes.append(summary);
+      corps.querySelectorAll(':scope > .methode-o3-precision-territoire, :scope > .ia-reperes').forEach(el => notes.append(el));
+      corps.append(notes);
+    }
+    const vue = article.closest('[data-vue-objectif]');
+    const flexible = vue?.querySelector(':scope > .mat-sc--flex');
+    const notes = article.querySelector('.o3-lecture-notes');
+    if (flexible && notes) notes.append(flexible);
+    if (chapeau && notes) notes.querySelector(':scope > summary').after(chapeau);
+    let commandes = article.querySelector('.o3-lecture-commandes');
+    if (!commandes) {
+      commandes = document.createElement('div');
+      commandes.className = 'o3-lecture-commandes';
+      commandes.setAttribute('role', 'group');
+      commandes.setAttribute('aria-label', 'Lecture du protocole O3');
+      commandes.innerHTML = '<span>Le protocole en 7 rubriques</span><button type="button" data-o3-deplier>Ouvrir les rubriques</button><button type="button" data-o3-replier>Replier les rubriques</button>';
+      article.querySelector('.o3-devis-retro')?.after(commandes);
+    }
+    if (!controlesCompacts.has(commandes)) {
+      controlesCompacts.add(commandes);
+      commandes.querySelector('[data-o3-deplier]').addEventListener('click', () => article.querySelectorAll('.o3-lecture-details').forEach(d => { d.open = true; }));
+      commandes.querySelector('[data-o3-replier]').addEventListener('click', () => article.querySelectorAll('.o3-lecture-details').forEach(d => { d.open = false; }));
+    }
+  }
+
+  document.addEventListener('click', event => {
+    const lien = event.target.closest?.('a[data-gab-cible]');
+    if (!lien) return;
+    const salle = lien.closest('#salle');
+    const article = salle?.querySelector('#these-methode-o3');
+    if (!article) return;
+    const cible = Array.from(article.querySelectorAll('[id]')).find(el => el.id === lien.dataset.gabCible);
+    if (!cible) return;
+    const detail = cible.closest('.methode-rubrique')?.querySelector(':scope > .o3-lecture-details');
+    if (detail) detail.open = true;
+  }, true);
+  addEventListener('o3:contenu-pret', () => compacterO3(document.querySelector('#salle .salle-contenu')));
   function synchroniserGaleries() {
     // Source statique pour la lecture libre, puis copie effectivement affichée dans la salle.
     initialiser(document.querySelector('section.section[data-salle="recherche"]'));
     initialiser(document.querySelector("#salle .salle-contenu"));
+    compacterO3(document.querySelector('section.section[data-salle="recherche"]'));
+    compacterO3(document.querySelector("#salle .salle-contenu"));
   }
   function installer() {
     synchroniserGaleries();
@@ -327,7 +420,7 @@
     if (contenuSalle) {
       // L'ouverture d'une porte remplace les enfants directs de .salle-contenu.
       // Ne pas observer toute la page et ne modifier aucun autre chapitre.
-      new MutationObserver(() => { initialiser(contenuSalle); })
+      new MutationObserver(() => { initialiser(contenuSalle); compacterO3(contenuSalle); })
         .observe(contenuSalle, { childList: true });
     }
   }
