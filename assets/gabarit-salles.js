@@ -2227,7 +2227,7 @@
     if (langue !== "fr") return;
     const o3 = D.querySelector("#these-methode-o3");
     if (!o3) return;
-    const texte = el => (el?.textContent || "").replace(/\\s+/g, " ").trim().toLocaleLowerCase("fr");
+    const texte = el => (el?.textContent || "").replace(/\s+/g, " ").trim().toLocaleLowerCase("fr");
     const labels = ["situations pilotes", "fenêtre de repérage", "borne de collecte", "participation visée"];
     const ancienBloc = Array.from(o3.querySelectorAll("div,section,ul"))
       .filter(el => !el.querySelector("table") && el.children.length >= 3 &&
@@ -2243,8 +2243,8 @@
       else el.remove();
     });
     // Conservation des étapes détaillées, sans seconde ligne de chiffres.
-    const chiffresRepetés = o3.querySelector(".revision-demo:not(.revision-demo--participation) .revision-reperes");
-    if (chiffresRepetés) chiffresRepetés.remove();
+    const chiffresRepetes = o3.querySelector(".revision-demo:not(.revision-demo--participation) .revision-reperes");
+    if (chiffresRepetes) chiffresRepetes.remove();
     o3.dataset.pilotageSynthese = "transfere-faisabilite";
   }
   retirerDoublonsPilotageO3();
