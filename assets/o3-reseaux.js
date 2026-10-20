@@ -209,6 +209,7 @@
         </div>
         <p class="o3-pros__note">Inclure, dans la mesure du possible, <strong>des parcours avec et sans orientation intersectorielle</strong>. Un seul cas par profil et CLSC ne représente pas toutes les trajectoires.</p>
       </section>
+      <details class="o3-pros__approfondir"><summary>Afficher le protocole détaillé · mesures, trajectoire et faisabilité <span aria-hidden="true">⌄</span></summary><div class="o3-pros__approfondir-corps">
       <section class="o3-pros__partie" aria-labelledby="o3-pros-mesures-title">
         <div class="o3-pros__titre"><span>03 · QUESTIONNAIRE TRIMESTRIEL</span><h4 id="o3-pros-mesures-title">Six dimensions documentées à chaque échéance</h4><p>Questionnaire bref au professionnel SAD référent, confronté selon autorisations et consentements aux traces accessibles, aux partenaires et au patient ou à son proche.</p></div>
         <div class="o3-pros__mesures">
@@ -239,6 +240,7 @@
         </div>
         <div class="o3-pros__conclusion"><strong>Décision méthodologique à venir</strong><p>Soumettre cette option à la codirection et en vérifier la charge, l’accès aux données et la faisabilité au pilote de quatre situations. <b>Le SNA rétrospectif demeure le devis actuellement décrit.</b></p></div>
       </section>
+      </div></details>
     </div>`;
   if(vueO3)vueO3.append(volet);
   else if(espaceExemples)espaceExemples.append(volet);
@@ -254,26 +256,35 @@
     comparatif.innerHTML = `
       <header class="o3-choix-quantitatif__entete">
         <span>O3 · Volet quantitatif</span>
-        <h3 id="o3-choix-quantitatif-titre">Deux options méthodologiques pour le volet quantitatif d’O3</h3>
+        <h3 id="o3-choix-quantitatif-titre">Deux modalités de collecte, un même objectif</h3>
       </header>
-      <p class="o3-choix-quantitatif__intro">Deux modalités de collecte sont envisagées pour l'objectif 3. La modalité principale actuellement retenue repose sur une reconstitution rétrospective, sur douze mois, des relations interorganisationnelles effectivement mobilisées autour de situations correspondant aux profils identifiés dans l'objectif 1. Une modalité prospective longitudinale, fondée sur le suivi de cas traceurs et des mesures répétées du réseau de réponse intersectorielle, constitue une alternative méthodologique à considérer sous réserve de faisabilité organisationnelle, éthique et scientifique. Le choix définitif sera arrêté avant le recrutement, sur la base d'une évaluation des partenariats, de l'accès aux situations admissibles et de la qualité attendue des données.</p>
-      <div class="o3-choix-quantitatif__defilement" role="region" tabindex="0" aria-label="Comparaison des deux modalités de collecte de l'objectif 3">
-        <table>
-          <thead><tr><th scope="col">Critère</th><th scope="col"><span>O3-A</span> Reconstitution rétrospective</th><th scope="col"><span>O3-B</span> Cas traceurs longitudinaux</th></tr></thead>
-          <tbody>
-            <tr><th scope="row">Principe</th><td>Reconstituer le réseau mobilisé autour de situations correspondant aux profils d’O1.</td><td>Suivre <strong>un ou deux patients par profil</strong> et les organisations intervenant dans leur trajectoire.</td></tr>
-            <tr><th scope="row">Porte d’entrée</th><td><strong>Organisations</strong> : SAD ou GMF, pour repérer les situations puis reconstituer les liens.</td><td><strong>Patient traceur</strong> : inclusion d’un profil d’O1, avec relevé du réseau déjà présent à T0.</td></tr>
-            <tr><th scope="row">Période et collecte</th><td><strong>12 derniers mois</strong> : questionnaires rétrospectifs auprès des organisations.</td><td><strong>12 mois de suivi</strong> : inclusion à T0, puis questionnaires à 3, 6, 9 et 12 mois.</td></tr>
-            <tr><th scope="row">Faisabilité immédiate</th><td><strong>Meilleure</strong>, au regard des partenariats actuels.</td><td>Conditionnelle aux partenariats, au recrutement et aux autorisations.</td></tr>
-            <tr><th scope="row">Biais de mémoire</th><td>Plus important.</td><td>Plus limité grâce aux mesures répétées.</td></tr>
-            <tr><th scope="row">Réseau et réponse intersectorielle</th><td>Relations et coordinations <strong>reconstituées après coup</strong>.</td><td>Mobilisations et collaborations <strong>observées dans le temps</strong>.</td></tr>
-            <tr><th scope="row">Place du patient</th><td>Participation possible, plus indirecte.</td><td>Point de vue plus facilement intégré au suivi.</td></tr>
-            <tr><th scope="row">Risques et contraintes</th><td>Reconstruction incomplète des trajectoires ; charge logistique plus modérée.</td><td>Réactivité des équipes, pertes de suivi et exigences éthiques et logistiques accrues.</td></tr>
-            <tr><th scope="row">Portée scientifique</th><td>Devis défendable pour décrire les relations et leurs limites.</td><td>Intérêt particulier pour étudier l’évolution des collaborations.</td></tr>
-          </tbody>
-        </table>
+      <p class="o3-choix-quantitatif__intro"><strong>Comparer deux façons de documenter la réponse intersectorielle</strong> autour des situations correspondant aux profils d’O1 : <b>O3-A</b> reconstitue les liens mobilisés au cours des 12 derniers mois ; <b>O3-B</b> suit des cas traceurs pendant 12 mois. Le choix sera arrêté avant le recrutement, selon les partenariats, les autorisations et la qualité attendue des données.</p>
+      <div class="o3-choix-quantitatif__tableau-wrap">
+        <div class="o3-choix-quantitatif__defilement" role="region" tabindex="0" aria-label="Principales différences entre les deux modalités de collecte">
+          <table>
+            <thead><tr><th scope="col">Critère</th><th scope="col"><span>O3-A</span> Rétrospectif <small>Modalité privilégiée</small></th><th scope="col"><span>O3-B</span> Prospectif <small>Alternative à évaluer</small></th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Principe</th><td>Reconstituer les relations interorganisationnelles autour de situations identifiées à partir d’O1.</td><td>Suivre <strong>un ou deux patients par profil</strong> et les organisations mobilisées au fil de leur trajectoire.</td></tr>
+              <tr><th scope="row">Porte d’entrée</th><td><strong>SAD ou GMF :</strong> repérage des situations, puis des liens entre organisations.</td><td><strong>Patient traceur :</strong> inclusion à T0 et relevé du réseau déjà mobilisé.</td></tr>
+              <tr><th scope="row">Collecte</th><td><strong>12 derniers mois</strong> · Questionnaires rétrospectifs auprès des organisations.</td><td><strong>12 mois de suivi</strong> · T0, puis questionnaires à 3, 6, 9 et 12 mois.</td></tr>
+              <tr><th scope="row">Réponse intersectorielle</th><td>Relations et coordinations <strong>reconstituées après coup</strong>.</td><td>Collaborations et changements <strong>documentés dans le temps</strong>.</td></tr>
+              <tr><th scope="row">Faisabilité</th><td>Plus favorable avec les partenariats envisagés à ce stade.</td><td>Soumise au recrutement, aux partenariats et aux autorisations.</td></tr>
+              <tr><th scope="row">Contrainte principale</th><td>Oublis et reconstruction parfois incomplète ; logistique plus légère.</td><td>Attrition, sollicitations répétées et exigences éthiques et logistiques accrues.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <details class="o3-choix-quantitatif__complements">
+          <summary>Voir les trois critères complémentaires <span aria-hidden="true">⌄</span></summary>
+          <div class="o3-choix-quantitatif__defilement" role="region" tabindex="0" aria-label="Critères méthodologiques complémentaires">
+            <table><tbody>
+              <tr><th scope="row">Biais de mémoire</th><td>Plus élevé en collecte rétrospective.</td><td>Réduit par des mesures répétées, sans être supprimé.</td></tr>
+              <tr><th scope="row">Place du patient</th><td>Participation possible, mais plus indirecte.</td><td>Point de vue plus facilement intégré aux suivis.</td></tr>
+              <tr><th scope="row">Portée scientifique</th><td>Décrire les relations, coordinations et limites de leur reconstitution.</td><td>Étudier les évolutions et mécanismes de collaboration, sans inférence causale.</td></tr>
+            </tbody></table>
+          </div>
+        </details>
       </div>
-      <div class="o3-choix-quantitatif__decision"><span>Choix présenté à ce stade</span><p><strong>O3-A</strong> demeure la modalité principale ; <strong>O3-B</strong> constitue une alternative, sous réserve de faisabilité.</p></div>`;
+      <div class="o3-choix-quantitatif__decision"><span>Choix provisoire</span><p><strong>O3-A</strong> demeure le devis principal ; <strong>O3-B</strong> reste une alternative conditionnelle à la faisabilité.</p></div>`;
     ajouterOptionProspective(vueO3, espaceExemples, cibleO3, zone);
     const optionProspective = zone.querySelector("[data-o3-devis-prospectif]");
     if (optionProspective) {
