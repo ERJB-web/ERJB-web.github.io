@@ -2722,3 +2722,110 @@ html[data-methodo-lecture="grand-public"] .mgp-final{padding:25px;background:#ea
  #these-methode-o3 .o3-pilote-synthese{padding:14px 11px}
  #these-methode-o3 .o3-pilote-synthese .o3-pilote-repere{min-height:102px}
 }
+
+
+/* Faisabilité O3 — deux bandeaux horizontaux pleine largeur ; aucun effet sur les menus. */
+.gab[data-gab-salle="recherche"] .fais-pilote-o3,
+.fais-pilote-o3{
+  box-sizing:border-box;clear:both;width:100%;max-width:none;min-width:0;
+  margin:22px 0 26px;padding:0;overflow:hidden;
+  background:#fff;border:1px solid #d5e2e9;border-radius:17px;
+  box-shadow:0 8px 24px rgba(25,64,78,.055);color:#25495b;font-family:inherit;
+}
+.fais-pilote-o3 *{box-sizing:border-box;min-width:0}
+.fais-pilote-en-tete{padding:16px 22px 13px;background:linear-gradient(105deg,#f3f9fc,#f5faf8)}
+.fais-pilote-en-tete>span{display:block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#177b8a;text-align:left}
+.fais-pilote-o3 .fais-pilote-en-tete h3{
+  font-size:clamp(20px,2vw,25px)!important;line-height:1.25!important;
+  color:#214b60!important;text-align:left!important;margin:5px 0 0!important;
+  padding:0!important;border:0!important;font-weight:800!important;
+}
+.fais-pilote-bande{
+  --fais-bande:#176f99;
+  display:grid;grid-template-columns:minmax(170px,215px) minmax(0,1fr);
+  gap:17px;align-items:center;
+  padding:17px 20px;
+  border-top:5px solid var(--fais-bande);
+}
+.fais-pilote-bande--collecte{
+  --fais-bande:#217a9e;
+  background:linear-gradient(90deg,#edf7fc 0%,#f8fcfd 54%,#fff 100%);
+  border-image:linear-gradient(90deg,#2f6eab 0%,#137a91 34%,#24927d 68%,#a57137 100%) 1;
+  border-top-width:5px;border-top-style:solid;
+}
+.fais-pilote-bande--participation{
+  --fais-bande:#28816b;
+  background:linear-gradient(90deg,#f1f9f5 0%,#f9fcfa 60%,#fff 100%);
+  border-image:linear-gradient(90deg,#27806e 0%,#27806e 33%,#ad7d2b 66%,#a65d49 100%) 1;
+  border-top-width:5px;border-top-style:solid;
+}
+.fais-pilote-bande-titre>span{display:block;text-align:left;font-size:12px;letter-spacing:.065em;font-weight:790;color:#287487;text-transform:uppercase}
+.fais-pilote-bande--participation .fais-pilote-bande-titre>span{color:#27806e}
+.fais-pilote-bande-titre h4{margin:5px 0 0!important;padding:0!important;font-size:18px!important;font-weight:790!important;color:#244e60!important;line-height:1.3!important;text-align:left!important;border:0!important}
+.fais-pilote-chiffres{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center;gap:0}
+.fais-pilote-chiffres>div{
+  display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+  min-height:65px;padding:3px 13px;border-left:2px solid #d7e7ed;
+}
+.fais-pilote-chiffres>div:nth-child(2){border-left-color:#cbe1e5}
+.fais-pilote-chiffres>div:nth-child(3){border-left-color:#cee6dc}
+.fais-pilote-chiffres>div:nth-child(4){border-left-color:#ecddc9}
+.fais-pilote-chiffres strong{
+  display:block;text-align:left!important;white-space:nowrap;
+  color:#236eaa;font-size:clamp(27px,2.6vw,36px)!important;font-weight:820!important;
+  line-height:1.1!important;letter-spacing:-.025em;font-variant-numeric:tabular-nums;
+}
+.fais-pilote-chiffres>div:nth-child(2) strong{color:#147a90}
+.fais-pilote-chiffres>div:nth-child(3) strong{color:#27846d}
+.fais-pilote-chiffres>div:nth-child(4) strong{color:#9a672f}
+.fais-pilote-chiffres strong small{font-size:.56em!important;font-weight:790}
+.fais-pilote-chiffres span{margin-top:5px;color:#385768;text-align:left!important;font-size:15px!important;font-weight:590;line-height:1.35!important;overflow-wrap:normal;hyphens:none}
+.fais-pilote-seuils{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:stretch}
+.fais-pilote-seuil{display:flex;align-items:center;gap:13px;padding:10px 12px;border-radius:10px;background:#f0f8f5;border:1px solid #d7e9e2}
+.fais-pilote-seuil--vigilance{background:#fdf9ef;border-color:#eddec5}
+.fais-pilote-seuil--prudence{background:#fbf4f0;border-color:#eadacf}
+.fais-pilote-seuil strong{flex:none;color:#237b68;font-size:clamp(24px,2.15vw,31px)!important;font-weight:840!important;white-space:nowrap;line-height:1.1!important;letter-spacing:-.025em;font-variant-numeric:tabular-nums}
+.fais-pilote-seuil--vigilance strong{color:#976920}
+.fais-pilote-seuil--prudence strong{color:#a05b46}
+.fais-pilote-seuil span{display:flex;flex-direction:column;gap:3px;text-align:left}
+.fais-pilote-seuil span b{font-size:15px;font-weight:790;color:#315865}
+.fais-pilote-seuil span small{font-size:14px;line-height:1.3;color:#4f6771}
+.fais-pilote-note{
+  margin:0!important;padding:12px 22px!important;font-size:14px!important;
+  line-height:1.48!important;background:#f9fbfc;color:#516974!important;
+  text-align:left!important;border-top:1px solid #e0e8eb;
+}
+.fais-pilote-science{border-top:1px solid #dce8e9;background:#fff}
+.fais-pilote-science>summary{
+  padding:13px 22px;cursor:pointer;color:#246b78;font-size:15px!important;
+  font-weight:760;text-align:left!important;line-height:1.4;
+}
+.fais-pilote-science>summary:hover,.fais-pilote-science>summary:focus-visible{background:#eff7f7;outline-offset:-3px}
+.fais-pilote-science[open]{padding-bottom:18px}
+.fais-pilote-science[open]>summary{border-bottom:1px solid #dde9ec;margin-bottom:15px}
+.fais-pilote-science>p{font-size:15px!important;line-height:1.6!important;margin:10px 22px!important;text-align:justify!important;hyphens:auto;color:#395766!important}
+.fais-pilote-denoms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0 22px 15px}
+.fais-pilote-denoms>div{display:flex;flex-direction:column;gap:6px;padding:14px 16px;background:#f3f8fb;border-left:3px solid #3684a2;border-radius:8px}
+.fais-pilote-denoms>div+div{background:#f2faf6;border-left-color:#378970}
+.fais-pilote-denoms strong{font-size:15px;color:#234f64}
+.fais-pilote-denoms span{font-size:14px;line-height:1.45;color:#46616b}
+@media(max-width:1180px){
+ .fais-pilote-bande{grid-template-columns:minmax(0,1fr);gap:12px}
+ .fais-pilote-chiffres>div{min-height:58px}
+}
+@media(max-width:760px){
+ .fais-pilote-bande{padding:15px 13px}
+ .fais-pilote-en-tete{padding:14px 15px}
+ .fais-pilote-chiffres{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:14px}
+ .fais-pilote-seuils{grid-template-columns:1fr}
+ .fais-pilote-seuil{min-height:56px}
+ .fais-pilote-note{padding:12px 15px!important}
+ .fais-pilote-science>summary{padding:13px 15px}
+ .fais-pilote-science>p{margin:10px 15px!important}
+ .fais-pilote-denoms{grid-template-columns:1fr;margin:0 15px 12px}
+}
+@media(max-width:400px){
+ .fais-pilote-chiffres{grid-template-columns:1fr}
+ .fais-pilote-chiffres>div{padding:7px 12px}
+ .fais-pilote-chiffres strong{font-size:29px!important}
+}
