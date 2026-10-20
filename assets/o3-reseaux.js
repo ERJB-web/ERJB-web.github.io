@@ -14,6 +14,36 @@
     const cibleO3 = zone.querySelector("#these-methode-o3");
     if (!cibleO3) return;
     const espaceExistant = zone.querySelector("#methode-o3-exemples");
+    function ajouterBandeauRetro(zone, cibleO3) {
+  cibleO3.querySelectorAll("[data-o3-devis-retro]").forEach(el=>el.remove());
+  const bandeau = document.createElement("section");
+  bandeau.className = "o3-devis-retro";
+  bandeau.dataset.o3DevisRetro = "1";
+  bandeau.setAttribute("aria-label", "Devis principal : analyse de réseaux rétrospective");
+  bandeau.innerHTML = [
+    '<div class="o3-devis-retro__intro">',
+    '<span class="o3-devis-retro__kicker"><span aria-hidden="true">●</span> DEVIS PRINCIPAL · O3</span>',
+    '<h3>Analyse de réseaux sociaux <em>(SNA) rétrospective</em></h3>',
+    '<p>À partir de situations réelles correspondant aux profils de besoins, les équipes de soutien à domicile (SAD) reconstituent la réponse intersectorielle sur une <strong>fenêtre de repérage rétrospective de 12 mois</strong> : actions, contacts, coordinations, relais et aide effectivement reçue ou non. Les situations <strong>sans orientation extérieure</strong> sont également retenues. Questionnaires, traces accessibles et vérifications auprès des partenaires servent à qualifier les liens.</p>',
+    '<button class="o3-devis-retro__renvoi" type="button" data-o3-ouvrir-prospectif>Autre modalité envisageable : cohorte prospective <span aria-hidden="true">↘</span></button>',
+    '</div>',
+    '<div class="o3-devis-retro__chiffres" aria-label="Repères du devis rétrospectif">',
+    '<div><strong>12 <small>mois</small></strong><span>Fenêtre de repérage</span></div>',
+    '<div><strong>16–24</strong><span>Situations étudiées</span></div>',
+    '<div><strong>2</strong><span>Territoires CLSC prévus</span></div>',
+    '</div>'
+  ].join("");
+  const entete = cibleO3.querySelector(":scope > .methode-objectif-tete");
+  if (entete) entete.insertAdjacentElement("afterend",bandeau);
+  else cibleO3.prepend(bandeau);
+  bandeau.querySelector("[data-o3-ouvrir-prospectif]").addEventListener("click",()=>{
+    const option=zone.querySelector("#o3-option-prospective");
+    if(!option)return;
+    option.open=true;
+    option.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
+  });
+}
+    ajouterBandeauRetro(zone, cibleO3);
     // La galerie est placée dans la vue O3, après l'article du protocole.
     // L'ancienne recherche dans l'article seul la manquait et la dupliquait.
     const galeriesExistantes = Array.from(zone.querySelectorAll(
@@ -27,7 +57,7 @@
     if (!document.querySelector("link[data-o3-style]")) {
       const feuille = document.createElement("link");
       feuille.rel = "stylesheet";
-      feuille.href = racine + "assets/o3-reseaux.css?v=20261019-o3-qualif-compact-v2";
+      feuille.href = racine + "assets/o3-reseaux.css?v=20261019-o3-devis-retro-v3";
       feuille.dataset.o3Style = "1";
       document.head.appendChild(feuille);
     }
