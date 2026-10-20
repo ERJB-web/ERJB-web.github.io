@@ -2186,68 +2186,63 @@
   }
   completerMethodologieO2O3();
 
-  // O3 : une seule synthèse visible, placée au premier pilote.
-  // Les définitions et les règles de contrôle restent accessibles dans les détails.
+  // O3 uniquement : chiffres lisibles et triade de décision à la première apparition.
+  // Fonctionne aussi avec le HTML récent, où l'ancienne grille du pilote a été retirée.
   function synthetiserPilotageO3() {
     if (langue !== "fr") return;
     const o3 = D.querySelector("#these-methode-o3");
-    if (!o3 || o3.dataset.pilotageSynthese === "ok") return;
-    const normaliser = (s) => (s || "").replace(/\s+/g, " ").trim().toLocaleLowerCase("fr");
-    const titre = Array.from(o3.querySelectorAll("h3,h4,h5,h6"))
-      .find((h) => normaliser(h.textContent).startsWith("pilote de quatre situations"));
-    const ancien = o3.querySelector(".revision-demo--participation");
-    if (!titre || !ancien) return;
-
-    // Détecter strictement les quatre anciennes cartes, sans toucher au tableau du pilote.
-    const etiquettes = ["situations pilotes", "fenêtre de repérage", "borne de collecte", "participation visée"];
-    const grille = Array.from(o3.querySelectorAll("div,section,ul"))
-      .filter((e) => e !== o3 && !e.contains(titre) && !e.querySelector("table") &&
-        e.children.length >= 3 && e.children.length <= 8 &&
-        e.textContent.length < 1500 &&
-        etiquettes.every((mot) => normaliser(e.textContent).includes(mot)))
-      .sort((a,b) => a.textContent.length - b.textContent.length)[0];
-    if (!grille) return; // Ne jamais ajouter une seconde synthèse si l'ancienne ne peut être isolée.
+    if (!o3 || o3.querySelector(".o3-pilote-synthese")) return;
+    const ancienneParticipation = o3.querySelector(".revision-demo--participation");
+    const ancienDetail = ancienneParticipation?.querySelector("details.revision-details");
+    const labels = ["situations pilotes", "fenêtre de repérage", "borne de collecte", "participation visée"];
+    const texte = (x) => (x?.textContent || "").replace(/\s+/g," ").trim().toLocaleLowerCase("fr");
+    const ancienneGrille = Array.from(o3.querySelectorAll("div,section,ul"))
+      .filter((el) => !el.querySelector("table") &&
+        el.children.length >= 3 && el.children.length <= 8 &&
+        el.textContent.length < 1800 && labels.every((label) => texte(el).includes(label)))
+      .sort((a,b) => a.textContent.length-b.textContent.length)[0];
+    const insertion = ancienneGrille || o3.querySelector(".o3-lecture-quan");
+    if (!insertion) return;
 
     const bloc = D.createElement("section");
     bloc.className = "o3-pilote-synthese";
     bloc.setAttribute("aria-label","Repères du pilote et scénarios de participation");
     bloc.innerHTML =
-      '<div class="o3-pilote-reperes" aria-label="Paramètres de collecte">'+
+      '<div class="o3-pilote-tete"><span>FAISABILITÉ VÉRIFIABLE · O3</span><h6>Le pilote : repères et décision avant la collecte</h6></div>' +
+      '<div class="o3-pilote-reperes" aria-label="Quatre paramètres de collecte">'+
         '<div class="o3-pilote-repere o3-pilote-repere--a"><strong>4</strong><span>Situations pilotes</span></div>'+
-        '<div class="o3-pilote-repere o3-pilote-repere--b"><strong>12 <small>mois</small></strong><span>Repérage rétrospectif</span></div>'+
-        '<div class="o3-pilote-repere o3-pilote-repere--c"><strong>2 <small>relais</small></strong><span>Maximum après le SAD</span></div>'+
+        '<div class="o3-pilote-repere o3-pilote-repere--b"><strong>12 <small>mois</small></strong><span>Fenêtre rétrospective</span></div>'+
+        '<div class="o3-pilote-repere o3-pilote-repere--c"><strong>2 <small>relais</small></strong><span>Profondeur maximale</span></div>'+
         '<div class="o3-pilote-repere o3-pilote-repere--d"><strong>2 <small>relances</small></strong><span>Par partenaire · 3 semaines</span></div>'+
       '</div>'+
-      '<p class="o3-pilote-seuil-titre">Participation des professionnels SAD · trois scénarios</p>'+
-      '<div class="revision-thresholds o3-pilote-seuils">'+
+      '<p class="o3-pilote-seuil-titre">Participation des professionnels du soutien à domicile · trois niveaux de vigilance</p>'+
+      '<div class="revision-thresholds o3-pilote-seuils" aria-label="Seuils de prudence proposés">'+
         '<div class="revision-threshold revision-threshold--target"><span class="revision-threshold-label">CIBLE</span><span class="revision-threshold-number">≥ 80 %</span><p>Vérifier la couverture.</p></div>'+
         '<div class="revision-threshold revision-threshold--watch"><span class="revision-threshold-label">VIGILANCE</span><span class="revision-threshold-number">65–79 %</span><p>Relancer et comparer.</p></div>'+
         '<div class="revision-threshold revision-threshold--limited"><span class="revision-threshold-label">PRUDENCE</span><span class="revision-threshold-number">&lt; 65 %</span><p>Limiter l’interprétation.</p></div>'+
       '</div>'+
-      '<p class="o3-pilote-note">Seuils de prudence propres à l’étude, non garanties de validité. Taux des organisations partenaires calculé séparément.</p>';
-    const details = ancien.querySelector("details.revision-details");
-    if (details) {
-      const copie = details.cloneNode(true);
-      const resume = copie.querySelector("summary");
-      if (resume) resume.textContent = "Précisions techniques · calcul des taux et non-réponses";
-      bloc.append(copie);
+      '<p class="o3-pilote-note">Seuils indicatifs propres à cette étude, sans garantie de validité ; taux des partenaires calculé séparément.</p>';
+    if (ancienDetail) {
+      const detail = ancienDetail.cloneNode(true);
+      const summary = detail.querySelector("summary");
+      if (summary) summary.textContent = "Détails scientifiques : dénominateurs et contrôle des non-réponses";
+      bloc.append(detail);
     }
-    grille.replaceWith(bloc);
-    // Les étapes du réseau sont conservées : seuls les chiffres déjà affichés au pilote disparaissent.
+    if (ancienneGrille) ancienneGrille.replaceWith(bloc);
+    else insertion.after(bloc);
+
+    // La succession des étapes reste intégrale ; seul le rappel des trois chiffres disparaît.
     const construction = o3.querySelector(".revision-demo:not(.revision-demo--participation) .revision-reperes");
     if (construction) construction.remove();
-
-    // Retirer le second panneau de participation, devenu redondant.
-    const ancienTitre = ancien.previousElementSibling;
-    if (ancienTitre && /^H[3-6]$/.test(ancienTitre.tagName) &&
-        /non.réponse et robustesse du réseau/i.test(normaliser(ancienTitre.textContent))) {
-      ancienTitre.remove();
+    if (ancienneParticipation) {
+      const fiche = ancienneParticipation.closest("dl.methode-fiche");
+      const ficheTitre = fiche?.querySelector("dt");
+      if (fiche && /non.réponse et robustesse du réseau/i.test(texte(ficheTitre))) fiche.remove();
+      else ancienneParticipation.remove();
     }
-    ancien.remove();
     o3.dataset.pilotageSynthese = "ok";
   }
   synthetiserPilotageO3();
-
 
   $$("section.section[data-salle] > .section-contenu").forEach(transformer);
   observerSommaires(D);
