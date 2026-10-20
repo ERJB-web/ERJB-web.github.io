@@ -2311,7 +2311,6 @@ html:is(.hc,.lv) .gab[data-gab-salle="gestionnaire"] .carte-vitrine{
   display:flex;align-items:center;justify-content:space-between;gap:16px;
   width:100%;margin:0 0 8px;box-sizing:border-box;
 }
-.gab[data-gab-salle="recherche"]:not([data-chapitre-ouvert="methodes"]) > .these-validation-ligne > .gab-methode-ligne-lecture{display:none!important}
 .gab[data-gab-salle="recherche"] > .these-validation-ligne > .gab-methode-ligne-lecture{margin:0!important;min-height:0!important;width:auto!important}
 .gab[data-gab-salle="recherche"] > .these-validation-ligne > .these-validation-bandeau,
 .gab[data-gab-salle="recherche"] > .these-validation-bandeau {
