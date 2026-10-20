@@ -225,7 +225,7 @@
         </div>
       </section>
       <section class="o3-pros__partie" aria-labelledby="o3-pros-reseaux-title">
-        <div class="o3-pros__titre"><span>04 · RÉSEAUX ÉVOLUTIFS</span><h4 id="o3-pros-reseaux-title">D’un contact à une coordination documentée</h4><p>Des sociogrammes successifs, propres à <strong>chaque situation</strong>, permettent de visualiser les modifications du réseau sans supposer qu’un réseau agrégé équivaut à une collaboration autour de la même personne.</p></div>
+        <div class="o3-pros__titre"><span>04 · RÉSEAUX ÉVOLUTIFS</span><h4 id="o3-pros-reseaux-title">D’un contact à une coordination documentée</h4><p>Des sociogrammes successifs, propres à <strong>chaque situation</strong>, permettent de visualiser les modifications du réseau sans supposer qu’un réseau agrégé équivaut à une collaboration autour de la même personne. <strong>Le patient sert de traceur de situation ; les nœuds du SNA demeurent l’équipe SAD et les organisations mobilisées.</strong></p></div>
         <div class="o3-pros__parcours" aria-label="Exemple fictif de progression d'une trajectoire intersectorielle">
           <div><span>T0</span><strong>Besoin repéré</strong><p>Alimentation et transport, dans un contexte de morbidité.</p></div>
           <div><span>T6</span><strong>Contacts</strong><p>Deux organismes sollicités ; coordination encore inconnue.</p></div>
