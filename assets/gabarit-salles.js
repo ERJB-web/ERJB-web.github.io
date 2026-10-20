@@ -2238,7 +2238,7 @@
   synthetiserPilotageO3();
 
 
-  $("section.section[data-salle] > .section-contenu").forEach(transformer);
+  $$("section.section[data-salle] > .section-contenu").forEach(transformer);
   observerSommaires(D);
 
   // Charge les sept contenus existants uniquement pour la fusion du chapitre Implantation.
