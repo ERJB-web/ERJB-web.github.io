@@ -2477,15 +2477,30 @@ html:is(.hc,.lv) .gab[data-gab-salle="gestionnaire"] .carte-vitrine{
  .gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture .methode-lien-grand-public{width:100%;flex:1 1 auto}
 }
 
-/* Méthodologie : accès grand public visible, hors menus de navigation. */
+/* Méthodologie : bouton grand public à gauche, hors menus de navigation. */
 .gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture{
- justify-content:flex-end!important;margin:0 0 24px!important;min-height:52px!important;
+ justify-content:flex-start!important;margin:0 0 24px!important;min-height:0!important;
 }
 .gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture .methode-lien-grand-public{
- padding:14px 22px!important;background:#0879be!important;color:#fff!important;border:2px solid #0755ad!important;
- font-size:15px!important;font-weight:800!important;box-shadow:0 6px 17px rgba(8,92,152,.19)!important;
+ display:inline-flex!important;align-items:center!important;gap:12px!important;
+ width:auto!important;max-width:min(100%,28rem)!important;flex:0 0 auto!important;
+ padding:5px 14px 5px 5px!important;border:1px solid #f0d7b0!important;border-radius:999px!important;
+ background:#fffdf8!important;color:#12243c!important;text-align:left!important;text-decoration:none!important;
+ font-size:15px!important;font-weight:700!important;line-height:1.2!important;
+ box-shadow:0 14px 28px -16px rgba(180,110,40,.55)!important;
 }
-.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture .methode-lien-grand-public:hover{background:#0755ad!important;color:#fff!important}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .methode-lien-visage{
+ width:54px;height:54px;border-radius:999px;object-fit:cover;object-position:center 18%;flex:none;display:block;
+}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .methode-lien-mots{display:flex;flex-direction:column;min-width:0}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .methode-lien-kicker{
+ display:block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#c46a12;
+}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .methode-lien-label{
+ display:block;font-size:15px;font-weight:700;color:#12243c;line-height:1.2;
+}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .methode-lien-fleche{color:#c46a12;font-size:18px;line-height:1;flex:none}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture .methode-lien-grand-public:hover{background:#fff6ea!important;color:#12243c!important}
 .methode-grand-public{max-width:1060px;color:#284251;font-size:17px;line-height:1.68}
 .methode-grand-public p{margin:0 0 13px;line-height:1.68;text-align:left!important}
 .methode-grand-public h4{font-size:25px;line-height:1.23;margin:0 0 15px;color:#153c52}
@@ -2507,7 +2522,7 @@ html:is(.hc,.lv) .gab[data-gab-salle="gestionnaire"] .carte-vitrine{
 .mgp-definitions{border:1px solid #cde1eb;background:#f4f9fc;padding:22px 24px;border-radius:16px;margin-bottom:24px}
 .mgp-conclusion{border-left:6px solid #58a837;padding:20px 24px;background:#f4f9f0;border-radius:0 14px 14px 0;margin-bottom:22px}
 @media(max-width:850px){.mgp-etapes{grid-template-columns:1fr}.mgp-histoire{grid-template-columns:1fr}.methode-grand-public{font-size:16px}}
-@media(max-width:620px){.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture{justify-content:stretch!important}}
+@media(max-width:620px){.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture{justify-content:flex-start!important}}
 
 /* Parcours grand public : uniquement sur la copie methode-vulgarisee.html. */
 html[data-methodo-lecture="grand-public"] .methode-grand-public{max-width:none!important;margin:0 auto 24px;color:#294857;font-size:17px;line-height:1.65}
