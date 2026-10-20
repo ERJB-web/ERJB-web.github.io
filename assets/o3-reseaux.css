@@ -345,3 +345,36 @@
   .o3-pros__parcours>div:after {display:none!important;}
   .o3-pros__precautions {padding:17px 13px;}
 }
+
+
+/* O3 · Tableau comparatif compact des deux modalités de collecte. */
+.o3-choix-quantitatif{box-sizing:border-box;width:100%;max-width:1200px;margin:20px auto 18px;border:1px solid #d3e2e9;border-radius:18px;background:#fff;box-shadow:0 9px 26px rgba(24,68,83,.06);overflow:hidden;color:#213f50;font-family:inherit}
+.o3-choix-quantitatif *{box-sizing:border-box}
+.o3-choix-quantitatif__entete{padding:19px 24px 9px;background:linear-gradient(112deg,#edf6fa 0%,#f2faf7 100%);border-bottom:1px solid #e0e9ed}
+.o3-choix-quantitatif__entete>span{display:block;text-transform:uppercase;font-size:13px;font-weight:780;letter-spacing:.065em;color:#23758a;text-align:center}
+.o3-choix-quantitatif__entete h3{font-size:clamp(21px,2vw,27px)!important;line-height:1.27!important;color:#1d485c!important;font-weight:800!important;border:0!important;padding:0!important;margin:5px 0 8px!important;text-align:center!important;letter-spacing:-.012em}
+.o3-choix-quantitatif__intro{font-size:16px!important;line-height:1.57!important;margin:0!important;padding:15px 24px 14px!important;text-align:justify!important;hyphens:auto;color:#324e5d!important}
+.o3-choix-quantitatif__defilement{max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain}
+.o3-choix-quantitatif table{width:100%;margin:0!important;border-collapse:separate;border-spacing:0;table-layout:fixed;min-width:730px;font-family:inherit}
+.o3-choix-quantitatif :is(th,td){padding:9px 15px!important;border:0!important;border-bottom:1px solid #e1e9ee!important;vertical-align:middle;line-height:1.4!important;text-align:left!important;font-size:15px!important;overflow-wrap:break-word}
+.o3-choix-quantitatif thead th{color:#fff!important;font-weight:770!important;font-size:15px!important;line-height:1.33!important;padding:12px 15px!important;background:#245c7a!important}
+.o3-choix-quantitatif thead th:nth-child(2){background:#246684!important}
+.o3-choix-quantitatif thead th:nth-child(3){background:#28796e!important}
+.o3-choix-quantitatif thead th:first-child{width:24%}
+.o3-choix-quantitatif thead th:nth-child(2),.o3-choix-quantitatif thead th:nth-child(3){width:38%}
+.o3-choix-quantitatif thead th span{display:inline-block;padding:2px 7px;margin-right:6px;border-radius:5px;background:rgba(255,255,255,.18);font-size:13px;font-weight:850;letter-spacing:.03em}
+.o3-choix-quantitatif tbody th{color:#244b5c!important;background:#f3f8fa!important;font-weight:760!important}
+.o3-choix-quantitatif tbody td{color:#36535e!important;background:#fff!important;font-weight:460!important}
+.o3-choix-quantitatif tbody tr:nth-child(even) td{background:#f8fbfc!important}
+.o3-choix-quantitatif tbody td:nth-child(3){border-left:2px solid #d6ebe4!important}
+.o3-choix-quantitatif tbody strong{color:#176b72;font-weight:760}
+.o3-choix-quantitatif__decision{display:flex;align-items:center;gap:15px;padding:12px 20px;background:#ecf6f4;border-top:1px solid #d4e7e1}
+.o3-choix-quantitatif__decision>span{flex:none;color:#166e67;font-size:13px;letter-spacing:.03em;font-weight:810}
+.o3-choix-quantitatif__decision p{font-size:15px!important;line-height:1.45!important;color:#31535a!important;margin:0!important;padding:0!important;text-align:left!important}
+.o3-choix-quantitatif__decision strong{color:#176c70}
+@media(max-width:780px){
+  .o3-choix-quantitatif__entete{padding:16px 14px 7px}
+  .o3-choix-quantitatif__intro{padding:13px 15px!important;font-size:15px!important}
+  .o3-choix-quantitatif__decision{align-items:flex-start;flex-direction:column;gap:4px;padding:12px 15px}
+  .o3-choix-quantitatif :is(th,td){font-size:14px!important;padding:9px 11px!important}
+}
