@@ -2558,6 +2558,59 @@ html[data-methodo-lecture="grand-public"] .methode-grand-public{max-width:none!i
 html[data-methodo-lecture="grand-public"] .methode-grand-public *{box-sizing:border-box}
 html[data-methodo-lecture="grand-public"] .methode-grand-public p{font-size:inherit;line-height:1.65;max-width:none;margin:0 0 14px!important;text-align:left!important}
 html[data-methodo-lecture="grand-public"] .methode-grand-public h4{font-size:clamp(23px,2vw,30px)!important;line-height:1.2;text-align:left!important;margin:0 0 15px!important;color:#133c56}
+/* Modules visuels additionnels du récit grand public uniquement.
+   Intégration dans les couleurs et dimensions existantes ; navigation inchangée. */
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-deux-regards{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:17px 0 9px;
+}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-regard{
+ display:flex;align-items:flex-start;gap:13px;min-width:0;padding:15px 16px;
+ border-radius:14px;border:1px solid #cbdde6;background:#fff;box-shadow:0 5px 15px -14px #234e69;
+}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-regard-personne{border-top:4px solid #c98a4b;background:#fffaf4}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-regard-equipe{border-top:4px solid #28769b;background:#f4faff}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-regard-icone{
+ flex:none;display:grid;place-items:center;width:42px;height:42px;font-size:26px;
+ border-radius:12px;background:#ffffffd9;
+}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-regard b{display:block;color:#204e62;font-size:15px;line-height:1.35;margin:0 0 5px}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-regard p{margin:0!important;color:#3b5566;font-size:14px!important;line-height:1.55!important;text-align:left!important}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-question-commune{
+ padding:11px 16px 13px;text-align:center;background:#edf5f9;
+ border:1px solid #d5e5ed;border-radius:12px;color:#1a526c;
+}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-question-commune>span{
+ display:block;font-size:18px;line-height:1.1;color:#28769b;font-weight:800;margin-bottom:4px;
+}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-question-commune>strong{display:block;font-size:14px;color:#14516a}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-question-commune>p{
+ margin:3px 0 0!important;font-size:14px!important;line-height:1.5!important;text-align:center!important;
+}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin:18px 0 6px;
+}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins>div{
+ position:relative;min-width:0;padding:17px 13px;border:1px solid #d4e2ec;border-top:4px solid #4c92be;
+ border-radius:13px;background:linear-gradient(155deg,#f7fbff,#fff 80%);text-align:center;
+}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins>div:nth-child(2){border-top-color:#ba8a50;background:linear-gradient(155deg,#fdf8f0,#fff 80%)}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins>div:nth-child(3){border-top-color:#6c9c89;background:linear-gradient(155deg,#f4faf6,#fff 80%)}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins span{display:block;font-size:33px;line-height:1.25;margin:0 0 8px}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins b{display:block;color:#214f67;font-size:15px;margin:0 0 6px}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins p{
+ font-size:13px!important;line-height:1.55!important;margin:0!important;color:#466073;text-align:center!important;
+}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-exemple-legende{
+ font-size:12px!important;color:#586d78;margin:0 0 15px!important;text-align:center!important;
+}
+@media(max-width:760px){
+ html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-deux-regards{grid-template-columns:1fr}
+ html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins{grid-template-columns:1fr;gap:8px}
+ html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins>div{display:grid;grid-template-columns:42px 1fr;gap:2px 9px;text-align:left;padding:12px}
+ html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins span{grid-row:span 2;align-self:center;font-size:29px;margin:0}
+ html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins b{margin:0}
+ html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins p{text-align:left!important}
+}
 html[data-methodo-lecture="grand-public"] .mgp-hero{border-radius:22px;padding:clamp(20px,3vw,36px);background:linear-gradient(125deg,#eaf5fd,#f7fcff 68%);border:1px solid #c5dfec;margin-bottom:24px}
 html[data-methodo-lecture="grand-public"] .mgp-hero h4{font-size:clamp(29px,3.1vw,43px)!important}
 html[data-methodo-lecture="grand-public"] .mgp-eyebrow{font-size:13px!important;color:#0879be;text-transform:uppercase;letter-spacing:.08em;font-weight:850;margin-bottom:8px!important}
