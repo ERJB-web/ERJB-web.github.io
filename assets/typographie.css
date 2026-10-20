@@ -487,3 +487,100 @@ html body .these :is(
 ){
   min-width:0;max-width:100%;overflow-wrap:break-word;
 }
+
+/* Audit de lisibilité méthodologique O1–O3 — 2026-10-19.
+   Correctifs strictement limités à la méthode scientifique. Ne modifie ni
+   les menus, ni les figures, ni la version grand public, ni le zoom accessible. */
+@layer charte-typographique {
+  /* Textes explicatifs autrefois à 10–12 px : rétablir le corps de lecture. */
+  html:not([data-methodo-lecture="grand-public"]) body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) :is(
+    .o1-circuit-step p,.o1-circuit-bifurcation,.o1-circuit-minirows div,
+    .o1-circuit-step .o1-circuit-label,.o1-codage-table tbody td,.o1-codage-table tbody th,
+    .o1-codage-preuve p,.o1-vis-population-carte small,.o1-vis-recherche-stats span,
+    .o1-fabrication-tableau tbody th,.o1-fabrication-tableau tbody td,
+    .o2-var-carte p,.o2-var-explication p,.o2-these-etape p,.o2-these-formule p,
+    .o3-analyse-carte p,.o3-analyse-outils small,.o3-analyse-detail p,
+    .o3-analyse-produit,.o3-analyse-note,.o3-analyse-vue,
+    .revision-process p,.revision-threshold p,.revision-scope-grid p
+  ){
+    font-size:var(--type-corps)!important;
+    line-height:1.58!important;
+    overflow-wrap:break-word;
+  }
+  /* Étiquettes : taille commune, jamais microtexte à 10–11 px. */
+  html:not([data-methodo-lecture="grand-public"]) body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) :is(
+    .o1-vis-surtitre,.o1-vis-devis-carte small,.o1-vis-bases span,
+    .o1-methode-phase-num,.o1-circuit-head span,.o1-circuit-step-kicker,
+    .o1-circuit-minirows b,.o1-circuit-tags span,.o1-circuit-status,
+    .o1-codage-intro,.o1-codage-step,.o1-codage-table thead th,
+    .o1-codage-preuve summary,.o1-fabrication-tableau thead th,
+    .o1-limites-note,.o2-var-num,.o2-var-explication strong,
+    .o3-analyse-sur,.o3-analyse-tech,.o3-analyse-index,
+    .o3-analyse-detail summary,.o3-v3-citation,.methode-objectif-tete>p:first-child,
+    .these-methode-item>dt,.methode-produit dt,
+    .revision-kicker,.revision-threshold-label,.revision-proof-label
+  ){
+    font-size:var(--type-note)!important;
+    line-height:1.45!important;
+    letter-spacing:.02em!important;
+  }
+  /* Titres et synthèses des cartes : lisibles sans prendre la place des chiffres. */
+  html:not([data-methodo-lecture="grand-public"]) body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) :is(
+    .o1-circuit-step h6,.o1-vis-devis-carte strong,.o2-var-carte h6,
+    .o3-analyse-carte>strong,.o3-analyse-formule,.o3-analyse-outils strong
+  ){
+    font-size:var(--type-detail)!important;
+    line-height:1.35!important;
+  }
+  /* Les vrais indicateurs restent la première information visible. */
+  html:not([data-methodo-lecture="grand-public"]) body .these #these-methode-o1 :is(
+    .o1-methode-chiffre strong,.o1-vis-recherche-stats strong
+  ){
+    font-size:clamp(29px,2.75vw,39px)!important;
+    font-weight:800!important;
+    line-height:1.12!important;
+    font-variant-numeric:tabular-nums;
+    letter-spacing:-.035em!important;
+  }
+  html:not([data-methodo-lecture="grand-public"]) body .these #methode-o2-6 .o2-var-num{
+    font-size:18px!important;font-weight:850!important;letter-spacing:0!important;
+  }
+}
+/* Le moindre écart de confort ne doit pas ajouter des mètres de vide.
+   Pas de hauteur fixe : les cartes peuvent grandir si leur texte le nécessite. */
+html:not([data-methodo-lecture="grand-public"]) body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) .methode-objectif-tete{
+  margin-bottom:14px!important;padding-bottom:12px!important;
+}
+html:not([data-methodo-lecture="grand-public"]) body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) .methode-objectif-tete>p:last-child{
+  margin:5px 0 0!important;max-width:95ch;line-height:1.55!important;
+}
+html:not([data-methodo-lecture="grand-public"]) body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) .methode-rubrique{
+  margin-bottom:15px!important;
+}
+html:not([data-methodo-lecture="grand-public"]) body .these #these-methode-o3 .methode-rubrique{
+  padding:clamp(14px,1.7vw,20px)!important;
+}
+html:not([data-methodo-lecture="grand-public"]) body .these #methode-o2-6 .o2-var-carte{
+  min-height:0!important;padding:13px 15px!important;gap:6px!important;
+}
+html:not([data-methodo-lecture="grand-public"]) body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) .precision-protocole{
+  margin:15px 0 8px!important;padding:clamp(14px,1.9vw,19px)!important;
+}
+html:not([data-methodo-lecture="grand-public"]) body .these #these-methode-o3 .revision-demo{
+  margin:8px 0 15px!important;padding:clamp(15px,1.8vw,20px)!important;
+}
+html:not([data-methodo-lecture="grand-public"]) body .these #these-methode-o3 .revision-demo-head{
+  padding-bottom:11px!important;margin-bottom:12px!important;
+}
+html:not([data-methodo-lecture="grand-public"]) body .these #these-methode-o3 :is(.revision-reperes,.revision-process){
+  margin-block:14px!important;gap:10px!important;
+}
+html:not([data-methodo-lecture="grand-public"]) body .these #these-methode-o3 .revision-process>li{
+  padding:13px!important;
+}
+@media(max-width:650px){
+ html:not([data-methodo-lecture="grand-public"]) body .these #these-methode-o1 .o1-methode-chiffre strong{
+   font-size:30px!important;
+ }
+ html:not([data-methodo-lecture="grand-public"]) body .these #methode-o2-6 .o2-var-carte{padding:12px!important}
+}
