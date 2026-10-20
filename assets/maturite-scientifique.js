@@ -26,7 +26,9 @@
       if(consigneProduits||debutO1){
         const encadre=ampouleExistante||mk("mat-sc--force","<span class=\"mat-sc__ampoule\" aria-hidden=\"true\">💡</span><div class=\"mat-sc__force-text\"><span class=\"mat-sc__eyebrow\">Contribution scientifique centrale</span><p class=\"mat-sc__force-phrase\">Cette recherche vise à comprendre <strong>comment s’organise la réponse intersectorielle</strong> aux personnes aînées vivant à domicile qui cumulent besoins sociaux et morbidités. Sa force est de relier <strong>les profils de besoins documentés (O1)</strong>, <strong>les possibilités territoriales de réponse sanitaire et sociale (O2)</strong> et <strong>les collaborations effectivement mobilisées autour des situations suivies par le SAD (O3)</strong>.</p><p class=\"mat-sc__force-bas\">En comparant ce qui <strong>pourrait être mobilisé</strong> à ce qui <strong>l’est réellement</strong>, la thèse cherchera à comprendre les obstacles à la coordination entre secteurs et à coconstruire des améliorations adaptées aux territoires, sans assimiler proximité des ressources, coopération et aide effectivement reçue.</p></div>");
         encadre.id="mat-force-positionne";
-        if(consigneProduits) consigneProduits.after(encadre);
+        const hautMethode=zone.querySelector("#rubrique-fr-these-panneau-2 .these-synthese-vulgarisee");
+        if(hautMethode) hautMethode.before(encadre);
+        else if(consigneProduits) consigneProduits.after(encadre);
         else debutO1.before(encadre);
       }
       // REVISION_COURTE_O1_O2_20261019 : repères vérifiables, sans toucher aux menus ni aux galeries.
