@@ -2707,3 +2707,18 @@ html[data-methodo-lecture="grand-public"] .mgp-final{padding:25px;background:#ea
  .o3-pilote-synthese .revision-threshold-number{margin:5px 0}
 }
 @media(max-width:370px){.o3-pilote-reperes{gap:7px}.o3-pilote-repere{padding:11px 9px}.o3-pilote-repere strong{font-size:27px}}
+
+
+/* O3 · lecture immédiate : nouveau bloc compact, placé au premier pilote. */
+.o3-pilote-synthese .o3-pilote-tete{margin:0 0 15px;text-align:left}
+.o3-pilote-synthese .o3-pilote-tete>span{display:block;color:#177089;font-size:12px;letter-spacing:.09em;font-weight:800;text-transform:uppercase;text-align:left}
+.o3-pilote-synthese .o3-pilote-tete h6{margin:5px 0 0;color:#183e55;font-size:19px;line-height:1.3;font-weight:780;text-align:left}
+#these-methode-o3 .o3-pilote-synthese{border:1px solid #ccdde5;border-top:3px solid #22769b;border-radius:14px;padding:clamp(14px,2.1vw,23px);background:linear-gradient(150deg,#fbfeff,#fff 65%)}
+#these-methode-o3 .o3-pilote-synthese .o3-pilote-reperes{gap:10px;margin:0 0 19px}
+#these-methode-o3 .o3-pilote-synthese .o3-pilote-repere{min-height:113px}
+#these-methode-o3 .o3-pilote-synthese .o3-pilote-seuil-titre{margin:0 0 12px}
+#these-methode-o3 .o3-pilote-synthese .revision-threshold{box-shadow:none}
+@media(max-width:700px){
+ #these-methode-o3 .o3-pilote-synthese{padding:14px 11px}
+ #these-methode-o3 .o3-pilote-synthese .o3-pilote-repere{min-height:102px}
+}
