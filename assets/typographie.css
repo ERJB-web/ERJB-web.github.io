@@ -1,9 +1,20 @@
 /* Échelle typographique commune aux pages éditoriales. */
 @layer charte-typographique {
-:root{--type-police:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;--type-corps:16px;--type-note:14px;--type-page:clamp(28px,3vw,36px);--type-chapitre:clamp(23px,2.5vw,28px);--type-section:22px;--type-sous-section:19px;--type-encadre:18px;--type-detail:17px}
+:root{--type-police:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;--type-corps:16px;--type-note:14px;--type-page:clamp(28px,3vw,36px);--type-chapitre:clamp(23px,2.5vw,28px);--type-section:22px;--type-sous-section:19px;--type-encadre:18px;--type-detail:17px;--sans:var(--type-police);--serif:var(--type-police)}
+html:lang(iu){--type-police:Gadugi,Euphemia,"Euphemia UCAS","Noto Sans Canadian Aboriginal",ui-sans-serif,sans-serif}
 /* Les sélecteurs communs remplacent les variantes de taille des modules. */
 html body{font-family:var(--type-police)!important;font-size:var(--type-corps);line-height:1.7}
 html body :is(p,li,dd){font-size:var(--type-corps)!important;line-height:1.7!important}
+/* Une seule famille, y compris les fragments injectés et les commandes.
+   Les formules et extraits de code conservent leurs polices spécialisées. */
+html body :where(div,section,span,a,b,strong,em,small,button,input,select,textarea,summary,label):not(:where(.katex,.katex *,pre,pre *,code,code *)){
+  font-family:inherit!important;
+}
+html body :is(p,li,dt,dd,blockquote) :is(span,a,b,strong,em,small):not(:where(.katex,.katex *,code,code *)){
+  font-size:inherit!important;line-height:inherit!important;
+}
+html body :is(small,caption){font-size:var(--type-note)!important;line-height:1.6!important}
+html body :is(button,summary,label,input,select,textarea){font-size:max(var(--type-note),1em)}
 /* Les indicateurs du parcours restent des chiffres mis en valeur, pas du texte courant. */
 html body .bande-accueil.bande-restauree .impact-ensemble dd{font-size:clamp(38px,3.1vw,46px)!important;line-height:1!important;white-space:nowrap!important;overflow-wrap:normal!important;word-break:normal!important;text-align:start!important;}
 html body .bande-accueil.bande-restauree .impact-ensemble dt{text-align:start!important;text-align-last:start!important;word-spacing:normal!important;}
@@ -26,7 +37,7 @@ html body :is(#salle,#contenu,.page,#app) :is(.gab-corps,.section-corps,.section
 html body :is(h2,h3,h4,h5,h6) :is(strong,b,a,span){font-size:inherit!important;font-weight:inherit!important}
 html body :is(p,li,dd) :is(strong,b){font-weight:600!important}
 html body :is(figcaption,.legende,.disclaimer){font-size:var(--type-note)!important;line-height:1.55!important}
-html body :is(.surtitre,.eyebrow,.o1-surtitre,.impl-index,.vr-position){font-size:12px!important;font-weight:600!important;line-height:1.5!important;letter-spacing:.06em!important}
+html body :is(.surtitre,.eyebrow,.o1-surtitre,.impl-index,.vr-position){font-size:var(--type-note)!important;font-weight:600!important;line-height:1.5!important;letter-spacing:.06em!important}
 html body .gab .gab-bandeau .bandeau-titre{font-size:var(--type-page)!important;font-weight:450!important;line-height:1.2!important}
 html body .gab .gab-bandeau .bandeau-legende{font-size:var(--type-corps)!important;line-height:1.6!important}
 html body .gab .gab-chapitre-tete .gab-chapitre-num{font-size:var(--type-chapitre)!important;font-weight:550!important;line-height:1.35!important;letter-spacing:0!important;text-transform:none!important}
@@ -34,9 +45,9 @@ html body .gab .gab-chapitre-tete .gab-chapitre-num>b{font-size:20px!important;f
 html body .gab .gab-tuile .gab-tuile-titre{font-size:18px!important;font-weight:550!important;line-height:1.4!important}
 html body .gab .gab-programme-tete h2{font-size:14px!important;font-weight:550!important}
 html body .gab .gab-sommaire-chapitre :is(a,strong){font-size:14px!important;font-weight:500!important;line-height:1.45!important}
-html body .gab .gab-sommaire-chapitre>span{font-size:13px!important;font-weight:600!important}
+html body .gab .gab-sommaire-chapitre>span{font-size:var(--type-note)!important;font-weight:600!important}
 /* Préserver la taille spécifique de la note d'attribution et le zoom accessible. */
-html body .gab .gab-corps .these-exemples-attribution{font-size:12px!important}
+html body .gab .gab-corps .these-exemples-attribution{font-size:var(--type-note)!important}
 @media(max-width:700px){:root{--type-page:28px;--type-chapitre:23px;--type-section:21px;--type-sous-section:18px;--type-encadre:18px}}
 html.lv{--type-corps:20px;--type-note:18px;--type-section:26px;--type-sous-section:23px;--type-encadre:22px;--type-detail:21px}
 
@@ -57,15 +68,15 @@ html body :is(td,th) :is(p,li,dt,dd){font-size:inherit!important;line-height:inh
 html body :is(h1,h2,h3,h4,h5,h6){font-family:var(--type-police)!important;text-align:start!important;text-align-last:auto!important;hyphens:none!important}
 /* Accueil : revue de presse compacte, avec agrandissement accessible. */
 html body .revue-tete h2{font-size:calc(var(--type-corps)*1.25)!important;line-height:1.3!important}
-html body .revue-bonne-etiquette{font-size:calc(var(--type-corps)*.6875)!important;line-height:1.35!important}
-html body .revue-bonne-titre{font-size:calc(var(--type-corps)*.875)!important;line-height:1.4!important}
-html body .revue-bonne .revue-resume{font-size:calc(var(--type-corps)*.8125)!important;line-height:1.4!important}
-html body .revue-bonne .revue-meta{font-size:calc(var(--type-corps)*.75)!important;line-height:1.4!important}
+html body .revue-bonne-etiquette{font-size:var(--type-note)!important;line-height:1.35!important}
+html body .revue-bonne-titre{font-size:var(--type-corps)!important;line-height:1.4!important}
+html body .revue-bonne .revue-resume{font-size:var(--type-corps)!important;line-height:1.4!important}
+html body .revue-bonne .revue-meta{font-size:var(--type-note)!important;line-height:1.4!important}
 /* La ligne d'état conserve sa taille et son alignement d'interface. */
-html body p.direct-montreal{font-size:13px!important;line-height:1.2!important;text-align:start!important;text-align-last:auto!important;hyphens:none!important}
+html body p.direct-montreal{font-size:var(--type-note)!important;line-height:1.2!important;text-align:start!important;text-align-last:auto!important;hyphens:none!important}
 /* Les commandes et sommaires conservent leur alignement fonctionnel. */
 html body .rs-page :is(.rs-card-category,.rs-art-label,.rs-art-note,.rs-filters button,.representation-date .date){font-size:var(--type-note)!important;line-height:1.5!important}
-html body .rs-page .rs-filter-count{font-size:12px!important;font-weight:550}
+html body .rs-page .rs-filter-count{font-size:var(--type-note)!important;font-weight:550}
 html body .rs-page .rs-card-seal>span{font-size:clamp(30px,4vw,48px);font-weight:550;line-height:1.1;letter-spacing:-.04em}
 html body .rs-page .rs-department-mark{font-size:clamp(30px,4vw,48px);font-weight:550;line-height:1.1;letter-spacing:-.04em}
 html body .rs-page .rs-card-category{font-weight:550}
@@ -81,78 +92,6 @@ html body .gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapit
   text-justify:none!important;
   word-spacing:normal!important;
   hyphens:none!important;
-}
-
-
-/* Page « Capacités de gestion » : densité éditoriale d'un tableau de direction.
-   Exception limitée au mode standard ; les options d'accessibilité conservent
-   les dimensions communes et l'agrandissement demandé. */
-html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="gestionnaire"] .gab-bandeau .bandeau-titre{
-  font-size:clamp(23px,2.2vw,30px)!important;
-  font-weight:600!important;
-  line-height:1.15!important;
-}
-html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="gestionnaire"] .gab-bandeau .bandeau-legende{
-  font-size:13px!important;
-  line-height:1.3!important;
-}
-html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="gestionnaire"] .colonne-texte h2{
-  font-size:clamp(21px,2.05vw,27px)!important;
-  font-weight:600!important;
-  line-height:1.24!important;
-}
-html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="gestionnaire"] .colonne-texte p{
-  font-size:14px!important;
-  line-height:1.46!important;
-}
-html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="gestionnaire"] .carte-vitrine .titre-bloc{
-  font-size:16px!important;
-  font-weight:650!important;
-  line-height:1.25!important;
-  letter-spacing:-.012em!important;
-}
-html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="gestionnaire"] .carte-vitrine::before{
-  font:600 12px/1.25 var(--type-police)!important;
-}
-html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="gestionnaire"] .vitrine-liste li{
-  font-size:13.5px!important;
-  font-weight:420!important;
-  line-height:1.35!important;
-}
-@media(max-width:760px){
-  html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="gestionnaire"] .vitrine-liste li{
-    font-size:15px!important;
-    line-height:1.5!important;
-  }
-}
-
-
-/* Densité de la salle Juriste sur écran standard : toutes les rubriques tiennent
-   dans une vue synthétique. Les réglages de grossissement et de contraste restent
-   soumis à la charte accessible commune. */
-html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="juriste"] .gab-bandeau .bandeau-titre{
-  font-size:clamp(26px,2.4vw,32px)!important;line-height:1.1!important;
-}
-html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="juriste"] .gab-bandeau .bandeau-legende{
-  font-size:13px!important;line-height:1.35!important;
-}
-html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="juriste"] .gab-intro h2{
-  font-size:clamp(19px,1.8vw,23px)!important;line-height:1.18!important;font-weight:570!important;
-}
-html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="juriste"] .gab-intro p{
-  font-size:13.5px!important;line-height:1.4!important;
-}
-html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="juriste"] .gab-chapitre-tete .gab-chapitre-num{
-  font-size:15px!important;line-height:1.3!important;font-weight:620!important;
-}
-html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="juriste"] .gab-chapitre-tete .gab-chapitre-num>b{
-  font-size:11px!important;line-height:1!important;
-}
-html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="juriste"] .gab-corps .juriste-resume{
-  font-size:13.5px!important;line-height:1.4!important;
-}
-html:not(.lv):not(.hc):not(.t1):not(.t2):not(.t3) body :is(#salle,#contenu) .gab[data-gab-salle="juriste"] .juriste-dialog .vitrine-liste li{
-  font-size:15px!important;line-height:1.58!important;
 }
 
 
@@ -328,8 +267,8 @@ html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo .
 html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo .revision-threshold-number{font-size:32px!important;line-height:1.2!important}
 html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo .revision-equation b{font-size:34px!important;line-height:1.2!important;font-weight:750!important}
 html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo .revision-number small{font-size:16px!important}
-html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo :is(.revision-kicker,.revision-threshold-label){font-size:12px!important}
-html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo :is(.revision-step,.revision-status){font-size:13px!important}
+html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo :is(.revision-kicker,.revision-threshold-label){font-size:var(--type-note)!important}
+html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo :is(.revision-step,.revision-status){font-size:var(--type-note)!important}
 html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo .revision-proof-label{font-size:14px!important}
 @media(max-width:700px){html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo .revision-number{font-size:30px!important}html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo .revision-number small{font-size:14px!important}}
 @media(max-width:700px){
@@ -584,3 +523,8 @@ html:not([data-methodo-lecture="grand-public"]) body .these #these-methode-o3 .r
  }
  html:not([data-methodo-lecture="grand-public"]) body .these #methode-o2-6 .o2-var-carte{padding:12px!important}
 }
+
+/* Contribution scientifique : trois paragraphes, emphase ponctuelle. */
+.these .mat-sc__force-text .mat-sc__force-phrase{font-weight:400;margin:0 0 .9em}
+.these .mat-sc__force-text .mat-sc__force-phrase:last-child{margin-bottom:0}
+.these .mat-sc__force-text .mat-sc__force-phrase strong{font-weight:650}

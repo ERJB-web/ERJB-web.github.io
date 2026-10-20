@@ -1398,7 +1398,7 @@ function sectionParcours(c) {
 </div>`;
 }
 
-const PREFERENCES = `<script>(function(){try{var h=document.documentElement;h.classList.add("js");var m=(localStorage.getItem("eb-modes")||"").split(" "),t=+localStorage.getItem("eb-taille")||0,a=location.hash;if(a==="#daltonien"||a==="#colour-blind")m.push("cb");if(a==="#basse-vision"||a==="#low-vision")m.push("lv");m.forEach(function(x){if(/^(cb|lv|hc)$/.test(x))h.classList.add(x)});if(t>0&&t<4)h.classList.add("t"+t)}catch(e){}})();</script>`;
+const PREFERENCES = require('./chargement-page')();
 
 const langueHtml = (l) => (l.code === "falc" ? "fr" : l.code);
 
@@ -1538,6 +1538,7 @@ ${NAVIGATION_CHAPITRES.styles(p)}
 <script src="${p}assets/vulgarisation-studio.js?v=616a84e6b8" defer></script>
 <script src="${p}assets/vulgarisation-editorial.js?v=1c60acd3f4" defer></script>
 ${NAVIGATION_CHAPITRES.scripts(p)}
+${c.lang === 'fr' ? `<link rel="stylesheet" href="${p}assets/maturite-scientifique.css?v=${empreinte('assets/maturite-scientifique.css')}"><script src="${p}assets/maturite-scientifique.js?v=${empreinte('assets/maturite-scientifique.js')}" defer></script><link rel="stylesheet" href="${p}assets/o3-reseaux.css?v=${empreinte('assets/o3-reseaux.css')}"><script src="${p}assets/o3-reseaux.js?v=${empreinte('assets/o3-reseaux.js')}" defer></script>` : ''}
 ${baliseAudience(p)}
 <link rel="stylesheet" href="${p}assets/bibliographie.css?v=${empreinte("assets/bibliographie.css")}"><script src="${p}assets/bibliographie.js?v=${empreinte("assets/bibliographie.js")}" defer></script>
 <link rel="stylesheet" href="${p}assets/typographie.css?v=bc0fdd3359">

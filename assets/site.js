@@ -47,7 +47,7 @@
   try { sessionStorage.removeItem('eb-navigation-v1:' + location.pathname); } catch {}
   if ('scrollRestoration' in history) history.scrollRestoration='manual';
   // La page reste masquée jusqu’à ce qu’elle soit placée à sa position finale.
-  const reveler = () => racine.classList.remove('chargement');
+  const reveler = () => document.dispatchEvent(new Event('eb:navigation-prete'));
   let memoirePrete = false, repriseEnCours = false, minuterieMemoire = 0, lectureAReprendre = null;
   let numeroReprise=0, adresseEnAttente=false, minuterieAdresse=0;
 
@@ -975,18 +975,6 @@
 
 /* Atlas O2 : galerie exhaustive statique ; interactions dans galerie-o2.js. */
 
-// Atlas O3 — réseaux egocentres CLSC Centre-Sud (figures scientifiques et volets qualitatifs).
-(()=>{
-  if (!/^fr(?:-|$)/i.test(document.documentElement.lang || "")) return;
-  if (document.querySelector('script[data-o3-reseaux]')) return;
-  const script = document.createElement('script');
-  script.dataset.o3Reseaux = '1';
-  script.src = (document.documentElement.dataset.racine || './') + 'assets/o3-reseaux.js?v=20261020-compare-v2';
-  script.defer = true;
-  document.head.appendChild(script);
-})();
-
-
 /* Clarification du produit O2 et de son rôle dans la sélection des terrains O3. */
 (() => {
   const lang = (document.documentElement.lang || "fr").toLowerCase();
@@ -1128,54 +1116,4 @@
   } else {
     initialiser();
   }
-})();
-
-
-/* Acces Projet de these : libelles et geste du guide. */
-(() => {
-  const actualiser = (zone) => {
-    zone.querySelectorAll('a.acces-these').forEach(lien => {
-      if (lien.getAttribute('aria-label') === 'Ma thèse') lien.setAttribute('aria-label', 'Projet de thèse');
-      lien.querySelectorAll('span').forEach(texte => {
-        if (texte.textContent.trim() === 'Ma thèse') texte.textContent = 'Projet de thèse';
-      });
-    });
-    zone.querySelectorAll('[data-hall-sous="recherche"],[data-sous="recherche"]').forEach(element => {
-      if (element.textContent.trim() === 'Ma thèse') element.textContent = 'Projet de thèse';
-    });
-    zone.querySelectorAll('section[data-salle="recherche"]').forEach(section => {
-      if (section.dataset.titre === 'Ma thèse') section.dataset.titre = 'Projet de thèse';
-      section.querySelectorAll('.bandeau[aria-label="Ma thèse"]').forEach(b => b.setAttribute('aria-label', 'Projet de thèse'));
-      section.querySelectorAll('.bandeau-titre').forEach(t => {
-        if (t.textContent.trim() === 'Ma thèse') t.textContent = 'Projet de thèse';
-      });
-      section.querySelectorAll('[aria-label="Explorer Ma thèse"]').forEach(t => t.setAttribute('aria-label', 'Explorer Projet de thèse'));
-    });
-    zone.querySelectorAll('.publication-these-note').forEach(note => {
-      const premier = note.firstChild;
-      if (premier && premier.nodeType === 3 && premier.textContent.includes('« Ma thèse »')) {
-        premier.textContent = premier.textContent.replace('« Ma thèse »', '« Projet de thèse »');
-      }
-      note.querySelectorAll('a[href="#recherche"]').forEach(lien => {
-        for (const enfant of lien.childNodes) {
-          if (enfant.nodeType === 3 && enfant.textContent.includes('Voir ma thèse'))
-            enfant.textContent = enfant.textContent.replace('Voir ma thèse', 'Voir le projet de thèse');
-        }
-      });
-    });
-  };
-  const demarrer = () => {
-    const style = document.createElement('style');
-    style.id = 'guide-these-bras-animation';
-    style.textContent = ''; 
-    if (!document.getElementById(style.id)) document.head.appendChild(style);
-    actualiser(document);
-    const salle = document.getElementById('salle');
-    if (salle) {
-      const observateur = new MutationObserver(() => actualiser(salle));
-      observateur.observe(salle, {childList:true,subtree:true});
-    }
-  };
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', demarrer, {once:true});
-  else demarrer();
 })();

@@ -3,6 +3,8 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const crypto = require("node:crypto");
+const versionsRessources = require("./versions-ressources");
+const chargementPage = require("./chargement-page");
 const RACINE = path.join(__dirname, "..");
 function harmoniser({ check = false } = {}) {
   const version = crypto.createHash("sha256").update(fs.readFileSync(path.join(RACINE, "assets/typographie.css"))).digest("hex").slice(0, 10);
@@ -20,7 +22,15 @@ function harmoniser({ check = false } = {}) {
       if (!/<\/head\s*>/i.test(avant)) throw new Error(`En-tête HTML absent : ${fichier}`);
       const relatif = path.relative(path.dirname(fichier), path.join(RACINE, "assets/typographie.css")).split(path.sep).join("/");
       const lien = `<link rel="stylesheet" href="${relatif}?v=${version}">`;
-      const apres = avant.replace(/<link\b[^>]*href=["'][^"']*\bassets\/typographie\.css(?:\?[^"']*)?["'][^>]*>\s*/gi, "").replace(/<\/head\s*>/i, `${lien}\n</head>`);
+      let initial = avant.replace(/<style id="chargement-initial">[\s\S]*?<script id="initialisation-site">[\s\S]*?<\/script>/, () => chargementPage());
+      if (/<html\b[^>]*lang="fr"/.test(initial) && initial.includes('assets/these-methodologie-diagramme.js?')) {
+        for (const asset of ['maturite-scientifique', 'o3-reseaux']) {
+          if (initial.includes(`assets/${asset}.js?`)) continue;
+          const prefixe = path.relative(path.dirname(fichier), path.join(RACINE, 'assets')).split(path.sep).join('/');
+          initial = initial.replace(/<\/head\s*>/i, `<link rel="stylesheet" href="${prefixe}/${asset}.css?v=initial"><script src="${prefixe}/${asset}.js?v=initial" defer></script>\n</head>`);
+        }
+      }
+      const apres = versionsRessources(initial.replace(/<link\b[^>]*href=["'][^"']*\bassets\/typographie\.css(?:\?[^"']*)?["'][^>]*>\s*/gi, "").replace(/<\/head\s*>/i, `${lien}\n</head>`), fichier, RACINE);
       pages++;
       if (avant !== apres) {
         divergences.push(path.relative(RACINE, fichier));

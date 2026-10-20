@@ -3,7 +3,86 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<script>(function(){try{var h=document.documentElement;h.classList.add("js");h.classList.add("chargement");setTimeout(function(){h.classList.remove("chargement")},2500);var m=(localStorage.getItem("eb-modes")||"").split(" "),t=+localStorage.getItem("eb-taille")||0,a=location.hash;if(a==="#daltonien"||a==="#colour-blind")m.push("cb");if(a==="#basse-vision"||a==="#low-vision")m.push("lv");m.forEach(function(x){if(/^(cb|lv|hc)$/.test(x))h.classList.add(x)});if(t>0&&t<4)h.classList.add("t"+t)}catch(e){}})();</script>
+<style id="chargement-initial">
+html.chargement{background:#fcfdfb}
+html.chargement body{visibility:hidden}
+html.chargement body>:not(#site-chargement){opacity:0!important;pointer-events:none!important}
+html.chargement body>:not(#site-chargement),html.chargement body>:not(#site-chargement) *{visibility:hidden!important}
+html.chargement::after{content:attr(data-chargement-message);position:fixed;inset:0;display:grid;place-items:center;font:16px/1.6 system-ui,sans-serif;color:#173f52;pointer-events:none}
+html.chargement:has(#site-chargement)::after{content:none}
+html.chargement #site-chargement{visibility:visible;position:fixed;inset:0;z-index:1000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:#fcfdfb;color:#173f52;padding:24px;text-align:center;font:16px/1.6 system-ui,sans-serif}
+#site-chargement button{font:inherit;padding:12px 20px;border:1px solid currentColor;border-radius:8px;cursor:pointer}
+</style>
+<script id="initialisation-site">/* Exécuté dans l'en-tête, avant tout contenu : ne jamais révéler une vue inachevée. */
+(() => {
+  const root = document.documentElement;
+  root.classList.add('js', 'chargement');
+  let navigation = false, dom = false, revelation = false;
+  const preparations = [];
+  window.ebAttendre = promise => { preparations.push(promise); promise.catch(() => {}); };
+  const lang = (root.lang || 'fr').split('-')[0];
+  const messages = {
+    fr: ['Chargement…', 'Le chargement prend plus de temps que prévu.', 'Réessayer'],
+    en: ['Loading…', 'Loading is taking longer than expected.', 'Retry'],
+    es: ['Cargando…', 'La carga está tardando más de lo previsto.', 'Reintentar'],
+    zh: ['正在加载…', '加载时间比预期长。', '重试'],
+    ar: ['جارٍ التحميل…', 'يستغرق التحميل وقتًا أطول من المتوقع.', 'إعادة المحاولة'],
+    ru: ['Загрузка…', 'Загрузка занимает больше времени, чем ожидалось.', 'Повторить']
+  }[lang] || ['Chargement…', 'Le chargement prend plus de temps que prévu.', 'Réessayer'];
+  root.dataset.chargementMessage = messages[0];
+  try {
+    const modes = (localStorage.getItem('eb-modes') || '').split(' ');
+    const taille = +localStorage.getItem('eb-taille') || 0;
+    if (/^#(?:daltonien|colour-blind)$/.test(location.hash)) modes.push('cb');
+    if (/^#(?:basse-vision|low-vision)$/.test(location.hash)) modes.push('lv');
+    modes.filter(m => /^(cb|lv|hc)$/.test(m)).forEach(m => root.classList.add(m));
+    if (taille > 0 && taille < 4) root.classList.add('t' + taille);
+  } catch { /* Les préférences restent facultatives si le stockage est indisponible. */ }
+  let retard = false;
+  const afficherAttente = () => {
+    if (!document.body) return;
+    let status = document.getElementById('site-chargement');
+    if (!status) {
+      status = document.createElement('div');
+      status.id = 'site-chargement';
+      status.setAttribute('role', 'status');
+      status.append(document.createElement('p'));
+      document.body.append(status);
+    }
+    status.querySelector('p').textContent = messages[retard ? 1 : 0];
+    if (retard && !status.querySelector('button')) {
+      const retry = document.createElement('button');
+      retry.textContent = messages[2];
+      retry.onclick = () => location.reload();
+      status.append(retry);
+    }
+  };
+  const attente = setTimeout(() => {
+    retard = true;
+    root.dataset.chargementMessage = messages[1];
+    afficherAttente();
+  }, 12000);
+  const reveler = () => {
+    if (!navigation || !dom || revelation) return;
+    revelation = true;
+    Promise.all(preparations).then(() => document.fonts?.ready).then(() => requestAnimationFrame(() => requestAnimationFrame(() => {
+      clearTimeout(attente);
+      document.getElementById('site-chargement')?.remove();
+      root.classList.remove('chargement');
+      delete root.dataset.chargementMessage;
+    }))).catch(() => {
+      retard = true;
+      afficherAttente();
+    });
+  };
+  document.addEventListener('eb:navigation-prete', () => { navigation = true; reveler(); });
+  document.addEventListener('DOMContentLoaded', () => {
+    dom = true;
+    afficherAttente();
+    reveler();
+  }, {once:true});
+})();
+</script>
 <title translate="no">Éric Bernier · Inuktitut</title>
 <meta name="description" content="Inuktitut · Toutes les rubriques du site d’Éric Bernier ; présentation préliminaire et contenu français accessible en intégralité.">
 <meta name="theme-color" content="#fcfdfb">
@@ -16,11 +95,11 @@
 <link rel="alternate" hreflang="ru" href="https://erjb-web.github.io/ru/">
 <link rel="alternate" hreflang="x-default" href="https://erjb-web.github.io/">
 <link rel="icon" href="../assets/favicon.svg?v=3fa5b764af" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/site.css?v=b7d36c73b9">
-<link rel="stylesheet" href="../assets/hall-realiste.css?v=35ae27df7d">
+<link rel="stylesheet" href="../assets/site.css?v=79d38aa70d">
+<link rel="stylesheet" href="../assets/hall-realiste.css?v=b75f2e010e">
 <link rel="stylesheet" href="../assets/revue-presse.css?v=1398f2cb44">
-<link rel="stylesheet" href="../assets/gabarit-salles.css?v=57358830ab">
-<link rel="stylesheet" href="../assets/navigation-chapitres.css?v=df39f69bb1">
+<link rel="stylesheet" href="../assets/gabarit-salles.css?v=68880a0091">
+<link rel="stylesheet" href="../assets/navigation-chapitres.css?v=dcb38e73d2">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Éric Bernier · Inuktitut">
 <meta property="og:description" content="Inuktitut · Toutes les rubriques du site d’Éric Bernier ; présentation préliminaire et contenu français accessible en intégralité.">
@@ -29,15 +108,15 @@
 <meta property="og:locale" content="fr_CA">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Éric Bernier","url":"https://erjb-web.github.io/","image":"https://erjb-web.github.io/assets/portrait.jpg","jobTitle":"Doctorant en santé publique · ESPUM · CRCHUM","email":"mailto:eric.bernier.1@umontreal.ca","affiliation":[{"@type":"CollegeOrUniversity","name":"École de santé publique de l’Université de Montréal (ESPUM)"},{"@type":"ResearchOrganization","name":"Centre de recherche du CHUM (CRCHUM)"}],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Université Paris Panthéon-Assas"},{"@type":"CollegeOrUniversity","name":"Université de Bretagne Occidentale"}],"knowsAbout":["Gouvernance et évaluation des politiques de santé","Approche intersectorielle en première ligne","Vieillissement, perte d’autonomie et politiques du maintien à domicile"],"sameAs":["https://orcid.org/0009-0001-4236-4932"]}</script>
-<script src="../assets/hall-marche.js?v=b4807498ff" defer></script>
+<script src="../assets/hall-marche.js?v=d23cdeb1d8" defer></script>
 <script src="../assets/hall-ciel.js?v=2da27089a1" defer></script>
-<script src="../assets/site.js?v=db4b2f4add" defer></script>
+<script src="../assets/site.js?v=7da8c9fbcf" defer></script>
 <script src="../assets/revue-presse.js?v=afc8d93127" defer></script>
 <script src="../assets/chapitres/catalogue.js?v=ac6a16e852" defer></script>
-<script src="../assets/gabarit-salles.js?v=ca3afffbc9" defer></script>
+<script src="../assets/gabarit-salles.js?v=f701436e25" defer></script>
 <script src="../assets/audience.js?v=32f18e181a" data-audience-website-id="782c7df7-c2cf-4578-bddc-fa02662324af" data-audience-domaines="erjb-web.github.io" defer></script>
 <link rel="stylesheet" href="../assets/bibliographie.css?v=f50b23358d"><script src="../assets/bibliographie.js?v=cafe845638" defer></script>
-<link rel="stylesheet" href="../assets/typographie.css?v=04aca86726">
+<link rel="stylesheet" href="../assets/typographie.css?v=dadfbb6b7c">
 </head>
 <body>
 <a class="evitement" href="#contenu">Aller au contenu</a>
@@ -45,7 +124,7 @@
 <div class="marque-bloc"><a class="marque" href="../"><span class="marque-domaines">Santé publique · Gouvernance · Gestion · Droit · Intervention sociale et intersectorialité</span></a>
 <p class="entete-contact"><a href="mailto:eric.bernier.1@umontreal.ca" translate="no"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>eric.bernier.1@umontreal.ca</a><span class="entete-contact-sep" aria-hidden="true"></span><a href="tel:+12633843050" translate="no"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 3.5h2.6l1.4 3.8-1.9 1.3a11.5 11.5 0 0 0 6.7 6.7l1.3-1.9 3.8 1.4v2.6a1.8 1.8 0 0 1-2 1.8A16.5 16.5 0 0 1 4.8 5.5a1.8 1.8 0 0 1 1.8-2z"/></svg>(263) 384-3050</a><span class="entete-contact-sep" aria-hidden="true"></span><a class="entete-rdv" href="https://bookings.cloud.microsoft/book/RDVavecEricBernier@umontreal.ca/" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="m9.5 15 2 2 3.5-3.5"/></svg>Prendre rendez-vous</a></p></div>
 <nav class="nav" aria-label="Navigation principale"><a href="#recherche" style="--nav-accent:#1f5a8a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 3 5 5-3 3-5-5zM12 10l-2 2M6 8l-2 2 4 4 2-2M5 21h14M10 17a6 6 0 0 0 6-10M12 17v4M4 17h7"/></svg><span>Recherche</span></a><a href="#entrepreneuriat" style="--nav-accent:#7a4a8c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="m9 7-3 3 3 3m6-6 3 3-3 3M8 21h8M12 17v4"/></svg><span>Innovation et entrepreneuriat</span></a><a href="#implantation/implantation-reperes" style="--nav-accent:#c0612b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.59 13.51 6.83 3.98"/><path d="m15.41 6.51-6.82 3.98"/></svg><span>Transfert de connaissances</span></a><a href="#implantation" style="--nav-accent:#c0612b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 16h6m-6 3h6m-5 3h4M8 13a6 6 0 1 1 8 0c-1 1-1 2-1 3H9c0-1 0-2-1-3M12 1v1M3 5l1 1m16-1-1 1M1 11h2m18 0h2"/></svg><span>Implantation</span></a><a href="#biographie" style="--nav-accent:#7a4a8c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v3M3 12a24 24 0 0 0 18 0M10 12v3h4v-3"/></svg><span>Parcours</span></a><a href="#representation" style="--nav-accent:#a8343f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 12 7 7a3 3 0 0 1 5-4 3 3 0 0 1 5 4zM2 14h4l4 3h5a2 2 0 0 1 0 4H8l-6-3m13-1 4-3a2 2 0 0 1 3 2l-5 5"/></svg><span>Engagements</span></a><a href="#logiciels" style="--nav-accent:#138086"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v16M12 5C9 3 5 3 2 4v15c3-1 7-1 10 2 3-3 7-3 10-2V4c-3-1-7-1-10 1M5 8h3m-3 4h3m8-4h3m-3 4h3"/></svg><span>Ressources</span></a><a href="#jeu" style="--nav-accent:#578d96"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 11h4M8 9v4"/><path d="M15 12h.01M18 10h.01"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59l-.69 6.23A3 3 0 0 0 5 18c1 0 1.6-.5 2.1-1.2l1-1.5a2 2 0 0 1 1.7-.9h4.4a2 2 0 0 1 1.7.9l1 1.5c.5.7 1.1 1.2 2.1 1.2a3 3 0 0 0 3-3.18l-.7-6.23A4 4 0 0 0 17.32 5z"/></svg><span>Jeu 3D</span></a></nav>
-<div class="outils"><a class="acces-these" href="#recherche" aria-label="Ma thèse"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9 12 4.5 21.5 9 12 13.5z"/><path d="M6.5 11v4.6c0 1.3 2.5 2.9 5.5 2.9s5.5-1.6 5.5-2.9V11"/><path d="M21.5 9v5"/></svg><span>Ma thèse</span><span class="acces-these-fleche" aria-hidden="true">→</span></a>
+<div class="outils"><a class="acces-these" href="#recherche" aria-label="Projet de thèse"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9 12 4.5 21.5 9 12 13.5z"/><path d="M6.5 11v4.6c0 1.3 2.5 2.9 5.5 2.9s5.5-1.6 5.5-2.9V11"/><path d="M21.5 9v5"/></svg><span>Projet de thèse</span><span class="acces-these-fleche" aria-hidden="true">→</span></a>
 <details class="menu menu-langues"><summary aria-label="Langue : ᐃᓄᒃᑎᑐᑦ · Inuktitut"><span class="drapeau" aria-hidden="true"><svg viewBox="0 0 32 18"><path fill="#e8c547" d="M0 0h16v18H0z"/><path fill="#fff" d="M16 0h16v18H16z"/><path fill="#d52b1e" d="M14.6 3.2h2.8v2.4h-2.8zM11 6.4h10v1.6H11zM13.6 8.6h4.8v3.2h-4.8zM13.6 12.2h1.6v4.6h-1.6zM16.8 12.2h1.6v4.6h-1.6zM12.6 11.8h6.8v1H12.6z"/><path fill="#1e5aa8" d="M26.50 1.60L27.08 3.40L28.97 3.40L27.44 4.51L28.03 6.30L26.50 5.19L24.97 6.30L25.56 4.51L24.03 3.40L25.92 3.40Z"/></svg></span><span class="menu-libelle">ᐃᓄ</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
 <div class="menu-panneau"><p class="menu-titre">Langue</p><ul><li><a href="../" lang="fr" hreflang="fr"><span class="drapeau" aria-hidden="true"><svg viewBox="0 0 30 20"><path fill="#0055a4" d="M0 0h10v20H0z"/><path fill="#fff" d="M10 0h10v20H10z"/><path fill="#ef4135" d="M20 0h10v20H20z"/></svg></span><span>Français</span></a></li><li><a href="../en/" lang="en" hreflang="en"><span class="drapeau" aria-hidden="true"><svg viewBox="0 0 32 16"><path fill="#012169" d="M0 0h32v16H0z"/><path stroke="#fff" stroke-width="4.5" d="M0 0l32 16M32 0L0 16"/><path stroke="#c8102e" stroke-width="2" d="M0 0l32 16M32 0L0 16"/><path stroke="#fff" stroke-width="6" d="M16 0v16M0 8h32"/><path stroke="#c8102e" stroke-width="3" d="M16 0v16M0 8h32"/></svg></span><span>English</span></a></li><li><a href="../es/" lang="es" hreflang="es"><span class="drapeau" aria-hidden="true"><svg viewBox="0 0 3 2"><path fill="#aa151b" d="M0 0h3v2H0z"/><path fill="#f1bf00" d="M0 .5h3v1H0z"/></svg></span><span>Español</span></a></li><li><a href="../zh/" lang="zh" hreflang="zh-Hans"><span class="drapeau" aria-hidden="true"><svg viewBox="0 0 30 20"><path fill="#ee1c25" d="M0 0h30v20H0z"/><path fill="#ffde00" d="M5.00 2.00L5.67 4.07L7.85 4.07L6.09 5.35L6.76 7.43L5.00 6.15L3.24 7.43L3.91 5.35L2.15 4.07L4.33 4.07ZM10.00 1.00L10.22 1.69L10.95 1.69L10.36 2.12L10.59 2.81L10.00 2.38L9.41 2.81L9.64 2.12L9.05 1.69L9.78 1.69ZM12.00 3.00L12.22 3.69L12.95 3.69L12.36 4.12L12.59 4.81L12.00 4.38L11.41 4.81L11.64 4.12L11.05 3.69L11.78 3.69ZM12.00 6.00L12.22 6.69L12.95 6.69L12.36 7.12L12.59 7.81L12.00 7.38L11.41 7.81L11.64 7.12L11.05 6.69L11.78 6.69ZM10.00 8.00L10.22 8.69L10.95 8.69L10.36 9.12L10.59 9.81L10.00 9.38L9.41 9.81L9.64 9.12L9.05 8.69L9.78 8.69Z"/></svg></span><span>中文（简体）</span></a></li><li><a href="../ar/" lang="ar" hreflang="ar"><span class="drapeau pastille pastille-ar" aria-hidden="true">ع</span><span>العربية</span></a></li><li><a href="../ru/" lang="ru" hreflang="ru"><span class="drapeau" aria-hidden="true"><svg viewBox="0 0 3 2"><path fill="#fff" d="M0 0h3v2H0z"/><path fill="#0039a6" d="M0 .667h3v.667H0z"/><path fill="#d52b1e" d="M0 1.334h3V2H0z"/></svg></span><span>Русский</span></a></li></ul>
 <p class="menu-titre">Autres langues</p><ul><li><span aria-current="page" lang="iu"><span class="drapeau" aria-hidden="true"><svg viewBox="0 0 32 18"><path fill="#e8c547" d="M0 0h16v18H0z"/><path fill="#fff" d="M16 0h16v18H16z"/><path fill="#d52b1e" d="M14.6 3.2h2.8v2.4h-2.8zM11 6.4h10v1.6H11zM13.6 8.6h4.8v3.2h-4.8zM13.6 12.2h1.6v4.6h-1.6zM16.8 12.2h1.6v4.6h-1.6zM12.6 11.8h6.8v1H12.6z"/><path fill="#1e5aa8" d="M26.50 1.60L27.08 3.40L28.97 3.40L27.44 4.51L28.03 6.30L26.50 5.19L24.97 6.30L25.56 4.51L24.03 3.40L25.92 3.40Z"/></svg></span><span>ᐃᓄᒃᑎᑐᑦ · Inuktitut<small class="langue-statut" lang="fr">Traduction partielle</small></span></span></li><li><a href="../innu/" lang="moe"><span class="drapeau" aria-hidden="true"><svg viewBox="0 0 24 12"><path fill="#2e7d4f" d="M0 0h24v12H0z"/><path fill="#fff" d="M0 2h24v8H0z"/><path fill="#8ecae6" d="M0 3h24v6H0z"/><circle cx="12" cy="6" r="1.7" fill="#111"/><path d="M9.4 3.6l1.6 1.6M14.6 3.6 13 5.2M9 5l1.4.4M15 5l-1.4.4" stroke="#111" stroke-width=".7" stroke-linecap="round"/></svg></span><span>Innu-aimun<small class="langue-statut" lang="fr">Traduction partielle</small></span></a></li></ul></div></details>
@@ -80,8 +159,8 @@
 </div>
 <div class="hall" id="hall" data-hall-volume role="group" aria-label="Le hall"><div class="hall-tete"><div class="hall-titre"><h2 class="hall-titre-nom">Explorer mon univers</h2><p class="hall-gestes"><span class="hall-geste geste-souris"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h16"/><path d="m8 8-4 4 4 4"/><path d="m16 8 4 4-4 4"/></svg>Glissez pour explorer</span><span class="hall-geste geste-souris"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 3 12.5 7.2-5.6 1.6L10.4 18z"/></svg>Cliquez sur une porte pour entrer</span><span class="hall-geste geste-tactile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h16"/><path d="m8 8-4 4 4 4"/><path d="m16 8 4 4-4 4"/></svg>Balayez les portes</span><span class="hall-geste geste-tactile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="2.5"/><path d="M12 5.5a6.5 6.5 0 1 1-6.5 6.5" opacity=".55"/></svg>Touchez pour entrer</span></p></div><div class="hall-outils"><span>6 portes</span><button class="hall-mode" type="button" data-hall-mode aria-pressed="false" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m12 3 9 5v8l-9 5-9-5V8l9-5Zm0 10 9-5m-9 5-9-5m9 5v8"/></svg><span>Vue 3D</span></button></div></div><button class="hall-reprise" type="button" data-reprendre-lecture hidden><span>Reprendre la lecture</span><strong data-reprise-nom></strong><span aria-hidden="true">↗</span></button><p class="hall-aide-deplacement" id="hall-aide-deplacement">Faites glisser pour regarder à gauche ou à droite, ou déplacez la souris vers les bords. Cliquez sur une porte ou une rubrique pour entrer.</p><p class="hall-guide-mobile" data-hall-aide-mobile hidden>Faites glisser les portes ou choisissez un numéro. Touchez une porte ou une rubrique pour entrer.</p><div class="hall-espace" data-hall-espace><div class="hall-indice" aria-hidden="true"><svg class="hall-indice-main" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 11V10a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L6 15"/></svg><span class="geste-souris">Glissez pour explorer</span><span class="geste-tactile">Balayez les portes</span></div><div class="hall-univers"><div class="architecture-hall" aria-hidden="true"><span class="paroi-hall paroi-fond"></span><span class="paroi-hall paroi-gauche"></span><span class="paroi-hall paroi-droite"></span><span class="dallage-hall"></span><span class="plafond-hall"></span><span class="verriere-hall"></span></div><div class="portes"><div class="station-hall" data-hall-station="0" style="--station-x:130px;--station-z:-559px;--station-angle:0deg;--c1:#1f5a8a"><button class="porte" type="button" data-salle="recherche" data-sections="recherche axes publications approche methodes ia" data-titre="Recherche et innovations" style="--c1:#1f5a8a;--c2:#143d5e" aria-label="01. Recherche et innovations : Thèse, méthodes, travaux, publications et innovations">
 <span class="baie" aria-hidden="true"><span class="ouverture"><span class="apercu">Entrer</span><span class="battant"><span class="vignette" style="background-image:url(../assets/portes/recherche.jpg?v=947c15b68a)"></span><span class="poignee"></span></span></span></span>
-<span class="porte-texte" aria-hidden="true"><span class="plaque"><span class="num">01</span>Recherche et innovations</span><span class="legende">Thèse, méthodes, travaux, publications et innovations</span><span class="sous-portes"><span data-sous="recherche" style="--c1:#245a73">Ma thèse</span><span data-sous="axes" style="--c1:#286d5c">Axes de recherche</span><span data-sous="publications" style="--c1:#327a66">Publications</span><span data-sous="approche" style="--c1:#8c4d58">Posture de recherche</span><span data-sous="methodes" style="--c1:#466a78">Méthodes de recherche</span><span data-sous="ia" style="--c1:#3f6f8f">IA, recherche et pédagogie</span></span><span class="entrer">Entrer →</span></span>
-</button><section class="panneau-hall" aria-label="Recherche et innovations"><h3><button type="button" data-hall-entrer="0"><bdi dir="ltr">01</bdi><span>Recherche et innovations</span></button></h3><p>Thèse, méthodes, travaux, publications et innovations</p><nav class="sous-portes-murales" aria-label="Explorer les rubriques · Recherche et innovations"><button type="button" data-hall-sous="recherche" style="--c1:#245a73">Ma thèse</button><button type="button" data-hall-sous="axes" style="--c1:#286d5c">Axes de recherche</button><button type="button" data-hall-sous="publications" style="--c1:#327a66">Publications</button><button type="button" data-hall-sous="approche" style="--c1:#8c4d58">Posture de recherche</button><button type="button" data-hall-sous="methodes" style="--c1:#466a78">Méthodes de recherche</button><button type="button" data-hall-sous="ia" style="--c1:#3f6f8f">IA, recherche et pédagogie</button></nav></section></div><div class="station-hall" data-hall-station="1" style="--station-x:890px;--station-z:-559px;--station-angle:0deg;--c1:#c0612b"><button class="porte" type="button" data-salle="implantation" data-sections="implantation notions transmission vulgarisation" data-titre="Transfert de connaissances et implantation" style="--c1:#c0612b;--c2:#8a431c" aria-label="02. Transfert de connaissances et implantation : Implantation, notions clés, enseignement et vulgarisation scientifique">
+<span class="porte-texte" aria-hidden="true"><span class="plaque"><span class="num">01</span>Recherche et innovations</span><span class="legende">Thèse, méthodes, travaux, publications et innovations</span><span class="sous-portes"><span data-sous="recherche" style="--c1:#245a73">Projet de thèse</span><span data-sous="axes" style="--c1:#286d5c">Axes de recherche</span><span data-sous="publications" style="--c1:#327a66">Publications</span><span data-sous="approche" style="--c1:#8c4d58">Posture de recherche</span><span data-sous="methodes" style="--c1:#466a78">Méthodes de recherche</span><span data-sous="ia" style="--c1:#3f6f8f">IA, recherche et pédagogie</span></span><span class="entrer">Entrer →</span></span>
+</button><section class="panneau-hall" aria-label="Recherche et innovations"><h3><button type="button" data-hall-entrer="0"><bdi dir="ltr">01</bdi><span>Recherche et innovations</span></button></h3><p>Thèse, méthodes, travaux, publications et innovations</p><nav class="sous-portes-murales" aria-label="Explorer les rubriques · Recherche et innovations"><button type="button" data-hall-sous="recherche" style="--c1:#245a73">Projet de thèse</button><button type="button" data-hall-sous="axes" style="--c1:#286d5c">Axes de recherche</button><button type="button" data-hall-sous="publications" style="--c1:#327a66">Publications</button><button type="button" data-hall-sous="approche" style="--c1:#8c4d58">Posture de recherche</button><button type="button" data-hall-sous="methodes" style="--c1:#466a78">Méthodes de recherche</button><button type="button" data-hall-sous="ia" style="--c1:#3f6f8f">IA, recherche et pédagogie</button></nav></section></div><div class="station-hall" data-hall-station="1" style="--station-x:890px;--station-z:-559px;--station-angle:0deg;--c1:#c0612b"><button class="porte" type="button" data-salle="implantation" data-sections="implantation notions transmission vulgarisation" data-titre="Transfert de connaissances et implantation" style="--c1:#c0612b;--c2:#8a431c" aria-label="02. Transfert de connaissances et implantation : Implantation, notions clés, enseignement et vulgarisation scientifique">
 <span class="baie" aria-hidden="true"><span class="ouverture"><span class="apercu">Entrer</span><span class="battant"><span class="vignette" style="background-image:url(../assets/portes/transfert-implantation-pro.jpg?v=c5949b876e)"></span><span class="poignee"></span></span></span></span>
 <span class="porte-texte" aria-hidden="true"><span class="plaque"><span class="num">02</span>Transfert de connaissances et implantation</span><span class="legende">Implantation, notions clés, enseignement et vulgarisation scientifique</span><span class="sous-portes"><span data-sous="implantation" style="--c1:#a0663b">Implantation</span><span data-sous="notions" style="--c1:#7a4f9a">Notions clés</span><span data-sous="transmission" style="--c1:#5f7f35">Enseignement</span><span data-sous="vulgarisation" style="--c1:#2f6f86">Vulgarisation scientifique</span></span><span class="entrer">Entrer →</span></span>
 </button><section class="panneau-hall" aria-label="Transfert de connaissances et implantation"><h3><button type="button" data-hall-entrer="1"><bdi dir="ltr">02</bdi><span>Transfert de connaissances et implantation</span></button></h3><p>Implantation, notions clés, enseignement et vulgarisation scientifique</p><nav class="sous-portes-murales" aria-label="Explorer les rubriques · Transfert de connaissances et implantation"><button type="button" data-hall-sous="implantation" style="--c1:#a0663b">Implantation</button><button type="button" data-hall-sous="notions" style="--c1:#7a4f9a">Notions clés</button><button type="button" data-hall-sous="transmission" style="--c1:#5f7f35">Enseignement</button><button type="button" data-hall-sous="vulgarisation" style="--c1:#2f6f86">Vulgarisation scientifique</button></nav></section></div><div class="station-hall" data-hall-station="2" style="--station-x:1px;--station-z:50px;--station-angle:90deg;--c1:#7a4a8c"><button class="porte" type="button" data-salle="parcours" data-sections="biographie parcours juriste gestionnaire educateur entrepreneuriat valeurs" data-titre="Parcours" style="--c1:#7a4a8c;--c2:#553263" aria-label="03. Parcours : Biographie, parcours, expertises et valeurs">

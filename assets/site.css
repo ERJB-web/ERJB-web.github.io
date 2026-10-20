@@ -2761,8 +2761,6 @@ html.hc .implantation-portail-liens a{border-color:currentColor}
 @media(max-width:700px){.entete .marque-bloc{flex:1 1 100%;order:0}.entete-contact{display:none}}
 @media(max-width:480px){.entete .outils a.acces-these{width:40px;padding:0;justify-content:center;gap:0;margin-inline-end:0}.entete .outils a.acces-these>span{display:none}}
 @media(min-width:1081px){html:not(.lv):not(.hc) main>.accueil>.hall{scroll-snap-align:start;scroll-snap-stop:normal}}
-/* Chargement : la page apparaît une fois placée, sans saut visible */
-html.chargement main,html.chargement body>footer{visibility:hidden}
 /* En-tête du hall : titre d’invitation et gestes, côte à côte */
 .hall-tete{align-items:center}
 .hall-tete .hall-titre{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;min-width:0;text-transform:none;letter-spacing:0}
@@ -6203,13 +6201,6 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
     height:15px;
   }
   body:has(> main > .accueil) > .entete .nav .acces-these .acces-these-fleche {display:none}
-  /* Conserver le nom attendu sur le bouton visible, sans renommer la navigation desktop. */
-  body:has(> main > .accueil) > .entete .nav .acces-these > span:not(.acces-these-fleche) {font-size:0}
-  body:has(> main > .accueil) > .entete .nav .acces-these > span:not(.acces-these-fleche)::before {
-    content:"Ma thèse";
-    font-size:12px;
-    font-weight:750;
-  }
   body:has(> main > .accueil) > .entete .outils {
     order:2;
     flex:1 1 0;

@@ -86,25 +86,3 @@
     liste.before(navigation);
   });
 })();
-
-
-/* Compléments de rigueur scientifique, indépendants des menus de chapitres.
-   Seul le contenu O1/O2/O3 est enrichi ; aucun contrôleur de navigation n'est remplacé. */
-(() => {
-  "use strict";
-  const installer = () => {
-    if ((document.documentElement.lang || "fr").slice(0, 2) !== "fr" ||
-        !document.querySelector("#these-methode-o1") ||
-        document.getElementById("maturite-scientifique-loader")) return;
-    const style = document.createElement("link");
-    style.rel = "stylesheet";
-    style.href = new URL("assets/maturite-scientifique.css?v=20261019-15", document.baseURI).href;
-    document.head.appendChild(style);
-    const script = document.createElement("script");
-    script.id = "maturite-scientifique-loader";
-    script.src = new URL("assets/maturite-scientifique.js?v=20261020-01", document.baseURI).href;
-    document.head.appendChild(script);
-  };
-  if (document.readyState === "complete") installer();
-  else window.addEventListener("load", installer, { once: true });
-})();

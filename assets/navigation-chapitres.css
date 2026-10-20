@@ -24,11 +24,11 @@
 .gab-lecture .gab-fleche:disabled{opacity:.4;cursor:default}
 .gab-fleche-icone{flex:none;font-size:26px;line-height:1}
 .gab-fleche-libelle{display:flex;flex-direction:column;gap:3px;min-width:0}
-.gab-fleche-cible{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;max-width:220px}
+.gab-fleche-cible{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:var(--type-note,14px);max-width:220px}
 .gab-actuel{display:flex;align-items:center;gap:10px;color:var(--gab-marine)}
 .gab-actuel b{display:grid;place-items:center;flex:none;width:42px;height:42px;border-radius:12px;background:var(--gab-c,var(--gab-bleu));color:#fff;font:600 17px var(--sans)}
 .gab-actuel>span{min-width:0}
-.gab-actuel small{display:block;color:var(--gab-c,var(--gab-bleu));font-size:11px;font-weight:700;text-transform:uppercase;line-height:1.3}
+.gab-actuel small{display:block;color:var(--gab-c,var(--gab-bleu));font-size:var(--type-note,14px);font-weight:700;text-transform:uppercase;line-height:1.3}
 .gab-actuel strong{display:block;font-size:16px;line-height:1.3;overflow-wrap:anywhere}
 .chapitre-utilitaires :is(button,a,summary):focus-visible,.gab-lecture button:focus-visible{outline:2px solid var(--gab-bleu);outline-offset:3px}
 @media(max-width:1250px){
@@ -48,13 +48,13 @@
  .chapitre-outils.outils{grid-area:outils;justify-self:center;justify-content:center;gap:4px}
  .chapitre-outils .menu>summary{display:flex;align-items:center;justify-content:center;min-width:42px;min-height:44px;padding:6px 7px}
  .salle.gab-salle .salle-barre.gab-barre>.gab-lecture{gap:7px;margin-top:8px}
- .gab-lecture .gab-fleche{padding:6px 8px;gap:5px;font-size:11px;min-height:48px}
- .gab-fleche-cible{font-size:10px;max-width:100%}
+ .gab-lecture .gab-fleche{padding:6px 8px;gap:5px;font-size:var(--type-note,14px);min-height:48px}
+ .gab-fleche-cible{font-size:var(--type-note,14px);max-width:100%}
  .gab-fleche-icone{font-size:21px}
  .gab-actuel{gap:5px;flex-direction:column}
- .gab-actuel b{width:28px;height:28px;border-radius:8px;font-size:13px}
- .gab-actuel small{font-size:9px}
- .gab-actuel strong{font-size:12px}
+ .gab-actuel b{width:28px;height:28px;border-radius:8px;font-size:var(--type-note,14px)}
+ .gab-actuel small{font-size:var(--type-note,14px)}
+ .gab-actuel strong{font-size:var(--type-note,14px)}
 }
 .gab.gab-cv-direct:not(.gab-rubrique-complete) .gab-bas-chapitre{display:none!important}
 .gab-bas-chapitre button:disabled {
@@ -99,7 +99,7 @@
 }
 @media(max-width:600px) {
   .gab-bas-chapitre{gap:7px;flex-wrap:wrap;justify-content:center}
-  .gab-bas-chapitre button{padding:10px 11px;font-size:12px}
+  .gab-bas-chapitre button{padding:10px 11px;font-size:var(--type-note,14px)}
   .gab-bas-chapitre .gab-bas-suivant{margin-left:auto}
 }
 .gab-bas-chapitre .gab-bas-lien{
@@ -107,7 +107,7 @@
   gap:12px;min-width:0;max-width:360px;text-align:left
 }
 .gab-bas-chapitre .gab-bas-libelle{display:flex;flex-direction:column;min-width:0;gap:3px}
-.gab-bas-chapitre .gab-bas-libelle small{font-size:12px;font-weight:600;line-height:1.25;opacity:.8}
+.gab-bas-chapitre .gab-bas-libelle small{font-size:var(--type-note,14px);font-weight:600;line-height:1.25;opacity:.8}
 .gab-bas-chapitre .gab-bas-libelle strong{font-size:15px;font-weight:700;line-height:1.3;overflow-wrap:break-word}
 .gab-bas-chapitre .gab-bas-chevron{flex:none;font-size:24px;font-weight:400;line-height:1}
 .gab-bas-chapitre .gab-bas-suivant{text-align:right}
@@ -135,7 +135,7 @@
   }
   .gab[data-gab-salle="juriste"] .gab-chapitres>.gab-chapitre:last-child>.gab-bas-chapitre:not([hidden]) button{
     padding:7px 11px;
-    font-size:12px;
+    font-size:var(--type-note,14px);
   }
 }
 .gab.gab-page-chapitre .gab-chapitre .gab-bas-chapitre:not([hidden]){
@@ -167,15 +167,15 @@
   min-width:0;
   padding:7px 11px;
   border-radius:9px;
-  font-size:12px;
+  font-size:var(--type-note,14px);
   line-height:1.15;
 }
 .gab[data-gab-salle="educateur"] .educ-bas-nav .gab-bas-precedent{justify-self:start;justify-content:flex-start;text-align:left}
 .gab[data-gab-salle="educateur"] .educ-bas-nav .gab-bas-suivant{justify-self:end;justify-content:flex-end;text-align:right}
 .gab[data-gab-salle="educateur"] .educ-bas-nav .gab-bas-chevron{font-size:20px}
 .gab[data-gab-salle="educateur"] .educ-bas-nav .gab-bas-libelle{gap:2px}
-.gab[data-gab-salle="educateur"] .educ-bas-nav .gab-bas-libelle small{font-size:11px;line-height:1.12}
-.gab[data-gab-salle="educateur"] .educ-bas-nav .gab-nav-cible{font-size:12px;line-height:1.2}
+.gab[data-gab-salle="educateur"] .educ-bas-nav .gab-bas-libelle small{font-size:var(--type-note,14px);line-height:1.12}
+.gab[data-gab-salle="educateur"] .educ-bas-nav .gab-nav-cible{font-size:var(--type-note,14px);line-height:1.2}
 .gab[data-gab-salle="educateur"] .educ-bas-nav .gab-bas-centre{
   display:grid;
   justify-items:center;
@@ -186,13 +186,13 @@
   color:#183f41;
   font-family:var(--sans);
 }
-.gab[data-gab-salle="educateur"] .educ-bas-nav .gab-bas-centre small{color:#5c7a72;font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase}
-.gab[data-gab-salle="educateur"] .educ-bas-nav .gab-bas-centre strong{font-size:13px;font-weight:750;line-height:1.16}
+.gab[data-gab-salle="educateur"] .educ-bas-nav .gab-bas-centre small{color:#5c7a72;font-size:var(--type-note,14px);font-weight:600;letter-spacing:.09em;text-transform:uppercase}
+.gab[data-gab-salle="educateur"] .educ-bas-nav .gab-bas-centre strong{font-size:var(--type-note,14px);font-weight:750;line-height:1.16}
 @media(max-width:700px){
   .gab[data-gab-salle="educateur"] .gab-bas-chapitre.educ-bas-nav{grid-template-columns:1fr 1fr;gap:7px}
   .gab[data-gab-salle="educateur"] .educ-bas-nav .gab-bas-centre{grid-column:1 / -1;grid-row:1}
   .gab[data-gab-salle="educateur"] .educ-bas-nav .gab-bas-lien{width:100%;min-width:0}
   .gab[data-gab-salle="educateur"] .educ-bas-nav .gab-bas-precedent{grid-column:1;grid-row:2}
   .gab[data-gab-salle="educateur"] .educ-bas-nav .gab-bas-suivant{grid-column:2;grid-row:2}
-  .gab[data-gab-salle="educateur"] .educ-bas-nav .gab-nav-cible{font-size:11px}
+  .gab[data-gab-salle="educateur"] .educ-bas-nav .gab-nav-cible{font-size:var(--type-note,14px)}
 }

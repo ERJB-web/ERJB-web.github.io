@@ -2255,19 +2255,24 @@
   // Charge les sept contenus existants uniquement pour la fusion du chapitre Implantation.
   if(langue==="fr"){
     const script=D.createElement("script");
+    let pret, echec;
+    const preparation = new Promise((resolve, reject) => { pret = resolve; echec = reject; });
+    window.ebAttendre?.(preparation);
+    preparation.catch(() => {});
     script.src=new URL(CHEMIN+"implantation/portail.js?v=20261018-fusion-ch03",D.baseURI).href;
     script.onload=()=>{
       const source=$("section.section[data-salle='implantation'] > .section-contenu.gab");
       if(source)fusionnerDossierImplantation(source);
       const active=contenu&&$(".section-contenu.gab",contenu);
       if(active)fusionnerDossierImplantation(active);
+      pret();
     };
-    script.onerror=()=>console.warn("Dossier d'implantation indisponible : chargement du chapitre Implantation incomplet.");
+    script.onerror=()=>echec(new Error("Dossier d'implantation indisponible."));
     D.head.append(script);
   }
   if (langue === "fr") {
     const url = new URL(CHEMIN + "vulgarisation/dossier-contenu-2026.html", D.baseURI).href;
-    fetch(url).then((rep) => {
+    const preparation = fetch(url).then((rep) => {
       if (!rep.ok) throw new Error("Contenu scientifique introuvable : " + rep.status);
       return rep.text();
     }).then((html) => {
@@ -2277,9 +2282,9 @@
       mettreAJourChapitreVulgarisation(source);
       const active = contenu && $(".section-contenu.gab", contenu);
       if (active) mettreAJourChapitreVulgarisation(active);
-    }).catch((err) => {
-      console.warn("Le chapitre Vulgarisation conserve son contenu antérieur faute de chargement scientifique.", err);
     });
+    window.ebAttendre?.(preparation);
+    preparation.catch(err => console.warn("Le dossier actuel n’a pas pu être chargé.", err));
   }
   // Retour arrière, adresse directe et changement de chapitre sans
   // réafficher l'intégralité des chapitres dans la vue publique.

@@ -3,7 +3,86 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<script>(function(){try{var h=document.documentElement;h.classList.add("js");h.classList.add("chargement");setTimeout(function(){h.classList.remove("chargement")},2500);var m=(localStorage.getItem("eb-modes")||"").split(" "),t=+localStorage.getItem("eb-taille")||0,a=location.hash;if(a==="#daltonien"||a==="#colour-blind")m.push("cb");if(a==="#basse-vision"||a==="#low-vision")m.push("lv");m.forEach(function(x){if(/^(cb|lv|hc)$/.test(x))h.classList.add(x)});if(t>0&&t<4)h.classList.add("t"+t)}catch(e){}})();</script>
+<style id="chargement-initial">
+html.chargement{background:#fcfdfb}
+html.chargement body{visibility:hidden}
+html.chargement body>:not(#site-chargement){opacity:0!important;pointer-events:none!important}
+html.chargement body>:not(#site-chargement),html.chargement body>:not(#site-chargement) *{visibility:hidden!important}
+html.chargement::after{content:attr(data-chargement-message);position:fixed;inset:0;display:grid;place-items:center;font:16px/1.6 system-ui,sans-serif;color:#173f52;pointer-events:none}
+html.chargement:has(#site-chargement)::after{content:none}
+html.chargement #site-chargement{visibility:visible;position:fixed;inset:0;z-index:1000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:#fcfdfb;color:#173f52;padding:24px;text-align:center;font:16px/1.6 system-ui,sans-serif}
+#site-chargement button{font:inherit;padding:12px 20px;border:1px solid currentColor;border-radius:8px;cursor:pointer}
+</style>
+<script id="initialisation-site">/* Exécuté dans l'en-tête, avant tout contenu : ne jamais révéler une vue inachevée. */
+(() => {
+  const root = document.documentElement;
+  root.classList.add('js', 'chargement');
+  let navigation = false, dom = false, revelation = false;
+  const preparations = [];
+  window.ebAttendre = promise => { preparations.push(promise); promise.catch(() => {}); };
+  const lang = (root.lang || 'fr').split('-')[0];
+  const messages = {
+    fr: ['Chargement…', 'Le chargement prend plus de temps que prévu.', 'Réessayer'],
+    en: ['Loading…', 'Loading is taking longer than expected.', 'Retry'],
+    es: ['Cargando…', 'La carga está tardando más de lo previsto.', 'Reintentar'],
+    zh: ['正在加载…', '加载时间比预期长。', '重试'],
+    ar: ['جارٍ التحميل…', 'يستغرق التحميل وقتًا أطول من المتوقع.', 'إعادة المحاولة'],
+    ru: ['Загрузка…', 'Загрузка занимает больше времени, чем ожидалось.', 'Повторить']
+  }[lang] || ['Chargement…', 'Le chargement prend plus de temps que prévu.', 'Réessayer'];
+  root.dataset.chargementMessage = messages[0];
+  try {
+    const modes = (localStorage.getItem('eb-modes') || '').split(' ');
+    const taille = +localStorage.getItem('eb-taille') || 0;
+    if (/^#(?:daltonien|colour-blind)$/.test(location.hash)) modes.push('cb');
+    if (/^#(?:basse-vision|low-vision)$/.test(location.hash)) modes.push('lv');
+    modes.filter(m => /^(cb|lv|hc)$/.test(m)).forEach(m => root.classList.add(m));
+    if (taille > 0 && taille < 4) root.classList.add('t' + taille);
+  } catch { /* Les préférences restent facultatives si le stockage est indisponible. */ }
+  let retard = false;
+  const afficherAttente = () => {
+    if (!document.body) return;
+    let status = document.getElementById('site-chargement');
+    if (!status) {
+      status = document.createElement('div');
+      status.id = 'site-chargement';
+      status.setAttribute('role', 'status');
+      status.append(document.createElement('p'));
+      document.body.append(status);
+    }
+    status.querySelector('p').textContent = messages[retard ? 1 : 0];
+    if (retard && !status.querySelector('button')) {
+      const retry = document.createElement('button');
+      retry.textContent = messages[2];
+      retry.onclick = () => location.reload();
+      status.append(retry);
+    }
+  };
+  const attente = setTimeout(() => {
+    retard = true;
+    root.dataset.chargementMessage = messages[1];
+    afficherAttente();
+  }, 12000);
+  const reveler = () => {
+    if (!navigation || !dom || revelation) return;
+    revelation = true;
+    Promise.all(preparations).then(() => document.fonts?.ready).then(() => requestAnimationFrame(() => requestAnimationFrame(() => {
+      clearTimeout(attente);
+      document.getElementById('site-chargement')?.remove();
+      root.classList.remove('chargement');
+      delete root.dataset.chargementMessage;
+    }))).catch(() => {
+      retard = true;
+      afficherAttente();
+    });
+  };
+  document.addEventListener('eb:navigation-prete', () => { navigation = true; reveler(); });
+  document.addEventListener('DOMContentLoaded', () => {
+    dom = true;
+    afficherAttente();
+    reveler();
+  }, {once:true});
+})();
+</script>
 <title translate="no">Éric Bernier</title>
 <meta name="description" content="Éric Bernier، طالب دكتوراه في الصحة العامة (الأنظمة والمنظمات والسياسات الصحية) في ESPUM، وقانوني ورائد أعمال ومربٍّ متخصص. يتناول بحثه الاستجابة المشتركة بين القطاعات للاحتياجات الاجتماعية المتزامنة لدى كبار السن المتابَعين في منازلهم عبر الدعم المنزلي في مراكز CLSC.">
 <meta name="theme-color" content="#fcfdfb">
@@ -16,13 +95,13 @@
 <link rel="alternate" hreflang="ru" href="https://erjb-web.github.io/ru/">
 <link rel="alternate" hreflang="x-default" href="https://erjb-web.github.io/">
 <link rel="icon" href="../assets/favicon.svg?v=3fa5b764af" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/site.css?v=b7d36c73b9">
-<link rel="stylesheet" href="../assets/hall-realiste.css?v=35ae27df7d">
-<link rel="stylesheet" href="../assets/vulgarisation-studio.css?v=20261015studio5">
+<link rel="stylesheet" href="../assets/site.css?v=79d38aa70d">
+<link rel="stylesheet" href="../assets/hall-realiste.css?v=b75f2e010e">
+<link rel="stylesheet" href="../assets/vulgarisation-studio.css?v=7ce6bd96ec">
 <link rel="stylesheet" href="../assets/vulgarisation-editorial.css?v=6501e1f73c">
 <link rel="stylesheet" href="../assets/revue-presse.css?v=1398f2cb44">
-<link rel="stylesheet" href="../assets/gabarit-salles.css?v=57358830ab">
-<link rel="stylesheet" href="../assets/navigation-chapitres.css?v=df39f69bb1">
+<link rel="stylesheet" href="../assets/gabarit-salles.css?v=68880a0091">
+<link rel="stylesheet" href="../assets/navigation-chapitres.css?v=dcb38e73d2">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Éric Bernier">
 <meta property="og:description" content="Éric Bernier، طالب دكتوراه في الصحة العامة (الأنظمة والمنظمات والسياسات الصحية) في ESPUM، وقانوني ورائد أعمال ومربٍّ متخصص. يتناول بحثه الاستجابة المشتركة بين القطاعات للاحتياجات الاجتماعية المتزامنة لدى كبار السن المتابَعين في منازلهم عبر الدعم المنزلي في مراكز CLSC.">
@@ -31,17 +110,17 @@
 <meta property="og:locale" content="ar_AR">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Éric Bernier","url":"https://erjb-web.github.io/","image":"https://erjb-web.github.io/assets/portrait.jpg","jobTitle":"طالب دكتوراه في الصحة العامة · ESPUM · CRCHUM","email":"mailto:eric.bernier.1@umontreal.ca","affiliation":[{"@type":"CollegeOrUniversity","name":"École de santé publique de l’Université de Montréal (ESPUM)"},{"@type":"ResearchOrganization","name":"Centre de recherche du CHUM (CRCHUM)"}],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Université Paris Panthéon-Assas"},{"@type":"CollegeOrUniversity","name":"Université de Bretagne Occidentale"}],"knowsAbout":["حوكمة السياسات الصحية وتقييمها","المقاربة المشتركة بين القطاعات في خط الرعاية الأول","الشيخوخة وفقدان الاستقلالية وسياسات دعم البقاء في المنزل"],"sameAs":["https://orcid.org/0009-0001-4236-4932"]}</script>
-<script src="../assets/hall-marche.js?v=b4807498ff" defer></script>
+<script src="../assets/hall-marche.js?v=d23cdeb1d8" defer></script>
 <script src="../assets/hall-ciel.js?v=2da27089a1" defer></script>
-<script src="../assets/site.js?v=db4b2f4add" defer></script>
+<script src="../assets/site.js?v=7da8c9fbcf" defer></script>
 <script src="../assets/revue-presse.js?v=afc8d93127" defer></script>
-<script src="../assets/vulgarisation-studio.js?v=616a84e6b8" defer></script>
-<script src="../assets/vulgarisation-editorial.js?v=1c60acd3f4" defer></script>
+<script src="../assets/vulgarisation-studio.js?v=74b72eabde" defer></script>
+<script src="../assets/vulgarisation-editorial.js?v=e804544661" defer></script>
 <script src="../assets/chapitres/catalogue.js?v=ac6a16e852" defer></script>
-<script src="../assets/gabarit-salles.js?v=ca3afffbc9" defer></script>
+<script src="../assets/gabarit-salles.js?v=f701436e25" defer></script>
 <script src="../assets/audience.js?v=32f18e181a" data-audience-website-id="782c7df7-c2cf-4578-bddc-fa02662324af" data-audience-domaines="erjb-web.github.io" defer></script>
 <link rel="stylesheet" href="../assets/bibliographie.css?v=f50b23358d"><script src="../assets/bibliographie.js?v=cafe845638" defer></script>
-<link rel="stylesheet" href="../assets/typographie.css?v=04aca86726">
+<link rel="stylesheet" href="../assets/typographie.css?v=dadfbb6b7c">
 </head>
 <body>
 <a class="evitement" href="#contenu">الانتقال إلى المحتوى</a>

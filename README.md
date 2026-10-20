@@ -18,6 +18,10 @@ Les pages HTML publiées comportent des retouches éditoriales plus récentes qu
 
 Avant publication : `node outils/verifier-navigation.js`, `node tests/generation-navigation.cjs`, `node tests/navigation-unique.cjs` (jsdom@26), puis le contrôle typographique et la vérification visuelle sur ordinateur et téléphone.
 
+Le démarrage commun provient de `assets/chargement.js` et `outils/chargement-page.js`. Il attend la navigation, les compléments de contenu et les styles avant de révéler la page. Un chargement interrompu propose de réessayer et ne réaffiche pas une présentation intermédiaire. `node tests/chargement-typographie.cjs` vérifie ce comportement et le renouvellement des versions des ressources.
+
+Après modification d’un script ou d’une feuille, exécuter `node outils/harmoniser-typographie.js`, puis `node outils/harmoniser-typographie.js --check`. Cette commande synchronise aussi le démarrage et attribue aux ressources locales une version calculée sur leur contenu. Ne pas réintroduire des corrections de libellés après affichage ni des tailles réduites propres à une salle : modifier le HTML/source et la charte commune.
+
 La version russe renvoie vers l’affiche française existante. La lecture des sections dont le texte a changé utilise la voix de l’appareil pour éviter de lire un ancien enregistrement.
 
 ## Aperçu local
