@@ -2484,6 +2484,29 @@ html:is(.hc,.lv) .gab[data-gab-salle="gestionnaire"] .carte-vitrine{
  .gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture .methode-lien-grand-public{width:100%;flex:1 1 auto}
 }
 
+
+/* Même bouton, une fois placé à gauche du bandeau de statut. */
+.gab[data-gab-salle="recherche"] > .these-validation-ligne .methode-lien-grand-public{
+ display:inline-flex!important;align-items:center!important;gap:12px!important;
+ width:auto!important;max-width:min(100%,28rem)!important;flex:0 0 auto!important;
+ padding:5px 14px 5px 5px!important;border:1px solid #f0d7b0!important;border-radius:999px!important;
+ background:#fffdf8!important;color:#12243c!important;text-align:left!important;text-decoration:none!important;
+ font-size:15px!important;font-weight:700!important;line-height:1.2!important;
+ box-shadow:0 14px 28px -16px rgba(180,110,40,.55)!important;
+}
+.gab[data-gab-salle="recherche"] > .these-validation-ligne .methode-lien-grand-public:hover{background:#fff6ea!important;color:#12243c!important;text-decoration:none!important}
+.gab[data-gab-salle="recherche"] > .these-validation-ligne .methode-lien-visage{
+ width:54px!important;height:54px!important;border-radius:999px!important;object-fit:cover!important;object-position:center 18%!important;flex:none!important;display:block!important;
+}
+.gab[data-gab-salle="recherche"] > .these-validation-ligne .methode-lien-mots{display:flex!important;flex-direction:column!important;min-width:0!important}
+.gab[data-gab-salle="recherche"] > .these-validation-ligne .methode-lien-kicker{
+ display:block!important;font-size:11px!important;font-weight:800!important;letter-spacing:.08em!important;text-transform:uppercase!important;color:#c46a12!important;text-decoration:none!important;
+}
+.gab[data-gab-salle="recherche"] > .these-validation-ligne .methode-lien-label{
+ display:block!important;font-size:15px!important;font-weight:700!important;color:#12243c!important;line-height:1.2!important;text-decoration:none!important;
+}
+.gab[data-gab-salle="recherche"] > .these-validation-ligne .methode-lien-fleche{color:#c46a12!important;font-size:18px!important;line-height:1!important;flex:none!important;text-decoration:none!important}
+
 /* Méthodologie : bouton grand public à gauche, hors menus de navigation. */
 .gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture{
  justify-content:flex-start!important;margin:0 0 24px!important;min-height:0!important;
