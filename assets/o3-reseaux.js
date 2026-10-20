@@ -57,7 +57,7 @@
     if (!document.querySelector("link[data-o3-style]")) {
       const feuille = document.createElement("link");
       feuille.rel = "stylesheet";
-      feuille.href = racine + "assets/o3-reseaux.css?v=20261019-compare-20261020";
+      feuille.href = racine + "assets/o3-reseaux.css?v=20261020-o3-condense-v3";
       feuille.dataset.o3Style = "1";
       document.head.appendChild(feuille);
     }
