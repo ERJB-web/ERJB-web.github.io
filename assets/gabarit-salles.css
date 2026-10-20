@@ -2617,3 +2617,40 @@ html[data-methodo-lecture="grand-public"] .mgp-safeguards p{font-size:15px!impor
 html[data-methodo-lecture="grand-public"] .mgp-final{padding:25px;background:#eaf5eb;border:1px solid #c9e2cb;border-left:6px solid #51a73b;border-radius:15px}
 @media(max-width:850px){html[data-methodo-lecture="grand-public"] .mgp-trail{grid-template-columns:repeat(3,minmax(0,1fr))}html[data-methodo-lecture="grand-public"] .mgp-actors{grid-template-columns:1fr}}
 @media(max-width:620px){html[data-methodo-lecture="grand-public"] .mgp-situation{grid-template-columns:1fr}html[data-methodo-lecture="grand-public"] .mgp-trail{grid-template-columns:1fr 1fr}html[data-methodo-lecture="grand-public"] .mgp-heading>span{width:52px;height:52px;font-size:23px}html[data-methodo-lecture="grand-public"] .mgp-heading{gap:11px}html[data-methodo-lecture="grand-public"] .mgp-steps,html[data-methodo-lecture="grand-public"] .mgp-roundtable,html[data-methodo-lecture="grand-public"] .mgp-safeguards{grid-template-columns:1fr}html[data-methodo-lecture="grand-public"] .mgp-network{gap:7px}html[data-methodo-lecture="grand-public"] .mgp-network-hub,html[data-methodo-lecture="grand-public"] .mgp-network-partner{width:95px;height:95px}}
+
+
+/* O3 : repères concis au premier pilote ; aucun effet sur les menus. */
+#these-methode-o3 .o3-pilote-synthese,
+.gab[data-gab-salle="recherche"] .o3-pilote-synthese {
+  width:100%;min-width:0;margin:15px 0 20px;box-sizing:border-box;
+}
+.o3-pilote-reperes{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:17px;
+}
+.o3-pilote-repere{
+  --o3-ton:#26669d;
+  display:flex;flex-direction:column;justify-content:center;min-width:0;
+  padding:14px 12px 13px;border:1px solid #d5e3e9;border-top:3px solid var(--o3-ton);
+  border-radius:11px;background:#f7fbfd;text-align:left;
+}
+.o3-pilote-repere--b{--o3-ton:#18758b;background:#f2fafb}
+.o3-pilote-repere--c{--o3-ton:#27816e;background:#f2f9f5}
+.o3-pilote-repere--d{--o3-ton:#98612a;background:#fcf8f1}
+.o3-pilote-repere strong{display:block;color:var(--o3-ton);font-size:clamp(27px,2.7vw,35px);line-height:1.1;letter-spacing:-.035em;font-weight:800;font-variant-numeric:tabular-nums;text-align:left}
+.o3-pilote-repere strong small{font-size:.58em;letter-spacing:-.02em}
+.o3-pilote-repere span{margin-top:6px;color:#355568;font-size:15px;line-height:1.35;font-weight:600;text-align:left}
+.o3-pilote-seuil-titre{margin:1px 0 9px;color:#23445a;font-size:16px;font-weight:750;text-align:left}
+.o3-pilote-synthese .o3-pilote-seuils{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0}
+.o3-pilote-synthese .revision-threshold{padding:14px 14px 12px;min-width:0}
+.o3-pilote-synthese .revision-threshold-number{display:block;margin:10px 0 7px;font-size:clamp(28px,2.7vw,36px);line-height:1.15;font-weight:850;font-variant-numeric:tabular-nums;text-align:left}
+.o3-pilote-synthese .revision-threshold-label{display:block;text-align:left}
+.o3-pilote-synthese .revision-threshold p{margin:4px 0 0;font-size:16px;line-height:1.45;text-align:left}
+.o3-pilote-note{margin:11px 0 8px;color:#516874;font-size:14px;line-height:1.55;text-align:justify;hyphens:auto}
+.o3-pilote-synthese details.revision-details{margin-top:10px}
+@media(max-width:760px){
+ .o3-pilote-reperes{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .o3-pilote-synthese .o3-pilote-seuils{grid-template-columns:1fr;gap:8px}
+ .o3-pilote-synthese .revision-threshold{padding:11px 14px}
+ .o3-pilote-synthese .revision-threshold-number{margin:5px 0}
+}
+@media(max-width:370px){.o3-pilote-reperes{gap:7px}.o3-pilote-repere{padding:11px 9px}.o3-pilote-repere strong{font-size:27px}}
