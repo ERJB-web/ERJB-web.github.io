@@ -833,13 +833,13 @@
       const style = el("style");
       style.id = "css-o2-kappa-compact";
       style.textContent = [
-        ".these .o2-kappa-bandeau{display:grid;grid-template-columns:minmax(140px,.8fr) auto minmax(0,2.2fr);align-items:center;gap:15px;width:100%;margin:15px 0;padding:15px 19px;border:1px solid #cbe4e3;border-left:4px solid #148b85;border-radius:13px;background:linear-gradient(110deg,#f0f9f7,#fff 74%);box-shadow:0 4px 14px rgba(21,80,83,.045);box-sizing:border-box}",
-        ".these .o2-kappa-bandeau .o2-kappa-label{font-size:11px;font-weight:800;line-height:1.35;letter-spacing:.07em;text-transform:uppercase;color:#27726e}",
-        ".these .o2-kappa-bandeau .o2-kappa-valeur{font-size:clamp(22px,2.5vw,31px);line-height:1.1;font-weight:850;white-space:nowrap;color:#087e79;font-variant-numeric:tabular-nums}",
-        ".these .o2-kappa-bandeau .o2-kappa-lecture{font-size:13px;line-height:1.5;color:#29444a;text-align:left;min-width:0}",
-        ".these .o2-kappa-bandeau .o2-kappa-lecture strong{font-weight:780;color:#165b59}",
-        ".these .o2-kappa-bandeau .o2-kappa-limite{display:block;margin-top:3px;color:#736044;font-size:12px}",
-        "@media(max-width:680px){.these .o2-kappa-bandeau{grid-template-columns:1fr auto;gap:7px 12px;padding:13px 15px}.these .o2-kappa-lecture{grid-column:1/-1}}"
+        ".these .o2-kappa-bandeau{display:grid;grid-template-columns:minmax(0,1fr) max-content;align-items:center;gap:5px 17px;width:100%;min-height:0;margin:12px 0;padding:13px 18px;border:1px solid #cbe4e3;border-left:4px solid #148b85;border-radius:13px;background:linear-gradient(110deg,#f0f9f7,#fff 74%);box-shadow:0 4px 14px rgba(21,80,83,.045);box-sizing:border-box}",
+        ".these .o2-kappa-bandeau .o2-kappa-label{display:block;min-width:0;font-size:14px!important;font-weight:800;line-height:1.35;letter-spacing:.035em;text-transform:uppercase;color:#27726e}",
+        ".these .o2-kappa-bandeau .o2-kappa-valeur{display:block;font-size:clamp(35px,4vw,44px)!important;line-height:1.05;font-weight:850;white-space:nowrap;color:#087e79;font-variant-numeric:tabular-nums;letter-spacing:-.03em}",
+        ".these .o2-kappa-bandeau .o2-kappa-lecture{grid-column:1/-1;font-size:16px!important;line-height:1.48;color:#29444a;text-align:left!important;min-width:0;margin-top:2px;overflow-wrap:normal;hyphens:none}",
+        ".these .o2-kappa-bandeau .o2-kappa-lecture strong{font-weight:800;color:#165b59}",
+        ".these .o2-kappa-bandeau .o2-kappa-limite{display:inline;color:#736044;font-size:15px!important;line-height:1.48;margin-left:8px}",
+        "@media(max-width:440px){.these .o2-kappa-bandeau{gap:6px 10px;padding:11px 13px}.these .o2-kappa-bandeau .o2-kappa-label{font-size:13px!important}.these .o2-kappa-bandeau .o2-kappa-valeur{font-size:35px!important}.these .o2-kappa-bandeau .o2-kappa-limite{display:block;margin:4px 0 0}}"
       ].join("\n");
       D.head.append(style);
     }
