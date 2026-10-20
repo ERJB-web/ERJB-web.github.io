@@ -584,3 +584,8 @@ html:not([data-methodo-lecture="grand-public"]) body .these #these-methode-o3 .r
  }
  html:not([data-methodo-lecture="grand-public"]) body .these #methode-o2-6 .o2-var-carte{padding:12px!important}
 }
+
+/* Contribution scientifique : trois paragraphes, emphase ponctuelle. */
+.these .mat-sc__force-text .mat-sc__force-phrase{font-weight:400;margin:0 0 .9em}
+.these .mat-sc__force-text .mat-sc__force-phrase:last-child{margin-bottom:0}
+.these .mat-sc__force-text .mat-sc__force-phrase strong{font-weight:650}
