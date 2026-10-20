@@ -1032,6 +1032,41 @@
         else if (titreFaisabilite) titreFaisabilite.after(synthese);
         else corps.prepend(synthese);
       }
+
+      // O3 : données de faisabilité présentées ici en pleine largeur, jamais dans la colonne méthodologique.
+      if (!corps.querySelector(".fais-pilote-o3")) {
+        const pilotage = el("section", "fais-pilote-o3",
+          `<header class="fais-pilote-en-tete"><span>O3 · Faisabilité du terrain</span><h3>Repères de collecte et de participation</h3></header>
+          <div class="fais-pilote-bande fais-pilote-bande--collecte">
+            <div class="fais-pilote-bande-titre"><span>01 · Pilote</span><h4>Paramètres de collecte</h4></div>
+            <div class="fais-pilote-chiffres" aria-label="Quatre paramètres du pilote">
+              <div><strong>4</strong><span>Situations pilotes</span></div>
+              <div><strong>12 <small>mois</small></strong><span>Fenêtre rétrospective</span></div>
+              <div><strong>2 <small>relais</small></strong><span>Profondeur maximale</span></div>
+              <div><strong>2 <small>relances</small></strong><span>Par partenaire · 3 semaines</span></div>
+            </div>
+          </div>
+          <div class="fais-pilote-bande fais-pilote-bande--participation">
+            <div class="fais-pilote-bande-titre"><span>02 · Participation SAD</span><h4>Trois niveaux de vigilance</h4></div>
+            <div class="fais-pilote-seuils" aria-label="Scénarios selon la participation des professionnels du soutien à domicile">
+              <div class="fais-pilote-seuil fais-pilote-seuil--cible"><strong>≥ 80 %</strong><span><b>Cible</b><small>Vérifier la couverture</small></span></div>
+              <div class="fais-pilote-seuil fais-pilote-seuil--vigilance"><strong>65–79 %</strong><span><b>Vigilance</b><small>Relancer et comparer</small></span></div>
+              <div class="fais-pilote-seuil fais-pilote-seuil--prudence"><strong>&lt; 65 %</strong><span><b>Prudence</b><small>Limiter l’interprétation</small></span></div>
+            </div>
+          </div>
+          <p class="fais-pilote-note">Seuils indicatifs propres à l’étude, sans garantie de validité. Les taux des professionnels SAD et des organismes partenaires sont calculés séparément.</p>
+          <details class="fais-pilote-science"><summary>Précisions scientifiques : dénominateurs, non-réponses et analyses de sensibilité</summary>
+            <div class="fais-pilote-denoms">
+              <div><strong>Professionnels SAD</strong><span>Répondants SAD ÷ professionnels admissibles invités × 100</span></div>
+              <div><strong>Partenaires</strong><span>Organismes répondants ÷ organismes partenaires invités × 100</span></div>
+            </div>
+            <summary>Non-réponse, analyses de sensibilité et références</summary><p><strong>Dénominateurs séparés :</strong> calculer la proportion des professionnels SAD répondants parmi les invités admissibles, puis celle des partenaires répondants parmi les organismes sollicités ; décrire la couverture par rôle, secteur et territoire ainsi que les liens simplement nommés par des tiers. <strong>Objectif ≥ 80 % :</strong> cible de collecte, non garantie de validité. <strong>Si 65 à 79 % :</strong> documenter les profils des non-répondants, renforcer les relances autorisées, comparer les indicateurs selon la matrice large et les liens confirmés, et limiter les conclusions aux tendances descriptives suffisamment stables. <strong>Si moins de 65 % (par exemple 55 %) :</strong> ne pas présenter les mesures de structure comme une représentation exhaustive du réseau ; privilégier les liens observés ou documentés, la description qualitative et un périmètre resserré, voire prolonger la collecte après examen de faisabilité. Ces seuils sont des règles de prudence proposées pour l’étude, non des seuils de validité universels.</p><p><strong>Contrôle du biais :</strong> comparer fonctions et secteurs des répondants et non-répondants si ces informations sont disponibles, examiner la part des alters uniquement nommés sans confirmation, et recalculer taille, diversité et indicateurs admissibles après exclusion des liens non vérifiés. Les différences et les nœuds potentiellement manquants seront discutés ; aucun zéro ne sera imputé à une non-réponse. Les indicateurs particulièrement sensibles à l’incomplétude ne seront pas interprétés lorsque leur stabilité ne peut pas être établie (<a href="https://doi.org/10.1016/j.socnet.2021.04.003" rel="noopener" target="_blank">collecte des données de réseaux en organisations, 2021</a> ; <a href="https://doi.org/10.3389/fpsyg.2018.02766" rel="noopener" target="_blank">traitement de la non-réponse, 2018</a>).</p>
+          </details>`
+        );
+        const syntheseFais = corps.querySelector(".fais-capacites-projet");
+        if (syntheseFais) syntheseFais.after(pilotage);
+        else corps.prepend(pilotage);
+      }
     }
 
     // La page Contexte ouvre sur le titre complet du projet de thèse.
@@ -2187,63 +2222,32 @@
   }
   completerMethodologieO2O3();
 
-  // O3 uniquement : chiffres lisibles et triade de décision à la première apparition.
-  // Fonctionne aussi avec le HTML récent, où l'ancienne grille du pilote a été retirée.
-  function synthetiserPilotageO3() {
+  // Le pilote et les seuils relèvent du chapitre Faisabilité, pas de la grille QUAN/QUAL d'O3.
+  function retirerDoublonsPilotageO3() {
     if (langue !== "fr") return;
     const o3 = D.querySelector("#these-methode-o3");
-    if (!o3 || o3.querySelector(".o3-pilote-synthese")) return;
-    const ancienneParticipation = o3.querySelector(".revision-demo--participation");
-    const ancienDetail = ancienneParticipation?.querySelector("details.revision-details");
+    if (!o3) return;
+    const texte = el => (el?.textContent || "").replace(/\\s+/g, " ").trim().toLocaleLowerCase("fr");
     const labels = ["situations pilotes", "fenêtre de repérage", "borne de collecte", "participation visée"];
-    const texte = (x) => (x?.textContent || "").replace(/\s+/g," ").trim().toLocaleLowerCase("fr");
-    const ancienneGrille = Array.from(o3.querySelectorAll("div,section,ul"))
-      .filter((el) => !el.querySelector("table") &&
-        el.children.length >= 3 && el.children.length <= 8 &&
-        el.textContent.length < 1800 && labels.every((label) => texte(el).includes(label)))
-      .sort((a,b) => a.textContent.length-b.textContent.length)[0];
-    const insertion = ancienneGrille || o3.querySelector(".o3-lecture-quan");
-    if (!insertion) return;
-
-    const bloc = D.createElement("section");
-    bloc.className = "o3-pilote-synthese";
-    bloc.setAttribute("aria-label","Repères du pilote et scénarios de participation");
-    bloc.innerHTML =
-      '<div class="o3-pilote-tete"><span>FAISABILITÉ VÉRIFIABLE · O3</span><h6>Le pilote : repères et décision avant la collecte</h6></div>' +
-      '<div class="o3-pilote-reperes" aria-label="Quatre paramètres de collecte">'+
-        '<div class="o3-pilote-repere o3-pilote-repere--a"><strong>4</strong><span>Situations pilotes</span></div>'+
-        '<div class="o3-pilote-repere o3-pilote-repere--b"><strong>12 <small>mois</small></strong><span>Fenêtre rétrospective</span></div>'+
-        '<div class="o3-pilote-repere o3-pilote-repere--c"><strong>2 <small>relais</small></strong><span>Profondeur maximale</span></div>'+
-        '<div class="o3-pilote-repere o3-pilote-repere--d"><strong>2 <small>relances</small></strong><span>Par partenaire · 3 semaines</span></div>'+
-      '</div>'+
-      '<p class="o3-pilote-seuil-titre">Participation des professionnels du soutien à domicile · trois niveaux de vigilance</p>'+
-      '<div class="revision-thresholds o3-pilote-seuils" aria-label="Seuils de prudence proposés">'+
-        '<div class="revision-threshold revision-threshold--target"><span class="revision-threshold-label">CIBLE</span><span class="revision-threshold-number">≥ 80 %</span><p>Vérifier la couverture.</p></div>'+
-        '<div class="revision-threshold revision-threshold--watch"><span class="revision-threshold-label">VIGILANCE</span><span class="revision-threshold-number">65–79 %</span><p>Relancer et comparer.</p></div>'+
-        '<div class="revision-threshold revision-threshold--limited"><span class="revision-threshold-label">PRUDENCE</span><span class="revision-threshold-number">&lt; 65 %</span><p>Limiter l’interprétation.</p></div>'+
-      '</div>'+
-      '<p class="o3-pilote-note">Seuils indicatifs propres à cette étude, sans garantie de validité ; taux des partenaires calculé séparément.</p>';
-    if (ancienDetail) {
-      const detail = ancienDetail.cloneNode(true);
-      const summary = detail.querySelector("summary");
-      if (summary) summary.textContent = "Détails scientifiques : dénominateurs et contrôle des non-réponses";
-      bloc.append(detail);
-    }
-    if (ancienneGrille) ancienneGrille.replaceWith(bloc);
-    else insertion.after(bloc);
-
-    // La succession des étapes reste intégrale ; seul le rappel des trois chiffres disparaît.
-    const construction = o3.querySelector(".revision-demo:not(.revision-demo--participation) .revision-reperes");
-    if (construction) construction.remove();
-    if (ancienneParticipation) {
-      const fiche = ancienneParticipation.closest("dl.methode-fiche");
-      const ficheTitre = fiche?.querySelector("dt");
-      if (fiche && /non.réponse et robustesse du réseau/i.test(texte(ficheTitre))) fiche.remove();
-      else ancienneParticipation.remove();
-    }
-    o3.dataset.pilotageSynthese = "ok";
+    const ancienBloc = Array.from(o3.querySelectorAll("div,section,ul"))
+      .filter(el => !el.querySelector("table") && el.children.length >= 3 &&
+        el.children.length <= 8 && el.textContent.length < 1800 &&
+        labels.every(label => texte(el).includes(label)))
+      .sort((a,b) => a.textContent.length - b.textContent.length)[0];
+    if (ancienBloc) ancienBloc.remove();
+    o3.querySelectorAll(".o3-pilote-synthese").forEach(el => el.remove());
+    o3.querySelectorAll(".revision-demo--participation").forEach(el => {
+      const fiche = el.closest("dl.methode-fiche");
+      const dt = fiche?.querySelector("dt");
+      if (fiche && /non.réponse et robustesse du réseau/i.test(texte(dt))) fiche.remove();
+      else el.remove();
+    });
+    // Conservation des étapes détaillées, sans seconde ligne de chiffres.
+    const chiffresRepetés = o3.querySelector(".revision-demo:not(.revision-demo--participation) .revision-reperes");
+    if (chiffresRepetés) chiffresRepetés.remove();
+    o3.dataset.pilotageSynthese = "transfere-faisabilite";
   }
-  synthetiserPilotageO3();
+  retirerDoublonsPilotageO3();
 
   $$("section.section[data-salle] > .section-contenu").forEach(transformer);
   observerSommaires(D);
