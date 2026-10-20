@@ -248,7 +248,43 @@
   else if(espaceExemples)espaceExemples.append(volet);
   else cibleO3.append(volet);
 }
+
+    // Tableau comparatif validé : libellés volontairement inchangés.
+    zone.querySelectorAll("[data-o3-choix-quantitatif]").forEach(el=>el.remove());
+    const comparatif = document.createElement("section");
+    comparatif.className = "o3-choix-quantitatif";
+    comparatif.dataset.o3ChoixQuantitatif = "1";
+    comparatif.setAttribute("aria-labelledby", "o3-choix-quantitatif-titre");
+    comparatif.innerHTML = `
+      <header class="o3-choix-quantitatif__entete">
+        <span>O3 · Volet quantitatif</span>
+        <h3 id="o3-choix-quantitatif-titre">Deux options méthodologiques</h3>
+      </header>
+      <div class="o3-choix-quantitatif__defilement" role="region" tabindex="0" aria-label="Comparaison des deux options méthodologiques">
+        <table>
+          <thead><tr><th scope="col">Critère</th><th scope="col">O3-A · Rétrospective</th><th scope="col">O3-B · Prospective</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Faisabilité immédiate</th><td><strong>Meilleure</strong></td><td>Conditionnelle aux partenariats</td></tr>
+            <tr><th scope="row">Biais de mémoire</th><td>Plus important</td><td>Plus limité</td></tr>
+            <tr><th scope="row">Évolution du réseau</th><td>Reconstituée</td><td><strong>Observée dans le temps</strong></td></tr>
+            <tr><th scope="row">Collaborations intersectorielles</th><td>Reconstituées après coup</td><td>Documentées au fil des événements</td></tr>
+            <tr><th scope="row">Participation du patient</th><td>Possible</td><td>Plus facilement intégrée au suivi</td></tr>
+            <tr><th scope="row">Risque de réactivité des équipes</th><td>Plus faible</td><td>Plus élevé</td></tr>
+            <tr><th scope="row">Durée de collecte</th><td>Potentiellement plus courte</td><td>Au moins 12 mois</td></tr>
+            <tr><th scope="row">Charge éthique et logistique</th><td>Modérée à importante</td><td>Importante</td></tr>
+            <tr><th scope="row">Risque de perte de participants</th><td>Plus limité</td><td>Plus élevé</td></tr>
+            <tr><th scope="row">Possibilité de documenter l'absence de réponse</th><td>Bonne si les situations sans orientation sont incluses</td><td>Bonne si les besoins non pris en charge sont suivis</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="o3-choix-quantitatif__precision"><strong>Repères :</strong> A examine les 12 derniers mois ; B suit les situations durant 12 mois, avec des questionnaires trimestriels. Le devis A reste celui présenté à ce stade.</p>`;
     ajouterOptionProspective(vueO3, espaceExemples, cibleO3, zone);
+    const optionProspective = zone.querySelector("[data-o3-devis-prospectif]");
+    if (optionProspective) {
+      optionProspective.before(comparatif);
+      // Ordre de fin d'O3 : comparaison, option prospective, puis galerie.
+      if (module.parentElement === optionProspective.parentElement) optionProspective.after(module);
+    }
     modulesInitialises.add(module);
     // Accès immédiat à la galerie depuis le début de l'objectif O3.
     const teteO3 = cibleO3.querySelector(":scope > .methode-objectif-tete");
