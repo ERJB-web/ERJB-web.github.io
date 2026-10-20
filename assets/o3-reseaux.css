@@ -233,7 +233,7 @@
 #these-methode-o3 .o3-devis-retro h3 {padding:0!important;margin:9px 0 13px!important;border:0!important;font-size:clamp(23px,2.55vw,33px)!important;font-weight:810!important;letter-spacing:-.03em;line-height:1.2!important;text-align:left!important;color:#193d49!important;}
 #these-methode-o3 .o3-devis-retro h3 em {font-style:normal;color:#187c71;}
 #these-methode-o3 .o3-devis-retro p {padding:0;margin:0 0 15px;font-size:16px!important;line-height:1.58;text-align:justify;color:#304c56;}
-#these-methode-o3 .o3-devis-retro__renvoi {display:inline-flex;align-items:center;gap:10px;padding:9px 14px;border-radius:999px;border:1px solid #b5d7d4;background:#fff;color:#126b70;font:750 14px/1.4 inherit;cursor:pointer;text-align:left;}
+#these-methode-o3 .o3-devis-retro__renvoi {display:inline-flex;align-items:center;gap:10px;padding:9px 14px;border-radius:999px;border:1px solid #b5d7d4;background:#fff;color:#126b70;font-size:14px;font-weight:750;line-height:1.4;font-family:inherit;cursor:pointer;text-align:left;}
 #these-methode-o3 .o3-devis-retro__renvoi:hover,#these-methode-o3 .o3-devis-retro__renvoi:focus-visible {background:#e0f3ed;outline-offset:3px;}
 #these-methode-o3 .o3-devis-retro__chiffres {display:grid;grid-template-columns:1fr;gap:8px;min-width:0;}
 #these-methode-o3 .o3-devis-retro__chiffres>div {display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 15px;border:1px solid #d2e6e7;background:rgba(255,255,255,.85);border-radius:12px;min-height:68px;}
