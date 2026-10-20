@@ -1420,7 +1420,11 @@
       const bandeauValidation = el("div", "these-validation-bandeau");
       bandeauValidation.setAttribute("role", "note");
       bandeauValidation.textContent = "Sujet de thèse suggéré par l'étudiant, en réflexion provisoire soumis à validation";
-      sc.prepend(bandeauValidation);
+      const ligneStatut = el("div", "these-validation-ligne");
+      const lienLecture = $(".gab-methode-ligne-lecture", sc);
+      if (lienLecture) ligneStatut.append(lienLecture);
+      ligneStatut.append(bandeauValidation);
+      sc.prepend(ligneStatut);
     }
     // La page publique (hors salle immersive) doit elle aussi montrer
     // un seul chapitre dès l'ouverture : le chapitre demandé ou le premier.
@@ -1616,6 +1620,7 @@
     zone.classList.toggle("gab-rubrique-complete", navigationParPorte(zone));
     liste.forEach((chapitre, i) => {
       const visible = ouverte && (navigationParPorte(zone) || i === cible);
+      if (ouverte && i === cible) zone.dataset.chapitreOuvert = chapitre.dataset.gabSlug || "";
       chapitre.hidden = !visible;
       chapitre.inert = !visible;
       chapitre.classList.toggle("gab-page-active", ouverte && i === cible);
