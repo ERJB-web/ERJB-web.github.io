@@ -443,7 +443,25 @@
       });
     }
   }
+  // Clarifier l’encadré scientifique déjà présent, sans le déplacer ni intervenir dans les menus.
+  function clarifierContribution(zone) {
+    if (!zone) return;
+    const paragraphes = Array.from(zone.querySelectorAll("p"));
+    const principal = paragraphes.find(p => p.textContent.includes("Cette recherche vise à comprendre comment s’organise la réponse intersectorielle") && p.textContent.includes("Sa force est de relier"));
+    if (!principal || principal.dataset.theseContributionClarifiee === "1") return;
+    const suite = paragraphes.find(p => p !== principal && p.textContent.includes("En comparant ce qui") && p.textContent.includes("coconstruire"));
+    principal.innerHTML = "<strong>Question centrale :</strong> comment les acteurs de la santé, du social, du communautaire et des autres secteurs <strong>coopèrent-ils</strong> pour répondre aux personnes aînées à domicile qui cumulent <strong>besoins sociaux et une ou plusieurs morbidités</strong> ? La thèse relie <strong>O1 — les profils de besoins concomitants documentés</strong>, <strong>O2 — la réponse intersectorielle potentiellement accessible sur les territoires</strong> et <strong>O3 — les collaborations réellement mobilisées autour des situations suivies par le SAD</strong>.";
+    principal.dataset.theseContributionClarifiee = "1";
+    principal.classList.add("these-contribution-texte-justifie");
+    if (suite) {
+      suite.innerHTML = "<strong>Apport scientifique :</strong> confronter les ressources mobilisables aux <strong>réseaux de coordination effectifs</strong>, pour comprendre les écarts et coconstruire des améliorations adaptées aux territoires. Sans confondre <strong>présence d’un service, coopération entre secteurs et aide effectivement reçue</strong>.";
+      suite.classList.add("these-contribution-texte-justifie");
+    }
+  }
+
   function synchroniserGaleries() {
+    clarifierContribution(document.querySelector('section.section[data-salle="recherche"]'));
+    clarifierContribution(document.querySelector("#salle .salle-contenu"));
     // Source statique pour la lecture libre, puis copie effectivement affichée dans la salle.
     initialiser(document.querySelector('section.section[data-salle="recherche"]'));
     initialiser(document.querySelector("#salle .salle-contenu"));
@@ -454,7 +472,7 @@
     if (contenuSalle) {
       // L'ouverture d'une porte remplace les enfants directs de .salle-contenu.
       // Ne pas observer toute la page et ne modifier aucun autre chapitre.
-      new MutationObserver(() => initialiser(contenuSalle))
+      new MutationObserver(() => { clarifierContribution(contenuSalle); initialiser(contenuSalle); })
         .observe(contenuSalle, { childList: true });
     }
   }
