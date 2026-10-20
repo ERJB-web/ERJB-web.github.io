@@ -189,10 +189,6 @@
         <h4>Observer les collaborations pendant qu’elles évoluent</h4>
         <p>Cette <strong>option prospective</strong> pourrait compléter l’analyse rétrospective principale, sans la remplacer : suivre dans le temps la mobilisation, la coordination, les interruptions et les adaptations des organisations autour d’un profil associant <strong>besoins sociaux concomitants et morbidité</strong>. Il s’agirait d’une petite cohorte exploratoire de cas traceurs, non d’une cohorte représentative.</p>
       </div>
-      <div class="o3-pros__comparaison" aria-label="Deux modalités de SNA">
-        <div class="o3-pros__voie o3-pros__voie--principal"><span>O3-A · DEVIS ACTUEL</span><strong>Rétrospectif</strong><p>Reconstituer <b>comment la réponse s’est organisée</b> dans 16 à 24 situations, avec ou sans mobilisation extérieure.</p></div>
-        <div class="o3-pros__voie o3-pros__voie--option"><span>O3-B · OPTION À ÉVALUER</span><strong>Prospectif</strong><p>Observer <b>comment la réponse évolue</b> lorsque les besoins, les acteurs et les circonstances changent.</p></div>
-      </div>
       <section class="o3-pros__partie" aria-labelledby="o3-pros-timeline-title">
         <div class="o3-pros__titre"><span>01 · SUIVI LONGITUDINAL</span><h4 id="o3-pros-timeline-title">Cinq observations en douze mois</h4><p>Une évaluation initiale et quatre questionnaires trimestriels ; chaque suivi documente les changements survenus depuis le précédent.</p></div>
         <ol class="o3-pros__timeline">
@@ -249,7 +245,7 @@
   else cibleO3.append(volet);
 }
 
-    // Tableau comparatif validé : libellés volontairement inchangés.
+    // Comparaison des deux modalités — insertion en fin d'O3, avant l'option et la galerie.
     zone.querySelectorAll("[data-o3-choix-quantitatif]").forEach(el=>el.remove());
     const comparatif = document.createElement("section");
     comparatif.className = "o3-choix-quantitatif";
@@ -258,32 +254,34 @@
     comparatif.innerHTML = `
       <header class="o3-choix-quantitatif__entete">
         <span>O3 · Volet quantitatif</span>
-        <h3 id="o3-choix-quantitatif-titre">Deux options méthodologiques</h3>
+        <h3 id="o3-choix-quantitatif-titre">Deux options méthodologiques pour le volet quantitatif d’O3</h3>
       </header>
-      <div class="o3-choix-quantitatif__defilement" role="region" tabindex="0" aria-label="Comparaison des deux options méthodologiques">
+      <p class="o3-choix-quantitatif__intro">Deux modalités de collecte sont envisagées pour l'objectif 3. La modalité principale actuellement retenue repose sur une reconstitution rétrospective, sur douze mois, des relations interorganisationnelles effectivement mobilisées autour de situations correspondant aux profils identifiés dans l'objectif 1. Une modalité prospective longitudinale, fondée sur le suivi de cas traceurs et des mesures répétées du réseau de réponse intersectorielle, constitue une alternative méthodologique à considérer sous réserve de faisabilité organisationnelle, éthique et scientifique. Le choix définitif sera arrêté avant le recrutement, sur la base d'une évaluation des partenariats, de l'accès aux situations admissibles et de la qualité attendue des données.</p>
+      <div class="o3-choix-quantitatif__defilement" role="region" tabindex="0" aria-label="Comparaison des deux modalités de collecte de l'objectif 3">
         <table>
-          <thead><tr><th scope="col">Critère</th><th scope="col">O3-A · Rétrospective</th><th scope="col">O3-B · Prospective</th></tr></thead>
+          <thead><tr><th scope="col">Critère</th><th scope="col"><span>O3-A</span> Reconstitution rétrospective</th><th scope="col"><span>O3-B</span> Cas traceurs longitudinaux</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Faisabilité immédiate</th><td><strong>Meilleure</strong></td><td>Conditionnelle aux partenariats</td></tr>
-            <tr><th scope="row">Biais de mémoire</th><td>Plus important</td><td>Plus limité</td></tr>
-            <tr><th scope="row">Évolution du réseau</th><td>Reconstituée</td><td><strong>Observée dans le temps</strong></td></tr>
-            <tr><th scope="row">Collaborations intersectorielles</th><td>Reconstituées après coup</td><td>Documentées au fil des événements</td></tr>
-            <tr><th scope="row">Participation du patient</th><td>Possible</td><td>Plus facilement intégrée au suivi</td></tr>
-            <tr><th scope="row">Risque de réactivité des équipes</th><td>Plus faible</td><td>Plus élevé</td></tr>
-            <tr><th scope="row">Durée de collecte</th><td>Potentiellement plus courte</td><td>Au moins 12 mois</td></tr>
-            <tr><th scope="row">Charge éthique et logistique</th><td>Modérée à importante</td><td>Importante</td></tr>
-            <tr><th scope="row">Risque de perte de participants</th><td>Plus limité</td><td>Plus élevé</td></tr>
-            <tr><th scope="row">Possibilité de documenter l'absence de réponse</th><td>Bonne si les situations sans orientation sont incluses</td><td>Bonne si les besoins non pris en charge sont suivis</td></tr>
+            <tr><th scope="row">Principe</th><td>Reconstituer le réseau mobilisé autour de situations correspondant aux profils d’O1.</td><td>Suivre <strong>un ou deux patients par profil</strong> et les organisations intervenant dans leur trajectoire.</td></tr>
+            <tr><th scope="row">Porte d’entrée</th><td><strong>Organisations</strong> : SAD ou GMF, pour repérer les situations puis reconstituer les liens.</td><td><strong>Patient traceur</strong> : inclusion d’un profil d’O1, avec relevé du réseau déjà présent à T0.</td></tr>
+            <tr><th scope="row">Période et collecte</th><td><strong>12 derniers mois</strong> : questionnaires rétrospectifs auprès des organisations.</td><td><strong>12 mois de suivi</strong> : inclusion à T0, puis questionnaires à 3, 6, 9 et 12 mois.</td></tr>
+            <tr><th scope="row">Faisabilité immédiate</th><td><strong>Meilleure</strong>, au regard des partenariats actuels.</td><td>Conditionnelle aux partenariats, au recrutement et aux autorisations.</td></tr>
+            <tr><th scope="row">Biais de mémoire</th><td>Plus important.</td><td>Plus limité grâce aux mesures répétées.</td></tr>
+            <tr><th scope="row">Réseau et réponse intersectorielle</th><td>Relations et coordinations <strong>reconstituées après coup</strong>.</td><td>Mobilisations et collaborations <strong>observées dans le temps</strong>.</td></tr>
+            <tr><th scope="row">Place du patient</th><td>Participation possible, plus indirecte.</td><td>Point de vue plus facilement intégré au suivi.</td></tr>
+            <tr><th scope="row">Risques et contraintes</th><td>Reconstruction incomplète des trajectoires ; charge logistique plus modérée.</td><td>Réactivité des équipes, pertes de suivi et exigences éthiques et logistiques accrues.</td></tr>
+            <tr><th scope="row">Portée scientifique</th><td>Devis défendable pour décrire les relations et leurs limites.</td><td>Intérêt particulier pour étudier l’évolution des collaborations.</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="o3-choix-quantitatif__precision"><strong>Repères :</strong> A examine les 12 derniers mois ; B suit les situations durant 12 mois, avec des questionnaires trimestriels. Le devis A reste celui présenté à ce stade.</p>`;
+      <div class="o3-choix-quantitatif__decision"><span>Choix présenté à ce stade</span><p><strong>O3-A</strong> demeure la modalité principale ; <strong>O3-B</strong> constitue une alternative, sous réserve de faisabilité.</p></div>`;
     ajouterOptionProspective(vueO3, espaceExemples, cibleO3, zone);
     const optionProspective = zone.querySelector("[data-o3-devis-prospectif]");
     if (optionProspective) {
       optionProspective.before(comparatif);
-      // Ordre de fin d'O3 : comparaison, option prospective, puis galerie.
+      // Toujours : paragraphe et tableau → option dépliable → galerie.
       if (module.parentElement === optionProspective.parentElement) optionProspective.after(module);
+    } else if (vueO3) {
+      vueO3.insertBefore(comparatif,module);
     }
     modulesInitialises.add(module);
     // Accès immédiat à la galerie depuis le début de l'objectif O3.
