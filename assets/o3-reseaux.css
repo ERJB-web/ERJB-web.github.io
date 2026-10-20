@@ -437,3 +437,7 @@
  .o3-pros__approfondir>summary{padding:13px 12px}
  .o3-pros__approfondir-corps{padding:0 11px 14px}
 }
+
+/* Contribution scientifique centrale : justifier le texte, sans étirer les titres. */
+.these-contribution-texte-justifie{text-align:justify!important;text-align-last:left!important;hyphens:auto!important;overflow-wrap:break-word;line-height:1.57!important}
+.these-contribution-texte-justifie strong{font-weight:780}
