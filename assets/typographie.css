@@ -392,3 +392,98 @@ html body #these-methode-o3 .o3-qual-cible>strong{
  html body #these-methode-o3 .o3-pilote-synthese .o3-pilote-repere strong{font-size:35px!important}
  html body #these-methode-o3 .o3-pilote-synthese .revision-threshold-number{font-size:38px!important}
 }
+
+
+/* Harmonisation finale des contenus scientifiques et des étapes (O1/O2/O3).
+   Les menus, boutons, badges de navigation et indicateurs numériques sont exclus. */
+@layer charte-typographique {
+  /* Le texte explicatif doit conserver le corps normal, y compris lorsque la
+     source HTML emploie span, small ou strong au lieu de p. */
+  html body .these :is(
+    .o1-circuit-step p,.o1-circuit-label,.o1-circuit-bifurcation,
+    .o1-critere-col li,.o1-suite li,.o1-profils-intro,
+    .o1-profils-besoins span,.o1-profils-centre span,
+    .o1-profils-raison p,.o1-profils-sortie strong,
+    .o2-sources-groupe p,.o2-sources-rôles span,.o2-sources-etapes li,
+    .o2-sources-repere p,.o2-these-analyse,.o2-these-phase p,
+    .o2-these-version-intro,.o2-these-etape p,.o2-these-formule p,
+    .o2-these-livrable p,.o2-these-chapeau,
+    .o3-processus small,.o3-conditions span,.o3-criteres span,
+    .o3-profils-qual small,.o3-v3-comparatif > span,
+    .o3-justification-intitule strong,
+    .o3viz-actor span,.o3viz-limit span,
+    .o3-analyse-vue,.o3-analyse-carte p,.o3-analyse-outils small,
+    .o3-analyse-detail p,.o3-analyse-produit,
+    .methode-produit-court,.methode-integration-flux li,
+    .revision-process li p,.revision-threshold p,.revision-scope-grid p
+  ){
+    font-size:var(--type-corps)!important;
+    line-height:1.65!important;
+  }
+  /* Dans les étapes et cartes de synthèse, conserver une taille lisible
+     même si les textes ne sont pas enveloppés dans des paragraphes. */
+  html body .these :is(
+    [class*="-etapes"],[class*="-steps"],[class*="-deliberation"],
+    [class*="-deliberatif"],[class*="-integration"]
+  ) :is(p,li,span,small):not(:is(
+    [class*="-num"],[class*="-index"],[class*="-kicker"],
+    [class*="-etiquette"],[class*="-label"],[class*="-badge"]
+  )){
+    font-size:var(--type-corps)!important;
+    line-height:1.6!important;
+  }
+  /* Titres de cartes : le niveau sous-section reste stable. */
+  html body .these :is(
+    .o1-critere-col>strong,.o2-sources-groupe b,
+    .o2-sources-rôles strong,.o2-these-etape h6,
+    .o2-these-formule h6,.o2-these-produit h6,
+    .o3-analyse-carte>strong,.o3-analyse-formule,
+    .o3-analyse-outils strong
+  ){
+    font-size:var(--type-detail)!important;
+    line-height:1.38!important;
+  }
+  /* Surtitres, libellés de catégorie et aides brèves, à 14 px. */
+  html body .these :is(
+    .o1-surtitre,.o1-profils-surtitre,.o1-circuit-step-kicker,
+    .o1-circuit-tags span,.o2-sources-parcours>strong,
+    .o2-these-etape>span,.o2-these-livrable>b,
+    .o3-analyse-sur,.o3-analyse-tech,.o3-analyse-index,
+    .o3viz-head small,.o3viz-step,.o3viz-tags span,
+    .revision-kicker,.revision-threshold-label,.revision-status
+  ){
+    font-size:var(--type-note)!important;
+    line-height:1.55!important;
+  }
+  /* Les chiffres clés ne sont pas normalisés comme de la prose. */
+  html body .these :is(
+    .o3-equation>div>strong,.o3-equation-total>strong,
+    .revision-equation b,.revision-threshold-number,
+    .o3-pilote-repere>strong
+  ){
+    font-variant-numeric:tabular-nums;
+  }
+}
+/* Éviter les mots coupés ou masqués dans les grilles de la méthodologie ;
+   uniquement la zone de contenu, jamais les barres de navigation. */
+html body .these :is(
+  .methode-rubrique-contenu,.methode-fiche,.these-methode-item,
+  .revision-demo,.revision-process,.revision-threshold,
+  .o3-processus,.o3-analyse-vue,.o3-analyse-carte,
+  [class*="-deliberation"],[class*="-deliberatif"],[class*="-integration"]
+){
+  min-width:0;max-width:100%;box-sizing:border-box;
+}
+html body .these :is(
+  .methode-rubrique-contenu,.revision-demo,.o3-processus,
+  [class*="-deliberation"],[class*="-deliberatif"],[class*="-integration"]
+) :is(p,li,dd,small,span){
+  white-space:normal;overflow-wrap:break-word;word-break:normal;
+}
+html body .these :is(
+  .o3-processus>div,.revision-process>li,
+  [class*="-deliberation"]>div,[class*="-deliberatif"]>div,
+  [class*="-integration"]>div
+){
+  min-width:0;max-width:100%;overflow-wrap:break-word;
+}
