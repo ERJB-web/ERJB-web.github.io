@@ -467,7 +467,7 @@ html:is(.hc,.lv) .these-entete .these-question-principale{
   </div>
   <div class="cadrage-these-secteurs" aria-labelledby="these-secteurs-titre">
     <div class="cadrage-these-sousentete">
-      <p class="cadrage-these-surtexte">Périmètre territorial · O2 puis O3</p>
+      <p class="cadrage-these-surtexte">Périmètre territorial · O2 et O3</p>
       <h4 id="these-secteurs-titre">Six secteurs de ressources à considérer</h4>
       <p>Le projet reprend un <strong>classement opérationnel en six secteurs</strong>, inspiré de la politique québécoise de première ligne et du cadre intersectoriel du RUISSS de l’Université de Montréal. Il permet d’inventorier une offre très diverse sans supposer que toutes les organisations contribuent déjà au SAD. <strong>Les frontières entre secteurs sont des règles de codage de la recherche</strong>, et non une nomenclature administrative universelle.</p>
     </div>
@@ -625,6 +625,8 @@ html:is(.hc,.lv) .these-entete .these-question-principale{
 .these .devis-bandeau-synthese-2026 .ds-indicateur:nth-child(2) strong{color:#4f912b}
 .these .devis-bandeau-synthese-2026 .ds-indicateur:nth-child(3) strong,.these .devis-bandeau-synthese-2026 .ds-indicateur:nth-child(4) strong{color:#174f70}
 .these .devis-bandeau-synthese-2026 .ds-indicateur span{font:650 11.5px/1.35 var(--sans,system-ui,sans-serif);color:#4a626c;overflow-wrap:normal}
+.these .devis-bandeau-synthese-2026 .ds-ordre-souple{margin:11px 0 0!important;padding:10px 13px;border-left:3px solid #4e879d;border-radius:7px;background:#f2f7fa;color:#2d4d5f;font-size:16px!important;line-height:1.55!important;text-align:left!important;overflow-wrap:break-word}
+.these .devis-bandeau-synthese-2026 .ds-ordre-souple strong{color:#195776;font-weight:800}
 .these .devis-bandeau-synthese-2026 .ds-bas{display:flex;flex-wrap:wrap;gap:4px 20px;justify-content:space-between;align-items:flex-start;margin:12px 0 0!important;padding:10px 0 0;border-top:1px solid #dce7e8;color:#526973;font:450 12px/1.55 var(--sans,system-ui,sans-serif);text-align:left!important}
 .these .devis-bandeau-synthese-2026 .ds-bas b{color:#244c60;font-weight:750}
 @media(max-width:950px){.these .devis-bandeau-synthese-2026 .ds-chiffres{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -642,15 +644,16 @@ html.hc .these .devis-bandeau-synthese-2026,html.lv .these .devis-bandeau-synthe
 <div class="devis-bandeau-synthese-2026" role="group" aria-label="Synthèse du devis : méthodes mixtes et séquence des objectifs">
   <div class="ds-haut">
     <div><span class="ds-surtitre">Architecture scientifique · Posture pragmatique</span><p class="ds-titre">Méthodes mixtes · Devis séquentiel explicatif en O3</p></div>
-    <span class="ds-mention">O1 → O2 → O3 · Approche multiphase</span>
+    <span class="ds-mention">O1 → O2 ↔ O3 · Séquence adaptable</span>
   </div>
-  <div class="ds-flow" aria-label="Enchaînement du protocole">
+  <div class="ds-flow" aria-label="Ordre privilégié O1 puis O2 puis O3 ; O2 et O3 peuvent aussi être inversés sous conditions">
     <div class="ds-etape ds-etape-o1"><span class="ds-etape-kicker">01 · COMPRENDRE</span><strong>Profils de besoins</strong><small>Revue de portée → vignettes</small></div>
     <span class="ds-fleche" aria-hidden="true">→</span>
     <div class="ds-etape ds-etape-o2"><span class="ds-etape-kicker">02 · SITUER</span><strong>Ressources et accessibilité</strong><small>Cartographie écologique → choix des CLSC contrastés</small></div>
     <span class="ds-fleche" aria-hidden="true">→</span>
     <div class="ds-etape ds-etape-o3"><span class="ds-etape-kicker">03 · EXPLIQUER</span><strong>Réseaux intersectoriels</strong><small>Observation quantitative (QUAN) → entretiens qualitatifs (qual)</small></div>
   </div>
+  <p class="ds-ordre-souple"><strong>O2 / O3 · ordre modulable :</strong> la cartographie peut guider le choix des CLSC d’O3 (ordre privilégié). L’enquête de réseaux peut aussi précéder O2 ou avancer en parallèle si les terrains sont retenus sur des contrastes déjà documentés et des critères explicites, indépendamment des résultats définitifs d’O2. Les deux résultats seront ensuite croisés ; en O3, la séquence QUAN → qual est conservée.</p>
   <div class="ds-chiffres" aria-label="Repères chiffrés du protocole">
     <div class="ds-indicateur"><strong>6</strong><span>secteurs de ressources (O2)</span></div>
     <div class="ds-indicateur"><strong>≥ 2</strong><span>territoires CLSC contrastés (O3)</span></div>
@@ -2396,7 +2399,7 @@ nav.these-methode-parcours[data-objectifs-isoles="oui"] .these-produit-descripti
 <li class="mapping-info__row"><span class="mapping-info__number" aria-hidden="true">3</span><div class="mapping-info__art" aria-hidden="true"><svg viewBox="0 0 280 142" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
 <path d="m14 116 13-91 70 19 80-30 80 23-9 92-80-25-71 29z" fill="#e1f5f6" stroke="#8abdd3" stroke-width="3" stroke-linejoin="round"/><path d="m97 44 0 89m80-119-9 90m-144-6 61-29 61 26 61-45m-177-1 62 36 51-51 51 44 57-25" fill="none" stroke="white" stroke-width="6" opacity=".95"/>
 <g transform="translate(66 51) scale(0.58)"><path d="M0 -21C-27 -21-27 12 0 36C27 12 27 -21 0 -21Z" fill="#5da76f" stroke="white" stroke-width="3"/><circle cy="-6" r="9" fill="#f7ffff"/></g><g transform="translate(144 35) scale(0.61)"><path d="M0 -21C-27 -21-27 12 0 36C27 12 27 -21 0 -21Z" fill="#e7ad4c" stroke="white" stroke-width="3"/><circle cy="-6" r="9" fill="#f7ffff"/></g><g transform="translate(197 82) scale(0.62)"><path d="M0 -21C-27 -21-27 12 0 36C27 12 27 -21 0 -21Z" fill="#d86669" stroke="white" stroke-width="3"/><circle cy="-6" r="9" fill="#f7ffff"/></g>
-<g transform="translate(218 25)"><rect width="58" height="88" rx="11" fill="#f8ffff" stroke="#d0e6ed" stroke-width="2"/><circle cx="13" cy="20" r="6" fill="#54ad69"/><rect x="25" y="17" width="24" height="5" rx="2" fill="#91b8c9"/><circle cx="13" cy="44" r="6" fill="#eeaf4f"/><rect x="25" y="41" width="24" height="5" rx="2" fill="#91b8c9"/><circle cx="13" cy="68" r="6" fill="#d56c6a"/><rect x="25" y="65" width="24" height="5" rx="2" fill="#91b8c9"/></g></svg></div><p class="mapping-info__text"><b>Elle distingue les écarts et oriente le choix des terrains d’O3.</b> Une offre absente, inaccessible ou saturée n’appelle pas la même action. Les contrastes cartographiés entre CLSC permettront également de proposer les territoires de la SNA d’O3, sous réserve de la faisabilité du terrain.</p></li>
+<g transform="translate(218 25)"><rect width="58" height="88" rx="11" fill="#f8ffff" stroke="#d0e6ed" stroke-width="2"/><circle cx="13" cy="20" r="6" fill="#54ad69"/><rect x="25" y="17" width="24" height="5" rx="2" fill="#91b8c9"/><circle cx="13" cy="44" r="6" fill="#eeaf4f"/><rect x="25" y="41" width="24" height="5" rx="2" fill="#91b8c9"/><circle cx="13" cy="68" r="6" fill="#d56c6a"/><rect x="25" y="65" width="24" height="5" rx="2" fill="#91b8c9"/></g></svg></div><p class="mapping-info__text"><b>Elle identifie les écarts et peut guider le choix des terrains d’O3.</b> Une offre absente, inaccessible ou saturée n’appelle pas la même action. Si O2 précède O3, les contrastes cartographiés peuvent orienter la sélection des CLSC. Dans l’ordre inverse, des contrastes exploratoires déjà documentés et des critères de faisabilité transparents justifieront les terrains, avant confrontation avec l’atlas définitif.</p></li>
 <li class="mapping-info__row"><span class="mapping-info__number" aria-hidden="true">4</span><div class="mapping-info__art" aria-hidden="true"><svg viewBox="0 0 280 142" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
 <ellipse cx="138" cy="132" rx="120" ry="8" fill="#d6e9ed"/>
 <rect x="54" y="15" width="179" height="105" rx="9" fill="#255879"/><rect x="62" y="23" width="163" height="88" rx="3" fill="#e5f6f7"/>
@@ -3123,7 +3126,7 @@ html body #these-methode-o3 #methode-o3-5 .o3-lecture-note{
   <div class="f-texte">
     <h5>Des contrastes réels sur le territoire</h5>
     <p>Les 8 territoires de CLSC du CIUSSS sont très inégaux. La part des 65 ans et plus à faible revenu va presque du simple au double, de 21,3&nbsp;% à Verdun à 41,8&nbsp;% à Pointe-Saint-Charles. Centre-Sud compte le plus de locataires (74,2&nbsp;%) et de besoins impérieux de logement (11,7&nbsp;%) ; Verdun, le plus grand nombre d’aînés (12 535) (Statistique Canada, 2022 ; Bernier, 2026).</p>
-    <p>La liste exploratoire présente quatre CLSC candidats : Verdun, Saint-Henri, Saint-Louis-du-Parc et Centre-Sud, dans deux réseaux locaux de services. Elle ne signifie pas que quatre terrains seront recrutés : O3 vise initialement <strong>deux CLSC contrastés</strong> choisis selon les résultats définitifs d’O2 et la faisabilité. Pointe-Saint-Charles n’est pas retenu dans cette liste exploratoire, son SAD relevant d’une clinique communautaire. Les contrastes seront réévalués à partir du mapping spatial d’O2 pour étayer le choix des terrains de SNA d’O3. La sélection définitive dépendra aussi de l’accès aux données et de la faisabilité des collaborations (Bernier, 2026).</p>
+    <p>La liste exploratoire présente quatre CLSC candidats : Verdun, Saint-Henri, Saint-Louis-du-Parc et Centre-Sud, dans deux réseaux locaux de services. Elle ne signifie pas que quatre terrains seront recrutés : O3 vise initialement <strong>deux CLSC contrastés</strong> sélectionnés préférentiellement sur la base des résultats définitifs d’O2 et de la faisabilité ; une sélection antérieure reste possible à partir de contrastes déjà documentés et de critères explicites. Pointe-Saint-Charles n’est pas retenu dans cette liste exploratoire, son SAD relevant d’une clinique communautaire. Les contrastes issus du mapping d’O2 viendront étayer ou réexaminer ce choix, qu’O2 soit réalisé avant ou après la collecte des réseaux d’O3. La sélection définitive dépendra aussi de l’accès aux données et de la faisabilité des collaborations (Bernier, 2026).</p>
   </div>
 </div>
 
@@ -3176,7 +3179,7 @@ html body #these-methode-o3 #methode-o3-5 .o3-lecture-note{
 
 <h4 class="f-titre"><span class="f-num">5</span>Calendrier sur 4 ans</h4>
 
-<p>Le doctorat est planifié sur 16 trimestres, d’avril 2025 à mars 2029. Après un an et demi, les cours et la préparation du protocole s’achèvent, les notices d’O1 sont dédoublonnées dans Covidence, une ébauche du codebook a été testée par une extraction pilote et les premières cartes d’O2 sont produites. La partie claire de chaque barre indique ce qui reste à faire ; la partie pleine, ce qui est fait.</p><p><strong>Conditions de passage entre les phases :</strong> le calendrier d’O1 sera confirmé après le pilote chronométré de sélection et les arbitrages documentaires ; le choix des CLSC d’O3 dépendra des contrastes établis en O2 et de correspondances O1–O2 suffisamment justifiées ; aucune collecte auprès des SAD ou de leurs partenaires ne débutera sans accords institutionnels et approbation éthique appropriés. Un report d’autorisation, la rareté d’un profil ou l’absence d’un second terrain déclenchera une révision explicite des jalons et de la portée des analyses, plutôt qu’une substitution des données du 211 aux observations d’O3.</p>
+<p>Le doctorat est planifié sur 16 trimestres, d’avril 2025 à mars 2029. Après un an et demi, les cours et la préparation du protocole s’achèvent, les notices d’O1 sont dédoublonnées dans Covidence, une ébauche du codebook a été testée par une extraction pilote et les premières cartes d’O2 sont produites. La partie claire de chaque barre indique ce qui reste à faire ; la partie pleine, ce qui est fait.</p><p><strong>Conditions de passage entre les phases :</strong> le calendrier d’O1 sera confirmé après le pilote chronométré de sélection et les arbitrages documentaires ; le choix des CLSC d’O3 s’appuiera soit sur les contrastes définitifs d’O2 (séquence privilégiée), soit sur des critères documentés a priori lorsque O3 précède O2 ou est réalisé en parallèle, en maintenant des profils O1 comparables ; aucune collecte auprès des SAD ou de leurs partenaires ne débutera sans accords institutionnels et approbation éthique appropriés. Un report d’autorisation, la rareté d’un profil ou l’absence d’un second terrain déclenchera une révision explicite des jalons et de la portée des analyses, plutôt qu’une substitution des données du 211 aux observations d’O3.</p>
 
 <div class="gantt f-gantt" role="figure" aria-label="Calendrier du doctorat sur 16 trimestres, d’avril 2025 à mars 2029, avec le repère d’octobre 2026.">
   <div class="f-gantt-grille">
