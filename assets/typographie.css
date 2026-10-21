@@ -175,6 +175,21 @@ html body .these :is(
   line-height:1.55!important;
 }
 
+
+/* Biographie : les titres, le récit et les paragraphes partagent la même
+   colonne de lecture. Les repères numérotés gardent leur retrait intentionnel.
+   La navigation et les éléments graphiques ne sont pas concernés. */
+html body .gab[data-gab-salle="biographie"] .section-corps.pleine > .colonne-texte > :is(.bio-intro,.bio-figure),
+html body .gab[data-gab-salle="biographie"] .section-corps.pleine > .colonne-outils {
+  box-sizing:border-box;
+  width:100%;
+  max-width:880px!important;
+  margin-inline:auto!important;
+}
+html body .gab[data-gab-salle="biographie"] .section-corps.pleine .bio-intro p {
+  max-width:100%!important;
+}
+
 }
 
 /* O3 · typographie de la section Analyse, sans modifier les autres sections. */
