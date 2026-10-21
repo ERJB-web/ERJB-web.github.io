@@ -1,9 +1,9 @@
 /* Hiérarchie commune des objectifs, conservée dans le corps de la salle. */
-.these .methode-objectif-separe{margin-block:28px 36px;padding-top:16px;border-top:8px solid var(--objectif,#17666b);scroll-margin-top:120px}
+.these .methode-objectif-separe{margin-block:22px 26px;padding-top:12px;border-top:8px solid var(--objectif,#17666b);scroll-margin-top:120px}
 .these .methode-objectif-separe[data-vue-objectif=O1],.these .methode-objectif-separe[data-vue-objectif=O1]>.these-methode-objectif{--objectif:#427b26}
 .these .methode-objectif-separe[data-vue-objectif=O2],.these .methode-objectif-separe[data-vue-objectif=O2]>.these-methode-objectif{--objectif:#167d83}
 .these .methode-objectif-separe[data-vue-objectif=O3],.these .methode-objectif-separe[data-vue-objectif=O3]>.these-methode-objectif{--objectif:#245f9f}
-.these .methode-objectif-tete{padding:12px clamp(14px,2vw,22px);margin-bottom:16px;background:var(--objectif);color:white;border-radius:12px}
+.these .methode-objectif-tete{padding:10px clamp(14px,2vw,20px);margin-bottom:12px;background:var(--objectif);color:white;border-radius:12px}
 .these .methode-objectif-tete>p:first-child{font:800 13px/1.4 var(--sans);letter-spacing:.1em;margin:0 0 12px}
 .these .methode-objectif-tete>.titre-bloc{color:inherit;font-size:clamp(23px,3vw,32px);margin:0 0 14px;border:0;padding:0;text-transform:none}
 .these .methode-objectif-tete>p:last-child{font:500 14px/1.7 var(--sans);margin:0;text-align:start}
@@ -11,15 +11,15 @@
 .these .methode-objectif-tete h4.titre-bloc{color:#fff!important;scroll-margin-top:190px}
 .these .methode-objectif-tete{scroll-margin-top:135px}
 .these .methode-fiche{display:block;margin:0;padding:0}
-.these .methode-rubrique{display:block;min-width:0;margin:18px 0;padding:0 0 14px;border-bottom:1px solid #ccd9dd;scroll-margin-top:130px}
+.these .methode-rubrique{display:block;min-width:0;margin:14px 0;padding:0 0 10px;border-bottom:1px solid #ccd9dd;scroll-margin-top:130px}
 .these .methode-rubrique-titre{display:flex;gap:14px;align-items:baseline;margin:0 0 12px;color:var(--objectif);font:750 clamp(19px,2vw,23px)/1.4 var(--sans);text-align:start;text-transform:none;letter-spacing:0}
 .these .methode-rubrique-titre>span{font-size:14px;font-weight:800}
 .these .methode-rubrique-contenu{display:block;min-width:0}
-.these .methode-rubrique .these-methode-item{display:block;margin:0 0 10px;padding:12px 14px;background:#f5f8f9;border:1px solid #dbe3e6;border-radius:10px;min-width:0;counter-increment:none}
-.these .methode-rubrique .these-methode-item dt{font:700 15px/1.5 var(--sans);color:var(--objectif);margin-bottom:10px}
+.these .methode-rubrique .these-methode-item{display:block;margin:0 0 8px;padding:10px 12px;background:#f5f8f9;border:1px solid #dbe3e6;border-radius:10px;min-width:0;counter-increment:none}
+.these .methode-rubrique .these-methode-item dt{font:700 15px/1.5 var(--sans);color:var(--objectif);margin-bottom:6px}
 .these .methode-rubrique .these-methode-item dt::before{content:none}
 .these .methode-rubrique .these-methode-item dd{margin:0;line-height:1.8}
-.these .methode-exemples{min-width:0;margin-top:24px;padding:clamp(12px,2vw,18px);border:1px solid var(--objectif);border-radius:14px;background:#f8fafb}
+.these .methode-exemples{min-width:0;margin-top:16px;padding:clamp(10px,1.8vw,16px);border:1px solid var(--objectif);border-radius:14px;background:#f8fafb}
 .these .methode-exemples-tete{margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid var(--objectif)}
 .these .methode-exemples-tete>p:first-child{color:var(--objectif);font:800 12px/1.5 var(--sans);letter-spacing:.08em}
 .these .methode-exemples-tete>h4{font:750 clamp(22px,2.5vw,28px)/1.35 var(--sans);color:var(--objectif);margin:12px 0}
@@ -27,7 +27,7 @@
 .these .methode-exemples .these-methode-item dd{margin:0}
 .these .methode-produit{padding:12px 14px;border-left:4px solid var(--objectif);background:#f3f7f8;margin-bottom:16px}
 .these .methode-produit dd{margin:10px 0 0}
-@media(max-width:600px){.these .methode-objectif-separe{margin-block:20px 28px}.these .methode-rubrique .these-methode-item{padding:12px}.these .methode-exemples{padding:15px}}
+@media(max-width:600px){.these .methode-objectif-separe{margin-block:16px 22px}.these .methode-rubrique .these-methode-item{padding:12px}.these .methode-exemples{padding:15px}}
 
 /* Une forme par fonction : texte, repère d'échantillonnage, volets, flux, limites. */
 .these .methode-rubrique[id$="-4"] .these-methode-item{background:transparent;border:0;border-radius:0;padding:0 0 14px}
@@ -43,9 +43,9 @@
 .these .methode-integration-flux strong{display:block;color:var(--objectif);margin-bottom:5px}
 .these .methode-rubrique[id$="-9"]{border:0;margin-bottom:12px;padding-bottom:12px}
 .these .methode-rubrique[id$="-9"] .limites-these{background:transparent;padding:0 0 0 22px;line-height:1.8}
-.these .methode-approfondir{margin:16px 0 0;border:1px solid #cadbdf;border-radius:10px;background:#fff}
+.these .methode-approfondir{margin:12px 0 0;border:1px solid #cadbdf;border-radius:10px;background:#fff}
 .these .methode-approfondir>summary{cursor:pointer;padding:12px 14px;color:var(--objectif);font:700 16px/1.5 var(--sans)}
-.these .methode-detail-corps{padding:8px clamp(14px,2vw,24px) 24px;min-width:0}
+.these .methode-detail-corps{padding:6px clamp(14px,2vw,22px) 16px;min-width:0}
 .these .methode-detail-corps>.figure-officielle{margin:24px 0}
 .these .galerie-o2-renvoi{padding:14px 18px;background:#eef5f6;border-left:3px solid #428b91;align-self:center}
 .these .galerie-o2-renvoi a{color:#1c626d;font-weight:650;text-decoration:underline}
@@ -56,8 +56,8 @@
 .these .methode-recapitulatif>summary~*{margin:12px 14px}
 
 /* Même densité pour les méthodes des éditions traduites. */
-.these .these-methode-objectif{margin:18px 0 24px;padding:clamp(12px,2vw,18px);border-radius:12px;min-width:0}
+.these .these-methode-objectif{margin:14px 0 18px;padding:clamp(12px,1.8vw,16px);border-radius:12px;min-width:0}
 .these .these-methode-objectif>.titre-bloc{margin-bottom:12px;padding-bottom:10px}
 .these .these-schema-grille{gap:12px}
-.these .these-schema-card{padding:12px 14px;border-radius:9px}
+.these .these-schema-card{padding:10px 12px;border-radius:9px}
 .these .methode-these-corps>p{margin-block:10px}
