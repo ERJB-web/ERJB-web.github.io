@@ -173,7 +173,7 @@
         bouton?.click();
       });
     }
-    if(zone && Array.isArray(etat.details))$$('details:not(.menu)',zone).forEach((d,i)=>{if(typeof etat.details[i]==='boolean')d.open=etat.details[i];});
+    if(zone && Array.isArray(etat.details))$$('details:not(.menu)',zone).forEach((d,i)=>{const ouvert=d.closest('.these-objectif-vue[data-vue-objectif]')?false:etat.details[i];if(typeof ouvert==='boolean')d.open=ouvert;});
     let interrompue=false;
     const interrompre=ev=>{if(ev.isTrusted)interrompue=true;};
     const gestes=['pointerdown','touchstart','wheel','keydown'];
@@ -181,7 +181,7 @@
     const nombre=v=>Number.isFinite(v) ? Math.max(0,v) : 0;
     const placer=()=>{
       if(interrompue || reprise!==numeroReprise)return;
-      if(zone && Array.isArray(etat.details))$$('details:not(.menu)',zone).forEach((d,i)=>{if(typeof etat.details[i]==='boolean')d.open=etat.details[i];});
+      if(zone && Array.isArray(etat.details))$$('details:not(.menu)',zone).forEach((d,i)=>{const ouvert=d.closest('.these-objectif-vue[data-vue-objectif]')?false:etat.details[i];if(typeof ouvert==='boolean')d.open=ouvert;});
       window.scrollTo({top:nombre(etat.page),left:0,behavior:'instant'});
       if(salle && courante)salle.scrollTo({top:nombre(etat.lecture),left:0,behavior:'instant'});
       const cibleAdresse=window.gabaritSalles?.atteindre?.(zone, repere);
@@ -1112,11 +1112,29 @@
     }
   }, true);
 
+  // À chaque création de la page Méthodologie, tout volet dépliable commence fermé.
+  // Le WeakSet évite de replier un volet que le lecteur vient d'ouvrir.
+  const voletsInitialises = new WeakSet();
+  const replierVoletsNeufs = (portee = document) => {
+    portee.querySelectorAll('.these-objectif-vue[data-vue-objectif] details:not(.menu)').forEach(detail => {
+      if (voletsInitialises.has(detail)) return;
+      detail.open = false;
+      voletsInitialises.add(detail);
+    });
+  };
+
   // Tous les objectifs sont visibles à l'ouverture, en page publique comme en salle.
-  const initialiser = () => navigations().forEach(nav => {
-    const actif = nav.querySelector('a[aria-current="step"]')?.dataset.objectif || 'O1';
-    choisirObjectif(nav, actif);
-  });
+  const initialiser = () => {
+    navigations().forEach(nav => {
+      const actif = nav.querySelector('a[aria-current="step"]')?.dataset.objectif || 'O1';
+      choisirObjectif(nav, actif);
+    });
+    replierVoletsNeufs();
+    const contenuSalle = document.querySelector('#salle .salle-contenu');
+    if (contenuSalle) new MutationObserver(() => replierVoletsNeufs(contenuSalle))
+      .observe(contenuSalle, { childList: true });
+  };
+  addEventListener('o3:contenu-pret', () => replierVoletsNeufs());
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initialiser, {once:true});
   } else {
