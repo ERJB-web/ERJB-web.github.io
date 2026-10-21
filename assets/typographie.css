@@ -764,3 +764,9 @@ html body .menu-cv .menu-panneau :is(a,strong){font-size:var(--type-corps)!impor
   html body .these .mat-sc__tag{white-space:normal!important;max-width:100%;overflow-wrap:break-word}
   html body .these .o1-circuit-step>*{min-width:0;max-width:100%;overflow-wrap:break-word}
 }
+
+/* Libellés descriptifs à la taille de lecture commune. */
+@layer charte-typographique{
+ html body .these :is(.o2-these-phase>b,.o3viz-actor>b,.o3viz-limit>b){font-size:var(--type-corps)!important;line-height:1.55!important}
+ html body .these :is(.methode-statut-protocole,.methode-statut-protocole strong,.methode-statut-protocole span,.methode-essentiel span,.methode-note-courte,.o3-niveaux-precisions,.o3-niveaux-precisions summary,.o3-niveaux-precisions span,.o3-niveaux-precisions p){font-size:var(--type-note)!important;line-height:1.5!important}
+}
