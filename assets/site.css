@@ -6368,3 +6368,31 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
     background-size:100% 100%;
   }
 }
+
+
+/* Accueil : fond institutionnel rattaché au bas du document, jamais au viewport.
+   Neutralise uniquement sur l'accueil l'ancien ciel bleu fixé au défilement.
+   Blanc dominant, nuances très légères inspirées du bleu et du vert GSK.
+   Aucune intervention sur la scène 3D, les portes, le portrait ou les autres salles. */
+body:has(> main > .accueil) {
+  background:#fff;
+}
+body:has(> main > .accueil) > main {
+  background-color:#fff;
+  background-image:
+    radial-gradient(ellipse 78% 22% at 38% 100%,
+      rgba(35,122,154,.058) 0%,
+      rgba(35,122,154,.027) 42%,
+      rgba(35,122,154,0) 100%),
+    radial-gradient(ellipse 62% 19% at 92% 100%,
+      rgba(101,169,70,.032) 0%,
+      rgba(101,169,70,0) 100%),
+    linear-gradient(to top,
+      #fafcfa 0%,
+      #fff 23%,
+      #fff 100%);
+  background-attachment:scroll;
+  background-repeat:no-repeat;
+  background-position:center bottom;
+  background-size:100% 100%;
+}
