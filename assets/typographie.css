@@ -660,3 +660,107 @@ html body .gab :is(.gab-intro,.gab-corps) :is(p,blockquote){text-indent:0!import
 html body .gab .gab-intro h2{margin-inline:0!important;text-align:start!important}
 html body .menu-cv .menu-panneau :is(a,strong){font-size:var(--type-corps)!important}
 }
+
+
+/* Densité commune des encadrés éditoriaux — 21 octobre 2026.
+   Le contenu dicte la hauteur ; les scènes, figures et commandes gardent leur géométrie. */
+@layer charte-typographique {
+  :root{--cadre-interieur:14px 16px;--cadre-ecart:12px}
+  @media(max-width:700px){:root{--cadre-interieur:12px}}
+
+  html body :is(main,#salle) :is(
+    .travail,.notion-carte,.concept-carte,.panel,.vr-panel,.methode,
+    .atelier-cas,.impl-tile,.impl-module,.impl-metric,
+    .cp-explorer,.cp-challenge,.cp-workshop,
+    .ei-intro,.ei-block,.ei-lens,.ei-journal,.ei-lab-output,.ei-qfeedback,
+    .representation-ouverture,.rs-mandat,.rs-past,.ds-award,
+    .cadrage-these-intro,.cadrage-these-fiche,.cadrage-these-secteurs,
+    .cadrage-these-articulation,.cadrage-these-sources,
+    .these-titre-contexte,.these-point,.lacune-principale,.these-objectif-general,
+    .these-question-principale,.these-problematique-bandeau,
+    .devis-bandeau-synthese-2026,.mat-sc,.o1-circuit,.o1-profils-carte,
+    .o1-protocole,.o1-vignette-scientifique,.o2-sources-groupe,
+    .precision-protocole,.methode-exemples,.m-encadre,.o3-devis-retro,
+    .revision-demo,.o3-definition-intersectorielle,.o3-pros__precautions,
+    .fais-capacites-projet,.f-synthese,.f-valid,
+    .biblio-hero,.biblio-outils,.rg,.vision,.pedago-edition,
+    .impl-portail-section,.methode-figures.methode-parcours,
+    .vul-relations article,.vul-chiffres article,.ia-reperes>article,
+    .logiciels-cartes>article>div
+  ){
+    padding:var(--cadre-interieur)!important;
+  }
+  html body :is(main,#salle) :is(
+    .mat-sc,.o1-circuit,.o1-protocole,.o1-vignette-scientifique,
+    .precision-protocole,.methode-exemples,.revision-demo,
+    .o3-devis-retro,.o3-definition-intersectorielle,
+    .cadrage-these-intro,.cadrage-these-secteurs,.cadrage-these-articulation,
+    .these-titre-contexte,.these-problematique-bandeau,
+    .devis-bandeau-synthese-2026,.fais-capacites-projet,.f-synthese,
+    .biblio-hero,.biblio-outils
+  ){
+    margin-block:var(--cadre-ecart)!important;
+  }
+  html body :is(main,#salle) :is(
+    .notions,.concepts,.methodes,.expertises,.valeurs,.chiffres,
+    .travaux-grille,.axes-cartes,.these-contextes,.these-lacunes,.these-objectifs,
+    .these-methodes,.these-methode-grille,.these-schema-grille,
+    .o1-profils-grille,.o2-sources-grille,.o2-var-grille,.o1-circuit-steps,
+    .o1-methode-flux,.o3-quali-grille,.o2-sources-indicateurs,
+    .o1-analyse-piliers,.cadrage-these-grille
+  ){gap:var(--cadre-ecart)!important}
+  html body :is(main,#salle) :is(
+    .notions>div,.valeurs>div,.piliers>div,.o1-circuit-step,
+    .these-schema-card,.these-methode-item,.o2-var-carte
+  ){padding:10px 12px!important;min-height:0!important}
+
+  /* Repliables : une seule marge interne, au lieu du cumul section + résumé. */
+  html body .gab-corps details:not(.lecture-theme):not(.o3-lecture-details){
+    margin-block:8px!important;
+  }
+  html body .gab-corps details:not(.lecture-theme)>summary{padding-block:9px!important}
+  html body .these #these-methode-o3 .o3-lecture-rubrique{
+    min-height:0!important;padding:0!important;margin:0 0 8px!important;
+  }
+  html body .these #these-methode-o3 .o3-lecture-details>summary{
+    min-height:0!important;padding:10px 14px!important;
+  }
+  html body .these #these-methode-o3 .o3-lecture-contenu{padding:10px 12px!important}
+
+  /* Tableaux : réduire les cellules sans diminuer le texte ni sa hauteur de ligne. */
+  html body :is(main,#salle) :is(.gab-corps,.these,.section-corps) table :is(td,th){
+    padding:10px 14px!important;
+  }
+  @media(max-width:700px){
+    html body :is(main,#salle) :is(.gab-corps,.these,.section-corps) table :is(td,th){padding:8px 10px!important}
+    html body .these #these-methode-o3 .o3-lecture-details>summary{padding:10px 12px!important}
+  }
+
+  /* Méthodologie : les modules ajoutés en rem ne doivent pas créer de microtexte.
+     Les nombres saillants, symboles et indices mathématiques restent distincts. */
+  html body .these .mat-sc :is(div,span,small,b,strong,em):not(:where(
+    .mat-sc__number,.mat-sc__scenario>strong,.mat-sc__kpis strong,
+    .mat-sc__verif-stat strong,.mat-sc__score-exemple strong,
+    .mat-sc__ampoule,.mat-sc__fleche-link,.mat-sc__parallel>span,
+    .mat-sc__exemple-arrow,.mat-sc__potentiel-plus,.mat-sc__potentiel-arrow,
+    .mat-sc__potentiel-trois>div>span
+  )){
+    font-size:var(--type-corps)!important;line-height:1.6!important;
+  }
+  html body .these .mat-sc :is(.mat-sc__eyebrow,.mat-sc__tag,.mat-sc__small){
+    font-size:var(--type-note)!important;line-height:1.5!important;
+  }
+  html body .these :is(
+    .o1-codage-intro,.o1-limites-note,.o1-vis-bases span,
+    .o2-these-phase>span,.precision-reperes span,
+    .o3viz-actor>strong,.o3viz-limit>strong
+  ){
+    font-size:var(--type-corps)!important;line-height:1.6!important;
+  }
+  html body .these :is(.o3-devis-retro__kicker,.o3-partie-quali>span,.o3-panneau-pied span){
+    font-size:var(--type-note)!important;line-height:1.5!important;
+  }
+  html body .these .mat-sc__resultats-row{flex-wrap:wrap!important}
+  html body .these .mat-sc__tag{white-space:normal!important;max-width:100%;overflow-wrap:break-word}
+  html body .these .o1-circuit-step>*{min-width:0;max-width:100%;overflow-wrap:break-word}
+}
