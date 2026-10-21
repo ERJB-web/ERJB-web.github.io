@@ -11,7 +11,7 @@ module.exports = {
     "chiffres": [
       [
         "10",
-        "ans auprès de personnes en situation de handicap"
+        "ans auprès de personnes handicapées"
       ],
       [
         "100+",
@@ -19,21 +19,19 @@ module.exports = {
       ],
       [
         "≈1 000",
-        "personnes ayant bénéficié de vacances hors institution"
+        "vacanciers hors institution"
       ],
       [
         "≈1 000",
-        "familles et professionnels concernés par le répit",
-        "Estimation de l’entourage des personnes accompagnées"
+        "proches et professionnels concernés par le répit"
       ],
       [
         "4",
-        "diplômes universitaires de second cycle"
+        "diplômes de deuxième cycle"
       ],
       [
         "4",
-        "charges d’auxiliaire d’enseignement",
-        "Université de Montréal"
+        "charges d’auxiliaire d’enseignement à l’UdeM"
       ],
       [
         "3",
@@ -41,8 +39,7 @@ module.exports = {
       ],
       [
         "1",
-        "prix de la meilleure affiche",
-        "GFSP 2026 · 3e cycle"
+        "prix de la meilleure affiche · GFSP 2026"
       ],
       [
         "3 000",
@@ -50,18 +47,15 @@ module.exports = {
       ],
       [
         "30",
-        "experts du réseau médico-social",
-        "Contribution à l’animation du réseau"
+        "experts du réseau médico-social"
       ],
       [
         "2 000+",
-        "participations cumulées aux webinaires et communautés de pratique",
-        "Gestionnaires et professionnels de santé"
+        "participations aux webinaires et communautés de pratique"
       ],
       [
         "1 000",
-        "étudiants dans l’enquête régionale sur la santé mentale",
-        "Conception et pilotage de l’enquête"
+        "étudiants interrogés sur leur santé mentale"
       ]
     ],
     "notes": [
@@ -75,7 +69,7 @@ module.exports = {
     "titre": "Le parcours en chiffres",
     "financement": [
       "130 000 $",
-      "de financement obtenu pour le doctorat"
+      "obtenus pour le doctorat"
     ]
   },
   "en": {

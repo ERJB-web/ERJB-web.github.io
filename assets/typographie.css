@@ -605,7 +605,8 @@ html body .bande-parcours .trajectoire-date{font-size:var(--type-corps)!importan
 
 @layer charte-typographique{
 html body :is(.mgp-trail a,.mgp-steps b,.mgp-flow span,.vg-guide .vg-rows span,.impact-ensemble dt){font-size:var(--type-corps)!important;line-height:1.5!important}
-html body .impact-financement dd{font-size:clamp(28px,2.7vw,40px)!important}
+html body .bande-restauree .impact-ensemble dt{line-height:1.35!important;hyphens:none!important;overflow-wrap:normal!important;word-break:normal!important}
+html body .bande-restauree .impact-ensemble dd bdi{white-space:nowrap!important}
 html body :is(nav button,nav a){font-family:var(--type-police)!important}
 }
 
