@@ -6337,8 +6337,9 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
 }
 
 
-/* Accueil mobile uniquement : prolongement atmosphérique du ciel de Montréal.
-   La photographie, le cadre et les portes demeurent totalement intacts. */
+/* Accueil mobile : prolongement très discret du ciel de Montréal vers le blanc.
+   Dégradés CSS vectoriels (sans image ni pixellisation), sans modification des photos,
+   de la porte, du cadre, ni de l'affichage ordinateur. */
 @media (max-width:700px) {
   body:has(> main > .accueil) > main > .accueil > .presentation > .identite {
     position:relative;
@@ -6352,16 +6353,18 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
     inset-block:-10px -16px;
     inset-inline:calc(-1 * var(--gouttiere));
     background:
-      radial-gradient(ellipse 95% 85% at 54% 100%,
-        rgba(172,194,215,.23) 0%,
-        rgba(204,220,231,.13) 48%,
-        rgba(255,255,255,0) 100%),
+      radial-gradient(ellipse 125% 92% at 50% 106%,
+        rgba(166,190,208,.075) 0%,
+        rgba(190,211,225,.035) 46%,
+        rgba(255,255,255,0) 85%),
       linear-gradient(to bottom,
         #ffffff 0%,
-        #fbfdfe 18%,
-        #f4f9fb 42%,
-        #e6f0f5 68%,
-        #d8e7ee 88%,
-        #cedfe9 100%);
+        #fdfefe 23%,
+        #fafcfd 46%,
+        #f4f8fa 66%,
+        #edf4f7 83%,
+        #e8f1f5 100%);
+    background-repeat:no-repeat;
+    background-size:100% 100%;
   }
 }
