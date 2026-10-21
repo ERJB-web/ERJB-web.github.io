@@ -6380,3 +6380,35 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
 html.lv .bande-restauree .impact-grille dd bdi{
   white-space:normal;overflow-wrap:anywhere
 }
+
+/* Ajustement demandé : grands chiffres lisibles et cartes denses, sans justification. */
+.bande-restauree .impact-grille{align-items:stretch;gap:8px}
+.bande-restauree .impact-grille>div{gap:5px;padding:11px 12px;align-self:stretch}
+.bande-restauree .impact-grille dt,
+.bande-restauree .impact-grille .impact-public{
+  text-align:start!important;text-align-last:start!important;
+  text-justify:auto!important;word-spacing:normal!important;letter-spacing:normal!important;
+  hyphens:none!important;overflow-wrap:normal;word-break:normal;line-height:1.28;
+}
+.bande-restauree .impact-grille dd{
+  font-size:clamp(43px,4.1vw,62px);line-height:1.02;
+  letter-spacing:-.035em;
+}
+.bande-restauree .impact-grille dd bdi{display:inline-block;white-space:nowrap}
+@media(max-width:760px){
+  .bande-restauree .impact-grille{gap:7px;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bande-restauree .impact-grille>div{padding:10px 11px;gap:6px}
+  .bande-restauree .impact-grille dt{font-size:clamp(13px,3.45vw,16px);line-height:1.32}
+  .bande-restauree .impact-grille dd{font-size:clamp(43px,11vw,60px)}
+  .bande-restauree .impact-grille>div:nth-child(3),
+  .bande-restauree .impact-grille>div:nth-child(8){grid-column:1/-1}
+  .bande-restauree .impact-grille>div:nth-child(8) dd{font-size:clamp(45px,10.8vw,59px)}
+  .bande-restauree .impact-grille>div:nth-child(11) dd{font-size:clamp(37px,9vw,49px)}
+  .bande-restauree .impact-grille>div:last-child{grid-column:auto}
+}
+@media(max-width:360px){
+  .bande-restauree .impact-grille>div{padding:8px;gap:5px}
+  .bande-restauree .impact-grille dd{font-size:clamp(38px,10.4vw,45px)}
+  .bande-restauree .impact-grille>div:nth-child(8) dd{font-size:clamp(41px,10.6vw,48px)}
+  .bande-restauree .impact-grille>div:nth-child(11) dd{font-size:clamp(31px,8.5vw,38px)}
+}
