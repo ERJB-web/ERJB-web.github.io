@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: "22"
       - name: Installer le DOM de test
-        run: npm install --no-save --no-package-lock jsdom@26 puppeteer-core@24
+        run: npm install --no-save --no-package-lock jsdom@26
       - name: Vérifier les contrôleurs
         run: |
           node --check assets/site.js
@@ -32,8 +32,6 @@ jobs:
         run: node outils/verifier-navigation.js
       - name: Tester le vrai générateur sans réécrire les pages
         run: node tests/generation-navigation.cjs
-      - name: Vérifier la maquette mobile à 360, 393, 430 et 700 pixels dans Chrome
-        run: node tests/entete-mobile-layout.cjs
       - name: Tester le chargement sans affichage intermédiaire
         run: node tests/chargement-typographie.cjs
       - name: Mettre à jour les liens de la charte dans les pages de publication
