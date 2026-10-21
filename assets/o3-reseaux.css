@@ -461,3 +461,134 @@ details.o3-choix-quantitatif[open] .o3-choix-chevron{transform:rotate(180deg)}
  .o3-choix-quantitatif__defilement{scrollbar-width:auto;scrollbar-color:#367c88 #e8f0f3}
  .o3-choix-quantitatif tbody th{position:sticky;inset-inline-start:0;z-index:1;box-shadow:2px 0 0 #dce9ee}
 }
+
+/* O3 — comparaison des devis : un seul titre et un tableau lisible, y compris sur mobile.
+   Ces règles sont strictement limitées à l’accordéon O3 ; aucun menu ni autre graphisme n’est modifié. */
+details.o3-choix-quantitatif > summary.o3-choix-quantitatif__entete{
+  display:flex!important;align-items:center;justify-content:space-between;gap:16px;
+  padding:19px 24px!important;background:linear-gradient(110deg,#eff7fa,#f4f9f7);
+}
+.o3-choix-quantitatif__entete h3{
+  flex:1;min-width:0;margin:0!important;padding:0!important;
+  text-align:left!important;font-size:clamp(18px,1.78vw,24px)!important;
+  line-height:1.33!important;letter-spacing:-.025em!important;font-weight:760!important;
+}
+.o3-choix-quantitatif__entete > .o3-choix-chevron{
+  display:grid;place-items:center;flex:0 0 32px;width:32px;height:32px;
+  margin:0;border:1px solid #d3e4e9;border-radius:50%;background:#fff;
+  color:#27748a;font-size:25px;line-height:1;transition:transform .2s ease;
+}
+.o3-choix-quantitatif__intro{
+  padding:19px 24px 20px!important;margin:0!important;
+  font-size:15px!important;line-height:1.65!important;text-align:left!important;
+  hyphens:none!important;overflow-wrap:break-word;
+}
+.o3-choix-quantitatif__tableau-wrap{
+  margin:0 20px 20px!important;border:1px solid #dce7ed;
+  border-radius:15px!important;overflow:hidden;background:#fff;
+}
+.o3-choix-quantitatif .o3-comparatif-legende{
+  position:absolute!important;width:1px!important;height:1px!important;
+  padding:0!important;margin:-1px!important;overflow:hidden!important;
+  clip-path:inset(50%);white-space:nowrap;border:0!important;
+}
+.o3-choix-quantitatif table{width:100%;min-width:0;table-layout:fixed}
+.o3-choix-quantitatif thead th{
+  vertical-align:top!important;padding:16px 19px 17px!important;
+  font-size:15px!important;line-height:1.28!important;letter-spacing:0!important;
+  border-bottom:1px solid #dce9ed!important;
+}
+.o3-choix-quantitatif thead th:first-child{
+  width:20%!important;background:#f3f7f9!important;color:#507082!important;
+  font-size:13px!important;font-weight:740!important;
+}
+.o3-choix-quantitatif thead th:nth-child(2){
+  width:40%!important;background:#edf6fa!important;color:#1c5670!important;
+  border-top:3px solid #69a2b7!important;
+}
+.o3-choix-quantitatif thead th:nth-child(3){
+  width:40%!important;background:#ecf7f3!important;color:#20665b!important;
+  border-top:3px solid #67ab98!important;
+}
+.o3-choix-quantitatif thead th .o3-comp-code{
+  display:inline-block;margin:0 8px 0 0;padding:3px 7px;border-radius:5px;
+  background:#d9ebf3;color:#205e78;font-size:11px;line-height:1.3;font-weight:810;
+  letter-spacing:.045em;vertical-align:middle;
+}
+.o3-choix-quantitatif thead th:nth-child(3) .o3-comp-code{
+  background:#d9efe7;color:#206d5b;
+}
+.o3-choix-quantitatif thead th .o3-comp-mode{
+  display:inline;font-size:16px;line-height:1.35;font-weight:780;vertical-align:middle;
+}
+.o3-choix-quantitatif thead th small{
+  display:block;margin-top:7px;color:#5a7481!important;
+  font-size:12px!important;line-height:1.4;font-weight:540!important;
+}
+.o3-choix-quantitatif tbody :is(th,td){
+  padding:17px 19px!important;vertical-align:top!important;
+  font-size:14.5px!important;line-height:1.57!important;
+  border-bottom:1px solid #e5edf0!important;
+}
+.o3-choix-quantitatif tbody th{
+  width:20%!important;background:#f8fbfc!important;
+  color:#27566a!important;font-weight:750!important;text-align:left!important;
+}
+.o3-choix-quantitatif tbody td{
+  background:#fff!important;color:#385360!important;
+  font-weight:450!important;text-align:left!important;
+  hyphens:none!important;overflow-wrap:break-word!important;
+  border-left:1px solid #e4edf0!important;
+}
+.o3-choix-quantitatif tbody td:nth-child(3){
+  border-left:1px solid #dcebe6!important;
+}
+.o3-choix-quantitatif tbody tr:nth-child(even) td{background:#fbfdfd!important}
+.o3-choix-quantitatif tbody tr:hover td{background:#f4f9f9!important}
+@media(max-width:780px){
+  details.o3-choix-quantitatif > summary.o3-choix-quantitatif__entete{
+    gap:10px;padding:15px 16px!important;
+  }
+  .o3-choix-quantitatif__entete h3{
+    font-size:clamp(17px,4.5vw,21px)!important;line-height:1.35!important;
+  }
+  .o3-choix-quantitatif__intro{
+    padding:16px 17px 18px!important;font-size:14px!important;line-height:1.6!important;
+  }
+  .o3-choix-quantitatif__tableau-wrap{margin:0 10px 14px!important;border:0!important;border-radius:0!important}
+  .o3-choix-quantitatif__defilement{overflow-x:visible!important}
+  .o3-choix-quantitatif table,.o3-choix-quantitatif tbody{
+    display:block;width:100%!important;min-width:0!important;
+  }
+  .o3-choix-quantitatif thead{
+    position:absolute!important;width:1px!important;height:1px!important;
+    padding:0!important;margin:-1px!important;overflow:hidden!important;
+    clip-path:inset(50%);white-space:nowrap;border:0!important;
+  }
+  .o3-choix-quantitatif tbody tr{
+    display:block;margin:0 0 11px;border:1px solid #dce8ec;
+    border-radius:12px;overflow:hidden;background:#fff;
+  }
+  .o3-choix-quantitatif tbody tr:last-child{margin-bottom:0}
+  .o3-choix-quantitatif tbody :is(th,td){
+    display:block;width:100%!important;position:static!important;box-shadow:none!important;
+    padding:12px 15px!important;font-size:14px!important;line-height:1.55!important;
+    border:0!important;border-bottom:1px solid #e5edf0!important;
+  }
+  .o3-choix-quantitatif tbody th{
+    background:#f1f7f9!important;font-size:14px!important;
+    color:#1f566b!important;
+  }
+  .o3-choix-quantitatif tbody td{background:#fff!important;border-left:0!important}
+  .o3-choix-quantitatif tbody td:nth-child(3),
+  .o3-choix-quantitatif tbody tr:nth-child(even) td:nth-child(3){
+    background:#f3faf7!important;border-left:0!important;
+  }
+  .o3-choix-quantitatif tbody td::before{
+    content:attr(data-modalite);display:block;margin:0 0 5px;
+    color:#247389;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
+  }
+  .o3-choix-quantitatif tbody td:nth-child(3)::before{color:#25816e}
+  .o3-choix-quantitatif tbody tr:last-child td:last-child{border-bottom:0!important}
+  .o3-choix-quantitatif tbody tr:hover td{background:inherit}
+}
