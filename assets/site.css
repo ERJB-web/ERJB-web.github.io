@@ -6329,3 +6329,6 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
     gap:7px;
   }
 }
+
+/* RDV compact à côté des coordonnées sur petit écran. */
+@media(max-width:700px){.entete .coordonnees-haut{display:flex!important;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:4px 10px}.entete .coordonnees-haut .coordonnees-rdv{display:inline-flex!important;width:auto;height:auto;font-size:13px;line-height:1.2;padding:7px 9px;border-radius:18px;white-space:nowrap;font-weight:700}.entete .coordonnees-haut a:not(.coordonnees-rdv){min-width:0}}
