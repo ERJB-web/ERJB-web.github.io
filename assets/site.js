@@ -77,7 +77,7 @@
         const nav=$('.onglets',table);
         return {rubrique:actif?.dataset.rubrique || '',volet:actif?.dataset.volet || '0',defilement:nav ? nav.scrollLeft : 0};
       }) : [],
-      details:zone ? $$('details:not(.menu)',zone).map(d=>d.matches('.o2-these-tech') ? false : d.open) : []
+      details:zone ? $$('details:not(.menu)',zone).map(d=>d.open) : []
     };
     try {
       const precedent=history.state && typeof history.state==='object' ? history.state : {};
@@ -112,7 +112,8 @@
     clearTimeout(minuterieAdresse);
     if(occupe){adresseEnAttente=true;return;}
     const etat=lireNavigation();
-    const [destination,repere]=location.hash.slice(1).split('/');
+    const [destination,chapitre,section]=location.hash.slice(1).split('/');
+    const repere=section || chapitre;
     if(etat){reprendreNavigation(etat);return;}
     const libre=racine.classList.contains('libre') && !courante;
     reprendreNavigation({
@@ -157,7 +158,9 @@
       const bouton=propres(table).find(b=>sauve.rubrique ? b.dataset.rubrique===sauve.rubrique : b.dataset.volet===sauve.volet);
       if(bouton)bouton.click();
     });
-    const repere=location.hash.slice(1).split('/')[1];
+    const segments=location.hash.slice(1).split('/');
+    let repere=segments[2] || segments[1];
+    try { repere=decodeURIComponent(repere || ''); } catch {}
     const cibleRepere=repere && zone ? $$('.chapitre-source[data-rubrique],[data-axe-cible],.publication-bloc[id]',zone).find(el=>el.dataset.rubrique===repere || el.dataset.axeCible===repere || el.id===repere) : null;
     if(cibleRepere){
       const pub=cibleRepere.closest('.publication-bloc');
@@ -170,7 +173,7 @@
         bouton?.click();
       });
     }
-    if(zone && Array.isArray(etat.details))$$('details:not(.menu)',zone).forEach((d,i)=>{if(d.matches('.o2-these-tech'))d.open=false;else if(typeof etat.details[i]==='boolean')d.open=etat.details[i];});
+    if(zone && Array.isArray(etat.details))$$('details:not(.menu)',zone).forEach((d,i)=>{if(typeof etat.details[i]==='boolean')d.open=etat.details[i];});
     let interrompue=false;
     const interrompre=ev=>{if(ev.isTrusted)interrompue=true;};
     const gestes=['pointerdown','touchstart','wheel','keydown'];
@@ -178,10 +181,12 @@
     const nombre=v=>Number.isFinite(v) ? Math.max(0,v) : 0;
     const placer=()=>{
       if(interrompue || reprise!==numeroReprise)return;
+      if(zone && Array.isArray(etat.details))$$('details:not(.menu)',zone).forEach((d,i)=>{if(typeof etat.details[i]==='boolean')d.open=etat.details[i];});
       window.scrollTo({top:nombre(etat.page),left:0,behavior:'instant'});
       if(salle && courante)salle.scrollTo({top:nombre(etat.lecture),left:0,behavior:'instant'});
+      const cibleAdresse=window.gabaritSalles?.atteindre?.(zone, repere);
       if(etat.ancre){
-        const ancre=cibleRepere || zone?.querySelector('#'+CSS.escape(etat.ancre)) || document.getElementById(etat.ancre);
+        const ancre=cibleAdresse || cibleRepere || zone?.querySelector('#'+CSS.escape(etat.ancre)) || document.getElementById(etat.ancre);
         ancre?.scrollIntoView({block:'start',behavior:'instant'});
       }
       if(Array.isArray(etat.tables))etat.tables.forEach((sauve,i)=>{
@@ -189,21 +194,21 @@
         if(nav && Number.isFinite(sauve?.defilement))nav.scrollLeft=sauve.defilement;
       });
     };
-    requestAnimationFrame(()=>{
+    Promise.resolve(window.ebQuandPret?.()).then(()=>requestAnimationFrame(()=>{
       placer();
       requestAnimationFrame(()=>{
         if(reprise!==numeroReprise)return;
         placer();reveler();repriseEnCours=false;memoirePrete=true;memoriserNavigation();
       });
-    });
+    }));
     if(document.fonts)document.fonts.ready.then(placer);
     addEventListener('load',placer,{once:true});
-    setTimeout(()=>{
+    Promise.resolve(window.ebQuandPret?.()).then(()=>setTimeout(()=>{
       reveler();
       interrompue=true;
       gestes.forEach(n=>document.removeEventListener(n,interrompre,true));
       removeEventListener('load',placer);
-    },1800);
+    },1800));
   }
 
   function marquer(nom) {
@@ -336,6 +341,7 @@
     ev.preventDefault();
     ouvrirDestinationAxe(lien.getAttribute('href').slice(1));
   });
+  window.ebNavigation = { memoriser: memoriserNavigation, actualiser: demanderMemoire };
   addEventListener('popstate',demanderAdresse);
   addEventListener('hashchange',demanderAdresse);
 

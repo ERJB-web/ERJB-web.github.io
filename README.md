@@ -55,3 +55,7 @@ Tout texte rédigé est justifié, y compris les paragraphes et listes dans les 
 La couche CSS `charte-typographique` donne la priorité aux règles communes sur les déclarations locales importantes. Ne pas ajouter de styles typographiques importants en ligne.
 
 `node outils/construire.js` applique automatiquement la feuille commune en dernier dans chaque page HTML, y compris les applications et simulations, avec une empreinte de cache recalculée. Après toute autre génération de page ou modification de la charte, exécuter `node outils/harmoniser-typographie.js`, puis `node outils/harmoniser-typographie.js --check`. Le workflow GitHub vérifie cette couverture à chaque modification du dépôt.
+
+Les liens de sous-partie utilisent `#salle/chapitre/ancre`. Le routeur conserve la position de lecture et les accordéons par entrée d’historique ; les ancres explicites ouvrent leur chapitre et les détails concernés avant affichage. Les flèches latérales portent le titre réel de leur destination et sont masquées aux extrémités.
+
+Les éditions inuktitut et innu-aimun demeurent explicitement partielles. Les ressources Pirurvik/Tusaalanga, Tshakapesh et Innu-aimun sont référencées dans les pages et dans `outils/editions-autochtones.js` ; elles ne constituent pas une validation des textes scientifiques existants. Aucun nouveau texte scientifique n’est traduit artificiellement dans ces langues.

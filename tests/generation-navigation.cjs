@@ -14,6 +14,7 @@ const config=require('../outils/chapitres-these.json');
 assert.deepEqual(config.chapitres.flatMap(c=>c.sources).sort((a,b)=>a-b),Array.from({length:11},(_,i)=>i),'All source blocks retained exactly once');
 for(const lang of ['','en','es','zh','ar','ru','iu','innu']){
  const html=writes.get(path.join(root,lang,'index.html'));assert(html,lang||'fr');
+ assert(html.includes('130 000 $'),'Doctoral funding is retained in every complete or partial edition');
  const current=html.slice(html.indexOf('data-rubriques="these"'));
  const ids=[...current.matchAll(/class="chapitre-source"[^>]*data-rubrique="([^"]+)"/g)].slice(0,6).map(m=>m[1]);
  assert.deepEqual(ids,config.chapitres.map(c=>c.id));

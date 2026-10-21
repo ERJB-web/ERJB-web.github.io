@@ -36,9 +36,10 @@ const typesFR = [...pages.fr.matchAll(/<span class="type">([^<>]+)<\/span>/g)].m
 if(!typesFR.length) erreurs.push("aucun type de recherche trouvé");
 for(const code of ["en","es","zh","ar","ru"]){
  const typesTraduits = [...pages[code].matchAll(/<span class="type">([^<>]+)<\/span>/g)].map(m=>m[1]);
+ // Les biographies publiées peuvent suivre un ordre chronologique différent : comparer les libellés et leurs effectifs.
  const attendusTypes = typesFR.map(type => TYPOS.traduire(code,type));
- if(JSON.stringify(typesTraduits)!==JSON.stringify(attendusTypes))
-   erreurs.push(code+": typologies de recherche non traduites ou ordre incohérent");
+ if(JSON.stringify([...typesTraduits].sort())!==JSON.stringify([...attendusTypes].sort()))
+   erreurs.push(code+": typologies non traduites ou contenu incohérent");
  if(typesFR.some(type=>!TYPOS.types[type]?.[code]))
    erreurs.push(code+": une typologie n'est pas couverte dans le lexique multilingue");
 }

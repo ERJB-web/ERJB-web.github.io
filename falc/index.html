@@ -19,6 +19,7 @@ html.chargement #site-chargement{visibility:visible;position:fixed;inset:0;z-ind
   root.classList.add('js', 'chargement');
   let navigation = false, dom = false, revelation = false;
   const preparations = [];
+  window.ebQuandPret = () => Promise.all(preparations);
   window.ebAttendre = promise => { preparations.push(promise); promise.catch(() => {}); };
   const lang = (root.lang || 'fr').split('-')[0];
   const messages = {
@@ -91,9 +92,9 @@ html.chargement #site-chargement{visibility:visible;position:fixed;inset:0;z-ind
 <link rel="stylesheet" href="../assets/hall-realiste.css?v=b75f2e010e">
 <script src="../assets/hall-marche.js?v=d23cdeb1d8" defer></script>
 <script src="../assets/hall-ciel.js?v=2da27089a1" defer></script>
-<script src="../assets/site.js?v=7da8c9fbcf" defer></script>
+<script src="../assets/site.js?v=62278f97c4" defer></script>
 <script src="../assets/audience.js?v=32f18e181a" data-audience-website-id="782c7df7-c2cf-4578-bddc-fa02662324af" data-audience-domaines="erjb-web.github.io" defer></script>
-<link rel="stylesheet" href="../assets/typographie.css?v=9cf6256741">
+<link rel="stylesheet" href="../assets/typographie.css?v=48c2b8ce45">
 </head>
 <body class="page-abregee">
 <a class="evitement" href="#contenu">Aller au contenu</a>

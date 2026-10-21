@@ -31,9 +31,20 @@ async function verify(lang){
     const prev=d.querySelector('.gab-lecture [data-gab-pas="-1"]');
     assert(next&&prev,'Chosen top navigation installed');
     assert.equal(active(),'contexte');
+    assert(prev.hidden,'No previous destination is shown at the beginning');
+    assert(next.textContent.trim() && !next.textContent.includes('Chapitre suivant'),'The visible arrow names its destination');
     next.click();assert.equal(active(),'problematique');
     next.click();assert.equal(active(),'methodes');
     prev.click();assert.equal(active(),'problematique');
+    next.click();assert.equal(active(),'methodes');
+    const anchor=room.querySelector('.gab-page-active a[data-gab-cible]');
+    if(anchor){
+      anchor.click();
+      assert(w.location.hash.startsWith('#recherche/methodes/'),'A subsection keeps both room and chapter in its URL');
+      assert.equal(active(),'methodes');
+    }
+    assert.equal(d.querySelectorAll('script[src*="o3-reseaux.js"]').length,lang==='en'||lang==='es'||lang==='zh'||lang==='ar'||lang==='ru'?0:1,'One O3 controller per edition');
+    if(!lang || lang==='iu'||lang==='innu')assert.equal(d.querySelectorAll('link[href*="o3-reseaux.css"]').length,1,'The O3 controller has its stylesheet');
     assert.equal(d.querySelectorAll('.gab-lecture').length,1);
     const barre=d.querySelector('.salle-barre');
     assert.equal(barre.querySelector('.menu-acces'),accessibilite,'Original accessibility controls retain their listeners');

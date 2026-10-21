@@ -72,7 +72,11 @@ module.exports = {
       "Webinaires et communautés de pratique : animation et modération ; audience cumulée de gestionnaires et de professionnels de santé.",
       "Santé mentale : conception et pilotage d’une enquête régionale auprès d’étudiants."
     ],
-    "titre": "Le parcours en chiffres"
+    "titre": "Le parcours en chiffres",
+    "financement": [
+      "130 000 $",
+      "de financement obtenu pour le doctorat"
+    ]
   },
   "en": {
     "groupes": [
@@ -145,7 +149,11 @@ module.exports = {
       "Webinars and communities of practice: facilitation and moderation; cumulative attendances by managers and health professionals.",
       "Mental health: design and leadership of a regional student survey."
     ],
-    "titre": "Career in figures"
+    "titre": "Career in figures",
+    "financement": [
+      "130 000 $",
+      "in funding secured for the PhD"
+    ]
   },
   "es": {
     "groupes": [
@@ -218,7 +226,11 @@ module.exports = {
       "Seminarios web y comunidades de práctica: animación y moderación; participaciones acumuladas de gestores y profesionales de salud.",
       "Salud mental: diseño y dirección de una encuesta regional entre estudiantes."
     ],
-    "titre": "La trayectoria en cifras"
+    "titre": "La trayectoria en cifras",
+    "financement": [
+      "130 000 $",
+      "de financiación obtenida para el doctorado"
+    ]
   },
   "zh": {
     "groupes": [
@@ -291,7 +303,11 @@ module.exports = {
       "网络研讨会与实践共同体：组织交流并主持讨论；管理者与卫生专业人员的累计参与人次。",
       "心理健康：设计并主持一项面向学生的区域性调查。"
     ],
-    "titre": "经历数据概览"
+    "titre": "经历数据概览",
+    "financement": [
+      "130 000 $",
+      "已获得的博士研究资助"
+    ]
   },
   "ar": {
     "groupes": [
@@ -364,7 +380,11 @@ module.exports = {
       "الندوات الإلكترونية ومجتمعات الممارسة: تنشيط وإدارة النقاش؛ مشاركات تراكمية لمديرين ومهنيين صحيين.",
       "الصحة النفسية: تصميم مسح إقليمي بين الطلاب وقيادته."
     ],
-    "titre": "المسار بالأرقام"
+    "titre": "المسار بالأرقام",
+    "financement": [
+      "130 000 $",
+      "تمويل تم الحصول عليه للدكتوراه"
+    ]
   },
   "ru": {
     "groupes": [
@@ -437,6 +457,10 @@ module.exports = {
       "Вебинары и сообщества практики: ведение и модерация; совокупные участия руководителей и специалистов здравоохранения.",
       "Психическое здоровье: разработка и руководство региональным исследованием среди студентов."
     ],
-    "titre": "Профессиональный путь в цифрах"
+    "titre": "Профессиональный путь в цифрах",
+    "financement": [
+      "130 000 $",
+      "финансирования получено для докторантуры"
+    ]
   }
 };

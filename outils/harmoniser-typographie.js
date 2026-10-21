@@ -23,12 +23,17 @@ function harmoniser({ check = false } = {}) {
       const relatif = path.relative(path.dirname(fichier), path.join(RACINE, "assets/typographie.css")).split(path.sep).join("/");
       const lien = `<link rel="stylesheet" href="${relatif}?v=${version}">`;
       let initial = avant.replace(/<style id="chargement-initial">[\s\S]*?<script id="initialisation-site">[\s\S]*?<\/script>/, () => chargementPage());
-      if (/<html\b[^>]*lang="fr"/.test(initial) && initial.includes('assets/these-methodologie-diagramme.js?')) {
+      if (/<html\b[^>]*lang="fr"/.test(initial) && initial.includes('id="these-methode-o3"')) {
         for (const asset of ['maturite-scientifique', 'o3-reseaux']) {
-          if (initial.includes(`assets/${asset}.js?`)) continue;
           const prefixe = path.relative(path.dirname(fichier), path.join(RACINE, 'assets')).split(path.sep).join('/');
-          initial = initial.replace(/<\/head\s*>/i, `<link rel="stylesheet" href="${prefixe}/${asset}.css?v=initial"><script src="${prefixe}/${asset}.js?v=initial" defer></script>\n</head>`);
+          const styles = initial.includes(`assets/${asset}.css?`) ? '' : `<link rel="stylesheet" href="${prefixe}/${asset}.css?v=initial">`;
+          const script = initial.includes(`assets/${asset}.js?`) ? '' : `<script src="${prefixe}/${asset}.js?v=initial" defer></script>`;
+          if (styles || script) initial = initial.replace(/<\/head\s*>/i, `${styles}${script}\n</head>`);
         }
+      }
+      if (initial.includes('assets/gabarit-salles.js?') && !initial.includes('assets/methodologie-ordre.css?')) {
+        const prefixe = path.relative(path.dirname(fichier), path.join(RACINE, 'assets')).split(path.sep).join('/');
+        initial = initial.replace(/<\/head\s*>/i, `<link rel="stylesheet" href="${prefixe}/methodologie-ordre.css?v=initial">\n</head>`);
       }
       const apres = versionsRessources(initial.replace(/<link\b[^>]*href=["'][^"']*\bassets\/typographie\.css(?:\?[^"']*)?["'][^>]*>\s*/gi, "").replace(/<\/head\s*>/i, `${lien}\n</head>`), fichier, RACINE);
       pages++;

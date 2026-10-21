@@ -510,7 +510,7 @@
   const echapper = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
   // Adresses absolues : une url() relative placée dans une variable CSS serait résolue depuis la feuille de style.
-  const absolue = (u) => { try { return u ? new URL(u, D.baseURI).href : ""; } catch { return u; } };
+  const absolue = (u) => { try { return u ? new URL(/^assets\//.test(u) ? CHEMIN + u : u, D.baseURI).href : ""; } catch { return u; } };
   function photoDuBandeau(bandeau) {
     const m = (bandeau?.getAttribute("style") || "").match(/url\((['"]?)([^'")]+)\1\)/);
     return m ? absolue(m[2]) : "";
@@ -572,7 +572,7 @@
       const source = corps.querySelector("#these-methode-" + code.toLowerCase());
       if (!source) return null;
       const rubriques = $$(":scope > .methode-these-corps > section.methode-rubrique[id]", source)
-        .filter((partie) => !!partie.querySelector(":scope > h5.methode-rubrique-titre"));
+        .filter((partie) => !!partie.querySelector(":scope > h5.methode-rubrique-titre, :scope > details > summary > h5.methode-rubrique-titre"));
       if (!rubriques.length) return null;
       const enTete = $(".methode-objectif-tete h4", source);
       return { code, nom: enTete ? titreSommaire(enTete) : nom, source, rubriques };
@@ -604,7 +604,7 @@
       titre.append(el("b", "", echapper(code)), el("strong", "", echapper(nom)));
       const liens = el("div", "gab-sommaire-groupe-liens");
       rubriques.forEach((rubrique, position) => {
-        const enTete = rubrique.querySelector(":scope > h5.methode-rubrique-titre");
+        const enTete = rubrique.querySelector(":scope > h5.methode-rubrique-titre, :scope > details > summary > h5.methode-rubrique-titre");
         const numero = net(enTete.querySelector("span")?.textContent) || deux(position + 1);
         const libelle = titreSommaire(enTete);
         if (!enTete.id) enTete.id = rubrique.id + "-titre";
@@ -1234,9 +1234,9 @@
     const bas = el("nav", "gab-bas-chapitre");
     bas.setAttribute("aria-label", T.chapitre(i + 1, n));
     bas.innerHTML =
-      `<button type="button" class="gab-bas-lien gab-bas-precedent" data-gab-pas="-1"${i === 0 ? " disabled" : ""}><span class="gab-bas-chevron" aria-hidden="true">‹</span><span class="gab-bas-libelle"><small>${echapper(T.precedent)}</small><strong class="gab-nav-cible"></strong></span></button>` +
+      `<button type="button" class="gab-bas-lien gab-bas-precedent" data-gab-pas="-1"${i === 0 ? " disabled" : ""}><span class="gab-bas-chevron" aria-hidden="true">‹</span><span class="gab-bas-libelle"><strong class="gab-nav-cible"></strong></span></button>` +
       `<button type="button" class="gab-bas-sommaire" data-gab-pas="tous">${echapper(T.tous)}</button>` +
-      `<button type="button" class="gab-bas-lien gab-bas-suivant" data-gab-pas="1"${i === n - 1 ? " disabled" : ""}><span class="gab-bas-libelle"><small>${echapper(T.suivant)}</small><strong class="gab-nav-cible"></strong></span><span class="gab-bas-chevron" aria-hidden="true">›</span></button>`;
+      `<button type="button" class="gab-bas-lien gab-bas-suivant" data-gab-pas="1"${i === n - 1 ? " disabled" : ""}><span class="gab-bas-libelle"><strong class="gab-nav-cible"></strong></span><span class="gab-bas-chevron" aria-hidden="true">›</span></button>`;
     // Éducation spécialisée (FR) : conserver la navigation native de la porte
     // Parcours. Seul le contrôle central devient l'intitulé du chapitre.
     // Aucun changement au découpage, à la destination des flèches ni aux autres salles.
@@ -1326,7 +1326,17 @@
     const bandeau = $(":scope > .bandeau", sc);
     const corps = $(":scope > .section-corps", sc);
     if (!corps) return;
-    if (salle === "recherche") mettreDevisEnCartes(sc);
+    if (salle === "recherche") {
+      mettreDevisEnCartes(sc);
+      const labels = {fr:"Synthèse et exemple · relire les trois objectifs", en:"Overview and example · revisit the three objectives", es:"Síntesis y ejemplo · repasar los tres objetivos", zh:"概述与示例 · 回顾三个目标", ar:"ملخص ومثال · مراجعة الأهداف الثلاثة", ru:"Обзор и пример · три цели исследования"};
+      sc.querySelectorAll(".these-vulgarisation-ensemble").forEach(bloc => {
+        if (bloc.querySelector(":scope > .methode-recapitulatif")) return;
+        const details = el("details", "methode-recapitulatif");
+        details.append(el("summary", "", echapper(labels[langue] || labels.fr)));
+        while (bloc.firstChild) details.append(bloc.firstChild);
+        bloc.append(details);
+      });
+    }
     const photoSalle = photoDuBandeau(bandeau);
     const { mode, table, chapitres } = decouper(sc, salle);
 
@@ -1552,7 +1562,7 @@
 
   function defiler(cible) {
     if (!cible) return;
-    cible.scrollIntoView({ block: "start", behavior: calme.matches ? "instant" : "smooth" });
+    cible.scrollIntoView({ block: "start", behavior: "instant" });
   }
   const chapitresDe = (zone) => $$(".gab-chapitre", zone).filter((c) => c.closest(".gab") === zone);
 
@@ -1629,8 +1639,9 @@
         const titre = dansPorte ? voisin?.titre : nomChapitre(voisin?.chapitre);
         const destination = voisin ? deux((dansPorte ? positionDansPorte(voisin.zone, voisin.chapitre).index : voisin.index) + 1) + " · " + titre : "";
         bouton.disabled = !voisin;
+        bouton.hidden = !voisin;
         const cible = $(".gab-nav-cible, .gab-fleche-cible", bouton);
-        if (cible) cible.textContent = destination;
+        if (cible) cible.textContent = nav === lecture ? (titre || "") : destination;
         const annonce = destination ? action + " : " + destination : action;
         bouton.setAttribute("aria-label", annonce);
         if (destination) bouton.title = annonce;
@@ -1676,6 +1687,7 @@
 
   function ouvrirPageChapitre(zone, index, options = {}) {
     if (!zone) return;
+    if (options.adresse) window.ebNavigation?.memoriser();
     zone.hidden = false;
     $(".gab-programme-porte", zone.parentElement)?.remove();
     const liste = chapitresDe(zone);
@@ -1699,6 +1711,15 @@
           if (numero) numero.textContent = deux(positionDansPorte(zone, chapitre).index + 1);
         }
       }
+    });
+    liste.forEach(chapitre => {
+      $$('a[href^="#"]', chapitre).forEach(lien => {
+        if (lien.matches("[data-gab-aller], [data-these-vers]")) return;
+        const repere = lien.dataset.gabAncre || lien.getAttribute("href").slice(1);
+        if (!$$("[id]", chapitre).some(x => x.id === repere)) return;
+        lien.dataset.gabAncre = repere;
+        lien.href = "#" + zone.dataset.gabSalle + "/" + chapitre.dataset.gabSlug + "/" + encodeURIComponent(repere);
+      });
     });
     zone.classList.toggle("gab-page-chapitre", ouverte);
     zone.classList.toggle("gab-page-sommaire", !ouverte);
@@ -1724,6 +1745,7 @@
         catch { location.hash = fragment; }
       }
     }
+    if (options.adresse) window.ebNavigation?.actualiser();
     if (options.haut && dansSalle && salle) salle.scrollTo({ top: 0, behavior: "instant" });
     else if (options.haut && dansPageLibre) {
       ($(".gab-chapitres", zone) || zone).scrollIntoView({ block: "start", behavior: "instant" });
@@ -1745,14 +1767,25 @@
       const nav=basculeSommaire.closest(".gab-sommaire-chapitre"), ouvert=nav.dataset.gabReplie!=="non";
       nav.dataset.gabReplie=ouvert?"non":"oui";basculeSommaire.setAttribute("aria-expanded",String(ouvert));return;
     }
-    const inter = ev.target.closest("[data-gab-intertitre], [data-gab-cible]");
+    const ancreLocale = ev.target.closest('.gab a[href^="#"]');
+    const inter = ev.target.closest("[data-gab-intertitre], [data-gab-cible]") ||
+      (ancreLocale && !ancreLocale.matches("[data-gab-aller], [data-these-vers]") ? ancreLocale : null);
     if (inter) {
       ev.preventDefault();
       const chapitre = inter.closest(".gab-chapitre");
-      const cible = inter.dataset.gabCible
+      if (!chapitre) return;
+      const idLocal = inter.dataset.gabAncre || inter.getAttribute("href")?.slice(1);
+      const cible = !inter.dataset.gabCible && !inter.hasAttribute("data-gab-intertitre")
+        ? $$("[id]", chapitre).find(x => x.id === idLocal)
+        : inter.dataset.gabCible
         ? $$("[id]", chapitre).find((x) => x.id === inter.dataset.gabCible)
         : $$("h4", $(".gab-corps", chapitre)).filter((x) => !x.closest("details:not([open]), [hidden], .gab-source.carte-vitrine"))[+inter.dataset.gabIntertitre];
       if (cible) {
+        const zone = chapitre.closest(".gab");
+        window.ebNavigation?.memoriser();
+        const fragment = "#" + zone.dataset.gabSalle + "/" + chapitre.dataset.gabSlug + "/" + encodeURIComponent(cible.id);
+        if (location.hash !== fragment) history.pushState(null, "", location.pathname + location.search + fragment);
+        window.ebNavigation?.actualiser();
         const vue = cible.closest(".these-objectif-vue[data-vue-objectif]");
         if (vue?.hidden) {
           const code = vue.dataset.vueObjectif;
@@ -1761,6 +1794,7 @@
         }
         Array.from(chapitre.querySelectorAll("details")).filter((d) => d.contains(cible)).forEach((d) => { d.open = true; });
         defiler(cible);
+        window.ebNavigation?.memoriser();
       }
       return;
     }
@@ -1842,9 +1876,9 @@
       barre.prepend(utilitaires);
       lecture = el("div", "gab-lecture");
       lecture.innerHTML =
-        '<button type="button" class="gab-fleche gab-fleche-precedente" data-gab-pas="-1" aria-label="' + echapper(T.precedent) + '"><span class="gab-fleche-icone" aria-hidden="true">‹</span><span class="gab-fleche-libelle"><span class="gab-fleche-texte">' + echapper(T.precedent) + '</span><small class="gab-fleche-cible"></small></span></button>' +
+        '<button type="button" class="gab-fleche gab-fleche-precedente" data-gab-pas="-1" aria-label="' + echapper(T.precedent) + '"><span class="gab-fleche-icone" aria-hidden="true">‹</span><span class="gab-fleche-libelle"><small class="gab-fleche-cible"></small></span></button>' +
         '<div class="gab-actuel" aria-live="polite"><b></b><span><small></small><strong></strong></span></div>' +
-        '<button type="button" class="gab-fleche gab-fleche-suivante" data-gab-pas="1" aria-label="' + echapper(T.suivant) + '"><span class="gab-fleche-libelle"><span class="gab-fleche-texte">' + echapper(T.suivant) + '</span><small class="gab-fleche-cible"></small></span><span class="gab-fleche-icone" aria-hidden="true">›</span></button>';
+        '<button type="button" class="gab-fleche gab-fleche-suivante" data-gab-pas="1" aria-label="' + echapper(T.suivant) + '"><span class="gab-fleche-libelle"><small class="gab-fleche-cible"></small></span><span class="gab-fleche-icone" aria-hidden="true">›</span></button>';
       barre.append(lecture);
       barre.classList.add("gab-barre");salle.classList.add("gab-salle");
       salle.addEventListener("scroll", suivreDefilement, {passive:true});
@@ -1907,6 +1941,20 @@
 
   // Inventaire des chapitres (sert à constituer le catalogue d'images).
   window.gabaritSalles = {
+    atteindre: (zone, repere) => {
+      if (!zone || !repere) return null;
+      const cible = $$("[id], [data-rubrique]", zone).find(x => x.id === repere || x.dataset.rubrique === repere);
+      const chapitre = cible?.closest(".gab-chapitre");
+      if (!cible || !chapitre) return null;
+      if (cible.matches("details")) cible.open = true;
+      const liste = chapitresDe(zone);
+      if (chapitre.hidden) ouvrirPageChapitre(zone, liste.indexOf(chapitre));
+      let parent = cible.parentElement;
+      while (parent && parent !== zone) { if (parent.matches("details")) parent.open = true; parent = parent.parentElement; }
+      const detail = cible.matches(".methode-rubrique") && cible.querySelector(":scope > details");
+      if (detail) detail.open = true;
+      return cible;
+    },
     inventaire: () => $$("section.section[data-salle] > .section-contenu.gab").flatMap((sc) => chapitresDe(sc).map((c, i) => ({ salle: sc.dataset.gabSalle, porte: porteDe(sc.dataset.gabSalle)?.dataset.salle || "", ordre: i + 1, titre: nomChapitre(c) }))),
   };
 

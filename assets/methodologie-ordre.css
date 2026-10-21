@@ -1,9 +1,9 @@
 /* Hiérarchie commune des objectifs, conservée dans le corps de la salle. */
-.these .methode-objectif-separe{margin-block:64px 80px;padding-top:24px;border-top:8px solid var(--objectif,#17666b);scroll-margin-top:120px}
+.these .methode-objectif-separe{margin-block:28px 36px;padding-top:16px;border-top:8px solid var(--objectif,#17666b);scroll-margin-top:120px}
 .these .methode-objectif-separe[data-vue-objectif=O1],.these .methode-objectif-separe[data-vue-objectif=O1]>.these-methode-objectif{--objectif:#427b26}
 .these .methode-objectif-separe[data-vue-objectif=O2],.these .methode-objectif-separe[data-vue-objectif=O2]>.these-methode-objectif{--objectif:#167d83}
 .these .methode-objectif-separe[data-vue-objectif=O3],.these .methode-objectif-separe[data-vue-objectif=O3]>.these-methode-objectif{--objectif:#245f9f}
-.these .methode-objectif-tete{padding:24px clamp(18px,3vw,32px);margin-bottom:26px;background:var(--objectif);color:white;border-radius:12px}
+.these .methode-objectif-tete{padding:12px clamp(14px,2vw,22px);margin-bottom:16px;background:var(--objectif);color:white;border-radius:12px}
 .these .methode-objectif-tete>p:first-child{font:800 13px/1.4 var(--sans);letter-spacing:.1em;margin:0 0 12px}
 .these .methode-objectif-tete>.titre-bloc{color:inherit;font-size:clamp(23px,3vw,32px);margin:0 0 14px;border:0;padding:0;text-transform:none}
 .these .methode-objectif-tete>p:last-child{font:500 14px/1.7 var(--sans);margin:0;text-align:start}
@@ -11,42 +11,53 @@
 .these .methode-objectif-tete h4.titre-bloc{color:#fff!important;scroll-margin-top:190px}
 .these .methode-objectif-tete{scroll-margin-top:135px}
 .these .methode-fiche{display:block;margin:0;padding:0}
-.these .methode-rubrique{display:block;min-width:0;margin:32px 0;padding:0 0 24px;border-bottom:1px solid #ccd9dd;scroll-margin-top:130px}
-.these .methode-rubrique-titre{display:flex;gap:14px;align-items:baseline;margin:0 0 20px;color:var(--objectif);font:750 clamp(19px,2vw,23px)/1.4 var(--sans);text-align:start;text-transform:none;letter-spacing:0}
+.these .methode-rubrique{display:block;min-width:0;margin:18px 0;padding:0 0 14px;border-bottom:1px solid #ccd9dd;scroll-margin-top:130px}
+.these .methode-rubrique-titre{display:flex;gap:14px;align-items:baseline;margin:0 0 12px;color:var(--objectif);font:750 clamp(19px,2vw,23px)/1.4 var(--sans);text-align:start;text-transform:none;letter-spacing:0}
 .these .methode-rubrique-titre>span{font-size:14px;font-weight:800}
 .these .methode-rubrique-contenu{display:block;min-width:0}
-.these .methode-rubrique .these-methode-item{display:block;margin:0 0 16px;padding:18px 22px;background:#f5f8f9;border:1px solid #dbe3e6;border-radius:10px;min-width:0;counter-increment:none}
+.these .methode-rubrique .these-methode-item{display:block;margin:0 0 10px;padding:12px 14px;background:#f5f8f9;border:1px solid #dbe3e6;border-radius:10px;min-width:0;counter-increment:none}
 .these .methode-rubrique .these-methode-item dt{font:700 15px/1.5 var(--sans);color:var(--objectif);margin-bottom:10px}
 .these .methode-rubrique .these-methode-item dt::before{content:none}
 .these .methode-rubrique .these-methode-item dd{margin:0;line-height:1.8}
-.these .methode-exemples{min-width:0;margin-top:48px;padding:clamp(16px,3vw,30px);border:2px dashed var(--objectif);border-radius:14px;background:#f8fafb}
-.these .methode-exemples-tete{margin-bottom:30px;padding-bottom:24px;border-bottom:2px solid var(--objectif)}
+.these .methode-exemples{min-width:0;margin-top:24px;padding:clamp(12px,2vw,18px);border:1px solid var(--objectif);border-radius:14px;background:#f8fafb}
+.these .methode-exemples-tete{margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid var(--objectif)}
 .these .methode-exemples-tete>p:first-child{color:var(--objectif);font:800 12px/1.5 var(--sans);letter-spacing:.08em}
 .these .methode-exemples-tete>h4{font:750 clamp(22px,2.5vw,28px)/1.35 var(--sans);color:var(--objectif);margin:12px 0}
-.these .methode-exemples .these-methode-item{padding:18px;background:white;border-radius:10px;margin-bottom:20px}
+.these .methode-exemples .these-methode-item{padding:12px;background:white;border-radius:8px;margin-bottom:12px}
 .these .methode-exemples .these-methode-item dd{margin:0}
-.these .methode-produit{padding:20px;border-left:4px solid var(--objectif);background:#f3f7f8;margin-bottom:30px}
+.these .methode-produit{padding:12px 14px;border-left:4px solid var(--objectif);background:#f3f7f8;margin-bottom:16px}
 .these .methode-produit dd{margin:10px 0 0}
-@media(max-width:600px){.these .methode-objectif-separe{margin-block:40px 56px}.these .methode-rubrique .these-methode-item{padding:16px}.these .methode-exemples{padding:15px}}
+@media(max-width:600px){.these .methode-objectif-separe{margin-block:20px 28px}.these .methode-rubrique .these-methode-item{padding:12px}.these .methode-exemples{padding:15px}}
 
 /* Une forme par fonction : texte, repère d'échantillonnage, volets, flux, limites. */
 .these .methode-rubrique[id$="-4"] .these-methode-item{background:transparent;border:0;border-radius:0;padding:0 0 14px}
 .these .methode-rubrique[id$="-5"] .these-methode-item{border:0;border-left:4px solid var(--objectif);background:#f3f7f7;border-radius:0 10px 10px 0}
 .these :is(#methode-o1-5,#methode-o2-5) dt{display:none}
-.these .methode-rubrique-contenu:has(>[class] [data-volet]){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.these .methode-rubrique-contenu:has(>[class] [data-volet]){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .these .methode-rubrique-contenu:has(>[class] [data-volet])>.methode-fiche:not(:has([data-volet])){grid-column:1/-1}
 .these .methode-rubrique [data-volet=quan]{background:#f0f6f3;border-top:3px solid #427b69}
 .these .methode-rubrique [data-volet=qual]{background:#f0f4fa;border-top:3px solid #4b7199}
 .these .methode-rubrique [data-volet] dt{font-size:14px}
 .these .methode-integration-flux{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));list-style:none;gap:12px;padding:0;margin:0;counter-reset:integration}
-.these .methode-integration-flux li{margin:0;padding:15px 16px;background:#fff;border:1px solid #d4e1e6;border-radius:8px;font-size:15px;line-height:1.65}
+.these .methode-integration-flux li{margin:0;padding:10px 12px;background:#fff;border:1px solid #d4e1e6;border-radius:8px;font-size:15px;line-height:1.65}
 .these .methode-integration-flux strong{display:block;color:var(--objectif);margin-bottom:5px}
 .these .methode-rubrique[id$="-9"]{border:0;margin-bottom:12px;padding-bottom:12px}
 .these .methode-rubrique[id$="-9"] .limites-these{background:transparent;padding:0 0 0 22px;line-height:1.8}
-.these .methode-approfondir{margin:26px 0 0;border:1px solid #cadbdf;border-radius:10px;background:#fff}
-.these .methode-approfondir>summary{cursor:pointer;padding:18px 20px;color:var(--objectif);font:700 16px/1.5 var(--sans)}
+.these .methode-approfondir{margin:16px 0 0;border:1px solid #cadbdf;border-radius:10px;background:#fff}
+.these .methode-approfondir>summary{cursor:pointer;padding:12px 14px;color:var(--objectif);font:700 16px/1.5 var(--sans)}
 .these .methode-detail-corps{padding:8px clamp(14px,2vw,24px) 24px;min-width:0}
 .these .methode-detail-corps>.figure-officielle{margin:24px 0}
 .these .galerie-o2-renvoi{padding:14px 18px;background:#eef5f6;border-left:3px solid #428b91;align-self:center}
 .these .galerie-o2-renvoi a{color:#1c626d;font-weight:650;text-decoration:underline}
 @media(max-width:750px){.these .methode-rubrique-contenu:has(>[class] [data-volet]),.these .methode-integration-flux{grid-template-columns:1fr}}
+.these .methode-recapitulatif{margin:10px 0 16px;border:1px solid #dbe5e8;border-radius:9px;padding:0;background:#f8fbfc}
+.these .methode-recapitulatif>summary{cursor:pointer;padding:12px 14px;color:#245869}
+.these .methode-recapitulatif[open]>summary{border-bottom:1px solid #dbe5e8}
+.these .methode-recapitulatif>summary~*{margin:12px 14px}
+
+/* Même densité pour les méthodes des éditions traduites. */
+.these .these-methode-objectif{margin:18px 0 24px;padding:clamp(12px,2vw,18px);border-radius:12px;min-width:0}
+.these .these-methode-objectif>.titre-bloc{margin-bottom:12px;padding-bottom:10px}
+.these .these-schema-grille{gap:12px}
+.these .these-schema-card{padding:12px 14px;border-radius:9px}
+.these .methode-these-corps>p{margin-block:10px}

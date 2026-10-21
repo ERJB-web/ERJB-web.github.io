@@ -4,6 +4,7 @@
   root.classList.add('js', 'chargement');
   let navigation = false, dom = false, revelation = false;
   const preparations = [];
+  window.ebQuandPret = () => Promise.all(preparations);
   window.ebAttendre = promise => { preparations.push(promise); promise.catch(() => {}); };
   const lang = (root.lang || 'fr').split('-')[0];
   const messages = {

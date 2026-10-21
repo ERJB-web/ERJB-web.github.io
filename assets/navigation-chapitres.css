@@ -7,8 +7,8 @@
 .chapitre-utilitaires>[data-retour]{justify-self:start}
 .chapitre-retour-chapitres{justify-self:end}
 .chapitre-coordonnees{min-width:0}
-.chapitre-coordonnees :is(.entete-contact,.coordonnees-haut){display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px 12px;margin:0;padding:0;position:static;width:auto;max-width:none;color:var(--gab-marine);font:600 14px/1.35 var(--sans)}
-.chapitre-coordonnees a{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;color:inherit;text-decoration:none}
+.chapitre-coordonnees :is(.entete-contact,.coordonnees-haut){display:flex;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:6px 9px;margin:0;padding:0;position:static;width:auto;max-width:none;color:var(--gab-marine);font:600 14px/1.35 var(--sans)}
+.chapitre-coordonnees a{display:inline-flex;align-items:center;gap:5px;white-space:nowrap;color:inherit;text-decoration:none}
 .chapitre-coordonnees a:hover{text-decoration:underline}
 .chapitre-coordonnees .ic{width:17px;height:17px;flex:none}
 .chapitre-coordonnees .entete-contact-sep{height:18px;border-left:1px solid var(--gab-ligne)}
@@ -24,7 +24,7 @@
 .gab-lecture .gab-fleche:disabled{opacity:.4;cursor:default}
 .gab-fleche-icone{flex:none;font-size:26px;line-height:1}
 .gab-fleche-libelle{display:flex;flex-direction:column;gap:3px;min-width:0}
-.gab-fleche-cible{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:var(--type-note,14px);max-width:220px}
+.gab-fleche-cible{display:block;white-space:normal;overflow-wrap:anywhere;font-size:var(--type-corps,16px);max-width:260px}
 .gab-actuel{display:flex;align-items:center;gap:10px;color:var(--gab-marine)}
 .gab-actuel b{display:grid;place-items:center;flex:none;width:42px;height:42px;border-radius:12px;background:var(--gab-c,var(--gab-bleu));color:#fff;font:600 17px var(--sans)}
 .gab-actuel>span{min-width:0}
@@ -42,7 +42,7 @@
  .salle.gab-salle .salle-barre.gab-barre{padding:9px 12px}
  /* Sur téléphone uniquement : Retour aux Halls | Langue et accessibilité | Retour aux Chapitres. */
  .chapitre-utilitaires{grid-template-columns:minmax(0,1fr) max-content minmax(0,1fr);grid-template-areas:"retour outils chapitres";gap:6px}
- .chapitre-utilitaires>button{min-width:0;max-width:100%;white-space:normal;overflow-wrap:normal;font-size:clamp(10px,2.7vw,12px);line-height:1.3;min-height:46px;padding:6px 7px;text-align:center}
+ .chapitre-utilitaires>button{min-width:0;max-width:100%;white-space:normal;overflow-wrap:normal;font-size:var(--type-note,14px);line-height:1.3;min-height:46px;padding:6px 7px;text-align:center}
  /* Retirer le courriel, le téléphone et le rendez-vous de cette barre, sans les effacer du site. */
  .chapitre-coordonnees{display:none!important}
  .chapitre-outils.outils{grid-area:outils;justify-self:center;justify-content:center;gap:4px}
@@ -196,3 +196,9 @@
   .gab[data-gab-salle="educateur"] .educ-bas-nav .gab-bas-suivant{grid-column:2;grid-row:2}
   .gab[data-gab-salle="educateur"] .educ-bas-nav .gab-nav-cible{font-size:var(--type-note,14px)}
 }
+
+/* Les côtés gardent leur colonne lorsque la destination manque. */
+.gab-lecture .gab-fleche[hidden],.gab-bas-chapitre .gab-bas-lien[hidden]{display:none!important}
+.gab-lecture .gab-fleche-icone{font-size:28px}
+
+.gab-fleche-cible{hyphens:auto;word-break:normal}

@@ -448,3 +448,16 @@ details.o3-choix-quantitatif>summary::-webkit-details-marker{display:none}
 details.o3-choix-quantitatif>summary:focus-visible{outline:3px solid #247b63;outline-offset:-3px}
 .o3-choix-chevron{display:inline-block;margin-left:.4em}
 details.o3-choix-quantitatif[open] .o3-choix-chevron{transform:rotate(180deg)}
+/* Comparatif O3 : lecture par critère, deux modalités toujours côte à côte. */
+.o3-choix-quantitatif table{min-width:0;table-layout:fixed}
+.o3-choix-quantitatif .o3-comparatif-legende{padding:12px 14px;background:#edf5f7;color:#244b5c;text-align:start}
+.o3-choix-quantitatif tbody tr:last-child :is(th,td){border-bottom:0!important}
+.o3-choix-quantitatif tbody tr:hover td{background:#edf6f6!important}
+.o3-choix-quantitatif tbody th{width:22%}
+.o3-choix-quantitatif__entete{padding:14px 18px!important}
+.o3-choix-quantitatif__entete h3{margin:6px 0!important}
+@media(max-width:700px){
+ .o3-choix-quantitatif table{min-width:590px}
+ .o3-choix-quantitatif__defilement{scrollbar-width:auto;scrollbar-color:#367c88 #e8f0f3}
+ .o3-choix-quantitatif tbody th{position:sticky;inset-inline-start:0;z-index:1;box-shadow:2px 0 0 #dce9ee}
+}

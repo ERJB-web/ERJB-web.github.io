@@ -43,8 +43,8 @@ html body .gab .gab-bandeau .bandeau-legende{font-size:var(--type-corps)!importa
 html body .gab .gab-chapitre-tete .gab-chapitre-num{font-size:var(--type-chapitre)!important;font-weight:550!important;line-height:1.35!important;letter-spacing:0!important;text-transform:none!important}
 html body .gab .gab-chapitre-tete .gab-chapitre-num>b{font-size:20px!important;font-weight:450!important}
 html body .gab .gab-tuile .gab-tuile-titre{font-size:18px!important;font-weight:550!important;line-height:1.4!important}
-html body .gab .gab-programme-tete h2{font-size:14px!important;font-weight:550!important}
-html body .gab .gab-sommaire-chapitre :is(a,strong){font-size:14px!important;font-weight:500!important;line-height:1.45!important}
+html body .gab .gab-programme-tete h2{font-size:var(--type-corps)!important;font-weight:550!important}
+html body .gab .gab-sommaire-chapitre :is(a,strong){font-size:var(--type-corps)!important;font-weight:500!important;line-height:1.45!important}
 html body .gab .gab-sommaire-chapitre>span{font-size:var(--type-note)!important;font-weight:600!important}
 /* Préserver la taille spécifique de la note d'attribution et le zoom accessible. */
 html body .gab .gab-corps .these-exemples-attribution{font-size:var(--type-note)!important}
@@ -565,11 +565,6 @@ html body .these #these-methode-o3 .o3-lecture-details>summary .methode-rubrique
 .o3-lecture-details[open]>summary{background:#f9f8fb;border-bottom:1px solid #e4e0e8}
 .o3-lecture-details[open]>summary .o3-lecture-apercu{display:none}
 .o3-lecture-contenu{padding:16px;min-width:0}
-.o3-lecture-contenu .o3-lecture-sousdetail{margin:0 0 12px;padding:0;border:1px solid #e0e4e8;border-radius:8px;background:white;overflow:hidden}
-.o3-lecture-sousdetail>summary{padding:12px 15px;cursor:pointer;color:#4e4760;font-weight:550;font-size:var(--type-corps)}
-.o3-lecture-sousdetail[open]>summary{border-bottom:1px solid #e1e4e8;background:#faf9fc}
-.o3-lecture-sousdetail>.methode-fiche{padding:14px;margin:0}
-.o3-lecture-sousdetail>.methode-fiche>.these-methode-item>dt{display:none}
 .o3-lecture-notes{margin:14px 0;border:1px solid #dfe3e8;border-radius:8px;padding:12px 15px}
 .o3-lecture-notes>summary{color:#5c5668;cursor:pointer;font-size:var(--type-note)}
 .o3-lecture-notes>summary~*{margin-top:14px}
@@ -583,8 +578,6 @@ html body .these #these-methode-o3 .o3-lecture-details>summary .methode-rubrique
  .o3-lecture-contenu{padding:10px}
  .o3-lecture-commandes>span{flex-basis:100%}
 }
-/* Les titres sources restent disponibles pour le sommaire, sans doublon visuel. */
-html body .these #these-methode-o3 .o3-lecture-rubrique>.methode-rubrique-titre{display:none!important}
 html body .these #these-methode-o3>.methode-objectif-tete{display:flex!important;flex-wrap:wrap;gap:8px 18px;align-items:center;padding:12px 0!important;margin:0 0 6px!important;background:none!important;border:0!important;box-shadow:none!important;color:#354756!important}
 html body .these #these-methode-o3>.methode-objectif-tete>p:first-child{display:none!important}
 html body .these #these-methode-o3>.methode-objectif-tete>h4{margin:0!important;padding:0!important;font-size:var(--type-detail)!important;color:#544261!important}
@@ -603,3 +596,21 @@ html body .these #these-methode-o3 .o3-lecture-details>summary .methode-rubrique
 .these #these-methode-o3 .o3-lecture-parcours :is(strong,small){min-width:0;overflow-wrap:anywhere}
 .o3-lecture-volets{flex-wrap:wrap}
 @media(max-width:750px){html.lv .these #these-methode-o3 .o3-lecture-parcours{grid-template-columns:1fr!important}}
+
+@layer charte-typographique {
+/* Parcours : les intitulés longs gardent la taille de lecture commune. */
+html body .bande-parcours .trajectoire-texte{font-size:var(--type-corps)!important;line-height:1.65!important}
+html body .bande-parcours .trajectoire-date{font-size:var(--type-corps)!important}
+}
+
+@layer charte-typographique{
+html body :is(.mgp-trail a,.mgp-steps b,.mgp-flow span,.vg-guide .vg-rows span,.impact-ensemble dt){font-size:var(--type-corps)!important;line-height:1.5!important}
+html body .impact-financement dd{font-size:clamp(28px,2.7vw,40px)!important}
+html body :is(nav button,nav a){font-family:var(--type-police)!important}
+}
+
+@layer charte-typographique{
+html body .trajectoire-texte{font-size:var(--type-corps)!important;line-height:1.5!important}
+html body :is(.trajectoire-date,.recit .type,.recit .date){font-size:var(--type-note)!important;line-height:1.5!important}
+html body .gab .gab-sommaire-chapitre a span{font-size:inherit!important;line-height:inherit!important}
+}
