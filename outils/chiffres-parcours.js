@@ -19,12 +19,8 @@ module.exports = {
       ],
       [
         "≈1 000",
-        "personnes ayant bénéficié de vacances hors institution"
-      ],
-      [
-        "≈1 000",
-        "familles et professionnels concernés par le répit",
-        "Estimation de l’entourage des personnes accompagnées"
+        "personnes ayant bénéficié de vacances adaptées hors institution et ≈1 000 familles et professionnels concernés par le répit",
+        "Deux estimations liées, non additionnables"
       ],
       [
         "4",
@@ -43,6 +39,10 @@ module.exports = {
         "1",
         "prix de la meilleure affiche",
         "GFSP 2026 · 3e cycle"
+      ],
+      [
+        "130 000 $",
+        "financement obtenu pour mon parcours doctoral"
       ],
       [
         "3 000",
@@ -92,12 +92,8 @@ module.exports = {
       ],
       [
         "≈1,000",
-        "people benefiting from holidays outside institutions"
-      ],
-      [
-        "≈1,000",
-        "families and professionals concerned by respite",
-        "Estimated support network of the people accompanied"
+        "people who benefited from adapted holidays outside institutions, alongside ≈1,000 families and respite-care professionals",
+        "Related estimates; do not add them together"
       ],
       [
         "4",
@@ -116,6 +112,10 @@ module.exports = {
         "1",
         "best poster award",
         "GFSP 2026 · doctoral category"
+      ],
+      [
+        "CA$130,000",
+        "funding secured for my doctoral studies"
       ],
       [
         "3,000",
@@ -165,12 +165,8 @@ module.exports = {
       ],
       [
         "≈1 000",
-        "personas beneficiarias de vacaciones fuera de instituciones"
-      ],
-      [
-        "≈1 000",
-        "familias y profesionales vinculados al respiro",
-        "Estimación del entorno de las personas acompañadas"
+        "personas beneficiarias de vacaciones adaptadas fuera de instituciones, junto con ≈1 000 familias y profesionales vinculados al respiro",
+        "Estimaciones relacionadas; no deben sumarse"
       ],
       [
         "4",
@@ -189,6 +185,10 @@ module.exports = {
         "1",
         "premio al mejor póster",
         "GFSP 2026 · doctorado"
+      ],
+      [
+        "130 000 $",
+        "financiación obtenida para mi trayectoria doctoral"
       ],
       [
         "3 000",
@@ -238,12 +238,8 @@ module.exports = {
       ],
       [
         "≈1 000",
-        "名机构外度假活动受益者"
-      ],
-      [
-        "≈1 000",
-        "与喘息支持相关的家庭及专业人员",
-        "对受支持者身边支持群体的估算"
+        "名机构外适应性度假活动受益者，以及约1 000个相关家庭和喘息支持专业人员",
+        "相关估算，不可相加"
       ],
       [
         "4",
@@ -262,6 +258,10 @@ module.exports = {
         "1",
         "项最佳海报奖",
         "GFSP 2026 · 博士组"
+      ],
+      [
+        "130 000 $",
+        "博士学习期间获得的资助"
       ],
       [
         "3 000",
@@ -311,12 +311,8 @@ module.exports = {
       ],
       [
         "≈1 000",
-        "شخص استفاد من عطلات خارج المؤسسات"
-      ],
-      [
-        "≈1 000",
-        "أسر ومهنيون معنيون بخدمات الراحة المؤقتة",
-        "تقدير للمحيط الداعم للأشخاص المستفيدين"
+        "شخص استفاد من عطلات مكيّفة خارج المؤسسات، إلى جانب نحو ١٠٠٠ من الأسر والمهنيين المعنيين بخدمات الراحة",
+        "تقديران مترابطان لا يجوز جمعهما"
       ],
       [
         "4",
@@ -335,6 +331,10 @@ module.exports = {
         "1",
         "جائزة أفضل ملصق",
         "GFSP 2026 · فئة الدكتوراه"
+      ],
+      [
+        "130 000 $",
+        "تمويل حصلت عليه خلال مساري للدكتوراه"
       ],
       [
         "3 000",
@@ -384,12 +384,8 @@ module.exports = {
       ],
       [
         "≈1 000",
-        "человек, отдохнувших вне учреждений"
-      ],
-      [
-        "≈1 000",
-        "семьи и специалисты, которых касается временная разгрузка",
-        "Оценка круга поддержки сопровождаемых людей"
+        "человек, воспользовавшихся адаптированным отдыхом вне учреждений, а также около 1 000 семей и специалистов по поддержке",
+        "Связанные оценки, не подлежат сложению"
       ],
       [
         "4",
@@ -408,6 +404,10 @@ module.exports = {
         "1",
         "награда за лучший постер",
         "GFSP 2026 · докторантура"
+      ],
+      [
+        "130 000 $",
+        "финансирование, полученное на обучение в докторантуре"
       ],
       [
         "3 000",
