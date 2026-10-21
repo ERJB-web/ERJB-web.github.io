@@ -6436,3 +6436,5 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
 .menu-cv .menu-panneau small{display:block;color:var(--muted)}
 #contact .section-corps:has(>.colonne-texte:only-child){display:block}
 @media(max-width:700px){.entete .menu-cv .menu-panneau{position:absolute;inset-inline:auto 0;top:calc(100% + 8px);width:min(300px,calc(100vw - 24px));min-width:240px}}
+
+body:has(>main>.accueil)>.entete .outils .menu-cv>summary.bouton-cv{background:#0879be;color:#fff;border-color:#0879be}
