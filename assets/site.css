@@ -6336,3 +6336,33 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
     align-self:center;
   }
 }
+
+
+/* Accueil mobile uniquement : prolongement atmosphérique du ciel de Montréal.
+   La photographie, le cadre et les portes demeurent totalement intacts. */
+@media (max-width:700px) {
+  body:has(> main > .accueil) > main > .accueil > .presentation > .identite {
+    position:relative;
+    isolation:isolate;
+  }
+  body:has(> main > .accueil) > main > .accueil > .presentation > .identite::before {
+    content:"";
+    position:absolute;
+    z-index:-1;
+    pointer-events:none;
+    inset-block:-10px -16px;
+    inset-inline:calc(-1 * var(--gouttiere));
+    background:
+      radial-gradient(ellipse 95% 85% at 54% 100%,
+        rgba(172,194,215,.23) 0%,
+        rgba(204,220,231,.13) 48%,
+        rgba(255,255,255,0) 100%),
+      linear-gradient(to bottom,
+        #ffffff 0%,
+        #fbfdfe 18%,
+        #f4f9fb 42%,
+        #e6f0f5 68%,
+        #d8e7ee 88%,
+        #cedfe9 100%);
+  }
+}
