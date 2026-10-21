@@ -2610,7 +2610,7 @@ html.hc .implantation-portail-liens a{border-color:currentColor}
 .enseignement .pedago-precision{padding:15px 0;border-top:1px solid #ccdcd7;color:#56736f;font-size:13px!important;margin-top:20px}
 .enseignement .pedago-photo{margin:0;min-width:0}
 .enseignement .pedago-photo img{width:100%;height:auto;aspect-ratio:1.36;object-fit:cover;object-position:center;border-radius:0;box-shadow:none}
-.enseignement .pedago-photo figcaption{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 18px;margin:10px 0 0;color:#5b7377;font-size:11px;line-height:1.5}
+.enseignement .pedago-photo figcaption{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 9px;margin:10px 0 0;color:#5b7377;font-size:11px;line-height:1.5}
 .enseignement .pedago-photo figcaption span:first-child{max-width:50ch}
 .enseignement .pedago-photo figcaption a{color:inherit}
 .enseignement .pedago-principes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;border-block:1px solid #cadbd5;padding:25px 0;margin:30px 0 8px}
@@ -2750,8 +2750,8 @@ html.hc .implantation-portail-liens a{border-color:currentColor}
 /* Bande du haut : contact sous les domaines, Ma thèse avec les outils */
 .entete .marque-bloc{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:6px}
 .entete .marque-bloc .marque{flex:none;max-width:100%}
-.entete-contact{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin:0;font-size:13px}
-.entete-contact a{display:inline-flex;align-items:center;gap:7px;color:var(--muted);font-weight:500;text-decoration:none}
+.entete-contact{display:flex;flex-wrap:wrap;align-items:center;gap:6px 9px;margin:0;font-size:13px}
+.entete-contact a{display:inline-flex;align-items:center;gap:5px;color:var(--muted);font-weight:500;text-decoration:none}
 .entete-contact a svg{flex:none;width:15px;height:15px;color:#1f5a8a}
 .entete-contact a:hover,.entete-contact a:focus-visible{color:#1f5a8a;text-decoration:underline;text-underline-offset:3px}
 .entete-contact-sep{width:1px;height:14px;background:#cfdadd}
@@ -2860,9 +2860,9 @@ html.hc .implantation-portail-liens a{border-color:currentColor}
 @media(min-width:1441px) and (max-width:1599px){.entete .nav a{padding:5px 8px 5px 5px;font-size:13px}}
 @media(min-width:701px) and (max-width:1440px){.entete .nav a{padding:5px 8px}.entete .nav a::after{left:8px;right:8px}}
 /* Ligne de contact du haut plus lisible ; rendez-vous en majuscules */
-.entete-contact{font-size:14.5px;gap:6px 18px}
+.entete-contact{font-size:14.5px;gap:6px 9px}
 .entete-contact a svg{width:16px;height:16px}
-.entete-contact a.entete-rdv{text-transform:uppercase;letter-spacing:.05em;font-weight:700;font-size:13.5px}
+.entete-contact a.entete-rdv{text-transform:none;letter-spacing:normal;font-weight:700;font-size:13.5px}
 /* Mentions légales du pied de page */
 .pied .pied-titre{margin:0 0 6px;font:600 13px/1.3 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
 .pied .mentions-info p strong{color:var(--ink)}
@@ -2911,10 +2911,10 @@ html.hc .implantation-portail-liens a{border-color:currentColor}
 .entete-contact-sep{height:18px;background:linear-gradient(180deg,transparent,#cfdadd 30%,#cfdadd 70%,transparent)}
 /* Sobriété : contact sans pastilles, barre grise au repos, couleur au survol seulement */
 .entete-contact{gap:4px 16px;font-size:14px}
-.entete-contact a{gap:7px;color:#3a4c53;font-weight:500}
+.entete-contact a{gap:5px;color:#3a4c53;font-weight:500}
 .entete-contact a svg,.entete-contact a[href^="tel:"] svg,.entete-contact a.entete-rdv svg{box-sizing:border-box;width:15px;height:15px;padding:0;border-radius:0;background:none;box-shadow:none;color:#7a8b92}
 .entete-contact a[href^="tel:"]{font-weight:500;letter-spacing:0;color:#3a4c53}
-.entete-contact a.entete-rdv{font-size:12.5px;font-weight:600;letter-spacing:.06em;color:#1f5a8a}
+.entete-contact a.entete-rdv{font-size:12.5px;font-weight:600;letter-spacing:normal;color:#1f5a8a}
 .entete-contact a.entete-rdv svg{color:#1f5a8a}
 .entete-contact a:hover svg,.entete-contact a:focus-visible svg,.entete-contact a.entete-rdv:hover svg{background:none;color:#1f5a8a}
 .entete-contact-sep{height:14px;background:#d6e0e3}
@@ -5605,7 +5605,7 @@ html:is(.hc,.lv) :is(#salle,#recherche) .objectifs-visuels :is(.ov-carte,.ov-sch
 /* En-tête principal : rapprocher légèrement les coordonnées vers la gauche (écrans > 700 px). */
 @media(min-width:701px){
   .entete .marque-bloc{flex:0 1 auto}
-  .entete-contact{gap:6px 12px;justify-content:flex-start}
+  .entete-contact{gap:6px 9px;justify-content:flex-start}
 }
 
 /* Alignement éditorial : paragraphes rédigés uniquement, sans changer les titres,
