@@ -6323,3 +6323,16 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
 .menu-cv .menu-panneau a strong{display:block;font-weight:600}
 .menu-cv .menu-panneau a small{display:block;margin-top:3px;color:var(--muted);font-size:12px}
 .menu-cv .menu-panneau .menu-cv-picto{flex:none;color:var(--muted);font-size:17px}
+
+
+/* Accueil ordinateur : réduire le vide du premier écran sans toucher au hall.
+   Centrer verticalement le texte de droite sur l'ensemble identitaire de gauche. */
+@media (min-width:1081px) {
+  body:has(> main > .accueil) > main > .accueil > .presentation {
+    min-block-size:max(0px,calc(var(--presentation-min,0px) - 64px));
+    align-content:center;
+  }
+  body:has(> main > .accueil) > main > .accueil > .presentation > .chapeau {
+    align-self:center;
+  }
+}
