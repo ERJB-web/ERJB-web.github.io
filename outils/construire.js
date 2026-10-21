@@ -1542,19 +1542,18 @@ ${c.lang === 'fr' ? `<link rel="stylesheet" href="${p}assets/maturite-scientifiq
 ${baliseAudience(p)}
 <link rel="stylesheet" href="${p}assets/bibliographie.css?v=${empreinte("assets/bibliographie.css")}"><script src="${p}assets/bibliographie.js?v=${empreinte("assets/bibliographie.js")}" defer></script>
 <link rel="stylesheet" href="${p}assets/typographie.css?v=bc0fdd3359">
-<link rel="stylesheet" href="${p}assets/entete-mobile.css?v=${empreinte("assets/entete-mobile.css")}">
 </head>
 <body>
 <a class="evitement" href="#contenu">${e(c.ui.evitement)}</a>
 <header class="entete">
 <a class="marque" href="${p || "./"}"><span class="marque-domaines">${e(c.ui.sousTitre)}</span></a>
-<p class="coordonnees coordonnees-haut"><a href="mailto:${e(c.contact.courriel)}">${icone("enveloppe")}<span class="coordonnees-libelle">${e(c.contact.courriel)}</span></a><a href="tel:${TELEPHONE[1]}">${icone("telephone")}<span class="coordonnees-libelle">${TELEPHONE[0]}</span></a><a class="coordonnees-rdv" href="${BOOKINGS}" target="_blank" rel="noopener noreferrer"><svg class="mobile-icone-rdv" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18M9 15l2 2 4-4"/></svg><span class="coordonnees-libelle">${e(textesTransmission(c).rdv)}</span></a></p>
+<p class="coordonnees coordonnees-haut"><a href="mailto:${e(c.contact.courriel)}">${icone("enveloppe")}${e(c.contact.courriel)}</a><a href="tel:${TELEPHONE[1]}">${icone("telephone")}${TELEPHONE[0]}</a><a class="coordonnees-rdv" href="${BOOKINGS}" target="_blank" rel="noopener noreferrer">${e(textesTransmission(c).rdv)}</a></p>
 <nav class="nav" aria-label="${e(c.ui.navigation)}">${accesThese(c)}${GROUPES.map(([g, ss]) => `<a href="#${ss[0] || g}" style="--nav-accent:${TEINTES_GROUPES[g][0]}">${iconeMenu(g)}${e(texteGroupe(c, g)[0])}</a>`).join("")}</nav>
 <div class="outils">
 ${menuLangues(c, edition)}
 ${menuAcces(c, c.lang)}
 <a class="bouton-cv" href="${p}docs/cv-academique.pdf">${e(c.ui.cv)} <span aria-hidden="true">↓</span></a>
-<a class="bouton-cv" href="${e(c.recherche.affiche[2])}" target="_blank" rel="noopener"><svg class="mobile-icone-affiche" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="1.3"/><path d="m5 18 5.2-5.1 3.1 3 2.8-3 3 3.2"/></svg>${e(({fr:"Affiche",en:"Poster",es:"Póster",zh:"海报",ar:"الملصق",ru:"Постер"})[c.lang] || "Affiche")} <span aria-hidden="true">↗</span></a>
+<a class="bouton-cv" href="${e(c.recherche.affiche[2])}" target="_blank" rel="noopener">${e(({fr:"Affiche",en:"Poster",es:"Póster",zh:"海报",ar:"الملصق",ru:"Постер"})[c.lang] || "Affiche")} <span aria-hidden="true">↗</span></a>
 </div>
 </header>
 
