@@ -1,0 +1,394 @@
+/* Accueil téléphone : reproduction de la maquette validée.
+   Aucun effet au-dessus de 700px ; contenus et liens inchangés. */
+
+/* Les pictogrammes nouveaux sont réservés au téléphone. */
+.mobile-icone-rdv,
+.mobile-icone-affiche { display:none; }
+
+@media screen and (max-width:700px) {
+  body:has(> main > .accueil) > .entete {
+    position:relative;
+    display:grid;
+    grid-template-columns:max-content minmax(0,1fr);
+    grid-auto-rows:auto;
+    align-items:center;
+    column-gap:5px;
+    row-gap:9px;
+    padding:12px clamp(9px,2.7vw,17px) 12px;
+    margin:0;
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+    background:#fff;
+    border-bottom:1px solid #dbeaf0;
+    box-shadow:none;
+  }
+
+  /* La longue énumération des domaines est masquée, pas supprimée du contenu. */
+  body:has(> main > .accueil) > .entete > .marque {
+    display:none!important;
+  }
+
+  /* Rangée 1 : thèse, langue, accessibilité, CV et affiche. */
+  body:has(> main > .accueil) > .entete > .nav {
+    grid-column:1;
+    grid-row:1;
+    display:flex!important;
+    flex:none!important;
+    order:0;
+    align-items:center;
+    justify-content:flex-start;
+    padding:0!important;
+    margin:0!important;
+    width:auto!important;
+    min-width:0;
+    max-width:100%;
+    background:none!important;
+    border:0!important;
+    border-radius:0!important;
+    overflow:visible!important;
+  }
+  body:has(> main > .accueil) > .entete .nav > :not(.these-nav) {
+    display:none!important;
+  }
+  body:has(> main > .accueil) > .entete .nav .these-nav {
+    display:flex!important;
+    margin:0!important;
+    padding:0!important;
+    gap:0!important;
+    border:0!important;
+  }
+  body:has(> main > .accueil) > .entete .nav .these-guide {
+    display:none!important;
+  }
+  body:has(> main > .accueil) > .entete .nav .acces-these {
+    display:inline-flex!important;
+    align-items:center;
+    justify-content:center;
+    width:auto!important;
+    min-height:45px!important;
+    height:45px!important;
+    padding:8px clamp(7px,2.35vw,12px)!important;
+    gap:5px;
+    border:0!important;
+    border-radius:999px!important;
+    background:linear-gradient(112deg,#0c568d,#218eb9)!important;
+    color:#fff!important;
+    box-shadow:0 4px 10px rgba(20,91,137,.18)!important;
+    font:700 clamp(10.8px,2.95vw,13px)/1.1 var(--sans)!important;
+    letter-spacing:-.015em;
+    white-space:nowrap;
+  }
+  body:has(> main > .accueil) > .entete .nav .acces-these > svg {
+    display:block;
+    width:16px!important;
+    height:16px!important;
+    flex:none;
+    color:#fff!important;
+  }
+  body:has(> main > .accueil) > .entete .nav .acces-these .acces-these-fleche {
+    display:none!important;
+  }
+
+  body:has(> main > .accueil) > .entete > .outils {
+    grid-column:2;
+    grid-row:1;
+    display:flex!important;
+    flex:none!important;
+    flex-wrap:nowrap!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    width:100%;
+    min-width:0;
+    max-width:100%;
+    gap:clamp(2px,.7vw,5px)!important;
+    margin:0!important;
+    padding:0!important;
+    order:0;
+  }
+  body:has(> main > .accueil) > .entete .outils > :is(a,details) {
+    flex:0 0 auto!important;
+    min-width:0;
+    margin:0!important;
+  }
+  body:has(> main > .accueil) > .entete .outils .menu > summary {
+    display:flex!important;
+    align-items:center;
+    justify-content:center;
+    width:clamp(36px,10.5vw,45px)!important;
+    height:45px!important;
+    min-width:0!important;
+    min-height:45px!important;
+    gap:2px!important;
+    padding:5px 3px!important;
+    background:#fff!important;
+    border:1.5px solid #cad9e5!important;
+    border-radius:999px!important;
+    box-shadow:none!important;
+    color:#143f60!important;
+  }
+  body:has(> main > .accueil) > .entete .outils .menu > summary .menu-libelle {
+    display:none!important;
+  }
+  body:has(> main > .accueil) > .entete .outils .menu > summary svg {
+    flex:none;
+  }
+  body:has(> main > .accueil) > .entete .outils .bouton-cv {
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    width:auto!important;
+    min-height:45px!important;
+    height:45px!important;
+    margin:0!important;
+    padding:6px clamp(5px,1.45vw,8px)!important;
+    border:1.5px solid #163f60!important;
+    border-radius:999px!important;
+    box-shadow:none;
+    background:#fff!important;
+    color:#103a5c!important;
+    font:600 clamp(10.8px,2.85vw,12.5px)/1.1 var(--sans)!important;
+    white-space:nowrap;
+    text-decoration:none;
+  }
+  /* Affiche a exactement la même famille visuelle que Projet de thèse. */
+  body:has(> main > .accueil) > .entete .outils .bouton-cv:last-of-type {
+    gap:3px!important;
+    padding-inline:7px!important;
+    border-color:transparent!important;
+    background:linear-gradient(112deg,#0c568d,#218eb9)!important;
+    color:#fff!important;
+    font-weight:700!important;
+    box-shadow:0 4px 10px rgba(20,91,137,.18)!important;
+  }
+  body:has(> main > .accueil) > .entete .outils .mobile-icone-affiche {
+    display:block;
+    flex:none;
+    width:14px;
+    height:14px;
+    color:#fff;
+  }
+
+  /* Rangée 2 : vignette météo, température et disponibilité. */
+  body:has(> main > .accueil) > .entete > .direct-entete {
+    grid-column:1 / -1;
+    grid-row:2;
+    display:flex!important;
+    position:static!important;
+    width:100%!important;
+    min-width:0;
+    max-width:100%;
+    min-height:66px;
+    flex:none!important;
+    flex-wrap:nowrap!important;
+    align-items:center;
+    column-gap:clamp(6px,1.9vw,10px);
+    margin:0!important;
+    padding:8px clamp(8px,2.5vw,14px)!important;
+    border-radius:22px;
+    background:linear-gradient(115deg,#eaf4ff,#e6f1fb);
+    color:#173e5b;
+    font:550 clamp(11px,3vw,14px)/1.25 var(--sans);
+    box-sizing:border-box;
+    overflow:hidden;
+    white-space:normal;
+  }
+  body:has(> main > .accueil) > .entete .direct-entete .direct-ciel {
+    display:grid;
+    flex:none;
+    width:clamp(43px,12vw,53px);
+    height:clamp(43px,12vw,53px);
+    border-radius:13px;
+  }
+  body:has(> main > .accueil) > .entete .direct-entete .direct-ciel svg {
+    width:30px;
+    height:30px;
+  }
+  body:has(> main > .accueil) > .entete .direct-entete .direct-meteo {
+    display:grid;
+    flex:0 1 auto;
+    gap:2px;
+    min-width:0;
+    margin:0;
+    white-space:nowrap;
+  }
+  body:has(> main > .accueil) > .entete .direct-entete .direct-temp {
+    color:#163e5b;
+    font:500 clamp(17px,4.5vw,23px)/1.08 var(--sans);
+  }
+  body:has(> main > .accueil) > .entete .direct-entete .direct-cond {
+    color:#476b81;
+    font:500 clamp(10.5px,2.9vw,13px)/1.2 var(--sans);
+  }
+  body:has(> main > .accueil) > .entete .direct-entete .direct-texte,
+  body:has(> main > .accueil) > .entete .direct-entete .direct-filet {
+    display:none!important;
+  }
+  body:has(> main > .accueil) > .entete .direct-entete .direct-activite {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    min-width:0;
+    flex:1 1 auto;
+    margin-inline-start:auto;
+    padding-inline-start:clamp(7px,2vw,12px);
+    min-height:31px;
+    border-inline-start:1px solid #bfd4e3;
+    color:#163e5b;
+    font:700 clamp(10.5px,2.8vw,13.5px)/1.25 var(--sans);
+    white-space:normal!important;
+    text-align:start;
+  }
+  body:has(> main > .accueil) > .entete .direct-entete .direct-point {
+    width:10px;
+    height:10px;
+  }
+
+  /* Rangée 3 : trois actions identiques ; le RDV reste bleu pâle. */
+  body:has(> main > .accueil) > .entete > .coordonnees-haut {
+    grid-column:1 / -1;
+    grid-row:3;
+    display:grid!important;
+    grid-template-columns:minmax(0,1.59fr) minmax(0,1.06fr) minmax(0,.96fr);
+    align-items:stretch;
+    gap:5px;
+    flex:none!important;
+    order:0!important;
+    width:100%!important;
+    min-width:0;
+    max-width:100%;
+    margin:0!important;
+    padding:0;
+  }
+  body:has(> main > .accueil) > .entete .coordonnees-haut > a {
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center;
+    gap:clamp(2px,.75vw,5px);
+    box-sizing:border-box;
+    min-width:0!important;
+    max-width:100%;
+    width:100%!important;
+    min-height:45px;
+    height:auto!important;
+    margin:0;
+    padding:6px 6px!important;
+    background:#e9f4ff;
+    color:#164970;
+    border-radius:999px!important;
+    border:0;
+    box-shadow:none;
+    font:650 clamp(9px,2.63vw,11.5px)/1.2 var(--sans)!important;
+    white-space:nowrap;
+    text-decoration:none;
+  }
+  body:has(> main > .accueil) > .entete .coordonnees-haut > a svg {
+    display:block!important;
+    flex:none;
+    width:clamp(13px,3.5vw,17px)!important;
+    height:clamp(13px,3.5vw,17px)!important;
+    margin:0!important;
+    color:inherit!important;
+  }
+  body:has(> main > .accueil) > .entete .coordonnees-haut .coordonnees-libelle {
+    display:block;
+    min-width:0;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  body:has(> main > .accueil) > .entete .coordonnees-haut .mobile-icone-rdv {
+    display:block!important;
+  }
+  body:has(> main > .accueil) > .entete .coordonnees-haut .coordonnees-rdv {
+    font-weight:750!important;
+  }
+
+  /* Le portrait et l'identité commencent immédiatement sous l'en-tête. */
+  body:has(> main > .accueil) > main > .accueil {
+    padding-top:0;
+    gap:0;
+  }
+  body:has(> main > .accueil) > main > .accueil > .presentation > .identite {
+    width:100%;
+    min-width:0;
+    padding-block:18px 20px!important;
+    margin:0!important;
+    gap:clamp(10px,3vw,15px);
+    align-items:center;
+  }
+  body:has(> main > .accueil) > main > .accueil .identite .surtitre {
+    display:none!important;
+  }
+  body:has(> main > .accueil) > main > .accueil .portrait {
+    flex:none;
+    width:clamp(82px,24vw,109px)!important;
+    height:auto!important;
+    aspect-ratio:1;
+    border-radius:14px;
+    object-fit:cover;
+    box-shadow:0 7px 20px rgba(29,66,85,.08);
+  }
+  body:has(> main > .accueil) > main > .accueil h1 {
+    color:#113e5a;
+    font:760 clamp(28px,7.8vw,42px)/1.05 var(--sans)!important;
+    letter-spacing:-.045em;
+    white-space:normal;
+    margin:0;
+    text-wrap:balance;
+  }
+  body:has(> main > .accueil) > main > .accueil .roles {
+    margin-top:8px!important;
+    color:#1c4760;
+    font:600 clamp(12px,3.35vw,15px)/1.45 var(--sans)!important;
+    letter-spacing:0;
+    text-align:start!important;
+    text-align-last:start!important;
+    hyphens:none!important;
+    word-spacing:normal!important;
+    overflow-wrap:normal;
+    text-wrap:pretty;
+  }
+}
+
+/* Adaptation des très petits téléphones, sans boutons débordants. */
+@media screen and (max-width:360px) {
+  body:has(> main > .accueil) > .entete {
+    column-gap:3px;
+    padding-inline:7px;
+  }
+  body:has(> main > .accueil) > .entete .nav .acces-these {
+    font-size:10px!important;
+    padding-inline:6px!important;
+  }
+  body:has(> main > .accueil) > .entete .nav .acces-these > svg {
+    width:14px!important;
+    height:14px!important;
+  }
+  body:has(> main > .accueil) > .entete .outils {gap:2px!important}
+  body:has(> main > .accueil) > .entete .outils .menu > summary {
+    width:35px!important;
+    height:42px!important;
+    min-height:42px!important;
+  }
+  body:has(> main > .accueil) > .entete .outils .bouton-cv {
+    font-size:10px!important;
+    min-height:42px!important;
+    height:42px!important;
+    padding-inline:4px!important;
+  }
+  body:has(> main > .accueil) > .entete .coordonnees-haut > a {
+    font-size:9px!important;
+    padding-inline:4px!important;
+  }
+}
+@media screen and (max-width:335px) {
+  body:has(> main > .accueil) > .entete {
+    grid-template-columns:minmax(0,1fr);
+  }
+  body:has(> main > .accueil) > .entete > .nav {grid-row:1;grid-column:1}
+  body:has(> main > .accueil) > .entete > .outils {grid-row:2;grid-column:1}
+  body:has(> main > .accueil) > .entete > .direct-entete {grid-row:3;grid-column:1}
+  body:has(> main > .accueil) > .entete > .coordonnees-haut {grid-row:4;grid-column:1}
+}
