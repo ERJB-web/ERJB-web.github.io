@@ -114,3 +114,49 @@
 .r-retombees .r-portee-item span{display:block;color:#465f6b;font:450 12px/1.5 var(--sans,Arial,sans-serif);overflow-wrap:break-word}
 .r-retombees .r-portee-item strong{font-weight:730}
 @media(max-width:650px){.r-retombees .r-portee{grid-template-columns:minmax(0,1fr);padding:2px 0 8px}.r-retombees .r-portee-item,.r-retombees .r-portee-item:first-child{padding:9px 0;border-left:0;border-top:1px solid #e3ebed}.r-retombees .r-portee-item:first-child{border-top:0}}
+
+/* O1 : entonnoir documentaire compact et critères provisoires, sans intervention dans les quatre cartes existantes */
+#these-methode-o1 .o1-resserrement,#these-methode-o1 .o1-resserrement *{box-sizing:border-box}
+#these-methode-o1 .o1-resserrement{margin:13px 0 0;padding:13px 14px 10px;border-top:1px solid #dde8e6;border-bottom:1px solid #dde8e6;background:#f9fbfa;min-width:0}
+#these-methode-o1 .o1-resserrement-entete{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:5px 12px;margin:0 0 10px}
+#these-methode-o1 .o1-resserrement-entete strong{color:#2b6257;font-size:13px}
+#these-methode-o1 .o1-resserrement-entete span{color:#627b76;font-size:11px}
+#these-methode-o1 .o1-resserrement-entonnoir{display:flex;align-items:center;gap:9px;min-width:0}
+#these-methode-o1 .o1-resserrement-entonnoir>div:not(.o1-resserrement-fleche){flex:1;min-width:0;padding:2px}
+#these-methode-o1 .o1-resserrement-entonnoir b{display:block;font-size:clamp(17px,2.3vw,23px);line-height:1.24;color:#2a5363;font-weight:780;font-variant-numeric:tabular-nums}
+#these-methode-o1 .o1-resserrement-entonnoir span{display:block;font-size:11px;line-height:1.4;color:#526a71}
+#these-methode-o1 .o1-resserrement-fleche{flex:0 0 auto;color:#78a3a4;font-size:17px}
+#these-methode-o1 .o1-resserrement-cible b{color:#557268}
+#these-methode-o1 .o1-resserrement-details{margin-top:9px;padding-top:7px;border-top:1px solid #e1eae7;min-width:0}
+#these-methode-o1 .o1-resserrement-details>summary{display:flex;justify-content:space-between;align-items:center;gap:8px;cursor:pointer;color:#255f64;font-size:12px;line-height:1.5;font-weight:730}
+#these-methode-o1 .o1-resserrement-details>summary span{font-size:11px;font-weight:500;color:#6b8080}
+#these-methode-o1 .o1-resserrement-axes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:10px 0}
+#these-methode-o1 .o1-resserrement-axes>div{padding:9px 10px;border:1px solid #e0e9e8;border-radius:7px;background:#fff;min-width:0}
+#these-methode-o1 .o1-resserrement-axes b{display:block;margin-bottom:3px;color:#2d6f71;font-size:12px}
+#these-methode-o1 .o1-resserrement-axes span{display:block;color:#4f666d;font-size:11.5px;line-height:1.5}
+#these-methode-o1 .o1-resserrement-details>p{margin:0!important;padding:8px 0 0;border-top:1px solid #e1eae7;color:#506c74;font-size:11.5px;line-height:1.5;text-align:start!important;hyphens:none!important}
+@media(max-width:610px){
+ #these-methode-o1 .o1-resserrement{padding:11px 10px 9px}
+ #these-methode-o1 .o1-resserrement-entonnoir{display:grid;grid-template-columns:minmax(0,1fr);gap:1px}
+ #these-methode-o1 .o1-resserrement-entonnoir>div:not(.o1-resserrement-fleche){padding:4px 0}
+ #these-methode-o1 .o1-resserrement-fleche{transform:rotate(90deg);justify-self:start;margin:0 0 0 8px;font-size:13px}
+ #these-methode-o1 .o1-resserrement-entonnoir span{font-size:11.5px}
+ #these-methode-o1 .o1-resserrement-axes{grid-template-columns:minmax(0,1fr)}
+ #these-methode-o1 .o1-resserrement-details>summary{flex-wrap:wrap}
+}
+/* O2 : bilan de faisabilité technique de l'exercice indépendant, visuel limité à l'analyse */
+#methode-o2-7 .o2-mapping-verification,#methode-o2-7 .o2-mapping-verification *{box-sizing:border-box}
+#methode-o2-7 .o2-mapping-verification{margin:0 0 12px;padding:11px 1px;border-top:1px solid #dce8e9;border-bottom:1px solid #dce8e9;min-width:0}
+#methode-o2-7 .o2-mapping-verification-tete{display:flex;align-items:baseline;flex-wrap:wrap;justify-content:space-between;gap:5px 12px;margin:0 0 10px}
+#methode-o2-7 .o2-mapping-verification-tete h6{margin:0!important;color:#1e6070!important;font:750 14px/1.4 var(--sans,Arial,sans-serif)!important;text-transform:none!important;letter-spacing:0!important}
+#methode-o2-7 .o2-mapping-verification-tete span{color:#66818a;font-size:11px}
+#methode-o2-7 .o2-mapping-verification-grille{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));min-width:0}
+#methode-o2-7 .o2-mapping-verification-grille>div{min-width:0;padding:3px 10px;border-left:1px solid #e1e9eb}
+#methode-o2-7 .o2-mapping-verification-grille>div:first-child{padding-left:0;border-left:0}
+#methode-o2-7 .o2-mapping-verification-grille b{display:block;margin:0 0 5px;color:#25808b;font-size:11.5px}
+#methode-o2-7 .o2-mapping-verification-grille strong{display:block;margin:0 0 4px;color:#315663;font-size:12.5px;line-height:1.4}
+#methode-o2-7 .o2-mapping-verification-grille span{display:block;color:#526b75;font-size:11.5px;line-height:1.48;overflow-wrap:break-word}
+#methode-o2-7 .o2-mapping-verification-suite{margin:10px 0 0;padding:8px 0 0;border-top:1px solid #e5ecee;color:#526a73;font-size:11.8px;line-height:1.5}
+#methode-o2-7 .o2-mapping-verification-suite strong{color:#246e7d}
+@media(max-width:860px){#methode-o2-7 .o2-mapping-verification-grille{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 0}#methode-o2-7 .o2-mapping-verification-grille>div:nth-child(3){padding-left:0;border-left:0}}
+@media(max-width:510px){#methode-o2-7 .o2-mapping-verification-grille{grid-template-columns:minmax(0,1fr);gap:0}#methode-o2-7 .o2-mapping-verification-grille>div,#methode-o2-7 .o2-mapping-verification-grille>div:first-child,#methode-o2-7 .o2-mapping-verification-grille>div:nth-child(3){padding:7px 0;border-left:0;border-bottom:1px solid #e6ecee}#methode-o2-7 .o2-mapping-verification-grille>div:last-child{border-bottom:0}}
