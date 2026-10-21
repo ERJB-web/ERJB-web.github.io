@@ -1816,11 +1816,11 @@ html:is(.hc,.lv) .these :is(.these-point,.objectif-carte,.these-parcours>button)
 }
 @media(max-width:520px){.bande-parcours .trajectoire{grid-template-columns:1fr;gap:13px}.bande-parcours .trajectoire li{padding-top:23px}.bande-parcours .trajectoire li::before{top:-12px}}
 
-/* Une seule ligne de six repères ; les trois éléments de 2024 partagent leur date. */
+/* Parcours aéré : trois étapes par rangée ; les trois éléments de 2024 gardent leur date commune. */
 .bande-accueil.bande-parcours{padding:26px 30px 24px}
 .bande-parcours>.bande-titre{margin-bottom:18px}
-.bande-parcours .trajectoire{display:grid;grid-template-columns:1.05fr 1.05fr 1.55fr 1.05fr 1fr 1.15fr;gap:16px;margin:0;padding:0;overflow:visible}
-.bande-parcours .trajectoire::before{display:block;top:9px;inset-inline:9px 0;height:3px;background:linear-gradient(90deg,#f2c14e,#f5a65b 20%,#7fd1b9 45%,#5fbfa5 65%,#8ec5ff)}
+.bande-parcours .trajectoire{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 32px;margin:0;padding:0;overflow:visible}
+.bande-parcours .trajectoire::before{display:none}
 .bande-parcours .trajectoire>li{--etape:#f2c14e;min-width:0;min-height:0;margin:0;padding:30px 0 0;border:0;border-radius:0;background:transparent;box-shadow:none}
 .bande-parcours .trajectoire>li:nth-child(2){--etape:#f5a65b}
 .bande-parcours .trajectoire>li:nth-child(3){--etape:#7fd1b9}
@@ -1828,9 +1828,9 @@ html:is(.hc,.lv) .these :is(.these-point,.objectif-carte,.these-parcours>button)
 .bande-parcours .trajectoire>li:nth-child(n+5){--etape:#8ec5ff}
 .bande-parcours .trajectoire>li::before{top:0;inset-inline-start:0;z-index:1;border-color:var(--etape);background:#fff;box-shadow:none}
 .bande-parcours .trajectoire>li::after{content:none}
-.bande-parcours .trajectoire-date{font-size:14px;line-height:1.35;margin-bottom:5px}
+.bande-parcours .trajectoire-date{font-size:14px;line-height:1.35;margin-bottom:10px}
 .bande-parcours .trajectoire-texte{font-size:13px;line-height:1.45;overflow-wrap:break-word}
-.bande-parcours .trajectoire-texte+.trajectoire-texte{margin-top:8px}
+.bande-parcours .trajectoire-texte+.trajectoire-texte{margin-top:14px}
 @media(max-width:850px){.bande-accueil.bande-parcours{padding:24px 22px}.bande-parcours .trajectoire{grid-template-columns:minmax(0,1fr);gap:0}.bande-parcours .trajectoire::before{display:none}.bande-parcours .trajectoire>li{padding:0 0 20px;padding-inline-start:31px}.bande-parcours .trajectoire>li::before{top:1px;width:18px;height:18px;border-width:4px}.bande-parcours .trajectoire>li::after{content:"";position:absolute;inset-inline:8px auto;top:17px;bottom:-3px;width:2px;background:rgba(142,197,255,.6)}.bande-parcours .trajectoire>li:last-child{padding-bottom:0}.bande-parcours .trajectoire>li:last-child::after{display:none}}
 html[dir=rtl] .bande-parcours .trajectoire{direction:rtl}
 
