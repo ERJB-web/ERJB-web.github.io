@@ -6,7 +6,15 @@
   --radius:14px;--shadow:0 18px 65px rgba(25,59,68,.09);
   --ease:cubic-bezier(.22,.8,.2,1);
   --gouttiere:48px;
-  --fond-editorial:url("fond-matiere.svg"),radial-gradient(ellipse 90% 54% at 22% 105%,rgba(57,166,239,.20) 0%,rgba(147,209,242,.11) 48%,transparent 83%),radial-gradient(ellipse 110% 75% at 100% 80%,rgba(75,185,242,.17) 0%,transparent 77%),linear-gradient(180deg,#fbfeff 0%,#f5fbfd 27%,#e7f5fc 55%,#c9e9fa 73%,#8bd0f7 88%,#48adeb 100%);
+  --fond-editorial:
+    radial-gradient(ellipse 75% 19% at 32% 100%,
+      rgba(8,121,190,.035) 0%,
+      rgba(17,167,165,.018) 46%,
+      rgba(8,121,190,0) 100%),
+    radial-gradient(ellipse 63% 16% at 92% 100%,
+      rgba(90,174,56,.025) 0%,
+      rgba(90,174,56,0) 100%),
+    linear-gradient(to bottom,#ffffff 0%,#ffffff 68%,#fdfefe 86%,#f9fbfa 100%);
   color-scheme:light;
 }
 *{box-sizing:border-box}
@@ -102,7 +110,19 @@ h1{margin:0;color:var(--ink);font:400 clamp(40px,4vw,58px)/1 var(--serif);letter
 .passage{position:fixed;z-index:40;pointer-events:none;background:radial-gradient(120% 70% at 50% 75%,#fffbf1 0%,#f7eed6 38%,#e5d6b1 100%)}
 .salle{position:fixed;inset:0;z-index:30;background:var(--paper);overflow:auto;opacity:0;transition:opacity .45s var(--ease)}
 /* Surface claire satinée : matière très fine et lumière limitée aux marges. */
-body,.salle{background-color:#d9effb;background-image:var(--fond-editorial);background-size:160px 160px,100% 100%,100% 100%,100% 100%;background-position:0 0,center center,center center,center center;background-repeat:repeat,no-repeat,no-repeat,no-repeat;background-attachment:scroll,fixed,fixed,fixed}
+/* Une surface unique blanche; le dégradé est peint sur le contenu entier, non sur la fenêtre. */
+body,.salle{background:#fff;background-attachment:scroll}
+body > main,.salle .salle-contenu{
+  background-color:#fff;
+  background-image:var(--fond-editorial);
+  background-repeat:no-repeat;
+  background-position:center bottom;
+  background-size:100% 100%;
+  background-attachment:scroll;
+}
+@media(forced-colors:active){
+  body > main,.salle .salle-contenu{background:Canvas}
+}
 @media(forced-colors:active){body,.salle{background:Canvas}}
 .salle.visible{opacity:1}
 .salle-contenu .section-corps{padding-top:56px}
@@ -6352,47 +6372,11 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
     pointer-events:none;
     inset-block:-10px -16px;
     inset-inline:calc(-1 * var(--gouttiere));
-    background:
-      radial-gradient(ellipse 125% 92% at 50% 106%,
-        rgba(166,190,208,.075) 0%,
-        rgba(190,211,225,.035) 46%,
-        rgba(255,255,255,0) 85%),
-      linear-gradient(to bottom,
-        #ffffff 0%,
-        #fdfefe 23%,
-        #fafcfd 46%,
-        #f4f8fa 66%,
-        #edf4f7 83%,
-        #e8f1f5 100%);
+    background:linear-gradient(to top,
+      rgba(8,121,190,.027) 0%,
+      rgba(17,167,165,.012) 42%,
+      rgba(255,255,255,0) 100%);
     background-repeat:no-repeat;
     background-size:100% 100%;
   }
-}
-
-
-/* Accueil : fond institutionnel rattaché au bas du document, jamais au viewport.
-   Neutralise uniquement sur l'accueil l'ancien ciel bleu fixé au défilement.
-   Blanc dominant, nuances très légères inspirées du bleu et du vert GSK.
-   Aucune intervention sur la scène 3D, les portes, le portrait ou les autres salles. */
-body:has(> main > .accueil) {
-  background:#fff;
-}
-body:has(> main > .accueil) > main {
-  background-color:#fff;
-  background-image:
-    radial-gradient(ellipse 78% 22% at 38% 100%,
-      rgba(35,122,154,.058) 0%,
-      rgba(35,122,154,.027) 42%,
-      rgba(35,122,154,0) 100%),
-    radial-gradient(ellipse 62% 19% at 92% 100%,
-      rgba(101,169,70,.032) 0%,
-      rgba(101,169,70,0) 100%),
-    linear-gradient(to top,
-      #fafcfa 0%,
-      #fff 23%,
-      #fff 100%);
-  background-attachment:scroll;
-  background-repeat:no-repeat;
-  background-position:center bottom;
-  background-size:100% 100%;
 }
