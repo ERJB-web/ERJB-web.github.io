@@ -91,7 +91,7 @@
  * Aucun appel ni incrémentation en cas de refus de l'audience ou de DNT/GPC.
  */
 ;(() => {
-  const pied=document.querySelector('footer.pied .pied-informations');
+  const pied=document.querySelector('footer.pied');
   if(!pied || location.hostname!=='erjb-web.github.io') return;
   const lang=document.documentElement.lang.split('-')[0];
   const traductions={
@@ -104,7 +104,7 @@
   };
   const texte=traductions[lang]||traductions.en;
   const style=document.createElement('style');
-  style.textContent='footer.pied .compteur-jour{display:inline-flex;align-items:center;gap:7px;max-width:100%;margin-top:10px;padding:0;color:#657a83;font:400 12px/1.4 Inter,system-ui,sans-serif;letter-spacing:.005em}footer.pied .compteur-jour::before{content:"";width:5px;height:5px;flex:none;border-radius:50%;background:#78a99a}footer.pied .compteur-jour-valeur{font-weight:600;font-size:12px;color:#274654;font-variant-numeric:tabular-nums}';
+  style.textContent='footer.pied .compteur-jour{display:flex;align-items:center;justify-content:center;gap:7px;width:max-content;max-width:100%;margin:8px auto 0;padding:0;color:#657a83;font:400 12px/1.4 Inter,system-ui,sans-serif;letter-spacing:.005em}footer.pied .compteur-jour::before{content:"";width:5px;height:5px;flex:none;border-radius:50%;background:#78a99a}footer.pied .compteur-jour-valeur{font-weight:600;font-size:12px;color:#274654;font-variant-numeric:tabular-nums}';
   document.head.append(style);
   const conteneur=document.createElement('span');
   conteneur.className='compteur-jour';
@@ -118,7 +118,7 @@
   conteneur.append(etiquette,valeur);
   pied.append(conteneur);
 
-  const zone=document.querySelector('footer.pied .audience-info > div');
+  const zone=document.querySelector('footer.pied .pied-item.audience-info > .pied-panneau, footer.pied .pied-informations > .audience-info > div');
   if(zone){
     const mentions={
       fr:'Le compteur public du jour repose sur CountAPI. Il est distinct des statistiques Umami, ne transmet pas l’adresse de la page et respecte le refus de mesure d’audience. Un repère anonyme conservé dans ce navigateur évite de compter plusieurs fois une même journée.',
