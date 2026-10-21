@@ -19,8 +19,7 @@ module.exports = {
       ],
       [
         "≈1 000",
-        "personnes ayant bénéficié de vacances adaptées hors institution et ≈1 000 familles et professionnels concernés par le répit",
-        "Deux estimations liées, non additionnables"
+        "personnes parties en vacances hors institution · ≈1 000 familles et professionnels concernés par le répit"
       ],
       [
         "4",
@@ -92,8 +91,7 @@ module.exports = {
       ],
       [
         "≈1,000",
-        "people who benefited from adapted holidays outside institutions, alongside ≈1,000 families and respite-care professionals",
-        "Related estimates; do not add them together"
+        "people taking holidays outside institutions · ≈1,000 families and respite professionals"
       ],
       [
         "4",
@@ -165,8 +163,7 @@ module.exports = {
       ],
       [
         "≈1 000",
-        "personas beneficiarias de vacaciones adaptadas fuera de instituciones, junto con ≈1 000 familias y profesionales vinculados al respiro",
-        "Estimaciones relacionadas; no deben sumarse"
+        "personas que disfrutaron de vacaciones fuera de instituciones · ≈1 000 familias y profesionales vinculados al respiro"
       ],
       [
         "4",
@@ -238,8 +235,7 @@ module.exports = {
       ],
       [
         "≈1 000",
-        "名机构外适应性度假活动受益者，以及约1 000个相关家庭和喘息支持专业人员",
-        "相关估算，不可相加"
+        "名机构外度假受益者，以及约1 000个相关家庭与专业人员"
       ],
       [
         "4",
@@ -311,8 +307,7 @@ module.exports = {
       ],
       [
         "≈1 000",
-        "شخص استفاد من عطلات مكيّفة خارج المؤسسات، إلى جانب نحو ١٠٠٠ من الأسر والمهنيين المعنيين بخدمات الراحة",
-        "تقديران مترابطان لا يجوز جمعهما"
+        "مستفيد من عطلات خارج المؤسسات، ونحو ١٠٠٠ من الأسر والمهنيين المعنيين بالراحة"
       ],
       [
         "4",
@@ -384,8 +379,7 @@ module.exports = {
       ],
       [
         "≈1 000",
-        "человек, воспользовавшихся адаптированным отдыхом вне учреждений, а также около 1 000 семей и специалистов по поддержке",
-        "Связанные оценки, не подлежат сложению"
+        "человек, отдохнувших вне учреждений, и ≈1 000 семей и специалистов по поддержке"
       ],
       [
         "4",
