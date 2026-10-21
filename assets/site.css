@@ -1503,11 +1503,11 @@ html.lv .axes-cartes{grid-template-columns:1fr}
 
 /* Indicateurs sans catégories, dans une grille continue. */
 .bande-parcours .trajectoire{margin-bottom:0}
-.bande-accueil.bande-restauree{padding:14px 18px 10px}
+.bande-accueil.bande-restauree{padding:12px 16px 8px}
 .bande-restauree .impact-ensemble{min-width:0}
-.bande-restauree>.bande-titre{margin-bottom:10px;color:#fff}
-.bande-restauree .impact-ensemble dl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0;align-items:stretch}
-.bande-restauree .impact-ensemble dl>div{display:flex;flex-direction:column;align-items:flex-start;min-width:0;gap:7px;padding:10px 12px;border-radius:7px;background:rgba(255,255,255,.065)}
+.bande-restauree>.bande-titre{margin-bottom:8px;color:#fff}
+.bande-restauree .impact-ensemble dl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:0;align-items:stretch}
+.bande-restauree .impact-ensemble dl>div{display:flex;flex-direction:column;align-items:flex-start;min-width:0;gap:5px;padding:8px 10px;border-radius:7px;background:rgba(255,255,255,.065)}
 .bande-restauree .impact-ensemble dt{min-width:0;max-width:100%;color:#e6f1f6}
 .bande-restauree .impact-ensemble dd{order:-1;display:block;min-width:0;margin:0;color:#f2c14e;font-weight:750;font-variant-numeric:tabular-nums;letter-spacing:-.035em}
 .bande-restauree .impact-ensemble dd bdi{display:inline-block;direction:ltr}
@@ -1515,7 +1515,7 @@ html.lv .axes-cartes{grid-template-columns:1fr}
 .bande-restauree .impact-ensemble dl>div:nth-child(4n+3) dd{color:#8ec5ff}
 .bande-restauree .impact-ensemble dl>div:nth-child(4n+4) dd{color:#f5a65b}
 .bande-restauree .impact-ensemble dl>.impact-financement{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;align-items:center;column-gap:18px}
-.bande-restauree .impact-precisions{margin-top:8px;padding-top:7px;border-top:1px solid rgba(255,255,255,.22);color:#dcecf3}
+.bande-restauree .impact-precisions{margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,.22);color:#dcecf3}
 .bande-restauree .impact-precisions summary{cursor:pointer;width:fit-content;text-decoration:underline;text-underline-offset:3px;color:#e6f1f6}
 .bande-restauree .impact-precisions ul{padding-inline-start:20px;margin:12px 0 0;max-width:900px}
 .bande-restauree .impact-precisions li+li{margin-top:6px}
