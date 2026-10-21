@@ -6312,3 +6312,14 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
     gap:7px;
   }
 }
+
+/* En-tête de l'accueil : menu CV, sans modifier les menus existants. */
+.entete .menu-cv > summary{background:var(--accent,#2176b5);border-color:var(--accent,#2176b5);color:#fff}
+.entete .menu-cv > summary:hover,
+.entete .menu-cv[open] > summary{background:var(--accent-fonce,#185b93);border-color:var(--accent-fonce,#185b93);color:#fff}
+.entete .menu-cv > summary:focus-visible{outline:3px solid var(--accent,#2176b5);outline-offset:3px}
+.menu-cv .menu-panneau{min-width:260px}
+.menu-cv .menu-panneau a{justify-content:space-between;gap:16px;padding:10px 12px}
+.menu-cv .menu-panneau a strong{display:block;font-weight:600}
+.menu-cv .menu-panneau a small{display:block;margin-top:3px;color:var(--muted);font-size:12px}
+.menu-cv .menu-panneau .menu-cv-picto{flex:none;color:var(--muted);font-size:17px}
