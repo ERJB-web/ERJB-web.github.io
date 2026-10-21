@@ -6,7 +6,7 @@
   --radius:14px;--shadow:0 18px 65px rgba(25,59,68,.09);
   --ease:cubic-bezier(.22,.8,.2,1);
   --gouttiere:48px;
-  --fond-editorial:url("fond-matiere.svg"),radial-gradient(ellipse 72rem 52rem at -8% 6%,rgba(198,231,243,.34) 0%,rgba(198,231,243,.16) 38%,transparent 80%),radial-gradient(ellipse 78rem 62rem at 108% 36rem,rgba(104,187,231,.30) 0%,rgba(176,222,243,.17) 42%,transparent 82%),linear-gradient(158deg,#fdfefe 0%,#f7fcfe 32%,#eef8fc 69%,#e8f5fb 100%);
+  --fond-editorial:url("fond-matiere.svg"),radial-gradient(ellipse 90% 54% at 22% 105%,rgba(57,166,239,.20) 0%,rgba(147,209,242,.11) 48%,transparent 83%),radial-gradient(ellipse 110% 75% at 100% 80%,rgba(75,185,242,.17) 0%,transparent 77%),linear-gradient(180deg,#fbfeff 0%,#f5fbfd 27%,#e7f5fc 55%,#c9e9fa 73%,#8bd0f7 88%,#48adeb 100%);
   color-scheme:light;
 }
 *{box-sizing:border-box}
@@ -102,8 +102,7 @@ h1{margin:0;color:var(--ink);font:400 clamp(40px,4vw,58px)/1 var(--serif);letter
 .passage{position:fixed;z-index:40;pointer-events:none;background:radial-gradient(120% 70% at 50% 75%,#fffbf1 0%,#f7eed6 38%,#e5d6b1 100%)}
 .salle{position:fixed;inset:0;z-index:30;background:var(--paper);overflow:auto;opacity:0;transition:opacity .45s var(--ease)}
 /* Surface claire satinée : matière très fine et lumière limitée aux marges. */
-body,.salle{background-color:#f9fbfa;background-image:var(--fond-editorial);background-size:160px 160px,100% 64rem,100% 62rem,100% 100%;background-position:0 0,center top,center top,center top;background-repeat:repeat,no-repeat,no-repeat,no-repeat}
-@media(max-width:700px){body,.salle{background-size:160px 160px,100% 40rem,100% 44rem,100% 100%}}
+body,.salle{background-color:#d9effb;background-image:var(--fond-editorial);background-size:160px 160px,100% 100%,100% 100%,100% 100%;background-position:0 0,center center,center center,center center;background-repeat:repeat,no-repeat,no-repeat,no-repeat;background-attachment:scroll,fixed,fixed,fixed}
 @media(forced-colors:active){body,.salle{background:Canvas}}
 .salle.visible{opacity:1}
 .salle-contenu .section-corps{padding-top:56px}
