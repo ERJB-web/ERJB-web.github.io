@@ -6,7 +6,7 @@
   --radius:14px;--shadow:0 18px 65px rgba(25,59,68,.09);
   --ease:cubic-bezier(.22,.8,.2,1);
   --gouttiere:48px;
-  --fond-editorial:url("fond-matiere.svg"),radial-gradient(ellipse 70rem 45rem at -12% -6rem,rgba(139,180,174,.17),transparent 72%),radial-gradient(ellipse 60rem 44rem at 112% 20rem,rgba(151,181,207,.16),transparent 72%),linear-gradient(180deg,#fff 0%,#fdfefd 48rem,#f5f9f7 100%);
+  --fond-editorial:url("fond-matiere.svg"),radial-gradient(ellipse 72rem 52rem at -8% 6%,rgba(198,231,243,.34) 0%,rgba(198,231,243,.16) 38%,transparent 80%),radial-gradient(ellipse 78rem 62rem at 108% 36rem,rgba(104,187,231,.30) 0%,rgba(176,222,243,.17) 42%,transparent 82%),linear-gradient(158deg,#fdfefe 0%,#f7fcfe 32%,#eef8fc 69%,#e8f5fb 100%);
   color-scheme:light;
 }
 *{box-sizing:border-box}
