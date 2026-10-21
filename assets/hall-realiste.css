@@ -876,7 +876,7 @@ html.direct-serre .hall-tete .direct-hall { display: inline-flex; margin-inline:
  body:has(>main>.accueil) .hall.en-mobile[data-hall-volume] .station-hall{
   display:grid;grid-template-columns:minmax(0,.47fr) minmax(0,.53fr);
   grid-template-rows:auto;align-content:start;align-items:start;gap:16px;
-  padding:150px 16px 70px;background:transparent;
+  padding:70px 16px 40px;background:transparent;
  }
  body:has(>main>.accueil) .hall.en-mobile[data-hall-volume] .station-hall .porte{
   position:relative;grid-column:1;grid-row:1;top:auto;left:auto;
@@ -892,4 +892,11 @@ html.direct-serre .hall-tete .direct-hall { display: inline-flex; margin-inline:
  body:has(>main>.accueil) .hall.en-mobile[data-hall-volume] .sous-portes-murales{grid-template-columns:minmax(0,1fr);gap:0}
  body:has(>main>.accueil) .hall.en-mobile[data-hall-volume] .sous-portes-murales>:last-child:nth-child(odd){grid-column:auto}
  body:has(>main>.accueil) .hall.en-mobile[data-hall-volume] .sous-portes-murales>:is(button,a){padding:8px 0;min-height:44px;white-space:normal}
+}
+
+/* La photographie couvre toute la scène mobile, jusqu’aux commandes. */
+@media(max-width:700px){
+ body:has(>main>.accueil) .hall.en-mobile[data-hall-volume] .hall-espace{
+  height:var(--accueil-scene-h);min-height:var(--accueil-scene-h);max-height:var(--accueil-scene-h);
+ }
 }
