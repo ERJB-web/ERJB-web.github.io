@@ -25,6 +25,9 @@ jobs:
           node --check assets/site.js
           node --check assets/gabarit-salles.js
           node --check outils/construire.js
+      - name: Générer les pages traduites à publier
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: node outils/construire.js
       - name: Auditer tous les fichiers de navigation
         run: node outils/verifier-navigation.js
       - name: Tester le vrai générateur sans réécrire les pages
