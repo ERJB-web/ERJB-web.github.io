@@ -615,3 +615,7 @@ html body .trajectoire-texte{font-size:var(--type-corps)!important;line-height:1
 html body :is(.trajectoire-date,.recit .type,.recit .date){font-size:var(--type-note)!important;line-height:1.5!important}
 html body .gab .gab-sommaire-chapitre a span{font-size:inherit!important;line-height:inherit!important}
 }
+
+@layer charte-typographique{
+html body .bande-parcours .trajectoire-texte{text-align:start!important;text-align-last:start!important;word-spacing:normal!important;hyphens:none!important;overflow-wrap:normal!important;line-height:1.4!important}
+}

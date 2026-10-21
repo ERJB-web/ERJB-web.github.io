@@ -1799,24 +1799,24 @@ html:is(.hc,.lv) .these :is(.these-point,.objectif-carte,.these-parcours>button)
 }
 @media(max-width:520px){.bande-parcours .trajectoire{grid-template-columns:1fr;gap:13px}.bande-parcours .trajectoire li{padding-top:23px}.bande-parcours .trajectoire li::before{top:-12px}}
 
-/* Parcours aéré : trois étapes par rangée ; les trois éléments de 2024 gardent leur date commune. */
-.bande-accueil.bande-parcours{padding:26px 30px 24px}
-.bande-parcours>.bande-titre{margin-bottom:18px}
-.bande-parcours .trajectoire{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 32px;margin:0;padding:0;overflow:visible}
+/* Chronologie continue : une date par ligne, sans cases vides. */
+.bande-accueil.bande-parcours{padding:18px 20px}
+.bande-parcours>.bande-titre{margin-bottom:12px}
+.bande-parcours .trajectoire{display:block;margin:0;padding:0;overflow:visible}
 .bande-parcours .trajectoire::before{display:none}
-.bande-parcours .trajectoire>li{--etape:#f2c14e;min-width:0;min-height:0;margin:0;padding:30px 0 0;border:0;border-radius:0;background:transparent;box-shadow:none}
+.bande-parcours .trajectoire>li{--etape:#f2c14e;display:grid;grid-template-columns:125px minmax(0,1fr);column-gap:16px;min-width:0;margin:0;padding:10px 0 10px 26px;border:0;background:transparent;box-shadow:none}
 .bande-parcours .trajectoire>li:nth-child(2){--etape:#f5a65b}
 .bande-parcours .trajectoire>li:nth-child(3){--etape:#7fd1b9}
 .bande-parcours .trajectoire>li:nth-child(4){--etape:#5fbfa5}
 .bande-parcours .trajectoire>li:nth-child(n+5){--etape:#8ec5ff}
-.bande-parcours .trajectoire>li::before{top:0;inset-inline-start:0;z-index:1;border-color:var(--etape);background:#fff;box-shadow:none}
-.bande-parcours .trajectoire>li::after{content:none}
-.bande-parcours .trajectoire-date{font-size:14px;line-height:1.35;margin-bottom:10px}
-.bande-parcours .trajectoire-texte{font-size:13px;line-height:1.45;overflow-wrap:break-word}
-.bande-parcours .trajectoire-texte+.trajectoire-texte{margin-top:14px}
-@media(max-width:850px){.bande-accueil.bande-parcours{padding:24px 22px}.bande-parcours .trajectoire{grid-template-columns:minmax(0,1fr);gap:0}.bande-parcours .trajectoire::before{display:none}.bande-parcours .trajectoire>li{padding:0 0 20px;padding-inline-start:31px}.bande-parcours .trajectoire>li::before{top:1px;width:18px;height:18px;border-width:4px}.bande-parcours .trajectoire>li::after{content:"";position:absolute;inset-inline:8px auto;top:17px;bottom:-3px;width:2px;background:rgba(142,197,255,.6)}.bande-parcours .trajectoire>li:last-child{padding-bottom:0}.bande-parcours .trajectoire>li:last-child::after{display:none}}
-html[dir=rtl] .bande-parcours .trajectoire{direction:rtl}
-
+.bande-parcours .trajectoire>li::before{top:15px;inset-inline-start:0;z-index:1;width:12px;height:12px;border:3px solid var(--etape);background:#fff;box-shadow:none}
+.bande-parcours .trajectoire>li::after{content:"";position:absolute;inset-inline-start:5px;top:26px;bottom:-15px;width:2px;background:rgba(255,255,255,.3)}
+.bande-parcours .trajectoire>li:last-child::after{display:none}
+.bande-parcours .trajectoire-date{grid-column:1;grid-row:1;margin:0}
+.bande-parcours .trajectoire-texte{grid-column:2;min-width:0}
+.bande-parcours .trajectoire-texte+.trajectoire-texte{margin-top:5px}
+@media(max-width:600px){.bande-accueil.bande-parcours{padding:14px}.bande-parcours .trajectoire>li{grid-template-columns:minmax(0,1fr);gap:4px;padding-block:9px}.bande-parcours .trajectoire-texte{grid-column:1}.bande-parcours .trajectoire>li::before{top:14px}}
+html[dir=rtl] .bande-parcours .trajectoire>li{padding-left:0;padding-right:26px}
 /* Barre des six portes. */
 .hall.en-volume .hall-reperes,.hall.en-mobile .hall-reperes{
  gap:6px;margin-top:12px;padding:7px;border:1px solid #bcd4d1;
