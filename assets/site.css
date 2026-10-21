@@ -6426,3 +6426,5 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
  body:has(>main>.accueil) .hall.en-mobile .station-hall::after{content:none}
  body:has(>main>.accueil) .hall.en-mobile .station-hall .porte{top:220px}
 }
+
+@media(max-width:700px){body:has(>main>.accueil) .accueil .roles>span{white-space:normal!important}}
