@@ -84,3 +84,33 @@
  .these #methode-o3-exemples,.these #these-methode-o3 :is(.o3-lecture-vis,.o3-analyse-vue,.o3viz,.o3-v3-etude){min-width:0;max-width:100%;overflow-wrap:break-word}
  .these #these-methode-o3 :is(.o3-lecture-vis,.o3-analyse-vue,.o3viz) :is(div,article,span,small){min-width:0;max-width:100%}
 }
+
+/* Recherche · lecture sectorielle du protocole O2, ciblée, sans modifier les figures existantes. */
+#methode-o2-7 .o2-lecture-secteurs{margin:0 0 13px;min-width:0;border-top:1px solid #d9e6e8;border-bottom:1px solid #d9e6e8;padding:12px 1px 9px}
+#methode-o2-7 .o2-lecture-secteurs-tete{display:flex;gap:5px 14px;align-items:baseline;justify-content:space-between;flex-wrap:wrap;margin:0 0 10px}
+#methode-o2-7 .o2-lecture-secteurs-tete h6{margin:0!important;color:#1e6070!important;font:750 14px/1.4 var(--sans,Arial,sans-serif)!important;letter-spacing:0!important;text-transform:none!important}
+#methode-o2-7 .o2-lecture-secteurs-tete>span{color:#647781;font-size:12px}
+#methode-o2-7 .o2-lecture-secteurs-grille{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;min-width:0}
+#methode-o2-7 .o2-lecture-secteur{min-width:0;padding:2px 13px 5px;border-left:1px solid #dae7e8}
+#methode-o2-7 .o2-lecture-secteur:first-child{padding-left:2px;border-left:0}
+#methode-o2-7 .o2-lecture-secteur b{display:block;margin:0 0 6px;color:#237b89;font:750 12px/1.4 var(--sans,Arial,sans-serif)}
+#methode-o2-7 .o2-lecture-secteur strong{display:block;margin:0 0 4px;color:#284d5b;font:720 13px/1.42 var(--sans,Arial,sans-serif)}
+#methode-o2-7 .o2-lecture-secteur>span{display:block;color:#516974;font:450 12px/1.5 var(--sans,Arial,sans-serif);overflow-wrap:break-word}
+#methode-o2-7 .o2-lecture-secteurs-note{margin:9px 0 0!important;color:#526b76;font:450 12px/1.5 var(--sans,Arial,sans-serif)!important;text-align:start!important;hyphens:none!important}
+#methode-o2-7 .o2-lecture-secteurs-tech{text-align:start!important;hyphens:none!important}
+@media(max-width:650px){
+ #methode-o2-7 .o2-lecture-secteurs{padding:10px 0 8px}
+ #methode-o2-7 .o2-lecture-secteurs-grille{grid-template-columns:minmax(0,1fr);gap:0}
+ #methode-o2-7 .o2-lecture-secteur,#methode-o2-7 .o2-lecture-secteur:first-child{padding:8px 0;border-left:0;border-top:1px solid #e3ecee}
+ #methode-o2-7 .o2-lecture-secteur:first-child{border-top:0}
+ #methode-o2-7 .o2-lecture-secteur b{margin-bottom:2px}
+ #methode-o2-7 .o2-lecture-secteur strong{margin-bottom:2px}
+}
+/* Portée des conclusions, intégrée sans créer d'encadré dominant. */
+.r-retombees .r-portee{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:10px 0 15px;padding:10px 0;border-top:1px solid #dbe6e9;border-bottom:1px solid #dbe6e9;min-width:0}
+.r-retombees .r-portee-item{min-width:0;padding:0 13px;border-left:1px solid #e2eaec}
+.r-retombees .r-portee-item:first-child{padding-left:0;border-left:0}
+.r-retombees .r-portee-item b{display:block;margin:0 0 4px;color:#246e80;font:750 12px/1.45 var(--sans,Arial,sans-serif)}
+.r-retombees .r-portee-item span{display:block;color:#465f6b;font:450 12px/1.5 var(--sans,Arial,sans-serif);overflow-wrap:break-word}
+.r-retombees .r-portee-item strong{font-weight:730}
+@media(max-width:650px){.r-retombees .r-portee{grid-template-columns:minmax(0,1fr);padding:2px 0 8px}.r-retombees .r-portee-item,.r-retombees .r-portee-item:first-child{padding:9px 0;border-left:0;border-top:1px solid #e3ebed}.r-retombees .r-portee-item:first-child{border-top:0}}
