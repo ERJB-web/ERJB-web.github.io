@@ -1547,7 +1547,7 @@ ${baliseAudience(p)}
 <a class="evitement" href="#contenu">${e(c.ui.evitement)}</a>
 <header class="entete">
 <a class="marque" href="${p || "./"}"><span class="marque-domaines">${e(c.ui.sousTitre)}</span></a>
-<p class="coordonnees coordonnees-haut"><a href="mailto:${e(c.contact.courriel)}">${icone("enveloppe")}${e(c.contact.courriel)}</a><a href="tel:${TELEPHONE[1]}">${icone("telephone")}${TELEPHONE[0]}</a></p>
+<p class="coordonnees coordonnees-haut"><a href="mailto:${e(c.contact.courriel)}">${icone("enveloppe")}${e(c.contact.courriel)}</a><a href="tel:${TELEPHONE[1]}">${icone("telephone")}${TELEPHONE[0]}</a><a class="coordonnees-rdv" href="${BOOKINGS}" target="_blank" rel="noopener noreferrer">${icone("calendrier")}${e(textesTransmission(c).rdv)}</a></p>
 <nav class="nav" aria-label="${e(c.ui.navigation)}">${accesThese(c)}${GROUPES.map(([g, ss]) => `<a href="#${ss[0] || g}" style="--nav-accent:${TEINTES_GROUPES[g][0]}">${iconeMenu(g)}${e(texteGroupe(c, g)[0])}</a>`).join("")}</nav>
 <div class="outils">
 ${menuLangues(c, edition)}
