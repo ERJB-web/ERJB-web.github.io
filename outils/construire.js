@@ -778,6 +778,10 @@ const BANDE = {
   },
 };
 
+function menuCV(c) {
+  return `<details class="menu menu-cv"><summary class="bouton-cv">${e(c.ui.cv)} <span aria-hidden="true">⌄</span></summary><div class="menu-panneau"><ul>${c.contact.liens.filter(([, , href]) => /cv-(academique|professionnel)\.pdf|orcid\.org\//.test(href)).map(([t,d,href]) => `<li>${lien(externe(href) ? href : c.chemin + href, `<span><strong>${e(t)}</strong><small>${e(d)}</small></span><span aria-hidden="true">${externe(href) ? "↗" : "↓"}</span>`)}</li>`).join("")}</ul></div></details>`;
+}
+
 function bandeAccueil(c) {
   const B = BANDE[c.lang];
   const I = CHIFFRES_IMPACT[c.lang];
@@ -1552,7 +1556,7 @@ ${baliseAudience(p)}
 <div class="outils">
 ${menuLangues(c, edition)}
 ${menuAcces(c, c.lang)}
-<a class="bouton-cv" href="${p}docs/cv-academique.pdf">${e(c.ui.cv)} <span aria-hidden="true">↓</span></a>
+${menuCV(c)}
 <a class="bouton-cv" href="${e(c.recherche.affiche[2])}" target="_blank" rel="noopener">${e(({fr:"Affiche",en:"Poster",es:"Póster",zh:"海报",ar:"الملصق",ru:"Постер"})[c.lang] || "Affiche")} <span aria-hidden="true">↗</span></a>
 </div>
 </header>
@@ -1593,9 +1597,7 @@ ${sections[s].replace(/<p class="surtitre">(\d{2} · )?/, `<p class="surtitre">$
 <p class="courriel"><a href="tel:${TELEPHONE[1]}">${icone("telephone")}${TELEPHONE[0]}</a></p>
 <p class="note">${e(c.contact.adresse)}</p>
 </div>
-<div class="colonne-outils"><ul class="liens-contact">${c.contact.liens
-    .map(([t, d, href]) => `<li>${lien(externe(href) ? href : p + href, `<span><strong>${e(t)}</strong><small>${e(d)}</small></span><span aria-hidden="true">${externe(href) ? "↗" : "↓"}</span>`)}</li>`)
-    .join("")}</ul></div>
+
 </div>
 </section>
 ${JEUX_ACCUEIL[c.lang] || ""}

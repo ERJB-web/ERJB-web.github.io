@@ -260,7 +260,7 @@ body > main,.salle .salle-contenu{
 .recit p+p{margin-top:12px}
 .recit strong,.vision strong,.bio-intro strong{color:var(--ink)}
 .bio-intro p{margin:0 0 14px;font-size:16.5px;line-height:1.75}
-.bio-intro p:first-child{font-size:18px;color:var(--ink)}
+.bio-intro p:first-child{color:var(--ink)}
 /* Biographie : l'introduction utilise toute la largeur de lecture du chapitre. */
 .gab[data-gab-salle="biographie"] .bio-intro,
 .gab[data-gab-salle="biographie"] .bio-intro p{width:100%;max-width:none}
@@ -6428,3 +6428,11 @@ body :is(#recherche,#axes,#publications,#approche,#methodes,#ia,.gab[data-gab-sa
 }
 
 @media(max-width:700px){body:has(>main>.accueil) .accueil .roles>span{white-space:normal!important}}
+/* Documents personnels : une seule entrée CV, sans duplication dans le contact. */
+.entete .menu-cv>summary.bouton-cv{display:flex;align-items:center;justify-content:center;gap:8px;background:#0879be;color:#fff;border:1px solid #0879be;min-height:42px;padding:8px 15px;cursor:pointer}
+.entete .menu-cv[open]>summary,.entete .menu-cv>summary:hover{background:#0755ad;border-color:#0755ad;color:#fff}
+.menu-cv .menu-panneau a{justify-content:space-between;gap:20px;min-height:52px}
+.menu-cv .menu-panneau a>span:first-child{display:grid;gap:3px}
+.menu-cv .menu-panneau small{display:block;color:var(--muted)}
+#contact .section-corps:has(>.colonne-texte:only-child){display:block}
+@media(max-width:700px){.entete .menu-cv .menu-panneau{position:absolute;inset-inline:auto 0;top:calc(100% + 8px);width:min(300px,calc(100vw - 24px));min-width:240px}}

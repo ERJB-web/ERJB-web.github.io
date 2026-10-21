@@ -654,4 +654,9 @@ html body .bande-parcours .trajectoire-texte{text-align:start!important;text-ali
 
 @layer charte-typographique{
 @media(max-width:700px){html:not(.lv) body:has(>main>.accueil) .accueil .roles{font-size:clamp(14px,3.70vw,19px)!important;line-height:1.4!important}}
+/* Tout le texte rédigé suit la même taille ; seules les notes et les titres ont un autre rang. */
+html body .gab :is(.bio-intro,.bio-intro p,.intro,.sous-titre,.citation,.recit-fin,.vision p){font-family:var(--type-police)!important;font-size:var(--type-corps)!important;line-height:1.7!important}
+html body .gab :is(.gab-intro,.gab-corps) :is(p,blockquote){text-indent:0!important;hyphens:manual!important;overflow-wrap:break-word}
+html body .gab .gab-intro h2{margin-inline:0!important;text-align:start!important}
+html body .menu-cv .menu-panneau :is(a,strong){font-size:var(--type-corps)!important}
 }
