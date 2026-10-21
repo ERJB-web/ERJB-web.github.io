@@ -634,3 +634,24 @@ html body .gab .gab-sommaire-chapitre a span{font-size:inherit!important;line-he
 @layer charte-typographique{
 html body .bande-parcours .trajectoire-texte{text-align:start!important;text-align-last:start!important;word-spacing:normal!important;hyphens:none!important;overflow-wrap:normal!important;line-height:1.4!important}
 }
+
+@layer charte-typographique{
+@media(max-width:700px){
+ html:not(.lv) body:has(>main>.accueil)>.entete .nav .acces-these{font-size:15px!important;font-weight:500!important}
+ html:not(.lv) body:has(>main>.accueil)>.entete .outils .bouton-cv{font-size:14px!important}
+ html:not(.lv) body:has(>main>.accueil)>.entete .entete-contact a{font-size:12px!important;line-height:1.2!important}
+ html:not(.lv) body:has(>main>.accueil)>.entete .direct-montreal{font-size:16px!important}
+ html:not(.lv) body:has(>main>.accueil)>.entete .direct-activite{font-size:14px!important}
+ html:not(.lv) body:has(>main>.accueil) .accueil h1{font-size:clamp(27px,7.75vw,40px)!important;line-height:1.15!important;font-weight:700!important;color:#05446b}
+ html:not(.lv) body:has(>main>.accueil) .accueil .roles{font-size:clamp(14px,3.88vw,20px)!important;line-height:1.35!important;text-align:start!important;hyphens:none!important;font-weight:400!important}
+}
+@media(max-width:440px){
+ html:not(.lv) body:has(>main>.accueil)>.entete .nav .acces-these{font-size:12px!important}
+ html:not(.lv) body:has(>main>.accueil)>.entete .outils .bouton-cv{font-size:12px!important}
+ html:not(.lv) body:has(>main>.accueil)>.entete .entete-contact a,html:not(.lv) body:has(>main>.accueil)>.entete .entete-rdv::after{font-size:clamp(8px,2.32vw,10px)!important}
+}
+}
+
+@layer charte-typographique{
+@media(max-width:700px){html:not(.lv) body:has(>main>.accueil) .accueil .roles{font-size:clamp(14px,3.70vw,19px)!important;line-height:1.4!important}}
+}
