@@ -38,6 +38,24 @@ html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3)[data
 .methodo-source{margin-block:12px}
 html body .these .devis-bandeau-synthese-2026{--ds-o1:#286c23;--ds-o2:#006e72;--ds-o3:#18559b}
 .methodo-bibliographie{overflow-wrap:anywhere}
+/* Contraste explicite : les anciens en-têtes blancs restent incompatibles avec les fonds clairs. */
+html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3)[data-cadrage-harmonise]>.methode-objectif-tete p.methodo-formulation-officielle{color:#173b4b!important}
+.methodo-restauration{margin-block:12px;border:1px solid #d6e2e6;border-radius:10px;padding:10px 14px;background:#fff}
+.methodo-restauration>summary{cursor:pointer;color:var(--methodo-accent)}
+.methodo-restaure{margin-top:14px;overflow-wrap:anywhere;min-width:0}
+.methodo-restaure img{max-width:100%;height:auto}
+.methodo-restaure table{border-collapse:collapse;width:100%}
+.methodo-restaure td,.methodo-restaure th{padding:10px;border:1px solid #dce5e9;vertical-align:top}
+.methodo-reperes-restaures{margin-block:0 16px;padding:14px;background:var(--methodo-fond);border-radius:12px}
+.methodo-reperes-restaures>strong{display:block;color:var(--methodo-accent);margin-bottom:10px}
+.methodo-reperes-restaures .o2-var-grille,.methodo-reperes-restaures .revision-thresholds,.o3-analyse-cartes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.methodo-reperes-restaures .o2-var-carte,.methodo-reperes-restaures .revision-threshold,.o3-analyse-carte{padding:12px;background:#fff;border:1px solid #d9e5e8;border-radius:9px;min-width:0}
+.o2-var-num,.revision-threshold-number{display:block;color:var(--methodo-accent);font-weight:bold}
+.revision-denominators{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+.methodo-restaure .methode-fiche{margin:0}
+.methodo-restaure .methode-fiche>div{margin-block:12px;padding:12px;background:#f5f8fa;border-radius:8px}
+.methodo-restaure .methode-fiche dd{margin-inline:0}
+@media(max-width:720px){.methodo-reperes-restaures .o2-var-grille,.methodo-reperes-restaures .revision-thresholds,.revision-denominators,.o3-analyse-cartes{grid-template-columns:minmax(0,1fr)}.methodo-restaure{overflow-x:auto}}
 .gab-sommaire-groupe[data-objectif="O1"]{--objectif-texte:#286c23;--objectif-trait:#5aae38;--objectif-fond:#ecf7e8;--objectif-lien:#f5fbf2}
 .gab-sommaire-groupe[data-objectif="O2"]{--objectif-texte:#006e72;--objectif-trait:#11a7a5;--objectif-fond:#e9f7f6;--objectif-lien:#f3fbfa}
 .gab-sommaire-groupe[data-objectif="O3"]{--objectif-texte:#18559b;--objectif-trait:#0755ad;--objectif-fond:#ebf2fd;--objectif-lien:#f3f7ff}
