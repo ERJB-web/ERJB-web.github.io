@@ -13,92 +13,92 @@
     "objectifs": [
       [
         [
-          "Référence : personnes aînées vivant à domicile présentant des besoins sociaux et de soins de santé concomitants susceptibles de nécessiter une réponse intersectorielle en première ligne.",
-          "Unité étudiée : publications scientifiques décrivant ces personnes et leurs profils ; aucune personne ne sera recrutée pour la revue."
+          "Référence : Personnes aînées vivant à domicile présentant des besoins sociaux et de soins de santé concomitants susceptibles de nécessiter une réponse intersectorielle en première ligne.",
+          "Unité étudiée : Publications scientifiques décrivant ces personnes et leurs profils ; aucune personne ne sera recrutée pour la revue."
         ],
         [
-          "Sélection : recherche documentaire systématique, critères d’admissibilité explicites et sélection par deux évaluateurs indépendants.",
-          "Taille : toutes les publications admissibles ; nombre final inconnu avant la sélection. MEDLINE, Embase, APA PsycInfo et PubMed seront interrogées ; recoupements et dédoublonnage seront documentés."
+          "Sélection : Recherche documentaire systématique, critères d’admissibilité explicites et sélection par deux évaluateurs indépendants.",
+          "Taille : Toutes les publications admissibles ; nombre final inconnu avant la sélection. MEDLINE, Embase, APA PsycInfo et PubMed seront interrogées ; recoupements et dédoublonnage seront documentés."
         ],
         [
-          "Matériaux : populations, contexte de première ligne, définitions des besoins sociaux et de soins de santé, instruments, concomitance chez les mêmes personnes et profils rapportés.",
+          "Matériaux : Populations, contexte de première ligne, définitions des besoins sociaux et de soins de santé, instruments, concomitance chez les mêmes personnes et profils rapportés.",
           "Procédure : Covidence, grille d’extraction pilotée et extraction en double. Chaque profil conservera ses sources, ses critères et ses incertitudes."
         ],
         [
-          "Méthode : revue de portée selon JBI ; compte rendu PRISMA-ScR. Synthèse descriptive des définitions, besoins associés et configurations documentées.",
-          "Produit : profils et vignettes fondés sur les études. Si les données conjointes sont insuffisantes, décrire les domaines et les lacunes sans fabriquer de profils."
+          "Méthode : Revue de portée selon JBI ; compte rendu PRISMA-ScR. Synthèse descriptive des définitions, besoins associés et configurations documentées.",
+          "Produit : Profils et vignettes fondés sur les études. Si les données conjointes sont insuffisantes, décrire les domaines et les lacunes sans fabriquer de profils."
         ],
         [
-          "Devis : aucune composante QUAN → qual distincte dans cette revue ; cette rubrique ne désigne pas une intégration de méthodes mixtes.",
-          "Articulation : les profils pourront être mis en regard des ressources et des réseaux. O2 n’est pas conditionné à une identification préalable des profils par O1."
+          "Devis : Aucune composante QUAN → qual distincte dans cette revue ; cette rubrique ne désigne pas une intégration de méthodes mixtes.",
+          "Articulation : Les profils pourront être mis en regard des ressources et des réseaux. O2 n’est pas conditionné à une identification préalable des profils par O1."
         ],
         [
-          "Vigilance : hétérogénéité des définitions, biais de repérage et données de concomitance incomplètes.",
-          "Portée : les profils publiés ne permettent pas d’estimer leur fréquence dans les territoires de CLSC ; les limites du corpus seront explicitées."
+          "Vigilance : Hétérogénéité des définitions, biais de repérage et données de concomitance incomplètes.",
+          "Portée : Les profils publiés ne permettent pas d’estimer leur fréquence dans les territoires de CLSC ; les limites du corpus seront explicitées."
         ]
       ],
       [
         [
-          "Référence : ressources territoriales mobilisables en première ligne pour les besoins sociaux et de soins de santé concomitants des profils de personnes aînées vivant à domicile.",
-          "Unités et sources : services et lieux de prestation géolocalisés, territoires de CLSC, répertoires et données territoriales documentées ; aucune population de personnes recrutées."
+          "Référence : Ressources territoriales mobilisables en première ligne pour les besoins sociaux et de soins de santé concomitants des profils de personnes aînées vivant à domicile.",
+          "Unités et sources : Services et lieux de prestation géolocalisés, territoires de CLSC, répertoires et données territoriales documentées ; aucune population de personnes recrutées."
         ],
         [
-          "Inventaire : repérage systématique des ressources admissibles dans les sources retenues ; règles d’inclusion et de dédoublonnage explicites.",
-          "Territoires : périmètre et couverture à justifier selon la question, les données et la faisabilité. Les huit CLSC des exemples ne constituent pas un terrain doctoral confirmé."
+          "Inventaire : Repérage systématique des ressources admissibles dans les sources retenues ; règles d’inclusion et de dédoublonnage explicites.",
+          "Territoires : Périmètre et couverture à justifier selon la question, les données et la faisabilité. Les huit CLSC des exemples ne constituent pas un terrain doctoral confirmé."
         ],
         [
-          "Variables : localisation, secteur, besoins concernés, disponibilité documentée, modalités d’accès, admissibilité, horaires et capacité lorsqu’ils sont renseignés.",
-          "Traçabilité : source, date, géographie, précision du géocodage et informations manquantes. Les demandes agrégées du 211 resteront à leur maille publiée."
+          "Variables : Localisation, secteur, besoins concernés, disponibilité documentée, modalités d’accès, admissibilité, horaires et capacité lorsqu’ils sont renseignés.",
+          "Traçabilité : Source, date, géographie, précision du géocodage et informations manquantes. Les demandes agrégées du 211 resteront à leur maille publiée."
         ],
         [
-          "Méthodes : étude cartographique et spatiale dans R et QGIS ; distribution, disponibilité, diversité, complémentarité et accessibilité territoriale.",
-          "Contrôles : indicateurs et dénominateurs explicites, scénarios de distance ou de durée et analyses de sensibilité. Les cartes décriront une offre potentiellement mobilisable."
+          "Méthodes : Étude cartographique et spatiale dans R et QGIS ; distribution, disponibilité, diversité, complémentarité et accessibilité territoriale.",
+          "Contrôles : Indicateurs et dénominateurs explicites, scénarios de distance ou de durée et analyses de sensibilité. Les cartes décriront une offre potentiellement mobilisable."
         ],
         [
-          "Devis : croiser des répertoires et des données spatiales ne constitue pas, à lui seul, un devis à méthodes mixtes.",
-          "Articulation : mise en regard ultérieure avec les profils et les réseaux ; ordre d’O2 et d’O3 adaptable, sans dépendance imposée d’O2 aux résultats d’O1."
+          "Devis : Croiser des répertoires et des données spatiales ne constitue pas, à lui seul, un devis à méthodes mixtes.",
+          "Articulation : Mise en regard ultérieure avec les profils et les réseaux ; ordre d’O2 et d’O3 adaptable, sans dépendance imposée d’O2 aux résultats d’O1."
         ],
         [
-          "Vigilance : répertoires incomplets ou datés, géocodage incertain, découpages incompatibles et paramètres spatiaux sensibles.",
-          "Portée : proximité et disponibilité ne prouvent ni accessibilité réelle, ni mobilisation, ni aide reçue. Une donnée territoriale ne permet pas d’inférer un besoin individuel."
+          "Vigilance : Répertoires incomplets ou datés, géocodage incertain, découpages incompatibles et paramètres spatiaux sensibles.",
+          "Portée : Proximité et disponibilité ne prouvent ni accessibilité réelle, ni mobilisation, ni aide reçue. Une donnée territoriale ne permet pas d’inférer un besoin individuel."
         ]
       ],
       [
         [
-          "Référence : organisations mobilisées en première ligne autour des profils de personnes aînées vivant à domicile, dans plusieurs territoires de CLSC contrastés.",
-          "Unités : organisations et relations interorganisationnelles ; les acteurs renseignent leur organisation. Les personnes aînées définissent les profils, pas les nœuds du réseau."
+          "Référence : Organisations mobilisées en première ligne autour des profils de personnes aînées vivant à domicile, dans plusieurs territoires de CLSC contrastés.",
+          "Unités : Organisations et relations interorganisationnelles ; les acteurs renseignent leur organisation. Les personnes aînées définissent les profils, pas les nœuds du réseau."
         ],
         [
-          "Territoires : sélection raisonnée selon les contrastes documentés de ressources, d’accessibilité et de contexte ; nombre définitif confirmé après le pilote.",
-          "Organisations : inventaire initial puis identification des partenaires ; inviter toutes les organisations du périmètre délimité. Répondant connaissant les collaborations, avec consolidation si plusieurs déclarants."
+          "Territoires : Sélection raisonnée selon les contrastes documentés de ressources, d’accessibilité et de contexte ; nombre définitif confirmé après le pilote.",
+          "Organisations : Inventaire initial puis identification des partenaires ; inviter toutes les organisations du périmètre délimité. Répondant connaissant les collaborations, avec consolidation si plusieurs déclarants."
         ],
         [
-          "Instrument : un questionnaire relationnel unique, administré une fois aux acteurs des organisations, sur les 12 derniers mois ; quelques questions ouvertes complémentaires, sans entretiens distincts.",
-          "Relations : organisations partenaires, orientations, échanges d’informations, coordination, décision conjointe ; sens, fréquence, réciprocité déclarée et profils de besoins concernés."
+          "Instrument : Un questionnaire relationnel unique, administré une fois aux acteurs des organisations, sur les 12 derniers mois ; quelques questions ouvertes complémentaires, sans entretiens distincts.",
+          "Relations : Organisations partenaires, orientations, échanges d’informations, coordination, décision conjointe ; sens, fréquence, réciprocité déclarée et profils de besoins concernés."
         ],
         [
-          "Réseaux entiers par profil : matrice des relations entre toutes les organisations du périmètre de chaque territoire ; composition, structure et fonctionnement, selon la couverture obtenue.",
-          "Réseaux égocentrés : entourage des organisations ou équipes focales, dont le CLSC ; taille, diversité et liens ego–alter. Les liens alter–alter exigent un recueil explicite."
+          "Réseaux intersectoriels entiers par profil et par territoire de CLSC : Matrice des relations entre les organisations de tous les secteurs admissibles ; composition, structure et fonctionnement selon la couverture obtenue.",
+          "Réseaux égocentrés à partir des CLSC : Partenaires et relations mobilisés par les CLSC d’ancrage dans plusieurs territoires contrastés ; taille, diversité et liens ego–alter. Les liens alter–alter exigent un recueil explicite."
         ],
         [
-          "Devis : étude quantitative observationnelle, descriptive et comparative, transversale avec recueil rétrospectif sur 12 mois ; aucune intervention assignée.",
-          "Articulation : les deux niveaux d’ARS proviennent du même questionnaire. Les réponses ouvertes contextualisent les résultats ; aucun devis mixte séquentiel ou convergent n’est prévu."
+          "Devis : Étude quantitative observationnelle, descriptive et comparative, transversale avec recueil rétrospectif sur 12 mois ; aucune intervention assignée.",
+          "Articulation : Les deux niveaux d’ARS proviennent du même questionnaire. Les réponses ouvertes contextualisent les résultats ; aucun devis mixte séquentiel ou convergent n’est prévu."
         ],
         [
-          "Biais : rappel, déclarations, sélection des territoires et non-réponse ; un lien inconnu n’est jamais codé absent. Les réseaux agrégés par profil ne sont pas des trajectoires individuelles.",
-          "Couverture : densité et réciprocité observée exigent un périmètre explicite et des relations suffisamment couvertes. Un taux de réponse élevé ou des réseaux égocentrés ne garantissent pas un réseau entier complet."
+          "Biais : Rappel, déclarations, sélection des territoires et non-réponse ; un lien inconnu n’est jamais codé absent. Les réseaux agrégés par profil ne sont pas des trajectoires individuelles.",
+          "Couverture : Densité et réciprocité observée exigent un périmètre explicite et des relations suffisamment couvertes. Un taux de réponse élevé ou des réseaux égocentrés ne garantissent pas un réseau entier complet."
         ]
       ]
     ],
     "precisionsO3": [
-      "Périmètre : pour chaque territoire et profil, fixer la période, les secteurs, les organisations admissibles et les liens franchissant les frontières. Une liste commune préremplie sera complétée par les partenaires nommés, puis stabilisée avant la matrice finale. Deux relais restent un repère de repérage, pas une preuve d’exhaustivité.",
-      "Questionnaire : identifier une fois l’organisation et son secteur ; cocher les partenaires effectivement mobilisés, puis renseigner seulement les liens existants. Nature multiple : orientation, échange d’informations, coordination des interventions, décision conjointe. Fréquence et intensité seront deux mesures distinctes, avec modalités et ancrages observables fixés au pilote. Ne pas assimiler un échange fréquent à une collaboration intense.",
-      "Profils : rattacher chaque lien aux profils rétrospectivement identifiables, avec les choix « inconnu » et « plusieurs profils ». Un réseau agrégé par profil décrit des collaborations pour ce profil, sans prouver qu’elles concernent toutes la même personne. Ne pas multiplier automatiquement les mêmes questions pour chaque profil.",
-      "Participation : conserver ≥ 80 % comme cible ; 65–79 % appelle relances et analyses de sensibilité ; < 65 % limite l’interprétation structurelle. Ce sont des règles propres au projet, sans garantie de validité. Calculer séparément les taux des professionnels SAD et des organisations partenaires ; contrôler aussi la couverture par secteur, territoire et profil.",
-      "Pilote : conserver le repère de 4 situations pilotes et deux relances sur trois semaines. Mesurer durée, nombre de partenaires, compréhension, données manquantes et charge par profil. Les scénarios antérieurs de 16–24 situations ne sont pas un effectif d’organisations ni un dénominateur de réseau ; le nombre d’organisations découlera du périmètre.",
-      "Calculs : densité dirigée = liens présents / N(N−1), hors boucles, si les dyades sont suffisamment observées ; déclarer les inconnues. Réciprocité : distinguer la perception du répondant de la confirmation dans les deux sens. Centralités : préciser direction, pondération et périmètre. Liens intersectoriels : liens entre secteurs différents / liens dont les deux secteurs sont connus. Tester la sensibilité aux liens non confirmés.",
-      "Égocentrage : calculer taille et diversité des partenaires des organisations focales à partir du même questionnaire. Densité entre alters et contrainte de Burt exigent les liens alter–alter ; documenter poids, direction et traitement des liens dans les deux sens. Plusieurs répondants d’une organisation seront consolidés par règle explicite, en conservant les désaccords.",
-      "Réponses ouvertes : quelques questions facultatives pour contextualiser les collaborations ; résumé descriptif et regroupement thématique simple, sans entretiens distincts ni seconde étude qualitative. Les hypothèses causales sur les mécanismes ne seront pas inférées de cette enquête."
+      "Périmètre : Pour chaque territoire et profil, fixer la période, les secteurs, les organisations admissibles et les liens franchissant les frontières. Une liste commune préremplie sera complétée par les partenaires nommés, puis stabilisée avant la matrice finale. Deux relais restent un repère de repérage, pas une preuve d’exhaustivité.",
+      "Questionnaire : Identifier une fois l’organisation et son secteur ; cocher les partenaires effectivement mobilisés, puis renseigner seulement les liens existants. Nature multiple : Orientation, échange d’informations, coordination des interventions, décision conjointe. Fréquence et intensité seront deux mesures distinctes, avec modalités et ancrages observables fixés au pilote. Ne pas assimiler un échange fréquent à une collaboration intense.",
+      "Profils : Rattacher chaque lien aux profils rétrospectivement identifiables, avec les choix « inconnu » et « plusieurs profils ». Un réseau agrégé par profil décrit des collaborations pour ce profil, sans prouver qu’elles concernent toutes la même personne. Ne pas multiplier automatiquement les mêmes questions pour chaque profil.",
+      "Participation : Conserver ≥ 80 % comme cible indicative de collecte ; 65–79 % appelle des relances et des analyses de sensibilité ; < 65 % limite l’interprétation structurelle. Ces repères ne garantissent pas la validité. Calculer séparément le taux des organisations répondantes parmi les organisations admissibles sollicitées dans le réseau intersectoriel entier et le taux des personnes répondantes parmi les personnes admissibles invitées dans les CLSC d’ancrage des réseaux égocentrés. Distinguer ces taux de la couverture des liens et décrire celle-ci par secteur, territoire et profil.",
+      "Pilote : Conserver le repère de 4 situations pilotes et deux relances sur trois semaines. Mesurer durée, nombre de partenaires, compréhension, données manquantes et charge par profil. Les scénarios antérieurs de 16–24 situations ne sont pas un effectif d’organisations ni un dénominateur de réseau ; le nombre d’organisations découlera du périmètre.",
+      "Calculs : Densité dirigée = liens présents / N(N−1), hors boucles, si les dyades sont suffisamment observées ; déclarer les inconnues. Réciprocité : Distinguer la perception du répondant de la confirmation dans les deux sens. Centralités : Préciser direction, pondération et périmètre. Liens intersectoriels : Liens entre secteurs différents / liens dont les deux secteurs sont connus. Tester la sensibilité aux liens non confirmés.",
+      "Égocentrage à partir des CLSC : Calculer la taille et la diversité des partenaires des CLSC d’ancrage à partir du même questionnaire. Densité entre alters et contrainte de Burt exigent les liens alter–alter ; documenter poids, direction et traitement des liens dans les deux sens. Plusieurs répondants d’une organisation seront consolidés par règle explicite, en conservant les désaccords.",
+      "Réponses ouvertes : Quelques questions facultatives pour contextualiser les collaborations ; résumé descriptif et regroupement thématique simple, sans entretiens distincts ni seconde étude qualitative. Les hypothèses causales sur les mécanismes ne seront pas inférées de cette enquête."
     ],
     "synthese": "Devis multiméthodes à trois volets complémentaires · Posture pragmatique"
   },
@@ -116,88 +116,88 @@
     "objectifs": [
       [
         [
-          "Reference: older people living at home with concurrent social and healthcare needs that may require an intersectoral response in primary care.",
-          "Unit: scientific publications describing these people and their profiles; no individual recruitment for the review."
+          "Reference: Older people living at home with concurrent social and healthcare needs that may require an intersectoral response in primary care.",
+          "Unit: Scientific publications describing these people and their profiles; no individual recruitment for the review."
         ],
         [
-          "Selection: systematic searches, explicit eligibility criteria and two independent reviewers.",
-          "Size: all eligible publications; final number unknown before screening. MEDLINE, Embase, APA PsycInfo and PubMed; overlaps and deduplication documented."
+          "Selection: Systematic searches, explicit eligibility criteria and two independent reviewers.",
+          "Size: All eligible publications; final number unknown before screening. MEDLINE, Embase, APA PsycInfo and PubMed; overlaps and deduplication documented."
         ],
         [
-          "Materials: populations, primary-care context, social and healthcare needs, definitions, instruments, co-occurrence in the same people and reported profiles.",
+          "Materials: Populations, primary-care context, social and healthcare needs, definitions, instruments, co-occurrence in the same people and reported profiles.",
           "Procedure: Covidence, piloted extraction grid and duplicate extraction; retain each profile’s sources, criteria and uncertainties."
         ],
         [
           "Method: JBI scoping review, reported with PRISMA-ScR; descriptive synthesis of definitions, associated needs and documented configurations.",
-          "Output: evidence-based profiles and vignettes; report domains and gaps without inventing profiles when joint evidence is insufficient."
+          "Output: Evidence-based profiles and vignettes; report domains and gaps without inventing profiles when joint evidence is insufficient."
         ],
         [
-          "Design: no separate QUAN → qual components in this review; this section does not describe mixed-methods integration.",
-          "Connection: profiles may be considered alongside resources and networks. O2 is not conditional on prior profile identification in O1."
+          "Design: No separate QUAN → qual components in this review; this section does not describe mixed-methods integration.",
+          "Connection: Profiles may be considered alongside resources and networks. O2 is not conditional on prior profile identification in O1."
         ],
         [
-          "Risks: heterogeneous definitions, incomplete retrieval and limited evidence of co-occurrence.",
-          "Scope: published profiles cannot establish their frequency in CLSC territories; make corpus limitations explicit."
+          "Risks: Heterogeneous definitions, incomplete retrieval and limited evidence of co-occurrence.",
+          "Scope: Published profiles cannot establish their frequency in CLSC territories; make corpus limitations explicit."
         ]
       ],
       [
         [
-          "Reference: territorial resources mobilizable in primary care for concurrent social and healthcare needs of older people living at home.",
-          "Units and sources: geolocated services and delivery sites, CLSC territories, directories and documented territorial data; no recruited individuals."
+          "Reference: Territorial resources mobilizable in primary care for concurrent social and healthcare needs of older people living at home.",
+          "Units and sources: Geolocated services and delivery sites, CLSC territories, directories and documented territorial data; no recruited individuals."
         ],
         [
-          "Inventory: systematic identification of eligible resources in selected sources; explicit inclusion and deduplication rules.",
-          "Territories: justify boundaries and coverage by the question, data and feasibility. The eight example CLSCs are not confirmed doctoral sites."
+          "Inventory: Systematic identification of eligible resources in selected sources; explicit inclusion and deduplication rules.",
+          "Territories: Justify boundaries and coverage by the question, data and feasibility. The eight example CLSCs are not confirmed doctoral sites."
         ],
         [
-          "Variables: location, sector, relevant needs, documented availability, access conditions, eligibility, opening hours and capacity when available.",
-          "Traceability: source, date, geography, geocoding precision and missing data; keep aggregate 211 requests at their published geographical level."
+          "Variables: Location, sector, relevant needs, documented availability, access conditions, eligibility, opening hours and capacity when available.",
+          "Traceability: Source, date, geography, geocoding precision and missing data; keep aggregate 211 requests at their published geographical level."
         ],
         [
-          "Methods: cartographic and spatial study in R and QGIS; distribution, availability, diversity, complementarity and territorial accessibility.",
-          "Checks: explicit indicators and denominators, distance/time scenarios and sensitivity analyses; maps describe potentially mobilizable provision."
+          "Methods: Cartographic and spatial study in R and QGIS; distribution, availability, diversity, complementarity and territorial accessibility.",
+          "Checks: Explicit indicators and denominators, distance/time scenarios and sensitivity analyses; maps describe potentially mobilizable provision."
         ],
         [
-          "Design: combining directories and spatial data does not by itself constitute mixed methods.",
-          "Connection: later comparison with profiles and networks; flexible O2/O3 order, without making O2 dependent on O1 results."
+          "Design: Combining directories and spatial data does not by itself constitute mixed methods.",
+          "Connection: Later comparison with profiles and networks; flexible O2/O3 order, without making O2 dependent on O1 results."
         ],
         [
-          "Risks: incomplete or dated directories, uncertain geocoding, incompatible boundaries and sensitive spatial parameters.",
-          "Scope: proximity and availability do not establish actual access, mobilization or help received; territorial data cannot establish individual needs."
+          "Risks: Incomplete or dated directories, uncertain geocoding, incompatible boundaries and sensitive spatial parameters.",
+          "Scope: Proximity and availability do not establish actual access, mobilization or help received; territorial data cannot establish individual needs."
         ]
       ],
       [
         [
-          "Reference: organizations mobilized in primary care around profiles of older people living at home across several contrasting CLSC territories.",
-          "Units: organizations and interorganizational ties; actors report for their organization. Older people define need profiles, not network nodes."
+          "Reference: Organizations mobilized in primary care around profiles of older people living at home across several contrasting CLSC territories.",
+          "Units: Organizations and interorganizational ties; actors report for their organization. Older people define need profiles, not network nodes."
         ],
         [
-          "Territories: purposive selection based on documented resource, accessibility and contextual contrasts; final number confirmed after the pilot.",
-          "Organizations: initial roster supplemented by identified partners; invite every organization within the defined boundary. Recruit knowledgeable respondents and consolidate multiple reports."
+          "Territories: Purposive selection based on documented resource, accessibility and contextual contrasts; final number confirmed after the pilot.",
+          "Organizations: Initial roster supplemented by identified partners; invite every organization within the defined boundary. Recruit knowledgeable respondents and consolidate multiple reports."
         ],
         [
-          "Instrument: one relational questionnaire administered once to organizational actors about the previous 12 months; a few supplementary open questions, without separate interviews.",
-          "Ties: partner organizations, referrals, information exchange, coordination and joint decisions; direction, frequency, reported reciprocity and relevant need profiles."
+          "Instrument: One relational questionnaire administered once to organizational actors about the previous 12 months; a few supplementary open questions, without separate interviews.",
+          "Ties: Partner organizations, referrals, information exchange, coordination and joint decisions; direction, frequency, reported reciprocity and relevant need profiles."
         ],
         [
-          "Whole networks by profile: ties among all organizations within each territorial boundary; composition, structure and operating arrangements, subject to coverage.",
-          "Ego networks: partners of focal organizations or teams, including the CLSC; size, diversity and ego–alter ties. Alter–alter ties require explicit collection."
+          "Whole intersectoral networks by profile and CLSC territory: Ties among organizations across all eligible sectors; composition, structure and operating arrangements, subject to coverage.",
+          "CLSC-centred ego networks: Partners and collaborations mobilized from selected CLSCs across contrasting territories; size, diversity and ego–alter ties. Alter–alter ties require explicit collection."
         ],
         [
-          "Design: quantitative observational, descriptive and comparative study; cross-sectional collection with 12-month retrospective recall and no assigned intervention.",
-          "Connection: both SNA levels use the same questionnaire. Open answers contextualize findings; no sequential or convergent mixed-methods design is planned."
+          "Design: Quantitative observational, descriptive and comparative study; cross-sectional collection with 12-month retrospective recall and no assigned intervention.",
+          "Connection: Both SNA levels use the same questionnaire. Open answers contextualize findings; no sequential or convergent mixed-methods design is planned."
         ],
         [
-          "Biases: recall, self-report, territory selection and nonresponse; unknown ties are never coded absent. Profile-level aggregate networks are not individual trajectories.",
-          "Coverage: density and observed reciprocity require explicit boundaries and sufficient tie coverage. High response rates or ego networks do not guarantee a complete whole network."
+          "Biases: Recall, self-report, territory selection and nonresponse; unknown ties are never coded absent. Profile-level aggregate networks are not individual trajectories.",
+          "Coverage: Density and observed reciprocity require explicit boundaries and sufficient tie coverage. High response rates or ego networks do not guarantee a complete whole network."
         ]
       ]
     ],
     "precisionsO3": [
-      "Boundary and instrument: define eligible organizations and profile-specific territorial networks; one prefilled roster plus partner nominations. Ask tie questions only for actual partners; collect sector, referrals, information exchange, coordination and joint decisions, with separate pilot-defined frequency and intensity scales. Allow unknown or multiple profiles.",
-      "Participation and pilot: preserve ≥80%, 65–79% and <65% as project-specific vigilance scenarios, not validity guarantees. Keep separate home-care and partner denominators, four pilot situations and two reminders over three weeks. Earlier 16–24 situation scenarios are not organizational sample sizes.",
-      "Analysis: directed density uses N(N−1), without self-ties, only with sufficient dyadic coverage. Distinguish reported from mutually confirmed reciprocity; specify centrality direction and weighting. Divide cross-sector ties by ties with both sectors known. Ego networks use the same questionnaire; alter–alter measures and Burt constraint require explicit alter ties. Assess missingness and sensitivity.",
-      "Burden and open answers: record completion time and partner/profile counts at pilot; use conditional questions, no repeated full questionnaire per profile. Summarize optional open answers descriptively, without a separate interview study."
+      "Boundary and instrument: Define eligible organizations and profile-specific territorial networks; one prefilled roster plus partner nominations. Ask tie questions only for actual partners; collect sector, referrals, information exchange, coordination and joint decisions, with separate pilot-defined frequency and intensity scales. Allow unknown or multiple profiles.",
+      "Participation and pilot: Preserve ≥80%, 65–79% and <65% as project-specific vigilance scenarios, not validity guarantees. Separately report the share of responding organizations among eligible organizations invited across the whole intersectoral network and the share of responding individuals among eligible people invited within the focal CLSCs. Neither rate measures tie coverage. Retain four pilot situations and two reminders over three weeks. Earlier 16–24 situation scenarios are not organizational sample sizes.",
+      "Analysis: Directed density uses N(N−1), without self-ties, only with sufficient dyadic coverage. Distinguish reported from mutually confirmed reciprocity; specify centrality direction and weighting. Divide cross-sector ties by ties with both sectors known. Ego networks use the same questionnaire; alter–alter measures and Burt constraint require explicit alter ties. Assess missingness and sensitivity.",
+      "Burden and open answers: Record completion time and partner/profile counts at pilot; use conditional questions, no repeated full questionnaire per profile. Summarize optional open answers descriptively, without a separate interview study."
     ],
     "synthese": "Multimethod design with three complementary components · Pragmatic approach"
   },
@@ -215,88 +215,88 @@
     "objectifs": [
       [
         [
-          "Referencia: personas mayores que viven en su domicilio con necesidades sociales y de atención de salud concomitantes que pueden requerir respuesta intersectorial en atención primaria.",
-          "Unidad: publicaciones científicas sobre estas personas y sus perfiles; no se reclutarán personas para la revisión."
+          "Referencia: Personas mayores que viven en su domicilio con necesidades sociales y de atención de salud concomitantes que pueden requerir respuesta intersectorial en atención primaria.",
+          "Unidad: Publicaciones científicas sobre estas personas y sus perfiles; no se reclutarán personas para la revisión."
         ],
         [
-          "Selección: búsqueda sistemática, criterios explícitos y dos evaluadores independientes.",
-          "Tamaño: todas las publicaciones admisibles; número final desconocido antes del cribado. MEDLINE, Embase, APA PsycInfo y PubMed; documentar solapamientos y duplicados."
+          "Selección: Búsqueda sistemática, criterios explícitos y dos evaluadores independientes.",
+          "Tamaño: Todas las publicaciones admisibles; número final desconocido antes del cribado. MEDLINE, Embase, APA PsycInfo y PubMed; documentar solapamientos y duplicados."
         ],
         [
-          "Materiales: poblaciones, contexto de atención primaria, necesidades sociales y sanitarias, definiciones, instrumentos, concurrencia individual y perfiles publicados.",
+          "Materiales: Poblaciones, contexto de atención primaria, necesidades sociales y sanitarias, definiciones, instrumentos, concurrencia individual y perfiles publicados.",
           "Procedimiento: Covidence, formulario pilotado y extracción doble; conservar fuentes, criterios e incertidumbres de cada perfil."
         ],
         [
-          "Método: revisión de alcance JBI y reporte PRISMA-ScR; síntesis descriptiva de definiciones, necesidades asociadas y configuraciones documentadas.",
-          "Producto: perfiles y viñetas fundamentados; si faltan datos conjuntos, describir ámbitos y lagunas sin inventar perfiles."
+          "Método: Revisión de alcance JBI y reporte PRISMA-ScR; síntesis descriptiva de definiciones, necesidades asociadas y configuraciones documentadas.",
+          "Producto: Perfiles y viñetas fundamentados; si faltan datos conjuntos, describir ámbitos y lagunas sin inventar perfiles."
         ],
         [
-          "Diseño: la revisión no tiene componentes QUAN → qual separados; no se trata de integración de métodos mixtos.",
-          "Articulación: los perfiles podrán relacionarse con recursos y redes. O2 no depende de que O1 identifique previamente los perfiles."
+          "Diseño: La revisión no tiene componentes QUAN → qual separados; no se trata de integración de métodos mixtos.",
+          "Articulación: Los perfiles podrán relacionarse con recursos y redes. O2 no depende de que O1 identifique previamente los perfiles."
         ],
         [
-          "Riesgos: definiciones heterogéneas, búsqueda incompleta y pruebas insuficientes de concurrencia.",
-          "Alcance: los perfiles publicados no permiten estimar su frecuencia en territorios de CLSC; explicitar los límites del corpus."
+          "Riesgos: Definiciones heterogéneas, búsqueda incompleta y pruebas insuficientes de concurrencia.",
+          "Alcance: Los perfiles publicados no permiten estimar su frecuencia en territorios de CLSC; explicitar los límites del corpus."
         ]
       ],
       [
         [
-          "Referencia: recursos territoriales movilizables en atención primaria para necesidades sociales y sanitarias concomitantes de personas mayores en su domicilio.",
-          "Unidades y fuentes: servicios y lugares geolocalizados, territorios CLSC, directorios y datos territoriales documentados; sin reclutamiento de personas."
+          "Referencia: Recursos territoriales movilizables en atención primaria para necesidades sociales y sanitarias concomitantes de personas mayores en su domicilio.",
+          "Unidades y fuentes: Servicios y lugares geolocalizados, territorios CLSC, directorios y datos territoriales documentados; sin reclutamiento de personas."
         ],
         [
-          "Inventario: identificación sistemática de recursos admisibles en las fuentes seleccionadas; reglas explícitas de inclusión y eliminación de duplicados.",
-          "Territorios: justificar perímetro y cobertura por la pregunta, los datos y la viabilidad. Los ocho CLSC de ejemplo no son lugares doctorales confirmados."
+          "Inventario: Identificación sistemática de recursos admisibles en las fuentes seleccionadas; reglas explícitas de inclusión y eliminación de duplicados.",
+          "Territorios: Justificar perímetro y cobertura por la pregunta, los datos y la viabilidad. Los ocho CLSC de ejemplo no son lugares doctorales confirmados."
         ],
         [
-          "Variables: localización, sector, necesidades, disponibilidad documentada, acceso, admisibilidad, horarios y capacidad cuando consten.",
-          "Trazabilidad: fuente, fecha, geografía, precisión y datos faltantes. Conservar las solicitudes agregadas del 211 en su unidad geográfica publicada."
+          "Variables: Localización, sector, necesidades, disponibilidad documentada, acceso, admisibilidad, horarios y capacidad cuando consten.",
+          "Trazabilidad: Fuente, fecha, geografía, precisión y datos faltantes. Conservar las solicitudes agregadas del 211 en su unidad geográfica publicada."
         ],
         [
-          "Métodos: estudio cartográfico y espacial en R y QGIS; distribución, disponibilidad, diversidad, complementariedad y accesibilidad territorial.",
-          "Controles: indicadores y denominadores explícitos, escenarios de distancia o tiempo y sensibilidad; mapas de oferta potencialmente movilizable."
+          "Métodos: Estudio cartográfico y espacial en R y QGIS; distribución, disponibilidad, diversidad, complementariedad y accesibilidad territorial.",
+          "Controles: Indicadores y denominadores explícitos, escenarios de distancia o tiempo y sensibilidad; mapas de oferta potencialmente movilizable."
         ],
         [
-          "Diseño: combinar directorios y datos espaciales no constituye por sí solo métodos mixtos.",
-          "Articulación: relación posterior con perfiles y redes; orden O2/O3 flexible, sin imponer dependencia de O2 respecto a O1."
+          "Diseño: Combinar directorios y datos espaciales no constituye por sí solo métodos mixtos.",
+          "Articulación: Relación posterior con perfiles y redes; orden O2/O3 flexible, sin imponer dependencia de O2 respecto a O1."
         ],
         [
-          "Riesgos: fuentes incompletas o antiguas, geocodificación incierta, límites incompatibles y sensibilidad espacial.",
-          "Alcance: proximidad y disponibilidad no prueban acceso real, movilización o ayuda recibida; los datos territoriales no establecen necesidades individuales."
+          "Riesgos: Fuentes incompletas o antiguas, geocodificación incierta, límites incompatibles y sensibilidad espacial.",
+          "Alcance: Proximidad y disponibilidad no prueban acceso real, movilización o ayuda recibida; los datos territoriales no establecen necesidades individuales."
         ]
       ],
       [
         [
-          "Referencia: organizaciones movilizadas en atención primaria en torno a perfiles de personas mayores en su domicilio, en varios territorios de CLSC contrastados.",
-          "Unidades: organizaciones y relaciones interorganizativas; los actores informan sobre su organización. Las personas mayores definen los perfiles, no los nodos."
+          "Referencia: Organizaciones movilizadas en atención primaria en torno a perfiles de personas mayores en su domicilio, en varios territorios de CLSC contrastados.",
+          "Unidades: Organizaciones y relaciones interorganizativas; los actores informan sobre su organización. Las personas mayores definen los perfiles, no los nodos."
         ],
         [
-          "Territorios: selección intencional según contrastes documentados de recursos, accesibilidad y contexto; número definitivo tras el piloto.",
-          "Organizaciones: listado inicial completado con los socios identificados; invitar a todas las organizaciones del perímetro. Informantes conocedores y consolidación de respuestas múltiples."
+          "Territorios: Selección intencional según contrastes documentados de recursos, accesibilidad y contexto; número definitivo tras el piloto.",
+          "Organizaciones: Listado inicial completado con los socios identificados; invitar a todas las organizaciones del perímetro. Informantes conocedores y consolidación de respuestas múltiples."
         ],
         [
-          "Instrumento: un único cuestionario relacional administrado una vez sobre los últimos 12 meses; algunas preguntas abiertas complementarias, sin entrevistas separadas.",
-          "Relaciones: organizaciones colaboradoras, derivaciones, intercambio de información, coordinación e decisión conjunta; dirección, frecuencia, reciprocidad declarada y perfiles implicados."
+          "Instrumento: Un único cuestionario relacional administrado una vez sobre los últimos 12 meses; algunas preguntas abiertas complementarias, sin entrevistas separadas.",
+          "Relaciones: Organizaciones colaboradoras, derivaciones, intercambio de información, coordinación e decisión conjunta; dirección, frecuencia, reciprocidad declarada y perfiles implicados."
         ],
         [
-          "Redes completas por perfil: relaciones entre todas las organizaciones del perímetro territorial; composición, estructura y funcionamiento según la cobertura lograda.",
-          "Redes egocentradas: entorno de las organizaciones o equipos focales, incluido el CLSC; tamaño, diversidad y vínculos ego–alter. Los vínculos alter–alter requieren recogida explícita."
+          "Redes completas por perfil: Relaciones entre todas las organizaciones del perímetro territorial; composición, estructura y funcionamiento según la cobertura lograda.",
+          "Redes egocentradas: Entorno de las organizaciones o equipos focales, incluido el CLSC; tamaño, diversidad y vínculos ego–alter. Los vínculos alter–alter requieren recogida explícita."
         ],
         [
-          "Diseño: estudio cuantitativo observacional, descriptivo y comparativo; recogida transversal retrospectiva de 12 meses, sin intervención asignada.",
-          "Articulación: ambos niveles de ARS utilizan el mismo cuestionario. Las respuestas abiertas contextualizan los resultados; no se prevé un diseño mixto secuencial ni convergente."
+          "Diseño: Estudio cuantitativo observacional, descriptivo y comparativo; recogida transversal retrospectiva de 12 meses, sin intervención asignada.",
+          "Articulación: Ambos niveles de ARS utilizan el mismo cuestionario. Las respuestas abiertas contextualizan los resultados; no se prevé un diseño mixto secuencial ni convergente."
         ],
         [
-          "Sesgos: recuerdo, declaraciones, selección territorial y no respuesta; un vínculo desconocido no se codifica ausente. Las redes agregadas por perfil no son trayectorias individuales.",
-          "Cobertura: densidad y reciprocidad observada requieren límites explícitos y cobertura suficiente. Una respuesta elevada o redes egocentradas no garantizan una red completa."
+          "Sesgos: Recuerdo, declaraciones, selección territorial y no respuesta; un vínculo desconocido no se codifica ausente. Las redes agregadas por perfil no son trayectorias individuales.",
+          "Cobertura: Densidad y reciprocidad observada requieren límites explícitos y cobertura suficiente. Una respuesta elevada o redes egocentradas no garantizan una red completa."
         ]
       ]
     ],
     "precisionsO3": [
-      "Perímetro e instrumento: delimitar organizaciones y redes territoriales por perfil; listado inicial y socios nombrados. Preguntar solo por vínculos existentes: sector, orientación, información, coordinación y decisión conjunta. Frecuencia e intensidad con anclajes distintos en el piloto; admitir perfil desconocido o múltiple.",
-      "Participación y piloto: mantener ≥80 %, 65–79 % y <65 % como escenarios propios, no garantías de validez; denominadores separados SAD/socios, cuatro situaciones piloto y dos recordatorios en tres semanas. Las 16–24 situaciones previas no equivalen al número de organizaciones.",
-      "Análisis: densidad dirigida con N(N−1), sin bucles y con cobertura suficiente; distinguir reciprocidad declarada y confirmada. Explicitar dirección y ponderación de centralidades; proporción intersectorial sobre vínculos con ambos sectores conocidos. Los vínculos alter–alter y la restricción de Burt requieren recogida explícita.",
-      "Carga: medir duración y número de socios/perfiles, usar preguntas condicionales y evitar repetir el cuestionario por perfil. Resumen descriptivo de respuestas abiertas, sin entrevistas separadas."
+      "Perímetro e instrumento: Delimitar organizaciones y redes territoriales por perfil; listado inicial y socios nombrados. Preguntar solo por vínculos existentes: Sector, orientación, información, coordinación y decisión conjunta. Frecuencia e intensidad con anclajes distintos en el piloto; admitir perfil desconocido o múltiple.",
+      "Participación y piloto: Mantener ≥80 %, 65–79 % y <65 % como escenarios propios, no garantías de validez; denominadores separados SAD/socios, cuatro situaciones piloto y dos recordatorios en tres semanas. Las 16–24 situaciones previas no equivalen al número de organizaciones.",
+      "Análisis: Densidad dirigida con N(N−1), sin bucles y con cobertura suficiente; distinguir reciprocidad declarada y confirmada. Explicitar dirección y ponderación de centralidades; proporción intersectorial sobre vínculos con ambos sectores conocidos. Los vínculos alter–alter y la restricción de Burt requieren recogida explícita.",
+      "Carga: Medir duración y número de socios/perfiles, usar preguntas condicionales y evitar repetir el cuestionario por perfil. Resumen descriptivo de respuestas abiertas, sin entrevistas separadas."
     ],
     "synthese": "Diseño multimétodo con tres componentes complementarios · Enfoque pragmático"
   }
