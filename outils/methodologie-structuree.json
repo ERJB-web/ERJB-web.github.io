@@ -69,10 +69,10 @@
         ],
         [
           "Territoires : Sélection raisonnée selon les contrastes documentés de ressources, d’accessibilité et de contexte ; nombre définitif confirmé après le pilote.",
-          "Organisations : Inventaire initial puis identification des partenaires ; inviter toutes les organisations du périmètre délimité. Répondant connaissant les collaborations, avec consolidation si plusieurs déclarants (Agneessens et Labianca, 2022)."
+          "Organisations : Inventaire initial puis identification des partenaires ; inviter toutes les organisations du périmètre délimité (Agneessens et Labianca, 2022). Répondant connaissant les collaborations, avec consolidation si plusieurs déclarants."
         ],
         [
-          "Instrument : Un questionnaire relationnel unique, administré une fois aux acteurs des organisations, sur les 12 derniers mois ; quelques questions ouvertes complémentaires, sans entretiens distincts (Brewster et al., 2019).",
+          "Instrument : Un questionnaire relationnel unique, administré une fois aux acteurs des organisations, sur les 12 derniers mois (Brewster et al., 2019) ; quelques questions ouvertes complémentaires, sans entretiens distincts.",
           "Relations : Organisations partenaires, orientations, échanges d’informations, coordination, décision conjointe ; sens, fréquence, réciprocité déclarée et profils de besoins concernés."
         ],
         [
@@ -84,7 +84,7 @@
           "Articulation : Les deux niveaux d’ARS proviennent du même questionnaire. Les réponses ouvertes contextualisent les résultats ; aucun devis mixte séquentiel ou convergent n’est prévu."
         ],
         [
-          "Biais : Rappel, déclarations, sélection des territoires et non-réponse ; un lien inconnu n’est jamais codé absent. Les réseaux agrégés par profil ne sont pas des trajectoires individuelles (Huang et al., 2019).",
+          "Biais : Rappel, déclarations, sélection des territoires et non-réponse (Huang et al., 2019) ; un lien inconnu n’est jamais codé absent. Les réseaux agrégés par profil ne sont pas des trajectoires individuelles.",
           "Couverture : Densité et réciprocité observée exigent un périmètre explicite et des relations suffisamment couvertes. Un taux de réponse élevé ou des réseaux égocentrés ne garantissent pas un réseau entier complet."
         ]
       ]
@@ -95,7 +95,7 @@
       "Profils : Rattacher chaque lien aux profils rétrospectivement identifiables, avec les choix « inconnu » et « plusieurs profils ». Un réseau agrégé par profil décrit des collaborations pour ce profil, sans prouver qu’elles concernent toutes la même personne. Ne pas multiplier automatiquement les mêmes questions pour chaque profil.",
       "Participation : Conserver ≥ 80 % comme cible indicative de collecte ; 65–79 % appelle des relances et des analyses de sensibilité ; < 65 % limite l’interprétation structurelle. Ces repères ne garantissent pas la validité. Calculer séparément le taux des organisations répondantes parmi les organisations admissibles sollicitées dans le réseau intersectoriel entier et le taux des personnes répondantes parmi les personnes admissibles invitées dans les CLSC d’ancrage des réseaux égocentrés. Distinguer ces taux de la couverture des liens et décrire celle-ci par secteur, territoire et profil.",
       "Pilote : Conserver le repère de 4 situations pilotes et deux relances sur trois semaines. Mesurer durée, nombre de partenaires, compréhension, données manquantes et charge par profil. Les scénarios antérieurs de 16–24 situations ne sont pas un effectif d’organisations ni un dénominateur de réseau ; le nombre d’organisations découlera du périmètre.",
-      "Calculs : Densité dirigée = liens présents / N(N−1), hors boucles, si les dyades sont suffisamment observées ; déclarer les inconnues. Réciprocité : Distinguer la perception du répondant de la confirmation dans les deux sens. Centralités : Préciser direction, pondération et périmètre. Liens intersectoriels : Liens entre secteurs différents / liens dont les deux secteurs sont connus. Tester la sensibilité aux liens non confirmés (Lee et Butts, 2018).",
+      "Calculs : Densité dirigée = liens présents / N(N−1), hors boucles, si les dyades sont suffisamment observées ; déclarer les inconnues. Réciprocité : Distinguer la perception du répondant de la confirmation dans les deux sens (Lee et Butts, 2018). Centralités : Préciser direction, pondération et périmètre. Liens intersectoriels : Liens entre secteurs différents / liens dont les deux secteurs sont connus. Tester la sensibilité aux liens non confirmés.",
       "Égocentrage à partir des CLSC : Calculer la taille et la diversité des partenaires des CLSC d’ancrage à partir du même questionnaire. Densité entre alters et contrainte de Burt exigent les liens alter–alter ; documenter poids, direction et traitement des liens dans les deux sens. Plusieurs répondants d’une organisation seront consolidés par règle explicite, en conservant les désaccords.",
       "Réponses ouvertes : Quelques questions facultatives pour contextualiser les collaborations ; résumé descriptif et regroupement thématique simple, sans entretiens distincts ni seconde étude qualitative. Les hypothèses causales sur les mécanismes ne seront pas inférées de cette enquête."
     ],
@@ -172,10 +172,10 @@
         ],
         [
           "Territories: Purposive selection based on documented resource, accessibility and contextual contrasts; final number confirmed after the pilot.",
-          "Organizations: Initial roster supplemented by identified partners; invite every organization within the defined boundary. Recruit knowledgeable respondents and consolidate multiple reports (Agneessens et Labianca, 2022)."
+          "Organizations: Initial roster supplemented by identified partners; invite every organization within the defined boundary (Agneessens & Labianca, 2022). Recruit knowledgeable respondents and consolidate multiple reports."
         ],
         [
-          "Instrument: One relational questionnaire administered once to organizational actors about the previous 12 months; a few supplementary open questions, without separate interviews (Brewster et al., 2019).",
+          "Instrument: One relational questionnaire administered once to organizational actors about the previous 12 months (Brewster et al., 2019); a few supplementary open questions, without separate interviews.",
           "Ties: Partner organizations, referrals, information exchange, coordination and joint decisions; direction, frequency, reported reciprocity and relevant need profiles."
         ],
         [
@@ -187,7 +187,7 @@
           "Connection: Both SNA levels use the same questionnaire. Open answers contextualize findings; no sequential or convergent mixed-methods design is planned."
         ],
         [
-          "Biases: Recall, self-report, territory selection and nonresponse; unknown ties are never coded absent. Profile-level aggregate networks are not individual trajectories (Huang et al., 2019).",
+          "Biases: Recall, self-report, territory selection and nonresponse (Huang et al., 2019); unknown ties are never coded absent. Profile-level aggregate networks are not individual trajectories.",
           "Coverage: Density and observed reciprocity require explicit boundaries and sufficient tie coverage. High response rates or ego networks do not guarantee a complete whole network."
         ]
       ]
@@ -271,10 +271,10 @@
         ],
         [
           "Territorios: Selección intencional según contrastes documentados de recursos, accesibilidad y contexto; número definitivo tras el piloto.",
-          "Organizaciones: Listado inicial completado con los socios identificados; invitar a todas las organizaciones del perímetro. Informantes conocedores y consolidación de respuestas múltiples (Agneessens et Labianca, 2022)."
+          "Organizaciones: Listado inicial completado con los socios identificados; invitar a todas las organizaciones del perímetro (Agneessens y Labianca, 2022). Informantes conocedores y consolidación de respuestas múltiples."
         ],
         [
-          "Instrumento: Un único cuestionario relacional administrado una vez sobre los últimos 12 meses; algunas preguntas abiertas complementarias, sin entrevistas separadas (Brewster et al., 2019).",
+          "Instrumento: Un único cuestionario relacional administrado una vez sobre los últimos 12 meses (Brewster et al., 2019); algunas preguntas abiertas complementarias, sin entrevistas separadas.",
           "Relaciones: Organizaciones colaboradoras, derivaciones, intercambio de información, coordinación e decisión conjunta; dirección, frecuencia, reciprocidad declarada y perfiles implicados."
         ],
         [
@@ -286,7 +286,7 @@
           "Articulación: Ambos niveles de ARS utilizan el mismo cuestionario. Las respuestas abiertas contextualizan los resultados; no se prevé un diseño mixto secuencial ni convergente."
         ],
         [
-          "Sesgos: Recuerdo, declaraciones, selección territorial y no respuesta; un vínculo desconocido no se codifica ausente. Las redes agregadas por perfil no son trayectorias individuales (Huang et al., 2019).",
+          "Sesgos: Recuerdo, declaraciones, selección territorial y no respuesta (Huang et al., 2019); un vínculo desconocido no se codifica ausente. Las redes agregadas por perfil no son trayectorias individuales.",
           "Cobertura: Densidad y reciprocidad observada requieren límites explícitos y cobertura suficiente. Una respuesta elevada o redes egocentradas no garantizan una red completa."
         ]
       ]
