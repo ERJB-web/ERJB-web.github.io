@@ -3,11 +3,36 @@
   "question": "¿Cómo se organiza la respuesta intersectorial a las necesidades sociales y de atención de salud concomitantes de los distintos perfiles de personas mayores que viven en su domicilio?",
   "point": "En los pacientes con necesidades sociales complejas y concurrentes en atención primaria, la respuesta intersectorial no puede valorarse considerando cada necesidad de forma aislada; debe examinarse atendiendo a la correspondencia entre los distintos perfiles de pacientes y la configuración de las redes intersectoriales capaces de responder a ellos, en particular los actores que las componen y las relaciones entre dichos actores.",
   "general": "Analizar cómo se organiza la respuesta intersectorial a los distintos perfiles de pacientes con necesidades sociales complejas y concurrentes atendidos en atención primaria, para identificar mejoras organizativas que permitan adaptar mejor esta respuesta a dichos perfiles.",
-  "labels": {"titre": "Título provisional", "question": "Pregunta de investigación", "point": "Planteamiento central de la tesis", "general": "Objetivo general", "specifiques": "Objetivos específicos", "lacunes": "Tres lagunas que justifican el tema", "lacune": "Laguna", "methode": "Método", "cadre": "Marco institucional y financiación", "articulation": "De las lagunas a los objetivos y métodos", "sources": "Fuentes del contexto", "justification": "¿Por qué este tema?"},
+  "labels": {
+    "titre": "Título provisional",
+    "question": "Pregunta de investigación",
+    "point": "Planteamiento central de la tesis",
+    "general": "Objetivo general",
+    "specifiques": "Objetivos específicos",
+    "lacunes": "Tres lagunas que justifican el tema",
+    "lacune": "Laguna",
+    "methode": "Método",
+    "cadre": "Marco institucional y financiación",
+    "articulation": "De las lagunas a los objetivos y métodos",
+    "sources": "Fuentes del contexto",
+    "justification": "¿Por qué este tema?"
+  },
   "contextes": [
-    ["En el mundo", "La OMS destaca que las condiciones de vida y el acceso a los recursos contribuyen a las inequidades en salud y requieren una acción coordinada.", 0],
-    ["En Canadá", "El CIHI describe dificultades de acceso a la atención primaria y problemas de coordinación y comunicación entre profesionales.", 1],
-    ["En Quebec", "El INSPQ documenta las desigualdades sociales en salud y su vigilancia. Este contexto invita a considerar las condiciones sociales al organizar las respuestas.", 2]
+    [
+      "En el mundo",
+      "La OMS destaca que las condiciones de vida y el acceso a los recursos contribuyen a las inequidades en salud y requieren una acción coordinada.",
+      0
+    ],
+    [
+      "En Canadá",
+      "El CIHI describe dificultades de acceso a la atención primaria y problemas de coordinación y comunicación entre profesionales.",
+      1
+    ],
+    [
+      "En Quebec",
+      "El INSPQ documenta las desigualdades sociales en salud y su vigilancia. Este contexto invita a considerar las condiciones sociales al organizar las respuestas.",
+      2
+    ]
   ],
   "justification": "La tesis vincula este problema general con una pregunta organizativa precisa: ¿cómo adaptar las redes intersectoriales a los distintos perfiles de pacientes, en lugar de a cada necesidad por separado? Las tres lagunas siguientes estructuran el razonamiento y conducen, respectivamente, a O1, O2 y O3.",
   "lacunes": [
@@ -16,13 +41,18 @@
     "Los actores de las redes intersectoriales capaces de atender a distintos perfiles de pacientes con necesidades sociales complejas y concurrentes en atención primaria carecen de orientaciones operativas para organizar eficazmente la respuesta a estos perfiles."
   ],
   "objectifs": [
-    "Identificar los distintos perfiles de personas mayores que viven en su domicilio y presentan necesidades sociales y de atención de salud concomitantes que pueden requerir una respuesta intersectorial en el contexto de la atención primaria.",
-    "Cartografiar los recursos territoriales que pueden responder a las necesidades sociales y de atención de salud concomitantes de los distintos perfiles de personas mayores que viven en su domicilio, y caracterizar las variaciones territoriales de su disponibilidad, diversidad, complementariedad y accesibilidad.",
-    "Analizar las configuraciones organizativas de las redes intersectoriales movilizadas en el territorio para responder a las necesidades sociales y de atención de salud concomitantes de los distintos perfiles de personas mayores que viven en su domicilio, con el fin de caracterizar sus modalidades de funcionamiento."
+    "Identificar los distintos perfiles de personas mayores que viven en su domicilio y presentan necesidades sociales y de atención de salud concomitantes que pueden requerir una respuesta intersectorial en atención primaria.",
+    "Cartografiar los recursos territoriales que pueden movilizarse en atención primaria para responder a las necesidades sociales y de atención de salud concomitantes de los distintos perfiles de personas mayores que viven en su domicilio, y caracterizar las variaciones territoriales de su disponibilidad, diversidad, complementariedad y accesibilidad.",
+    "Analizar las configuraciones organizativas de las redes intersectoriales en atención primaria movilizadas en el territorio para responder a las necesidades sociales y de atención de salud concomitantes de los distintos perfiles de personas mayores que viven en su domicilio, con el fin de caracterizar sus modalidades de funcionamiento."
   ],
   "methodes": [
     "Revisión de alcance según JBI y PRISMA-ScR",
     "Análisis de redes sociales cuya frontera se delimita, para cada uno de los distintos perfiles de pacientes con necesidades sociales complejas y concurrentes que requieren una respuesta intersectorial en atención primaria, mediante la identificación de la red intersectorial capaz de responder a dicho perfil.",
     "Taller deliberativo con múltiples actores basado en los resultados de O1 y O2, que reúne a pacientes colaboradores, profesionales de atención primaria, actores comunitarios, actores privados y responsables de decisiones pertinentes para elaborar recomendaciones que permitan organizar la respuesta intersectorial."
+  ],
+  "methodologiques": [
+    "Realizar una revisión de la literatura científica para identificar y caracterizar los distintos perfiles de personas mayores que viven en su domicilio y presentan necesidades sociales y de atención de salud concomitantes que pueden requerir una respuesta intersectorial en atención primaria, y determinar las necesidades asociadas a cada uno de estos perfiles.",
+    "Realizar un estudio cartográfico y espacial de los recursos movilizables en atención primaria para responder a las diferentes necesidades sociales y de atención de salud concomitantes asociadas a los perfiles de personas mayores que viven en su domicilio a fin de caracterizar, en los distintos territorios de CLSC, su distribución, disponibilidad, diversidad, complementariedad y accesibilidad territorial.",
+    "Realizar un análisis retrospectivo de redes sociales (ARS) intersectoriales movilizadas en atención primaria a partir de territorios de CLSC para responder a las necesidades sociales y de atención de salud concomitantes de los diferentes perfiles de personas mayores que viven en su domicilio, para caracterizar su composición, la estructura de sus relaciones, así como la naturaleza y la intensidad de las colaboraciones entre actores."
   ]
 }

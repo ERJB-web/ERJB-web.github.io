@@ -4769,3 +4769,6 @@ const es = {
 fr.biographie = require("./biographie-frq");
 
 module.exports = { fr, en, es, LANGUES, AFFICHE };
+
+const cadrageOfficiel=require("./formulations-recherche.json");
+for(const l of ["fr","en","es"]){const c=module.exports[l].these,f=cadrageOfficiel[l];if(c){c.titre=f.titre;c.question=f.question;c.objectifsSpecifiques=f.objectifs;c.objectifsMethodologiques=f.methodologiques;}}

@@ -19,6 +19,7 @@
     zones.forEach(zone => {
       const o1=$("#these-methode-o1",zone),o2=$("#these-methode-o2",zone),o3=$("#these-methode-o3",zone);
       if (!(o1 && o2 && o3)) return;
+      if (o1.hasAttribute('data-cadrage-harmonise')) return;
       // Place l'ampoule après les trois produits et avant O1, sans doublons.
       const consigneProduits=zone.querySelector("#rubrique-fr-these-panneau-2 .these-methode-consigne");
       const debutO1=zone.querySelector("#these-objectif-vue-o1");

@@ -435,3 +435,16 @@ module.exports = {
     },
   },
 };
+// Formulations canoniques : ne pas réintroduire les anciens objectifs.
+const formulations = require("./formulations-recherche.json");
+for (const [lang, v] of Object.entries(formulations)) if (module.exports[lang]) { module.exports[lang].objectifs.items = v.objectifs.map((texte, i) => ["O" + (i + 1), texte]); module.exports[lang].objectifsMethodologiques = v.methodologiques; }
+// Le protocole courant remplace les anciens scénarios mixtes dans les exports.
+const structure = {...require('./methodologie-structuree.json'), ...require('./methodologie-structuree-autres.json')};
+for (const [lang, s] of Object.entries(structure)) {
+ const v=module.exports[lang];if(!v)continue;
+ v.etat=s.statut;
+ v.devis.items=[['O1',s.objectifs[0][3][0]],['O2',s.objectifs[1][3][0]],['O3',s.objectifs[2][4][0]]];
+ v.etapes=s.objectifs.map((sections,i)=>({code:'O'+(i+1),titre:formulations[lang].methodologiques[i],cible:s.statut,blocs:sections.map((items,j)=>[s.titres[j],items.join(' ')]),reperes:i===2?'Brewster, Tan, & Yuan, 2019. https://doi.org/10.1111/1475-6773.13206':''}));
+ v.integration.texte=s.objectifs[2][4].join(' ');
+ v.limites.items=s.objectifs.map((sections,i)=>['O'+(i+1),sections[5].join(' ')]);
+}

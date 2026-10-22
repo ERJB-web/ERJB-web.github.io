@@ -81,3 +81,6 @@ module.exports = {
     }
   }
 };
+// Formulations canoniques : ne pas réintroduire les anciens objectifs.
+const formulations = require("./formulations-recherche.json");
+for (const [lang, v] of Object.entries(formulations)) if (module.exports.langues[lang]) module.exports.langues[lang].etapes = v.objectifs;
