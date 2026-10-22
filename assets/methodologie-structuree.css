@@ -241,3 +241,147 @@ html body .these .these-methode-objectif[data-cadrage-harmonise] .methodo-patrim
   transform:translateY(-2px);box-shadow:0 10px 25px rgba(25,57,70,.09);
  }
 }
+
+
+/* Exploration spatiale indépendante : ouverture d'O2, sans modification de l'atlas. */
+.these #these-methode-o2 .methodo-exploratoire{
+  --explor-accent:#11888e;--explor-ink:#173d50;
+  width:100%;min-width:0;box-sizing:border-box;margin:22px 0 30px;
+  padding:clamp(18px,2.6vw,32px);
+  border:1px solid #cce6e4;border-radius:20px;
+  background:linear-gradient(140deg,#edfaf9 0%,#f8fcfe 47%,#fff 100%);
+  box-shadow:0 16px 45px rgba(13,69,81,.06);
+}
+.these .methodo-exploratoire *,.these .methodo-questions-terrain *{box-sizing:border-box;min-width:0}
+.these .methodo-exploratoire-entete{margin:0 0 18px}
+.these .methodo-exploratoire-label,.these .methodo-questions-label{
+  display:inline-flex;align-items:center;gap:9px;
+  margin:0 0 10px;font-weight:750;letter-spacing:.055em;
+  text-transform:uppercase;text-align:left;
+}
+.these .methodo-exploratoire-label{color:#137780}
+.these .methodo-exploratoire-label::before,.these .methodo-questions-label::before{
+  content:"";display:inline-block;width:21px;height:3px;border-radius:2px;background:currentColor;flex:none;
+}
+.these .methodo-exploratoire-entete h3,.these .methodo-questions-entete h3{
+  margin:0 0 9px;color:#173e52;line-height:1.25;text-align:left;text-wrap:balance;
+}
+.these .methodo-exploratoire-entete p,.these .methodo-questions-entete p{
+  color:#49616f;line-height:1.55;margin:0;text-align:justify;
+}
+.these .methodo-exploratoire-chiffres{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;
+  margin:0 0 15px;
+}
+.these .methodo-exploratoire-indic{
+  display:flex;flex-direction:column;justify-content:center;
+  min-height:105px;padding:18px 14px 16px;border-radius:13px;
+  border:1px solid #d6e6e9;background:#fff;box-shadow:0 4px 12px rgba(20,56,73,.03);
+}
+.these .methodo-exploratoire-indic strong{
+  display:block;line-height:1.1;font-weight:800;letter-spacing:-.045em;
+  font-variant-numeric:tabular-nums;color:#0c737d;text-align:left;
+}
+.these .methodo-exploratoire-indic--1 strong{color:#2763a1}
+.these .methodo-exploratoire-indic--2 strong{color:#537f31}
+.these .methodo-exploratoire-indic--3 strong{color:#93612e}
+.these .methodo-exploratoire-indic span{display:block;margin-top:7px;color:#3e5867;font-weight:590;line-height:1.4;text-align:left}
+.these .methodo-exploratoire-detail{
+  display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);
+  gap:14px;align-items:stretch;
+}
+.these .methodo-exploratoire-carte{
+  display:flex;flex-direction:column;overflow:hidden;
+  margin:0;min-width:0;background:#fff;border:1px solid #d3e3e8;border-radius:13px;
+}
+.these .methodo-exploratoire-carte>a{
+  display:flex;align-items:center;justify-content:center;min-height:230px;flex:1;
+  padding:7px;background:#f5f8fa;
+}
+.these .methodo-exploratoire-carte a:focus-visible{outline:3px solid #147d91;outline-offset:-3px}
+.these .methodo-exploratoire-carte img{
+  width:100%;max-height:370px;height:auto;object-fit:contain;display:block;
+  border-radius:7px;transition:transform .18s ease;
+}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+ .these .methodo-exploratoire-carte a:hover img{transform:scale(1.015)}
+}
+.these .methodo-exploratoire-carte figcaption{
+  display:flex;justify-content:space-between;align-items:center;gap:10px;
+  padding:12px 15px;border-top:1px solid #e0e9eb;
+  color:#3f5f6b;font-weight:550;text-align:left;
+}
+.these .methodo-exploratoire-carte figcaption span{color:#087b84;font-weight:800}
+.these .methodo-exploratoire-analyse{
+  background:#fff;border:1px solid #d3e3e8;border-radius:13px;
+  padding:18px 16px;display:flex;flex-direction:column;justify-content:center;min-width:0;
+}
+.these .methodo-exploratoire-analyse h4{
+  color:#194f63;margin:0 0 14px;line-height:1.35;text-align:left;
+}
+.these .methodo-exploratoire-table table{margin:0;width:100%;border-collapse:collapse;table-layout:fixed}
+.these .methodo-exploratoire-table tr+tr{border-top:1px solid #e1ebed}
+.these .methodo-exploratoire-table th,
+.these .methodo-exploratoire-table td{border:0;background:transparent;vertical-align:top;line-height:1.5;padding:12px 7px}
+.these .methodo-exploratoire-table th{
+  color:#147d81;text-align:left;font-weight:750;width:36%;
+}
+.these .methodo-exploratoire-table td{color:#385360;text-align:justify}
+.these .methodo-exploratoire-note{
+  margin:16px 0 0;padding:13px 15px;color:#345b68;
+  background:#deeeef;border-left:4px solid #12868c;border-radius:0 9px 9px 0;
+  line-height:1.6;text-align:justify;
+}
+
+/* O3 : quatre questions de délimitation du terrain, au sein de l'échantillonnage. */
+.these #these-methode-o3 .methodo-questions-terrain{
+  --questions-accent:#2c67a0;width:100%;max-width:100%;grid-column:1/-1;
+  min-width:0;margin:21px 0 17px;padding:clamp(17px,2.4vw,27px);
+  border-radius:18px;border:1px solid #d7e4f1;
+  background:linear-gradient(135deg,#f0f6fd,#fafcff 55%,#fff);
+}
+.these .methodo-questions-entete{margin-bottom:17px}
+.these .methodo-questions-label{color:#2b679c}
+.these .methodo-questions-grille{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:stretch;
+}
+.these .methodo-question{
+  display:grid;grid-template-columns:44px minmax(0,1fr);gap:13px;
+  align-items:start;margin:0;padding:19px 17px;
+  background:#fff;border:1px solid #d7e3ee;border-radius:12px;
+  box-shadow:0 3px 12px rgba(24,65,95,.025);
+}
+.these .methodo-question:nth-child(2){border-top:3px solid #2e8e86}
+.these .methodo-question:nth-child(3){border-top:3px solid #8b68aa}
+.these .methodo-question:nth-child(4){border-top:3px solid #d18a3c}
+.these .methodo-question:nth-child(1){border-top:3px solid #2b75ac}
+.these .methodo-question-num{
+  display:grid;place-items:center;aspect-ratio:1;background:#e7f0fc;
+  border-radius:11px;color:#27609c;font-weight:750;font-variant-numeric:tabular-nums;
+}
+.these .methodo-question:nth-child(2) .methodo-question-num{background:#e6f6f3;color:#187c75}
+.these .methodo-question:nth-child(3) .methodo-question-num{background:#f2ebfa;color:#735393}
+.these .methodo-question:nth-child(4) .methodo-question-num{background:#fff1e0;color:#9b651f}
+.these .methodo-question h4{margin:0 0 9px;color:#1d445a;text-align:left;line-height:1.35}
+.these .methodo-question p{margin:0;color:#405869;line-height:1.6;text-align:justify}
+@media(max-width:920px){
+  .these .methodo-exploratoire-detail{grid-template-columns:1fr}
+  .these .methodo-exploratoire-carte>a{min-height:0}
+  .these .methodo-exploratoire-carte img{max-height:440px}
+}
+@media(max-width:700px){
+  .these .methodo-exploratoire-chiffres{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .these .methodo-exploratoire-indic{min-height:97px;padding:14px 12px}
+  .these .methodo-exploratoire-table th{width:36%}
+  .these .methodo-questions-grille{grid-template-columns:1fr}
+  .these .methodo-question{grid-template-columns:38px minmax(0,1fr);padding:16px 14px;gap:11px}
+}
+@media(max-width:390px){
+  .these .methodo-exploratoire-chiffres{gap:7px}
+  .these .methodo-exploratoire-indic{padding:12px 9px}
+  .these .methodo-exploratoire-analyse{padding:13px 10px}
+}
+html.hc .these .methodo-exploratoire,html.hc .these .methodo-questions-terrain,
+html.lv .these .methodo-exploratoire,html.lv .these .methodo-questions-terrain{
+  background:#fff;border-width:2px;box-shadow:none
+}
