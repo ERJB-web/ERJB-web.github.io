@@ -1141,3 +1141,108 @@
     initialiser();
   }
 })();
+
+
+/* VITRINE_METHODO_20261022 : rend visibles deux planches utiles par objectif.
+   Les figures et galeries des annexes originales ne sont ni déplacées ni supprimées. */
+(() => {
+  const langue = (document.documentElement.lang || "fr").toLowerCase();
+  const en = langue.startsWith("en");
+  if (!langue.startsWith("fr") && !en) return;
+
+  function preparerVitrine(objectif) {
+    if (objectif.dataset.vitrineMethodo20261022 === "oui") return;
+    const code = objectif.dataset.objectif;
+    if (!/^O[123]$/.test(code || "")) return;
+    const annexes = Array.from(objectif.querySelectorAll("details.methodo-doc"));
+    const annexe = annexes.find(detail => detail.querySelector("figure img"));
+    if (!annexe) return;
+    const vues = new Set(
+      Array.from(objectif.querySelectorAll("figure img"))
+        .filter(img => !img.closest("details.methodo-doc"))
+        .map(img => img.getAttribute("src")).filter(Boolean)
+    );
+    const mots = {
+      O1: /prisma|corpus|revue|screen|review|sélection|extraction/i,
+      O2: /carte|map|clsc|qgis|spatial|accessibil|territoir/i,
+      O3: /réseau|network|graphe|relation|matrice|matrix|sna/i
+    };
+    const figures = Array.from(annexe.querySelectorAll("figure"))
+      .filter(figure => {
+        const img = figure.querySelector("img[src]");
+        if (!img) return false;
+        const src = img.getAttribute("src");
+        return src && !vues.has(src);
+      });
+    if (!figures.length) return;
+    const choix = figures.map((figure, index) => ({
+      figure, index,
+      score: mots[code].test(
+        (figure.querySelector("img")?.alt || "") + " " +
+        (figure.querySelector("figcaption")?.textContent || "") + " " +
+        (figure.querySelector("img")?.getAttribute("src") || "")
+      ) ? 1 : 0
+    })).sort((a,b) => b.score - a.score || a.index - b.index).slice(0,2);
+    if (!choix.length) return;
+    const sectionAnalyse = objectif.querySelector("#methode-" + code.toLowerCase() + "-7");
+    if (!sectionAnalyse) return;
+
+    const vitrine = document.createElement("section");
+    vitrine.className = "methodo-vitrine";
+    vitrine.dataset.vitrineMethodo20261022 = "oui";
+    vitrine.setAttribute("aria-label", en ? "Visual examples" : "Repères visuels");
+    const titre = document.createElement("h5");
+    titre.textContent = en ? "Visual references for the method" : "Repères visuels de la méthode";
+    const note = document.createElement("p");
+    note.textContent = en
+      ? "Illustrations from the existing documentation. The complete figures and references remain available in the annexes."
+      : "Illustrations issues de la documentation existante. Les figures complètes et leurs références restent accessibles dans les annexes.";
+    const grille = document.createElement("div");
+    grille.className = "methodo-vitrine-grille";
+    choix.forEach(({figure}) => {
+      const original = figure.querySelector("img[src]");
+      const copie = document.createElement("figure");
+      const image = original.cloneNode(false);
+      image.removeAttribute("id");
+      image.loading = "lazy";
+      image.decoding = "async";
+      const lienOriginal = original.closest("a[href]");
+      if (lienOriginal) {
+        const lien = document.createElement("a");
+        lien.href = lienOriginal.getAttribute("href");
+        if (lienOriginal.hasAttribute("target")) lien.target = lienOriginal.target;
+        if (lienOriginal.hasAttribute("rel")) lien.rel = lienOriginal.rel;
+        lien.appendChild(image);
+        copie.appendChild(lien);
+      } else copie.appendChild(image);
+      const caption = figure.querySelector("figcaption");
+      if (caption) {
+        const legende = document.createElement("figcaption");
+        legende.textContent = caption.textContent.trim();
+        copie.appendChild(legende);
+      }
+      grille.appendChild(copie);
+    });
+    vitrine.append(titre,note,grille);
+    sectionAnalyse.appendChild(vitrine);
+    objectif.dataset.vitrineMethodo20261022 = "oui";
+  }
+  let programme = false;
+  const actualiser = () => {
+    if (programme) return;
+    programme = true;
+    requestAnimationFrame(() => {
+      programme = false;
+      document.querySelectorAll(".these-methode-objectif[data-cadrage-harmonise][data-objectif]")
+        .forEach(preparerVitrine);
+    });
+  };
+  const initialiser = () => {
+    actualiser();
+    const espace = document.querySelector("#salle .salle-contenu") || document.querySelector("#salle");
+    if (espace) new MutationObserver(actualiser).observe(espace, {childList:true,subtree:true});
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded",initialiser,{once:true});
+  else initialiser();
+})();
