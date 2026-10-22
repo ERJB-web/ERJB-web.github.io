@@ -385,3 +385,16 @@ html.hc .these .methodo-exploratoire,html.hc .these .methodo-questions-terrain,
 html.lv .these .methodo-exploratoire,html.lv .these .methodo-questions-terrain{
   background:#fff;border-width:2px;box-shadow:none
 }
+
+
+/* La carte demeure lisible même lorsque le sommaire réduit la colonne centrale. */
+.these #these-methode-o2 .methodo-exploratoire{container-type:inline-size}
+@container (max-width:1050px){
+  .these .methodo-exploratoire-detail{grid-template-columns:minmax(0,1fr)}
+  .these .methodo-exploratoire-carte img{max-height:none;width:100%;height:auto}
+  .these .methodo-exploratoire-carte>a{min-height:0}
+}
+@container (min-width:1051px){
+  .these .methodo-exploratoire-detail{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr)}
+  .these .methodo-exploratoire-carte img{max-height:550px}
+}
