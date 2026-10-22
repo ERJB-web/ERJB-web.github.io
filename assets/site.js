@@ -1550,7 +1550,8 @@
   }
   const cs=intro.querySelector("[data-o1-slot='criteres']");
   if(cs&&!cs.firstElementChild){
-   const criteria=block(root,["Grille provisoire issue de l’essai Covidence","Critères d’inclusion et d’exclusion proposés","Documents et limites"],16000);
+   const exemples=document.querySelector("#methode-o1-exemples");
+   const criteria=exemples?.querySelector(".o1-protocole.o1-compact") || block(root,["Grille provisoire issue de l’essai Covidence","Critères d’inclusion et d’exclusion proposés","Documents et limites"],16000);
    if(criteria&&!intro.contains(criteria)&&!criteria.matches(".these-methode-objectif,.methode-rubrique,.methode-objectif-separe")){
      criteria.classList.add("o1-pilote-ancien");cs.appendChild(criteria);
      const h=head(criteria,"Critères d’inclusion et d’exclusion proposés");if(h)h.textContent="Grille utilisée pour le premier essai";
@@ -1558,8 +1559,26 @@
   }
   const as=intro.querySelector("[data-o1-slot='ajustements']");
   if(as&&!as.firstElementChild){
-   const revision=root.querySelector(".o1-revision2026")||root.querySelector(".o1-resserrement");
+   const revision=root.querySelector(".o1-revision2026")||document.querySelector("#methode-o1-exemples .o1-revision2026")||root.querySelector(".o1-resserrement");
    if(revision&&!intro.contains(revision))as.appendChild(revision);
+  }
+  /* La capture et les critères sont des matériaux du pilote, pas une
+     seconde galerie isolée à la fin des méthodes. On DÉPLACE les éléments
+     d'origine ; on ne duplique ni contenu ni figure. */
+  const exemples=document.querySelector("#methode-o1-exemples");
+  if(exemples){
+   const capture=exemples.querySelector(".a-caps figure.a-cap");
+   const destination=intro.querySelector("figure.o1-pilote-covidence");
+   if(capture&&destination){
+    capture.classList.add("o1-pilote-covidence");
+    destination.replaceWith(capture);
+   }
+   const attribution=exemples.querySelector("p.a-src");
+   const fin=intro.querySelector(".o1-pilote-fin");
+   if(attribution&&fin)fin.before(attribution);
+   if(!exemples.querySelector(".o1-protocole,.o1-revision2026,figure.a-cap") && txt(exemples).length<340){
+    exemples.remove();
+   }
   }
   rangerCollecte(root);
  }
