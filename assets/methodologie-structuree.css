@@ -107,3 +107,12 @@ html body .these .these-methode-objectif[data-cadrage-harmonise]>.methode-object
 @media(max-width:850px){.methodo-patrimoine-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.methodo-patrimoine-grid,.methodo-dual-reseau{grid-template-columns:minmax(0,1fr)}.methodo-patrimoine{padding:12px}.methodo-patrimoine-entete p{font-size:.87rem}}
 html.hc .methodo-patrimoine,html.lv .methodo-patrimoine{background:Canvas;color:CanvasText;border-color:CanvasText}
+
+
+.methodo-table-responsive{overflow-x:auto;max-width:100%}
+.methodo-protocole-table{width:100%;border-collapse:collapse;background:#fff;min-width:560px}
+.methodo-protocole-table th,.methodo-protocole-table td{border-bottom:1px solid #e0e9eb;padding:11px 13px;line-height:1.52;vertical-align:top;text-align:start}
+.methodo-protocole-table thead th{color:var(--methodo-accent);background:var(--methodo-fond);font-weight:760}
+.methodo-protocole-table tbody th{color:#254456;width:25%;font-weight:700}
+.methodo-protocole-table tbody tr:last-child th,.methodo-protocole-table tbody tr:last-child td{border-bottom:0}
+@media(max-width:620px){.methodo-protocole-table{min-width:0}.methodo-protocole-table th,.methodo-protocole-table td{padding:9px 7px}}

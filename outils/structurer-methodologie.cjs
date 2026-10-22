@@ -10,7 +10,7 @@ for(const file of ['index.html','methode-vulgarisee.html','innu/index.html','iu/
   const head=copy.querySelector(':scope > header.methode-objectif-tete');if(!head)throw Error(file+' en-tête manquant');
   const conserves=new Map([...copy.querySelectorAll('.methodo-section')].map(s=>[s.id,[...s.querySelectorAll(':scope>.methodo-restauration,:scope>.methode-rubrique-contenu>.methodo-reperes-restaures,:scope>.methodo-patrimoine')].map(x=>x.outerHTML).join('')]));
   const figures=[...copy.querySelectorAll('figure')].filter(el=>!el.parentElement.closest('figure')).filter(el=>!el.closest('.methodo-patrimoine')).filter(el=>i!==2||!/diapo-(?:17|18)\./.test(el.innerHTML)).map(el=>el.outerHTML);
-  const tables=[...copy.querySelectorAll('table')].filter(el=>/score|pondér|collabor|Burt|constraint|weight|matrice|matrix|评分|ترميز|вес/i.test(el.textContent)&&!/prospect|O3-B/i.test(el.textContent)).map(el=>'<div class="methodo-table">'+el.outerHTML+'</div>');
+  const tables=[...copy.querySelectorAll('table')].filter(el=>/score|pondér|collabor|Burt|constraint|weight|matrice|matrix|评分|ترميز|вес/i.test(el.textContent)&&!/prospect|O3-B/i.test(el.textContent)).filter(el=>!el.closest('.methodo-patrimoine')).map(el=>'<div class="methodo-table">'+el.outerHTML+'</div>');
   const refs=new Map();copy.querySelectorAll('a[href^="https://"]').forEach(a=>{const href=a.getAttribute('href');if(/doi\.org|jbi|pubmed|pmc\.|equator|igraph|statcan|statistique\.quebec/.test(href)&&a.textContent.trim())refs.set(href,a.textContent.trim());});
   if(i===0)refs.set('https://jbi-global.atlassian.net/wiki/spaces/MANUAL/pages/2051637250/10.2.9.1+Developing+the+extraction+form','JBI Manual for Evidence Synthesis · Extraction form');
   if(i===2){
