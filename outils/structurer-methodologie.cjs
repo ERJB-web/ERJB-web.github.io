@@ -17,7 +17,7 @@ for(const file of ['index.html','methode-vulgarisee.html','innu/index.html','iu/
    refs.set('https://doi.org/10.1111/1475-6773.13206','Brewster, A. L., Tan, A. X., & Yuan, C. T. (2019). Development and application of a survey instrument to measure collaboration among health care and social services organizations. Health Services Research, 54(6), 1246–1254.');
    refs.set('https://www.ahrq.gov/ncepcr/care/coordination/atlas/chapter4.html','Agency for Healthcare Research and Quality. (2014). Chapter 4: Emerging trends in care coordination measurement. In Care coordination measures atlas update.');
   }
-  copy.querySelectorAll(':scope > :not(header):not(style)').forEach(el=>el.remove());
+  copy.querySelectorAll(':scope > :not(header)').forEach(el=>el.remove());
   copy.setAttribute('data-cadrage-harmonise','oui');
   if(file.startsWith('innu/')||file.startsWith('iu/'))copy.setAttribute('lang','fr');
   let body='<div class="methode-these-corps"><p class="methodo-statut">'+esc(v.statut)+'</p>';
