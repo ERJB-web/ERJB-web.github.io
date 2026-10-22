@@ -1431,3 +1431,169 @@
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",demarrer,{once:true});
   else demarrer();
 })();
+
+
+/* methodologie-passerelles-o1-o2-20261022 */
+/* Deux synthèses de faisabilité avant les six sous-rubriques conservées. */
+(() => {
+  "use strict";
+  const CSS_ID="style-methode-passerelles-20261022";
+  const css=[
+    ".these .methodo-essai-intro,.these .methodo-exploratoire{box-sizing:border-box;min-width:0}",
+    ".these .methodo-essai-intro *,.these .methodo-exploratoire .essai-processus *{box-sizing:border-box;min-width:0}",
+    ".these .methodo-essai-intro{--essai:#397b36;--essai-light:#edf7e9;container-type:inline-size;margin:12px 0 22px!important;padding:clamp(16px,2.1vw,24px)!important;border:1px solid #d2e5d0!important;border-top:4px solid #397b36!important;border-radius:17px!important;background:linear-gradient(125deg,#f4faf2,#fff 63%)!important;color:#284652!important;text-align:left!important;box-shadow:0 12px 32px -30px rgba(20,65,55,.4)}",
+    ".these .essai-intro-entete{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:flex-start;justify-content:space-between;margin:0 0 12px}",
+    ".these .essai-intro-entete .essai-kicker{display:block;color:var(--essai)!important;font:800 11px/1.45 var(--sans,Arial,sans-serif)!important;letter-spacing:.065em;text-transform:uppercase;margin:0 0 4px!important}",
+    ".these .methodo-essai-intro h3{margin:0!important;color:#204e37!important;font:800 clamp(20px,2.1vw,25px)/1.22 var(--sans,Arial,sans-serif)!important;letter-spacing:-.025em!important;text-align:left!important}",
+    ".these .essai-statut{display:block;flex:0 0 auto;font:750 11px/1.4 var(--sans,Arial,sans-serif);color:#336f47;background:#e2f2df;border:1px solid #c6e2c1;border-radius:999px;padding:6px 10px}",
+    ".these .methodo-essai-intro :is(p,li){font:450 13px/1.53 var(--sans,Arial,sans-serif)!important;text-align:left!important;hyphens:none!important;color:#365363!important;overflow-wrap:break-word!important}",
+    ".these .essai-lead{margin:0 0 14px!important;max-width:94ch}",
+    ".these .essai-lead strong,.these .essai-suite strong{color:#245d38!important}",
+    ".these .essai-kpis{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px!important;margin:0 0 14px!important}",
+    ".these .essai-kpi{min-width:0!important;padding:12px 13px!important;border:1px solid #d8e6dd!important;border-top:3px solid var(--kpi,#397b36)!important;border-radius:11px!important;background:var(--kpi-bg,#f4faf2)!important;text-align:left!important}",
+    ".these .essai-kpi:nth-child(2){--kpi:#227f95;--kpi-bg:#eff8fa}",
+    ".these .essai-kpi:nth-child(3){--kpi:#8f5da4;--kpi-bg:#f8f3fa}",
+    ".these .essai-kpi strong{display:block!important;color:var(--kpi,#397b36)!important;font:850 clamp(27px,3vw,38px)/1.04 var(--sans,Arial,sans-serif)!important;letter-spacing:-.04em!important;white-space:nowrap!important;margin:0 0 5px!important;font-variant-numeric:tabular-nums}",
+    ".these .essai-kpi span{display:block;color:#385866!important;font:650 12px/1.4 var(--sans,Arial,sans-serif)!important}",
+    ".these .essai-parcours{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px!important;margin:0!important;align-items:stretch}",
+    ".these .essai-phase{padding:13px 14px!important;border:1px solid #e0e8e7!important;border-radius:10px!important;background:#fff!important;min-width:0!important}",
+    ".these .essai-phase small{display:block;margin:0 0 6px!important;color:#307346!important;font:800 10px/1.35 var(--sans,Arial,sans-serif)!important;letter-spacing:.065em!important;text-transform:uppercase!important}",
+    ".these .essai-phase:nth-child(2) small{color:#247b8b!important}",
+    ".these .essai-phase:nth-child(3) small{color:#79529a!important}",
+    ".these .essai-phase h4{color:#254957!important;margin:0 0 7px!important;font:790 14px/1.3 var(--sans,Arial,sans-serif)!important;letter-spacing:0!important;text-transform:none!important;text-align:left!important}",
+    ".these .essai-phase p{margin:0!important}",
+    ".these .essai-criteres-rapides{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:12px 0 0}",
+    ".these .essai-critere{border-left:4px solid var(--c);background:var(--f);border-radius:8px;padding:9px 10px;color:#335161;font-size:12px;line-height:1.42;text-align:left}",
+    ".these .essai-critere b{display:block;color:var(--c);font-size:12px;margin-bottom:3px}",
+    ".these .essai-suite{margin:13px 0 0!important;padding:11px 13px!important;border-radius:10px;background:#e9f4eb;color:#284b3d!important;font:580 12.5px/1.53 var(--sans,Arial,sans-serif)!important;text-align:left!important}",
+    ".these .essai-criteres-detail{margin-top:11px}",
+    ".these .essai-criteres-detail:empty{display:none}",
+    ".these .essai-criteres-detail>:first-child{margin-top:0!important}",
+    ".these .essai-approfondir{margin:13px 0!important;border:1px solid #dbe6e3;border-radius:11px;overflow:hidden;background:#fff}",
+    ".these .essai-approfondir>summary{cursor:pointer;list-style:none;padding:12px 14px;color:#285e42;font:760 13px/1.4 var(--sans,Arial,sans-serif);text-align:left}",
+    ".these .essai-approfondir>summary::after{content:' +';float:right}",
+    ".these .essai-approfondir[open]>summary::after{content:' −'}",
+    ".these .essai-approfondir .o1-resserrement{margin:0!important;border:0!important;border-top:1px solid #dce8e5!important;border-radius:0!important;box-shadow:none!important}",
+    ".these #these-methode-o2 .methodo-exploratoire{container-type:inline-size;margin:12px 0 22px!important;padding:clamp(16px,2.1vw,24px)!important;border-radius:17px!important}",
+    ".these #these-methode-o2 .methodo-exploratoire-entete{margin-bottom:12px!important}",
+    ".these #these-methode-o2 .methodo-exploratoire-entete h3{font-size:clamp(20px,2.1vw,25px)!important;line-height:1.22!important}",
+    ".these #these-methode-o2 .methodo-exploratoire-entete p{margin:6px 0 0!important;font-size:13px!important;line-height:1.5!important;text-align:left!important}",
+    ".these #these-methode-o2 .methodo-exploratoire-chiffres{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:9px!important;margin:0 0 12px!important}",
+    ".these #these-methode-o2 .methodo-exploratoire-indic{min-height:0!important;padding:11px 12px!important;align-content:start!important}",
+    ".these #these-methode-o2 .methodo-exploratoire-indic strong{font-size:clamp(26px,2.8vw,35px)!important;line-height:1.08!important}",
+    ".these #these-methode-o2 .methodo-exploratoire-indic span{margin-top:5px!important;font-size:12px!important;line-height:1.4!important}",
+    ".these #these-methode-o2 .methodo-exploratoire-detail{display:grid!important;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)!important;gap:12px!important;align-items:stretch!important}",
+    ".these #these-methode-o2 .methodo-exploratoire-carte{margin:0!important;overflow:hidden!important;align-self:stretch!important}",
+    ".these #these-methode-o2 .methodo-exploratoire-carte>a{display:flex!important;justify-content:center!important;align-items:center!important;min-height:0!important;height:auto!important;max-height:285px!important;padding:5px!important;background:#fff}",
+    ".these #these-methode-o2 .methodo-exploratoire-carte img{display:block!important;width:100%!important;max-width:100%!important;max-height:272px!important;height:auto!important;object-fit:contain!important}",
+    ".these #these-methode-o2 .methodo-exploratoire-carte figcaption{padding:6px 10px!important;font-size:11px!important;line-height:1.4!important}",
+    ".these #these-methode-o2 .methodo-exploratoire-analyse{padding:12px 14px!important}",
+    ".these #these-methode-o2 .methodo-exploratoire-analyse h4{color:#1b6070!important;font-size:14px!important;line-height:1.35!important;margin:0 0 8px!important;text-align:left!important}",
+    ".these .essai-processus{display:grid;gap:7px}",
+    ".these .essai-processus article{display:grid;grid-template-columns:27px minmax(0,1fr);gap:9px;align-items:start;padding:7px 0;border-top:1px solid #e0ebec}",
+    ".these .essai-processus article:first-child{border-top:0;padding-top:0}",
+    ".these .essai-processus article>span{display:grid;place-items:center;background:#e5f5f4;border-radius:8px;color:#087b80;font:850 12px/1.35 var(--sans,Arial,sans-serif);padding:5px}",
+    ".these .essai-processus b{display:block!important;font:760 12.5px/1.36 var(--sans,Arial,sans-serif)!important;color:#245362!important;margin:0 0 3px!important}",
+    ".these .essai-processus p{margin:0!important;color:#4d6771!important;font:440 12px/1.43 var(--sans,Arial,sans-serif)!important;text-align:left!important;hyphens:none!important}",
+    ".these #these-methode-o2 .methodo-exploratoire-note{margin:11px 0 0!important;border-radius:9px!important;padding:10px 12px!important;font:530 12px/1.5 var(--sans,Arial,sans-serif)!important;text-align:left!important;hyphens:none!important}",
+    "@container (max-width:760px){.these .essai-parcours{grid-template-columns:minmax(0,1fr)!important}.these .essai-criteres-rapides{grid-template-columns:repeat(2,minmax(0,1fr))}.these #these-methode-o2 .methodo-exploratoire-detail{grid-template-columns:minmax(0,1fr)!important}.these #these-methode-o2 .methodo-exploratoire-carte img{max-height:360px!important}.these #these-methode-o2 .methodo-exploratoire-carte>a{max-height:374px!important}}",
+    "@container (max-width:480px){.these .essai-kpis{grid-template-columns:minmax(0,1fr)!important;gap:7px!important}.these .essai-kpi{display:flex;justify-content:space-between;align-items:baseline;gap:9px}.these .essai-kpi strong{font-size:30px!important;margin:0!important}.these .essai-kpi span{text-align:right}.these .essai-criteres-rapides{grid-template-columns:minmax(0,1fr)}.these #these-methode-o2 .methodo-exploratoire-chiffres{grid-template-columns:repeat(2,minmax(0,1fr))!important}}",
+    "@media(forced-colors:active){.these .methodo-essai-intro,.these .essai-kpi,.these .essai-phase,.these .essai-critere{background:Canvas!important;border:1px solid CanvasText!important;color:CanvasText!important}}"
+  ];
+  function style(){
+    if(document.getElementById(CSS_ID))return;
+    const el=document.createElement("style");
+    el.id=CSS_ID;el.textContent=css.join("\n");document.head.appendChild(el);
+  }
+  function monterO1(){
+    const objectif=document.getElementById("these-methode-o1");
+    const tete=objectif?.querySelector(":scope > .methode-objectif-tete, :scope > .these-methode-tete");
+    if(!objectif||!tete||objectif.querySelector(".methodo-essai-intro"))return;
+    style();
+    const bloc=document.createElement("section");
+    bloc.className="methodo-essai-intro";
+    bloc.setAttribute("aria-labelledby","o1-essai-intro-titre");
+    bloc.innerHTML=[
+      "<div class='essai-intro-entete'><div><span class='essai-kicker'>O1 · Étude documentaire exploratoire · octobre 2026</span><h3 id='o1-essai-intro-titre'>Un premier essai pour ajuster la revue de portée</h3></div><span class='essai-statut'>Essai réalisé · revue à poursuivre</span></div>",
+      "<p class='essai-lead'>Une recherche initiale dans <strong>MEDLINE, Embase, APA PsycInfo et PubMed</strong>, suivie d’un import dans <strong>Covidence</strong>, a permis de tester la faisabilité de la stratégie et de préparer une grille de sélection. Elle ne constitue <strong>ni une sélection achevée ni une typologie de profils</strong>.</p>",
+      "<div class='essai-kpis' aria-label='Décompte des références de l’essai'><div class='essai-kpi'><strong>52 021</strong><span>Références importées dans Covidence</span></div><div class='essai-kpi'><strong>25 412</strong><span>Doublons retirés</span></div><div class='essai-kpi'><strong>26 609</strong><span>Notices à examiner · sélection non réalisée</span></div></div>",
+      "<div class='essai-parcours'><article class='essai-phase'><small>01 · Méthodes testées</small><h4>Repérage et grille provisoire</h4><p>Quatre interrogations bibliographiques, limite temporelle depuis 2006, français et anglais, dédoublonnage et essai de codage dans Covidence. Le cadre <strong>Population–Concept–Contexte (PCC)</strong> oriente le protocole JBI.</p></article>",
+      "<article class='essai-phase'><small>02 · Enseignement</small><h4>Faisabilité établie, ciblage insuffisant</h4><p>Le corpus très volumineux, les recoupements MEDLINE–PubMed et les ambiguïtés sur la concomitance des besoins appellent une recherche plus ciblée, un contrôle du rappel et un pilote de concordance.</p></article>",
+      "<article class='essai-phase'><small>03 · Réajustements prévus</small><h4>Resserrement raisonné avant la sélection</h4><p>Préciser l’âge et la vie à domicile, la morbidité ou le contexte de soins, les <strong>besoins sociaux et de soins de santé documentés conjointement</strong>, les milieux admissibles et les types de documents. Tester les stratégies avec un bibliothécaire, puis organiser le double tri et l’extraction.</p></article></div>",
+      "<div class='essai-criteres-rapides' aria-label='Quatre volets de critères provisoires'><div class='essai-critere' style='--c:#237c5e;--f:#f0f8f4'><b>Population</b>65 ans et plus · domicile · santé documentée</div><div class='essai-critere' style='--c:#7955ad;--f:#f6f1fb'><b>Concept</b>Besoins sociaux et de soins concomitants chez les mêmes personnes</div><div class='essai-critere' style='--c:#1a7891;--f:#f0f8fa'><b>Contexte</b>Soutien à domicile, proximité, soins primaires</div><div class='essai-critere' style='--c:#a06b2b;--f:#fcf7ed'><b>Documents</b>Depuis 2006 · langues à confirmer</div></div>",
+      "<p class='essai-suite'><strong>Étapes de la revue doctorale :</strong> valider les critères PCC et les équations avec un bibliothécaire, vérifier les études tests et la littérature francophone québécoise, effectuer un pilote de sélection, puis réaliser deux sélections indépendantes, arbitrer les désaccords et extraire les données. Méthodologie <strong>JBI</strong> ; présentation des flux selon <strong>PRISMA-ScR</strong>. L’option d’un corpus anglophone (≈ 22 000 notices estimées) <strong>reste à évaluer</strong>, et ne constitue pas une exclusion déjà décidée.</p>",
+      "<div class='essai-criteres-detail' aria-label='Grille interactive des critères provisoires'></div>"
+    ].join("");
+    tete.insertAdjacentElement("afterend",bloc);
+    // Préserver le véritable outil interactif lorsqu'il est identifiable sans déplacer une rubrique entière.
+    const titres=Array.from(objectif.querySelectorAll("h3,h4,h5,h6")).filter(x=>x!==bloc.querySelector("h3"));
+    const titre=titres.find(x=>x.textContent.replace(/\s+/g," ").trim()==="Critères d’inclusion et d’exclusion proposés");
+    if(titre){
+      let parent=titre.parentElement, widget=null;
+      for(let n=0;parent&&parent!==objectif&&n<6;parent=parent.parentElement,n++){
+        const texte=parent.textContent||"";
+        const actions=parent.querySelectorAll("button,summary").length;
+        if(parent.matches(".methode-rubrique,.methode-these-corps,.these-methode-objectif"))break;
+        if(actions>=4&&actions<=16&&texte.length<14000&&texte.includes("Besoins sociaux concomitants")&&texte.includes("Documents et limites")){
+          widget=parent;break;
+        }
+      }
+      if(widget){
+        bloc.querySelector(".essai-criteres-detail").appendChild(widget);
+        bloc.querySelector(".essai-criteres-rapides")?.remove();
+      }
+    }
+    // Les justifications et l'entonnoir d'origine restent accessibles, sans occuper toute la page.
+    const ancien=objectif.querySelector(".o1-resserrement");
+    if(ancien&&!ancien.closest("details.essai-approfondir")&&!bloc.contains(ancien)){
+      const detail=document.createElement("details");
+      detail.className="essai-approfondir";
+      const summary=document.createElement("summary");
+      summary.textContent="Analyse détaillée du premier essai et des critères de resserrement";
+      ancien.before(detail);detail.append(summary,ancien);
+    }
+  }
+  function monterO2(){
+    const objectif=document.getElementById("these-methode-o2");
+    const bloc=objectif?.querySelector(".methodo-exploratoire");
+    if(!bloc||bloc.dataset.essaiReorganise==="oui")return;
+    style();
+    const h=bloc.querySelector(".methodo-exploratoire-entete h3");
+    const desc=bloc.querySelector(".methodo-exploratoire-entete p");
+    if(h)h.textContent="Un premier mapping pour préparer l’étude spatiale";
+    if(desc)desc.innerHTML="Étude spatiale <strong>exploratoire indépendante</strong> : des sources publiques rassemblées en octobre 2026, géocodées et croisées avec les <strong>huit territoires de CLSC du CCSMTL</strong> pour tester la chaîne de traitement et repérer d’éventuels contrastes.";
+    const chiffres=bloc.querySelector(".methodo-exploratoire-chiffres");
+    if(chiffres)chiffres.innerHTML=[
+      "<div class='methodo-exploratoire-indic methodo-exploratoire-indic--0'><strong>55</strong><span>Fichiers exploités dans l’essai</span></div>",
+      "<div class='methodo-exploratoire-indic methodo-exploratoire-indic--1'><strong>7 216</strong><span>Lieux de services recensés</span></div>",
+      "<div class='methodo-exploratoire-indic methodo-exploratoire-indic--2'><strong>8</strong><span>Territoires de CLSC comparés</span></div>",
+      "<div class='methodo-exploratoire-indic methodo-exploratoire-indic--3'><strong>6 + 6</strong><span>Secteurs et variables · 35 types de services</span></div>"
+    ].join("");
+    const analyse=bloc.querySelector(".methodo-exploratoire-analyse");
+    if(analyse)analyse.innerHTML=[
+      "<h4>De l’essai au protocole d’O2</h4>",
+      "<div class='essai-processus'><article><span>01</span><div><b>Méthodes mises à l’épreuve</b><p>Inventaire et codage intersectoriels, géocodage, rattachement aux CLSC et analyses spatiales dans R/Positron et QGIS ; scénarios de marche et de transport collectif.</p></div></article>",
+      "<article><span>02</span><div><b>Ce que l’exploration permet d’observer</b><p>Des différences descriptives de distribution et d’accessibilité ou co-accessibilité <strong>potentielles</strong> entre territoires ; des contrastes qui méritent une comparaison.</p></div></article>",
+      "<article><span>03</span><div><b>Adaptations pour la thèse</b><p>Actualiser et vérifier les sources, relier les ressources aux domaines de besoins définis en O1, harmoniser les règles spatiales et comparer plusieurs territoires de CLSC contrastés.</p></div></article></div>"
+    ].join("");
+    const note=bloc.querySelector(".methodo-exploratoire-note");
+    if(note)note.innerHTML="<strong>Portée :</strong> ce travail établit une faisabilité technique et suggère un intérêt à étudier les contrastes territoriaux. La disponibilité réelle, l’admissibilité, la capacité des services et les collaborations effectivement mobilisées ne se déduisent pas d’une carte ; le protocole et les territoires définitifs restent à valider.";
+    bloc.dataset.essaiReorganise="oui";
+  }
+  let attente=false;
+  function verifier(){
+    if(attente)return;
+    attente=true;
+    requestAnimationFrame(()=>{
+      attente=false;
+      monterO1();monterO2();
+    });
+  }
+  const lancer=()=>{
+    verifier();
+    const racine=document.querySelector("#salle")||document.body;
+    new MutationObserver(verifier).observe(racine,{childList:true,subtree:true});
+  };
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",lancer,{once:true});
+  else lancer();
+})();
