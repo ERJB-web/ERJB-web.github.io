@@ -2313,7 +2313,7 @@
       carte: "Exemple de carte · huit territoires de CLSC et offre potentielle de proximité",
       voir: "Agrandir la carte exploratoire",
       lire: "Ce que l’exploration met en évidence",
-      observations: [["Répartition","Des contrastes dans la distribution des ressources mobilisables"],["Accessibilité","Des différences d’accessibilité géographique et de co-accessibilité potentielles"],["Perspective doctorale","L’intérêt de discuter une comparaison de plusieurs territoires de CLSC contrastés"]],
+      observations: [["Répartition","Des contrastes dans la distribution des ressources mobilisables"],["Accessibilité","Des contrastes d’accessibilité géographique et de co-accessibilité potentielle"],["Perspective doctorale","L’intérêt de discuter une comparaison de plusieurs territoires de CLSC contrastés"]],
       avertissement: "Mis en perspective avec la nouvelle politique de première ligne, ces résultats préliminaires alimentent une réflexion commune. Le terrain doctoral et les collaborations demeurent à définir ; une ressource cartographiée ne prouve pas sa mobilisation effective.",
       thematique: "O3 · Échantillonnage et préparation du terrain",
       questionTitre: "Situations et ancrage territorial à déterminer avec un partenaire potentiel",
@@ -2360,7 +2360,7 @@
         donnees.cartes.map(v=>'<article class="methodo-question"><span class="methodo-question-num">'+echapper(v[0])+'</span>'+
         '<div><h4>'+echapper(v[1])+'</h4><p>'+echapper(v[2])+'</p></div></article>').join("")+
         '</div>';
-      echantillon.append(panneau);
+      echantillon.prepend(panneau);
     }
   }
   montrerExplorationEtQuestionsTerritoriales();
