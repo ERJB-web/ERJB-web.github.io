@@ -194,6 +194,11 @@ const fr = {
     sousTitre: "Configuration des réseaux adaptés aux différents profils de patients pris en charge",
     question:
       "Comment s'organise la réponse intersectorielle aux besoins sociaux et de soins de santé concomitants des différents profils de patients aînés vivant à domicile ?",
+    objectifsSpecifiques: [
+          "Identifier les différents profils de patients aînés vivant à domicile présentant des besoins sociaux et de soins de santé concomitants susceptibles de nécessiter une réponse intersectorielle dans le contexte des soins primaires.",
+          "Cartographier les ressources territoriales susceptibles de répondre aux besoins sociaux et de soins de santé concomitants des différents profils de patients aînés vivant à domicile, et caractériser les variations territoriales de leur disponibilité, de leur diversité, de leur complémentarité et de leur accessibilité.",
+          "Analyser les configurations organisationnelles des réseaux intersectoriels mobilisés sur le territoire pour répondre aux besoins sociaux et de soins de santé concomitants des différents profils de patients aînés vivant à domicile, afin de caractériser leurs modalités de fonctionnement."
+    ],
     but: "Le projet vise à relier chaque profil de besoins à une configuration de partenaires et à son coordonnateur, à l’échelle d’un territoire de CLSC.",
     faits: [
       ["Programme", "Doctorat en santé publique, option systèmes, organisations et politiques de santé (SOPS) · 2e année"],
@@ -1763,6 +1768,11 @@ const en = {
     sousTitre: "Network configurations adapted to the different profiles of patients in care",
     question:
       "How is the intersectoral response to the concurrent social and healthcare needs of different profiles of older patients living at home organized?",
+    objectifsSpecifiques: [
+          "Identify different profiles of older patients living at home with concurrent social and healthcare needs that may require an intersectoral response in the context of primary care.",
+          "Map territorial resources that may address the concurrent social and healthcare needs of different profiles of older patients living at home, and characterize territorial variations in their availability, diversity, complementarity and accessibility.",
+          "Analyze the organizational configurations of intersectoral networks mobilized across the territory to address the concurrent social and healthcare needs of different profiles of older patients living at home, in order to characterize how they operate."
+    ],
     but: "The project aims to link each needs profile to a configuration of partners and to its coordinator, at the scale of a CLSC territory (local community health and social services centre).",
     faits: [
       ["Programme", "PhD in public health, health systems, organisations and policy option (SOPS) · 2nd year"],
