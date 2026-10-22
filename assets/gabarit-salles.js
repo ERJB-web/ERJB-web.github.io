@@ -2268,13 +2268,13 @@
       bloc.className = "precision-protocole precision-protocole-o2";
       bloc.setAttribute("aria-label","Sources de données : provenance, actualisation et accès");
       bloc.innerHTML =
-        '<p class="precision-titre">Sources mobilisées · publication et accès</p>' +
-        '<div class="precision-reperes"><span>55 fichiers documentés</span><span>10 familles de sources</span><span>Millésimes distincts</span></div>' +
+        '<p class="precision-titre">Exercice exploratoire indépendant · provenance des sources</p>' +
+        '<div class="precision-reperes"><span>55 fichiers inventoriés lors de l’essai</span><span>10 familles de sources examinées</span><span>Périodes à vérifier pour la thèse</span></div>' +
         '<div class="precision-table-scroll" role="region" tabindex="0" aria-label="Tableau défilant des banques de données O2"><table class="precision-table"><thead><tr><th scope="col">Producteur</th><th scope="col">Données utilisées</th><th scope="col">Publication / actualisation</th><th scope="col">Accès</th></tr></thead><tbody>' +
         sources.map(function(s){return '<tr><th scope="row">'+s[0]+'</th><td>'+s[1]+'</td><td>'+s[2]+'</td><td><a href="'+s[3]+'" target="_blank" rel="noopener noreferrer" aria-label="Accéder à la source '+s[0]+'">Source ↗</a></td></tr>';}).join("") +
         '</tbody></table></div>' +
-        '<p class="precision-note">Une fréquence de publication ne correspond pas à la date d’extraction dans le projet. Lorsque les fichiers sont actualisés de façon variable, la date propre à chaque jeu est vérifiée et conservée. Les agrégats du 211 ne sont pas assimilés à des parcours individuels du SAD.</p>' +
-        '<a class="precision-inventaire" href="docs/sources-mapping-o2.csv" target="_blank" rel="noopener noreferrer">Inventaire détaillé et provenance des 55 fichiers ↗</a>';
+        '<p class="precision-note">Ce tableau documente les sources examinées dans l’exercice exploratoire, sans présumer des jeux définitivement retenus pour O2. Chaque millésime et chaque aire géographique devront être revérifiés. Les catégories de demandes du 211 ne définissent pas les profils de besoins de la thèse : ils seront construits par la revue de portée (O1).</p>' +
+        '<a class="precision-inventaire" href="docs/sources-mapping-o2.csv" target="_blank" rel="noopener noreferrer">Consulter la provenance des 55 fichiers de l’essai ↗</a>';
       (cibleO2.querySelector(".o2-sources-modernes") || cibleO2).append(bloc);
     }
 
