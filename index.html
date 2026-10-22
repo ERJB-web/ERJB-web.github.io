@@ -653,28 +653,49 @@ html:is(.hc,.lv) .these-entete .these-question-principale{
 </section><figure class="figure-officielle these-grande" style="margin:20px 0;width:100%"><a href="assets/these/diapo-methodo-10.svg?v=37fb9bbfce" target="_blank" rel="noopener"><img src="assets/these/diapo-methodo-10.svg?v=37fb9bbfce" alt="Diapositive : tableau des trois objectifs, leurs devis, populations et produits finaux" loading="lazy" width="2400" height="1350" style="width:100%;height:auto;border-radius:10px;border:1px solid #d5dde5"></a><figcaption class="note">Chaque objectif, son devis, sa population et son produit final. <span class="ref">Source : (Bernier, 2026).</span></figcaption></figure><span hidden class="lot-c-ok"></span></div></div>
 <div class="chapitre-source" id="rubrique-fr-these-panneau-2" data-volet="2" data-rubrique="methodes" data-image="assets/these/o2-carte-b2-score-500m.jpg" data-chapitre-titre="Méthode"><div class="chapitre-contenu">
 <style id="these-synthese-vulgarisee-o1-o3-2026">
-/* Introduction méthodologique resserrée : objectif, démarche, illustration et intérêt scientifique. */
-.these .these-vulgarisation-ensemble{width:100%;max-width:none;display:grid;gap:13px;margin:0 0 23px;min-width:0}
-.these .these-vulgarisation-ensemble .these-synthese-vulgarisee{display:block;box-sizing:border-box;width:100%;max-width:none;margin:0!important;padding:0;color:#425d69;text-align:justify!important;text-align-last:left;hyphens:auto;overflow-wrap:break-word}
+/* Introduction O1–O3 : étude de cas fictive lisible et séparation visuelle des sections. */
+.these .these-vulgarisation-ensemble{width:100%;max-width:none;display:grid;gap:18px;margin:0 0 28px;min-width:0}
+.these .these-vulgarisation-ensemble .these-synthese-vulgarisee{display:block;box-sizing:border-box;width:100%;max-width:none;margin:0!important;padding:0;color:#425d69;text-align:left!important;text-align-last:left;hyphens:auto;overflow-wrap:break-word}
 .these .these-vulgarisation-ensemble .these-synthese-vulgarisee strong{color:#1e5b72;font-weight:800}
-.these .these-vulgarisation-ensemble .these-vulgarisation-demarche{margin-top:1px!important}
-.these .these-vulgarisation-exemple{margin:4px 0 0;padding:15px 19px;border:1px solid #d6e5ea;border-left:4px solid #4688a6;border-radius:12px;background:linear-gradient(112deg,#f0f7fa 0%,#fbfdfe 100%);color:#425d69;min-width:0}
-.these .these-vulgarisation-exemple h5,.these .these-vulgarisation-interet h5{margin:0 0 6px!important;text-align:left!important}
-.these .these-vulgarisation-exemple h5{color:#245d79!important}
-.these .these-vulgarisation-exemple p,.these .these-vulgarisation-interet p{margin:0!important;color:#3e5966;text-align:justify!important;text-align-last:left;hyphens:auto;overflow-wrap:break-word}
-.these .these-vulgarisation-interet{display:flex;align-items:flex-start;gap:14px;margin:1px 0 0;padding:18px 20px;border:1px solid #e7d9af;border-left:4px solid #d5aa48;border-radius:12px;background:linear-gradient(115deg,#fff8e8 0%,#fffdf7 66%,#f8fafc 100%);min-width:0}
-.these .these-vulgarisation-interet-icone{flex:none;display:grid;place-items:center;width:39px;height:39px;border-radius:11px;background:#ffebbb;border:1px solid #f0d89a;font-size:22px;line-height:1}
+.these .these-vulgarisation-ensemble .these-vulgarisation-demarche{margin-top:0!important}
+.these .these-vulgarisation-exemple{margin:15px 0 0;padding:0;background:transparent;border:0;border-radius:0;color:#334f5e;min-width:0}
+.these .these-vulgarisation-cas-entete{margin:0 0 14px}
+.these .these-vulgarisation-cas-kicker{display:inline-block;padding:5px 11px;margin-bottom:10px;border-radius:30px;background:#eaf3f7;color:#216681;font:800 11px/1.5 var(--sans,system-ui,sans-serif);letter-spacing:.075em;text-transform:uppercase}
+.these .these-vulgarisation-exemple h5{margin:0!important;color:#173d52!important;font:800 clamp(20px,2vw,26px)/1.27 var(--sans,system-ui,sans-serif)!important;text-align:left!important;letter-spacing:-.025em}
+.these .these-vulgarisation-exemple .these-vulgarisation-cas-situation{margin:0 0 17px!important;padding:0 0 0 17px;border-left:3px solid #64a2b9;color:#365362;font:500 clamp(15px,1.4vw,17px)/1.65 var(--sans,system-ui,sans-serif);text-align:left!important;text-align-last:left;hyphens:none;overflow-wrap:break-word}
+.these .these-vulgarisation-cas-situation strong{color:#173e52;font-weight:800}
+.these .these-vulgarisation-parcours{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch;gap:13px}
+.these .these-vulgarisation-cas-etape{--cas:#28722e;--cas-fond:#f2f8f1;--cas-bord:#d4e7d0;position:relative;min-width:0;padding:18px 18px 19px;border:1px solid var(--cas-bord);border-top:4px solid var(--cas);border-radius:12px;background:var(--cas-fond);box-shadow:0 8px 18px -22px rgba(13,58,72,.6)}
+.these .these-vulgarisation-cas-etape[data-objectif="o2"]{--cas:#087c86;--cas-fond:#f0f9f9;--cas-bord:#cde8e7}
+.these .these-vulgarisation-cas-etape[data-objectif="o3"]{--cas:#2e629b;--cas-fond:#f2f6fc;--cas-bord:#d6e4f2}
+.these .these-vulgarisation-cas-num{display:block;margin:0 0 9px;color:var(--cas);font:850 18px/1.1 var(--sans,system-ui,sans-serif);letter-spacing:.02em}
+.these .these-vulgarisation-cas-etape h6{margin:0 0 7px!important;font:800 clamp(15px,1.3vw,18px)/1.3 var(--sans,system-ui,sans-serif)!important;color:#1e4050!important;text-align:left!important}
+.these .these-vulgarisation-cas-etape p{margin:0!important;color:#385663;font:500 clamp(13px,1.12vw,15px)/1.57 var(--sans,system-ui,sans-serif)!important;text-align:left!important;text-align-last:left!important;hyphens:none;overflow-wrap:break-word}
+.these .these-vulgarisation-cas-legende{margin:11px 0 0!important;color:#58717e;font:500 12px/1.5 var(--sans,system-ui,sans-serif)!important;text-align:left!important}
+.these .these-vulgarisation-interet{display:flex;align-items:flex-start;gap:15px;margin:19px 0 0;padding:19px 21px;border:1px solid #e7dcb9;border-radius:13px;background:#fffbf2;min-width:0}
+.these .these-vulgarisation-interet-icone{flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:11px;background:#fbecc6;color:#785c21;font-size:21px;line-height:1}
 .these .these-vulgarisation-interet-texte{min-width:0;flex:1}
-.these .these-vulgarisation-interet h5{color:#76561f!important}
+.these .these-vulgarisation-interet h5{margin:0 0 7px!important;color:#76561f!important;text-align:left!important}
+.these .these-vulgarisation-interet p{margin:0!important;color:#4e5c60;text-align:left!important;text-align-last:left;hyphens:none;overflow-wrap:break-word}
 .these .these-vulgarisation-interet strong{color:#725321;font-weight:800}
-@media(max-width:540px){.these .these-vulgarisation-ensemble{gap:11px}.these .these-vulgarisation-exemple{padding:13px 14px}.these .these-vulgarisation-interet{padding:14px;gap:10px}.these .these-vulgarisation-interet-icone{width:32px;height:32px;font-size:19px}}
+@media(max-width:820px){.these .these-vulgarisation-parcours{grid-template-columns:1fr;gap:10px}.these .these-vulgarisation-cas-etape{padding:15px 17px 16px}.these .these-vulgarisation-cas-num{margin-bottom:5px}}
+@media(max-width:540px){.these .these-vulgarisation-ensemble{gap:15px}.these .these-vulgarisation-exemple{margin-top:10px}.these .these-vulgarisation-exemple h5{font-size:21px!important}.these .these-vulgarisation-cas-situation{padding-left:12px}.these .these-vulgarisation-interet{margin-top:14px;padding:16px;gap:10px}.these .these-vulgarisation-interet-icone{width:32px;height:32px;font-size:18px}}
 </style>
 <div class="these-vulgarisation-ensemble" aria-label="Objectif, démarche et intérêt scientifique de la thèse">
 <p class="these-synthese-vulgarisee"><strong>Objectif général :</strong> Analyser l’organisation de la réponse intersectorielle aux <strong>besoins sociaux et de soins de santé concomitants</strong> des différents profils de personnes aînées vivant à domicile, afin de dégager des pistes d’amélioration adaptées aux contextes territoriaux.</p>
 <p class="these-synthese-vulgarisee these-vulgarisation-demarche"><strong>La démarche :</strong> Identifier les profils de besoins documentés par la littérature (<strong>O1</strong>), cartographier les ressources potentiellement mobilisables et leur accessibilité dans six secteurs — public, première ligne, parapublic, communautaire, municipal et habitation (<strong>O2</strong>) — puis analyser les collaborations intersectorielles effectivement mobilisées (<strong>O3</strong>). L’étude des réseaux associera une lecture territoriale, notamment à partir des territoires de CLSC, et une lecture égocentrée autour de situations concrètes ; les points d’entrée seront précisés avec les partenaires selon la faisabilité.</p>
-<section class="these-vulgarisation-exemple" aria-label="Exemple fictif">
-<h5>Exemple concret</h5>
-<p>Une personne aînée peut cumuler des difficultés de déplacement, d’alimentation et d’isolement social. Les services correspondants peuvent exister dans son territoire sans être tous accessibles, complémentaires ou coordonnés.</p>
+<section class="these-vulgarisation-exemple" aria-label="Exemple fictif illustrant les trois objectifs de la thèse">
+<div class="these-vulgarisation-cas-entete">
+<span class="these-vulgarisation-cas-kicker">Cas fictif · Personne aînée vivant à domicile</span>
+<h5>Une même situation, trois questions complémentaires</h5>
+</div>
+<p class="these-vulgarisation-cas-situation"><strong>Madame L., 78 ans, vit seule avec une maladie chronique.</strong> Des douleurs limitent ses déplacements : elle fait difficilement ses courses, saute parfois des repas et voit peu de monde. Ses besoins de soins et de soutien social se cumulent.</p>
+<div class="these-vulgarisation-parcours" role="list" aria-label="Ce que chaque objectif étudie à partir du cas fictif">
+<article class="these-vulgarisation-cas-etape" data-objectif="o1" role="listitem"><span class="these-vulgarisation-cas-num">O1 · Besoins</span><h6>Quels besoins se cumulent ?</h6><p>Soins, mobilité, alimentation et liens sociaux : quels profils associant plusieurs besoins sont documentés dans la littérature ?</p></article>
+<article class="these-vulgarisation-cas-etape" data-objectif="o2" role="listitem"><span class="these-vulgarisation-cas-num">O2 · Ressources</span><h6>Quelles réponses sont possibles ?</h6><p>Un CLSC, une aide alimentaire et un transport adapté peuvent exister à proximité. Sont-ils réellement accessibles et complémentaires sur ce territoire ?</p></article>
+<article class="these-vulgarisation-cas-etape" data-objectif="o3" role="listitem"><span class="these-vulgarisation-cas-num">O3 · Collaborations</span><h6>Qui agit ensemble, concrètement ?</h6><p>Les acteurs repèrent-ils ces besoins, échangent-ils de l’information, coordonnent-ils leurs interventions et vérifient-ils que l’aide est reçue ?</p></article>
+</div>
+<p class="these-vulgarisation-cas-legende">Illustration fictive, sans résultats individuels attribués à la thèse. Une ressource recensée ne signifie pas qu’elle est accessible ni qu’elle a été mobilisée.</p>
 </section>
 <aside class="these-vulgarisation-interet" aria-label="Intérêt scientifique de la thèse">
 <span class="these-vulgarisation-interet-icone" aria-hidden="true">💡</span>
