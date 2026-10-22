@@ -1,0 +1,35 @@
+/* Éléments de lecture au sein des six rubriques de chaque objectif. */
+.these .methodo-synthese-visible{padding:20px;border-inline-start:4px solid #176b79;background:#f3f9fa}
+.these .methodo-synthese-visible>h4{margin:0 0 16px;color:#175768}
+.methodo-complement{margin-block:20px;min-width:0;padding:18px;border:1px solid #d7e4e6;border-radius:12px;background:linear-gradient(135deg,var(--methodo-fond),#fff 65%)}
+.methodo-complement .methodo-restaure{margin:0}
+.methodo-chiffres{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}
+.methodo-chiffres>div{padding:18px 16px;border:1px solid #cddfe1;border-top:4px solid var(--methodo-accent);border-radius:10px;background:#fff;min-width:0}
+.methodo-chiffres b,.methodo-chiffres span{display:block;color:var(--methodo-accent)}
+.methodo-chiffres span{color:#324f5b;margin-top:8px}
+.methodo-parcours{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;list-style:none;padding:0;margin:22px 0;counter-reset:etape}
+.methodo-parcours>li{position:relative;counter-increment:etape;background:var(--methodo-fond);border:1px solid #cfdee3;border-radius:12px;padding:16px;min-width:0}
+.methodo-parcours>li::before{content:counter(etape,decimal-leading-zero);display:block;color:var(--methodo-accent);margin-bottom:8px}
+.methodo-parcours>li:not(:last-child)::after{content:'→';position:absolute;inset-inline-end:-21px;top:44%;color:var(--methodo-accent)}
+.methodo-parcours strong,.methodo-parcours span{display:block}
+.methodo-parcours strong{color:var(--methodo-accent);margin-bottom:7px}
+.methodo-exploration{margin:20px 0;padding:20px;border:1px solid #c6e0df;border-radius:12px;background:#f3faf9}
+.methodo-exploration h6{color:var(--methodo-accent);margin:0 0 12px}
+.methodo-capture{margin:24px 0;border:1px solid #d2e1e5;border-radius:12px;overflow:hidden;background:#fff}
+.methodo-capture img,.methodo-complement figure img{width:100%;height:auto;display:block}
+.methodo-capture figcaption{padding:14px 18px}
+.methodo-references{margin-top:24px;padding-top:16px;border-top:1px solid #d8e3e7}
+#these-methode-o2 #methode-o2-6 .o2-var-carte:nth-child(1){--variable:#196ba0;--variable-fond:#e9f4ff}
+#these-methode-o2 #methode-o2-6 .o2-var-carte:nth-child(2){--variable:#317544;--variable-fond:#edf8ec}
+#these-methode-o2 #methode-o2-6 .o2-var-carte:nth-child(3){--variable:#8550a3;--variable-fond:#f5edfc}
+#these-methode-o2 #methode-o2-6 .o2-var-carte:nth-child(4){--variable:#a05b19;--variable-fond:#fff3e5}
+#these-methode-o2 #methode-o2-6 .o2-var-carte:nth-child(5){--variable:#a13f5a;--variable-fond:#fdeff3}
+#these-methode-o2 #methode-o2-6 .o2-var-carte:nth-child(6){--variable:#116f72;--variable-fond:#e7f7f6}
+#these-methode-o2 #methode-o2-6 .methodo-reperes-restaures .o2-var-carte{background:var(--variable-fond);border-inline-start:5px solid var(--variable)}
+#these-methode-o2 #methode-o2-6 .methodo-reperes-restaures .o2-var-carte :is(h6,.o2-var-num){color:var(--variable)}
+#these-methode-o2 .methodo-secteurs-grille article{border-top:4px solid var(--variable,#006e72)}
+#these-methode-o2 .methodo-secteurs-grille article:nth-child(3n+1){--variable:#287da1;background:#f0f8ff}
+#these-methode-o2 .methodo-secteurs-grille article:nth-child(3n+2){--variable:#6c6aa4;background:#f6f3fc}
+#these-methode-o2 .methodo-secteurs-grille article:nth-child(3n){--variable:#42805d;background:#f1f9f0}
+@media(max-width:720px){.methodo-chiffres,.methodo-parcours{grid-template-columns:minmax(0,1fr)}.methodo-parcours>li:not(:last-child)::after{content:'↓';inset-inline-end:50%;top:auto;bottom:-27px}.methodo-complement,.methodo-exploration{padding:13px}}
+html.hc :is(.methodo-chiffres>div,.methodo-parcours>li,.methodo-complement,.methodo-exploration){background:Canvas;color:CanvasText;border-color:CanvasText}

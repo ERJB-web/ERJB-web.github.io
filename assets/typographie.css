@@ -793,3 +793,9 @@ html body .menu-cv .menu-panneau :is(a,strong){font-size:var(--type-corps)!impor
     text-wrap:pretty;
   }
 }
+
+@layer charte-typographique {
+html body .methodo-chiffres>div>b{font-size:clamp(26px,3vw,38px)!important;line-height:1.15!important;font-weight:650!important;font-variant-numeric:tabular-nums}
+html body .methodo-note{font-size:var(--type-note)!important}
+html body .methodo-parcours>li>span{font-size:var(--type-corps)!important}
+}

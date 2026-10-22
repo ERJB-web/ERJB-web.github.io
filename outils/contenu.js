@@ -190,7 +190,7 @@ const fr = {
     surtitre: "01 · La recherche",
     etiquette: "Thèse de doctorat en cours",
     avertissement: "Sujet en cours de construction et susceptible d’évoluer",
-    titre: "Favoriser la réponse intersectorielle apportée aux différents besoins sociaux et de soins de santé concomitants des personnes aînées vivant à domicile : profils, cartographie des ressources et analyse des réseaux.",
+    titre: "Organiser la réponse intersectorielle apportée aux différents besoins sociaux et de soins de santé concomitants des personnes aînées vivant à domicile : profils, cartographie des ressources et analyse des réseaux.",
     sousTitre: "Profils, ressources territoriales et réseaux intersectoriels en première ligne",
     question:
       "Comment s'organise la réponse intersectorielle aux besoins sociaux et de soins de santé concomitants des différents profils de personnes aînées vivant à domicile ?",
@@ -1769,7 +1769,7 @@ const en = {
     surtitre: "01 · Research",
     etiquette: "Doctoral thesis in progress",
     avertissement: "Topic under development and subject to change",
-    titre: "Strengthening the intersectoral response provided to the different concurrent social and healthcare needs of older people living at home: profiles, resource mapping and network analysis.",
+    titre: "Organizing the intersectoral response provided to the different concurrent social and healthcare needs of older people living at home: profiles, resource mapping and network analysis.",
     sousTitre: "Needs profiles, territorial resources and intersectoral networks in first-line services",
     question:
       "How is the intersectoral response to concurrent social and healthcare needs organized for different profiles of older people living at home?",

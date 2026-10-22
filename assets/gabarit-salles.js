@@ -1073,10 +1073,10 @@
 
     // La page Contexte ouvre sur le titre complet du projet de thèse.
     if (salle === "recherche" && langue === "fr" && ch.cle === "contexte" &&
-        !corps.textContent.includes("Favoriser la réponse intersectorielle apportée aux différents besoins sociaux et de soins de santé concomitants des personnes aînées vivant à domicile")) {
+        !corps.textContent.includes("Organiser la réponse intersectorielle apportée aux différents besoins sociaux et de soins de santé concomitants des personnes aînées vivant à domicile")) {
       const titreThese = el("div", "these-titre-contexte",
         '<span class="these-titre-contexte-label">Titre de la thèse</span>' +
-        '<div class="these-titre-contexte-principal">Favoriser la réponse intersectorielle apportée aux différents besoins sociaux et de soins de santé concomitants des personnes aînées vivant à domicile : profils, cartographie des ressources et analyse des réseaux.</div>');
+        '<div class="these-titre-contexte-principal">Organiser la réponse intersectorielle apportée aux différents besoins sociaux et de soins de santé concomitants des personnes aînées vivant à domicile : profils, cartographie des ressources et analyse des réseaux.</div>');
       corps.prepend(titreThese);
     }
     // Sur la copie grand public, proposer une lecture autonome et réellement
@@ -1339,11 +1339,11 @@
     if (!corps) return;
     if (salle === "recherche") {
       mettreDevisEnCartes(sc);
-      const labels = {fr:"Synthèse et exemple · relire les trois objectifs", en:"Overview and example · revisit the three objectives", es:"Síntesis y ejemplo · repasar los tres objetivos", zh:"概述与示例 · 回顾三个目标", ar:"ملخص ومثال · مراجعة الأهداف الثلاثة", ru:"Обзор и пример · три цели исследования"};
+      const labels = {"fr":"Synthèse des trois objectifs","en":"Overview of the three objectives","es":"Síntesis de los tres objetivos","zh":"三个目标概述","ar":"ملخص الأهداف الثلاثة","ru":"Обзор трёх целей"};
       sc.querySelectorAll(".these-vulgarisation-ensemble").forEach(bloc => {
         if (bloc.querySelector(":scope > .methode-recapitulatif")) return;
-        const details = el("details", "methode-recapitulatif");
-        details.append(el("summary", "", echapper(labels[langue] || labels.fr)));
+        const details = el("section", "methode-recapitulatif methodo-synthese-visible");
+        details.append(el("h4", "", echapper(labels[langue] || labels.fr)));
         while (bloc.firstChild) details.append(bloc.firstChild);
         bloc.append(details);
       });
