@@ -1,0 +1,525 @@
+/* Schéma O1 externalisé pour que le gabarit ne dépende pas d'un <style> dans son contenu. */
+/* O1 : un diagramme de sélection, les apprentissages de l'essai et une grille décisionnelle. */
+#these-methode-o1 .o1-revision2026{--ink:#203e49;--muted:#59717a;--lime:#4d8d5a;--violet:#8067b0;--blue:#287eaa;--line:#dce7e9;box-sizing:border-box;margin:23px 0 4px;padding:clamp(16px,2.7vw,29px);background:linear-gradient(146deg,#fbfefd 0%,#f7fbfc 53%,#fbfafc 100%);border:1px solid #d8e5e7;border-radius:23px;box-shadow:0 12px 34px -30px #294e5d;color:var(--ink);font-size:15px;line-height:1.48}
+#these-methode-o1 .o1-revision2026 *,#these-methode-o1 .o1-revision2026 *::before,#these-methode-o1 .o1-revision2026 *::after{box-sizing:border-box}
+#these-methode-o1 .o1-revision2026 h5,#these-methode-o1 .o1-revision2026 h6,#these-methode-o1 .o1-revision2026 p{margin:0}
+#these-methode-o1 .o1rv-head{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;margin-bottom:18px}
+#these-methode-o1 .o1rv-kicker{display:inline-flex;align-items:center;gap:8px;color:#42794e;font-size:11px;font-weight:850;letter-spacing:.09em;text-transform:uppercase}
+#these-methode-o1 .o1rv-kicker::before{content:"";width:9px;height:9px;border-radius:50%;background:#4d9b6b;box-shadow:0 0 0 4px #e2f2e6}
+#these-methode-o1 .o1rv-head h5{margin:6px 0!important;color:#1d3d45;font-size:clamp(20px,2vw,26px);line-height:1.2;letter-spacing:-.025em;font-weight:820}
+#these-methode-o1 .o1rv-head p{max-width:72ch;color:#577078;font-size:13px;line-height:1.55}
+#these-methode-o1 .o1rv-status{flex:none;display:inline-flex;align-items:center;border:1px solid #ddd1ed;background:#f5f0fa;color:#6c558a;border-radius:999px;padding:7px 11px;font-size:11px;font-weight:800;white-space:nowrap}
+#these-methode-o1 .o1rv-sectiontitle{display:flex;align-items:center;gap:10px;margin:0 0 10px!important;font-size:14px!important;line-height:1.25;color:#284653;font-weight:820}
+#these-methode-o1 .o1rv-sectiontitle::before{content:"";width:4px;height:18px;flex:none;background:#518865;border-radius:5px}
+#these-methode-o1 .o1rv-flow{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr) 22px minmax(0,1fr);align-items:center;gap:7px}
+#these-methode-o1 .o1rv-step{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:150px;min-width:0;padding:17px 16px 15px;border:1px solid #dbe9e3;border-top:4px solid #548b64;border-radius:16px;background:linear-gradient(160deg,#eef8f1,#fff 79%);overflow-wrap:anywhere}
+#these-methode-o1 .o1rv-step--middle{border-color:#d7e2f3;border-top-color:#468bb9;background:linear-gradient(160deg,#edf5fc,#fff 79%)}
+#these-methode-o1 .o1rv-step--last{border-color:#e2dbed;border-top-color:#9273b7;background:linear-gradient(160deg,#f5f1fb,#fff 79%)}
+#these-methode-o1 .o1rv-stepnum{position:absolute;top:10px;right:13px;color:#82979c;font-size:10px;font-weight:850;letter-spacing:.04em}
+#these-methode-o1 .o1rv-metric{display:block;margin:0 0 5px;color:#244e39;font-size:clamp(23px,2.6vw,31px);line-height:1.13;letter-spacing:-.038em;font-weight:900;font-variant-numeric:tabular-nums}
+#these-methode-o1 .o1rv-step--middle .o1rv-metric{color:#286789;font-size:clamp(18px,2vw,25px)}
+#these-methode-o1 .o1rv-step--last .o1rv-metric{color:#6e538b;font-size:clamp(18px,2vw,25px)}
+#these-methode-o1 .o1rv-step strong{display:block;margin-bottom:5px;color:#27434b;font-size:12px;line-height:1.3}
+#these-methode-o1 .o1rv-step p{color:#526a73;font-size:12px;line-height:1.46}
+#these-methode-o1 .o1rv-link{display:grid;place-items:center;width:22px;height:22px;border:1px solid #d9e5e8;background:#fff;border-radius:50%;color:#5b8895;font-size:14px;font-weight:850}
+#these-methode-o1 .o1rv-language{display:flex;align-items:flex-start;gap:12px;margin:11px 0 19px;padding:12px 14px;background:#fff;border:1px dashed #bfd4df;border-radius:13px}
+#these-methode-o1 .o1rv-language b{flex:none;color:#2d728f;font-size:20px;line-height:1.1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+#these-methode-o1 .o1rv-language p{color:#486370;font-size:12px;line-height:1.5}
+#these-methode-o1 .o1rv-language strong{color:#315a6a}
+#these-methode-o1 .o1rv-insights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 20px}
+#these-methode-o1 .o1rv-insight{min-width:0;padding:13px 14px;border-radius:14px;background:#fff;border:1px solid #dbe7e8;box-shadow:0 4px 13px -12px #326070}
+#these-methode-o1 .o1rv-insight b{display:block;margin:0 0 5px;color:#2b6373;font-size:12px;line-height:1.35}
+#these-methode-o1 .o1rv-insight:nth-child(2) b{color:#74609d}
+#these-methode-o1 .o1rv-insight:nth-child(3) b{color:#497a52}
+#these-methode-o1 .o1rv-insight p{color:#4f6770;font-size:12px;line-height:1.5}
+#these-methode-o1 .o1rv-tablehead{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:0 0 10px}
+#these-methode-o1 .o1rv-tablehead .o1rv-sectiontitle{margin:0!important}
+#these-methode-o1 .o1rv-tablehead>span{color:#765e95;font-size:11px;font-weight:750}
+#these-methode-o1 .o1rv-tablebox{overflow:hidden;border:1px solid #d7e4e7;border-radius:15px;background:#fff}
+#these-methode-o1 table.o1rv-table{width:100%;border-collapse:collapse;table-layout:fixed;text-align:left;margin:0;border:0;font-size:12px;line-height:1.5}
+#these-methode-o1 .o1rv-table th,#these-methode-o1 .o1rv-table td{padding:11px 13px;vertical-align:top;border:0;border-bottom:1px solid #e3ebed;overflow-wrap:anywhere}
+#these-methode-o1 .o1rv-table thead th{background:#eaf2f4;color:#325665;font-size:11px;letter-spacing:.025em;font-weight:850}
+#these-methode-o1 .o1rv-table thead th:nth-child(1){width:19%}
+#these-methode-o1 .o1rv-table thead th:nth-child(2){width:30%}
+#these-methode-o1 .o1rv-table tbody tr:nth-child(even){background:#f8fbfc}
+#these-methode-o1 .o1rv-table tbody tr:last-child td{border-bottom:0}
+#these-methode-o1 .o1rv-table td:first-child{color:#2e5862;font-weight:820}
+#these-methode-o1 .o1rv-table td:nth-child(2){color:#576e76}
+#these-methode-o1 .o1rv-table td:nth-child(3){color:#253f48}
+#these-methode-o1 .o1rv-table td strong{font-weight:850;color:#296447}
+#these-methode-o1 .o1rv-next{margin:14px 0 0;padding:13px 15px;border-radius:14px;background:linear-gradient(100deg,#ecf5ee,#f3f7fb);border:1px solid #d6e6df}
+#these-methode-o1 .o1rv-next b{display:block;margin:0 0 8px;font-size:12px;color:#335f49}
+#these-methode-o1 .o1rv-next ol{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;list-style:none;margin:0;padding:0;counter-reset:o1rv}
+#these-methode-o1 .o1rv-next li{position:relative;counter-increment:o1rv;min-width:0;padding-left:24px;font-size:11px;line-height:1.4;color:#425f6a}
+#these-methode-o1 .o1rv-next li::before{content:counter(o1rv);position:absolute;left:0;top:0;display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#568e69;color:#fff;font-size:10px;font-weight:850}
+#these-methode-o1 .o1rv-caveat{margin:11px 1px 0!important;color:#627780;font-size:11px;line-height:1.53}
+@media(max-width:950px){#these-methode-o1 .o1rv-insights{grid-template-columns:repeat(2,minmax(0,1fr))}#these-methode-o1 .o1rv-insight:last-child{grid-column:1/-1}}
+@media(max-width:700px){#these-methode-o1 .o1-revision2026{padding:17px 14px;border-radius:17px}#these-methode-o1 .o1rv-head{display:block}#these-methode-o1 .o1rv-status{margin-top:10px}#these-methode-o1 .o1rv-flow{grid-template-columns:1fr;gap:7px}#these-methode-o1 .o1rv-step{min-height:0;padding:15px 15px 14px}#these-methode-o1 .o1rv-link{margin:auto;transform:rotate(90deg)}#these-methode-o1 .o1rv-insights{grid-template-columns:1fr}#these-methode-o1 .o1rv-insight:last-child{grid-column:auto}#these-methode-o1 .o1rv-tablehead{align-items:start;flex-direction:column;gap:4px}#these-methode-o1 .o1rv-table thead{display:none}#these-methode-o1 .o1rv-table,#these-methode-o1 .o1rv-table tbody,#these-methode-o1 .o1rv-table tr,#these-methode-o1 .o1rv-table td{display:block;width:100%}#these-methode-o1 .o1rv-table tr{border-bottom:1px solid #dce6e9;padding:10px 13px}#these-methode-o1 .o1rv-table tr:last-child{border-bottom:0}#these-methode-o1 .o1rv-table td{padding:3px 0;border:0}#these-methode-o1 .o1rv-table td:first-child{font-size:14px;margin:1px 0 5px}#these-methode-o1 .o1rv-table td:nth-child(2)::before{content:"Repérage exploratoire";display:block;margin-bottom:1px;color:#819197;font-size:10px;font-weight:850;text-transform:uppercase;letter-spacing:.03em}#these-methode-o1 .o1rv-table td:nth-child(3)::before{content:"Resserrement proposé";display:block;margin-top:7px;margin-bottom:1px;color:#518567;font-size:10px;font-weight:850;text-transform:uppercase;letter-spacing:.03em}#these-methode-o1 .o1rv-next ol{grid-template-columns:repeat(2,minmax(0,1fr))}#these-methode-o1 .o1rv-language{display:block}#these-methode-o1 .o1rv-language b{display:block;margin-bottom:3px}}
+@media(max-width:400px){#these-methode-o1 .o1rv-next ol{grid-template-columns:1fr}}
+
+
+
+/* AUDIT GRAPHIQUE : O1, O2 ET O3. Règles liées à la LARGEUR EFFECTIVE
+   de la colonne de méthodologie (menu de gauche inclus dans la page).
+   Ne transforme ni les galeries et leurs commandes, ni les figures scientifiques. */
+
+html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3){
+  min-width:0;max-width:100%;
+}
+html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) :is(
+ .methodo-section,.methodo-complement,.methodo-restaure,.methodo-grille,
+ .methode-rubrique-contenu,.methode-fiche,.methodo-patrimoine
+){min-width:0;max-width:100%;box-sizing:border-box;}
+html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) :is(
+ .methodo-section,.o1-circuit,.o1-revision2026,.o2-synthese-claire,
+ .o2-pilote-independant,.methodo-exploratoire,.methodo-secteurs-visibles,
+ .o3-analyse-cartes,.methodo-dual-reseau
+){text-align:left;hyphens:none;word-break:normal;overflow-wrap:break-word;}
+html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) .methode-rubrique-titre{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-size:clamp(21px,2vw,27px)!important;line-height:1.32!important;
+  margin:0 0 20px!important;
+}
+html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) .methode-rubrique-titre>span{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:44px;min-width:44px;height:42px;border-radius:10px;
+  font-size:17px!important;line-height:1!important;font-weight:850;
+  font-variant-numeric:tabular-nums;
+}
+html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) :is(.methodo-item,.o3-analyse-carte,.methodo-volet) {
+  min-width:0;
+}
+html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) .methodo-item>strong{
+  font-size:clamp(16px,1.45vw,19px)!important;line-height:1.42!important;
+}
+html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) .methodo-item>p{
+  font-size:clamp(15px,1.15vw,17px)!important;line-height:1.65!important;
+  text-align:left!important;hyphens:none!important;
+}
+html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) .methodo-parcours{
+  gap:15px;min-width:0;
+}
+html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) .methodo-parcours>li{
+  padding:16px 17px!important;min-width:0;
+  border-radius:13px;border-top:4px solid var(--methodo-accent);
+  background:linear-gradient(146deg,#fff,var(--methodo-fond));
+}
+html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) .methodo-parcours>li>strong{
+  font-size:17px!important;line-height:1.4!important;
+}
+
+/* O1 · diagramme : 26 609 et étapes séparés, jamais collés sur une ligne */
+html body .these #these-methode-o1 .o1-revision2026 {
+  container:o1audit / inline-size;
+  width:100%;max-width:100%;min-width:0;
+  padding:clamp(17px,2.3vw,26px)!important;margin:18px 0!important;
+  border:1px solid #cadfda!important;border-top:5px solid #427b26!important;
+  border-radius:17px!important;background:#f9fcfa!important;
+}
+html body .these #these-methode-o1 .o1rv-head{
+  display:flex;flex-wrap:wrap;align-items:start;justify-content:space-between;
+  gap:10px 22px;margin:0 0 19px!important;
+}
+html body .these #these-methode-o1 .o1rv-kicker,
+html body .these #these-methode-o1 .o1rv-status{font-size:13px!important;line-height:1.4!important}
+html body .these #these-methode-o1 .o1rv-head h5{
+  font-size:clamp(23px,2.35vw,30px)!important;
+  line-height:1.2!important;margin:7px 0 10px!important;
+}
+html body .these #these-methode-o1 .o1rv-head p{
+  font-size:16px!important;line-height:1.58!important;
+  text-align:left!important;max-width:74ch;
+}
+html body .these #these-methode-o1 .o1rv-sectiontitle{
+  font-size:clamp(18px,1.6vw,22px)!important;line-height:1.37!important;
+  margin:23px 0 13px!important;
+}
+html body .these #these-methode-o1 .o1rv-flow{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr) 22px minmax(0,1fr);
+  gap:9px;align-items:stretch;min-width:0;
+}
+html body .these #these-methode-o1 .o1rv-step{
+  position:relative;display:flex!important;flex-direction:column;
+  justify-content:flex-start;gap:7px;min-width:0;min-height:176px;
+  padding:25px 16px 18px!important;border-radius:14px;
+  border:1px solid #d8e6de;border-top:5px solid #4a8864;
+  background:#f0f8f3;
+}
+html body .these #these-methode-o1 .o1rv-step--middle{border-top-color:#287eaa;background:#edf6fb}
+html body .these #these-methode-o1 .o1rv-step--last{border-top-color:#8067b0;background:#f5f0fa}
+html body .these #these-methode-o1 .o1rv-stepnum{
+  position:absolute!important;top:7px;right:13px;
+  font-size:12px!important;font-weight:850;line-height:1.2!important;
+  letter-spacing:.04em;color:#55706b;
+}
+html body .these #these-methode-o1 .o1rv-metric{
+  display:block!important;
+  font-size:clamp(29px,2.8vw,38px)!important;
+  line-height:1.12!important;font-weight:850!important;
+  letter-spacing:-.035em!important;color:#19583b;
+  margin:7px 0 3px!important;white-space:normal;
+}
+html body .these #these-methode-o1 :is(.o1rv-step--middle,.o1rv-step--last) .o1rv-metric{
+  font-size:clamp(24px,2.3vw,32px)!important;
+}
+html body .these #these-methode-o1 .o1rv-step>strong{
+  display:block!important;font-size:17px!important;line-height:1.36!important;
+  font-weight:800!important;margin:0!important;color:#203f4b;
+}
+html body .these #these-methode-o1 .o1rv-step>p{
+  display:block!important;margin:0!important;font-size:15px!important;
+  line-height:1.5!important;text-align:left!important;hyphens:none!important;
+}
+html body .these #these-methode-o1 .o1rv-link{
+  display:grid;place-items:center;align-self:center;margin:auto;
+  width:22px;height:22px;border-radius:50%;color:#277c86;
+  font-size:20px!important;font-weight:900;
+}
+html body .these #these-methode-o1 .o1rv-language{
+  display:grid;grid-template-columns:max-content minmax(0,1fr);
+  gap:15px;align-items:start;padding:16px;margin:15px 0 20px!important;
+  border:1px solid #c6dfe6;border-left:5px solid #287eaa;
+  border-radius:12px;background:#f2f8fb;
+}
+html body .these #these-methode-o1 .o1rv-language>b{
+  font-size:clamp(26px,2.8vw,35px)!important;line-height:1.13!important;
+}
+html body .these #these-methode-o1 .o1rv-language p{
+  font-size:15px!important;line-height:1.56!important;text-align:left!important;
+}
+html body .these #these-methode-o1 .o1rv-insights{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;margin:0 0 22px;
+}
+html body .these #these-methode-o1 .o1rv-insight{
+  min-width:0;padding:17px;border:1px solid #dce8e5;border-top:4px solid #2a7b6c;
+  border-radius:12px;background:white;
+}
+html body .these #these-methode-o1 .o1rv-insight:nth-child(2){border-top-color:#8067b0}
+html body .these #these-methode-o1 .o1rv-insight:nth-child(3){border-top-color:#287eaa}
+html body .these #these-methode-o1 .o1rv-insight>b{
+  font-size:17px!important;line-height:1.4!important;
+}
+html body .these #these-methode-o1 .o1rv-insight>p{
+  font-size:15px!important;line-height:1.6!important;text-align:left!important;
+}
+html body .these #these-methode-o1 .o1rv-tablebox{
+  min-width:0;max-width:100%;border-radius:12px;
+  overflow-x:auto;
+}
+html body .these #these-methode-o1 .o1rv-table{
+  width:100%!important;max-width:100%;border-collapse:collapse!important;
+}
+html body .these #these-methode-o1 .o1rv-table :is(th,td){
+  padding:14px 15px!important;font-size:15px!important;
+  line-height:1.56!important;text-align:left!important;
+  vertical-align:top;hyphens:none!important;
+}
+html body .these #these-methode-o1 .o1rv-table thead th{
+  background:#276c57!important;color:white!important;
+  font-size:15px!important;
+}
+html body .these #these-methode-o1 .o1rv-table tbody tr:nth-child(even){background:#f4f9f7}
+html body .these #these-methode-o1 .o1rv-next{
+  padding:17px!important;margin:19px 0 0!important;
+  border-radius:12px;background:#edf6f1;border:1px solid #cddfd4;
+}
+html body .these #these-methode-o1 .o1rv-next>b{
+  font-size:17px!important;line-height:1.45!important;
+}
+html body .these #these-methode-o1 .o1rv-next ol{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 20px;
+  list-style:none;margin:0!important;padding:0!important;
+}
+html body .these #these-methode-o1 .o1rv-next li{
+  font-size:15px!important;line-height:1.55!important;
+  padding-left:29px!important;
+}
+html body .these #these-methode-o1 .o1rv-next li::before{
+  width:23px;height:23px;font-size:13px!important;
+}
+html body .these #these-methode-o1 .o1rv-caveat{
+  font-size:14px!important;line-height:1.58!important;margin:15px 0 0!important;
+}
+
+/* O1 · Covidence : une série de trois cartes de travail, sans microtexte. */
+html body .these #methode-o1-6 .o1-circuit{
+  container:o1circuit / inline-size;
+  width:100%;max-width:100%;overflow:visible;
+  border:1px solid #badac4;border-radius:16px;background:#fff;
+}
+html body .these #methode-o1-6 .o1-circuit-head{
+  padding:19px 20px!important;
+}
+html body .these #methode-o1-6 .o1-circuit-head>strong{
+  font-size:clamp(20px,1.9vw,25px)!important;line-height:1.35!important;
+}
+html body .these #methode-o1-6 .o1-circuit-steps{
+  display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:0!important;
+}
+html body .these #methode-o1-6 .o1-circuit-step{
+  min-width:0;min-height:0!important;gap:11px;
+  padding:0 0 18px!important;overflow-wrap:break-word;
+}
+html body .these #methode-o1-6 .o1-circuit-step-kicker{
+  min-height:63px;gap:13px;padding:12px 16px!important;
+}
+html body .these #methode-o1-6 .o1-circuit-step-kicker>b{
+  width:45px;height:45px;min-width:45px;font-size:21px!important;
+}
+html body .these #methode-o1-6 .o1-circuit-step>h6{
+  min-height:0;margin:5px 17px!important;font-size:21px!important;
+  line-height:1.35!important;font-weight:800!important;
+}
+html body .these #methode-o1-6 .o1-circuit-step>:is(div,span,p):not(.o1-circuit-step-kicker){
+  margin-left:17px!important;margin-right:17px!important;
+}
+html body .these #methode-o1-6 .o1-circuit-step .o1-circuit-label{
+  font-size:16px!important;line-height:1.44!important;
+}
+html body .these #methode-o1-6 .o1-circuit-step p,
+html body .these #methode-o1-6 .o1-circuit-bifurcation,
+html body .these #methode-o1-6 .o1-circuit-minirows>div,
+html body .these #methode-o1-6 .o1-circuit-tags>span{
+  font-size:15px!important;line-height:1.55!important;
+  hyphens:none!important;text-align:left!important;
+}
+html body .these #methode-o1-6 .o1-circuit-step .o1-circuit-minirows>div{
+  display:flex;flex-direction:row;align-items:center;gap:9px;
+  padding:10px!important;
+}
+html body .these #methode-o1-6 .o1-circuit-minirows b{
+  min-width:33px;height:33px;
+  font-size:15px!important;line-height:1!important;
+}
+html body .these #methode-o1-6 .o1-circuit-tags{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;
+}
+html body .these #methode-o1-6 .o1-circuit-tags>span{
+  justify-content:center;text-align:center!important;min-height:43px;
+  font-size:14px!important;
+}
+html body .these #methode-o1-6 .o1-circuit-status{
+  font-size:15px!important;line-height:1.6!important;padding:17px 20px;
+}
+
+/* O2 : liaison méthodologique explicite avec O1 / résultats visuels.
+   Les détails de l'essai ne doivent jamais ressembler à des résultats de thèse. */
+html body .these #these-methode-o2 .o2-synthese-claire{
+  container:o2audit / inline-size;
+  border:1px solid #c1dcda!important;border-top:6px solid #147d80!important;
+  border-radius:16px;background:#f7fbfb!important;padding:clamp(17px,2vw,26px)!important;
+}
+html body .these #these-methode-o2 .o2-synthese-entete h6{
+  font-size:clamp(22px,2.1vw,28px)!important;line-height:1.3!important;
+}
+html body .these #these-methode-o2 .o2-synthese-entete p{
+  font-size:16px!important;line-height:1.65!important;text-align:left!important;
+}
+html body .these #these-methode-o2 .o2-synthese-flux{
+  display:grid!important;grid-template-columns:minmax(0,1fr) 24px minmax(0,1fr) 24px minmax(0,1fr);
+  gap:10px;align-items:stretch;
+}
+html body .these #these-methode-o2 .o2-synthese-noeud{
+  min-width:0;padding:18px!important;border:1px solid #cfe1df;
+  border-top:4px solid #1c7c7b;border-radius:12px;background:white;
+}
+html body .these #these-methode-o2 .o2-synthese-noeud>strong{
+  font-size:18px!important;line-height:1.4!important;
+}
+html body .these #these-methode-o2 .o2-synthese-noeud>span{
+  font-size:15px!important;line-height:1.55!important;text-align:left!important;
+}
+html body .these #these-methode-o2 .o2-synthese-tableau-wrap{
+  min-width:0;width:100%;max-width:100%;overflow-x:auto;
+}
+html body .these #these-methode-o2 .o2-synthese-tableau :is(th,td){
+  font-size:15px!important;line-height:1.55!important;
+  padding:15px 16px!important;text-align:left!important;
+}
+html body .these #these-methode-o2 .o2-synthese-portee{
+  font-size:15px!important;line-height:1.6!important;
+  text-align:left!important;margin:17px 0 0!important;
+}
+html body .these #these-methode-o2 .o2-pilote-independant{
+  container:o2pilot / inline-size;
+  padding:19px!important;background:#fff9ee!important;
+  border:1px solid #e7d8b6;border-top:5px solid #ba873f;border-radius:14px;
+}
+html body .these #these-methode-o2 .o2-pilote-chiffres{
+  display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;margin-bottom:16px;border:0;
+}
+html body .these #these-methode-o2 .o2-pilote-chiffres>div{
+  padding:15px!important;border:1px solid #e3d7c2!important;
+  border-top:4px solid #9a6f31!important;border-radius:12px!important;
+}
+html body .these #these-methode-o2 .o2-pilote-chiffres strong{
+  display:block;font-size:clamp(28px,3vw,40px)!important;
+  line-height:1.13!important;white-space:nowrap;
+}
+html body .these #these-methode-o2 .o2-pilote-chiffres span{
+  font-size:15px!important;line-height:1.4!important;
+}
+html body .these #these-methode-o2 .o2-pilote-independant>p{
+  font-size:15px!important;line-height:1.62!important;text-align:left!important;
+}
+html body .these #these-methode-o2 :is(.methodo-source-plein,.methodo-capture) img{
+  display:block;width:100%;max-width:100%;height:auto;object-fit:contain;
+}
+
+/* O3 : ne pas écraser les indicateurs analytiques dans quatre colonnes étroites. */
+html body .these #these-methode-o3 .o3-analyse-cartes{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;min-width:0;
+}
+html body .these #these-methode-o3 .o3-analyse-carte{
+  min-width:0;padding:17px 18px!important;border:1px solid #d3e1ee;
+  border-top:4px solid #275f9b;border-radius:13px;
+  background:linear-gradient(145deg,#fff,#f6f9fd);
+}
+html body .these #these-methode-o3 .o3-analyse-index{
+  display:block;font-size:13px!important;line-height:1.45!important;
+  font-weight:800!important;letter-spacing:.055em;
+}
+html body .these #these-methode-o3 .o3-analyse-carte>strong{
+  display:block;font-size:18px!important;line-height:1.35!important;
+  font-weight:800!important;
+}
+html body .these #these-methode-o3 .o3-analyse-formule{
+  font-size:clamp(19px,1.8vw,25px)!important;line-height:1.4!important;
+  font-weight:750!important;overflow-wrap:break-word;
+}
+html body .these #these-methode-o3 .o3-analyse-carte>p{
+  font-size:15px!important;line-height:1.58!important;
+  text-align:left!important;hyphens:none!important;
+}
+html body .these #these-methode-o3 .methodo-dual-reseau{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;
+}
+html body .these #these-methode-o3 .methodo-dual-reseau>div{
+  padding:19px!important;border-top:5px solid #26629d!important;
+}
+html body .these #these-methode-o3 .methodo-dual-reseau strong{
+  font-size:19px!important;line-height:1.4!important;
+}
+html body .these #these-methode-o3 .methodo-dual-reseau p{
+  font-size:15px!important;line-height:1.6!important;text-align:left!important;
+}
+/* Responsive calculated on actual CONTENT width, not desktop viewport */
+@container o1audit (max-width:910px){
+  html body .these #these-methode-o1 .o1rv-flow{
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:8px!important;
+  }
+  html body .these #these-methode-o1 .o1rv-step{
+    min-height:0!important;padding:28px 19px 20px!important;
+  }
+  html body .these #these-methode-o1 .o1rv-link{
+    transform:rotate(90deg);margin:0 auto!important;
+    align-self:center;
+  }
+  html body .these #these-methode-o1 .o1rv-insights{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  html body .these #these-methode-o1 .o1rv-insight:last-child{grid-column:auto!important}
+  html body .these #these-methode-o1 .o1rv-stepnum{top:10px}
+}
+@container o1audit (max-width:800px){
+  html body .these #these-methode-o1 .o1rv-table thead{
+    position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);
+  }
+  html body .these #these-methode-o1 :is(.o1rv-table,.o1rv-table tbody,.o1rv-table tr,.o1rv-table td){
+    display:block!important;width:100%!important;max-width:100%;
+  }
+  html body .these #these-methode-o1 .o1rv-table tbody tr{
+    border-bottom:1px solid #d9e7e3!important;background:#fff!important;
+    padding:14px 16px!important;
+  }
+  html body .these #these-methode-o1 .o1rv-table tbody tr:nth-child(even){
+    background:#f4f9f7!important;
+  }
+  html body .these #these-methode-o1 .o1rv-table td{
+    padding:5px 0!important;border:0!important;
+    font-size:15px!important;
+  }
+  html body .these #these-methode-o1 .o1rv-table td:first-child{
+    color:#206c50!important;font-size:18px!important;
+    line-height:1.4!important;font-weight:800!important;
+  }
+  html body .these #these-methode-o1 .o1rv-table td:nth-child(2)::before{
+    content:"Point à clarifier";display:block;margin:4px 0 2px;
+    font-size:12px;font-weight:800;color:#64767d;
+  }
+  html body .these #these-methode-o1 .o1rv-table td:nth-child(3)::before{
+    content:"Resserrement proposé";display:block;margin:9px 0 2px;
+    font-size:12px;font-weight:800;color:#277656;
+  }
+  html body .these #these-methode-o1 .o1rv-tablebox{overflow:visible!important}
+}
+@container o1circuit (max-width:870px){
+  html body .these #methode-o1-6 .o1-circuit-steps{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  html body .these #methode-o1-6 .o1-circuit-step{
+    border-right:0!important;border-bottom:1px solid #c9dfd3!important;
+  }
+  html body .these #methode-o1-6 .o1-circuit-step>h6{
+    margin:4px 17px!important;
+  }
+  html body .these #methode-o1-6 .o1-circuit-step-kicker{
+    min-height:57px!important;
+  }
+  html body .these #methode-o1-6 .o1-circuit-step>.o1-circuit-detail,
+  html body .these #methode-o1-6 .o1-circuit-bifurcation{
+    margin-top:0!important;
+  }
+}
+@container o2audit (max-width:900px){
+  html body .these #these-methode-o2 .o2-synthese-flux{
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:8px!important;
+  }
+  html body .these #these-methode-o2 .o2-synthese-fleche{
+    transform:rotate(90deg);min-height:24px;
+    margin:0 auto!important;
+  }
+}
+@container o2pilot (max-width:660px){
+  html body .these #these-methode-o2 .o2-pilote-chiffres{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+@container methodo (max-width:820px){
+  html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) :is(
+    .methodo-parcours,.methodo-grille,.methodo-composantes,
+    .methodo-secteurs-grille,.o3-analyse-cartes,.methodo-dual-reseau,
+    .methodo-questions-grille,.o2-sources-indicateurs
+  ){grid-template-columns:minmax(0,1fr)!important;}
+  html body .these #these-methode-o2 .methodo-exploratoire-chiffres{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  html body .these #these-methode-o3 .o3-analyse-cartes{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) .methodo-parcours>li::after{
+    content:none!important;
+  }
+}
+@container o1audit (max-width:510px){
+  html body .these #these-methode-o1 .o1-revision2026{padding:15px!important}
+  html body .these #these-methode-o1 .o1rv-language{grid-template-columns:minmax(0,1fr)}
+  html body .these #these-methode-o1 .o1rv-next ol{grid-template-columns:minmax(0,1fr)!important}
+}
+@media(max-width:600px){
+  html body .these #these-methode-o2 .o2-pilote-chiffres strong{font-size:28px!important}
+  html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) .methodo-section{
+    padding:15px!important;
+  }
+}
+/* Stable focus: no hidden labels or clipped graphical information. */
+html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) :focus-visible{
+  outline:3px solid #176e91;outline-offset:3px;
+}
