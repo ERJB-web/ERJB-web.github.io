@@ -26,8 +26,8 @@
 :is(#these-methode-o1,#these-methode-o2,#these-methode-o3)[data-cadrage-harmonise] .methodo-section .methode-rubrique-titre{margin:0 0 12px;padding:0;color:var(--methodo-accent)}
 .these-methode-objectif[data-cadrage-harmonise]>.methode-objectif-tete{border-inline-start:4px solid var(--methodo-accent);background:var(--methodo-fond);padding:14px 18px}
 .these-methode-objectif[data-cadrage-harmonise]>.methode-objectif-tete h4{color:var(--methodo-accent)}
-html body :is(#these-methode-o1,#these-methode-o2,#these-methode-o3)[data-cadrage-harmonise]>.methode-objectif-tete{background:var(--methodo-fond)!important;border-color:var(--methodo-accent)}
-html body :is(#these-methode-o1,#these-methode-o2,#these-methode-o3)[data-cadrage-harmonise]>.methode-objectif-tete h4{color:var(--methodo-accent)!important}
+html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3)[data-cadrage-harmonise]>.methode-objectif-tete{background:var(--methodo-fond)!important;border-color:var(--methodo-accent)}
+html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3)[data-cadrage-harmonise]>.methode-objectif-tete h4{color:var(--methodo-accent)!important}
 .methodo-section:nth-of-type(3) .methodo-grille{padding:12px;background:var(--methodo-fond);border-radius:10px}
 .methodo-section:nth-of-type(4) .methodo-item>strong{border-bottom:2px solid var(--methodo-accent);padding-bottom:6px}
 .methodo-section:nth-of-type(5) .methodo-grille{grid-template-columns:minmax(0,1fr);gap:8px}
