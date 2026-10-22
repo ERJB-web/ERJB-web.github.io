@@ -190,10 +190,10 @@ const fr = {
     surtitre: "01 · La recherche",
     etiquette: "Thèse de doctorat en cours",
     avertissement: "Sujet en cours de construction et susceptible d’évoluer",
-    titre: "Organiser la réponse intersectorielle aux besoins sociaux complexes et co-occurrents en soins primaires",
+    titre: "Favoriser la réponse intersectorielle aux besoins sociaux et de soins de santé concomitants des patients aînés vivant à domicile : profils, cartographie des ressources et analyse des réseaux.",
     sousTitre: "Configuration des réseaux adaptés aux différents profils de patients pris en charge",
     question:
-      "Comment s’organise la réponse intersectorielle aux différents profils de patients ayant des besoins sociaux complexes et co-occurrents pris en charge en soins primaires ?",
+      "Comment s'organise la réponse intersectorielle aux besoins sociaux et de soins de santé concomitants des différents profils de patients aînés vivant à domicile ?",
     but: "Le projet vise à relier chaque profil de besoins à une configuration de partenaires et à son coordonnateur, à l’échelle d’un territoire de CLSC.",
     faits: [
       ["Programme", "Doctorat en santé publique, option systèmes, organisations et politiques de santé (SOPS) · 2e année"],
@@ -1759,10 +1759,10 @@ const en = {
     surtitre: "01 · Research",
     etiquette: "Doctoral thesis in progress",
     avertissement: "Topic under development and subject to change",
-    titre: "Organising the intersectoral response to complex and co-occurring social needs in primary care",
+    titre: "Strengthening the intersectoral response to the concurrent social and healthcare needs of older patients living at home: profiles, resource mapping and network analysis.",
     sousTitre: "Network configurations adapted to the different profiles of patients in care",
     question:
-      "How is the intersectoral response organised for the different profiles of primary care patients with complex and co-occurring social needs?",
+      "How is the intersectoral response to the concurrent social and healthcare needs of different profiles of older patients living at home organized?",
     but: "The project aims to link each needs profile to a configuration of partners and to its coordinator, at the scale of a CLSC territory (local community health and social services centre).",
     faits: [
       ["Programme", "PhD in public health, health systems, organisations and policy option (SOPS) · 2nd year"],
