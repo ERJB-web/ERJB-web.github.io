@@ -191,13 +191,18 @@ const fr = {
     etiquette: "Thèse de doctorat en cours",
     avertissement: "Sujet en cours de construction et susceptible d’évoluer",
     titre: "Favoriser la réponse intersectorielle apportée aux différents besoins sociaux et de soins de santé concomitants des personnes aînées vivant à domicile : profils, cartographie des ressources et analyse des réseaux.",
-    sousTitre: "Configuration des réseaux adaptés aux différents profils de patients pris en charge",
+    sousTitre: "Profils, ressources territoriales et réseaux intersectoriels en première ligne",
     question:
       "Comment s'organise la réponse intersectorielle aux besoins sociaux et de soins de santé concomitants des différents profils de personnes aînées vivant à domicile ?",
     objectifsSpecifiques: [
-          "Identifier les différents profils de personnes aînées vivant à domicile présentant des besoins sociaux et de soins de santé concomitants susceptibles de nécessiter une réponse intersectorielle dans le contexte des soins primaires.",
-          "Cartographier les ressources territoriales susceptibles de répondre aux besoins sociaux et de soins de santé concomitants des différents profils de personnes aînées vivant à domicile, et caractériser les variations territoriales de leur disponibilité, de leur diversité, de leur complémentarité et de leur accessibilité.",
-          "Analyser les configurations organisationnelles des réseaux intersectoriels mobilisés sur le territoire pour répondre aux besoins sociaux et de soins de santé concomitants des différents profils de personnes aînées vivant à domicile, afin de caractériser leurs modalités de fonctionnement."
+      "Identifier les différents profils de personnes aînées vivant à domicile présentant des besoins sociaux et de soins de santé concomitants susceptibles de nécessiter une réponse intersectorielle en première ligne.",
+      "Cartographier les ressources territoriales susceptibles d'être mobilisées en première ligne pour répondre aux besoins sociaux et de soins de santé concomitants des différents profils de personnes aînées vivant à domicile, et caractériser les variations territoriales de leur disponibilité, de leur diversité, de leur complémentarité et de leur accessibilité.",
+      "Analyser les configurations organisationnelles des réseaux intersectoriels en première ligne mobilisés sur le territoire pour répondre aux besoins sociaux et de soins de santé concomitants des différents profils de personnes aînées vivant à domicile, afin de caractériser leurs modalités de fonctionnement."
+    ],
+    objectifsMethodologiques: [
+      "Conduire une revue de la littérature scientifique afin d’identifier et de caractériser les différents profils de personnes aînées vivant à domicile présentant des besoins sociaux et de soins de santé concomitants susceptibles de nécessiter une réponse intersectorielle en première ligne et de déterminer les besoins associés à chacun de ces profils.",
+      "Réaliser une étude cartographique et spatiale des ressources mobilisables en première ligne pour répondre aux différents besoins sociaux et de soins de santé concomitants associés aux profils de personnes aînées vivant à domicile identifiés en O1, afin de caractériser et de comparer, dans les différents territoires de CLSC, leur distribution, leur disponibilité, leur diversité, leur complémentarité et leur accessibilité territoriale.",
+      "Mener une analyse rétrospective des réseaux sociaux (ARS) intersectoriels mobilisés en première ligne à partir de territoires de CLSC pour répondre aux besoins sociaux et de soins de santé concomitants des différents profils de personnes aînées vivant à domicile, afin de caractériser leur composition, la structure de leurs relations et leurs modalités de fonctionnement."
     ],
     but: "Le projet vise à relier chaque profil de besoins à une configuration de partenaires et à son coordonnateur, à l’échelle d’un territoire de CLSC.",
     faits: [
@@ -1765,13 +1770,18 @@ const en = {
     etiquette: "Doctoral thesis in progress",
     avertissement: "Topic under development and subject to change",
     titre: "Strengthening the intersectoral response provided to the different concurrent social and healthcare needs of older people living at home: profiles, resource mapping and network analysis.",
-    sousTitre: "Network configurations adapted to the different profiles of patients in care",
+    sousTitre: "Needs profiles, territorial resources and intersectoral networks in first-line services",
     question:
       "How is the intersectoral response to concurrent social and healthcare needs organized for different profiles of older people living at home?",
     objectifsSpecifiques: [
-          "Identify different profiles of older people living at home with concurrent social and healthcare needs that may require an intersectoral response in the context of primary care.",
-          "Map territorial resources that may address the concurrent social and healthcare needs of different profiles of older people living at home, and characterize territorial variations in their availability, diversity, complementarity and accessibility.",
-          "Analyze the organizational configurations of intersectoral networks mobilized across the territory to address the concurrent social and healthcare needs of different profiles of older people living at home, in order to characterize how they operate."
+      "Identify different profiles of older people living at home with concurrent social and healthcare needs that may require an intersectoral response in first-line services.",
+      "Map territorial resources that could be mobilized in first-line services to address the concurrent social and healthcare needs of different profiles of older people living at home, and characterize territorial variations in their availability, diversity, complementarity and accessibility.",
+      "Analyze the organizational configurations of intersectoral networks mobilized in first-line services across the territory to address the concurrent social and healthcare needs of different profiles of older people living at home, in order to characterize how they operate."
+    ],
+    objectifsMethodologiques: [
+      "Conduct a review of the scientific literature to identify and characterize different profiles of older people living at home with concurrent social and healthcare needs that may require an intersectoral response in first-line services, and determine the needs associated with each profile.",
+      "Conduct a cartographic and spatial study of resources that can be mobilized in first-line services to address the different concurrent social and healthcare needs associated with the profiles of older people living at home identified in O1, to characterize and compare their distribution, availability, diversity, complementarity and territorial accessibility across CLSC territories.",
+      "Conduct a retrospective social network analysis (SNA) of intersectoral networks mobilized in first-line services from CLSC territories to address the concurrent social and healthcare needs of different profiles of older people living at home, characterizing their composition, relational structure, and modes of operation."
     ],
     but: "The project aims to link each needs profile to a configuration of partners and to its coordinator, at the scale of a CLSC territory (local community health and social services centre).",
     faits: [
