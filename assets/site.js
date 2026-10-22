@@ -1322,3 +1322,112 @@
  const init=()=>{schedule();new MutationObserver(schedule).observe(document.getElementById("salle")||document.body,{childList:true,subtree:true})};
  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init,{once:true});else init();
 })();
+
+
+/* Refonte du tableau des étapes O1 en schéma de cartes – 2026-10-22 */
+(() => {
+  "use strict";
+  const css = [
+    '.o1-revue-parcours{box-sizing:border-box;width:100%;max-width:100%;min-width:0;margin:24px 0 28px;container-type:inline-size;container-name:o1parcours;text-align:left!important;color:#263f49}',
+    '.o1-revue-parcours *{box-sizing:border-box}',
+    '.o1-revue-grille{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;align-items:stretch;padding:0;margin:0;list-style:none}',
+    '.o1-revue-carte{--etape:#2d7948;--fond:#eaf5ed;position:relative;display:flex;flex-direction:column;gap:14px;min-width:0;padding:22px;border:1px solid #d5e4dc;border-radius:17px;background:white;box-shadow:0 5px 20px rgba(19,62,49,.06);overflow:hidden;text-align:left!important;hyphens:none!important;word-break:normal!important}',
+    '.o1-revue-carte:before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:var(--etape)}',
+    '.o1-revue-carte:nth-child(2){--etape:#117c86;--fond:#e7f6f5}',
+    '.o1-revue-carte:nth-child(3){--etape:#345f9b;--fond:#ebf2fc}',
+    '.o1-revue-carte:nth-child(4){--etape:#80549a;--fond:#f5eef9}',
+    '.o1-revue-entete{display:flex;align-items:center;gap:13px;margin:0;min-width:0}',
+    '.o1-revue-numero{flex:0 0 53px;width:53px;height:53px;display:grid;place-items:center;border-radius:13px;background:var(--etape);color:white;font-size:22px;font-weight:850;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}',
+    '.these .o1-revue-titre,.o1-revue-titre{margin:0!important;padding:0!important;border:0!important;min-width:0;color:var(--etape)!important;font-size:20px!important;font-weight:800!important;line-height:1.26!important;letter-spacing:-.02em;text-align:left!important;overflow-wrap:break-word;text-wrap:pretty}',
+    '.o1-revue-action{min-width:0}',
+    '.o1-revue-label{display:block;margin:0 0 6px;color:#567080;font-size:11px;font-weight:850;line-height:1.3;text-transform:uppercase;letter-spacing:.1em}',
+    '.these .o1-revue-texte,.o1-revue-texte{margin:0!important;font-size:16px!important;line-height:1.56!important;color:#2d4753!important;text-align:left!important;text-wrap:pretty;hyphens:none!important;overflow-wrap:break-word!important;word-spacing:normal!important}',
+    '.o1-revue-production{min-width:0;margin-top:auto;padding:13px 15px;border:1px solid #d2e4dc;border-left:4px solid var(--etape);border-radius:9px;background:var(--fond)}',
+    '.o1-revue-production .o1-revue-label{color:var(--etape)}',
+    '.o1-revue-production .o1-revue-texte{color:#22424d!important;font-weight:630}',
+    '@container o1parcours (min-width:800px){.o1-revue-grille{grid-template-columns:repeat(2,minmax(0,1fr))}}',
+    '@container o1parcours (max-width:480px){.o1-revue-carte{padding:18px 16px;gap:13px;border-radius:13px}.o1-revue-numero{width:45px;height:45px;flex-basis:45px;font-size:19px}.o1-revue-titre{font-size:18px!important}.o1-revue-texte{font-size:15px!important}}',
+    '@media(prefers-reduced-motion:no-preference){.o1-revue-carte{transition:box-shadow .18s ease,transform .18s ease}.o1-revue-carte:hover{transform:translateY(-2px);box-shadow:0 9px 26px rgba(24,55,48,.1)}}',
+    '@media(forced-colors:active){.o1-revue-carte,.o1-revue-production{border:1px solid CanvasText}.o1-revue-numero{background:Highlight;color:HighlightText}}'
+  ].join("\n");
+  const normaliser = s => (s || "").replace(/[’‘]/g,"'").replace(/\s+/g," ").trim().toLocaleLowerCase("fr");
+  function convertir(table) {
+    if (table.closest(".o1-revue-parcours")) return;
+    const lignes = Array.from(table.rows);
+    if (lignes.length !== 5) return;
+    const labels = Array.from(lignes[0].cells, c => normaliser(c.textContent));
+    if (labels.length !== 3 || labels[0] !== "étape" ||
+        labels[1] !== "ce qu'on fait" || labels[2] !== "ce que ça produit") return;
+    const etapes = lignes.slice(1).map((ligne,i) => {
+      if (ligne.cells.length !== 3) return null;
+      const identite = ligne.cells[0].textContent.trim().match(/^(\d{2})\s*(.+)$/s);
+      if (!identite || +identite[1] !== i + 1) return null;
+      return {num:identite[1],titre:identite[2].trim(),action:ligne.cells[1],production:ligne.cells[2]};
+    });
+    if (etapes.some(x=>!x)) return;
+    if (!document.getElementById("style-o1-revue-parcours")) {
+      const st=document.createElement("style");
+      st.id="style-o1-revue-parcours";
+      st.textContent=css;
+      document.head.appendChild(st);
+    }
+    const bloc=document.createElement("div");
+    bloc.className="o1-revue-parcours";
+    bloc.setAttribute("aria-label","Étapes de la revue de portée");
+    const grille=document.createElement("div");
+    grille.className="o1-revue-grille";
+    grille.setAttribute("role","list");
+    etapes.forEach(etape => {
+      const carte=document.createElement("article");
+      carte.className="o1-revue-carte";
+      carte.setAttribute("role","listitem");
+      const entete=document.createElement("div");
+      entete.className="o1-revue-entete";
+      const numero=document.createElement("span");
+      numero.className="o1-revue-numero";
+      numero.textContent=etape.num;
+      const titre=document.createElement("h6");
+      titre.className="o1-revue-titre";
+      titre.textContent=etape.titre;
+      entete.append(numero,titre);
+      const action=document.createElement("div");
+      action.className="o1-revue-action";
+      const l1=document.createElement("span");
+      l1.className="o1-revue-label";
+      l1.textContent="Travail prévu";
+      const p1=document.createElement("p");
+      p1.className="o1-revue-texte";
+      p1.innerHTML=etape.action.innerHTML;
+      action.append(l1,p1);
+      const sortie=document.createElement("div");
+      sortie.className="o1-revue-production";
+      const l2=document.createElement("span");
+      l2.className="o1-revue-label";
+      l2.textContent="Production attendue";
+      const p2=document.createElement("p");
+      p2.className="o1-revue-texte";
+      p2.innerHTML=etape.production.innerHTML;
+      sortie.append(l2,p2);
+      carte.append(entete,action,sortie);
+      grille.appendChild(carte);
+    });
+    bloc.appendChild(grille);
+    table.replaceWith(bloc);
+  }
+  let planifie=false;
+  const verifier=()=>{
+    if(planifie) return;
+    planifie=true;
+    requestAnimationFrame(()=>{
+      planifie=false;
+      document.querySelectorAll(".these table").forEach(convertir);
+    });
+  };
+  const demarrer=()=>{
+    verifier();
+    const racine=document.querySelector("#salle") || document.body;
+    if (racine) new MutationObserver(verifier).observe(racine,{childList:true,subtree:true});
+  };
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",demarrer,{once:true});
+  else demarrer();
+})();
