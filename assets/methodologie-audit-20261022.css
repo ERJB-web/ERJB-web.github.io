@@ -59,6 +59,22 @@
 
 
 
+/* Palette commune du parcours, des titres et du menu.
+   O1 vert, O2 turquoise, O3 bleu. Corrige les couleurs des produits sans
+   toucher aux contenus ou aux liens de navigation. */
+html body .these nav.these-methode-parcours[data-objectifs-isoles="oui"] > .these-parcours-produit[data-produit="O1"]{
+  --produit-couleur:#427b26;--produit-fond:#f1f8eb;
+}
+html body .these nav.these-methode-parcours[data-objectifs-isoles="oui"] > .these-parcours-produit[data-produit="O2"]{
+  --produit-couleur:#167d83;--produit-fond:#eef9f8;
+}
+html body .these nav.these-methode-parcours[data-objectifs-isoles="oui"] > .these-parcours-produit[data-produit="O3"]{
+  --produit-couleur:#245f9f;--produit-fond:#eef4fb;
+}
+html body .these nav.these-methode-parcours[data-objectifs-isoles="oui"] .these-produit-description{
+  text-align:start!important;hyphens:none!important;overflow-wrap:break-word;
+}
+
 /* REFONTE VISUELLE — objectifs O1 / O2 / O3.
    Pas d'intervention sur les galeries ou les figures de recherche.
    Responsive par largeur de CONTENU, indépendamment du menu latéral. */
