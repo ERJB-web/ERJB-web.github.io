@@ -638,3 +638,99 @@ html body .these .methodo-vitrine figcaption{
 @media(prefers-reduced-motion:reduce){
   html body .these .methodo-item{transition:none!important}
 }
+
+
+/* FINITION_TABLEAUX_20261022 — lisibilité de l'inventaire, des fiches et des métriques. */
+html body .these .precision-protocole{
+  border:1px solid #cde2e8;border-top:5px solid var(--precision,#167d83);
+  border-radius:18px;background:linear-gradient(140deg,#eff8fa,#fff 64%);
+  box-shadow:0 10px 30px rgba(21,69,83,.07);
+}
+html body .these .precision-titre{
+  font-size:clamp(21px,2.2vw,27px)!important;color:#193f52!important;
+}
+html body .these .precision-table-scroll{
+  overflow-x:auto;border:1px solid #cbdfe6;border-radius:14px;
+  background:#fff;box-shadow:0 6px 18px rgba(21,61,79,.045);
+}
+html body .these .precision-table{
+  min-width:690px;width:100%;border-collapse:separate;border-spacing:0;
+  font-variant-numeric:tabular-nums;
+}
+html body .these .precision-table thead th{
+  padding:15px 14px!important;background:#167d83!important;color:#fff!important;
+  font-size:15px!important;line-height:1.42!important;text-align:left!important;
+}
+html body .these .precision-table tbody tr:nth-child(2n){background:#f3f9fa}
+html body .these .precision-table tbody th{
+  color:#155d71!important;font-size:16px!important;font-weight:800!important;
+  background:#eaf5f7!important;
+}
+html body .these .precision-table tbody td{
+  color:#294a5b;font-size:15px!important;line-height:1.55!important;
+}
+html body .these .precision-table :is(th,td){
+  border:0!important;border-bottom:1px solid #dce9ed!important;
+  padding:14px!important;text-align:left!important;hyphens:none!important;
+}
+html body .these .precision-cartes{
+  grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;
+}
+html body .these .precision-carte{
+  padding:19px!important;border-radius:14px!important;
+  background:linear-gradient(145deg,#fff,#f5fafc)!important;
+  box-shadow:0 6px 19px rgba(21,61,79,.05);
+}
+html body .these .precision-chiffre{
+  font-size:clamp(36px,4vw,54px)!important;
+  line-height:1.05!important;letter-spacing:-.045em!important;
+}
+html body .these .mat-sc{
+  border-radius:17px;border-top-width:5px;
+  padding:clamp(18px,2.4vw,26px);
+  box-shadow:0 10px 30px rgba(24,68,80,.052);
+}
+html body .these .mat-sc__title{
+  font-size:clamp(19px,2vw,24px)!important;
+  line-height:1.35!important;
+}
+html body .these .mat-sc__card{
+  border:1px solid #d5e4e9;border-top:4px solid var(--mat-accent);
+  padding:16px!important;border-radius:13px!important;
+  background:linear-gradient(155deg,#fff,#f5fafb)!important;
+}
+html body .these .mat-sc__number,
+html body .these .mat-sc__kpis strong{
+  font-size:clamp(28px,3vw,40px)!important;
+  line-height:1.08!important;letter-spacing:-.035em!important;
+  font-variant-numeric:tabular-nums;
+}
+html body .these .mat-sc__card strong{
+  font-size:16px!important;line-height:1.4!important;
+}
+html body .these .mat-sc__card p,
+html body .these .mat-sc__step,
+html body .these .mat-sc__level p{
+  font-size:15px!important;line-height:1.6!important;text-align:left!important;
+}
+html body .these .mat-sc__table th,
+html body .these .mat-sc__table td{
+  font-size:15px!important;text-align:left!important;
+}
+html body .these .mat-sc__cards{
+  gap:13px;grid-template-columns:repeat(3,minmax(0,1fr));
+}
+@container methodo (max-width:850px){
+ html body .these .mat-sc__cards,
+ html body .these .mat-sc__cards--four,
+ html body .these .precision-cartes{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ }
+}
+@container methodo (max-width:540px){
+ html body .these .mat-sc__cards,
+ html body .these .mat-sc__cards--four,
+ html body .these .precision-cartes{
+  grid-template-columns:minmax(0,1fr)!important;
+ }
+}
