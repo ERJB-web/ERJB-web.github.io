@@ -36,6 +36,7 @@ html body :is(#these-methode-o1,#these-methode-o2,#these-methode-o3)[data-cadrag
 .methodo-section:nth-of-type(5) .methodo-item>p{display:inline}
 .methodo-section:nth-of-type(6){background:#f7f9fa;padding:14px;border-radius:10px;border:0}
 .methodo-source{margin-block:12px}
+html body .these .devis-bandeau-synthese-2026{--ds-o1:#286c23;--ds-o2:#006e72;--ds-o3:#18559b}
 .methodo-bibliographie{overflow-wrap:anywhere}
 .gab-sommaire-groupe[data-objectif="O1"]{--objectif-texte:#286c23;--objectif-trait:#5aae38;--objectif-fond:#ecf7e8;--objectif-lien:#f5fbf2}
 .gab-sommaire-groupe[data-objectif="O2"]{--objectif-texte:#006e72;--objectif-trait:#11a7a5;--objectif-fond:#e9f7f6;--objectif-lien:#f3fbfa}
