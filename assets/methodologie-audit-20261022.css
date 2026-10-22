@@ -487,9 +487,34 @@ html body .these #these-methode-o3 :is(.o3-analyse-cartes,.methodo-dual-reseau){
   gap:17px!important;min-width:0;
 }
 html body .these #these-methode-o3 :is(.o3-analyse-carte,.methodo-dual-reseau>div){
-  min-width:0;padding:21px!important;
-  border:1px solid #d4e0ee!important;border-top:5px solid #28649e!important;
-  border-radius:14px!important;background:linear-gradient(145deg,#fff,#f3f7fd)!important;
+  min-width:0;padding:20px 21px!important;
+  border:1px solid #d4e0ee!important;border-top:4px solid var(--metrique-accent,#28649e)!important;
+  border-radius:12px!important;background:var(--metrique-fond,#f3f7fd)!important;
+  box-shadow:none!important;
+}
+/* Variations mesurées : les quatre métriques restent identifiées comme O3
+   sans répéter quatre fois la même carte bleue. */
+html body .these #these-methode-o3 .o3-analyse-carte:nth-child(1){
+  --metrique-accent:#236b91;--metrique-fond:#f0f7fb;
+}
+html body .these #these-methode-o3 .o3-analyse-carte:nth-child(2){
+  --metrique-accent:#27776e;--metrique-fond:#edf8f6;
+}
+html body .these #these-methode-o3 .o3-analyse-carte:nth-child(3){
+  --metrique-accent:#815c9e;--metrique-fond:#f7f3fb;
+}
+html body .these #these-methode-o3 .o3-analyse-carte:nth-child(4){
+  --metrique-accent:#a17635;--metrique-fond:#faf6ed;
+}
+html body .these #these-methode-o3 .o3-analyse-carte .o3-analyse-index{
+  color:var(--metrique-accent,#28649e)!important;
+}
+html body .these #these-methode-o3 .o3-analyse-carte .o3-analyse-formule{
+  background:rgba(255,255,255,.72)!important;
+  color:#244e61!important;
+}
+html body .these #these-methode-o3 .o3-analyse-carte p{
+  text-align:start!important;text-align-last:start!important;hyphens:none!important;
 }
 html body .these #these-methode-o3 .o3-analyse-carte>strong{
   font-size:19px!important;line-height:1.4!important;
@@ -498,7 +523,7 @@ html body .these #these-methode-o3 .o3-analyse-formule{
   font-size:clamp(19px,2.3cqw,27px)!important;line-height:1.35!important;
 }
 html body .these #these-methode-o3 :is(.o3-analyse-carte>p,.methodo-dual-reseau p){
-  font-size:15px!important;line-height:1.6!important;text-align:left!important;
+  font-size:15px!important;line-height:1.58!important;text-align:start!important;
 }
 
 /* La colonne de lecture peut être étroite même sur un grand écran.
