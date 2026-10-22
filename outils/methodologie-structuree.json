@@ -100,7 +100,7 @@
       "Égocentrage : calculer taille et diversité des partenaires des organisations focales à partir du même questionnaire. Densité entre alters et contrainte de Burt exigent les liens alter–alter ; documenter poids, direction et traitement des liens dans les deux sens. Plusieurs répondants d’une organisation seront consolidés par règle explicite, en conservant les désaccords.",
       "Réponses ouvertes : quelques questions facultatives pour contextualiser les collaborations ; résumé descriptif et regroupement thématique simple, sans entretiens distincts ni seconde étude qualitative. Les hypothèses causales sur les mécanismes ne seront pas inférées de cette enquête."
     ],
-    "synthese": "Trois objectifs complémentaires · O3 : ARS quantitative observationnelle rétrospective"
+    "synthese": "Devis multiméthodes à trois volets complémentaires · Posture pragmatique"
   },
   "en": {
     "titres": [
@@ -199,7 +199,7 @@
       "Analysis: directed density uses N(N−1), without self-ties, only with sufficient dyadic coverage. Distinguish reported from mutually confirmed reciprocity; specify centrality direction and weighting. Divide cross-sector ties by ties with both sectors known. Ego networks use the same questionnaire; alter–alter measures and Burt constraint require explicit alter ties. Assess missingness and sensitivity.",
       "Burden and open answers: record completion time and partner/profile counts at pilot; use conditional questions, no repeated full questionnaire per profile. Summarize optional open answers descriptively, without a separate interview study."
     ],
-    "synthese": "Three complementary objectives · O3: retrospective quantitative observational SNA"
+    "synthese": "Multimethod design with three complementary components · Pragmatic approach"
   },
   "es": {
     "titres": [
@@ -298,6 +298,6 @@
       "Análisis: densidad dirigida con N(N−1), sin bucles y con cobertura suficiente; distinguir reciprocidad declarada y confirmada. Explicitar dirección y ponderación de centralidades; proporción intersectorial sobre vínculos con ambos sectores conocidos. Los vínculos alter–alter y la restricción de Burt requieren recogida explícita.",
       "Carga: medir duración y número de socios/perfiles, usar preguntas condicionales y evitar repetir el cuestionario por perfil. Resumen descriptivo de respuestas abiertas, sin entrevistas separadas."
     ],
-    "synthese": "Tres objetivos complementarios · O3: ARS cuantitativa observacional retrospectiva"
+    "synthese": "Diseño multimétodo con tres componentes complementarios · Enfoque pragmático"
   }
 }
