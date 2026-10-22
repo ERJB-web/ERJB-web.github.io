@@ -1,13 +1,38 @@
 {
-  "titre": "Organiser la réponse intersectorielle aux besoins sociaux complexes et co-occurrents en soins primaires : configuration des réseaux adaptés aux différents profils de patients pris en charge",
-  "question": "Comment s’organise la réponse intersectorielle aux différents profils de patients ayant des besoins sociaux complexes et co-occurrents pris en charge en soins primaires ?",
+  "titre": "Favoriser la réponse intersectorielle apportée aux différents besoins sociaux et de soins de santé concomitants des personnes aînées vivant à domicile : profils, cartographie des ressources et analyse des réseaux.",
+  "question": "Comment s'organise la réponse intersectorielle aux besoins sociaux et de soins de santé concomitants des différents profils de personnes aînées vivant à domicile ?",
   "point": "Chez les patients présentant des besoins sociaux complexes et co-occurrents en soins primaires, la réponse intersectorielle ne peut être appréciée à partir de chaque besoin considéré isolément; elle doit être examinée au regard de la correspondance entre les différents profils de patients et la configuration des réseaux intersectoriels susceptibles d’y répondre, notamment les acteurs qui les composent et les relations entre ces acteurs.",
   "general": "Analyser comment la réponse intersectorielle s’organise pour répondre aux différents profils de patients ayant des besoins sociaux complexes et co-occurrents pris en charge en soins primaires, afin d’identifier les améliorations organisationnelles permettant de mieux adapter cette réponse à ces profils.",
-  "labels": {"titre": "Titre provisoire", "question": "Question de recherche", "point": "Point de thèse", "general": "Objectif général", "specifiques": "Objectifs spécifiques", "lacunes": "Trois lacunes qui justifient le sujet", "lacune": "Lacune", "methode": "Méthode", "cadre": "Cadre institutionnel et financement", "articulation": "Des lacunes aux objectifs et aux méthodes", "sources": "Sources du contexte", "justification": "Pourquoi ce sujet ?"},
+  "labels": {
+    "titre": "Titre provisoire",
+    "question": "Question de recherche",
+    "point": "Point de thèse",
+    "general": "Objectif général",
+    "specifiques": "Objectifs spécifiques",
+    "lacunes": "Trois lacunes qui justifient le sujet",
+    "lacune": "Lacune",
+    "methode": "Méthode",
+    "cadre": "Cadre institutionnel et financement",
+    "articulation": "Des lacunes aux objectifs et aux méthodes",
+    "sources": "Sources du contexte",
+    "justification": "Pourquoi ce sujet ?"
+  },
   "contextes": [
-    ["Dans le monde", "L’OMS souligne que les conditions de vie et l’accès aux ressources contribuent aux inégalités de santé et appellent une action coordonnée.", 0],
-    ["Au Canada", "L’ICIS décrit des difficultés d’accès aux soins primaires ainsi que des ruptures de coordination et de communication entre professionnels.", 1],
-    ["Au Québec", "L’INSPQ documente les inégalités sociales de santé et leur surveillance. Ce contexte invite à considérer les conditions sociales dans l’organisation des réponses.", 2]
+    [
+      "Dans le monde",
+      "L’OMS souligne que les conditions de vie et l’accès aux ressources contribuent aux inégalités de santé et appellent une action coordonnée.",
+      0
+    ],
+    [
+      "Au Canada",
+      "L’ICIS décrit des difficultés d’accès aux soins primaires ainsi que des ruptures de coordination et de communication entre professionnels.",
+      1
+    ],
+    [
+      "Au Québec",
+      "L’INSPQ documente les inégalités sociales de santé et leur surveillance. Ce contexte invite à considérer les conditions sociales dans l’organisation des réponses.",
+      2
+    ]
   ],
   "justification": "La thèse relie cet enjeu général à une question organisationnelle précise : comment adapter les réseaux intersectoriels aux différents profils de patients, plutôt qu’à chaque besoin pris séparément ? Les trois lacunes ci-dessous structurent le raisonnement et conduisent respectivement à O1, O2 et O3.",
   "lacunes": [
@@ -24,5 +49,10 @@
     "Revue de portée selon JBI et PRISMA-ScR",
     "Analyse de réseaux sociaux dont la frontière est délimitée, pour chacun des différents profils de patients présentant des besoins sociaux complexes et co-occurrents nécessitant une réponse intersectorielle en soins primaires, à l’identification du réseau intersectoriel susceptible d’y répondre.",
     "Atelier délibératif multi-acteurs fondé sur les résultats d’O1 et O2, réunissant patients partenaires, professionnels de soins primaires, acteurs communautaires, acteurs privés et décideurs pertinents, afin d’élaborer des recommandations pour organiser la réponse intersectorielle."
+  ],
+  "objectifsSpecifiques": [
+    "Identifier les différents profils de personnes aînées vivant à domicile présentant des besoins sociaux et de soins de santé concomitants susceptibles de nécessiter une réponse intersectorielle dans le contexte des soins primaires.",
+    "Cartographier les ressources territoriales susceptibles de répondre aux besoins sociaux et de soins de santé concomitants des différents profils de personnes aînées vivant à domicile, et caractériser les variations territoriales de leur disponibilité, de leur diversité, de leur complémentarité et de leur accessibilité.",
+    "Analyser les configurations organisationnelles des réseaux intersectoriels mobilisés sur le territoire pour répondre aux besoins sociaux et de soins de santé concomitants des différents profils de personnes aînées vivant à domicile, afin de caractériser leurs modalités de fonctionnement."
   ]
 }
