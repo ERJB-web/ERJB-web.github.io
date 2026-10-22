@@ -664,7 +664,7 @@ html body .bande-parcours .trajectoire-texte{text-align:start!important;text-ali
     text-justify:none!important;
     word-spacing:normal!important;
     hyphens:none!important;
-    text-wrap:balance;
+    text-wrap:balance!important;
   }
 }
 /* Tout le texte rédigé suit la même taille ; seules les notes et les titres ont un autre rang. */
