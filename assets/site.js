@@ -1616,3 +1616,129 @@
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",lancer,{once:true});
   else lancer();
 })();
+
+
+/* O1_PILOTE_20261022 : regrouper au début d'O1 Ovid, Covidence et critères
+ * du PREMIER essai exploratoire ; les six rubriques restent le protocole prévu. */
+(() => {
+ "use strict";
+ if (!(document.documentElement.lang||"fr").startsWith("fr")) return;
+ const txt=e=>(e?.textContent||"").replace(/[\u00a0\u202f]/g," ").replace(/\s+/g," ").trim();
+ const head=(root,term)=>Array.from(root.querySelectorAll("h3,h4,h5,h6,strong"))
+   .find(e=>txt(e).toLowerCase()===term.toLowerCase());
+ const block=(root,terms,max)=>Array.from(root.querySelectorAll("div,section,article,details"))
+   .filter(e=>txt(e).length>200&&txt(e).length<max&&terms.every(t=>txt(e).includes(t)))
+   .sort((a,b)=>txt(a).length-txt(b).length)[0];
+ function injectStyle(){
+  if(document.getElementById("o1-pilote-style"))return;
+  const st=document.createElement("style");st.id="o1-pilote-style";
+  st.textContent=[
+   "#these-methode-o1 .o1-pilote{box-sizing:border-box;margin:15px 0 30px;padding:9px 0 24px;border:0;border-bottom:2px solid #b9d7c5;max-width:100%;min-width:0;background:transparent;container:o1pilot / inline-size;text-align:left}",
+   "#these-methode-o1 .o1-pilote *{box-sizing:border-box}",
+   "#these-methode-o1 .o1-pilote-label{font:800 12px/1.45 var(--sans,Arial,sans-serif);letter-spacing:.05em;text-transform:uppercase;color:#297046}",
+   "#these-methode-o1 .o1-pilote h5.o1-pilote-titre{font:820 clamp(23px,2.6vw,32px)/1.25 var(--sans,Arial,sans-serif)!important;letter-spacing:-.02em;color:#1e5a3c!important;margin:7px 0 11px!important}",
+   "#these-methode-o1 .o1-pilote-intro{font:500 16px/1.66 var(--sans,Arial,sans-serif)!important;color:#3a5662!important;margin:0 0 19px!important;max-width:87ch;text-align:left!important}",
+   "#these-methode-o1 .o1-pilote .o1b-visuel{margin:8px 0 23px!important}",
+   "#these-methode-o1 .o1-pilote-chiffres{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 12px}",
+   "#these-methode-o1 .o1-pilote-chiffres>div{min-width:0;padding:17px;border:1px solid #dce7e3;border-top:4px solid var(--pilote);border-radius:11px;background:var(--fond)}",
+   "#these-methode-o1 .o1-pilote-chiffres>div:nth-child(1){--pilote:#257440;--fond:#f1f8f2}",
+   "#these-methode-o1 .o1-pilote-chiffres>div:nth-child(2){--pilote:#197b92;--fond:#f1f8fb}",
+   "#these-methode-o1 .o1-pilote-chiffres>div:nth-child(3){--pilote:#7a5c9a;--fond:#f7f4fb}",
+   "#these-methode-o1 .o1-pilote-chiffres strong{display:block;color:var(--pilote);font:850 clamp(26px,3.3vw,42px)/1.07 var(--sans,Arial,sans-serif);white-space:nowrap;letter-spacing:-.03em}",
+   "#these-methode-o1 .o1-pilote-chiffres span{display:block;margin:8px 0 0;color:#345260;font:600 14px/1.5 var(--sans,Arial,sans-serif)}",
+   "#these-methode-o1 .o1-pilote-legende{font-size:13px!important;line-height:1.5!important;color:#56707a!important;margin:0 0 13px!important}",
+   "#these-methode-o1 figure.o1-pilote-covidence{margin:12px 0 26px!important;width:100%;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important}",
+   "#these-methode-o1 .o1-pilote-covidence a{display:block;width:100%}",
+   "#these-methode-o1 .o1-pilote-covidence img{display:block;width:100%!important;max-width:100%!important;height:auto!important;max-height:none!important;object-fit:contain;border:1px solid #d9e4e6;border-radius:8px}",
+   "#these-methode-o1 .o1-pilote-covidence figcaption{font-size:13px!important;line-height:1.5!important;color:#546d77;margin:7px 0 0!important}",
+   "#these-methode-o1 .o1-pilote-criteres{margin:17px 0 20px;min-width:0}",
+   "#these-methode-o1 .o1-pilote-criteres>h6{font-size:clamp(20px,2vw,25px)!important;color:#296744!important;margin:0 0 14px!important}",
+   "#these-methode-o1 .o1-pilote-criteres .o1-pilote-ancien{padding:0!important;margin:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}",
+   "#these-methode-o1 .o1-pilote-fin{border-top:1px solid #cbded3;padding:13px 0 0;margin:18px 0 0!important;color:#3b5a63!important;font-size:14px!important;line-height:1.6!important}",
+   "#these-methode-o1 .o1-pilote-fin strong{color:#206342}",
+   "#these-methode-o1 .o1-pilote [data-o1-slot]:empty{display:none}",
+   "#these-methode-o1 .o1-revision2026{margin-top:20px!important}",
+   "@container o1pilot (max-width:640px){#these-methode-o1 .o1-pilote-chiffres{grid-template-columns:1fr}#these-methode-o1 .o1-pilote-chiffres strong{font-size:32px}}"
+  ].join("\n");
+  document.head.appendChild(st);
+ }
+ function rangerCollecte(root){
+  const sec=root.querySelector("#methode-o1-6");if(!sec)return;
+  const row=Array.from(sec.querySelectorAll("div,section,ul"))
+   .filter(e=>txt(e).length<650&&["52 021","25 412","26 609"].every(t=>txt(e).includes(t))
+         &&!txt(e).includes("Matériaux")&&!txt(e).includes("Procédure"))
+   .sort((a,b)=>txt(a).length-txt(b).length)[0];
+  if(row)row.remove();
+  Array.from(sec.querySelectorAll("p")).filter(p=>txt(p).includes("État de l’import Covidence")
+     &&txt(p).length<350).forEach(p=>p.remove());
+  const status=Array.from(sec.querySelectorAll("p")).find(p=>txt(p).includes("État d’avancement : codebook et essai pilote réalisés"));
+  if(status)status.textContent="Protocole prévu : révision bibliothécaire, validation de la grille et des critères, sélection indépendante, puis extraction en double.";
+  const capture=sec.querySelector('img[src*="capture_covidence"]');
+  if(capture){
+   const wrapper=block(sec,["L’avancement de la sélection documentaire","Capture de Covidence"],2400);
+   if(wrapper&&wrapper!==sec)wrapper.remove();
+   else {
+    (capture.closest("figure")||capture.closest("a")||capture).remove();
+    const h=head(sec,"L’avancement de la sélection documentaire");if(h)h.remove();
+    Array.from(sec.querySelectorAll("p")).filter(p=>/Capture du logiciel de revue|Capture de Covidence \(octobre 2026\)/.test(txt(p))
+      &&txt(p).length<400).forEach(p=>p.remove());
+   }
+  }
+ }
+ function mount(){
+  const root=document.querySelector("#these-methode-o1");if(!root)return;
+  const first=root.querySelector("#methode-o1-4")||root.querySelector(".methode-rubrique");if(!first)return;
+  injectStyle();
+  let intro=root.querySelector(".o1-pilote");
+  if(!intro){
+   intro=document.createElement("section");intro.className="o1-pilote";intro.id="o1-essai-exploratoire";
+   intro.setAttribute("aria-label","Premier essai exploratoire de faisabilité O1");
+   intro.innerHTML=[
+    "<span class='o1-pilote-label'>O1 · Essai préalable, non définitif</span>",
+    "<h5 class='o1-pilote-titre'>Premier essai exploratoire de faisabilité</h5>",
+    "<p class='o1-pilote-intro'>Une première stratégie menée avec <strong>Ovid, PubMed et Covidence</strong> a permis de tester les équations, le dédoublonnage et les critères provisoires. Le volume et l’hétérogénéité du corpus ont mis en évidence la nécessité d’un <strong>resserrement méthodologique avant la sélection définitive</strong>. Cet essai n’est pas l’état d’avancement de la revue de portée doctorale.</p>",
+    "<div data-o1-slot='ovid'></div>",
+    "<div class='o1-pilote-chiffres' aria-label='Décomptes provisoires du seul essai exploratoire'><div><strong>52 021</strong><span>Références importées dans le test Covidence</span></div><div><strong>25 412</strong><span>Doublons retirés lors du test</span></div><div><strong>26 609</strong><span>Notices restantes avant le tri</span></div></div>",
+    "<p class='o1-pilote-legende'>Premier essai, octobre 2026. Aucun de ces chiffres ne représente un corpus définitif ou des études incluses.</p>",
+    "<figure class='o1-pilote-covidence'><a href='https://erjb-web.github.io/assets/these/captures/capture_covidence.webp' target='_blank' rel='noopener noreferrer'><img src='https://erjb-web.github.io/assets/these/captures/capture_covidence.webp' alt='Capture de Covidence du premier essai exploratoire de la revue O1 : 52 021 références, 25 412 doublons et 26 609 notices à évaluer.' loading='lazy'></a><figcaption>Covidence, octobre 2026 · Capture du premier essai, distincte de la revue définitive.</figcaption></figure>",
+    "<div class='o1-pilote-criteres'><h6>Critères d’inclusion et d’exclusion utilisés dans l’essai</h6><div data-o1-slot='criteres'></div></div>",
+    "<div data-o1-slot='ajustements'></div>",
+    "<p class='o1-pilote-fin'><strong>Pour la revue prévue :</strong> réviser les critères et les équations avec une bibliothécaire, tester leur concordance, puis lancer la sélection sur un protocole validé. Les six rubriques suivantes décrivent les méthodes projetées.</p>"
+   ].join("");
+   first.before(intro);
+  }
+  const ovid=root.querySelector("#methode-o1-5 .o1b-visuel");
+  const os=intro.querySelector("[data-o1-slot='ovid']");
+  if(ovid&&os&&!os.contains(ovid)){
+   os.appendChild(ovid);
+   const k=ovid.querySelector(".o1b-kicker");if(k)k.textContent="Stratégie du premier essai · Ovid / PubMed";
+   const p=ovid.querySelectorAll(".o1b-notes p");
+   if(p[1])p[1].innerHTML="<strong>À réviser :</strong> équations de recherche, chevauchements et critères avant le tri définitif. Aucun double tri systématique n’est achevé.";
+  }
+  const cs=intro.querySelector("[data-o1-slot='criteres']");
+  if(cs&&!cs.firstElementChild){
+   const criteria=block(root,["Grille provisoire issue de l’essai Covidence","Critères d’inclusion et d’exclusion proposés","Documents et limites"],16000);
+   if(criteria&&!intro.contains(criteria)&&!criteria.matches(".these-methode-objectif,.methode-rubrique,.methode-objectif-separe")){
+     criteria.classList.add("o1-pilote-ancien");cs.appendChild(criteria);
+     const h=head(criteria,"Critères d’inclusion et d’exclusion proposés");if(h)h.textContent="Grille utilisée pour le premier essai";
+   }
+  }
+  const as=intro.querySelector("[data-o1-slot='ajustements']");
+  if(as&&!as.firstElementChild){
+   const revision=root.querySelector(".o1-revision2026")||root.querySelector(".o1-resserrement");
+   if(revision&&!intro.contains(revision))as.appendChild(revision);
+  }
+  rangerCollecte(root);
+ }
+ let scheduled=false;
+ function run(){
+  if(scheduled)return;scheduled=true;
+  requestAnimationFrame(()=>{scheduled=false;mount()});
+ }
+ const boot=()=>{
+  run();
+  const host=document.querySelector("#salle .salle-contenu")||document.querySelector("#salle")||document.body;
+  new MutationObserver(run).observe(host,{childList:true,subtree:true});
+ };
+ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",boot,{once:true});else boot();
+})();
