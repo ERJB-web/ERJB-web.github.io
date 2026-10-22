@@ -2366,6 +2366,50 @@
   montrerExplorationEtQuestionsTerritoriales();
 
 
+  // O2 · Repère institutionnel précédant la classification opérationnelle.
+  // Réutiliser la figure officielle déjà présente dans l'affiche, sans créer
+  // une nouvelle grille administrative ni ajouter un encadré autonome.
+  function insererSchemaPolitiqueClscO2() {
+    if (langue !== "fr") return;
+    const o2 = D.getElementById("these-methode-o2");
+    if (!o2 || o2.querySelector(".methodo-politique-clsc")) return;
+    const cible = Array.from(o2.querySelectorAll("h4,h5,h6"))
+      .find((titre) => normaliser(titre.textContent) === "les six secteurs de ressources");
+    if (!cible) return;
+
+    if (!D.getElementById("css-methode-politique-clsc-20261022")) {
+      const style = D.createElement("style");
+      style.id = "css-methode-politique-clsc-20261022";
+      style.textContent = `
+        .these .methodo-politique-clsc{width:100%;min-width:0;margin:10px 0 clamp(26px,3.5vw,40px);padding:0;border:0;background:transparent;box-shadow:none}
+        .these .methodo-politique-clsc__intro{max-width:920px;margin:0 0 16px;color:#365566;font-size:clamp(1rem,1.2vw,1.075rem);line-height:1.7;text-wrap:pretty}
+        .these .methodo-politique-clsc__figure{max-width:980px;width:100%;margin:0 auto;padding:0;border:0;background:none;box-shadow:none}
+        .these .methodo-politique-clsc__lien{display:block;width:100%;border:0;text-decoration:none}
+        .these .methodo-politique-clsc__image{display:block;width:100%;max-width:100%;height:auto!important;max-height:none!important;object-fit:contain!important;object-position:center;border:0;border-radius:7px;box-shadow:none}
+        .these .methodo-politique-clsc figcaption{margin:10px 0 0;color:#536b79;font-size:.86rem;line-height:1.55;text-align:left}
+        .these .methodo-politique-clsc figcaption a{color:#086e81;text-decoration:underline;text-underline-offset:3px}
+        .these .methodo-politique-clsc__agrandir{font-weight:650;white-space:nowrap}
+        @media(max-width:640px){.these .methodo-politique-clsc{margin-bottom:24px}.these .methodo-politique-clsc__intro{font-size:.98rem;line-height:1.6}.these .methodo-politique-clsc figcaption{font-size:.8rem}}
+      `;
+      D.head.append(style);
+    }
+
+    const imageUrl = new URL(CHEMIN + "assets/figures/clsc-gouvernance.png?v=20261022-o2", D.baseURI).href;
+    const politiqueUrl = "https://www.quebec.ca/gouvernement/ministeres-organismes/sante-services-sociaux/publications/politique-soins-services-premiere-ligne";
+    const bloc = D.createElement("div");
+    bloc.className = "methodo-politique-clsc";
+    bloc.innerHTML =
+      '<p class="methodo-politique-clsc__intro">La Politique gouvernementale sur les soins et services de première ligne situe le <strong>CLSC au cœur d’une gouvernance territoriale</strong>, associant les acteurs sanitaires, sociaux, communautaires et municipaux pour organiser une réponse de proximité adaptée aux besoins de la population.</p>' +
+      '<figure class="methodo-politique-clsc__figure">' +
+        '<a class="methodo-politique-clsc__lien" href="' + imageUrl + '" target="_blank" rel="noopener noreferrer" aria-label="Agrandir le schéma officiel de gouvernance territoriale du CLSC">' +
+          '<img class="methodo-politique-clsc__image" src="' + imageUrl + '" width="1400" height="983" loading="lazy" decoding="async" alt="Schéma du MSSS : un CLSC territorial anime un voisinage de soins et de services avec clinique, hôpital, pharmacie, organisme communautaire, municipalité, école et CPE.">' +
+        '</a>' +
+        '<figcaption><a href="' + politiqueUrl + '" target="_blank" rel="noopener noreferrer">MSSS (2026)</a> · Schéma officiel de gouvernance locale. Les six secteurs ci-dessous forment la <strong>classification opérationnelle de la recherche</strong> ; ils ne sont pas une reproduction des catégories officielles. <a class="methodo-politique-clsc__agrandir" href="' + imageUrl + '" target="_blank" rel="noopener noreferrer">Agrandir le schéma ↗</a></figcaption>' +
+      '</figure>';
+    cible.insertAdjacentElement("beforebegin", bloc);
+  }
+  insererSchemaPolitiqueClscO2();
+
   // Le pilote et les seuils relèvent du chapitre Faisabilité, pas de la grille QUAN/QUAL d'O3.
   function retirerDoublonsPilotageO3() {
     if (langue !== "fr") return;
