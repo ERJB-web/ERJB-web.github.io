@@ -115,35 +115,318 @@
 .r-retombees .r-portee-item strong{font-weight:730}
 @media(max-width:650px){.r-retombees .r-portee{grid-template-columns:minmax(0,1fr);padding:2px 0 8px}.r-retombees .r-portee-item,.r-retombees .r-portee-item:first-child{padding:9px 0;border-left:0;border-top:1px solid #e3ebed}.r-retombees .r-portee-item:first-child{border-top:0}}
 
-/* O1 : entonnoir documentaire compact et critères provisoires, sans intervention dans les quatre cartes existantes */
-#these-methode-o1 .o1-resserrement,#these-methode-o1 .o1-resserrement *{box-sizing:border-box}
-#these-methode-o1 .o1-resserrement{margin:13px 0 0;padding:13px 14px 10px;border-top:1px solid #dde8e6;border-bottom:1px solid #dde8e6;background:#f9fbfa;min-width:0}
-#these-methode-o1 .o1-resserrement-entete{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:5px 12px;margin:0 0 10px}
-#these-methode-o1 .o1-resserrement-entete strong{color:#2b6257;font-size:13px}
-#these-methode-o1 .o1-resserrement-entete span{color:#627b76;font-size:11px}
-#these-methode-o1 .o1-resserrement-entonnoir{display:flex;align-items:center;gap:9px;min-width:0}
-#these-methode-o1 .o1-resserrement-entonnoir>div:not(.o1-resserrement-fleche){flex:1;min-width:0;padding:2px}
-#these-methode-o1 .o1-resserrement-entonnoir b{display:block;font-size:clamp(17px,2.3vw,23px);line-height:1.24;color:#2a5363;font-weight:780;font-variant-numeric:tabular-nums}
-#these-methode-o1 .o1-resserrement-entonnoir span{display:block;font-size:11px;line-height:1.4;color:#526a71}
-#these-methode-o1 .o1-resserrement-fleche{flex:0 0 auto;color:#78a3a4;font-size:17px}
-#these-methode-o1 .o1-resserrement-cible b{color:#557268}
-#these-methode-o1 .o1-resserrement-details{margin-top:9px;padding-top:7px;border-top:1px solid #e1eae7;min-width:0}
-#these-methode-o1 .o1-resserrement-details>summary{display:flex;justify-content:space-between;align-items:center;gap:8px;cursor:pointer;color:#255f64;font-size:12px;line-height:1.5;font-weight:730}
-#these-methode-o1 .o1-resserrement-details>summary span{font-size:11px;font-weight:500;color:#6b8080}
-#these-methode-o1 .o1-resserrement-axes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:10px 0}
-#these-methode-o1 .o1-resserrement-axes>div{padding:9px 10px;border:1px solid #e0e9e8;border-radius:7px;background:#fff;min-width:0}
-#these-methode-o1 .o1-resserrement-axes b{display:block;margin-bottom:3px;color:#2d6f71;font-size:12px}
-#these-methode-o1 .o1-resserrement-axes span{display:block;color:#4f666d;font-size:11.5px;line-height:1.5}
-#these-methode-o1 .o1-resserrement-details>p{margin:0!important;padding:8px 0 0;border-top:1px solid #e1eae7;color:#506c74;font-size:11.5px;line-height:1.5;text-align:start!important;hyphens:none!important}
-@media(max-width:610px){
- #these-methode-o1 .o1-resserrement{padding:11px 10px 9px}
- #these-methode-o1 .o1-resserrement-entonnoir{display:grid;grid-template-columns:minmax(0,1fr);gap:1px}
- #these-methode-o1 .o1-resserrement-entonnoir>div:not(.o1-resserrement-fleche){padding:4px 0}
- #these-methode-o1 .o1-resserrement-fleche{transform:rotate(90deg);justify-self:start;margin:0 0 0 8px;font-size:13px}
- #these-methode-o1 .o1-resserrement-entonnoir span{font-size:11.5px}
- #these-methode-o1 .o1-resserrement-axes{grid-template-columns:minmax(0,1fr)}
- #these-methode-o1 .o1-resserrement-details>summary{flex-wrap:wrap}
+
+/* O1 — cheminement documentaire : composition éditoriale autonome,
+   pensée pour la largeur du contenu (et non celle de la fenêtre). */
+#these-methode-o1 .o1-resserrement,
+#these-methode-o1 .o1-resserrement * { box-sizing:border-box; }
+#these-methode-o1 .o1-resserrement {
+  --o1-filet:#d8e4e7;
+  --o1-texte:#203e4c;
+  --o1-accent:var(--objectif,#28776e);
+  position:relative;
+  container:o1-corpus / inline-size;
+  isolation:isolate;
+  min-width:0;
+  margin:22px 0 12px;
+  padding:clamp(16px,2.4vw,25px);
+  border:1px solid var(--o1-filet);
+  border-radius:18px;
+  background:linear-gradient(150deg,#f7fafb 0%,#fff 50%,#fafcfb 100%);
+  box-shadow:0 12px 30px -26px rgba(23,56,66,.36);
+  color:var(--o1-texte);
+  text-align:left;
 }
+#these-methode-o1 .o1-resserrement-entete {
+  display:flex!important;
+  align-items:flex-start;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:7px 20px;
+  margin:0 0 18px;
+  padding:0;
+}
+#these-methode-o1 .o1-resserrement-entete>strong {
+  display:block!important;
+  margin:0;
+  color:#21475a!important;
+  font-size:clamp(16px,1.6vw,20px)!important;
+  font-weight:770!important;
+  line-height:1.3!important;
+  letter-spacing:-.02em;
+  text-transform:none;
+}
+#these-methode-o1 .o1-resserrement-entete>span {
+  display:block!important;
+  flex:0 0 auto;
+  padding:4px 0;
+  color:#66808a!important;
+  font-size:12px!important;
+  line-height:1.5!important;
+  font-weight:570;
+  letter-spacing:.015em;
+  text-align:left;
+}
+#these-methode-o1 .o1-resserrement-entonnoir {
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) 26px minmax(0,1fr) 26px minmax(0,1fr);
+  align-items:stretch;
+  gap:10px;
+  width:100%;
+  min-width:0;
+  margin:0;
+}
+#these-methode-o1 .o1-resserrement-entonnoir>div:not(.o1-resserrement-fleche) {
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  justify-content:flex-start;
+  flex:initial;
+  gap:10px;
+  min-width:0;
+  min-height:148px;
+  padding:17px 17px 16px!important;
+  border:1px solid #dce6e9;
+  border-radius:13px;
+  background:#fff;
+  box-shadow:0 3px 13px -13px rgba(20,58,72,.2);
+}
+#these-methode-o1 .o1-resserrement-entonnoir>div:not(.o1-resserrement-fleche)::before {
+  content:"01  /  Repérage initial";
+  display:block;
+  color:#647c85;
+  font-size:11px!important;
+  font-weight:730;
+  line-height:1.3;
+  letter-spacing:.045em;
+  text-transform:uppercase;
+}
+#these-methode-o1 .o1-resserrement-entonnoir>div:nth-child(3) {
+  border-color:#cbdfe2;
+  background:#f5f9fa;
+}
+#these-methode-o1 .o1-resserrement-entonnoir>div:nth-child(3)::before {content:"02  /  Sous-ensemble provisoire";color:#3b7380;}
+#these-methode-o1 .o1-resserrement-entonnoir>div.o1-resserrement-cible {
+  border-style:dashed;
+  border-color:#aabfbb;
+  background:#f7faf8;
+}
+#these-methode-o1 .o1-resserrement-entonnoir>div.o1-resserrement-cible::before {content:"03  /  Après sélection";color:#53796d;}
+#these-methode-o1 .o1-resserrement-entonnoir b {
+  display:block!important;
+  width:100%;
+  margin:0;
+  color:#1e4658!important;
+  font-size:clamp(23px,2.6vw,30px)!important;
+  line-height:1.12!important;
+  font-weight:780!important;
+  font-variant-numeric:tabular-nums;
+  letter-spacing:-.035em;
+  white-space:normal;
+}
+#these-methode-o1 .o1-resserrement-entonnoir .o1-resserrement-cible b {
+  color:#496c62!important;
+  font-size:clamp(20px,2.1vw,26px)!important;
+  letter-spacing:-.025em;
+}
+#these-methode-o1 .o1-resserrement-entonnoir span {
+  display:block!important;
+  width:100%;
+  margin:0;
+  color:#4c626b!important;
+  font-size:13px!important;
+  font-weight:450!important;
+  line-height:1.5!important;
+  text-wrap:pretty;
+  overflow-wrap:normal;
+  word-break:normal;
+  hyphens:none;
+}
+#these-methode-o1 .o1-resserrement-fleche {
+  display:grid!important;
+  place-items:center;
+  align-self:stretch;
+  flex:initial;
+  min-width:0;
+  margin:0;
+  padding:0;
+  color:#8aa8ae!important;
+  font-size:20px!important;
+  line-height:1!important;
+  font-weight:500!important;
+}
+#these-methode-o1 .o1-resserrement-details {
+  min-width:0;
+  margin:20px 0 0;
+  padding:16px 0 0;
+  border:0;
+  border-top:1px solid #dae6e8;
+  background:transparent;
+}
+#these-methode-o1 .o1-resserrement-details>summary {
+  display:flex!important;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:7px 15px;
+  min-height:35px;
+  padding:2px 32px 2px 0!important;
+  position:relative;
+  list-style:none;
+  cursor:pointer;
+  color:#244f61!important;
+  font-size:14px!important;
+  font-weight:730!important;
+  line-height:1.4!important;
+  letter-spacing:0;
+  text-align:left!important;
+}
+#these-methode-o1 .o1-resserrement-details>summary::-webkit-details-marker {display:none;}
+#these-methode-o1 .o1-resserrement-details>summary::marker {content:"";}
+#these-methode-o1 .o1-resserrement-details>summary::after {
+  content:"+";
+  position:absolute;
+  right:1px;
+  top:50%;
+  transform:translateY(-50%);
+  display:grid;
+  place-items:center;
+  width:25px;height:25px;
+  border:1px solid #d4e3e7;
+  border-radius:50%;
+  background:#fff;
+  color:#35677a;
+  font:600 19px/1 Arial,sans-serif;
+}
+#these-methode-o1 .o1-resserrement-details[open]>summary::after {content:"−";}
+#these-methode-o1 .o1-resserrement-details>summary span {
+  display:block!important;
+  margin:0;
+  color:#71848b!important;
+  font-size:12px!important;
+  font-weight:550!important;
+  line-height:1.5!important;
+  white-space:normal;
+}
+#these-methode-o1 .o1-resserrement-details>summary:focus-visible {
+  outline:3px solid #83aeb7;
+  outline-offset:4px;
+  border-radius:4px;
+}
+#these-methode-o1 .o1-resserrement-axes {
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:11px;
+  min-width:0;
+  margin:14px 0 12px;
+}
+#these-methode-o1 .o1-resserrement-axes>div {
+  display:flex!important;
+  flex-direction:column;
+  gap:8px;
+  min-width:0;
+  margin:0;
+  padding:15px 16px;
+  border:1px solid #e0e9eb;
+  border-radius:11px;
+  background:#fff;
+}
+#these-methode-o1 .o1-resserrement-axes b {
+  display:block!important;
+  margin:0;
+  color:#2d6371!important;
+  font-size:13px!important;
+  line-height:1.35!important;
+  font-weight:770!important;
+  letter-spacing:.005em;
+}
+#these-methode-o1 .o1-resserrement-axes span {
+  display:block!important;
+  margin:0;
+  color:#435c65!important;
+  font-size:13px!important;
+  line-height:1.6!important;
+  font-weight:450!important;
+  overflow-wrap:break-word;
+  hyphens:none;
+}
+#these-methode-o1 .o1-resserrement-details>p {
+  margin:13px 0 0!important;
+  padding:12px 0 0!important;
+  border:0;
+  border-top:1px solid #e1eaec;
+  color:#4e6870!important;
+  font-size:13px!important;
+  line-height:1.65!important;
+  font-weight:450!important;
+  text-align:left!important;
+  hyphens:none!important;
+  max-width:100%;
+}
+#these-methode-o1 details.o1-compact-context {
+  margin:7px 1px 0;
+  padding:9px 3px 0;
+  border:0;
+  border-top:0;
+  border-radius:0;
+  background:transparent;
+}
+#these-methode-o1 .o1-compact-context>summary {
+  display:flex!important;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:5px 16px;
+  padding:7px 3px!important;
+  list-style:none;
+  color:#5c727c!important;
+  font-size:12px!important;
+  line-height:1.45!important;
+  font-weight:650!important;
+  text-align:left!important;
+}
+#these-methode-o1 .o1-compact-context>summary span {
+  color:#86969d!important;
+  font-size:11.5px!important;
+  line-height:1.45!important;
+  font-weight:450!important;
+  margin:0;
+}
+#these-methode-o1 .o1-compact-context .o1-intro {
+  margin:8px 0 3px!important;
+  color:#4e6971;
+  font-size:13px!important;
+  line-height:1.65!important;
+  text-align:left!important;
+  hyphens:none;
+}
+@container o1-corpus (max-width:720px) {
+  #these-methode-o1 .o1-resserrement-entete {margin-bottom:14px;}
+  #these-methode-o1 .o1-resserrement-entonnoir {
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:0;
+  }
+  #these-methode-o1 .o1-resserrement-entonnoir>div:not(.o1-resserrement-fleche) {
+    min-height:0;
+    padding:13px 15px!important;
+    gap:6px;
+  }
+  #these-methode-o1 .o1-resserrement-entonnoir b {font-size:24px!important;}
+  #these-methode-o1 .o1-resserrement-fleche {
+    height:23px;
+    transform:rotate(90deg);
+    font-size:18px!important;
+  }
+  #these-methode-o1 .o1-resserrement-axes {grid-template-columns:minmax(0,1fr);}
+}
+@media(max-width:600px) {
+  #these-methode-o1 .o1-resserrement {padding:15px 14px;border-radius:14px;}
+  #these-methode-o1 .o1-resserrement-entete {gap:3px 10px;}
+  #these-methode-o1 .o1-resserrement-entete>span {padding:0;}
+  #these-methode-o1 .o1-resserrement-details>summary span {flex-basis:100%;}
+  #these-methode-o1 .o1-compact-context>summary span {flex-basis:100%;}
+}
+
 /* O2 : bilan de faisabilité technique de l'exercice indépendant, visuel limité à l'analyse */
 #methode-o2-7 .o2-mapping-verification,#methode-o2-7 .o2-mapping-verification *{box-sizing:border-box}
 #methode-o2-7 .o2-mapping-verification{margin:0 0 12px;padding:11px 1px;border-top:1px solid #dce8e9;border-bottom:1px solid #dce8e9;min-width:0}
