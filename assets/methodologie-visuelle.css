@@ -33,3 +33,64 @@
 #these-methode-o2 .methodo-secteurs-grille article:nth-child(3n){--variable:#42805d;background:#f1f9f0}
 @media(max-width:720px){.methodo-chiffres,.methodo-parcours{grid-template-columns:minmax(0,1fr)}.methodo-parcours>li:not(:last-child)::after{content:'↓';inset-inline-end:50%;top:auto;bottom:-27px}.methodo-complement,.methodo-exploration{padding:13px}}
 html.hc :is(.methodo-chiffres>div,.methodo-parcours>li,.methodo-complement,.methodo-exploration){background:Canvas;color:CanvasText;border-color:CanvasText}
+
+
+/* O1 · Population : carte de critères lisible, sans éléments accolés. */
+#these-methode-o1 #methode-o1-4 .o1-vis-population{
+  display:block;width:100%;min-width:0;
+}
+#these-methode-o1 #methode-o1-4 .o1-vis-population-carte{
+  display:grid;
+  grid-template-columns:minmax(165px,220px) minmax(0,1fr);
+  grid-template-areas:"age titre" "age precision";
+  align-items:center;
+  column-gap:clamp(16px,2.4vw,30px);
+  row-gap:8px;
+  box-sizing:border-box;
+  width:100%;min-width:0;
+  margin:0;
+  padding:clamp(17px,2.4vw,26px);
+  background:linear-gradient(115deg,#eef8eb,#fbfef9 85%);
+  border:1px solid #cee2cc;
+  border-inline-start:5px solid #4a942e;
+  border-radius:16px;
+  box-shadow:0 5px 18px rgba(40,108,35,.05);
+}
+#these-methode-o1 #methode-o1-4 .o1-vis-population-carte>strong{
+  grid-area:age;
+  display:flex;align-items:center;justify-content:center;
+  box-sizing:border-box;
+  min-width:0;min-height:92px;padding:15px;
+  background:#fff;
+  border:1px solid #cce1ca;
+  border-radius:12px;
+  color:#286c23;
+  font:800 clamp(24px,2.8vw,34px)/1.16 var(--sans,system-ui,sans-serif);
+  letter-spacing:-.025em;
+  text-align:center;
+  white-space:normal;
+}
+#these-methode-o1 #methode-o1-4 .o1-vis-population-carte>span{
+  grid-area:titre;display:block;min-width:0;
+  color:#244c35;
+  font:750 clamp(17px,1.8vw,22px)/1.3 var(--sans,system-ui,sans-serif);
+  overflow-wrap:break-word;
+}
+#these-methode-o1 #methode-o1-4 .o1-vis-population-carte>small{
+  grid-area:precision;display:block;min-width:0;
+  color:#456356;
+  font-size:16px;line-height:1.5;
+  overflow-wrap:break-word;
+}
+@media(max-width:620px){
+  #these-methode-o1 #methode-o1-4 .o1-vis-population-carte{
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:"age" "titre" "precision";
+    row-gap:11px;padding:16px;
+  }
+  #these-methode-o1 #methode-o1-4 .o1-vis-population-carte>strong{
+    width:fit-content;max-width:100%;
+    min-height:0;padding:12px 16px;
+    font-size:27px;
+  }
+}
