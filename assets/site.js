@@ -1248,79 +1248,98 @@
 })();
 
 
-/* o1-biblio-refonte-20261022 — composition ciblée du bloc O1/Échantillonnage. */
+/* o1-biblio-refonte-20261022 — repères documentaires horizontaux, sans pictogrammes. */
 (() => {
- "use strict";
- const styleId="o1-biblio-visuel-styles";
- function style(){
-  if(document.getElementById(styleId))return;
-  const s=document.createElement("style");s.id=styleId;
-  s.textContent=[
-   "#methode-o1-5 .o1b-visuel{box-sizing:border-box;width:100%;min-width:0;margin:14px 0 20px;padding:clamp(16px,2.5vw,28px);border:1px solid #d5e5d4;border-radius:17px;background:linear-gradient(132deg,#f5fbf3,#fff 58%,#f8fbfc);box-shadow:0 16px 36px -36px #365b45;color:#294858;font-family:var(--sans,system-ui,sans-serif);text-align:left}",
-   "#methode-o1-5 .o1b-visuel *{box-sizing:border-box}",
-   "#methode-o1-5 .o1b-header{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin:0 0 17px}",
-   "#methode-o1-5 .o1b-kicker{display:block;margin-bottom:6px;font:800 11px/1.5 var(--sans,system-ui,sans-serif);letter-spacing:.075em;text-transform:uppercase;color:#357836}",
-   "#methode-o1-5 .o1b-visuel h6{font:760 clamp(20px,2.2vw,27px)/1.2 var(--sans,system-ui,sans-serif)!important;letter-spacing:-.025em;color:#214b39!important;margin:0!important}",
-   "#methode-o1-5 .o1b-total{display:flex;align-items:baseline;gap:7px;flex:none;white-space:nowrap;padding:8px 13px;border:1px solid #c9e0c6;border-radius:12px;background:#eaf5e8;color:#285b32}",
-   "#methode-o1-5 .o1b-total strong{font-size:clamp(25px,3vw,38px);line-height:1;font-weight:850;letter-spacing:-.05em}",
-   "#methode-o1-5 .o1b-total span{font-size:12px;font-weight:700}",
-   "#methode-o1-5 .o1b-label{font:800 11px/1.5 var(--sans,system-ui,sans-serif);text-transform:uppercase;letter-spacing:.06em;color:#607681;margin:0 0 9px!important}",
-   "#methode-o1-5 .o1b-bases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:0 0 19px!important;padding:0!important;list-style:none!important}",
-   "#methode-o1-5 .o1b-bases li{display:flex;flex-direction:column;justify-content:center;gap:4px;min-width:0;padding:12px 13px;border:1px solid #dae6e3;border-radius:10px;background:#fff;box-shadow:0 5px 16px -15px #244d43;list-style:none!important}",
-   "#methode-o1-5 .o1b-bases strong{color:#234454;font-size:clamp(12px,1.14vw,15px);font-weight:750;line-height:1.35;overflow-wrap:normal}",
-   "#methode-o1-5 .o1b-bases small{font-size:11px;line-height:1.3;color:#6a8188;font-weight:650}",
-   "#methode-o1-5 .o1b-chiffres{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 17px}",
-   "#methode-o1-5 .o1b-indic{min-width:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:13px 15px;border:1px solid #dbe5e8;border-top:3px solid var(--accent-indic);border-radius:10px;background:var(--fond-indic)}",
-   "#methode-o1-5 .o1b-indic:nth-child(1){--accent-indic:#397939;--fond-indic:#f2f8ef}",
-   "#methode-o1-5 .o1b-indic:nth-child(2){--accent-indic:#247b8d;--fond-indic:#f1f8fa}",
-   "#methode-o1-5 .o1b-indic:nth-child(3){--accent-indic:#996d3b;--fond-indic:#faf6ee}",
-   "#methode-o1-5 .o1b-indic strong{display:block;margin:0 0 4px;color:var(--accent-indic);font:850 clamp(29px,3vw,42px)/1 var(--sans,system-ui,sans-serif);letter-spacing:-.045em}",
-   "#methode-o1-5 .o1b-indic span{display:block;color:#375563;font:600 clamp(11px,1.06vw,14px)/1.45 var(--sans,system-ui,sans-serif)}",
-   "#methode-o1-5 .o1b-notes{display:grid;gap:9px;border:1px solid #e0e8e9;border-radius:10px;padding:13px 15px;background:#f5f8f9}",
-   "#methode-o1-5 .o1b-notes p{display:block;margin:0!important;color:#47616c;font:450 13px/1.58 var(--sans,system-ui,sans-serif)!important;max-width:none;text-align:left}",
-   "#methode-o1-5 .o1b-notes p+p{border-top:1px solid #dfe7e9;padding-top:9px}",
-   "#methode-o1-5 .o1b-notes strong{color:#2e5e43;font-weight:750}",
-   "@media(max-width:780px){#methode-o1-5 .o1b-bases{grid-template-columns:repeat(2,minmax(0,1fr))}}",
-   "@media(max-width:520px){#methode-o1-5 .o1b-visuel{padding:14px;border-radius:13px}#methode-o1-5 .o1b-header{gap:8px}#methode-o1-5 .o1b-total{padding:7px 9px}#methode-o1-5 .o1b-bases{gap:7px}#methode-o1-5 .o1b-bases li{padding:9px}#methode-o1-5 .o1b-chiffres{gap:6px}#methode-o1-5 .o1b-indic{padding:10px 8px}#methode-o1-5 .o1b-indic strong{font-size:30px}#methode-o1-5 .o1b-indic span{font-size:11px}}",
-   "html.hc #methode-o1-5 .o1b-visuel,html.hc #methode-o1-5 .o1b-bases li,html.hc #methode-o1-5 .o1b-indic,html.hc #methode-o1-5 .o1b-notes{background:Canvas;color:CanvasText;border-color:CanvasText}"
-  ].join("\n");
-  document.head.appendChild(s);
- }
- function composer(){
-  const section=document.querySelector("#these-methode-o1 #methode-o1-5")||document.getElementById("methode-o1-5");
-  if(!section||section.querySelector(".o1b-visuel"))return;
-  const walker=document.createTreeWalker(section,NodeFilter.SHOW_TEXT);
-  let n,ancien=null;
-  while((n=walker.nextNode())){
-   if(!n.nodeValue.includes("4 interrogations bibliographiques"))continue;
-   for(let parent=n.parentElement,i=0;parent&&parent!==section&&i<10;parent=parent.parentElement,i++){
-    const t=parent.textContent.replace(/\s+/g," ").trim();
-    if(t.length>200&&t.length<1100&&t.includes("42")&&t.includes("lignes de recherche")&&t.includes("7")&&t.includes("blocs thématiques")&&t.includes("6")&&t.includes("articles de référence pour le test")&&t.includes("MEDLINE et PubMed se recoupent")&&t.includes("Covidence")){ancien=parent;break}
-   }
-   if(ancien)break;
+  "use strict";
+  const styleId="o1-biblio-visuel-styles";
+  function installerStyles() {
+    if(document.getElementById(styleId))return;
+    const s=document.createElement("style");
+    s.id=styleId;
+    s.textContent=[
+      '#methode-o1-5 .o1b-visuel{box-sizing:border-box;width:100%;min-width:0;margin:16px 0 22px;padding:clamp(18px,2.4vw,28px);border:1px solid #dbe5e4;border-radius:17px;background:#fff;box-shadow:0 10px 28px -26px rgba(31,72,68,.3);color:#304b56;text-align:left!important}',
+      '#methode-o1-5 .o1b-visuel *{box-sizing:border-box;min-width:0;max-width:100%;hyphens:none!important;word-break:normal!important;word-spacing:normal!important;text-align:left!important;text-align-last:left!important}',
+      '#methode-o1-5 .o1b-header{display:flex;justify-content:space-between;align-items:center;gap:14px;margin:0 0 21px;padding:0 0 16px;border-bottom:1px solid #e5ecec}',
+      '#methode-o1-5 .o1b-kicker{display:block;margin:0 0 5px;color:#367657;font-size:12px!important;line-height:1.5!important;letter-spacing:.06em;font-weight:750;text-transform:uppercase}',
+      '#methode-o1-5 .o1b-visuel h6{margin:0!important;padding:0!important;color:#234b56!important;font-size:clamp(20px,2.1vw,26px)!important;line-height:1.23!important;font-weight:750!important;letter-spacing:-.015em}',
+      '#methode-o1-5 .o1b-total{display:flex;align-items:baseline;flex:0 0 auto;gap:8px;padding:9px 15px;border-radius:12px;background:#e8f4ed;border:1px solid #cfe3d7;color:#286447;white-space:nowrap}',
+      '#methode-o1-5 .o1b-total strong{font-size:clamp(29px,3.1vw,38px)!important;font-weight:850!important;line-height:1!important;letter-spacing:-.04em}',
+      '#methode-o1-5 .o1b-total span{font-size:14px!important;line-height:1.35!important;font-weight:650}',
+      '#methode-o1-5 .o1b-label{display:block;margin:0 0 10px!important;color:#4c6671;font-size:13px!important;line-height:1.4!important;font-weight:750;text-transform:none;letter-spacing:0}',
+      '#methode-o1-5 .o1b-bases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:0!important;margin:0 0 17px!important;list-style:none!important}',
+      '#methode-o1-5 .o1b-bases li{display:flex;flex-direction:column;justify-content:center;gap:3px;min-height:75px;padding:13px 14px;border:1px solid #dbe6e7;border-top:4px solid var(--base-accent);border-radius:10px;background:var(--base-fond);list-style:none!important}',
+      '#methode-o1-5 .o1b-bases li:nth-child(1){--base-accent:#287358;--base-fond:#f2f9f5}',
+      '#methode-o1-5 .o1b-bases li:nth-child(2){--base-accent:#217c8d;--base-fond:#f1f8fb}',
+      '#methode-o1-5 .o1b-bases li:nth-child(3){--base-accent:#8260a1;--base-fond:#f7f3fa}',
+      '#methode-o1-5 .o1b-bases li:nth-child(4){--base-accent:#a27238;--base-fond:#faf7f0}',
+      '#methode-o1-5 .o1b-bases strong{display:block;color:#274955;font-size:clamp(14px,1.3vw,17px)!important;line-height:1.3!important;font-weight:750!important;overflow-wrap:normal!important}',
+      '#methode-o1-5 .o1b-bases small{display:block;color:#5e7781;font-size:13px!important;line-height:1.3!important;font-weight:550}',
+      '#methode-o1-5 .o1b-chiffres{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 17px}',
+      '#methode-o1-5 .o1b-indic{display:flex;flex-direction:column;justify-content:center;gap:8px;min-height:112px;padding:14px 17px;border:1px solid #dfe7e7;border-radius:11px;background:var(--fond-indic);border-left:4px solid var(--accent-indic)}',
+      '#methode-o1-5 .o1b-indic:nth-child(1){--accent-indic:#287358;--fond-indic:#eff7f2}',
+      '#methode-o1-5 .o1b-indic:nth-child(2){--accent-indic:#217c8d;--fond-indic:#f0f8fa}',
+      '#methode-o1-5 .o1b-indic:nth-child(3){--accent-indic:#a27238;--fond-indic:#faf6ee}',
+      '#methode-o1-5 .o1b-indic strong{display:block;margin:0!important;color:var(--accent-indic);font-size:clamp(30px,3vw,42px)!important;line-height:1!important;font-weight:850!important;letter-spacing:-.035em;font-variant-numeric:tabular-nums}',
+      '#methode-o1-5 .o1b-indic span{display:block;color:#344e5b;font-size:clamp(13px,1.2vw,16px)!important;line-height:1.4!important;font-weight:600}',
+      '#methode-o1-5 .o1b-notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;padding:0;border:0;background:transparent}',
+      '#methode-o1-5 .o1b-notes p{margin:0!important;padding:14px 16px;border-radius:10px;border:1px solid #e1e8e9;background:#f6f9f9;color:#405d68;font-size:clamp(14px,1.17vw,16px)!important;line-height:1.55!important;font-weight:450}',
+      '#methode-o1-5 .o1b-notes p+p{border-top:1px solid #e1e8e9;padding-top:14px}',
+      '#methode-o1-5 .o1b-notes strong{color:#2e6958;font-weight:750!important}',
+      '@media(max-width:820px){#methode-o1-5 .o1b-bases{grid-template-columns:repeat(2,minmax(0,1fr))}#methode-o1-5 .o1b-notes{grid-template-columns:1fr}}',
+      '@media(max-width:540px){#methode-o1-5 .o1b-visuel{padding:15px}#methode-o1-5 .o1b-header{align-items:flex-start;flex-wrap:wrap}#methode-o1-5 .o1b-chiffres{grid-template-columns:1fr}#methode-o1-5 .o1b-indic{min-height:0;flex-direction:row;align-items:center;justify-content:flex-start}#methode-o1-5 .o1b-indic strong{min-width:55px}#methode-o1-5 .o1b-bases strong{font-size:14px!important}}',
+      '@media(forced-colors:active){#methode-o1-5 .o1b-visuel,#methode-o1-5 .o1b-bases li,#methode-o1-5 .o1b-indic,#methode-o1-5 .o1b-notes p{background:Canvas;color:CanvasText;border-color:CanvasText}}'
+    ].join("\n");
+    document.head.appendChild(s);
   }
-  if(!ancien)return;
-  style();
-  const vue=document.createElement("section");
-  vue.className="o1b-visuel";
-  vue.setAttribute("aria-label","Stratégie bibliographique de l'objectif 1");
-  vue.innerHTML=[
-   '<div class="o1b-header"><div><span class="o1b-kicker">O1 · Revue de portée</span><h6>Stratégie bibliographique</h6></div><div class="o1b-total" aria-label="4 interrogations bibliographiques"><strong>4</strong><span>interrogations</span></div></div>',
-   '<p class="o1b-label">Bases interrogées</p>',
-   '<ul class="o1b-bases"><li><strong>MEDLINE</strong><small>Ovid</small></li><li><strong>Embase</strong><small>Ovid</small></li><li><strong>APA PsycInfo</strong><small>Ovid</small></li><li><strong>PubMed</strong><small>NLM</small></li></ul>',
-   '<div class="o1b-chiffres" aria-label="Repères de la stratégie">',
-   '<div class="o1b-indic"><strong>42</strong><span>Lignes de recherche</span></div>',
-   '<div class="o1b-indic"><strong>7</strong><span>Blocs thématiques</span></div>',
-   '<div class="o1b-indic"><strong>6</strong><span>Articles de référence pour le test</span></div></div>',
-   '<div class="o1b-notes"><p><strong>Traçabilité.</strong> MEDLINE et PubMed se recoupent : stratégies et dédoublonnage à documenter.</p>',
-   '<p><strong>Sélection prévue.</strong> Recherche de toutes les études admissibles, sans tirage probabiliste. Stratégie testée ; critères d’admissibilité à finaliser. Tri par deux évaluateurs indépendants dans Covidence.</p></div>'
-  ].join("");
-  ancien.replaceWith(vue);
- }
- let pending=false;
- const schedule=()=>{if(pending)return;pending=true;requestAnimationFrame(()=>{pending=false;composer()})};
- const init=()=>{schedule();new MutationObserver(schedule).observe(document.getElementById("salle")||document.body,{childList:true,subtree:true})};
- if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init,{once:true});else init();
+  function composer(){
+    const section=document.querySelector("#these-methode-o1 #methode-o1-5")||document.getElementById("methode-o1-5");
+    if(!section)return;
+    installerStyles();
+    if(section.querySelector(".o1b-visuel"))return;
+    // Rechercher le plus petit conteneur contenant les chiffres et notes :
+    // le libellé source peut être découpé entre plusieurs éléments HTML.
+    const noeuds=Array.from(section.querySelectorAll("div,aside,section,blockquote,p,li"));
+    const candidats=noeuds.filter(el=>{
+      const t=(el.textContent||"").replace(/\s+/g," ").trim();
+      return t.length>=170&&t.length<=2300&&
+        t.includes("interrogations bibliographiques")&&
+        t.includes("lignes de recherche")&&
+        t.includes("blocs thématiques")&&
+        t.includes("articles de référence pour le test")&&
+        t.includes("Covidence");
+    }).sort((a,b)=>a.textContent.length-b.textContent.length);
+    const ancien=candidats[0];
+    if(!ancien)return;
+    const vue=document.createElement("section");
+    vue.className="o1b-visuel";
+    vue.setAttribute("aria-label","Stratégie bibliographique et repères du premier essai O1");
+    vue.innerHTML=[
+      '<div class="o1b-header"><div><span class="o1b-kicker">O1 · Revue de portée</span><h6>Stratégie bibliographique</h6></div><div class="o1b-total"><strong>4</strong><span>interrogations</span></div></div>',
+      '<p class="o1b-label">Sources interrogées lors du premier essai</p>',
+      '<ul class="o1b-bases"><li><strong>MEDLINE</strong><small>Ovid</small></li><li><strong>Embase</strong><small>Ovid</small></li><li><strong>APA PsycInfo</strong><small>Ovid</small></li><li><strong>PubMed</strong><small>Ovid</small></li></ul>',
+      '<div class="o1b-chiffres" aria-label="Indicateurs du premier essai">',
+      '<div class="o1b-indic"><strong>42</strong><span>Lignes de recherche</span></div>',
+      '<div class="o1b-indic"><strong>7</strong><span>Blocs thématiques</span></div>',
+      '<div class="o1b-indic"><strong>6</strong><span>Articles de référence pour le test</span></div></div>',
+      '<div class="o1b-notes"><p><strong>Traçabilité.</strong> MEDLINE et PubMed se recoupent : leurs stratégies et le dédoublonnage devront être documentés.</p>',
+      '<p><strong>Étape suivante.</strong> La stratégie a été testée ; les critères restent à affiner. La sélection de toutes les études admissibles sera réalisée par deux évaluateurs indépendants dans Covidence, sans tirage probabiliste.</p></div>'
+    ].join("");
+    ancien.replaceWith(vue);
+  }
+  let programme=false;
+  function programmer(){
+    if(programme)return;
+    programme=true;
+    requestAnimationFrame(()=>{programme=false;composer()});
+  }
+  function initialiser(){
+    installerStyles();
+    programmer();
+    const racine=document.getElementById("salle")||document.body;
+    new MutationObserver(programmer).observe(racine,{childList:true,subtree:true});
+  }
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",initialiser,{once:true});
+  else initialiser();
 })();
 
 
