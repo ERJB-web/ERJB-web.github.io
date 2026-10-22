@@ -2347,8 +2347,8 @@
       if (tete) tete.insertAdjacentElement("afterend",panneau);
       else o2.prepend(panneau);
     }
-    const echantillon = D.querySelector("#these-methode-o3 #methode-o3-2 .methode-rubrique-contenu") ||
-      D.querySelector("#these-methode-o3 #methode-o3-2");
+    const echantillon = D.querySelector("#these-methode-o3 #methode-o3-5 .methode-rubrique-contenu") ||
+      D.querySelector("#these-methode-o3 #methode-o3-5");
     if (echantillon && !echantillon.querySelector(".methodo-questions-terrain")) {
       const panneau = D.createElement("section");
       panneau.className = "methodo-questions-terrain";
