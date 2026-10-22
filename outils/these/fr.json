@@ -1,8 +1,8 @@
 {
   "titre": "Favoriser la réponse intersectorielle apportée aux différents besoins sociaux et de soins de santé concomitants des personnes aînées vivant à domicile : profils, cartographie des ressources et analyse des réseaux.",
   "question": "Comment s'organise la réponse intersectorielle aux besoins sociaux et de soins de santé concomitants des différents profils de personnes aînées vivant à domicile ?",
-  "point": "Chez les patients présentant des besoins sociaux complexes et co-occurrents en soins primaires, la réponse intersectorielle ne peut être appréciée à partir de chaque besoin considéré isolément; elle doit être examinée au regard de la correspondance entre les différents profils de patients et la configuration des réseaux intersectoriels susceptibles d’y répondre, notamment les acteurs qui les composent et les relations entre ces acteurs.",
-  "general": "Analyser comment la réponse intersectorielle s’organise pour répondre aux différents profils de patients ayant des besoins sociaux complexes et co-occurrents pris en charge en soins primaires, afin d’identifier les améliorations organisationnelles permettant de mieux adapter cette réponse à ces profils.",
+  "point": "L’organisation de la réponse intersectorielle aux besoins sociaux et de soins de santé concomitants des personnes aînées vivant à domicile ne se réduit ni à l’identification des besoins ni à la présence de ressources sur un territoire. Elle doit être étudiée à l’articulation des profils de besoins, des ressources territoriales mobilisables et des configurations organisationnelles des réseaux mobilisés en première ligne.",
+  "general": "Analyser comment s’organise, en première ligne et dans les territoires de CLSC, la réponse intersectorielle aux besoins sociaux et de soins de santé concomitants des différents profils de personnes aînées vivant à domicile, en articulant l’identification des profils, la cartographie des ressources mobilisables et l’analyse rétrospective des réseaux intersectoriels mobilisés.",
   "labels": {
     "titre": "Titre provisoire",
     "question": "Question de recherche",
@@ -41,13 +41,13 @@
     "Les acteurs des réseaux intersectoriels susceptibles de prendre en charge différents profils de patients ayant des besoins sociaux complexes et co-occurent en soins primaires manquent de repères opérationnels pour organiser efficacement la réponse à apporter à ces différents profils."
   ],
   "objectifs": [
-    "Identifier les différents profils de personnes aînées vivant à domicile présentant des besoins sociaux et de soins de santé concomitants susceptibles de nécessiter une réponse intersectorielle dans le contexte des soins primaires.",
-    "Cartographier les ressources territoriales susceptibles de répondre aux besoins sociaux et de soins de santé concomitants des différents profils de personnes aînées vivant à domicile, et caractériser les variations territoriales de leur disponibilité, de leur diversité, de leur complémentarité et de leur accessibilité.",
-    "Analyser les configurations organisationnelles des réseaux intersectoriels mobilisés sur le territoire pour répondre aux besoins sociaux et de soins de santé concomitants des différents profils de personnes aînées vivant à domicile, afin de caractériser leurs modalités de fonctionnement."
+    "Identifier les différents profils de personnes aînées vivant à domicile présentant des besoins sociaux et de soins de santé concomitants susceptibles de nécessiter une réponse intersectorielle en première ligne.",
+    "Cartographier les ressources territoriales susceptibles d'être mobilisées en première ligne pour répondre aux besoins sociaux et de soins de santé concomitants des différents profils de personnes aînées vivant à domicile, et caractériser les variations territoriales de leur disponibilité, de leur diversité, de leur complémentarité et de leur accessibilité.",
+    "Analyser les configurations organisationnelles des réseaux intersectoriels en première ligne mobilisés sur le territoire pour répondre aux besoins sociaux et de soins de santé concomitants des différents profils de personnes aînées vivant à domicile, afin de caractériser leurs modalités de fonctionnement."
   ],
   "methodes": [
-    "Revue de portée selon JBI et PRISMA-ScR",
-    "Analyse de réseaux sociaux dont la frontière est délimitée, pour chacun des différents profils de patients présentant des besoins sociaux complexes et co-occurrents nécessitant une réponse intersectorielle en soins primaires, à l’identification du réseau intersectoriel susceptible d’y répondre.",
-    "Atelier délibératif multi-acteurs fondé sur les résultats d’O1 et O2, réunissant patients partenaires, professionnels de soins primaires, acteurs communautaires, acteurs privés et décideurs pertinents, afin d’élaborer des recommandations pour organiser la réponse intersectorielle."
+    "Conduire une revue de la littérature scientifique afin d’identifier et de caractériser les différents profils de personnes aînées vivant à domicile présentant des besoins sociaux et de soins de santé concomitants susceptibles de nécessiter une réponse intersectorielle en première ligne et de déterminer les besoins associés à chacun de ces profils.",
+    "Réaliser une étude cartographique et spatiale des ressources mobilisables en première ligne pour répondre aux différents besoins sociaux et de soins de santé concomitants associés aux profils de personnes aînées vivant à domicile identifiés en O1, afin de caractériser et de comparer, dans les différents territoires de CLSC, leur distribution, leur disponibilité, leur diversité, leur complémentarité et leur accessibilité territoriale.",
+    "Mener une analyse rétrospective des réseaux sociaux (ARS) intersectoriels mobilisés en première ligne à partir de territoires de CLSC pour répondre aux besoins sociaux et de soins de santé concomitants des différents profils de personnes aînées vivant à domicile, afin de caractériser leur composition, la structure de leurs relations et leurs modalités de fonctionnement."
   ]
 }
