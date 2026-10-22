@@ -64,3 +64,46 @@ html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3)[data
 .gab-sommaire-groupe[data-objectif="O3"]{--objectif-texte:#18559b;--objectif-trait:#0755ad;--objectif-fond:#ebf2fd;--objectif-lien:#f3f7ff}
 @media(max-width:720px){.methodo-grille,.methodo-composantes{grid-template-columns:minmax(0,1fr)}.methodo-section{padding:12px}.methodo-item{padding:12px}}
 html.hc .methodo-item,html.hc .methodo-volet,html.hc .methodo-section,html.lv .methodo-item,html.lv .methodo-volet,html.lv .methodo-section{background:Canvas;color:CanvasText;border-color:CanvasText}
+
+
+/* Patrimoine visuel de la méthodologie : placer les planches dans les sous-chapitres, sans modifier le reste du site. */
+html body .these .these-methode-objectif[data-cadrage-harmonise]>.methode-objectif-tete h4,
+html body .these .these-methode-objectif[data-cadrage-harmonise] .methodo-section>.methode-rubrique-titre,
+html body .these .these-methode-objectif[data-cadrage-harmonise] .methodo-section>.methode-rubrique-titre>span{
+  color:var(--methodo-accent)!important;
+}
+html body .these .these-methode-objectif[data-cadrage-harmonise]>.methode-objectif-tete .objectif-code{
+  color:var(--methodo-accent)!important;border-color:var(--methodo-accent)!important;
+}
+.these-methode-objectif[data-cadrage-harmonise] .methodo-section>.methode-rubrique-titre>span{
+  background:var(--methodo-fond)!important;
+}
+.methodo-patrimoine{clear:both;margin:18px 0 6px;padding:clamp(13px,2vw,22px);border:1px solid #d9e5e7;border-inline-start:3px solid var(--methodo-accent);border-radius:13px;background:linear-gradient(145deg,#fff 70%,var(--methodo-fond));min-width:0}
+.methodo-patrimoine-entete{margin-bottom:13px}
+.methodo-patrimoine-entete h6{margin:0 0 5px;color:var(--methodo-accent);font-size:1.02rem;line-height:1.4}
+.methodo-patrimoine-entete p{color:#4c626e;font-size:.91rem;line-height:1.55;max-width:95ch;margin:0}
+.methodo-patrimoine-grid{display:grid;gap:14px;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+.methodo-patrimoine-grid-deux{grid-template-columns:repeat(2,minmax(0,1fr))}
+.methodo-patrimoine .galerie-o2-planche,.methodo-patrimoine .capture-methode,.methodo-patrimoine .schema-reseau,.methodo-patrimoine .figure-officielle{min-width:0;max-width:100%;width:100%;margin:0;background:#fff;border:1px solid #dae5e9;border-radius:10px;overflow:hidden;box-shadow:0 6px 19px -17px rgba(18,50,71,.3)}
+.methodo-patrimoine :is(.galerie-o2-planche,.capture-methode,.figure-officielle) img{display:block;max-width:100%;width:100%;height:auto;object-fit:contain}
+.methodo-patrimoine .galerie-o2-planche figcaption{padding:10px 12px 12px}
+.methodo-patrimoine .galerie-o2-planche figcaption h5{font-size:.94rem!important;color:#243e4b!important;margin:0 0 6px;line-height:1.35}
+.methodo-patrimoine .galerie-o2-planche figcaption p{font-size:.84rem;line-height:1.5;margin:4px 0 0;color:#425b65}
+.methodo-patrimoine .galerie-o2-lecture{border-top:1px solid #e8eff1;margin-top:8px;padding-top:7px}
+.methodo-patrimoine .galerie-o2-lecture strong{font-size:.79rem;color:#45626d}
+.methodo-patrimoine .capture-methode figcaption{font-size:.86rem;padding:10px 13px;color:#45616b;line-height:1.5}
+.methodo-atlas-details{margin-top:13px;border:1px solid #dce6e8;background:#fff;border-radius:9px;padding:12px 14px}
+.methodo-atlas-details summary{color:var(--methodo-accent);font-weight:680;cursor:pointer;line-height:1.45}
+.methodo-atlas-details[open] summary{padding-bottom:12px;margin-bottom:13px;border-bottom:1px solid #e3ebef}
+.methodo-atlas-details>p{font-size:.88rem;color:#4b6270}
+.methodo-dual-reseau{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:15px}
+.methodo-dual-reseau>div{padding:15px 17px;background:#fff;border:1px solid #dbe5eb;border-top:3px solid var(--methodo-accent);border-radius:10px;min-width:0}
+.methodo-dual-reseau span{display:block;color:var(--methodo-accent);font-weight:750;font-size:.77rem;letter-spacing:.045em;margin-bottom:6px}
+.methodo-dual-reseau strong{display:block;color:#243f50;font-size:.99rem;margin-bottom:5px}
+.methodo-dual-reseau p{margin:0;color:#455c69;font-size:.9rem;line-height:1.53}
+.methodo-patrimoine .schema-reseau{padding:10px 15px}
+.methodo-patrimoine .schema-reseau svg{max-width:100%;height:auto;display:block;margin-inline:auto}
+.methodo-patrimoine .schema-reseau .schema-legende{font-size:.9rem;line-height:1.55;color:#3b5664}
+@media(max-width:850px){.methodo-patrimoine-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.methodo-patrimoine-grid,.methodo-dual-reseau{grid-template-columns:minmax(0,1fr)}.methodo-patrimoine{padding:12px}.methodo-patrimoine-entete p{font-size:.87rem}}
+html.hc .methodo-patrimoine,html.lv .methodo-patrimoine{background:Canvas;color:CanvasText;border-color:CanvasText}
