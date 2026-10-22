@@ -7,7 +7,7 @@ permissions:
   contents: read
 concurrency:
   group: pages-refresh-20261022-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
   verifier:
     name: Navigation, génération, typographie et interactions
