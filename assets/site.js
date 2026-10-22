@@ -1246,3 +1246,79 @@
     document.addEventListener("DOMContentLoaded",initialiser,{once:true});
   else initialiser();
 })();
+
+
+/* o1-biblio-refonte-20261022 — composition ciblée du bloc O1/Échantillonnage. */
+(() => {
+ "use strict";
+ const styleId="o1-biblio-visuel-styles";
+ function style(){
+  if(document.getElementById(styleId))return;
+  const s=document.createElement("style");s.id=styleId;
+  s.textContent=[
+   "#methode-o1-5 .o1b-visuel{box-sizing:border-box;width:100%;min-width:0;margin:14px 0 20px;padding:clamp(16px,2.5vw,28px);border:1px solid #d5e5d4;border-radius:17px;background:linear-gradient(132deg,#f5fbf3,#fff 58%,#f8fbfc);box-shadow:0 16px 36px -36px #365b45;color:#294858;font-family:var(--sans,system-ui,sans-serif);text-align:left}",
+   "#methode-o1-5 .o1b-visuel *{box-sizing:border-box}",
+   "#methode-o1-5 .o1b-header{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin:0 0 17px}",
+   "#methode-o1-5 .o1b-kicker{display:block;margin-bottom:6px;font:800 11px/1.5 var(--sans,system-ui,sans-serif);letter-spacing:.075em;text-transform:uppercase;color:#357836}",
+   "#methode-o1-5 .o1b-visuel h6{font:760 clamp(20px,2.2vw,27px)/1.2 var(--sans,system-ui,sans-serif)!important;letter-spacing:-.025em;color:#214b39!important;margin:0!important}",
+   "#methode-o1-5 .o1b-total{display:flex;align-items:baseline;gap:7px;flex:none;white-space:nowrap;padding:8px 13px;border:1px solid #c9e0c6;border-radius:12px;background:#eaf5e8;color:#285b32}",
+   "#methode-o1-5 .o1b-total strong{font-size:clamp(25px,3vw,38px);line-height:1;font-weight:850;letter-spacing:-.05em}",
+   "#methode-o1-5 .o1b-total span{font-size:12px;font-weight:700}",
+   "#methode-o1-5 .o1b-label{font:800 11px/1.5 var(--sans,system-ui,sans-serif);text-transform:uppercase;letter-spacing:.06em;color:#607681;margin:0 0 9px!important}",
+   "#methode-o1-5 .o1b-bases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:0 0 19px!important;padding:0!important;list-style:none!important}",
+   "#methode-o1-5 .o1b-bases li{display:flex;flex-direction:column;justify-content:center;gap:4px;min-width:0;padding:12px 13px;border:1px solid #dae6e3;border-radius:10px;background:#fff;box-shadow:0 5px 16px -15px #244d43;list-style:none!important}",
+   "#methode-o1-5 .o1b-bases strong{color:#234454;font-size:clamp(12px,1.14vw,15px);font-weight:750;line-height:1.35;overflow-wrap:normal}",
+   "#methode-o1-5 .o1b-bases small{font-size:11px;line-height:1.3;color:#6a8188;font-weight:650}",
+   "#methode-o1-5 .o1b-chiffres{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 17px}",
+   "#methode-o1-5 .o1b-indic{min-width:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:13px 15px;border:1px solid #dbe5e8;border-top:3px solid var(--accent-indic);border-radius:10px;background:var(--fond-indic)}",
+   "#methode-o1-5 .o1b-indic:nth-child(1){--accent-indic:#397939;--fond-indic:#f2f8ef}",
+   "#methode-o1-5 .o1b-indic:nth-child(2){--accent-indic:#247b8d;--fond-indic:#f1f8fa}",
+   "#methode-o1-5 .o1b-indic:nth-child(3){--accent-indic:#996d3b;--fond-indic:#faf6ee}",
+   "#methode-o1-5 .o1b-indic strong{display:block;margin:0 0 4px;color:var(--accent-indic);font:850 clamp(29px,3vw,42px)/1 var(--sans,system-ui,sans-serif);letter-spacing:-.045em}",
+   "#methode-o1-5 .o1b-indic span{display:block;color:#375563;font:600 clamp(11px,1.06vw,14px)/1.45 var(--sans,system-ui,sans-serif)}",
+   "#methode-o1-5 .o1b-notes{display:grid;gap:9px;border:1px solid #e0e8e9;border-radius:10px;padding:13px 15px;background:#f5f8f9}",
+   "#methode-o1-5 .o1b-notes p{display:block;margin:0!important;color:#47616c;font:450 13px/1.58 var(--sans,system-ui,sans-serif)!important;max-width:none;text-align:left}",
+   "#methode-o1-5 .o1b-notes p+p{border-top:1px solid #dfe7e9;padding-top:9px}",
+   "#methode-o1-5 .o1b-notes strong{color:#2e5e43;font-weight:750}",
+   "@media(max-width:780px){#methode-o1-5 .o1b-bases{grid-template-columns:repeat(2,minmax(0,1fr))}}",
+   "@media(max-width:520px){#methode-o1-5 .o1b-visuel{padding:14px;border-radius:13px}#methode-o1-5 .o1b-header{gap:8px}#methode-o1-5 .o1b-total{padding:7px 9px}#methode-o1-5 .o1b-bases{gap:7px}#methode-o1-5 .o1b-bases li{padding:9px}#methode-o1-5 .o1b-chiffres{gap:6px}#methode-o1-5 .o1b-indic{padding:10px 8px}#methode-o1-5 .o1b-indic strong{font-size:30px}#methode-o1-5 .o1b-indic span{font-size:11px}}",
+   "html.hc #methode-o1-5 .o1b-visuel,html.hc #methode-o1-5 .o1b-bases li,html.hc #methode-o1-5 .o1b-indic,html.hc #methode-o1-5 .o1b-notes{background:Canvas;color:CanvasText;border-color:CanvasText}"
+  ].join("\n");
+  document.head.appendChild(s);
+ }
+ function composer(){
+  const section=document.querySelector("#these-methode-o1 #methode-o1-5")||document.getElementById("methode-o1-5");
+  if(!section||section.querySelector(".o1b-visuel"))return;
+  const walker=document.createTreeWalker(section,NodeFilter.SHOW_TEXT);
+  let n,ancien=null;
+  while((n=walker.nextNode())){
+   if(!n.nodeValue.includes("4 interrogations bibliographiques"))continue;
+   for(let parent=n.parentElement,i=0;parent&&parent!==section&&i<10;parent=parent.parentElement,i++){
+    const t=parent.textContent.replace(/\s+/g," ").trim();
+    if(t.length>200&&t.length<1100&&t.includes("42")&&t.includes("lignes de recherche")&&t.includes("7")&&t.includes("blocs thématiques")&&t.includes("6")&&t.includes("articles de référence pour le test")&&t.includes("MEDLINE et PubMed se recoupent")&&t.includes("Covidence")){ancien=parent;break}
+   }
+   if(ancien)break;
+  }
+  if(!ancien)return;
+  style();
+  const vue=document.createElement("section");
+  vue.className="o1b-visuel";
+  vue.setAttribute("aria-label","Stratégie bibliographique de l'objectif 1");
+  vue.innerHTML=[
+   '<div class="o1b-header"><div><span class="o1b-kicker">O1 · Revue de portée</span><h6>Stratégie bibliographique</h6></div><div class="o1b-total" aria-label="4 interrogations bibliographiques"><strong>4</strong><span>interrogations</span></div></div>',
+   '<p class="o1b-label">Bases interrogées</p>',
+   '<ul class="o1b-bases"><li><strong>MEDLINE</strong><small>Ovid</small></li><li><strong>Embase</strong><small>Ovid</small></li><li><strong>APA PsycInfo</strong><small>Ovid</small></li><li><strong>PubMed</strong><small>NLM</small></li></ul>',
+   '<div class="o1b-chiffres" aria-label="Repères de la stratégie">',
+   '<div class="o1b-indic"><strong>42</strong><span>Lignes de recherche</span></div>',
+   '<div class="o1b-indic"><strong>7</strong><span>Blocs thématiques</span></div>',
+   '<div class="o1b-indic"><strong>6</strong><span>Articles de référence pour le test</span></div></div>',
+   '<div class="o1b-notes"><p><strong>Traçabilité.</strong> MEDLINE et PubMed se recoupent : stratégies et dédoublonnage à documenter.</p>',
+   '<p><strong>Sélection prévue.</strong> Recherche de toutes les études admissibles, sans tirage probabiliste. Stratégie testée ; critères d’admissibilité à finaliser. Tri par deux évaluateurs indépendants dans Covidence.</p></div>'
+  ].join("");
+  ancien.replaceWith(vue);
+ }
+ let pending=false;
+ const schedule=()=>{if(pending)return;pending=true;requestAnimationFrame(()=>{pending=false;composer()})};
+ const init=()=>{schedule();new MutationObserver(schedule).observe(document.getElementById("salle")||document.body,{childList:true,subtree:true})};
+ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init,{once:true});else init();
+})();
