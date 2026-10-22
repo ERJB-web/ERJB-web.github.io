@@ -1339,7 +1339,7 @@
     if (!corps) return;
     if (salle === "recherche") {
       mettreDevisEnCartes(sc);
-      const labels = {"fr":"Synthèse des trois objectifs","en":"Overview of the three objectives","es":"Síntesis de los tres objetivos","zh":"三个目标概述","ar":"ملخص الأهداف الثلاثة","ru":"Обзор трёх целей"};
+      const labels = {"fr":"Résumé des trois objectifs","en":"Overview of the three objectives","es":"Síntesis de los tres objetivos","zh":"三个目标概述","ar":"ملخص الأهداف الثلاثة","ru":"Обзор трёх целей"};
       sc.querySelectorAll(".these-vulgarisation-ensemble").forEach(bloc => {
         if (bloc.querySelector(":scope > .methode-recapitulatif")) return;
         const details = el("section", "methode-recapitulatif methodo-synthese-visible");
