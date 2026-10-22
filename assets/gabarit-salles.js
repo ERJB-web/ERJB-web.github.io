@@ -2281,6 +2281,91 @@
   }
   completerMethodologieO2O3();
 
+  // O2 : résultats d'un exercice spatial indépendant ; O3 : cadrage à discuter
+  // avec un partenaire potentiel. Ces deux blocs ne sont pas des résultats doctoraux.
+  function montrerExplorationEtQuestionsTerritoriales() {
+    if (langue !== "fr" && langue !== "en") return;
+    const anglais = langue === "en";
+    const donnees = anglais ? {
+      precedent: "Independent exploratory spatial study",
+      titre: "An initial territorial assessment to inform O2",
+      description: "An independent exercise covering the eight CLSC territories of the CCSMTL.",
+      chiffres: [["8","CLSC territories"],["7,216","Service locations identified"],["6","Sectors represented"],["6","Variables assessed"]],
+      carte: "Example map · eight CLSC territories and their potential proximity of services",
+      voir: "Enlarge the exploratory map",
+      lire: "What the exploration indicates",
+      observations: [["Distribution","Contrasts in the spatial distribution of potential resources"],["Accessibility","Differences in potential geographic accessibility and joint access"],["Research design","A rationale for discussing several contrasting CLSC territories"]],
+      avertissement: "Read alongside the new primary care policy, these preliminary findings provide a shared basis for discussing a territorial comparison. The doctoral field sites and partnerships remain to be determined; mapped services do not demonstrate actual collaboration.",
+      thematique: "O3 · Sampling and field preparation",
+      questionTitre: "Situations and territorial anchoring to be defined with a prospective partner",
+      questionIntro: "Four questions to shape the field of inquiry, without presupposing an agreement or a fixed sample.",
+      cartes: [
+        ["01","Complex situations and service pathways","Which situations involve concurrent social and health-care needs among older adults living at home? Through which entry points are they identified, and what intersectoral coordination mechanisms are currently used?"],
+        ["02","Territorial priorities","Which issues and priorities of the CCSMTL are most relevant to intersectoral responses? Which local initiatives could this study connect with?"],
+        ["03","Territorial relevance","Which contrasting CLSC territories, organisations and collaborative forums would be relevant for examining available resources and relationships actually mobilised?"],
+        ["04","Collaboration and feasibility","How could a relational questionnaire on actual intersectoral collaboration be adapted to the field? What access to CLSC professionals, partner organisations and institutional support might be possible?"]
+      ]
+    } : {
+      precedent: "Étude spatiale exploratoire indépendante",
+      titre: "Un premier repérage territorial pour éclairer O2",
+      description: "Exercice indépendant couvrant les huit territoires de CLSC du CCSMTL.",
+      chiffres: [["8","Territoires de CLSC"],["7 216","Lieux de services recensés"],["6","Secteurs représentés"],["6","Variables de caractérisation"]],
+      carte: "Exemple de carte · huit territoires de CLSC et offre potentielle de proximité",
+      voir: "Agrandir la carte exploratoire",
+      lire: "Ce que l’exploration met en évidence",
+      observations: [["Répartition","Des contrastes dans la distribution des ressources mobilisables"],["Accessibilité","Des différences d’accessibilité géographique et de co-accessibilité potentielles"],["Perspective doctorale","L’intérêt de discuter une comparaison de plusieurs territoires de CLSC contrastés"]],
+      avertissement: "Mis en perspective avec la nouvelle politique de première ligne, ces résultats préliminaires alimentent une réflexion commune. Le terrain doctoral et les collaborations demeurent à définir ; une ressource cartographiée ne prouve pas sa mobilisation effective.",
+      thematique: "O3 · Échantillonnage et préparation du terrain",
+      questionTitre: "Situations et ancrage territorial à déterminer avec un partenaire potentiel",
+      questionIntro: "Quatre axes de questionnement pour délimiter l’étude, sans présumer d’un partenariat ou d’un échantillon déjà arrêtés.",
+      cartes: [
+        ["01","Situations complexes et parcours","Quelles situations associent des besoins sociaux et de soins de santé concomitants chez les personnes aînées à domicile ? Par quelles portes d’entrée sont-elles repérées, et quels mécanismes de coordination intersectorielle sont déjà mobilisés ?"],
+        ["02","Enjeux et priorités territoriales","Quels enjeux et priorités du CCSMTL concernent cette réponse intersectorielle ? À quelles préoccupations ou initiatives locales la recherche pourrait-elle s’articuler ?"],
+        ["03","Pertinence et ancrage","Quels territoires de CLSC contrastés, organisations et espaces de concertation seraient pertinents pour examiner les ressources disponibles et les collaborations effectivement mobilisées ?"],
+        ["04","Collaboration et faisabilité","Comment adapter au terrain un questionnaire sur les collaborations intersectorielles réelles, mises en regard des ressources disponibles ? Quels accès aux professionnels des CLSC, aux organismes partenaires et à un appui institutionnel seraient envisageables ?"]
+      ]
+    };
+    const echapper = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    const o2 = D.getElementById("these-methode-o2");
+    if (o2 && !o2.querySelector(".methodo-exploratoire")) {
+      const petite = new URL(CHEMIN + "assets/these/o2-galerie/planche-01.webp", D.baseURI).href;
+      const grande = new URL(CHEMIN + "assets/these/o2-galerie/planche-01-grand.webp", D.baseURI).href;
+      const panneau = D.createElement("section");
+      panneau.className = "methodo-exploratoire";
+      panneau.setAttribute("aria-labelledby","methodo-exploratoire-titre");
+      panneau.innerHTML =
+        '<div class="methodo-exploratoire-entete"><span class="methodo-exploratoire-label">'+echapper(donnees.precedent)+'</span>'+
+        '<h3 id="methodo-exploratoire-titre">'+echapper(donnees.titre)+'</h3><p>'+echapper(donnees.description)+'</p></div>'+
+        '<div class="methodo-exploratoire-chiffres" aria-label="'+(anglais?"Study overview":"Repères de l’étude")+'">'+
+        donnees.chiffres.map((v,i)=>'<div class="methodo-exploratoire-indic methodo-exploratoire-indic--'+i+'"><strong>'+echapper(v[0])+'</strong><span>'+echapper(v[1])+'</span></div>').join("")+'</div>'+
+        '<div class="methodo-exploratoire-detail"><figure class="methodo-exploratoire-carte"><a href="'+grande+'" target="_blank" rel="noopener noreferrer" aria-label="'+echapper(donnees.voir)+'"><img src="'+petite+'" alt="'+echapper(donnees.carte)+'" loading="lazy" decoding="async"></a><figcaption>'+echapper(donnees.carte)+' <span aria-hidden="true">↗</span></figcaption></figure>'+
+        '<div class="methodo-exploratoire-analyse"><h4>'+echapper(donnees.lire)+'</h4><div class="methodo-exploratoire-table"><table><tbody>'+
+        donnees.observations.map(v=>'<tr><th scope="row">'+echapper(v[0])+'</th><td>'+echapper(v[1])+'</td></tr>').join("")+
+        '</tbody></table></div></div></div>'+
+        '<p class="methodo-exploratoire-note">'+echapper(donnees.avertissement)+'</p>';
+      const tete = o2.querySelector(":scope > .methode-objectif-tete, :scope > .these-methode-tete");
+      if (tete) tete.insertAdjacentElement("afterend",panneau);
+      else o2.prepend(panneau);
+    }
+    const echantillon = D.querySelector("#these-methode-o3 #methode-o3-2 .methode-rubrique-contenu") ||
+      D.querySelector("#these-methode-o3 #methode-o3-2");
+    if (echantillon && !echantillon.querySelector(".methodo-questions-terrain")) {
+      const panneau = D.createElement("section");
+      panneau.className = "methodo-questions-terrain";
+      panneau.setAttribute("aria-labelledby","methodo-questions-titre");
+      panneau.innerHTML =
+        '<header class="methodo-questions-entete"><span class="methodo-questions-label">'+echapper(donnees.thematique)+'</span>'+
+        '<h3 id="methodo-questions-titre">'+echapper(donnees.questionTitre)+'</h3><p>'+echapper(donnees.questionIntro)+'</p></header>'+
+        '<div class="methodo-questions-grille">'+
+        donnees.cartes.map(v=>'<article class="methodo-question"><span class="methodo-question-num">'+echapper(v[0])+'</span>'+
+        '<div><h4>'+echapper(v[1])+'</h4><p>'+echapper(v[2])+'</p></div></article>').join("")+
+        '</div>';
+      echantillon.append(panneau);
+    }
+  }
+  montrerExplorationEtQuestionsTerritoriales();
+
+
   // Le pilote et les seuils relèvent du chapitre Faisabilité, pas de la grille QUAN/QUAL d'O3.
   function retirerDoublonsPilotageO3() {
     if (langue !== "fr") return;
