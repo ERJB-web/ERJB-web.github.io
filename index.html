@@ -1117,27 +1117,105 @@ nav.these-methode-parcours[data-objectifs-isoles="oui"] .these-produit-descripti
 <div class="o1-critere-col inclusion"><strong>Inclusion</strong><ul><li>Études quantitatives, qualitatives ou mixtes ; revues systématiques ou de portée ; travaux théoriques ou conceptuels définissant les besoins sociaux de cette population ; rapports gouvernementaux ou institutionnels.</li><li>Publications <strong>en français ou en anglais</strong>, depuis <strong>2006</strong>.</li></ul></div>
 <div class="o1-critere-col exclusion"><strong>Exclusion</strong><ul><li>Résumés de congrès, thèses et mémoires, protocoles d’étude, éditoriaux et lettres sans données, ou publications décrivant insuffisamment les besoins sociaux.</li><li>Autres langues que le français ou l’anglais, ou publication antérieure à 2006.</li></ul></div></div></div></details></div>
 
-<div class="o1-resserrement" role="note" aria-label="Évolution du corpus documentaire et critères à confirmer">
- <div class="o1-resserrement-entete"><strong>Du repérage large à une sélection ciblée</strong><span>O1 · révision en cours</span></div>
- <div class="o1-resserrement-entonnoir" aria-label="Évolution indicative du volume documentaire">
-  <div><b>26 609</b><span>notices après dédoublonnage · recherche initiale FR + EN</span></div>
-  <div class="o1-resserrement-fleche" aria-hidden="true">→</div>
-  <div><b>≈ 22 000</b><span>sous-ensemble anglais · décompte provisoire</span></div>
-  <div class="o1-resserrement-fleche" aria-hidden="true">→</div>
-  <div class="o1-resserrement-cible"><b>À établir</b><span>corpus éligible après affinage et pilote</span></div>
- </div>
- <details class="o1-resserrement-details">
-  <summary>Critères à resserrer avant le tri définitif <span>4 points à valider</span></summary>
-  <div class="o1-resserrement-axes">
-   <div><b>Population</b><span>65 ans et plus à domicile ; morbidité ou multimorbidité documentée, ou résultats distincts pour ce groupe.</span></div>
-   <div><b>Concept</b><span>Au moins deux domaines sociaux analysés dans une même population ; écarter les études limitées à un indicateur clinique ou à un besoin isolé.</span></div>
-   <div><b>Contexte et sources</b><span>Domicile, proximité ou première ligne ; résultats extractibles, études empiriques et sources conceptuelles distinguées.</span></div>
-   <div><b>Recherche</b><span>Réviser les termes trop larges et les chevauchements MEDLINE–PubMed ; vérifier la récupération des six articles tests.</span></div>
+
+<style id="o1-revision-visuelle-20261022">
+/* O1 : un diagramme de sélection, les apprentissages de l'essai et une grille décisionnelle. */
+#these-methode-o1 .o1-revision2026{--ink:#203e49;--muted:#59717a;--lime:#4d8d5a;--violet:#8067b0;--blue:#287eaa;--line:#dce7e9;box-sizing:border-box;margin:23px 0 4px;padding:clamp(16px,2.7vw,29px);background:linear-gradient(146deg,#fbfefd 0%,#f7fbfc 53%,#fbfafc 100%);border:1px solid #d8e5e7;border-radius:23px;box-shadow:0 12px 34px -30px #294e5d;color:var(--ink);font-size:15px;line-height:1.48}
+#these-methode-o1 .o1-revision2026 *,#these-methode-o1 .o1-revision2026 *::before,#these-methode-o1 .o1-revision2026 *::after{box-sizing:border-box}
+#these-methode-o1 .o1-revision2026 h5,#these-methode-o1 .o1-revision2026 h6,#these-methode-o1 .o1-revision2026 p{margin:0}
+#these-methode-o1 .o1rv-head{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;margin-bottom:18px}
+#these-methode-o1 .o1rv-kicker{display:inline-flex;align-items:center;gap:8px;color:#42794e;font-size:11px;font-weight:850;letter-spacing:.09em;text-transform:uppercase}
+#these-methode-o1 .o1rv-kicker::before{content:"";width:9px;height:9px;border-radius:50%;background:#4d9b6b;box-shadow:0 0 0 4px #e2f2e6}
+#these-methode-o1 .o1rv-head h5{margin:6px 0!important;color:#1d3d45;font-size:clamp(20px,2vw,26px);line-height:1.2;letter-spacing:-.025em;font-weight:820}
+#these-methode-o1 .o1rv-head p{max-width:72ch;color:#577078;font-size:13px;line-height:1.55}
+#these-methode-o1 .o1rv-status{flex:none;display:inline-flex;align-items:center;border:1px solid #ddd1ed;background:#f5f0fa;color:#6c558a;border-radius:999px;padding:7px 11px;font-size:11px;font-weight:800;white-space:nowrap}
+#these-methode-o1 .o1rv-sectiontitle{display:flex;align-items:center;gap:10px;margin:0 0 10px!important;font-size:14px!important;line-height:1.25;color:#284653;font-weight:820}
+#these-methode-o1 .o1rv-sectiontitle::before{content:"";width:4px;height:18px;flex:none;background:#518865;border-radius:5px}
+#these-methode-o1 .o1rv-flow{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr) 22px minmax(0,1fr);align-items:center;gap:7px}
+#these-methode-o1 .o1rv-step{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:150px;min-width:0;padding:17px 16px 15px;border:1px solid #dbe9e3;border-top:4px solid #548b64;border-radius:16px;background:linear-gradient(160deg,#eef8f1,#fff 79%);overflow-wrap:anywhere}
+#these-methode-o1 .o1rv-step--middle{border-color:#d7e2f3;border-top-color:#468bb9;background:linear-gradient(160deg,#edf5fc,#fff 79%)}
+#these-methode-o1 .o1rv-step--last{border-color:#e2dbed;border-top-color:#9273b7;background:linear-gradient(160deg,#f5f1fb,#fff 79%)}
+#these-methode-o1 .o1rv-stepnum{position:absolute;top:10px;right:13px;color:#82979c;font-size:10px;font-weight:850;letter-spacing:.04em}
+#these-methode-o1 .o1rv-metric{display:block;margin:0 0 5px;color:#244e39;font-size:clamp(23px,2.6vw,31px);line-height:1.13;letter-spacing:-.038em;font-weight:900;font-variant-numeric:tabular-nums}
+#these-methode-o1 .o1rv-step--middle .o1rv-metric{color:#286789;font-size:clamp(18px,2vw,25px)}
+#these-methode-o1 .o1rv-step--last .o1rv-metric{color:#6e538b;font-size:clamp(18px,2vw,25px)}
+#these-methode-o1 .o1rv-step strong{display:block;margin-bottom:5px;color:#27434b;font-size:12px;line-height:1.3}
+#these-methode-o1 .o1rv-step p{color:#526a73;font-size:12px;line-height:1.46}
+#these-methode-o1 .o1rv-link{display:grid;place-items:center;width:22px;height:22px;border:1px solid #d9e5e8;background:#fff;border-radius:50%;color:#5b8895;font-size:14px;font-weight:850}
+#these-methode-o1 .o1rv-language{display:flex;align-items:flex-start;gap:12px;margin:11px 0 19px;padding:12px 14px;background:#fff;border:1px dashed #bfd4df;border-radius:13px}
+#these-methode-o1 .o1rv-language b{flex:none;color:#2d728f;font-size:20px;line-height:1.1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+#these-methode-o1 .o1rv-language p{color:#486370;font-size:12px;line-height:1.5}
+#these-methode-o1 .o1rv-language strong{color:#315a6a}
+#these-methode-o1 .o1rv-insights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 20px}
+#these-methode-o1 .o1rv-insight{min-width:0;padding:13px 14px;border-radius:14px;background:#fff;border:1px solid #dbe7e8;box-shadow:0 4px 13px -12px #326070}
+#these-methode-o1 .o1rv-insight b{display:block;margin:0 0 5px;color:#2b6373;font-size:12px;line-height:1.35}
+#these-methode-o1 .o1rv-insight:nth-child(2) b{color:#74609d}
+#these-methode-o1 .o1rv-insight:nth-child(3) b{color:#497a52}
+#these-methode-o1 .o1rv-insight p{color:#4f6770;font-size:12px;line-height:1.5}
+#these-methode-o1 .o1rv-tablehead{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:0 0 10px}
+#these-methode-o1 .o1rv-tablehead .o1rv-sectiontitle{margin:0!important}
+#these-methode-o1 .o1rv-tablehead>span{color:#765e95;font-size:11px;font-weight:750}
+#these-methode-o1 .o1rv-tablebox{overflow:hidden;border:1px solid #d7e4e7;border-radius:15px;background:#fff}
+#these-methode-o1 table.o1rv-table{width:100%;border-collapse:collapse;table-layout:fixed;text-align:left;margin:0;border:0;font-size:12px;line-height:1.5}
+#these-methode-o1 .o1rv-table th,#these-methode-o1 .o1rv-table td{padding:11px 13px;vertical-align:top;border:0;border-bottom:1px solid #e3ebed;overflow-wrap:anywhere}
+#these-methode-o1 .o1rv-table thead th{background:#eaf2f4;color:#325665;font-size:11px;letter-spacing:.025em;font-weight:850}
+#these-methode-o1 .o1rv-table thead th:nth-child(1){width:19%}
+#these-methode-o1 .o1rv-table thead th:nth-child(2){width:30%}
+#these-methode-o1 .o1rv-table tbody tr:nth-child(even){background:#f8fbfc}
+#these-methode-o1 .o1rv-table tbody tr:last-child td{border-bottom:0}
+#these-methode-o1 .o1rv-table td:first-child{color:#2e5862;font-weight:820}
+#these-methode-o1 .o1rv-table td:nth-child(2){color:#576e76}
+#these-methode-o1 .o1rv-table td:nth-child(3){color:#253f48}
+#these-methode-o1 .o1rv-table td strong{font-weight:850;color:#296447}
+#these-methode-o1 .o1rv-next{margin:14px 0 0;padding:13px 15px;border-radius:14px;background:linear-gradient(100deg,#ecf5ee,#f3f7fb);border:1px solid #d6e6df}
+#these-methode-o1 .o1rv-next b{display:block;margin:0 0 8px;font-size:12px;color:#335f49}
+#these-methode-o1 .o1rv-next ol{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;list-style:none;margin:0;padding:0;counter-reset:o1rv}
+#these-methode-o1 .o1rv-next li{position:relative;counter-increment:o1rv;min-width:0;padding-left:24px;font-size:11px;line-height:1.4;color:#425f6a}
+#these-methode-o1 .o1rv-next li::before{content:counter(o1rv);position:absolute;left:0;top:0;display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#568e69;color:#fff;font-size:10px;font-weight:850}
+#these-methode-o1 .o1rv-caveat{margin:11px 1px 0!important;color:#627780;font-size:11px;line-height:1.53}
+@media(max-width:950px){#these-methode-o1 .o1rv-insights{grid-template-columns:repeat(2,minmax(0,1fr))}#these-methode-o1 .o1rv-insight:last-child{grid-column:1/-1}}
+@media(max-width:700px){#these-methode-o1 .o1-revision2026{padding:17px 14px;border-radius:17px}#these-methode-o1 .o1rv-head{display:block}#these-methode-o1 .o1rv-status{margin-top:10px}#these-methode-o1 .o1rv-flow{grid-template-columns:1fr;gap:7px}#these-methode-o1 .o1rv-step{min-height:0;padding:15px 15px 14px}#these-methode-o1 .o1rv-link{margin:auto;transform:rotate(90deg)}#these-methode-o1 .o1rv-insights{grid-template-columns:1fr}#these-methode-o1 .o1rv-insight:last-child{grid-column:auto}#these-methode-o1 .o1rv-tablehead{align-items:start;flex-direction:column;gap:4px}#these-methode-o1 .o1rv-table thead{display:none}#these-methode-o1 .o1rv-table,#these-methode-o1 .o1rv-table tbody,#these-methode-o1 .o1rv-table tr,#these-methode-o1 .o1rv-table td{display:block;width:100%}#these-methode-o1 .o1rv-table tr{border-bottom:1px solid #dce6e9;padding:10px 13px}#these-methode-o1 .o1rv-table tr:last-child{border-bottom:0}#these-methode-o1 .o1rv-table td{padding:3px 0;border:0}#these-methode-o1 .o1rv-table td:first-child{font-size:14px;margin:1px 0 5px}#these-methode-o1 .o1rv-table td:nth-child(2)::before{content:"Repérage exploratoire";display:block;margin-bottom:1px;color:#819197;font-size:10px;font-weight:850;text-transform:uppercase;letter-spacing:.03em}#these-methode-o1 .o1rv-table td:nth-child(3)::before{content:"Resserrement proposé";display:block;margin-top:7px;margin-bottom:1px;color:#518567;font-size:10px;font-weight:850;text-transform:uppercase;letter-spacing:.03em}#these-methode-o1 .o1rv-next ol{grid-template-columns:repeat(2,minmax(0,1fr))}#these-methode-o1 .o1rv-language{display:block}#these-methode-o1 .o1rv-language b{display:block;margin-bottom:3px}}
+@media(max-width:400px){#these-methode-o1 .o1rv-next ol{grid-template-columns:1fr}}
+</style>
+<section class="o1-revision2026" aria-labelledby="o1rv-titre">
+  <header class="o1rv-head">
+    <div><span class="o1rv-kicker">O1 · Revue de portée</span><h5 id="o1rv-titre">Du repérage large à une sélection ciblée</h5><p>La recherche exploratoire a servi à tester la portée de la stratégie, la grille Covidence et la faisabilité du tri. Elle ne permet pas encore d’établir les profils de besoins.</p></div>
+    <span class="o1rv-status">Propositions à valider</span>
+  </header>
+  <h6 class="o1rv-sectiontitle">Trajectoire du corpus documentaire</h6>
+  <div class="o1rv-flow" role="group" aria-label="26 609 notices identifiées après dédoublonnage, resserrement méthodologique à tester puis corpus admissible à confirmer.">
+    <div class="o1rv-step"><span class="o1rv-stepnum">ÉTAPE 01</span><span class="o1rv-metric">26 609</span><strong>Repérage initial</strong><p>Notices après dédoublonnage · français et anglais.</p></div>
+    <span class="o1rv-link" aria-hidden="true">→</span>
+    <div class="o1rv-step o1rv-step--middle"><span class="o1rv-stepnum">ÉTAPE 02</span><span class="o1rv-metric">À tester</span><strong>Resserrement raisonné</strong><p>Affiner les critères PCC et les équations de recherche, puis piloter.</p></div>
+    <span class="o1rv-link" aria-hidden="true">→</span>
+    <div class="o1rv-step o1rv-step--last"><span class="o1rv-stepnum">ÉTAPE 03</span><span class="o1rv-metric">À établir</span><strong>Corpus admissible</strong><p>Nombre à déterminer après révision, double sélection et vérification.</p></div>
   </div>
-  <p>Choix anglais seul à justifier : vérifier le risque de perdre les travaux francophones pertinents, notamment québécois. Critères, dates et volumes seront archivés ; validation avec bibliothécaire et évaluateurs avant toute exclusion définitive.</p>
- </details>
-</div>
-<details class="o1-compact-context"><summary>À propos de cette grille <span>Essai pilote · révision bibliothécaire prévue</span></summary><p class="o1-intro">Les critères ci-dessous constituent une grille provisoire testée dans Covidence selon population, concept et contexte (PCC), puis caractéristiques documentaires. L’inclusion d’une étude multidomaine ne vaut pas démonstration de concomitance individuelle : seule l’extraction de résultats conjoints permet cette qualification. Les règles seront révisées avec un bibliothécaire et vérifiées entre évaluateurs avant le tri définitif (JBI, 2024).</p></details>
+  <aside class="o1rv-language" aria-label="Précision concernant le sous-ensemble anglophone">
+    <b>≈ 22 000</b><p><strong>Notices anglophones, estimation provisoire.</strong> Ce nombre illustre un sous-ensemble linguistique, <strong>pas une étape de filtrage acquise</strong>. Le maintien des publications françaises, notamment québécoises, doit être évalué avant toute restriction.</p>
+  </aside>
+  <h6 class="o1rv-sectiontitle">Ce que la recherche exploratoire a permis de restructurer</h6>
+  <div class="o1rv-insights">
+    <article class="o1rv-insight"><b>01 · Mieux circonscrire la population</b><p>Distinguer les personnes vivant à domicile et présentant des morbidités des populations exclusivement institutionnalisées, ainsi que les sous-groupes d’âge réellement extractibles.</p></article>
+    <article class="o1rv-insight"><b>02 · Préciser la notion de profil</b><p>Séparer la simple présence de thèmes sociaux de la <strong>concomitance de besoins sociaux et de soins</strong> documentée chez les mêmes personnes.</p></article>
+    <article class="o1rv-insight"><b>03 · Recalibrer la stratégie et le tri</b><p>Le volume repéré et l’essai du codebook dans Covidence justifient de réduire le bruit documentaire, de tester le rappel et de mesurer la charge réelle du double tri.</p></article>
+  </div>
+  <div class="o1rv-tablehead"><h6 class="o1rv-sectiontitle">Resserrements méthodologiques proposés</h6><span>Grille PCC et recherche · En discussion</span></div>
+  <div class="o1rv-tablebox">
+    <table class="o1rv-table">
+      <thead><tr><th scope="col">Dimension</th><th scope="col">Point à clarifier après l’essai</th><th scope="col">Resserrement opérationnel proposé</th></tr></thead>
+      <tbody>
+        <tr><td>Population</td><td>Âges mélangés et morbidité parfois seulement présumée par le contexte de services.</td><td><strong>65 ans et plus vivant à domicile</strong>, avec morbidité ou problème de santé documenté et résultats propres à ce groupe si l’échantillon est mixte. Ne pas imposer la multimorbidité.</td></tr>
+        <tr><td>Concept et concomitance</td><td>Les déterminants sociaux, les besoins isolés et les indicateurs agrégés ne suffisent pas à définir un profil.</td><td>Rechercher <strong>au moins un besoin social et un besoin de soins de santé</strong> documentés conjointement chez les mêmes personnes, avec description de leur combinaison. Coder séparément les études qui ne rapportent que des domaines juxtaposés.</td></tr>
+        <tr><td>Contexte</td><td>Les résultats peuvent mélanger domicile, hôpital et hébergement de longue durée.</td><td>Retenir le <strong>domicile, la proximité ou la première ligne</strong>, et exclure les études portant uniquement sur une population institutionnalisée sans résultats séparables.</td></tr>
+        <tr><td>Type de données</td><td>Études empiriques, revues et publications conceptuelles n’apportent pas le même niveau de preuve pour caractériser les profils.</td><td>Privilégier les <strong>résultats empiriques exploitables</strong>, quantitatifs, qualitatifs ou mixtes, pour établir les profils. Traiter les revues et les sources conceptuelles dans un volet d’appui distinct.</td></tr>
+        <tr><td>Équations de recherche</td><td>Sept blocs et 42 lignes de recherche, avec des termes larges et des recoupements entre MEDLINE et PubMed.</td><td>Réorganiser les descripteurs autour de <strong>population + besoins sociaux + besoins de soins + concomitance</strong>, examiner les chevauchements et tester le rappel des <strong>six articles de référence</strong> avant de figer les équations.</td></tr>
+        <tr><td>Langues et période</td><td>Le sous-ensemble anglophone est volumineux, mais son usage seul pourrait écarter des travaux francophones pertinents.</td><td><strong>Conserver provisoirement le français et l’anglais depuis 2006</strong>. Justifier toute limitation ultérieure par l’analyse de sa pertinence et de ses biais possibles, non par le seul volume.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="o1rv-next"><b>Avant le tri définitif · Quatre vérifications</b><ol><li>Réviser les équations avec une bibliothécaire.</li><li>Vérifier la récupération des six articles tests.</li><li>Tester les critères et la concordance entre deux évaluateurs.</li><li>Archiver les versions et produire les décomptes PRISMA-ScR.</li></ol></div>
+  <p class="o1rv-caveat"><strong>Portée de cette grille.</strong> Les propositions prolongent un essai pilote du cahier de codage et ne constituent pas des exclusions déjà effectuées. La présence de plusieurs domaines dans une étude ne démontre pas nécessairement leur concomitance individuelle ; cette information doit être vérifiée à l’extraction. Validation des critères et du calendrier à venir.</p>
+</section>
 </div></section></section></section>
 <section class="these-objectif-vue methode-objectif-separe" id="these-objectif-vue-o2" data-vue-objectif="O2" aria-label="Méthodologie de l’objectif 2"><article class="these-methode-objectif" data-objectif="O2" id="these-methode-o2" data-cadrage-harmonise="oui"><header class="methode-objectif-tete"><h4 class="titre-bloc"><span class="objectif-code">O2</span> Étude cartographique et spatiale</h4><p class="methodo-formulation-officielle">Réaliser une étude cartographique et spatiale des ressources mobilisables en première ligne pour répondre aux différents besoins sociaux et de soins de santé concomitants associés aux profils de personnes aînées vivant à domicile afin de caractériser, dans les différents territoires de CLSC, leur distribution, leur disponibilité, leur diversité, leur complémentarité et leur accessibilité territoriale.</p></header><div class="methode-these-corps"><section class="methode-rubrique methodo-section" id="methode-o2-4"><h5 class="methode-rubrique-titre"><span>04</span>Population à l’étude</h5><div class="methode-rubrique-contenu"><div class="methodo-grille"><article class="methodo-item"><strong>Référence </strong><p>Ressources territoriales mobilisables en première ligne pour les besoins sociaux et de soins de santé concomitants des profils de personnes aînées vivant à domicile.</p></article><article class="methodo-item"><strong>Unités et sources </strong><p>Services et lieux de prestation géolocalisés, territoires de CLSC, répertoires et données territoriales documentées ; aucune population de personnes recrutées.</p></article></div></div><section class="methodo-secteurs-visibles" aria-labelledby="methodo-o2-secteurs-titre"><div class="methodo-visible-head"><span>Périmètre de l’inventaire intersectoriel</span><h6 id="methodo-o2-secteurs-titre">Les six secteurs de ressources</h6><p>Cette classification opérationnelle permet d’inventorier les services susceptibles de participer à la réponse intersectorielle sur les territoires de CLSC. Leur présence dans l’inventaire ne prouve pas une collaboration effective.</p></div><div class="methodo-secteurs-grille"><article><span>01 · Réseau public</span><h5>Soins et services institutionnels</h5><p>CLSC, équipes SAD, hôpitaux, CHSLD et points de services publics&nbsp;: évaluation, soins, suivi et coordination.</p></article><article><span>02 · Première ligne</span><h5>Proximité clinique</h5><p>Groupes de médecine de famille, cliniques, infirmières praticiennes spécialisées, pharmacies et autres services ambulatoires.</p></article><article><span>03 · Parapublic</span><h5>Sécurité et utilité publique</h5><p>Police, premiers répondants et autres services d’utilité publique recensés&nbsp;; leur rôle dans une réponse donnée reste à qualifier.</p></article><article><span>04 · Communauté</span><h5>Entraide et soutien social</h5><p>Organismes communautaires, aide alimentaire, accompagnement, proche aidance et partenaires d’économie sociale selon leur mission.</p></article><article><span>05 · Municipalité</span><h5>Milieux de vie et accessibilité</h5><p>Services municipaux, bibliothèques, équipements de quartier, mobilité, loisirs et environnements favorables au vieillissement.</p></article><article><span>06 · Habitation</span><h5>Logement et milieux résidentiels</h5><p>Habitations à loyer modique, coopératives, organismes d’habitation, résidences pour aînés et dispositifs de soutien au logement.</p></article></div><p class="methodo-visible-note">Le secteur est une variable de codage des ressources ; une ressource n’est pas comptée plusieurs fois lorsqu’elle apparaît dans plusieurs répertoires.</p></section><div class="methodo-complement"><div class="methodo-restaure">
 <div class="o2-sources-modernes" aria-label="Périmètre, population et sources de l'étude écologique O2">
