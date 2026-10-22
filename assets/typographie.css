@@ -799,3 +799,35 @@ html body .methodo-chiffres>div>b{font-size:clamp(26px,3vw,38px)!important;line-
 html body .methodo-note{font-size:var(--type-note)!important}
 html body .methodo-parcours>li>span{font-size:var(--type-corps)!important}
 }
+
+
+/* Nouvelles visualisations O2/O3 : échelle commune, sans microtypographie. */
+@layer charte-typographique {
+  html body .these :is(.methodo-exploratoire-entete h3,.methodo-questions-entete h3){
+    font-size:var(--type-section,22px)!important;
+    line-height:1.3!important;font-weight:700!important;
+  }
+  html body .these :is(.methodo-exploratoire-analyse h4,.methodo-question h4){
+    font-size:var(--type-sous-section,19px)!important;
+    line-height:1.4!important;font-weight:690!important;
+  }
+  html body .these :is(
+    .methodo-exploratoire-entete p,.methodo-questions-entete p,
+    .methodo-exploratoire-indic span,.methodo-exploratoire-table th,
+    .methodo-exploratoire-table td,.methodo-exploratoire-note,.methodo-question p
+  ){
+    font-size:var(--type-corps,16px)!important;line-height:1.55!important;
+  }
+  html body .these :is(
+    .methodo-exploratoire-label,.methodo-questions-label,
+    .methodo-exploratoire-carte figcaption
+  ){
+    font-size:var(--type-note,14px)!important;line-height:1.5!important;
+  }
+  html body .these .methodo-exploratoire-indic strong{
+    font-size:clamp(32px,3.2vw,42px)!important;line-height:1.1!important;
+  }
+  html body .these .methodo-question-num{
+    font-size:18px!important;line-height:1.3!important;
+  }
+}
