@@ -55,11 +55,11 @@ html.lv{--type-corps:20px;--type-note:18px;--type-section:26px;--type-sous-secti
    Les nouveaux contenus et modules héritent ainsi de la charte sans retouche. */
 html body :is(p,li,dt,dd,blockquote,td,th,figcaption,caption,.legende,.disclaimer,.gab-bandeau .bandeau-legende){
   font-family:var(--type-police)!important;
-  text-align:justify!important;
-  text-align-last:auto!important;
-  text-justify:auto!important;
-  hyphens:auto!important;
-  overflow-wrap:anywhere;
+  text-align:start!important;
+  text-align-last:start!important;
+  text-justify:none!important;
+  hyphens:none!important;
+  overflow-wrap:break-word;
   word-break:normal;
   word-spacing:normal!important;
 }
@@ -210,11 +210,11 @@ html body .gab[data-gab-salle="biographie"] .section-corps.pleine .bio-intro p {
 .these .revision-details{margin:18px 0;padding:0 18px;border:1px solid #cadbdd;border-radius:10px;background:#fafcfc;min-width:0}
 .these .revision-details>summary{padding:14px 0;cursor:pointer;color:#195365;font-weight:600;text-align:left}
 .these .revision-details[open]>summary{border-bottom:1px solid #dce7e8;margin-bottom:14px}
-.these .revision-details p{margin:12px 0;text-align:justify;overflow-wrap:break-word;hyphens:auto}
+.these .revision-details p{margin:12px 0;text-align:start;overflow-wrap:break-word;hyphens:auto}
 .these .revision-table{max-width:100%;overflow-x:auto;margin:14px 0}
 .these .revision-table table{width:100%;border-collapse:collapse}
 .these .revision-table caption{text-align:left;padding:8px 0;color:#405c65}
-.these .revision-table th,.these .revision-table td{padding:12px;border-bottom:1px solid #dce7e8;vertical-align:top;text-align:justify}
+.these .revision-table th,.these .revision-table td{padding:12px;border-bottom:1px solid #dce7e8;vertical-align:top;text-align:start}
 .these .revision-table th{background:#edf4f5}
 @media(max-width:600px){.these .revision-details{padding:0 12px}.these .revision-table table{min-width:530px}}
 /* Démonstration O3 : chiffres saillants, étapes et décisions. */
@@ -239,7 +239,7 @@ html body .gab[data-gab-salle="biographie"] .section-corps.pleine .bio-intro p {
 .these .revision-distinction b{display:block;color:#214e60;font-size:16px}
 .these .revision-distinction small{display:block;margin-top:5px;color:#526875;font-size:13px;line-height:1.4}
 .these .revision-distinction em{color:#6a8594;font-size:24px;font-style:normal}
-.these .revision-demo .revision-note{color:#4c6573;margin:16px 0;padding:0;text-align:justify}
+.these .revision-demo .revision-note{color:#4c6573;margin:16px 0;padding:0;text-align:start}
 .these .revision-proof{margin-top:24px;padding-top:20px;border-top:1px solid #dce7e9}
 .these .revision-proof>h6{margin:0 0 16px;color:#21485a}
 .these .revision-proof-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 22px}
@@ -838,12 +838,12 @@ html body .these .o2-synthese-kicker{font-size:var(--type-note)!important;line-h
 html body .these .o2-synthese-entete h6{font-size:clamp(21px,2.2vw,27px)!important;line-height:1.25!important;font-weight:790!important}
 html body .these .o2-synthese-entete p,
 html body .these .o2-synthese-portee,
-html body .these .o2-pilote-independant>p{font-size:var(--type-corps)!important;line-height:1.62!important;text-align:justify!important}
+html body .these .o2-pilote-independant>p{font-size:var(--type-corps)!important;line-height:1.62!important;text-align:start!important}
 html body .these .o2-synthese-noeud strong{font-size:clamp(16px,1.6vw,19px)!important;line-height:1.32!important}
 html body .these .o2-synthese-noeud span{font-size:var(--type-corps)!important;line-height:1.5!important;text-align:left!important;hyphens:none!important}
 html body .these .o2-synthese-noeud b{font-size:14px!important;line-height:1!important}
 html body .these .o2-synthese-tableau th,
-html body .these .o2-synthese-tableau td{font-size:var(--type-corps)!important;line-height:1.52!important;text-align:justify!important}
+html body .these .o2-synthese-tableau td{font-size:var(--type-corps)!important;line-height:1.52!important;text-align:start!important}
 html body .these .o2-synthese-tableau thead th{text-align:left!important}
 html body .these .o2-pilote-titre strong{font-size:clamp(19px,1.9vw,23px)!important;line-height:1.35!important}
 html body .these .o2-pilote-titre span{font-size:var(--type-note)!important;line-height:1.55!important}
