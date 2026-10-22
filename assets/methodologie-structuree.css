@@ -51,6 +51,9 @@ html body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3)[data
 .methodo-reperes-restaures .o2-var-grille,.methodo-reperes-restaures .revision-thresholds,.o3-analyse-cartes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .methodo-reperes-restaures .o2-var-carte,.methodo-reperes-restaures .revision-threshold,.o3-analyse-carte{padding:12px;background:#fff;border:1px solid #d9e5e8;border-radius:9px;min-width:0}
 .o2-var-num,.revision-threshold-number{display:block;color:var(--methodo-accent);font-weight:bold}
+.methodo-reperes-restaures .o2-var-carte{display:block;min-height:0;align-content:start}
+.methodo-reperes-restaures .o2-var-carte>*{margin-block:0 6px}
+.methodo-reperes-restaures .o2-var-carte h6,.methodo-reperes-restaures .revision-threshold h6{margin-block:6px}
 .revision-denominators{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
 .methodo-restaure .methode-fiche{margin:0}
 .methodo-restaure .methode-fiche>div{margin-block:12px;padding:12px;background:#f5f8fa;border-radius:8px}
