@@ -831,3 +831,21 @@ html body .methodo-parcours>li>span{font-size:var(--type-corps)!important}
     font-size:18px!important;line-height:1.3!important;
   }
 }
+
+
+/* O2 · Tailles lisibles dans le schéma et le bilan de faisabilité, toutes éditions. */
+html body .these .o2-synthese-kicker{font-size:var(--type-note)!important;line-height:1.45!important}
+html body .these .o2-synthese-entete h6{font-size:clamp(21px,2.2vw,27px)!important;line-height:1.25!important;font-weight:790!important}
+html body .these .o2-synthese-entete p,
+html body .these .o2-synthese-portee,
+html body .these .o2-pilote-independant>p{font-size:var(--type-corps)!important;line-height:1.62!important;text-align:justify!important}
+html body .these .o2-synthese-noeud strong{font-size:clamp(16px,1.6vw,19px)!important;line-height:1.32!important}
+html body .these .o2-synthese-noeud span{font-size:var(--type-corps)!important;line-height:1.5!important;text-align:left!important;hyphens:none!important}
+html body .these .o2-synthese-noeud b{font-size:14px!important;line-height:1!important}
+html body .these .o2-synthese-tableau th,
+html body .these .o2-synthese-tableau td{font-size:var(--type-corps)!important;line-height:1.52!important;text-align:justify!important}
+html body .these .o2-synthese-tableau thead th{text-align:left!important}
+html body .these .o2-pilote-titre strong{font-size:clamp(19px,1.9vw,23px)!important;line-height:1.35!important}
+html body .these .o2-pilote-titre span{font-size:var(--type-note)!important;line-height:1.55!important}
+html body .these .o2-pilote-chiffres strong{font-size:clamp(30px,3.1vw,42px)!important;line-height:1.1!important}
+html body .these .o2-pilote-chiffres span{font-size:var(--type-corps)!important;line-height:1.5!important;text-align:left!important;hyphens:none!important}
