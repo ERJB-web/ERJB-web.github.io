@@ -1071,10 +1071,10 @@
 
     // La page Contexte ouvre sur le titre complet du projet de thèse.
     if (salle === "recherche" && langue === "fr" && ch.cle === "contexte" &&
-        !corps.textContent.includes("Organiser la réponse intersectorielle aux aînés à domicile qui cumulent besoins sociaux et morbidité")) {
+        !corps.textContent.includes("Favoriser la réponse intersectorielle apportée aux différents besoins sociaux et de soins de santé concomitants des personnes aînées vivant à domicile")) {
       const titreThese = el("div", "these-titre-contexte",
         '<span class="these-titre-contexte-label">Titre de la thèse</span>' +
-        '<div class="these-titre-contexte-principal">Organiser la réponse intersectorielle aux aînés à domicile qui cumulent besoins sociaux et morbidité :<span>Profils, cartographie des ressources et analyse des réseaux</span></div>');
+        '<div class="these-titre-contexte-principal">Favoriser la réponse intersectorielle apportée aux différents besoins sociaux et de soins de santé concomitants des personnes aînées vivant à domicile : profils, cartographie des ressources et analyse des réseaux.</div>');
       corps.prepend(titreThese);
     }
     // Sur la copie grand public, proposer une lecture autonome et réellement
@@ -1092,7 +1092,7 @@
   <div class="mgp-regard mgp-regard-personne"><span class="mgp-regard-icone" aria-hidden="true">👵</span><div><b>Du côté de Mme Protocole</b><p>« J'ai besoin d'aide pour plusieurs choses. Qui peut répondre à ce qui compte pour moi ? »</p></div></div>
   <div class="mgp-regard mgp-regard-equipe"><span class="mgp-regard-icone" aria-hidden="true">🏥</span><div><b>Du côté des organisations</b><p>« Nous avons des missions, des moyens et des limites différents. Comment pouvons-nous agir ensemble ? »</p></div></div>
  </div>
- <div class="mgp-question-commune"><span aria-hidden="true">↘ &nbsp; ↙</span><strong>Une seule grande question</strong><p>Comment organiser une réponse entre plusieurs secteurs, adaptée aux besoins des personnes et aux possibilités réelles des organisations ?</p></div>
+ <div class="mgp-question-commune"><span aria-hidden="true">↘ &nbsp; ↙</span><strong>Question de recherche</strong><p>Comment s'organise la réponse intersectorielle aux besoins sociaux et de soins de santé concomitants des différents profils de personnes aînées vivant à domicile ?</p></div>
 </div>
 <nav class="mgp-trail" aria-label="Les étapes de notre enquête"><a href="#mgp1">1 · Chercher</a><a href="#mgp2">2 · Faire une carte</a><a href="#mgp3">3 · Suivre les liens</a><a href="#mgp4">4 · Décider ensemble</a><a href="#mgp5">5 · Vérifier</a></nav>
 <section class="mgp-why" aria-labelledby="mgp-why-title"><h4 id="mgp-why-title">D'abord, qui peut agir et qu'est-ce qui complique l'entraide ?</h4>

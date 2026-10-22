@@ -1,0 +1,56 @@
+{
+  "fr": {
+    "titre": "Favoriser la réponse intersectorielle apportée aux différents besoins sociaux et de soins de santé concomitants des personnes aînées vivant à domicile : profils, cartographie des ressources et analyse des réseaux.",
+    "question": "Comment s'organise la réponse intersectorielle aux besoins sociaux et de soins de santé concomitants des différents profils de personnes aînées vivant à domicile ?",
+    "objectifs": [
+      "Identifier les différents profils de personnes aînées vivant à domicile présentant des besoins sociaux et de soins de santé concomitants susceptibles de nécessiter une réponse intersectorielle dans le contexte des soins primaires.",
+      "Cartographier les ressources territoriales susceptibles de répondre aux besoins sociaux et de soins de santé concomitants des différents profils de personnes aînées vivant à domicile, et caractériser les variations territoriales de leur disponibilité, de leur diversité, de leur complémentarité et de leur accessibilité.",
+      "Analyser les configurations organisationnelles des réseaux intersectoriels mobilisés sur le territoire pour répondre aux besoins sociaux et de soins de santé concomitants des différents profils de personnes aînées vivant à domicile, afin de caractériser leurs modalités de fonctionnement."
+    ]
+  },
+  "en": {
+    "titre": "Strengthening the intersectoral response provided to the different concurrent social and healthcare needs of older people living at home: profiles, resource mapping and network analysis.",
+    "question": "How is the intersectoral response to concurrent social and healthcare needs organized for different profiles of older people living at home?",
+    "objectifs": [
+      "Identify different profiles of older people living at home with concurrent social and healthcare needs that may require an intersectoral response in the context of primary care.",
+      "Map territorial resources that may address the concurrent social and healthcare needs of different profiles of older people living at home, and characterize territorial variations in their availability, diversity, complementarity and accessibility.",
+      "Analyze the organizational configurations of intersectoral networks mobilized across the territory to address the concurrent social and healthcare needs of different profiles of older people living at home, in order to characterize how they operate."
+    ]
+  },
+  "es": {
+    "titre": "Favorecer la respuesta intersectorial a las diferentes necesidades sociales y de atención de salud concomitantes de las personas mayores que viven en su domicilio: perfiles, cartografía de recursos y análisis de redes.",
+    "question": "¿Cómo se organiza la respuesta intersectorial a las necesidades sociales y de atención de salud concomitantes de los distintos perfiles de personas mayores que viven en su domicilio?",
+    "objectifs": [
+      "Identificar los distintos perfiles de personas mayores que viven en su domicilio y presentan necesidades sociales y de atención de salud concomitantes que pueden requerir una respuesta intersectorial en el contexto de la atención primaria.",
+      "Cartografiar los recursos territoriales que pueden responder a las necesidades sociales y de atención de salud concomitantes de los distintos perfiles de personas mayores que viven en su domicilio, y caracterizar las variaciones territoriales de su disponibilidad, diversidad, complementariedad y accesibilidad.",
+      "Analizar las configuraciones organizativas de las redes intersectoriales movilizadas en el territorio para responder a las necesidades sociales y de atención de salud concomitantes de los distintos perfiles de personas mayores que viven en su domicilio, con el fin de caracterizar sus modalidades de funcionamiento."
+    ]
+  },
+  "zh": {
+    "titre": "促进对居家老年人同时存在的不同社会需求和医疗照护需求的跨部门响应：人群特征类型、资源制图与网络分析。",
+    "question": "如何组织跨部门响应，以满足居家老年人不同特征类型同时存在的社会需求和医疗照护需求？",
+    "objectifs": [
+      "识别居家老年人的不同特征类型：这些人同时存在社会需求和医疗照护需求，可能需要在初级卫生保健背景下获得跨部门响应。",
+      "绘制可能满足居家老年人不同特征类型同时存在的社会需求和医疗照护需求的地区资源，并描述其可用性、多样性、互补性和可及性的地区差异。",
+      "分析地区内为满足居家老年人不同特征类型同时存在的社会需求和医疗照护需求而动员的跨部门网络的组织配置，以描述其运作方式。"
+    ]
+  },
+  "ar": {
+    "titre": "تعزيز الاستجابة المشتركة بين القطاعات لمختلف الاحتياجات الاجتماعية واحتياجات الرعاية الصحية المتزامنة لدى كبار السن الذين يعيشون في منازلهم: الأنماط، ورسم خرائط الموارد، وتحليل الشبكات.",
+    "question": "كيف تُنظَّم الاستجابة المشتركة بين القطاعات للاحتياجات الاجتماعية واحتياجات الرعاية الصحية المتزامنة لمختلف أنماط كبار السن الذين يعيشون في منازلهم؟",
+    "objectifs": [
+      "تحديد مختلف أنماط كبار السن الذين يعيشون في منازلهم ولديهم احتياجات اجتماعية واحتياجات رعاية صحية متزامنة قد تستلزم استجابة مشتركة بين القطاعات في سياق الرعاية الأولية.",
+      "رسم خرائط الموارد المحلية التي يمكن أن تستجيب للاحتياجات الاجتماعية واحتياجات الرعاية الصحية المتزامنة لمختلف أنماط كبار السن الذين يعيشون في منازلهم، وتوصيف التباينات المكانية في توافرها وتنوعها وتكاملها وإمكانية الوصول إليها.",
+      "تحليل التشكيلات التنظيمية للشبكات المشتركة بين القطاعات المعبأة في المنطقة للاستجابة للاحتياجات الاجتماعية واحتياجات الرعاية الصحية المتزامنة لمختلف أنماط كبار السن الذين يعيشون في منازلهم، بهدف توصيف آليات عملها."
+    ]
+  },
+  "ru": {
+    "titre": "Содействие межсекторальному ответу на различные одновременно возникающие социальные потребности и потребности в медицинской помощи пожилых людей, живущих дома: профили, картографирование ресурсов и анализ сетей.",
+    "question": "Как организуется межсекторальный ответ на одновременно возникающие социальные потребности и потребности в медицинской помощи различных профилей пожилых людей, живущих дома?",
+    "objectifs": [
+      "Выявить различные профили пожилых людей, живущих дома, с одновременно возникающими социальными потребностями и потребностями в медицинской помощи, которые могут требовать межсекторального ответа в контексте первичной медицинской помощи.",
+      "Картографировать территориальные ресурсы, способные отвечать на одновременно возникающие социальные потребности и потребности в медицинской помощи различных профилей пожилых людей, живущих дома, и охарактеризовать территориальные различия их наличия, разнообразия, взаимодополняемости и доступности.",
+      "Проанализировать организационные конфигурации межсекторальных сетей, задействованных на территории для ответа на одновременно возникающие социальные потребности и потребности в медицинской помощи различных профилей пожилых людей, живущих дома, чтобы охарактеризовать способы их функционирования."
+    ]
+  }
+}
