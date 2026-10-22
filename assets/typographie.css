@@ -939,3 +939,22 @@ html body .these .o2-pilote-chiffres span{font-size:var(--type-corps)!important;
     }
   }
 }
+
+
+/* Population O1 : courts descriptifs de lecture, sans espaces artificiellement étirés.
+   L'échelle commune, y compris le mode grands caractères, est conservée. */
+@layer charte-typographique{
+  html body .these #methode-o1-4 .methode-rubrique-contenu>.methodo-grille>.methodo-item>p{
+    text-align:start!important;
+    text-align-last:start!important;
+    hyphens:none!important;
+    overflow-wrap:break-word!important;
+    word-spacing:normal!important;
+    line-height:1.52!important;
+  }
+  html body .these #methode-o1-4 .o1-vis-population-carte>small{
+    text-align:start!important;
+    text-align-last:start!important;
+    hyphens:none!important;
+  }
+}
