@@ -849,3 +849,93 @@ html body .these .o2-pilote-titre strong{font-size:clamp(19px,1.9vw,23px)!import
 html body .these .o2-pilote-titre span{font-size:var(--type-note)!important;line-height:1.55!important}
 html body .these .o2-pilote-chiffres strong{font-size:clamp(30px,3.1vw,42px)!important;line-height:1.1!important}
 html body .these .o2-pilote-chiffres span{font-size:var(--type-corps)!important;line-height:1.5!important;text-align:left!important;hyphens:none!important}
+
+
+/* Méthodologie · bandeau DS : indicateurs compacts (2026-10-22). */
+@layer charte-typographique {
+  /* Quatre repères sur une ligne, à échelle secondaire par rapport au devis. */
+  html body .these .devis-bandeau-synthese-2026 .ds-chiffres {
+    gap:10px!important;
+    margin:0 0 10px!important;
+  }
+  html body .these .devis-bandeau-synthese-2026 .ds-indicateur {
+    min-height:0!important;
+    padding:12px 14px 11px!important;
+    justify-content:flex-start!important;
+    border-top-width:3px!important;
+    border-radius:10px!important;
+  }
+  html body .these .devis-bandeau-synthese-2026 .ds-indicateur-objectif {
+    top:7px!important;
+    right:8px!important;
+    padding:2px 6px!important;
+    font-size:11px!important;
+    line-height:1.25!important;
+  }
+  html body .these .devis-bandeau-synthese-2026 .ds-indicateur strong,
+  html body .these .devis-bandeau-synthese-2026 .ds-indicateur:nth-child(n) strong {
+    font-size:clamp(29px,2.7vw,35px)!important;
+    line-height:1.05!important;
+    font-weight:780!important;
+    letter-spacing:-.035em!important;
+    margin:0 0 5px!important;
+  }
+  html body .these .devis-bandeau-synthese-2026 .ds-indicateur .ds-indicateur-texte {
+    font-size:15px!important;
+    line-height:1.28!important;
+    font-weight:720!important;
+    margin:0 0 4px!important;
+    text-align:left!important;
+    hyphens:none!important;
+  }
+  html body .these .devis-bandeau-synthese-2026 .ds-indicateur small {
+    font-size:13px!important;
+    line-height:1.35!important;
+    font-weight:450!important;
+    text-align:left!important;
+    hyphens:none!important;
+  }
+  /* L'option grands caractères reste prioritaire pour l'accessibilité. */
+  html.lv body .these .devis-bandeau-synthese-2026 .ds-indicateur strong,
+  html.lv body .these .devis-bandeau-synthese-2026 .ds-indicateur:nth-child(n) strong {
+    font-size:42px!important;
+  }
+  html.lv body .these .devis-bandeau-synthese-2026 .ds-indicateur .ds-indicateur-texte {
+    font-size:var(--type-corps)!important;
+  }
+  html.lv body .these .devis-bandeau-synthese-2026 .ds-indicateur small {
+    font-size:var(--type-note)!important;
+  }
+  @media(max-width:620px) {
+    html body .these .devis-bandeau-synthese-2026 .ds-chiffres {
+      grid-template-columns:minmax(0,1fr)!important;
+      gap:8px!important;
+    }
+    html body .these .devis-bandeau-synthese-2026 .ds-indicateur {
+      display:grid!important;
+      grid-template-columns:60px minmax(0,1fr)!important;
+      grid-template-rows:auto auto;
+      gap:2px 12px!important;
+      align-items:center!important;
+      padding:11px 13px!important;
+      min-height:0!important;
+    }
+    html body .these .devis-bandeau-synthese-2026 .ds-indicateur strong,
+    html body .these .devis-bandeau-synthese-2026 .ds-indicateur:nth-child(n) strong {
+      grid-column:1;
+      grid-row:1 / 3;
+      margin:0!important;
+      align-self:center!important;
+    }
+    html body .these .devis-bandeau-synthese-2026 .ds-indicateur .ds-indicateur-texte {
+      grid-column:2;
+      grid-row:1;
+      padding-right:32px;
+      margin:0!important;
+    }
+    html body .these .devis-bandeau-synthese-2026 .ds-indicateur small {
+      grid-column:2;
+      grid-row:2;
+    }
+  }
+}
