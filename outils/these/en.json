@@ -1,8 +1,8 @@
 {
   "titre": "Strengthening the intersectoral response provided to the different concurrent social and healthcare needs of older people living at home: profiles, resource mapping and network analysis.",
   "question": "How is the intersectoral response to concurrent social and healthcare needs organized for different profiles of older people living at home?",
-  "point": "For patients with complex, co-occurring social needs in primary care, the intersectoral response cannot be assessed by considering each need in isolation; it must be examined in terms of the correspondence between different patient profiles and the configurations of intersectoral networks capable of responding to them, including the actors involved and the relationships between those actors.",
-  "general": "Analyse how the intersectoral response is organised to address the different profiles of patients with complex, co-occurring social needs receiving primary care, in order to identify organisational improvements that would better adapt this response to those profiles.",
+  "point": "Understanding how the intersectoral response is organized to address concurrent social and healthcare needs among older people living at home requires more than identifying needs or noting the presence of local resources. It calls for examining needs profiles, territorially mobilizable resources, and the organizational configurations of networks mobilized in first-line services together.",
+  "general": "Analyze how the intersectoral response to concurrent social and healthcare needs is organized for different profiles of older people living at home, across first-line services and CLSC territories, by bringing together needs profiles, mapping of mobilizable resources, and retrospective analysis of mobilized intersectoral networks.",
   "labels": {
     "titre": "Provisional title",
     "question": "Research question",
@@ -41,13 +41,13 @@
     "Actors in intersectoral networks capable of caring for different profiles of patients with complex, co-occurring social needs in primary care lack operational guidance for effectively organising the response to these different profiles."
   ],
   "objectifs": [
-    "Identify different profiles of older people living at home with concurrent social and healthcare needs that may require an intersectoral response in the context of primary care.",
-    "Map territorial resources that may address the concurrent social and healthcare needs of different profiles of older people living at home, and characterize territorial variations in their availability, diversity, complementarity and accessibility.",
-    "Analyze the organizational configurations of intersectoral networks mobilized across the territory to address the concurrent social and healthcare needs of different profiles of older people living at home, in order to characterize how they operate."
+    "Identify different profiles of older people living at home with concurrent social and healthcare needs that may require an intersectoral response in first-line services.",
+    "Map territorial resources that could be mobilized in first-line services to address the concurrent social and healthcare needs of different profiles of older people living at home, and characterize territorial variations in their availability, diversity, complementarity and accessibility.",
+    "Analyze the organizational configurations of intersectoral networks mobilized in first-line services across the territory to address the concurrent social and healthcare needs of different profiles of older people living at home, in order to characterize how they operate."
   ],
   "methodes": [
-    "Scoping review following JBI and PRISMA-ScR",
-    "Social network analysis whose boundary is defined, for each of the different profiles of patients with complex, co-occurring social needs requiring an intersectoral response in primary care, by identifying the intersectoral network capable of responding to that profile.",
-    "A multi-stakeholder deliberative workshop based on the findings of O1 and O2, bringing together patient partners, primary care professionals, community actors, private-sector actors and relevant decision-makers to develop recommendations for organising the intersectoral response."
+    "Conduct a review of the scientific literature to identify and characterize different profiles of older people living at home with concurrent social and healthcare needs that may require an intersectoral response in first-line services, and determine the needs associated with each profile.",
+    "Conduct a cartographic and spatial study of resources that can be mobilized in first-line services to address the different concurrent social and healthcare needs associated with the profiles of older people living at home identified in O1, to characterize and compare their distribution, availability, diversity, complementarity and territorial accessibility across CLSC territories.",
+    "Conduct a retrospective social network analysis (SNA) of intersectoral networks mobilized in first-line services from CLSC territories to address the concurrent social and healthcare needs of different profiles of older people living at home, characterizing their composition, relational structure, and modes of operation."
   ]
 }
