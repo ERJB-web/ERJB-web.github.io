@@ -683,43 +683,156 @@ html:is(.hc,.lv) .these-entete .these-question-principale{
 </div>
 </aside>
 </div><style>
-/* Synthèse du devis méthodologique : ce seul bandeau, aucune retouche aux menus. */
-.these .devis-bandeau-synthese-2026{--ds-o1:#237a9a;--ds-o2:#65a946;--ds-o3:#173f52;min-width:0;margin:18px 0 23px;padding:clamp(15px,2.1vw,23px);border:1px solid #d5e3e5;border-top:4px solid #237a9a;border-radius:15px;background:linear-gradient(110deg,#f4f9fb 0%,#fff 53%,#f7faf6 100%);box-shadow:0 9px 28px -24px rgba(24,62,78,.27);color:#1a3e50}
-.these .devis-bandeau-synthese-2026 *{box-sizing:border-box}
-.these .devis-bandeau-synthese-2026 .ds-haut{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 23px;margin:0 0 14px}
-.these .devis-bandeau-synthese-2026 .ds-surtitre{display:block;color:#237a9a;font:800 10px/1.4 var(--sans,system-ui,sans-serif);letter-spacing:.13em;text-transform:uppercase;margin:0 0 5px}
-.these .devis-bandeau-synthese-2026 .ds-titre{display:block;color:#163c4e;font:800 clamp(17px,1.65vw,22px)/1.3 var(--sans,system-ui,sans-serif);letter-spacing:-.023em;margin:0;text-align:left!important}
-.these .devis-bandeau-synthese-2026 .ds-mention{display:inline-flex;align-items:center;gap:7px;min-width:0;padding:7px 12px;background:#e9f2f4;border-radius:99px;border:1px solid #cddfe4;color:#24536b;font:750 11px/1.35 var(--sans,system-ui,sans-serif)}
-.these .devis-bandeau-synthese-2026 .ds-flow{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr) 28px minmax(0,1fr);align-items:stretch;gap:7px;margin:0 0 14px;min-width:0}
-.these .devis-bandeau-synthese-2026 .ds-etape{display:flex;flex-direction:column;justify-content:space-between;min-width:0;min-height:100px;padding:11px 13px;background:#fff;border:1px solid #dde7e8;border-top:3px solid var(--ds-couleur);border-radius:10px}
-.these .devis-bandeau-synthese-2026 .ds-etape-o1{--ds-couleur:var(--ds-o1);background:#f4f9fb}
-.these .devis-bandeau-synthese-2026 .ds-etape-o2{--ds-couleur:var(--ds-o2);background:#f7faf1}
-.these .devis-bandeau-synthese-2026 .ds-etape-o3{--ds-couleur:var(--ds-o3);background:#f3f7fa}
-.these .devis-bandeau-synthese-2026 .ds-etape-kicker{font:800 10px/1.25 var(--sans,system-ui,sans-serif);color:var(--ds-couleur);letter-spacing:.08em;margin-bottom:8px}
-.these .devis-bandeau-synthese-2026 .ds-etape strong{font:750 clamp(12.5px,1vw,14px)/1.35 var(--sans,system-ui,sans-serif);color:#223f4d}
-.these .devis-bandeau-synthese-2026 .ds-etape small{display:block;font:450 11.5px/1.45 var(--sans,system-ui,sans-serif);color:#536a72;margin-top:6px}
-.these .devis-bandeau-synthese-2026 .ds-fleche{display:grid;place-items:center;min-width:0;color:#6a919e;font:800 22px/1 var(--sans,system-ui,sans-serif)}
-.these .devis-bandeau-synthese-2026 .ds-chiffres{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:0}
-.these .devis-bandeau-synthese-2026 .ds-indicateur{display:flex;align-items:center;gap:9px;min-width:0;padding:10px 11px;border:1px solid #dce8e7;border-radius:10px;background:#fff}
-.these .devis-bandeau-synthese-2026 .ds-indicateur strong{flex:none;white-space:nowrap;color:#226b86;font:800 clamp(19px,1.8vw,25px)/1 var(--sans,system-ui,sans-serif);font-variant-numeric:tabular-nums}
-.these .devis-bandeau-synthese-2026 .ds-indicateur:nth-child(2) strong{color:#4f912b}
-.these .devis-bandeau-synthese-2026 .ds-indicateur:nth-child(3) strong,.these .devis-bandeau-synthese-2026 .ds-indicateur:nth-child(4) strong{color:#174f70}
-.these .devis-bandeau-synthese-2026 .ds-indicateur span{font:650 11.5px/1.35 var(--sans,system-ui,sans-serif);color:#4a626c;overflow-wrap:normal}
-.these .devis-bandeau-synthese-2026 .ds-ordre-souple{margin:11px 0 0!important;padding:10px 13px;border-left:3px solid #4e879d;border-radius:7px;background:#f2f7fa;color:#2d4d5f;font-size:16px!important;line-height:1.55!important;text-align:left!important;overflow-wrap:break-word}
-.these .devis-bandeau-synthese-2026 .ds-ordre-souple strong{color:#195776;font-weight:800}
-.these .devis-bandeau-synthese-2026 .ds-bas{display:flex;flex-wrap:wrap;gap:4px 20px;justify-content:space-between;align-items:flex-start;margin:12px 0 0!important;padding:10px 0 0;border-top:1px solid #dce7e8;color:#526973;font:450 12px/1.55 var(--sans,system-ui,sans-serif);text-align:left!important}
-.these .devis-bandeau-synthese-2026 .ds-bas b{color:#244c60;font-weight:750}
-@media(max-width:950px){.these .devis-bandeau-synthese-2026 .ds-chiffres{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:620px){
-.these .devis-bandeau-synthese-2026{padding:14px}
-.these .devis-bandeau-synthese-2026 .ds-flow{grid-template-columns:minmax(0,1fr);gap:4px}
-.these .devis-bandeau-synthese-2026 .ds-etape{min-height:0}
-.these .devis-bandeau-synthese-2026 .ds-fleche{min-height:22px;transform:rotate(90deg)}
-.these .devis-bandeau-synthese-2026 .ds-chiffres{gap:7px}
-.these .devis-bandeau-synthese-2026 .ds-indicateur{padding:8px;gap:6px}
-.these .devis-bandeau-synthese-2026 .ds-indicateur span{font-size:11px}
+/* Refonte ciblée 22 octobre 2026 : architecture O1/O2/O3 et indicateurs,
+   alignement centré et couleurs cohérentes entre objectifs. */
+.these .devis-bandeau-synthese-2026{
+ --ds-o1:#30742d;--ds-o2:#087984;--ds-o3:#255c9d;
+ min-width:0;margin:20px 0 25px;padding:clamp(19px,2.4vw,29px);
+ border:1px solid #d4e3e6;border-top:5px solid #197d91;border-radius:19px;
+ background:linear-gradient(125deg,#f5fafc 0%,#fff 55%,#f8fbf7 100%);
+ box-shadow:0 15px 35px -32px rgba(20,59,75,.45);color:#1a3e50;
 }
-html.hc .these .devis-bandeau-synthese-2026,html.lv .these .devis-bandeau-synthese-2026{background:Canvas;border:2px solid CanvasText;color:CanvasText}
+.these .devis-bandeau-synthese-2026 *{box-sizing:border-box}
+.these .devis-bandeau-synthese-2026 .ds-haut{
+ display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+ gap:12px 20px;margin:0 0 23px;
+}
+.these .devis-bandeau-synthese-2026 .ds-surtitre{
+ display:block;color:#19738d;font:800 12px/1.4 var(--sans,system-ui,sans-serif);
+ letter-spacing:.085em;text-transform:uppercase;margin:0 0 8px;
+}
+.these .devis-bandeau-synthese-2026 .ds-titre{
+ display:block;color:#173e51;font:800 clamp(19px,1.85vw,25px)/1.34 var(--sans,system-ui,sans-serif);
+ letter-spacing:-.028em;margin:0;text-align:left!important;
+}
+.these .devis-bandeau-synthese-2026 .ds-mention{
+ display:inline-flex;align-items:center;padding:10px 15px;
+ background:#eaf4f7;border-radius:99px;border:1px solid #cbdfe7;
+ color:#235875;font:750 13px/1.4 var(--sans,system-ui,sans-serif);
+}
+.these .devis-bandeau-synthese-2026 .ds-flow{
+ display:grid;grid-template-columns:minmax(0,1fr) 30px minmax(0,1fr) 30px minmax(0,1fr);
+ align-items:stretch;gap:11px;margin:0 0 16px;min-width:0;
+}
+.these .devis-bandeau-synthese-2026 .ds-etape{
+ position:relative;display:grid;place-items:center;min-width:0;
+ min-height:176px;padding:48px clamp(17px,2vw,28px) 25px;
+ border:1px solid #d6e3e7;border-top:5px solid var(--ds-couleur);
+ border-radius:15px;text-align:center;
+ box-shadow:0 9px 20px -22px rgba(22,62,79,.55);
+}
+.these .devis-bandeau-synthese-2026 .ds-etape-o1{--ds-couleur:var(--ds-o1);background:#f2f8f0}
+.these .devis-bandeau-synthese-2026 .ds-etape-o2{--ds-couleur:var(--ds-o2);background:#f0f9f9}
+.these .devis-bandeau-synthese-2026 .ds-etape-o3{--ds-couleur:var(--ds-o3);background:#f2f6fc}
+.these .devis-bandeau-synthese-2026 .ds-etape-kicker{
+ position:absolute;inset:16px auto auto 19px;display:block;
+ margin:0;color:var(--ds-couleur);font:850 25px/1.1 var(--sans,system-ui,sans-serif);
+ letter-spacing:.01em;
+}
+.these .devis-bandeau-synthese-2026 .ds-etape strong{
+ display:block;max-width:100%;margin:0;align-self:center;
+ font:800 clamp(19px,1.8vw,23px)/1.33 var(--sans,system-ui,sans-serif);
+ letter-spacing:-.023em;color:#173e51;text-align:center;
+ text-wrap:balance;overflow-wrap:normal;hyphens:none;
+}
+.these .devis-bandeau-synthese-2026 .ds-fleche{
+ display:grid;place-items:center;min-width:0;color:#4d8296;
+ font:800 30px/1 var(--sans,system-ui,sans-serif);
+}
+.these .devis-bandeau-synthese-2026 .ds-ordre-souple{
+ margin:17px 0 18px!important;padding:14px 17px;
+ border-left:4px solid #397e95;border-radius:10px;
+ background:#f1f7fa;color:#335263;
+ font:500 15px/1.6 var(--sans,system-ui,sans-serif)!important;
+ text-align:left!important;overflow-wrap:break-word;
+}
+.these .devis-bandeau-synthese-2026 .ds-ordre-souple strong{
+ color:#195776;font-weight:800;
+}
+.these .devis-bandeau-synthese-2026 .ds-chiffres{
+ display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+ align-items:stretch;gap:12px;margin:0 0 14px;
+}
+.these .devis-bandeau-synthese-2026 .ds-indicateur{
+ --ds-num:#255c9d;--ds-bg:#f3f7fd;
+ position:relative;display:flex;flex-direction:column;
+ align-items:flex-start;justify-content:center;
+ gap:0;min-width:0;min-height:151px;
+ padding:17px 18px 15px;border:1px solid #dbe4eb;
+ border-top:4px solid var(--ds-num);border-radius:13px;
+ background:var(--ds-bg);text-align:left;
+}
+.these .devis-bandeau-synthese-2026 .ds-indicateur-o2{
+ --ds-num:#087984;--ds-bg:#f0f8f8;
+}
+.these .devis-bandeau-synthese-2026 .ds-indicateur-o3{
+ --ds-num:#255c9d;--ds-bg:#f3f7fd;
+}
+.these .devis-bandeau-synthese-2026 .ds-indicateur-objectif{
+ position:absolute;top:12px;right:13px;
+ padding:3px 8px;border-radius:7px;
+ color:var(--ds-num);background:#ffffffd9;
+ border:1px solid #d5e2e8;
+ font:800 11px/1.35 var(--sans,system-ui,sans-serif);
+ letter-spacing:.04em;
+}
+.these .devis-bandeau-synthese-2026 .ds-indicateur strong,
+.these .devis-bandeau-synthese-2026 .ds-indicateur:nth-child(n) strong{
+ display:block;flex:none;margin:0 0 8px;
+ color:var(--ds-num);font:850 clamp(36px,3.6vw,48px)/1 var(--sans,system-ui,sans-serif);
+ font-variant-numeric:tabular-nums;letter-spacing:-.055em;white-space:nowrap;
+}
+.these .devis-bandeau-synthese-2026 .ds-indicateur .ds-indicateur-texte{
+ display:block;margin:0 0 5px;
+ font:750 clamp(14px,1.32vw,17px)/1.34 var(--sans,system-ui,sans-serif);
+ color:#264757;overflow-wrap:normal;text-wrap:pretty;
+}
+.these .devis-bandeau-synthese-2026 .ds-indicateur small{
+ display:block;margin:0;color:#526c7a;
+ font:550 12px/1.4 var(--sans,system-ui,sans-serif);
+}
+.these .devis-bandeau-synthese-2026 .ds-bas{
+ display:flex;flex-wrap:wrap;gap:9px 20px;
+ justify-content:space-between;align-items:flex-start;
+ margin:17px 0 0!important;padding:13px 0 0;
+ border-top:1px solid #dce7e8;color:#4e6774;
+ font:500 13px/1.55 var(--sans,system-ui,sans-serif);
+ text-align:left!important;
+}
+.these .devis-bandeau-synthese-2026 .ds-bas b{color:#244c60;font-weight:780}
+@media(max-width:1070px){
+ .these .devis-bandeau-synthese-2026 .ds-chiffres{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .these .devis-bandeau-synthese-2026 .ds-indicateur{min-height:132px}
+}
+@media(max-width:740px){
+ .these .devis-bandeau-synthese-2026 .ds-flow{grid-template-columns:minmax(0,1fr);gap:5px}
+ .these .devis-bandeau-synthese-2026 .ds-etape{min-height:135px;padding:39px 16px 21px}
+ .these .devis-bandeau-synthese-2026 .ds-fleche{min-height:28px;transform:rotate(90deg)}
+ .these .devis-bandeau-synthese-2026 .ds-etape strong{font-size:21px}
+ .these .devis-bandeau-synthese-2026 .ds-indicateur{min-height:145px}
+}
+@media(max-width:420px){
+ .these .devis-bandeau-synthese-2026{padding:15px}
+ .these .devis-bandeau-synthese-2026 .ds-chiffres{gap:8px}
+ .these .devis-bandeau-synthese-2026 .ds-indicateur{min-height:145px;padding:13px 11px 12px}
+ .these .devis-bandeau-synthese-2026 .ds-indicateur strong,
+ .these .devis-bandeau-synthese-2026 .ds-indicateur:nth-child(n) strong{font-size:36px}
+ .these .devis-bandeau-synthese-2026 .ds-indicateur .ds-indicateur-texte{font-size:13.5px}
+ .these .devis-bandeau-synthese-2026 .ds-indicateur small{font-size:11px}
+ .these .devis-bandeau-synthese-2026 .ds-indicateur-objectif{top:8px;right:8px;font-size:10px}
+}
+@media(max-width:350px){
+ .these .devis-bandeau-synthese-2026 .ds-chiffres{grid-template-columns:1fr}
+ .these .devis-bandeau-synthese-2026 .ds-indicateur{min-height:120px}
+}
+html.hc .these .devis-bandeau-synthese-2026,
+html.lv .these .devis-bandeau-synthese-2026{background:Canvas;border:2px solid CanvasText;color:CanvasText}
+html.hc .these .devis-bandeau-synthese-2026 .ds-etape,
+html.hc .these .devis-bandeau-synthese-2026 .ds-indicateur,
+html.lv .these .devis-bandeau-synthese-2026 .ds-etape,
+html.lv .these .devis-bandeau-synthese-2026 .ds-indicateur{
+ background:Canvas;border:2px solid CanvasText;color:CanvasText;
+}
 </style>
 <div class="devis-bandeau-synthese-2026" role="group" aria-label="Synthèse du devis multiméthodes et de la complémentarité des objectifs">
   <div class="ds-haut">
@@ -734,11 +847,11 @@ html.hc .these .devis-bandeau-synthese-2026,html.lv .these .devis-bandeau-synthe
     <div class="ds-etape ds-etape-o3"><span class="ds-etape-kicker">O3</span><strong>Analyse rétrospective des réseaux sociaux</strong></div>
   </div>
   <p class="ds-ordre-souple">L’étude cartographique et spatiale O2 peut avancer sans attendre une identification préalable des profils par O1. O2 et O3 peuvent être réalisés dans un ordre adapté aux terrains et aux données disponibles. Les résultats seront mis en regard ; O3 repose sur une ARS quantitative observationnelle, avec recueil rétrospectif sur 12 mois et deux niveaux : réseaux entiers par profil et réseaux égocentrés.</p>
-  <div class="ds-chiffres" aria-label="Repères chiffrés du protocole">
-    <div class="ds-indicateur"><strong>6</strong><span>secteurs de ressources (O2)</span></div>
-    <div class="ds-indicateur"><strong>≥ 2</strong><span>territoires CLSC contrastés (O3)</span></div>
-    <div class="ds-indicateur"><strong>12</strong><span>mois d’interactions étudiées (O3)</span></div>
-    <div class="ds-indicateur"><strong>3</strong><span>scénarios de participation (O3)</span></div>
+  <div class="ds-chiffres" aria-label="Repères chiffrés du protocole : chiffres prévus et paramètres à confirmer">
+    <div class="ds-indicateur ds-indicateur-o2"><span class="ds-indicateur-objectif">O2</span><strong>6</strong><span class="ds-indicateur-texte">Secteurs de ressources</span><small>Catégories à cartographier</small></div>
+    <div class="ds-indicateur ds-indicateur-o3"><span class="ds-indicateur-objectif">O3</span><strong>≥ 2</strong><span class="ds-indicateur-texte">Territoires de CLSC contrastés</span><small>Nombre minimal envisagé</small></div>
+    <div class="ds-indicateur ds-indicateur-o3"><span class="ds-indicateur-objectif">O3</span><strong>12</strong><span class="ds-indicateur-texte">Mois d’interactions étudiées</span><small>Fenêtre rétrospective prévue</small></div>
+    <div class="ds-indicateur ds-indicateur-o3"><span class="ds-indicateur-objectif">O3</span><strong>3</strong><span class="ds-indicateur-texte">Scénarios de participation</span><small>≥ 80 % · 65–79 % · &lt; 65 % de réponses (repères proposés)</small></div>
   </div>
   <p class="ds-bas"><span><b>Intégration :</b> vignettes O1, atlas O2 et réseaux O3 mis en relation.</span><span><b>Participation :</b> deux patients partenaires prévus tout au long du projet (recrutement à confirmer), aux côtés des aînés, proches, équipes de soutien à domicile (SAD), partenaires et gestionnaires.</span></p>
 </div><style id="these-produits-cartes-o1-o3">
