@@ -10,12 +10,12 @@ function cadre() {
   return '<div data-cadre-autonomie="20261023"><h4>Deux dimensions de l’autonomie à distinguer</h4>'+
     p('Dans la littérature gériatrique, le terme « autonomie » peut recouvrir à la fois l’autodétermination et l’indépendance dans les activités quotidiennes. Pour clarifier l’objet de cette recherche, deux dimensions sont distinguées (Gobillot et al., 2025).')+
     cartes([
-      ['Dimension fonctionnelle · réaliser les activités quotidiennes', 'Elle concerne la réalisation des activités de la vie quotidienne, les difficultés rencontrées et l’assistance nécessaire. Les activités de base et instrumentales permettent de l’évaluer (Katz et al., 1963 ; Lawton et Brody, 1969).'],
+      ['Dimension des activités quotidiennes · réaliser les activités quotidiennes', 'Elle concerne la réalisation des activités de la vie quotidienne, les difficultés rencontrées et l’assistance nécessaire. Les activités de base et instrumentales permettent de l’évaluer (Katz et al., 1963 ; Lawton et Brody, 1969).'],
       ['Dimension décisionnelle · décider et consentir', 'Elle concerne la possibilité de se déterminer et de prendre des décisions concernant sa vie. Dans les soins, le consentement doit être libre et éclairé. L’aptitude à consentir suppose de comprendre l’information, d’en apprécier la portée pour soi, de raisonner sur les options et de communiquer un choix (Appelbaum, 2007).']
     ])+
     p('Un besoin d’aide pour se laver, se déplacer ou préparer ses repas ne permet pas, à lui seul, de conclure à une incapacité à consentir. L’évaluation décisionnelle porte sur une décision donnée, dans son contexte, avec une information et une communication adaptées (Appelbaum, 2007).')+
-    '<h4>Le choix de la dimension fonctionnelle dans cette recherche</h4>'+
-    p('La thèse étudie l’organisation de la réponse intersectorielle à des difficultés de la vie quotidienne et à des besoins sociaux concomitants. La dimension fonctionnelle permet de mettre en relation les limitations observées, les besoins d’aide, les ressources de compensation et les services mobilisables. Ce choix est cohérent avec les travaux d’évaluation fonctionnelle et la prise en compte de l’environnement dans le fonctionnement quotidien (Hébert et al., 2001 ; OMS, 2015).')+
+    '<h4>Le choix de la dimension des activités quotidiennes dans cette recherche</h4>'+
+    p('La thèse étudie l’organisation de la réponse intersectorielle à des difficultés de la vie quotidienne et à des besoins sociaux concomitants. Cette dimension permet de mettre en relation les limitations observées, les besoins d’aide, les ressources de compensation et les services mobilisables. Ce choix est cohérent avec les travaux d’évaluation de l’autonomie et la prise en compte de l’environnement dans le fonctionnement quotidien (Hébert et al., 2001 ; OMS, 2015).')+
     p('L’autonomie décisionnelle reste essentielle au consentement, au respect des préférences et à la participation aux décisions. Elle constitue ici une exigence transversale de l’accompagnement ; la recherche ne vise pas à mesurer l’aptitude individuelle à consentir (Appelbaum, 2007 ; Gobillot et al., 2025).')+'</div>';
 }
 
@@ -32,12 +32,12 @@ function definition() {
     '<div class="these-message-cle" data-definition-autonomie="20261023">'+p(v.contexte[1][1][1])+'</div>'+
     '<h4>Les activités et les fonctions à décrire</h4>'+
     p('Les AVQ et les AIVQ décrivent les activités concernées. La mobilité, les fonctions mentales et la communication éclairent aussi leur réalisation : la perte d’autonomie ne se limite donc pas aux capacités physiques. Le SMAF distingue ces cinq domaines ; les autres instruments ne les couvrent pas tous de la même façon (Katz et al., 1963 ; Lawton et Brody, 1969 ; Hébert et al., 2001).')+
-    '<div class="these-tableau-defilement" role="region" tabindex="0" aria-label="Activités et fonctions constitutives de l’évaluation fonctionnelle"><table class="these-tableau"><caption>Activités et fonctions constitutives de l’évaluation fonctionnelle</caption><thead><tr><th scope="col">Domaine</th><th scope="col">Éléments à documenter</th></tr></thead><tbody>'+domaines.map(([h,t])=>'<tr><th scope="row">'+e(h)+'</th><td>'+e(t)+'</td></tr>').join('')+'</tbody></table></div>'+
+    '<div class="these-tableau-defilement" role="region" tabindex="0" aria-label="Activités et fonctions constitutives de l’évaluation de l’autonomie"><table class="these-tableau"><caption>Activités et fonctions constitutives de l’évaluation de l’autonomie</caption><thead><tr><th scope="col">Domaine</th><th scope="col">Éléments à documenter</th></tr></thead><tbody>'+domaines.map(([h,t])=>'<tr><th scope="row">'+e(h)+'</th><td>'+e(t)+'</td></tr>').join('')+'</tbody></table></div>'+
     p('Le niveau d’aide distingue une activité réalisée seul mais avec difficulté, un besoin de stimulation ou de surveillance, une aide partielle et une aide complète. Ces situations ne décrivent pas une succession obligatoire. Les critères propres à chaque instrument et à chaque activité doivent être conservés (Hébert et al., 2001).')+
     '<h4>Un fonctionnement situé dans un environnement</h4>'+
     p('La Classification internationale du fonctionnement, du handicap et de la santé (CIF) distingue la capacité dans un environnement standardisé et la performance dans le milieu de vie habituel. Le fonctionnement et les restrictions de participation résultent aussi de l’interaction avec cet environnement : logement, transports, aides techniques, proches et services peuvent faciliter les activités ou leur faire obstacle (OMS, 2002).')+
     p('Il faut ainsi distinguer la limitation, l’aide nécessaire, l’aide effectivement reçue et ce qui reste non compensé. Une aide disponible peut permettre de réaliser une activité malgré une limitation persistante ; sa présence ne prouve pas que le besoin a disparu. Le SMAF prend également en compte la stabilité des ressources de compensation (Hébert et al., 2001).')+
-    p('L’évaluation doit aussi considérer les activités que la personne souhaite poursuivre et le sens qu’elles ont pour elle. L’étude qualitative de Gobillot et ses collègues invite à compléter les scores fonctionnels par les projets de vie et les points de vue des personnes et de leurs proches. Les trajectoires qu’elle décrit ne constituent pas une progression inévitable de l’aide humaine vers la perte de liberté décisionnelle ou l’hébergement (Gobillot et al., 2025).')+
+    p('L’évaluation doit aussi considérer les activités que la personne souhaite poursuivre et le sens qu’elles ont pour elle. L’étude qualitative de Gobillot et ses collègues invite à compléter les scores d’autonomie par les projets de vie et les points de vue des personnes et de leurs proches. Les trajectoires qu’elle décrit ne constituent pas une progression inévitable de l’aide humaine vers la perte de liberté décisionnelle ou l’hébergement (Gobillot et al., 2025).')+
     cartes([['Fragilité','Une vulnérabilité accrue aux événements de santé, liée à une diminution des réserves.'],['Perte d’autonomie ','Des difficultés dans les activités ou un besoin d’aide humaine.'],['Handicap','Une situation façonnée aussi par l’environnement et les moyens de compensation.']])+
     p('Ces dimensions se recouvrent sans être équivalentes. Une fragilité peut exister sans dépendance dans les activités quotidiennes, et un même diagnostic ne détermine pas le même besoin d’aide chez toutes les personnes (Tchalla et al., 2022).');
 }
@@ -46,12 +46,12 @@ function definitionSimple() {
   return '<div data-definition-autonomie="20261023">'+
     '<div data-cadre-autonomie="20261023"><h4>Réaliser les activités et décider pour soi</h4>'+
     cartes([
-      ['La dimension fonctionnelle', 'Se laver, s’habiller ou préparer ses repas : on regarde les difficultés et l’aide nécessaire (Katz et al., 1963 ; Lawton et Brody, 1969).'],
+      ['La dimension des activités quotidiennes', 'Se laver, s’habiller ou préparer ses repas : on regarde les difficultés et l’aide nécessaire (Katz et al., 1963 ; Lawton et Brody, 1969).'],
       ['La dimension décisionnelle', 'Pour consentir à un soin : comprendre ce qui est proposé, en saisir les conséquences pour soi, comparer les possibilités et exprimer son choix (Appelbaum, 2007).']
     ])+
     p('Avoir besoin d’aide pour un geste quotidien ne signifie pas automatiquement ne plus pouvoir décider pour soi (Gobillot et al., 2025).')+
     '<h4>Le choix de la recherche</h4>'+
-    p('Cette thèse s’intéresse aux difficultés quotidiennes, aux besoins sociaux et aux aides à organiser sur les territoires. Elle retient donc la dimension fonctionnelle ; les choix et le consentement de la personne restent essentiels.')+'</div>'+
+    p('Cette thèse s’intéresse aux difficultés quotidiennes, aux besoins sociaux et aux aides à organiser sur les territoires. Elle retient donc la dimension des activités quotidiennes ; les choix et le consentement de la personne restent essentiels.')+'</div>'+
     '<h4>La définition retenue</h4>'+
     p('Ici, la perte d’autonomie signifie avoir des difficultés ou avoir besoin d’aide pour des activités quotidiennes.')+
     cartes([['Les gestes personnels','Les activités de base de la vie quotidienne (AVQ) : se laver, s’habiller, utiliser les toilettes, se transférer, assurer sa continence et manger (Katz et al., 1963).'],['L’organisation de la vie à domicile','Les activités instrumentales de la vie quotidienne (AIVQ) : téléphoner, faire les courses, préparer les repas, entretenir le logement, faire la lessive, gérer médicaments et argent ou utiliser les transports (Lawton et Brody, 1969).'],['Les fonctions qui permettent d’agir','Se déplacer, mémoriser, comprendre, s’orienter, voir, entendre et communiquer font aussi partie de l’évaluation (Hébert et al., 2001).']])+
@@ -94,7 +94,7 @@ function transformer(html, file) {
   const contexte = d.querySelector('.these [data-rubrique="contexte"] .chapitre-contenu');
   if (!contexte) throw new Error('Contexte introuvable : '+file);
   const loc = dom.nodeLocation(contexte);
-  if (!appliquer(d,file)) throw new Error('Définition fonctionnelle introuvable : '+file);
+  if (!appliquer(d,file)) throw new Error('Définition de l’autonomie introuvable : '+file);
   const edits = [{a:loc.startOffset,b:loc.endOffset,html:contexte.outerHTML}];
   const biblio = d.querySelector('.bibliographie-complete');
   if (biblio) {const n=dom.nodeLocation(biblio);edits.push({a:n.startOffset,b:n.endOffset,html:require('./bibliographie').render({lang:'fr',chemin:''})});}

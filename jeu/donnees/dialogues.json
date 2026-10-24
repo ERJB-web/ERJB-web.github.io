@@ -1002,7 +1002,7 @@
     {
      "id": "c1_tableau_002",
      "qui": "eric",
-     "texte": "Mes flèches sont toutes fonctionnelles. Deux sont même financées par le FRQ.",
+     "texte": "Mes flèches marchent toutes. Deux sont même financées par le FRQ.",
      "emotion": "ironie",
      "intensite": 0.4,
      "anim": "talk",
@@ -16791,7 +16791,7 @@
    {
     "id": "rep_entraineur_intro_glisse_005",
     "qui": "entraineur_patin",
-    "texte": "Aligne le nez, le genou pis les orteils. Comme une flèche fonctionnelle.",
+    "texte": "Aligne le nez, le genou pis les orteils. Comme une flèche bien droite.",
     "emotion": "neutre",
     "intensite": 0.4,
     "anim": "talk"

@@ -50,7 +50,7 @@ Le workflow `pages.yml` audite tous les fichiers de code, de styles, de données
 
 La police, les tailles et la justification sont centralisées dans `assets/typographie.css`. Corps et texte des tableaux : 16 px ; notes : 14 px ; titres de page : 28–36 px ; chapitres : 23–28 px ; sections : 22 px ; sous-sections : 19 px ; encadrés : 18 px. Les adaptations mobiles et le mode grands caractères restent définis dans cette même feuille.
 
-Tout texte rédigé est justifié, y compris les paragraphes et listes dans les tableaux, les encadrés et les modules injectés. Les titres, commandes et sommaires gardent leur alignement fonctionnel. La police commune est Inter avec des polices système de remplacement. Aucun module ne doit définir une nouvelle échelle ou imposer un alignement local au texte rédigé. Les exceptions fonctionnelles se définissent dans la charte centrale.
+Tout texte rédigé est justifié, y compris les paragraphes et listes dans les tableaux, les encadrés et les modules injectés. Les titres, commandes et sommaires gardent leur alignement d’usage. La police commune est Inter avec des polices système de remplacement. Aucun module ne doit définir une nouvelle échelle ou imposer un alignement local au texte rédigé. Les exceptions d’usage se définissent dans la charte centrale.
 
 La couche CSS `charte-typographique` donne la priorité aux règles communes sur les déclarations locales importantes. Ne pas ajouter de styles typographiques importants en ligne.
 
