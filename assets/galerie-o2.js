@@ -35,43 +35,8 @@
     }
   }
 
-  // Sélection éditoriale : dix illustrations complémentaires de la faisabilité O2.
-  // Les 48 fichiers d'origine restent archivés ; seule la galerie publique est allégée.
-  const selectionO2 = [1, 2, 3, 6, 8, 9, 26, 28, 33, 35];
-  function reduireGalerie(gallery) {
-    const figures = trouver(gallery);
-    if (figures.length > selectionO2.length) {
-      figures.forEach((figure, index) => {
-        const rang = selectionO2.indexOf(index + 1);
-        if (rang < 0) figure.remove();
-      });
-      const select = gallery.querySelector("[data-galerie-choix]");
-      if (select) {
-        Array.from(select.options).forEach(option => {
-          const rang = selectionO2.indexOf(Number(option.value));
-          if (rang < 0) option.remove();
-          else {
-            option.value = String(rang + 1);
-            option.textContent = option.textContent.replace(/^\s*\d{1,2}\s*·\s*/, String(rang + 1).padStart(2, "0") + " · ");
-          }
-        });
-      }
-      gallery.dataset.planche = "1";
-    }
-    trouver(gallery).forEach((figure, i) => {
-      figure.setAttribute("aria-label", "Planche " + (i + 1) + " sur 10");
-    });
-    gallery.setAttribute("aria-label", "10 cartes et graphiques de démonstration O2");
-    const select = gallery.querySelector("[data-galerie-choix]");
-    if (select) select.setAttribute("aria-label", "Choisir une des 10 planches");
-    const zone = gallery.closest("#methode-o2-exemples");
-    const titre = zone?.querySelector(":scope > header h6");
-    if (titre) titre.textContent = "Galerie exploratoire · 10 cartes et graphiques";
-  }
-
   function initialiser(gallery) {
     if (!gallery || gallery.dataset.galerieInitialisee === "oui") return;
-    reduireGalerie(gallery);
     const figures = trouver(gallery);
     if (!figures.length) return;
     gallery.dataset.galerieInitialisee = "oui";
