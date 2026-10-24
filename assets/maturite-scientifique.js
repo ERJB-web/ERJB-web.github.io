@@ -36,10 +36,10 @@
       // Remplace le précédent chiffrage indicatif, sans modifier le nombre de notices.
       const blocCharge = $(".revision-demo--workload .revision-note", zone);
       if (blocCharge && blocCharge.textContent.includes("443–887")) {
-        blocCharge.innerHTML = "<strong>Hypothèse rapide : 25–35 s par décision</strong> · <strong>370–517 heures-personnes</strong> pour deux évaluateurs. Repère de rythme : 4 000 notices en deux semaines, soit environ 2 h 45 à 3 h 55 par jour ouvré et par évaluateur. À confirmer par un essai chronométré ; hors textes intégraux, arbitrage et extraction.";
+        blocCharge.innerHTML = "<strong>Hypothèse rapide : 25–35 s par décision</strong> · <strong>136–191 heures-personnes</strong> pour deux évaluateurs. Repère de rythme : 4 000 notices en deux semaines, soit environ 2 h 45 à 3 h 55 par jour ouvré et par évaluateur. À confirmer par un essai chronométré ; hors textes intégraux, arbitrage et extraction.";
       }
       const ancienneSimulation = "30 à 60 secondes par notice représenteraient 443 à 887 heures-personnes";
-      const nouvelleSimulation = "25 à 35 secondes par notice représenteraient environ 370 à 517 heures-personnes";
+      const nouvelleSimulation = "25 à 35 secondes par notice représenteraient environ 136 à 191 heures-personnes";
       zone.querySelectorAll("p").forEach(p => {
         if (p.innerHTML.includes(ancienneSimulation)) {
           p.innerHTML = p.innerHTML.replace(ancienneSimulation, nouvelleSimulation);
@@ -129,9 +129,9 @@
       addOnce(o1selection,"matO1",mk("mat-sc--o1",
         '<span class="mat-sc__eyebrow">Contrôle documentaire · O1</span><p class="mat-sc__title" role="heading" aria-level="6">Ce qui doit être vérifié avant la sélection définitive</p>'+
         '<div class="mat-sc__cards">'+
-        '<div class="mat-sc__card"><span class="mat-sc__number">26 609</span><strong>Notices à examiner</strong><p>Charge à confirmer par essai chronométré sur au moins 100 notices par évaluateur.</p><span class="mat-sc__tag mat-sc__tag--pending">Planification en cours</span></div>'+
+        '<div class="mat-sc__card"><span class="mat-sc__number">9 819</span><strong>Études à examiner</strong><p>Charge à confirmer par essai chronométré sur au moins 100 notices par évaluateur.</p><span class="mat-sc__tag mat-sc__tag--pending">Planification en cours</span></div>'+
         '<div class="mat-sc__card"><span class="mat-sc__number">2 + 1</span><strong>Évaluateurs et arbitre</strong><p>Deux décisions indépendantes ; arbitrage des désaccords persistants. Même principe pour l’extraction.</p><span class="mat-sc__tag mat-sc__tag--rule">Règle prévue</span></div>'+
-        '<div class="mat-sc__card"><span class="mat-sc__number">+ 2</span><strong>Écart de traçabilité</strong><p>Deux notices à réconcilier entre exports, exclusion temporelle et import Covidence avant le diagramme final.</p><span class="mat-sc__tag mat-sc__tag--pending">Vérification requise</span></div>'+
+        '<div class="mat-sc__card"><span class="mat-sc__number">271</span><strong>Études sans résumé</strong><p>Vote « Non » du premier évaluateur, avec la note « Sans résumé » ; exclusion à confirmer par le second évaluateur.</p><span class="mat-sc__tag mat-sc__tag--pending">Confirmation requise</span></div>'+
         '</div><p class="mat-sc__small"><strong>Décision de passage :</strong> protocole et critères validés avec la bibliothécaire et la codirection ; concordance pilote documentée ; charge de sélection et disponibilité des évaluateurs compatibles avec l’échéancier. Sinon, ajuster les ressources ou le calendrier, sans restreindre arbitrairement le corpus.</p>'
       ));
       // Réponse intersectorielle : deux calculs de potentiel ; les interactions réelles relèvent d'O3.
