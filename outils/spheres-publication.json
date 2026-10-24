@@ -1,0 +1,33 @@
+{
+  "origineWeb": "https://github.com/ERJB-web/statosphere",
+  "commitSource": "f88c67a48b1d0dca07028ec052fb37311a1ec5ca",
+  "date": "2026-10-15",
+  "copiesDistinctes": true,
+  "langueContenu": "fr",
+  "supportsInclus": false,
+  "coursNominatifsInclus": false,
+  "bilan": {
+    "statosphere": {
+      "lecons": 27,
+      "qcm": 1544,
+      "calculs": 477,
+      "tutoriel": 20,
+      "chapitresReordonnes": true
+    },
+    "episphere": {
+      "lecons": 20,
+      "qcm": 2100,
+      "calculs": 538,
+      "tutoriel": 20,
+      "chapitresReordonnes": true
+    }
+  },
+  "version": "2026-10-15-autonome-2",
+  "revision": {
+    "tutoriel": "Rédaction originale pour Positron ; données fictives et sorties calculées avec R.",
+    "organisation": "Modules autonomes sans calendrier, examens, nom de cours ni enseignant.",
+    "ajouts": "Échantillonnage et précision ; comparaisons de moyennes et de proportions ; lecture critique des résultats.",
+    "sourcesScientifiquesConservees": true,
+    "originauxPersonnelsModifies": false
+  }
+}

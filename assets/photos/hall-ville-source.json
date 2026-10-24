@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-16",
+  "interieur": "Plafond et sol de pierre grise polie recalculés (hall/interieur.py) ; piliers latéraux tirés de la photo du hall fournie par Éric Bernier.",
+  "ville": [
+    {
+      "fichiers": [
+        "hall-ville-jour-ete.webp",
+        "hall-ville-jour-automne.webp",
+        "hall-ville-jour-hiver.webp",
+        "hall-ville-couvert-ete.webp",
+        "hall-ville-couvert-automne.webp",
+        "hall-ville-couvert-hiver.webp"
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Montreal_Skyline_from_Mont_Royal_golden_hour.jpg (original 29684 × 6431, réduit à 3800 × 1090)",
+      "auteur": "Wilfredor",
+      "licence": "CC0 1.0",
+      "traitement": "Recadrage ; feuillage d'automne et d'hiver, ciel couvert recalculés."
+    },
+    {
+      "fichiers": [
+        "hall-ville-crepuscule.webp",
+        "hall-ville-nuit.webp"
+      ],
+      "source": "https://commons.wikimedia.org/wiki/File:Panorama_Montreal_Skyline_2017.jpg",
+      "auteur": "Calvin411",
+      "licence": "CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)",
+      "traitement": "Recadrage et alignement sur la vue de jour ; ciel de nuit assombri. Ces fichiers modifiés sont diffusés sous la même licence CC BY-SA 4.0."
+    }
+  ],
+  "alignement": {
+    "echelle": 3.4,
+    "decalage": [
+      324,
+      92.5
+    ],
+    "recadrage": [
+      324,
+      92,
+      2738,
+      784
+    ]
+  },
+  "fleuve": "hall-ville-fleuve.png : masque des zones d’eau visibles, pour les bateaux dessinés par hall-ciel.js.",
+  "sol": {
+    "texture": "granite_tile (Poly Haven, https://polyhaven.com/a/granite_tile), auteure Charlotte Baglioni",
+    "licence": "CC0",
+    "traitement": "Niveaux éclaircis, projection en perspective (hall/interieur.py)"
+  }
+}

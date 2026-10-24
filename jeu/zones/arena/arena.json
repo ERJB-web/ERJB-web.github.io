@@ -1,0 +1,122 @@
+{
+  "id": "arena",
+  "titre": "Aréna du CEPSUM",
+  "sousTitre": "Centre d'éducation physique et des sports, Université de Montréal",
+  "glb": "arena.glb",
+  "lightmaps": [
+    {
+      "fichier": "arena_lm0.webp",
+      "scale": 2.9986
+    },
+    {
+      "fichier": "arena_lm1.webp",
+      "scale": 1.2728
+    }
+  ],
+  "env": {
+    "fichier": "arena_env.hdr",
+    "intensite": 0.85,
+    "fond": "#1b2026"
+  },
+  "soleil": {
+    "direction": [
+      0.08,
+      -1.0,
+      0.05
+    ],
+    "couleur": "#eef4ff",
+    "intensite": 0.5
+  },
+  "brouillard": {
+    "couleur": "#aeb8c0",
+    "densite": 0.0012
+  },
+  "exposition": 0.85,
+  "musique": "arena",
+  "ambiance": "amb_arena",
+  "sol": "caoutchouc",
+  "bounds": {
+    "min": [
+      -40.5,
+      0.0,
+      -32.0
+    ],
+    "max": [
+      40.5,
+      13.5,
+      29.5
+    ]
+  },
+  "carte": "arena_carte.webp",
+  "acces": {
+    "campus": "SPAWN_from_campus"
+  },
+  "credits": [
+    {
+      "ressource": "Rubber Tiles (rubber_tiles)",
+      "auteur": "Amal Kumar, Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/rubber_tiles"
+    },
+    {
+      "ressource": "Concrete Floor Worn 001",
+      "auteur": "Dimitrios Savva, Rico Cilliers, Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/concrete_floor_worn_001"
+    },
+    {
+      "ressource": "Painted Concrete 02",
+      "auteur": "Rob Tuytel, Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/painted_concrete_02"
+    },
+    {
+      "ressource": "Beige Wall 001",
+      "auteur": "Dimitrios Savva, Rico Cilliers, Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/beige_wall_001"
+    },
+    {
+      "ressource": "Corrugated Iron 02",
+      "auteur": "Sergej Majboroda, Jenelle van Heerden, Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/corrugated_iron_02"
+    },
+    {
+      "ressource": "Plywood",
+      "auteur": "Rob Tuytel, Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/plywood"
+    },
+    {
+      "ressource": "Jersey Melange",
+      "auteur": "colormass, Rico Cilliers, Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/jersey_melange"
+    },
+    {
+      "ressource": "Scuba Suede",
+      "auteur": "colormass, Rico Cilliers, Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/scuba_suede"
+    },
+    {
+      "ressource": "Blue Metal Plate",
+      "auteur": "Rob Tuytel, Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/blue_metal_plate"
+    },
+    {
+      "ressource": "Leather White",
+      "auteur": "Rob Tuytel, Poly Haven",
+      "licence": "CC0",
+      "url": "https://polyhaven.com/a/leather_white"
+    },
+    {
+      "ressource": "Police Lato",
+      "auteur": "Łukasz Dziedzic",
+      "licence": "OFL",
+      "url": "https://fonts.google.com/specimen/Lato"
+    }
+  ]
+}

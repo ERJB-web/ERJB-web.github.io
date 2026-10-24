@@ -1,0 +1,465 @@
+{
+  "titre": "Sharing knowledge, enabling understanding and opening dialogue",
+  "intro": "I want science communication to be a space where people can understand a question, examine the reasons behind a claim and join the discussion. My background in specialised education, law, management and public health supports a shared concern: connect rigorous knowledge with lived situations while preserving uncertainty and diverse perspectives. This section brings together a vision, visual explanations, proposed formats and resources for practical use.",
+  "explorer": "Explore science communication",
+  "onglets": [
+    "Vision and audiences",
+    "Reading studies and numbers",
+    "Communication workshop",
+    "Carousels, videos and podcasts",
+    "Dialogue and responsibility",
+    "Reusable worksheets",
+    "Annotated resources"
+  ],
+  "labels": {
+    "appuis": "Explore further",
+    "exemple": "Design example",
+    "structure": "Outline",
+    "accessibilite": "Accessibility to plan for",
+    "question": "A question for the audience",
+    "source": "Open the resource",
+    "apport": "What it contributes",
+    "usage": "How to use it",
+    "limite": "Scope and limitations",
+    "telecharger": "Download the worksheet",
+    "fiche": "Communication planning worksheet",
+    "grille": "Reading scientific information critically",
+    "repere": "Reference point",
+    "examiner": "What to examine",
+    "indicateur": "What we want to observe",
+    "recueil": "One way to document it",
+    "prudence": "What we cannot conclude"
+  },
+  "vision": {
+    "titre": "Making science open to discussion and useful in collective life",
+    "sections": [
+      [
+        "Understanding, finding one’s bearings and participating",
+        "Access to information does not automatically provide the means to interpret it. I want to explain how knowledge is produced, how it changes our understanding of a problem and what remains open. My ambition is for people to ask a more precise question, recognise a limitation and place a decision in context. Curiosity can begin the encounter; access to sources and the possibility of discussing reasons give it depth."
+      ],
+      [
+        "Working with audiences",
+        "My experience as a specialised educator encourages me to start from people’s capabilities, constraints and projects. A family carer, student and community volunteer may approach the same topic with different questions. I want these experiences to inform the point of entry and reveal problems sometimes obscured by institutional language. This dialogue requires time, listening and an explanation of what was taken into account."
+      ],
+      [
+        "Responsibility for connecting perspectives",
+        "Communicating about health involves data, experience and collective choices. I want to distinguish these: testimony illuminates a situated experience; a study addresses a question under particular conditions; a decision also involves values and constraints. Bringing them into dialogue helps explain disagreements. This requires stating my role, sources and any interests involved, then making corrections visible when necessary."
+      ]
+    ],
+    "modesTitre": "Four ways of relating to audiences",
+    "modes": [
+      [
+        "Explain",
+        "Make knowledge available.",
+        "A short explanation introduces co-occurring social needs."
+      ],
+      [
+        "Discuss",
+        "Exchange questions, knowledge and objections.",
+        "A conversation brings out difficulties encountered between services."
+      ],
+      [
+        "Co-design",
+        "Share choices about content or process.",
+        "People concerned help choose examples and questions to address."
+      ],
+      [
+        "Deliberate",
+        "Examine options and their consequences together.",
+        "A workshop compares possible responses to an organisational problem."
+      ]
+    ],
+    "note": "These approaches serve different aims and can be combined. Inviting comments does not by itself share decision-making: the scope of participation must be explicit.",
+    "refs": [
+      "publics",
+      "dialogue",
+      "scienceouverte"
+    ]
+  },
+  "preuve": {
+    "titre": "From a scientific finding to a faithful explanation",
+    "intro": "Before writing a headline, reconstruct the path between the research question and the proposed conclusion. This diagram is a reading framework, not an automatic ranking of methods.",
+    "chaine": [
+      [
+        "Question",
+        "What problem, population and context?"
+      ],
+      [
+        "Method",
+        "How were people, data and comparisons selected?"
+      ],
+      [
+        "Findings",
+        "What was observed, with what magnitude and uncertainty?"
+      ],
+      [
+        "Interpretation",
+        "What can be concluded here? What still needs examining?"
+      ]
+    ],
+    "fiches": [
+      [
+        "Identify the status of the work",
+        "State whether it is a protocol, preprint, peer-reviewed article or evidence synthesis. Status provides information about the production process; it does not replace examining the content. For my thesis, the objectives and methods describe ongoing work, with no findings available."
+      ],
+      [
+        "Respect what the method supports",
+        "An observed association is insufficient to attribute a causal effect. An interview can deepen understanding of an experience and its meanings without estimating its population frequency. A synthesis inherits limitations of the included studies. The wording should match the question and design."
+      ],
+      [
+        "Make uncertainty understandable",
+        "Explain what is missing, what varies and what could change the conclusion. An estimate, its uncertainty range and its practical relevance address different questions. Van der Bles and colleagues’ experiments shed light on some ways of expressing uncertainty; they do not guarantee trust in every setting."
+      ]
+    ],
+    "refs": [
+      "incertitude",
+      "cochrane"
+    ]
+  },
+  "chiffres": {
+    "titre": "The same numbers, two complementary perspectives",
+    "intro": "An entirely fictional example: an event occurs in 20 out of 100 people in one group and 10 out of 100 in another over the same period. None of these figures comes from my research.",
+    "groupes": [
+      "Group A",
+      "Group B"
+    ],
+    "frequences": [
+      "20 out of 100 people",
+      "10 out of 100 people"
+    ],
+    "legende": "Each dot represents one person; filled dots indicate the event.",
+    "mesures": [
+      [
+        "Absolute difference",
+        "10 points",
+        "20% − 10% = 10 percentage points: 10 fewer events per 100 people."
+      ],
+      [
+        "Relative difference",
+        "50%",
+        "(20 − 10) ÷ 20 = 50% fewer events relative to group A."
+      ],
+      [
+        "Comparison base",
+        "100 people",
+        "The same denominator, event and duration make the comparison interpretable."
+      ]
+    ],
+    "conclusion": "Both presentations describe the same difference. They do not establish why the groups differ. Interpreting a real finding also requires information about recruitment, design, uncertainty and outcomes that matter to people.",
+    "refs": [
+      "cochrane",
+      "clarte"
+    ]
+  },
+  "formats": {
+    "titre": "Choosing a format that supports thinking",
+    "intro": "These mockups are editorial proposals to develop. They show how a question can be explored without inventing findings or implying an episode has already been published.",
+    "items": [
+      {
+        "titre": "A carousel that develops a question",
+        "objectif": "Example: “Why can one situation require several services?” Five cards can make the reasoning visible and create a resource to revisit.",
+        "structure": [
+          [
+            "A situated question",
+            "Start from a recognisable situation without exposing a real person."
+          ],
+          [
+            "An idea to understand",
+            "Explain the coexistence of housing, income or support needs."
+          ],
+          [
+            "A useful diagram",
+            "Show actors and necessary relationships; explain what the diagram simplifies."
+          ],
+          [
+            "An essential qualification",
+            "More actors do not automatically mean better coordination."
+          ],
+          [
+            "A documented opening",
+            "Ask a question and provide the source and its date."
+          ]
+        ],
+        "accessibilite": "Keep essential text in the post, describe the diagram, number the cards and avoid conveying information through colour alone.",
+        "question": "“Which part of a journey between services needs a clearer explanation?”",
+        "refs": [
+          "social",
+          "clarte",
+          "images"
+        ]
+      },
+      {
+        "titre": "A video that explains a mechanism",
+        "objectif": "Example: explain how information can be lost between two services. The visual should help explain the mechanism while narration names its elements.",
+        "structure": [
+          [
+            "Introduce the question",
+            "Begin with a concrete difficulty and state the idea being explored."
+          ],
+          [
+            "Reveal relationships",
+            "Build a small network progressively, with a key and named actors."
+          ],
+          [
+            "Introduce another possibility",
+            "Compare a coordinated information transfer with an interrupted one as illustrative scenarios."
+          ],
+          [
+            "Return to the evidence",
+            "Explain what the example shows, its limits and the sources to consult."
+          ]
+        ],
+        "accessibilite": "Plan checked captions, a transcript and spoken descriptions of necessary visual information. Music should not obscure speech.",
+        "question": "“Which connection is missing from this representation of your experience?”",
+        "refs": [
+          "clarte",
+          "accessibilite",
+          "images"
+        ]
+      },
+      {
+        "titre": "A podcast that makes room for disagreement",
+        "objectif": "Example: an interview about conditions for cooperation across sectors. Preparation should enable perspectives to be compared and terms explained without staging an artificial consensus.",
+        "structure": [
+          [
+            "Situate the question and voices",
+            "Introduce participants, their roles and connections to the topic."
+          ],
+          [
+            "Begin with experience",
+            "Invite a situated account and clarify important terms."
+          ],
+          [
+            "Compare explanations",
+            "Ask what supports a claim, what is disputed and whose voices are missing."
+          ],
+          [
+            "Offer an open synthesis",
+            "Distinguish agreement, disagreement and questions to revisit."
+          ]
+        ],
+        "accessibilite": "Publish a structured transcript, listening markers and episode notes with sources and limitations. Agree on recording and publication arrangements.",
+        "question": "“On which point would you like to hear another perspective?”",
+        "refs": [
+          "dialogue",
+          "accessibilite"
+        ]
+      }
+    ]
+  },
+  "dialogue": {
+    "titre": "Communicating within relationships of trust",
+    "intro": "Communication quality also depends on the relationship it creates: who can contribute, who remains distant and what happens to contributions.",
+    "sections": [
+      [
+        "Welcome questions and make disagreement workable",
+        "I want to restate a question before answering, distinguish challenges to findings from criticism of an institution and acknowledge experience without generalising it. Explicit discussion rules should protect people and enable arguments to be examined. Consultation becomes meaningful when its scope is explained and participants hear what happened afterwards."
+      ],
+      [
+        "Respond to misleading information with an explanation",
+        "A useful correction states the supported point, identifies the specific problem and explains the reasons for the correction with an accessible source. I want to avoid humiliation and sensational repetition of a misleading claim. In health, a public reply also needs to acknowledge the limits of an online exchange and preserve confidentiality."
+      ],
+      [
+        "AI, images and editorial responsibility",
+        "AI tools can help prepare a structure or explore an illustration; responsibility for claims, sources and editing remains with the author. A generated image should be identifiable as an illustration when it could be mistaken for a real scene. Voices, quotations and testimony should not be invented to make content more persuasive. I want to retain provenance and avoid sharing sensitive data with a tool without an appropriate framework."
+      ]
+    ],
+    "boucleTitre": "A dialogue loop that leaves a record",
+    "boucle": [
+      [
+        "Listen",
+        "Gather questions without requesting identifying details."
+      ],
+      [
+        "Understand",
+        "Group needs, objections and uncertainties."
+      ],
+      [
+        "Respond",
+        "Adapt the explanation and identify what remains open."
+      ],
+      [
+        "Report back",
+        "Show revisions, corrections and proposed next steps."
+      ]
+    ],
+    "evaluationTitre": "Assess usefulness beyond visibility",
+    "evaluation": [
+      [
+        "Reach",
+        "Document consultation counts where such measurement exists.",
+        "A visit does not establish reading or understanding."
+      ],
+      [
+        "Understanding",
+        "Invite a short restatement or ask which distinction was retained.",
+        "An immediate response is insufficient to establish lasting understanding."
+      ],
+      [
+        "Participation",
+        "Examine questions, diversity of contributions and reported barriers.",
+        "Respondents do not necessarily represent the whole audience."
+      ],
+      [
+        "Usefulness",
+        "Ask how the content helped someone find their bearings or pursue an issue.",
+        "Reported usefulness does not establish a causal effect on health or decisions."
+      ]
+    ],
+    "note": "Usage figures describe a resource’s reach; they do not demonstrate understanding, usefulness or an effect on health.",
+    "refs": [
+      "dialogue",
+      "evaluation",
+      "ethique"
+    ]
+  },
+  "outils": {
+    "titre": "Two worksheets for preparing or discussing content",
+    "intro": "Short worksheets to reuse in a project, workshop or discussion. They structure the work; they are not validated instruments or quality certifications.",
+    "preparation": [
+      [
+        "Audience and situation",
+        "Who is it for? Which questions and constraints need to be understood?"
+      ],
+      [
+        "Purpose and message",
+        "What should the content enable? Which main idea should people be able to restate?"
+      ],
+      [
+        "Knowledge used",
+        "Which primary sources, dates, methods and limitations support the message?"
+      ],
+      [
+        "Format and access",
+        "Which medium helps understanding? Which textual, audio or visual alternatives are needed?"
+      ],
+      [
+        "Dialogue and responsibility",
+        "What participation is offered? Which rules, agreements and correction procedure?"
+      ],
+      [
+        "Feedback and revision",
+        "Which questions can reveal usefulness? What should change afterwards?"
+      ]
+    ],
+    "lecture": [
+      [
+        "Provenance",
+        "Who is speaking, in what role, with which source and declared interests?"
+      ],
+      [
+        "Question",
+        "Which population, context and problem are actually studied?"
+      ],
+      [
+        "Method",
+        "How was the observation produced? Which comparison is relevant?"
+      ],
+      [
+        "Magnitude",
+        "What absolute and relative difference? Which period and denominator?"
+      ],
+      [
+        "Uncertainty",
+        "Which limitations could change the interpretation? What is missing?"
+      ],
+      [
+        "Conclusion",
+        "Does the message stay within what the findings support?"
+      ]
+    ],
+    "refs": [
+      "clarte",
+      "cochrane",
+      "images"
+    ]
+  },
+  "ressources": {
+    "titre": "A library for understanding and designing",
+    "intro": "Each resource connects to a specific task. Research articles, reports and guides serve different purposes; their examples need adaptation to audiences and settings.",
+    "items": {
+      "publics": [
+        "Research report · EN",
+        "Understand science communication goals, audiences and conditions.",
+        "Read chapter 2 to clarify what an approach aims to enable.",
+        "A research agenda, not a recipe guaranteeing acceptance."
+      ],
+      "clarte": [
+        "Design tool · EN / ES",
+        "Structure messages, numbers and intended actions.",
+        "Use the framing questions before drafting, then discuss criteria with reviewers.",
+        "A clarity checklist does not replace scientific examination or audience feedback."
+      ],
+      "dialogue": [
+        "Practice guide · EN",
+        "Prepare public engagement and its conditions.",
+        "Clarify participation goals and how contributions will be followed up.",
+        "Engagement requires resources and local adaptation."
+      ],
+      "incertitude": [
+        "Research article · EN",
+        "Experimentally examine some effects of uncertainty wording on trust.",
+        "Compare formulations and studied contexts before deriving a rule.",
+        "Findings do not guarantee identical effects for every topic or audience."
+      ],
+      "accessibilite": [
+        "Technical guide · EN",
+        "Plan captions, transcripts and descriptions of audiovisual information.",
+        "Build alternatives into scripts and episode notes.",
+        "Needs and requirements vary across media."
+      ],
+      "evaluation": [
+        "Practice guide · EN",
+        "Distinguish outputs, intended outcomes and impacts in public engagement.",
+        "Connect an evaluation question to a realistic feedback method.",
+        "An isolated indicator does not establish causation."
+      ],
+      "social": [
+        "Practice synthesis · EN",
+        "Think through public engagement on social media.",
+        "Use its questions about strategy and audience relationships.",
+        "Published in 2018: platforms and practices have changed."
+      ],
+      "cochrane": [
+        "Methods handbook · EN",
+        "Interpret effect sizes and uncertainty.",
+        "Use sections on absolute and relative effects when explaining numbers.",
+        "Focused on intervention syntheses; adapt its use to other designs."
+      ],
+      "images": [
+        "Technical guide · EN",
+        "Choose text alternatives according to a visual’s function.",
+        "Prepare a full description of a graph or diagram.",
+        "Descriptions need to convey the information relevant to their context."
+      ],
+      "ethique": [
+        "Institutional guidance · EN",
+        "Consider social listening ethics and people’s rights.",
+        "Examine purpose, proportionality and data protection before collecting information.",
+        "Developed for public health emergencies."
+      ],
+      "scienceouverte": [
+        "International recommendation · multilingual",
+        "Place knowledge sharing within openness and participation.",
+        "Connect access to knowledge with dialogue with society.",
+        "An international normative framework, not an effectiveness measure for a format."
+      ]
+    },
+    "suite": "Continue with the site’s selections",
+    "liens": [
+      "Scientific literature",
+      "Reports and guides",
+      "Science videos",
+      "Podcasts"
+    ],
+    "bibliographie": "References"
+  },
+  "galerie": {
+    "titre": "Complementary formats, a shared standard",
+    "legendes": [
+      "Carousel: organise a visual progression",
+      "Video: make a mechanism visible",
+      "Podcast: bring perspectives into dialogue"
+    ]
+  }
+}

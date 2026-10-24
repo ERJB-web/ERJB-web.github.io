@@ -1,0 +1,179 @@
+/* Dossier juridique : lecture intégrale en six domaines, sans défilement sur grand écran.
+   Exclusivement la salle Juriste ; les contenus détaillés restent accessibles en dialogue. */
+.gab[data-gab-salle="juriste"]{
+  --jr-encre:#202d38;--jr-bordeaux:#683045;--jr-laiton:#b49664;
+  --jr-papier:#fbfaf7;--jr-trait:#dcd5ca;--jr-doux:#5c6570;
+  color:var(--jr-encre);
+}
+.gab[data-gab-salle="juriste"] .bandeau.gab-bandeau{
+  min-height:114px!important;padding:14px 30px 17px!important;
+  border-radius:12px!important;
+  background:linear-gradient(110deg,#202d38 0%,#382e36 56%,#683045 100%)!important;
+  box-shadow:none!important;isolation:isolate;
+}
+.gab[data-gab-salle="juriste"] .gab-bandeau .bandeau-texte{
+  position:relative;z-index:1;gap:1px!important;max-width:76%;
+}
+.gab[data-gab-salle="juriste"] .gab-bandeau .bandeau-num{
+  color:#ddc99d!important;letter-spacing:.13em!important;
+}
+.gab[data-gab-salle="juriste"] .gab-bandeau .bandeau-titre{color:#fffaf1!important}
+.gab[data-gab-salle="juriste"] .gab-bandeau .bandeau-legende{color:#eadcca!important}
+.gab[data-gab-salle="juriste"] .juriste-fronton{
+  position:absolute;right:28px;top:4px;height:110px;width:240px;
+  color:#e7d0a2;opacity:.45;pointer-events:none;
+}
+.gab[data-gab-salle="juriste"] .juriste-fronton svg{width:100%;height:100%;display:block}
+.gab[data-gab-salle="juriste"] .gab-intro{
+  display:grid!important;grid-template-columns:minmax(230px,.78fr) minmax(0,1.5fr);
+  align-items:center;gap:16px!important;margin:12px 0 12px!important;
+  padding:10px 16px!important;background:var(--jr-papier);
+  border:1px solid var(--jr-trait);border-left:3px solid var(--jr-laiton);
+  border-radius:4px!important;
+}
+.gab[data-gab-salle="juriste"] .gab-intro h2{margin:0!important;color:var(--jr-encre)!important}
+.gab[data-gab-salle="juriste"] .gab-intro p{margin:0!important;color:#49545d!important}
+.gab[data-gab-salle="juriste"] .gab-chapitres{
+  position:relative!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:10px!important;align-items:stretch!important;
+  padding:0 0 52px!important;margin:0!important;
+}
+.gab[data-gab-salle="juriste"] .gab-chapitres>.gab-chapitre,
+.gab[data-gab-salle="juriste"] .gab-chapitres>.gab-chapitre:first-child{
+  display:flex!important;flex-direction:column;position:relative!important;
+  min-width:0;min-height:0!important;margin:0!important;padding:13px 16px 12px!important;
+  border:1px solid var(--jr-trait)!important;
+  border-top:3px solid var(--jr-bordeaux)!important;
+  border-radius:5px!important;background:var(--jr-papier)!important;
+  box-shadow:0 2px 8px rgba(22,32,41,.035)!important;
+}
+.gab[data-gab-salle="juriste"] .gab-chapitres>.gab-chapitre:nth-child(2n){border-top-color:var(--jr-laiton)!important}
+.gab[data-gab-salle="juriste"] .gab-chapitre-grille,
+.gab[data-gab-salle="juriste"] .gab-chapitre-grille.gab-menu-universel:not(.gab-menu-gauche){
+  display:block!important;flex:1;min-width:0;
+}
+.gab[data-gab-salle="juriste"] .gab-chapitre-texte{width:100%!important;min-width:0!important}
+.gab[data-gab-salle="juriste"] .gab-chapitre-aside{display:none!important}
+.gab[data-gab-salle="juriste"] .gab-chapitre-tete{margin:0 44px 8px 0!important;min-height:44px}
+.gab[data-gab-salle="juriste"] .gab-chapitre-num{
+  display:flex!important;gap:8px!important;align-items:flex-start!important;
+  color:var(--jr-encre)!important;font:600 15px/1.3 var(--sans)!important;
+}
+.gab[data-gab-salle="juriste"] .gab-chapitre-num b{
+  flex:0 0 auto!important;width:26px!important;height:26px!important;
+  display:grid!important;place-items:center!important;
+  background:var(--jr-encre)!important;color:#e8d7b6!important;
+  border:1px solid #38414b!important;border-radius:2px!important;
+  font:600 11px/1 var(--sans)!important;box-shadow:none!important;
+}
+.gab[data-gab-salle="juriste"] .gab-chapitre-num>span{padding-top:2px;min-width:0}
+.gab[data-gab-salle="juriste"] .gab-corps .carte-vitrine,
+.gab[data-gab-salle="juriste"] .gab-corps .groupe-corps{
+  display:block!important;position:static!important;background:transparent!important;
+  border:0!important;padding:0!important;margin:0!important;box-shadow:none!important;
+}
+.gab[data-gab-salle="juriste"] .juriste-embleme{
+  position:absolute;top:10px;right:13px;display:grid;place-items:center;
+  width:40px;height:40px;color:var(--jr-bordeaux);
+  border:1px solid #e7dfd1;border-radius:50%;background:#f7f3eb;
+}
+.gab[data-gab-salle="juriste"] .juriste-embleme svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.45;stroke-linecap:round;stroke-linejoin:round}
+.gab[data-gab-salle="juriste"] .juriste-resume{
+  margin:0 0 9px!important;min-height:36px;color:var(--jr-doux)!important;
+}
+.gab[data-gab-salle="juriste"] .juriste-ouvrir{
+  margin-top:auto;display:inline-flex;align-items:center;justify-content:space-between;
+  gap:12px;width:100%;border:0;border-top:1px solid var(--jr-trait);padding:8px 0 0;
+  border-radius:0;background:transparent;text-align:left;font:600 13px/1.25 var(--sans);
+  color:var(--jr-bordeaux);cursor:pointer;
+}
+.gab[data-gab-salle="juriste"] .juriste-ouvrir .juriste-fleche{font-size:19px;line-height:1}
+.gab[data-gab-salle="juriste"] .juriste-ouvrir:hover{text-decoration:underline;text-underline-offset:3px}
+.gab[data-gab-salle="juriste"] :is(.juriste-ouvrir,.juriste-fermer):focus-visible{outline:3px solid var(--jr-laiton);outline-offset:3px}
+.gab[data-gab-salle="juriste"] .gab-chapitres>.gab-chapitre:last-child>.gab-bas-chapitre:not([hidden]){
+  position:absolute!important;bottom:0;left:0;right:0;min-height:44px;
+  padding:8px 0 0!important;margin:0!important;border-top:1px solid var(--jr-trait);
+}
+.gab[data-gab-salle="juriste"] .gab-bas-chapitre button{
+  background:#fff!important;color:var(--jr-encre)!important;border:1px solid var(--jr-trait)!important;
+}
+.gab[data-gab-salle="juriste"] .juriste-dialog{
+  box-sizing:border-box;border:1px solid #c8b89e;border-top:5px solid var(--jr-bordeaux);
+  border-radius:8px;width:min(640px,calc(100vw - 36px));max-height:min(80dvh,680px);
+  padding:24px 30px 28px;background:#fdfbf7;color:var(--jr-encre);
+  box-shadow:0 24px 75px rgba(15,24,34,.35);overflow-y:auto;
+}
+.gab[data-gab-salle="juriste"] .juriste-dialog::backdrop{background:rgba(17,27,38,.73);backdrop-filter:blur(3px)}
+.gab[data-gab-salle="juriste"] .juriste-dialog-entete{
+  display:flex;justify-content:space-between;gap:16px;align-items:center;
+  border-bottom:1px solid var(--jr-trait);padding-bottom:12px;margin-bottom:15px;
+}
+.gab[data-gab-salle="juriste"] .juriste-dialog-repere{
+  font:600 12px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--jr-bordeaux);
+}
+.gab[data-gab-salle="juriste"] .juriste-fermer{
+  display:grid;place-items:center;background:#eee7db;color:var(--jr-encre);
+  border:1px solid #d6cbbc;border-radius:3px;min-width:36px;height:36px;
+  font:400 23px/1 var(--sans);cursor:pointer;
+}
+.gab[data-gab-salle="juriste"] .juriste-dialog-titre{
+  font:500 clamp(22px,3vw,28px)/1.22 var(--serif)!important;
+  color:var(--jr-encre);margin:0 0 15px!important;
+}
+.gab[data-gab-salle="juriste"] .juriste-dialog .vitrine-liste{
+  display:grid!important;grid-template-columns:1fr!important;gap:9px!important;
+  list-style:none!important;margin:0!important;padding:0!important;
+}
+.gab[data-gab-salle="juriste"] .juriste-dialog .vitrine-liste li{
+  position:relative!important;padding:0 0 0 20px!important;margin:0!important;
+  color:#38434d!important;text-align:justify!important;
+}
+.gab[data-gab-salle="juriste"] .juriste-dialog .vitrine-liste li::before{
+  content:"";position:absolute;left:0;top:.68em;width:7px;height:7px;
+  border:1px solid var(--jr-bordeaux);background:var(--jr-laiton);
+  border-radius:0;
+}
+.gab[data-gab-salle="juriste"] .juriste-dialog-pied{
+  margin:22px 0 0;padding-top:12px;border-top:1px solid var(--jr-trait);
+  font:500 12px/1.5 var(--sans);color:var(--jr-doux);
+}
+@media(min-width:1180px) and (min-height:640px){
+  .gab[data-gab-salle="juriste"]{padding-top:10px!important;padding-bottom:22px!important}
+  .gab[data-gab-salle="juriste"] .bandeau.gab-bandeau{min-height:94px!important;padding-top:10px!important;padding-bottom:11px!important}
+  .gab[data-gab-salle="juriste"] .gab-intro{margin:9px 0!important;padding:8px 12px!important}
+  .gab[data-gab-salle="juriste"] .gab-chapitres{gap:8px!important}
+  .gab[data-gab-salle="juriste"] .gab-chapitres>.gab-chapitre{padding:11px 13px 10px!important}
+  .gab[data-gab-salle="juriste"] .gab-chapitre-tete{min-height:37px;margin-bottom:5px!important}
+  .gab[data-gab-salle="juriste"] .juriste-resume{min-height:30px;margin-bottom:5px!important}
+}
+@media(min-width:760px) and (max-width:1179px){
+  .gab[data-gab-salle="juriste"] .gab-chapitres{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:759px){
+  .gab[data-gab-salle="juriste"] .gab-chapitres{grid-template-columns:1fr!important;padding-bottom:54px!important}
+  .gab[data-gab-salle="juriste"] .gab-chapitres>.gab-chapitre{padding:13px 15px!important}
+  .gab[data-gab-salle="juriste"] .gab-intro{grid-template-columns:1fr;gap:4px!important}
+  .gab[data-gab-salle="juriste"] .juriste-fronton{right:-50px;opacity:.25}
+  .gab[data-gab-salle="juriste"] .juriste-dialog{padding:18px}
+}
+@media(max-width:700px), (max-height:570px){
+  .gab[data-gab-salle="juriste"] .bandeau.gab-bandeau{min-height:102px!important}
+}
+/* Les réglages d'accessibilité doivent conserver des textes lisibles, même s'ils nécessitent un défilement. */
+html.lv .gab[data-gab-salle="juriste"] .gab-chapitres{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+@media(max-width:759px){html.lv .gab[data-gab-salle="juriste"] .gab-chapitres{grid-template-columns:1fr!important}}
+@media(prefers-reduced-motion:reduce){.gab[data-gab-salle="juriste"] .juriste-dialog::backdrop{backdrop-filter:none}}
+
+/* Dans la vue de chapitre, réafficher uniquement l'en-tête compact de Juriste :
+   le gabarit général masque normalement tous les bandeaux et introductions. */
+#juriste .gab.gab-page-chapitre.gab-rubrique-complete>.gab-bandeau{
+  display:grid!important;
+}
+#juriste .gab.gab-page-chapitre.gab-rubrique-complete .gab-intro:not(:has(.gab-chapitre)){
+  display:grid!important;
+}
+/* Le lien de navigation final reste sous la mosaïque et non dans le sixième dossier. */
+#juriste .gab.gab-rubrique-complete .gab-chapitres>.gab-chapitre:last-child>.gab-bas-chapitre:not([hidden]){
+  inset:auto 0 0!important;
+}

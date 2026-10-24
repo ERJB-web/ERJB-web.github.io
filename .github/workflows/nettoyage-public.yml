@@ -1,0 +1,42 @@
+name: Nettoyer les journaux publics GitHub Actions
+on:
+  push:
+    paths:
+      - .github/workflows/nettoyage-public.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: write
+jobs:
+  nettoyer:
+    name: Effacer les anciennes executions terminees
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - name: Effacer les executions terminees sans toucher au site ni au code
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          set -uo pipefail
+          total=0
+          cycles=0
+          while [ "$cycles" -lt 60 ]; do
+            cycles=$((cycles+1))
+            ids=$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs?status=completed&per_page=100" --jq '.workflow_runs[].id' 2>/dev/null) || break
+            [ -n "$ids" ] || break
+            removed=0
+            while IFS= read -r id; do
+              [ -n "$id" ] || continue
+              [ "$id" = "$GITHUB_RUN_ID" ] && continue
+              if gh api --silent -X DELETE "repos/${GITHUB_REPOSITORY}/actions/runs/$id"; then
+                removed=$((removed+1))
+                total=$((total+1))
+              fi
+              sleep 0.35
+            done <<< "$ids"
+            echo "Cycle $cycles : $removed suppressions ; total $total"
+            [ "$removed" -gt 0 ] || break
+            sleep 2
+          done
+          echo "Executions terminees supprimees : $total"

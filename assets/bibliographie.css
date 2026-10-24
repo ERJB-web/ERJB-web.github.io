@@ -1,0 +1,25 @@
+/* La police, les tailles et la justification restent celles de typographie.css. */
+.salle.gab-salle .gab[data-gab-salle="logiciels"] .gab-chapitre-grille.gab-menu-universel{grid-template-columns:minmax(0,1fr)}
+.gab[data-gab-salle="logiciels"] .gab-chapitre-grille .gab-chapitre-texte{grid-column:1;min-width:0}
+.gab[data-gab-salle="logiciels"] .gab-chapitre-aside{display:none}
+.logiciels-chapitre{min-width:0}
+.biblio-hero{display:grid;grid-template-columns:1fr 1.1fr;align-items:center;gap:32px;padding:28px;border:1px solid #d4e0dc;border-radius:20px;background:#f7f8f2;margin-bottom:28px}
+.biblio-hero img{width:100%;height:auto;border-radius:14px}
+.biblio-outils{padding:22px;border:1px solid #d4e0dc;border-radius:14px;background:#fff;margin-bottom:32px}
+.biblio-outils label{display:block;margin-bottom:10px;color:#173b49}
+.biblio-outils input{width:100%;box-sizing:border-box;min-height:48px;padding:12px 16px;border:1px solid #9bbcbf;border-radius:8px;background:#fbfdfd;color:#153747;font:inherit}
+.biblio-outils input:focus-visible,.biblio-alphabet a:focus-visible{outline:3px solid #0879be;outline-offset:3px}
+.biblio-alphabet{display:flex;flex-wrap:wrap;gap:6px}
+.biblio-alphabet a{display:grid;place-items:center;min-width:36px;min-height:36px;border-radius:7px;background:#eaf3f2;color:#18575c;text-decoration:none}
+.biblio-alphabet a:hover{background:#d7eae6}
+.biblio-groupe{scroll-margin-top:220px;border-top:1px solid #d4e0dc;padding-top:14px;margin-top:26px}
+.biblio-groupe>h5{color:#0c7479}
+.biblio-groupe ul{list-style:none;padding:0}
+.biblio-groupe .biblio-notice{margin:0;padding:16px 0 16px 28px;text-indent:-28px;border-bottom:1px solid #edf1ee;overflow-wrap:anywhere}
+.biblio-notice a{color:#176a8b;text-decoration-thickness:1px;text-underline-offset:3px}
+.bibliographie-complete [hidden]{display:none!important}
+@media(max-width:700px){.biblio-hero{grid-template-columns:1fr;padding:18px;gap:16px}.biblio-hero img{max-height:240px;object-fit:contain}.biblio-outils{padding:16px}.biblio-groupe .biblio-notice{padding-left:20px;text-indent:-20px}}
+
+.biblio-categorie{margin-top:36px;padding-top:20px;border-top:3px solid #0c7479}
+.biblio-categorie:nth-child(2){border-top-color:#8a6098}
+.biblio-categorie:nth-child(3){border-top-color:#b17d27}

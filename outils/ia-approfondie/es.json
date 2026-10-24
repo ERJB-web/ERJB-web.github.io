@@ -1,0 +1,196 @@
+{
+  "titre": "IA: programar, producir conocimiento y pensar sus efectos en la sociedad",
+  "intro": "Esta sección reúne la programación asistida, la creación de herramientas y la reflexión sobre investigación, aprendizaje y salud pública. Se apoya en trabajos científicos sobre los beneficios, límites y transformaciones sociales de estas tecnologías.",
+  "date": "Síntesis documental · 14 de octubre de 2026",
+  "programmation": {
+    "nom": "Programación y agentes",
+    "titre": "Dirigir un desarrollo asistido",
+    "intro": "Un asistente conversacional propone una respuesta; un agente puede encadenar lectura de archivos, modificaciones y ejecución de herramientas. Esto cambia la organización del trabajo: hay que delimitar sus acciones, conservar un registro y valorar la solución producida.",
+    "items": [
+      [
+        "De la necesidad a la especificación",
+        "Definir usuarios, datos necesarios, funciones esperadas y restricciones de accesibilidad. Dividir los cambios en unidades comprensibles permite discutir una solución y retomar el trabajo sin perder su lógica.",
+        []
+      ],
+      [
+        "Contexto del proyecto y arquitectura",
+        "La coherencia depende de archivos, dependencias, estructuras de datos y decisiones previas. Un código localmente plausible puede no encajar en el proyecto: el asistente necesita ese contexto.",
+        []
+      ],
+      [
+        "Depuración, revisión y mantenimiento",
+        "Leer un error, reproducir el problema, explicar su causa y corregir la parte afectada. Importan tanto la mantenibilidad como el funcionamiento inmediato: nombres explícitos, documentación, versiones y posibilidad de revertir cambios.",
+        []
+      ],
+      [
+        "Controlar la autonomía de los agentes",
+        "Adaptar permisos, acciones y puntos de decisión a lo que está en juego. Un agente que actúa sobre archivos, datos o servicios requiere más supervisión que una sugerencia textual.",
+        [
+          "safety2026"
+        ]
+      ],
+      [
+        "Fiabilidad del código científico",
+        "Examinar unidades, datos ausentes, transformaciones e hipótesis. Ejemplos conocidos, controles específicos y reproducibilidad permiten valorar el comportamiento del programa y el significado científico de sus resultados.",
+        []
+      ],
+      [
+        "Medir el valor producido",
+        "La productividad depende de la tarea, la experiencia y la herramienta. El estudio de METR de 2025 y su actualización metodológica de 2026 distinguen rapidez percibida, calidad y ganancias medidas.",
+        [
+          "metr2025",
+          "metr2026"
+        ]
+      ]
+    ],
+    "note": "El número de líneas generadas es un indicador pobre. Me interesa una herramienta útil, comprensible, accesible y que pueda evolucionar."
+  },
+  "rechercheIntro": "La IA interviene en la formulación de preguntas, exploración documental, programación, análisis y difusión. El reto científico es articular estas capacidades con métodos explícitos, pluralidad de saberes y una responsabilidad que sigue siendo humana.",
+  "rechercheAjouts": [
+    [
+      "Cuestionar el problema antes de automatizar",
+      "En mi tesis, la relación entre perfiles de pacientes y configuraciones de redes intersectoriales orienta los métodos. La IA puede ayudar a explorar formulaciones o preparar código; no determina el objeto, la frontera de la red ni la validez de un indicador.",
+      []
+    ],
+    [
+      "Codificación e interpretación de materiales",
+      "Para un uso previsto con materiales cualitativos, distinguir categorías sugeridas, codificación documentada e interpretación. Los fragmentos, contraejemplos y memorandos deben seguir siendo examinables; cualquier transferencia de datos debe respetar autorizaciones y confidencialidad.",
+      [
+        "oms2026"
+      ]
+    ],
+    [
+      "Productividad y diversidad científica",
+      "Hao y sus colegas (2026) asocian la adopción de IA con ventajas individuales y un estrechamiento colectivo de los temas. Este análisis observacional cuestiona la diversidad sin establecer una causalidad universal.",
+      [
+        "focus2026"
+      ]
+    ],
+    [
+      "Descubrir con modelos especializados",
+      "AlphaFold 3 predice estructuras de complejos biomoleculares. Ilustra un uso distinto del asistente conversacional: la contribución científica depende de una tarea definida y evaluaciones adecuadas, seguidas del contraste con el conocimiento experimental.",
+      [
+        "alphafold"
+      ]
+    ]
+  ],
+  "santeIntro": "Los trabajos de Pranav Rajpurkar, Eric Topol y otros equipos muestran la amplitud de posibilidades en medicina. La salud pública también examina la organización de servicios, los efectos poblacionales, la relación de cuidado y la distribución de beneficios.",
+  "santeAjouts": [
+    [
+      "Rendimiento técnico y equipo humano–IA",
+      "El ensayo de Goh y sus colegas (2024) no mostró una mejora significativa del razonamiento diagnóstico médico con el asistente. El rendimiento del modelo aislado no predice el del trabajo humano–IA.",
+      [
+        "goh",
+        "topol"
+      ]
+    ],
+    [
+      "AMIE: avances y alcance",
+      "Tu (2025) y Liévin (2026) evalúan el diálogo diagnóstico y el manejo clínico en consultas simuladas. Abren perspectivas sin demostrar beneficios clínicos para pacientes en la práctica habitual.",
+      [
+        "amie2025",
+        "amie2026"
+      ]
+    ],
+    [
+      "Salud mental y relación humana",
+      "Moore y sus colegas (2025) documentan estigmatización y respuestas inadecuadas en los sistemas estudiados. Sus resultados cuestionan sustituir la relación terapéutica y la responsabilidad profesional por estos modelos.",
+      [
+        "mental2025"
+      ]
+    ],
+    [
+      "Un indicador puede producir injusticia",
+      "Obermeyer y sus colegas (2019) muestran que un indicador de costes puede representar mal las necesidades de salud. La lección supera la IA generativa: la variable objetivo y el acceso previo condicionan los resultados.",
+      [
+        "biais"
+      ]
+    ]
+  ],
+  "societe": {
+    "nom": "Sociedad y gobernanza",
+    "titre": "¿Quién decide, quién se beneficia y quién puede cuestionar?",
+    "intro": "La IA también es infraestructura económica y política. Su desarrollo afecta al trabajo, los recursos, las lenguas, el acceso a servicios y la capacidad colectiva de elegir transformaciones deseables.",
+    "items": [
+      [
+        "Trabajo: exposición y transformación",
+        "La OIT y NASK (2025) estudian la exposición de tareas a la IA generativa. La exposición potencial no equivale a pérdidas efectivas de empleo: organización, formación y reparto de beneficios siguen siendo decisivos.",
+        [
+          "travail"
+        ]
+      ],
+      [
+        "Soberanía y concentración del poder",
+        "¿Quién controla modelos, datos e infraestructuras? Me interesan las dependencias institucionales, la posibilidad de cambiar de proveedor y la participación de las personas afectadas en las decisiones de adopción.",
+        [
+          "ethique",
+          "safety2026"
+        ]
+      ],
+      [
+        "Preservar saberes y lenguas",
+        "La disponibilidad de datos y herramientas puede favorecer determinadas lenguas, disciplinas y poblaciones. La traducción automática no sustituye la consideración de contextos, experiencias vividas y desacuerdos.",
+        [
+          "education",
+          "comprehension"
+        ]
+      ],
+      [
+        "Salud planetaria y coste de infraestructura",
+        "El balance incluye energía, recursos y beneficios esperados. Vincular IA y bienestar colectivo exige preguntar qué usos merecen estos medios y cómo distribuir beneficios y cargas.",
+        [
+          "energie",
+          "pickett",
+          "bienetre"
+        ]
+      ]
+    ],
+    "note": "Mi hilo conductor es la equidad y la capacidad de actuar: diseñar y discutir las transformaciones con las personas, haciendo cuestionables las decisiones."
+  },
+  "debats": {
+    "nom": "Debates científicos actuales",
+    "titre": "Discutir los trabajos más allá de los anuncios",
+    "intro": "Relaciono ensayos, simulaciones, análisis observacionales e informes de síntesis. Responden a preguntas distintas: capacidad técnica, beneficio real, transformación laboral o gobernanza. Su naturaleza se indica en las referencias.",
+    "items": [
+      [
+        "2026 · Bengio y la seguridad de sistemas avanzados",
+        "El informe internacional dirigido por Yoshua Bengio sintetiza capacidades, riesgos y salvaguardas. Invita a distinguir daños documentados, riesgos emergentes e incertidumbres, sin tratar todas las proyecciones como hechos establecidos.",
+        [
+          "safety2026"
+        ]
+      ],
+      [
+        "2026 · Cooperación científica internacional",
+        "El consenso de Singapur propone prioridades de investigación en seguridad. Esta prepublicación colectiva alimenta el debate sobre evaluación, supervisión y cooperación internacional; no resuelve los desacuerdos científicos.",
+        [
+          "singapore2026"
+        ]
+      ],
+      [
+        "2026 · ¿Más productividad, preguntas más estrechas?",
+        "Hao, Xu, Li y Evans prolongan las preguntas de Messeri y Crockett sobre uniformidad científica. Mi interés es preservar el terreno, la crítica y los problemas que resisten la estandarización.",
+        [
+          "focus2026",
+          "comprehension"
+        ]
+      ],
+      [
+        "2025–2026 · Contextualizar las ganancias de los agentes",
+        "METR observó una ralentización entre los desarrolladores estudiados en 2025; su actualización de 2026 señala efectos de selección. No permite deducir un efecto único para todo desarrollador y modelo.",
+        [
+          "metr2025",
+          "metr2026"
+        ]
+      ],
+      [
+        "2026 · La implementación sigue siendo una pregunta científica",
+        "Los estudios de AMIE en manejo simulado refuerzan el interés por los agentes en salud. El debate aborda su evaluación real, la responsabilidad, las desigualdades y las condiciones organizativas de uso.",
+        [
+          "amie2026",
+          "oms2026"
+        ]
+      ]
+    ],
+    "note": "Selección cerrada el 14 de octubre de 2026. Se distinguen propuestas personales, evidencia empírica y recomendaciones institucionales; las lecturas anteriores se mantienen en la bibliografía común."
+  }
+}

@@ -1,0 +1,238 @@
+/* O2 : atlas exploratoire à planche unique.
+   Règles entièrement limitées à #methode-o2-exemples : aucun autre menu ou chapitre. */
+#methode-o2-exemples{
+  box-sizing:border-box;min-width:0;max-width:100%;margin:36px 0 48px;
+  padding:clamp(18px,3.2vw,38px);border:1px solid #cbdfe2;border-top:5px solid #208b98;
+  border-radius:24px;background:linear-gradient(150deg,#f5fbfb 0%,#eff6f8 52%,#fff 100%);
+  box-shadow:0 18px 45px -34px rgba(15,62,79,.4)
+}
+#methode-o2-exemples *{box-sizing:border-box}
+#methode-o2-exemples .methode-exemples-tete{
+  margin:0 0 23px!important;padding:0 0 23px!important;border:0!important;
+  border-bottom:1px solid #bfd8db!important;text-align:left!important;background:none!important
+}
+#methode-o2-exemples .galerie-o2-surtexte{
+  display:block;margin:0 0 9px!important;color:#227680;font-size:12px;font-weight:800;
+  line-height:1.5;letter-spacing:.13em;text-transform:uppercase;text-align:left!important
+}
+#methode-o2-exemples .methode-exemples-tete h4{
+  margin:0 0 13px!important;color:#103d52!important;
+  font-size:clamp(23px,2.6vw,34px)!important;line-height:1.2;letter-spacing:-.035em;
+  text-transform:none;text-align:left!important
+}
+#methode-o2-exemples .methode-exemples-tete > p:not(.galerie-o2-surtexte){
+  margin:0!important;max-width:90ch;color:#385563;font-size:clamp(15px,1.35vw,17px);
+  line-height:1.7;text-align:justify!important;hyphens:auto
+}
+#methode-o2-exemples .galerie-o2-reperes{
+  display:flex;gap:8px;flex-wrap:wrap;margin:17px 0 0;align-items:center
+}
+#methode-o2-exemples .galerie-o2-reperes span{
+  display:inline-flex;align-items:center;padding:6px 11px;border:1px solid #bdd9dd;
+  border-radius:99px;color:#25566a;background:#fff;font-size:12px;font-weight:700;line-height:1.3
+}
+#methode-o2-exemples .galerie-o2-reperes span:first-child{color:#0e6672;background:#e4f4f3}
+#methode-o2-exemples .galerie-o2{margin:0;min-width:0;max-width:100%;scroll-margin-top:100px}
+#methode-o2-exemples .galerie-o2-commandes{
+  display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:end;gap:13px;
+  margin:0 0 17px;padding:17px;border:1px solid #cbdfe2;border-radius:15px;background:#fff
+}
+#methode-o2-exemples .galerie-o2-choix{display:grid;gap:7px;min-width:0}
+#methode-o2-exemples .galerie-o2-choix label{
+  margin:0;color:#315767;font-size:12px;font-weight:800;text-transform:uppercase;
+  letter-spacing:.055em
+}
+#methode-o2-exemples .galerie-o2-choix select{
+  width:100%;min-width:0;min-height:44px;padding:9px 36px 9px 12px;
+  font:600 14px/1.35 var(--sans,system-ui,sans-serif);color:#143f52;
+  background:#f8fbfc;border:1px solid #c6dadd;border-radius:10px;cursor:pointer
+}
+#methode-o2-exemples .galerie-o2-pagination{display:flex;align-items:center;gap:8px}
+#methode-o2-exemples .galerie-o2-commandes button{
+  display:grid;place-items:center;width:44px;height:44px;flex:none;margin:0;
+  border:1px solid #b9d4d8;border-radius:11px;background:#eaf5f5;color:#175a66;
+  font:700 22px/1 var(--sans,system-ui,sans-serif);cursor:pointer
+}
+#methode-o2-exemples .galerie-o2-commandes button:hover:not(:disabled){background:#cfe8e9;border-color:#388f98}
+#methode-o2-exemples .galerie-o2-commandes button:disabled{opacity:.35;cursor:default}
+#methode-o2-exemples .galerie-o2-commandes [role="status"]{
+  min-width:60px;text-align:center;color:#315968;font:750 13px/1.4 var(--sans,system-ui,sans-serif);
+  font-variant-numeric:tabular-nums;white-space:nowrap
+}
+#methode-o2-exemples .galerie-o2-agrandir{
+  display:inline-flex;align-items:center;justify-content:center;min-height:44px;
+  padding:8px 14px;border:1px solid #287d87;border-radius:11px;
+  background:#12616d;color:#fff;text-decoration:none;font:700 13px/1.4 var(--sans,system-ui,sans-serif);
+  white-space:nowrap
+}
+#methode-o2-exemples .galerie-o2-agrandir:hover{background:#0e4a55;color:#fff}
+#methode-o2-exemples .galerie-o2-piste{
+  display:block!important;width:100%!important;min-width:0;max-width:100%;
+  margin:0!important;padding:0!important;overflow:visible!important;scroll-snap-type:none!important;
+  border:1px solid #cedde1;border-radius:17px;background:#fff;box-shadow:0 9px 28px -23px #143f52
+}
+#methode-o2-exemples .galerie-o2-planche{
+  display:block!important;width:100%!important;min-width:0!important;max-width:100%!important;
+  margin:0!important;padding:0!important;flex:none!important;scroll-snap-align:none!important
+}
+#methode-o2-exemples .galerie-o2-planche[hidden]{display:none!important}
+#methode-o2-exemples .galerie-o2-photo{
+  display:block!important;width:100%!important;min-width:0!important;
+  height:auto!important;min-height:0!important;max-height:none!important;
+  margin:0!important;padding:0!important;overflow:visible!important;background:#fff
+}
+#methode-o2-exemples .galerie-o2-photo img{
+  display:block!important;width:100%!important;height:auto!important;
+  max-width:100%!important;max-height:none!important;min-height:0!important;
+  margin:0!important;padding:0!important;border:0!important;border-radius:16px 16px 0 0!important;
+  object-fit:contain!important;object-position:center!important;aspect-ratio:auto!important;
+  transform:none!important;filter:none!important;-webkit-user-drag:none;user-select:none
+}
+#methode-o2-exemples .galerie-o2-planche figcaption{
+  display:block!important;width:100%!important;min-width:0;margin:0!important;
+  padding:10px 14px!important;background:#f3f8fa;border-top:1px solid #d6e3e6
+}
+#methode-o2-exemples .galerie-o2-planche h5{
+  margin:0 0 10px!important;color:#123f52!important;font:780 clamp(20px,2vw,27px)/1.3 var(--sans,system-ui,sans-serif)!important;
+  text-align:left!important;letter-spacing:-.02em;text-transform:none
+}
+#methode-o2-exemples .galerie-o2-planche figcaption > p{
+  margin:0!important;color:#47616a;font:400 15px/1.7 var(--sans,system-ui,sans-serif);
+  text-align:justify!important;max-width:100%
+}
+#methode-o2-exemples .galerie-o2-lecture{
+  margin:0;padding:15px 18px;background:#f1f8f9;border-left:4px solid #268b98;
+  border-radius:0 10px 10px 0;color:#294e5d
+}
+#methode-o2-exemples .galerie-o2-lecture strong{
+  display:block;margin:0 0 5px;color:#155b69;font-size:13px;line-height:1.4;
+  letter-spacing:.04em;text-transform:uppercase
+}
+#methode-o2-exemples .galerie-o2-lecture p{
+  margin:0;color:#345563;font:400 14px/1.65 var(--sans,system-ui,sans-serif);text-align:justify
+}
+#methode-o2-exemples .galerie-o2 :is(button,select,a):focus-visible{
+  outline:3px solid #167e8a;outline-offset:3px
+}
+@media(max-width:780px){
+  #methode-o2-exemples{padding:16px;border-radius:17px}
+  #methode-o2-exemples .galerie-o2-commandes{grid-template-columns:minmax(0,1fr);gap:12px;padding:13px}
+  #methode-o2-exemples .galerie-o2-pagination{justify-content:space-between}
+  #methode-o2-exemples .galerie-o2-agrandir{justify-self:stretch}
+  #methode-o2-exemples .galerie-o2-planche figcaption{padding:10px 12px!important}
+  #methode-o2-exemples .galerie-o2-lecture{padding:13px}
+}
+
+
+/* O2 · Synthèse visuelle de l'étude exploratoire, sans changer la visionneuse. */
+#methode-o2-exemples .o2-stats-bandeau{
+  display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;
+  margin:20px 0 22px;overflow:hidden;border:1px solid #cfdee5;
+  border-radius:17px;background:#fff;box-shadow:0 10px 23px -23px #153e50
+}
+#methode-o2-exemples .o2-stats-item{
+  position:relative;display:flex;flex-direction:column;justify-content:center;
+  gap:6px;min-width:0;padding:18px 10px 19px;text-align:center;
+  background:linear-gradient(175deg,#fff 0%,#f8fbfc 100%)
+}
+#methode-o2-exemples .o2-stats-item:not(:last-child){border-right:1px solid #e0e9ee}
+#methode-o2-exemples .o2-stats-item::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--o2-item,#168996)
+}
+#methode-o2-exemples .o2-stats-nombre{
+  display:block;min-width:0;margin:0;color:var(--o2-item,#168996);
+  font:850 clamp(20px,2.1vw,31px)/1.12 var(--sans,system-ui,sans-serif);
+  letter-spacing:-.045em;white-space:nowrap;font-variant-numeric:tabular-nums
+}
+#methode-o2-exemples .o2-stats-legende{
+  display:block;color:#405b6c;font:650 clamp(10px,.9vw,12px)/1.4 var(--sans,system-ui,sans-serif)
+}
+#methode-o2-exemples .methode-exemples-tete > p:not(.galerie-o2-surtexte){
+  text-align:left!important;hyphens:none!important;max-width:102ch;
+  margin:0 0 10px!important;line-height:1.65
+}
+#methode-o2-exemples .galerie-o2-reperes{margin:13px 0 0}
+#methode-o2-exemples .galerie-o2-reperes span{
+  padding:5px 10px;font-weight:650;font-size:11px;color:#52707d;background:#f7fafb
+}
+#methode-o2-exemples .o2-carte-guide{
+  position:relative;margin:0 0 15px;padding:19px 23px;border:1px solid #c7dedc;
+  border-left:5px solid #208b98;border-radius:15px;
+  background:linear-gradient(115deg,#eaf7f5,#f9fcfe 72%)
+}
+#methode-o2-exemples .o2-carte-guide-tag,
+#methode-o2-exemples .o2-tableau-surtitre{
+  display:block;margin:0 0 8px;color:#197984;font:800 11px/1.4 var(--sans,system-ui,sans-serif);
+  letter-spacing:.10em;text-transform:uppercase
+}
+#methode-o2-exemples .o2-carte-guide h5{
+  margin:0 0 7px!important;color:#16485b!important;
+  font:800 clamp(19px,2vw,24px)/1.3 var(--sans,system-ui,sans-serif)!important;
+  text-transform:none!important;letter-spacing:-.02em!important;text-align:left!important
+}
+#methode-o2-exemples .o2-carte-guide p{
+  margin:0!important;color:#3e626e;font:450 14px/1.6 var(--sans,system-ui,sans-serif);
+  text-align:left!important
+}
+#methode-o2-exemples .o2-tableau-synthese{
+  margin:26px 0 0;padding:clamp(16px,2.4vw,28px);border:1px solid #d0dce6;
+  border-radius:18px;background:#fff;box-shadow:0 12px 26px -25px rgba(24,59,78,.3)
+}
+#methode-o2-exemples .o2-tableau-synthese h5{
+  margin:0 0 9px!important;color:#163e53!important;
+  font:800 clamp(20px,2.1vw,26px)/1.25 var(--sans,system-ui,sans-serif)!important;
+  letter-spacing:-.025em!important;text-transform:none!important;text-align:left!important
+}
+#methode-o2-exemples .o2-tableau-intro{
+  margin:0 0 17px;color:#526d7a;font:450 14px/1.6 var(--sans,system-ui,sans-serif);
+  text-align:left!important
+}
+#methode-o2-exemples .o2-tableau-defilement{
+  width:100%;max-width:100%;overflow-x:auto;border:1px solid #d7e4e8;
+  border-radius:12px;-webkit-overflow-scrolling:touch
+}
+#methode-o2-exemples .o2-tableau-defilement table{
+  width:100%;min-width:580px;margin:0!important;border:0!important;border-collapse:collapse!important;
+  table-layout:fixed;background:#fff;font:450 13px/1.6 var(--sans,system-ui,sans-serif)
+}
+#methode-o2-exemples .o2-tableau-defilement th,
+#methode-o2-exemples .o2-tableau-defilement td{
+  padding:13px 15px!important;text-align:left!important;vertical-align:top!important;
+  border:0!important;border-bottom:1px solid #e2eaee!important;
+  white-space:normal;overflow-wrap:break-word;color:#38586a
+}
+#methode-o2-exemples .o2-tableau-defilement thead th{
+  background:#eaf3f6!important;color:#214d61!important;font-weight:850!important;
+  font-size:12px!important;line-height:1.4;letter-spacing:.015em;
+  border-bottom:2px solid #c2d7e0!important
+}
+#methode-o2-exemples .o2-tableau-defilement :is(th,td):nth-child(1){width:24%}
+#methode-o2-exemples .o2-tableau-defilement :is(th,td):nth-child(2){width:35%}
+#methode-o2-exemples .o2-tableau-defilement :is(th,td):nth-child(3){width:41%}
+#methode-o2-exemples .o2-tableau-defilement tbody tr:nth-child(even){background:#f5f9fa}
+#methode-o2-exemples .o2-tableau-defilement tbody tr:last-child :is(th,td){border-bottom:0!important}
+#methode-o2-exemples .o2-tableau-defilement tbody th{
+  color:#176d78!important;font-weight:800!important;font-size:13px!important
+}
+#methode-o2-exemples .o2-tableau-reserve{
+  margin:15px 0 0;padding:11px 14px;border-left:3px solid #e6a05e;
+  border-radius:0 8px 8px 0;background:#fff8ee;color:#755235;
+  font:500 12px/1.6 var(--sans,system-ui,sans-serif);text-align:left!important
+}
+@media(max-width:1050px){
+  #methode-o2-exemples .o2-stats-bandeau{grid-template-columns:repeat(3,minmax(0,1fr))}
+  #methode-o2-exemples .o2-stats-item:nth-child(3){border-right:0}
+  #methode-o2-exemples .o2-stats-item:nth-child(-n+3){border-bottom:1px solid #e0e9ee}
+  #methode-o2-exemples .o2-stats-nombre{font-size:clamp(23px,3vw,32px)}
+}
+@media(max-width:580px){
+  #methode-o2-exemples .o2-stats-bandeau{grid-template-columns:repeat(2,minmax(0,1fr));border-radius:12px}
+  #methode-o2-exemples .o2-stats-item{padding:13px 6px 14px}
+  #methode-o2-exemples .o2-stats-item:nth-child(odd){border-right:1px solid #e0e9ee}
+  #methode-o2-exemples .o2-stats-item:nth-child(even){border-right:0}
+  #methode-o2-exemples .o2-stats-item:nth-child(-n+4){border-bottom:1px solid #e0e9ee}
+  #methode-o2-exemples .o2-stats-nombre{font-size:24px}
+  #methode-o2-exemples .o2-stats-legende{font-size:11px}
+  #methode-o2-exemples .o2-carte-guide{padding:15px}
+  #methode-o2-exemples .o2-tableau-synthese{padding:14px}
+}

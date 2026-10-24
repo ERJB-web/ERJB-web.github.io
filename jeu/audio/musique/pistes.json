@@ -1,0 +1,964 @@
+{
+ "version": 1,
+ "frequence": 44100,
+ "sonie_lufs": -14,
+ "lieux": {
+  "menu": {
+   "pistes": [
+    "menu"
+   ],
+   "tension": "tension"
+  },
+  "campus": {
+   "pistes": [
+    "campus_1",
+    "campus_2",
+    "campus_3"
+   ],
+   "tension": "tension",
+   "festif": [
+    "quebec_1",
+    "quebec_2",
+    "quebec_3"
+   ]
+  },
+  "bibliotheque": {
+   "pistes": [
+    "bibliotheque_1",
+    "bibliotheque_2"
+   ],
+   "tension": "tension_bibliotheque"
+  },
+  "clsc": {
+   "pistes": [
+    "clsc_1",
+    "clsc_2"
+   ],
+   "tension": "tension_clsc"
+  },
+  "arena": {
+   "pistes": [
+    "arena"
+   ],
+   "interventions": [
+    "arena_jeu_1",
+    "arena_jeu_2",
+    "arena_jeu_3"
+   ],
+   "tension": "tension",
+   "pauses": [
+    "quebec_1",
+    "quebec_2",
+    "reel_1",
+    "reel_2"
+   ]
+  },
+  "soutenance": {
+   "pistes": [
+    "soutenance"
+   ],
+   "tension": "tension"
+  },
+  "veillee": {
+   "pistes": [
+    "quebec_1",
+    "quebec_2",
+    "quebec_3",
+    "reel_1",
+    "reel_2"
+   ]
+  }
+ },
+ "pistes": {
+  "arena": {
+   "fichier": "arena.mp3",
+   "titre": "Avant le match",
+   "nature": "exploration",
+   "duree_s": 113.72,
+   "tempo": 124,
+   "mesure": "4/4",
+   "tonalite": "si bémol majeur",
+   "sections": [
+    {
+     "nom": "intro",
+     "debut_s": 0.0
+    },
+    {
+     "nom": "marche",
+     "debut_s": 3.871
+    },
+    {
+     "nom": "appel",
+     "debut_s": 34.839
+    },
+    {
+     "nom": "arrets",
+     "debut_s": 50.323
+    },
+    {
+     "nom": "intermede",
+     "debut_s": 58.065
+    },
+    {
+     "nom": "marche'",
+     "debut_s": 73.548
+    },
+    {
+     "nom": "relance",
+     "debut_s": 89.032
+    },
+    {
+     "nom": "coda",
+     "debut_s": 104.516
+    }
+   ]
+  },
+  "arena_jeu_1": {
+   "fichier": "arena_jeu_1.mp3",
+   "titre": "L'appel",
+   "nature": "intervention",
+   "duree_s": 17.06,
+   "tempo": 132,
+   "mesure": "4/4",
+   "tonalite": "fa majeur",
+   "sections": [
+    {
+     "nom": "appel",
+     "debut_s": 0.0
+    }
+   ]
+  },
+  "arena_jeu_2": {
+   "fichier": "arena_jeu_2.mp3",
+   "titre": "La montée",
+   "nature": "intervention",
+   "duree_s": 16.14,
+   "tempo": 140,
+   "mesure": "4/4",
+   "tonalite": "do majeur",
+   "sections": [
+    {
+     "nom": "montee",
+     "debut_s": 0.0
+    }
+   ]
+  },
+  "arena_jeu_3": {
+   "fichier": "arena_jeu_3.mp3",
+   "titre": "La valse de la surfaceuse",
+   "nature": "intervention",
+   "duree_s": 28.53,
+   "tempo": 168,
+   "mesure": "3/4",
+   "tonalite": "do majeur",
+   "sections": [
+    {
+     "nom": "valse",
+     "debut_s": 0.0
+    }
+   ]
+  },
+  "bibliotheque_1": {
+   "fichier": "bibliotheque_1.mp3",
+   "titre": "Salle de lecture",
+   "nature": "exploration",
+   "duree_s": 221.88,
+   "tempo": 72,
+   "mesure": "4/4",
+   "tonalite": "fa majeur",
+   "sections": [
+    {
+     "nom": "intro",
+     "debut_s": 0.0
+    },
+    {
+     "nom": "A",
+     "debut_s": 7.065
+    },
+    {
+     "nom": "B",
+     "debut_s": 60.474
+    },
+    {
+     "nom": "A'",
+     "debut_s": 87.141
+    },
+    {
+     "nom": "C",
+     "debut_s": 140.509
+    },
+    {
+     "nom": "A''",
+     "debut_s": 180.543
+    },
+    {
+     "nom": "coda",
+     "debut_s": 207.21
+    }
+   ]
+  },
+  "bibliotheque_2": {
+   "fichier": "bibliotheque_2.mp3",
+   "titre": "Notes en marge",
+   "nature": "exploration",
+   "duree_s": 242.0,
+   "tempo": 72,
+   "mesure": "4/4",
+   "tonalite": "ré dorien",
+   "sections": [
+    {
+     "nom": "intro",
+     "debut_s": 0.0
+    },
+    {
+     "nom": "A",
+     "debut_s": 13.725
+    },
+    {
+     "nom": "B",
+     "debut_s": 67.135
+    },
+    {
+     "nom": "A'",
+     "debut_s": 93.801
+    },
+    {
+     "nom": "C",
+     "debut_s": 147.135
+    },
+    {
+     "nom": "B'",
+     "debut_s": 173.801
+    },
+    {
+     "nom": "A''",
+     "debut_s": 200.468
+    },
+    {
+     "nom": "coda",
+     "debut_s": 227.135
+    }
+   ]
+  },
+  "campus_1": {
+   "fichier": "campus_1.mp3",
+   "titre": "Parvis d'automne",
+   "nature": "exploration",
+   "duree_s": 208.44,
+   "tempo": 100,
+   "mesure": "4/4",
+   "tonalite": "sol majeur",
+   "sections": [
+    {
+     "nom": "intro",
+     "debut_s": 0.0
+    },
+    {
+     "nom": "A",
+     "debut_s": 9.6
+    },
+    {
+     "nom": "B",
+     "debut_s": 48.0
+    },
+    {
+     "nom": "A'",
+     "debut_s": 67.2
+    },
+    {
+     "nom": "respiration",
+     "debut_s": 105.6
+    },
+    {
+     "nom": "C",
+     "debut_s": 124.8
+    },
+    {
+     "nom": "A''",
+     "debut_s": 153.6
+    },
+    {
+     "nom": "coda",
+     "debut_s": 192.0
+    }
+   ]
+  },
+  "campus_2": {
+   "fichier": "campus_2.mp3",
+   "titre": "Sous les érables",
+   "nature": "exploration",
+   "duree_s": 197.44,
+   "tempo": 100,
+   "mesure": "3/4",
+   "tonalite": "mi mineur",
+   "sections": [
+    {
+     "nom": "intro",
+     "debut_s": 0.0
+    },
+    {
+     "nom": "A",
+     "debut_s": 7.644
+    },
+    {
+     "nom": "B",
+     "debut_s": 36.484
+    },
+    {
+     "nom": "A'",
+     "debut_s": 65.284
+    },
+    {
+     "nom": "C",
+     "debut_s": 94.084
+    },
+    {
+     "nom": "B'",
+     "debut_s": 122.884
+    },
+    {
+     "nom": "A''",
+     "debut_s": 151.684
+    },
+    {
+     "nom": "coda",
+     "debut_s": 180.484
+    }
+   ]
+  },
+  "campus_3": {
+   "fichier": "campus_3.mp3",
+   "titre": "Le pavillon",
+   "nature": "exploration",
+   "duree_s": 231.16,
+   "tempo": 100,
+   "mesure": "4/4",
+   "tonalite": "do majeur",
+   "sections": [
+    {
+     "nom": "intro",
+     "debut_s": 0.0
+    },
+    {
+     "nom": "A",
+     "debut_s": 9.6
+    },
+    {
+     "nom": "A'",
+     "debut_s": 48.0
+    },
+    {
+     "nom": "B",
+     "debut_s": 86.4
+    },
+    {
+     "nom": "A''",
+     "debut_s": 105.6
+    },
+    {
+     "nom": "C",
+     "debut_s": 134.4
+    },
+    {
+     "nom": "B'",
+     "debut_s": 163.261
+    },
+    {
+     "nom": "A'''",
+     "debut_s": 182.461
+    },
+    {
+     "nom": "coda",
+     "debut_s": 220.861
+    }
+   ]
+  },
+  "clsc_1": {
+   "fichier": "clsc_1.mp3",
+   "titre": "Salle d'attente",
+   "nature": "exploration",
+   "duree_s": 220.18,
+   "tempo": 90,
+   "mesure": "4/4",
+   "tonalite": "si bémol majeur",
+   "sections": [
+    {
+     "nom": "intro",
+     "debut_s": 0.0
+    },
+    {
+     "nom": "A",
+     "debut_s": 10.667
+    },
+    {
+     "nom": "A'",
+     "debut_s": 53.333
+    },
+    {
+     "nom": "B",
+     "debut_s": 96.0
+    },
+    {
+     "nom": "interlude",
+     "debut_s": 117.333
+    },
+    {
+     "nom": "C",
+     "debut_s": 138.667
+    },
+    {
+     "nom": "A''",
+     "debut_s": 160.0
+    },
+    {
+     "nom": "coda",
+     "debut_s": 202.667
+    }
+   ]
+  },
+  "clsc_2": {
+   "fichier": "clsc_2.mp3",
+   "titre": "Centre-Sud",
+   "nature": "exploration",
+   "duree_s": 214.84,
+   "tempo": 90,
+   "mesure": "4/4",
+   "tonalite": "sol mineur",
+   "sections": [
+    {
+     "nom": "intro",
+     "debut_s": 0.0
+    },
+    {
+     "nom": "A",
+     "debut_s": 10.915
+    },
+    {
+     "nom": "B",
+     "debut_s": 53.581
+    },
+    {
+     "nom": "A'",
+     "debut_s": 74.915
+    },
+    {
+     "nom": "C",
+     "debut_s": 117.581
+    },
+    {
+     "nom": "B'",
+     "debut_s": 138.915
+    },
+    {
+     "nom": "A''",
+     "debut_s": 160.248
+    },
+    {
+     "nom": "coda",
+     "debut_s": 202.915
+    }
+   ]
+  },
+  "echec": {
+   "fichier": "echec.mp3",
+   "titre": "Échec",
+   "nature": "ponctuel",
+   "duree_s": 7.91,
+   "tempo": 120,
+   "mesure": "4/4",
+   "tonalite": "mi bémol majeur",
+   "sections": []
+  },
+  "fin": {
+   "fichier": "fin.mp3",
+   "titre": "Protocole accepté",
+   "nature": "generique",
+   "duree_s": 192.47,
+   "tempo": 78,
+   "mesure": "4/4",
+   "tonalite": "mi bémol majeur",
+   "sections": [
+    {
+     "nom": "intro",
+     "debut_s": 0.0
+    },
+    {
+     "nom": "A",
+     "debut_s": 13.217
+    },
+    {
+     "nom": "B",
+     "debut_s": 62.518
+    },
+    {
+     "nom": "passage",
+     "debut_s": 111.748
+    },
+    {
+     "nom": "C",
+     "debut_s": 117.902
+    },
+    {
+     "nom": "coda",
+     "debut_s": 167.133
+    }
+   ]
+  },
+  "menu": {
+   "fichier": "menu.mp3",
+   "titre": "Protocole (thème)",
+   "nature": "boucle",
+   "duree_s": 171.73,
+   "tempo": 78.947,
+   "mesure": "4/4",
+   "tonalite": "mi bémol majeur",
+   "sections": [
+    {
+     "nom": "intro",
+     "debut_s": 0.0
+    },
+    {
+     "nom": "A",
+     "debut_s": 12.648
+    },
+    {
+     "nom": "A2",
+     "debut_s": 61.288
+    },
+    {
+     "nom": "pont",
+     "debut_s": 109.928
+    },
+    {
+     "nom": "tutti",
+     "debut_s": 134.248
+    },
+    {
+     "nom": "coda",
+     "debut_s": 158.568
+    }
+   ],
+   "boucle": {
+    "debut_s": 12.64771,
+    "fin_s": 170.72771,
+    "debut_echantillon": 557764,
+    "fin_echantillon": 7529092,
+    "frequence": 44100
+   }
+  },
+  "quebec_1": {
+   "fichier": "quebec_1.mp3",
+   "titre": "La veillée du pavillon",
+   "nature": "veillee",
+   "duree_s": 180.24,
+   "tempo": 126,
+   "mesure": "4/4",
+   "tonalite": "ré majeur",
+   "sections": [
+    {
+     "nom": "intro",
+     "debut_s": 0.0
+    },
+    {
+     "nom": "A",
+     "debut_s": 7.619
+    },
+    {
+     "nom": "A",
+     "debut_s": 22.857
+    },
+    {
+     "nom": "B",
+     "debut_s": 38.095
+    },
+    {
+     "nom": "B",
+     "debut_s": 53.333
+    },
+    {
+     "nom": "refrain",
+     "debut_s": 68.571
+    },
+    {
+     "nom": "refrain",
+     "debut_s": 83.81
+    },
+    {
+     "nom": "pont",
+     "debut_s": 99.048
+    },
+    {
+     "nom": "A'",
+     "debut_s": 114.286
+    },
+    {
+     "nom": "B'",
+     "debut_s": 129.524
+    },
+    {
+     "nom": "refrain'",
+     "debut_s": 144.762
+    },
+    {
+     "nom": "refrain'",
+     "debut_s": 160.0
+    },
+    {
+     "nom": "fin",
+     "debut_s": 175.238
+    }
+   ]
+  },
+  "quebec_2": {
+   "fichier": "quebec_2.mp3",
+   "titre": "La gigue du métro",
+   "nature": "veillee",
+   "duree_s": 109.29,
+   "tempo": 168,
+   "mesure": "3/4",
+   "tonalite": "sol majeur",
+   "sections": [
+    {
+     "nom": "intro",
+     "debut_s": 0.0
+    },
+    {
+     "nom": "A",
+     "debut_s": 2.143
+    },
+    {
+     "nom": "A",
+     "debut_s": 10.714
+    },
+    {
+     "nom": "B",
+     "debut_s": 19.286
+    },
+    {
+     "nom": "B",
+     "debut_s": 27.857
+    },
+    {
+     "nom": "refrain",
+     "debut_s": 36.429
+    },
+    {
+     "nom": "refrain",
+     "debut_s": 45.0
+    },
+    {
+     "nom": "A",
+     "debut_s": 53.571
+    },
+    {
+     "nom": "A",
+     "debut_s": 62.143
+    },
+    {
+     "nom": "A'",
+     "debut_s": 70.714
+    },
+    {
+     "nom": "B'",
+     "debut_s": 79.286
+    },
+    {
+     "nom": "refrain'",
+     "debut_s": 87.857
+    },
+    {
+     "nom": "refrain'",
+     "debut_s": 96.429
+    },
+    {
+     "nom": "fin",
+     "debut_s": 105.0
+    }
+   ]
+  },
+  "quebec_3": {
+   "fichier": "quebec_3.mp3",
+   "titre": "Le rigodon de fin de session",
+   "nature": "veillee",
+   "duree_s": 220.06,
+   "tempo": 104,
+   "mesure": "4/4",
+   "tonalite": "do majeur",
+   "sections": [
+    {
+     "nom": "intro",
+     "debut_s": 0.0
+    },
+    {
+     "nom": "couplet",
+     "debut_s": 9.231
+    },
+    {
+     "nom": "couplet",
+     "debut_s": 27.692
+    },
+    {
+     "nom": "refrain",
+     "debut_s": 46.154
+    },
+    {
+     "nom": "refrain",
+     "debut_s": 64.615
+    },
+    {
+     "nom": "couplet 2",
+     "debut_s": 83.077
+    },
+    {
+     "nom": "couplet 2",
+     "debut_s": 101.538
+    },
+    {
+     "nom": "refrain",
+     "debut_s": 120.0
+    },
+    {
+     "nom": "refrain",
+     "debut_s": 138.462
+    },
+    {
+     "nom": "pont",
+     "debut_s": 156.923
+    },
+    {
+     "nom": "refrain final",
+     "debut_s": 175.385
+    },
+    {
+     "nom": "refrain final",
+     "debut_s": 193.846
+    },
+    {
+     "nom": "fin",
+     "debut_s": 212.414
+    }
+   ]
+  },
+  "reel_1": {
+   "fichier": "reel_1.mp3",
+   "titre": "Reel de Sainte-Anne",
+   "nature": "veillee",
+   "duree_s": 207.22,
+   "tempo": 116,
+   "mesure": "4/4",
+   "tonalite": "ré majeur",
+   "sections": [
+    {
+     "nom": "intro",
+     "debut_s": 0.0
+    },
+    {
+     "nom": "tour 1",
+     "debut_s": 4.138
+    },
+    {
+     "nom": "tour 2",
+     "debut_s": 70.345
+    },
+    {
+     "nom": "tour 3",
+     "debut_s": 136.552
+    },
+    {
+     "nom": "fin",
+     "debut_s": 202.759
+    }
+   ]
+  },
+  "reel_2": {
+   "fichier": "reel_2.mp3",
+   "titre": "La Bastringue",
+   "nature": "veillee",
+   "duree_s": 200.11,
+   "tempo": 120,
+   "mesure": "4/4",
+   "tonalite": "ré majeur",
+   "sections": [
+    {
+     "nom": "intro",
+     "debut_s": 0.0
+    },
+    {
+     "nom": "tour 1",
+     "debut_s": 4.0
+    },
+    {
+     "nom": "tour 2",
+     "debut_s": 68.0
+    },
+    {
+     "nom": "tour 3",
+     "debut_s": 132.0
+    },
+    {
+     "nom": "fin",
+     "debut_s": 196.0
+    }
+   ]
+  },
+  "soutenance": {
+   "fichier": "soutenance.mp3",
+   "titre": "La salle du conseil",
+   "nature": "exploration",
+   "duree_s": 197.28,
+   "tempo": 96,
+   "mesure": "4/4",
+   "tonalite": "do mineur",
+   "sections": [
+    {
+     "nom": "intro",
+     "debut_s": 0.0
+    },
+    {
+     "nom": "A",
+     "debut_s": 10.0
+    },
+    {
+     "nom": "B",
+     "debut_s": 50.0
+    },
+    {
+     "nom": "C",
+     "debut_s": 90.0
+    },
+    {
+     "nom": "D",
+     "debut_s": 130.0
+    },
+    {
+     "nom": "issue",
+     "debut_s": 170.0
+    }
+   ]
+  },
+  "tension": {
+   "fichier": "tension.mp3",
+   "titre": "La direction approche",
+   "nature": "boucle",
+   "duree_s": 80.2,
+   "tempo": 100.0,
+   "mesure": "4/4",
+   "tonalite": "sol majeur",
+   "sections": [
+    {
+     "nom": "A",
+     "debut_s": 2.4
+    },
+    {
+     "nom": "B",
+     "debut_s": 21.6
+    },
+    {
+     "nom": "C",
+     "debut_s": 40.8
+    },
+    {
+     "nom": "D",
+     "debut_s": 60.0
+    },
+    {
+     "nom": "entree",
+     "debut_s": 0.0
+    }
+   ],
+   "boucle": {
+    "debut_s": 2.4,
+    "fin_s": 79.2,
+    "debut_echantillon": 105840,
+    "fin_echantillon": 3492720,
+    "frequence": 44100
+   }
+  },
+  "tension_bibliotheque": {
+   "fichier": "tension_bibliotheque.mp3",
+   "titre": "La direction approche (bibliothèque)",
+   "nature": "boucle",
+   "duree_s": 85.0,
+   "tempo": 71.429,
+   "mesure": "4/4",
+   "tonalite": "ré dorien",
+   "sections": [
+    {
+     "nom": "A",
+     "debut_s": 3.36
+    },
+    {
+     "nom": "B",
+     "debut_s": 23.52
+    },
+    {
+     "nom": "C",
+     "debut_s": 43.68
+    },
+    {
+     "nom": "D",
+     "debut_s": 63.84
+    },
+    {
+     "nom": "entree",
+     "debut_s": 0.0
+    }
+   ],
+   "boucle": {
+    "debut_s": 3.36,
+    "fin_s": 84.0,
+    "debut_echantillon": 148176,
+    "fin_echantillon": 3704400,
+    "frequence": 44100
+   }
+  },
+  "tension_clsc": {
+   "fichier": "tension_clsc.mp3",
+   "titre": "La direction approche (CLSC)",
+   "nature": "boucle",
+   "duree_s": 88.78,
+   "tempo": 90.226,
+   "mesure": "4/4",
+   "tonalite": "sol mineur",
+   "sections": [
+    {
+     "nom": "A",
+     "debut_s": 2.66
+    },
+    {
+     "nom": "B",
+     "debut_s": 23.94
+    },
+    {
+     "nom": "C",
+     "debut_s": 45.22
+    },
+    {
+     "nom": "D",
+     "debut_s": 66.5
+    },
+    {
+     "nom": "entree",
+     "debut_s": 0.0
+    }
+   ],
+   "boucle": {
+    "debut_s": 2.66,
+    "fin_s": 87.78,
+    "debut_echantillon": 117306,
+    "fin_echantillon": 3871098,
+    "frequence": 44100
+   }
+  },
+  "victoire": {
+   "fichier": "victoire.mp3",
+   "titre": "Victoire",
+   "nature": "ponctuel",
+   "duree_s": 8.9,
+   "tempo": 112,
+   "mesure": "4/4",
+   "tonalite": "mi bémol majeur",
+   "sections": []
+  }
+ }
+}

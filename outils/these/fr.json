@@ -1,0 +1,159 @@
+{
+  "titre": "Organisation territoriale de la réponse intersectorielle en soins et services de première ligne aux besoins des personnes aînées vivant à domicile présentant une perte d’autonomie et des besoins sociaux concomitants : scénarios types, ressources mobilisables et réseaux mobilisés.",
+  "question": "Comment s’organise, selon les territoires et les scénarios types de besoins, la réponse intersectorielle mobilisable et effectivement mobilisée en soins et services de première ligne auprès des personnes aînées vivant à domicile présentant une perte d’autonomie et des besoins sociaux concomitants ?",
+  "point": "Une meilleure compréhension des scénarios types associant perte d’autonomie et besoins sociaux concomitants chez les personnes aînées vivant à domicile, de la répartition territoriale des ressources intersectorielles susceptibles d’y répondre et des réseaux organisationnels effectivement mobilisés permettrait d’identifier les écarts entre les réponses possibles et celles réellement apportées, afin de dégager des pistes d’amélioration de l’organisation de la réponse intersectorielle en soins et services de première ligne.",
+  "general": "Analyser l’organisation territoriale de la réponse intersectorielle en soins et services de première ligne aux différents scénarios types associant perte d’autonomie et besoins sociaux concomitants chez les personnes aînées vivant à domicile, afin d’identifier les écarts entre les ressources mobilisables et celles effectivement mobilisées et de dégager des pistes d’amélioration de cette réponse intersectorielle.",
+  "labels": {
+    "titre": "Titre provisoire",
+    "question": "Question de recherche",
+    "point": "Hypothèse générale",
+    "general": "Objectif général",
+    "specifiques": "Objectifs spécifiques",
+    "lacunes": "Trois lacunes qui justifient le sujet",
+    "lacune": "Lacune",
+    "methode": "Méthode",
+    "cadre": "Cadre institutionnel et financement",
+    "articulation": "Des lacunes aux objectifs et aux méthodes",
+    "sources": "Sources du contexte",
+    "justification": "Pourquoi ce sujet ?"
+  },
+  "contextes": [
+    [
+      "Dans le monde",
+      "L’OMS souligne que les conditions de vie et l’accès aux ressources contribuent aux inégalités de santé et appellent une action coordonnée.",
+      0
+    ],
+    [
+      "Au Canada",
+      "L’ICIS décrit des difficultés d’accès aux soins primaires ainsi que des ruptures de coordination et de communication entre professionnels.",
+      1
+    ],
+    [
+      "Au Québec",
+      "L’INSPQ documente les inégalités sociales de santé et leur surveillance. Ce contexte invite à considérer les conditions sociales dans l’organisation des réponses.",
+      2
+    ]
+  ],
+  "justification": "La thèse relie cet enjeu général à une question organisationnelle précise : comment adapter les réseaux intersectoriels aux différents profils de patients, plutôt qu’à chaque besoin pris séparément ? Les trois lacunes ci-dessous structurent le raisonnement et conduisent respectivement à O1, O2 et O3.",
+  "lacunes": [
+    "Malgré l’existence de travaux décrivant des profils multidimensionnels de besoins, la caractérisation comparée des profils de besoins sociaux concomitants à une perte d’autonomie chez les personnes aînées vivant à domicile demeure à consolider. L’hétérogénéité des définitions, des instruments et des populations étudiées limite l’identification de profils comparables, articulant limitations des activités quotidiennes, besoins d’aide et besoins sociaux matériels et relationnels, satisfaits ou non. Cette fragmentation des connaissances limite la construction de scénarios types étayés permettant de préciser les fonctions de réponse intersectorielle à examiner en soins et services de première ligne.",
+    "Les connaissances sur la répartition territoriale des ressources intersectorielles mobilisables en soins et services de première ligne demeurent insuffisamment intégrées pour apprécier leur adéquation aux différents scénarios types associant perte d’autonomie et besoins sociaux concomitants chez les personnes aînées vivant à domicile. Il reste à mettre en relation, dans une même analyse, la répartition des personnes aînées vivant à domicile, les configurations socioéconomiques des territoires et les ressources intersectorielles mobilisables pour assurer les fonctions de réponse requises par chaque scénario type. Cette articulation est nécessaire pour caractériser les variations territoriales de distribution, de disponibilité, de complémentarité et d’accessibilité des ressources, et repérer les écarts potentiels entre les fonctions de réponse requises et celles couvertes par les ressources recensées.",
+    "Les connaissances sur la configuration organisationnelle des réseaux intersectoriels mobilisés en soins et services de première ligne demeurent insuffisamment articulées aux différents scénarios types associant perte d’autonomie et besoins sociaux concomitants chez les personnes aînées vivant à domicile. Pour un même scénario type et un même territoire, la correspondance entre les ressources intersectorielles mobilisables et celles effectivement mobilisées reste à préciser. Il importe de caractériser la composition des réseaux, la structure des relations et leurs modalités de fonctionnement, notamment la nature, la direction, la fréquence et l’intensité des interactions organisationnelles déclarées sur douze mois, afin de documenter les écarts entre ressources mobilisables et mobilisation déclarée, sans les assimiler automatiquement à des besoins non satisfaits."
+  ],
+  "objectifs": [
+    "Identifier dans la littérature scientifique les différentes configurations de personnes aînées vivant à domicile et ayant une perte d’autonomie et des besoins sociaux concomitants.",
+    "Cartographier les ressources organisationnelles intersectorielles mobilisables en soins et services de première ligne pour répondre aux différentes configurations de perte d’autonomie et besoins sociaux concomitants.",
+    "Décrire l’organisation des réseaux intersectoriels mobilisés en soins et services de première ligne pour répondre aux différentes configurations de personnes aînées en perte d’autonomie ayant des besoins sociaux concomitants sur le territoire."
+  ],
+  "methodes": [
+    "Revue de la littérature afin d’identifier les différentes configurations de besoins sociaux concomitants à une perte d’autonomie parmi les aînés vivant à domicile.",
+    "Cartographie spatiale des ressources intersectorielles mobilisables en soins et services de première ligne au regard de la répartition des aînés vivant à domicile, afin d’examiner leur distribution territoriale, leur complémentarité et leur accessibilité géographique pour les différentes configurations de perte d’autonomie et de besoins sociaux concomitants.",
+    "Analyse rétrospective des réseaux sociaux (ARS) afin de caractériser la composition, la structure des relations et les modalités organisationnelles intersectorielles actuellement mobilisées en soins et services de première ligne pour répondre aux différentes configurations de personnes aînées en perte d’autonomie vivant à domicile avec des besoins sociaux concomitants."
+  ],
+  "methodologiques": [
+    "Revue de la littérature afin d’identifier les différentes configurations de besoins sociaux concomitants à une perte d’autonomie parmi les aînés vivant à domicile.",
+    "Cartographie spatiale des ressources intersectorielles mobilisables en soins et services de première ligne au regard de la répartition des aînés vivant à domicile, afin d’examiner leur distribution territoriale, leur complémentarité et leur accessibilité géographique pour les différentes configurations de perte d’autonomie et de besoins sociaux concomitants.",
+    "Analyse rétrospective des réseaux sociaux (ARS) afin de caractériser la composition, la structure des relations et les modalités organisationnelles intersectorielles actuellement mobilisées en soins et services de première ligne pour répondre aux différentes configurations de personnes aînées en perte d’autonomie vivant à domicile avec des besoins sociaux concomitants."
+  ],
+  "contexte": [
+    [
+      "Vieillir chez soi : une attente forte, des possibilités inégales",
+      [
+        "L’Organisation mondiale de la Santé (OMS) définit le vieillissement en santé par les capacités fonctionnelles permettant de réaliser ce qui compte pour la personne, dans son environnement. Le risque de limitations augmente avec l’âge, mais la dépendance n’est ni uniforme ni inévitable ; les possibilités de prévention, de récupération et de compensation doivent être considérées (OMS, 2025).",
+        "L’enquête nationale de 2025 du National Institute on Ageing (NIA), publiée en 2026, indique que 81 % des répondants canadiens de 50 ans et plus souhaitent rester dans leur logement actuel (70 %) ou dans un logement privé plus petit (11 %). Seuls 49 % jugent leur logement pleinement adapté au vieillissement. Ce sont des préférences déclarées chez les 50 ans et plus, et non une estimation propre aux 65 ans et plus en perte d’autonomie (Qureshi et al., 2026)."
+      ]
+    ],
+    [
+      "De l’incapacité à la perte d’autonomie ",
+      [
+        "En 2022, 40,4 % des Canadiennes et Canadiens de 65 ans et plus déclaraient au moins une incapacité limitant leurs activités. Cet indicateur de l’Enquête canadienne sur l’incapacité ne mesure pas directement la dépendance dans les activités quotidiennes : il ne faut pas le présenter comme la proportion d’aînés nécessitant une aide humaine (Statistique Canada, 2023).",
+        "Dans cette recherche, la perte d’autonomie désigne une diminution de la capacité à réaliser seul les activités de la vie quotidienne, allant de difficultés d’exécution à un besoin d’aide humaine partiel ou total. La dépendance fonctionnelle correspond à la nécessité de cette assistance. Les limitations, les activités concernées et le niveau d’aide seront explicités plutôt que présumés à partir de l’âge ou d’un diagnostic (Katz et al., 1963 ; Lawton et Brody, 1969).",
+        "Ce choix délimite un objet directement pertinent pour le système de santé et les services sociaux : évaluer les besoins d’aide, prévenir ou compenser les limitations et organiser le soutien à domicile. L’autonomie décisionnelle, davantage traitée dans les cadres juridiques et bioéthiques, concerne la capacité à comprendre l’information, à en apprécier la portée pour soi, à raisonner et à exprimer un choix. Elle ne se déduit pas d’une dépendance pour les gestes quotidiens et ne constitue pas le critère central d’inclusion du projet (Appelbaum, 2007).",
+        "Les activités de base de la vie quotidienne (AVQ ; en anglais, activities of daily living, ADL) concernent les soins personnels : se laver, s’habiller, utiliser les toilettes, effectuer les transferts, assurer sa continence et s’alimenter. La mobilité sera renseignée séparément ou selon l’instrument utilisé, les échelles ne couvrant pas toutes les mêmes dimensions (Katz et al., 1963).",
+        "Les activités instrumentales de la vie quotidienne (AIVQ ; en anglais, instrumental activities of daily living, IADL) comprennent l’usage du téléphone, les courses, la préparation des repas, l’entretien du logement, la lessive, les transports, la gestion des médicaments et des finances. Elles permettent de vivre de façon indépendante dans la communauté et mobilisent des capacités physiques et cognitives (Lawton et Brody, 1969).",
+        "Les difficultés instrumentales peuvent apparaître avant la dépendance dans les activités de base, notamment lorsque les fonctions cognitives commencent à décliner. Cette séquence est un repère fréquent, sans constituer une trajectoire universelle ni un diagnostic cognitif. Les instruments, les seuils, le besoin d’assistance et la période de référence seront extraits pour comparer les études (Jekel et al., 2015)."
+      ]
+    ],
+    [
+      "Des situations quotidiennes qui traversent plusieurs secteurs",
+      [
+        "Une limitation pour se laver ou se déplacer peut coexister avec un logement inadapté, une alimentation insuffisante, l’isolement, des difficultés financières ou l’absence de transport. Le besoin n’est alors pas seulement de recevoir un soin : il faut rendre compatibles soins, aide quotidienne, logement, mobilité et soutien des proches. Une réponse disponible dans un secteur peut rester inutilisable si un autre maillon manque (OMS, 2015 ; Spiers et al., 2022).",
+        "Au Québec, le Commissaire à la santé et au bien-être (CSBE) estime pour 2023 un taux de réponse de 10,7 % aux besoins de services de longue durée à domicile. Cette estimation modélisée rapporte les volumes de services fournis aux volumes requis ; elle ne signifie pas que seuls 10,7 % des aînés reçoivent un service. Elle met en évidence un écart entre besoins et ressources qui ne se résout pas par la seule affirmation d’un choix de vieillir chez soi (CSBE, 2024)."
+      ]
+    ],
+    [
+      "Chutes, hospitalisation et fragilisation du maintien à domicile",
+      [
+        "La surveillance canadienne rapporte 81 599 hospitalisations liées aux chutes chez les personnes de 65 ans et plus en 2023–2024, hors Québec. Il s’agit d’hospitalisations, non d’un nombre de personnes distinctes ni d’un total québécois. Les chutes peuvent entraîner blessures, peur de tomber, restriction des activités et besoins d’aide supplémentaires (Agence de la santé publique du Canada, 2024).",
+        "Les chutes, notamment lorsqu’elles sont répétées ou entraînent une blessure grave, sont associées à un risque accru d’entrée en établissement dans une cohorte prospective d’aînés vivant dans la communauté. Ce résultat soutient l’importance de la prévention et de l’adaptation du domicile, sans établir que toute entrée en institution résulte d’une chute (Tinetti et Williams, 1997).",
+        "L’hospitalisation constitue une autre période de vulnérabilité : une méta-analyse estime à 30 % la prévalence de la perte d’indépendance dans les AVQ associée à une hospitalisation aiguë chez les personnes de 65 ans et plus, avec un intervalle de confiance à 95 % de 24 à 33 %. Cette association ne permet pas d’attribuer tout le déclin à l’hôpital, indépendamment de la maladie ayant motivé l’admission. Elle justifie d’examiner la continuité entre soins, réadaptation, aide quotidienne et retour à domicile (Loyd et al., 2020).",
+        "Ces données décrivent des périodes à risque et des associations ; elles ne permettent pas d’affirmer que toute chute ou hospitalisation conduit à une institutionnalisation. L’entrée en hébergement dépend aussi du fonctionnement antérieur, des ressources de soutien, des préférences et de l’offre disponible (Tinetti et Williams, 1997 ; Gaugler et al., 2007)."
+      ]
+    ],
+    [
+      "Réduire certaines limitations et soutenir les capacités restantes",
+      [
+        "L’essai randomisé CAPABLE, mené auprès de 300 aînés à faible revenu présentant des difficultés fonctionnelles, associe ergothérapie, soins infirmiers et adaptation du logement. À cinq mois, le groupe intervention présente un score de difficultés dans les AVQ inférieur de 30 % à celui du groupe témoin ; la différence pour les AIVQ n’est pas statistiquement significative. Ce résultat montre que certaines limitations peuvent être atténuées en agissant conjointement sur la personne et son environnement. Il ne signifie ni une récupération complète, ni une réduction démontrée de l’institutionnalisation dans cet essai (Szanton et al., 2019).",
+        "Une méta-analyse de 89 essais rapporte une réduction relative des admissions en établissement avec des interventions communautaires multifactorielles (risque relatif : 0,87 ; intervalle de confiance à 95 % : 0,83–0,90), ainsi que de faibles améliorations fonctionnelles. Ces interventions sont hétérogènes et ne relèvent pas toutes d’une collaboration entre secteurs au sens retenu dans la thèse : elles étayent la pertinence d’une réponse combinée, sans isoler l’effet propre de l’intersectorialité (Beswick et al., 2008).",
+        "Au Québec, l’étude quasi expérimentale PRISMA a suivi 1 501 personnes de 75 ans et plus à risque de déclin fonctionnel dans trois zones expérimentales et trois zones de comparaison. Une fois l’implantation plus avancée, elle rapporte moins de déclin fonctionnel et de besoins non satisfaits dans les zones expérimentales. Ce résultat soutient la pertinence d’une coordination des services de santé et sociaux dans le contexte québécois, tout en conservant les limites d’une comparaison non randomisée et la distinction entre intégration des services et intersectorialité au sens large (Hébert et al., 2010)."
+      ]
+    ],
+    [
+      "Ce que les synthèses permettent de conclure, et leurs limites",
+      [
+        "La revue Cochrane sur la gestion de cas chez les aînés fragiles ne démontre pas de réduction certaine des entrées en établissement à douze mois : le risque relatif estimé est de 0,73, mais son intervalle de confiance à 95 % va de 0,53 à 1,01 et le niveau de certitude est faible. Une coordination accrue ne suffit donc pas, à elle seule, à garantir un maintien à domicile prolongé (Sadler et al., 2023).",
+        "Une méta-analyse en réseau de 129 études souligne l’intérêt de plans individualisés suivis d’actions adaptées, de révisions régulières et d’une optimisation médicamenteuse. Toutefois, la plupart des comparaisons reposent sur des preuves de certitude faible ou très faible et certaines combinaisons pourraient être défavorables. L’enjeu scientifique est de préciser quelles configurations de réponses conviennent à quels besoins et à quels contextes, plutôt que de présumer un bénéfice uniforme de toute coordination (Crocker et al., 2024)."
+      ]
+    ],
+    [
+      "Des ressources et des possibilités de compensation socialement différenciées",
+      [
+        "La possibilité de compenser les limitations dépend aussi du revenu, du logement, du transport, du soutien des proches et de l’accès effectif aux services. Une revue systématique associe les besoins d’aide non satisfaits à de faibles revenus, au fait de vivre seul et à des limitations fonctionnelles plus importantes ; les critères d’admissibilité et les barrières linguistiques ou culturelles contribuent également aux difficultés d’accès (Spiers et al., 2022).",
+        "Une méta-analyse de données longitudinales américaines identifie, parmi les déterminants de l’entrée en établissement, les limitations dans les AVQ, les troubles cognitifs et les ressources de soutien. La présence d’un conjoint et le fait d’être propriétaire sont associés à une entrée plus tardive dans les analyses de durée. Ces associations suggèrent des possibilités de compensation socialement différenciées ; elles ne permettent ni de conclure à un effet causal du statut résidentiel ni de transposer directement les estimations au Québec (Gaugler et al., 2007).",
+        "Ces résultats invitent à distinguer les inégalités de besoins, les inégalités d’accès à l’aide et les différences de recours à l’hébergement. Un taux d’institutionnalisation plus faible ne signifie pas nécessairement un meilleur résultat : il peut aussi refléter un accès restreint ou un maintien à domicile avec une aide insuffisante. La thèse examinera donc l’adéquation et l’accessibilité des réponses, en considérant la situation sociale et les préférences, sans supposer que toute entrée en hébergement doit être évitée.",
+        "Le souhait de rester chez soi doit ainsi être mis en regard des moyens effectivement accessibles. L’étude s’intéresse à cette tension entre préférences, limitations et possibilités de compensation ; elle ne présume pas que le maintien à domicile constitue toujours l’option souhaitable ou sûre pour chaque personne."
+      ]
+    ],
+    [
+      "Des organisations en silos face à des besoins interdépendants",
+      [
+        "Le diagnostic québécois décrit un écosystème de soutien à domicile fragmenté, dans lequel des services se sont développés en silos. Les mandats, règles d’admissibilité, enveloppes financières et mécanismes de reddition de comptes peuvent différer entre santé, services sociaux, municipalités, logement et organismes communautaires. La personne et ses proches doivent alors composer avec plusieurs portes d’entrée, alors que leurs difficultés sont interdépendantes (CSBE, 2023).",
+        "Une réponse systémique et intersectorielle suppose de relier les fonctions utiles : repérage, orientation, accès aux ressources, coordination et continuité. Elle ne consiste ni à additionner des organismes dans un annuaire ni à transférer toute la responsabilité à un seul intervenant. L’enjeu est de comprendre les conditions organisationnelles dans lesquelles les ressources deviennent une réponse réellement mobilisée (CSBE, 2024)."
+      ]
+    ],
+    [
+      "Des initiatives territoriales existent : leur articulation reste à documenter",
+      [
+        "La concertation dispose déjà d’appuis : la Conférence des Tables régionales de concertation des aînés du Québec soutient 18 tables régionales. Des communautés de pratique intersectorielles se développent également, par exemple un projet pilote consacré aux technologies pour les personnes aînées. Ces initiatives attestent des capacités de mobilisation territoriale ; elles ne démontrent pas une couverture ni des modalités de fonctionnement identiques partout (Conférence des Tables régionales de concertation des aînés du Québec, s. d. ; Université TÉLUQ, 2025).",
+        "Ces initiatives s’inscrivent dans des cadres et des arrangements territoriaux dont la composition, les moyens, la pérennité et les liens avec les soins et services de première ligne restent à décrire empiriquement. La thèse examinera les ressources qu’elles permettent de mobiliser selon les scénarios types et les variations de leur fonctionnement entre territoires."
+      ]
+    ],
+    [
+      "Quels résultats de santé et de qualité de vie rechercher ?",
+      [
+        "L’enjeu est de préserver des activités qui comptent, d’atténuer des limitations, de limiter les ruptures de parcours et, lorsque cela correspond aux besoins et aux préférences, de reporter une institutionnalisation évitable. La qualité de vie et la charge des proches doivent être considérées avec les résultats fonctionnels, plutôt que de réduire le succès au seul nombre d’entrées en établissement (OMS, 2015 ; Spiers et al., 2022).",
+        "L’année de vie ajustée sur la qualité (AVAQ), ou quality-adjusted life year (QALY), associe durée de vie et qualité de vie liée à la santé ; une année en pleine santé correspond à une QALY. Elle ne se confond ni avec une année d’autonomie ni avec une année de vie gagnée. Le présent devis n’est pas une évaluation économique et ne permettra pas de chiffrer des QALY gagnées grâce aux réseaux observés ; cela nécessiterait une étude interventionnelle et des mesures adaptées (National Institute for Health and Care Excellence, 2013)."
+      ]
+    ],
+    [
+      "Du constat général à la question de recherche",
+      [
+        "La perte d’autonomie représente un point de rencontre entre besoins cliniques, aide quotidienne et conditions sociales de vie. Les essais et synthèses montrent que certaines réponses combinant soins, réadaptation et adaptations de l’environnement peuvent réduire des limitations et, dans certains contextes, diminuer les admissions en établissement. Ils ne démontrent toutefois pas un effet uniforme de l’intégration des services ni l’efficacité propre de toute collaboration intersectorielle (Szanton et al., 2019 ; Beswick et al., 2008 ; Sadler et al., 2023).",
+        "L’intérêt scientifique du projet est d’articuler trois connaissances encore dispersées : les profils de besoins sociaux associés aux limitations fonctionnelles, les ressources potentiellement accessibles pour y répondre et les relations effectivement mobilisées entre organisations. Les résultats hétérogènes des interventions et les inégalités d’accès justifient d’étudier cette adéquation par scénario type et par territoire, plutôt que de déduire les réponses pertinentes de la seule présence de services (Spiers et al., 2022 ; Crocker et al., 2024).",
+        "La réduction du déclin fonctionnel et le report d’une institutionnalisation évitable constituent des finalités auxquelles une meilleure organisation pourrait contribuer. Le présent devis documentaire, spatial et réticulaire ne mesurera pas leur effet causal : il produira des repères sur les configurations de besoins et de réponses, susceptibles d’orienter une évaluation interventionnelle ultérieure."
+      ]
+    ]
+  ],
+  "hypotheses": [
+    [
+      "Des configurations récurrentes de besoins sociaux concomitants à la perte d’autonomie pourront être dégagées de la littérature et traduites en scénarios types distincts."
+    ],
+    [
+      "La couverture potentielle des scénarios types variera selon les territoires ; la présence de ressources n’impliquera pas nécessairement leur accessibilité ni la complémentarité des fonctions requises."
+    ],
+    [
+      "La diversité des ressources mobilisables ne se retrouvera pas intégralement dans les réseaux effectivement mobilisés pour un même scénario et un même territoire.",
+      "Les collaborations entre secteurs se concentreront autour d’un nombre limité d’organisations assurant des fonctions d’orientation ou de coordination."
+    ]
+  ]
+}

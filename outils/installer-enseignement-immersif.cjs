@@ -1,0 +1,18 @@
+'use strict';
+const fs=require('fs'),path=require('path'),crypto=require('crypto');
+const {render}=require('./enseignement-immersif.cjs');
+const root=path.resolve(__dirname,'..');
+const version=f=>crypto.createHash('sha256').update(fs.readFileSync(path.join(root,f))).digest('hex').slice(0,10);
+const cssVersion=version('assets/enseignement-immersif.css'),jsVersion=version('assets/enseignement-immersif.js');
+let html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+const panel=/(<div class="chapitre-source"[^>]*data-rubrique="enseignement-0"[^>]*><div class="chapitre-contenu">)([\s\S]*?)(<\/div><\/div>)(?=\s*<div class="chapitre-source"[^>]*data-rubrique="enseignement-1")/;
+if(!panel.test(html))throw Error('Chapitre Vision de l’enseignement introuvable ; aucune modification écrite.');
+html=html.replace(panel,(_,open,old,close)=>open+render()+close);
+html=html.replace(/<link[^>]+href="assets\/enseignement-immersif\.css[^>]*>\s*/g,'').replace(/<script[^>]+src="assets\/enseignement-immersif\.js[^>]*><\/script>\s*/g,'');
+html=html.replace('</head>',`<link rel="stylesheet" href="assets/enseignement-immersif.css?v=${cssVersion}"><script src="assets/enseignement-immersif.js?v=${jsVersion}" defer></script>\n</head>`);
+html=html.replace(/assets\/gabarit-salles\.js\?v=[^"']+/g,'assets/gabarit-salles.js?v='+version('assets/gabarit-salles.js'));
+fs.writeFileSync(path.join(root,'index.html'),html);
+fs.mkdirSync(path.join(root,'enseignement'),{recursive:true});
+const page=`<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Vision de l’enseignement — Éric Bernier</title><meta name="description" content="Une vision de l’enseignement à explorer : éducation spécialisée, psychologie, pédagogie et société. Situations, schémas, laboratoire et quiz."><link rel="icon" href="../assets/favicon.svg"><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/gabarit-salles.css"><link rel="stylesheet" href="../assets/typographie.css"><link rel="stylesheet" href="../assets/enseignement-immersif.css?v=${cssVersion}"><style>body{background:var(--gab-fond);padding:24px}.page{max-width:1080px;margin:0 auto;background:white;border:1px solid var(--gab-ligne);border-radius:24px;padding:32px}.page>header{border-bottom:1px solid var(--gab-ligne);margin-bottom:28px;padding-bottom:20px}.page>header h1{color:var(--gab-marine)}.page>header>a{color:var(--gab-bleu-logo);font-size:14px}@media(max-width:600px){body{padding:10px}.page{padding:16px;border-radius:16px}}</style><script src="../assets/enseignement-immersif.js?v=${jsVersion}" defer></script></head><body><main class="page"><header><a href="../index.html#transmission/enseignement-0">← Revenir au chapitre du site</a><h1>Vision de l’enseignement</h1></header>${render()}</main></body></html>`;
+fs.writeFileSync(path.join(root,'enseignement','vision.html'),page);
+console.log('Vision immersive intégrée au chapitre ; page directe produite.');

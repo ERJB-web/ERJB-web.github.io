@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 52">
+  <defs>
+    <linearGradient id="levier" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fdfefe"/>
+      <stop offset=".18" stop-color="#e3e7e8"/>
+      <stop offset=".46" stop-color="#a9b0b2"/>
+      <stop offset=".62" stop-color="#cdd3d4"/>
+      <stop offset=".86" stop-color="#6d7577"/>
+      <stop offset="1" stop-color="#4b5254"/>
+    </linearGradient>
+    <linearGradient id="bout" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7c8486"/>
+      <stop offset=".5" stop-color="#e7eaeb"/>
+      <stop offset="1" stop-color="#9aa1a3"/>
+    </linearGradient>
+    <radialGradient id="rosace" cx=".38" cy=".32" r=".75">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset=".3" stop-color="#dfe3e4"/>
+      <stop offset=".7" stop-color="#959c9e"/>
+      <stop offset="1" stop-color="#5a6163"/>
+    </radialGradient>
+    <linearGradient id="col" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2f4f4"/>
+      <stop offset=".55" stop-color="#9ea5a7"/>
+      <stop offset="1" stop-color="#596062"/>
+    </linearGradient>
+    <filter id="ombre" x="-20%" y="-40%" width="140%" height="200%">
+      <feGaussianBlur stdDeviation="2.2"/>
+    </filter>
+    <filter id="brosse" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9 .02" numOctaves="2" seed="4"/>
+      <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .22 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+  <!-- Ombre portée sur le verre -->
+  <g filter="url(#ombre)" opacity=".42" transform="translate(4 6)">
+    <circle cx="134" cy="26" r="15" fill="#1d2224"/>
+    <rect x="18" y="19" width="118" height="13" rx="6.5" fill="#1d2224"/>
+  </g>
+  <!-- Rosace -->
+  <circle cx="134" cy="26" r="15" fill="url(#rosace)"/>
+  <circle cx="134" cy="26" r="15" fill="none" stroke="#4c5355" stroke-width="1"/>
+  <circle cx="134" cy="26" r="11.5" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width=".8"/>
+  <!-- Col du levier -->
+  <rect x="120" y="19.5" width="16" height="13" rx="3" fill="url(#col)"/>
+  <!-- Béquille -->
+  <rect x="16" y="19" width="112" height="13" rx="6.5" fill="url(#levier)"/>
+  <rect x="16" y="19" width="112" height="13" rx="6.5" fill="#fff" filter="url(#brosse)"/>
+  <rect x="16" y="19" width="112" height="13" rx="6.5" fill="none" stroke="#4a5153" stroke-opacity=".7" stroke-width=".8"/>
+  <path d="M22 21.2 H124" stroke="#fff" stroke-opacity=".85" stroke-width="1.1" stroke-linecap="round"/>
+  <ellipse cx="18.5" cy="25.5" rx="3.2" ry="6.2" fill="url(#bout)" opacity=".9"/>
+</svg>

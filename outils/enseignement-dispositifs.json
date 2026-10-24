@@ -1,0 +1,1604 @@
+{
+  "fr": {
+    "onglet": "Méthodes et dispositifs pédagogiques",
+    "surtitre": "PROJET PÉDAGOGIQUE · MÉTHODES",
+    "titre": "Du savoir transmis à l’enquête collective",
+    "intro": "Je souhaite concevoir des enseignements où les connaissances sont travaillées sur des situations de santé publique, et non simplement restituées. Il ne s’agit ni d’opposer le cours à la discussion, ni de confondre participation et apprentissage : chaque activité doit correspondre à une capacité identifiable, mobiliser des sources vérifiables et conduire à un raisonnement explicite.",
+    "statut": "Dispositifs envisagés, non résultats d’une évaluation de mes enseignements.",
+    "imageAlt": "Photographie documentaire montrant un congrès ou une présentation, et non une séance d'enseignement de l'auteur.",
+    "imageLegende": "Conférence et échange scientifique. Photographie documentaire, sans lien avec mes cours personnels.",
+    "piliers": [
+      [
+        "Comprendre",
+        "Clarifier les concepts, les données disponibles et les incertitudes."
+      ],
+      [
+        "Confronter",
+        "Mettre en dialogue les méthodes, les acteurs et les explications concurrentes."
+      ],
+      [
+        "Transférer",
+        "Produire une décision justifiée, puis la réexaminer dans un autre contexte."
+      ]
+    ],
+    "schemaTitre": "Une architecture de séance centrée sur le raisonnement",
+    "schemaIntro": "Les étapes forment une boucle : un nouveau résultat peut conduire à reformuler la question initiale.",
+    "cycle": [
+      [
+        "Situer",
+        "Un problème de santé, un contexte et des populations concernées."
+      ],
+      [
+        "Questionner",
+        "Hypothèses, mécanismes et informations manquantes."
+      ],
+      [
+        "Enquêter",
+        "Données, littérature et méthodes appropriées."
+      ],
+      [
+        "Délibérer",
+        "Alternatives, désaccords et critères explicites."
+      ],
+      [
+        "Justifier",
+        "Décision, limites et pistes de révision."
+      ]
+    ],
+    "tableTitre": "Une boîte à outils plutôt qu’une méthode unique",
+    "tableIntro": "Le format se choisit en fonction des apprentissages visés, du groupe, des ressources et des contraintes réelles.",
+    "tableCols": [
+      "Dispositif",
+      "Activité étudiante",
+      "Trace observable",
+      "Point de vigilance"
+    ],
+    "formats": [
+      [
+        "Exposé dialogué",
+        "Répondre à des questions conceptuelles, argumenter une objection.",
+        "Carte conceptuelle annotée ou justification courte.",
+        "Ne pas réduire l’interactivité à des questions de présence."
+      ],
+      [
+        "Étude de cas",
+        "Analyser une situation contextualisée et comparer des solutions.",
+        "Note de décision avec hypothèses et limites.",
+        "Ne pas présenter un cas simplifié comme la réalité entière."
+      ],
+      [
+        "Atelier de données",
+        "Explorer un indicateur, ses sources et ses biais possibles.",
+        "Graphique légendé et commentaire critique.",
+        "Distinguer association, causalité et données manquantes."
+      ],
+      [
+        "Simulation de concertation",
+        "Défendre une proposition à partir de rôles et contraintes explicites.",
+        "Matrice des compromis et décision collective motivée.",
+        "Ne pas prétendre représenter la parole des personnes concernées."
+      ],
+      [
+        "Revue entre pairs",
+        "Évaluer une production à l’aide de critères communs.",
+        "Version révisée et justification des changements.",
+        "Former les étudiants à donner et utiliser la rétroaction."
+      ]
+    ],
+    "labTitre": "Explorer trois mises en situation",
+    "labIntro": "Choisir un domaine pour voir comment un même principe d’enseignement se traduit en problèmes, activités et productions distincts. Les cas sont fictifs.",
+    "casLabels": [
+      "Situation de départ",
+      "Travail proposé",
+      "Production attendue"
+    ],
+    "cas": [
+      [
+        "Politiques publiques",
+        "Une ville doit adapter son plan de prévention des vagues de chaleur face à des risques inégalement répartis.",
+        "Comparer cartes de vulnérabilité, coûts, besoins et propositions d’acteurs ; discuter les arbitrages sans réduire l’équité à un seul indicateur.",
+        "Une note d’aide à la décision présentant deux options, leurs conséquences et les données manquantes."
+      ],
+      [
+        "Organisation des soins",
+        "Une équipe de première ligne veut améliorer la continuité des services après des passages répétés aux urgences.",
+        "Cartographier le parcours fictif, repérer les ruptures entre partenaires et soumettre deux organisations possibles à des contraintes de faisabilité.",
+        "Un schéma de coordination et une proposition argumentée de changement, avec indicateurs de suivi."
+      ],
+      [
+        "Méthodes de recherche",
+        "Une comparaison internationale montre une association surprenante entre expérience rapportée et hospitalisations évitables.",
+        "Interroger l’unité d’analyse, les données, le codage, les facteurs de confusion et les limites de l’inférence écologique.",
+        "Un plan d’analyses de sensibilité et une interprétation prudente, sans conclusion causale."
+      ]
+    ],
+    "preuvesTitre": "Ce que les recherches permettent d’affirmer",
+    "preuvesIntro": "Une méta-analyse de 225 études en sciences, technologies, ingénierie et mathématiques de premier cycle trouve en moyenne de meilleurs résultats avec l’apprentissage actif que dans les cours magistraux traditionnels. Il s’agit d’un résultat de ce champ d’études, pas d’une mesure de l’efficacité de mes cours ni d’une garantie de transfert à tous les enseignements de santé publique.",
+    "chiffres": [
+      "études analysées",
+      "amélioration moyenne des scores d’examen (environ)",
+      "risque relatif d’échec en cours magistral comparé à l’apprentissage actif (environ)"
+    ],
+    "graphTitre": "Échec : comparaison relative dans les études STEM",
+    "graphLabels": [
+      "Apprentissage actif (référence)",
+      "Cours magistral traditionnel"
+    ],
+    "graphNote": "Indice relatif, base 1 pour l’apprentissage actif ; ce ne sont pas des taux d’échec absolus. Freeman et al. (2014).",
+    "cadresTitre": "Trois cadres pour concevoir sans recette universelle",
+    "cadres": [
+      [
+        "Alignement pédagogique",
+        "Faire correspondre objectifs d’apprentissage, activités et modalités d’évaluation ; distinguer ce qui est enseigné de ce qui est réellement démontré.",
+        "Biggs (1996)"
+      ],
+      [
+        "Conception universelle de l’apprentissage",
+        "Diversifier l’engagement, la représentation et les moyens d’action et d’expression, sans renoncer aux exigences communes.",
+        "CAST (2024)"
+      ],
+      [
+        "Littératie de la rétroaction",
+        "Prévoir un moment où l’étudiant interprète le retour, porte un jugement et améliore effectivement son travail.",
+        "Carless & Boud (2018)"
+      ]
+    ],
+    "fin": "Ce répertoire de dispositifs décrit une orientation que je souhaite développer. Les choix concrets dépendent des objectifs du cours, de l’équipe enseignante et des étudiants. Leur pertinence devrait être appréciée à partir de productions analysables et de retours documentés.",
+    "approfondissement": {
+      "titre": "Des résultats scientifiques aux choix pédagogiques",
+      "intro": "Les études n’ont ni la même population ni les mêmes critères de jugement. Je souhaite les lire comme des appuis pour concevoir, tester et ajuster, et non comme une prescription universelle.",
+      "etudes": [
+        [
+          "Freeman et al. · 2014",
+          "Méta-analyse de 225 études",
+          "Dans l’enseignement supérieur STEM, l’apprentissage actif est associé à de meilleurs scores moyens et à moins d’échecs que le cours magistral conventionnel.",
+          "Résultat moyen ; forte diversité des modalités et des situations.",
+          "actif"
+        ],
+        [
+          "Theobald et al. · 2020",
+          "Méta-analyse sur données individuelles",
+          "Dans des cours STEM, les écarts de résultats aux examens diminuent en moyenne de 33 % et ceux de réussite de 45 % pour les groupes étudiés.",
+          "Les résultats concernent des populations et dispositifs définis ; l’intensité de l’apprentissage actif compte.",
+          "theobald"
+        ],
+        [
+          "Mansoor et al. · 2026",
+          "Revue de portée · 22 études en santé publique",
+          "Les approches par cas, problèmes et équipes sont décrites dans des formations variées ; les travaux rapportent des apprentissages et des difficultés de mise en œuvre.",
+          "Une revue de portée cartographie la littérature ; elle ne fournit pas un effet causal combiné.",
+          "mansoor"
+        ],
+        [
+          "Deslauriers et al. · 2019",
+          "Étude comparative randomisée en physique",
+          "Des étudiants ont davantage appris en activité tout en ayant le sentiment d’apprendre moins : l’effort cognitif perçu n’est pas une mesure suffisante.",
+          "Résultat dans un cours particulier ; ne généraliser ni la direction ni l’ampleur à tous les publics.",
+          "deslauriers"
+        ],
+        [
+          "Mensour et al. · 2025",
+          "Revue systématique en formation médicale postgraduée",
+          "Les trois études combinables ne montrent pas de différence significative aux tests ; les effets déclarés sur satisfaction et comportements sont plus favorables.",
+          "Ne pas confondre satisfaction, apprentissage mesuré et transfert en pratique.",
+          "mensour"
+        ]
+      ],
+      "competencesTitre": "Relier les activités aux compétences de santé publique",
+      "competencesIntro": "Proposition de correspondances pédagogiques. Il ne s’agit pas d’une reproduction officielle des référentiels. Points d’appui : compétences canadiennes actualisées en 2025 et cadre OMS–ASPHER pour l’Europe.",
+      "competences": [
+        [
+          "Analyse et interprétation",
+          "Interroger un indicateur, sa population et ses limites.",
+          "Lecture critique d’un tableau de surveillance."
+        ],
+        [
+          "Politiques et décision",
+          "Comparer options, équité, ressources et incertitudes.",
+          "Note de politique publique argumentée."
+        ],
+        [
+          "Partenariats et coopération",
+          "Identifier les rôles, liens et risques de coordination.",
+          "Carte d’acteurs et scénario de concertation."
+        ],
+        [
+          "Communication scientifique",
+          "Adapter un message à son public sans déformer la preuve.",
+          "Résumé clair pour un organisme communautaire."
+        ],
+        [
+          "Éthique et réflexivité",
+          "Rendre explicites les arbitrages et la place des personnes concernées.",
+          "Journal de décision et déclaration des limites."
+        ]
+      ],
+      "progressionTitre": "Des connaissances à leur mobilisation : quatre niveaux de traces",
+      "progressionIntro": "Une progression possible pour éviter d’évaluer uniquement la satisfaction ou la restitution immédiate.",
+      "progression": [
+        [
+          "Avant",
+          "Question diagnostique et premier raisonnement individuel."
+        ],
+        [
+          "Pendant",
+          "Discussion encadrée, comparaison de sources et production collective."
+        ],
+        [
+          "Après",
+          "Révision justifiée, rétroaction et tâche de transfert."
+        ],
+        [
+          "À distance",
+          "Exercice de rappel et problème nouveau, avec critères identiques."
+        ]
+      ],
+      "limitesTitre": "Ce que je refuse de simplifier",
+      "limites": [
+        [
+          "Une méthode n’est pas un résultat",
+          "La présence de travaux en groupe ne démontre pas l’apprentissage ; il faut observer ce que chacun sait expliquer et faire."
+        ],
+        [
+          "Une perception n’est pas une mesure",
+          "L’enthousiasme ou le sentiment de difficulté renseignent sur l’expérience, pas à eux seuls sur la maîtrise d’une compétence."
+        ],
+        [
+          "Un cadre ne remplace pas un contexte",
+          "Petits groupes, grands effectifs, accessibilité, charge de préparation et disponibilité des partenaires changent la faisabilité."
+        ],
+        [
+          "Une intervention ne résout pas tout",
+          "Les inégalités d’apprentissage sont aussi liées aux conditions sociales et institutionnelles, au-delà des seuls choix d’animation."
+        ]
+      ],
+      "refs": [
+        "actif",
+        "theobald",
+        "mansoor",
+        "deslauriers",
+        "mensour",
+        "competencesCanada",
+        "competencesOMS",
+        "roediger",
+        "cepedaspacing",
+        "wallar"
+      ]
+    }
+  },
+  "en": {
+    "onglet": "Teaching methods and learning formats",
+    "surtitre": "TEACHING PROJECT · METHODS",
+    "titre": "From transmitted knowledge to collective inquiry",
+    "intro": "I aim to design teaching in which knowledge is put to work on public health situations rather than merely recalled. This is not about opposing lectures to discussion or mistaking participation for learning: each activity should build an identifiable capability, draw on verifiable sources and make reasoning visible.",
+    "statut": "Proposed approaches, not outcomes from an evaluation of my teaching.",
+    "imageAlt": "Documentary photograph of an academic conference or presentation; it does not depict the author's teaching.",
+    "imageLegende": "Scientific conference and discussion. Documentary photograph, not one of my classes.",
+    "piliers": [
+      [
+        "Understand",
+        "Clarify concepts, available data and uncertainties."
+      ],
+      [
+        "Compare",
+        "Bring methods, stakeholders and competing explanations into dialogue."
+      ],
+      [
+        "Transfer",
+        "Develop a justified decision and reconsider it in another context."
+      ]
+    ],
+    "schemaTitre": "A session built around reasoning",
+    "schemaIntro": "These stages form a loop: new findings can lead to a revised initial question.",
+    "cycle": [
+      [
+        "Situate",
+        "A health problem, its context and affected populations."
+      ],
+      [
+        "Question",
+        "Hypotheses, mechanisms and missing information."
+      ],
+      [
+        "Investigate",
+        "Data, literature and appropriate methods."
+      ],
+      [
+        "Deliberate",
+        "Options, disagreements and explicit criteria."
+      ],
+      [
+        "Justify",
+        "Decision, limitations and opportunities to revise."
+      ]
+    ],
+    "tableTitre": "A toolkit rather than a single teaching method",
+    "tableIntro": "The format depends on intended learning, group composition, available resources and real constraints.",
+    "tableCols": [
+      "Format",
+      "Student activity",
+      "Observable evidence",
+      "Consideration"
+    ],
+    "formats": [
+      [
+        "Interactive lecture",
+        "Answer conceptual questions and defend an objection.",
+        "Annotated concept map or short justification.",
+        "Interaction must involve more than checking attendance."
+      ],
+      [
+        "Case study",
+        "Analyse a contextualised situation and compare responses.",
+        "Decision brief stating assumptions and limitations.",
+        "A simplified case is not the whole reality."
+      ],
+      [
+        "Data workshop",
+        "Explore an indicator, its sources and possible biases.",
+        "Captioned chart with critical commentary.",
+        "Distinguish association, causation and missing data."
+      ],
+      [
+        "Stakeholder simulation",
+        "Defend options with explicit roles and constraints.",
+        "Trade-off matrix and reasoned collective decision.",
+        "Do not claim to speak for the people concerned."
+      ],
+      [
+        "Peer review",
+        "Assess a draft using shared criteria.",
+        "Revised version with reasons for changes.",
+        "Teach students how to give and use feedback."
+      ]
+    ],
+    "labTitre": "Explore three teaching situations",
+    "labIntro": "Select a field to see how the same approach leads to different problems, activities and outputs. Cases are fictional.",
+    "casLabels": [
+      "Starting situation",
+      "Proposed activity",
+      "Expected output"
+    ],
+    "cas": [
+      [
+        "Public policy",
+        "A city must adapt its heatwave prevention plan amid unevenly distributed risks.",
+        "Compare vulnerability maps, costs, needs and stakeholder proposals; discuss trade-offs without reducing equity to one metric.",
+        "A policy brief comparing two options, their consequences and missing evidence."
+      ],
+      [
+        "Care organisation",
+        "A primary care team wants to improve continuity after repeated emergency visits.",
+        "Map a fictional care journey, identify gaps across organisations and test two models against feasibility constraints.",
+        "A coordination diagram and reasoned change proposal with monitoring indicators."
+      ],
+      [
+        "Research methods",
+        "An international comparison finds a surprising association between reported experience and avoidable admissions.",
+        "Examine units of analysis, coding, confounding, data sources and ecological inference limits.",
+        "A sensitivity-analysis plan and cautious interpretation without a causal claim."
+      ]
+    ],
+    "preuvesTitre": "What research can and cannot show",
+    "preuvesIntro": "A meta-analysis of 225 undergraduate STEM studies found better outcomes on average with active learning than with traditional lecturing. This finding concerns those disciplines; it neither measures my teaching nor guarantees transfer to every public health course.",
+    "chiffres": [
+      "studies reviewed",
+      "approximate average improvement in examination scores",
+      "approximate relative likelihood of failure with traditional lecturing vs active learning"
+    ],
+    "graphTitre": "Failure: relative comparison in STEM studies",
+    "graphLabels": [
+      "Active learning (reference)",
+      "Traditional lecture"
+    ],
+    "graphNote": "Relative index, active learning set to 1; these are not absolute failure rates. Freeman et al. (2014).",
+    "cadresTitre": "Three frameworks, not a universal recipe",
+    "cadres": [
+      [
+        "Constructive alignment",
+        "Align learning outcomes, learning activities and assessment; distinguish teaching from what students can demonstrate.",
+        "Biggs (1996)"
+      ],
+      [
+        "Universal Design for Learning",
+        "Vary engagement, representation and action and expression while keeping meaningful shared goals.",
+        "CAST (2024)"
+      ],
+      [
+        "Feedback literacy",
+        "Give learners an opportunity to interpret feedback, make a judgment and improve their work.",
+        "Carless & Boud (2018)"
+      ]
+    ],
+    "fin": "These formats describe a direction I would like to pursue. Actual choices depend on course objectives, the teaching team and students. Their usefulness should be examined through assessable outputs and documented feedback.",
+    "approfondissement": {
+      "titre": "From research findings to teaching decisions",
+      "intro": "These studies differ in populations and outcomes. I want to use them to design, evaluate and adjust teaching, rather than as universal prescriptions.",
+      "etudes": [
+        [
+          "Freeman et al. · 2014",
+          "Meta-analysis of 225 studies",
+          "In undergraduate STEM, active learning was associated with higher average examination scores and fewer failures than conventional lectures.",
+          "A pooled result from varied formats and settings.",
+          "actif"
+        ],
+        [
+          "Theobald et al. · 2020",
+          "Individual-participant-data meta-analysis",
+          "In STEM courses, average examination achievement gaps narrowed by 33% and passing gaps by 45% among studied groups.",
+          "Defined populations and settings; intensity of active learning matters.",
+          "theobald"
+        ],
+        [
+          "Mansoor et al. · 2026",
+          "Scoping review · 22 public health studies",
+          "Case-, problem- and team-based formats have been used across courses, with reported learning opportunities and implementation challenges.",
+          "Scoping reviews map evidence; they do not estimate one pooled causal effect.",
+          "mansoor"
+        ],
+        [
+          "Deslauriers et al. · 2019",
+          "Randomised comparative physics study",
+          "Students learned more in active classes even when they felt they learned less; perceived effort does not measure achievement.",
+          "A specific course; neither direction nor size necessarily transfers.",
+          "deslauriers"
+        ],
+        [
+          "Mensour et al. · 2025",
+          "Systematic review in postgraduate medicine",
+          "Three poolable studies found no significant difference on tests; satisfaction and reported behaviours were more favourable.",
+          "Do not conflate satisfaction, measured learning and practice transfer.",
+          "mensour"
+        ]
+      ],
+      "competencesTitre": "Connect activities to public health capabilities",
+      "competencesIntro": "Illustrative mapping, not a reproduction of the official frameworks. Informed by Canada's 2025 core competencies and the WHO–ASPHER European framework.",
+      "competences": [
+        [
+          "Analysis and interpretation",
+          "Examine an indicator, its population and limitations.",
+          "Critical reading of surveillance data."
+        ],
+        [
+          "Policy and decision-making",
+          "Compare options, equity, resources and uncertainties.",
+          "Reasoned policy brief."
+        ],
+        [
+          "Partnership and collaboration",
+          "Identify responsibilities, connections and coordination risks.",
+          "Stakeholder map and deliberation scenario."
+        ],
+        [
+          "Scientific communication",
+          "Adapt information to its audience without distorting evidence.",
+          "Accessible summary for a community organisation."
+        ],
+        [
+          "Ethics and reflexivity",
+          "Make trade-offs and affected perspectives explicit.",
+          "Decision log explaining limitations."
+        ]
+      ],
+      "progressionTitre": "From knowledge to use: four kinds of evidence",
+      "progressionIntro": "One possible progression that does not stop at satisfaction or immediate recall.",
+      "progression": [
+        [
+          "Before",
+          "Diagnostic question and initial individual reasoning."
+        ],
+        [
+          "During",
+          "Guided discussion, source comparison and joint output."
+        ],
+        [
+          "After",
+          "Justified revision, feedback and transfer task."
+        ],
+        [
+          "Later",
+          "Retrieval activity and unfamiliar problem under comparable criteria."
+        ]
+      ],
+      "limitesTitre": "What must not be oversimplified",
+      "limites": [
+        [
+          "A format is not an outcome",
+          "Group work alone does not demonstrate learning; individuals need to explain and apply."
+        ],
+        [
+          "A perception is not a measurement",
+          "Enjoyment or difficulty describes experience but does not alone establish competence."
+        ],
+        [
+          "Frameworks require context",
+          "Cohort size, accessibility, preparation workload and partner availability affect feasibility."
+        ],
+        [
+          "Teaching is only one factor",
+          "Learning inequalities are also shaped by social and institutional conditions."
+        ]
+      ],
+      "refs": [
+        "actif",
+        "theobald",
+        "mansoor",
+        "deslauriers",
+        "mensour",
+        "competencesCanada",
+        "competencesOMS",
+        "roediger",
+        "cepedaspacing",
+        "wallar"
+      ]
+    }
+  },
+  "es": {
+    "onglet": "Métodos y dispositivos pedagógicos",
+    "surtitre": "PROYECTO DOCENTE · MÉTODOS",
+    "titre": "De transmitir conocimientos a investigar colectivamente",
+    "intro": "Aspiro a diseñar enseñanzas en las que los conocimientos se apliquen a situaciones de salud pública y no solo se reproduzcan. No se trata de oponer clases expositivas y debate ni de confundir participación con aprendizaje: cada actividad debe desarrollar una capacidad identificable, emplear fuentes verificables y hacer visible el razonamiento.",
+    "statut": "Dispositivos propuestos, no resultados de una evaluación de mi docencia.",
+    "imageAlt": "Fotografía documental de una conferencia académica; no muestra una clase impartida por el autor.",
+    "imageLegende": "Conferencia e intercambio científico. Fotografía documental, no de mis propias clases.",
+    "piliers": [
+      [
+        "Comprender",
+        "Aclarar conceptos, datos disponibles e incertidumbres."
+      ],
+      [
+        "Contrastar",
+        "Poner en diálogo métodos, actores y explicaciones alternativas."
+      ],
+      [
+        "Transferir",
+        "Elaborar una decisión justificada y revisarla en otro contexto."
+      ]
+    ],
+    "schemaTitre": "Una sesión centrada en el razonamiento",
+    "schemaIntro": "Las etapas forman un ciclo: un nuevo hallazgo puede llevar a reformular la pregunta.",
+    "cycle": [
+      [
+        "Situar",
+        "Un problema de salud, su contexto y las poblaciones afectadas."
+      ],
+      [
+        "Preguntar",
+        "Hipótesis, mecanismos e información ausente."
+      ],
+      [
+        "Investigar",
+        "Datos, literatura y métodos adecuados."
+      ],
+      [
+        "Deliberar",
+        "Alternativas, desacuerdos y criterios explícitos."
+      ],
+      [
+        "Justificar",
+        "Decisión, límites y posibilidades de revisión."
+      ]
+    ],
+    "tableTitre": "Una caja de herramientas, no un método único",
+    "tableIntro": "El formato se elige según los objetivos de aprendizaje, el grupo, los recursos y las restricciones.",
+    "tableCols": [
+      "Dispositivo",
+      "Actividad estudiantil",
+      "Evidencia observable",
+      "Precaución"
+    ],
+    "formats": [
+      [
+        "Exposición dialogada",
+        "Responder preguntas conceptuales y argumentar objeciones.",
+        "Mapa conceptual comentado o justificación breve.",
+        "La interacción no debe limitarse a comprobar la asistencia."
+      ],
+      [
+        "Estudio de caso",
+        "Analizar una situación contextualizada y comparar soluciones.",
+        "Nota de decisión con supuestos y límites.",
+        "Un caso simplificado no representa toda la realidad."
+      ],
+      [
+        "Taller de datos",
+        "Examinar indicadores, fuentes y posibles sesgos.",
+        "Gráfico explicado y comentario crítico.",
+        "Distinguir asociación, causalidad y datos faltantes."
+      ],
+      [
+        "Simulación de concertación",
+        "Defender propuestas con roles y restricciones definidos.",
+        "Matriz de compromisos y decisión colectiva razonada.",
+        "No atribuirse la voz de las personas implicadas."
+      ],
+      [
+        "Revisión entre pares",
+        "Valorar un trabajo con criterios compartidos.",
+        "Versión revisada con explicación de los cambios.",
+        "Enseñar a ofrecer y aprovechar la retroalimentación."
+      ]
+    ],
+    "labTitre": "Explorar tres situaciones didácticas",
+    "labIntro": "Selecciona un ámbito y observa cómo un principio común genera problemas, actividades y resultados distintos. Casos ficticios.",
+    "casLabels": [
+      "Situación inicial",
+      "Trabajo propuesto",
+      "Producto esperado"
+    ],
+    "cas": [
+      [
+        "Políticas públicas",
+        "Una ciudad debe adaptar su plan ante olas de calor y riesgos distribuidos desigualmente.",
+        "Comparar mapas de vulnerabilidad, costes, necesidades y propuestas; debatir compromisos sin reducir la equidad a un indicador.",
+        "Nota de decisión con dos opciones, consecuencias y datos faltantes."
+      ],
+      [
+        "Organización asistencial",
+        "Un equipo de atención primaria quiere mejorar la continuidad tras visitas repetidas a urgencias.",
+        "Dibujar un itinerario ficticio, localizar rupturas y contrastar dos modelos con criterios de viabilidad.",
+        "Esquema de coordinación y propuesta razonada con indicadores de seguimiento."
+      ],
+      [
+        "Métodos de investigación",
+        "Una comparación internacional revela una asociación inesperada entre experiencia declarada e ingresos evitables.",
+        "Revisar unidades de análisis, codificación, confusión y límites de inferencia ecológica.",
+        "Plan de análisis de sensibilidad e interpretación prudente, sin atribución causal."
+      ]
+    ],
+    "preuvesTitre": "Qué permite afirmar la investigación",
+    "preuvesIntro": "Un metaanálisis de 225 estudios universitarios de ciencias y tecnología (STEM) observó, en promedio, mejores resultados con aprendizaje activo que con clases magistrales tradicionales. No mide mis cursos ni garantiza los mismos efectos en toda enseñanza de salud pública.",
+    "chiffres": [
+      "estudios analizados",
+      "mejora media aproximada en los resultados de exámenes",
+      "riesgo relativo aproximado de suspender con enseñanza magistral frente al aprendizaje activo"
+    ],
+    "graphTitre": "Suspensos: comparación relativa en estudios STEM",
+    "graphLabels": [
+      "Aprendizaje activo (referencia)",
+      "Clase magistral tradicional"
+    ],
+    "graphNote": "Índice relativo, aprendizaje activo = 1; no son tasas absolutas de suspenso. Freeman et al. (2014).",
+    "cadresTitre": "Tres marcos, sin receta universal",
+    "cadres": [
+      [
+        "Alineamiento constructivo",
+        "Relacionar resultados de aprendizaje, actividades y evaluación; comprobar qué demuestra el alumnado.",
+        "Biggs (1996)"
+      ],
+      [
+        "Diseño Universal para el Aprendizaje",
+        "Ofrecer distintas formas de implicación, representación, acción y expresión manteniendo objetivos comunes.",
+        "CAST (2024)"
+      ],
+      [
+        "Alfabetización en retroalimentación",
+        "Reservar tiempo para comprender los comentarios, juzgar su utilidad y mejorar el trabajo.",
+        "Carless y Boud (2018)"
+      ]
+    ],
+    "fin": "Estos formatos expresan una orientación que quiero desarrollar. Las decisiones concretas dependerán de los objetivos, el equipo docente y el alumnado, y deberían examinarse mediante producciones y devoluciones documentadas.",
+    "approfondissement": {
+      "titre": "De los hallazgos científicos a las decisiones docentes",
+      "intro": "Los estudios difieren en poblaciones y resultados. Quiero utilizarlos para diseñar, evaluar y ajustar, no como recetas universales.",
+      "etudes": [
+        [
+          "Freeman et al. · 2014",
+          "Metaanálisis de 225 estudios",
+          "En STEM universitario, el aprendizaje activo se asoció con mejores resultados medios y menos suspensos que las clases tradicionales.",
+          "Resultado agregado de contextos y métodos diversos.",
+          "actif"
+        ],
+        [
+          "Theobald et al. · 2020",
+          "Metaanálisis de datos individuales",
+          "En cursos STEM, las brechas en exámenes se redujeron un 33% y en aprobados un 45% en los grupos estudiados.",
+          "Depende de poblaciones concretas e intensidad de las actividades.",
+          "theobald"
+        ],
+        [
+          "Mansoor et al. · 2026",
+          "Revisión exploratoria · 22 estudios de salud pública",
+          "Los formatos por casos, problemas y equipos muestran oportunidades de aprendizaje y dificultades de implementación.",
+          "Una revisión exploratoria no estima un efecto causal común.",
+          "mansoor"
+        ],
+        [
+          "Deslauriers et al. · 2019",
+          "Estudio comparativo aleatorizado de física",
+          "Se aprendió más en clases activas aunque los estudiantes creían aprender menos.",
+          "Un curso concreto; no debe extrapolarse automáticamente.",
+          "deslauriers"
+        ],
+        [
+          "Mensour et al. · 2025",
+          "Revisión sistemática de posgrado médico",
+          "Tres estudios combinables no mostraron diferencias significativas en pruebas; la satisfacción fue más favorable.",
+          "Satisfacción, aprendizaje y transferencia son resultados distintos.",
+          "mensour"
+        ]
+      ],
+      "competencesTitre": "Vincular las actividades a las competencias de salud pública",
+      "competencesIntro": "Correspondencias ilustrativas, no reproducción oficial: competencias canadienses de 2025 y marco OMS–ASPHER.",
+      "competences": [
+        [
+          "Análisis e interpretación",
+          "Examinar un indicador, su población y sus límites.",
+          "Lectura crítica de datos de vigilancia."
+        ],
+        [
+          "Políticas y decisiones",
+          "Comparar opciones, equidad, recursos e incertidumbre.",
+          "Nota de política razonada."
+        ],
+        [
+          "Colaboración",
+          "Reconocer responsabilidades y riesgos de coordinación.",
+          "Mapa de actores y simulación."
+        ],
+        [
+          "Comunicación científica",
+          "Adaptar un mensaje sin deformar la evidencia.",
+          "Resumen comprensible para la comunidad."
+        ],
+        [
+          "Ética y reflexión",
+          "Explicitar compromisos y perspectivas de afectados.",
+          "Registro de decisiones y límites."
+        ]
+      ],
+      "progressionTitre": "Del saber a la aplicación: cuatro tipos de evidencia",
+      "progressionIntro": "Una progresión que no se limite a satisfacción o recuerdo inmediato.",
+      "progression": [
+        [
+          "Antes",
+          "Pregunta diagnóstica y razonamiento individual."
+        ],
+        [
+          "Durante",
+          "Debate guiado, comparación de fuentes y trabajo colectivo."
+        ],
+        [
+          "Después",
+          "Revisión justificada, retroalimentación y transferencia."
+        ],
+        [
+          "Más tarde",
+          "Recuperación de conocimientos y problema nuevo con criterios comparables."
+        ]
+      ],
+      "limitesTitre": "Lo que no conviene simplificar",
+      "limites": [
+        [
+          "El formato no equivale al resultado",
+          "El trabajo grupal no demuestra por sí solo el aprendizaje individual."
+        ],
+        [
+          "La percepción no equivale a una medida",
+          "Disfrutar o sentir dificultad no garantiza competencia."
+        ],
+        [
+          "Los marcos necesitan contexto",
+          "Tamaño del grupo, accesibilidad, carga de preparación y socios importan."
+        ],
+        [
+          "La docencia no lo resuelve todo",
+          "Las desigualdades también dependen de condiciones sociales e institucionales."
+        ]
+      ],
+      "refs": [
+        "actif",
+        "theobald",
+        "mansoor",
+        "deslauriers",
+        "mensour",
+        "competencesCanada",
+        "competencesOMS",
+        "roediger",
+        "cepedaspacing",
+        "wallar"
+      ]
+    }
+  },
+  "zh": {
+    "onglet": "教学方法与学习活动",
+    "surtitre": "教学构想 · 方法",
+    "titre": "从知识传授走向集体探究",
+    "intro": "我希望让学生把知识用于分析公共卫生情境，而不只是复述内容。这并非要用讨论取代讲授，也不能把参与等同于学习。每项活动都应培养明确的能力，依据可核实的信息，并让推理过程清晰可见。",
+    "statut": "以下是拟议教学设计，并非已实施课程的效果评价。",
+    "imageAlt": "学术会议或报告的纪实照片，并非作者本人的教学场景。",
+    "imageLegende": "科学会议与交流。纪实照片，不是本人课堂的影像。",
+    "piliers": [
+      [
+        "理解",
+        "厘清概念、可用数据与不确定性。"
+      ],
+      [
+        "比较",
+        "对照方法、利益相关者与不同解释。"
+      ],
+      [
+        "迁移",
+        "提出有理据的决策，并在新情境中重新审视。"
+      ]
+    ],
+    "schemaTitre": "以推理为中心的课堂结构",
+    "schemaIntro": "这是一个循环：新的发现可能促使学生重新提出问题。",
+    "cycle": [
+      [
+        "定位",
+        "识别健康问题、情境与受影响人群。"
+      ],
+      [
+        "提问",
+        "提出假设、机制与信息缺口。"
+      ],
+      [
+        "探究",
+        "选择数据、文献与适当方法。"
+      ],
+      [
+        "审议",
+        "比较方案、分歧与明确标准。"
+      ],
+      [
+        "论证",
+        "解释决策、局限和修订方向。"
+      ]
+    ],
+    "tableTitre": "多种教学工具，而非唯一方法",
+    "tableIntro": "应根据学习目标、学生情况、资源与现实限制选择活动。",
+    "tableCols": [
+      "教学方式",
+      "学生活动",
+      "可观察成果",
+      "注意事项"
+    ],
+    "formats": [
+      [
+        "互动讲授",
+        "回答概念问题并解释异议。",
+        "附注概念图或简短论证。",
+        "互动不只是点名。"
+      ],
+      [
+        "案例分析",
+        "分析具体情境并比较方案。",
+        "注明假设和局限的决策简报。",
+        "简化案例不等于全部现实。"
+      ],
+      [
+        "数据工作坊",
+        "检查指标、来源与可能的偏差。",
+        "有说明的图表与批判性解读。",
+        "区分相关、因果与缺失数据。"
+      ],
+      [
+        "多方协商模拟",
+        "在明确角色和约束下比较提案。",
+        "权衡矩阵与集体决策。",
+        "不能声称代表当事人的真实声音。"
+      ],
+      [
+        "同伴评阅",
+        "依据共同标准评议作品。",
+        "修改稿及修改理由。",
+        "需要教授如何提供和运用反馈。"
+      ]
+    ],
+    "labTitre": "探索三个教学情境",
+    "labIntro": "选择一个领域，观察同一原则如何形成不同的问题、活动与成果。以下案例均为虚构。",
+    "casLabels": [
+      "起始情境",
+      "拟议活动",
+      "预期成果"
+    ],
+    "cas": [
+      [
+        "公共政策",
+        "某城市需要针对分布不均的风险调整高温预防计划。",
+        "比较脆弱性地图、成本、需求与不同建议；讨论公平与资源取舍。",
+        "比较两个方案、后果与数据缺口的政策简报。"
+      ],
+      [
+        "医疗服务组织",
+        "基层医疗团队希望减少患者反复急诊后的照护中断。",
+        "绘制虚构服务路径，发现协作断点，比较两种组织方案的可行性。",
+        "协作流程图、改进建议及监测指标。"
+      ],
+      [
+        "研究方法",
+        "跨国比较出现患者报告体验与可避免住院之间出乎意料的关联。",
+        "检查分析单位、编码、混杂因素及生态推断的限制。",
+        "敏感性分析计划与避免因果断言的审慎解读。"
+      ]
+    ],
+    "preuvesTitre": "研究证据能够说明什么",
+    "preuvesIntro": "一项针对225项本科 STEM 教学研究的元分析发现，主动学习的平均表现优于传统讲授。该证据来自特定学科，并非我的教学成效数据，也不能保证直接适用于所有公共卫生课程。",
+    "chiffres": [
+      "纳入的研究数量",
+      "考试成绩平均改善幅度（约）",
+      "传统讲授相对主动学习的挂科风险（约）"
+    ],
+    "graphTitre": "STEM研究中的相对挂科风险",
+    "graphLabels": [
+      "主动学习（参照）",
+      "传统讲授"
+    ],
+    "graphNote": "相对指数，主动学习设为1；不是绝对挂科率。Freeman 等（2014）。",
+    "cadresTitre": "三个设计框架，而非万能处方",
+    "cadres": [
+      [
+        "建设性对齐",
+        "使学习成果、学习活动与评价方式相互对应。",
+        "Biggs（1996）"
+      ],
+      [
+        "通用学习设计",
+        "通过多种参与、表征与行动表达方式减少障碍，并保持共同目标。",
+        "CAST（2024）"
+      ],
+      [
+        "反馈素养",
+        "让学生理解反馈、判断其意义并用来改进作品。",
+        "Carless 与 Boud（2018）"
+      ]
+    ],
+    "fin": "这些方法代表我希望发展的方向。实际选择应结合课程目标、教学团队和学生情况，并依据可分析的学习成果与反馈进行检验。",
+    "approfondissement": {
+      "titre": "将研究证据转化为教学决策",
+      "intro": "这些研究的参与人群、研究设计和结局指标不同。我希望用证据设计、评估和调整教学，而不是把它当作通用处方。",
+      "etudes": [
+        [
+          "Freeman 等 · 2014",
+          "225 项研究的元分析",
+          "本科 STEM 教学中，主动学习与更高平均成绩和更低的不及格风险相关。",
+          "不同情境与方法的综合结果。",
+          "actif"
+        ],
+        [
+          "Theobald 等 · 2020",
+          "个体数据元分析",
+          "在所研究的 STEM 课程中，考试成绩差距平均缩小 33%，通过率差距缩小 45%。",
+          "人群与课堂设计有条件；主动学习的强度很重要。",
+          "theobald"
+        ],
+        [
+          "Mansoor 等 · 2026",
+          "公共卫生领域 22 项研究的范围综述",
+          "案例式、问题式与团队式学习均有实践，报告了学习机会和执行障碍。",
+          "范围综述描绘证据分布，不估计统一因果效应。",
+          "mansoor"
+        ],
+        [
+          "Deslauriers 等 · 2019",
+          "物理课程随机比较研究",
+          "学生在主动课堂中学得更多，却可能感觉学得更少。",
+          "属于特定课程，不应直接外推。",
+          "deslauriers"
+        ],
+        [
+          "Mensour 等 · 2025",
+          "医学研究生教育系统综述",
+          "三项可合并研究未发现测试成绩显著差异，满意度表现较积极。",
+          "须区分满意度、测得的学习与实践迁移。",
+          "mensour"
+        ]
+      ],
+      "competencesTitre": "将学习活动与公共卫生能力联系起来",
+      "competencesIntro": "以下是教学上的示例映射，而非官方能力框架原文。参考加拿大2025年更新版与世卫组织–ASPHER框架。",
+      "competences": [
+        [
+          "分析与解释",
+          "检验指标、人群及其局限。",
+          "批判性阅读监测数据。"
+        ],
+        [
+          "政策与决策",
+          "比较选项、公平、资源和不确定性。",
+          "有依据的政策简报。"
+        ],
+        [
+          "伙伴关系",
+          "识别角色、联系及协调风险。",
+          "利益相关者图谱。"
+        ],
+        [
+          "科学沟通",
+          "面向不同对象准确表达证据。",
+          "供社区组织使用的易懂摘要。"
+        ],
+        [
+          "伦理与反思",
+          "明确权衡及相关人群视角。",
+          "决策日志和限制声明。"
+        ]
+      ],
+      "progressionTitre": "从理解到应用：四种学习证据",
+      "progressionIntro": "避免只评价满意度或即时记忆的一种可能路径。",
+      "progression": [
+        [
+          "课前",
+          "诊断性问题和个人初步推理。"
+        ],
+        [
+          "课中",
+          "指导性讨论、比较来源与集体产出。"
+        ],
+        [
+          "课后",
+          "有理由的修改、反馈与迁移任务。"
+        ],
+        [
+          "延后",
+          "在类似标准下进行知识提取和新情境应用。"
+        ]
+      ],
+      "limitesTitre": "不能被简单化的问题",
+      "limites": [
+        [
+          "教学形式不等于学习结果",
+          "小组作业本身不能证明每个人掌握了知识。"
+        ],
+        [
+          "感受不等于测量",
+          "兴趣或困难感不能单独代表能力。"
+        ],
+        [
+          "框架必须考虑条件",
+          "班级规模、无障碍、备课负担与伙伴资源均影响可行性。"
+        ],
+        [
+          "教学无法解决所有问题",
+          "学习不平等也受社会和制度环境影响。"
+        ]
+      ],
+      "refs": [
+        "actif",
+        "theobald",
+        "mansoor",
+        "deslauriers",
+        "mensour",
+        "competencesCanada",
+        "competencesOMS",
+        "roediger",
+        "cepedaspacing",
+        "wallar"
+      ]
+    }
+  },
+  "ar": {
+    "onglet": "طرائق التدريس والأنشطة التعليمية",
+    "surtitre": "المشروع التربوي · الأساليب",
+    "titre": "من نقل المعرفة إلى الاستقصاء الجماعي",
+    "intro": "أطمح إلى تصميم تعليم يستخدم فيه الطلبة المعرفة لتحليل أوضاع الصحة العامة، بدل الاكتفاء باسترجاعها. لا يتعلق الأمر بإلغاء المحاضرة لصالح النقاش أو باعتبار المشاركة تعلمًا بحد ذاتها؛ بل ينبغي أن تنمي كل نشاط قدرة واضحة، وأن يستند إلى مصادر قابلة للتحقق، وأن يُظهر مسار الاستدلال.",
+    "statut": "مقاربات مقترحة وليست نتائج لتقييم تدريسي الفعلي.",
+    "imageAlt": "صورة وثائقية لمؤتمر أو عرض أكاديمي، ولا تمثل درسًا يقدمه صاحب الموقع.",
+    "imageLegende": "مؤتمر وتبادل علمي. صورة وثائقية، وليست من دروسي.",
+    "piliers": [
+      [
+        "الفهم",
+        "توضيح المفاهيم والبيانات المتاحة ومواطن عدم اليقين."
+      ],
+      [
+        "المقارنة",
+        "مناقشة المناهج والفاعلين والتفسيرات المتنافسة."
+      ],
+      [
+        "نقل التعلم",
+        "صياغة قرار مبرر وإعادة اختباره في سياق آخر."
+      ]
+    ],
+    "schemaTitre": "بناء الحصة حول الاستدلال",
+    "schemaIntro": "تشكل المراحل حلقة؛ فقد تدفع نتيجة جديدة إلى إعادة صياغة السؤال.",
+    "cycle": [
+      [
+        "تحديد السياق",
+        "مشكلة صحية وظروفها والفئات المعنية."
+      ],
+      [
+        "طرح الأسئلة",
+        "الفرضيات والآليات والمعلومات الناقصة."
+      ],
+      [
+        "التحري",
+        "البيانات والأدبيات والمنهج المناسب."
+      ],
+      [
+        "التداول",
+        "البدائل والخلافات والمعايير الواضحة."
+      ],
+      [
+        "التبرير",
+        "القرار والحدود وإمكانات المراجعة."
+      ]
+    ],
+    "tableTitre": "مجموعة أدوات لا طريقة تدريس واحدة",
+    "tableIntro": "يُختار النشاط بحسب أهداف التعلم والطلبة والموارد والقيود الفعلية.",
+    "tableCols": [
+      "الصيغة",
+      "نشاط الطلبة",
+      "دليل التعلم",
+      "نقطة انتباه"
+    ],
+    "formats": [
+      [
+        "محاضرة تفاعلية",
+        "الإجابة عن أسئلة مفاهيمية وتفسير الاعتراضات.",
+        "خريطة مفاهيم مشروحة أو تعليل قصير.",
+        "لا تختزل التفاعلية في تسجيل الحضور."
+      ],
+      [
+        "دراسة حالة",
+        "تحليل وضع في سياقه ومقارنة حلول.",
+        "مذكرة قرار توضح الفرضيات والحدود.",
+        "الحالة المبسطة لا تمثل الواقع كله."
+      ],
+      [
+        "ورشة بيانات",
+        "فحص مؤشر ومصادره وانحيازاته المحتملة.",
+        "رسم بياني مشروح وتحليل نقدي.",
+        "التمييز بين الارتباط والسببية والبيانات الناقصة."
+      ],
+      [
+        "محاكاة تشاور",
+        "مقارنة مقترحات ضمن أدوار وقيود واضحة.",
+        "مصفوفة مفاضلات وقرار جماعي معلل.",
+        "عدم الادعاء بالتحدث باسم المعنيين."
+      ],
+      [
+        "مراجعة الأقران",
+        "تقييم إنتاج وفق معايير مشتركة.",
+        "نسخة منقحة مع أسباب التعديل.",
+        "تعليم كيفية تقديم الملاحظات واستخدامها."
+      ]
+    ],
+    "labTitre": "استكشاف ثلاث حالات تعليمية",
+    "labIntro": "اختر مجالًا لترى كيف يقود المبدأ نفسه إلى مسائل وأنشطة ومخرجات مختلفة. الحالات افتراضية.",
+    "casLabels": [
+      "الوضع الأولي",
+      "العمل المقترح",
+      "المخرج المتوقع"
+    ],
+    "cas": [
+      [
+        "السياسات العامة",
+        "تحتاج مدينة إلى تعديل خطة الوقاية من الحر الشديد في ظل تفاوت المخاطر.",
+        "مقارنة خرائط الهشاشة والتكاليف والاحتياجات والمقترحات، ومناقشة المفاضلات.",
+        "مذكرة سياسات تقارن خيارين وآثارهما ونواقص الأدلة."
+      ],
+      [
+        "تنظيم الرعاية",
+        "يريد فريق رعاية أولية تحسين الاستمرارية بعد زيارات متكررة للطوارئ.",
+        "رسم مسار رعاية افتراضي وتحديد نقاط الانقطاع ومقارنة نموذجين من حيث الجدوى.",
+        "مخطط للتنسيق ومقترح تحسين معلل مع مؤشرات متابعة."
+      ],
+      [
+        "مناهج البحث",
+        "تُظهر مقارنة دولية علاقة غير متوقعة بين تجربة المرضى والدخول القابل للتجنب للمستشفى.",
+        "فحص وحدة التحليل والترميز والعوامل المربكة وحدود الاستدلال البيئي.",
+        "خطة لتحليلات الحساسية وتفسير حذر بلا استنتاج سببي."
+      ]
+    ],
+    "preuvesTitre": "ما الذي تسمح الأدلة باستنتاجه؟",
+    "preuvesIntro": "وجد تحليل تلوي شمل 225 دراسة في تخصصات العلوم والتكنولوجيا والهندسة والرياضيات الجامعية نتائج أفضل في المتوسط للتعلم النشط مقارنة بالمحاضرات التقليدية. لا تقيس هذه النتيجة تدريسي ولا تضمن انتقالها إلى كل مقررات الصحة العامة.",
+    "chiffres": [
+      "دراسة شملها التحليل",
+      "تحسن متوسط تقريبي في درجات الامتحانات",
+      "نسبة احتمال الرسوب مع المحاضرات التقليدية مقارنة بالتعلم النشط (تقريبًا)"
+    ],
+    "graphTitre": "الرسوب: مقارنة نسبية في دراسات STEM",
+    "graphLabels": [
+      "التعلم النشط (مرجع)",
+      "المحاضرة التقليدية"
+    ],
+    "graphNote": "مؤشر نسبي، التعلم النشط = 1؛ ليست نسب رسوب مطلقة. Freeman وآخرون (2014).",
+    "cadresTitre": "ثلاثة أطر، لا وصفة شاملة",
+    "cadres": [
+      [
+        "المواءمة البنائية",
+        "ربط نواتج التعلم بالأنشطة والتقييم وملاحظة ما يستطيع الطلبة إظهاره.",
+        "Biggs (1996)"
+      ],
+      [
+        "التصميم الشامل للتعلم",
+        "تنويع وسائل المشاركة والتمثيل والفعل والتعبير مع الحفاظ على أهداف مشتركة.",
+        "CAST (2024)"
+      ],
+      [
+        "الثقافة المتعلقة بالتغذية الراجعة",
+        "إتاحة الفرصة لفهم الملاحظات والحكم عليها واستخدامها في تحسين العمل.",
+        "Carless وBoud (2018)"
+      ]
+    ],
+    "fin": "تصف هذه الأدوات اتجاهًا أنوي تطويره. ويعتمد تطبيقها على أهداف المقرر وفريق التدريس والطلبة، وينبغي فحص جدواها من خلال مخرجات تعلم وتعليقات موثقة.",
+    "approfondissement": {
+      "titre": "من نتائج البحث إلى قرارات التدريس",
+      "intro": "تختلف الدراسات في المشاركين وتصاميمها ومخرجاتها. أريد الاستفادة منها لتصميم التعليم وتقويمه وتعديله، لا باعتبارها وصفات عامة.",
+      "etudes": [
+        [
+          "Freeman وآخرون · 2014",
+          "تحليل تلوي لـ225 دراسة",
+          "ارتبط التعلم النشط في المقررات الجامعية العلمية بنتائج امتحانات أفضل وفشل أقل مقارنة بالمحاضرات التقليدية.",
+          "نتيجة مجمعة من سياقات وأساليب مختلفة.",
+          "actif"
+        ],
+        [
+          "Theobald وآخرون · 2020",
+          "تحليل تلوي لبيانات المشاركين",
+          "تراجعت فجوات نتائج الامتحان بمعدل 33% وفجوات النجاح 45% في مقررات STEM المدروسة.",
+          "يعتمد ذلك على الفئات وكثافة الأنشطة.",
+          "theobald"
+        ],
+        [
+          "Mansoor وآخرون · 2026",
+          "مراجعة نطاق شملت 22 دراسة للصحة العامة",
+          "استُخدمت طرائق التعلم بالحالات والمشكلات والفرق مع فرص تعليمية وتحديات تطبيقية.",
+          "المراجعة النطاقية لا تقدّر أثرًا سببيًا موحدًا.",
+          "mansoor"
+        ],
+        [
+          "Deslauriers وآخرون · 2019",
+          "دراسة مقارنة عشوائية في الفيزياء",
+          "تعلم الطلاب أكثر في الأنشطة رغم شعورهم بأنهم تعلموا أقل.",
+          "لا يمكن تعميم نتيجة سياق واحد تلقائيًا.",
+          "deslauriers"
+        ],
+        [
+          "Mensour وآخرون · 2025",
+          "مراجعة منهجية للتعليم الطبي بعد التخرج",
+          "لم تظهر ثلاث دراسات قابلة للدمج فرقًا ذا دلالة في الاختبارات، بينما تحسنت تقارير الرضا.",
+          "الرضا غير التعلم المقاس أو التطبيق العملي.",
+          "mensour"
+        ]
+      ],
+      "competencesTitre": "ربط الأنشطة بكفاءات الصحة العامة",
+      "competencesIntro": "أمثلة لمواءمة تربوية وليست نصوص الأطر الرسمية، بالاستناد إلى كفاءات كندا لعام 2025 وإطار منظمة الصحة العالمية–ASPHER.",
+      "competences": [
+        [
+          "التحليل والتفسير",
+          "فحص المؤشرات والفئات المعنية وحدود البيانات.",
+          "قراءة نقدية لبيانات الترصد."
+        ],
+        [
+          "السياسات والقرار",
+          "مقارنة البدائل والعدالة والموارد وعدم اليقين.",
+          "مذكرة سياسات معللة."
+        ],
+        [
+          "الشراكة والتعاون",
+          "تحديد الأدوار وعلاقات التنسيق والمخاطر.",
+          "خريطة أصحاب المصلحة."
+        ],
+        [
+          "التواصل العلمي",
+          "تكييف الرسالة مع الجمهور دون تحريف الدليل.",
+          "ملخص واضح لمنظمة مجتمعية."
+        ],
+        [
+          "الأخلاقيات والتأمل",
+          "توضيح المفاضلات ووجهات نظر المتأثرين.",
+          "سجل قرارات وحدودها."
+        ]
+      ],
+      "progressionTitre": "من المعرفة إلى توظيفها: أربع آثار تعلم",
+      "progressionIntro": "مسار ممكن يتجاوز الرضا والاستذكار المباشر.",
+      "progression": [
+        [
+          "قبل",
+          "سؤال تشخيصي واستدلال فردي أولي."
+        ],
+        [
+          "أثناء",
+          "نقاش موجّه ومقارنة مصادر وإنتاج جماعي."
+        ],
+        [
+          "بعد",
+          "تنقيح مبرر وتغذية راجعة ومهمة نقل التعلم."
+        ],
+        [
+          "لاحقًا",
+          "استرجاع للمعلومات ومشكلة جديدة بمعايير مماثلة."
+        ]
+      ],
+      "limitesTitre": "ما لا ينبغي تبسيطه",
+      "limites": [
+        [
+          "الصيغة ليست النتيجة",
+          "العمل الجماعي وحده لا يثبت تعلم كل طالب."
+        ],
+        [
+          "الشعور ليس قياسًا",
+          "الرضا أو صعوبة المهمة لا يثبتان إتقان المهارة."
+        ],
+        [
+          "الأطر تحتاج إلى سياق",
+          "الحجم والإتاحة وعبء التحضير والشركاء تحدد الجدوى."
+        ],
+        [
+          "التدريس ليس العامل الوحيد",
+          "تتأثر الفوارق التعليمية أيضًا بالظروف الاجتماعية والمؤسسية."
+        ]
+      ],
+      "refs": [
+        "actif",
+        "theobald",
+        "mansoor",
+        "deslauriers",
+        "mensour",
+        "competencesCanada",
+        "competencesOMS",
+        "roediger",
+        "cepedaspacing",
+        "wallar"
+      ]
+    }
+  },
+  "ru": {
+    "onglet": "Методы и форматы преподавания",
+    "surtitre": "ПЕДАГОГИЧЕСКИЙ ПРОЕКТ · МЕТОДЫ",
+    "titre": "От передачи знаний к совместному исследованию",
+    "intro": "Я хочу строить занятия так, чтобы студенты применяли знания к ситуациям общественного здравоохранения, а не просто воспроизводили материал. Речь не о замене лекций обсуждениями и не о приравнивании участия к обучению: каждое задание должно развивать понятный навык, опираться на проверяемые источники и делать ход рассуждений видимым.",
+    "statut": "Планируемые подходы, а не результаты оценки моего преподавания.",
+    "imageAlt": "Документальная фотография научной конференции или выступления, не занятия автора.",
+    "imageLegende": "Научная конференция и обсуждение. Документальное фото, не с моих занятий.",
+    "piliers": [
+      [
+        "Понять",
+        "Уточнить понятия, данные и неопределённости."
+      ],
+      [
+        "Сопоставить",
+        "Обсудить методы, позиции участников и альтернативные объяснения."
+      ],
+      [
+        "Перенести",
+        "Принять обоснованное решение и проверить его в новом контексте."
+      ]
+    ],
+    "schemaTitre": "Занятие, выстроенное вокруг рассуждения",
+    "schemaIntro": "Этапы образуют цикл: новые результаты могут заставить пересмотреть исходный вопрос.",
+    "cycle": [
+      [
+        "Определить контекст",
+        "Проблема здоровья, условия и затронутые группы."
+      ],
+      [
+        "Поставить вопрос",
+        "Гипотезы, механизмы и пробелы в информации."
+      ],
+      [
+        "Исследовать",
+        "Данные, литература и подходящие методы."
+      ],
+      [
+        "Обсудить",
+        "Альтернативы, разногласия и ясные критерии."
+      ],
+      [
+        "Обосновать",
+        "Решение, ограничения и возможности пересмотра."
+      ]
+    ],
+    "tableTitre": "Набор инструментов вместо одного метода",
+    "tableIntro": "Формат зависит от целей обучения, группы, ресурсов и реальных ограничений.",
+    "tableCols": [
+      "Формат",
+      "Действие студента",
+      "Наблюдаемый результат",
+      "На что обратить внимание"
+    ],
+    "formats": [
+      [
+        "Диалогическая лекция",
+        "Отвечать на концептуальные вопросы и обосновывать возражения.",
+        "Карта понятий с пояснениями или короткое обоснование.",
+        "Интерактивность — не просто проверка присутствия."
+      ],
+      [
+        "Разбор случая",
+        "Анализировать ситуацию в контексте и сравнивать ответы.",
+        "Записка с вариантами решений, допущениями и ограничениями.",
+        "Упрощённый случай не равен всей реальности."
+      ],
+      [
+        "Работа с данными",
+        "Изучать показатель, источники и возможные смещения.",
+        "График с пояснением и критическим комментарием.",
+        "Различать связь, причинность и пропущенные данные."
+      ],
+      [
+        "Имитация совещания",
+        "Сравнивать предложения при заданных ролях и ограничениях.",
+        "Матрица компромиссов и обоснованное коллективное решение.",
+        "Нельзя выдавать учебную роль за голос реальных людей."
+      ],
+      [
+        "Взаимная рецензия",
+        "Оценивать работу по общим критериям.",
+        "Исправленный вариант с объяснением изменений.",
+        "Учить давать и применять обратную связь."
+      ]
+    ],
+    "labTitre": "Три учебные ситуации",
+    "labIntro": "Выберите область, чтобы увидеть, как общий подход порождает разные задачи и результаты. Все случаи вымышлены.",
+    "casLabels": [
+      "Исходная ситуация",
+      "Предлагаемая работа",
+      "Ожидаемый результат"
+    ],
+    "cas": [
+      [
+        "Государственная политика",
+        "Город должен скорректировать план защиты от жары при неравномерном распределении рисков.",
+        "Сравнить карты уязвимости, затраты, потребности и предложения; обсудить вопросы справедливости.",
+        "Записка с двумя вариантами, их последствиями и пробелами в данных."
+      ],
+      [
+        "Организация помощи",
+        "Команда первичной помощи хочет улучшить непрерывность после повторных обращений в неотложную помощь.",
+        "Нанести на схему вымышленный маршрут пациента, найти разрывы и сравнить два решения по осуществимости.",
+        "Схема координации и обоснованное предложение с показателями мониторинга."
+      ],
+      [
+        "Методы исследования",
+        "Международное сравнение показывает неожиданную связь опыта пациентов с потенциально предотвратимыми госпитализациями.",
+        "Проверить единицу анализа, кодирование, смешивающие факторы и ограничения экологического вывода.",
+        "План анализа чувствительности и осторожная интерпретация без причинного вывода."
+      ]
+    ],
+    "preuvesTitre": "Что позволяют утверждать исследования",
+    "preuvesIntro": "Метаанализ 225 исследований бакалаврских курсов STEM показал в среднем более высокие результаты активного обучения по сравнению с традиционными лекциями. Это не оценка моей работы и не гарантия аналогичного эффекта во всех курсах общественного здравоохранения.",
+    "chiffres": [
+      "исследований в метаанализе",
+      "примерный средний прирост экзаменационных результатов",
+      "примерный относительный риск неуспеха при традиционной лекции по сравнению с активным обучением"
+    ],
+    "graphTitre": "Неуспех: относительное сравнение в исследованиях STEM",
+    "graphLabels": [
+      "Активное обучение (эталон)",
+      "Традиционная лекция"
+    ],
+    "graphNote": "Относительный индекс: активное обучение = 1; это не абсолютные частоты неуспеха. Freeman et al. (2014).",
+    "cadresTitre": "Три рамки, а не универсальный рецепт",
+    "cadres": [
+      [
+        "Конструктивное согласование",
+        "Соотносить цели, учебные задания и оценивание; проверять, что студент действительно показывает.",
+        "Biggs (1996)"
+      ],
+      [
+        "Универсальный дизайн обучения",
+        "Разнообразить участие, представление и способы выражения при сохранении общих целей.",
+        "CAST (2024)"
+      ],
+      [
+        "Грамотность в работе с обратной связью",
+        "Давать время осмыслить замечания, оценить их и доработать результат.",
+        "Carless & Boud (2018)"
+      ]
+    ],
+    "fin": "Это направления, которые я намерен развивать. Конкретные решения зависят от целей курса, преподавательской команды и студентов; их пользу следует проверять по результатам работы и документированной обратной связи.",
+    "approfondissement": {
+      "titre": "От результатов исследований к преподавательским решениям",
+      "intro": "Исследования различаются участниками, дизайном и показателями. Я хочу использовать их для проектирования и проверки занятий, а не как универсальные предписания.",
+      "etudes": [
+        [
+          "Freeman и др. · 2014",
+          "Метаанализ 225 исследований",
+          "В бакалаврских курсах STEM активное обучение связано с более высокими средними баллами и меньшим числом неудач.",
+          "Обобщение разных форматов и контекстов.",
+          "actif"
+        ],
+        [
+          "Theobald и др. · 2020",
+          "Метаанализ индивидуальных данных",
+          "В изученных курсах STEM разрыв по экзаменационным результатам уменьшился в среднем на 33%, а по успешной сдаче на 45%.",
+          "Зависит от групп и интенсивности активных методов.",
+          "theobald"
+        ],
+        [
+          "Mansoor и др. · 2026",
+          "Обзор охвата · 22 исследования в общественном здравоохранении",
+          "Кейсы, проблемные задания и командное обучение дают возможности, но сопряжены с трудностями внедрения.",
+          "Обзор охвата не оценивает единый причинный эффект.",
+          "mansoor"
+        ],
+        [
+          "Deslauriers и др. · 2019",
+          "Рандомизированное сравнение на курсе физики",
+          "Студенты в активных занятиях усваивали больше, хотя им казалось, что они учатся меньше.",
+          "Результат одного учебного контекста.",
+          "deslauriers"
+        ],
+        [
+          "Mensour и др. · 2025",
+          "Систематический обзор последипломной медицины",
+          "Три объединяемых исследования не выявили значимых различий по тестам; оценки удовлетворённости были выше.",
+          "Не смешивать удовлетворённость, знания и перенос в практику.",
+          "mensour"
+        ]
+      ],
+      "competencesTitre": "Связать занятия с компетенциями общественного здравоохранения",
+      "competencesIntro": "Это педагогические соответствия, а не дословное воспроизведение официальных рамок Канады 2025 года и ВОЗ–ASPHER.",
+      "competences": [
+        [
+          "Анализ и интерпретация",
+          "Проверять показатели, охват и ограничения.",
+          "Критический разбор данных мониторинга."
+        ],
+        [
+          "Политика и решения",
+          "Сопоставлять варианты, справедливость и ресурсы.",
+          "Обоснованная аналитическая записка."
+        ],
+        [
+          "Партнёрство",
+          "Понимать роли и риски координации.",
+          "Карта участников и обсуждение."
+        ],
+        [
+          "Научная коммуникация",
+          "Доступно доносить доказательства без искажений.",
+          "Краткое резюме для сообщества."
+        ],
+        [
+          "Этика и рефлексия",
+          "Объяснять компромиссы и учитывать затронутых людей.",
+          "Журнал решений и ограничений."
+        ]
+      ],
+      "progressionTitre": "От знания к применению: четыре вида следов обучения",
+      "progressionIntro": "Возможная последовательность, не ограниченная удовлетворённостью и немедленным воспроизведением.",
+      "progression": [
+        [
+          "До",
+          "Диагностический вопрос и индивидуальное рассуждение."
+        ],
+        [
+          "Во время",
+          "Направляемый диалог, сравнение источников и групповая работа."
+        ],
+        [
+          "После",
+          "Обоснованная правка, обратная связь и перенос."
+        ],
+        [
+          "Позже",
+          "Воспроизведение знаний и новая задача по тем же критериям."
+        ]
+      ],
+      "limitesTitre": "Что нельзя упрощать",
+      "limites": [
+        [
+          "Формат не равен результату",
+          "Групповая работа сама по себе не доказывает обучение каждого."
+        ],
+        [
+          "Ощущение не равно измерению",
+          "Удовольствие и трудность не устанавливают компетентность."
+        ],
+        [
+          "Рамки зависят от условий",
+          "Размер группы, доступность, нагрузка и партнёры меняют возможности."
+        ],
+        [
+          "Преподавание не всесильно",
+          "Неравенство в обучении имеет также социальные и институциональные причины."
+        ]
+      ],
+      "refs": [
+        "actif",
+        "theobald",
+        "mansoor",
+        "deslauriers",
+        "mensour",
+        "competencesCanada",
+        "competencesOMS",
+        "roediger",
+        "cepedaspacing",
+        "wallar"
+      ]
+    }
+  }
+}

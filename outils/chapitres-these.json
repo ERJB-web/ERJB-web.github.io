@@ -1,0 +1,95 @@
+{
+  "chapitres": [
+    {
+      "id": "contexte",
+      "sources": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "problematique",
+      "sources": [
+        3,
+        2
+      ]
+    },
+    {
+      "id": "methodes",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "id": "faisabilite",
+      "sources": [
+        7,
+        6,
+        8
+      ]
+    },
+    {
+      "id": "retombees",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "id": "transfert",
+      "sources": [
+        9,
+        10
+      ]
+    }
+  ],
+  "titres": {
+    "fr": [
+      "Contexte",
+      "Problématique et objectifs",
+      "Méthode",
+      "Faisabilité",
+      "Retombées",
+      "Transfert de connaissances"
+    ],
+    "en": [
+      "Context",
+      "Research problem and objectives",
+      "Methods",
+      "Feasibility",
+      "Impact",
+      "Knowledge translation and implementation"
+    ],
+    "es": [
+      "Contexto",
+      "Problemática y objetivos",
+      "Métodos",
+      "Viabilidad",
+      "Repercusiones",
+      "Transferencia e implementación"
+    ],
+    "zh": [
+      "研究背景",
+      "研究问题与目标",
+      "研究方法",
+      "可行性",
+      "预期影响",
+      "知识转化与实施"
+    ],
+    "ar": [
+      "السياق",
+      "الإشكالية والأهداف",
+      "المنهجية",
+      "الجدوى",
+      "الفوائد",
+      "نقل المعرفة والتنفيذ"
+    ],
+    "ru": [
+      "Контекст",
+      "Проблема и цели",
+      "Методы",
+      "Осуществимость",
+      "Отдача",
+      "Передача знаний и внедрение"
+    ]
+  }
+}

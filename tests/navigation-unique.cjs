@@ -1,0 +1,69 @@
+// npm install --no-save jsdom@26 && node tests/navigation-unique.cjs
+const fs=require('node:fs'),assert=require('node:assert/strict');
+const {JSDOM}=require('jsdom');
+const languages=['','en','es','zh','ar','ru','iu','innu'];
+require('../outils/verifier-navigation').verifierNavigation();
+async function verify(lang){
+  const html=fs.readFileSync((lang?lang+'/':'')+'index.html','utf8');
+  if(lang){
+    assert(html.includes('noindex,follow') && html.includes('location.replace'),lang+' édition suspendue redirigée');
+    return;
+  }
+  // CSS layout is checked in the browser; omit large inline sheets in this DOM test.
+  const dom=new JSDOM(html.replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,''),{runScripts:'outside-only',pretendToBeVisual:true,url:'https://erjb-web.github.io/'+(lang?lang+'/':'')+'#recherche'});
+  const w=dom.window,d=w.document;
+  const accueil=d.querySelector('body > header.entete');
+  const accueilAvant=accueil.innerHTML;
+  const accessibilite=accueil.querySelector('.menu-acces');
+  w.matchMedia=()=>({matches:true,addEventListener(){},removeEventListener(){}});
+  w.IntersectionObserver=class{observe(){} disconnect(){}};
+  w.ResizeObserver=class{observe(){} disconnect(){}};
+  w.fetch=()=>new Promise(()=>{});
+  w.HTMLElement.prototype.scrollIntoView=function(){};
+  w.HTMLElement.prototype.scrollTo=function(){};
+  try{
+    w.eval(fs.readFileSync('assets/gabarit-salles.js','utf8'));
+    const source=d.querySelector('#recherche > .section-contenu');
+    assert(source.classList.contains('gab'),'Gabarit initializes without exceptions');
+    assert.equal(source.querySelectorAll('.gab-chapitre').length,6);
+    const room=d.querySelector('.salle-contenu');
+    d.querySelector('#salle').hidden=false;
+    room.replaceChildren(source.cloneNode(true));
+    await new Promise(r=>setTimeout(r,20));
+    const active=()=>room.querySelector('.gab-page-active')?.dataset.gabSlug;
+    const next=d.querySelector('.gab-lecture [data-gab-pas="1"]');
+    const prev=d.querySelector('.gab-lecture [data-gab-pas="-1"]');
+    assert(next&&prev,'Chosen top navigation installed');
+    assert.equal(active(),'contexte');
+    assert(prev.hidden,'No previous destination is shown at the beginning');
+    assert(next.textContent.trim() && !next.textContent.includes('Chapitre suivant'),'The visible arrow names its destination');
+    next.click();assert.equal(active(),'problematique');
+    next.click();assert.equal(active(),'methodes');
+    prev.click();assert.equal(active(),'problematique');
+    next.click();assert.equal(active(),'methodes');
+    const anchor=room.querySelector('.gab-page-active a[data-gab-cible]');
+    if(anchor){
+      anchor.click();
+      assert(w.location.hash.startsWith('#recherche/methodes/'),'A subsection keeps both room and chapter in its URL');
+      assert.equal(active(),'methodes');
+    }
+    assert.equal(d.querySelectorAll('script[src*="o3-reseaux.js"]').length,lang==='en'||lang==='es'||lang==='zh'||lang==='ar'||lang==='ru'?0:1,'One O3 controller per edition');
+    if(!lang || lang==='iu'||lang==='innu')assert.equal(d.querySelectorAll('link[href*="o3-reseaux.css"]').length,1,'The O3 controller has its stylesheet');
+    assert.equal(d.querySelectorAll('.gab-lecture').length,1);
+    const barre=d.querySelector('.salle-barre');
+    assert.equal(barre.querySelector('.menu-acces'),accessibilite,'Original accessibility controls retain their listeners');
+    assert(!barre.querySelector('.menu-langues') || html.includes('pause-selecteur-langues'),'Menu de langue désactivé');
+    assert(barre.querySelector('a[href^="mailto:"]'));
+    assert(barre.querySelector('a[href^="tel:"]'));
+    assert.equal(barre.querySelectorAll('.salle-actions,.bouton-cv').length,0);
+    assert([...barre.querySelectorAll('[data-ecouter]')].every(button=>button.closest('.menu-acces')),'Listening remains available only inside accessibility');
+    assert.equal(barre.querySelectorAll('.gab-lecture > *').length,3,'Previous, centered current chapter, next only');
+    assert(barre.querySelector('.chapitre-retour-chapitres[data-gab-pas="tous"]'));
+    d.querySelector('#salle').hidden=true;
+    await new Promise(r=>setTimeout(r,0));
+    assert.equal(accueil.innerHTML,accueilAvant,'Homepage header restored exactly');
+    for(const el of source.querySelectorAll('.chapitre-source'))assert(el.dataset.chapitreTitre,'Chapter title retained independently of old menu');
+    console.log((lang||'fr')+': initialization, previous/next, chapter count OK');
+  } finally {w.close();}
+}
+(async()=>{for(const lang of languages)await verify(lang);})().catch(e=>{console.error(e);process.exitCode=1;});

@@ -1,0 +1,74 @@
+{
+  "intro": "Du premier cadrage au retour du public : six repères pour concevoir une communication claire, accessible et ouverte au dialogue.",
+  "navigation": "Les six étapes de la communication scientifique",
+  "pratique": "Mettre en pratique", "exemple": "Exemple pédagogique", "livrable": "Livrable à préparer", "vigilance": "Point de vigilance",
+  "boucle": "Les retours du public nourrissent les prochains messages : cette démarche se reprend et s’ajuste.",
+  "etapes": [
+    {
+      "court": "Public et objectif",
+      "actions": [
+        ["Partir des personnes", "Identifier leurs questions, leurs expériences et les mots qu’elles utilisent. Échanger avec quelques personnes concernées avant d’arrêter le contenu."],
+        ["Choisir un objectif précis", "Définir ce que le contenu doit permettre : comprendre une idée, discuter un enjeu ou éclairer une décision."],
+        ["Adapter le point d’entrée", "Choisir le canal, la longueur et le niveau de détail selon les usages du public, puis formuler une question concrète."]
+      ],
+      "exemple": "Pour des personnes et leurs proches : « Pourquoi plusieurs services peuvent-ils être nécessaires pour répondre à une même situation ? »",
+      "livrable": "Une fiche courte : public, question, objectif, canal et message central.",
+      "vigilance": "Un même public rassemble des expériences diverses. Les besoins d’information et la confiance ne se déduisent pas uniquement du niveau de connaissances."
+    },
+    {
+      "court": "Message clair",
+      "actions": [
+        ["Poser une idée centrale", "Rendre le message principal visible dès le début ; organiser les explications autour de cette idée."],
+        ["Traduire les concepts", "Expliquer le jargon à sa première occurrence. Employer un exemple ou un schéma lorsque cela facilite réellement la compréhension."],
+        ["Donner des repères utiles", "Présenter les chiffres avec leur population et leur période, rendre les sources accessibles et préciser la suite proposée au public."]
+      ],
+      "exemple": "À partir du thème des réseaux intersectoriels : « Comment faire travailler ensemble les bons services, selon la situation de chaque personne ? »",
+      "livrable": "Un message en une phrase, trois idées d’appui et une source principale.",
+      "vigilance": "Un titre accrocheur doit rester fidèle aux connaissances disponibles. Une formulation simple peut conserver les distinctions nécessaires."
+    },
+    {
+      "court": "Écoute et dialogue",
+      "actions": [
+        ["Ouvrir une vraie question", "Inviter le public à partager une expérience ou une interrogation, puis laisser une place aux réponses."],
+        ["Organiser l’échange", "Préciser les règles de modération, les limites de la réponse proposée et les modalités de suivi."],
+        ["Faire quelque chose des retours", "Rassembler les questions récurrentes, reformuler les désaccords et montrer ce que les échanges changent dans les prochains contenus."]
+      ],
+      "exemple": "« Dans vos démarches, qu’est-ce qui vous a aidé à passer d’un service à l’autre ? Qu’est-ce qui a été plus difficile ? »",
+      "livrable": "Une question ouverte, un cadre de discussion et une synthèse des retours.",
+      "vigilance": "Prévoir un espace respectueux et éviter de solliciter publiquement des informations de santé ou des détails permettant d’identifier une personne."
+    },
+    {
+      "court": "Limites et nuances",
+      "actions": [
+        ["Situer les connaissances", "Préciser ce qui est observé, ce qui relève d’une interprétation et ce qui reste une hypothèse ou un projet."],
+        ["Rendre l’incertitude lisible", "Expliquer la population étudiée, la portée des résultats et les limites importantes avec des termes compréhensibles."],
+        ["Préparer les corrections", "Dater le contenu, conserver sa source et rendre visible une rectification lorsqu’une erreur ou une évolution le nécessite."]
+      ],
+      "exemple": "Pour présenter la thèse : « Ce projet étudie comment les services pourraient mieux s’organiser. Les résultats ne sont pas encore disponibles. »",
+      "livrable": "Un encadré : ce que l’on sait, ce que l’on ne sait pas encore et pourquoi.",
+      "vigilance": "Communiquer l’incertitude demande un choix de formulation et de contexte ; son effet sur la confiance ne peut pas être garanti à l’avance."
+    },
+    {
+      "court": "Accessibilité",
+      "actions": [
+        ["Concevoir les alternatives tôt", "Prévoir dès le scénario les informations à dire, à montrer et à proposer en texte."],
+        ["Soigner chaque support", "Préparer sous-titres relus, transcription et descriptions utiles des informations visuelles ; assurer une lecture et une navigation claires."],
+        ["Confronter aux usages", "Faire relire ou essayer le contenu par des personnes concernées et tenir compte des usages mobiles, des langues et des situations d’écoute."]
+      ],
+      "exemple": "Pour un schéma de réseau : nommer les acteurs et expliquer les liens à l’oral, puis fournir une description textuelle accessible à côté du visuel.",
+      "livrable": "Un contenu accompagné de ses alternatives textuelles et audiovisuelles pertinentes.",
+      "vigilance": "Les besoins varient selon le média. Des sous-titres automatiques non relus ou un texte alternatif trop vague peuvent laisser l’information essentielle inaccessible."
+    },
+    {
+      "court": "Évaluation",
+      "actions": [
+        ["Relier l’indicateur à l’objectif", "Distinguer personnes atteintes, compréhension du message, participation et utilité perçue."],
+        ["Observer la compréhension", "Demander une reformulation courte et recueillir les questions restées ouvertes, plutôt que s’appuyer seulement sur les vues ou les appréciations."],
+        ["Réviser et partager les suites", "Identifier ce qui doit être repris, modifier le format ou l’explication et garder une trace des améliorations apportées."]
+      ],
+      "exemple": "Après une capsule : « En une phrase, quelle idée retenez-vous ? Quelle question reste ouverte pour vous ? »",
+      "livrable": "Un bilan bref reliant objectif, retours du public et modifications à apporter.",
+      "vigilance": "Un nombre de vues décrit une diffusion. Il ne démontre pas, à lui seul, la compréhension, la confiance ou un changement de comportement."
+    }
+  ]
+}

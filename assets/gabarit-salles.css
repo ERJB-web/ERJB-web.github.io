@@ -1,0 +1,2917 @@
+/* Gabarit unique des salles : bandeau transversal, tuiles de chapitres illustrées, chapitres pleine largeur, barre de lecture.
+   Couleurs de la Chaire : bleu #0879BE, sarcelle #11A7A5, vert #5AAE38, bleu logo #0755AD, marine #0D2A3A. */
+:root{
+  --gab-marine:#0D2A3A;--gab-bleu:#0879BE;--gab-bleu-logo:#0755AD;--gab-sarcelle:#11A7A5;--gab-vert:#5AAE38;
+  --gab-texte:#2f4550;--gab-doux:#5b707a;--gab-ligne:#dfe8ea;--gab-fond:#f4f8f9;
+  --gab-degrade:linear-gradient(90deg,var(--gab-bleu),var(--gab-sarcelle),var(--gab-vert));
+  --lecture-largeur:1080px;--lecture-intervalle:16px;--lecture-section:32px;--gab-largeur:1340px;--gab-marge:32px;--gab-rayon:24px;
+  --gab-ease:cubic-bezier(.22,.8,.2,1);
+}
+
+/* CV : lecture directe et engagements mis en scène, sans menu répétitif. */
+.gab.gab-engagements .engagements-loisirs .engagements-galerie{display:grid!important;grid-template-columns:repeat(12,minmax(0,1fr))!important;gap:24px!important;width:100%;max-width:none}
+.gab.gab-engagements .engagements-loisirs .loisir{grid-column:span 4}
+.gab.gab-engagements .engagements-loisirs .loisir:first-child{grid-column:span 7}
+.gab.gab-engagements .engagements-loisirs .loisir:nth-child(2){grid-column:span 5}
+.gab.gab-engagements .engagements-loisirs .loisir>img{height:230px!important;aspect-ratio:auto!important;object-fit:cover}
+.gab.gab-engagements .engagements-loisirs .loisir:nth-child(-n+2)>img{height:330px!important}
+.gab.gab-engagements .engagements-loisirs .loisir:first-child{background:#edf5f8}
+.gab.gab-engagements .engagements-loisirs .loisir:first-child figcaption{background:#edf5f8!important}
+.gab.gab-engagements .engagements-loisirs .loisir figcaption{flex:1}
+.gab.gab-engagements .ds-page .representation-ouverture{background:linear-gradient(115deg,#fffdf6,#f4f8fb);border-color:#e3dfcd}
+.gab.gab-engagements .ds-page .representation-repere{color:#8b712d;border-color:#dfd6b7}
+.gab.gab-engagements .ds-page .ds-list{display:grid;grid-template-columns:1.15fr 1fr;gap:20px}
+.gab.gab-engagements .ds-page .ds-award{display:flex;flex-direction:column;gap:20px;padding:28px;border:1px solid #dbe5ea;border-radius:20px;background:white;min-width:0;overflow:hidden}
+.gab.gab-engagements .ds-page .ds-award .representation-date{padding:0;gap:0}
+.gab.gab-engagements .ds-page .representation-numero{display:none}
+.gab.gab-engagements .ds-page .ds-award-0{grid-row:span 2;background:linear-gradient(135deg,#faf1d9,#fffdf6);border-color:#e7d49d;padding:32px}
+.gab.gab-engagements .ds-page .ds-award-0 h4{color:#624b17}
+.gab.gab-engagements .ds-page .ds-award-1{background:#edf6fc;border-color:#c9e0ee}
+.gab.gab-engagements .ds-page .ds-award-3{grid-column:1/-1;display:grid;grid-template-columns:150px minmax(0,1fr);background:#f2f7f5}
+.ds-medal{width:120px;align-self:center;margin:12px 0 0;color:#b18a34;opacity:.8}.ds-medal svg{width:100%;display:block}
+@media(max-width:900px){.gab.gab-engagements .engagements-loisirs .engagements-galerie{grid-template-columns:repeat(2,minmax(0,1fr))!important}.gab.gab-engagements .engagements-loisirs .loisir,.gab.gab-engagements .engagements-loisirs .loisir:nth-child(2){grid-column:span 1}.gab.gab-engagements .engagements-loisirs .loisir:first-child{grid-column:1/-1}.gab.gab-engagements .engagements-loisirs .loisir:nth-child(2)>img{height:230px!important}}
+@media(max-width:650px){.gab.gab-engagements .engagements-loisirs .engagements-galerie{grid-template-columns:minmax(0,1fr)!important}.gab.gab-engagements .engagements-loisirs .loisir:first-child{grid-column:auto}.gab.gab-engagements .engagements-loisirs .loisir:first-child>img{height:240px!important}.gab.gab-engagements .ds-page .ds-list{grid-template-columns:1fr}.gab.gab-engagements .ds-page .ds-award-0{grid-row:auto}.gab.gab-engagements .ds-page .ds-award-3{grid-column:auto;display:flex}.gab.gab-engagements .ds-page .ds-award{padding:24px}.ds-medal{width:86px}}
+.gab.gab-cv-direct .gab-chapitre-aside,.gab.gab-cv-direct .gab-chapitre-tete,.gab.gab-cv-direct .gab-programme{display:none!important}
+.gab.gab-cv-direct .gab-chapitre-grille{display:block!important}
+.gab.gab-cv-direct .gab-chapitre-texte{width:100%;min-width:0}
+.gab.gab-cv-direct .gab-chapitre{border-top:0;padding-top:0}
+.gab.gab-cv-direct .bandeau.gab-bandeau{min-height:180px}
+.gab.gab-engagements .rs-page{--rs-blue:#0879be;--rs-navy:#0d2a3a;--rs-teal:#11a7a5;min-width:0}
+.gab.gab-engagements .rs-page .rs-hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:32px;align-items:center;border:1px solid #d3e3e9;border-radius:24px;background:linear-gradient(115deg,#fff 25%,#edf7fb);padding:30px 38px;position:relative;overflow:hidden;margin-bottom:28px}
+.rs-hero:before{content:'';position:absolute;inset:0 0 auto;height:4px;background:var(--gab-degrade)}
+.gab.gab-engagements .rs-page .representation-presentation{max-width:54ch;min-width:0}
+.rs-illustration{height:250px;position:relative;isolation:isolate;overflow:hidden;min-width:0}
+.rs-art-grid{position:absolute;inset:0;background-image:radial-gradient(#94b9cb 1px,transparent 1px);background-size:18px 18px;opacity:.55;mask-image:radial-gradient(ellipse,#000,transparent 73%)}
+.rs-art-ring{position:absolute;left:50%;top:45%;width:205px;height:205px;transform:translate(-50%,-50%);border:1px solid #b7d5e4;border-radius:50%}
+.rs-art-inner{width:143px;height:143px;border-style:dashed;border-color:#78c5c0;animation:rs-orbit 70s linear infinite}
+.rs-art-center{position:absolute;left:50%;top:45%;transform:translate(-50%,-50%) rotate(-8deg);width:84px;height:84px;background:var(--rs-blue);border:7px solid white;border-radius:24px;display:grid;place-items:center;box-shadow:0 15px 28px #0879be2a}
+.rs-art-center svg{width:38px;height:38px;color:#fff;transform:rotate(8deg)}
+.rs-art-label{position:absolute;padding:10px 16px;border-radius:10px;border:1px solid #bfd8e7;background:#fff;box-shadow:0 8px 20px #0d2a3a09;color:#12628d;white-space:nowrap}
+.rs-art-students{left:3%;top:35px;transform:rotate(-6deg)}.rs-art-instances{right:0;bottom:60px;transform:rotate(5deg);color:#13736e;border-color:#add9d3}
+.rs-art-note{position:absolute;bottom:0;left:0;right:0;text-align:center;color:#527581}
+.rs-dot{position:absolute;width:21px;height:21px;border:4px solid white;border-radius:50%;background:var(--rs-teal);box-shadow:0 3px 12px #0d2a3a16}
+.rs-dot-one{left:22%;bottom:65px}.rs-dot-two{right:18%;top:22px;background:#5aae38}.rs-dot-three{right:8%;top:100px;background:#0755ad}
+.rs-filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 30px;padding-bottom:18px;border-bottom:1px solid #dae6eb}
+.rs-filters button{font:inherit;display:inline-flex;align-items:center;gap:12px;min-height:46px;padding:9px 16px;border:1px solid #cfdee5;border-radius:999px;background:#fff;color:var(--rs-navy);cursor:pointer;transition:background .2s,border-color .2s}
+.rs-filters button[aria-pressed=true]{background:var(--rs-navy);border-color:var(--rs-navy);color:white}
+.rs-filters button:hover{border-color:var(--rs-blue)}.rs-filters button:focus-visible{outline:3px solid var(--rs-blue);outline-offset:4px}
+.rs-filter-count{display:grid;place-items:center;min-width:24px;min-height:24px;border-radius:50%;background:#edf4f7;color:#335d70}.rs-filters button[aria-pressed=true] .rs-filter-count{background:#ffffff25;color:#fff}
+.gab.gab-engagements .rs-page .rs-bento{display:grid;grid-template-columns:1.05fr 1fr;gap:18px;padding:0;margin:0;list-style:none}
+.gab.gab-engagements .rs-page .rs-mandat{display:flex;flex-direction:column;gap:0;min-width:0;padding:26px;border:1px solid #d5e3ea;border-radius:20px;background:#fff;overflow:hidden;position:relative;transition:transform .2s,box-shadow .2s}
+.gab.gab-engagements .rs-page .rs-mandat:hover{transform:translateY(-3px);box-shadow:0 16px 32px #0d2a3a0c}
+.gab.gab-engagements .rs-page .rs-mandat-0.rs-mandat{grid-row:span 2;background:linear-gradient(145deg,#086fba,#075299);color:#fff;border-color:#0864a5}
+.gab.gab-engagements .rs-page .rs-mandat-1.rs-mandat{background:#eaf7f4;border-color:#bfe1d7}
+.gab.gab-engagements .rs-page .rs-mandat-3.rs-mandat{grid-column:1/-1;background:#edf3fb;min-height:150px;padding-inline-end:180px}
+.rs-card-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:20px}
+.rs-card-icon{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;background:#e5f1fa;color:var(--rs-blue);flex:none}
+.rs-card-icon svg{width:22px;height:22px}.rs-card-category{color:#395e70}
+.rs-mandat-0 .rs-card-icon{background:#ffffff20;color:#fff}.rs-mandat-0 .rs-card-category{color:#d8edfc}
+.rs-mandat-1 .rs-card-icon{background:#d1ece3;color:#147962}
+.gab.gab-engagements .rs-page .representation-date{margin-inline-start:auto;min-width:0;padding:0}
+.gab.gab-engagements .rs-page .representation-numero{display:none}
+.gab.gab-engagements .rs-page .representation-date .date{color:#496775;max-width:145px}
+.gab.gab-engagements .rs-page .rs-mandat-0 :is(h4,p,.date){color:#fff!important}
+.gab.gab-engagements .rs-page .rs-mandat h4{margin:0 0 12px;overflow-wrap:anywhere}
+.rs-card-seal{margin-top:auto;padding-top:45px;color:#ffffffd9}
+.rs-card-seal>div{display:flex;align-items:flex-end;gap:10px;margin-top:30px}
+.rs-card-seal i{display:block;height:46px;flex:1;background:#ffffff18;border-radius:10px 10px 0 0;position:relative}
+.rs-card-seal i:before{content:'';position:absolute;top:-9px;left:calc(50% - 7px);width:14px;height:14px;border-radius:50%;background:#ffffff70}
+.rs-card-seal i:nth-child(2),.rs-card-seal i:nth-child(4){height:63px;background:#ffffff26}.rs-card-seal i:nth-child(3){height:84px;background:#ffffff3b}
+.rs-department-mark{position:absolute;right:28px;bottom:30px;color:#0755ad35}
+.gab.gab-engagements .rs-page [data-periode=precedent] .rs-timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;padding:0;margin-top:32px;border:0;border-radius:0;background:none;position:relative}
+.rs-timeline:before{content:'';position:absolute;inset:-11px 0 auto;height:1px;background:var(--gab-degrade)}
+.gab.gab-engagements .rs-page .rs-past{display:block;min-width:0;border:1px solid #dce6eb;border-radius:0 0 16px 16px;padding:24px;background:linear-gradient(#f4f8fb,#fff)}
+.gab.gab-engagements .rs-page .rs-past:before{content:'';display:block;position:absolute;top:-17px;left:24px;width:11px;height:11px;border:3px solid white;border-radius:50%;background:var(--rs-teal);box-shadow:0 0 0 1px var(--rs-teal)}
+.gab.gab-engagements .rs-page .rs-past .representation-date{margin:0 0 18px}.gab.gab-engagements .rs-page .rs-past h4{overflow-wrap:anywhere}
+.rs-page [hidden]{display:none!important}
+@keyframes rs-orbit{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@media(max-width:900px){.gab.gab-engagements .rs-page .rs-hero{grid-template-columns:1fr;gap:8px;padding:26px}.rs-illustration{width:min(100%,380px);justify-self:center;height:220px}.rs-art-ring{width:180px;height:180px}.rs-art-inner{width:125px;height:125px}.rs-art-students{top:18px}.rs-dot-two{top:8px}.gab.gab-engagements .rs-page [data-periode=precedent] .rs-timeline{grid-template-columns:1fr;gap:18px}.rs-timeline:before{inset:0 auto 0 7px;height:auto;width:1px}.gab.gab-engagements .rs-page .rs-past{margin-inline-start:26px;border-radius:16px}.gab.gab-engagements .rs-page .rs-past:before{top:30px;left:-27px}}
+@media(max-width:650px){.gab.gab-engagements .rs-page .rs-hero{padding:22px 18px}.gab.gab-engagements .rs-page .rs-bento{grid-template-columns:1fr}.gab.gab-engagements .rs-page .rs-mandat{padding:22px}.gab.gab-engagements .rs-page .rs-mandat-0.rs-mandat{grid-row:auto}.gab.gab-engagements .rs-page .rs-mandat-3.rs-mandat{grid-column:auto;padding:22px}.rs-department-mark{position:static;margin-top:20px}.rs-card-seal{padding-top:24px}.rs-card-seal>div{display:none}.rs-filters{gap:6px}.rs-filters button{gap:8px;padding:9px 12px}.gab.gab-engagements .rs-page .rs-card-top .representation-date{width:100%;margin:0}.gab.gab-engagements .rs-page .representation-date .date{max-width:none}}
+@media(prefers-reduced-motion:reduce){.rs-art-inner{animation:none}.gab.gab-engagements .rs-page .rs-mandat{transition:none}.gab.gab-engagements .rs-page .rs-mandat:hover{transform:none}}
+@media print{.rs-filters,.rs-illustration{display:none!important}.rs-page [data-periode][hidden]{display:block!important}.rs-mandat,.rs-past{break-inside:avoid}}
+
+/* ---------- En-tête de la salle : hall, porte, salles, écoute ---------- */
+.salle.gab-salle{border-top:0}
+.salle.gab-salle:not([hidden]){scroll-snap-type:none}
+.salle.gab-salle .gab :is(.bandeau,.section-corps,.chapitre-source){scroll-snap-align:none}
+.salle .salle-contenu .gab .gab-chapitre,.gab .gab-chapitre{scroll-margin-top:6px!important}
+
+/* Barre de lecture : apparaît quand les tuiles sont dépassées. */
+
+/* ---------- Contenu d'une salle ---------- */
+.section-contenu.gab{max-width:var(--gab-largeur);margin:0 auto;padding:24px var(--gab-marge) 110px;color:var(--gab-texte);font-size:18px;line-height:1.7}
+.salle .section-contenu.gab{padding-top:24px}
+.gab .section-corps{display:block!important;max-width:none!important;margin:0!important;padding:0!important;gap:0}
+.gab .colonne-outils{display:block;width:auto;max-width:none;margin:0;padding:0}
+.gab-chapitres{display:block}
+
+/* Bandeau transversal */
+/* Bandeaux de catégories raccourcis d'environ 1,5 cm (56 px) ; hauteur extensible si le titre passe sur plusieurs lignes. */
+.gab .bandeau.gab-bandeau{--gab-voile:linear-gradient(90deg,rgba(13,42,58,.9) 0%,rgba(13,42,58,.66) 38%,rgba(13,42,58,.1) 74%);height:auto;min-height:244px;box-sizing:border-box;display:grid;align-content:end;padding:24px 42px 28px;max-width:none;margin:0;border-radius:28px;overflow:hidden;background-image:var(--gab-voile),var(--gab-photo,none)!important;background-size:cover!important;background-position:center 40%!important;box-shadow:0 30px 60px -42px rgba(13,42,58,.7)}
+[dir=rtl] .gab .bandeau.gab-bandeau{--gab-voile:linear-gradient(270deg,rgba(13,42,58,.9) 0%,rgba(13,42,58,.66) 38%,rgba(13,42,58,.1) 74%)}
+.gab .gab-bandeau::after{content:"";position:absolute;inset:auto 0 0 0;height:6px;background:var(--gab-degrade)}
+.gab .gab-bandeau .bandeau-texte{position:static;inset:auto;bottom:auto;gap:8px;max-width:min(760px,74%);animation:none}
+.gab .gab-bandeau .bandeau-num{font:700 14px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:#bfe9e8;opacity:1}
+.gab .gab-bandeau .bandeau-titre{font:400 clamp(40px,5vw,66px)/1.02 var(--serif);letter-spacing:-.02em;text-shadow:none}
+.gab .gab-bandeau .bandeau-legende{font-size:19px;opacity:1;color:#e6f0f2}
+.gab-puces{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.gab-puces span{padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);font-size:14.5px;font-weight:600;color:#fff;backdrop-filter:blur(6px)}
+html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(90deg,var(--gab-marine) 0%,var(--gab-marine) 60%,rgba(13,42,58,.4) 100%)}
+
+/* Tuiles des chapitres : toutes illustrées, couleurs de la Chaire en alternance. */
+.gab-programme{margin:30px 0 8px}
+.gab-programme-tete{display:flex;align-items:baseline;justify-content:space-between;gap:16px;width:85%;margin:0 auto 14px}
+.gab .gab-programme-tete h2{margin:0;font:700 15px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gab-marine)}
+.gab-programme-tete span{font-size:15.5px;color:var(--gab-doux)}
+.gab-tuiles{display:grid;width:85%;margin-inline:auto;grid-template-columns:repeat(var(--gab-colonnes,4),minmax(0,1fr));grid-auto-rows:170px;gap:14px}
+.gab-tuile{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;padding:16px 19px;border-radius:var(--gab-rayon);overflow:hidden;color:#fff;text-decoration:none;
+  background:linear-gradient(0deg,color-mix(in srgb,var(--gab-c) 92%,black) 0%,color-mix(in srgb,var(--gab-c) 62%,transparent) 34%,rgba(13,42,58,0) 66%),linear-gradient(180deg,rgba(13,42,58,.28),rgba(13,42,58,0) 30%),var(--gab-tuile,none) center/cover,var(--gab-c);
+  box-shadow:0 18px 36px -30px rgba(13,42,58,.9);transition:transform .35s var(--gab-ease),box-shadow .35s var(--gab-ease)}
+.gab-tuile:hover,.gab-tuile:focus-visible{transform:translateY(-4px);box-shadow:0 28px 50px -30px rgba(13,42,58,.95)}
+.gab-tuile:focus-visible{outline:3px solid var(--gab-c);outline-offset:3px}
+.gab-tuile-num{align-self:flex-start;display:grid;place-items:center;min-width:46px;height:46px;padding:0 8px;border-radius:14px;background:rgba(255,255,255,.2);backdrop-filter:blur(8px);font:400 22px var(--serif);color:#fff;border:1px solid rgba(255,255,255,.35)}
+.gab-tuile-titre{font:700 19px/1.28 var(--sans);text-shadow:0 1px 10px rgba(0,0,0,.25);overflow-wrap:anywhere;hyphens:auto}
+.gab-tuile.gab-large{grid-column:span 2}
+.gab-tuile.gab-grande{grid-column:span 2;grid-row:span 2}
+.gab-tuile.gab-grande .gab-tuile-titre{font-size:26px}
+@media(forced-colors:active){.gab-tuile{border:2px solid CanvasText;background:Canvas;color:CanvasText}.gab-tuile-num{border-color:CanvasText}}
+
+/* Introduction de la salle */
+.gab .gab-intro{max-width:none!important;margin:56px 0 0!important;padding:0!important;position:static}
+.gab .gab-intro>*{margin-inline-start:0!important}
+.gab .gab-intro h2{font:400 clamp(30px,3.2vw,44px)/1.14 var(--serif);color:var(--gab-marine);letter-spacing:-.012em;margin:0 0 16px;max-width:30ch}
+.gab .gab-intro p:not(.devise),.gab .gab-intro .intro{font-size:var(--type-corps);line-height:1.7;color:var(--gab-texte);max-width:none}
+.gab .gab-intro.gab-intro-duo{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:start}
+.gab .gab-intro.gab-intro-duo h2{margin:0;max-width:none}
+.gab .gab-intro.gab-intro-duo>p{margin:4px 0 0}
+.gab .gab-intro.gab-intro-duo>p+p{grid-column:2;margin-top:0}
+
+/* Chapitres : texte et photo côte à côte, toute la largeur. */
+.gab .gab-chapitre{position:relative;display:block;margin:64px 0 0;padding:44px 0 0;border:0;border-top:1px solid var(--gab-ligne)!important;background:none;box-shadow:none;scroll-margin-top:6px;scroll-snap-align:none!important;animation:none!important}
+/* Les autres pages de chapitre doivent réellement disparaître, même avec display:block du gabarit. */
+.gab .gab-chapitre[hidden]{display:none!important}
+.gab .gab-chapitres>.gab-chapitre:first-child{border-top:0!important;padding-top:12px}
+.gab .gab-chapitre::before{display:none!important}
+.gab-chapitre-grille{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:56px;align-items:start}
+.gab-chapitre-texte{min-width:0}
+.gab-chapitre-tete{margin:0 0 22px}
+.gab-chapitre-num{display:flex;align-items:center;gap:16px;min-width:0;font:750 clamp(22px,2.3vw,30px)/1.23 var(--sans);letter-spacing:.07em;text-transform:uppercase;color:var(--gab-c,var(--gab-bleu));text-align:left;text-align-last:left;word-spacing:normal;white-space:normal}
+.gab-chapitre-num>span{min-width:0}
+.gab-chapitre-num b{display:grid;place-items:center;flex:0 0 64px;width:64px;height:64px;border-radius:18px;font:400 22px var(--serif);letter-spacing:0;color:#fff;background:var(--gab-c,var(--gab-bleu));box-shadow:0 14px 26px -14px var(--gab-c,var(--gab-bleu))}
+.gab .gab-chapitre-titre{margin:16px 0 0!important;font:400 clamp(30px,3vw,42px)/1.15 var(--serif)!important;color:var(--gab-marine)!important;letter-spacing:-.01em;text-transform:none!important;max-width:none!important}
+.gab-chapitre-aside{position:sticky;top:calc(var(--salle-barre-hauteur,90px) + 24px);display:grid;gap:18px}
+.gab-photo{margin:0}
+.gab-photo img{display:block;width:100%;aspect-ratio:3/2;height:auto;object-fit:cover;border-radius:22px;background:#dfe9ec;box-shadow:0 26px 50px -34px rgba(13,42,58,.8)}
+.gab-credit{display:block;margin-top:8px;font-size:12.5px;line-height:1.4;color:var(--gab-doux)}
+.gab-credit a{color:inherit;text-decoration:none;border-bottom:1px dotted currentColor}
+/* Sommaire du chapitre : défilement indépendant, y compris au clavier. */
+.gab-sommaire-chapitre{display:grid;gap:4px;align-content:start;max-height:clamp(180px,calc(100dvh - var(--salle-barre-hauteur,90px) - 365px),440px);overflow-y:auto;overscroll-behavior-y:contain;scrollbar-width:thin;scrollbar-color:var(--gab-c,var(--gab-bleu)) transparent;scrollbar-gutter:stable;padding:16px;border-radius:18px;background:var(--gab-fond);border-inline-start:4px solid var(--gab-c,var(--gab-bleu))}
+.gab-sommaire-chapitre>span{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gab-c,var(--gab-bleu));margin-bottom:6px}
+.gab-sommaire-chapitre a{display:block;padding:7px 9px;border-radius:10px;font-size:15px;line-height:1.4;color:var(--gab-marine);text-decoration:none;overflow-wrap:break-word}
+.gab-sommaire-chapitre a:hover{background:#fff}
+.gab-sommaire-chapitre a:focus-visible,.gab-sommaire-chapitre:focus-visible{outline:2px solid var(--gab-c,var(--gab-bleu));outline-offset:2px}
+.gab-sommaire-chapitre a[data-objectif]{border-inline-start:3px solid var(--sommaire-objectif);padding-inline-start:12px;background:var(--sommaire-fond);color:var(--sommaire-objectif);font-weight:700}
+.gab-sommaire-chapitre a[data-objectif="O1"]{--sommaire-objectif:#24659b;--sommaire-fond:#eef5fc}
+.gab-sommaire-chapitre a[data-objectif="O2"]{--sommaire-objectif:#286e5b;--sommaire-fond:#edf6f1}
+.gab-sommaire-chapitre a[data-objectif="O3"]{--sommaire-objectif:#754d8a;--sommaire-fond:#f6f0f9}
+.gab-sommaire-chapitre a[data-objectif]:is(:hover,:focus-visible){box-shadow:inset 0 0 0 1px var(--sommaire-objectif)}
+
+/* Corps des chapitres : une seule typographie, quelles que soient les anciennes classes. */
+.gab-corps{font-size:18px;line-height:1.72;color:var(--gab-texte)}
+.gab-corps p{max-width:none}
+.gab-corps h3{font:700 23px/1.32 var(--sans)!important;color:var(--gab-marine)!important;letter-spacing:0!important;text-transform:none!important;margin:34px 0 10px}
+.gab-corps h4{font:700 19.5px/1.35 var(--sans)!important;color:var(--gab-marine)!important;letter-spacing:0!important;text-transform:none!important;margin:28px 0 8px}
+.gab-corps>:first-child,.gab-corps>.gab-source>:first-child,.gab-corps .chapitre-contenu>:first-child{margin-top:0}
+.gab-corps a:not([class]){color:var(--gab-bleu);text-decoration-thickness:1px;text-underline-offset:3px}
+.gab-corps .chapitre-contenu{display:block;max-width:none;padding:0;margin:0;background:none;border:0;box-shadow:none}
+.gab .gab-source{position:static;display:block;margin:0;padding:0;border:0!important;border-radius:0;background:none!important;box-shadow:none!important;color:inherit;min-height:0;transform:none!important;animation:none!important}
+.gab .gab-source::before,.gab .gab-source::after{display:none}
+.gab .gab-source .titre-bloc{margin-top:0}
+.gab-corps ul:not([class]),.gab-corps ol:not([class]),.gab-corps .vitrine-liste,.gab-corps .puces{padding-inline-start:1.2em}
+.gab-corps li{margin:4px 0}
+.gab .gab-corps :is(p,li,dd):not(.note){font-size:var(--type-corps);line-height:1.7}
+.gab .gab-corps :is(.methode-refs,.references,.lectures-liste,.refs,.vs-refs) :is(li,p){font-size:15.5px;line-height:1.55}
+
+/* Onglets internes (choix d'atelier, formats…) : un seul style de commutateur. */
+.gab .onglets{display:flex;flex-wrap:wrap;gap:4px;padding:5px;border-radius:14px;background:var(--gab-fond);border:0;width:fit-content;max-width:100%}
+.gab .onglets [role=tab]{padding:9px 16px;border-radius:10px;border:0;background:transparent;color:var(--gab-texte);font:600 15.5px var(--sans);box-shadow:none}
+.gab .onglets [role=tab][aria-selected=true]{background:#fff;color:var(--gab-marine);box-shadow:0 2px 10px -4px rgba(13,42,58,.4)}
+
+/* Blocs dépliables */
+.gab-corps details:not(.lecture-theme){border:1px solid var(--gab-ligne);border-radius:16px;background:#fff;margin:12px 0;padding:0 18px}
+.gab-corps details:not(.lecture-theme)>summary{padding:14px 0;font-weight:700;color:var(--gab-marine);cursor:pointer}
+.gab .lecture-theme.gab-source>summary{display:inline-flex;align-items:center;gap:10px;margin:4px 0 12px;padding:11px 20px;border-radius:999px;background:var(--gab-c,var(--gab-bleu));color:#fff;font:700 15.5px var(--sans);cursor:pointer;list-style:none}
+.gab .lecture-theme.gab-source>summary::-webkit-details-marker{display:none}
+.gab .lecture-theme.gab-source>summary::after{content:"＋";font-weight:400}
+.gab .lecture-theme.gab-source[open]>summary::after{content:"−"}
+
+/* Ressources : un seul style de panneau, clair, pour la presse, les vidéos et les balados. */
+.gab section.rg:not(.gab-source){background:#fff!important;color:var(--gab-texte)!important;border:1px solid var(--gab-ligne)!important;border-radius:var(--gab-rayon);box-shadow:0 20px 44px -36px rgba(13,42,58,.6)}
+.gab section.rg .rg-titre{color:var(--gab-marine)!important}
+.gab section.rg .rg-langue{color:var(--gab-bleu)!important}
+.gab section.rg .compte{background:var(--gab-sarcelle)!important;color:#fff!important}
+.gab section.rg .media{background:var(--gab-fond)!important;border-color:var(--gab-ligne)!important}
+.gab section.rg .media-texte strong{color:var(--gab-marine)!important}
+.gab section.rg .media-texte :is(small,p){color:var(--gab-texte)!important}
+.gab section.rg .media-texte a{color:var(--gab-bleu)!important;border-color:currentColor}
+.gab section.rg .media-ecran:not(:has(iframe)){background:linear-gradient(135deg,var(--gab-bleu-logo),var(--gab-sarcelle))!important}
+.gab section.rg .liens-contact a{background:#fff!important}
+
+/* Le parcours : deux frises (formations, expériences) dans leurs chapitres. */
+.gab .gab-chapitre .frise{margin:0;padding:0}
+
+/* Salles d'un seul chapitre : bandeau puis contenu. */
+.gab.gab-unique .section-corps{margin-top:8px!important}
+
+/* ---------- Écrans moyens et téléphones ---------- */
+@media(max-width:1180px){
+  .gab-chapitre-grille{grid-template-columns:1fr;gap:24px}
+  .gab-chapitre-aside{position:static;order:-1;grid-template-columns:minmax(0,1fr)}
+  .gab-photo img{aspect-ratio:21/9}
+  .gab-sommaire-chapitre{display:grid;max-height:min(300px,45dvh)}
+  .gab-tuiles{grid-template-columns:repeat(min(var(--gab-colonnes,4),3),minmax(0,1fr))}
+  .gab-tuile.gab-grande{grid-row:span 1}
+}
+@media(max-width:900px){
+  :root{--gab-marge:16px}
+  .section-contenu.gab{font-size:17px;padding-top:14px}
+  .gab .bandeau.gab-bandeau{height:auto;min-height:204px;padding:18px 22px 20px;border-radius:22px;--gab-voile:linear-gradient(0deg,rgba(13,42,58,.92) 0%,rgba(13,42,58,.55) 52%,rgba(13,42,58,.06) 88%)}
+  .gab .gab-bandeau .bandeau-texte{inset:auto;bottom:auto;max-width:100%}
+  .gab .gab-bandeau .bandeau-titre{font-size:clamp(34px,10vw,46px)}
+  .gab .gab-bandeau .bandeau-legende{font-size:16px}
+  .gab-programme-tete span{display:none}
+  .gab-tuiles{grid-template-columns:1fr 1fr;grid-auto-rows:136px;gap:10px}
+  .gab-tuile{padding:12px 13px;border-radius:18px}
+  .gab-tuile-num{min-width:38px;height:38px;font-size:18px;border-radius:12px}
+  .gab-tuile-titre{font-size:16px}
+  .gab-tuile.gab-large,.gab-tuile.gab-grande{grid-column:span 1;grid-row:span 1}
+  .gab-tuile.gab-grande .gab-tuile-titre{font-size:16px}
+  .gab-tuiles>.gab-tuile:first-child:nth-last-child(odd){grid-column:span 2}
+  .gab .gab-intro{margin-top:40px!important}
+  .gab .gab-intro.gab-intro-duo{display:block}
+  .gab .gab-intro.gab-intro-duo h2{margin-bottom:14px}
+  .gab .gab-intro p:not(.devise),.gab .gab-intro .intro{font-size:17.5px}
+  .gab .gab-chapitre{margin-top:44px;padding-top:32px}
+  .gab-chapitre-num b{width:44px;height:44px;font-size:19px}
+  .gab .gab-chapitre-titre{font-size:30px!important}
+  .gab-photo img{aspect-ratio:16/9;border-radius:18px}
+  .gab-corps{font-size:17px}
+}
+/* Écrans étroits : conserver la largeur des zones tactiles et la lisibilité des titres. */
+@media(max-width:600px){
+  .gab-programme-tete,.gab-tuiles{width:100%}
+}
+/* Téléphone : priorité sur les anciennes règles de la barre de salle. */
+@media(max-width:900px){
+  .gab .gab-bandeau .gab-k-porte{display:none}
+}
+@media(prefers-reduced-motion:reduce){.gab-tuile{transition:none}}
+
+
+/* Thèse : sommaire latéral discret, davantage d'espace pour les textes et les cartes.
+   La palette et les fonds existants ne sont pas modifiés. */
+@media (min-width:1181px) {
+  .gab:is([data-gab-salle="recherche"],[data-gab-salle="methodes"]) .gab-chapitre-grille {
+    grid-template-columns:minmax(0,1fr) 286px;
+    column-gap:28px;
+  }
+  .gab:is([data-gab-salle="recherche"],[data-gab-salle="methodes"]) .gab-chapitre-aside {
+    width:100%;
+    min-width:0;
+    justify-self:end;
+  }
+  .gab:is([data-gab-salle="recherche"],[data-gab-salle="methodes"]) .gab-sommaire-chapitre {
+    padding:12px 10px;
+    gap:1px;
+    border-radius:16px;
+  }
+  .gab:is([data-gab-salle="recherche"],[data-gab-salle="methodes"]) .gab-sommaire-chapitre > span {
+    font-size:12px;
+    margin-bottom:5px;
+  }
+  .gab:is([data-gab-salle="recherche"],[data-gab-salle="methodes"]) .gab-sommaire-chapitre a {
+    padding:5px 7px;
+    font-size:14px;
+    line-height:1.32;
+    overflow-wrap:break-word;
+  }
+}
+
+/* Ma thèse : sommaire du chapitre à gauche, moins large.
+   Les images intégrées aux textes et les tuiles illustrées sont conservées. */
+@media (min-width:1181px) {
+  .gab[data-gab-salle="recherche"] .gab-chapitre-grille {
+    grid-template-columns:232px minmax(0,1fr);
+    column-gap:clamp(24px,3vw,40px);
+  }
+  .gab[data-gab-salle="recherche"] .gab-chapitre-aside {
+    grid-column:1;
+    grid-row:1;
+    width:100%;
+    min-width:0;
+    justify-self:start;
+  }
+  .gab[data-gab-salle="recherche"] .gab-chapitre-texte {
+    grid-column:2;
+    grid-row:1;
+    min-width:0;
+  }
+}
+
+
+/* Thèse : sommaire seul dans la colonne gauche, scroll autonome.
+   Les illustrations demeurent en pleine largeur dans le contenu de droite. */
+@media (min-width:980px) {
+  .gab[data-gab-salle="recherche"] .gab-chapitre-grille.gab-menu-gauche {
+    grid-template-columns:clamp(225px,21vw,270px) minmax(0,1fr);
+    column-gap:clamp(24px,3vw,44px);
+    align-items:start;
+  }
+  .gab[data-gab-salle="recherche"] .gab-menu-gauche > .gab-chapitre-aside {
+    grid-column:1;
+    grid-row:1;
+    position:sticky;
+    top:calc(var(--salle-barre-hauteur,90px) + 18px);
+    width:100%;
+    min-width:0;
+    max-height:calc(100dvh - var(--salle-barre-hauteur,90px) - 30px);
+    justify-self:start;
+    align-self:start;
+  }
+  .gab[data-gab-salle="recherche"] .gab-menu-gauche > .gab-chapitre-texte {
+    grid-column:2;
+    grid-row:1;
+    min-width:0;
+  }
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre {
+  max-height:calc(100dvh - var(--salle-barre-hauteur,90px) - 38px);
+  min-height:0;
+  overflow-y:auto;
+  overscroll-behavior-y:contain;
+  scrollbar-width:thin;
+  padding:12px 10px;
+  gap:1px;
+  border-radius:16px;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre > span {
+  font-size:12px;
+  margin-bottom:5px;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre a {
+  padding:6px 7px;
+  font-size:14px;
+  line-height:1.36;
+  overflow-wrap:break-word;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-chapitre-texte > .gab-photo {
+  margin:0 0 26px;
+  width:100%;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-chapitre-texte > .gab-photo img {
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:none;
+  aspect-ratio:auto;
+  object-fit:contain;
+}
+@media (max-width:979px) {
+  .gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre {
+    max-height:min(300px,45dvh);
+  }
+}
+
+
+/* Ma thèse : conserver le style des tuiles lorsqu'elles suivent
+   directement le bloc statut / titre / codirection dans l'introduction. */
+.gab[data-gab-salle="recherche"] .gab-intro.these-entete > .gab-programme {
+  display:block;
+  width:100%;
+  margin:30px 0 16px;
+}
+.gab[data-gab-salle="recherche"] .gab-intro.these-entete .gab-programme-tete h2 {
+  margin:0!important;
+  max-width:none!important;
+  font:700 15px/1.3 var(--sans)!important;
+  letter-spacing:.14em!important;
+  text-transform:uppercase!important;
+  text-align:start!important;
+  hyphens:none!important;
+  color:var(--gab-marine)!important;
+}
+
+
+/* Salle « Ma thèse » : conserver les mots entiers à chaque retour à la ligne. */
+/* Le style général du site force la césure automatique. Dans la salle de thèse,
+   le navigateur revient à la ligne uniquement entre les mots, même dans les
+   paragraphes justifiés, listes, légendes, sommaires et cartes des chapitres. */
+.salle-contenu .gab[data-gab-salle="recherche"],
+.salle-contenu .gab[data-gab-salle="recherche"] * {
+  -webkit-hyphens: none !important;
+  hyphens: none !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}
+
+/* Exception technique pour les identifiants et URL sans espace : ils restent
+   contenus dans leur cadre sans réactiver la césure des mots du texte courant. */
+.salle-contenu .gab[data-gab-salle="recherche"] :is(pre, code, .doi, .url) {
+  overflow-wrap: anywhere !important;
+}
+
+/* Ma thèse : les paragraphes occupent la même largeur que les illustrations
+   de leur colonne, sans la limite typographique globale de 80 caractères. */
+.salle-contenu .gab[data-gab-salle="recherche"] .gab-corps p {
+  width:100%;
+  max-width:none;
+}
+
+/* Bandeau « Ma thèse » : dimensions et typographie réduites de 10 %. */
+.gab[data-gab-salle="recherche"] .bandeau.gab-bandeau{
+  min-height:219.6px;
+  padding:21.6px 37.8px 25.2px;
+  border-radius:25.2px;
+}
+.gab[data-gab-salle="recherche"] .gab-bandeau::after{height:5.4px}
+.gab[data-gab-salle="recherche"] .gab-bandeau .bandeau-texte{gap:7.2px}
+.gab[data-gab-salle="recherche"] .gab-bandeau .bandeau-num{font-size:12.6px}
+.gab[data-gab-salle="recherche"] .gab-bandeau .bandeau-titre{font-size:clamp(36px,4.5vw,59.4px)}
+.gab[data-gab-salle="recherche"] .gab-bandeau .bandeau-legende{font-size:17.1px}
+.gab[data-gab-salle="recherche"] .gab-puces{gap:7.2px;margin-top:5.4px}
+.gab[data-gab-salle="recherche"] .gab-puces span{padding:5.4px 12.6px;font-size:13.05px}
+@media(max-width:900px){
+  .gab[data-gab-salle="recherche"] .bandeau.gab-bandeau{min-height:183.6px;padding:16.2px 19.8px 18px;border-radius:19.8px}
+  .gab[data-gab-salle="recherche"] .gab-bandeau .bandeau-titre{font-size:clamp(30.6px,9vw,41.4px)}
+  .gab[data-gab-salle="recherche"] .gab-bandeau .bandeau-legende{font-size:14.4px}
+}
+
+/* Sommaire de la thèse : libellés courts et palette des objectifs. */
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre{
+  padding:12px 10px;
+  gap:3px;
+  background:#f7fafb;
+  border-inline-start:2px solid #d7e4e9;
+  border-radius:12px;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre a{
+  padding:7px 9px;
+  border-radius:7px;
+  font-size:14px;
+  font-weight:500;
+  line-height:1.35;
+  text-align:start!important;
+  text-align-last:auto!important;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-chapitre a[data-objectif]{
+  font-weight:700;
+  border-inline-start:3px solid var(--sommaire-trait);
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-chapitre a[data-objectif="O1"]{--sommaire-objectif:#2e751e;--sommaire-fond:#e8f5e3;--sommaire-trait:#5aae38}
+.gab[data-gab-salle="recherche"] .gab-sommaire-chapitre a[data-objectif="O2"]{--sommaire-objectif:#006d6b;--sommaire-fond:#e0f4f3;--sommaire-trait:#11a7a5}
+.gab[data-gab-salle="recherche"] .gab-sommaire-chapitre a[data-objectif="O3"]{--sommaire-objectif:#0755ad;--sommaire-fond:#e6effc;--sommaire-trait:#0755ad}
+
+
+/* Salle Implantation : cinq chapitres sur deux rangées équilibrées (3 + 2),
+   sans trou et avec des tuiles de même hauteur. */
+@media(min-width:901px){
+  .section[data-salle="implantation"] .gab-tuiles:has(>.gab-tuile:nth-child(5):last-child){
+    grid-template-columns:repeat(6,minmax(0,1fr));
+  }
+  .section[data-salle="implantation"] .gab-tuiles:has(>.gab-tuile:nth-child(5):last-child)>.gab-tuile{
+    grid-column:span 2;
+    grid-row:span 1;
+  }
+  .section[data-salle="implantation"] .gab-tuiles:has(>.gab-tuile:nth-child(5):last-child)>.gab-tuile:nth-child(n+4){
+    grid-column:span 3;
+  }
+}
+
+
+/* Bandeau d'identité scientifique : liens directs, discretement soulignés
+   comme dans le bloc d'encadrement de la page d'accueil. */
+#recherche .these-cadre a.these-cadre-lien {
+  color:inherit;
+  font-weight:600;
+  text-decoration:none;
+  border-bottom:1px solid color-mix(in srgb, var(--green, #286d5c) 40%, transparent);
+  text-underline-offset:3px;
+  transition:color .2s ease,border-color .2s ease;
+}
+#recherche .these-cadre a.these-cadre-lien:hover,
+#recherche .these-cadre a.these-cadre-lien:focus-visible {
+  color:var(--green, #286d5c);
+  border-color:currentColor;
+}
+#recherche .these-cadre a.these-cadre-lien:focus-visible {
+  outline:2px solid var(--green, #286d5c);
+  outline-offset:3px;
+  border-radius:2px;
+}
+
+/* Thèse : sommaires « Dans ce chapitre » harmonisés avec celui du Contexte.
+   Un seul composant visuel pour tous les chapitres ; défilement autonome. */
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre{
+  display:grid;
+  align-content:start;
+  gap:5px;
+  padding:16px 13px;
+  max-height:calc(100dvh - var(--salle-barre-hauteur,90px) - 38px);
+  overflow-y:auto;
+  scrollbar-width:thin;
+  background:#f7fafb;
+  border:1px solid #d7e4e9;
+  border-inline-start:2px solid #d7e4e9;
+  border-radius:16px;
+  box-shadow:none;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre > span{
+  margin:0 0 7px;
+  color:#0879be;
+  font-size:12.5px;
+  line-height:1.5;
+  font-weight:700;
+  letter-spacing:.1em;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre a{
+  display:block;
+  padding:9px 10px;
+  color:#143648;
+  font-size:16px;
+  font-weight:500;
+  line-height:1.4;
+  border-radius:9px;
+  overflow-wrap:normal;
+  word-break:normal;
+  hyphens:none;
+  text-align:start!important;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre a:hover{
+  background:#eaf2f5;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre a:focus-visible{
+  outline:2px solid #0879be;
+  outline-offset:1px;
+}
+@media(max-width:979px){
+  .gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre{
+    max-height:min(380px,48dvh);
+  }
+}
+
+
+/* Dossier documentaire : accès direct, distinct des ateliers de vulgarisation. */
+.gab[data-gab-salle="vulgarisation"] .vul-dossier-invite{
+  padding:24px 28px;
+  border-left:3px solid #397c80;
+  background:#f1f5f4;
+  max-width:850px;
+  margin-top:12px;
+}
+.gab[data-gab-salle="vulgarisation"] .vul-dossier-extrait{
+  font-size:17px;
+  line-height:1.75;
+  color:#29424e;
+  margin:0 0 18px;
+}
+.gab[data-gab-salle="vulgarisation"] .vul-dossier-lien{
+  display:inline-flex;
+  align-items:center;
+  padding:11px 17px;
+  border:1px solid #266875;
+  border-radius:4px;
+  color:#165665;
+  background:#fff;
+  text-decoration:none;
+  font-weight:700;
+  font-size:14px;
+}
+.gab[data-gab-salle="vulgarisation"] .vul-dossier-lien:hover{
+  color:#fff;
+  background:#1a6874;
+}
+
+
+/* Navigation éditoriale paginée, commune à toutes les salles :
+   une page de sommaire, puis un seul chapitre visible à la fois. */
+.gab.gab-page-sommaire .gab-chapitres,
+.gab.gab-page-sommaire .gab-chapitre,
+.gab.gab-page-chapitre:not(.gab-rubrique-complete) .gab-chapitre:not(.gab-page-active) {
+  display:none!important;
+}
+.gab.gab-page-chapitre > .gab-bandeau,
+.gab.gab-page-chapitre .gab-programme,
+.gab.gab-page-chapitre .gab-intro:not(:has(.gab-chapitre)) {
+  display:none!important;
+}
+.gab.gab-page-chapitre .gab-chapitre[hidden] {
+  display:none!important;
+}
+.gab.gab-page-chapitre .gab-chapitre.gab-page-active {
+  margin-top:12px;
+}
+.gab.gab-page-chapitre .gab-chapitre.gab-page-active .gab-chapitre-tete {
+  scroll-margin-top:calc(var(--salle-barre-hauteur, 96px) + 14px);
+}
+/* Indiquer clairement la destination AVANT la flèche, sur tout le site. */
+
+
+/* Sommaire des chapitres : numéros d'étapes séparés du titre.
+   Évite « 1Les » / « 3O3 » et aligne les retours à la ligne. */
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre a.gab-sommaire-etape {
+  display:grid;
+  grid-template-columns:1.7em minmax(0,1fr);
+  align-items:start;
+  column-gap:.65em;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-etape-num {
+  display:inline-block;
+  padding:.15em .25em;
+  border-radius:5px;
+  background:#e8f2f7;
+  color:#0879be;
+  font-size:.76em;
+  font-weight:700;
+  font-variant-numeric:tabular-nums;
+  line-height:1.5;
+  text-align:center;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-etape-texte {
+  min-width:0;
+}
+
+
+/* Bandeau de thèse : une seule surface compacte, sans cartes internes.
+   Les textes et leurs sept liens restent ceux de la page d'origine. */
+#recherche .these-entete .these-cadre {
+  display:block;
+  width:100%;
+  max-width:none;
+  box-sizing:border-box;
+  padding:16px 22px;
+  border:1px solid #d7e3e9;
+  border-left:4px solid #168fa4;
+  border-radius:13px;
+  background:linear-gradient(110deg,#f6fafb 0%,#ffffff 82%);
+  box-shadow:0 4px 14px rgba(13,42,58,.035);
+  color:#334b58;
+  font:400 clamp(15px,1.08vw,17px)/1.65 var(--sans,system-ui,sans-serif);
+  text-align:left;
+  overflow-wrap:normal;
+  word-break:normal;
+  hyphens:none;
+}
+#recherche .these-entete .these-cadre > :is(p,div) {
+  margin-top:0;
+  margin-bottom:7px;
+  line-height:inherit;
+}
+#recherche .these-entete .these-cadre > :is(p,div):last-child {
+  margin-bottom:0;
+}
+#recherche .these-entete .these-cadre strong {
+  color:#1c4254;
+  font-weight:700;
+}
+#recherche .these-entete .these-cadre a.these-cadre-lien {
+  color:#286176;
+  font-weight:550;
+  text-decoration:underline;
+  text-decoration-color:rgba(40,97,118,.45);
+  text-decoration-thickness:1px;
+  text-underline-offset:3px;
+  border-bottom:0;
+  transition:color .15s ease,text-decoration-color .15s ease;
+}
+#recherche .these-entete .these-cadre a.these-cadre-lien:hover,
+#recherche .these-entete .these-cadre a.these-cadre-lien:focus-visible {
+  color:#0879be;
+  text-decoration-color:currentColor;
+  border-bottom:0;
+}
+@media(max-width:600px){
+  #recherche .these-entete .these-cadre {
+    padding:13px 15px;
+    border-radius:10px;
+    font-size:14px;
+    line-height:1.55;
+  }
+  #recherche .these-entete .these-cadre > :is(p,div) {margin-bottom:6px}
+}
+
+
+/* Devis doctoral — principes déjà rédigés, présentés sans puces denses. */
+.these-protocole-detail .these-devis-visuel {
+  width:100%;
+  max-width:none;
+  margin:30px 0 36px;
+  padding:clamp(19px,2.2vw,30px);
+  border:1px solid #dce7eb;
+  border-radius:22px;
+  background:linear-gradient(145deg,#f7fafb 0%,#f1f7f8 100%);
+  box-shadow:0 10px 28px -24px rgba(13,42,58,.22);
+  box-sizing:border-box;
+}
+.these-protocole-detail .these-devis-titre {
+  display:flex;
+  align-items:center;
+  min-height:32px;
+  gap:14px;
+  margin:0 0 22px!important;
+  padding:0 0 17px!important;
+  border-bottom:1px solid #dae6eb;
+  color:#173a4b;
+  font:750 clamp(20px,1.8vw,26px)/1.3 var(--sans,system-ui,sans-serif)!important;
+  letter-spacing:-.02em;
+  text-align:left;
+  text-transform:none;
+  overflow-wrap:normal;
+  hyphens:none;
+}
+.these-protocole-detail .these-devis-titre::before {
+  content:"";
+  display:block;
+  width:5px;
+  height:28px;
+  border-radius:6px;
+  background:linear-gradient(#0879be,#11a7a5);
+  flex:none;
+}
+.these-protocole-detail .these-devis-grille {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:stretch;
+  gap:18px;
+}
+.these-protocole-detail .these-devis-carte {
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  margin:0;
+  padding:clamp(18px,1.9vw,26px);
+  border:1px solid #dbe7e9;
+  border-top:4px solid #0879be;
+  border-radius:16px;
+  background:#fff;
+  box-shadow:0 8px 20px -19px rgba(11,49,65,.28);
+  color:#355365;
+  box-sizing:border-box;
+}
+.these-protocole-detail .these-devis-carte[data-devis="posture"] {
+  border-top-color:#1b928d;
+}
+.these-protocole-detail .these-devis-carte-entete {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-height:43px;
+  margin:0 0 17px;
+}
+.these-protocole-detail .these-devis-num {
+  flex:none;
+  display:grid;
+  place-items:center;
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  background:#e9f4fa;
+  color:#0879be;
+  font:750 17px/1 var(--sans,system-ui,sans-serif);
+  font-variant-numeric:tabular-nums;
+}
+.these-protocole-detail [data-devis="posture"] .these-devis-num {
+  background:#e5f6f3;
+  color:#177970;
+}
+.these-protocole-detail .these-devis-carte-titre {
+  margin:0!important;
+  padding:0!important;
+  color:#163d50;
+  font:750 clamp(17px,1.4vw,20px)/1.38 var(--sans,system-ui,sans-serif)!important;
+  letter-spacing:-.015em;
+  text-align:left;
+  hyphens:none;
+}
+.these-protocole-detail .these-devis-phases {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;
+  gap:8px;
+  margin:0 0 19px;
+  padding:10px 11px;
+  border-radius:12px;
+  background:#f0f7fa;
+  box-sizing:border-box;
+}
+.these-protocole-detail .these-devis-phases span {
+  flex:1;
+  min-width:0;
+  padding:7px 5px;
+  border:1px solid #c7dee8;
+  border-radius:9px;
+  background:#fff;
+  color:#176481;
+  font:800 13px/1.25 var(--sans,system-ui,sans-serif);
+  text-align:center;
+  letter-spacing:.04em;
+}
+.these-protocole-detail .these-devis-phases span:nth-of-type(2) {
+  border-color:#c9e5d3;
+  color:#3c8c49;
+}
+.these-protocole-detail .these-devis-phases span:nth-of-type(3) {
+  border-color:#bed7e2;
+  color:#174b61;
+}
+.these-protocole-detail .these-devis-phases i {
+  flex:none;
+  color:#5b8798;
+  font:600 18px/1 var(--sans,system-ui,sans-serif);
+  font-style:normal;
+}
+.these-protocole-detail .these-devis-description {
+  margin:0!important;
+  padding:0!important;
+  max-width:65ch;
+  color:#365363!important;
+  font:400 clamp(15px,1.1vw,17px)/1.75 var(--sans,system-ui,sans-serif)!important;
+  text-align:left;
+  overflow-wrap:break-word;
+  hyphens:none;
+  word-break:normal;
+}
+.these-protocole-detail .these-devis-carte[data-devis="posture"] .these-devis-description {
+  margin-top:5px!important;
+}
+@media(max-width:890px) {
+  .these-protocole-detail .these-devis-grille {grid-template-columns:minmax(0,1fr);gap:13px}
+  .these-protocole-detail .these-devis-visuel {padding:19px}
+  .these-protocole-detail .these-devis-carte {padding:20px}
+  .these-protocole-detail .these-devis-description {max-width:80ch}
+}
+@media(max-width:470px) {
+  .these-protocole-detail .these-devis-visuel {padding:14px;border-radius:17px}
+  .these-protocole-detail .these-devis-carte {padding:16px;border-radius:13px}
+  .these-protocole-detail .these-devis-carte-entete {gap:9px}
+  .these-protocole-detail .these-devis-num {width:38px;height:38px}
+  .these-protocole-detail .these-devis-phases {padding:8px;gap:5px}
+}
+/* Fallback visuel si les contenus sont consultés sans JavaScript. */
+.these-protocole-detail > ul.puces {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+  list-style:none;
+  margin:18px 0 30px;
+  padding:0;
+}
+.these-protocole-detail > ul.puces > li {
+  min-width:0;
+  margin:0;
+  padding:22px;
+  border:1px solid #dbe7e9;
+  border-top:3px solid #0879be;
+  border-radius:15px;
+  background:#f8fbfc;
+  color:#365363;
+  line-height:1.7;
+}
+.these-protocole-detail > ul.puces > li:last-child {border-top-color:#1b928d}
+.these-protocole-detail > ul.puces > li::before {content:none}
+.these-protocole-detail > ul.puces > li > b {
+  display:block;
+  margin:0 0 10px;
+  color:#163d50;
+  font-weight:750;
+  font-size:18px;
+}
+@media(max-width:890px) {
+  .these-protocole-detail > ul.puces {grid-template-columns:minmax(0,1fr)}
+}
+
+
+/* Menu de la méthodologie : ensembles O1, O2 et O3 homogènes. */
+.gab[data-gab-salle="recherche"] .gab-sommaire-chapitre.gab-sommaire-objectifs {
+  display:grid;
+  align-content:start;
+  gap:11px;
+  padding:13px 10px;
+  background:#f8fafb;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs > span {
+  padding:0 5px;
+  margin-bottom:2px;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe {
+  --objectif-texte:#4c6170;
+  --objectif-trait:#b8c8d0;
+  --objectif-fond:#f0f4f6;
+  --objectif-lien:#f7f9fa;
+  display:grid;
+  gap:5px;
+  min-width:0;
+  padding:9px 8px 8px;
+  border:1px solid #e0e8ec;
+  border-inline-start:3px solid var(--objectif-trait);
+  border-radius:11px;
+  background:var(--objectif-fond);
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe[data-objectif="O1"] {
+  --objectif-texte:#286c23;
+  --objectif-trait:#5aae38;
+  --objectif-fond:#ecf7e8;
+  --objectif-lien:#f5fbf2;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe[data-objectif="O2"] {
+  --objectif-texte:#006e72;
+  --objectif-trait:#11a7a5;
+  --objectif-fond:#e9f7f6;
+  --objectif-lien:#f3fbfa;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe[data-objectif="O3"] {
+  --objectif-texte:#18559b;
+  --objectif-trait:#0755ad;
+  --objectif-fond:#ebf2fd;
+  --objectif-lien:#f3f7ff;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe-titre {
+  display:flex;
+  gap:7px;
+  align-items:flex-start;
+  padding:2px 3px 7px;
+  color:var(--objectif-texte);
+  border-bottom:1px solid color-mix(in srgb,var(--objectif-trait) 32%,transparent);
+  font-size:12.5px;
+  line-height:1.3;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe-titre b {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:none;
+  min-width:28px;
+  padding:4px;
+  border-radius:6px;
+  background:var(--objectif-trait);
+  color:#fff;
+  font-weight:750;
+  font-size:11px;
+  letter-spacing:.02em;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe-titre strong {
+  font-weight:750;
+  overflow-wrap:break-word;
+  min-width:0;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe-liens {
+  display:grid;
+  gap:3px;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe a,
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe a[data-objectif] {
+  display:block;
+  margin:0;
+  padding:7px 8px !important;
+  border:1px solid transparent;
+  border-inline-start:2px solid var(--objectif-trait) !important;
+  border-radius:7px;
+  background:var(--objectif-lien);
+  color:var(--objectif-texte);
+  text-align:start;
+  font-size:13.5px;
+  font-weight:560;
+  line-height:1.35;
+  overflow-wrap:break-word;
+  hyphens:none;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe a:hover,
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe a:focus-visible {
+  border-color:var(--objectif-trait);
+  background:#fff;
+  color:var(--objectif-texte);
+  box-shadow:0 2px 9px rgba(13,42,58,.06);
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe a:focus-visible {
+  outline:2px solid var(--objectif-trait);
+  outline-offset:1px;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-etape-num {
+  background:var(--objectif-fond);
+  color:var(--objectif-texte);
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-groupe a.gab-sommaire-etape {
+  display:grid;
+  grid-template-columns:1.7em minmax(0,1fr);
+  gap:.65em;
+}
+@media (max-width:979px) {
+  .gab[data-gab-salle="recherche"] .gab-sommaire-chapitre.gab-sommaire-objectifs {
+    max-height:min(420px,50dvh);
+  }
+}
+
+/* Navigation entre chapitres : numéro et titre réel de destination. */
+
+
+/* Thèse : sommaire des parties, accès direct O1/O2/O3 et hiérarchie éditoriale (2026-10-18). */
+/* Le fil de navigation distingue la porte du hall de sa sous-catégorie « Ma thèse ». */
+/* Même sommaire latéral pour chacun des six chapitres de la thèse. */
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre a[data-gab-niveau="h3"]{
+  font-weight:750;
+  color:#173f52;
+  border-inline-start:2px solid #a8c8cf;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre a[data-gab-niveau="h4"]{
+  font-weight:560;
+}
+.gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre a[data-gab-niveau="h5"]{
+  font-size:13px;
+  padding-inline-start:18px;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-raccourcis{
+  position:sticky;
+  top:0;
+  z-index:2;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:6px;
+  padding:8px 2px 10px;
+  margin:0 0 7px;
+  background:#f3f8f7;
+  border-bottom:1px solid #d8e5e5;
+}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-raccourcis .gab-sommaire-raccourci{
+  display:grid;
+  place-items:center;
+  min-width:0;
+  min-height:32px;
+  padding:6px 4px;
+  border:1px solid var(--raccourci-trait,#ccdadb);
+  border-radius:7px;
+  color:var(--raccourci-texte,#164b60);
+  background:var(--raccourci-fond,#fff);
+  font:750 12px/1.2 var(--sans,Arial,sans-serif);
+  text-align:center;
+  text-decoration:none;
+}
+/* Raccourcis O1/O2/O3 : palette identique aux sections correspondantes. */
+.gab[data-gab-salle="recherche"] .gab-sommaire-raccourci:nth-child(1){--raccourci-trait:#5aae38;--raccourci-fond:#ecf7e8;--raccourci-texte:#286c23}
+.gab[data-gab-salle="recherche"] .gab-sommaire-raccourci:nth-child(2){--raccourci-trait:#11a7a5;--raccourci-fond:#e9f7f6;--raccourci-texte:#006e72}
+.gab[data-gab-salle="recherche"] .gab-sommaire-raccourci:nth-child(3){--raccourci-trait:#0755ad;--raccourci-fond:#ebf2fd;--raccourci-texte:#18559b}
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-raccourcis .gab-sommaire-raccourci:hover,
+.gab[data-gab-salle="recherche"] .gab-sommaire-objectifs .gab-sommaire-raccourcis .gab-sommaire-raccourci:focus-visible{
+  border-color:var(--raccourci-trait,#217da0);
+  background:color-mix(in srgb,var(--raccourci-fond,#e4f1f5) 88%,var(--raccourci-trait,#217da0));
+}
+
+
+/* Corps des chapitres de la thèse : même police, taille 12 points (16 px).
+   Les titres, sommaires et commandes conservent leur typographie. */
+.gab[data-gab-salle="recherche"] .gab-corps,
+.gab[data-gab-salle="recherche"] .gab-corps :is(p,li,dd,dt,blockquote,td,th){
+  font-family:var(--sans,system-ui,sans-serif)!important;
+  font-size:12pt!important;
+}
+.gab[data-gab-salle="recherche"] .gab-corps :is(p,li,dd,dt,blockquote,td,th) :is(span,a,em,strong,b,i){
+  font-family:inherit!important;
+  font-size:inherit!important;
+}
+
+
+/* Vulgarisation scientifique : sommaire latéral en dix sections colorées.
+   Même hiérarchie et palette de lecture que « Ma thèse » ; aucune autre salle affectée. */
+@media(min-width:980px){
+  .gab[data-gab-salle="vulgarisation"] .gab-chapitre-grille.gab-menu-gauche{
+    display:grid;
+    grid-template-columns:clamp(235px,22vw,285px) minmax(0,1fr);
+    column-gap:clamp(24px,3vw,44px);
+    align-items:start;
+  }
+  .gab[data-gab-salle="vulgarisation"] .gab-menu-gauche > .gab-chapitre-aside{
+    grid-column:1;grid-row:1;position:sticky;
+    top:calc(var(--salle-barre-hauteur,90px) + 18px);
+    min-width:0;width:100%;max-height:calc(100dvh - var(--salle-barre-hauteur,90px) - 30px);
+    align-self:start;
+  }
+  .gab[data-gab-salle="vulgarisation"] .gab-menu-gauche > .gab-chapitre-texte{
+    grid-column:2;grid-row:1;min-width:0;
+  }
+}
+.gab[data-gab-salle="vulgarisation"] .gab-menu-gauche .gab-sommaire-chapitre{
+  display:grid;align-content:start;gap:6px;
+  padding:13px 11px;
+  max-height:calc(100dvh - var(--salle-barre-hauteur,90px) - 38px);
+  overflow-y:auto;overscroll-behavior-y:contain;scrollbar-width:thin;
+  background:#f7fafb;border:1px solid #d7e4e9;border-radius:16px;
+}
+.gab[data-gab-salle="vulgarisation"] .gab-sommaire-vulgarisation .gab-sommaire-groupe{
+  display:grid;gap:4px;padding:8px;
+  min-width:0;border:1px solid #e0e8ec;border-inline-start:3px solid var(--objectif-trait);
+  border-radius:10px;background:var(--objectif-fond);
+}
+.gab[data-gab-salle="vulgarisation"] .gab-sommaire-vulgarisation .gab-sommaire-groupe-titre{
+  display:flex;align-items:center;gap:7px;padding:2px 2px 4px;
+  font-size:11px;line-height:1.3;color:var(--objectif-texte);
+}
+.gab[data-gab-salle="vulgarisation"] .gab-sommaire-vulgarisation .gab-sommaire-groupe-titre b{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:27px;padding:4px 6px;background:var(--objectif-trait);color:white;border-radius:6px;
+}
+.gab[data-gab-salle="vulgarisation"] .gab-sommaire-vulgarisation .gab-sommaire-groupe-titre strong{font-size:11px;letter-spacing:.01em}
+.gab[data-gab-salle="vulgarisation"] .gab-sommaire-vulgarisation .gab-sommaire-groupe-liens{display:grid}
+.gab[data-gab-salle="vulgarisation"] .gab-sommaire-vulgarisation .gab-sommaire-groupe a{
+  display:block!important;margin:0!important;padding:8px!important;font-size:13.5px;
+  line-height:1.35;font-weight:650;color:var(--objectif-texte)!important;
+  background:var(--objectif-lien)!important;border-radius:7px;
+  border-inline-start:2px solid var(--objectif-trait);
+  overflow-wrap:break-word;text-decoration:none;
+}
+.gab[data-gab-salle="vulgarisation"] .gab-sommaire-vulgarisation .gab-sommaire-groupe a:hover,
+.gab[data-gab-salle="vulgarisation"] .gab-sommaire-vulgarisation .gab-sommaire-groupe a:focus-visible{
+  background:white!important;outline:2px solid var(--objectif-trait);outline-offset:1px;
+}
+.gab[data-gab-salle="vulgarisation"] .gab-menu-gauche > .gab-chapitre-texte > .gab-photo{
+  margin:0 0 22px;width:100%;
+}
+@media(max-width:979px){
+  .gab[data-gab-salle="vulgarisation"] .gab-menu-gauche .gab-sommaire-chapitre{
+    max-height:min(360px,46dvh);
+  }
+}
+
+/* En-tête de thèse : titre et logos sur toute la largeur, y compris dans la salle clonée. */
+:is(#recherche,#salle) .these .these-entete{
+  box-sizing:border-box;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0;
+  margin-inline:0!important;
+}
+:is(#recherche,#salle) .these .these-entete > :is(.these-titre-label,h2){
+  box-sizing:border-box;
+  width:100%!important;
+  max-width:none!important;
+  margin-inline:0!important;
+  padding-inline:0!important;
+}
+:is(#recherche,#salle) .these .these-entete > h2{
+  text-align:justify!important;
+  text-align-last:start;
+  text-wrap:wrap;
+  hyphens:none;
+  overflow-wrap:break-word;
+}
+:is(#recherche,#salle) .these .these-entete > .these-cadre{
+  box-sizing:border-box;
+  width:100%;
+  max-width:none;
+  min-width:0;
+}
+:is(#recherche,#salle) .these .these-entete > .these-cadre > img{
+  display:block;
+  flex:0 0 100%;
+  box-sizing:border-box;
+  width:100%!important;
+  max-width:none!important;
+  height:auto!important;
+  max-height:none!important;
+  margin:16px 0 0;
+  padding:18px clamp(8px,1.5vw,24px);
+  border-top:1px solid #d7e3e9;
+  border-radius:0 0 8px 8px;
+  background:#fff;
+  object-fit:contain;
+}
+@media(max-width:600px){
+  :is(#recherche,#salle) .these .these-entete > .these-cadre > img{
+    margin-top:12px;
+    padding:12px 0;
+  }
+  :is(#recherche,#salle) .these .these-entete > h2{
+    text-align:start!important;
+  }
+}
+
+
+/* Chapitre 04 / vulgarisation scientifique : sommaire des dix sections à gauche.
+   Règles exclusivement locales, sans modifier les autres chapitres. */
+@media(min-width:980px){
+  .gab[data-gab-salle="implantation"] .gab-chapitre.vulgarisation-recherche-active > .gab-chapitre-grille.gab-menu-gauche{
+    display:grid;grid-template-columns:clamp(235px,22vw,285px) minmax(0,1fr);
+    column-gap:clamp(24px,3vw,44px);align-items:start;
+  }
+  .gab[data-gab-salle="implantation"] .vulgarisation-recherche-active .gab-menu-gauche > .gab-chapitre-aside{
+    grid-column:1;grid-row:1;position:sticky;
+    top:calc(var(--salle-barre-hauteur,90px) + 18px);
+    align-self:start;justify-self:stretch;min-width:0;width:100%;
+    max-height:calc(100dvh - var(--salle-barre-hauteur,90px) - 30px);
+  }
+  .gab[data-gab-salle="implantation"] .vulgarisation-recherche-active .gab-menu-gauche > .gab-chapitre-texte{
+    grid-column:2;grid-row:1;min-width:0;width:100%;
+  }
+}
+.gab[data-gab-salle="implantation"] .vulgarisation-recherche-active .gab-sommaire-vulgarisation{
+  display:grid;align-content:start;gap:6px;padding:13px 11px;
+  max-height:calc(100dvh - var(--salle-barre-hauteur,90px) - 38px);
+  overflow-y:auto;overscroll-behavior-y:contain;scrollbar-width:thin;
+  background:#f7fafb;border:1px solid #d7e4e9;border-radius:16px;
+}
+.gab[data-gab-salle="implantation"] .vulgarisation-recherche-active .gab-sommaire-vulgarisation .gab-sommaire-groupe{
+  display:grid;gap:4px;padding:8px;min-width:0;
+  border:1px solid #e0e8ec;border-inline-start:3px solid var(--objectif-trait);
+  border-radius:10px;background:var(--objectif-fond);
+}
+.gab[data-gab-salle="implantation"] .vulgarisation-recherche-active .gab-sommaire-vulgarisation .gab-sommaire-groupe-titre{
+  display:flex;align-items:center;gap:7px;padding:2px 2px 4px;
+  font-size:11px;line-height:1.3;color:var(--objectif-texte);
+}
+.gab[data-gab-salle="implantation"] .vulgarisation-recherche-active .gab-sommaire-vulgarisation .gab-sommaire-groupe-titre b{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:27px;padding:4px 6px;background:var(--objectif-trait);
+  color:#fff;border-radius:6px;font-weight:750;
+}
+.gab[data-gab-salle="implantation"] .vulgarisation-recherche-active .gab-sommaire-vulgarisation .gab-sommaire-groupe-titre strong{
+  font-size:11px;letter-spacing:.01em;
+}
+.gab[data-gab-salle="implantation"] .vulgarisation-recherche-active .gab-sommaire-vulgarisation .gab-sommaire-groupe-liens{display:grid}
+.gab[data-gab-salle="implantation"] .vulgarisation-recherche-active .gab-sommaire-vulgarisation .gab-sommaire-groupe a{
+  display:block!important;margin:0!important;padding:8px!important;
+  font-size:13.5px;line-height:1.35;font-weight:650;
+  color:var(--objectif-texte)!important;background:var(--objectif-lien)!important;
+  border-radius:7px;border-inline-start:2px solid var(--objectif-trait);
+  overflow-wrap:break-word;text-decoration:none;
+}
+.gab[data-gab-salle="implantation"] .vulgarisation-recherche-active .gab-sommaire-vulgarisation .gab-sommaire-groupe a:hover,
+.gab[data-gab-salle="implantation"] .vulgarisation-recherche-active .gab-sommaire-vulgarisation .gab-sommaire-groupe a:focus-visible{
+  background:white!important;outline:2px solid var(--objectif-trait);outline-offset:1px;
+}
+@media(max-width:979px){
+  .gab[data-gab-salle="implantation"] .vulgarisation-recherche-active .gab-sommaire-vulgarisation{max-height:min(360px,46dvh)}
+}
+
+
+/* Sommaire universel 2026-10-18 — restitution du modèle validé.
+   S'applique uniquement aux chapitres dotés du menu universel.
+   Ne modifie ni le hall, ni les en-têtes, ni les autres sommaires spécialisés. */
+@media (min-width:980px) {
+  .gab .gab-chapitre-grille.gab-menu-universel:not(.gab-menu-gauche){
+    display:grid;
+    grid-template-columns:clamp(230px,21vw,280px) minmax(0,1fr);
+    gap:clamp(22px,3vw,43px);
+    align-items:start;
+  }
+  .gab .gab-menu-universel:not(.gab-menu-gauche) > .gab-chapitre-aside{
+    grid-column:1;
+    grid-row:1;
+    position:sticky;
+    top:calc(var(--salle-barre-hauteur,90px) + 18px);
+    align-self:start;
+    justify-self:stretch;
+    width:100%;
+    min-width:0;
+  }
+  .gab .gab-menu-universel:not(.gab-menu-gauche) > .gab-chapitre-texte{
+    grid-column:2;
+    grid-row:1;
+    min-width:0;
+    width:100%;
+  }
+}
+.gab .gab-sommaire-chapitre.gab-sommaire-universel{
+  display:grid;
+  align-content:start;
+  gap:8px;
+  padding:13px 11px;
+  max-height:calc(100dvh - var(--salle-barre-hauteur,90px) - 38px);
+  overflow-y:auto;
+  overscroll-behavior-y:contain;
+  scrollbar-width:thin;
+  background:#f7fafb;
+  border:1px solid #d7e4e9;
+  border-radius:16px;
+}
+.gab .gab-sommaire-universel > span{
+  margin:0 0 4px;
+  color:#1c637c;
+  font-size:12.5px;
+  letter-spacing:.08em;
+  font-weight:750;
+  text-transform:uppercase;
+}
+.gab .gab-sommaire-universel .gab-sommaire-groupe{
+  min-width:0;
+  display:grid;
+  gap:4px;
+  padding:9px;
+  border:1px solid #e0e8ec;
+  border-inline-start:3px solid var(--objectif-trait);
+  border-radius:11px;
+  background:var(--objectif-fond);
+}
+.gab .gab-sommaire-universel .gab-sommaire-groupe-titre{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  min-width:0;
+  color:var(--objectif-texte);
+  font-weight:750;
+  line-height:1.3;
+}
+.gab .gab-sommaire-universel .gab-sommaire-groupe-titre b{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+  width:29px;
+  min-height:29px;
+  border-radius:7px;
+  color:#fff;
+  background:var(--objectif-trait);
+  font-variant-numeric:tabular-nums;
+  font-size:12px;
+}
+.gab .gab-sommaire-universel .gab-sommaire-groupe-titre strong{
+  color:var(--objectif-texte);
+  font-weight:750;
+  font-size:13.5px;
+}
+.gab .gab-sommaire-universel .gab-sommaire-groupe-liens{display:grid;gap:3px;min-width:0}
+.gab .gab-sommaire-universel .gab-sommaire-groupe a{
+  display:block;
+  min-width:0;
+  margin:0;
+  padding:8px 9px;
+  color:var(--objectif-texte);
+  background:var(--objectif-lien);
+  border-inline-start:2px solid var(--objectif-trait);
+  border-radius:7px;
+  font-size:13.5px;
+  font-weight:600;
+  line-height:1.4;
+  white-space:normal;
+  text-decoration:none;
+  overflow-wrap:break-word;
+  hyphens:none;
+}
+.gab .gab-sommaire-universel .gab-sommaire-groupe a:is(:hover,:focus-visible){
+  color:var(--objectif-texte);
+  background:#fff;
+  outline:2px solid var(--objectif-trait);
+  outline-offset:1px;
+}
+.gab .gab-sommaire-universel .gab-sommaire-groupe-titre a.gab-section-lien-titre{
+  flex:1;
+  font-size:13.5px;
+  font-weight:750;
+  background:transparent;
+  border:0;
+  padding:4px 5px;
+}
+@media(max-width:979px){
+  .gab .gab-sommaire-universel{max-height:min(340px,45dvh)}
+}
+
+/* Réduction de 2 px — police des sommaires latéraux uniquement. */
+@layer typographie-site {
+  body .gab .gab-chapitre-aside nav.gab-sommaire-chapitre,
+  body .gab .gab-chapitre-aside nav.gab-sommaire-chapitre :not(svg):not(svg *) {
+    font-size:14px!important;
+  }
+}
+
+/* Navigation globale : chapitre actif centré entre précédent et suivant — 2026-10-18. */
+/* Navigation du haut, commune à toutes les salles. Aucun lien ou bouton n'est supprimé. */
+
+/* Titres de chapitre unifiés : conservation de l'alignement horizontal sur mobile. */
+@media(max-width:700px){
+  .gab .gab-chapitre-tete .gab-chapitre-num{font-size:clamp(17px,4vw,22px);gap:11px;letter-spacing:.035em}
+  .gab .gab-chapitre-tete .gab-chapitre-num b{flex-basis:48px;width:48px;height:48px;border-radius:14px;font-size:19px}
+}
+
+/* Axes de recherche : lecture continue et sommaire du gabarit de la thèse. */
+.gab[data-gab-salle="axes"] .axes-introduction{margin:0 0 28px;padding:0;border:0;background:none}
+.gab[data-gab-salle="axes"] .axes-introduction>.surtitre{display:none}
+.gab[data-gab-salle="axes"] .axes-famille{margin:0 0 34px}
+.gab[data-gab-salle="axes"] .axes-famille>header{margin:0 0 10px;padding:0 0 12px;border-bottom:1px solid #d7e4e9}
+.gab[data-gab-salle="axes"] .axes-famille>header h3{font:650 23px/1.4 var(--sans);color:var(--gab-marine)}
+.gab[data-gab-salle="axes"] .axes-famille>header>span{display:none}
+.gab[data-gab-salle="axes"] .axes-cartes{display:block}
+.gab[data-gab-salle="axes"] .axe-carte{display:block;min-width:0;margin:0;padding:24px 0;border:0;border-bottom:1px solid #d7e4e9;border-radius:0;box-shadow:none;background:none;scroll-margin-top:calc(var(--salle-barre-hauteur,130px) + 24px)}
+.gab[data-gab-salle="axes"] .axe-carte::before{display:none}
+.gab[data-gab-salle="axes"] .axe-carte-tete{margin:0 0 12px;color:var(--axe)}
+.gab[data-gab-salle="axes"] .axe-carte-tete>svg{display:none}
+.gab[data-gab-salle="axes"] .axe-carte h4{font:650 clamp(21px,2.4vw,25px)/1.4 var(--sans);margin:0 0 14px}
+.gab[data-gab-salle="axes"] .axe-carte h4 a{color:var(--gab-marine)}
+.gab[data-gab-salle="axes"] .axe-description{margin:0 0 18px}
+.gab[data-gab-salle="axes"] .axe-associations{margin:0;padding:0;background:none;border:0}
+.gab[data-gab-salle="axes"] .axe-associations ul{display:grid;gap:8px}
+.gab[data-gab-salle="axes"] .axe-associations li a{border:1px solid #d7e4e9;border-inline-start:3px solid var(--axe);border-radius:10px;padding:12px 14px;background:#f7fafb}
+@media(max-width:979px){.gab[data-gab-salle="axes"] .section-corps{grid-template-columns:minmax(0,1fr)!important;gap:24px}}
+
+/* Le menu de lecture reste disponible pour un chapitre unique. */
+.gab[data-gab-salle="axes"] .gab-lecture-integrale .axes-introduction>:is(h2,.surtitre){display:none}
+.gab[data-gab-salle="axes"] .gab-lecture-integrale{display:block;width:100%;max-width:none}
+.gab[data-gab-salle="axes"] .gab-corps .axes-famille{width:100%;max-width:none}
+
+.gab[data-gab-salle="axes"] .gab-corps p{text-align:start!important;text-align-last:auto!important;word-spacing:normal;hyphens:none}
+
+/* Représentation étudiante : un récit de mandats, dans un chapitre unique. */
+.gab.gab-engagements .gab-lecture-integrale{width:100%;min-width:0}
+.gab.gab-engagements .representation-editorial{min-width:0}
+.gab.gab-engagements .representation-ouverture{display:grid;grid-template-columns:minmax(0,1fr) 160px;gap:30px;align-items:center;padding:30px;margin:0 0 34px;background:linear-gradient(120deg,#eef7f7,#f4f7fc);border:1px solid #d7e7e8;border-radius:20px;position:relative;overflow:hidden}
+.gab.gab-engagements .representation-presentation{position:relative;min-width:0}
+.gab.gab-engagements .representation-presentation>.surtitre{display:none}
+.gab.gab-engagements .representation-presentation h2{margin:0 0 12px;max-width:25ch;color:#173f52}
+.gab.gab-engagements .representation-presentation p{margin:0;color:#506974;text-align:start!important}
+.gab.gab-engagements .representation-repere{display:grid;justify-items:center;gap:4px;border-inline-start:1px solid #c5dddd;padding-inline-start:24px;color:#116c7b}
+.gab.gab-engagements .representation-repere>span{font:400 64px/1 var(--serif);letter-spacing:-.05em}
+.gab.gab-engagements .representation-repere small{max-width:13ch;text-align:center;font:500 12px/1.5 var(--sans)}
+.gab.gab-engagements .representation-periode{margin:0 0 34px}
+.gab.gab-engagements .representation-section-titre{display:flex;align-items:center;gap:14px;margin:0 0 20px;color:#173f52}
+.gab.gab-engagements .representation-section-titre::after{content:"";height:1px;background:#d7e5e8;flex:1}
+.gab.gab-engagements .representation-mandats{display:grid;gap:0;list-style:none;margin:0;padding:0}
+.gab.gab-engagements .representation-mandat{position:relative;display:grid;grid-template-columns:155px minmax(0,1fr);gap:24px;margin:0;padding:23px 0;border:0;border-bottom:1px solid #e0e9ec;background:none;box-shadow:none;border-radius:0}
+.gab.gab-engagements .representation-mandat::before{display:none}
+.gab.gab-engagements .representation-date{display:flex;align-items:flex-start;gap:12px;padding-top:3px;min-width:0}
+.gab.gab-engagements .representation-numero{display:grid;place-items:center;flex:0 0 30px;height:30px;border-radius:50%;background:#e6f3f0;color:#267362;font:550 12px/1 var(--sans)}
+.gab.gab-engagements .representation-date .date{display:block;padding:0;margin:0;background:none;border:0;color:#526c77;font:500 12px/1.5 var(--sans);text-transform:none;letter-spacing:0;min-width:0}
+.gab.gab-engagements .representation-mandat>div:last-child{min-width:0}
+.gab.gab-engagements .representation-mandat h4{margin:0 0 8px;text-align:start!important;hyphens:none;overflow-wrap:normal;color:#173f52}
+.gab.gab-engagements .representation-mandat p{margin:0;color:#526974;text-align:start!important}
+.gab.gab-engagements [data-periode="precedent"] .representation-mandats{padding:0 22px;border:1px solid #e0e9ec;border-radius:16px;background:#f7f9fb}
+.gab.gab-engagements [data-periode="precedent"] .representation-mandat:last-child{border-bottom:0}
+.gab.gab-engagements [data-periode="precedent"] .representation-numero{background:#e9eff7;color:#426b94}
+@media(max-width:700px){.gab.gab-engagements .representation-ouverture{grid-template-columns:minmax(0,1fr);gap:20px;padding:22px}.gab.gab-engagements .representation-repere{display:flex;gap:16px;border-inline-start:0;border-top:1px solid #c5dddd;padding:18px 0 0}.gab.gab-engagements .representation-repere>span{font-size:44px}.gab.gab-engagements .representation-repere small{text-align:start;max-width:18ch}.gab.gab-engagements .representation-mandat{grid-template-columns:minmax(0,1fr);gap:12px;padding:20px 0}.gab.gab-engagements .representation-date{align-items:center}.gab.gab-engagements [data-periode="precedent"] .representation-mandats{padding:0 16px}}
+
+.gab.gab-engagements .representation-presentation h2{text-align:start!important;max-width:none}
+.gab.gab-engagements .representation-date :is(.date,.representation-numero){text-align:start!important;text-align-last:auto!important;word-spacing:normal}
+
+/* Engagements : même langage éditorial pour les cinq rubriques. */
+.gab.gab-engagements .engagements-reseau{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px;list-style:none;margin:0;padding:0}
+.gab.gab-engagements .engagements-reseau>li{display:flex;gap:14px;align-items:flex-start;padding:18px 0;margin:0;border-bottom:1px solid #e0e9ec;text-align:start}
+.gab.gab-engagements .engagements-reseau-numero{flex:0 0 27px;padding-top:2px;color:#34867d;font:500 12px/1.5 var(--sans)}
+.gab.gab-engagements .engagements-reseau>li>span:last-child{min-width:0;color:#244b5b;line-height:1.65}
+.gab.gab-engagements .engagements-galerie{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:26px!important;margin:0!important;padding:0!important}
+.gab.gab-engagements .engagements-galerie .loisir{display:flex!important;flex-direction:column;min-width:0;margin:0!important;padding:0!important;border:1px solid #dfE8eb!important;border-radius:16px!important;overflow:hidden;background:#fff;box-shadow:none!important;transition:transform .2s,border-color .2s}
+.gab.gab-engagements .engagements-galerie .loisir:hover{transform:translateY(-3px);border-color:#9abfc7!important}
+.gab.gab-engagements .engagements-galerie .loisir>img{display:block;width:100%!important;height:auto!important;aspect-ratio:16/10;object-fit:cover;border-radius:0!important;margin:0!important}
+.gab.gab-engagements .engagements-galerie .loisir figcaption{position:static!important;display:grid;gap:10px;padding:22px!important;background:#fff!important;color:#244b5b!important;min-height:0!important;text-align:start}
+.gab.gab-engagements .engagements-galerie figcaption>span{font:500 12px/1.4 var(--sans);letter-spacing:.05em;color:#287b79;text-transform:uppercase}
+.gab.gab-engagements .engagements-galerie figcaption h4{margin:0;color:#173f52;text-align:start!important}
+.gab.gab-engagements .engagements-galerie figcaption small{font:400 14px/1.6 var(--sans);color:#526974;text-align:start}
+.gab.gab-engagements .engagements-galerie figcaption .credit-image{font-size:11px;color:#6b8189}
+@media(max-width:700px){.gab.gab-engagements .engagements-reseau,.gab.gab-engagements .engagements-galerie{grid-template-columns:minmax(0,1fr)!important}.gab.gab-engagements .engagements-galerie{gap:20px!important}}
+@media(prefers-reduced-motion:reduce){.gab.gab-engagements .engagements-galerie .loisir{transition:none}}
+/* Sports et loisirs : huit images dans une mosaïque de deux rangées sur ordinateur.
+   Les descriptions complètes sont révélées au survol ou à la prise de focus,
+   et restent toujours visibles dans les cartes sur les écrans plus étroits. */
+@media (min-width:981px){
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie{
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    gap:12px!important;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir,
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir:first-child,
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir:nth-child(2){
+    grid-column:auto!important;
+    position:relative;
+    height:clamp(116px,18vh,170px);
+    min-height:0;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir>img,
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir:nth-child(-n+2)>img{
+    display:block;
+    width:100%!important;
+    height:100%!important;
+    aspect-ratio:auto!important;
+    object-fit:cover;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir figcaption{
+    position:absolute!important;
+    inset:auto 0 0;
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+    padding:28px 12px 10px!important;
+    max-height:100%;
+    overflow:auto;
+    background:linear-gradient(to bottom,transparent,rgba(7,30,45,.94))!important;
+    color:#fff!important;
+    text-align:left;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie figcaption>span{
+    color:#d2f0ee!important;
+    font-size:10px;
+    line-height:1.2;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie figcaption h4{
+    color:#fff!important;
+    font:650 14px/1.2 var(--sans);
+    text-align:left!important;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie figcaption small,
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie figcaption .credit-image{
+    max-height:0;
+    opacity:0;
+    overflow:hidden;
+    color:#f1f7f8!important;
+    font:400 11px/1.35 var(--sans);
+    transition:max-height .15s ease,opacity .15s ease;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir:is(:hover,:focus-within) figcaption small,
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir:is(:hover,:focus-within) figcaption .credit-image{
+    max-height:160px;
+    opacity:1;
+    overflow:auto;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir:focus-visible{
+    outline:3px solid #0879be;
+    outline-offset:3px;
+  }
+  .gab.gab-engagements .engagements-loisirs .representation-ouverture{
+    padding:14px 20px;
+    margin-bottom:14px;
+    gap:18px;
+  }
+  .gab.gab-engagements .engagements-loisirs .representation-presentation h2{
+    margin-bottom:5px;
+    font-size:clamp(20px,1.8vw,26px);
+    line-height:1.2;
+  }
+  .gab.gab-engagements .engagements-loisirs .representation-repere>span{font-size:42px}
+  .gab.gab-engagements .engagements-loisirs .representation-section-titre{margin-bottom:10px}
+  .gab.gab-engagements .engagements-loisirs .representation-periode{margin-bottom:0}
+}
+@media (max-width:980px){
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:12px!important;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir,
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir:first-child,
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir:nth-child(2){
+    grid-column:auto!important;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir>img,
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir:nth-child(-n+2)>img{
+    height:145px!important;
+    aspect-ratio:auto!important;
+    object-fit:cover;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir figcaption{
+    padding:12px!important;
+    gap:5px;
+  }
+}
+@media (max-width:700px){
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir>img,
+  .gab.gab-engagements .engagements-loisirs .engagements-galerie>.loisir:nth-child(-n+2)>img{
+    height:155px!important;
+  }
+}
+
+/* Page Parcours uniquement : frise compacte, sans sommaire latéral.
+   Les menus des autres rubriques et le contenu des étapes restent inchangés. */
+.gab[data-gab-salle="parcours"] .gab-chapitre-grille,
+.gab[data-gab-salle="parcours"] .gab-chapitre-grille.gab-menu-universel:not(.gab-menu-gauche){
+  display:block!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  gap:0!important;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre-aside{
+  display:none!important;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre-texte,
+.gab[data-gab-salle="parcours"] .gab-lecture-integrale{
+  width:100%!important;
+  max-width:none!important;
+  min-width:0;
+  grid-column:auto!important;
+  grid-row:auto!important;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre-tete{
+  margin-bottom:12px;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre-num b{
+  width:48px;
+  height:48px;
+  flex-basis:48px;
+  border-radius:12px;
+  font-size:18px;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre-num{
+  gap:12px;
+  font-size:clamp(18px,1.8vw,23px);
+}
+.gab[data-gab-salle="parcours"] .gab-lecture-integrale>.colonne-texte{
+  max-width:100%;
+}
+.gab[data-gab-salle="parcours"] .gab-lecture-integrale .intro,
+.gab[data-gab-salle="parcours"] .gab-lecture-integrale .sous-titre{
+  max-width:86ch;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre .frise{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:11px!important;
+  width:100%;
+  margin:0!important;
+  padding:0!important;
+  align-items:stretch;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre .frise>li{
+  display:flex!important;
+  flex-direction:column;
+  min-width:0;
+  gap:6px!important;
+  margin:0!important;
+  padding:13px 15px!important;
+  border:1px solid #dce6e9;
+  border-inline-start:3px solid var(--accent,#36718b);
+  border-radius:10px;
+  background:#fff;
+  box-shadow:none!important;
+  height:auto;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre .frise>li.formation{
+  border-inline-start-color:#286d5c;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre .frise>li.entreprise{
+  border-inline-start-color:#c08a2e;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre .frise .date{
+  display:block;
+  padding:0;
+  margin:0;
+  font:650 12px/1.3 var(--sans);
+  color:#446679;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre .frise>li>div{
+  min-width:0;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre .frise .type{
+  padding:2px 7px;
+  font-size:10px;
+  letter-spacing:.025em;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre .frise h4{
+  font:650 15px/1.3 var(--sans)!important;
+  margin:7px 0 4px!important;
+  color:#173f52!important;
+}
+.gab[data-gab-salle="parcours"] .gab-chapitre .frise p{
+  font-size:13px!important;
+  line-height:1.42!important;
+  margin:3px 0 0!important;
+  max-width:none;
+  color:#526974;
+  text-align:justify;
+  hyphens:auto;
+}
+@media(max-width:1100px){
+  .gab[data-gab-salle="parcours"] .gab-chapitre .frise{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+@media(max-width:680px){
+  .gab[data-gab-salle="parcours"] .gab-chapitre .frise{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  .gab[data-gab-salle="parcours"] .gab-chapitre .frise>li{
+    padding:12px 14px!important;
+  }
+}
+
+/* Sommaires fidèles aux niveaux de titres, sans modifier la palette commune. */
+.gab .gab-sommaire-groupe-liens a[data-gab-profondeur="2"]{margin-inline-start:12px;max-width:calc(100% - 12px)}
+.gab .gab-sommaire-groupe-liens a[data-gab-profondeur="3"]{margin-inline-start:18px;max-width:calc(100% - 18px)}
+.gab .gab-sommaire-groupe a{white-space:normal;overflow-wrap:break-word;hyphens:none}
+
+
+.gab .gab-sommaire-basculer{display:none}
+@media(max-width:700px){
+ .gab .gab-sommaire-basculer{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;border:0;padding:0;background:transparent;color:var(--gab-marine);font:700 14px/1.4 var(--sans);text-align:start;cursor:pointer}
+ .gab .gab-sommaire-basculer:focus-visible{outline:2px solid var(--gab-bleu);outline-offset:4px}
+ .gab .gab-sommaire-chapitre>span{display:none}
+ .gab .gab-sommaire-chapitre[data-gab-replie="oui"]>:not(.gab-sommaire-basculer){display:none}
+ .gab .gab-sommaire-chapitre[data-gab-replie="non"]>.gab-sommaire-basculer{margin-bottom:10px}
+}
+
+/* JURISTE : mosaïque compacte des six domaines.
+   Cette exception ne touche ni les autres expertises, ni les menus transversaux. */
+@media(min-width:1280px){
+  .gab[data-gab-salle="juriste"].gab-rubrique-complete .gab-chapitres{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    align-items:stretch;
+    gap:12px!important;
+    padding:0 0 64px!important;
+    margin:0!important;
+    position:relative;
+  }
+}
+@media(min-width:760px) and (max-width:1279px){
+  .gab[data-gab-salle="juriste"].gab-rubrique-complete .gab-chapitres{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    align-items:stretch;
+    gap:12px!important;
+    padding:0 0 64px!important;
+    position:relative;
+  }
+}
+@media(min-width:760px){
+  .gab[data-gab-salle="juriste"].gab-rubrique-complete .gab-chapitres>.gab-chapitre{
+    display:block!important;
+    min-width:0;
+    min-height:0;
+    margin:0!important;
+    padding:13px 14px!important;
+    background:#fff;
+    border:1px solid #d9e5ea!important;
+    border-radius:13px;
+    box-shadow:none!important;
+    scroll-margin-top:calc(var(--salle-barre-hauteur,90px) + 12px);
+  }
+  .gab[data-gab-salle="juriste"].gab-rubrique-complete .gab-chapitres>.gab-chapitre:first-child{
+    border-top:1px solid #d9e5ea!important;
+    padding-top:13px!important;
+  }
+  .gab[data-gab-salle="juriste"] .gab-chapitre-grille,
+  .gab[data-gab-salle="juriste"] .gab-chapitre-grille.gab-menu-universel:not(.gab-menu-gauche){
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) 105px!important;
+    align-items:start!important;
+    gap:10px!important;
+  }
+  .gab[data-gab-salle="juriste"] .gab-chapitre-grille>.gab-chapitre-texte,
+  .gab[data-gab-salle="juriste"] .gab-menu-universel:not(.gab-menu-gauche)>.gab-chapitre-texte{
+    grid-column:1!important;
+    grid-row:1!important;
+    min-width:0;
+  }
+  .gab[data-gab-salle="juriste"] .gab-chapitre-grille>.gab-chapitre-aside,
+  .gab[data-gab-salle="juriste"] .gab-menu-universel:not(.gab-menu-gauche)>.gab-chapitre-aside{
+    grid-column:2!important;
+    grid-row:1!important;
+    position:static!important;
+    width:105px!important;
+    min-width:0;
+    display:block;
+  }
+  .gab[data-gab-salle="juriste"] .gab-chapitre-aside .gab-sommaire-chapitre{
+    display:none!important;
+  }
+  .gab[data-gab-salle="juriste"] .gab-chapitre-tete{margin:0 0 9px!important;}
+  .gab[data-gab-salle="juriste"] .gab-chapitre-num{
+    display:flex!important;
+    align-items:flex-start!important;
+    gap:8px!important;
+    font:700 15px/1.26 var(--sans)!important;
+    letter-spacing:0!important;
+    text-transform:none!important;
+  }
+  .gab[data-gab-salle="juriste"] .gab-chapitre-num b{
+    flex:0 0 29px!important;
+    width:29px!important;
+    height:29px!important;
+    border-radius:8px!important;
+    font:650 12px/1 var(--sans)!important;
+    box-shadow:none!important;
+  }
+  .gab[data-gab-salle="juriste"] .gab-chapitre-num>span{
+    padding-top:4px;
+    min-width:0;
+  }
+  .gab[data-gab-salle="juriste"] .gab-photo{margin:0!important}
+  .gab[data-gab-salle="juriste"] .gab-photo img{
+    display:block;
+    width:100%!important;
+    height:78px!important;
+    aspect-ratio:4/3!important;
+    object-fit:cover!important;
+    border-radius:9px!important;
+    box-shadow:none!important;
+  }
+  .gab[data-gab-salle="juriste"] .gab-credit{
+    margin-top:3px!important;
+    font:400 9px/1.22 var(--sans)!important;
+    overflow-wrap:anywhere;
+  }
+  .gab[data-gab-salle="juriste"] .gab-corps{
+    padding:0!important;
+    margin:0!important;
+    min-width:0;
+  }
+  .gab[data-gab-salle="juriste"] .gab-corps .carte-vitrine{
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    margin:0!important;
+    padding:0!important;
+  }
+  .gab[data-gab-salle="juriste"] .gab-corps .groupe-corps{
+    margin:0!important;
+    padding:0!important;
+  }
+  .gab[data-gab-salle="juriste"] .gab-corps .vitrine-liste{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:4px!important;
+    list-style:none;
+    padding:0!important;
+    margin:0!important;
+  }
+  .gab[data-gab-salle="juriste"] .gab-corps .vitrine-liste li,
+  .gab[data-gab-salle="juriste"] .gab-corps .vitrine-liste li:not(.note){
+    position:relative;
+    min-width:0;
+    margin:0!important;
+    padding:0 0 0 11px!important;
+    color:#435c69;
+    font:400 12px/1.27 var(--sans)!important;
+    text-align:start!important;
+    hyphens:auto;
+    overflow-wrap:break-word;
+  }
+  .gab[data-gab-salle="juriste"] .gab-corps .vitrine-liste li::before{
+    inset-inline-start:0;
+    top:.48em;
+    width:4px;
+    height:4px;
+    background:#1685a4;
+  }
+  .gab[data-gab-salle="juriste"] .gab-chapitres>.gab-chapitre:last-child{
+    position:static!important;
+  }
+}
+@media(max-width:759px){
+  .gab[data-gab-salle="juriste"] .gab-chapitres>.gab-chapitre{
+    margin-top:12px!important;
+    padding-top:13px!important;
+  }
+  .gab[data-gab-salle="juriste"] .gab-chapitre-grille{
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:10px!important;
+  }
+  .gab[data-gab-salle="juriste"] .gab-chapitre-aside{
+    display:block;
+    position:static!important;
+    order:0;
+    width:min(100%,230px);
+  }
+  .gab[data-gab-salle="juriste"] .gab-photo img{
+    aspect-ratio:16/8;
+    max-height:115px;
+    border-radius:10px;
+  }
+  .gab[data-gab-salle="juriste"] .gab-chapitre-aside .gab-sommaire-chapitre{display:none!important}
+  .gab[data-gab-salle="juriste"] .gab-corps .vitrine-liste{
+    gap:5px;
+  }
+  .gab[data-gab-salle="juriste"] .gab-corps .vitrine-liste li:not(.note){
+    font-size:14px!important;
+    line-height:1.4!important;
+  }
+}
+
+
+/* GESTIONNAIRE | une seule page de direction, sans illustrations génériques.
+   Les six compétences restent intégrales et lisibles ; le gabarit des autres
+   rubriques du site est inchangé. */
+.gab[data-gab-salle="gestionnaire"]{
+  --direction-encre:#173044;
+  --direction-secondaire:#425a69;
+  --direction-filet:#d9e2e7;
+  --direction-accent:#b98b50;
+  --gab-largeur:1520px;
+}
+.gab[data-gab-salle="gestionnaire"].section-contenu,
+.salle .gab[data-gab-salle="gestionnaire"].section-contenu{
+  padding-top:12px!important;
+  padding-bottom:22px!important;
+}
+.gab[data-gab-salle="gestionnaire"] .bandeau.gab-bandeau{
+  position:relative;
+  isolation:isolate;
+  height:auto!important;
+  min-height:104px!important;
+  margin:0!important;
+  padding:17px 26px 18px!important;
+  border-radius:13px!important;
+  background:#173044!important;
+  background-image:linear-gradient(100deg,#102a3b 2%,#1d4258 73%,#24475a 100%)!important;
+  background-size:cover!important;
+  box-shadow:none!important;
+}
+.gab[data-gab-salle="gestionnaire"] .gab-bandeau::before{
+  content:"";
+  pointer-events:none;
+  position:absolute;
+  inset:12px 30px 10px auto;
+  width:230px;
+  opacity:.28;
+  background:
+    radial-gradient(circle at 50% 16%,#f1d7a4 0 5px,transparent 5.5px),
+    radial-gradient(circle at 16% 77%,#d2e1e7 0 4px,transparent 4.5px),
+    radial-gradient(circle at 50% 77%,#d2e1e7 0 4px,transparent 4.5px),
+    radial-gradient(circle at 84% 77%,#d2e1e7 0 4px,transparent 4.5px),
+    linear-gradient(#d2e1e7,#d2e1e7) center 33% / 1px 38% no-repeat,
+    linear-gradient(#d2e1e7,#d2e1e7) center 70% / 68% 1px no-repeat,
+    linear-gradient(#d2e1e7,#d2e1e7) 16% 74% / 1px 8% no-repeat,
+    linear-gradient(#d2e1e7,#d2e1e7) 50% 74% / 1px 8% no-repeat,
+    linear-gradient(#d2e1e7,#d2e1e7) 84% 74% / 1px 8% no-repeat;
+}
+.gab[data-gab-salle="gestionnaire"] .gab-bandeau::after{
+  height:3px!important;
+  background:linear-gradient(90deg,#b98b50,#d9bc87 33%,transparent 80%)!important;
+}
+.gab[data-gab-salle="gestionnaire"] .gab-bandeau .bandeau-texte{
+  max-width:calc(100% - 260px)!important;
+  gap:2px!important;
+}
+.gab[data-gab-salle="gestionnaire"] .gab-bandeau .bandeau-num{color:#d9c39f!important}
+.gab[data-gab-salle="gestionnaire"] .gab-bandeau .bandeau-legende{color:#e0e8ed!important}
+.gab[data-gab-salle="gestionnaire"] .gab-puces,
+.gab[data-gab-salle="gestionnaire"] .gab-programme,
+.gab[data-gab-salle="gestionnaire"] .gab-chapitre-aside,
+.gab[data-gab-salle="gestionnaire"] .gab-chapitre-tete{display:none!important}
+.gab[data-gab-salle="gestionnaire"] .gab-chapitres,
+.gab[data-gab-salle="gestionnaire"] .gab-chapitres>.gab-chapitre,
+.gab[data-gab-salle="gestionnaire"] .gab-chapitre-grille,
+.gab[data-gab-salle="gestionnaire"] .gab-chapitre-texte,
+.gab[data-gab-salle="gestionnaire"] .gab-corps{
+  width:100%!important;
+  max-width:none!important;
+  min-width:0;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+}
+.gab[data-gab-salle="gestionnaire"] .gab-chapitres{padding-top:13px!important}
+.gab[data-gab-salle="gestionnaire"] .gab-chapitre-grille,
+.gab[data-gab-salle="gestionnaire"] .gab-chapitre-grille.gab-menu-universel{
+  display:block!important;
+}
+.gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale.gab-source{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:13px;
+}
+.gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale>.colonne-texte{
+  display:grid!important;
+  grid-template-columns:minmax(0,5fr) minmax(0,8fr);
+  align-items:center;
+  column-gap:34px;
+  row-gap:3px;
+  min-width:0;
+  max-width:none!important;
+  width:100%;
+  margin:0!important;
+  padding:0 2px 11px!important;
+  border-bottom:1px solid var(--direction-filet);
+}
+.gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale>.colonne-texte>.surtitre{display:none!important}
+.gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale>.colonne-texte h2{
+  grid-column:1;grid-row:1;
+  margin:0!important;
+  max-width:none!important;
+  color:var(--direction-encre)!important;
+}
+.gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale>.colonne-texte>p{
+  grid-column:2;grid-row:1;
+  margin:0!important;
+  max-width:none!important;
+  color:var(--direction-secondaire)!important;
+}
+.gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale>.colonne-outils{
+  display:block!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+}
+.gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale .grille-vitrine{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  align-items:stretch!important;
+  gap:11px!important;
+  margin:0!important;
+  padding:0!important;
+  counter-reset:direction;
+}
+.gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale .carte-vitrine{
+  --direction-carte:#254f66;
+  position:relative!important;
+  display:block!important;
+  min-width:0;
+  margin:0!important;
+  padding:13px 16px 13px 18px!important;
+  grid-column:auto!important;
+  border:1px solid var(--direction-filet)!important;
+  border-radius:11px!important;
+  background:#fff!important;
+  box-shadow:0 2px 10px rgba(16,44,63,.035)!important;
+  counter-increment:direction;
+  overflow:hidden;
+}
+.gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale .carte-vitrine:nth-child(2){--direction-carte:#39726e}
+.gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale .carte-vitrine:nth-child(3){--direction-carte:#52647e}
+.gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale .carte-vitrine:nth-child(4){--direction-carte:#a27642}
+.gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale .carte-vitrine:nth-child(5){--direction-carte:#637d6b}
+.gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale .carte-vitrine:nth-child(6){--direction-carte:#42627b;background:#f9fbfc!important}
+.gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale .carte-vitrine::after{
+  content:"";
+  position:absolute;
+  inset:0 auto 0 0;
+  width:3px;
+  background:var(--direction-carte);
+}
+.gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale .carte-vitrine::before{
+  content:counter(direction,decimal-leading-zero);
+  position:absolute;
+  right:13px;top:10px;
+  color:var(--direction-carte);
+  opacity:.65;
+}
+.gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale .groupe-corps{
+  margin:0!important;
+  padding:0!important;
+  background:transparent!important;
+}
+.gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale .titre-bloc{
+  margin:0 25px 8px 0!important;
+  padding:0 0 7px!important;
+  border-bottom:1px solid #e7edf0;
+  color:var(--direction-encre)!important;
+  max-width:none!important;
+}
+.gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale .vitrine-liste{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  gap:3px!important;
+  margin:0!important;
+  padding:0!important;
+  list-style:none;
+}
+.gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale .vitrine-liste li{
+  min-width:0;
+  margin:0!important;
+  padding:0 0 0 12px!important;
+  color:#3b5262;
+  overflow-wrap:anywhere;
+}
+.gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale .vitrine-liste li::before{
+  width:4px;height:4px;
+  left:1px;top:.6em;
+  border-radius:1px;
+  background:var(--direction-carte);
+}
+html:is(.hc,.lv) .gab[data-gab-salle="gestionnaire"] .carte-vitrine{
+  color:#111!important;
+  background:#fff!important;
+  border:2px solid #263c4b!important;
+}
+@media(max-width:1160px){
+  .gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale .grille-vitrine{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+@media(max-width:760px){
+  .gab[data-gab-salle="gestionnaire"] .bandeau.gab-bandeau{
+    min-height:90px!important;
+    padding:13px 17px!important;
+  }
+  .gab[data-gab-salle="gestionnaire"] .gab-bandeau::before{display:none}
+  .gab[data-gab-salle="gestionnaire"] .gab-bandeau .bandeau-texte{max-width:100%!important}
+  .gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale>.colonne-texte{
+    display:block!important;
+    padding-bottom:11px!important;
+  }
+  .gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale>.colonne-texte h2{margin:0 0 7px!important}
+  .gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale .grille-vitrine{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  .gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale .carte-vitrine{padding:14px 16px!important}
+}
+@media(min-width:1161px) and (max-height:780px){
+  .gab[data-gab-salle="gestionnaire"] .bandeau.gab-bandeau{min-height:82px!important;padding-top:12px!important;padding-bottom:12px!important}
+  .gab[data-gab-salle="gestionnaire"] .gab-chapitres{padding-top:9px!important}
+  .gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale.gab-source{gap:9px}
+  .gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale .grille-vitrine{gap:8px!important}
+  .gab[data-gab-salle="gestionnaire"] .gab-lecture-integrale .carte-vitrine{padding-top:10px!important;padding-bottom:10px!important}
+}
+
+
+/* Valeurs : page unique, six cartes et devise. Octobre 2026.
+   Portée limitée à la rubrique Valeurs, sans modifier les autres salles. */
+.gab[data-gab-salle="valeurs"] .gab-bandeau,
+#valeurs .bandeau{
+  background-image:linear-gradient(112deg,#233c59 0%,#46517b 47%,#755e83 100%)!important;
+  min-height:92px!important;
+  height:auto!important;
+  padding:12px 24px!important;
+  border-radius:15px!important;
+  box-shadow:none!important;
+}
+.gab[data-gab-salle="valeurs"] .gab-bandeau::before,
+.gab[data-gab-salle="valeurs"] .gab-bandeau::after{display:none!important}
+.gab[data-gab-salle="valeurs"] .gab-bandeau .bandeau-titre{font-size:clamp(27px,2.55vw,36px)!important;line-height:1.06!important}
+.gab[data-gab-salle="valeurs"] .gab-bandeau .bandeau-legende{font-size:13px!important;line-height:1.2!important}
+.gab[data-gab-salle="valeurs"] .gab-programme,
+.gab[data-gab-salle="valeurs"] .gab-photo,
+.gab[data-gab-salle="valeurs"] .gab-chapitre-aside{display:none!important}
+.gab[data-gab-salle="valeurs"] .section-corps.pleine,
+.gab[data-gab-salle="valeurs"] .gab-chapitres,
+.gab[data-gab-salle="valeurs"] .gab-chapitre,
+.gab[data-gab-salle="valeurs"] .gab-chapitre-grille,
+.gab[data-gab-salle="valeurs"] .gab-chapitre-texte,
+.gab[data-gab-salle="valeurs"] .gab-corps{
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+}
+.gab[data-gab-salle="valeurs"] .section-corps.pleine{display:block!important;margin-top:10px!important}
+.gab[data-gab-salle="valeurs"] .gab-chapitre{border-top:0!important;padding-top:0!important}
+.gab[data-gab-salle="valeurs"] .gab-chapitre-grille{display:block!important}
+.gab[data-gab-salle="valeurs"] .gab-chapitre-tete{margin:0 0 6px!important}
+.gab[data-gab-salle="valeurs"] .gab-chapitre-num{font-size:clamp(19px,2vw,25px)!important;gap:10px!important;letter-spacing:0!important;text-transform:none!important}
+.gab[data-gab-salle="valeurs"] .gab-chapitre-num b{width:31px!important;min-width:31px!important;height:31px!important;font-size:13px!important}
+.gab[data-gab-salle="valeurs"] .gab-corps{margin:0!important;padding:0!important}
+.gab[data-gab-salle="valeurs"] .gab-lecture-integrale{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  gap:0!important;
+  width:100%!important;
+  max-width:none!important;
+}
+.gab[data-gab-salle="valeurs"] .gab-lecture-integrale > .colonne-texte{display:contents!important}
+.gab[data-gab-salle="valeurs"] .gab-lecture-integrale .surtitre,
+.gab[data-gab-salle="valeurs"] .gab-lecture-integrale .colonne-texte > h2{display:none!important}
+.gab[data-gab-salle="valeurs"] .gab-lecture-integrale .intro{
+  grid-row:1;
+  max-width:none!important;
+  margin:0 0 11px!important;
+  font-size:14px!important;
+  line-height:1.35!important;
+  color:#48616e!important;
+  text-align:left!important;
+}
+.gab[data-gab-salle="valeurs"] .gab-lecture-integrale > .colonne-outils{
+  grid-row:2;
+  width:100%!important;
+  max-width:none!important;
+  columns:auto!important;
+  margin:0!important;
+  padding:0!important;
+}
+.gab[data-gab-salle="valeurs"] .valeurs-grille,
+#valeurs .valeurs-grille{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:11px!important;
+  width:100%!important;
+  margin:0!important;
+}
+.gab[data-gab-salle="valeurs"] .valeur,
+#valeurs .valeur{
+  min-width:0!important;
+  min-height:128px!important;
+  height:auto!important;
+  padding:17px 19px 16px!important;
+  border-radius:13px!important;
+  box-shadow:0 3px 12px rgba(18,38,55,.075)!important;
+}
+.gab[data-gab-salle="valeurs"] .valeur-num{inset-inline-end:15px!important;top:10px!important;font-size:31px!important;opacity:.22!important}
+.gab[data-gab-salle="valeurs"] .gab-corps .valeur h4,
+#valeurs .valeur h4{
+  margin:0 33px 8px 0!important;
+  padding:0!important;
+  border:0!important;
+  color:#fff!important;
+  font:700 clamp(16px,1.35vw,19px)/1.19 var(--sans)!important;
+  letter-spacing:-.015em!important;
+  text-transform:none!important;
+}
+.gab[data-gab-salle="valeurs"] .gab-corps .valeur h4::before,
+#valeurs .valeur h4::before{display:none!important}
+.gab[data-gab-salle="valeurs"] .gab-corps .valeur p,
+#valeurs .valeur p{
+  margin:0!important;
+  max-width:none!important;
+  color:#f5f8fb!important;
+  font-size:13.5px!important;
+  line-height:1.43!important;
+  font-weight:400!important;
+  text-align:justify!important;
+  hyphens:auto!important;
+}
+.gab[data-gab-salle="valeurs"] .gab-lecture-integrale .devise{
+  grid-row:3;
+  display:flex!important;
+  align-items:baseline!important;
+  justify-content:center!important;
+  gap:8px 18px!important;
+  width:100%!important;
+  margin:28px 0 3px!important;
+  padding:16px 18px!important;
+  border-top:1px solid #d2dce5!important;
+  border-right:0!important;
+  border-bottom:0!important;
+  border-left:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#2e405a!important;
+  box-shadow:none!important;
+  text-align:center!important;
+}
+.gab[data-gab-salle="valeurs"] .devise-libelle{font-size:11px!important;color:#7c668a!important;letter-spacing:.16em!important}
+.gab[data-gab-salle="valeurs"] .devise-latin{font:italic 600 clamp(23px,2.1vw,30px)/1.2 Georgia,serif!important;color:#34456b!important}
+.gab[data-gab-salle="valeurs"] .devise-traduction{font-size:13px!important;color:#59717d!important}
+@media(max-width:1040px){
+  .gab[data-gab-salle="valeurs"] .valeurs-grille,#valeurs .valeurs-grille{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:640px){
+  .gab[data-gab-salle="valeurs"] .valeurs-grille,#valeurs .valeurs-grille{grid-template-columns:minmax(0,1fr)!important}
+  .gab[data-gab-salle="valeurs"] .valeur{min-height:0!important;padding:14px 17px!important}
+  .gab[data-gab-salle="valeurs"] .gab-lecture-integrale .devise{flex-direction:column!important;align-items:center!important;margin-top:20px!important}
+}
+@media(min-width:1041px) and (max-height:780px){
+  .gab[data-gab-salle="valeurs"] .gab-bandeau{min-height:77px!important;padding:9px 18px!important}
+  .gab[data-gab-salle="valeurs"] .valeur{min-height:114px!important;padding:13px 17px!important}
+  .gab[data-gab-salle="valeurs"] .valeur p{font-size:12.9px!important}
+  .gab[data-gab-salle="valeurs"] .gab-lecture-integrale .devise{margin-top:18px!important;padding-top:12px!important}
+}
+
+/* Titre intégral de la thèse, visible en ouverture du chapitre Contexte. */
+.gab-chapitre[data-gab-slug="contexte"] .these-titre-contexte{
+  box-sizing:border-box;
+  margin:2px 0 24px;
+  padding:clamp(17px,2vw,24px) clamp(18px,2.4vw,30px);
+  border:1px solid #d5e5ef;
+  border-left:4px solid #0879be;
+  border-radius:14px;
+  background:linear-gradient(110deg,#f5faff 0%,#fff 100%);
+  box-shadow:0 4px 16px rgba(17,51,77,.04);
+}
+.gab-chapitre[data-gab-slug="contexte"] .these-titre-contexte-label{
+  display:block;
+  margin:0 0 8px;
+  font:650 12px/1.3 var(--sans,Arial,sans-serif);
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  color:#32617c;
+}
+.gab-chapitre[data-gab-slug="contexte"] .these-titre-contexte-principal{
+  font:650 clamp(19px,2.15vw,25px)/1.38 var(--sans,Arial,sans-serif);
+  letter-spacing:-.015em;
+  color:#123a50;
+  text-wrap:pretty;
+}
+.gab-chapitre[data-gab-slug="contexte"] .these-titre-contexte-principal span{
+  display:block;
+  margin-top:8px;
+  font:500 clamp(16px,1.6vw,19px)/1.45 var(--sans,Arial,sans-serif);
+  letter-spacing:0;
+  color:#2a607e;
+}
+@media(max-width:640px){
+  .gab-chapitre[data-gab-slug="contexte"] .these-titre-contexte{padding:16px 18px;margin-bottom:19px}
+}
+
+/* Les pages de CV sans sommaire latéral utilisent réellement toute la largeur. */
+.gab .gab-chapitre-grille.gab-sans-aside{display:block!important;grid-template-columns:minmax(0,1fr)!important;gap:0!important}
+.gab .gab-chapitre-grille.gab-sans-aside>.gab-chapitre-texte{width:100%;min-width:0;max-width:none}
+/* Biographie : retirer uniquement le sommaire latéral superflu,
+   tout en conservant intégralement le contenu et la navigation de la porte. */
+.gab[data-gab-salle="biographie"] .gab-chapitre-aside{
+  display:none!important;
+}
+.gab[data-gab-salle="biographie"] .gab-chapitre-grille,
+.gab[data-gab-salle="biographie"] .gab-chapitre-grille.gab-menu-universel{
+  display:block!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  gap:0!important;
+}
+.gab[data-gab-salle="biographie"] .gab-chapitre-texte{
+  width:100%;
+  max-width:none;
+  min-width:0;
+}
+/* Le menu supérieur reprend son agencement commun : précédent à gauche,
+   chapitre courant centré, suivant à droite, sans barre supplémentaire. */
+
+/* Statut du sujet doctoral, discret et visible sur chaque vue Recherche. */
+.gab[data-gab-salle="recherche"] > .these-validation-ligne{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  width:100%;margin:0 0 8px;box-sizing:border-box;
+}
+.gab[data-gab-salle="recherche"] > .these-validation-ligne > .gab-methode-ligne-lecture{margin:0!important;min-height:0!important;width:auto!important}
+.gab[data-gab-salle="recherche"] > .these-validation-ligne > .these-validation-bandeau,
+.gab[data-gab-salle="recherche"] > .these-validation-bandeau {
+  display:block;
+  width:fit-content;
+  max-width:100%;
+  margin:0 0 0 auto;
+  padding:7px 14px;
+  border:1px solid #8c202c;
+  border-radius:8px;
+  background:#a52a37;
+  color:#fff;
+  box-shadow:0 2px 8px rgba(100,27,38,.12);
+  font-family:var(--type-police,Inter,Arial,sans-serif);
+  font-size:13px;
+  font-weight:750;
+  line-height:1.35;
+  letter-spacing:.005em;
+  text-align:center;
+  text-align-last:center;
+  white-space:normal;
+}
+@media(max-width:640px) {
+  .gab[data-gab-salle="recherche"] > .these-validation-bandeau {
+    max-width:min(100%,310px);
+    padding:7px 11px;
+    font-size:12px;
+  }
+}
+
+
+/* Chapitre 04 Faisabilité : bilan visuel des capacités, sans modifier les menus. */
+.gab[data-gab-salle="recherche"] .fais-capacites-projet{
+  --fais-bleu:#245d85;--fais-vert:#22746a;
+  margin:20px 0 30px;padding:clamp(16px,2.4vw,26px);
+  max-width:100%;min-width:0;box-sizing:border-box;
+  border:1px solid #cddfe6;border-top:4px solid var(--fais-bleu);border-radius:15px;
+  background:linear-gradient(140deg,#f6fbfd,#fff 65%);color:#24475a
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-entete>span{
+  font-size:11px;font-weight:800;letter-spacing:.1em;color:var(--fais-bleu)
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-entete>h3{
+  margin:5px 0 8px!important;font:800 clamp(19px,2vw,25px)/1.3 var(--sans)!important;color:#16425a!important;
+  text-align:left!important;hyphens:none
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-entete>p{
+  margin:0 0 15px;line-height:1.6!important;font-size:12pt!important;color:#4b6877;max-width:none;text-align:justify
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-chiffres{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:15px
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-chiffres>div{
+  display:flex;flex-direction:column;gap:5px;min-width:0;padding:14px 13px;
+  border-radius:10px;border:1px solid #d3e2e8;border-top:3px solid var(--fais-vert);background:white
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-chiffres>div:nth-child(2){border-top-color:#436eae}
+.gab[data-gab-salle="recherche"] .fais-capacites-chiffres>div:nth-child(3){border-top-color:#b3772e}
+.gab[data-gab-salle="recherche"] .fais-capacites-chiffres strong{
+  font:850 clamp(19px,2.5vw,27px)/1.15 var(--sans);color:#176977;letter-spacing:-.02em
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-chiffres span{
+  font-size:12pt;font-weight:750;line-height:1.5;color:#294c5d;text-align:left
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-chiffres small{
+  color:#5a7280;font-size:12pt;line-height:1.55;text-align:left
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-cols{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0 0 15px
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-cols>article{
+  min-width:0;padding:15px;border:1px solid #dae6e9;border-radius:12px;background:#fff
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-cols h4{
+  font:800 16px/1.4 var(--sans)!important;margin:0 0 12px!important;color:#22576a!important;text-align:left
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-puces{
+  display:flex;flex-wrap:wrap;gap:6px;margin:0 0 11px
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-puces span{
+  padding:5px 9px;border-radius:7px;background:#eaf3f6;color:#1d5869;font-size:12pt;font-weight:750;line-height:1.5
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-cols p{
+  margin:0;font-size:12pt!important;line-height:1.6!important;color:#4a6674;text-align:justify
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-formation{display:grid;gap:9px}
+.gab[data-gab-salle="recherche"] .fais-capacites-formation>div{
+  display:grid;grid-template-columns:minmax(112px,.75fr) minmax(0,1.6fr);
+  gap:9px;border-bottom:1px solid #e6eef0;padding-bottom:7px;
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-formation>div:last-child{border:0;padding:0}
+.gab[data-gab-salle="recherche"] .fais-capacites-formation b{
+  font-size:12pt;line-height:1.5;color:#267481
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-formation span{
+  font-size:12pt;line-height:1.6;color:#445d6a
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-flux{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:12px
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-flux>div{
+  min-width:0;display:grid;gap:5px;align-content:start;
+  background:#eef5f8;border-left:3px solid #307e92;border-radius:5px;padding:11px 12px
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-flux b{
+  color:#24637e;font-size:12pt;line-height:1.5
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-flux span{
+  color:#4a6775;font-size:12pt;line-height:1.6
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-ia{
+  padding:13px 15px;border-radius:10px;border:1px solid #d9d0e6;border-left:4px solid #8562a3;background:#f8f5fb
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-ia>strong{
+  font-size:12pt;color:#68488c;line-height:1.5
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-ia>p{
+  margin:6px 0 8px;font-size:12pt!important;line-height:1.65!important;color:#514b62;text-align:justify
+}
+.gab[data-gab-salle="recherche"] .fais-capacites-ia>small{
+  display:block;font-size:12pt;line-height:1.6;color:#685d73;text-align:justify
+}
+@media(max-width:880px){
+  .gab[data-gab-salle="recherche"] .fais-capacites-cols{grid-template-columns:minmax(0,1fr)}
+  .gab[data-gab-salle="recherche"] .fais-capacites-chiffres{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gab[data-gab-salle="recherche"] .fais-capacites-chiffres>div:last-child{grid-column:1/-1}
+}
+@media(max-width:600px){
+  .gab[data-gab-salle="recherche"] .fais-capacites-chiffres,
+  .gab[data-gab-salle="recherche"] .fais-capacites-flux{grid-template-columns:minmax(0,1fr)}
+  .gab[data-gab-salle="recherche"] .fais-capacites-chiffres>div:last-child{grid-column:auto}
+  .gab[data-gab-salle="recherche"] .fais-capacites-formation>div{grid-template-columns:minmax(0,1fr);gap:3px}
+}
+
+/* Lien de lecture réservé à l'en-tête de la Méthodologie, adjacent au titre. */
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-chapitre-tete{
+ display:flex!important;align-items:center!important;justify-content:flex-start!important;
+ flex-wrap:wrap!important;column-gap:22px!important;row-gap:12px!important;
+}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .methode-lien-grand-public{
+ display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;
+ width:auto;max-width:100%;padding:11px 16px;border:1px solid #b9d8e5;border-radius:11px;
+ background:#eaf4f8;color:#16516c;font:750 13px/1.3 var(--sans,system-ui,sans-serif);
+ letter-spacing:0;text-transform:none;text-decoration:none;box-shadow:0 3px 10px #173b5310;
+}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .methode-lien-grand-public:hover{background:#d4eaf4}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .methode-lien-grand-public:focus-visible{outline:3px solid #216a8b;outline-offset:3px}
+@media(max-width:640px){
+ .gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .methode-lien-grand-public{width:100%;flex:1 1 100%}
+}
+
+/* Page Méthodologie seulement : bouton au-dessus du menu et du titre,
+   dans l'espace libre de l'entête, et jamais à droite de « Méthodologie ». */
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture{
+ box-sizing:border-box;display:flex;align-items:center;justify-content:flex-start;
+ margin:0 0 23px;padding:0 1px;min-height:42px;width:100%;
+}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture .methode-lien-grand-public{
+ display:inline-flex!important;flex:0 0 auto;width:auto;max-width:100%;
+ align-items:center;justify-content:center;padding:11px 17px;
+ border:1px solid #b9d8e5;border-radius:10px;background:#ebf5f9;color:#15516b;
+ font:750 13px/1.35 var(--sans,system-ui,sans-serif);
+ text-decoration:none;text-transform:none;letter-spacing:0;
+ box-shadow:0 3px 10px rgba(23,59,83,.06);
+}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture .methode-lien-grand-public:hover{background:#d9edf6}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture .methode-lien-grand-public:focus-visible{outline:3px solid #24758e;outline-offset:3px}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-chapitre-tete{justify-content:flex-start!important}
+@media(max-width:620px){
+ .gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture .methode-lien-grand-public{width:100%;flex:1 1 auto}
+}
+
+
+/* Même bouton, une fois placé à gauche du bandeau de statut. */
+.gab[data-gab-salle="recherche"] > .these-validation-ligne .methode-lien-grand-public{
+ display:inline-flex!important;align-items:center!important;gap:12px!important;
+ width:auto!important;max-width:min(100%,28rem)!important;flex:0 0 auto!important;
+ padding:5px 14px 5px 5px!important;border:1px solid #f0d7b0!important;border-radius:999px!important;
+ background:#fffdf8!important;color:#12243c!important;text-align:left!important;text-decoration:none!important;
+ font-size:15px!important;font-weight:700!important;line-height:1.2!important;
+ box-shadow:0 14px 28px -16px rgba(180,110,40,.55)!important;
+}
+.gab[data-gab-salle="recherche"] > .these-validation-ligne .methode-lien-grand-public:hover{background:#fff6ea!important;color:#12243c!important;text-decoration:none!important}
+.gab[data-gab-salle="recherche"] > .these-validation-ligne .methode-lien-visage{
+ width:54px!important;height:54px!important;border-radius:999px!important;object-fit:cover!important;object-position:center 18%!important;flex:none!important;display:block!important;
+}
+.gab[data-gab-salle="recherche"] > .these-validation-ligne .methode-lien-mots{display:flex!important;flex-direction:column!important;min-width:0!important}
+.gab[data-gab-salle="recherche"] > .these-validation-ligne .methode-lien-kicker{
+ display:block!important;font-size:11px!important;font-weight:800!important;letter-spacing:.08em!important;text-transform:uppercase!important;color:#c46a12!important;text-decoration:none!important;
+}
+.gab[data-gab-salle="recherche"] > .these-validation-ligne .methode-lien-label{
+ display:block!important;font-size:15px!important;font-weight:700!important;color:#12243c!important;line-height:1.2!important;text-decoration:none!important;
+}
+.gab[data-gab-salle="recherche"] > .these-validation-ligne .methode-lien-fleche{color:#c46a12!important;font-size:18px!important;line-height:1!important;flex:none!important;text-decoration:none!important}
+
+/* Méthodologie : bouton grand public à gauche, hors menus de navigation. */
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture{
+ justify-content:flex-start!important;margin:0 0 24px!important;min-height:0!important;
+}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture .methode-lien-grand-public{
+ display:inline-flex!important;align-items:center!important;gap:12px!important;
+ width:auto!important;max-width:min(100%,28rem)!important;flex:0 0 auto!important;
+ padding:5px 14px 5px 5px!important;border:1px solid #f0d7b0!important;border-radius:999px!important;
+ background:#fffdf8!important;color:#12243c!important;text-align:left!important;text-decoration:none!important;
+ font-size:15px!important;font-weight:700!important;line-height:1.2!important;
+ box-shadow:0 14px 28px -16px rgba(180,110,40,.55)!important;
+}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .methode-lien-visage{
+ width:54px;height:54px;border-radius:999px;object-fit:cover;object-position:center 18%;flex:none;display:block;
+}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .methode-lien-mots{display:flex;flex-direction:column;min-width:0}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .methode-lien-kicker{
+ display:block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#c46a12;
+}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .methode-lien-label{
+ display:block;font-size:15px;font-weight:700;color:#12243c;line-height:1.2;
+}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .methode-lien-fleche{color:#c46a12;font-size:18px;line-height:1;flex:none}
+.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture .methode-lien-grand-public:hover{background:#fff6ea!important;color:#12243c!important}
+.methode-grand-public{max-width:1060px;color:#284251;font-size:17px;line-height:1.68}
+.methode-grand-public p{margin:0 0 13px;line-height:1.68;text-align:left!important}
+.methode-grand-public h4{font-size:25px;line-height:1.23;margin:0 0 15px;color:#153c52}
+.methode-grand-public h5{font-size:20px;line-height:1.3;margin:8px 0 10px;color:#143e52}
+.methode-grand-public .mgp-kicker{color:#076b9a;font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+.mgp-intro{border-left:6px solid #0879be;padding:19px 24px;background:#f1f8fc;border-radius:0 16px 16px 0;margin-bottom:24px}
+.mgp-histoire{display:grid;grid-template-columns:195px 1fr;gap:24px;align-items:center;padding:22px;border-radius:17px;background:#fff6e9;border:1px solid #efca98;margin:0 0 30px}
+.mgp-personnage{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;font-size:18px;color:#885112}
+.mgp-personnage strong{font-size:23px;color:#693b0e}
+.mgp-personnage small{font-size:12px;line-height:1.45}
+.mgp-etapes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0 27px}
+.mgp-etapes article{background:#fff;border:1px solid #dce8e9;border-top:5px solid #54ac39;padding:18px;border-radius:13px;min-width:0}
+.mgp-etapes article:nth-child(2){border-top-color:#0aa3a3}
+.mgp-etapes article:nth-child(3){border-top-color:#356dc3}
+.mgp-etapes article>span{font-size:13px;font-weight:850;letter-spacing:.06em;color:#397747;text-transform:uppercase}
+.mgp-etapes article:nth-child(2)>span{color:#087b7b}
+.mgp-etapes article:nth-child(3)>span{color:#275ea9}
+.mgp-etapes .mgp-sortie{background:#f1f7f9;border-radius:8px;padding:10px 12px;margin:12px 0 0}
+.mgp-definitions{border:1px solid #cde1eb;background:#f4f9fc;padding:22px 24px;border-radius:16px;margin-bottom:24px}
+.mgp-conclusion{border-left:6px solid #58a837;padding:20px 24px;background:#f4f9f0;border-radius:0 14px 14px 0;margin-bottom:22px}
+@media(max-width:850px){.mgp-etapes{grid-template-columns:1fr}.mgp-histoire{grid-template-columns:1fr}.methode-grand-public{font-size:16px}}
+@media(max-width:620px){.gab[data-gab-salle="recherche"] .gab-chapitre[data-gab-slug="methodes"] .gab-methode-ligne-lecture{justify-content:flex-start!important}}
+
+/* Parcours grand public : uniquement sur la copie methode-vulgarisee.html. */
+html[data-methodo-lecture="grand-public"] .methode-grand-public{max-width:none!important;margin:0 auto 24px;color:#294857;font-size:17px;line-height:1.65}
+html[data-methodo-lecture="grand-public"] .methode-grand-public *{box-sizing:border-box}
+html[data-methodo-lecture="grand-public"] .methode-grand-public p{font-size:inherit;line-height:1.65;max-width:none;margin:0 0 14px!important;text-align:left!important}
+html[data-methodo-lecture="grand-public"] .methode-grand-public h4{font-size:clamp(23px,2vw,30px)!important;line-height:1.2;text-align:left!important;margin:0 0 15px!important;color:#133c56}
+/* Modules visuels additionnels du récit grand public uniquement.
+   Intégration dans les couleurs et dimensions existantes ; navigation inchangée. */
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-deux-regards{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:17px 0 9px;
+}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-regard{
+ display:flex;align-items:flex-start;gap:13px;min-width:0;padding:15px 16px;
+ border-radius:14px;border:1px solid #cbdde6;background:#fff;box-shadow:0 5px 15px -14px #234e69;
+}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-regard-personne{border-top:4px solid #c98a4b;background:#fffaf4}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-regard-equipe{border-top:4px solid #28769b;background:#f4faff}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-regard-icone{
+ flex:none;display:grid;place-items:center;width:42px;height:42px;font-size:26px;
+ border-radius:12px;background:#ffffffd9;
+}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-regard b{display:block;color:#204e62;font-size:15px;line-height:1.35;margin:0 0 5px}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-regard p{margin:0!important;color:#3b5566;font-size:14px!important;line-height:1.55!important;text-align:left!important}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-question-commune{
+ padding:11px 16px 13px;text-align:center;background:#edf5f9;
+ border:1px solid #d5e5ed;border-radius:12px;color:#1a526c;
+}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-question-commune>span{
+ display:block;font-size:18px;line-height:1.1;color:#28769b;font-weight:800;margin-bottom:4px;
+}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-question-commune>strong{display:block;font-size:14px;color:#14516a}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-question-commune>p{
+ margin:3px 0 0!important;font-size:14px!important;line-height:1.5!important;text-align:center!important;
+}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin:18px 0 6px;
+}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins>div{
+ position:relative;min-width:0;padding:17px 13px;border:1px solid #d4e2ec;border-top:4px solid #4c92be;
+ border-radius:13px;background:linear-gradient(155deg,#f7fbff,#fff 80%);text-align:center;
+}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins>div:nth-child(2){border-top-color:#ba8a50;background:linear-gradient(155deg,#fdf8f0,#fff 80%)}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins>div:nth-child(3){border-top-color:#6c9c89;background:linear-gradient(155deg,#f4faf6,#fff 80%)}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins span{display:block;font-size:33px;line-height:1.25;margin:0 0 8px}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins b{display:block;color:#214f67;font-size:15px;margin:0 0 6px}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins p{
+ font-size:13px!important;line-height:1.55!important;margin:0!important;color:#466073;text-align:center!important;
+}
+html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-exemple-legende{
+ font-size:12px!important;color:#586d78;margin:0 0 15px!important;text-align:center!important;
+}
+@media(max-width:760px){
+ html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-deux-regards{grid-template-columns:1fr}
+ html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins{grid-template-columns:1fr;gap:8px}
+ html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins>div{display:grid;grid-template-columns:42px 1fr;gap:2px 9px;text-align:left;padding:12px}
+ html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins span{grid-row:span 2;align-self:center;font-size:29px;margin:0}
+ html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins b{margin:0}
+ html[data-methodo-lecture="grand-public"] .methode-grand-public .mgp-freins p{text-align:left!important}
+}
+html[data-methodo-lecture="grand-public"] .mgp-hero{border-radius:22px;padding:clamp(20px,3vw,36px);background:linear-gradient(125deg,#eaf5fd,#f7fcff 68%);border:1px solid #c5dfec;margin-bottom:24px}
+html[data-methodo-lecture="grand-public"] .mgp-hero h4{font-size:clamp(29px,3.1vw,43px)!important}
+html[data-methodo-lecture="grand-public"] .mgp-eyebrow{font-size:13px!important;color:#0879be;text-transform:uppercase;letter-spacing:.08em;font-weight:850;margin-bottom:8px!important}
+html[data-methodo-lecture="grand-public"] .mgp-lead{font-size:clamp(18px,1.65vw,22px)!important;line-height:1.48!important;color:#214c60}
+html[data-methodo-lecture="grand-public"] .mgp-situation{display:grid;grid-template-columns:185px 1fr;gap:22px;align-items:center;border-radius:17px;background:#fff;padding:20px;border:1px solid #dce9ee;margin-top:23px}
+html[data-methodo-lecture="grand-public"] .mgp-person{font-size:25px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#a56116}
+html[data-methodo-lecture="grand-public"] .mgp-person strong{font-size:23px;color:#5c3b21;line-height:1.35}
+html[data-methodo-lecture="grand-public"] .mgp-person small{font-size:12px;line-height:1.4;color:#617782;margin-top:8px}
+html[data-methodo-lecture="grand-public"] .mgp-fragile{font-size:13px!important;color:#5b6672}
+html[data-methodo-lecture="grand-public"] .mgp-trail{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:0 0 28px}
+html[data-methodo-lecture="grand-public"] .mgp-trail a{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:12px;text-decoration:none!important;font-size:13px;font-weight:800;color:#145a7a!important;background:#eaf5f9;border:1px solid #c3dfe8;padding:8px}
+html[data-methodo-lecture="grand-public"] .mgp-trail a:hover,html[data-methodo-lecture="grand-public"] .mgp-trail a:focus-visible{background:#c7e5f0;outline-color:#0879be}
+html[data-methodo-lecture="grand-public"] .mgp-why{border:1px solid #c6dfe4;border-radius:17px;padding:23px;background:#f6faf9;margin-bottom:30px}
+html[data-methodo-lecture="grand-public"] .mgp-actors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}
+html[data-methodo-lecture="grand-public"] .mgp-actors>div{border-radius:12px;padding:16px;background:#fff;border:1px solid #d7e5e5}
+html[data-methodo-lecture="grand-public"] .mgp-actors b{color:#15596e}
+html[data-methodo-lecture="grand-public"] .mgp-actors p{font-size:15px!important;margin-top:6px!important}
+html[data-methodo-lecture="grand-public"] .mgp-mission{border:1px solid #d6e3e7;border-top:6px solid #58a83d;background:#fff;border-radius:18px;margin:0 0 25px;padding:clamp(19px,2.5vw,28px);scroll-margin-top:100px}
+html[data-methodo-lecture="grand-public"] .mgp-mission:nth-of-type(2){border-top-color:#22a1a0}
+html[data-methodo-lecture="grand-public"] .mgp-mission:nth-of-type(3){border-top-color:#2765b4}
+html[data-methodo-lecture="grand-public"] .mgp-mission:nth-of-type(4){border-top-color:#ac7bca}
+html[data-methodo-lecture="grand-public"] .mgp-heading{display:flex;gap:18px;align-items:center;margin:0 0 15px}
+html[data-methodo-lecture="grand-public"] .mgp-heading>span{display:grid;place-items:center;flex:none;width:64px;height:64px;background:#52a438;color:white;border-radius:17px;font-weight:850;font-size:27px;box-shadow:0 9px 18px #3c902a22}
+html[data-methodo-lecture="grand-public"] .mgp-mission:nth-of-type(2) .mgp-heading>span{background:#17999c}
+html[data-methodo-lecture="grand-public"] .mgp-mission:nth-of-type(3) .mgp-heading>span{background:#2d65b4}
+html[data-methodo-lecture="grand-public"] .mgp-mission:nth-of-type(4) .mgp-heading>span{background:#8852a6}
+html[data-methodo-lecture="grand-public"] .mgp-heading p{color:#4c7683;font-size:13px!important;letter-spacing:.05em;font-weight:850;text-transform:uppercase;margin:0 0 5px!important}
+html[data-methodo-lecture="grand-public"] .mgp-heading h4{margin:0!important}
+html[data-methodo-lecture="grand-public"] .mgp-note{margin:18px 0 0;background:#eff7f0;border-left:4px solid #5aae38;border-radius:8px;padding:15px 18px}
+html[data-methodo-lecture="grand-public"] .mgp-flow{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:20px 0}
+html[data-methodo-lecture="grand-public"] .mgp-flow span:nth-child(odd){flex:1 1 145px;background:#eaf4f8;border-radius:9px;padding:12px;font-weight:700;text-align:center;font-size:15px}
+html[data-methodo-lecture="grand-public"] .mgp-flow span:nth-child(even){font-size:22px;color:#3487a1}
+html[data-methodo-lecture="grand-public"] .mgp-play,html[data-methodo-lecture="grand-public"] .mgp-deeper{border:1px solid #cbdbe9;border-radius:13px;margin:18px 0;background:#f2f8fd;overflow:hidden}
+html[data-methodo-lecture="grand-public"] .mgp-play summary,html[data-methodo-lecture="grand-public"] .mgp-deeper summary{font-size:16px;font-weight:800;cursor:pointer;padding:16px 18px;color:#15567b;line-height:1.5}
+html[data-methodo-lecture="grand-public"] .mgp-play[open],html[data-methodo-lecture="grand-public"] .mgp-deeper[open]{background:#f9fcfe}
+html[data-methodo-lecture="grand-public"] .mgp-play>p,html[data-methodo-lecture="grand-public"] .mgp-deeper>p{padding:0 18px 18px;margin:0!important}
+html[data-methodo-lecture="grand-public"] .mgp-map{height:250px;max-width:740px;position:relative;margin:18px auto 23px;background:repeating-linear-gradient(0deg,#e5f1ea 0 58px,#d5e9de 59px 61px),repeating-linear-gradient(90deg,transparent 0 75px,#c5dce5 76px 78px);border:1px solid #c5e2d0;border-radius:17px;overflow:hidden}
+html[data-methodo-lecture="grand-public"] .mgp-road{position:absolute;inset:45% 0 auto;height:19px;background:#c5d6e0;transform:rotate(-13deg)}
+html[data-methodo-lecture="grand-public"] .mgp-pin{position:absolute;display:grid;place-items:center;font-size:30px;padding:5px 8px;border-radius:12px;background:#fff;box-shadow:0 3px 12px #315d6035}
+html[data-methodo-lecture="grand-public"] .mgp-pin small{font-size:11px;font-weight:800;color:#244854;line-height:1.35}
+html[data-methodo-lecture="grand-public"] .pin1{top:24%;left:15%}.methode-grand-public .pin2{top:12%;left:69%}.methode-grand-public .pin3{top:55%;left:47%}.methode-grand-public .pin4{top:59%;left:82%}
+html[data-methodo-lecture="grand-public"] .mgp-map-note{position:absolute;left:9px;bottom:7px;font-size:10px;color:#466273;background:#ffffffdd;border-radius:7px;padding:4px 7px}
+html[data-methodo-lecture="grand-public"] .mgp-network{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:20px;padding:24px;border:1px solid #d0e0ef;border-radius:17px;background:#f2f7fc;margin:20px 0;text-align:center}
+html[data-methodo-lecture="grand-public"] .mgp-network-hub,html[data-methodo-lecture="grand-public"] .mgp-network-partner{display:flex;flex-direction:column;align-items:center;justify-content:center;border:2px solid #64a0ca;border-radius:100px;width:105px;height:105px;background:#fff;font-size:33px;position:relative}
+html[data-methodo-lecture="grand-public"] .mgp-network-hub{width:130px;height:130px;border:4px solid #145e9c;background:#eaf5ff}
+html[data-methodo-lecture="grand-public"] .mgp-network small{font-size:11px;line-height:1.25;color:#28516b;font-weight:850;padding:0 8px}
+html[data-methodo-lecture="grand-public"] .mgp-network>p{flex:1 1 100%;font-size:12px!important;color:#4d697b;margin:0!important}
+html[data-methodo-lecture="grand-public"] .mgp-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:19px 0}
+html[data-methodo-lecture="grand-public"] .mgp-steps>div{background:#eef6fc;border-radius:12px;padding:17px}
+html[data-methodo-lecture="grand-public"] .mgp-steps b{color:#15577a}
+html[data-methodo-lecture="grand-public"] .mgp-roundtable{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:19px 0}
+html[data-methodo-lecture="grand-public"] .mgp-roundtable span{background:#f5effa;border:1px solid #e6d9f0;border-radius:12px;padding:17px;font-weight:800;color:#663d83;text-align:center}
+html[data-methodo-lecture="grand-public"] .mgp-safeguards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0}
+html[data-methodo-lecture="grand-public"] .mgp-safeguards article{border-radius:12px;padding:18px;background:#f0f8f7;border:1px solid #d4e9e6}
+html[data-methodo-lecture="grand-public"] .mgp-safeguards article>strong{color:#126b64}
+html[data-methodo-lecture="grand-public"] .mgp-safeguards p{font-size:15px!important;margin-top:8px!important}
+html[data-methodo-lecture="grand-public"] .mgp-final{padding:25px;background:#eaf5eb;border:1px solid #c9e2cb;border-left:6px solid #51a73b;border-radius:15px}
+@media(max-width:850px){html[data-methodo-lecture="grand-public"] .mgp-trail{grid-template-columns:repeat(3,minmax(0,1fr))}html[data-methodo-lecture="grand-public"] .mgp-actors{grid-template-columns:1fr}}
+@media(max-width:620px){html[data-methodo-lecture="grand-public"] .mgp-situation{grid-template-columns:1fr}html[data-methodo-lecture="grand-public"] .mgp-trail{grid-template-columns:1fr 1fr}html[data-methodo-lecture="grand-public"] .mgp-heading>span{width:52px;height:52px;font-size:23px}html[data-methodo-lecture="grand-public"] .mgp-heading{gap:11px}html[data-methodo-lecture="grand-public"] .mgp-steps,html[data-methodo-lecture="grand-public"] .mgp-roundtable,html[data-methodo-lecture="grand-public"] .mgp-safeguards{grid-template-columns:1fr}html[data-methodo-lecture="grand-public"] .mgp-network{gap:7px}html[data-methodo-lecture="grand-public"] .mgp-network-hub,html[data-methodo-lecture="grand-public"] .mgp-network-partner{width:95px;height:95px}}
+
+
+/* O3 : repères concis au premier pilote ; aucun effet sur les menus. */
+#these-methode-o3 .o3-pilote-synthese,
+.gab[data-gab-salle="recherche"] .o3-pilote-synthese {
+  width:100%;min-width:0;margin:15px 0 20px;box-sizing:border-box;
+}
+.o3-pilote-reperes{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:17px;
+}
+.o3-pilote-repere{
+  --o3-ton:#26669d;
+  display:flex;flex-direction:column;justify-content:center;min-width:0;
+  padding:14px 12px 13px;border:1px solid #d5e3e9;border-top:3px solid var(--o3-ton);
+  border-radius:11px;background:#f7fbfd;text-align:left;
+}
+.o3-pilote-repere--b{--o3-ton:#18758b;background:#f2fafb}
+.o3-pilote-repere--c{--o3-ton:#27816e;background:#f2f9f5}
+.o3-pilote-repere--d{--o3-ton:#98612a;background:#fcf8f1}
+.o3-pilote-repere strong{display:block;color:var(--o3-ton);font-size:clamp(27px,2.7vw,35px);line-height:1.1;letter-spacing:-.035em;font-weight:800;font-variant-numeric:tabular-nums;text-align:left}
+.o3-pilote-repere strong small{font-size:.58em;letter-spacing:-.02em}
+.o3-pilote-repere span{margin-top:6px;color:#355568;font-size:15px;line-height:1.35;font-weight:600;text-align:left}
+.o3-pilote-seuil-titre{margin:1px 0 9px;color:#23445a;font-size:16px;font-weight:750;text-align:left}
+.o3-pilote-synthese .o3-pilote-seuils{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0}
+.o3-pilote-synthese .revision-threshold{padding:14px 14px 12px;min-width:0}
+.o3-pilote-synthese .revision-threshold-number{display:block;margin:10px 0 7px;font-size:clamp(28px,2.7vw,36px);line-height:1.15;font-weight:850;font-variant-numeric:tabular-nums;text-align:left}
+.o3-pilote-synthese .revision-threshold-label{display:block;text-align:left}
+.o3-pilote-synthese .revision-threshold p{margin:4px 0 0;font-size:16px;line-height:1.45;text-align:left}
+.o3-pilote-note{margin:11px 0 8px;color:#516874;font-size:14px;line-height:1.55;text-align:justify;hyphens:auto}
+.o3-pilote-synthese details.revision-details{margin-top:10px}
+@media(max-width:760px){
+ .o3-pilote-reperes{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .o3-pilote-synthese .o3-pilote-seuils{grid-template-columns:1fr;gap:8px}
+ .o3-pilote-synthese .revision-threshold{padding:11px 14px}
+ .o3-pilote-synthese .revision-threshold-number{margin:5px 0}
+}
+@media(max-width:370px){.o3-pilote-reperes{gap:7px}.o3-pilote-repere{padding:11px 9px}.o3-pilote-repere strong{font-size:27px}}
+
+
+/* O3 · lecture immédiate : nouveau bloc compact, placé au premier pilote. */
+.o3-pilote-synthese .o3-pilote-tete{margin:0 0 15px;text-align:left}
+.o3-pilote-synthese .o3-pilote-tete>span{display:block;color:#177089;font-size:12px;letter-spacing:.09em;font-weight:800;text-transform:uppercase;text-align:left}
+.o3-pilote-synthese .o3-pilote-tete h6{margin:5px 0 0;color:#183e55;font-size:19px;line-height:1.3;font-weight:780;text-align:left}
+#these-methode-o3 .o3-pilote-synthese{border:1px solid #ccdde5;border-top:3px solid #22769b;border-radius:14px;padding:clamp(14px,2.1vw,23px);background:linear-gradient(150deg,#fbfeff,#fff 65%)}
+#these-methode-o3 .o3-pilote-synthese .o3-pilote-reperes{gap:10px;margin:0 0 19px}
+#these-methode-o3 .o3-pilote-synthese .o3-pilote-repere{min-height:113px}
+#these-methode-o3 .o3-pilote-synthese .o3-pilote-seuil-titre{margin:0 0 12px}
+#these-methode-o3 .o3-pilote-synthese .revision-threshold{box-shadow:none}
+@media(max-width:700px){
+ #these-methode-o3 .o3-pilote-synthese{padding:14px 11px}
+ #these-methode-o3 .o3-pilote-synthese .o3-pilote-repere{min-height:102px}
+}
+
+
+/* Faisabilité O3 — deux bandeaux horizontaux pleine largeur ; aucun effet sur les menus. */
+.gab[data-gab-salle="recherche"] .fais-pilote-o3,
+.fais-pilote-o3{
+  box-sizing:border-box;clear:both;width:100%;max-width:none;min-width:0;
+  margin:22px 0 26px;padding:0;overflow:hidden;
+  background:#fff;border:1px solid #d5e2e9;border-radius:17px;
+  box-shadow:0 8px 24px rgba(25,64,78,.055);color:#25495b;font-family:inherit;
+}
+.fais-pilote-o3 *{box-sizing:border-box;min-width:0}
+.fais-pilote-en-tete{padding:16px 22px 13px;background:linear-gradient(105deg,#f3f9fc,#f5faf8)}
+.fais-pilote-en-tete>span{display:block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#177b8a;text-align:left}
+.fais-pilote-o3 .fais-pilote-en-tete h3{
+  font-size:clamp(20px,2vw,25px)!important;line-height:1.25!important;
+  color:#214b60!important;text-align:left!important;margin:5px 0 0!important;
+  padding:0!important;border:0!important;font-weight:800!important;
+}
+.fais-pilote-bande{
+  --fais-bande:#176f99;
+  display:grid;grid-template-columns:minmax(170px,215px) minmax(0,1fr);
+  gap:17px;align-items:center;
+  padding:17px 20px;
+  border-top:5px solid var(--fais-bande);
+}
+.fais-pilote-bande--collecte{
+  --fais-bande:#217a9e;
+  background:linear-gradient(90deg,#edf7fc 0%,#f8fcfd 54%,#fff 100%);
+  border-image:linear-gradient(90deg,#2f6eab 0%,#137a91 34%,#24927d 68%,#a57137 100%) 1;
+  border-top-width:5px;border-top-style:solid;
+}
+.fais-pilote-bande--participation{
+  --fais-bande:#28816b;
+  background:linear-gradient(90deg,#f1f9f5 0%,#f9fcfa 60%,#fff 100%);
+  border-image:linear-gradient(90deg,#27806e 0%,#27806e 33%,#ad7d2b 66%,#a65d49 100%) 1;
+  border-top-width:5px;border-top-style:solid;
+}
+.fais-pilote-bande-titre>span{display:block;text-align:left;font-size:12px;letter-spacing:.065em;font-weight:790;color:#287487;text-transform:uppercase}
+.fais-pilote-bande--participation .fais-pilote-bande-titre>span{color:#27806e}
+.fais-pilote-bande-titre h4{margin:5px 0 0!important;padding:0!important;font-size:18px!important;font-weight:790!important;color:#244e60!important;line-height:1.3!important;text-align:left!important;border:0!important}
+.fais-pilote-chiffres{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center;gap:0}
+.fais-pilote-chiffres>div{
+  display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+  min-height:65px;padding:3px 13px;border-left:2px solid #d7e7ed;
+}
+.fais-pilote-chiffres>div:nth-child(2){border-left-color:#cbe1e5}
+.fais-pilote-chiffres>div:nth-child(3){border-left-color:#cee6dc}
+.fais-pilote-chiffres>div:nth-child(4){border-left-color:#ecddc9}
+.fais-pilote-chiffres strong{
+  display:block;text-align:left!important;white-space:nowrap;
+  color:#236eaa;font-size:clamp(27px,2.6vw,36px)!important;font-weight:820!important;
+  line-height:1.1!important;letter-spacing:-.025em;font-variant-numeric:tabular-nums;
+}
+.fais-pilote-chiffres>div:nth-child(2) strong{color:#147a90}
+.fais-pilote-chiffres>div:nth-child(3) strong{color:#27846d}
+.fais-pilote-chiffres>div:nth-child(4) strong{color:#9a672f}
+.fais-pilote-chiffres strong small{font-size:.56em!important;font-weight:790}
+.fais-pilote-chiffres span{margin-top:5px;color:#385768;text-align:left!important;font-size:15px!important;font-weight:590;line-height:1.35!important;overflow-wrap:normal;hyphens:none}
+.fais-pilote-seuils{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:stretch}
+.fais-pilote-seuil{display:flex;align-items:center;gap:13px;padding:10px 12px;border-radius:10px;background:#f0f8f5;border:1px solid #d7e9e2}
+.fais-pilote-seuil--vigilance{background:#fdf9ef;border-color:#eddec5}
+.fais-pilote-seuil--prudence{background:#fbf4f0;border-color:#eadacf}
+.fais-pilote-seuil strong{flex:none;color:#237b68;font-size:clamp(24px,2.15vw,31px)!important;font-weight:840!important;white-space:nowrap;line-height:1.1!important;letter-spacing:-.025em;font-variant-numeric:tabular-nums}
+.fais-pilote-seuil--vigilance strong{color:#976920}
+.fais-pilote-seuil--prudence strong{color:#a05b46}
+.fais-pilote-seuil span{display:flex;flex-direction:column;gap:3px;text-align:left}
+.fais-pilote-seuil span b{font-size:15px;font-weight:790;color:#315865}
+.fais-pilote-seuil span small{font-size:14px;line-height:1.3;color:#4f6771}
+.fais-pilote-note{
+  margin:0!important;padding:12px 22px!important;font-size:14px!important;
+  line-height:1.48!important;background:#f9fbfc;color:#516974!important;
+  text-align:left!important;border-top:1px solid #e0e8eb;
+}
+.fais-pilote-science{border-top:1px solid #dce8e9;background:#fff}
+.fais-pilote-science>summary{
+  padding:13px 22px;cursor:pointer;color:#246b78;font-size:15px!important;
+  font-weight:760;text-align:left!important;line-height:1.4;
+}
+.fais-pilote-science>summary:hover,.fais-pilote-science>summary:focus-visible{background:#eff7f7;outline-offset:-3px}
+.fais-pilote-science[open]{padding-bottom:18px}
+.fais-pilote-science[open]>summary{border-bottom:1px solid #dde9ec;margin-bottom:15px}
+.fais-pilote-science>p{font-size:15px!important;line-height:1.6!important;margin:10px 22px!important;text-align:justify!important;hyphens:auto;color:#395766!important}
+.fais-pilote-denoms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0 22px 15px}
+.fais-pilote-denoms>div{display:flex;flex-direction:column;gap:6px;padding:14px 16px;background:#f3f8fb;border-left:3px solid #3684a2;border-radius:8px}
+.fais-pilote-denoms>div+div{background:#f2faf6;border-left-color:#378970}
+.fais-pilote-denoms strong{font-size:15px;color:#234f64}
+.fais-pilote-denoms span{font-size:14px;line-height:1.45;color:#46616b}
+@media(max-width:1180px){
+ .fais-pilote-bande{grid-template-columns:minmax(0,1fr);gap:12px}
+ .fais-pilote-chiffres>div{min-height:58px}
+}
+@media(max-width:760px){
+ .fais-pilote-bande{padding:15px 13px}
+ .fais-pilote-en-tete{padding:14px 15px}
+ .fais-pilote-chiffres{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:14px}
+ .fais-pilote-seuils{grid-template-columns:1fr}
+ .fais-pilote-seuil{min-height:56px}
+ .fais-pilote-note{padding:12px 15px!important}
+ .fais-pilote-science>summary{padding:13px 15px}
+ .fais-pilote-science>p{margin:10px 15px!important}
+ .fais-pilote-denoms{grid-template-columns:1fr;margin:0 15px 12px}
+}
+@media(max-width:400px){
+ .fais-pilote-chiffres{grid-template-columns:1fr}
+ .fais-pilote-chiffres>div{padding:7px 12px}
+ .fais-pilote-chiffres strong{font-size:29px!important}
+}
+
+/* Audit mobile du 20 octobre 2026 : statut et vulgarisation.
+   Conserver les textes, le menu et le numero de chapitre ; donner aux deux
+   panneaux la largeur utile sur telephone plutot que deux demi-colonnes. */
+@media (max-width:700px) {
+  .gab[data-gab-salle="recherche"] > .these-validation-ligne {
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    align-items:stretch!important;
+    justify-content:stretch!important;
+    gap:10px!important;
+    width:100%!important;
+    min-width:0;
+    margin:5px 0 15px!important;
+  }
+  .gab[data-gab-salle="recherche"] > .these-validation-ligne > .gab-methode-ligne-lecture {
+    width:100%!important;
+    min-width:0;
+    margin:0!important;
+    display:block!important;
+  }
+  .gab[data-gab-salle="recherche"] > .these-validation-ligne .methode-lien-grand-public {
+    display:flex!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    min-height:68px;
+    justify-content:flex-start!important;
+    padding:7px 12px 7px 7px!important;
+    gap:12px!important;
+    border-radius:17px!important;
+    line-height:1.25!important;
+    box-shadow:0 7px 18px -12px rgba(180,110,40,.35)!important;
+  }
+  .gab[data-gab-salle="recherche"] > .these-validation-ligne .methode-lien-visage {
+    width:48px!important;
+    height:48px!important;
+  }
+  .gab[data-gab-salle="recherche"] > .these-validation-ligne .methode-lien-mots {
+    flex:1 1 auto;
+    min-width:0!important;
+  }
+  .gab[data-gab-salle="recherche"] > .these-validation-ligne .methode-lien-label {
+    font-size:clamp(14px,3.7vw,16px)!important;
+    line-height:1.25!important;
+  }
+  .gab[data-gab-salle="recherche"] > .these-validation-ligne > .these-validation-bandeau {
+    display:block!important;
+    box-sizing:border-box;
+    width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:10px 14px!important;
+    font-size:clamp(12px,3.25vw,14px)!important;
+    line-height:1.38!important;
+    text-align:center!important;
+    text-align-last:center!important;
+  }
+  .gab[data-gab-salle="recherche"] .gab-chapitre,
+  .gab[data-gab-salle="recherche"] .gab-chapitre-grille,
+  .gab[data-gab-salle="recherche"] .gab-chapitre-texte {min-width:0}
+  .gab[data-gab-salle="recherche"] :is(img,figure,canvas,video,iframe) {max-width:100%}
+}
+
+/* Grille de lecture commune : un même axe pour le titre, le chapeau et le récit.
+   Les dossiers avec sommaire gardent leur grille fonctionnelle. */
+.gab.gab-cv-direct>.gab-intro,.gab.gab-cv-direct>.gab-chapitres,.gab[data-gab-salle="biographie"]>.gab-intro,.gab[data-gab-salle="biographie"]>.gab-chapitres{width:100%;max-width:var(--lecture-largeur)!important;margin-inline:auto!important;box-sizing:border-box}
+.gab.gab-cv-direct>.gab-intro,.gab[data-gab-salle="biographie"]>.gab-intro{display:block!important;padding:0!important}
+.gab.gab-cv-direct>.gab-intro>h2,.gab[data-gab-salle="biographie"]>.gab-intro>h2{max-width:none;margin-inline:0!important}
+.gab.gab-cv-direct :is(.gab-corps,.bio-intro,.bio-intro p,.gab-source,.colonne-texte),.gab[data-gab-salle="biographie"] :is(.gab-corps,.bio-intro,.bio-intro p,.gab-source,.colonne-texte){max-width:none;width:100%;margin-inline:0!important;padding-inline:0}
+.gab .gab-corps :is(p,blockquote){margin-block:0 var(--lecture-intervalle)}
+.gab .gab-corps :is(h3,h4,h5,h6){margin-block-start:var(--lecture-section)}
+.gab .gab-corps :is(ul,ol){margin-block:var(--lecture-intervalle)}
+.gab .gab-corps :is(ul,ol):not([class]){padding-inline-start:1.4em}
+.gab.gab-cv-direct .recit-fin,.gab[data-gab-salle="biographie"] .recit-fin{margin-inline:0;padding-inline:0}
+.gab[data-gab-salle="biographie"] .recit>li{display:block;padding-inline:0;margin-inline:0;padding-bottom:var(--lecture-section)}
+.gab[data-gab-salle="biographie"] .recit>li::before{display:none}
+.gab[data-gab-salle="biographie"] .recit-num{margin-bottom:12px}
+@media(max-width:700px){.gab{--lecture-section:24px;--lecture-intervalle:14px}}
+/* Les rubriques de lecture directe partagent aussi la même largeur lorsque
+   plusieurs chapitres composent la porte (biographie, parcours, engagements). */
+.gab.gab-rubrique-complete .gab-chapitres{width:100%;max-width:var(--lecture-largeur)!important;margin-inline:auto!important}
+.gab.gab-rubrique-complete .gab-corps{width:100%;max-width:none}
+.gab.gab-rubrique-complete .colonne-texte>h2{max-width:none!important;margin-inline:0!important}
+.gab[data-gab-salle="biographie"] .gab-chapitre-tete{display:none!important}
+.gab[data-gab-salle="biographie"] .colonne-texte>.surtitre{display:none}
