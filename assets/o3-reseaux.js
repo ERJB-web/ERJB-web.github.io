@@ -59,39 +59,31 @@
       return '<svg viewBox="0 0 660 540" role="img" aria-label="Exemple de carte d’entretien qualitatif avec ego central, six alters anonymisés, cercles concentriques et liens de styles distincts"><rect x="1" y="1" width="658" height="538" rx="22" fill="#f6f8fb" stroke="#dae3ed"/><circle cx="315" cy="265" r="215" fill="none" stroke="#b7c9d8" stroke-width="2"/><circle cx="315" cy="265" r="130" fill="#eaf0f7" stroke="#c9d9e8" stroke-width="2"/>' + lien + acteurs + '<circle cx="315" cy="265" r="63" fill="#274f68" stroke="white" stroke-width="5"/><text x="315" y="259" font-size="20" text-anchor="middle" fill="white" font-weight="750">EGO</text><text x="315" y="281" font-size="16" text-anchor="middle" fill="#dcebf6">CLSC</text><text x="16" y="518" font-size="15" fill="#657888">A1 à A6 : acteurs codés, placement fictif</text></svg>';
     }
 
-    // Expérimentations et modèles d'application, distincts de l'enquête SAD.
-    const descriptifs211=[
-      ["Orientations du 211 : ego dirigé et pondéré","01-ego-211.svg","Verdun, 2024–2025. Chaque flèche correspond à une référence du 211 vers un destinataire : aucun lien SAD–partenaire n'est observé."],
-      ["Affiliation domaines–organismes","02-biparti.svg","Verdun, tous âges : des besoins référencés vers des destinataires. Il ne s'agit pas de liens de collaboration entre organismes."],
-      ["Matrice des destinations par origine","03-matrice.svg","Références des 60 ans et plus en 2024–2025. Les arrondissements sont des contextes géographiques, non des organisations qui collaborent."],
-      ["Évolution des destinataires du 211","04-evolution.svg","Trois exercices de références. Une variation de destinataires observés ne prouve pas l'ouverture ou la fermeture d'organismes."]
+    // Exemple d'ARS sur des relations publiques documentées (exercice 2025-2026, quatre territoires de CLSC).
+    // Il illustre la méthode ; l'analyse de la thèse reposera sur les données du questionnaire auprès des organisations.
+    const exempleARS=[
+      ["Réseau intersectoriel entier · Plateau-Mont-Royal","01-reseau-plateau.png","Organisations reliées par au moins une relation documentée en 2025-2026 (rapports d'activités, concertation, ententes), sans le 211. Couleur : secteur ; taille : degré. Les positions ne sont pas géographiques."],
+      ["Réseau intersectoriel entier · Verdun","02-reseau-verdun.png","Même lecture pour Verdun. Le noyau dense correspond surtout à la co-appartenance aux mêmes tables de concertation, qui relie par construction tous leurs membres."],
+      ["Réseau multiplexe · couches de relations","03-couches-plateau.png","Une couche par type de relation : orientations, collaborations nommées, concertation, ententes. Les structures diffèrent fortement d'un type de lien à l'autre."],
+      ["Réseau égocentré · installation CLSC","04-ego-installation-clsc-plateau.png","CLSC du Plateau-Mont-Royal (liste officielle du MSSS) : seulement les relations où une source nomme l'installation. Les sources publiques nomment rarement un CLSC."],
+      ["Réseau égocentré · établissement CIUSSS","05-ego-etablissement-verdun.png","Relations que les sources attribuent au CIUSSS dans le territoire de Verdun, lues à part de l'installation CLSC : aucune n'est réattribuée au CLSC sans mention explicite."],
+      ["Mélange des secteurs","06-melange-secteurs.png","Nombre de liens documentés entre chaque paire de secteurs, par territoire. La part des liens intersectoriels et l'indice E-I sont calculés à partir de cette matrice."],
+      ["Indicateurs comparés des quatre territoires","07-indicateurs-territoires.png","Organisations reliées, densité, centralisation de degré, part des liens intersectoriels et diversité sectorielle (Blau normalisé), sans le 211."],
+      ["Ressources mobilisables et mobilisées","08-ecarts-configurations.png","Pour trois configurations illustratives, statut documenté de chaque ressource de l'atlas O2. « Indéterminé » signifie aucune source datée, non une absence de collaboration."],
+      ["Modèle ERGM · adéquation","09-ergm-adequation.png","Modèle de graphe aléatoire exponentiel (paquet ergm) sur les relations nommées : distributions simulées et observées des degrés, des partenaires communs et des distances."],
+      ["Réseau situé sur les territoires de CLSC · QGIS","10-carte-qgis-plateau.png","Organisations localisées à leur adresse et liens documentés, sur les limites officielles des territoires de CLSC 2026 (MSSS). Les traits ne sont pas des trajets."],
+      ["Analyse exécutée dans Positron","11-positron-execution.png","Les scripts R numérotés s'exécutent dans l'ordre depuis executer.R ; la console affiche le journal de chaque étape."],
+      ["Projet cartographique dans QGIS","12-qgis-quatre-territoires.png","Les quatre territoires étudiés, les organisations (taille selon le degré) et les liens documentés, dans le projet QGIS."]
     ];
-    const annees=["2023–2024","2024–2025","2025–2026"];
-    const serieR=[{titre:"Évolution temporelle · R",cle:"a1_temporel.svg",
-      lecture:"Comparaison calculée des exercices à Verdun ; l'interprétation dépend de la couverture des extractions."}];
-    annees.forEach((annee,i)=>{
-      const k="a1_y"+(i+1)+"_";
-      serieR.push({titre:"SNA égocentrée 211 · "+annee,cle:k+"ego.svg",
-        lecture:"Le 211 est l'ego. Les liens représentent les références enregistrées vers les destinataires, pas des collaborations intersectorielles documentées entre organisations."});
-      serieR.push({titre:"SNA bipartie · "+annee,cle:k+"biparti.svg",
-        lecture:"Affiliation entre domaines de besoins et organismes référencés, sans mesurer les besoins concomitants d'une personne."});
-      [0,10,20].forEach(seuil=>serieR.push({
-        titre:"Projection des domaines · "+annee+" · seuil "+(seuil/100).toFixed(2).replace(".",","),
-        cle:k+"projection_"+seuil+".svg",
-        lecture:"Domaines liés parce qu'ils partagent des destinataires, avec seuil de similarité Jaccard ; ces liens dérivés ne mesurent pas les collaborations intersectorielles."
-      }));
-    });
-    // Sélection éditoriale : quatre lectures complémentaires utiles à la faisabilité
-    // de l'O3 ; les analyses R complètes restent consultables dans le dossier 211.
-    const donnees=descriptifs211.map(([titre,nom,lecture])=>({
-      type:"figure",titre:"211 · "+titre,url:"/simulations/sna-o3/figures/"+nom,lecture
+    const donnees=exempleARS.map(([titre,nom,lecture])=>({
+      type:"figure",titre,url:"/simulations/ars-o3/figures/"+nom,lecture
     }));
     const total=donnees.length;
     const options=donnees.map((d,i)=>
       '<option value="'+i+'">'+String(i+1).padStart(2,"0")+' · '+echapper(d.titre)+'</option>').join("");
     const planches=donnees.map((d,i)=>{
       let visuel;
-      if(d.type==="figure")visuel='<a class="o3-galerie-visuel" href="'+d.url+'" target="_blank" rel="noopener" aria-label="Voir la figure vectorielle"><img src="'+d.url+'" alt="'+echapper(d.titre)+'" loading="lazy"></a>';
+      if(d.type==="figure")visuel='<a class="o3-galerie-visuel" href="'+d.url+'" target="_blank" rel="noopener" aria-label="Voir la figure en grand"><img src="'+d.url+'" alt="'+echapper(d.titre)+'" loading="lazy"></a>';
       else visuel='<div class="o3-galerie-visuel o3-galerie-r" data-o3-r-key="'+echapper(d.cle)+'"><p>Graphique R chargé lors de sa sélection.</p></div>';
       return '<figure class="o3-galerie-planche" data-o3-slide="'+i+'"'+(i?' hidden aria-hidden="true"':' aria-hidden="false"')+'>'+visuel+
         '<figcaption><p class="ms-gallery-caption">'+echapper(d.lecture)+'</p>'+
@@ -113,19 +105,16 @@
       '<div class="o3-methodo-sources"><h5>Repères méthodologiques vérifiables</h5><p><a href="https://doi.org/10.1177/19375867211013772" target="_blank" rel="noopener noreferrer">Burgette et al. (2021) · Principes et métriques des réseaux égocentrés ↗</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12315688/" target="_blank" rel="noopener noreferrer">Étude qualitative avec sociogrammes et entretiens (2025) ↗</a><a href="https://doi.org/10.1111/glob.12315" target="_blank" rel="noopener noreferrer">Herz (2021) · Cartes égocentrées et analyse qualitative ↗</a></p></div>';
 
     module.innerHTML=
-      '<header class="o3-galerie-intro"><span class="o3-galerie-surtexte"><span class="exemple-illustration-etiquette">EXEMPLE INDÉPENDANT</span><span><strong>SNA</strong> · résultats des références du 211</span></span>'+
-      '<h3 id="o3-atlas-titre">Galerie SNA du 211 · '+total+' figures</h3>'+
-      '<p>Exercice exploratoire sur les orientations du 211, distinct des collaborations étudiées dans la thèse.</p></header>'+
+      '<header class="o3-galerie-intro"><span class="o3-galerie-surtexte"><span class="exemple-illustration-etiquette">EXEMPLE MÉTHODOLOGIQUE</span><span><strong>ARS</strong> · relations publiques documentées, 2025-2026</span></span>'+
+      '<h3 id="o3-atlas-titre">Exemple d’analyse des réseaux · '+total+' figures</h3>'+
+      '<p>Démonstration de la méthode sur des relations rendues publiques par les organisations, les tables de concertation, les bailleurs et le 211, dans quatre territoires de CLSC. Ce ne sont pas les données de la thèse : l’analyse d’O3 portera sur les réponses au questionnaire relationnel.</p></header>'+
       '<div class="o3-galerie-commandes"><label for="o3-galerie-select">Choisir un sociogramme ou un graphique</label>'+
       '<div class="o3-galerie-controles"><select id="o3-galerie-select" data-o3-choix>'+options+'</select>'+
       '<div class="o3-galerie-fleches"><button type="button" data-o3-prev aria-label="Figure précédente" disabled>←</button>'+
       '<output data-o3-compteur aria-live="polite">1 / '+total+'</output>'+
       '<button type="button" data-o3-next aria-label="Figure suivante">→</button></div></div></div>'+
       '<div class="o3-galerie-planches" aria-label="Figure sélectionnée">'+planches+'</div>'+
-      '<div class="o3-galerie-pied">'+
-      '<a href="/simulations/sna-o3/" target="_blank" rel="noopener">Dossier 211 : figures et sources ↗</a>'+
-      '<a href="/simulations/sna-o3/r/" target="_blank" rel="noopener">Calculs R, graphiques et GraphML ↗</a>'+
-      '</div>';
+      '<div class="o3-galerie-pied"><span>R (igraph, sna, ergm) dans Positron · QGIS · limites des territoires de CLSC 2026 (MSSS)</span></div>';
     // Les exemples qualitatifs relèvent de la section 06 d'O3, avant les limitations.
     // Aucun encadré autonome ni accordéon supplémentaire : le contenu suit l'ordre du protocole.
     const methodo = document.createElement("details");
@@ -137,7 +126,7 @@
       espaceExemples.querySelectorAll(":scope > .o3-qualitatif-integre, :scope > .o3-clsc-methodo").forEach(node => node.remove());
       espaceExemples.prepend(methodo);
     } else if (!cibleO3.hasAttribute('data-methodologie-visuelle')) cibleO3.append(methodo);
-    // La galerie du 211 vient après TOUT le contenu de l'objectif O3,
+    // La galerie d'exemple vient après TOUT le contenu de l'objectif O3,
     // jamais au milieu des sous-sections méthodologiques ni des annexes.
     // Elle reste dans la vue O3 (masquée lorsque O1 ou O2 est sélectionné).
     const vueO3 = cibleO3.closest(".these-objectif-vue[data-vue-objectif='O3']") ||
