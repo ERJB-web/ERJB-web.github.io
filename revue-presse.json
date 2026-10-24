@@ -1,0 +1,922 @@
+{
+ "maj": "2026-10-24T17:23:03.957Z",
+ "bonne": {
+  "jour": "2026-10-24",
+  "t": "Pastilles, gommes et timbres | Québec élargit l’aide aux personnes qui veulent arrêter de fumer",
+  "u": "https://www.lapresse.ca/actualites/sante/2026-10-22/pastilles-gommes-et-timbres/quebec-elargit-l-aide-aux-personnes-qui-veulent-arreter-de-fumer.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites&utm_content=sante",
+  "s": "La Presse",
+  "d": "2026-10-22T23:30:00.000Z",
+  "x": "Québec donne un coup de pouce supplémentaire aux fumeurs qui veulent abandonner la cigarette ou la vapoteuse."
+ },
+ "rubriques": {
+  "une": [
+   {
+    "t": "Des pharmaciens dénoncent un système de distribution des vaccins jugé inefficace",
+    "u": "https://ici.radio-canada.ca/nouvelle/2295407/vaccination-quebec-campagne-insatisfaction",
+    "s": "Radio-Canada",
+    "d": "2026-10-24T08:00:00.000Z",
+    "x": "La quantité de doses livrées peine à répondre à la forte demande en ce début de campagne de vaccination."
+   },
+   {
+    "t": "Qui sont les nouveaux ministres: le bien-être des Québécois placé entre leurs mains",
+    "u": "https://www.tvanouvelles.ca/2026/10/24/qui-sont-les-nouveaux-ministres-le-bien-etre-des-quebecois-mis-entre-leurs-mains",
+    "s": "TVA Nouvelles",
+    "d": "2026-10-24T04:00:00.000Z",
+    "x": "Qui sont-ils, et quels sont leurs principaux mandats ?"
+   },
+   {
+    "t": "Lettre au Premier ministre : Le communautaire est au coeur d’un Québec fort et en santé",
+    "u": "https://rq-aca.org/2026/10/23/lettre-au-premier-ministre-le-communautaire-est-au-coeur-dun-quebec-fort-et-en-sante/",
+    "s": "RQ-ACA",
+    "d": "2026-10-23T18:51:31.000Z",
+    "x": "Lettre ouverte de Tristan Ouimet-Savard et Nadia Mohammed-Azizi, respectivement responsable des dossiers politiques et présidente du Réseau québécois de l’action communautaire autonome …"
+   },
+   {
+    "t": "Aide d’urgence en itinérance: Québec débloque 28 millions $ supplémentaires",
+    "u": "https://ici.radio-canada.ca/nouvelle/2295257/itinerance-pspp-budget-urgence-deces-sorel",
+    "s": "Radio-Canada",
+    "d": "2026-10-23T23:12:01.000Z",
+    "x": "Le décès récent d’une femme itinérante à Sorel-Tracy illustre les failles dans le système de prise en charge."
+   },
+   {
+    "t": "« Ça revient chaque année à la même période » : la dépression saisonnière est à nos portes",
+    "u": "https://www.tvanouvelles.ca/2026/10/24/ca-revient-chaque-annee-a-la-meme-periode---la-depression-saisonniere-est-a-nos-portes",
+    "s": "TVA Nouvelles",
+    "d": "2026-10-24T04:00:00.000Z",
+    "x": "Un million de Québécois ressentent des symptômes de dépression saisonnière, un trouble notamment associé à la diminution de la lumière naturelle"
+   },
+   {
+    "t": "Une meilleure sécurité réclamée à l’urgence psychiatrique du CHUL",
+    "u": "https://ici.radio-canada.ca/info/videos/1-10792215/une-meilleure-securite-reclamee-a-urgence-psychiatrique-chul",
+    "s": "Radio-Canada",
+    "d": "2026-10-23T22:54:22.000Z",
+    "x": "Des travailleurs de l’urgence psychiatrique du CHUL réclament une meilleure sécurité sur leur lieu de travail."
+   },
+   {
+    "t": "Un essai de vaccin contre Ebola débute en République démocratique du Congo",
+    "u": "https://www.tvanouvelles.ca/2026/10/23/un-essai-de-vaccin-contre-ebola-debute-en-republique-democratique-du-congo",
+    "s": "TVA Nouvelles",
+    "d": "2026-10-24T02:00:04.000Z"
+   },
+   {
+    "t": "Des départs de médecins inquiètent à Sainte-Catherine-de-la-Jacques-Cartier",
+    "u": "https://ici.radio-canada.ca/info/videos/1-10792212/departs-medecins-inquietent-a-sainte-catherine-jacques-cartier",
+    "s": "Radio-Canada",
+    "d": "2026-10-23T22:46:58.000Z",
+    "x": "Des élus et des patients s’inquiètent du départ prochain de trois médecins au centre médical de Sainte-Catherine-de-la-Jacques-Cartier."
+   },
+   {
+    "t": "Le Kenya annonce un deuxième décès dû à Ebola",
+    "u": "https://www.journaldemontreal.com/2026/10/23/le-kenya-annonce-un-deuxieme-deces-du-a-ebola",
+    "s": "Le Journal de Montréal",
+    "d": "2026-10-23T21:08:15.000Z",
+    "x": "Le Kenya a signalé son deuxième décès dû à Ebola, la victime étant le troisième cas confirmé dans ce pays d'Afrique de l'Est."
+   },
+   {
+    "t": "L'accouchement à domicile maintenant possible à Gaspé",
+    "u": "https://ici.radio-canada.ca/info/videos/1-10792198/accouchement-a-domicile-maintenant-possible-a-gaspe",
+    "s": "Radio-Canada",
+    "d": "2026-10-23T22:30:17.000Z",
+    "x": "Pour la première fois à Gaspé, les femmes enceintes peuvent choisir d’accoucher à domicile."
+   },
+   {
+    "t": "10 ans après la mort de son fils, une mère déplore le manque de ressources offertes aux personnes épileptiques",
+    "u": "https://www.journaldemontreal.com/2026/10/23/10-ans-apres-la-mort-de-son-fils-elle-deplore-le-manque-de-ressources-offertes-aux-personnes-epileptiques",
+    "s": "Le Journal de Montréal",
+    "d": "2026-10-23T19:00:47.000Z",
+    "x": "La mère d'un garçon décédé dans son lit à la suite d’une crise d’épilepsie déplore le manque d’accompagnement que les épileptiques reçoivent."
+   },
+   {
+    "t": "28 M$ de plus en itinérance, dont 12 M$ aux régions",
+    "u": "https://ici.radio-canada.ca/ohdio/premiere/emissions/place-publique/segments/rattrapage/2511326/aide-urgence-en-itinerance-quebec-debloque-28m-supplementaires",
+    "s": "Radio-Canada",
+    "d": "2026-10-23T21:43:56.000Z",
+    "x": "Le gouvernement du Québec a débloqué un fonds d'urgence de 28 millions $ pour aider les personnes en situation d'itinérance, dont 12 millions $ sont destinés aux différentes régions du Québec."
+   },
+   {
+    "t": "Faire la sieste le jour, signe avant-coureur de la démence?",
+    "u": "https://www.journaldemontreal.com/2026/10/23/faire-la-sieste-le-jour-signe-avant-coureur-de-la-demence",
+    "s": "Le Journal de Montréal",
+    "d": "2026-10-23T18:17:37.000Z",
+    "x": "Une étude menée avec près de 1000 Américains âgés révèle que les habitudes de sieste pourraient être un signe avant-coureur de démence"
+   },
+   {
+    "t": "Des résidences en éducation, comme en médecine",
+    "u": "https://ici.radio-canada.ca/en-bref/1-10792101/residences-en-education-comme-en-medecine",
+    "s": "Radio-Canada",
+    "d": "2026-10-23T21:25:18.000Z",
+    "x": "Une première au Québec : des résidences en éducation comme ça se fait en médecine."
+   }
+  ],
+  "quebec": [
+   {
+    "t": "Qui sont les nouveaux ministres: le bien-être des Québécois placé entre leurs mains",
+    "u": "https://www.tvanouvelles.ca/2026/10/24/qui-sont-les-nouveaux-ministres-le-bien-etre-des-quebecois-mis-entre-leurs-mains",
+    "s": "TVA Nouvelles",
+    "d": "2026-10-24T04:00:00.000Z",
+    "x": "Qui sont-ils, et quels sont leurs principaux mandats ?"
+   },
+   {
+    "t": "Aide d’urgence en itinérance: Québec débloque 28 millions $ supplémentaires",
+    "u": "https://ici.radio-canada.ca/nouvelle/2295257/itinerance-pspp-budget-urgence-deces-sorel",
+    "s": "Radio-Canada",
+    "d": "2026-10-23T23:12:01.000Z",
+    "x": "Le décès récent d’une femme itinérante à Sorel-Tracy illustre les failles dans le système de prise en charge."
+   },
+   {
+    "t": "Lettre au Premier ministre : Le communautaire est au coeur d’un Québec fort et en santé",
+    "u": "https://rq-aca.org/2026/10/23/lettre-au-premier-ministre-le-communautaire-est-au-coeur-dun-quebec-fort-et-en-sante/",
+    "s": "RQ-ACA",
+    "d": "2026-10-23T18:51:31.000Z",
+    "x": "Lettre ouverte de Tristan Ouimet-Savard et Nadia Mohammed-Azizi, respectivement responsable des dossiers politiques et présidente du Réseau québécois de l’action communautaire autonome …"
+   },
+   {
+    "t": "Itinérance – 28 M$ pour des haltes-chaleur et de l’hébergement de transition",
+    "u": "https://journalmetro.com/actualites/politique/3232163/itinerance-28-m-pour-des-haltes-chaleur-et-de-lhebergement-de-transition/",
+    "s": "Métro",
+    "d": "2026-10-23T16:56:17.000Z",
+    "x": "Le nouveau premier ministre Paul St-Pierre Plamondon a posé un premier geste pour lutter contre la crise de l’itinérance, vendredi, en annonçant l’ajout des investissements de 28 M$ pour des"
+   },
+   {
+    "t": "Itinérance : pour des soins plus près des personnes",
+    "u": "https://sante.quebec/actualites/nouvelles/itinerance-pour-des-soins-plus-pres-des-personnes/",
+    "s": "Santé Québec",
+    "d": "2026-10-23T16:00:00.000Z"
+   },
+   {
+    "t": "Sondage Synopsis | Près de 40 % des Québécois se sentent seuls",
+    "u": "https://www.lapresse.ca/actualites/sante/2026-10-23/sondage-synopsis/pres-de-40-des-quebecois-se-sentent-seuls.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites&utm_content=sante",
+    "s": "La Presse",
+    "d": "2026-10-23T09:00:00.000Z",
+    "x": "Plus de la moitié des Québécois insatisfaits de leur vie le sont principalement en raison de leur isolement social, révèle un sondage de la firme Synopsis réalisé en septembre."
+   },
+   {
+    "t": "L’ASPQ se dit préoccupée par les standards de vente d’alcool dans les zones SAQ",
+    "u": "https://www.ledevoir.com/actualites/sante/1018985/aspq-preoccupee-standards-vente-alcool-zones-saq",
+    "s": "Le Devoir",
+    "d": "2026-10-22T17:39:00.000Z",
+    "x": "Le monopole public de la SAQ aide à protéger la population, estime l’Association pour la santé publique du Québec."
+   },
+   {
+    "t": "« Ça revient chaque année à la même période » : la dépression saisonnière est à nos portes",
+    "u": "https://www.tvanouvelles.ca/2026/10/24/ca-revient-chaque-annee-a-la-meme-periode---la-depression-saisonniere-est-a-nos-portes",
+    "s": "TVA Nouvelles",
+    "d": "2026-10-24T04:00:00.000Z",
+    "x": "Un million de Québécois ressentent des symptômes de dépression saisonnière, un trouble notamment associé à la diminution de la lumière naturelle"
+   },
+   {
+    "t": "28 M$ de plus en itinérance, dont 12 M$ aux régions",
+    "u": "https://ici.radio-canada.ca/ohdio/premiere/emissions/place-publique/segments/rattrapage/2511326/aide-urgence-en-itinerance-quebec-debloque-28m-supplementaires",
+    "s": "Radio-Canada",
+    "d": "2026-10-23T21:43:56.000Z",
+    "x": "Le gouvernement du Québec a débloqué un fonds d'urgence de 28 millions $ pour aider les personnes en situation d'itinérance, dont 12 millions $ sont destinés aux différentes régions du Québec."
+   },
+   {
+    "t": "30 ans de luttes, 25 ans de reconnaissance : le mouvement communautaire autonome célèbre sa force et interpelle le nouveau ministre responsable",
+    "u": "https://rq-aca.org/2026/10/22/communique_snaca_2026/",
+    "s": "RQ-ACA",
+    "d": "2026-10-22T11:00:54.000Z",
+    "x": "Communiqué pour diffusion immédiate Tiohtiá:ke/Montréal, le 22 octobre 2026 – En pleine Semaine nationale de l’action communautaire autonome (#SNACA), le Réseau québécois de l’action …"
+   },
+   {
+    "t": "Vos renseignements de santé vous suivent dans votre parcours de soins",
+    "u": "https://sante.quebec/actualites/nouvelles/vos-renseignements-de-sante-vous-suivent-dans-votre-parcours-de-soins/",
+    "s": "Santé Québec",
+    "d": "2026-10-23T16:00:00.000Z"
+   },
+   {
+    "t": "Pastilles, gommes et timbres | Québec élargit l’aide aux personnes qui veulent arrêter de fumer",
+    "u": "https://www.lapresse.ca/actualites/sante/2026-10-22/pastilles-gommes-et-timbres/quebec-elargit-l-aide-aux-personnes-qui-veulent-arreter-de-fumer.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites&utm_content=sante",
+    "s": "La Presse",
+    "d": "2026-10-22T23:30:00.000Z",
+    "x": "Québec donne un coup de pouce supplémentaire aux fumeurs qui veulent abandonner la cigarette ou la vapoteuse."
+   },
+   {
+    "t": "Les banques alimentaires du Québec sont débordées",
+    "u": "https://www.ledevoir.com/actualites/societe/1018328/banques-alimentaires-quebec-sont-debordees",
+    "s": "Le Devoir",
+    "d": "2026-10-21T10:00:00.000Z",
+    "x": "Elles traitent maintenant plus de 3,27 millions de demandes d’aide alimentaire chaque mois."
+   },
+   {
+    "t": "Faute d’instruments stériles, des dizaines d’interventions chirurgicales sont annulées et des salles d’opération fermées au Québec",
+    "u": "https://www.journaldemontreal.com/2026/10/23/faute-dinstruments-steriles-des-dizaines-de-chirurgies-sont-annulees-et-des-salles-doperation-fermees-au-quebec",
+    "s": "Le Journal de Montréal",
+    "d": "2026-10-23T04:00:00.000Z",
+    "x": "Faute de main-d’œuvre pour les stériliser, les scalpels et du matériel souillés s’empilent dans nos hôpitaux."
+   },
+   {
+    "t": "Des résidences en éducation, comme en médecine",
+    "u": "https://ici.radio-canada.ca/en-bref/1-10792101/residences-en-education-comme-en-medecine",
+    "s": "Radio-Canada",
+    "d": "2026-10-23T21:25:18.000Z",
+    "x": "Une première au Québec : des résidences en éducation comme ça se fait en médecine."
+   },
+   {
+    "t": "Consommation de drogues | Les opioïdes moins présents au Québec qu’ailleurs au Canada",
+    "u": "https://www.lapresse.ca/actualites/sante/2026-10-21/consommation-de-drogues/les-opioides-moins-presents-au-quebec-qu-ailleurs-au-canada.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites&utm_content=sante",
+    "s": "La Presse",
+    "d": "2026-10-21T10:02:47.000Z",
+    "x": "Alors que la crise des opioïdes frappe particulièrement fort dans l’ouest du pays, le Québec, qui n’est pas pour autant épargné, se distingue par la popularité des stimulants, qui sont …"
+   }
+  ],
+  "canada": [
+   {
+    "t": "In P.E.I., sweeping new strategy takes aim at ‘pervasive drinking culture’",
+    "u": "https://www.cbc.ca/radio/whitecoat/pei-ambitious-alcohol-strategy-9.7391771?cmp=rss",
+    "s": "CBC",
+    "d": "2026-10-24T08:00:00.000Z",
+    "x": "is taking direct aim at mitigating the toll of drinking.",
+    "l": "en"
+   },
+   {
+    "t": "Canada plunges into early flu season as vaccines begin to roll out",
+    "u": "https://globalnews.ca/news/12118832/canada-early-flu-season/",
+    "s": "Global News",
+    "d": "2026-10-23T19:59:16.000Z",
+    "x": "Experts agree that vaccination is the best way to prevent serious illness and complications from influenza.",
+    "l": "en"
+   },
+   {
+    "t": "Cadeaux des compagnies pharmaceutiques : les médecins prescrivent-ils plus?",
+    "u": "https://ici.radio-canada.ca/nouvelle/2295247/medecins-medicaments-cadeaux-etude-universite-york",
+    "s": "Radio-Canada",
+    "d": "2026-10-23T16:42:30.000Z",
+    "x": "Un chercheur torontois affirme que les « mêmes tactiques » utilisées aux États-Unis sont employées au Canada."
+   },
+   {
+    "t": "Casselman : l’eau, les médecins et les taxes au cœur de la course à la mairie",
+    "u": "https://onfr.tfo.org/casselman-leau-les-medecins-et-les-taxes-au-coeur-de-la-course-a-la-mairie/",
+    "s": "ONFR",
+    "d": "2026-10-22T18:10:00.000Z",
+    "x": "CASSELMAN – L’approvisionnement en eau, l’accès aux médecins, les taxes et l’identité francophone dominent la campagne à Casselman."
+   },
+   {
+    "t": "La Presse aux Pays-Bas | Dérapages au pays de l’aide médicale à mourir ?",
+    "u": "https://www.lapresse.ca/actualites/sante/2026-10-21/la-presse-aux-pays-bas/derapages-au-pays-de-l-aide-medicale-a-mourir.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites&utm_content=sante",
+    "s": "La Presse",
+    "d": "2026-10-21T09:00:00.000Z",
+    "x": "Ottawa déposera cet automne un projet de loi visant à interdire indéfiniment l’aide médicale à mourir pour les personnes souffrant de troubles mentaux."
+   },
+   {
+    "t": "Le gouvernement du Canada annonce la nomination du Dr George Mutwiri au Conseil d’administration des Instituts de recherche en santé du Canada",
+    "u": "https://www.canada.ca/fr/sante-canada/nouvelles/2026/10/le-gouvernement-du-canada-annonce-la-nomination-du-dr-george-mutwiri-au-conseil-dadministration-des-instituts-de-recherche-en-sante-du-canada.html",
+    "s": "Gouvernement du Canada",
+    "d": "2026-10-13T19:00:00.000Z",
+    "x": "Aujourd’hui, l’honorable Marjorie Michel, ministre de la Santé, a annoncé la nomination de George Mutwiri au conseil d’administration des Instituts de recherche en santé du Canada (IRSC)."
+   },
+   {
+    "t": "The RDSP was meant to help disabled Canadians save for the future. Yet many don't know it exists",
+    "u": "https://www.cbc.ca/radio/rdsp-eligible-future-9.7379198?cmp=rss",
+    "s": "CBC",
+    "d": "2026-10-24T08:00:00.000Z",
+    "x": "The Registered Disability Savings Plan was intended to be a financial safety net for people with disabilities and the families who care for them.",
+    "l": "en"
+   },
+   {
+    "t": "Heat waves linked to 50K deaths in Europe this summer, report says",
+    "u": "https://globalnews.ca/news/12118783/europe-heatwave-death-toll/",
+    "s": "Global News",
+    "d": "2026-10-23T18:23:25.000Z",
+    "x": "Climate change, in particular, was responsible for two-thirds of the deaths, the report in the British Medical Journal said on Friday.",
+    "l": "en"
+   },
+   {
+    "t": "Guillaume Latendresse : la pause qui lui a sauvé la vie",
+    "u": "https://ici.radio-canada.ca/tele/on-va-se-le-dire/site/segments/entrevue/2509144/guillaume-latendresse-pause-sante-mentale-epuisement",
+    "s": "Radio-Canada",
+    "d": "2026-10-21T19:33:53.000Z",
+    "x": "L'ancien joueur du Canadien explique comment un suivi en neuropsy et une remise en question de ses habitudes de vie lui ont permis de surmonter un épuisement professionnel."
+   },
+   {
+    "t": "Crise d’itinérance à Timmins : quels plans d’action proposent les candidats?",
+    "u": "https://onfr.tfo.org/crise-ditinerance-a-timmins-quels-plans-daction-proposent-les-candidats/",
+    "s": "ONFR",
+    "d": "2026-10-21T20:24:40.000Z",
+    "x": "TIMMINS – Lors d’un débat électoral tenu le 20 octobre, cinq candidats à la mairie de Timmins ont partagé des solutions pour régler la crise d’itinérance, de dépendance, et de santé mentale …"
+   },
+   {
+    "t": "A novel mRNA cancer vaccine helps cut the chances of melanoma tumor recurrence in major study",
+    "u": "https://www.cbc.ca/news/health/moderna-mrna-melanoma-vaccine-9.7393062?cmp=rss",
+    "s": "CBC",
+    "d": "2026-10-23T15:10:48.000Z",
+    "x": "A first-of-its-kind cancer vaccine is significantly reducing the chances that melanoma patients' tumors come back, according to results of a major study released Thursday by drugmakers …",
+    "l": "en"
+   },
+   {
+    "t": "Can a photo help predict if you’ll survive cancer? Researchers think so",
+    "u": "https://globalnews.ca/news/12112035/how-a-selfie-predicts-cancer-outcomes/",
+    "s": "Global News",
+    "d": "2026-10-21T20:05:33.000Z",
+    "x": "A team of researchers developed AI models that they say can predict a person’s biological age and chances of surviving cancer treatment using a singular photograph of their face.",
+    "l": "en"
+   },
+   {
+    "t": "Des hôpitaux de Saskatoon auront 80 nouveaux lits",
+    "u": "https://ici.radio-canada.ca/ohdio/premiere/emissions/tout-compris/segments/rattrapage/2508120/quatre-vingt-lits-supplementaires-dans-hopitaux-saskatoon",
+    "s": "Radio-Canada",
+    "d": "2026-10-21T00:07:19.000Z",
+    "x": "Le gouvernement de la Saskatchewan annonce l'installation de 80 lits supplémentaires dans trois des plus grands hôpitaux de Saskatoon."
+   },
+   {
+    "t": "1st human case of livestock virus Shamonda reported in France",
+    "u": "https://www.cbc.ca/news/health/shamonda-livestock-virus-human-case-9.7391560?cmp=rss",
+    "s": "CBC",
+    "d": "2026-10-22T14:59:25.000Z",
+    "x": "France on Thursday reported the first human case of the Shamonda virus usually found in livestock in a patient who later died, with authorities adding there was no risk to the general …",
+    "l": "en"
+   }
+  ],
+  "france": [
+   {
+    "t": "Florent Marchet : une chanson dans la grande précarité",
+    "u": "https://www.franceinfo.fr/replay-radio/ces-chansons-qui-font-l-actu/florent-marchet-une-chanson-dans-la-grande-precarite_8230954.html#xtor=RSS-3-%5Bgeneral%5D",
+    "s": "franceinfo",
+    "d": "2026-10-24T16:00:02.000Z",
+    "x": "\"Mobil home\", qui donne son titre à son nouvel album, explore la vie d'une femme qui se débat dans la pauvreté et la solitude."
+   },
+   {
+    "t": "« Il a tout essayé : m’entourer, m’aimer, vider mes bouteilles. Il était désespéré » : ces couples qui survivent à l’alcoolisme",
+    "u": "https://www.lemonde.fr/intimites/article/2026/10/24/il-a-tout-essaye-m-entourer-m-aimer-vider-mes-bouteilles-il-etait-desespere-ces-couples-qui-survivent-a-l-alcoolisme_6799715_6190330.html",
+    "s": "Le Monde",
+    "d": "2026-10-24T15:31:54.000Z",
+    "x": "Lorsqu’un conjoint souffre d’une addiction, la relation est mise à rude épreuve, allant parfois jusqu’à la rupture."
+   },
+   {
+    "t": "«Réversible, sans hormones, et posé en une quinzaine de minutes» : un prototype de stérilet masculin inventé par le CHU de Lille",
+    "u": "https://sante.lefigaro.fr/mieux-etre/sexualite/reversible-sans-hormones-et-pose-en-une-quinzaine-de-minutes-un-prototype-de-sterilet-masculin-invente-par-le-chu-de-lille-20261024",
+    "s": "Le Figaro",
+    "d": "2026-10-24T11:15:06.000Z",
+    "x": "Breveté en 2025, ce dispositif de contraception permettrait d’empêcher les spermatozoïdes d’entrer dans le sperme."
+   },
+   {
+    "t": "Pour combler les déserts médicaux, le gouvernement veut plafonner la pratique esthétique des médecins",
+    "u": "https://www.liberation.fr/societe/sante/pour-combler-les-deserts-medicaux-le-gouvernement-veut-plafonner-la-pratique-esthetique-des-medecins-20261024_VKJUSI67KFDC5IMXBP7EFAJA74/",
+    "s": "Libération",
+    "d": "2026-10-24T07:43:13.000Z",
+    "x": "Le gouvernement s’apprête à publier un décret qui limite à 30 % de leur temps de travail l’activité esthétique, le reste devant être obligatoirement consacré à leur spécialité d’origine."
+   },
+   {
+    "t": "Une belle hausse des primo-installations de généralistes... et une file active qui s'érode, selon la Cnam",
+    "u": "http://www.lequotidiendumedecin.fr/liberal-soins-de-ville/une-belle-hausse-des-primo-installations-de-generalistes-et-une-file-active-qui-serode-selon-la-cnam",
+    "s": "Le Quotidien du médecin",
+    "d": "2026-10-23T13:28:09.000Z",
+    "x": "Selon le bilan de l’Observatoire de l’accès aux soins, les installations de nouveaux médecins généralistes, notamment dans les zones sous-denses, continuent de repartir à la hausse (+ 22,8 %)."
+   },
+   {
+    "t": "La nomenclature des actes actualisée, fruit de l'Avenant 11, est parue",
+    "u": "http://www.infirmiers.com/exercice-liberal/le-metier-didel/la-nomenclature-des-actes-actualisee-fruit-de-lavenant-11-est-parue",
+    "s": "Infirmiers.com",
+    "d": "2026-10-23T10:08:03.000Z",
+    "x": "Une décision de l'Union nationale des caisses d'assurance maladie (Uncam) parue au Journal officiel du jeudi 22 octobre actualise la nomenclature générale des actes professionnels des infirmiers."
+   },
+   {
+    "t": "Nos journées ne durent pas vraiment 24 heures !",
+    "u": "https://www.franceinfo.fr/sante/nos-journees-ne-durent-pas-vraiment-24-heures_8251159.html#xtor=RSS-3-%5Bgeneral%5D",
+    "s": "franceinfo",
+    "d": "2026-10-24T14:00:03.000Z",
+    "x": "Ce week-end, on change d’heure… mais ce n’est pas le seul phénomène qui chamboule nos horloges !"
+   },
+   {
+    "t": "« Votre papa est malade, il va bientôt partir et il veut vous dire des choses… » : à Paris, un atelier permet de se raconter dans une chanson-testament",
+    "u": "https://www.lemonde.fr/m-perso/article/2026/10/24/votre-papa-est-malade-il-va-bientot-partir-et-il-veut-vous-dire-des-choses-a-paris-un-atelier-permet-de-se-raconter-dans-une-chanson-testament_6799548_4497916.html",
+    "s": "Le Monde",
+    "d": "2026-10-24T04:00:13.000Z",
+    "x": "L’artiste Marie Tout Court retrace la vie de patients parisiens proches de la mort, et transforme leurs souvenirs en chanson."
+   },
+   {
+    "t": "Cancer du sein : un médicament utilisé après l’accouchement pourrait-il réduire le risque ?",
+    "u": "https://sante.lefigaro.fr/medecine/cancer-du-sein-un-medicament-utilise-apres-l-accouchement-pourrait-il-reduire-le-risque-20261024",
+    "s": "Le Figaro",
+    "d": "2026-10-24T05:00:00.000Z",
+    "x": "Un médicament prescrit pour interrompre la lactation pourrait-il aussi prévenir certains cancers du sein ?"
+   },
+   {
+    "t": "Vaccin à ARN messager contre le mélanome : «C’est l’une des avancées les plus significatives depuis l’avènement de l’immunothérapie»",
+    "u": "https://www.liberation.fr/societe/sante/vaccin-a-arn-messager-contre-le-melanome-cest-lune-des-avancees-les-plus-significatives-depuis-lavenement-de-limmunotherapie-20261024_77CV5BIAUNFBDGKBHLG6L45RXE/",
+    "s": "Libération",
+    "d": "2026-10-24T06:02:00.000Z",
+    "x": "Les laboratoires Moderna et Merck présentent, ce samedi, les résultats d’un vaste essai clinique contre ce cancer de la peau."
+   },
+   {
+    "t": "Revers sur la taxe des mutuelles, rejet du PLFSS 2027 à l'Assemblée : le gouvernement en échec",
+    "u": "http://www.lequotidiendumedecin.fr/sante-societe/politique-de-sante/revers-sur-la-taxe-des-mutuelles-rejet-du-plfss-2027-lassemblee-le-gouvernement-en-echec",
+    "s": "Le Quotidien du médecin",
+    "d": "2026-10-23T11:30:29.000Z",
+    "x": "Les députés ont rejeté la deuxième partie du PLFSS 2027, empêchant l’examen de la troisième partie du texte sur les dépenses."
+   },
+   {
+    "t": "Infirmier à bord d’un hélico du SAMU : « Le plus gros du travail, est celui que l’on ne voit pas »",
+    "u": "http://www.infirmiers.com/profession-ide/infirmier-bord-dun-helico-du-samu-le-plus-gros-du-travail-est-celui-que-lon-ne-voit-pas",
+    "s": "Infirmiers.com",
+    "d": "2026-10-23T05:55:33.000Z",
+    "x": "Gaël de Beaudrap est infirmier au Service d'Aide Médicale Urgente (SAMU) de Marseille."
+   },
+   {
+    "t": "Faut-il arrêter le sucre ?",
+    "u": "https://www.franceinfo.fr/sante/alimentation/faut-il-arreter-le-sucre_8252137.html#xtor=RSS-3-%5Bgeneral%5D",
+    "s": "franceinfo",
+    "d": "2026-10-24T13:00:02.000Z"
+   },
+   {
+    "t": "Ebola en RDC : un essai clinique du vaccin Tumaini a débuté, selon l’OMS",
+    "u": "https://www.lemonde.fr/planete/article/2026/10/24/ebola-en-rdc-un-essai-clinique-du-vaccin-tumaini-a-debute-selon-l-oms_6799247_3244.html",
+    "s": "Le Monde",
+    "d": "2026-10-23T23:07:05.000Z",
+    "x": "Face à l’absence de vaccin approuvé contre la souche Bundibugyo, moins courante que la souche Zaïre, la République démocratique du Congo mise sur plusieurs candidats, dont Tumaini, pour …"
+   }
+  ],
+  "debats": [
+   {
+    "t": "Faut-il arrêter le sucre ?",
+    "u": "https://www.franceinfo.fr/sante/alimentation/faut-il-arreter-le-sucre_8252137.html#xtor=RSS-3-%5Bgeneral%5D",
+    "s": "franceinfo",
+    "d": "2026-10-24T13:00:02.000Z"
+   },
+   {
+    "t": "Des pharmaciens dénoncent un système de distribution des vaccins jugé inefficace",
+    "u": "https://ici.radio-canada.ca/nouvelle/2295407/vaccination-quebec-campagne-insatisfaction",
+    "s": "Radio-Canada",
+    "d": "2026-10-24T08:00:00.000Z",
+    "x": "La quantité de doses livrées peine à répondre à la forte demande en ce début de campagne de vaccination."
+   },
+   {
+    "t": "10 ans après la mort de son fils, une mère déplore le manque de ressources offertes aux personnes épileptiques",
+    "u": "https://www.journaldemontreal.com/2026/10/23/10-ans-apres-la-mort-de-son-fils-elle-deplore-le-manque-de-ressources-offertes-aux-personnes-epileptiques",
+    "s": "Le Journal de Montréal",
+    "d": "2026-10-23T19:00:47.000Z",
+    "x": "La mère d'un garçon décédé dans son lit à la suite d’une crise d’épilepsie déplore le manque d’accompagnement que les épileptiques reçoivent."
+   },
+   {
+    "t": "Réforme de l’accès aux études de santé : « Nous demandons que son entrée en vigueur soit reportée à la rentrée universitaire 2028 »",
+    "u": "https://www.lemonde.fr/idees/article/2026/10/23/reforme-de-l-acces-aux-etudes-de-sante-nous-demandons-que-son-entree-en-vigueur-soit-reportee-a-la-rentree-universitaire-2028_6799086_3232.html",
+    "s": "Le Monde",
+    "d": "2026-10-23T14:00:07.000Z",
+    "x": "AS dès la rentrée 2027, alors que les textes définitifs n’ont toujours pas été publiés, relève de l’« obstination déraisonnable », dénoncent des représentants des conférences de doyens de …"
+   },
+   {
+    "t": "La qualité des soins, grande absente du débat présidentiel",
+    "u": "http://www.lequotidiendumedecin.fr/opinions/la-qualite-des-soins-grande-absente-du-debat-presidentiel",
+    "s": "Le Quotidien du médecin",
+    "d": "2026-10-23T05:00:00.000Z",
+    "x": "Comment la France soigne sans mesurer ses résultats (éditions du Craps, 2026), le Pr Alain Bernard, chirurgien thoracique et cardiovasculaire, dresse un constat sans concession du système …"
+   },
+   {
+    "t": "Le cancer ne reporte pas son échéance",
+    "u": "https://www.ledevoir.com/opinion/editoriaux/1018931/cancer-ne-reporte-pas-echeance",
+    "s": "Le Devoir",
+    "d": "2026-10-23T04:00:00.000Z",
+    "x": "Pourquoi alors reporter à 2028 les guichets devant accélérer le diagnostic?"
+   },
+   {
+    "t": "Sondage | Votre avis sur l’aide médicale à mourir",
+    "u": "https://www.lapresse.ca/dialogue/2026-10-22/sondage/votre-avis-sur-l-aide-medicale-a-mourir.php?utm_source=rss&utm_medium=fil&utm_campaign=dialogue",
+    "s": "La Presse",
+    "d": "2026-10-23T03:00:00.000Z",
+    "x": "Ottawa déposera cet automne un projet de loi visant à finalement interdire l’aide médicale à mourir (AMM) pour les personnes souffrant de troubles mentaux."
+   },
+   {
+    "t": "Organoïdes humains : des objets biologiques nouveaux, un statut à définir",
+    "u": "https://theconversation.com/organo-des-humains-des-objets-biologiques-nouveaux-un-statut-a-definir-289079",
+    "s": "The Conversation France",
+    "d": "2026-10-22T13:46:38.000Z",
+    "x": "Conçus à partir de cellules humaines, les organoïdes suscitent beaucoup d’espoir pour modéliser des organes et étudier certaines pathologies."
+   },
+   {
+    "t": "Why using AI saves doctors time but won’t fix physician burnout",
+    "u": "https://theconversation.com/why-using-ai-saves-doctors-time-but-wont-fix-physician-burnout-291250",
+    "s": "The Conversation Canada",
+    "d": "2026-10-22T12:46:03.000Z",
+    "x": "AI can save physicians time, but time saved is not the same as burnout prevented.",
+    "l": "en"
+   },
+   {
+    "t": "L’ostéopathie fait son entrée à l'université : passer de la croyance à la science",
+    "u": "https://theconversation.com/losteopathie-fait-son-entree-a-luniversite-passer-de-la-croyance-a-la-science-293408",
+    "s": "La Conversation",
+    "d": "2026-10-21T17:30:25.000Z",
+    "x": "Au Québec, l’ostéopathie entre à l’université et dans le système professionnel."
+   },
+   {
+    "t": "Une meilleure sécurité réclamée à l’urgence psychiatrique du CHUL",
+    "u": "https://ici.radio-canada.ca/info/videos/1-10792215/une-meilleure-securite-reclamee-a-urgence-psychiatrique-chul",
+    "s": "Radio-Canada",
+    "d": "2026-10-23T22:54:22.000Z",
+    "x": "Des travailleurs de l’urgence psychiatrique du CHUL réclament une meilleure sécurité sur leur lieu de travail."
+   },
+   {
+    "t": "«J’ai vu pleurer mon mari»: un patient âgé réclame 50 000 $ à l’hôpital de Verdun",
+    "u": "https://www.tvanouvelles.ca/2026/10/17/jai-vu-pleurer-mon-mari--un-patient-age-reclame-50-000--a-lhopital-de-verdun",
+    "s": "TVA Nouvelles",
+    "d": "2026-10-19T04:00:00.000Z",
+    "x": "Un homme de 71 ans déplore avoir vécu un séjour infernal aux soins intensifs à l’hôpital de Verdun et réclame 50 000 $ en dédommagement."
+   },
+   {
+    "t": "Ehpad, la réforme fusion soins et dépendance en passe d'être généralisée à partir du 1er janvier 2028",
+    "u": "http://www.lequotidiendumedecin.fr/hopital/politique-hospitaliere/ehpad-la-reforme-fusion-soins-et-dependance-en-passe-detre-generalisee-partir-du-1er-janvier-2028",
+    "s": "Le Quotidien du médecin",
+    "d": "2026-10-22T16:59:33.000Z",
+    "x": "Alors qu'un article du projet de loi de financement de la protection sociale 2027 demande la prolongation de l'expérimentation de la réforme du financement des Ehpad qui consiste à …"
+   },
+   {
+    "t": "La police, l’itinérance et l’indignité",
+    "u": "https://www.ledevoir.com/opinion/idees/1018346/police-itinerance-indignite",
+    "s": "Le Devoir",
+    "d": "2026-10-21T04:00:00.000Z",
+    "x": "Nos élus ont choisi la réponse la plus coûteuse et la plus inefficace à l’itinérance."
+   }
+  ],
+  "decouvertes": [
+   {
+    "t": "Ces nonnes avaient un cerveau marqué par Alzheimer, mais aucun symptôme : voici ce que les chercheurs ont découvert",
+    "u": "https://www.futura-sciences.com/sante/actualites/maladie-alzheimer-ces-nonnes-avaient-cerveau-ravage-alzheimer-mais-aucun-symptome-voici-ce-chercheurs-ont-decouvert-138751/#xtor%3DRSS-8",
+    "s": "Futura",
+    "d": "2026-10-23T11:17:42.000Z",
+    "x": "Elle a toute sa tête, est capable de répondre à des questions, se souvient parfaitement de son passé et conserve toute sa lucidité."
+   },
+   {
+    "t": "Efficacy and safety of mitapivat in patients with sickle cell disease (RISE UP): a phase 3, double-blind, global, randomised, placebo-controlled trial",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42913682/",
+    "s": "PubMed",
+    "d": "2026-10-23T17:57:00.000Z",
+    "x": "Mitapivat, an oral pyruvate kinase activator, with a novel mechanism that ameliorates haemolytic anaemia, has the potential to be an effective and convenient disease-modifying treatment for …",
+    "l": "en",
+    "r": "Lancet",
+    "y": "essai"
+   },
+   {
+    "t": "Cancer du pancréas, l’IA ne détrône pas encore le radiologue",
+    "u": "http://www.lequotidiendumedecin.fr/specialites/cancerologie/cancer-du-pancreas-lia-ne-detrone-pas-encore-le-radiologue",
+    "s": "Le Quotidien du médecin",
+    "d": "2026-10-22T15:25:43.000Z",
+    "x": "Les Journées francophones de radiologie (JFR) de ce début d’octobre ont été fertiles en réussites techniques mais n’ont pas décerné de satisfecit à l’intelligence artificielle (IA) dans la …"
+   },
+   {
+    "t": "Étude | Les GLP-1 sont sécuritaires en début de grossesse",
+    "u": "https://www.lapresse.ca/actualites/sciences/2026-10-22/etude/les-glp-1-sont-securitaires-en-debut-de-grossesse.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites&utm_content=sciences",
+    "s": "La Presse",
+    "d": "2026-10-22T10:31:45.000Z",
+    "x": "L’exposition à des antidiabétiques de deuxième ligne comme les agonistes des récepteurs du GLP-1 pendant le premier trimestre de la grossesse n’a pas été associée à un risque accru de …"
+   },
+   {
+    "t": "Acetic acid chromoendoscopy for detection of neoplastic Barrett's oesophagus: stepped wedge cluster randomised controlled trial (ACID-trial)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42907095/",
+    "s": "PubMed",
+    "d": "2026-10-22T20:15:00.000Z",
+    "x": "Use of AAC did not improve detection of neoplasia in patients with Barrett's oesophagus undergoing endoscopic surveillance in routine clinical practice.",
+    "l": "en",
+    "r": "BMJ",
+    "y": "essai"
+   },
+   {
+    "t": "Thrombose: aucun risque avec les traitements hormonaux cutanés pour la ménopause, affirme une étude",
+    "u": "https://www.sciencesetavenir.fr/sante/une-large-etude-confirme-que-les-traitements-hormonaux-cutanes-pour-la-menopause-n-augmentent-pas-le-risque-de-thrombose_195482?xtor=RSS-16",
+    "s": "Sciences et Avenir",
+    "d": "2026-10-23T11:40:58.000Z",
+    "x": "Cette étude sur plus d’un million de femmes au Danemark confirme que les traitements hormonaux par voie orale augmentent ce risque, contrairement aux traitements cutanés, majoritaires en …"
+   },
+   {
+    "t": "Des cellules sénescentes pas si dormantes !",
+    "u": "https://www.inserm.fr/actualite/des-cellules-senescentes-pas-si-dormantes/",
+    "s": "Inserm",
+    "d": "2026-10-22T06:00:00.000Z",
+    "x": "Éliminer les cellules dites « sénescentes » qui s’accumulent au fil du temps dans notre organisme est une piste sérieuse pour lutter contre certaines maladies du vieillissement."
+   },
+   {
+    "t": "Ianalumab for the Treatment of Patients with Sjögren's Disease",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42906087/",
+    "s": "PubMed",
+    "d": "2026-10-22T19:12:00.000Z",
+    "x": "In these two trials involving patients with active Sjögren's disease, ianalumab at a dose of 300 mg monthly resulted in a significantly greater decrease in disease activity at week 48 than …",
+    "l": "en",
+    "r": "N Engl J Med",
+    "y": "essai"
+   },
+   {
+    "t": "Ebola en RDC : un essai clinique du vaccin Tumaini a débuté, selon l’OMS",
+    "u": "https://www.lemonde.fr/planete/article/2026/10/24/ebola-en-rdc-un-essai-clinique-du-vaccin-tumaini-a-debute-selon-l-oms_6799247_3244.html",
+    "s": "Le Monde",
+    "d": "2026-10-23T23:07:05.000Z",
+    "x": "Face à l’absence de vaccin approuvé contre la souche Bundibugyo, moins courante que la souche Zaïre, la République démocratique du Congo mise sur plusieurs candidats, dont Tumaini, pour …"
+   },
+   {
+    "t": "Plus accessible, tourné vers l’international… Comment le congrès européen de recherche contre le cancer est devenu un acteur majeur",
+    "u": "https://www.liberation.fr/societe/sante/plus-accessible-tourne-vers-linternational-comment-le-congres-europeen-de-recherche-contre-le-cancer-est-devenu-un-acteur-majeur-20261023_IOTWCWE42JDTNKBMQXSNCV2NYQ/",
+    "s": "Libération",
+    "d": "2026-10-23T04:28:00.000Z",
+    "x": "Le rendez-vous de la Société européenne de l’oncologie médicale se tient du vendredi 23 au mardi 27 octobre à Madrid."
+   }
+  ],
+  "recherche": [
+   {
+    "t": "Souffrir d’insécurité alimentaire en nourrissant le Québec",
+    "u": "https://nouvelles.umontreal.ca/article/2026/10/23/souffrir-d-insecurite-alimentaire-en-nourrissant-le-quebec",
+    "s": "UdeM Nouvelles",
+    "d": "2026-10-23T16:00:00.000Z"
+   },
+   {
+    "t": "Renouvellement du mandat de David Chatenet à la direction du Centre Armand-Frappier Santé Biotechnologie de l’INRS",
+    "u": "https://inrs.ca/actualites/renouvellement-du-mandat-de-david-chatenet-a-la-direction-du-centre-armand-frappier-sante-biotechnologie-de-linrs/#utm_source=rss&utm_medium=rss&utm_campaign=renouvellement-du-mandat-de-david-chatenet-a-la-direction-du-centre-armand-frappier-sante-biotechnologie-de-linrs",
+    "s": "INRS",
+    "d": "2026-10-22T17:00:00.000Z",
+    "x": "L’Institut national de la recherche scientifique (INRS) est heureux d’annoncer le renouvellement du mandat de David Chatenet à la direction du Centre Armand-Frappier Santé Biotechnologie (AFSB)."
+   },
+   {
+    "t": "850 000 $ pour développer des solutions innovantes en obésité pédiatrique au Québec",
+    "u": "https://frq.gouv.qc.ca/850-000-pour-developper-des-solutions-innovantes-en-obesite-pediatrique-au-quebec/",
+    "s": "Fonds de recherche du Québec",
+    "d": "2026-10-15T14:00:26.000Z",
+    "x": "Le Fonds de recherche du Québec (FRQ) est fier d’annoncer les équipes récipiendaires du Programme pour des Solutions en Obésité Infantile (SOI), une initiative de Pro-Santé, un partenariat …"
+   },
+   {
+    "t": "Le Dr André Lacroix reçoit le prix d’honneur de carrière de la Société française d’endocrinologie",
+    "u": "https://www.chumontreal.qc.ca/actualites/dr-andre-lacroix-recoit-prix-dhonneur-carriere-societe-francaise-dendocrinologie",
+    "s": "CRCHUM",
+    "d": "2026-10-14T16:00:00.000Z"
+   },
+   {
+    "t": "Bâtir la ville de demain : quand santé publique, urbanisme et culture se rencontrent",
+    "u": "https://espum.umontreal.ca/lespum/nouvelles/nouvelle/news/detail/News/batir-la-ville-de-demain-quand-sante-publique-urbanisme-et-culture-se-rencontrent/",
+    "s": "ESPUM",
+    "d": "2026-10-13T16:00:00.000Z"
+   },
+   {
+    "t": "Un nouveau centre québécois de recherche sur l’autisme et la déficience intellectuelle",
+    "u": "https://nouvelles.umontreal.ca/article/2026/10/16/un-nouveau-centre-quebecois-de-recherche-sur-l-autisme-et-la-deficience-intellectuelle",
+    "s": "UdeM Nouvelles",
+    "d": "2026-10-16T16:00:00.000Z"
+   },
+   {
+    "t": "Supercritical Carbon Dioxide-Peracetic Acid Treatment Inactivates Low-Level Bacterial Inocula in Collagen Analogue-Phosphorylcholine Hydrogels while Preserving Functional Properties",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42916212/",
+    "s": "PubMed",
+    "d": "2026-10-23T19:15:00.000Z",
+    "x": "In conclusion, newer scCO2-PAA terminal sterilization preserves the functional properties of soft hydrogels, such as CLP-PEG-MPC, including transparency, which is needed for corneal implants.",
+    "l": "en",
+    "r": "ACS Biomater Sci Eng",
+    "e": "CRCHUM"
+   },
+   {
+    "t": "Serum ammonia improves early risk stratification beyond West Haven criteria in acute liver failure",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42912570/",
+    "s": "PubMed",
+    "d": "2026-10-23T13:38:00.000Z",
+    "x": "In ALF, serum ammonia may help to define HE and assess prognosis earlier, irrespective of WHC grade.",
+    "l": "en",
+    "r": "Liver Transpl",
+    "e": "CRCHUM"
+   },
+   {
+    "t": "\"Attention to the person who prepared the questionnaire\": Queer men's survey marginalia in HIV behavioural surveillance",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42868729/",
+    "s": "PubMed",
+    "d": "2026-10-13T18:37:00.000Z",
+    "x": "Practical recommendations for the design and administration of HIV behavioural surveillance surveys and research with queer people are offered.",
+    "l": "en",
+    "r": "Soc Sci Med",
+    "e": "ESPUM"
+   },
+   {
+    "t": "Understanding barriers to quality healthcare in rare diseases",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42852871/",
+    "s": "PubMed",
+    "d": "2026-10-09T08:53:00.000Z",
+    "x": "DiscussionThere is a clear and pressing need to improve the quality of care for people living with rare diseases, in alignment with major clinical recommendations.",
+    "l": "en",
+    "r": "Chronic Illn",
+    "e": "ESPUM"
+   },
+   {
+    "t": "PFAS exposure in 12-year-old children and its association with metabolic markers",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42881263/",
+    "s": "PubMed",
+    "d": "2026-10-15T23:50:00.000Z",
+    "x": "Findings indicate potential associations between PFAS exposure and metabolic biomarkers at age 12, with variations by sex and pubertal status, emphasizing the need for longitudinal investigations.",
+    "l": "en",
+    "r": "Pediatr Res",
+    "e": "INSPQ"
+   },
+   {
+    "t": "Developing a cps-genotyping scheme for the emerging zoonotic pathogen Streptococcus parasuis through genetic analysis of capsular polysaccharide synthesis gene loci",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42919146/",
+    "s": "PubMed",
+    "d": "2026-10-23T20:39:00.000Z",
+    "x": "parasuis population and developed an easy-to-use, expandable, high-throughput cps-genotyping scheme.",
+    "l": "en",
+    "r": "BMC Microbiol",
+    "e": "Québec"
+   },
+   {
+    "t": "Trends in Oral Anticoagulant Prescribing for Atrial Fibrillation and Active Cancer in UK Primary Care",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42914750/",
+    "s": "PubMed",
+    "d": "2026-10-23T18:20:00.000Z",
+    "x": "In the last decade, OAC initiation has substantially increased among eligible patients with AF and active cancer, driven by direct oral anticoagulant uptake.",
+    "l": "en",
+    "r": "JACC Adv",
+    "e": "Québec"
+   }
+  ],
+  "publications": [
+   {
+    "t": "Electronic Dementia Assessment Score: Screenings and Receipt of Home and Community-Based Services",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42899384/",
+    "s": "PubMed",
+    "d": "2026-10-20T13:37:00.000Z",
+    "x": "Among Veterans with heart failure and newly diagnosed dementia, documentation of cognitive, psychiatric, and functional assessments was associated with greater odds of receiving HCBS.",
+    "l": "en",
+    "r": "Alzheimer Dis Assoc Disord"
+   },
+   {
+    "t": "Why access to health services is hard work: negotiating access in a cross-sectoral mental health program in Denmark",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42909456/",
+    "s": "PubMed",
+    "d": "2026-10-23T10:39:00.000Z",
+    "x": "We argue that the candidacy framework helps explain access as an ongoing negotiated process across individual, organisational, and structural levels.",
+    "l": "en",
+    "r": "Health Sociol Rev"
+   },
+   {
+    "t": "Strategic intelligence and organizational ambidexterity for strengthening health system performance in a public healthcare network",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42903816/",
+    "s": "PubMed",
+    "d": "2026-10-22T14:30:00.000Z",
+    "x": "Because of the cross-sectional self-report design, the single-site sample, and the modest sample size, the findings are preliminary and should not be interpreted causally or generalized.",
+    "l": "en",
+    "r": "Dialogues Health"
+   },
+   {
+    "t": "Behavioral choices and enabling conditions for implementing independence-supportive care among nursing assistants in residential aged care facilities in Hunan Province, China: a qualitative study",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42904248/",
+    "s": "PubMed",
+    "d": "2026-10-22T15:39:00.000Z",
+    "x": "Nursing assistants' implementation of independence-supportive care is shaped by the interaction of capability, opportunity, and motivation.",
+    "l": "en",
+    "r": "Front Public Health"
+   },
+   {
+    "t": "Cross-sector partnership and DNA barcoding to boost biological knowledge in megadiverse countries",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42891991/",
+    "s": "PubMed",
+    "d": "2026-10-18T01:20:00.000Z",
+    "x": "Our results set the base for further biodiversity planning by the industry in their operational area and illustrate that industry-enabled molecular workflows can accelerate biodiversity …",
+    "l": "en",
+    "r": "Genome"
+   },
+   {
+    "t": "Occupational physicians' perceptions of professional role change following health policy reform in France: A qualitative study",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42904100/",
+    "s": "PubMed",
+    "d": "2026-10-22T15:13:00.000Z",
+    "x": "Among the physicians interviewed, few changes in practice were directly attributed to the reform, while several health promotion activities were reported to have predated it.",
+    "l": "en",
+    "r": "Public Health Pract (Oxf)"
+   },
+   {
+    "t": "Community-based traditional Chinese medicine health service use among older adults and provider-reported delivery barriers in Wuhan, China: an explanatory sequential mixed-methods study",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42902286/",
+    "s": "PubMed",
+    "d": "2026-10-21T00:40:00.000Z",
+    "x": "Among older adults recruited on site at selected community health service centres, reported use of community-based TCM health services during the past 12 months was associated with …",
+    "l": "en",
+    "r": "BMC Health Serv Res"
+   },
+   {
+    "t": "From technologies to capabilities: Sustaining system-level digital transformation in Singapore public healthcare - a NASSS-informed policy analysis",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42906360/",
+    "s": "PubMed",
+    "d": "2026-10-22T19:34:00.000Z",
+    "x": "Applying NASSS beyond disease, or technology-specific, interventions reveals both its strengths and limitations.",
+    "l": "en",
+    "r": "Health Policy"
+   },
+   {
+    "t": "Proxy indicators to support independent ageing-in-place in older people with frailty: a Delphi-style expert consultation survey",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42919131/",
+    "s": "PubMed",
+    "d": "2026-10-23T20:38:00.000Z",
+    "x": "This study lays the foundation for developing standardised proxy ageing-in-place indicators to monitor how older people with or at risk of frailty are living in their homes and communities.",
+    "l": "en",
+    "r": "BMC Geriatr"
+   },
+   {
+    "t": "The influence of community engagement on stakeholder perspectives in cross-sector integrated care: an integrative review",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/42908031/",
+    "s": "PubMed",
+    "d": "2026-10-22T22:44:00.000Z",
+    "x": "This review makes a singular contribution to cross-sector integrated care literature, utilizing perspectives from health and social service organizations to map what is known about the …",
+    "l": "en",
+    "r": "BMC Health Serv Res"
+   }
+  ]
+ },
+ "sources": [
+  "Radio-Canada",
+  "La Presse",
+  "Le Devoir",
+  "Le Journal de Montréal",
+  "TVA Nouvelles",
+  "L’actualité",
+  "Métro",
+  "Pivot",
+  "L’Itinéraire",
+  "RQ-ACA",
+  "Assemblée nationale du Québec",
+  "Santé Québec",
+  "INSPQ",
+  "CBC",
+  "Global News",
+  "ONFR",
+  "Gouvernement du Canada",
+  "The Conversation Canada",
+  "Le Monde",
+  "Le Figaro",
+  "franceinfo",
+  "Libération",
+  "Le Quotidien du médecin",
+  "Infirmiers.com",
+  "Santé publique France",
+  "The Conversation France",
+  "La Conversation",
+  "Québec Science",
+  "Agence Science-Presse",
+  "Sciences et Avenir",
+  "Futura",
+  "Inserm",
+  "ScienceDaily",
+  "Medical Xpress",
+  "Nature Medicine",
+  "CRCHUM",
+  "ESPUM",
+  "UdeM Nouvelles",
+  "Fonds de recherche du Québec",
+  "INRS",
+  "PubMed"
+ ],
+ "bonnesRecentes": [
+  "https://www.lapresse.ca/actualites/sante/2026-10-22/pastilles-gommes-et-timbres/quebec-elargit-l-aide-aux-personnes-qui-veulent-arreter-de-fumer.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites&utm_content=sante",
+  "https://www.lapresse.ca/actualites/sante/2026-10-22/pastilles-gommes-et-timbres-gratuits/quebec-elargit-l-aide-aux-personnes-qui-veulent-arreter-de-fumer.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites&utm_content=sante"
+ ],
+ "etat": {
+  "rc-sante": 50,
+  "lp-sante": 10,
+  "ld-sante": 10,
+  "jdm-sante": 15,
+  "tva-sante": 40,
+  "lactualite": 50,
+  "rc-quebec": 50,
+  "rc-montreal": 50,
+  "rc-societe": 50,
+  "lp-actualites": 10,
+  "ld-manchettes": 34,
+  "ld-societe": 9,
+  "jdm-societe": 16,
+  "metro": 7,
+  "pivot": 10,
+  "itineraire": 10,
+  "rqaca": 10,
+  "assnat": 25,
+  "inspq-publications": 0,
+  "inspq-nouvelles": 0,
+  "cbc-sante": 20,
+  "global-sante": 10,
+  "onfr": 99,
+  "gc-sante": 30,
+  "tc-ca-en": 25,
+  "lemonde-sante": 20,
+  "figaro-sante": 20,
+  "franceinfo-sante": 19,
+  "liberation-sante": 50,
+  "qdm": 50,
+  "infirmiers": 53,
+  "lemonde-societe": 20,
+  "franceinfo-societe": 20,
+  "spf": 2,
+  "tc-fr": 25,
+  "ld-idees": 25,
+  "ld-lettres": 24,
+  "ld-libre": 10,
+  "ld-editoriaux": 10,
+  "lp-dialogue": 10,
+  "tc-ca": 25,
+  "rc-science": 50,
+  "lp-sciences": 10,
+  "ld-science": 3,
+  "qs": 6,
+  "asp": 10,
+  "lemonde-sciences": 20,
+  "sciencesetavenir": 36,
+  "futura": 20,
+  "inserm": 10,
+  "sciencedaily": 60,
+  "medicalxpress": 30,
+  "nature-medicine": 8,
+  "frq": 12,
+  "inrs": 10,
+  "sq-communiques": 10,
+  "sq-nouvelles": 10,
+  "crchum": 12,
+  "espum": 8,
+  "udem": 10
+ }
+}
