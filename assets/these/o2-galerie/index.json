@@ -8,7 +8,7 @@
       "image": "assets/these/o2-galerie/planche-01.webp",
       "original": "assets/these/o2-galerie/planche-01-grand.webp",
       "fichier_source": "sorties/essai_2026-10-23_configurations_211_quebec/cartes/essai_carte_1_distribution_par_besoin.png",
-      "sha256": "639187a39126d2f0d550e9221bb846370b96438bba72639c62411dee72e58b65",
+      "sha256": "e173007650cc83a370494ce8ce6f60264cfcd8394df614c769e0f42c69e6ac42",
       "largeur": 5100,
       "hauteur": 3300
     },
@@ -19,36 +19,36 @@
       "image": "assets/these/o2-galerie/planche-02.webp",
       "original": "assets/these/o2-galerie/planche-02-grand.webp",
       "fichier_source": "sorties/essai_2026-10-23_configurations_211_quebec/cartes/essai_carte_2_reponse_intersectorielle_par_configuration.png",
-      "sha256": "216a0908d1bdfd76d6c261be14ef99ebfc71ce318aa1da8f813b193ce20c9eaa",
+      "sha256": "3f4096f3cd7f8ff6e6556f184ad165d70aba10dd2999a12d7732315518b02331",
       "largeur": 5100,
       "hauteur": 3300
     },
     {
       "id": "planche-03",
       "titre": "Accessibilité · Pour chaque configuration, combien d’aînés obtiennent toutes les réponses par leurs propres moyens ?",
-      "description": "Selon la configuration, de 51 % (C) à 62 % (A) des aînés obtiennent toutes les réponses à pied ou en transport en commun. Propres moyens : chaque besoin à 1 km de marche ou à 30 min de transport en commun, sans admission. En ajoutant le transport adapté et le service à domicile, 93 à 97 % des aînés ont toutes les réponses, mais ces deux moyens exigent d’y être admis. Comparaison faite dans les six régions du 211, où les quatre configurations se calculent.",
+      "description": "Selon la configuration, de 51 % (C) à 62 % (A) des aînés obtiennent toutes les réponses à pied ou en transport collectif. Propres moyens : chaque besoin à 1 km de marche ou à 30 min de transport collectif, sans admission. En ajoutant le transport adapté et le service à domicile, 93 à 97 % des aînés ont toutes les réponses, mais ces deux moyens exigent d’y être admis. Comparaison faite dans les six régions du 211, où les quatre configurations se calculent.",
       "image": "assets/these/o2-galerie/planche-03.webp",
       "original": "assets/these/o2-galerie/planche-03-grand.webp",
       "fichier_source": "sorties/essai_2026-10-23_configurations_211_quebec/cartes/essai_carte_3_acces_propres_moyens_par_configuration.png",
-      "sha256": "ddcc651ecdb36b5f560afc52af47373eae749218df1cbe5bd3bac05b48f31871",
+      "sha256": "a866502d0e1e4f9744162852e330c592ff01f6a4b82a1b1123ded23da29af5ff",
       "largeur": 5100,
       "hauteur": 3300
     },
     {
       "id": "planche-04",
       "titre": "Accessibilité · Configuration A : par quel moyen les aînés obtiennent-ils toutes les réponses ?",
-      "description": "À pied, seuls 9,9 % des aînés ont toutes les réponses à 10 min ; 4 sur 10 n’ont qu’un seul moyen de les obtenir. Configuration A : perte d’autonomie + logement + transport, calculée partout au Québec. Un panneau par moyen. Transport en commun : 20,4 % à 15 min, 44,8 % à 30 min. Le transport adapté porte presque tout l’accès (93,9 %). Sur l’île de Montréal, 71 % des aînés ont au moins trois moyens.",
+      "description": "À pied, seuls 9,9 % des aînés ont toutes les réponses à 10 min ; 4 sur 10 n’ont qu’un seul moyen de les obtenir. Configuration A : perte d’autonomie + logement + transport, calculée partout au Québec. Un panneau par moyen. Transport collectif : 20,4 % à 15 min, 44,8 % à 30 min. Le transport adapté porte presque tout l’accès (93,9 %). Sur l’île de Montréal, 71 % des aînés ont au moins trois moyens.",
       "image": "assets/these/o2-galerie/planche-04.webp",
       "original": "assets/these/o2-galerie/planche-04-grand.webp",
       "fichier_source": "sorties/essai_2026-10-23_configurations_211_quebec/cartes/essai_carte_4_configuration_A_moyen_par_moyen.png",
-      "sha256": "61a22843343a8afd46072f3f93a690b58a5623bb045d92ae1227542887f28f67",
+      "sha256": "2e44b15da6ee54324db6ade4e645dd00d25e15c30074f8176583cef9abb7cd25",
       "largeur": 5100,
       "hauteur": 3300
     },
     {
       "id": "planche-05",
       "titre": "Accessibilité · Les ressources qui répondent à la perte d’autonomie ont-elles de la capacité ?",
-      "description": "58 % des aînés à domicile n’ont aucun groupe de médecine de famille à 30 min à pied ou en transport en commun. Patients inscrits dans les GMF joignables en 30 min, partagés entre tous les aînés qui peuvent les joindre, pour 1 000 aînés. Vingt territoires de CLSC n’ont aucun GMF joignable. La capacité du soutien à domicile n’est pas publiée par CLSC : elle fait l’objet d’une demande d’accès.",
+      "description": "58 % des aînés à domicile n’ont aucun groupe de médecine de famille à 30 min à pied ou en transport collectif. Patients inscrits dans les GMF joignables en 30 min, partagés entre tous les aînés qui peuvent les joindre, pour 1 000 aînés. Vingt territoires de CLSC n’ont aucun GMF joignable. La capacité du soutien à domicile n’est pas publiée par CLSC : elle fait l’objet d’une demande d’accès.",
       "image": "assets/these/o2-galerie/planche-05.webp",
       "original": "assets/these/o2-galerie/planche-05-grand.webp",
       "fichier_source": "sorties/essai_2026-10-23_configurations_211_quebec/cartes/essai_carte_5_capacite_gmf.png",
@@ -59,11 +59,11 @@
     {
       "id": "planche-06",
       "titre": "Variations entre territoires · Selon la configuration, où les aînés vulnérables manquent-ils de réponses ?",
-      "description": "Les territoires en manque changent selon la configuration : de 122 à 428 quartiers forment des groupes en manque. Indice de manque : défavorisation des aînés × part des besoins sans réponse accessible. Configuration A : surtout Chaudière-Appalaches, Laurentides et Estrie. Configurations B, C et D : surtout Montérégie, Laurentides et Lanaudière. Ce sont des territoires contrastés à proposer pour l’objectif 3.",
+      "description": "Les regroupements d’écarts élevés changent selon la configuration : de 122 à 428 quartiers. Écart potentiel : défavorisation des aînés × part des besoins sans réponse accessible. Configuration A : surtout Chaudière-Appalaches, Laurentides et Estrie. Configurations B, C et D : surtout Montérégie, Laurentides et Lanaudière. Ce sont des territoires contrastés à proposer pour l’objectif 3.",
       "image": "assets/these/o2-galerie/planche-06.webp",
       "original": "assets/these/o2-galerie/planche-06-grand.webp",
       "fichier_source": "sorties/essai_2026-10-23_configurations_211_quebec/cartes/essai_carte_6_manques_par_configuration.png",
-      "sha256": "d049ae1f334a532d636069bf01b7b6a6d25938ff6d16ce8e5d55efe7c9e16e74",
+      "sha256": "79f75e722273415de20d055d26afcde1bc520575d4c44a4549ea02ddf99f87ec",
       "largeur": 5100,
       "hauteur": 3300
     },
@@ -81,11 +81,11 @@
     {
       "id": "planche-08",
       "titre": "Centre-Sud de Montréal · Combien de secteurs répondent ensemble, selon la configuration ?",
-      "description": "Au Centre-Sud, la réponse mobilise de 3 (C) à 5 (A) secteurs ; aucun quartier n’est en manque. A : réseau public, première ligne, communauté, municipalité et habitation. C : réseau public, première ligne et communauté. Le problème n’y est pas l’absence de ressources : la question devient la collaboration entre ces secteurs, étudiée en objectif 3.",
+      "description": "Au Centre-Sud, la réponse mobilise de 3 (C) à 5 (A) secteurs ; aucun quartier n’a d’écart potentiel. A : réseau public, première ligne, communauté, municipalité et habitation. C : réseau public, première ligne et communauté. Le problème n’y est pas l’absence de ressources : la question devient la collaboration entre ces secteurs, étudiée en objectif 3.",
       "image": "assets/these/o2-galerie/planche-08.webp",
       "original": "assets/these/o2-galerie/planche-08-grand.webp",
       "fichier_source": "sorties/essai_2026-10-23_configurations_211_quebec/cartes/essai_carte_8_centre_sud_secteurs_par_configuration.png",
-      "sha256": "291c055535e34f5f72a62caab31ae90e0539f655b00e5eaa8c5919a25d887a30",
+      "sha256": "90a2b9c69a86acf1e7f5761d2cddd0e273c3893c6429e20c3a683ce2610e276c",
       "largeur": 5100,
       "hauteur": 3300
     }
