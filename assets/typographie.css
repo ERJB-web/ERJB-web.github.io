@@ -1079,6 +1079,10 @@ html body footer.pied .pied-copyright>small.pied-attribution{display:block;font-
  html body :is(#salle,#contenu) .these .these-frise [data-nature="loi"]{--frise:#6b4f8a;--frise-pale:#f2edf8}
  html body :is(#salle,#contenu) .these .these-frise [data-nature="programme"]{--frise:#5b6f7a;--frise-pale:#eef2f4}
  html body :is(#salle,#contenu) .these .these-frise [data-nature="reforme"]{--frise:#9a5a2e;--frise-pale:#faefe6}
+ html body :is(#salle,#contenu) .these .these-frise [data-nature="rapport"]{--frise:#7a4f9a;--frise-pale:#f3edf9}
+ html body :is(#salle,#contenu) .these .these-schema-officiel{margin:22px 0;padding:14px;border:1px solid #dce7ed;border-radius:14px;background:#fff}
+ html body :is(#salle,#contenu) .these .these-schema-officiel>img{display:block;width:100%;height:auto;border-radius:8px}
+ html body :is(#salle,#contenu) .these .these-schema-officiel>figcaption{margin-top:10px;color:#3d5866;font-size:var(--type-note)!important;text-align:left!important}
  html body :is(#salle,#contenu) .these .these-frise-legende{display:flex;flex-wrap:wrap;gap:8px 14px;margin:0 0 20px!important}
  html body :is(#salle,#contenu) .these .these-frise-legende>span{display:inline-flex;align-items:center;gap:6px;color:#3d5866;font-size:var(--type-note)!important}
  html body :is(#salle,#contenu) .these .these-frise-legende>span::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--frise)}
