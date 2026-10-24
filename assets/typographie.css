@@ -1185,3 +1185,12 @@ html body footer.pied .pied-copyright>small.pied-attribution{display:block;font-
   html:is(.hc,.lv) body .objectifs-visuels .ov-savoir-avant { background:Canvas; border-color:CanvasText; }
   html:is(.hc,.lv) body .objectifs-visuels .ov-savoir-avant :is(p,h5,a) { color:CanvasText!important; }
 }
+ html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .ms-exploration .ms-metrics-ribbon .ms-metric{padding:12px 6px!important;gap:2px!important}
+ html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .ms-exploration .ms-metrics-ribbon .ms-metric-value{font-size:30px!important;line-height:1.1!important}
+ html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .ms-exploration .ms-metrics-ribbon .ms-metric-label{font-size:var(--type-note)!important;line-height:1.3!important}
+ html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .ms-exploration .ms-exploration-grid{gap:10px!important}
+ html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .ms-exploration .ms-exploration-grid .ms-card{padding:12px 14px!important;gap:4px!important}
+ html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .ms-exploration .ms-exploration-grid .ms-card h6{font-size:17px!important;line-height:1.3!important}
+ html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .ms-exploration .ms-exploration-grid .ms-card p{font-size:15px!important;line-height:1.5!important}
+ @media(max-width:1100px){html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .ms-exploration .ms-metrics-ribbon .ms-metric-value{font-size:24px!important}}
+ html body :is(#salle,#contenu) .these .ms-msss>a>img{display:block;width:100%;max-width:560px;height:auto;margin:0 auto}

@@ -2202,7 +2202,7 @@
     $$(".ms-grid.ms-variables", zone).forEach((grille) => {
       if (grille.previousElementSibling?.classList.contains("ms-variables-intro")) return;
       const intro = el("p", "ms-variables-intro",
-        'Ces <strong>six variables communes de caractérisation</strong> ont été définies en fonction des <strong>données secondaires disponibles</strong> pour cette étude spatiale exploratoire.');
+        'Ces six variables communes seront construites pour chaque ressource, quelle que soit sa banque d’origine : elles rendront les sources comparables.');
       grille.before(intro);
     });
   }
