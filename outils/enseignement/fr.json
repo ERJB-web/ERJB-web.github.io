@@ -1,0 +1,169 @@
+{
+  "titre": "Enseigner pour comprendre, juger et agir avec les autres",
+  "intro": "Mon ambition universitaire prolonge une question qui traverse mon parcours d’éducateur spécialisé : comment créer les conditions pour qu’une personne développe ses capacités, exerce son jugement et trouve sa place dans une action collective ? En santé publique, cette question relie la maîtrise des connaissances, l’attention aux expériences humaines et la responsabilité des décisions. Je souhaite en faire le fil conducteur de mon enseignement.",
+  "explorer": "Explorer ma vision de l’enseignement",
+  "onglets": [
+    "Vision de l’enseignement",
+    "De l’éducation spécialisée à l’université",
+    "Expériences et accompagnement",
+    "Méthodes et dispositifs pédagogiques",
+    "Faire apprendre et évaluer",
+    "Former pour demain",
+    "Références"
+  ],
+  "vision": {
+    "titre": "Former des personnes capables de penser une situation et d’y prendre part",
+    "sections": [
+      {
+        "titre": "La connaissance comme pouvoir de compréhension et d’action",
+        "paragraphes": [
+          "Enseigner à l’université engage davantage que l’organisation d’un contenu à restituer. Il s’agit de donner accès à des connaissances exigeantes, à leur histoire et aux démarches qui permettent de les discuter. Je souhaite que les étudiants puissent expliquer comment une conclusion a été produite, ce qu’elle permet d’affirmer et ce qui demeure incertain. Un concept devient formateur lorsqu’il transforme la lecture d’une situation : reconnaître un déterminant social, rendre visible un choix d’organisation ou comprendre pourquoi une intervention produit des effets différents selon les personnes.",
+          "À la suite de la distinction proposée par Biesta entre qualification, socialisation et subjectivation, je conçois trois responsabilités complémentaires : transmettre des savoirs et des capacités, permettre d’entrer dans une communauté de pratiques et soutenir la possibilité de s’y situer comme sujet. Former un professionnel compétent implique aussi qu’il puisse interroger les normes de son milieu, argumenter un désaccord et répondre des conséquences de son action."
+        ]
+      },
+      {
+        "titre": "Une autorité pédagogique qui rend le raisonnement accessible",
+        "paragraphes": [
+          "Mon rôle serait d’organiser une progression, de nommer les exigences et de rendre explicites les critères d’un raisonnement solide. La participation étudiante s’appuie sur ce cadre. Un dialogue fécond demande des connaissances, une préparation et des règles qui permettent de confronter les arguments sans disqualifier les personnes. Je souhaite expliquer mes choix pédagogiques, accueillir les objections et savoir reconnaître une limite ou une erreur. L’autorité universitaire trouve ainsi sa légitimité dans une responsabilité assumée et dans la possibilité de discuter ses raisons.",
+          "Freire et hooks m’offrent ici des repères pour penser une relation où l’expérience des étudiants compte et où l’apprentissage engage leur rapport au monde. J’en retiens une exigence : faire place à la parole tout en travaillant sa mise à l’épreuve. Une expérience vécue peut révéler une question décisive ; une proposition empirique demande ensuite des sources et une méthode appropriées. Respecter la personne et discuter la validité d’une affirmation participent du même travail éducatif."
+        ]
+      }
+    ],
+    "refs": [
+      "biesta",
+      "freire",
+      "hooks"
+    ]
+  },
+  "pont": {
+    "titre": "Faire avec : une continuité éthique, une traduction pédagogique",
+    "paragraphes": [
+      "Dans l’accompagnement de personnes en situation de handicap, j’ai travaillé à l’évaluation des besoins, à la coconstruction de projets individualisés et à la coordination d’interventions. Les séjours adaptés et de répit m’ont aussi confronté à la diversité des rythmes, des modes de communication et des conditions concrètes de participation. Ce parcours nourrit mon attention à ce qu’une personne cherche à accomplir, aux ressources qu’elle mobilise et aux obstacles qui limitent ses possibilités.",
+      "Cette expérience m’invite à examiner aussi l’environnement d’apprentissage : une consigne implicite, un support inaccessible, une règle de participation ou un calendrier peuvent créer des obstacles. Le modèle MDH-PPH et la conception universelle de l’apprentissage offrent des repères pour penser cette interaction entre une personne et son environnement. À l’université, cette attention doit respecter le statut d’adultes des étudiants, leur vie privée et leur capacité à définir leurs besoins. Elle suppose une relation pédagogique adaptée à ce contexte.",
+      "Le pont que je souhaite construire repose sur l’autodétermination : soutenir la capacité de choisir et d’agir, en donnant accès aux moyens de le faire. « Faire avec » prend alors la forme d’objectifs compréhensibles, d’un retour sur le travail, de choix pédagogiques pertinents et d’un accompagnement qui peut diminuer à mesure que l’autonomie se développe. Le collectif apporte une ressource supplémentaire : apprendre à demander de l’aide, à en offrir et à reconnaître l’apport des autres."
+    ],
+    "liens": [
+      [
+        "Comprendre une situation dans son contexte",
+        "Repérer les connaissances préalables, les contraintes et les obstacles à la participation, sans réduire un étudiant à une difficulté."
+      ],
+      [
+        "Coconstruire des objectifs",
+        "Expliciter les apprentissages attendus et ouvrir des choix de sujet ou de démarche lorsqu’ils sont compatibles avec les exigences du cours."
+      ],
+      [
+        "Ajuster l’accompagnement",
+        "Proposer des exemples guidés, des étapes intermédiaires et des retours ; retirer progressivement les appuis devenus inutiles."
+      ],
+      [
+        "Coordonner et faire avec",
+        "Articuler travail entre pairs, mentorat, équipe enseignante et services universitaires, en respectant les rôles et la confidentialité."
+      ]
+    ],
+    "refs": [
+      "ripph",
+      "inclusion",
+      "autonomie"
+    ]
+  },
+  "pratique": {
+    "titre": "Une pratique en construction, ancrée dans l’accompagnement",
+    "paragraphes": [
+      "Mes quatre charges d’auxiliaire d’enseignement à l’Université de Montréal constituent un premier ancrage de cette ambition. L’accompagnement des étudiants et la correction d’examens écrits et oraux, documentés pour ASA 6754 à l’hiver 2026, placent au centre la manière dont une personne comprend une question, mobilise ses connaissances et rend son raisonnement visible. Ces responsabilités s’exercent dans le cadre défini par les responsables des cours.",
+      "Je souhaite développer une rétroaction qui aide à reprendre le travail : identifier un acquis précis, nommer une difficulté prioritaire et indiquer une action possible. Lorsqu’un étudiant décrit correctement une organisation mais explique peu ses effets, le retour peut l’inviter à expliciter le mécanisme, à confronter une autre hypothèse et à examiner les personnes concernées. L’enjeu est que le commentaire devienne une ressource pour un raisonnement ultérieur. Carless et Boud soulignent justement que l’usage du retour demande d’apprendre à porter un jugement, à gérer sa réaction et à agir.",
+      "La coordination du mentorat solidaire doctoral prolonge cette attention aux conditions d’apprentissage. Entrer dans un programme suppose d’en comprendre les attentes, les ressources et les usages parfois implicites. Mon ambition est de contribuer à un environnement où demander de l’aide reste compatible avec l’exigence intellectuelle et où l’expérience peut circuler entre pairs. La démarche pédagogique présentée ici oriente mon développement ; elle ne constitue pas le bilan d’un dispositif de cours dont j’aurais déjà mesuré les effets."
+    ],
+    "refs": [
+      "carless"
+    ]
+  },
+  "apprendre": {
+    "titre": "Rendre visibles le raisonnement, la progression et les critères",
+    "paragraphes": [
+      "Je souhaite partir des capacités visées pour construire les activités et l’évaluation. Si l’objectif est d’analyser une politique de santé, les étudiants doivent pouvoir exercer ce raisonnement avant une épreuve : définir le problème, expliciter des hypothèses, interpréter des données et discuter des conséquences. L’alignement pédagogique permet de donner une direction commune à ces activités et à leurs critères.",
+      "L’apprentissage actif m’intéresse lorsqu’il engage un travail intellectuel identifiable : expliquer, comparer, résoudre, argumenter ou réviser. La méta-analyse de Freeman et ses collègues porte sur des enseignements STEM de premier cycle ; elle soutient l’intérêt de ces démarches dans ce périmètre, sans dispenser d’examiner leur adaptation à d’autres contextes. Des questions de rappel, des reprises espacées et une correction explicative peuvent en parallèle soutenir la consolidation des connaissances.",
+      "Je souhaite aussi rendre l’évaluation compréhensible et utilisable. Distinguer les moments d’entraînement des épreuves qui certifient un acquis permet de donner un statut à l’erreur et au retour. Une grille explicite peut porter sur la définition du problème, la qualité des sources, la cohérence des arguments, l’examen des alternatives et l’attention aux conséquences. Un travail collectif peut s’accompagner d’une justification individuelle afin d’observer l’apprentissage de chacun."
+    ],
+    "scenarioTitre": "Une séquence que je souhaite développer en santé publique",
+    "scenarioIntro": "Exemple de conception pédagogique proposé : à partir d’un cas fictif de besoins sociaux co-occurrents en soins primaires, examiner comment organiser une réponse entre un CLSC et des partenaires. Cet exemple illustre une ambition de formation ; il ne présente aucun résultat de ma thèse.",
+    "etapes": [
+      [
+        "Situer le problème",
+        "Une première analyse individuelle distingue les besoins, les informations manquantes et les hypothèses sur les obstacles à la réponse."
+      ],
+      [
+        "Croiser les perspectives",
+        "Des groupes confrontent les lectures des patients, des professionnels, des organismes communautaires et des décideurs, sans prétendre parler à leur place."
+      ],
+      [
+        "Mettre les propositions à l’épreuve",
+        "Comparer des scénarios en mobilisant des données et des sources ; distinguer ce qui est établi de ce qui relève d’une hypothèse ou d’un choix de valeur."
+      ],
+      [
+        "Argumenter une décision",
+        "Produire une recommandation, expliciter les alternatives écartées et discuter la faisabilité, l’équité et les conséquences organisationnelles."
+      ],
+      [
+        "Recevoir et utiliser un retour",
+        "Confronter le travail aux critères, aux questions des pairs et au retour de l’équipe enseignante ; choisir une priorité de révision."
+      ],
+      [
+        "Reprendre et expliciter sa progression",
+        "Remettre une version argumentée et une courte réflexion sur les changements apportés, les incertitudes persistantes et les connaissances à approfondir."
+      ]
+    ],
+    "refs": [
+      "alignement",
+      "actif",
+      "rappel",
+      "feedback",
+      "carless"
+    ]
+  },
+  "avenir": {
+    "titre": "Quels apprentissages pour une société interdépendante et incertaine ?",
+    "sections": [
+      {
+        "titre": "L’IA : conserver la maîtrise de son raisonnement",
+        "paragraphes": [
+          "L’essor des assistants d’IA générative nourrit une interrogation pédagogique : que sait réellement faire une personne lorsqu’une partie du travail peut être déléguée ? Je souhaite apprendre à choisir les tâches confiées à un outil, à expliciter ses limites, à contrôler ses sources et à discuter ses sorties. La qualité d’un texte ou d’un programme produit avec assistance ne suffit pas à établir la compréhension de son auteur.",
+          "Le dispositif PAIRR (entraide et revue entre pairs, appui de l’IA, puis réflexivité) offre une piste que je souhaite adapter. Un premier raisonnement personnel, la discussion entre pairs, la critique des suggestions de l’IA et la justification des révisions peuvent rendre le cheminement visible. Selon l’objectif, une explication orale ou une tâche sans assistance peut compléter l’évaluation. Les règles d’usage doivent être explicites, tenir compte des inégalités d’accès et protéger les données personnelles ainsi que les travaux confidentiels."
+        ]
+      },
+      {
+        "titre": "La démocratie : savoir discuter sans renoncer à la preuve",
+        "paragraphes": [
+          "La santé publique conduit à débattre de libertés, de ressources limitées et de risques inégalement distribués. L’enseignement doit préparer à reconnaître les conflits de valeurs, à distinguer une incertitude scientifique d’un désaccord politique et à écouter des personnes dont les expériences diffèrent. Je souhaite former à une délibération argumentée : rendre les raisons accessibles, examiner les effets des décisions et laisser une place à la contestation. Cette capacité engage la responsabilité professionnelle autant que la vie démocratique."
+        ]
+      },
+      {
+        "titre": "La santé et le vivant : relier les échelles et les conséquences",
+        "paragraphes": [
+          "Les enjeux climatiques, les inégalités et les transformations des systèmes de santé demandent de penser des interdépendances. Une réponse utile à l’échelle d’un service peut déplacer une charge vers les familles, un autre secteur ou l’environnement. Je souhaite utiliser la comparaison de situations et l’analyse de systèmes pour apprendre à repérer ces déplacements, les temporalités et les personnes peu visibles dans une décision. Le rapport de l’UNESCO sur les futurs de l’éducation fournit un cadre de réflexion sur ces responsabilités collectives, plutôt qu’un modèle unique de cours à reproduire."
+        ]
+      },
+      {
+        "titre": "L’incertitude : apprendre à continuer d’apprendre",
+        "paragraphes": [
+          "Former pour demain exige des connaissances solides et la capacité à les réviser. Barnett aide à penser cette formation dans un avenir que l’on ne peut entièrement prévoir : apprendre à problématiser, à supporter une incertitude raisonnée et à coopérer avec d’autres expertises. Mon ambition est que les étudiants sachent construire une réponse provisoire, dire ce qui manque pour la renforcer et déterminer quand une nouvelle information justifie de la modifier.",
+          "Cette ambition engage aussi l’institution : rendre l’accompagnement accessible, soutenir le travail pédagogique et interroger les conditions qui favorisent ou empêchent la participation. Je souhaite contribuer à une université qui forme des personnes capables d’agir ensemble, de prendre soin des relations et d’examiner les finalités de ce qu’elles construisent."
+        ]
+      }
+    ],
+    "refs": [
+      "pairr",
+      "unesco",
+      "barnett"
+    ]
+  },
+  "sources": {
+    "titre": "Repères intellectuels et pédagogiques",
+    "intro": "Ces références soutiennent des dimensions différentes de ma réflexion. Freire, hooks, Biesta et Barnett proposent des perspectives philosophiques et théoriques ; l’UNESCO, CAST et le RIPPH offrent des cadres d’orientation. Les travaux sur l’apprentissage et la rétroaction doivent être lus selon leur méthode et leur contexte. Ils éclairent ma démarche sans démontrer, à eux seuls, les effets de ma pratique personnelle."
+  },
+  "appuis": "Appuis à cette réflexion",
+  "suiteIA": "Approfondir ma réflexion sur l’IA, la recherche et la pédagogie",
+  "pontLibelles": [
+    "Ancrage dans l’accompagnement",
+    "Traduction dans mon projet pédagogique"
+  ]
+}

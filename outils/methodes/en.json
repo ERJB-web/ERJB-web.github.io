@@ -1,0 +1,77 @@
+{
+  "intro": "Designing a study, collecting data and choosing an analytical strategy are decisions linked to the research question. The approaches below outline their possibilities, requirements and limitations.",
+  "items": [
+    {
+      "titre": "Case studies: understanding organisations in context",
+      "texte": "A case study investigates a situated phenomenon in depth: an organisation, territory, policy or initiative. Designs may involve one case, multiple cases or embedded units; their strength lies in connecting the phenomenon with its context.",
+      "reperes": [
+        ["Boundaries and selection", "Specify the unit of analysis, temporal and organisational boundaries and reasons for selecting cases: typical, contrasting or especially informative."],
+        ["Combining materials", "Connect interviews, documents, observations and quantitative data. Analyse each case before undertaking cross-case comparison where the design includes several cases."],
+        ["Scope of conclusions", "Maintain a chain of evidence, examine rival explanations and describe context. Transferability rests on analytical reasoning without assuming statistical representativeness."]
+      ],
+      "etapes": ["Bound the case", "Combine sources", "Analyse mechanisms", "Discuss transferability"],
+      "legende": "Contextual inquiry with explicit units and a clear comparative logic.",
+      "references": ["cas"]
+    },
+    {
+      "titre": "Qualitative interviews: experiences, practices and reasoning",
+      "texte": "Interviews, particularly semi-structured ones, explore the meaning of experiences, decisions and practices. An open guide organises topics while allowing follow-up questions, unexpected issues and contradictions.",
+      "reperes": [
+        ["Purposive sampling", "Seek relevant, contrasting perspectives. Adjust recruitment to information richness, sample specificity and dialogue quality rather than a universal sample size."],
+        ["Collection and analysis", "Pilot the guide, obtain consent and document interview conditions, transcription and pseudonymisation. Connect coding with excerpts, for example through a Framework Method matrix."],
+        ["Reflexivity and transparency", "Explain the researcher’s position, research relationships and interpretive choices. COREQ supports transparent reporting; interviews cannot estimate prevalence."]
+      ],
+      "etapes": ["Select perspectives", "Conduct and document", "Code and interpret", "Discuss counterexamples"],
+      "legende": "Materials arise through interaction: context and reflexivity are part of analysis.",
+      "references": ["entretiens", "cadre", "coreq"]
+    },
+    {
+      "titre": "Questionnaire design and implementation",
+      "texte": "A questionnaire survey translates a research question into comparable measures. It connects the target population, sampling strategy, question selection and administration mode, whether online, by telephone or in person.",
+      "reperes": [
+        ["Constructing measures", "Define concepts, select appropriate items and specify reference periods. New scales require examination of content validity, structure and reliability; a questionnaire is not automatically a psychometric scale."],
+        ["Pretesting and deployment", "Use cognitive interviews to explore question interpretation, followed by a pilot. Plan accessibility, languages, duration, consent, confidentiality and appropriate reminders."],
+        ["Qualifying estimates", "Document coverage, participation, non-response and missing data. Apply weights when required by the design; large samples alone do not correct selection bias."]
+      ],
+      "etapes": ["Define and sample", "Construct and pretest", "Administer and monitor", "Assess data quality"],
+      "legende": "Quality is built before, during and after questionnaire administration.",
+      "references": ["questionnaires", "cognitif"]
+    },
+    {
+      "titre": "Secondary data analysis",
+      "texte": "Secondary analysis reuses existing surveys, cohorts, administrative or institutional data to address a defined question. It requires understanding why, from whom and how the data were originally produced.",
+      "reperes": [
+        ["Data suitability", "Examine population coverage, observation units, timing, variable dictionaries and comparability. Distinguish administrative indicators from direct measures of needs or experience."],
+        ["Reproducible preparation", "Document authorised access, cleaning, recoding, linkage and exclusions. Account for survey design and changing definitions; record transformations in scripts."],
+        ["Bias and transparency", "Examine measurement error, missingness, selection and confounding. RECORD supports reporting on routine health data; availability guarantees neither representativeness nor causal identification."]
+      ],
+      "etapes": ["Assess suitability", "Document provenance", "Harmonise and analyse", "Assess robustness"],
+      "legende": "Begin with the question and data-generation conditions, then make transformations explicit.",
+      "references": ["secondaires", "record"]
+    },
+    {
+      "titre": "Causal inference and quasi-experimental evaluation",
+      "texte": "Causal inference concerns the effect of an intervention or exposure relative to a defined alternative. It distinguishes causal questions from observed associations and connects population, intervention, comparison, timing and outcome.",
+      "reperes": [
+        ["Defining the target effect", "Specify the estimand and time zero; make assumed relationships explicit in a causal diagram (DAG). Where relevant, define the target trial that the data could emulate."],
+        ["Choosing identification strategies", "Examine exchangeability, positivity and consistency. Standardisation, weighting and other adjustments depend on the data; difference-in-differences requires, among other conditions, plausible parallel trends."],
+        ["Examining alternatives", "Interrupted time series requires attention to trend, seasonality, autocorrelation and concurrent events. Sensitivity analyses and residual confounding limitations accompany interpretation."]
+      ],
+      "etapes": ["Formulate the causal effect", "State assumptions", "Identify and estimate", "Assess sensitivity"],
+      "legende": "Causal estimation relies on a defensible design and assumptions; statistical modelling operates within that framework.",
+      "references": ["causal", "series"]
+    },
+    {
+      "titre": "Comparative health systems analysis: MSSD and MDSD",
+      "texte": "Comparison connects governance, financing, resources, service organisation and outcomes. Carsten Anckar’s work clarifies two case-selection approaches: most similar systems design (MSSD) and most different systems design (MDSD).",
+      "reperes": [
+        ["MSSD · Most similar systems", "Compare systems with similar contextual dimensions but different outcomes to examine organisational or policy differences that might help explain them."],
+        ["MDSD · Most different systems", "Compare contrasting systems sharing an outcome to explore common contributing factors. These approaches guide selection; they do not constitute randomisation."],
+        ["Making comparisons meaningful", "Justify countries or territories, harmonise concepts, periods and indicators, then analyse mechanisms and trajectories. Consider internal differences, reform histories and limits of inference from few systems."]
+      ],
+      "etapes": ["Define the outcome", "Justify MSSD or MDSD", "Harmonise indicators", "Compare mechanisms"],
+      "legende": "Purposive system selection serves an explanatory question beyond performance rankings.",
+      "references": ["comparaison", "systemes"]
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "titre": "Una investigación situada, crítica y reflexiva",
+  "intro": "Mi postura investigadora aborda cómo se plantean los problemas, se construyen las categorías de análisis y se producen conocimientos abiertos a la discusión y la revisión. Articula una lectura relacional de las situaciones de salud, el examen de las instituciones y la reflexividad del investigador.",
+  "explorer": "Explorar mi postura investigadora",
+  "apport": "Para mi investigación",
+  "sources": "Referencias filosóficas",
+  "sourcesIntro": "Estas obras abren preguntas y nutren conexiones. Sus autores sostienen posiciones diferentes: los pongo en diálogo para precisar mi responsabilidad, sin presentarlos como una doctrina unificada. Las propuestas en primera persona expresan esta orientación investigadora.",
+  "rubriques": [
+    {
+      "nom": "Posicionamiento del investigador",
+      "titre": "Situar la mirada, explicitar las decisiones",
+      "paragraphes": [
+        "Concibo a las personas como seres singulares, inscritos en relaciones, una historia y entornos sociales, materiales y vivos de los que dependen. Cada persona puede tener aspiraciones propias; las posibilidades de realizarlas también se construyen mediante condiciones de vida, recursos y relaciones. Esta tensión entre singularidad e interdependencia atraviesa mi comprensión de la salud.",
+        "Mi lugar como investigador está en ese mismo mundo. Mi trayectoria junto a personas con discapacidad, en derecho, gestión y salud pública orienta los problemas que advierto. Asumo esta posición como un punto de partida que examinar: hacer visibles mis decisiones, acoger la contradicción y permitir que la investigación desplace mis categorías.",
+        "La reflexividad consiste en examinar cómo la pregunta planteada, las categorías elegidas, los actores incluidos y las condiciones de la investigación orientan el conocimiento producido. Explicito estas decisiones, las interpretaciones alternativas y los límites de las conclusiones para que el razonamiento pueda discutirse."
+      ],
+      "items": []
+    },
+    {
+      "nom": "Conocimiento y verdad",
+      "titre": "Un conocimiento situado, argumentado y revisable",
+      "paragraphes": [
+        "Distingo lo que la investigación permite observar, las interpretaciones propuestas y las finalidades que defiendo. La solidez del conocimiento requiere evidencias examinables, argumentos explícitos y discusión de desacuerdos. Construimos conceptos y medidas para estudiar realidades cuyas consecuencias afectan a vidas."
+      ],
+      "items": [
+        [
+          "Investigar en lugar de fijar certezas",
+          "El pragmatismo de Dewey relaciona la investigación con los problemas encontrados y sus consecuencias.",
+          "Privilegio preguntas precisas, conocimientos discutibles y conclusiones revisables. La utilidad de un resultado también se juzga por lo que permite comprender y sus efectos en una situación.",
+          [
+            "dewey"
+          ]
+        ],
+        [
+          "Examinar mis propias categorías",
+          "Foucault interroga los procesos mediante los cuales las personas se convierten en objetos de conocimiento y en sujetos.",
+          "Cuestiono cómo defino una necesidad, una población o una situación compleja. Mis categorías deben confrontarse con las experiencias que describen y con aquello que vuelven menos visible.",
+          [
+            "foucault"
+          ]
+        ],
+        [
+          "Dar lugar al saber vivido",
+          "Fricker analiza injusticias que afectan a la credibilidad de una palabra y a los recursos para comprender experiencias.",
+          "Tomo en serio las condiciones que permiten narrar, ser escuchado y contribuir a la interpretación. Participar implica influir en preguntas y conclusiones.",
+          [
+            "fricker"
+          ]
+        ]
+      ]
+    },
+    {
+      "nom": "Poder e instituciones",
+      "titre": "Interrogar lo que clasifica, organiza y hace visibles ciertas vidas",
+      "paragraphes": [
+        "Las instituciones posibilitan protección, cooperación y acceso a recursos. Sus reglas y categorías también distribuyen posibilidades de acción. Mi postura examina concretamente estos efectos, sus justificaciones y las posibilidades de discutirlos."
+      ],
+      "items": [
+        [
+          "Foucault · El poder en las relaciones",
+          "El poder actúa sobre las posibilidades de acción; va más allá de una orden impuesta desde arriba.",
+          "En los servicios, cuestiono reglas de acceso, clasificaciones y funciones profesionales: ¿qué permiten, quién puede discutirlas y qué márgenes de autodeterminación dejan?",
+          [
+            "foucault"
+          ]
+        ],
+        [
+          "Fassin · El valor desigual de las vidas",
+          "Fassin relaciona el valor proclamado de la vida con el trato desigual de las existencias.",
+          "Examino cómo decisiones aparentemente ordinarias distribuyen atención, protección, tiempo y recursos. Una mejora media también debe discutirse según a quién alcanza y a quién deja lejos.",
+          [
+            "fassin"
+          ]
+        ],
+        [
+          "Fricker · Justicia en la producción de saberes",
+          "Las desigualdades pueden afectar a la posibilidad de ser reconocido como alguien que sabe.",
+          "Me interesa el lugar de pacientes, familiares y actores comunitarios al definir problemas. Hacer con las personas exige poder modificar el marco de discusión y expresar desacuerdo.",
+          [
+            "fricker"
+          ]
+        ]
+      ]
+    },
+    {
+      "nom": "Libertad y reconocimiento",
+      "titre": "Apoyar la capacidad de actuar en condiciones reales",
+      "paragraphes": [
+        "La autonomía adquiere sentido en situaciones concretas, con relaciones de apoyo y posibilidades realmente accesibles. Esta orientación prolonga mi experiencia de acompañamiento: reconocer aspiraciones, discutir restricciones y trabajar las condiciones que hacen practicable una elección."
+      ],
+      "items": [
+        [
+          "Hegel · Reconocimiento y contradicciones",
+          "En Hegel, la autoconciencia se desarrolla en relaciones con otros, atravesadas por reconocimiento y conflicto.",
+          "Considero las tensiones entre protección y autonomía, reglas comunes y situaciones singulares como objetos de investigación. Comprender una organización exige seguir su historia, relaciones y transformaciones.",
+          [
+            "hegel"
+          ]
+        ],
+        [
+          "Sartre · La libertad compromete",
+          "El existencialismo sartreano vincula la responsabilidad con las decisiones que construyen una existencia.",
+          "Retengo la exigencia de explicitar mis elecciones. En salud pública, la confronto con restricciones sociales y recursos disponibles, pensando una responsabilidad situada en lugar de atribuir las dificultades exclusivamente a individuos.",
+          [
+            "sartre",
+            "sen"
+          ]
+        ],
+        [
+          "Sen · Posibilidades efectivas de elegir",
+          "El enfoque de capacidades examina libertades reales para vivir las vidas que las personas tienen razones para valorar.",
+          "Examino lo que una persona puede hacer efectivamente: acceder a un servicio, comprender una decisión, participar y perseguir sus propias aspiraciones. Los recursos disponibles y sus condiciones de uso permiten analizar las diferencias entre derechos formales y posibilidades reales.",
+          [
+            "sen"
+          ]
+        ]
+      ]
+    },
+    {
+      "nom": "Actuar y responder",
+      "titre": "Transformar con las personas, atendiendo a las consecuencias",
+      "paragraphes": [
+        "Mi investigación busca conocimientos que entren en la deliberación colectiva. Recomendaciones e innovaciones implican decisiones sociales: quién se beneficia, qué cargas crea el cambio y cómo las personas afectadas pueden discutir sus efectos."
+      ],
+      "items": [
+        [
+          "Camus · La rebelión y la medida",
+          "Camus examina una rebelión que afirma una dignidad común y cuestiona los límites de la acción y sus justificaciones.",
+          "Quiero combinar el rechazo de la injusticia con la atención a quienes puede afectar la transformación. Una finalidad deseable exige también examinar los medios y sus consecuencias.",
+          [
+            "camus"
+          ]
+        ],
+        [
+          "Dewey · Investigar con los públicos afectados",
+          "Dewey relaciona la formación de un público con las consecuencias compartidas de actividades y su tratamiento colectivo.",
+          "De ahí mi atención a los actores afectados, la deliberación y el retorno del terreno al conocimiento. Los resultados deben poder discutirse, contextualizarse y revisarse cuando sus consecuencias lo exijan.",
+          [
+            "dewey"
+          ]
+        ],
+        [
+          "Ricœur · Solicitud e instituciones justas",
+          "Ricœur articula la aspiración a una vida realizada, la atención a otros y la justicia institucional.",
+          "Relaciono la calidad del acompañamiento con las condiciones organizativas y políticas que lo posibilitan. Mi responsabilidad abarca tanto a la persona encontrada como a los marcos colectivos que mis trabajos ayudan a esclarecer.",
+          [
+            "ricoeur"
+          ]
+        ]
+      ]
+    }
+  ]
+}

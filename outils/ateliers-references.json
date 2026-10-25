@@ -1,0 +1,52 @@
+{
+  "never": {
+    "court": "Car et al. (2026)",
+    "href": "https://doi.org/10.1038/s41591-026-04438-y",
+    "citation": "Car, J., Ke, Y., Jin, L., Ong, J. C. L., Thirunavukarasu, A. J., Cheung, C. Y., Tham, Y. C., Ting, D. S. W., Ong, M. E. H., Compton, S., Narayan, A., Keane, P. A., Wong, T. Y., Bates, D. W., Tan, P., & Liu, N. (2026). AI-induced never-skilling in medical education. Nature Medicine, 32, 1997–2006. https://doi.org/10.1038/s41591-026-04438-y"
+  },
+  "illusions": {
+    "court": "Messeri & Crockett (2024)",
+    "href": "https://doi.org/10.1038/s41586-024-07146-0",
+    "citation": "Messeri, L., & Crockett, M. J. (2024). Artificial intelligence and illusions of understanding in scientific research. Nature, 627, 49–58. https://doi.org/10.1038/s41586-024-07146-0"
+  },
+  "cfir": {
+    "court": "Damschroder et al. (2022)",
+    "citation": "Damschroder, L. J., Reardon, C. M., Widerquist, M. A. O., & Lowery, J. (2022). The updated Consolidated Framework for Implementation Research based on user feedback. Implementation Science, 17, 75. https://doi.org/10.1186/s13012-022-01245-0",
+    "href": "https://doi.org/10.1186/s13012-022-01245-0"
+  },
+  "lhs": {
+    "court": "Lane et al. (2026)",
+    "href": "https://doi.org/10.1186/s13012-025-01482-z",
+    "citation": "Lane, C., McCrabb, S., Turon, H., Bialek, C., Couper, L., Wilczynska, M., Gray, S., Barnes, C., Fee, M., Kuchenmüller, T., Marques Romao, D. M., & Wolfenden, L. (2026). Learning health system for implementation, scale-up, and sustainment: A systematic review to consolidate guidance for improvement. Implementation Science, 21. https://doi.org/10.1186/s13012-025-01482-z"
+  },
+  "eric": {
+    "court": "Powell et al. (2015)",
+    "citation": "Powell, B. J., Waltz, T. J., Chinman, M. J., Damschroder, L. J., Smith, J. L., Matthieu, M. M., Proctor, E. K., & Kirchner, J. E. (2015). A refined compilation of implementation strategies: Results from the Expert Recommendations for Implementing Change (ERIC) project. Implementation Science, 10, Article 21. https://doi.org/10.1186/s13012-015-0209-1",
+    "href": "https://doi.org/10.1186/s13012-015-0209-1"
+  },
+  "mrc": {
+    "court": "Skivington et al. (2021)",
+    "citation": "Skivington, K., Matthews, L., Simpson, S. A., Craig, P., Baird, J., Blazeby, J. M., Boyd, K. A., Craig, N., French, D. P., McIntosh, E., Petticrew, M., Rycroft-Malone, J., White, M., & Moore, L. (2021). A new framework for developing and evaluating complex interventions: Update of Medical Research Council guidance. BMJ, 374, Article n2061. https://doi.org/10.1136/bmj.n2061",
+    "href": "https://doi.org/10.1136/bmj.n2061"
+  },
+  "kestin": {
+    "court": "Kestin et al. (2025)",
+    "href": "https://doi.org/10.1038/s41598-025-97652-6",
+    "citation": "Kestin, G., Miller, K., Klales, A., Milbourne, T., & Ponti, G. (2025). AI tutoring outperforms in-class active learning: an RCT introducing a novel research-based design in an authentic educational setting. Scientific Reports, 15(1), Article 17458. https://doi.org/10.1038/s41598-025-97652-6"
+  },
+  "bastani": {
+    "court": "Bastani et al. (2025)",
+    "href": "https://doi.org/10.1073/pnas.2422633122",
+    "citation": "Bastani, H., Bastani, O., Sungu, A., Ge, H., Kabakcı, Ö., & Mariman, R. (2025). Generative AI without guardrails can harm learning: Evidence from high school mathematics. Proceedings of the National Academy of Sciences, 122(26), Article e2422633122. https://doi.org/10.1073/pnas.2422633122"
+  },
+  "frame": {
+    "court": "Wiltsey Stirman et al. (2019)",
+    "href": "https://doi.org/10.1186/s13012-019-0898-y",
+    "citation": "Wiltsey Stirman, S., Baumann, A. A., & Miller, C. J. (2019). The FRAME: an expanded framework for reporting adaptations and modifications to evidence-based interventions. Implementation Science, 14(1), Article 58. https://doi.org/10.1186/s13012-019-0898-y"
+  },
+  "who": {
+    "court": "OMS (2024)",
+    "href": "https://www.who.int/publications/b/70584",
+    "citation": "World Health Organization. (2024). Ethics and governance of artificial intelligence for health: Guidance on large multi-modal models. https://www.who.int/publications/b/70584"
+  }
+}

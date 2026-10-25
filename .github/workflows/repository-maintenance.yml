@@ -1,0 +1,29 @@
+name: Repository maintenance
+on:
+  push:
+    paths:
+      - '.github/workflows/repository-maintenance.yml'
+permissions:
+  actions: write
+  contents: read
+jobs:
+  maintenance:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prune completed run records
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          SELF_RUN: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          mapfile -t old_runs < <(gh api --paginate "repos/$GH_REPO/actions/runs?per_page=100" --jq '.workflow_runs[] | select(.status=="completed") | .id')
+          count=0
+          for run in "${old_runs[@]}"; do
+            [[ "$run" =~ ^[0-9]+$ ]] || continue
+            [[ "$run" == "$SELF_RUN" ]] && continue
+            gh api -X DELETE "repos/$GH_REPO/actions/runs/$run" --silent
+            count=$((count+1))
+          done
+          echo "Completed run records removed: $count"

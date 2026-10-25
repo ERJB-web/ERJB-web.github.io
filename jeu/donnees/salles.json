@@ -1,0 +1,335 @@
+{
+ "version": 1,
+ "salles": [
+  {
+   "id": "espum",
+   "zone": "espum",
+   "titre": "ESPUM · 7101, avenue du Parc",
+   "sousTitre": "Le séminaire de protocole",
+   "activites": [
+    {
+     "id": "question",
+     "titre": "La question de recherche",
+     "description": "Notions, question, condition traceuse, fil du protocole.",
+     "defis": [
+      "notions_distinguer",
+      "question_recherche",
+      "condition_traceuse",
+      "fil_protocole"
+     ]
+    },
+    {
+     "id": "pitch",
+     "titre": "Le pitch d’ascenseur",
+     "description": "Trente secondes entre deux étages.",
+     "defis": [
+      "pitch_ascenseur"
+     ]
+    },
+    {
+     "id": "politique",
+     "titre": "Le CLSC et la Politique de 2026",
+     "description": "Le courriel de 23 h 14 et les quatre rôles du CLSC.",
+     "defis": [
+      "courriel_23h14",
+      "roles_clsc"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "campus",
+   "zone": "campus",
+   "titre": "Pavillon Roger-Gaudry",
+   "sousTitre": "Le cours de méthodes quantitatives",
+   "activites": [
+    {
+     "id": "classes",
+     "titre": "Classes latentes",
+     "description": "Lire une simulation : BIC, entropie, taille d’échantillon.",
+     "defis": [
+      "quanti_classes_latentes"
+     ]
+    },
+    {
+     "id": "cooccurrence",
+     "titre": "Cooccurrence et Jaccard",
+     "description": "Des besoins dans une même demande au 211 : hasard ou lien ?",
+     "defis": [
+      "quanti_jaccard"
+     ]
+    },
+    {
+     "id": "accessibilite",
+     "titre": "2SFCA et dénominateurs",
+     "description": "Accessibilité à la craie, puis le dénominateur qui renverse le classement.",
+     "defis": [
+      "quanti_2sfca",
+      "quanti_denominateur"
+     ]
+    },
+    {
+     "id": "inference",
+     "titre": "Réseaux et agrégation",
+     "description": "Modèles mixtes, QAP, ERGM, et le piège de l’erreur écologique.",
+     "defis": [
+      "quanti_reseaux_inference",
+      "quanti_ecologique"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bibliotheque",
+   "zone": "bibliotheque",
+   "titre": "Bibliothèque de la santé",
+   "sousTitre": "La revue de portée",
+   "activites": [
+    {
+     "id": "requete",
+     "titre": "L’équation de recherche",
+     "description": "Blocs, synonymes, troncatures : vise le rappel sans noyer la précision.",
+     "defis": [
+      "requete_revue"
+     ]
+    },
+    {
+     "id": "criblage",
+     "titre": "Le criblage",
+     "description": "Dix-huit résumés, cinq minutes, critères PCC.",
+     "defis": [
+      "pcc_revue",
+      "criblage_resumes"
+     ]
+    },
+    {
+     "id": "methodes",
+     "titre": "Méthodes de synthèse",
+     "description": "Portée ou systématique, les dix étapes du JBI, les instruments.",
+     "defis": [
+      "portee_ou_systematique",
+      "etapes_jbi",
+      "instruments_mesure",
+      "biais_lecture"
+     ]
+    },
+    {
+     "id": "211",
+     "titre": "Les données du 211",
+     "description": "Taxonomie, limites, analyse des demandes, échelles.",
+     "defis": [
+      "taxonomie_211",
+      "limites_211",
+      "analyse_demandes",
+      "echelle_211"
+     ]
+    },
+    {
+     "id": "photocopieur",
+     "titre": "Le photocopieur du sixième",
+     "description": "Débloquer la bête avant la fermeture.",
+     "defis": [
+      "photocopieur"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "clsc",
+   "zone": "clsc",
+   "titre": "CLSC des Faubourgs",
+   "sousTitre": "Le terrain",
+   "activites": [
+    {
+     "id": "carte",
+     "titre": "Cartographie de Centre-Sud",
+     "description": "Frontière construite à partir des besoins, 2SFCA, indice d’écart.",
+     "defis": [
+      "frontiere_besoins",
+      "carte_centre_sud",
+      "indice_ecart",
+      "atlas_rts063"
+     ]
+    },
+    {
+     "id": "reseau",
+     "titre": "Le réseau de l’équipe SAD",
+     "description": "Générateur de noms, niveaux de collaboration, sociogramme.",
+     "defis": [
+      "generateur_noms",
+      "interpretes_noms",
+      "niveaux_collaboration",
+      "reseau_faubourgs",
+      "declare_observe"
+     ]
+    },
+    {
+     "id": "cas",
+     "titre": "Cas, éthique et accès aux données",
+     "description": "Cas contrastés, étapes d’O3, accès et protection des données.",
+     "defis": [
+      "cas_contrastes",
+      "etapes_o3",
+      "acces_donnees",
+      "ethique_donnees"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "arena",
+   "zone": "arena",
+   "titre": "Aréna du CEPSUM",
+   "sousTitre": "Hockey des Carabins, entraînement et patinage",
+   "activites": [
+    {
+     "id": "match",
+     "titre": "Match des Carabins",
+     "description": "Trois périodes contre les Visiteurs, devant les partisans : cinq contre cinq, mises au jeu, hors-jeu et pénalités. Tu es le n° 15.",
+     "patinage": 0.8,
+     "patins": true,
+     "match": {
+      "periodes": 3,
+      "duree_periode": 180
+     }
+    },
+    {
+     "id": "entrainement",
+     "titre": "Entraînement d’équipe",
+     "description": "Passes à deux avec Bruno, tirs sur Gaëtan, deux contre un et avantage numérique, avec les consignes du coach.",
+     "patinage": 0.8,
+     "patins": true,
+     "entrainement": {
+      "exercices": [
+       "passes_deux",
+       "tirs_gardien",
+       "deux_contre_un",
+       "avantage_numerique"
+      ]
+     }
+    },
+    {
+     "id": "lecon",
+     "titre": "Cours de patin",
+     "description": "Équilibre, poussée, glisse, arrêt, croisements, recul, avec le Coach.",
+     "patinage": 0.05,
+     "exercices": [
+      "c4_e09",
+      "c4_e10",
+      "c4_e11",
+      "c4_e13",
+      "c4_e14",
+      "c4_e15"
+     ]
+    },
+    {
+     "id": "lancers",
+     "titre": "Lancers",
+     "description": "Reçois la passe et marque trois buts en dix tirs contre Gaëtan, au poignet ou frappé.",
+     "patinage": 0.5,
+     "exercices": [
+      "c4_e20"
+     ]
+    },
+    {
+     "id": "libre",
+     "titre": "Patinage libre",
+     "description": "La glace est à toi. Rondelles au seau près du banc.",
+     "patinage": 0.5,
+     "libre": true,
+     "patins": true
+    },
+    {
+     "id": "vestiaire",
+     "titre": "Vestiaire",
+     "description": "La feuille de Coralie, le pitch à Réal, l’arbitrage des semaines.",
+     "defis": [
+      "passes_reseau",
+      "pitch_zamboni",
+      "arbitrage_semaines",
+      "recensement_2026"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "soutenance",
+   "zone": "soutenance",
+   "titre": "Salle du conseil",
+   "sousTitre": "La soutenance",
+   "activites": [
+    {
+     "id": "jury",
+     "titre": "Devant le jury",
+     "description": "Quatre tours de questions : faisabilité, territoire, réseaux, ensemble.",
+     "defis": [
+      "jury_faisabilite",
+      "jury_territoire",
+      "jury_reseaux",
+      "jury_synthese"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "outremont",
+   "zone": "outremont",
+   "titre": "Outremont",
+   "sousTitre": "Chez Éric, le métro et l’aréna du quartier",
+   "activites": [
+    {
+     "id": "lecon_outremont",
+     "titre": "Cours de patin à Outremont",
+     "description": "Équilibre, poussée, glisse, arrêt, croisements et recul, sur la petite glace de l’aréna du quartier.",
+     "zone": [
+      "outremont_arena",
+      "outremont"
+     ],
+     "patinage": 0.05,
+     "exercices": [
+      "c4_e09",
+      "c4_e10",
+      "c4_e11",
+      "c4_e13",
+      "c4_e14",
+      "c4_e15"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mont_royal",
+   "zone": "mont_royal",
+   "titre": "Parc du Mont-Royal",
+   "sousTitre": "Le chemin Olmsted et le belvédère Kondiaronk",
+   "activites": [
+    {
+     "id": "course",
+     "titre": "Course au mont Royal",
+     "description": "Un parcours chronométré d’un point de passage à l’autre, avec la chienne. Ménage ton souffle et bats ton meilleur temps.",
+     "course": {
+      "coureurs": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": "centre_bell",
+   "zone": "centre_bell",
+   "titre": "Centre Bell",
+   "sousTitre": "Un match des Canadiens, dans les gradins",
+   "activites": [
+    {
+     "id": "match_canadiens",
+     "titre": "Match des Canadiens au Centre Bell",
+     "description": "Les Canadiens contre les visiteurs, depuis ton siège. R pour la vue de la télévision ; un petit calcul de statistiques à la fin.",
+     "match": {
+      "config": "canadiens",
+      "periodes": 3,
+      "duree_periode": 240
+     }
+    }
+   ]
+  }
+ ]
+}

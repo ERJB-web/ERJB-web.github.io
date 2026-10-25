@@ -1,0 +1,1691 @@
+{
+  "meta": {
+    "titre": "Éric Bernier",
+    "description": "Éric Bernier，ESPUM（蒙特利尔大学公共卫生学院）公共卫生博士研究生（卫生系统、组织与政策方向），法律专业人士，创业者，特殊教育工作者。研究方向：初级保健中针对复杂社会需求的跨部门应对。"
+  },
+  "ui": {
+    "evitement": "跳至正文",
+    "sousTitre": "公共卫生 · 治理 · 管理 · 法律 · 社会干预与跨部门协作",
+    "navigation": "主导航",
+    "langue": "语言",
+    "entrer": "进入",
+    "cv": "简历",
+    "hall": "返回大厅",
+    "contact": "联系我",
+    "haut": "返回顶部",
+    "acces": "无障碍",
+    "daltonisme": "色觉障碍模式",
+    "basseVision": "低视力模式",
+    "contraste": "高对比度",
+    "taille": "文字大小",
+    "plus": "放大文字",
+    "moins": "缩小文字",
+    "ecouter": "朗读",
+    "ecouterPage": "朗读本页",
+    "arreter": "停止朗读",
+    "sansVoix": "您的设备没有该语言的语音。",
+    "falc": "易读版（法语，FALC）",
+    "afficheAlt": "博士论文项目海报预览，120 × 120 厘米",
+    "autresLangues": "其他语言"
+  },
+  "nav": [
+    [
+      "recherche",
+      "研究"
+    ],
+    [
+      "conceptualisation",
+      "构思阶段"
+    ],
+    [
+      "approche",
+      "研究立场"
+    ],
+    [
+      "methodes",
+      "研究方法"
+    ],
+    [
+      "valeurs",
+      "价值观"
+    ],
+    [
+      "implantation",
+      "实施"
+    ],
+    [
+      "ressources",
+      "资源"
+    ],
+    [
+      "publications",
+      "成果"
+    ],
+    [
+      "biographie",
+      "个人历程"
+    ],
+    [
+      "parcours",
+      "履历"
+    ],
+    [
+      "engagements",
+      "社会参与"
+    ],
+    [
+      "contact",
+      "联系"
+    ]
+  ],
+  "accueil": {
+    "surtitre": "公共卫生博士研究生 · ESPUM · CRCHUM",
+    "roles": "公共卫生博士研究生（二年级） · 法律专业人士 · 特殊教育工作者",
+    "chapeau": {
+      "titre": "从个人到政策：以整合视角理解卫生系统",
+      "paragraphes": [
+        "从陪伴个人到公共卫生研究，我的经历引领我探索卫生系统的不同层面：从个体的现实到组织，直至公共政策与治理。",
+        "这些处于实践、管理、法律与研究交汇处的经历，孕育了一个信念：**改变卫生系统，需要让人的经验、科学知识、集体动态与政治选择彼此对话。**",
+        "我的志向是**在这些彼此相邻却未必相互理解的领域之间打开大门**，打破视角之间的壁垒，拉近研究与行动的距离，以促进自主决定、为集体决策提供依据，并为建设一个更公正、更健康的社会贡献力量。"
+      ]
+    },
+    "encadrement": "正在构思阶段的公共卫生博士研究，由 Nadia Sourial 博士（Ph.D.）与 Géraldine Layani 博士（M.D.）联合指导 · Chaire de recherche GSK en gestion optimale des maladies chroniques（GSK 慢性病优化管理研究讲席） · CRCHUM · FRQ 奖学金获得者（B2）",
+    "visite": "开始参观",
+    "explorer": "自由浏览",
+    "portrait": "Éric Bernier 的肖像"
+  },
+  "hall": {
+    "titre": "大厅",
+    "compte": "10 扇门",
+    "consigne": "点击一扇门即可进入",
+    "portes": {
+      "recherche": [
+        "我的论文",
+        "博士研究项目"
+      ],
+      "conceptualisation": [
+        "构思阶段",
+        "进行中的研究：文献库与空白"
+      ],
+      "approche": [
+        "研究立场",
+        "实用主义立场与多学科视角"
+      ],
+      "valeurs": [
+        "价值观",
+        "指引我实践的价值"
+      ],
+      "implantation": [
+        "实施",
+        "知识转化与实施"
+      ],
+      "ressources": [
+        "资源",
+        "文章、视频、播客"
+      ],
+      "publications": [
+        "成果",
+        "学术交流、学位论文与工具"
+      ],
+      "biographie": [
+        "个人历程",
+        "从个体经验到集体变革"
+      ],
+      "parcours": [
+        "履历",
+        "教育与工作经历"
+      ],
+      "engagements": [
+        "社会参与",
+        "代表工作、研究、荣誉与爱好"
+      ],
+      "methodes": [
+        "研究方法",
+        "分析、工具与方法文献"
+      ]
+    }
+  },
+  "recherche": {
+    "surtitre": "01 · 研究",
+    "etiquette": "博士论文研究进行中",
+    "avertissement": "研究主题仍在构建中，后续可能调整",
+    "titre": "组织初级保健中对复杂且共存的社会需求的跨部门应对",
+    "sousTitre": "针对所服务的不同患者类型配置相适应的网络",
+    "question": "对于在初级保健中接受服务、具有复杂且共存社会需求的不同类型患者，跨部门应对是如何组织的？",
+    "but": "本项目旨在以 CLSC（地方社区服务中心）辖区为单位，将每一种需求类型与一组合作伙伴的配置及其协调者相对应。",
+    "faits": [
+      [
+        "项目",
+        "公共卫生博士，卫生系统、组织与政策方向（SOPS）· 二年级"
+      ],
+      [
+        "院校",
+        "École de santé publique de l’Université de Montréal（ESPUM，蒙特利尔大学公共卫生学院）"
+      ],
+      [
+        "讲席",
+        "Chaire de recherche GSK en gestion optimale des maladies chroniques（GSK 慢性病优化管理研究讲席）"
+      ],
+      [
+        "研究中心",
+        "Centre de recherche du CHUM（CRCHUM，蒙特利尔大学医院中心研究中心）· 研究实习生"
+      ],
+      [
+        "资助",
+        "Fonds de recherche du Québec（FRQ，魁北克研究基金会）博士奖学金（B2）"
+      ]
+    ],
+    "codirection": {
+      "titre": "联合指导",
+      "profil": "CRCHUM 主页",
+      "personnes": [
+        {
+          "nom": "Nadia Sourial 博士",
+          "grade": "Ph.D.（博士）",
+          "lignes": [
+            "副教授，Département de gestion, d’évaluation et de politique de santé（卫生管理、评估与政策系），École de santé publique（公共卫生学院），Université de Montréal（蒙特利尔大学）",
+            "CRCHUM 正式研究员，Carrefour de l’innovation（创新枢纽）"
+          ],
+          "chaire": "Chaire de recherche GSK en gestion optimale des maladies chroniques 联合讲席持有人",
+          "lien": "https://www.chumontreal.qc.ca/crchum/chercheurs/nadia-sourial"
+        },
+        {
+          "nom": "Géraldine Layani 博士",
+          "grade": "M.D.（医学博士），M.Sc.（理学硕士）",
+          "lignes": [
+            "家庭医生，GMF-U Notre-Dame（Notre-Dame 大学家庭医学团队），蒙特利尔",
+            "临床助理教授，Département de médecine de famille et de médecine d’urgence（家庭医学与急诊医学系），Université de Montréal",
+            "CRCHUM 正式研究员，Carrefour de l’innovation"
+          ],
+          "chaire": "Chaire de recherche GSK en gestion optimale des maladies chroniques 联合讲席持有人",
+          "lien": "https://www.chumontreal.qc.ca/crchum/chercheurs/geraldine-layani"
+        }
+      ]
+    },
+    "affiche": [
+      "查看项目海报",
+      "无障碍版本：5种语言、法语易读版、色觉障碍模式、低视力模式、朗读",
+      "https://erjb-web.github.io/affiche-releve/zh/"
+    ],
+    "table": {
+      "titre": "探索桌",
+      "detail": "四个阶段的研究设计",
+      "etapes": [
+        [
+          "目标 1",
+          "哪些类型？",
+          "范围综述",
+          "基于已发表的研究，归纳出反复出现的社会需求类型，再将其转化为四至六个情境案例：经过验证的虚构情境。",
+          [
+            "范围综述",
+            "情境案例"
+          ]
+        ],
+        [
+          "目标 2",
+          "动员谁？",
+          "CLSC 的自我中心网络",
+          "对于每个情境案例，以 CLSC 为中心：识别其会动员的合作伙伴，以及这些伙伴之间的联系。由此得到每种类型所对应的网络配置。",
+          [
+            "网络分析",
+            "自我中心网络"
+          ]
+        ],
+        [
+          "目标 2",
+          "为何如此选择？",
+          "围绕网络图开展访谈",
+          "访谈以每个网络的图谱为依托，解释所观察到的选择，例如：为什么这些合作伙伴之间联系甚少？",
+          [
+            "访谈",
+            "混合方法"
+          ]
+        ],
+        [
+          "目标 3",
+          "提出哪些建议？",
+          "审议式工作坊",
+          "患者伙伴以及来自初级保健、社区组织、地方治理、市政和私营部门的行动者，针对每种类型提出建议。",
+          [
+            "审议",
+            "患者伙伴"
+          ]
+        ]
+      ],
+      "terminus": "所有结果汇入一张联合展示表：每种类型一行，列出其网络、解释与建议。"
+    },
+    "notions": {
+      "titre": "三个概念",
+      "items": [
+        [
+          "共存性",
+          "同时存在至少两项社会需求。它可以计数：这是纳入标准。",
+          "Kreuter et al., 2021"
+        ],
+        [
+          "复杂性",
+          "慢性病、失能、心理健康问题与社会脆弱性的叠加。它可以加以描述，但并非纳入要求。",
+          "Kuluski et al., 2017"
+        ],
+        [
+          "跨部门应对",
+          "卫生以外的其他部门与卫生部门协同开展的行动：CLSC、GMF（家庭医学团队）、医院、药房、社区组织、市政府、学校、CPE（幼儿中心）。它在特定地域范围内加以组织。",
+          "Leppo et al., 2013；MSSS, 2017"
+        ]
+      ]
+    },
+    "retombees": {
+      "titre": "预期影响",
+      "items": [
+        [
+          "对个人而言",
+          "获得与其需求组合相适应的应对。"
+        ],
+        [
+          "对 CLSC 及其合作伙伴而言",
+          "明确应动员谁、如何建立联系以及由谁协调。"
+        ],
+        [
+          "对第一线服务政策而言",
+          "提供基线状况，并依据 CLSC 的不同角色提出建议。"
+        ],
+        [
+          "对研究而言",
+          "提出一个将需求类型与网络相联系的假设。"
+        ]
+      ]
+    },
+    "travaux": {
+      "titre": "已提交与准备中的学术论文",
+      "intro": "已提交的文章及正在撰写的手稿，与博士研究同步推进。",
+      "items": [
+        {
+          "domaine": "卫生系统与初级保健",
+          "statut": "已提交至 BJGP Open",
+          "titre": "Patient experience and potentially avoidable hospitalisations across OECD countries: exploratory ecological study",
+          "auteurs": "Éric Bernier (LL.M, PhD student), Nadia Sourial (PhD), Isabelle Vedel (PhD), Géraldine Layani (MD, M.Sc), Aurélien Algoet (MD), Matthieu Calafiore (MD, PhD)"
+        },
+        {
+          "domaine": "认识论与知识转化",
+          "statut": "稿件已完成初稿 · 工作暂停",
+          "titre": "Epistemic return in public health governance: The road back from health to science",
+          "auteurs": "Bernier, É.",
+          "resume": "研究影响通常被设想为单向的：从知识流向政策与实践。本文提出将公共卫生构想为一门关于治理的反思性科学：它阐明在何种条件下，实地观察到的后果以及相关人群的知识可以要求重新审视上游的类别、指标与规则。这一概念被转化为一套文献审核方法，并在四条制度链上进行了试用。",
+          "etiquettes": [
+            "认识论回归",
+            "反思性治理",
+            "研究影响"
+          ]
+        },
+        {
+          "domaine": "治理与公共空间",
+          "statut": "手稿准备中",
+          "titre": "Prise de parole des médecins dans l’espace public québécois lors des débats entourant le projet de loi n° 2 : une analyse qualitative du discours critique",
+          "auteurs": "Bernier, É., Aïssi, F., Diene Faye, C., Boukari Abdo, S."
+        },
+        {
+          "domaine": "卫生法",
+          "statut": "手稿准备中",
+          "titre": "Vieillir chez soi à l’épreuve du droit : l’effectivité du choix du lieu de vie en droit français et en droit québécois",
+          "auteurs": "Bernier, É. · 法学学理文章"
+        }
+      ]
+    }
+  },
+  "conceptualisation": {
+    "surtitre": "进行中的研究",
+    "titre": "构思研究项目",
+    "intro": "我目前处于构思阶段：一个按优先级整理的文献库、它所揭示的研究空白，以及支撑它的课程阅读。",
+    "chiffres": [
+      [
+        222,
+        "篇纳入文献"
+      ],
+      [
+        39,
+        "篇优先阅读文献"
+      ],
+      [
+        83,
+        "篇重要阅读文献"
+      ],
+      [
+        9,
+        "个考察的空白维度"
+      ]
+    ],
+    "prioritesTitre": "按优先级分布",
+    "prioriteLibelle": "优先级",
+    "provenanceTitre": "文献来源",
+    "provenance": [
+      [
+        "PubMed",
+        112
+      ],
+      [
+        "Embase 与 MEDLINE（Ovid）",
+        95
+      ],
+      [
+        "Cairn",
+        15
+      ]
+    ],
+    "lacunesTitre": "文献尚未解决的问题",
+    "lacunesIntro": "下表针对所考察的九个维度，逐一列出文献现状、研究空白的重要程度以及若干参考文献。",
+    "lacunes": [
+      {
+        "dimension": "概念界定",
+        "etat": "已有探讨但尚未稳定",
+        "niveau": "重要",
+        "score": 3,
+        "constat": "PubMed 收录的研究日益区分社会风险、社会需求与求助意愿。Cairn 中的法语文献补充了关于不稳定处境与社会脆弱性的术语，这些概念往往是多维度的，但在概念上比未满足的需求更为宽泛。",
+        "reperes": "Gruß 2021; Tucher 2026; Tudrej 2019; Karran 2023"
+      },
+      {
+        "dimension": "测量",
+        "etat": "丰富但异质",
+        "niveau": "重要",
+        "score": 3,
+        "constat": "各类工具在涵盖领域、判定阈值和施测方式上差异很大。Cairn 中出现的多维不稳定处境评分（如 EPICES 和 PRECAR）并不等同于未满足社会需求问卷。",
+        "reperes": "Zein 2026; Karran 2023; Tudrej 2019; Rogers 2025"
+      },
+      {
+        "dimension": "特征描述与患病率",
+        "etat": "至少一项需求已有充分记录",
+        "niveau": "中等",
+        "score": 2,
+        "constat": "大量研究描述了各领域需求的患病率及累积负担，但当需求定义和测量工具不同时，估计值难以相互比较。",
+        "reperes": "Jih 2023; Bleacher 2020; Fiori 2021"
+      },
+      {
+        "dimension": "多重性与并存",
+        "etat": "新兴但现已得到证实",
+        "niveau": "重要",
+        "score": 3,
+        "constat": "多项社会需求或风险同时存在的情况很常见，已有研究提出了聚类、类别和累积负担测量。一项近期研究还表明，风险的多重性会显著提高希望获得帮助的可能性。",
+        "reperes": "Vest 2025; Kreuter 2021; Zeng 2024; Tucher 2026"
+      },
+      {
+        "dimension": "患者的优先排序",
+        "etat": "已有少量直接研究，但该领域仍欠发展",
+        "niveau": "重大",
+        "score": 4,
+        "constat": "文献主要测量求助意愿、协商目标、可接受性或相对优先级，近期研究进一步强化了“检出的风险”与“希望获得的帮助”之间的区分。e-CARE 相关研究展示了根据患者节奏和优先事项调整的陪伴支持，但并未形成标准化的需求排序。",
+        "reperes": "O’Loughlin 2022; Gruß 2021; Tucher 2026; Vasan 2026; Ouanhnon 2022"
+      },
+      {
+        "dimension": "需求之间的相互关系",
+        "etat": "主要被描述为并存或整体复杂性",
+        "niveau": "重大",
+        "score": 4,
+        "constat": "定量分析主要记录需求的并存情况与特征分型。Cairn 中的法语定性研究描述了社会、行政、经济和健康困难的相互交织，但很少涉及其方向、先后顺序或因果机制。",
+        "reperes": "Vest 2025; Kreuter 2021; Marron-Delabre 2015; Ouanhnon 2022"
+      },
+      {
+        "dimension": "解决与轨迹",
+        "etat": "日益增多，但以中间指标为主",
+        "niveau": "重大",
+        "score": 4,
+        "constat": "该领域逐步区分筛查、转介、对接、获得资源和需求解决。法语 e-CARE 研究还追踪了具体结果，如权益开通、获得家庭医生、住房以及就医路径中的自主性，但缺乏针对每项需求是否解决的标准化测量。",
+        "reperes": "Steeves-Reece 2022; Hausmann 2024; Ouanhnon 2022; Agarwal 2025"
+      },
+      {
+        "dimension": "网络与跨部门应对",
+        "etat": "文献丰富，但常与患者数据脱节",
+        "niveau": "对整合而言重大",
+        "score": 4,
+        "constat": "PubMed 收录的研究记录了患者导航、社区卫生工作者、医疗与法律合作以及闭环转介；Cairn 则记录了全科医疗中的社会服务单元以及法国的初级保健与地区协调机构（MSP、CPTS、DAC）。然而，网络配置很少与需求特征及其解决情况相联系。",
+        "reperes": "Hogg-Graham 2021; Tevaearai 2022; Yatim & Sebai 2021; Lessi 2023; Ouanhnon 2022"
+      },
+      {
+        "dimension": "整合性综述",
+        "etat": "在 PubMed 和 Cairn 审查中未发现",
+        "niveau": "主要空白",
+        "score": 5,
+        "constat": "检索到的综述中，没有一项针对初级卫生保健就诊的成年人，同时涵盖需求的未满足性质、多领域测量、并存模式、患者赋予的优先级、需求间的相互关系、可调动网络的配置以及直至解决的轨迹。",
+        "reperes": "Karran 2023; Vest 2025; Chang 2026; Tudrej 2019; Ouanhnon 2022"
+      }
+    ],
+    "principaleTitre": "主要研究空白",
+    "principale": "就研究问题的各个组成部分而言，文献并非空白：多重社会需求的测量、需求的并存、患者的求助意愿以及各类应对机制均已有研究。然而，所识别的综述中，没有一项针对初级卫生保健中的成年人，同时涵盖需求的未满足性质、并存性、患者的优先排序、需求间的相互关系、应对网络以及直至解决的轨迹。因此，研究空白在于需求配置与跨部门应对配置之间的衔接，以及解释某些需求为何在被识别后仍然持续存在的机制。",
+    "vigilance": "出于方法学上的严谨，本研究采用的表述是“在已开展的 PubMed 和 Cairn 检索中未识别到综述”，而非“不存在任何综述”。",
+    "p5Titre": "39 篇优先阅读文献",
+    "p4Titre": "83 篇重要阅读文献",
+    "formationTitre": "学术训练阅读书目",
+    "cours": [
+      [
+        "MSO 6011 · 流行病学概念与方法",
+        [
+          "Celentano, D. D., Szklo, M., & Youssef, M. K. F. Gordis Epidemiology (第7版). Elsevier.",
+          "Szklo, M., & Nieto, F. J. (2018). Epidemiology: Beyond the basics (第4版). Jones & Bartlett Learning.",
+          "Rothman, K. J. Epidemiology: An introduction (第2章和第3章).",
+          "Oleckno, W. A. Epidemiology: Concepts and methods (第6章)."
+        ]
+      ],
+      [
+        "ASA 6754 · 卫生系统与人群健康",
+        [
+          "Arpin, E., Gautier, L., & Quesnel-Vallée, A. (2025). Quebec: A health system profile. University of Toronto Press.",
+          "Pineault, R. (2012). Comprendre le système de santé pour mieux le gérer. Presses de l’Université de Montréal."
+        ]
+      ],
+      [
+        "POL 6021 · 定量方法",
+        [
+          "Arel-Bundock, V. (2021). Analyse causale et méthodes quantitatives. Presses de l’Université de Montréal.",
+          "Arel-Bundock, V. Model to meaning (第3、5、6和10章). https://marginaleffects.com",
+          "Angrist, J. D., & Pischke, J.-S. (2015). Mastering ’metrics: The path from cause to effect. Princeton University Press."
+        ]
+      ]
+    ],
+    "note": "本文献库基于 Ovid（Embase、MEDLINE）、PubMed 和 Cairn 构建，并根据每篇文献与论文研究问题的相关性赋予优先级。"
+  },
+  "approche": {
+    "surtitre": "研究立场",
+    "titre": "研究立场",
+    "intro": "以实用主义和多学科视角，将现象的测量与实践意义的理解相结合。",
+    "piliers": [
+      [
+        "实用主义立场",
+        "一种将实证主义视角（测量、估计、检验假设）与建构主义视角（理解行动者赋予其实践的意义）相结合的立场。由问题决定方法。"
+      ],
+      [
+        "混合方法",
+        "整合定量与定性分析：网络分析、回归、主题分析、文献分析与地图绘制，并汇集于整合表之中。"
+      ],
+      [
+        "多学科视角",
+        "公共卫生、法学、管理学、政治学与社会干预：多种视角相互呼应，共同分析同一系统。"
+      ]
+    ],
+    "outils": {
+      "titre": "工具箱",
+      "groupes": [
+        [
+          "数据分析",
+          [
+            "Positron (R)",
+            "Python",
+            "NVivo",
+            "QGIS",
+            "Excel"
+          ]
+        ],
+        [
+          "协作与引导",
+          [
+            "Miro",
+            "Klaxoon",
+            "Canva"
+          ]
+        ],
+        [
+          "办公软件",
+          [
+            "Office 365"
+          ]
+        ]
+      ]
+    },
+    "methodes": {
+      "titre": "实际运用的研究方法",
+      "items": [
+        {
+          "titre": "自我中心与社会中心社会网络分析",
+          "texte": "社会网络分析关注行动者之间的关系，而不仅是其个体属性。社会中心取向考察一个有边界群体内的全部联系；自我中心取向则从一名受访者（ego）及其提名的互动对象（alters）出发。在我的博士论文中，我以 CLSC（地方社区服务中心）为起点：其一线工作人员和管理者提名各自的互动对象，后者再依次作答，从而可以交叉核对各合作方申报的联系。情境小案例（vignettes）用于呈现潜在网络，即在需要时会被求助的合作方；过去12个月的实际互动则描述现实网络。比较两者，有助于理解初级卫生保健中针对复杂社会需求的跨部门应对。",
+          "references": [
+            "Perry, B. L., Pescosolido, B. A., & Borgatti, S. P. (2018). Egocentric network analysis: Foundations, methods, and models. Cambridge University Press. https://doi.org/10.1017/9781316443255",
+            "Provan, K. G., Veazie, M. A., Staten, L. K., & Teufel-Shone, N. I. (2005). The use of network analysis to strengthen community partnerships. Public Administration Review, 65(5), 603–613. https://doi.org/10.1111/j.1540-6210.2005.00487.x",
+            "Valente, T. W., Palinkas, L. A., Czaja, S., Chu, K.-H., & Brown, C. H. (2015). Social network analysis for program implementation. PLOS ONE, 10(6), Article e0131712. https://doi.org/10.1371/journal.pone.0131712"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12913-026-15347-8/MediaObjects/12913_2026_15347_Fig1_HTML.png",
+              "page": "https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-026-15347-8",
+              "legende": "市级健康促进协调的自我中心网络：焦点行动者（ego）位于中心，与其互动对象（alters）相连。",
+              "credit": "图1，引自 Richter、Mamontova 和 Kühne（2026），BMC Health Services Research，CC BY 4.0"
+            },
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs13033-019-0328-1/MediaObjects/13033_2019_328_Fig2_HTML.png",
+              "page": "https://ijmhs.biomedcentral.com/articles/10.1186/s13033-019-0328-1",
+              "legende": "东帝汶27个精神卫生与社会服务机构的社会中心网络，依据一年内的联系频率绘制。",
+              "credit": "图2，引自 Hall 等（2019），International Journal of Mental Health Systems，CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "制图与地理信息系统",
+          "texte": "制图与地理信息系统（GIS）将数据与其空间位置相关联，用以描述服务、需求和人口在一定地域内的分布。潜在可及性测度，例如两步移动搜寻法（2SFCA），把服务供给、需求以及二者之间的距离联系起来。我通过日内瓦大学的一门慕课（MOOC）掌握了这一方法的基础。在我的博士论文中，制图可用于在 CLSC 服务辖区内定位网络中被提名的机构，并将联系结构与服务和需求的空间分布相对照。",
+          "references": [
+            "Guagliardo, M. F. (2004). Spatial accessibility of primary care: Concepts, methods and challenges. International Journal of Health Geographics, 3, Article 3. https://doi.org/10.1186/1476-072X-3-3",
+            "Luo, W., & Wang, F. (2003). Measures of spatial accessibility to health care in a GIS environment: Synthesis and a case study in the Chicago region. Environment and Planning B: Planning and Design, 30(6), 865–884. https://doi.org/10.1068/b29120",
+            "Ngui, A. N., & Apparicio, P. (2011). Optimizing the two-step floating catchment area method for measuring spatial accessibility to medical clinics in Montreal. BMC Health Services Research, 11, Article 166. https://doi.org/10.1186/1472-6963-11-166"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2F1472-6963-11-166/MediaObjects/12913_2010_Article_1671_Fig3_HTML.jpg",
+              "page": "https://bmchealthservres.biomedcentral.com/articles/10.1186/1472-6963-11-166",
+              "legende": "采用2SFCA方法（常规版与优化版）测得的蒙特利尔医疗诊所空间可及性。",
+              "credit": "图3，引自 Ngui 和 Apparicio（2011），BMC Health Services Research，CC BY 2.0"
+            },
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12942-017-0105-9/MediaObjects/12942_2017_105_Fig4_HTML.gif",
+              "page": "https://ij-healthgeographics.biomedcentral.com/articles/10.1186/s12942-017-0105-9",
+              "legende": "2015年蒙特利尔都会区卫生与社会服务机构的分布，包括 CLSC（图d）。",
+              "credit": "图4，引自 Apparicio 等（2017），International Journal of Health Geographics，CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "可重复编程：在 Positron 中使用 R 与 Python，以及命令行（shell）",
+          "texte": "可重复编程是指在可重新运行、可核查的脚本中完成分析的每一步，从导入数据到生成图表。我在 Posit 的开发环境 Positron 中使用 R 与 Python 编程，并在命令行（shell）中串联各项处理步骤。在 R 中，tidyverse 用于组织数据准备；igraph 与 statnet 用于构建网络并计算中心性、密度与凝聚性；sf 用于处理空间数据。Python 则在数据准备与自动化方面补充这一流程。整个流程在同一个有文档记录的项目中连接网络数据、地域数据与图表。",
+          "references": [
+            "Handcock, M. S., Hunter, D. R., Butts, C. T., Goodreau, S. M., & Morris, M. (2008). statnet: Software tools for the representation, visualization, analysis and simulation of network data. Journal of Statistical Software, 24(1), 1–11. https://doi.org/10.18637/jss.v024.i01",
+            "Pebesma, E. (2018). Simple features for R: Standardized support for spatial vector data. The R Journal, 10(1), 439–446. https://doi.org/10.32614/RJ-2018-009",
+            "Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D., François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M., Pedersen, T. L., Miller, E., Bache, S. M., Müller, K., Ooms, J., Robinson, D., Seidel, D. P., Spinu, V., . . . Yutani, H. (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), Article 1686. https://doi.org/10.21105/joss.01686"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12992-024-01055-7/MediaObjects/12992_2024_1055_Fig2_HTML.png",
+              "page": "https://globalizationandhealth.biomedcentral.com/articles/10.1186/s12992-024-01055-7",
+              "legende": "参与预防新发人畜共患病的机构网络，按部门着色；以 igraph 和 statnet 分析，并在 R 中用 ggraph 绘制。",
+              "credit": "图2，引自 Clifford Astbury 等（2024），Globalization and Health，CC BY 4.0"
+            },
+            {
+              "src": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/7b60/12169549/9225d6431677/pone.0325597.g001.jpg",
+              "page": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0325597",
+              "legende": "几内亚和塞拉利昂机构间互动的社会关系图（疟疾与COVID-19），在 R 中用 tidyverse、tidygraph 和 ggraph 绘制。",
+              "credit": "图1，引自 Feddern 等（2025），PLOS ONE，CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "定性主题分析与定性网络分析",
+          "texte": "主题分析通过从初始编码到主题界定的迭代过程，在访谈或文献语料中识别、组织并解释意义模式。我使用 NVivo 进行编码，记录编码树、备忘录以及逐步形成的归类。在我的博士论文中，以网络图为引导的访谈采用解释性描述方法。Framework Method在参与者×主题矩阵中结合演绎与归纳编码，比较部门、网络位置及需求类型。计划在整合结果和审议式工作坊之前，对20%的资料进行双重编码、保留反思日志并向参与者反馈。",
+          "references": [
+            "Braun, V., & Clarke, V. (2006). Using thematic analysis in psychology. Qualitative Research in Psychology, 3(2), 77–101. https://doi.org/10.1191/1478088706qp063oa",
+            "Hogan, B., Carrasco, J. A., & Wellman, B. (2007). Visualizing personal networks: Working with participant-aided sociograms. Field Methods, 19(2), 116–144. https://doi.org/10.1177/1525822X06298589",
+            "Hollstein, B. (2024). Qualitative and mixed methods. In J. McLevey, J. Scott, & P. J. Carrington (Eds.), The Sage handbook of social network analysis (2nd ed., pp. 562–574). Sage. https://doi.org/10.4135/9781529614695.n38"
+          ],
+          "illustrations": [
+            {
+              "src": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12875-026-03322-5/MediaObjects/12875_2026_3322_Fig1_HTML.png",
+              "page": "https://bmcprimcare.biomedcentral.com/articles/10.1186/s12875-026-03322-5",
+              "legende": "基于 NVivo 编码访谈的反思性主题分析所得主题图，主题为初级卫生保健的可及性。",
+              "credit": "图1，引自 Instone 等（2026），BMC Primary Care，CC BY 4.0"
+            },
+            {
+              "src": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4df6/8392189/3efc6c848b2a/ijerph-18-08372-g001.jpg",
+              "page": "https://doi.org/10.3390/ijerph18168372",
+              "legende": "访谈中手绘后数字化的网络图，出自对一个跨部门健康促进网络的定性分析。",
+              "credit": "图1，引自 Fleuren、Thiel 和 Frahsa（2021），International Journal of Environmental Research and Public Health，CC BY 4.0"
+            }
+          ]
+        },
+        {
+          "titre": "批判性话语分析",
+          "texte": "我对魁北克医生在第2号法案辩论期间的批判性话语进行了定性分析。目的性语料库包括42份新闻报道与新闻稿（Eureka 数据库，2025年5月至12月），按时间顺序编码，直至编码结构趋于稳定。分析结合了 Fairclough 的三维模型（文本、生产与传播实践、社会政治语境）、框架理论以及叙事角色的分配：受害者、责任者与保护者。每一条引文都可追溯至其来源，分析区分了文本本身所说的内容与其社会学解读。",
+          "references": [
+            "Entman, R. M. (1993). Framing: Toward clarification of a fractured paradigm. Journal of Communication, 43(4), 51–58. https://doi.org/10.1111/j.1460-2466.1993.tb01304.x",
+            "Fairclough, N. (1995). Critical discourse analysis: The critical study of language. Longman.",
+            "Hennink, M. M., Kaiser, B. N., & Marconi, V. C. (2017). Code saturation versus meaning saturation: How many interviews are enough? Qualitative Health Research, 27(4), 591–608. https://doi.org/10.1177/1049732316665344",
+            "Shanahan, E. A., Jones, M. D., & McBeth, M. K. (2018). How to conduct a Narrative Policy Framework study. The Social Science Journal, 55(3), 332–345. https://doi.org/10.1016/j.soscij.2017.12.002"
+          ],
+          "illustrations": [
+            {
+              "schema": [
+                "社会实践：社会政治语境",
+                "话语实践：生产与传播",
+                "文本"
+              ],
+              "legende": "批判性话语分析的三维模型",
+              "credit": "示意图，依据 Fairclough（1995）"
+            }
+          ]
+        }
+      ],
+      "intro": "从问题到观察：每个问题都需要相应的数据、分析方法与诠释。我依据需要阐明的内容选择方法，并在不同学科之间交叉融合。"
+    },
+    "expertises": {
+      "titre": "专业领域",
+      "items": [
+        [
+          "卫生、社会与医疗社会机构管理",
+          "我在西布列塔尼大学（Université de Bretagne Occidentale）获得“医疗社会机构与个人服务机构管理”硕士级文凭（Maîtrise，2024年，获评审委员会特别嘉许），课程涵盖预算与财务管理（CPOM、EPRD）、会计、人力资源管理与劳动法、管理学、组织理论与组织社会学、哲学以及机构发展方案。2016年至2024年，我担任喘息度假与适应性度假项目负责人，负责团队、预算与后勤管理。"
+        ],
+        [
+          "卫生法、社会法与医疗社会法",
+          "我在巴黎-先贤祠-阿萨斯大学（Université Paris-Panthéon-Assas）获得公法硕士学位，专攻卫生法与社会法（2025年，获评审委员会特别嘉许）。课程聚焦卫生、社会及医疗社会领域的组织与规划，包括设立许可、资质认定、定价及定价争讼，还涵盖患者与服务使用者的权利、生命伦理、卫生经济学、契约化管理、民事、刑事与行政责任，以及劳动法与社会保障法。"
+        ],
+        [
+          "服务供给转型与绩效支持",
+          "2024年至2025年，我在法国国家绩效支持署（ANAP，巴黎）担任项目专员，协助推动卫生与社会服务供给的转型：共同主持专家网络、主持网络研讨会、收集与分析数据，以及组织并共同设计实践社群活动。"
+        ],
+        [
+          "老龄化、自主能力与EHPAD",
+          "我的两篇硕士论文聚焦这一领域：一篇探讨EHPAD（法国失能老人照护机构）如何适应逐渐老化的残障人士（西布列塔尼大学，2024年）；另一篇以法国与魁北克的比较研究考察居家照护转向的实施（《Vieillir chez soi》，意为“居家养老”，巴黎-先贤祠-阿萨斯大学，2025年）。此外，我还具有EHPAD方面的经验，并曾在ANAP参与居家自主支持服务改革的相关工作。"
+        ],
+        [
+          "残障与自主决定",
+          "2020年至2023年，我在圣马洛Adapei 35的残障人士居住型安置机构担任特殊教育工作者，负责评估服务对象的需求、与其共同制定个别化计划，并协调多学科团队。我于2023年完成的论文探讨教育实践对自主决定的影响。2016年至2024年，我还担任面向残障人士的喘息度假项目与适应性度假项目负责人。"
+        ],
+        [
+          "自闭症",
+          "2020年至2023年，我在圣马洛Adapei 35的居住型安置机构担任特殊教育工作者，其间的经历包括陪伴支持自闭症人士。这种陪伴建立在三项工作之上：评估每个人的具体需求，与其本人共同制定个别化计划，以及围绕该计划协调多学科团队。"
+        ],
+        [
+          "研究方法与项目评估",
+          "作为蒙特利尔大学公共卫生学院（ESPUM）的公共卫生博士研究生，我采用定量与定性相结合的混合方法。我的研究方向之一涉及绩效、变革管理与组织运营管理。在项目评估方面，我依托所受的专业训练（机构评估、目标与资源合同）以及在ANAP编制的决策支持与运营管理工具。"
+        ],
+        [
+          "跨部门协作与初级保健",
+          "作为蒙特利尔大学医院中心研究中心（CRCHUM）的研究实习生，我研究初级保健政策、跨部门协作以及医疗与服务的整合。跨部门协作是指卫生、社会服务、教育、住房等多个部门针对超出单一部门职责范围的问题而采取的协同行动。这些研究与我的卫生系统比较分析方向相互衔接。"
+        ],
+        [
+          "创业与管理",
+          "我接受过创业与管理方面的训练（大学文凭，布雷斯特企业管理学院IAE de Brest，2024年），目前已着手创建OWNNIGHT，这是一款关于身心健康与睡眠教育的应用程序。我的管理方法借鉴了硕士阶段所学的组织临床研究与机构业务发展，以及担任适应性度假项目负责人期间践行的贴近一线的领导力。"
+        ]
+      ]
+    },
+    "axes": {
+      "titre": "工作方向",
+      "principaux": [
+        "卫生政策的治理与评估",
+        "第一线服务中的跨部门方法",
+        "老龄化、失能与居家养老政策"
+      ],
+      "secondairesTitre": "次要方向",
+      "secondaires": [
+        "法律规划、学理分析与卫生法",
+        "绩效、变革管理与组织管控",
+        "卫生系统比较分析"
+      ]
+    }
+  },
+  "valeurs": {
+    "surtitre": "价值观",
+    "titre": "指引我实践的价值",
+    "intro": "从实践到研究，指引我工作的六项价值。",
+    "devise": [
+      "座右铭",
+      "Ad astra per aspera",
+      "循艰难之路，抵璀璨群星"
+    ],
+    "items": [
+      [
+        "批判性思维",
+        "探索其他学科与思考方式，对照不同观点，质疑看似理所当然的事物、数据与制度，首先从自身的信念开始。",
+        0
+      ],
+      [
+        "韧性",
+        "将经历过的考验化为前进的资源。",
+        1
+      ],
+      [
+        "自主",
+        "独立思考，并支持每个人选择自己生活的能力。",
+        2
+      ],
+      [
+        "共同建构，服务公共利益",
+        "与人们一起做，而不是替人们做：开展与民众共同完成、并服务于民众的有影响力的研究。",
+        4
+      ],
+      [
+        "勇于创新",
+        "敢于提出、创新、创造并实施新的应对方案。",
+        5
+      ],
+      [
+        "公平",
+        "尽可能使每个人都能充分发挥自己的能力，并实现自己的意愿。",
+        3
+      ]
+    ]
+  },
+  "implantation": {
+    "surtitre": "03 · 实施",
+    "titre": "知识转化与实施",
+    "intro": "促进知识在个人、实践场域与研究之间流动，进而审视它们实际能够带来哪些改变。",
+    "precision": "在我的博士论文中，知识动员伴随研究进行：它既不是实施研究，也不是政策评估。",
+    "formation": {
+      "etiquette": "已完成培训",
+      "titre": "MobilizeU，知识动员 · Research Impact Canada 与 York University（约克大学），2026",
+      "lien": "https://researchimpact.ca/learning/mobilizeu/",
+      "lienTexte": "了解更多"
+    },
+    "plan": {
+      "titre": "在我的博士论文中：一项知识动员计划",
+      "items": [
+        {
+          "nom": "为何、何事、面向谁、如何",
+          "texte": "Ward 框架以四个问题构建该计划：在选择“如何”、形式与渠道之前，先明确“何事”“为何”与“面向谁”。",
+          "ref": "Ward, 2017"
+        },
+        {
+          "nom": "从知识到行动",
+          "texte": "“知识到行动”模型为知识的生产、调适、传播与追踪提供框架，但并不声称能确保其被持续采纳。",
+          "ref": "Graham et al., 2006"
+        },
+        {
+          "nom": "基于 4R 原则的伙伴关系",
+          "texte": "尊重、相关性、互惠与责任指导着与患者及实践场域之间的伙伴关系，并以 IRSC（加拿大卫生研究院）的患者参与框架为依据。",
+          "ref": "Kirkness & Barnhardt, 1991；IRSC, 2014；Bowen & Graham, 2013"
+        },
+        {
+          "nom": "审议式对话",
+          "texte": "审议式工作坊将研究结果转化为契合情境的建议，并向参与者反馈。参与情况依据 GRIPP2 进行报告。",
+          "ref": "Boyko et al., 2012；Lavis et al., 2009；Staniszewska et al., 2017"
+        },
+        {
+          "nom": "追踪贡献，而非归因",
+          "texte": "借助四项指标（产出、覆盖范围、吸纳、有据可查的使用）和一份登记册，评估研究的合理贡献，而不将后续变化归因于研究本身。",
+          "ref": "Morton, 2015"
+        }
+      ]
+    },
+    "cadres": {
+      "titre": "实施科学参考框架",
+      "items": [
+        {
+          "nom": "CFIR 2.0",
+          "texte": "审视促进或阻碍实施的情境与决定因素。",
+          "ref": "Damschroder et al., 2022"
+        },
+        {
+          "nom": "实施结果",
+          "texte": "区分可接受性、采纳、适切性、可行性、忠实度、成本、渗透度与可持续性。",
+          "ref": "Proctor et al., 2011"
+        },
+        {
+          "nom": "研究影响",
+          "texte": "影响框架主要描绘的是“去程”，即从研究走向实践；我的工作同样追问“回程”。",
+          "ref": "Greenhalgh et al., 2016；Brownson et al., 2026"
+        },
+        {
+          "nom": "贡献分析方法",
+          "texte": "将产出与使用相联系，再与有据可查的变化相联系，同时审视其他可能的影响因素。",
+          "ref": "Morton, 2015；Bayley & Phipps, 2019"
+        },
+        {
+          "nom": "共同生产与整合式知识转化",
+          "texte": "共同生产的机制取决于基础设施、角色的清晰度与权力的共享；其成本同样不容忽视。",
+          "ref": "Graham et al., 2019；Kothari et al., 2025；Oliver et al., 2019"
+        },
+        {
+          "nom": "批判性实施科学",
+          "texte": "对框架进行理论化，而不是把它们当作核查清单来套用。",
+          "ref": "Kislov et al., 2019"
+        },
+        {
+          "nom": "参与与审议",
+          "texte": "设计并评估能够留下其影响痕迹的公众参与过程。",
+          "ref": "Abelson et al., 2003；OCDE, 2022"
+        },
+        {
+          "nom": "为何需要实施",
+          "texte": "证明一项创新有效，并不足以保证它会被采纳。",
+          "ref": "Bauer & Kirchner, 2020"
+        },
+        {
+          "nom": "实施策略",
+          "texte": "ERIC 汇编提供了一套涵盖 73 项策略的共同词汇，用于描述、选择和报告所采用的策略。",
+          "ref": "Powell et al., 2015"
+        },
+        {
+          "nom": "复杂干预",
+          "texte": "实施成为一个独立的阶段，以情境、项目理论与利益相关方为核心。",
+          "ref": "Skivington et al., 2021"
+        },
+        {
+          "nom": "面向老年人的实施",
+          "texte": "在魁北克，一项促进老年人社会参与的公民陪伴项目的实施，揭示了哪些条件至关重要。",
+          "ref": "Gobeil et al., 2023"
+        }
+      ]
+    },
+    "ressources": {
+      "titre": "资源",
+      "items": [
+        [
+          "知识动员术语表",
+          "Instituts de recherche en santé du Canada（加拿大卫生研究院）",
+          "https://cihr-irsc.gc.ca/f/54014.html"
+        ],
+        [
+          "患者参与框架",
+          "IRSC，以患者为导向的研究策略",
+          "https://cihr-irsc.gc.ca/f/48413.html"
+        ],
+        [
+          "公民参与指南",
+          "OCDE，2022",
+          "https://doi.org/10.1787/f765caf6-en"
+        ]
+      ]
+    },
+    "chantiers": {
+      "titre": "知识动员的八个工作领域",
+      "intro": "每个领域都将科学文献与我的实践联系起来。",
+      "detail": "科学文献",
+      "items": [
+        [
+          "动员",
+          "让知识双向流动",
+          "动员，是指将研究中的知识传递到实际环境中，同时也将实际环境和人们的需求传递到研究中。知识向行动的模型区分了知识的产生和其应用的循环：识别问题、将知识适应于具体情境、识别障碍、支持并跟踪其应用（Graham et al., 2006）。五个问题组织了这一过程：转移什么、转移给谁、由谁转移、如何转移以及产生什么效果，而且首先应动员一组证据，而不是单独的研究（Grimshaw et al., 2012）。知识中介为这种联结工作赋予了具体形象（Munerol et al., 2013）。",
+          [
+            "Graham et al. (2006)",
+            "Grimshaw et al. (2012)",
+            "Ward et al. (2012)",
+            "Munerol et al. (2013)"
+          ]
+        ],
+        [
+          "框架",
+          "依据问题选择框架",
+          "一个框架使选择变得明确：为什么要推动知识转化，转化哪些知识，与谁一起转化，如何转化（Ward, 2017）。理论、模型和框架根据我们想要实现的目标而分为不同的类别：指导一个过程、解释什么因素促进或阻碍，或者进行评估（Nilsen, 2015）。有些框架将促进作为实施的核心（Harvey & Kitson, 2016）；而另一些则涵盖了知识应用的整个周期（Esmail et al., 2020）。根据问题选择框架，并进行讨论而非简单勾选列表，会使这一过程更具成效（Kislov et al., 2019）。",
+          [
+            "Ward (2017)",
+            "Nilsen (2015)",
+            "Harvey & Kitson (2016)",
+            "Esmail et al. (2020)"
+          ]
+        ],
+        [
+          "规划",
+          "从项目设计之初开始规划",
+          "一个知识动员计划需要明确目标人群、目标、信息、活动、资源、时间表和指标（IRSC，2012）。该计划从项目设计之初就与合作伙伴共同制定：为了实现传播和可持续性，就要尽早考虑研究成果与其采纳背景之间的适配性（Kwan et al., 2022）。实际的计划虽然很好地描述了合作伙伴和策略，但常常忽略了评估和资源（Tchameni Ngamo et al., 2016）。开始行动时：了解目标人群，组建团队，邀请有实际经验的人参与，并从每次试验中吸取经验教训（Diany et al., 2025；Dancause, 2023）。",
+          [
+            "IRSC (2012)",
+            "Tchameni Ngamo et al. (2016)",
+            "Kwan et al. (2022)",
+            "Diany et al. (2025)",
+            "Dancause (2023)"
+          ]
+        ],
+        [
+          "伙伴关系",
+          "共同生产，共享权力",
+          "知识的共同生产与知识的整合应用将研究成果的使用者纳入每一个阶段，从问题提出到传播（Jull et al., 2017）。合作研究方法共享一些原则、策略和成果，这些可以通过共同的词汇进行描述和比较（Hoekstra et al., 2020）。参与可以从三个层面来理解，即组织、价值观和实践（Boaz et al., 2018），并基于真实的相互依赖性和共同创造（Skipper & Pepler, 2020）。它需要时间和资源：其成本必须得到认可（Oliver et al., 2019）。",
+          [
+            "Jull et al. (2017)",
+            "Boaz et al. (2018)",
+            "Hoekstra et al. (2020)",
+            "Skipper & Pepler (2020)",
+            "Oliver et al. (2019)"
+          ]
+        ],
+        [
+          "包容",
+          "谁被倾听、谁参与、谁从中受益",
+          "包容性的知识动员质疑每个人的角色：谁被倾听，谁参与，谁受益（Georgalakis, 2023）。将知识与行动联系起来以实现公平，意味着重新分配权力并应对不平等的结构性原因（Plamondon et al., 2019）。经验性知识不是补充：它们改变了问题、方法和解释（Breton, 2025）。在原住民健康领域，有前景的实践尊重社区特有的知识分享方式（Morton Ninomiya et al., 2022）；在残疾领域，共同构建的原则避免了表面参与（Gainforth et al., 2021）。",
+          [
+            "Plamondon et al. (2019)",
+            "Morton Ninomiya et al. (2022)",
+            "Gainforth et al. (2021)",
+            "Breton (2025)",
+            "Georgalakis (2023)"
+          ]
+        ],
+        [
+          "受众",
+          "依据目标选择形式",
+          "该格式遵循目标：共同创造（对话式讨论、世界咖啡馆、研讨会），传播（展览、网络研讨会、圆桌会议）或实施（培训、项目会议）。可及性应以多种形式加以考虑，包括身体、感官、经济、文化和语言方面：公众应感到被包容，而不仅仅是被邀请。蒙特利尔模式承认患者的经验性知识作为专业性知识的补充（Pomey et al., 2015），并且许多框架支持患者和公众参与研究（Greenhalgh et al., 2019）。清晰语言摘要（Stoll et al., 2022）和共同构建的视觉艺术（Courcy et al., 2022）使研究面向更广泛的公众。",
+          [
+            "Pomey et al. (2015)",
+            "Greenhalgh et al. (2019)",
+            "Stoll et al. (2022)",
+            "Courcy et al. (2022)"
+          ]
+        ],
+        [
+          "传播",
+          "既追求可见度，也追求实际使用",
+          "战略沟通与知识应用相互交叉但并不完全重合：前者支持可见性，后者支持使用（Barwick et al., 2014）。知识中介者处于两者之间，通过建立研究者与决策者之间的联系，而不是传播产品（Lomas, 2007）。在公共政策中，数据的相关性和组织因素具有重要意义（Oliver et al., 2026），而对研究者的建议很少基于证据，并且隐瞒了参与的成本（Oliver & Cairney, 2019）。一项在区域卫生机构进行的中介干预表明，技能进步比对决策的影响更快（Fillol et al., 2026）。",
+          [
+            "Lomas (2007)",
+            "Barwick et al. (2014)",
+            "Oliver & Cairney (2019)",
+            "Oliver et al. (2026)",
+            "Fillol et al. (2026)"
+          ]
+        ],
+        [
+          "影响",
+          "追踪贡献，而非归因",
+          "评估影响，就是追踪研究对变化的贡献，而不将这些变化全部归因于研究本身：包括产出、影响力、被采纳情况、有记录的使用情况以及对服务和人群的后续影响（Morton, 2015）。贡献分析提供了一种合理的做法，当严格的因果归因难以实现时（Mayne, 2012）。一些法语框架使转移的后续影响变得可见（Gervais et al., 2016），而一项魁北克的综述则列举了用于评估动员策略的模型（Ziam et al., 2024）。仍有一个开放且被讨论的问题：在多大程度上可以评估转移的影响（Plouffe, 2015）？",
+          [
+            "Mayne (2012)",
+            "Morton (2015)",
+            "Gervais et al. (2016)",
+            "Ziam et al. (2024)",
+            "Plouffe (2015)"
+          ]
+        ]
+      ]
+    },
+    "bibliographie": {
+      "titre": "参考文献（APA）",
+      "items": [
+        "Abelson, J., Forest, P.-G., Eyles, J., Smith, P., Martin, E., & Gauvin, F.-P. (2003). Deliberations about deliberative methods: Issues in the design and evaluation of public participation processes. Social Science & Medicine, 57(2), 239–251. https://doi.org/10.1016/S0277-9536(02)00343-X",
+        "Barwick, M., Phipps, D., Myers, G., Johnny, M., & Coriandoli, R. (2014). Knowledge translation and strategic communications: Unpacking differences and similarities for scholarly and research communications. Scholarly and Research Communication, 5(3). https://doi.org/10.22230/src.2014v5n3a175",
+        "Bauer, M. S., & Kirchner, J. (2020). Implementation science: What is it and why should I care? Psychiatry Research, 283, Article 112376. https://doi.org/10.1016/j.psychres.2019.04.025",
+        "Bayley, J. E., & Phipps, D. (2019). Building the concept of research impact literacy. Evidence & Policy, 15(4), 597–606. https://doi.org/10.1332/174426417X15034894876108",
+        "Beaulieu, M.-D. (2016). Construction et hiérarchisation des données probantes en santé : savoirs scientifiques, expérientiels et contextuels. Revue du CREMIS, 9(2), 9-15. https://cremis.ca/publications/articles-et-medias/construction-et-hierarchisation-des-donnees-probantes-en-sante-savoirs-scientifiques-experientiels-et-contextuels/",
+        "Berrada, M. (2026, 2 juin). Recherche et politiques publiques : comment mieux faire circuler les savoirs ? Affaires universitaires. https://www.affairesuniversitaires.ca/actualites/recherche-et-politiques-publiques-comment-mieux-faire-circuler-les-savoirs/",
+        "Boaz, A., Hanney, S., Borst, R., O’Shea, A., & Kok, M. (2018). How to engage stakeholders in research: Design principles to support improvement. Health Research Policy and Systems, 16, Article 60. https://doi.org/10.1186/s12961-018-0337-6",
+        "Bowen, S. J., & Graham, I. D. (2013). From knowledge translation to engaged scholarship: Promoting research relevance and utilization. Archives of Physical Medicine and Rehabilitation, 94(1 Suppl.), S3–S8. https://doi.org/10.1016/j.apmr.2012.04.037",
+        "Boyko, J. A., Lavis, J. N., Abelson, J., Dobbins, M., & Carter, N. (2012). Deliberative dialogues as a mechanism for knowledge translation and exchange in health systems decision-making. Social Science & Medicine, 75(11), 1938–1945. https://doi.org/10.1016/j.socscimed.2012.06.016",
+        "Breton, H. (2025). Savoirs expérientiels en santé : revue systématique de littérature. Santé Publique, 37(3), 241-251. https://doi.org/10.3917/spub.255.0241",
+        "Brownson, R. C., Iwelunmor, J., Odeny, T. A., Proctor, E. K., & Geng, E. H. (2026). So what? Elevating the impact of implementation science. Implementation Science Communications, 7, 2. https://doi.org/10.1186/s43058-025-00831-9",
+        "Bulloch, M. N. (Animatrice). (2024, 17 juillet). SCCM Pod-520: Implementation science: From evidence to practice [Balado]. Dans SCCM Podcast. Society of Critical Care Medicine. https://www.sccm.org/communications/sccm-podcast/sccm-podcast-all-episodes/sccm-pod-520-implementation-science-from-evidence-to-practice",
+        "Centre de collaboration nationale des méthodes et outils. (2016, 4 juillet). CCNMO - Prise de décisions fondée sur des données probantes [Vidéo]. YouTube. https://www.youtube.com/watch?v=XrZjc3Flrz8",
+        "Courcy, I., Bureau, A., & Grenier, G. (2022). L’art visuel comme outil de pratique en mobilisation et transfert de connaissances : retour sur un projet de cocréation d’une murale alliant la recherche, l’art et des savoirs expérientiels. Revue francophone de recherche sur le transfert et l’utilisation des connaissances, 6(3). https://doi.org/10.18166/tuc.2022.6.3.25",
+        "Crowley, D. M., & Scott, J. T. (2023). To support evidence-based policymaking, bring researchers and policymakers together. Issues in Science and Technology, 39(2), 31-35. https://issues.org/evidence-based-policymaking-researchers-policymakers-collaborate-crowley-scott/",
+        "Dagenais, C., Hot, A., & Ridde, V. (2023, 21 février). Communiquer efficacement les connaissances scientifiques permet de sauver des vies. The Conversation. https://theconversation.com/communiquer-efficacement-les-connaissances-scientifiques-permet-de-sauver-des-vies-197191",
+        "Damschroder, L. J., Reardon, C. M., Widerquist, M. A. O., & Lowery, J. (2022). The updated Consolidated Framework for Implementation Research based on user feedback. Implementation Science, 17, 75. https://doi.org/10.1186/s13012-022-01245-0",
+        "Dancause, L. (2023). Guide pédagogique sur la mobilisation des connaissances (L. Cardinal & J. Luckerhoff, dir.). Laboratoire interdisciplinaire de recherche sur l’enseignement supérieur. https://www.erudit.org/fr/livres/hors-collection/guide-pedagogique-sur-la-mobilisation-des-connaissances/",
+        "David, G., & Grégoire, A. (2018). Guide pratique – Stratégie de partenariat avec les patients et le public en recherche. Unité de soutien SRAP du Québec. https://ceppp.ca/wp-content/uploads/2021/01/USSQ_Guide-pratique-SPPP-en-recherche_V1.pdf",
+        "Diany, R., Fitzgibbon-Collins, L. K., & Gagliano Taliun, S. A. (2025). Ten simple rules for getting started with knowledge mobilization. PLOS Computational Biology, 21(4), e1012888. https://doi.org/10.1371/journal.pcbi.1012888",
+        "Équipe RENARD. (2023, 26 mai). Ancrage historique et évolution du courtage de connaissances [Vidéo]. YouTube. https://www.youtube.com/watch?v=3uucW5ZOp-g",
+        "Équipe RENARD. (2023, 29 mai). Les compétences clés pour agir en courtage de connaissances [Vidéo]. YouTube. https://www.youtube.com/watch?v=RGVmhf9Wyzo",
+        "Esmail, R., Hanson, H. M., Holroyd-Leduc, J., Brown, S., Strifler, L., Straus, S. E., Niven, D. J., & Clement, F. M. (2020). A scoping review of full-spectrum knowledge translation theories, models, and frameworks. Implementation Science, 15, Article 11. https://doi.org/10.1186/s13012-020-0964-5",
+        "Fillol, A., Traverson, L., Zitti, T., Bars, G., Minssieux, N., Hot, A., Dagenais, C., & Ridde, V. (2026). Évaluation d’une intervention de courtage de connaissances à l’Agence régionale de santé Île-de-France. Santé Publique, 38(1), 15-34. https://doi.org/10.3917/spub.261.0015",
+        "Gainforth, H. L., Hoekstra, F., McKay, R., McBride, C. B., Sweet, S. N., Martin Ginis, K. A., Anderson, K., Chernesky, J., Clarke, T., Forwell, S., Maffin, J., McPhail, L. T., Mortenson, W. B., Scarrow, G., Schaefer, L., Sibley, K. M., Athanasopoulos, P., & Willms, R. (2021). Integrated knowledge translation guiding principles for conducting and disseminating spinal cord injury research in partnership. Archives of Physical Medicine and Rehabilitation, 102(4), 656-663. https://doi.org/10.1016/j.apmr.2020.09.393",
+        "Georgalakis, J. (2023, 16 janvier). We need to talk about equity in knowledge mobilisation. Transforming Evidence. https://transforming-evidence.org/blog/we-need-to-talk-about-equity-in-knowledge-mobilisation",
+        "Gervais, M.-J., Souffez, K., & Ziam, S. (2016). Quel impact avons-nous ? Vers l’élaboration d’un cadre pour rendre visibles les retombées du transfert des connaissances. Revue francophone de recherche sur le transfert et l’utilisation des connaissances, 1(1). https://doi.org/10.18166/tuc.2016.1.1.5",
+        "Gobeil, J., Gaumond, V., Germain, S., Vézina, A., Duguay, A.-M., & Levasseur, M. (2023). Implantation de l’Accompagnement-citoyen personnalisé d’intégration communautaire (APIC) : vers l’optimisation de la mise en œuvre de cette approche novatrice visant la participation sociale des aînés. Canadian Journal on Aging / La Revue canadienne du vieillissement, 42(4), 551-564. https://doi.org/10.1017/S0714980823000132",
+        "Gobel, U. (2021, 8 février). Knowledge mobilization will help Canada face the next major challenge. Policy Options. https://policyoptions.irpp.org/magazines/february-2021/knowledge-mobilization-will-help-canada-face-the-next-major-challenge/",
+        "Graham, I. D., Logan, J., Harrison, M. B., Straus, S. E., Tetroe, J., Caswell, W., & Robinson, N. (2006). Lost in knowledge translation: Time for a map? Journal of Continuing Education in the Health Professions, 26(1), 13–24. https://doi.org/10.1002/chp.47",
+        "Graham, I. D., McCutcheon, C., & Kothari, A. (2019). Exploring the frontiers of research co-production: The Integrated Knowledge Translation Research Network concept papers. Health Research Policy and Systems, 17, 88. https://doi.org/10.1186/s12961-019-0501-7",
+        "Greenhalgh, T., Hinton, L., Finlay, T., Macfarlane, A., Fahy, N., Clyde, B., & Chant, A. (2019). Frameworks for supporting patient and public involvement in research: Systematic review and co-design pilot. Health Expectations, 22(4), 785-801. https://doi.org/10.1111/hex.12888",
+        "Greenhalgh, T., Raftery, J., Hanney, S., & Glover, M. (2016). Research impact: A narrative review. BMC Medicine, 14, 78. https://doi.org/10.1186/s12916-016-0620-8",
+        "Grimshaw, J. M., Eccles, M. P., Lavis, J. N., Hill, S. J., & Squires, J. E. (2012). Knowledge translation of research findings. Implementation Science, 7, Article 50. https://doi.org/10.1186/1748-5908-7-50",
+        "Harvey, G., & Kitson, A. (2016). PARIHS revisited: From heuristic to integrated framework for the successful implementation of knowledge into practice. Implementation Science, 11, Article 33. https://doi.org/10.1186/s13012-016-0398-2",
+        "Hoekstra, F., Mrklas, K. J., Khan, M., McKay, R. C., Vis-Dunbar, M., Sibley, K. M., Nguyen, T., Graham, I. D., SCI Guiding Principles Consensus Panel, & Gainforth, H. L. (2020). A review of reviews on principles, strategies, outcomes and impacts of research partnerships approaches: A first step in synthesising the research partnership literature. Health Research Policy and Systems, 18, Article 51. https://doi.org/10.1186/s12961-020-0544-9",
+        "Institut du Nouveau Monde. (2026, 31 mars). Quand l’expertise académique rencontre le vécu du terrain (Épisode 2) [Balado]. Dans Le Réverbère : mini-série sur la science citoyenne. YouTube. https://www.youtube.com/watch?v=J6gVGWA_yhc",
+        "Instituts de recherche en santé du Canada. (2012). Guide de planification de l’application des connaissances aux IRSC : approches intégrées et de fin de subvention. https://irsc-cihr.gc.ca/f/documents/kt_lm_ktplan-fr.pdf",
+        "Instituts de recherche en santé du Canada. (2014). Cadre d’engagement des patients de la Stratégie de recherche axée sur le patient. https://cihr-irsc.gc.ca/f/48413.html",
+        "Jabet, C., & Petitgand, C. (2022, 21 juillet). Au-delà de l’acceptabilité sociale, ouvrir le dialogue pour favoriser la participation citoyenne au débat sur l’utilisation des données de santé. Fonds de recherche du Québec. https://frq.gouv.qc.ca/ouvrir-le-dialogue-pour-favoriser-la-participation-citoyenne/",
+        "Jull, J., Giles, A., & Graham, I. D. (2017). Community-based participatory research and integrated knowledge translation: Advancing the co-creation of knowledge. Implementation Science, 12, Article 150. https://doi.org/10.1186/s13012-017-0696-3",
+        "Kirkness, V. J., & Barnhardt, R. (1991). First Nations and higher education: The four R’s—Respect, relevance, reciprocity, responsibility. Journal of American Indian Education, 30(3), 1–15.",
+        "Kislov, R., Pope, C., Martin, G. P., & Wilson, P. M. (2019). Harnessing the power of theorising in implementation science. Implementation Science, 14, 103. https://doi.org/10.1186/s13012-019-0957-4",
+        "Kothari, A., Sibbald, S. L., McCutcheon, C., Berta, W., Urquhart, R., Horsley, T., Comer, L., & Graham, I. D. (2025). How does integrated knowledge translation work? A realist review. Health Research Policy and Systems, 23, 102. https://doi.org/10.1186/s12961-025-01374-0",
+        "Kwan, B. M., Brownson, R. C., Glasgow, R. E., Morrato, E. H., & Luke, D. A. (2022). Designing for dissemination and sustainability to promote equitable impacts on health. Annual Review of Public Health, 43, 331-353. https://doi.org/10.1146/annurev-publhealth-052220-112457",
+        "Lavis, J. N., Boyko, J. A., Oxman, A. D., Lewin, S., & Fretheim, A. (2009). SUPPORT Tools for evidence-informed health Policymaking (STP) 14: Organising and using policy dialogues to support evidence-informed policymaking. Health Research Policy and Systems, 7(Suppl. 1), S14. https://doi.org/10.1186/1478-4505-7-S1-S14",
+        "Lemire, N., Souffez, K., & Laurendeau, M.-C. (2009). Animer un processus de transfert des connaissances : bilan des connaissances et outil d’animation. Institut national de santé publique du Québec. https://www.inspq.qc.ca/publications/1012",
+        "Les humains derrière la recherche en soins palliatifs. (2025, 13 novembre). Le pont entre la recherche et le terrain [Balado]. Apple Podcasts. https://podcasts.apple.com/ca/podcast/le-pont-entre-la-recherche-et-le-terrain/id1608211841?i=1000736634362",
+        "Lomas, J. (2007). The in-between world of knowledge brokering. BMJ, 334(7585), 129-132. https://doi.org/10.1136/bmj.39038.593380.AE",
+        "Massuard, M. (2023). Guide pour accompagner l’implantation de pratiques prometteuses dans un établissement : soutien à l’implantation de pratiques prometteuses et au transfert de connaissances dans le réseau de la santé et des services sociaux (J. Lane, dir.). Ministère de la Santé et des Services sociaux. https://publications.msss.gouv.qc.ca/msss/fichiers/2023/23-516-04W.pdf",
+        "Mayne, J. (2012). Contribution analysis: Coming of age? Evaluation, 18(3), 270-280. https://doi.org/10.1177/1356389012451663",
+        "Morton Ninomiya, M. E., Maddox, R., Brascoupé, S., Robinson, N., Atkinson, D., Firestone, M., Ziegler, C., & Smylie, J. (2022). Knowledge translation approaches and practices in Indigenous health research: A systematic review. Social Science & Medicine, 301, Article 114898. https://doi.org/10.1016/j.socscimed.2022.114898",
+        "Morton, S. (2015). Progressing research impact assessment: A “contributions” approach. Research Evaluation, 24(4), 405–419. https://doi.org/10.1093/reseval/rvv016",
+        "Munerol, L., Cambon, L., & Alla, F. (2013). Le courtage en connaissances, définition et mise en œuvre : une revue de la littérature. Santé Publique, 25(5), 587-597. https://doi.org/10.3917/spub.135.0587",
+        "NCI Scientific Events and Resources. (2022, 23 février). TIDIRC: Introduction to dissemination & implementation science [Vidéo]. YouTube. https://www.youtube.com/watch?v=DO2tv7DqL3w",
+        "Nilsen, P. (2015). Making sense of implementation theories, models and frameworks. Implementation Science, 10, Article 53. https://doi.org/10.1186/s13012-015-0242-0",
+        "OECD. (2022). OECD guidelines for citizen participation processes. OECD Publishing. https://doi.org/10.1787/f765caf6-en",
+        "Oliver, K., & Cairney, P. (2019). The dos and don’ts of influencing policy: A systematic review of advice to academics. Palgrave Communications, 5, Article 21. https://doi.org/10.1057/s41599-019-0232-y",
+        "Oliver, K., Kothari, A., & Mays, N. (2019). The dark side of coproduction: Do the costs outweigh the benefits for health research? Health Research Policy and Systems, 17, 33. https://doi.org/10.1186/s12961-019-0432-3",
+        "Oliver, K., Malin, J., Akerlof, K. L., Day, E., Grant, S., McGill, E., Lorenc, T., Martin, P., Lam, J., Williamson, L. E., Mouthaan, M., Pleguezuelo, V. C., Iqbal, S., Jaques, L., Nyanchoka, M., Cesar Alejandre, J., Lane, L., Persson, E., Forde, H., . . . Falconer, J. (2026). What factors influence evidence use in policy? An updated systematic map. Humanities and Social Sciences Communications. Publication en ligne anticipée. https://doi.org/10.1057/s41599-026-08391-6",
+        "Plamondon, K. M., Caxaj, C. S., Graham, I. D., & Bottorff, J. L. (2019). Connecting knowledge with action for health equity: A critical interpretive synthesis of promising practices. International Journal for Equity in Health, 18, Article 202. https://doi.org/10.1186/s12939-019-1108-x",
+        "Plouffe, L. (2015, 20 novembre). Les retombées vers les milieux : dans quelle mesure l’évaluation du transfert des connaissances est-elle possible? [Vidéo]. Institut de recherche Robert-Sauvé en santé et en sécurité du travail. https://www.irsst.qc.ca/publications-et-outils/video/i/100291/n/les-retombees-vers-les-milieux-dans-quelle-mesure-l-evaluation-du-transfert-des-connaissances-est-elle-possible-",
+        "Pomey, M.-P., Flora, L., Karazivan, P., Dumez, V., Lebel, P., Vanier, M.-C., Débarges, B., Clavel, N., & Jouet, E. (2015). Le « Montreal model » : enjeux du partenariat relationnel entre patients et professionnels de la santé. Santé Publique, 27(1, suppl.), S41-S50. https://doi.org/10.3917/spub.150.0041",
+        "Powell, B. J., Waltz, T. J., Chinman, M. J., Damschroder, L. J., Smith, J. L., Matthieu, M. M., Proctor, E. K., & Kirchner, J. E. (2015). A refined compilation of implementation strategies: Results from the Expert Recommendations for Implementing Change (ERIC) project. Implementation Science, 10, Article 21. https://doi.org/10.1186/s13012-015-0209-1",
+        "Proctor, E., Silmere, H., Raghavan, R., Hovmand, P., Aarons, G., Bunger, A., Griffey, R., & Hensley, M. (2011). Outcomes for implementation research: Conceptual distinctions, measurement challenges, and research agenda. Administration and Policy in Mental Health and Mental Health Services Research, 38(2), 65–76. https://doi.org/10.1007/s10488-010-0319-7",
+        "Pullmann, M., & King, K. (Animateurs). (2024, 8 juin). Season 2, Ep 1: David Chambers [Balado]. Dans That Implementation Science Podcast. Podbean. https://thatimplementationsciencepodcast.podbean.com/e/season-2-ep-1-david-chambers/",
+        "Ridde, V., Hot, A., & Dagenais, C. (2025, 16 février). Pour mieux communiquer la science, commençons par bien choisir nos mots. The Conversation. https://theconversation.com/pour-mieux-communiquer-la-science-commencons-par-bien-choisir-nos-mots-247661",
+        "Skipper, Y., & Pepler, D. J. (2020). Knowledge mobilization: Stepping into interdependent and relational space using co-creation. Action Research. Publication anticipée en ligne. https://doi.org/10.1177/1476750320960810",
+        "Skivington, K., Matthews, L., Simpson, S. A., Craig, P., Baird, J., Blazeby, J. M., Boyd, K. A., Craig, N., French, D. P., McIntosh, E., Petticrew, M., Rycroft-Malone, J., White, M., & Moore, L. (2021). A new framework for developing and evaluating complex interventions: Update of Medical Research Council guidance. BMJ, 374, Article n2061. https://doi.org/10.1136/bmj.n2061",
+        "Souffez, K., & Laurendeau, M.-C. (s. d.). Outil pour soutenir l’élaboration d’un plan de transfert des connaissances. Institut national de santé publique du Québec. https://www.inspq.qc.ca/sites/default/files/publications/outil_pour_soutenir_l_elaboration_d_un_plan_de_transfert_des_connaissances.pdf",
+        "Staniszewska, S., Brett, J., Simera, I., Seers, K., Mockford, C., Goodlad, S., Altman, D. G., Moher, D., Barber, R., Denegri, S., Entwistle, A., Littlejohns, P., Morris, C., Suleman, R., Thomas, V., & Tysall, C. (2017). GRIPP2 reporting checklists: Tools to improve reporting of patient and public involvement in research. BMJ, 358, j3453. https://doi.org/10.1136/bmj.j3453",
+        "Stoll, M., Kerwer, M., Lieb, K., & Chasiotis, A. (2022). Plain language summaries: A systematic review of theory, guidelines and empirical research. PLOS ONE, 17(6), Article e0268789. https://doi.org/10.1371/journal.pone.0268789",
+        "Tchameni Ngamo, S., Souffez, K., Lord, C., & Dagenais, C. (2016). Do knowledge translation (KT) plans help to structure KT practices? Health Research Policy and Systems, 14, Article 46. https://doi.org/10.1186/s12961-016-0118-z",
+        "Unité de soutien SSA Québec. (2025, 21 février). Expériences du midi: Recherche en partenariat avec une citoyenne-chercheuse [Vidéo]. YouTube. https://www.youtube.com/watch?v=TNwIcNyGjwY",
+        "Villeneuve, V., & Tousignant, C. (Animatrices). (2024, 30 septembre). Patient partenaire : des alliés pour la recherche (Épisode 23) [Balado]. Dans Des femmes comme vous. Les Radieuses Magazine. https://www.youtube.com/watch?v=27KRzWNoxAA",
+        "Ward, V. (2017). Why, whose, what and how? A framework for knowledge mobilisers. Evidence & Policy, 13(3), 477–497. https://doi.org/10.1332/174426416X14634763278725",
+        "Ward, V., Smith, S., House, A., & Hamer, S. (2012). Exploring knowledge exchange: A useful framework for practice and policy. Social Science & Medicine, 74(3), 297-304. https://doi.org/10.1016/j.socscimed.2011.09.021",
+        "Ziam, S., Lanoue, S., McSween-Cadieux, E., Gervais, M.-J., Lane, J., Gaid, D., Chouinard, L. J., Dagenais, C., Ridde, V., Jean, E., Fleury, F. C., Hong, Q. N., & Prigent, O. (2024). A scoping review of theories, models and frameworks used or proposed to evaluate knowledge mobilization strategies. Health Research Policy and Systems, 22, Article 8. https://doi.org/10.1186/s12961-023-01090-7"
+      ]
+    },
+    "transfert": {
+      "titre": "知识转化与实施",
+      "detail": "五个阶段",
+      "etapes": [
+        [
+          "倾听",
+          "与实践场域共同构建问题",
+          "一切始于倾听：识别与相关群体共同探讨其需求和需要指导的决策，然后明确谁参与、何时参与以及其影响力。知识转移计划常常忽视对公众的深入了解（Tchameni Ngamo 等，2016）；而知识的综合应用则在问题提出阶段就邀请结果的使用者参与（Jull 等，2017）。尊重、相关性、互惠性和责任感引导着这一初次接触（Kirkness & Barnhardt，1991）。",
+          [
+            "需求",
+            "参与"
+          ]
+        ],
+        [
+          "促进流通",
+          "将知识置于情境之中",
+          "研究知识并不自行传播：它们需要与经验知识和情境知识进行对话，而不是对立（Breton, 2025）。知识交流是一个社会过程，包含来回互动，而不仅仅是一种简单的传递（Ward et al., 2012）。根据目标用途调整格式、语言和内容，需要使用清晰语言的摘要（Stoll et al., 2022），通常还需要一个知识中介者来建立联系（Lomas, 2007）。",
+          [
+            "经验知识",
+            "适配的形式"
+          ]
+        ],
+        [
+          "共同建构",
+          "讨论选项与选择",
+          "咨询是收集意见；共同构建，是共同制定；审议，是审视论点和做出裁决。审议性对话将研究成果转化为相关人士可以讨论的选项（Boyko et al., 2012）。然而，仍需记录实际贡献的影响，并承认所有参与方的共同生产成本（Oliver et al., 2019），以避免表面参与（Gainforth et al., 2021）。",
+          [
+            "共同建构",
+            "审议"
+          ]
+        ],
+        [
+          "实施",
+          "支持落地执行",
+          "一种有前景的实践不会自行推广：证明其有效性并不能保证其被采用（Bauer & Kirchner, 2020）。需要借助如CFIR（Damschroder et al., 2022）等框架来审视所处的环境、资源和障碍，然后选择并用共享的术语描述支持策略（Powell et al., 2015）。在魁北克，对老年人提供公民支持的实施过程揭示了有利因素、障碍和必要条件（Gobeil et al., 2023）。",
+          [
+            "实施",
+            "CFIR"
+          ]
+        ],
+        [
+          "评估",
+          "区分产出、使用与改变",
+          "一个传播的工具是一种产出；其采用是实施的结果；对服务和人员的改变是其他结果，需单独记录（Proctor et al., 2011）。与其将这些改变归因于研究本身，不如考察其可能的贡献，同时审视其他影响因素（Mayne, 2012；Morton, 2015）。法语框架有助于使这些影响变得可见（Gervais et al., 2016）。",
+          [
+            "评估",
+            "影响"
+          ]
+        ]
+      ],
+      "note": "这五个阶段借鉴了“知识到行动”模型（Graham et al., 2006）与 Ward 框架（2017）。"
+    }
+  },
+  "ressources": {
+    "surtitre": "资源",
+    "titre": "文章、视频与播客",
+    "intro": "一份附有说明的精选清单，以法语和英语深入了解知识动员与实施科学。",
+    "langues": [
+      "法语",
+      "英语"
+    ],
+    "groupes": [
+      [
+        "开放获取科学论文",
+        [
+          [
+            "Making sense of implementation theories, models and frameworks",
+            "Nilsen，Implementation Science，2015（英文）",
+            "https://doi.org/10.1186/s13012-015-0242-0",
+            "这一分类体系依据研究目的（指导、解释或评估），将理论、模型与框架归为五类：过程模型、决定因素框架、经典理论、实施理论与评估框架。"
+          ],
+          [
+            "Community-based participatory research and integrated knowledge translation: advancing the co-creation of knowledge",
+            "Jull、Giles 与 Graham，Implementation Science，2017（英文）",
+            "https://doi.org/10.1186/s13012-017-0696-3",
+            "将社区参与式研究与整合式知识转化并置比较，揭示二者在哪些方面交汇、在哪些方面分歧，以及各自可以从对方借鉴什么来共同建构知识。"
+          ],
+          [
+            "The dos and don’ts of influencing policy: a systematic review of advice to academics",
+            "Oliver 与 Cairney，Palgrave Communications，2019（英文）",
+            "https://doi.org/10.1057/s41599-019-0232-y",
+            "一篇系统综述，梳理了写给希望影响政策的研究者的建议：这些建议很少以数据为依据，且对参与政策过程的成本与风险避而不谈。"
+          ],
+          [
+            "Connecting knowledge with action for health equity: a critical interpretive synthesis of promising practices",
+            "Plamondon、Caxaj、Graham 与 Bottorff，International Journal for Equity in Health，2019（英文）",
+            "https://doi.org/10.1186/s12939-019-1108-x",
+            "一项批判性诠释综合研究，提炼出将知识与行动相连接、以促进公平的有前景的做法，并着重强调权力的再分配与不平等的结构性根源。"
+          ],
+          [
+            "Quel impact avons-nous ? Vers l’élaboration d’un cadre pour rendre visibles les retombées du transfert des connaissances",
+            "Gervais、Souffez 与 Ziam，Revue francophone de recherche sur le transfert et l’utilisation des connaissances，2016（法文）",
+            "https://doi.org/10.18166/tuc.2016.1.1.5",
+            "在审视 29 个概念框架的基础上，以法语奠定了一个框架的基础，用以呈现知识转化活动的成效，并回应各机构的问责要求。"
+          ],
+          [
+            "Plain language summaries: A systematic review of theory, guidelines and empirical research",
+            "Stoll、Kerwer、Lieb 与 Chasiotis，PLOS ONE，2022（英文）",
+            "https://doi.org/10.1371/journal.pone.0268789",
+            "全面梳理了关于通俗语言摘要的理论、指南与实证研究，并据此提出一个概念框架，用于撰写非专业公众能够理解的摘要。"
+          ]
+        ]
+      ],
+      [
+        "指南与工具",
+        [
+          [
+            "Animer un processus de transfert des connaissances : bilan des connaissances et outil d’animation",
+            "Nicole Lemire、Karine Souffez 与 Marie-Claire Laurendeau，Institut national de santé publique du Québec（魁北克国家公共卫生研究院），2009（法文）",
+            "https://www.inspq.qc.ca/publications/1012",
+            "这本魁北克指南将知识转化视为一个动态过程，并提供一套引导工具和一份备忘清单，帮助与相关行动者一起规划每个步骤。"
+          ],
+          [
+            "Outil pour soutenir l’élaboration d’un plan de transfert des connaissances",
+            "Karine Souffez 与 Marie-Claire Laurendeau，Institut national de santé publique du Québec（魁北克国家公共卫生研究院），未注明日期（PDF 元数据：2011）（法文）",
+            "https://www.inspq.qc.ca/sites/default/files/publications/outil_pour_soutenir_l_elaboration_d_un_plan_de_transfert_des_connaissances.pdf",
+            "一份在项目伊始由团队共同填写的表格，用于明确知识产品、受众与需要参与的行动者，继而确定转化计划的策略、时间节点与资源。"
+          ],
+          [
+            "Guide pour accompagner l’implantation de pratiques prometteuses dans un établissement : soutien à l’implantation de pratiques prometteuses et au transfert de connaissances dans le réseau de la santé et des services sociaux",
+            "Marie Massuard 著，Julie Lane 主编，ministère de la Santé et des Services sociaux du Québec（魁北克卫生与社会服务部），2023（法文）",
+            "https://publications.msss.gouv.qc.ca/msss/fichiers/2023/23-516-04W.pdf",
+            "魁北克卫生部门发布的指南，将实施科学与整合式知识转化落实为一套具体的陪伴支持流程，供卫生与社会服务网络中的各机构使用。"
+          ],
+          [
+            "Guide pratique – Stratégie de partenariat avec les patients et le public en recherche",
+            "Geneviève David 与 Alexandre Grégoire，Unité de soutien SRAP du Québec（魁北克以患者为导向的研究策略支持单位）与 Centre d’excellence sur le partenariat avec les patients et le public（CEPPP，患者与公众伙伴关系卓越中心），2018（法文）",
+            "https://ceppp.ca/wp-content/uploads/2021/01/USSQ_Guide-pratique-SPPP-en-recherche_V1.pdf",
+            "一本由一位患者协调员参与撰写的入门指南，围绕在研究项目中让患者与公众参与的为何、谁、何时、何地、多少与如何等问题作答，并涉及评估与伦理议题。"
+          ]
+        ]
+      ],
+      [
+        "播客",
+        [
+          [
+            "Le pont entre la recherche et le terrain",
+            "Les humains derrière la recherche en soins palliatifs，嘉宾 Chantal Verdon（UQO），2025（法文）",
+            "https://podcasts.apple.com/ca/podcast/le-pont-entre-la-recherche-et-le-terrain/id1608211841?i=1000736634362",
+            "一位护理学研究者讲述她如何在研究与实践之间搭建桥梁，尤其是通过与护士共同组建的实践共同体。"
+          ],
+          [
+            "Season 2, Ep 1: David Chambers",
+            "That Implementation Science Podcast，由 Mike Pullmann 与 Kevin King 主持，2024（英文）",
+            "https://thatimplementationsciencepodcast.podbean.com/e/season-2-ep-1-david-chambers/",
+            "National Cancer Institute（美国国家癌症研究所）负责实施科学的副主任回顾了该领域的历史、科学的集体属性，以及一支研究团队何以高效。"
+          ],
+          [
+            "SCCM Pod-520: Implementation Science: From Evidence to Practice",
+            "SCCM Podcast（Society of Critical Care Medicine，重症医学学会），由 Marilyn N. Bulloch 主持，嘉宾 Anne E. Sales，2024（英文）",
+            "https://www.sccm.org/communications/sccm-podcast/sccm-podcast-all-episodes/sccm-pod-520-implementation-science-from-evidence-to-practice",
+            "一则通俗易懂的入门介绍：一位研究者将实施科学阐述为对组织约束下有计划的行为改变的研究，并辅以临床实例。"
+          ]
+        ]
+      ],
+      [
+        "视频短片",
+        [
+          [
+            "Ancrage historique et évolution du courtage de connaissances",
+            "RENARD 团队，Christian Dagenais 与 Saliha Ziam 在 Acfas 第 90 届大会第 31 号研讨会上的报告，2023（法文）",
+            "https://www.youtube.com/watch?v=3uucW5ZOp-g",
+            "一场简短的报告，追溯知识经纪的起源及这一职能的演变，可作为了解知识经纪人角色的入门。"
+          ],
+          [
+            "Les compétences clés pour agir en courtage de connaissances",
+            "RENARD 团队，Esther McSween-Cadieux 在 Acfas 第 90 届大会第 31 号研讨会上的报告，2023（法文）",
+            "https://www.youtube.com/watch?v=RGVmhf9Wyzo",
+            "梳理了从事知识经纪所需的各项能力，是对有关知识经纪人角色之文献的实用补充。"
+          ],
+          [
+            "Expériences du midi: Recherche en partenariat avec une citoyenne-chercheuse",
+            "Unité de soutien SSA Québec（魁北克学习型卫生系统支持单位），网络研讨会，嘉宾 Julie Coulombe 与 Marie-Hélène Morin，2025（法文）",
+            "https://www.youtube.com/watch?v=TNwIcNyGjwY",
+            "一个与一位公民研究者合作开展研究的具体案例，主题是精神卫生领域的家属同伴支持，展示了参与式科学如何改变项目的开展方式。"
+          ],
+          [
+            "CCNMO - Prise de décisions fondée sur des données probantes",
+            "Centre de collaboration nationale des méthodes et outils（CCNMO，国家方法与工具合作中心），2016（法文）",
+            "https://www.youtube.com/watch?v=XrZjc3Flrz8",
+            "用八分钟介绍 CCNMO 模型，说明研究证据、本地情境、民众偏好与资源如何在公共卫生决策中相互结合。"
+          ],
+          [
+            "TIDIRC: Introduction to Dissemination & Implementation Science",
+            "National Cancer Institute（美国国家癌症研究所，TIDIRC OpenAccess），David Chambers 主讲，2022（英文）",
+            "https://www.youtube.com/watch?v=DO2tv7DqL3w",
+            "一场入门讲座，区分了传播研究、研究成果的传播、实施研究与实用性研究，并介绍该领域的基本概念。"
+          ],
+          [
+            "Quand l’expertise académique rencontre le vécu du terrain (Le Réverbère, mini-série sur la science citoyenne, épisode 2)",
+            "Le Réverbère，Institut du Nouveau Monde（新世界研究所）与 Fonds de recherche du Québec（魁北克研究基金会）合作，2026（法文）",
+            "https://www.youtube.com/watch?v=J6gVGWA_yhc",
+            "几组“公民—研究者”搭档讲述他们如何在一个由公民提问发起的研究项目中分担角色，同时各自保有自身的专长。"
+          ],
+          [
+            "Ép. 23 - Patient Partenaire: des alliés pour la recherche",
+            "Des femmes comme vous，Les Radieuses Magazine，嘉宾 Catherine Wilhelmy，2024（法文）",
+            "https://www.youtube.com/watch?v=27KRzWNoxAA",
+            "一位成为研究中心伙伴关系负责人的患者，向普通公众解释什么是“患者伙伴”运动，以及为何患者的亲身经历应当滋养研究与照护。"
+          ]
+        ]
+      ],
+      [
+        "新闻与杂志",
+        [
+          [
+            "Communiquer efficacement les connaissances scientifiques permet de sauver des vies",
+            "Christian Dagenais、Aurélie Hot 与 Valéry Ridde，The Conversation（加拿大版），2023（法文）",
+            "https://theconversation.com/communiquer-efficacement-les-connaissances-scientifiques-permet-de-sauver-des-vies-197191",
+            "文章主张：只有当研究结果以易于理解的形式送达决策者，且变革在资助方的支持下得到长期陪伴时，研究才能改变实践。"
+          ],
+          [
+            "Pour mieux communiquer la science, commençons par bien choisir nos mots",
+            "Valéry Ridde、Aurélie Hot 与 Christian Dagenais，The Conversation（加拿大版），2025（法文）",
+            "https://theconversation.com/pour-mieux-communiquer-la-science-commencons-par-bien-choisir-nos-mots-247661",
+            "说明大量相互竞争的术语（转移、转化、动员……）如何妨碍该领域的协作与资助，并呼吁厘清相关词汇。"
+          ],
+          [
+            "Recherche et politiques publiques : comment mieux faire circuler les savoirs ?",
+            "Mohamed Berrada，Affaires universitaires，2026（法文）",
+            "https://www.affairesuniversitaires.ca/actualites/recherche-et-politiques-publiques-comment-mieux-faire-circuler-les-savoirs/",
+            "一篇 Acfas 研讨会的纪要：大学、学院、机构与决策者共同探讨如何拉近研究与公共决策的距离，同时不牺牲研究所需的长时程。"
+          ],
+          [
+            "Au-delà de l’acceptabilité sociale, ouvrir le dialogue pour favoriser la participation citoyenne au débat sur l’utilisation des données de santé",
+            "Carole Jabet 与 Cécile Petitgand，Fonds de recherche du Québec（魁北克研究基金会），2022（法文）",
+            "https://frq.gouv.qc.ca/ouvrir-le-dialogue-pour-favoriser-la-participation-citoyenne/",
+            "本文源自一场 Acfas 研讨会，提出了地区工作组、公民论坛等审议机制，让公众参与有关健康数据使用的决策。"
+          ],
+          [
+            "Construction et hiérarchisation des données probantes en santé : savoirs scientifiques, expérientiels et contextuels",
+            "Marie-Dominique Beaulieu，Revue du CREMIS，2016（法文）",
+            "https://cremis.ca/publications/articles-et-medias/construction-et-hierarchisation-des-donnees-probantes-en-sante-savoirs-scientifiques-experientiels-et-contextuels/",
+            "回顾循证医学的兴起与证据等级体系，并主张在卫生决策中整合而非对立科学知识、经验知识与情境知识。"
+          ],
+          [
+            "Knowledge mobilization will help Canada face the next major challenge",
+            "Ursula Gobel，Policy Options / Options politiques，2021（英文）",
+            "https://policyoptions.irpp.org/magazines/february-2021/knowledge-mobilization-will-help-canada-face-the-next-major-challenge/",
+            "CRSH（加拿大社会科学与人文研究理事会）的一位副主席从疫情中得出结论：知识综合以及跨学科、跨部门的研究网络，对于在危机中为公共决策提供依据不可或缺。"
+          ],
+          [
+            "To Support Evidence-Based Policymaking, Bring Researchers and Policymakers Together",
+            "D. Max Crowley 与 J. Taylor Scott，Issues in Science and Technology，2023（英文）",
+            "https://issues.org/evidence-based-policymaking-researchers-policymakers-collaborate-crowley-scott/",
+            "两位研究者介绍了一种以信任为基础、科学家与民选官员直接合作的模式，并报告该模式提高了立法中所运用证据的数量与质量。"
+          ]
+        ]
+      ]
+    ]
+  },
+  "publications": {
+    "surtitre": "04 · 成果",
+    "titre": "成果与在研工作",
+    "intro": "这里汇集学术交流、已答辩论文和在研手稿，并保留原始标题、作者及各自状态。",
+    "groupes": [
+      {
+        "titre": "学术交流",
+        "items": [
+          {
+            "date": "2026年6月",
+            "statut": "最佳海报奖 · 博士及博士后组",
+            "titre": "Intégration des soins et services de proximité pour soutenir l’autonomie domiciliaire des personnes aînées : une étude qualitative comparative",
+            "detail": "Bernier, É., Sourial, N., Layani, G. · Groupe francophone en soins primaires（GFSP，法语区初级保健学会），蒙特利尔 · 海报展示"
+          },
+          {
+            "date": "2026年5月",
+            "statut": "海报",
+            "titre": "Integrating Care and Services to Support Aging at Home: A Comparative Analysis of Institutional, Organizational, and Professional Mechanisms in France and Quebec",
+            "detail": "Bernier, É., Sourial, N., Layani, G. · CAHSPR（加拿大卫生服务与政策研究协会），渥太华"
+          },
+          {
+            "date": "2026年4月",
+            "statut": "海报及180秒演讲",
+            "titre": "Intégration des soins et services de proximité pour soutenir l’autonomie domiciliaire des personnes aînées : une étude qualitative comparative",
+            "detail": "Bernier, É., Sourial, N., Layani, G. · Réseau québécois de recherche sur le vieillissement（RQRV，魁北克老龄化研究网络），舍布鲁克 · 海报及180秒科普演讲"
+          }
+        ]
+      },
+      {
+        "titre": "答辩通过的学位论文",
+        "items": [
+          {
+            "date": "2025年",
+            "titre": "Vieillir chez soi : réalités et mise en œuvre du virage domiciliaire. Une étude comparée France / Québec",
+            "detail": "法学硕士 · Université Paris Panthéon-Assas（巴黎-先贤祠-阿萨斯大学）· 导师：Benoît Apollis"
+          },
+          {
+            "date": "2024年",
+            "titre": "La prise en charge des personnes en situation de handicap vieillissantes : comment les établissements d’hébergement pour personnes âgées dépendantes peuvent-ils adapter leurs structures et services à leurs besoins spécifiques ?",
+            "detail": "机构管理硕士 · Université de Bretagne Occidentale（西布列塔尼大学）· 导师：Michelle-Hentic Giliberto"
+          },
+          {
+            "date": "2023年",
+            "titre": "Parcours de vie et autodétermination : l’influence des pratiques éducatives sur le parcours de vie des personnes en situation de handicap en institution d’hébergement",
+            "detail": "国家特殊教育工作者文凭 · Académie de Rennes（雷恩学区）"
+          }
+        ]
+      }
+    ]
+  },
+  "biographie": {
+    "surtitre": "05 · 个人历程",
+    "titre": "从个体经验到集体变革",
+    "intro": [
+      "作为特殊教育工作者、法律专业人士、创业者和公共卫生博士研究生，我的经历是在多个领域的交汇中逐步形成的：对人的陪伴、组织管理、法律、公共政策与研究。",
+      "在这种多样性背后，是同一个志向：**理解塑造个人与集体轨迹的机制，以助力建设更加公正、更加团结、并能够承认每个人行动可能性的社会。**",
+      "无论在个人层面还是职业层面，我的历程都孕育了一个信念：人的现实无法脱离其所处的社会、组织与政治体系。",
+      "这一历程呈上升态势：从陪伴个人，到推动卫生与社会服务组织及政策的变革，并明确以支持公共决策为导向。"
+    ],
+    "citation": "人的现实无法脱离其所处的社会、组织与政治体系。",
+    "chapitres": [
+      [
+        "在常规轨迹之外成长",
+        [
+          "我的人生始于法国的一个平民环境，其间尤其经历了儿童社会救助体系，并在十六岁时辍学。",
+          "我并未走传统的学术道路，而是通过工作、探索不同环境以及重返校园，逐步构建起自己的人生轨迹。",
+          "这些经历，连同我的神经非典型特质，培养了我的独立思考与适应能力，也激发了我对社会再生产、解放与团结机制的兴趣。它们至今仍影响着我看待制度以及人类经验多样性的视角。"
+        ]
+      ],
+      [
+        "创作、相遇与关怀伦理",
+        [
+          "出于对音乐的兴趣，我攻读了音乐学学士学位，同时开始从事活动组织工作，后来又负责为残障人士举办适应性度假项目。",
+          "尽管这些领域各不相同，它们让我得以从多个维度探索人际关系：个人表达、集体生活、陪伴以及对他人的责任。",
+          "在投身于人类脆弱性领域的十一年间，这些经历逐渐将*关怀*伦理、对个人能力的承认，以及促进自主而非依赖的陪伴之重要性置于核心位置。它们也让我看到了团结机制的力量。"
+        ]
+      ],
+      [
+        "从陪伴到自主决定",
+        [
+          "在一线工作多年之后，我希望为自己的职业活动确立新的方向，引导我的是对社会效用的思考，以及我希望在社会中占据何种位置的思考。",
+          "因此，我重返校园攻读特殊教育，以深化社会与医疗社会领域陪伴工作的理论、伦理与方法论基础，并将我的实践重新聚焦于自主决定以及与当事人“一起做”。",
+          "我的专业实践论文探讨了教育实践对自主决定的影响，这成为我思考的转折点：**当陪伴的条件同样取决于机构的运作方式时，如何促进个人的选择自由？**"
+        ]
+      ],
+      [
+        "理解组织以变革实践",
+        [
+          "这一追问促使我将思考扩展到组织本身。",
+          "我继续修读卫生与医疗社会机构领导与管理课程，并于2024年在 IAE de Brest（布雷斯特企业管理学院）获得创业学大学文凭。",
+          "我在其中深入研究了管理、筹资、协调、人力资源与变革管理等议题，并发现机构所面临的困难——从筹资到伙伴协作再到人员招聘——在很大程度上受制于公共卫生政策。",
+          "我尤其致力于理解哪些条件能够使专业人员将其意图转化为切实的实践，并使组织能够兼顾自身约束与个人需求。"
+        ]
+      ],
+      [
+        "从机构运作到卫生系统治理",
+        [
+          "对组织的研究促使我去探究引导其决策的机制：法律框架、公共政策、规划、筹资机制以及治理模式。",
+          "我先在 Université Paris-Panthéon-Assas（巴黎-先贤祠-阿萨斯大学）攻读公法、卫生法与社会法，以超越管理层面的问题，对卫生系统及国家团结的法律工具采取多层次的研究路径；随后又在 Agence nationale d’appui à la performance（ANAP，法国国家绩效支持署）担任项目负责人，延续这一思考。",
+          "这段经历使我能够在国家方针与运营现实的衔接处开展工作，将这些方针转化为具体的机制，并直面管理者、专业人员和卫生系统使用者所遇到的问题。",
+          "它加深了我对公共政策实施困难的兴趣，尤其是当所需的应对要求跨越组织之间、干预部门之间的边界时。在一篇研究论文的支撑下，这段深入一线的经历揭示了整合式医疗与服务模式在实施中的困难，以及面对各自为政的“孤岛式”实践，采取跨部门与跨学科方法的必要性。于是，我主动联系了多位魁北克研究者，向他们介绍我的观察以及一项对比不同卫生系统的研究计划，以期为居家养老在实施中遇到的困难寻找答案。"
+        ]
+      ],
+      [
+        "生产知识以启迪集体行动",
+        [
+          "如今，我在 Université de Montréal（蒙特利尔大学）攻读公共卫生博士学位，由 N. Sourial 博士与 G. Layani 博士指导，延续着这一历程。",
+          "我的研究聚焦于卫生与社会服务系统的组织、人群的社会需求、跨部门协作，以及整合式应对的实施条件，尤其是在居家支持领域。",
+          "我的研究路径坚定地秉持跨学科与实用主义取向，旨在拉近亲身经验、科学知识与决策现实之间的距离，以更好地理解所研究的现象，并助力实践与公共政策的变革。",
+          "我特别关注失能人群以及远离服务的人群，关注将患者视为知识生产者的伙伴式研究，也关注知识的转化及其被个人、专业人员、组织和决策者动员与运用的过程。",
+          "这种创造、试验与提出新方案的意愿也延伸至创业领域，尤其体现在 **OWNNIGHT** 的开发上，这是一个正在创建中的项目。"
+        ]
+      ]
+    ],
+    "vision": {
+      "titre": "连接经验、知识与行动的愿景",
+      "paragraphes": [
+        "我相信，学术知识、专业知识与经验知识与其被分出高下，不如相互碰撞、彼此对照。",
+        "我的历程让我得以接触社会与卫生系统的不同层面，在其中担任多种角色，并观察它们之间的互动。这种视角的多元性，如今已成为我科学研究工作的资源之一。",
+        "**对我而言，研究是一种理解的工具，也是实现人的解放、社会正义与支持集体决策的工具。**其价值既在于所生产知识的严谨性，也在于这些知识激发讨论、阐明选择并支持其实施的能力。",
+        "它契合联合国可持续发展目标：改善老年人福祉、减少居家养老方面的不平等，以及巩固包容且负责任的机构。从长远看，我的志向是成为一名独立研究者，以致力于将证据、利益相关方之间的对话以及面向大众的科学普及相结合而为人所知。",
+        "求知欲、韧性、自主、批判精神、共同建构与勇于开创，这些价值观贯穿我的整个历程。",
+        "我希望继续在学科与领域的交汇处开展这一探索，深信应对当代公共卫生挑战，需要让人、知识与制度展开对话。"
+      ]
+    },
+    "conclusion": "Ad astra per aspera——循艰难之路，抵璀璨群星。"
+  },
+  "parcours": {
+    "surtitre": "06 · 履历",
+    "titre": "教育与工作经历",
+    "sousTitre": "从一线实践到卫生政策",
+    "intro": "从特殊教育到博士：贯穿这段历程的学位、职位与培训。",
+    "types": {
+      "formation": "教育",
+      "experience": "工作经历",
+      "entreprise": "创业"
+    },
+    "etapes": [
+      {
+        "date": "进行中",
+        "type": "entreprise",
+        "titre": "创立 OWNNIGHT · 创业者",
+        "detail": "一款关于身心健康与睡眠教育的 Android 应用：个性化计划、课程与引导式练习。"
+      },
+      {
+        "date": "2025年至今",
+        "type": "formation",
+        "titre": "公共卫生博士 · ESPUM（加拿大）",
+        "detail": "加拿大蒙特利尔大学公共卫生学院（École de santé publique de l’Université de Montréal，ESPUM），卫生系统、组织与政策方向；蒙特利尔大学医院研究中心（Centre de recherche du CHUM，CRCHUM）研究实习生。",
+        "discret": "累计平均绩点：4.1"
+      },
+      {
+        "date": "2026年秋季",
+        "type": "experience",
+        "titre": "助教 · SPU 7001、ASA 6754 与 ASA 6765",
+        "detail": "Université de Montréal。"
+      },
+      {
+        "date": "2026年冬季",
+        "type": "experience",
+        "titre": "助教 · ASA 6754",
+        "detail": "卫生系统与人群健康，Université de Montréal：辅导学生，批改笔试与口试。"
+      },
+      {
+        "date": "2025年",
+        "type": "formation",
+        "titre": "公法硕士，专攻卫生法与社会法",
+        "detail": "公法、社会法与卫生法 · Université Paris Panthéon-Assas（巴黎-先贤祠-阿萨斯大学），获评审委员会特别嘉许。"
+      },
+      {
+        "date": "2024–2025年",
+        "type": "experience",
+        "titre": "医疗社会服务项目专员 · ANAP（法国）",
+        "detail": "法国国家绩效支持署（Agence nationale d’appui à la performance，ANAP），巴黎（法国）。共同主持专家网络、网络研讨会、数据分析和实践社群活动。"
+      },
+      {
+        "date": "2024年",
+        "type": "formation",
+        "titre": "医疗社会服务机构管理硕士级文凭 · UBO（法国）",
+        "detail": "法国西布列塔尼大学（Université de Bretagne Occidentale，UBO），获评审团特别嘉许。"
+      },
+      {
+        "date": "2024年",
+        "type": "experience",
+        "titre": "EHPAD 管理实习 · Fondation Ildys",
+        "detail": "Fondation Ildys，法国朗代诺（Landerneau）。参与 EHPAD 管理实习。"
+      },
+      {
+        "date": "2024年",
+        "type": "formation",
+        "titre": "创业与管理大学文凭",
+        "detail": "法国布雷斯特 IAE（Institut d’administration des entreprises de Brest），获评审委员会特别嘉许。"
+      },
+      {
+        "date": "2023年",
+        "type": "formation",
+        "titre": "国家特殊教育工作者文凭",
+        "detail": "Académie de Rennes（雷恩学区）。"
+      },
+      {
+        "date": "2020–2023年",
+        "type": "experience",
+        "titre": "特殊教育工作者",
+        "detail": "残障人士居住型安置机构，Adapei 35，圣马洛：评估需求，共同制定个别化计划，协调多学科团队。"
+      },
+      {
+        "date": "2016–2024年",
+        "type": "experience",
+        "titre": "面向残障成年人的度假活动负责人",
+        "detail": "法国布雷斯特：为残障人士组织适应性度假及喘息服务，负责教育项目、社会教育陪伴、团队、预算与后勤管理。"
+      }
+    ],
+    "continue": {
+      "titre": "继续教育 · 2026",
+      "items": [
+        "负责任的研究行为 · CRCHUM",
+        "研究助理实务 · Université de Montréal（蒙特利尔大学）",
+        "MobilizeU，知识动员 · Research Impact Canada（加拿大研究影响网络）与 York University（约克大学）"
+      ]
+    },
+    "note": "法国学历已获 MIFI（魁北克移民、法语化与融合部）及 WES Canada 评估认证。"
+  },
+  "engagements": {
+    "surtitre": "07 · 社会参与",
+    "titre": "代表、贡献与投入",
+    "intro": "积极参与学生生活与学术生活，与个人历程一脉相承。",
+    "groupes": [
+      {
+        "titre": "学生代表",
+        "items": [
+          {
+            "date": "自2026年起 · 至今",
+            "titre": "公共卫生博士项目协调人 · AÉÉSPUM（ESPUM 学生会）",
+            "detail": "经选举产生。"
+          },
+          {
+            "date": "进行中",
+            "titre": "团结互助导师计划协调人 · 公共卫生博士项目",
+            "detail": "ESPUM，Université de Montréal。"
+          },
+          {
+            "date": "进行中",
+            "titre": "公共卫生博士项目委员会学生代表",
+            "detail": "ESPUM，Université de Montréal。"
+          },
+          {
+            "date": "自2026年起 · 至今",
+            "titre": "博士生代表 · DGEPS",
+            "detail": "Département de gestion, d’évaluation et de politique de santé（卫生管理、评估与政策系），ESPUM。"
+          },
+          {
+            "date": "2026年冬季",
+            "titre": "Université de Montréal（蒙特利尔大学）形象大使"
+          },
+          {
+            "date": "2022–2024年",
+            "titre": "CROUS（法国地区大学及学校事务中心）董事会当选代表",
+            "detail": "法国。"
+          },
+          {
+            "date": "2021年",
+            "titre": "Askoria 社会工作学生地区委员会主席",
+            "detail": "法国。"
+          }
+        ]
+      },
+      {
+        "titre": "学术共同体",
+        "items": [
+          {
+            "date": "进行中",
+            "titre": "AÉÉSPUM 大会学生学术委员会",
+            "detail": "成员。"
+          },
+          {
+            "date": "2026年6月",
+            "titre": "GFSP（法语区初级保健学会）青年学者日科学委员会",
+            "detail": "学生委员。"
+          }
+        ]
+      },
+      {
+        "titre": "奖学金与荣誉",
+        "items": [
+          {
+            "date": "2026年",
+            "titre": "最佳海报展示奖，博士及博士后组",
+            "detail": "青年学者日，Groupe francophone en soins primaires。"
+          },
+          {
+            "date": "2025年",
+            "titre": "Fonds de recherche du Québec（魁北克研究基金会）博士奖学金（B2）",
+            "detail": "卓越奖学金，排名第3。",
+            "lien": "https://doi.org/10.69777/2009461"
+          },
+          {
+            "date": "2025年",
+            "titre": "国际招生奖学金",
+            "detail": "Études supérieures et postdoctorales（研究生与博士后研究院），Université de Montréal。"
+          },
+          {
+            "date": "2023–2025年",
+            "titre": "三次获评审委员会特别嘉许",
+            "detail": "学业卓越。"
+          }
+        ]
+      },
+      {
+        "titre": "公民参与",
+        "items": [
+          {
+            "date": "2023年",
+            "titre": "志愿消防员",
+            "detail": "Centre d’incendie et de secours de Dinard（迪纳尔消防救援中心），法国。"
+          },
+          {
+            "date": "2013年",
+            "titre": "志愿服务与公民服务",
+            "detail": "Association de la fondation étudiante pour la ville（AFEV，学生城市基金会协会），法国：协调学生志愿者，并陪伴一名年轻人走过她的学业与文化成长历程。"
+          }
+        ]
+      },
+      {
+        "titre": "运动与爱好",
+        "items": [
+          {
+            "date": "运动",
+            "titre": "马拉松运动",
+            "detail": "2025年和2026年巴黎马拉松，2026年蒙特利尔马拉松。"
+          },
+          {
+            "date": "音乐",
+            "titre": "钢琴、音乐创作与吉他"
+          },
+          {
+            "date": "运动",
+            "titre": "冰球"
+          },
+          {
+            "date": "编程",
+            "titre": "数字工具开发"
+          },
+          {
+            "date": "文化",
+            "titre": "科学思考与科普",
+            "detail": "生命与地球科学、哲学、地缘政治、政治学、物理学、天文学。"
+          }
+        ]
+      }
+    ],
+    "affiliations": {
+      "titre": "学生会员",
+      "items": [
+        "Chaire de recherche GSK en gestion optimale des maladies chroniques（GSK 慢性病优化管理研究讲席）",
+        "Groupe francophone en soins primaires（GFSP，法语区初级保健学会）",
+        "Réseau québécois de recherche sur le vieillissement（RQRV，魁北克老龄化研究网络）",
+        "Canadian Association for Health Services and Policy Research（CAHSPR，加拿大卫生服务与政策研究协会）",
+        "Centre de recherche en santé publique (CReSP)",
+        "Centre de recherche du CISSS de Chaudière-Appalaches",
+        "Centre interuniversitaire de recherche en analyse des organisations (CIRANO)"
+      ]
+    }
+  },
+  "contact": {
+    "surtitre": "联系",
+    "titre": "交流想法与经验",
+    "intro": "欢迎分享想法、阅读资料、实践经验或值得共同探索的项目，期待与您交流。",
+    "courriel": "eric.bernier.1@umontreal.ca",
+    "ecrire": "发送电子邮件",
+    "liens": [
+      [
+        "ORCID",
+        "0009-0001-4236-4932",
+        "https://orcid.org/0009-0001-4236-4932"
+      ]
+    ],
+    "adresse": "École de santé publique de l’Université de Montréal（蒙特利尔大学公共卫生学院）· 7101, avenue du Parc, Montréal (Québec)"
+  },
+  "lang": "zh",
+  "locale": "zh_CN",
+  "chemin": "../",
+  "pied": "© 2026 Éric Bernier",
+  "credits": "图片：Éric Bernier 的肖像、Unsplash 摄影作品，以及描绘虚构场景的数字插画（非纪实照片）。从皇家山眺望的蒙特利尔：Wilfredor，《Montreal Skyline from Mont Royal golden hour》（CC0）；Calvin411，《Panorama Montreal Skyline 2017》（CC BY-SA 4.0，已修改），Wikimedia Commons。朗读语音：Kyutai TTS（CC BY 4.0），参考语音 CML-TTS（Oliveira et al., 2023）与 Alba MacKenna（CC BY 4.0）。",
+  "introuvable": {
+    "titre": "页面未找到",
+    "texte": "该页面不存在或已被移动。",
+    "retour": "返回首页"
+  }
+}

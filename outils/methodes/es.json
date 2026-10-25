@@ -1,0 +1,77 @@
+{
+  "intro": "Diseñar un estudio, recoger datos y elegir una estrategia analítica son decisiones vinculadas a la pregunta de investigación. Las siguientes aproximaciones precisan sus posibilidades, exigencias y límites.",
+  "items": [
+    {
+      "titre": "Estudios de caso: comprender organizaciones en contexto",
+      "texte": "El estudio de caso examina en profundidad un fenómeno situado: organización, territorio, política o dispositivo. Puede incluir un caso, varios o unidades integradas; su fortaleza reside en relacionar el fenómeno con su contexto.",
+      "reperes": [
+        ["Delimitar y seleccionar", "Precisar la unidad de análisis, las fronteras temporales y organizativas y la selección: casos típicos, contrastantes o especialmente informativos."],
+        ["Combinar materiales", "Articular entrevistas, documentos, observaciones y datos cuantitativos. Analizar cada caso antes de realizar comparaciones transversales cuando el diseño incluye varios."],
+        ["Alcance de las conclusiones", "Mantener una cadena de evidencias, examinar explicaciones alternativas y describir el contexto. La transferibilidad se fundamenta en el razonamiento analítico, sin suponer representatividad estadística."]
+      ],
+      "etapes": ["Delimitar el caso", "Combinar fuentes", "Analizar mecanismos", "Discutir la transferibilidad"],
+      "legende": "Investigación contextualizada, con unidades y lógica comparativa explícitas.",
+      "references": ["cas"]
+    },
+    {
+      "titre": "Entrevistas cualitativas: experiencias, prácticas y lógicas de acción",
+      "texte": "Las entrevistas, especialmente semiestructuradas, exploran el significado de experiencias, decisiones y prácticas. Una guía abierta organiza los temas y permite repreguntas, cuestiones inesperadas y contradicciones.",
+      "reperes": [
+        ["Muestreo intencional", "Buscar perspectivas pertinentes y contrastantes. Ajustar el reclutamiento a la riqueza informativa, especificidad de la muestra y calidad del diálogo, sin fijar un tamaño universal."],
+        ["Recogida y análisis", "Preprobar la guía, obtener consentimiento y documentar las condiciones, transcripción y seudonimización. Vincular los códigos con fragmentos, por ejemplo mediante una matriz de Framework Method."],
+        ["Reflexividad y transparencia", "Explicitar la posición del investigador, las relaciones de investigación y las decisiones interpretativas. COREQ favorece informes transparentes; las entrevistas no permiten estimar prevalencias."]
+      ],
+      "etapes": ["Elegir perspectivas", "Entrevistar y documentar", "Codificar e interpretar", "Discutir contraejemplos"],
+      "legende": "El material surge de una interacción: contexto y reflexividad forman parte del análisis.",
+      "references": ["entretiens", "cadre", "coreq"]
+    },
+    {
+      "titre": "Diseño e implementación de cuestionarios",
+      "texte": "Una encuesta traduce una pregunta de investigación en medidas comparables. Articula población objetivo, estrategia de muestreo, selección de preguntas y modalidad de administración: en línea, telefónica o presencial.",
+      "reperes": [
+        ["Construir las medidas", "Definir conceptos, elegir ítems adecuados y precisar periodos de referencia. Una escala nueva exige examinar validez de contenido, estructura y fiabilidad; no todo cuestionario es una escala psicométrica."],
+        ["Preprobar y desplegar", "Utilizar entrevistas cognitivas para explorar la interpretación de preguntas, seguidas de un piloto. Prever accesibilidad, idiomas, duración, consentimiento, confidencialidad y recordatorios adecuados."],
+        ["Caracterizar las estimaciones", "Documentar cobertura, participación, no respuesta y datos ausentes. Aplicar ponderaciones cuando el diseño lo requiera; un gran tamaño no corrige por sí solo el sesgo de selección."]
+      ],
+      "etapes": ["Definir y muestrear", "Construir y preprobar", "Administrar y seguir", "Evaluar la calidad"],
+      "legende": "La calidad se construye antes, durante y después de administrar el cuestionario.",
+      "references": ["questionnaires", "cognitif"]
+    },
+    {
+      "titre": "Análisis de datos secundarios",
+      "texte": "El análisis secundario reutiliza encuestas, cohortes, datos administrativos o institucionales para responder a una pregunta definida. Exige comprender por qué, de quiénes y cómo se produjeron los datos.",
+      "reperes": [
+        ["Adecuación de los datos", "Examinar población cubierta, unidades de observación, calendario, diccionarios de variables y comparabilidad. Distinguir indicadores administrativos de medidas directas de necesidades o experiencias."],
+        ["Preparación reproducible", "Documentar acceso autorizado, limpieza, recodificación, vinculación y exclusiones. Considerar el diseño de encuesta y los cambios de definición; registrar las transformaciones en scripts."],
+        ["Sesgos y transparencia", "Examinar errores de medida, datos ausentes, selección y confusión. RECORD orienta el informe sobre datos sanitarios rutinarios; su disponibilidad no garantiza representatividad ni identificación causal."]
+      ],
+      "etapes": ["Evaluar la adecuación", "Documentar la procedencia", "Armonizar y analizar", "Evaluar la robustez"],
+      "legende": "Partir de la pregunta y de la producción de los datos, explicitando las transformaciones.",
+      "references": ["secondaires", "record"]
+    },
+    {
+      "titre": "Inferencia causal y evaluación cuasiexperimental",
+      "texte": "La inferencia causal estudia el efecto de una intervención o exposición frente a una alternativa definida. Distingue preguntas causales de asociaciones observadas y articula población, intervención, comparación, temporalidad y resultado.",
+      "reperes": [
+        ["Definir el efecto de interés", "Precisar el estimando y el tiempo cero; explicitar las relaciones supuestas mediante un grafo causal (DAG). Cuando corresponda, definir el ensayo objetivo que podrían emular los datos."],
+        ["Elegir la identificación", "Examinar intercambiabilidad, positividad y consistencia. Estandarización, ponderación y otros ajustes dependen de los datos; diferencias en diferencias requiere, entre otras condiciones, tendencias paralelas plausibles."],
+        ["Examinar alternativas", "Las series temporales interrumpidas exigen examinar tendencia, estacionalidad, autocorrelación y acontecimientos concurrentes. La interpretación incluye análisis de sensibilidad y límites por confusión residual."]
+      ],
+      "etapes": ["Formular el efecto causal", "Explicitar supuestos", "Identificar y estimar", "Evaluar la sensibilidad"],
+      "legende": "La estimación causal depende de un diseño y supuestos defendibles; el modelo estadístico opera en ese marco.",
+      "references": ["causal", "series"]
+    },
+    {
+      "titre": "Análisis comparativo de sistemas de salud: MSSD y MDSD",
+      "texte": "La comparación relaciona gobernanza, financiación, recursos, organización de servicios y resultados. Carsten Anckar examina dos estrategias de selección: most similar systems design (MSSD) y most different systems design (MDSD).",
+      "reperes": [
+        ["MSSD · Sistemas más similares", "Comparar sistemas próximos en dimensiones contextuales, pero con resultados diferentes, para examinar diferencias organizativas o políticas que podrían explicarlos."],
+        ["MDSD · Sistemas más diferentes", "Comparar sistemas contrastantes con un resultado común para explorar factores compartidos que podrían contribuir a él. Estas estrategias orientan la selección; no constituyen aleatorización."],
+        ["Comparaciones pertinentes", "Justificar países o territorios, armonizar conceptos, periodos e indicadores y analizar mecanismos y trayectorias. Considerar diferencias internas, historia de reformas y límites de inferir a partir de pocos sistemas."]
+      ],
+      "etapes": ["Definir el resultado", "Justificar MSSD o MDSD", "Armonizar indicadores", "Comparar mecanismos"],
+      "legende": "La selección intencional de sistemas responde a una pregunta explicativa, más allá de clasificaciones de rendimiento.",
+      "references": ["comparaison", "systemes"]
+    }
+  ]
+}

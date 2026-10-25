@@ -1,0 +1,93 @@
+name: Vérifier et publier le site
+run-name: Maintenance du site
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages-production-deploiement-rapide-20261022-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verifier:
+    name: Navigation, génération, typographie et interactions
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Installer le DOM de test
+        run: npm install --no-save --no-package-lock jsdom@26
+      - name: Vérifier les contrôleurs
+        run: |
+          node --check assets/site.js
+          node --check assets/gabarit-salles.js
+          node --check assets/audience.js
+      - name: Auditer tous les fichiers de navigation
+        run: node outils/verifier-navigation.js
+      - name: Vérifier le compteur et la date de publication
+        run: node tests/audience-compteur.cjs
+      - name: Vérifier les formulations scientifiques intégrales
+        run: node tests/cadrage-exact.cjs
+      - name: Tester le chargement sans affichage intermédiaire
+        run: node tests/chargement-typographie.cjs
+      - name: Mettre à jour les liens de la charte dans les pages de publication
+        run: node outils/harmoniser-typographie.js
+      - name: Vérifier la charte typographique
+        run: node outils/harmoniser-typographie.js --check
+      - name: Tester les commandes dans les huit éditions
+        run: node tests/navigation-unique.cjs
+      - name: Tester les interactions de vulgarisation
+        run: node tests/vulgarisation-smoke.mjs
+      - name: Préparer les seuls fichiers suivis par Git
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: |
+          mkdir _site
+          git ls-files -z | tar --null -T - -cf - | tar -x -C _site
+      - name: Actualiser le bandeau du jeu à partir du texte corrigé
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const path = require('node:path');
+          const textes = JSON.parse(fs.readFileSync('outils/jeu-accueil.json', 'utf8'));
+          const pages = [['fr', 'index.html'], ['en', 'en/index.html'], ['es', 'es/index.html'], ['zh', 'zh/index.html'], ['ar', 'ar/index.html'], ['ru', 'ru/index.html']];
+          for (const [lang, chemin] of pages) {
+            const fichier = path.join('_site', chemin);
+            if (!fs.existsSync(fichier)) continue;
+            const html = fs.readFileSync(fichier, 'utf8');
+            const debut = html.indexOf('<section class="section eb-game-entry" id="jeu"');
+            if (debut < 0) {
+              if (lang === 'fr') throw new Error('Bandeau de jeu introuvable dans la page française');
+              continue;
+            }
+            const fin = html.indexOf('</section>', debut);
+            if (fin < 0) throw new Error('Fin de bandeau de jeu introuvable : ' + chemin);
+            const corrige = html.slice(0, debut) + textes[lang] + html.slice(fin + '</section>'.length);
+            if (corrige.includes('affrontez la direction')) throw new Error('Formulation interdite encore présente : ' + chemin);
+            fs.writeFileSync(fichier, corrige);
+            console.log('Texte du jeu actualisé dans ' + chemin);
+          }
+          NODE
+      - uses: actions/upload-pages-artifact@v3
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        with:
+          path: _site
+  publier:
+    name: Publier après réussite des contrôles
+    needs: verifier
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v5
+      - uses: actions/deploy-pages@v4
+        id: deployment

@@ -1,0 +1,43 @@
+{
+  "fr": {
+    "titre": "Organiser la réponse intersectorielle en soins et services de première ligne aux besoins des personnes aînées vivant à domicile avec une perte d’autonomie et des besoins sociaux concomitants : configurations, ressources mobilisables et réseaux mobilisés",
+    "question": "Comment s’organise, selon les territoires et les configurations de besoins, la réponse intersectorielle mobilisable et effectivement mobilisée en soins et services de première ligne auprès des personnes aînées vivant à domicile présentant une perte d’autonomie et des besoins sociaux concomitants ?",
+    "general": "Analyser l’organisation territoriale de la réponse intersectorielle en soins et services de première ligne aux configurations de perte d’autonomie et de besoins sociaux concomitants des personnes aînées vivant à domicile, afin d’identifier les écarts entre ressources mobilisables et ressources mobilisées et de dégager des pistes d’amélioration.",
+    "point": "Une meilleure compréhension des scénarios types associant perte d’autonomie et besoins sociaux concomitants chez les personnes aînées vivant à domicile, de la répartition territoriale des ressources intersectorielles susceptibles d’y répondre et des réseaux organisationnels effectivement mobilisés permettrait d’identifier les écarts entre les réponses possibles et celles réellement apportées, afin de dégager des pistes d’amélioration de l’organisation de la réponse intersectorielle en soins et services de première ligne."
+  },
+  "en": {
+    "titre": "Territorial organization of the intersectoral response in primary care and services to the needs of older people living at home with functional dependence and concurrent social needs: typical scenarios, mobilizable resources and mobilized networks.",
+    "question": "How is the intersectoral response in primary care and services organized for different typical scenarios combining functional dependence and concurrent social needs among older people living at home?",
+    "general": "Analyze the territorial organization of the intersectoral response in primary care and services to different typical scenarios combining functional dependence and concurrent social needs among older people living at home, in order to identify gaps between mobilizable resources and those actually mobilized and to identify ways to improve this intersectoral response.",
+    "point": "A better understanding of typical scenarios combining functional dependence and concurrent social needs among older people living at home, of the territorial distribution of intersectoral resources that could address them, and of the organizational networks actually mobilized would help identify gaps between possible responses and those actually provided, in order to identify ways to improve the organization of the intersectoral response in primary care and services.",
+    "hypotheses": [
+      [
+        "Recurring configurations of social needs concurrent with functional dependence may be identified in the literature and translated into distinct typical scenarios."
+      ],
+      [
+        "Potential coverage of typical scenarios will vary between territories; the presence of resources will not necessarily imply their accessibility or the complementarity of the required functions."
+      ],
+      [
+        "The diversity of mobilizable resources will not be fully reflected in networks actually mobilized for the same scenario and territory.",
+        "Collaboration across sectors will be concentrated around a limited number of organizations performing referral or coordination functions."
+      ]
+    ],
+    "hypothesesIntro": "These hypotheses guide examination of the data. For Objective 1, this is an exploratory synthesis proposition, without statistical testing. Objectives 2 and 3 allow descriptive comparisons; no hypothesis of a causal effect on functional independence or institutionalization will be tested."
+  },
+  "es": {
+    "titre": "Organizar la respuesta intersectorial a las diferentes necesidades sociales y de atención de salud concomitantes de las personas mayores que viven en su domicilio: perfiles, cartografía de recursos y análisis de redes.",
+    "question": "¿Cómo se organiza la respuesta intersectorial a las necesidades sociales y de atención de salud concomitantes de los distintos perfiles de personas mayores que viven en su domicilio?"
+  },
+  "zh": {
+    "titre": "组织对居家老年人同时存在的不同社会需求和医疗照护需求的跨部门响应：人群特征类型、资源制图与网络分析。",
+    "question": "如何组织跨部门响应，以满足居家老年人不同特征类型同时存在的社会需求和医疗照护需求？"
+  },
+  "ar": {
+    "titre": "تنظيم الاستجابة المشتركة بين القطاعات لمختلف الاحتياجات الاجتماعية واحتياجات الرعاية الصحية المتزامنة لدى كبار السن الذين يعيشون في منازلهم: الأنماط، ورسم خرائط الموارد، وتحليل الشبكات.",
+    "question": "كيف تُنظَّم الاستجابة المشتركة بين القطاعات للاحتياجات الاجتماعية واحتياجات الرعاية الصحية المتزامنة لمختلف أنماط كبار السن الذين يعيشون في منازلهم؟"
+  },
+  "ru": {
+    "titre": "Организация межсекторального ответа на различные одновременно возникающие социальные потребности и потребности в медицинской помощи пожилых людей, живущих дома: профили, картографирование ресурсов и анализ сетей.",
+    "question": "Как организуется межсекторальный ответ на одновременно возникающие социальные потребности и потребности в медицинской помощи различных профилей пожилых людей, живущих дома?"
+  }
+}

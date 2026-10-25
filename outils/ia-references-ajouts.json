@@ -1,0 +1,67 @@
+{
+  "topol": {
+    "court": "Rajpurkar, Chen, Banerjee & Topol (2022)",
+    "citation": "Rajpurkar, P., Chen, E., Banerjee, O., & Topol, E. J. (2022). AI in health and medicine. Nature Medicine, 28, 31–38.",
+    "href": "https://doi.org/10.1038/s41591-021-01614-0"
+  },
+  "goh": {
+    "court": "Goh et al. (2024)",
+    "citation": "Goh, E., Gallo, R., Hom, J., et al. (2024). Large language model influence on diagnostic reasoning: A randomized clinical trial. JAMA Network Open, 7(10), e2440969.",
+    "href": "https://doi.org/10.1001/jamanetworkopen.2024.40969"
+  },
+  "amie2025": {
+    "court": "Tu et al. (2025)",
+    "citation": "Tu, T., Schaekermann, M., Palepu, A., et al. (2025). Towards conversational diagnostic artificial intelligence. Nature, 642, 442–450.",
+    "href": "https://doi.org/10.1038/s41586-025-08866-7"
+  },
+  "amie2026": {
+    "court": "Liévin et al. (2026)",
+    "citation": "Liévin, V., Palepu, A., Weng, W.-H., et al. (2026). Towards conversational artificial intelligence for disease management. Nature, 655, 1292–1299.",
+    "href": "https://doi.org/10.1038/s41586-026-10764-5"
+  },
+  "focus2026": {
+    "court": "Hao, Xu, Li & Evans (2026)",
+    "citation": "Hao, Q., Xu, F., Li, Y., & Evans, J. (2026). Artificial intelligence tools expand scientists’ impact but contract science’s focus. Nature, 649, 1237–1243.",
+    "href": "https://doi.org/10.1038/s41586-025-09922-y"
+  },
+  "metr2025": {
+    "court": "Becker et al. (2025)",
+    "citation": "Becker, J., Rush, N., Barnes, E., & Rein, D. (2025). Measuring the impact of early-2025 AI on experienced open-source developer productivity [Preprint]. arXiv.",
+    "href": "https://doi.org/10.48550/arXiv.2507.09089"
+  },
+  "metr2026": {
+    "court": "METR (2026)",
+    "citation": "METR. (2026, February 24). We are changing our developer productivity experiment design [Research update].",
+    "href": "https://metr.org/blog/2026-02-24-uplift-update/"
+  },
+  "safety2026": {
+    "court": "Bengio et al. (2026)",
+    "citation": "Bengio, Y., et al. (2026). International AI Safety Report 2026.",
+    "href": "https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026"
+  },
+  "singapore2026": {
+    "court": "Casper, Galeev, Bengio et al. (2026)",
+    "citation": "Casper, S., Galeev, O., Bengio, Y., et al. (2026). The 2026 Singapore consensus on global AI safety research priorities [Preprint]. arXiv.",
+    "href": "https://doi.org/10.48550/arXiv.2608.14611"
+  },
+  "mental2025": {
+    "court": "Moore et al. (2025)",
+    "citation": "Moore, J., Grabb, D., Agnew, W., Klyman, K., Chancellor, S., Ong, D. C., & Haber, N. (2025). Expressing stigma and inappropriate responses prevents LLMs from safely replacing mental health providers. Proceedings of the 2025 ACM Conference on Fairness, Accountability, and Transparency.",
+    "href": "https://doi.org/10.1145/3715275.3732039"
+  },
+  "biais": {
+    "court": "Obermeyer et al. (2019)",
+    "citation": "Obermeyer, Z., Powers, B., Vogeli, C., & Mullainathan, S. (2019). Dissecting racial bias in an algorithm used to manage the health of populations. Science, 366(6464), 447–453.",
+    "href": "https://doi.org/10.1126/science.aax2342"
+  },
+  "travail": {
+    "court": "ILO / NASK (2025)",
+    "citation": "International Labour Organization & NASK. (2025). Generative AI and jobs: A refined global index of occupational exposure (ILO Working Paper No. 140).",
+    "href": "https://www.ilo.org/publications/generative-ai-and-jobs-2025-update"
+  },
+  "alphafold": {
+    "court": "Abramson et al. (2024)",
+    "citation": "Abramson, J., Adler, J., Dunger, J., et al. (2024). Accurate structure prediction of biomolecular interactions with AlphaFold 3. Nature, 630, 493–500.",
+    "href": "https://doi.org/10.1038/s41586-024-07487-w"
+  }
+}

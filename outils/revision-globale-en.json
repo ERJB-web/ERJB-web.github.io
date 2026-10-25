@@ -1,0 +1,29 @@
+{
+  "titre": "Territorial organization of the intersectoral response in primary care and services to the needs of older people living at home with functional dependence and concurrent social needs: typical scenarios, mobilizable resources and mobilized networks.",
+  "general": "Analyze the territorial organization of the intersectoral response in primary care and services to different typical scenarios combining functional dependence and concurrent social needs among older people living at home, in order to identify gaps between mobilizable resources and those actually mobilized and to identify ways to improve this intersectoral response.",
+  "point": "A better understanding of typical scenarios combining functional dependence and concurrent social needs among older people living at home, of the territorial distribution of intersectoral resources that could address them, and of the organizational networks actually mobilized would help identify gaps between possible responses and those actually provided, in order to identify ways to improve the organization of the intersectoral response in primary care and services.",
+  "question": "How is the intersectoral response in primary care and services organized for different typical scenarios combining functional dependence and concurrent social needs among older people living at home?",
+  "objectifs": [
+    "Identify in the scientific literature the different social needs profiles of older people living at home with functional dependence and concurrent social needs, in order to develop typical scenarios that help determine which intersectoral responses should be prioritized in primary care and services.",
+    "Map, in relation to the territorial distribution of older people living at home, the organizational intersectoral resources that can be mobilized and accessed in primary care and services to address different typical scenarios of functional dependence and concurrent social needs.",
+    "Describe the organizational configuration of intersectoral networks mobilized in primary care and services to address different typical scenarios of older people with functional dependence and concurrent social needs in the territory. Then analyze organizational interactions within these networks to identify potential gaps between mobilizable and mobilized intersectoral resources."
+  ],
+  "methodologiques": [
+    "Review of the scientific and grey literature to identify different profiles of social needs concurrent with functional dependence among older people living at home and characterize the typical scenarios requiring an intersectoral response in primary care and services.",
+    "Mapping and spatial analysis of the territorial distribution of older people with functional dependence living at home and of intersectoral resources mobilizable in primary care and services to address typical scenarios combining functional dependence and concurrent social needs. Then characterize territorial variations in the distribution, availability, complementarity and geographical accessibility of these resources, according to the typical scenarios of concurrent social needs and the administrative boundaries studied.",
+    "Retrospective social network analysis (SNA) over twelve months to characterize the composition, relationship structure and operating arrangements of organizational intersectoral networks currently mobilized in primary care and services in response to different typical scenarios of older people with functional dependence living at home with concurrent social needs."
+  ],
+  "hypotheses": [
+    [
+      "Recurring configurations of social needs concurrent with functional dependence may be identified in the literature and translated into distinct typical scenarios."
+    ],
+    [
+      "Potential coverage of typical scenarios will vary between territories; the presence of resources will not necessarily imply their accessibility or the complementarity of the required functions."
+    ],
+    [
+      "The diversity of mobilizable resources will not be fully reflected in networks actually mobilized for the same scenario and territory.",
+      "Collaboration across sectors will be concentrated around a limited number of organizations performing referral or coordination functions."
+    ]
+  ],
+  "hypothesesIntro": "These hypotheses guide examination of the data. For Objective 1, this is an exploratory synthesis proposition, without statistical testing. Objectives 2 and 3 allow descriptive comparisons; no hypothesis of a causal effect on functional independence or institutionalization will be tested."
+}

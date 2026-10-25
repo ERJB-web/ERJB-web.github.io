@@ -1,0 +1,40 @@
+name: Revue de presse santé
+on:
+  schedule:
+    - cron: "7,37 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: revue-presse
+  cancel-in-progress: false
+jobs:
+  collecter:
+    name: Collecter l'actualité santé
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Récupérer le script
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: outils/revue-presse.mjs
+          sparse-checkout-cone-mode: false
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Lire l'édition précédente
+        run: curl -fsSL "https://raw.githubusercontent.com/${{ github.repository }}/revue-presse-donnees/revue-presse.json" -o precedente.json || echo "{}" > precedente.json
+      - name: Collecter et classer
+        run: node outils/revue-presse.mjs precedente.json sortie/revue-presse.json
+      - name: Publier les données
+        env:
+          JETON: ${{ github.token }}
+        run: |
+          cd sortie
+          git init -q -b revue-presse-donnees
+          git config user.name "github-actions[bot]"
+          git config user.email "41898333+github-actions[bot]@users.noreply.github.com"
+          git add revue-presse.json
+          git commit -q -m "Revue de presse santé"
+          git push -q -f "https://x-access-token:${JETON}@github.com/${{ github.repository }}.git" revue-presse-donnees

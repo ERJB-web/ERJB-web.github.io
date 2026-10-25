@@ -1,0 +1,2465 @@
+{
+ "semainesDepart": 14,
+ "stats": {
+  "rigueur": 30,
+  "energie": 80,
+  "stress": 15,
+  "confiance": 50
+ },
+ "direction": {
+  "seuilApparition": 30,
+  "pressionInitiale": 0,
+  "repliques": "direction_poursuite"
+ },
+ "regles": {
+  "reussiteBrillante": {
+   "seuil": 0.9,
+   "pression": -10
+  }
+ },
+ "suivis": [
+  {
+   "scene": "suivi_1",
+   "defi": "suivi_1",
+   "succes": "suivi_1_succes",
+   "echec": "suivi_1_echec"
+  },
+  {
+   "scene": "suivi_2",
+   "defi": "suivi_2",
+   "succes": "suivi_2_succes",
+   "echec": "suivi_2_echec"
+  },
+  {
+   "scene": "suivi_3",
+   "defi": "suivi_3",
+   "succes": "suivi_3_succes",
+   "echec": "suivi_3_echec"
+  },
+  {
+   "scene": "suivi_4",
+   "defi": "suivi_4",
+   "succes": "suivi_4_succes",
+   "echec": "suivi_4_echec"
+  },
+  {
+   "scene": "suivi_5",
+   "defi": "suivi_5",
+   "succes": "suivi_5_succes",
+   "echec": "suivi_5_echec"
+  },
+  {
+   "scene": "suivi_6",
+   "defi": "suivi_6",
+   "succes": "suivi_6_succes",
+   "echec": "suivi_6_echec"
+  }
+ ],
+ "finEcheance": {
+  "scene": "fin_echeance"
+ },
+ "preuves": {
+  "p_fil_protocole": {
+   "titre": "Figure du fil du protocole",
+   "description": "La chaîne O1 → O2 → O3, validée au séminaire."
+  },
+  "p_pitch": {
+   "titre": "Pitch de trente secondes",
+   "description": "Le problème, trois étapes, un but."
+  },
+  "p_simulation_lca": {
+   "titre": "Simulation des classes latentes",
+   "description": "Au moins 2 000 personnes, et jamais sur des demandes au 211."
+  },
+  "p_cadre_politique": {
+   "titre": "Fiche sur le cadre politique",
+   "description": "Territoire de CLSC, quatre rôles, AIPPA, et la mesure 28, qui porte sur les chutes."
+  },
+  "p_journal_requete": {
+   "titre": "Journal de recherche documentaire",
+   "description": "L'équation testée, les bases, les dates."
+  },
+  "p_grille_211": {
+   "titre": "Tableau de correspondance avec le 211",
+   "description": "Chaque code de la taxonomie rattaché à un domaine de la grille."
+  },
+  "p_attribution_rta": {
+   "titre": "Simulation d'attribution AD–CLSC",
+   "description": "Verdun direct, RLS 0631 fiable, RTA ailleurs."
+  },
+  "p_atlas_brouillon": {
+   "titre": "Brouillon d'atlas de Centre-Sud",
+   "description": "Densité, 2SFCA et indice d'écart."
+  },
+  "p_atlas_rts": {
+   "titre": "Atlas des huit territoires",
+   "description": "Densités pour 1 000 aînés et zéros vérifiés."
+  },
+  "p_cas_contrastes": {
+   "titre": "Grille de choix des cas",
+   "description": "Verdun, Centre-Sud, Pointe-Saint-Charles, Centre-Ville ou Plateau."
+  },
+  "p_generateur": {
+   "titre": "Générateur de noms prétesté",
+   "description": "Douze mois, un domaine, puis une vignette."
+  },
+  "p_accord_equipe": {
+   "titre": "Accord de l'équipe SAD",
+   "description": "L'équipe de Centre-Sud accepte le prétest."
+  },
+  "p_sociogramme": {
+   "titre": "Sociogramme pilote",
+   "description": "Réseau déclaré, organismes du 211 et inventaire comparés."
+  },
+  "p_lrsss": {
+   "titre": "Plan d'accès aux données",
+   "description": "Loi sur les renseignements de santé et de services sociaux, EFVP, avis d'un CER."
+  },
+  "p_ethique": {
+   "titre": "Plan de protection des données",
+   "description": "Petites cellules supprimées, restitution sans classement."
+  },
+  "p_calendrier": {
+   "titre": "Calendrier du recensement de 2026",
+   "description": "Option B maintenant, option A si O2 peut attendre."
+  }
+ },
+ "vignettes": [
+  {
+   "id": "v_protocole",
+   "nom": "Mme Protocole",
+   "age": 72,
+   "territoire": "Montréal – Centre-Sud",
+   "besoins": [
+    "logement (avis d’éviction)",
+    "alimentation",
+    "revenu (dettes)",
+    "isolement"
+   ],
+   "situation": "Vit seule, locataire.",
+   "fictif": true
+  },
+  {
+   "id": "v_aurele",
+   "nom": "M. Aurèle",
+   "age": 81,
+   "territoire": "Verdun",
+   "besoins": [
+    "proche aidance (conjointe atteinte d’un TNC)",
+    "transport aux rendez-vous",
+    "aide domestique"
+   ],
+   "situation": "Épuisé, refuse de demander de l’aide.",
+   "fictif": true
+  },
+  {
+   "id": "v_lucienne",
+   "nom": "Mme Lucienne",
+   "age": 77,
+   "territoire": "Pointe-Saint-Charles",
+   "besoins": [
+    "revenu",
+    "alimentation",
+    "démarches administratives"
+   ],
+   "situation": "Diabétique, suivie par la clinique communautaire.",
+   "fictif": true
+  },
+  {
+   "id": "v_rahimi",
+   "nom": "Mme Rahimi",
+   "age": 76,
+   "territoire": "Montréal – Centre-Ville",
+   "besoins": [
+    "isolement",
+    "démarches administratives",
+    "logement"
+   ],
+   "situation": "Parle surtout le persan.",
+   "fictif": true
+  },
+  {
+   "id": "v_gerard",
+   "nom": "M. Gérard",
+   "age": 68,
+   "territoire": "Montréal – Centre-Sud",
+   "besoins": [
+    "logement",
+    "santé mentale",
+    "transport"
+   ],
+   "situation": "Logé depuis peu après une période d’itinérance.",
+   "fictif": true
+  }
+ ],
+ "protocole": [
+  {
+   "section": "Question de recherche",
+   "defi": "question_recherche",
+   "texte": "Comment s’organise, dans des territoires de CLSC contrastés du RTS 063, la réponse intersectorielle aux profils de besoins sociaux concomitants des personnes aînées suivies en SAD ?"
+  },
+  {
+   "section": "Condition traceuse",
+   "defi": "condition_traceuse",
+   "texte": "Choisie par critères : fréquence en SAD, repérage dans l’OEMC ou l’I-CLSC, lien avec les besoins sociaux."
+  },
+  {
+   "section": "Articulation des objectifs",
+   "defi": "fil_protocole",
+   "texte": "Les domaines et vignettes d’O1 bornent O2 et O3 ; l’atlas d’O2 choisit les cas d’O3."
+  },
+  {
+   "section": "Méthodes · Classes latentes",
+   "defi": "quanti_classes_latentes",
+   "texte": "Au moins 2 000 personnes ; l’entropie ne sert pas à choisir le modèle."
+  },
+  {
+   "section": "Méthodes · Cooccurrence",
+   "defi": "quanti_jaccard",
+   "texte": "Jaccard = intersection ÷ union, comparé à l’attendu sous l’indépendance ; des demandes, pas des personnes."
+  },
+  {
+   "section": "Méthodes · Accessibilité",
+   "defi": "quanti_2sfca",
+   "texte": "2SFCA en deux étapes ; la somme pondérée redonne la capacité totale."
+  },
+  {
+   "section": "Méthodes · Dénominateurs",
+   "defi": "quanti_denominateur",
+   "texte": "Densités pour 1 000 personnes de 65 ans et plus, et de 75 ans et plus."
+  },
+  {
+   "section": "Méthodes · Inférence sur les réseaux",
+   "defi": "quanti_reseaux_inference",
+   "texte": "Modèle mixte pour des liens nichés, QAP pour comparer deux matrices, ERGM pour la structure, appariement optimal pour les séquences."
+  },
+  {
+   "section": "Méthodes · Agrégation",
+   "defi": "quanti_ecologique",
+   "texte": "Taux pondérés par la population ; aucune inférence individuelle à partir des territoires ; cellules de moins de 5 supprimées."
+  },
+  {
+   "section": "O1 · Revue de portée",
+   "defi": "pcc_revue",
+   "texte": "JBI et PRISMA-ScR ; population, concept et contexte écrits d’avance."
+  },
+  {
+   "section": "O1 · Stratégie de recherche",
+   "defi": "requete_revue",
+   "texte": "Descripteurs et mots libres, en anglais et en français, dans sept bases et la littérature grise."
+  },
+  {
+   "section": "O1 · Criblage",
+   "defi": "criblage_resumes",
+   "texte": "Criblage à deux, après calibrage."
+  },
+  {
+   "section": "O1 · Grille et taxonomie",
+   "defi": "taxonomie_211",
+   "texte": "Grille de 10 à 14 domaines mise en correspondance avec la taxonomie du 211."
+  },
+  {
+   "section": "O1 · Demandes au 211",
+   "defi": "analyse_demandes",
+   "texte": "Cooccurrence et profils territoriaux ; classes latentes réservées au volet 1c."
+  },
+  {
+   "section": "O1 · Volet 1c",
+   "defi": "courriel_23h14",
+   "texte": "Conditionnel : au moins 2 000 usagers ; sinon, profils fixés d’avance à partir de la revue."
+  },
+  {
+   "section": "O2 · Échelles",
+   "defi": "echelle_211",
+   "texte": "Verdun direct, RLS 0631 fiable, RTA → AD → CLSC ailleurs."
+  },
+  {
+   "section": "O2 · Frontière",
+   "defi": "frontiere_besoins",
+   "texte": "Chaque domaine de besoin désigne les types de ressources à recenser dans les six secteurs."
+  },
+  {
+   "section": "O2 · Indicateurs",
+   "defi": "carte_centre_sud",
+   "texte": "Densité pour 1 000 aînés, 2SFCA à pied et en transport collectif, diversité, écart besoins-offre."
+  },
+  {
+   "section": "O2 · Indice d’écart",
+   "defi": "indice_ecart",
+   "texte": "Offre absente, inaccessible, saturée ou non admissible."
+  },
+  {
+   "section": "O3 · Cas",
+   "defi": "cas_contrastes",
+   "texte": "Verdun, Centre-Sud, Pointe-Saint-Charles, et Centre-Ville ou Plateau."
+  },
+  {
+   "section": "O3 · Générateur de noms",
+   "defi": "generateur_noms",
+   "texte": "Douze derniers mois, par domaine puis par vignette, auprès de 6 à 12 répondants par équipe."
+  },
+  {
+   "section": "O3 · Niveaux de collaboration",
+   "defi": "niveaux_collaboration",
+   "texte": "Échange d’information, coopération, coordination, intégration."
+  },
+  {
+   "section": "O3 · Validation croisée",
+   "defi": "declare_observe",
+   "texte": "Réseau déclaré, organismes référés par le 211 et offre cartographiée."
+  },
+  {
+   "section": "O3 · Trajectoires",
+   "defi": "etapes_o3",
+   "texte": "Séquences d’acteurs par vignette, comparées par appariement optimal."
+  },
+  {
+   "section": "Éthique et accès",
+   "defi": "acces_donnees",
+   "texte": "Loi sur les renseignements de santé et de services sociaux : protocole, EFVP, avis d’un CER."
+  },
+  {
+   "section": "Calendrier",
+   "defi": "recensement_2026",
+   "texte": "Option B maintenant ; option A si les dénominateurs d’O2 peuvent attendre l’automne 2027."
+  }
+ ],
+ "chapitres": [
+  {
+   "id": "c1",
+   "titre": "Le séminaire et le cours de méthodes",
+   "zone": "espum",
+   "intro": "c1_arrivee",
+   "fin": "c1_fin",
+   "resume": "L’ESPUM, au 7101, avenue du Parc : une question à défendre, quatre notions et un courriel de 23 h 14. Puis Roger-Gaudry, et un cours de méthodes quantitatives sur tes propres données.",
+   "etapes": [
+    {
+     "id": "c1_e01",
+     "type": "aller",
+     "cible": "INTERACT_ascenseur",
+     "objectif": "Monter à l’étage de l’ESPUM",
+     "interagir": true
+    },
+    {
+     "id": "c1_e02",
+     "type": "choix_libre",
+     "objectif": "Avant le séminaire (facultatif) : un café, le babillard, l’imprimante ou un mot à Priya",
+     "etapes": [
+      {
+       "id": "c1_e02a",
+       "type": "aller",
+       "cible": "INTERACT_cafe",
+       "objectif": "Prendre un café à la machine",
+       "interagir": true,
+       "scene": "c1_cafe",
+       "effets": {
+        "stats": {
+         "energie": 10,
+         "stress": -2
+        }
+       }
+      },
+      {
+       "id": "c1_e02b",
+       "type": "aller",
+       "cible": "INTERACT_babillard",
+       "objectif": "Lire le babillard du corridor",
+       "interagir": true,
+       "scene": "c1_babillard"
+      },
+      {
+       "id": "c1_e02c",
+       "type": "aller",
+       "cible": "INTERACT_imprimante",
+       "objectif": "Imprimer la version 7 du protocole",
+       "interagir": true,
+       "scene": "c1_imprimante",
+       "effets": {
+        "stats": {
+         "stress": 3
+        },
+        "drapeaux": [
+         "protocole_imprime"
+        ]
+       }
+      },
+      {
+       "id": "c1_e02d",
+       "type": "parler",
+       "cible": "NPC_etudiant_2",
+       "scene": "c1_hall",
+       "objectif": "Saluer Priya dans le hall"
+      }
+     ],
+     "minimum": 0
+    },
+    {
+     "id": "c1_e03",
+     "type": "ouvrir",
+     "cible": "DOOR_seminaire",
+     "objectif": "Entrer dans la salle du séminaire de protocole"
+    },
+    {
+     "id": "c1_e04",
+     "type": "aller",
+     "cible": "INTERACT_seminaire",
+     "objectif": "Prendre place au séminaire de protocole",
+     "interagir": true
+    },
+    {
+     "id": "c1_e05",
+     "type": "dialogue",
+     "scene": "c1_seminaire"
+    },
+    {
+     "id": "c1_e06",
+     "type": "defi",
+     "defi": "notions_distinguer",
+     "objectif": "Distinguer les quatre notions de ta thèse",
+     "succes": {
+      "suivante": "c1_e07",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c1_e07"
+     }
+    },
+    {
+     "id": "c1_e07",
+     "type": "dialogue",
+     "scene": "c1_question"
+    },
+    {
+     "id": "c1_e08",
+     "type": "defi",
+     "defi": "question_recherche",
+     "objectif": "Choisir ta question de recherche",
+     "succes": {
+      "suivante": "c1_e09",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 20,
+      "semaines": -1,
+      "suivante": "c1_e08r"
+     }
+    },
+    {
+     "id": "c1_e08r",
+     "type": "dialogue",
+     "scene": "c1_question_r",
+     "suivante": "c1_e09"
+    },
+    {
+     "id": "c1_e09",
+     "type": "dialogue",
+     "scene": "c1_condition"
+    },
+    {
+     "id": "c1_e10",
+     "type": "defi",
+     "defi": "condition_traceuse",
+     "objectif": "Trancher la condition traceuse",
+     "succes": {
+      "suivante": "c1_e11",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c1_e11"
+     }
+    },
+    {
+     "id": "c1_e11",
+     "type": "aller",
+     "cible": "INTERACT_tableau_seminaire",
+     "objectif": "Aller au tableau",
+     "interagir": true
+    },
+    {
+     "id": "c1_e12",
+     "type": "dialogue",
+     "scene": "c1_tableau"
+    },
+    {
+     "id": "c1_e13",
+     "type": "defi",
+     "defi": "fil_protocole",
+     "objectif": "Reconstituer le fil du protocole",
+     "succes": {
+      "suivante": "c1_e14",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 20,
+      "semaines": -1,
+      "suivante": "c1_e13r"
+     }
+    },
+    {
+     "id": "c1_e13r",
+     "type": "dialogue",
+     "scene": "c1_fil_r",
+     "suivante": "c1_e14"
+    },
+    {
+     "id": "c1_e14",
+     "type": "dialogue",
+     "scene": "c1_fin_seminaire"
+    },
+    {
+     "id": "c1_e15",
+     "type": "dialogue",
+     "scene": "c1_pitch_intro"
+    },
+    {
+     "id": "c1_e16",
+     "type": "defi",
+     "defi": "pitch_ascenseur",
+     "objectif": "Présenter ta thèse en trente secondes",
+     "succes": {
+      "suivante": "c1_e17",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 10,
+      "semaines": 0,
+      "suivante": "c1_e17"
+     }
+    },
+    {
+     "id": "c1_e17",
+     "type": "ouvrir",
+     "cible": "DOOR_bureau",
+     "objectif": "Retourner au local des doctorants"
+    },
+    {
+     "id": "c1_e18",
+     "type": "parler",
+     "cible": "NPC_collegue",
+     "scene": "c1_bureau",
+     "objectif": "Parler à Coralie"
+    },
+    {
+     "id": "c1_e19",
+     "type": "aller",
+     "cible": "INTERACT_bureau_eric",
+     "objectif": "Ouvrir le courriel de 23 h 14 à ton poste",
+     "interagir": true
+    },
+    {
+     "id": "c1_e20",
+     "type": "dialogue",
+     "scene": "c1_courriel"
+    },
+    {
+     "id": "c1_e21",
+     "type": "defi",
+     "defi": "courriel_23h14",
+     "objectif": "Répondre à la petite idée de 23 h 14",
+     "succes": {
+      "suivante": "c1_e22",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 20,
+      "semaines": -1,
+      "suivante": "c1_e21r"
+     }
+    },
+    {
+     "id": "c1_e21r",
+     "type": "dialogue",
+     "scene": "c1_courriel_r",
+     "suivante": "c1_e22"
+    },
+    {
+     "id": "c1_e22",
+     "type": "dialogue",
+     "scene": "c1_politique"
+    },
+    {
+     "id": "c1_e23",
+     "type": "defi",
+     "defi": "roles_clsc",
+     "objectif": "Classer les quatre rôles du CLSC",
+     "succes": {
+      "suivante": "c1_e24",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c1_e24"
+     }
+    },
+    {
+     "id": "c1_e24",
+     "type": "dialogue",
+     "scene": "c1_depart"
+    },
+    {
+     "id": "c1_e25",
+     "type": "aller",
+     "cible": "INTERACT_metro",
+     "objectif": "Prendre le métro à la station Parc jusqu’à Université-de-Montréal",
+     "interagir": true
+    },
+    {
+     "id": "c1_e26",
+     "type": "ouvrir",
+     "cible": "DOOR_entree_g",
+     "objectif": "Pousser la porte du pavillon Roger-Gaudry",
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e27",
+     "type": "dialogue",
+     "scene": "c1_roger_gaudry",
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e28",
+     "type": "ouvrir",
+     "cible": "DOOR_g415",
+     "objectif": "Entrer dans la salle G-415",
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e29",
+     "type": "aller",
+     "cible": "INTERACT_seminaire",
+     "objectif": "Prendre place au cours de méthodes quantitatives",
+     "zone": "campus",
+     "interagir": true
+    },
+    {
+     "id": "c1_e30",
+     "type": "dialogue",
+     "scene": "c1_quanti_intro",
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e31",
+     "type": "defi",
+     "defi": "quanti_classes_latentes",
+     "objectif": "Lire ta simulation de classes latentes",
+     "succes": {
+      "suivante": "c1_e32",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c1_e32"
+     },
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e32",
+     "type": "dialogue",
+     "scene": "c1_quanti_jaccard",
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e33",
+     "type": "defi",
+     "defi": "quanti_jaccard",
+     "objectif": "Calculer et interpréter un indice de Jaccard",
+     "succes": {
+      "suivante": "c1_e34",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c1_e34"
+     },
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e34",
+     "type": "aller",
+     "cible": "INTERACT_tableau_seminaire",
+     "objectif": "Calculer au tableau",
+     "zone": "campus",
+     "interagir": true
+    },
+    {
+     "id": "c1_e35",
+     "type": "dialogue",
+     "scene": "c1_quanti_2sfca",
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e36",
+     "type": "defi",
+     "defi": "quanti_2sfca",
+     "objectif": "Calculer un 2SFCA étape par étape",
+     "succes": {
+      "suivante": "c1_e37",
+      "pression": -8
+     },
+     "echec": {
+      "pression": 20,
+      "semaines": -1,
+      "suivante": "c1_e36r"
+     },
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e36r",
+     "type": "dialogue",
+     "scene": "c1_quanti_2sfca_r",
+     "suivante": "c1_e37",
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e37",
+     "type": "defi",
+     "defi": "quanti_denominateur",
+     "objectif": "Choisir le dénominateur d’une densité",
+     "succes": {
+      "suivante": "c1_e38",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c1_e38"
+     },
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e38",
+     "type": "dialogue",
+     "scene": "c1_quanti_reseaux",
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e39",
+     "type": "defi",
+     "defi": "quanti_reseaux_inference",
+     "objectif": "Choisir les méthodes d’inférence sur les réseaux",
+     "succes": {
+      "suivante": "c1_e40",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c1_e40"
+     },
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e40",
+     "type": "dialogue",
+     "scene": "c1_quanti_eco",
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e41",
+     "type": "defi",
+     "defi": "quanti_ecologique",
+     "objectif": "Déjouer le biais d’agrégation",
+     "succes": {
+      "suivante": "c1_e42",
+      "pression": -8
+     },
+     "echec": {
+      "pression": 20,
+      "semaines": -1,
+      "suivante": "c1_e41r"
+     },
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e41r",
+     "type": "dialogue",
+     "scene": "c1_quanti_eco_r",
+     "suivante": "c1_e42",
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e42",
+     "type": "dialogue",
+     "scene": "c1_quanti_fin",
+     "zone": "campus"
+    },
+    {
+     "id": "c1_e43",
+     "type": "aller",
+     "cible": "INTERACT_ascenseur",
+     "objectif": "Monter à la Bibliothèque de la santé",
+     "zone": "campus",
+     "interagir": true
+    }
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "La revue de portée",
+   "zone": "bibliotheque",
+   "intro": "c2_arrivee",
+   "fin": "c2_fin",
+   "resume": "Bibliothèque de la santé. Critères, équation, criblage, instruments, et la taxonomie du 211.",
+   "etapes": [
+    {
+     "id": "c2_e01",
+     "type": "aller",
+     "cible": "INTERACT_comptoir",
+     "objectif": "Trouver la bibliothécaire au comptoir de prêt"
+    },
+    {
+     "id": "c2_e02",
+     "type": "parler",
+     "cible": "NPC_bibliothecaire",
+     "scene": "c2_comptoir",
+     "objectif": "Parler à Margaux, la bibliothécaire"
+    },
+    {
+     "id": "c2_e03",
+     "type": "defi",
+     "defi": "pcc_revue",
+     "objectif": "Écrire tes critères en format PCC",
+     "succes": {
+      "suivante": "c2_e04",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c2_e03r"
+     }
+    },
+    {
+     "id": "c2_e03r",
+     "type": "dialogue",
+     "scene": "c2_pcc_r",
+     "suivante": "c2_e04"
+    },
+    {
+     "id": "c2_e04",
+     "type": "aller",
+     "cible": "INTERACT_poste_3",
+     "objectif": "Lire les questions laissées au poste 3",
+     "interagir": true
+    },
+    {
+     "id": "c2_e05",
+     "type": "defi",
+     "defi": "portee_ou_systematique",
+     "objectif": "Distinguer revue de portée et revue systématique",
+     "succes": {
+      "suivante": "c2_e06",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c2_e06"
+     }
+    },
+    {
+     "id": "c2_e06",
+     "type": "parler",
+     "cible": "NPC_bibliothecaire",
+     "scene": "c2_quete_a",
+     "objectif": "Recevoir la liste des ouvrages de base"
+    },
+    {
+     "id": "c2_e07",
+     "type": "choix_libre",
+     "objectif": "Retrouver les quatre ouvrages par leur cote et les rapporter au comptoir",
+     "etapes": [
+      {
+       "id": "c2_e07a",
+       "type": "ramasser",
+       "cible": "DYN_livre_quete_1",
+       "destination": "INTERACT_comptoir",
+       "objectif": "Trouver « JBI Manual for Evidence Synthesis », cote WA 20.5 2020, au rayon WA, et le rapporter au comptoir",
+       "cote": "WA 20.5 2020",
+       "titreOuvrage": "JBI Manual for Evidence Synthesis (Aromataris et Munn, dir.)",
+       "rayonBiblio": "INTERACT_rayon_WA"
+      },
+      {
+       "id": "c2_e07b",
+       "type": "ramasser",
+       "cible": "DYN_livre_quete_2",
+       "destination": "INTERACT_comptoir",
+       "objectif": "Trouver « Health in All Policies », cote WA 525 2013, au rayon WA, et le rapporter au comptoir",
+       "cote": "WA 525 2013",
+       "titreOuvrage": "Health in All Policies: Seizing Opportunities, Implementing Policies (Leppo et coll., dir.)",
+       "rayonBiblio": "INTERACT_rayon_WA"
+      },
+      {
+       "id": "c2_e07c",
+       "type": "ramasser",
+       "cible": "DYN_livre_quete_3",
+       "destination": "INTERACT_comptoir",
+       "objectif": "Trouver « Latent Class and Latent Transition Analysis », cote WA 950 2010, au rayon WA, et le rapporter au comptoir",
+       "cote": "WA 950 2010",
+       "titreOuvrage": "Latent Class and Latent Transition Analysis (Collins et Lanza)",
+       "rayonBiblio": "INTERACT_rayon_WA"
+      },
+      {
+       "id": "c2_e07d",
+       "type": "ramasser",
+       "cible": "DYN_livre_quete_4",
+       "destination": "INTERACT_comptoir",
+       "objectif": "Trouver « Handbook of Aging and the Social Sciences », cote WT 30 2011, au rayon WT, et le rapporter au comptoir",
+       "cote": "WT 30 2011",
+       "titreOuvrage": "Handbook of Aging and the Social Sciences, 7e éd. (Binstock et George, dir.)",
+       "rayonBiblio": "INTERACT_rayon_WT"
+      }
+     ],
+     "minimum": 4
+    },
+    {
+     "id": "c2_e08",
+     "type": "dialogue",
+     "scene": "c2_quete_a_fin"
+    },
+    {
+     "id": "c2_e09",
+     "type": "aller",
+     "cible": "INTERACT_catalogue",
+     "objectif": "Ouvrir le poste de recherche",
+     "interagir": true
+    },
+    {
+     "id": "c2_e10",
+     "type": "dialogue",
+     "scene": "c2_catalogue"
+    },
+    {
+     "id": "c2_e11",
+     "type": "defi",
+     "defi": "requete_revue",
+     "objectif": "Construire et tester ton équation de recherche",
+     "succes": {
+      "suivante": "c2_e12",
+      "pression": -8
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": -1,
+      "suivante": "c2_e11r"
+     }
+    },
+    {
+     "id": "c2_e11r",
+     "type": "dialogue",
+     "scene": "c2_requete_r",
+     "suivante": "c2_e11r2"
+    },
+    {
+     "id": "c2_e11r2",
+     "type": "defi",
+     "defi": "requete_revue",
+     "objectif": "Construire et tester ton équation de recherche (deuxième essai)",
+     "succes": {
+      "suivante": "c2_e12"
+     },
+     "echec": {
+      "pression": 20,
+      "semaines": -1,
+      "suivante": "c2_e12",
+      "effets": {
+       "drapeaux": [
+        "requete_faible"
+       ]
+      }
+     }
+    },
+    {
+     "id": "c2_e12",
+     "type": "dialogue",
+     "scene": "c2_bases"
+    },
+    {
+     "id": "c2_e13",
+     "type": "ramasser",
+     "cible": "DYN_chariot",
+     "destination": "INTERACT_retour",
+     "objectif": "Pousser le chariot de retours jusqu’à la chute à livres"
+    },
+    {
+     "id": "c2_e14",
+     "type": "dialogue",
+     "scene": "c2_jbi"
+    },
+    {
+     "id": "c2_e15",
+     "type": "defi",
+     "defi": "etapes_jbi",
+     "objectif": "Ordonner les étapes de la revue de portée",
+     "succes": {
+      "suivante": "c2_e16",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c2_e16"
+     }
+    },
+    {
+     "id": "c2_e16",
+     "type": "aller",
+     "cible": "INTERACT_photocopieur",
+     "objectif": "Photocopier le chapitre sur les revues de portée",
+     "interagir": true
+    },
+    {
+     "id": "c2_e17",
+     "type": "dialogue",
+     "scene": "c2_photocopieur"
+    },
+    {
+     "id": "c2_e18",
+     "type": "defi",
+     "defi": "photocopieur",
+     "objectif": "Débloquer le photocopieur",
+     "succes": {
+      "suivante": "c2_e19"
+     },
+     "echec": {
+      "pression": 5,
+      "semaines": 0,
+      "suivante": "c2_e19"
+     }
+    },
+    {
+     "id": "c2_e19",
+     "type": "aller",
+     "cible": "TRIGGER_silence",
+     "objectif": "Entrer dans la salle de lecture, sans courir"
+    },
+    {
+     "id": "c2_e20",
+     "type": "choix_libre",
+     "objectif": "Dans la salle de lecture (facultatif)",
+     "etapes": [
+      {
+       "id": "c2_e20a",
+       "type": "parler",
+       "cible": "NPC_etudiant_dort",
+       "scene": "c2_dort",
+       "objectif": "Réveiller doucement l’étudiant endormi sur ses livres"
+      },
+      {
+       "id": "c2_e20b",
+       "type": "parler",
+       "cible": "NPC_etudiant_1",
+       "scene": "c2_etudiant",
+       "objectif": "Écouter Mathis parler de son criblage"
+      }
+     ],
+     "minimum": 0
+    },
+    {
+     "id": "c2_e21",
+     "type": "aller",
+     "cible": "INTERACT_poste_1",
+     "objectif": "T’installer au poste 1 pour le criblage",
+     "interagir": true
+    },
+    {
+     "id": "c2_e22",
+     "type": "dialogue",
+     "scene": "c2_criblage_intro"
+    },
+    {
+     "id": "c2_e23",
+     "type": "defi",
+     "defi": "criblage_resumes",
+     "objectif": "Cribler dix-huit résumés",
+     "succes": {
+      "suivante": "c2_e24",
+      "pression": -8
+     },
+     "echec": {
+      "pression": 20,
+      "semaines": -1,
+      "suivante": "c2_e23r"
+     }
+    },
+    {
+     "id": "c2_e23r",
+     "type": "dialogue",
+     "scene": "c2_criblage_r",
+     "suivante": "c2_e24"
+    },
+    {
+     "id": "c2_e24",
+     "type": "aller",
+     "cible": "INTERACT_poste_2",
+     "objectif": "Préparer la grille d’extraction au poste 2",
+     "interagir": true
+    },
+    {
+     "id": "c2_e25",
+     "type": "dialogue",
+     "scene": "c2_instruments"
+    },
+    {
+     "id": "c2_e26",
+     "type": "defi",
+     "defi": "instruments_mesure",
+     "objectif": "Situer les cinq instruments de mesure",
+     "succes": {
+      "suivante": "c2_e27",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c2_e27"
+     }
+    },
+    {
+     "id": "c2_e27",
+     "type": "aller",
+     "cible": "INTERACT_periodiques",
+     "objectif": "Feuilleter les périodiques",
+     "interagir": true
+    },
+    {
+     "id": "c2_e28",
+     "type": "dialogue",
+     "scene": "c2_periodiques"
+    },
+    {
+     "id": "c2_e29",
+     "type": "defi",
+     "defi": "biais_lecture",
+     "objectif": "Repérer le problème de chaque conclusion",
+     "succes": {
+      "suivante": "c2_e30",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c2_e30"
+     }
+    },
+    {
+     "id": "c2_e30",
+     "type": "parler",
+     "cible": "NPC_bibliothecaire",
+     "scene": "c2_quete_b",
+     "objectif": "Revoir Margaux au comptoir"
+    },
+    {
+     "id": "c2_e31",
+     "type": "choix_libre",
+     "objectif": "Retrouver les quatre ouvrages d’O2 et d’O3 et les rapporter au comptoir",
+     "etapes": [
+      {
+       "id": "c2_e31a",
+       "type": "ramasser",
+       "cible": "DYN_livre_quete_5",
+       "destination": "INTERACT_comptoir",
+       "objectif": "Trouver « Quantitative Methods and Applications in GIS », cote W 26.55 2006, au rayon W84, et le rapporter au comptoir",
+       "cote": "W 26.55 2006",
+       "titreOuvrage": "Quantitative Methods and Applications in GIS (Wang)",
+       "rayonBiblio": "INTERACT_rayon_W84"
+      },
+      {
+       "id": "c2_e31b",
+       "type": "ramasser",
+       "cible": "DYN_livre_quete_6",
+       "destination": "INTERACT_comptoir",
+       "objectif": "Trouver « Health Measurement Scales », cote W 84.3 2015, au rayon W84, et le rapporter au comptoir",
+       "cote": "W 84.3 2015",
+       "titreOuvrage": "Health Measurement Scales, 5e éd. (Streiner, Norman et Cairney)",
+       "rayonBiblio": "INTERACT_rayon_W84"
+      },
+      {
+       "id": "c2_e31c",
+       "type": "ramasser",
+       "cible": "DYN_livre_quete_7",
+       "destination": "INTERACT_comptoir",
+       "objectif": "Trouver « Egocentric Network Analysis », cote HM 741 2018, au rayon HV, et le rapporter au comptoir",
+       "cote": "HM 741 2018",
+       "titreOuvrage": "Egocentric Network Analysis: Foundations, Methods, and Models (Perry, Pescosolido et Borgatti)",
+       "rayonBiblio": "INTERACT_rayon_HV"
+      },
+      {
+       "id": "c2_e31d",
+       "type": "ramasser",
+       "cible": "DYN_livre_quete_8",
+       "destination": "INTERACT_comptoir",
+       "objectif": "Trouver « Case Study Research and Applications », cote H 62 2018, au rayon HV, et le rapporter au comptoir",
+       "cote": "H 62 2018",
+       "titreOuvrage": "Case Study Research and Applications, 6e éd. (Yin)",
+       "rayonBiblio": "INTERACT_rayon_HV"
+      }
+     ],
+     "minimum": 4
+    },
+    {
+     "id": "c2_e32",
+     "type": "dialogue",
+     "scene": "c2_quete_b_fin"
+    },
+    {
+     "id": "c2_e33",
+     "type": "aller",
+     "cible": "INTERACT_reservation",
+     "objectif": "Réserver la salle de groupe",
+     "interagir": true
+    },
+    {
+     "id": "c2_e34",
+     "type": "dialogue",
+     "scene": "c2_reservation"
+    },
+    {
+     "id": "c2_e35",
+     "type": "ouvrir",
+     "cible": "DOOR_salle_groupe",
+     "objectif": "Rejoindre Coralie en salle de groupe"
+    },
+    {
+     "id": "c2_e36",
+     "type": "dialogue",
+     "scene": "c2_salle_groupe"
+    },
+    {
+     "id": "c2_e37",
+     "type": "defi",
+     "defi": "taxonomie_211",
+     "objectif": "Relier ta grille à la taxonomie du 211",
+     "succes": {
+      "suivante": "c2_e38",
+      "pression": -8
+     },
+     "echec": {
+      "pression": 20,
+      "semaines": -1,
+      "suivante": "c2_e37r"
+     }
+    },
+    {
+     "id": "c2_e37r",
+     "type": "dialogue",
+     "scene": "c2_taxo_r",
+     "suivante": "c2_e38"
+    },
+    {
+     "id": "c2_e38",
+     "type": "dialogue",
+     "scene": "c2_limites"
+    },
+    {
+     "id": "c2_e39",
+     "type": "defi",
+     "defi": "limites_211",
+     "objectif": "Délimiter ce que le 211 peut dire",
+     "succes": {
+      "suivante": "c2_e40",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c2_e40"
+     }
+    },
+    {
+     "id": "c2_e40",
+     "type": "dialogue",
+     "scene": "c2_cooc"
+    },
+    {
+     "id": "c2_e41",
+     "type": "defi",
+     "defi": "analyse_demandes",
+     "objectif": "Choisir l’analyse des demandes au 211",
+     "succes": {
+      "suivante": "c2_e42",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 20,
+      "semaines": -1,
+      "suivante": "c2_e41r"
+     }
+    },
+    {
+     "id": "c2_e41r",
+     "type": "dialogue",
+     "scene": "c2_cooc_r",
+     "suivante": "c2_e42"
+    },
+    {
+     "id": "c2_e42",
+     "type": "dialogue",
+     "scene": "c2_echelle"
+    },
+    {
+     "id": "c2_e43",
+     "type": "defi",
+     "defi": "echelle_211",
+     "objectif": "Passer de l’arrondissement au CLSC",
+     "succes": {
+      "suivante": "c2_e44",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c2_e44"
+     }
+    },
+    {
+     "id": "c2_e44",
+     "type": "parler",
+     "cible": "NPC_bibliothecaire",
+     "scene": "c2_depart",
+     "objectif": "Remercier Margaux"
+    },
+    {
+     "id": "c2_e45",
+     "type": "aller",
+     "cible": "INTERACT_ascenseur",
+     "objectif": "Redescendre et prendre le métro vers le CLSC des Faubourgs",
+     "interagir": true
+    }
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Le terrain",
+   "zone": "clsc",
+   "intro": "c3_arrivee",
+   "fin": "c3_fin",
+   "resume": "CLSC des Faubourgs. Frontière, carte, écarts, générateur de noms, réseaux et accès aux données.",
+   "etapes": [
+    {
+     "id": "c3_e01",
+     "type": "aller",
+     "cible": "INTERACT_borne",
+     "objectif": "Prendre un numéro à la borne",
+     "interagir": true
+    },
+    {
+     "id": "c3_e02",
+     "type": "dialogue",
+     "scene": "c3_borne"
+    },
+    {
+     "id": "c3_e03",
+     "type": "parler",
+     "cible": "NPC_prepose",
+     "scene": "c3_accueil",
+     "objectif": "Te présenter à l’accueil"
+    },
+    {
+     "id": "c3_e04",
+     "type": "aller",
+     "cible": "INTERACT_carte_murale",
+     "objectif": "Examiner la carte murale du territoire",
+     "interagir": true
+    },
+    {
+     "id": "c3_e05",
+     "type": "dialogue",
+     "scene": "c3_carte_murale"
+    },
+    {
+     "id": "c3_e06",
+     "type": "defi",
+     "defi": "frontiere_besoins",
+     "objectif": "Tracer la frontière de l’inventaire",
+     "succes": {
+      "suivante": "c3_e07",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c3_e07"
+     }
+    },
+    {
+     "id": "c3_e07",
+     "type": "defi",
+     "defi": "carte_centre_sud",
+     "objectif": "Analyser l’offre de Centre-Sud",
+     "succes": {
+      "suivante": "c3_e08",
+      "pression": -8
+     },
+     "echec": {
+      "pression": 20,
+      "semaines": -1,
+      "suivante": "c3_e07r"
+     }
+    },
+    {
+     "id": "c3_e07r",
+     "type": "dialogue",
+     "scene": "c3_carte_r",
+     "suivante": "c3_e08"
+    },
+    {
+     "id": "c3_e08",
+     "type": "defi",
+     "defi": "indice_ecart",
+     "objectif": "Classer les écarts entre besoins et offre",
+     "succes": {
+      "suivante": "c3_e09",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c3_e09"
+     }
+    },
+    {
+     "id": "c3_e09",
+     "type": "aller",
+     "cible": "INTERACT_babillard_communautaire",
+     "objectif": "Lire le babillard communautaire",
+     "interagir": true
+    },
+    {
+     "id": "c3_e10",
+     "type": "dialogue",
+     "scene": "c3_babillard"
+    },
+    {
+     "id": "c3_e11",
+     "type": "ouvrir",
+     "cible": "DOOR_bureau_sad",
+     "objectif": "Frapper au bureau du soutien à domicile"
+    },
+    {
+     "id": "c3_e12",
+     "type": "parler",
+     "cible": "NPC_intervenante",
+     "scene": "c3_intervenante",
+     "objectif": "Rencontrer Nadège, l’intervenante sociale"
+    },
+    {
+     "id": "c3_e13",
+     "type": "defi",
+     "defi": "generateur_noms",
+     "objectif": "Formuler ton générateur de noms",
+     "succes": {
+      "suivante": "c3_e14",
+      "pression": -8
+     },
+     "echec": {
+      "pression": 20,
+      "semaines": -1,
+      "suivante": "c3_e13r"
+     }
+    },
+    {
+     "id": "c3_e13r",
+     "type": "dialogue",
+     "scene": "c3_generateur_r",
+     "suivante": "c3_e14"
+    },
+    {
+     "id": "c3_e14",
+     "type": "defi",
+     "defi": "interpretes_noms",
+     "objectif": "Choisir les interprètes de noms",
+     "succes": {
+      "suivante": "c3_e15",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 10,
+      "semaines": 0,
+      "suivante": "c3_e15"
+     }
+    },
+    {
+     "id": "c3_e15",
+     "type": "dialogue",
+     "scene": "c3_niveaux"
+    },
+    {
+     "id": "c3_e16",
+     "type": "defi",
+     "defi": "niveaux_collaboration",
+     "objectif": "Coter les niveaux de collaboration",
+     "succes": {
+      "suivante": "c3_e17",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c3_e17"
+     }
+    },
+    {
+     "id": "c3_e17",
+     "type": "ouvrir",
+     "cible": "DOOR_salle_reunion",
+     "objectif": "Entrer dans la salle de réunion"
+    },
+    {
+     "id": "c3_e18",
+     "type": "aller",
+     "cible": "INTERACT_salle_reunion",
+     "objectif": "Rejoindre l’équipe pour le prétest",
+     "interagir": true
+    },
+    {
+     "id": "c3_e19",
+     "type": "dialogue",
+     "scene": "c3_reunion",
+     "effets": {
+      "preuves": [
+       "p_accord_equipe"
+      ],
+      "stats": {
+       "confiance": 3
+      }
+     }
+    },
+    {
+     "id": "c3_e20",
+     "type": "defi",
+     "defi": "reseau_faubourgs",
+     "objectif": "Lire le sociogramme pilote",
+     "succes": {
+      "suivante": "c3_e21",
+      "pression": -8
+     },
+     "echec": {
+      "pression": 20,
+      "semaines": -1,
+      "suivante": "c3_e20r"
+     }
+    },
+    {
+     "id": "c3_e20r",
+     "type": "dialogue",
+     "scene": "c3_reseau_r",
+     "suivante": "c3_e21"
+    },
+    {
+     "id": "c3_e21",
+     "type": "defi",
+     "defi": "declare_observe",
+     "objectif": "Interpréter l’écart avec le 211",
+     "succes": {
+      "suivante": "c3_e22",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c3_e22"
+     }
+    },
+    {
+     "id": "c3_e22",
+     "type": "aller",
+     "cible": "INTERACT_carte_murale",
+     "objectif": "Revenir à la carte murale",
+     "interagir": true
+    },
+    {
+     "id": "c3_e23",
+     "type": "dialogue",
+     "scene": "c3_atlas"
+    },
+    {
+     "id": "c3_e24",
+     "type": "defi",
+     "defi": "atlas_rts063",
+     "objectif": "Lire l’atlas des huit territoires",
+     "succes": {
+      "suivante": "c3_e25",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c3_e25"
+     }
+    },
+    {
+     "id": "c3_e25",
+     "type": "dialogue",
+     "scene": "c3_cas"
+    },
+    {
+     "id": "c3_e26",
+     "type": "defi",
+     "defi": "cas_contrastes",
+     "objectif": "Choisir tes CLSC contrastés",
+     "succes": {
+      "suivante": "c3_e27",
+      "pression": -8
+     },
+     "echec": {
+      "pression": 20,
+      "semaines": -1,
+      "suivante": "c3_e26r"
+     }
+    },
+    {
+     "id": "c3_e26r",
+     "type": "dialogue",
+     "scene": "c3_cas_r",
+     "suivante": "c3_e27"
+    },
+    {
+     "id": "c3_e27",
+     "type": "defi",
+     "defi": "etapes_o3",
+     "objectif": "Ordonner les étapes d’O3",
+     "succes": {
+      "suivante": "c3_e28",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 10,
+      "semaines": 0,
+      "suivante": "c3_e28"
+     }
+    },
+    {
+     "id": "c3_e28",
+     "type": "ouvrir",
+     "cible": "DOOR_gestionnaire",
+     "objectif": "Aller voir le gestionnaire"
+    },
+    {
+     "id": "c3_e29",
+     "type": "parler",
+     "cible": "NPC_gestionnaire",
+     "scene": "c3_gestionnaire",
+     "objectif": "Parler à Normand, le gestionnaire"
+    },
+    {
+     "id": "c3_e30",
+     "type": "defi",
+     "defi": "acces_donnees",
+     "objectif": "Répondre à l’offre du gestionnaire",
+     "succes": {
+      "suivante": "c3_e31",
+      "pression": -8
+     },
+     "echec": {
+      "pression": 25,
+      "semaines": -2,
+      "suivante": "c3_e30r"
+     }
+    },
+    {
+     "id": "c3_e30r",
+     "type": "dialogue",
+     "scene": "c3_acces_r",
+     "suivante": "c3_e31"
+    },
+    {
+     "id": "c3_e31",
+     "type": "defi",
+     "defi": "ethique_donnees",
+     "objectif": "Planifier la protection des données",
+     "succes": {
+      "suivante": "c3_e32",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c3_e32"
+     }
+    },
+    {
+     "id": "c3_e32",
+     "type": "choix_libre",
+     "objectif": "Dans la salle d’attente (facultatif)",
+     "etapes": [
+      {
+       "id": "c3_e32a",
+       "type": "parler",
+       "cible": "NPC_usager_1",
+       "scene": "c3_usager_1",
+       "objectif": "Bavarder avec Mme Rolande"
+      },
+      {
+       "id": "c3_e32b",
+       "type": "parler",
+       "cible": "NPC_usager_2",
+       "scene": "c3_usager_2",
+       "objectif": "Bavarder avec M. Anselme"
+      }
+     ],
+     "minimum": 0
+    },
+    {
+     "id": "c3_e33",
+     "type": "parler",
+     "cible": "NPC_intervenante",
+     "scene": "c3_depart",
+     "objectif": "Saluer Nadège avant de partir"
+    },
+    {
+     "id": "c3_e34",
+     "type": "aller",
+     "cible": "INTERACT_metro",
+     "objectif": "Reprendre le métro vers l’Université de Montréal",
+     "interagir": true
+    }
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Les passes",
+   "zone": "arena",
+   "intro": "c4_arrivee",
+   "resume": "Aréna du CEPSUM. Apprendre à patiner, jouer pour vrai, croiser un général et un chevalier, et comprendre qu’un réseau, ce sont des passes.",
+   "etapes": [
+    {
+     "id": "c4_e01",
+     "type": "ouvrir",
+     "cible": "DOOR_vestiaire",
+     "objectif": "Entrer au vestiaire"
+    },
+    {
+     "id": "c4_e02",
+     "type": "aller",
+     "cible": "INTERACT_vestiaire",
+     "objectif": "Chausser les patins",
+     "interagir": true
+    },
+    {
+     "id": "c4_e03",
+     "type": "dialogue",
+     "scene": "c4_vestiaire"
+    },
+    {
+     "id": "c4_e04",
+     "type": "ouvrir",
+     "cible": "DOOR_banc_1",
+     "objectif": "Ouvrir la porte du banc"
+    },
+    {
+     "id": "c4_e05",
+     "type": "aller",
+     "cible": "INTERACT_banc",
+     "objectif": "Embarquer sur la glace",
+     "interagir": true
+    },
+    {
+     "id": "c4_e06",
+     "type": "aller",
+     "cible": "INTERACT_entraineur",
+     "objectif": "Rejoindre l’entraîneur au coin de la leçon",
+     "interagir": true
+    },
+    {
+     "id": "c4_e07",
+     "type": "dialogue",
+     "scene": "c4_lecon_intro"
+    },
+    {
+     "id": "c4_e08",
+     "type": "choix_libre",
+     "objectif": "Prendre un aide-patineur (facultatif, recommandé)",
+     "etapes": [
+      {
+       "id": "c4_e08a",
+       "type": "ramasser",
+       "cible": "DYN_aide_patineur_1",
+       "objectif": "Prendre un aide-patineur près de la bande"
+      }
+     ],
+     "minimum": 0
+    },
+    {
+     "id": "c4_e09",
+     "type": "exercice",
+     "exercice": "equilibre",
+     "objectif": "Tenir debout sur tes patins, genoux pliés, sans tomber",
+     "parametres": {
+      "duree_s": 15,
+      "chutes_max": 3,
+      "aide_patineur": "facultatif",
+      "zone": "SPAWN_lecon"
+     },
+     "succes": {
+      "effets": {
+       "stats": {
+        "stress": -2,
+        "energie": -2
+       }
+      },
+      "suivante": "c4_e10"
+     },
+     "echec": {
+      "reessayer": true,
+      "essaisMax": 3,
+      "effets": {
+       "stats": {
+        "stress": 2
+       }
+      },
+      "suivante": "c4_e10"
+     }
+    },
+    {
+     "id": "c4_e10",
+     "type": "exercice",
+     "exercice": "poussee",
+     "objectif": "Avancer par poussées latérales sur 20 m",
+     "parametres": {
+      "distance_m": 20,
+      "temps_max_s": 30,
+      "poussees_min": 8,
+      "angle_poussee_deg": 45
+     },
+     "succes": {
+      "effets": {
+       "stats": {
+        "stress": -2,
+        "energie": -2
+       }
+      },
+      "suivante": "c4_e11"
+     },
+     "echec": {
+      "reessayer": true,
+      "essaisMax": 3,
+      "effets": {
+       "stats": {
+        "stress": 2
+       }
+      },
+      "suivante": "c4_e11"
+     }
+    },
+    {
+     "id": "c4_e11",
+     "type": "exercice",
+     "exercice": "glisse",
+     "objectif": "Glisser sur un pied, puis sur l’autre",
+     "parametres": {
+      "glisses_reussies": 4,
+      "duree_glisse_s": 2.0,
+      "pied": "alterne"
+     },
+     "succes": {
+      "effets": {
+       "stats": {
+        "stress": -2,
+        "energie": -2
+       }
+      },
+      "suivante": "c4_e12"
+     },
+     "echec": {
+      "reessayer": true,
+      "essaisMax": 3,
+      "effets": {
+       "stats": {
+        "stress": 2
+       }
+      },
+      "suivante": "c4_e12"
+     }
+    },
+    {
+     "id": "c4_e12",
+     "type": "dialogue",
+     "scene": "c4_lecon_mi"
+    },
+    {
+     "id": "c4_e13",
+     "type": "exercice",
+     "exercice": "arret",
+     "objectif": "Freiner en chasse-neige avant la ligne",
+     "parametres": {
+      "type": "chasse-neige",
+      "vitesse_min_m_s": 2.5,
+      "distance_arret_max_m": 4,
+      "essais_reussis": 3
+     },
+     "succes": {
+      "effets": {
+       "stats": {
+        "stress": -2,
+        "energie": -2
+       }
+      },
+      "suivante": "c4_e14"
+     },
+     "echec": {
+      "reessayer": true,
+      "essaisMax": 3,
+      "effets": {
+       "stats": {
+        "stress": 2
+       }
+      },
+      "suivante": "c4_e14"
+     }
+    },
+    {
+     "id": "c4_e14",
+     "type": "exercice",
+     "exercice": "croisement",
+     "objectif": "Tourner autour des cônes en croisant les pieds",
+     "parametres": {
+      "cones": [
+       "DYN_cone_lecon_1",
+       "DYN_cone_lecon_2",
+       "DYN_cone_lecon_3",
+       "DYN_cone_lecon_4",
+       "DYN_cone_lecon_5",
+       "DYN_cone_lecon_6"
+      ],
+      "sens": "antihoraire",
+      "tours": 2,
+      "temps_max_s": 45
+     },
+     "succes": {
+      "effets": {
+       "stats": {
+        "stress": -2,
+        "energie": -2
+       }
+      },
+      "suivante": "c4_e15"
+     },
+     "echec": {
+      "reessayer": true,
+      "essaisMax": 3,
+      "effets": {
+       "stats": {
+        "stress": 2
+       }
+      },
+      "suivante": "c4_e15"
+     }
+    },
+    {
+     "id": "c4_e15",
+     "type": "exercice",
+     "exercice": "recul",
+     "objectif": "Patiner à reculons sur 12 m",
+     "parametres": {
+      "distance_m": 12,
+      "temps_max_s": 35,
+      "technique": "C",
+      "chutes_max": 2
+     },
+     "succes": {
+      "effets": {
+       "stats": {
+        "stress": -2,
+        "energie": -2
+       }
+      },
+      "suivante": "c4_e16"
+     },
+     "echec": {
+      "reessayer": true,
+      "essaisMax": 3,
+      "effets": {
+       "stats": {
+        "stress": 2
+       }
+      },
+      "suivante": "c4_e16"
+     }
+    },
+    {
+     "id": "c4_e16",
+     "type": "dialogue",
+     "scene": "c4_lecon_fin",
+     "effets": {
+      "stats": {
+       "stress": -8,
+       "confiance": 4
+      }
+     }
+    },
+    {
+     "id": "c4_e17",
+     "type": "aller",
+     "cible": "INTERACT_rondelles",
+     "objectif": "Prendre une rondelle au seau",
+     "interagir": true
+    },
+    {
+     "id": "c4_e18",
+     "type": "exercice",
+     "exercice": "maniement",
+     "objectif": "Slalomer entre les cônes sans perdre la rondelle",
+     "parametres": {
+      "cones": [
+       "DYN_cone_lecon_7",
+       "DYN_cone_lecon_8",
+       "DYN_cone_lecon_9",
+       "DYN_cone_lecon_10",
+       "DYN_cone_lecon_11",
+       "DYN_cone_lecon_12"
+      ],
+      "temps_max_s": 40,
+      "pertes_max": 2
+     },
+     "succes": {
+      "effets": {
+       "stats": {
+        "stress": -2,
+        "energie": -2
+       }
+      },
+      "suivante": "c4_e19"
+     },
+     "echec": {
+      "reessayer": true,
+      "essaisMax": 3,
+      "effets": {
+       "stats": {
+        "stress": 2
+       }
+      },
+      "suivante": "c4_e19"
+     }
+    },
+    {
+     "id": "c4_e19",
+     "type": "exercice",
+     "exercice": "passe",
+     "objectif": "Réussir cinq passes à Bruno",
+     "parametres": {
+      "passes_reussies": 5,
+      "receveur": "NPC_joueur_1",
+      "distance_m": 10,
+      "essais_max": 10
+     },
+     "succes": {
+      "effets": {
+       "stats": {
+        "stress": -2,
+        "energie": -2
+       }
+      },
+      "suivante": "c4_e20"
+     },
+     "echec": {
+      "reessayer": true,
+      "essaisMax": 3,
+      "effets": {
+       "stats": {
+        "stress": 2
+       }
+      },
+      "suivante": "c4_e20"
+     }
+    },
+    {
+     "id": "c4_e20",
+     "type": "exercice",
+     "exercice": "lancer",
+     "objectif": "Marquer trois buts au poignet ou frappé contre Gaétan",
+     "parametres": {
+      "types": [
+       "poignet",
+       "frappe"
+      ],
+      "buts": 3,
+      "essais": 10,
+      "filet": "FILET_est",
+      "gardien": "NPC_gardien"
+     },
+     "succes": {
+      "effets": {
+       "stats": {
+        "stress": -2,
+        "energie": -2
+       }
+      },
+      "suivante": "c4_e21"
+     },
+     "echec": {
+      "reessayer": true,
+      "essaisMax": 3,
+      "effets": {
+       "stats": {
+        "stress": 2
+       }
+      },
+      "suivante": "c4_e21"
+     }
+    },
+    {
+     "id": "c4_e21",
+     "type": "parler",
+     "cible": "NPC_gardien",
+     "scene": "c4_gardien",
+     "objectif": "Parler à Gaétan, le gardien"
+    },
+    {
+     "id": "c4_e22",
+     "type": "dialogue",
+     "scene": "c4_partie_intro"
+    },
+    {
+     "id": "c4_e23",
+     "type": "exercice",
+     "exercice": "partie",
+     "objectif": "Jouer la partie amicale : quatre passes réussies et deux tirs cadrés",
+     "parametres": {
+      "duree_min": 8,
+      "mise_au_jeu": "SPAWN_mise_au_jeu",
+      "coequipiers": [
+       "NPC_joueur_1",
+       "NPC_joueur_2",
+       "NPC_joueur_3"
+      ],
+      "adversaires": [
+       "NPC_joueur_4",
+       "NPC_joueur_5",
+       "NPC_joueur_6"
+      ],
+      "gardien_adverse": "NPC_gardien",
+      "filet_attaque": "FILET_est",
+      "filet_defense": "FILET_ouest",
+      "objectif_passes": 4,
+      "objectif_tirs": 2
+     },
+     "succes": {
+      "effets": {
+       "stats": {
+        "stress": -10,
+        "energie": -10,
+        "confiance": 5
+       }
+      },
+      "suivante": "c4_e24"
+     },
+     "echec": {
+      "reessayer": true,
+      "essaisMax": 1,
+      "effets": {
+       "stats": {
+        "stress": 2
+       }
+      },
+      "suivante": "c4_e24"
+     }
+    },
+    {
+     "id": "c4_e24",
+     "type": "dialogue",
+     "scene": "c4_apres_partie"
+    },
+    {
+     "id": "c4_e25",
+     "type": "dialogue",
+     "scene": "c4_entracte",
+     "effets": {
+      "stats": {
+       "stress": -5
+      }
+     }
+    },
+    {
+     "id": "c4_e26",
+     "type": "defi",
+     "defi": "passes_reseau",
+     "objectif": "Comparer la feuille de match et les déclarations",
+     "succes": {
+      "suivante": "c4_e27",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 10,
+      "semaines": 0,
+      "suivante": "c4_e27"
+     }
+    },
+    {
+     "id": "c4_e27",
+     "type": "parler",
+     "cible": "NPC_chauffeur_zamboni",
+     "scene": "c4_zamboni",
+     "objectif": "Parler à Réal, sur la surfaceuse"
+    },
+    {
+     "id": "c4_e28",
+     "type": "defi",
+     "defi": "pitch_zamboni",
+     "objectif": "Expliquer ta thèse sans jargon",
+     "succes": {
+      "suivante": "c4_e29",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 5,
+      "semaines": 0,
+      "suivante": "c4_e29"
+     }
+    },
+    {
+     "id": "c4_e29",
+     "type": "dialogue",
+     "scene": "c4_direction",
+     "effets": {
+      "pression": 10
+     }
+    },
+    {
+     "id": "c4_e30",
+     "type": "defi",
+     "defi": "arbitrage_semaines",
+     "objectif": "Arbitrer avec ta direction",
+     "succes": {
+      "suivante": "c4_e31",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 20,
+      "semaines": -1,
+      "suivante": "c4_e30r"
+     }
+    },
+    {
+     "id": "c4_e30r",
+     "type": "dialogue",
+     "scene": "c4_couper_r",
+     "suivante": "c4_e31"
+    },
+    {
+     "id": "c4_e31",
+     "type": "dialogue",
+     "scene": "c4_recensement"
+    },
+    {
+     "id": "c4_e32",
+     "type": "defi",
+     "defi": "recensement_2026",
+     "objectif": "Choisir tes dénominateurs",
+     "succes": {
+      "suivante": "c4_e33",
+      "pression": -5
+     },
+     "echec": {
+      "pression": 15,
+      "semaines": 0,
+      "suivante": "c4_e33"
+     }
+    },
+    {
+     "id": "c4_e33",
+     "type": "dialogue",
+     "scene": "c4_depart",
+     "effets": {
+      "drapeaux": [
+       "soutenance_ouverte"
+      ]
+     }
+    },
+    {
+     "id": "c4_e34",
+     "type": "aller",
+     "cible": "INTERACT_sortie",
+     "objectif": "Retourner au pavillon Roger-Gaudry",
+     "interagir": true
+    },
+    {
+     "id": "c4_e35",
+     "type": "ouvrir",
+     "cible": "DOOR_conseil",
+     "objectif": "Ouvrir la porte de la salle du conseil",
+     "zone": "campus"
+    },
+    {
+     "id": "c4_e36",
+     "type": "aller",
+     "cible": "INTERACT_conseil",
+     "objectif": "Entrer dans la salle du conseil",
+     "zone": "campus",
+     "interagir": true
+    }
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "La soutenance",
+   "zone": "soutenance",
+   "intro": "c5_arrivee",
+   "resume": "Salle du conseil, à Roger-Gaudry. Trois membres du jury, dix-sept questions, et toutes les preuves récoltées.",
+   "etapes": [
+    {
+     "id": "c5_e01",
+     "type": "aller",
+     "cible": "INTERACT_ecran",
+     "objectif": "Brancher ton ordinateur à l’écran",
+     "interagir": true
+    },
+    {
+     "id": "c5_e02",
+     "type": "dialogue",
+     "scene": "c5_ecran"
+    },
+    {
+     "id": "c5_e03",
+     "type": "parler",
+     "cible": "NPC_direction_b",
+     "scene": "c5_conseil_direction",
+     "objectif": "Écouter le dernier conseil de ta direction"
+    },
+    {
+     "id": "c5_e04",
+     "type": "aller",
+     "cible": "INTERACT_lutrin",
+     "objectif": "Prendre place au lutrin",
+     "interagir": true
+    },
+    {
+     "id": "c5_e05",
+     "type": "dialogue",
+     "scene": "c5_ouverture"
+    },
+    {
+     "id": "c5_e06",
+     "type": "defi",
+     "defi": "jury_faisabilite",
+     "objectif": "Répondre au président du jury",
+     "succes": {
+      "suivante": "c5_e07"
+     },
+     "echec": {
+      "pression": 0,
+      "semaines": 0,
+      "suivante": "c5_e06r"
+     }
+    },
+    {
+     "id": "c5_e06r",
+     "type": "dialogue",
+     "scene": "c5_tour1_r",
+     "suivante": "c5_e07"
+    },
+    {
+     "id": "c5_e07",
+     "type": "dialogue",
+     "scene": "c5_tour2"
+    },
+    {
+     "id": "c5_e08",
+     "type": "defi",
+     "defi": "jury_territoire",
+     "objectif": "Répondre à la professeure Kessar",
+     "succes": {
+      "suivante": "c5_e09"
+     },
+     "echec": {
+      "pression": 0,
+      "semaines": 0,
+      "suivante": "c5_e08r"
+     }
+    },
+    {
+     "id": "c5_e08r",
+     "type": "dialogue",
+     "scene": "c5_tour2_r",
+     "suivante": "c5_e09"
+    },
+    {
+     "id": "c5_e09",
+     "type": "dialogue",
+     "scene": "c5_tour3"
+    },
+    {
+     "id": "c5_e10",
+     "type": "defi",
+     "defi": "jury_reseaux",
+     "objectif": "Répondre à la professeure Ferlatte",
+     "succes": {
+      "suivante": "c5_e11"
+     },
+     "echec": {
+      "pression": 0,
+      "semaines": 0,
+      "suivante": "c5_e10r"
+     }
+    },
+    {
+     "id": "c5_e10r",
+     "type": "dialogue",
+     "scene": "c5_tour3_r",
+     "suivante": "c5_e11"
+    },
+    {
+     "id": "c5_e11",
+     "type": "dialogue",
+     "scene": "c5_tour4"
+    },
+    {
+     "id": "c5_e12",
+     "type": "defi",
+     "defi": "jury_synthese",
+     "objectif": "Dernière série de questions",
+     "succes": {
+      "suivante": "c5_e13"
+     },
+     "echec": {
+      "pression": 0,
+      "semaines": 0,
+      "suivante": "c5_e14"
+     }
+    },
+    {
+     "id": "c5_e13",
+     "type": "dialogue",
+     "scene": "c5_deliberation",
+     "suivante": "c5_e15"
+    },
+    {
+     "id": "c5_e14",
+     "type": "dialogue",
+     "scene": "c5_deliberation_tendue",
+     "suivante": "c5_e16"
+    },
+    {
+     "id": "c5_e15",
+     "type": "fin",
+     "scene": "c5_fin_accepte",
+     "objectif": "Écouter le verdict du jury",
+     "variantes": [
+      {
+       "si": [
+        "jury_faisabilite_ok",
+        "jury_territoire_ok",
+        "jury_reseaux_ok",
+        "jury_synthese_ok"
+       ],
+       "scene": "c5_fin_felicitations"
+      }
+     ]
+    },
+    {
+     "id": "c5_e16",
+     "type": "fin",
+     "scene": "c5_fin_corrections",
+     "objectif": "Écouter le verdict du jury"
+    }
+   ]
+  }
+ ]
+}

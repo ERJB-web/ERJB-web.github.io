@@ -1,0 +1,337 @@
+[
+  [
+    "PRISMA-ScR",
+    "Preferred Reporting Items for Systematic reviews and Meta-Analyses extension for Scoping Reviews, guide de compte rendu des revues de portée",
+    "Preferred Reporting Items for Systematic reviews and Meta-Analyses extension for Scoping Reviews"
+  ],
+  [
+    "AVQ",
+    "activités de base de la vie quotidienne",
+    "basic activities of daily living"
+  ],
+  [
+    "AIVQ",
+    "activités instrumentales de la vie quotidienne",
+    "instrumental activities of daily living"
+  ],
+  [
+    "ADL",
+    "activities of daily living",
+    "activities of daily living"
+  ],
+  [
+    "IADL",
+    "instrumental activities of daily living",
+    "instrumental activities of daily living"
+  ],
+  [
+    "ARS",
+    "analyse des réseaux sociaux",
+    "social network analysis"
+  ],
+  [
+    "SNA",
+    "social network analysis, analyse des réseaux sociaux",
+    "social network analysis"
+  ],
+  [
+    "CLSC",
+    "centre local de services communautaires",
+    "local community service centre"
+  ],
+  [
+    "SAD",
+    "soutien à domicile",
+    "home support"
+  ],
+  [
+    "CSBE",
+    "Commissaire à la santé et au bien-être",
+    "Québec Health and Welfare Commissioner"
+  ],
+  [
+    "MSSS",
+    "ministère de la Santé et des Services sociaux",
+    "Québec Ministry of Health and Social Services"
+  ],
+  [
+    "OMS",
+    "Organisation mondiale de la Santé",
+    "World Health Organization"
+  ],
+  [
+    "WHO",
+    "World Health Organization, Organisation mondiale de la Santé",
+    "World Health Organization"
+  ],
+  [
+    "INSPQ",
+    "Institut national de santé publique du Québec",
+    "Institut national de santé publique du Québec, Québec public health institute"
+  ],
+  [
+    "ICIS",
+    "Institut canadien d’information sur la santé",
+    "Canadian Institute for Health Information"
+  ],
+  [
+    "CIHI",
+    "Canadian Institute for Health Information, Institut canadien d’information sur la santé",
+    "Canadian Institute for Health Information"
+  ],
+  [
+    "NIA",
+    "National Institute on Ageing",
+    "National Institute on Ageing"
+  ],
+  [
+    "JBI",
+    "Joanna Briggs Institute",
+    "Joanna Briggs Institute"
+  ],
+  [
+    "MEDLINE",
+    "Medical Literature Analysis and Retrieval System Online, base bibliographique biomédicale",
+    "Medical Literature Analysis and Retrieval System Online"
+  ],
+  [
+    "APA",
+    "American Psychological Association, association américaine de psychologie",
+    "American Psychological Association"
+  ],
+  [
+    "PCC",
+    "population, concept et contexte",
+    "population, concept and context"
+  ],
+  [
+    "AIRS",
+    "Alliance of Information and Referral Systems, aujourd’hui Inform USA",
+    "Alliance of Information and Referral Systems, now Inform USA"
+  ],
+  [
+    "RUISSS",
+    "réseau universitaire intégré de santé et de services sociaux",
+    "integrated university health and social services network"
+  ],
+  [
+    "GMF",
+    "groupe de médecine de famille",
+    "family medicine group"
+  ],
+  [
+    "RPA",
+    "résidence privée pour aînés",
+    "private seniors’ residence"
+  ],
+  [
+    "RLS",
+    "réseau local de services",
+    "local services network"
+  ],
+  [
+    "RTS",
+    "réseau territorial de services",
+    "territorial services network"
+  ],
+  [
+    "CISSS",
+    "centre intégré de santé et de services sociaux",
+    "integrated health and social services centre"
+  ],
+  [
+    "CIUSSS",
+    "centre intégré universitaire de santé et de services sociaux",
+    "integrated university health and social services centre"
+  ],
+  [
+    "SMAF",
+    "Système de mesure de l’autonomie fonctionnelle",
+    "Functional Autonomy Measurement System"
+  ],
+  [
+    "LISA",
+    "Local Indicators of Spatial Association, indicateurs locaux d’association spatiale",
+    "Local Indicators of Spatial Association"
+  ],
+  [
+    "SIG",
+    "système d’information géographique",
+    "geographic information system"
+  ],
+  [
+    "QGIS",
+    "logiciel libre de système d’information géographique",
+    "open-source geographic information system software"
+  ],
+  [
+    "ANAP",
+    "Agence nationale de la performance sanitaire et médico-sociale",
+    "French national agency for health and social care performance"
+  ],
+  [
+    "CAPABLE",
+    "Community Aging in Place—Advancing Better Living for Elders, programme combinant soins et adaptation du logement",
+    "Community Aging in Place—Advancing Better Living for Elders"
+  ],
+  [
+    "PRISMA",
+    "Programme de recherche sur l’intégration des services de maintien de l’autonomie",
+    "Program of Research to Integrate the Services for the Maintenance of Autonomy"
+  ],
+  [
+    "AVAQ",
+    "année de vie ajustée sur la qualité",
+    "quality-adjusted life year"
+  ],
+  [
+    "QALY",
+    "quality-adjusted life year, année de vie ajustée sur la qualité",
+    "quality-adjusted life year"
+  ],
+  [
+    "EPTC 2",
+    "Énoncé de politique des trois Conseils : Éthique de la recherche avec des êtres humains",
+    "Tri-Council Policy Statement: Ethical Conduct for Research Involving Humans"
+  ],
+  [
+    "TCPS 2",
+    "Tri-Council Policy Statement: Ethical Conduct for Research Involving Humans",
+    "Tri-Council Policy Statement: Ethical Conduct for Research Involving Humans"
+  ],
+  [
+    "IA",
+    "intelligence artificielle",
+    "artificial intelligence"
+  ],
+  [
+    "AI",
+    "artificial intelligence, intelligence artificielle",
+    "artificial intelligence"
+  ],
+  [
+    "CRCHUM",
+    "Centre de recherche du Centre hospitalier de l’Université de Montréal",
+    "Centre de recherche du Centre hospitalier de l’Université de Montréal, University of Montréal hospital research centre"
+  ],
+  [
+    "ESPUM",
+    "École de santé publique de l’Université de Montréal",
+    "School of Public Health of the University of Montréal"
+  ],
+  [
+    "FRQ",
+    "Fonds de recherche du Québec",
+    "Fonds de recherche du Québec, Québec research fund"
+  ],
+  [
+    "IRSC",
+    "Instituts de recherche en santé du Canada",
+    "Canadian Institutes of Health Research"
+  ],
+  [
+    "CIHR",
+    "Canadian Institutes of Health Research",
+    "Canadian Institutes of Health Research"
+  ],
+  [
+    "CHSLD",
+    "centre d’hébergement et de soins de longue durée",
+    "residential and long-term care centre"
+  ],
+  [
+    "AIPPA",
+    "approche intégrée de proximité pour les personnes aînées",
+    "integrated proximity approach for older people"
+  ],
+  [
+    "MADA",
+    "Municipalité amie des aînés",
+    "age-friendly municipality"
+  ],
+  [
+    "INSEE",
+    "Institut national de la statistique et des études économiques",
+    "French National Institute of Statistics and Economic Studies"
+  ],
+  [
+    "INSP",
+    "Institut national de santé publique",
+    "national public health institute"
+  ],
+  [
+    "CSS",
+    "Cascading Style Sheets, feuilles de style en cascade",
+    "Cascading Style Sheets"
+  ],
+  [
+    "HTML",
+    "HyperText Markup Language, langage de balisage des pages web",
+    "HyperText Markup Language"
+  ],
+  [
+    "CSV",
+    "comma-separated values, valeurs séparées par des virgules",
+    "comma-separated values"
+  ],
+  [
+    "JSON",
+    "JavaScript Object Notation, format de données structuré",
+    "JavaScript Object Notation"
+  ],
+  [
+    "API",
+    "application programming interface, interface de programmation",
+    "application programming interface"
+  ],
+  [
+    "QUAN",
+    "composante quantitative",
+    "quantitative component"
+  ],
+  [
+    "QUAL",
+    "composante qualitative",
+    "qualitative component"
+  ],
+  [
+    "AGGIR",
+    "autonomie gérontologie groupes iso-ressources",
+    "French gerontological autonomy resource-group classification"
+  ],
+  [
+    "GIR",
+    "groupe iso-ressources",
+    "resource group"
+  ],
+  [
+    "OÉMC",
+    "outil d’évaluation multiclientèle",
+    "multiclient assessment tool"
+  ],
+  [
+    "OCCI",
+    "outils de cheminement clinique informatisés",
+    "computerised clinical pathway tools"
+  ],
+  [
+    "RSIPA",
+    "Réseau de services intégrés pour les personnes adultes",
+    "integrated service network for adults"
+  ],
+  [
+    "AVD",
+    "activités de la vie domestique",
+    "domestic activities"
+  ],
+  [
+    "SAPA",
+    "soutien à l’autonomie des personnes âgées",
+    "support for older adults’ autonomy"
+  ],
+  [
+    "CCI",
+    "coefficient de corrélation intraclasse",
+    "intraclass correlation coefficient"
+  ]
+]

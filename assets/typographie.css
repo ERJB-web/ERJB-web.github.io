@@ -1,0 +1,1418 @@
+/* Échelle typographique commune aux pages éditoriales. */
+@layer charte-typographique {
+html body .these .methode-objectif-tete :is(h4,.methode-intro-objectif){color:#fff!important}
+}
+@layer charte-typographique {
+:root{--type-police:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;--type-corps:16px;--type-note:14px;--type-page:clamp(28px,3vw,36px);--type-chapitre:clamp(23px,2.5vw,28px);--type-section:22px;--type-sous-section:19px;--type-encadre:18px;--type-detail:17px;--sans:var(--type-police);--serif:var(--type-police)}
+html:lang(iu){--type-police:Gadugi,Euphemia,"Euphemia UCAS","Noto Sans Canadian Aboriginal",ui-sans-serif,sans-serif}
+/* Les sélecteurs communs remplacent les variantes de taille des modules. */
+html body{font-family:var(--type-police)!important;font-size:var(--type-corps);line-height:1.7}
+html body :is(p,li,dd){font-size:var(--type-corps)!important;line-height:1.7!important}
+/* Une seule famille, y compris les fragments injectés et les commandes.
+   Les formules et extraits de code conservent leurs polices spécialisées. */
+html body :where(div,section,span,a,b,strong,em,small,button,input,select,textarea,summary,label):not(:where(.katex,.katex *,pre,pre *,code,code *)){
+  font-family:inherit!important;
+}
+
+@layer charte-typographique {
+html body footer.pied.pied-compacte{display:block!important;margin:0!important;padding:18px var(--gouttiere,24px) calc(32px + env(safe-area-inset-bottom,0px))!important;border-top:1px solid #dce7eb;background:#f8fbfc;color:#59707d}
+html body footer.pied .pied-barre{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:20px 32px;max-width:1500px;margin:0 auto}
+html body footer.pied .pied-copyright{min-width:0;font-size:var(--type-note)!important;line-height:1.6!important;text-align:left!important}
+html body footer.pied .pied-copyright a{color:inherit;text-decoration:none}
+html body footer.pied .pied-copyright a:hover{text-decoration:underline;text-underline-offset:3px}
+html body footer.pied .audience-compteur{justify-self:end;display:flex;align-items:center;gap:20px;padding:14px 22px;border:1px solid #d1e6e7;border-radius:18px;background:linear-gradient(120deg,#fff,#eef8f8);box-shadow:0 5px 20px #164a6410}
+html body footer.pied .audience-periode{display:flex;align-items:center;gap:7px;color:#52727b;font-size:var(--type-note)!important;white-space:nowrap}
+html body footer.pied .audience-voyant{width:7px;height:7px;border-radius:50%;background:#0b9a91;box-shadow:0 0 0 4px #0b9a9112}
+html body footer.pied .audience-compteur dl{display:flex;gap:20px;margin:0}
+html body footer.pied .audience-compteur dl>div{display:flex;flex-direction:column-reverse;align-items:center;min-width:45px;padding-inline-start:20px;border-inline-start:1px solid #d9e8eb}
+html body footer.pied .audience-compteur dt{margin:4px 0 0;font-size:var(--type-note)!important;line-height:1.3!important;font-weight:450!important;color:#5d7581;text-align:center!important}
+html body footer.pied .audience-compteur dd{margin:0;font-size:24px!important;line-height:1!important;font-weight:700!important;letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:#153f53;text-align:center!important}
+html body .informations-site{max-width:1000px;margin:0 auto;padding:40px 24px 70px}
+html body .informations-site h1{margin:28px 0}
+html body .informations-site .informations-bloc{padding:20px 24px;margin:18px 0;border:1px solid #dce7eb;border-radius:16px;background:#f8fbfc}
+html body .informations-site .informations-bloc>summary{cursor:pointer;font-weight:650;color:#163e52}
+html body .informations-site .pied-panneau{padding-top:12px}
+html body .informations-site .pied-panneau p{margin:12px 0}
+@media(max-width:700px){
+ html body footer.pied .pied-barre{grid-template-columns:minmax(0,1fr);gap:16px}
+ html body footer.pied .audience-compteur{justify-self:end;max-width:100%;gap:14px;padding:12px 16px}
+ html body footer.pied .audience-compteur dl{gap:12px}
+ html body footer.pied .audience-compteur dl>div{padding-inline-start:12px;min-width:42px}
+ html body footer.pied .pied-date{display:block}
+ html body footer.pied .pied-separateur{display:none}
+}
+@media(max-width:380px){html body footer.pied .audience-compteur{width:100%;flex-wrap:wrap;justify-content:space-between;gap:12px}html body footer.pied .audience-compteur dl{flex:1;justify-content:space-between}}
+}
+html body :is(p,li,dt,dd,blockquote) :is(span,a,b,strong,em,small):not(:where(.katex,.katex *,code,code *)){
+  font-size:inherit!important;line-height:inherit!important;
+}
+html body :is(small,caption){font-size:var(--type-note)!important;line-height:1.6!important}
+html body :is(button,summary,label,input,select,textarea){font-size:max(var(--type-note),1em)}
+/* Les indicateurs du parcours restent des chiffres mis en valeur, pas du texte courant. */
+html body .bande-accueil.bande-restauree .impact-ensemble dd{font-size:clamp(38px,3.1vw,46px)!important;line-height:1!important;white-space:nowrap!important;overflow-wrap:normal!important;word-break:normal!important;text-align:start!important;}
+html body .bande-accueil.bande-restauree .impact-ensemble dt{text-align:start!important;text-align-last:start!important;word-spacing:normal!important;}
+
+html body :is(h1,h2,h3,h4,h5,h6){font-family:var(--type-police)!important;font-weight:550!important;line-height:1.4!important;letter-spacing:0!important;text-transform:none!important}
+html body h1{font-size:var(--type-page)!important}
+html body h2{font-size:var(--type-chapitre)!important}
+html body h3{font-size:var(--type-section)!important}
+html body h4{font-size:var(--type-sous-section)!important}
+html body h5{font-size:var(--type-detail)!important}
+html body h6{font-size:var(--type-corps)!important}
+/* Même hiérarchie dans la salle immersive et la page complète. */
+html body :is(#salle,#contenu) .gab .gab-corps :is(p,li,dd){font-size:var(--type-corps)!important;line-height:1.7!important}
+html body :is(#salle,#contenu) .gab .gab-corps h3{font-size:var(--type-section)!important;font-weight:550!important}
+html body :is(#salle,#contenu) .gab .gab-corps h4{font-size:var(--type-sous-section)!important;font-weight:550!important}
+html body :is(#salle,#contenu) .gab .gab-corps h5{font-size:var(--type-detail)!important;font-weight:550!important}
+html body :is(#salle,#contenu) .gab .gab-corps h6{font-size:var(--type-corps)!important;font-weight:550!important}
+/* Encadrés : titres de même rang, quelle que soit leur balise historique. */
+html body :is(#salle,#contenu,.page,#app) :is(.gab-corps,.section-corps,.section) :is(.notion-carte,.concept-carte,.these-devis-carte,.o1-critere-carte,.panel,.vr-panel,.methode-exemples-tete) :is(h3,h4,h5,h6){font-size:var(--type-encadre)!important;font-weight:550!important}
+html body :is(h2,h3,h4,h5,h6) :is(strong,b,a,span){font-size:inherit!important;font-weight:inherit!important}
+html body :is(p,li,dd) :is(strong,b){font-weight:600!important}
+html body :is(figcaption,.legende,.disclaimer){font-size:var(--type-note)!important;line-height:1.55!important}
+html body :is(.surtitre,.eyebrow,.o1-surtitre,.impl-index,.vr-position){font-size:var(--type-note)!important;font-weight:600!important;line-height:1.5!important;letter-spacing:.06em!important}
+html body .gab .gab-bandeau .bandeau-titre{font-size:var(--type-page)!important;font-weight:450!important;line-height:1.2!important}
+html body .gab .gab-bandeau .bandeau-legende{font-size:var(--type-corps)!important;line-height:1.6!important}
+html body .gab .gab-chapitre-tete .gab-chapitre-num{font-size:var(--type-chapitre)!important;font-weight:550!important;line-height:1.35!important;letter-spacing:0!important;text-transform:none!important}
+html body .gab .gab-chapitre-tete .gab-chapitre-num>b{font-size:20px!important;font-weight:450!important}
+html body .gab .gab-tuile .gab-tuile-titre{font-size:18px!important;font-weight:550!important;line-height:1.4!important}
+html body .gab .gab-programme-tete h2{font-size:var(--type-corps)!important;font-weight:550!important}
+html body .gab .gab-sommaire-chapitre :is(a,strong){font-size:var(--type-corps)!important;font-weight:500!important;line-height:1.45!important}
+html body .gab .gab-sommaire-chapitre>span{font-size:var(--type-note)!important;font-weight:600!important}
+/* Préserver la taille spécifique de la note d'attribution et le zoom accessible. */
+html body .gab .gab-corps .these-exemples-attribution{font-size:var(--type-note)!important}
+@media(max-width:700px){:root{--type-page:28px;--type-chapitre:23px;--type-section:21px;--type-sous-section:18px;--type-encadre:18px}}
+html.lv{--type-corps:20px;--type-note:18px;--type-section:26px;--type-sous-section:23px;--type-encadre:22px;--type-detail:21px}
+
+/* Les déclarations importantes de cette couche priment sur les styles locaux.
+   Les nouveaux contenus et modules héritent ainsi de la charte sans retouche. */
+html body :is(p,li,dt,dd,blockquote,td,th,figcaption,caption,.legende,.disclaimer,.gab-bandeau .bandeau-legende){
+  font-family:var(--type-police)!important;
+  text-align:justify!important;
+  text-align-last:auto!important;
+  text-justify:auto!important;
+  hyphens:auto!important;
+  overflow-wrap:anywhere;
+  word-break:normal;
+  word-spacing:normal!important;
+}
+html body :is(table,td,th){font-family:var(--type-police)!important;font-size:var(--type-corps)!important;line-height:1.7!important}
+html body :is(td,th) :is(p,li,dt,dd){font-size:inherit!important;line-height:inherit!important}
+html body :is(h1,h2,h3,h4,h5,h6){font-family:var(--type-police)!important;text-align:start!important;text-align-last:auto!important;hyphens:none!important}
+/* Accueil : revue de presse compacte, avec agrandissement accessible. */
+html body .revue-tete h2{font-size:calc(var(--type-corps)*1.25)!important;line-height:1.3!important}
+html body .revue-bonne-etiquette{font-size:var(--type-note)!important;line-height:1.35!important}
+html body .revue-bonne-titre{font-size:var(--type-corps)!important;line-height:1.4!important}
+html body .revue-bonne .revue-resume{font-size:var(--type-corps)!important;line-height:1.4!important}
+html body .revue-bonne .revue-meta{font-size:var(--type-note)!important;line-height:1.4!important}
+/* La ligne d'état conserve sa taille et son alignement d'interface. */
+html body p.direct-montreal{font-size:var(--type-note)!important;line-height:1.2!important;text-align:start!important;text-align-last:auto!important;hyphens:none!important}
+/* Les commandes et sommaires conservent leur alignement fonctionnel. */
+html body .rs-page :is(.rs-card-category,.rs-art-label,.rs-art-note,.rs-filters button,.representation-date .date){font-size:var(--type-note)!important;line-height:1.5!important}
+html body .rs-page .rs-filter-count{font-size:var(--type-note)!important;font-weight:550}
+html body .rs-page .rs-card-seal>span{font-size:clamp(30px,4vw,48px);font-weight:550;line-height:1.1;letter-spacing:-.04em}
+html body .rs-page .rs-department-mark{font-size:clamp(30px,4vw,48px);font-weight:550;line-height:1.1;letter-spacing:-.04em}
+html body .rs-page .rs-card-category{font-weight:550}
+html body .rs-page .representation-date .date{text-align:start!important;hyphens:none!important}
+html body :is(nav,[role="navigation"],button,[role="button"],.gab-menu-gauche,.gab-sommaire-chapitre) :is(p,li,dt,dd){text-align:start!important;text-align-last:auto!important;hyphens:none!important}
+
+/* Sommaire méthodologique : alignement naturel des intitulés, sans espaces étirés.
+   Les numéros restent dans leur colonne et les autres menus sont inchangés. */
+html body .gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre a.gab-sommaire-etape,
+html body .gab[data-gab-salle="recherche"] .gab-menu-gauche .gab-sommaire-chapitre a.gab-sommaire-etape .gab-sommaire-etape-texte {
+  text-align:start!important;
+  text-align-last:start!important;
+  text-justify:none!important;
+  word-spacing:normal!important;
+  hyphens:none!important;
+}
+
+
+/* Harmonisation de lecture de TOUS les chapitres du projet de thèse,
+   scientifique et grand public. Dans la couche prioritaire de la charte.
+   Ne touche ni les menus/boutons ni aux nombres mis en valeur. */
+html body .these :is(p,li,dt,dd,blockquote,td,th,summary,label),
+html body .cadrage-these :is(p,li,dt,dd,blockquote,td,th,summary,label) {
+  font-size:var(--type-corps)!important;
+  line-height:1.65!important;
+}
+html body .these :is(p,li,dt,dd,blockquote,td,th,summary) :is(span,b,strong,em,a,code,small),
+html body .cadrage-these :is(p,li,dt,dd,blockquote,td,th,summary) :is(span,b,strong,em,a,code,small){
+  font-size:inherit!important;
+  line-height:inherit!important;
+}
+html body .these :is(figcaption,caption,.legende,.disclaimer,.methode-refs,.o2-these-references,.o3-v3-citation,.o3-analyse-note),
+html body .cadrage-these :is(figcaption,caption,.legende,.disclaimer){
+  font-size:var(--type-note)!important;
+  line-height:1.6!important;
+}
+/* Textes dans les cartes, étapes, schémas et synthèses des trois objectifs. */
+html body .these :is(
+ .o1-profils-intro,.o1-profils-besoins span,.o1-profils-centre span,
+ .o1-profils-raison p,.o1-profils-raison strong,.o1-profils-sortie strong,
+ .o1-circuit-label,.o1-circuit-bifurcation,.o1-circuit-tags span,
+ .o1-guidance,.o1-compact-context .o1-intro,
+ .o2-sources-groupe p,.o2-sources-rôles span,.o2-sources-repere p,
+ .o2-these-analyse,.o2-these-phase p,.o2-these-version-intro,
+ .o2-these-etape p,.o2-these-formule p,.o2-these-livrable p,
+ .o3-v3-etude,.o3-analyse-vue,.o3-analyse-carte p,
+ .o3-analyse-detail p,.o3-analyse-produit,
+ .o3-reperes-compact span,.o3-profils-qual small,
+ .o3-processus small,.o3-conditions span,.o3-qual-cible small,
+ .o3-criteres span,.o3viz-actor span,.o3viz-limit span,
+ .methode-produit-court,.o1-profils-clairs details p,
+ .these-synthese-vulgarisee,.these-vulgarisation-exemple p
+) {
+  font-size:var(--type-corps)!important;
+  line-height:1.65!important;
+}
+/* Étiquettes, surtitres, notes et explications brèves : jamais des micro-polices. */
+html body .these :is(
+ .o1-surtitre,.o1-profils-surtitre,.o1-profils-sortie small,
+ .o1-profils-num,.o1-profils-chiffre span,.o1-compact-count span,
+ .o1-critere-name small,.o1-action,
+ .o2-sources-parcours>strong,.o2-sources-etapes li,
+ .o2-these-etape span,.o2-sources-repere strong,
+ .o3-analyse-sur,.o3-analyse-tech,.o3-analyse-index,
+ .o3-analyse-outils small,.o3-v3-indicateur,
+ .o3viz-head small,.o3viz-step,.o3viz-tags span,
+ .o3-reperes-compact b,.o3-phases span,.o3-cible-entete span,
+ .o3-processus b,.o3-conditions>b,.o3-protocole-texte
+) {
+  font-size:var(--type-note)!important;
+  line-height:1.55!important;
+}
+/* La version grand public utilise exactement la même taille de texte courant. */
+html body .vg-guide :is(p,li,dt,dd,summary,.vg-box p,.vg-rows span,.vg-rows b,.vg-flow span,.vg-t){
+  font-size:var(--type-corps)!important;
+  line-height:1.65!important;
+}
+html body .vg-guide :is(.vg-k,.vg-n,.vg-note){
+  font-size:var(--type-note)!important;
+  line-height:1.55!important;
+}
+/* Composants éditoriaux dont les textes sont dans des spans plutôt que des p.
+   Exclusions explicites des menus, commandes, métriques et illustrations. */
+html body .these :is(
+ [class*="-description"],[class*="-desc"],[class*="-explication"],
+ [class*="-texte"],[class*="-text"],[class*="-intro"]
+):not(:is(nav *,button *,[role="navigation"] *,[role="button"] *)){
+  font-size:var(--type-corps)!important;
+  line-height:1.65!important;
+}
+html body .these :is(
+ [class*="-kicker"],[class*="-legende"],[class*="-etiquette"],
+ [class*="-caption"],[class*="-note"]
+):not(:is(nav *,button *,[role="navigation"] *,[role="button"] *)){
+  font-size:var(--type-note)!important;
+  line-height:1.55!important;
+}
+
+
+/* Biographie : les titres, le récit et les paragraphes partagent la même
+   colonne de lecture. Les repères numérotés gardent leur retrait intentionnel.
+   La navigation et les éléments graphiques ne sont pas concernés. */
+html body .gab[data-gab-salle="biographie"] .section-corps.pleine > .colonne-texte > :is(.bio-intro,.bio-figure),
+html body .gab[data-gab-salle="biographie"] .section-corps.pleine > .colonne-outils {
+  box-sizing:border-box;
+  width:100%;
+  max-width:880px!important;
+  margin-inline:auto!important;
+}
+html body .gab[data-gab-salle="biographie"] .section-corps.pleine .bio-intro p {
+  max-width:100%!important;
+}
+
+}
+
+/* O3 · typographie de la section Analyse, sans modifier les autres sections. */
+#these-methode-o3 #methode-o3-7 .o3-analyse-vue{font-size:13px;line-height:1.5}
+#these-methode-o3 #methode-o3-7 .o3-analyse-sur{font-size:10px;line-height:1.4;letter-spacing:.09em;font-weight:750}
+#these-methode-o3 #methode-o3-7 .o3-analyse-outils strong{font-size:18px;font-weight:760;line-height:1.3}
+#these-methode-o3 #methode-o3-7 .o3-analyse-tech{font-size:11px;font-weight:700}
+#these-methode-o3 #methode-o3-7 .o3-analyse-outils small{font-size:12px;line-height:1.5}
+#these-methode-o3 #methode-o3-7 .o3-analyse-index{font-size:10px;line-height:1.3;letter-spacing:.08em;font-weight:750}
+#these-methode-o3 #methode-o3-7 .o3-analyse-carte>strong{font-size:14px;line-height:1.3;font-weight:750}
+#these-methode-o3 #methode-o3-7 .o3-analyse-formule{font-size:clamp(12px,1.1vw,15px);line-height:1.5;font-weight:750}
+#these-methode-o3 #methode-o3-7 .o3-analyse-carte p{font-size:12px;line-height:1.55}
+#these-methode-o3 #methode-o3-7 .o3-analyse-detail summary{font-size:11.5px;font-weight:720}
+#these-methode-o3 #methode-o3-7 .o3-analyse-detail p{font-size:12px;line-height:1.65}
+#these-methode-o3 #methode-o3-7 .o3-analyse-produit,#these-methode-o3 #methode-o3-7 .o3-analyse-note{font-size:12px;line-height:1.57}
+@media(max-width:690px){#these-methode-o3 #methode-o3-7 .o3-analyse-vue{font-size:14px}#these-methode-o3 #methode-o3-7 .o3-analyse-formule{font-size:15px}}
+/* Révision scientifique : lecture progressive, charte typographique commune. */
+.these .revision-details{margin:18px 0;padding:0 18px;border:1px solid #cadbdd;border-radius:10px;background:#fafcfc;min-width:0}
+.these .revision-details>summary{padding:14px 0;cursor:pointer;color:#195365;font-weight:600;text-align:left}
+.these .revision-details[open]>summary{border-bottom:1px solid #dce7e8;margin-bottom:14px}
+.these .revision-details p{margin:12px 0;text-align:justify;overflow-wrap:break-word;hyphens:auto}
+.these .revision-table{max-width:100%;overflow-x:auto;margin:14px 0}
+.these .revision-table table{width:100%;border-collapse:collapse}
+.these .revision-table caption{text-align:left;padding:8px 0;color:#405c65}
+.these .revision-table th,.these .revision-table td{padding:12px;border-bottom:1px solid #dce7e8;vertical-align:top;text-align:justify}
+.these .revision-table th{background:#edf4f5}
+@media(max-width:600px){.these .revision-details{padding:0 12px}.these .revision-table table{min-width:530px}}
+/* Démonstration O3 : chiffres saillants, étapes et décisions. */
+.these .revision-demo{--rev-accent:#176979;--rev-soft:#edf6f6;margin:8px 0 22px;padding:24px;border:1px solid #cddfe2;border-radius:14px;background:#fff;min-width:0;overflow-wrap:break-word}
+.these .revision-demo-head{padding-bottom:18px;border-bottom:1px solid #e1ebed;margin-bottom:20px}
+.these .revision-kicker{display:block;color:var(--rev-accent);font-size:12px;font-weight:700;letter-spacing:.08em;text-align:left;margin-bottom:7px}
+.these .revision-demo-head h6{margin:0 0 8px;color:#173f51;font-size:var(--type-encadre)!important}
+.these .revision-demo-head p{margin:0;color:#536774}
+.these .revision-reperes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:22px 0}
+.these .revision-reperes>div{display:flex;flex-direction:column;gap:6px;padding:6px 0 6px 16px;border-left:3px solid #93c4ca;min-width:0;text-align:left}
+.these .revision-number{display:block;color:var(--rev-accent);font-size:36px;font-weight:750;line-height:1.15;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.these .revision-number small{font-size:16px;font-weight:600;letter-spacing:0}
+.these .revision-reperes>div>span:last-child{font-size:14px;color:#526975;line-height:1.5}
+.these .revision-process{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;list-style:none;margin:26px 0;padding:0;counter-reset:none}
+.these .revision-process>li{display:flex;align-items:flex-start;gap:12px;padding:18px 15px;background:#f4f8f9;border:1px solid #deeaec;border-radius:10px;min-width:0}
+.these .revision-process>li::before{content:none!important}
+.these .revision-step{flex:0 0 32px;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#1c6677;color:#fff;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+.these .revision-process h6{margin:2px 0 8px;color:#204b5b}
+.these .revision-process p{margin:0;color:#526875}
+.these .revision-distinction{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:19px 15px;background:#edf5f7;border-radius:10px;margin:22px 0}
+.these .revision-distinction>span{flex:1;min-width:0;text-align:center}
+.these .revision-distinction b{display:block;color:#214e60;font-size:16px}
+.these .revision-distinction small{display:block;margin-top:5px;color:#526875;font-size:13px;line-height:1.4}
+.these .revision-distinction em{color:#6a8594;font-size:24px;font-style:normal}
+.these .revision-demo .revision-note{color:#4c6573;margin:16px 0;padding:0;text-align:justify}
+.these .revision-proof{margin-top:24px;padding-top:20px;border-top:1px solid #dce7e9}
+.these .revision-proof>h6{margin:0 0 16px;color:#21485a}
+.these .revision-proof-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 22px}
+.these .revision-proof-grid>div{padding-left:13px;border-left:2px solid #bad6db}
+.these .revision-proof-label{display:inline-block;color:#20596c;background:#eaf3f5;border-radius:5px;padding:3px 9px;font-weight:650;font-size:14px;text-align:left}
+.these .revision-proof-label--doute{color:#885426;background:#fcf0dc}
+.these .revision-proof-grid p{margin:7px 0 0;color:#526875}
+.these .revision-demo--scope{--rev-accent:#2b5e92;--rev-soft:#edf3fa;border-color:#d3dfed}
+.these .revision-status{display:inline-block;background:#edf3fa;color:#355c80;border-radius:6px;padding:5px 9px;font-size:13px;line-height:1.5;text-align:left}
+.these .revision-equation{display:flex;align-items:center;justify-content:space-between;gap:7px;margin:26px 0;padding:18px 10px;border-radius:10px;background:#f4f7fb}
+.these .revision-equation>span{flex:1;text-align:center;min-width:0}
+.these .revision-equation b{display:block;font-size:34px;font-weight:750;line-height:1.2;color:#285e92;font-variant-numeric:tabular-nums}
+.these .revision-equation small{display:block;font-size:13px;line-height:1.45;color:#4d6780;margin-top:8px}
+.these .revision-equation em{font-size:20px;line-height:1;color:#7592a9;font-style:normal}
+.these .revision-equation .revision-equation-total{flex:1.25;border-left:1px solid #cbdbea;padding-left:12px}
+.these .revision-equation-total b{color:#153e68}
+.these .revision-scope-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin:20px 0}
+.these .revision-scope-grid>div{min-width:0;padding-left:15px;border-left:3px solid #93b3d2}
+.these .revision-scope-grid h6{margin:0 0 8px;color:#244c75}
+.these .revision-scope-grid p{margin:0;color:#526875}
+.these .revision-demo--participation{border-color:#d4dfe6}
+.these .revision-thresholds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:22px 0}
+.these .revision-threshold{--threshold:#216c68;--threshold-bg:#f0f8f5;min-width:0;padding:18px 14px;border:1px solid #dce5e7;border-top:4px solid var(--threshold);border-radius:9px;background:var(--threshold-bg)}
+.these .revision-threshold--watch{--threshold:#91651f;--threshold-bg:#fdf8ed}
+.these .revision-threshold--limited{--threshold:#985640;--threshold-bg:#fbf3ef}
+.these .revision-threshold-label{display:block;color:var(--threshold);font-size:11px;font-weight:750;letter-spacing:.04em;line-height:1.5;min-height:32px;text-align:left}
+.these .revision-threshold-number{display:block;font-size:32px;font-weight:750;color:var(--threshold);line-height:1.2;margin:10px 0 14px;letter-spacing:-.03em;font-variant-numeric:tabular-nums;text-align:left;white-space:nowrap}
+.these .revision-threshold h6{margin:0 0 10px;color:#254757}
+.these .revision-threshold p{margin:0;color:#506571}
+.these .revision-denominators{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:24px 0 14px}
+.these .revision-denominators>div{border:1px solid #d8e4e8;border-radius:9px;padding:16px;background:#f7fafb;min-width:0}
+.these .revision-denominators h6{margin:0 0 12px;color:#25526a}
+.these .revision-denominators p{margin:0;text-align:center!important}
+.these .revision-denominators b{display:block;border-bottom:1px solid #b5cdd6;padding-bottom:7px;margin-bottom:7px;color:#244e62}
+.these .revision-denominators p>span{display:block}
+@media(max-width:1100px){.these .revision-thresholds{grid-template-columns:1fr}.these .revision-threshold{display:grid;grid-template-columns:125px minmax(0,1fr);gap:4px 18px}.these .revision-threshold-label{grid-column:1;min-height:0}.these .revision-threshold-number{grid-column:1;grid-row:2/4;margin:0}.these .revision-threshold h6{grid-column:2;grid-row:1;margin:0 0 6px}.these .revision-threshold p{grid-column:2;grid-row:2/4}}
+@media(max-width:700px){.these .revision-demo{padding:18px 14px}.these .revision-process{grid-template-columns:1fr}.these .revision-reperes{gap:12px}.these .revision-reperes>div{padding-left:10px}.these .revision-number{font-size:30px}.these .revision-number small{display:block;font-size:14px}.these .revision-proof-grid,.these .revision-scope-grid,.these .revision-denominators{grid-template-columns:1fr}.these .revision-equation{flex-wrap:wrap;justify-content:center;gap:10px 4px}.these .revision-equation>span{flex:0 0 25%}.these .revision-equation>em:last-of-type{display:none}.these .revision-equation .revision-equation-total{flex:0 0 100%;border-left:0;border-top:1px solid #cbdbea;padding:14px 0 0;margin-top:8px}.these .revision-equation-total small{margin-top:4px}.these .revision-threshold{display:block}.these .revision-threshold-label{min-height:0}.these .revision-threshold-number{margin:8px 0 14px}.these .revision-distinction{flex-direction:column;align-items:stretch}.these .revision-distinction em{text-align:center;line-height:1}.these .revision-distinction small{display:inline;margin-left:5px}.these .revision-distinction b{display:inline}}
+/* Exceptions sémantiques de la charte : les nombres sont des repères, hors corps rédigé. */
+html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo .revision-number{font-size:36px!important;line-height:1.15!important}
+html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo .revision-threshold-number{font-size:32px!important;line-height:1.2!important}
+html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo .revision-equation b{font-size:34px!important;line-height:1.2!important;font-weight:750!important}
+html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo .revision-number small{font-size:16px!important}
+html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo :is(.revision-kicker,.revision-threshold-label){font-size:var(--type-note)!important}
+html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo :is(.revision-step,.revision-status){font-size:var(--type-note)!important}
+html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo .revision-proof-label{font-size:14px!important}
+@media(max-width:700px){html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo .revision-number{font-size:30px!important}html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo .revision-number small{font-size:14px!important}}
+@media(max-width:700px){
+ .these #methode-o3-7{padding:10px}
+ .these #methode-o3-7 .these-methode-item:has(>dd>.revision-demo){padding:0;border:0;background:transparent}
+ .these #methode-o3-7 .these-methode-item:has(>dd>.revision-demo)>dt{padding:12px 4px;text-align:left!important}
+ .these #methode-o3-7 .revision-demo{margin-top:0}
+ .these .revision-demo--workload .revision-equation>span{flex-basis:38%}
+ .these .revision-demo--workload .revision-equation>.revision-equation-total{flex-basis:100%}
+ html body :is(#salle,#contenu) .gab[data-gab-salle="recherche"] .revision-demo--workload .revision-equation b{font-size:28px!important}
+}
+@media(max-width:700px){
+ .these #these-methode-o3 #methode-o3-7{padding:8px!important}
+ .these #these-methode-o3 #methode-o3-7 .these-methode-item:has(>dd>.revision-demo){padding:0!important;border:0!important;background:transparent!important}
+ .these #these-methode-o3 #methode-o3-7 .these-methode-item:has(>dd>.revision-demo)>dt{text-align:left!important;padding:12px 4px!important}
+}
+
+
+/* O3 consolidé : priorité aux trois scénarios côte à côte dans la synthèse du pilote.
+   Exceptions de présentation des chiffres, sans modification de la charte du texte courant. */
+.these .o3-pilote-synthese .o3-pilote-seuils{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0;
+}
+.these .o3-pilote-synthese .revision-threshold{
+  display:block;padding:13px 14px;min-width:0;
+}
+.these .o3-pilote-synthese .revision-threshold-label{min-height:0}
+.these .o3-pilote-synthese .revision-threshold-number{
+  display:block;margin:6px 0;font-size:34px;line-height:1.2;white-space:nowrap;
+}
+.these .o3-pilote-synthese .revision-threshold p{
+  font-size:16px;line-height:1.45;margin:4px 0 0;text-align:left;
+}
+@media(max-width:760px){
+ .these .o3-pilote-synthese .o3-pilote-seuils{grid-template-columns:1fr;gap:8px}
+}
+
+
+/* Mise en valeur des valeurs numériques O3, sans réduire les textes ni toucher aux autres pages. */
+html body #these-methode-o3 .o3-pilote-synthese .o3-pilote-repere strong{
+ font-size:clamp(34px,3.25vw,43px)!important;font-weight:850!important;
+ line-height:1.08!important;letter-spacing:-.035em!important;
+}
+html body #these-methode-o3 .o3-pilote-synthese .o3-pilote-repere strong small{
+ font-size:.55em!important;letter-spacing:0!important;
+}
+html body #these-methode-o3 .o3-pilote-synthese .revision-threshold-number{
+ font-size:clamp(35px,3.1vw,42px)!important;font-weight:850!important;
+ line-height:1.12!important;margin:6px 0 8px!important;
+}
+html body #these-methode-o3 :is(.o3-equation,.revision-equation) strong,
+html body #these-methode-o3 .o3-equation-total strong,
+html body #these-methode-o3 .revision-equation b{
+ font-size:clamp(32px,3.1vw,42px)!important;font-weight:800!important;line-height:1.12!important;
+}
+html body #these-methode-o3 .o3-qual-cible>strong{
+ font-size:clamp(36px,3.3vw,44px)!important;font-weight:850!important;
+}
+@media(max-width:480px){
+ html body #these-methode-o3 .o3-pilote-synthese .o3-pilote-repere strong{font-size:35px!important}
+ html body #these-methode-o3 .o3-pilote-synthese .revision-threshold-number{font-size:38px!important}
+}
+
+
+/* Harmonisation finale des contenus scientifiques et des étapes (O1/O2/O3).
+   Les menus, boutons, badges de navigation et indicateurs numériques sont exclus. */
+@layer charte-typographique {
+  /* Le texte explicatif doit conserver le corps normal, y compris lorsque la
+     source HTML emploie span, small ou strong au lieu de p. */
+  html body .these :is(
+    .o1-circuit-step p,.o1-circuit-label,.o1-circuit-bifurcation,
+    .o1-critere-col li,.o1-suite li,.o1-profils-intro,
+    .o1-profils-besoins span,.o1-profils-centre span,
+    .o1-profils-raison p,.o1-profils-sortie strong,
+    .o2-sources-groupe p,.o2-sources-rôles span,.o2-sources-etapes li,
+    .o2-sources-repere p,.o2-these-analyse,.o2-these-phase p,
+    .o2-these-version-intro,.o2-these-etape p,.o2-these-formule p,
+    .o2-these-livrable p,.o2-these-chapeau,
+    .o3-processus small,.o3-conditions span,.o3-criteres span,
+    .o3-profils-qual small,.o3-v3-comparatif > span,
+    .o3-justification-intitule strong,
+    .o3viz-actor span,.o3viz-limit span,
+    .o3-analyse-vue,.o3-analyse-carte p,.o3-analyse-outils small,
+    .o3-analyse-detail p,.o3-analyse-produit,
+    .methode-produit-court,.methode-integration-flux li,
+    .revision-process li p,.revision-threshold p,.revision-scope-grid p
+  ){
+    font-size:var(--type-corps)!important;
+    line-height:1.65!important;
+  }
+  /* Dans les étapes et cartes de synthèse, conserver une taille lisible
+     même si les textes ne sont pas enveloppés dans des paragraphes. */
+  html body .these :is(
+    [class*="-etapes"],[class*="-steps"],[class*="-deliberation"],
+    [class*="-deliberatif"],[class*="-integration"]
+  ) :is(p,li,span,small):not(:is(
+    [class*="-num"],[class*="-index"],[class*="-kicker"],
+    [class*="-etiquette"],[class*="-label"],[class*="-badge"]
+  )){
+    font-size:var(--type-corps)!important;
+    line-height:1.6!important;
+  }
+  /* Titres de cartes : le niveau sous-section reste stable. */
+  html body .these :is(
+    .o1-critere-col>strong,.o2-sources-groupe b,
+    .o2-sources-rôles strong,.o2-these-etape h6,
+    .o2-these-formule h6,.o2-these-produit h6,
+    .o3-analyse-carte>strong,.o3-analyse-formule,
+    .o3-analyse-outils strong
+  ){
+    font-size:var(--type-detail)!important;
+    line-height:1.38!important;
+  }
+  /* Surtitres, libellés de catégorie et aides brèves, à 14 px. */
+  html body .these :is(
+    .o1-surtitre,.o1-profils-surtitre,.o1-circuit-step-kicker,
+    .o1-circuit-tags span,.o2-sources-parcours>strong,
+    .o2-these-etape>span,.o2-these-livrable>b,
+    .o3-analyse-sur,.o3-analyse-tech,.o3-analyse-index,
+    .o3viz-head small,.o3viz-step,.o3viz-tags span,
+    .revision-kicker,.revision-threshold-label,.revision-status
+  ){
+    font-size:var(--type-note)!important;
+    line-height:1.55!important;
+  }
+  /* Les chiffres clés ne sont pas normalisés comme de la prose. */
+  html body .these :is(
+    .o3-equation>div>strong,.o3-equation-total>strong,
+    .revision-equation b,.revision-threshold-number,
+    .o3-pilote-repere>strong
+  ){
+    font-variant-numeric:tabular-nums;
+  }
+}
+/* Éviter les mots coupés ou masqués dans les grilles de la méthodologie ;
+   uniquement la zone de contenu, jamais les barres de navigation. */
+html body .these :is(
+  .methode-rubrique-contenu,.methode-fiche,.these-methode-item,
+  .revision-demo,.revision-process,.revision-threshold,
+  .o3-processus,.o3-analyse-vue,.o3-analyse-carte,
+  [class*="-deliberation"],[class*="-deliberatif"],[class*="-integration"]
+){
+  min-width:0;max-width:100%;box-sizing:border-box;
+}
+html body .these :is(
+  .methode-rubrique-contenu,.revision-demo,.o3-processus,
+  [class*="-deliberation"],[class*="-deliberatif"],[class*="-integration"]
+) :is(p,li,dd,small,span){
+  white-space:normal;overflow-wrap:break-word;word-break:normal;
+}
+html body .these :is(
+  .o3-processus>div,.revision-process>li,
+  [class*="-deliberation"]>div,[class*="-deliberatif"]>div,
+  [class*="-integration"]>div
+){
+  min-width:0;max-width:100%;overflow-wrap:break-word;
+}
+
+/* Audit de lisibilité méthodologique O1–O3 — 2026-10-19.
+   Correctifs strictement limités à la méthode scientifique. Ne modifie ni
+   les menus, ni les figures, ni la version grand public, ni le zoom accessible. */
+@layer charte-typographique {
+  /* Textes explicatifs autrefois à 10–12 px : rétablir le corps de lecture. */
+  html:not([data-methodo-lecture="grand-public"]) body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) :is(
+    .o1-circuit-step p,.o1-circuit-bifurcation,.o1-circuit-minirows div,
+    .o1-circuit-step .o1-circuit-label,.o1-codage-table tbody td,.o1-codage-table tbody th,
+    .o1-codage-preuve p,.o1-vis-population-carte small,.o1-vis-recherche-stats span,
+    .o1-fabrication-tableau tbody th,.o1-fabrication-tableau tbody td,
+    .o2-var-carte p,.o2-var-explication p,.o2-these-etape p,.o2-these-formule p,
+    .o3-analyse-carte p,.o3-analyse-outils small,.o3-analyse-detail p,
+    .o3-analyse-produit,.o3-analyse-note,.o3-analyse-vue,
+    .revision-process p,.revision-threshold p,.revision-scope-grid p
+  ){
+    font-size:var(--type-corps)!important;
+    line-height:1.58!important;
+    overflow-wrap:break-word;
+  }
+  /* Étiquettes : taille commune, jamais microtexte à 10–11 px. */
+  html:not([data-methodo-lecture="grand-public"]) body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) :is(
+    .o1-vis-surtitre,.o1-vis-devis-carte small,.o1-vis-bases span,
+    .o1-methode-phase-num,.o1-circuit-head span,.o1-circuit-step-kicker,
+    .o1-circuit-minirows b,.o1-circuit-tags span,.o1-circuit-status,
+    .o1-codage-intro,.o1-codage-step,.o1-codage-table thead th,
+    .o1-codage-preuve summary,.o1-fabrication-tableau thead th,
+    .o1-limites-note,.o2-var-num,.o2-var-explication strong,
+    .o3-analyse-sur,.o3-analyse-tech,.o3-analyse-index,
+    .o3-analyse-detail summary,.o3-v3-citation,.methode-objectif-tete>p:first-child,
+    .these-methode-item>dt,.methode-produit dt,
+    .revision-kicker,.revision-threshold-label,.revision-proof-label
+  ){
+    font-size:var(--type-note)!important;
+    line-height:1.45!important;
+    letter-spacing:.02em!important;
+  }
+  /* Titres et synthèses des cartes : lisibles sans prendre la place des chiffres. */
+  html:not([data-methodo-lecture="grand-public"]) body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) :is(
+    .o1-circuit-step h6,.o1-vis-devis-carte strong,.o2-var-carte h6,
+    .o3-analyse-carte>strong,.o3-analyse-formule,.o3-analyse-outils strong
+  ){
+    font-size:var(--type-detail)!important;
+    line-height:1.35!important;
+  }
+  /* Les vrais indicateurs restent la première information visible. */
+  html:not([data-methodo-lecture="grand-public"]) body .these #these-methode-o1 :is(
+    .o1-methode-chiffre strong,.o1-vis-recherche-stats strong
+  ){
+    font-size:clamp(29px,2.75vw,39px)!important;
+    font-weight:800!important;
+    line-height:1.12!important;
+    font-variant-numeric:tabular-nums;
+    letter-spacing:-.035em!important;
+  }
+  html:not([data-methodo-lecture="grand-public"]) body .these #methode-o2-6 .o2-var-num{
+    font-size:18px!important;font-weight:850!important;letter-spacing:0!important;
+  }
+}
+/* Le moindre écart de confort ne doit pas ajouter des mètres de vide.
+   Pas de hauteur fixe : les cartes peuvent grandir si leur texte le nécessite. */
+html:not([data-methodo-lecture="grand-public"]) body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) .methode-objectif-tete{
+  margin-bottom:14px!important;padding-bottom:12px!important;
+}
+html:not([data-methodo-lecture="grand-public"]) body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) .methode-objectif-tete>p:last-child{
+  margin:5px 0 0!important;max-width:95ch;line-height:1.55!important;
+}
+html:not([data-methodo-lecture="grand-public"]) body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) .methode-rubrique{
+  margin-bottom:15px!important;
+}
+html:not([data-methodo-lecture="grand-public"]) body .these #these-methode-o3 .methode-rubrique{
+  padding:clamp(14px,1.7vw,20px)!important;
+}
+html:not([data-methodo-lecture="grand-public"]) body .these #methode-o2-6 .o2-var-carte{
+  min-height:0!important;padding:13px 15px!important;gap:6px!important;
+}
+html:not([data-methodo-lecture="grand-public"]) body .these :is(#these-methode-o1,#these-methode-o2,#these-methode-o3) .precision-protocole{
+  margin:15px 0 8px!important;padding:clamp(14px,1.9vw,19px)!important;
+}
+html:not([data-methodo-lecture="grand-public"]) body .these #these-methode-o3 .revision-demo{
+  margin:8px 0 15px!important;padding:clamp(15px,1.8vw,20px)!important;
+}
+html:not([data-methodo-lecture="grand-public"]) body .these #these-methode-o3 .revision-demo-head{
+  padding-bottom:11px!important;margin-bottom:12px!important;
+}
+html:not([data-methodo-lecture="grand-public"]) body .these #these-methode-o3 :is(.revision-reperes,.revision-process){
+  margin-block:14px!important;gap:10px!important;
+}
+html:not([data-methodo-lecture="grand-public"]) body .these #these-methode-o3 .revision-process>li{
+  padding:13px!important;
+}
+@media(max-width:650px){
+ html:not([data-methodo-lecture="grand-public"]) body .these #these-methode-o1 .o1-methode-chiffre strong{
+   font-size:30px!important;
+ }
+ html:not([data-methodo-lecture="grand-public"]) body .these #methode-o2-6 .o2-var-carte{padding:12px!important}
+}
+
+/* Contribution scientifique : trois paragraphes, emphase ponctuelle. */
+.these .mat-sc__force-text .mat-sc__force-phrase{font-weight:400;margin:0 0 .9em}
+.these .mat-sc__force-text .mat-sc__force-phrase:last-child{margin-bottom:0}
+.these .mat-sc__force-text .mat-sc__force-phrase strong{font-weight:650}
+
+/* O3 : vue synthétique et lecture progressive du protocole. */
+.these #these-methode-o3 .o3-devis-retro{display:block!important;padding:20px!important;margin:14px 0 18px!important;border:1px solid #dddce7!important;border-radius:14px!important;background:#faf9fc!important;box-shadow:none!important}
+.these #these-methode-o3 .o3-devis-retro h3{font-size:var(--type-sous-section)!important;margin:5px 0 10px!important}
+.these #these-methode-o3 .o3-devis-retro__kicker{font-size:12px!important;color:#705580!important}
+.o3-lecture-volets{display:flex;align-items:center;gap:12px;color:#665073}
+.o3-lecture-volets>span:not([aria-hidden]){padding:5px 10px;border:1px solid #ded8e5;border-radius:6px;background:white;font-size:var(--type-note);font-weight:600}
+.o3-lecture-chiffres{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0}
+.o3-lecture-chiffres>div{display:grid;gap:4px;border-left:2px solid #cbbbd6;padding:3px 12px;min-width:0}
+.o3-lecture-chiffres strong{font-size:27px;font-weight:550;color:#614775;line-height:1.15}
+.o3-lecture-chiffres span{font-size:var(--type-note);color:#53646d;line-height:1.45}
+.these #these-methode-o3 .o3-lecture-parcours{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;list-style:none!important;margin:0 0 14px!important;padding:0!important}
+.these #these-methode-o3 .o3-lecture-parcours>li{display:grid;grid-template-columns:24px 1fr;gap:3px 7px;align-content:start;padding:10px!important;border:1px solid #e1dce6;background:#fff;border-radius:8px;min-width:0}
+.these #these-methode-o3 .o3-lecture-parcours>li>span{grid-row:1/3;color:#877093;font-size:12px;font-weight:600}
+.these #these-methode-o3 .o3-lecture-parcours strong{font-size:var(--type-note)!important;font-weight:600!important;color:#354b58}
+.these #these-methode-o3 .o3-lecture-parcours small{font-size:var(--type-note);color:#596a74;line-height:1.45}
+.these #these-methode-o3 .o3-lecture-principe{border:0;background:none;margin:3px 0 10px;padding:0}
+.o3-lecture-principe>summary{cursor:pointer;font-size:var(--type-note);color:#5c4870;padding:5px 0}
+.these #these-methode-o3 .o3-lecture-principe p{padding-top:8px}
+.these #these-methode-o3 .o3-devis-retro__renvoi{font-size:var(--type-note)!important;padding:7px 10px!important;margin:0!important;min-height:0;background:#fff!important;border-color:#d9d2e1!important;color:#5f4673!important}
+.o3-lecture-commandes{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0 9px}
+.o3-lecture-commandes>span{margin-right:auto;color:#51616d;font-size:var(--type-note)}
+.o3-lecture-commandes button{padding:6px 10px;border:1px solid #d9dce2;border-radius:6px;background:white;color:#57446b;font-family:inherit;font-size:var(--type-note);cursor:pointer}
+.these #these-methode-o3 .methode-these-corps{display:block!important}
+html body .these #these-methode-o3 .o3-lecture-rubrique{display:block!important;min-height:0!important;padding:0!important;margin:0 0 7px!important;background:#fff!important;border:1px solid #dce0e6!important;border-radius:10px!important;box-shadow:none!important;overflow:hidden}
+.o3-lecture-details>summary{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 12px;list-style:none;cursor:pointer;padding:9px 16px}
+.o3-lecture-details>summary::-webkit-details-marker{display:none}
+.o3-lecture-details>summary::after{content:'+';grid-column:2;grid-row:1/3;font-size:22px;font-weight:400;color:#776288}
+.o3-lecture-details[open]>summary::after{content:'−'}
+html body .these #these-methode-o3 .o3-lecture-details>summary .methode-rubrique-titre{display:flex!important;gap:10px!important;align-items:center;grid-column:1;min-height:0!important;border:0!important;padding:0!important;margin:0!important;background:none!important;font-size:var(--type-detail)!important;font-weight:550!important;line-height:1.4!important;box-shadow:none!important}
+html body .these #these-methode-o3 .o3-lecture-details>summary .methode-rubrique-titre>span{position:static!important;transform:none!important;min-width:27px!important;width:27px!important;height:27px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;font-size:12px!important;border-radius:6px!important;background:#eee9f3!important;color:#715585!important}
+.o3-lecture-apercu{display:flex;grid-column:1;flex-wrap:wrap;gap:3px 16px;padding-left:37px;color:#586a74;font-size:var(--type-note);line-height:1.35}
+.o3-lecture-apercu>span{display:inline-flex;gap:6px;flex-wrap:wrap}
+.o3-lecture-apercu b{font-weight:550;color:#6a527a}
+.o3-lecture-details[open]>summary{background:#f9f8fb;border-bottom:1px solid #e4e0e8}
+.o3-lecture-details[open]>summary .o3-lecture-apercu{display:none}
+.o3-lecture-contenu{padding:12px;min-width:0}
+.o3-lecture-notes{margin:10px 0;border:1px solid #dfe3e8;border-radius:8px;padding:10px 13px}
+.o3-lecture-notes>summary{color:#5c5668;cursor:pointer;font-size:var(--type-note)}
+.o3-lecture-notes>summary~*{margin-top:14px}
+.o3-lecture-details>summary:focus-visible,.o3-lecture-commandes button:focus-visible{outline:3px solid #8f70a6;outline-offset:-3px}
+@media(max-width:750px){
+ .o3-lecture-chiffres{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+ .these #these-methode-o3 .o3-lecture-parcours{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .these #these-methode-o3 .o3-devis-retro{padding:15px!important}
+ .o3-lecture-details>summary{padding:10px 12px}
+ .o3-lecture-apercu{padding-left:0;gap:5px 12px}
+ .o3-lecture-contenu{padding:9px}
+ .o3-lecture-commandes>span{flex-basis:100%}
+}
+/* Même en-tête intégral et accessible pour O1, O2 et O3 : aucune réduction ni masquage de l’objectif 3. */
+html body .these #these-methode-o3>.methode-objectif-tete .o3-acces-galerie{margin:0 0 0 auto!important;min-height:0;padding:7px 10px!important;font-size:var(--type-note)!important;background:#f7f5fa!important;border:1px solid #ddd6e5!important;color:#654b78!important}
+@layer charte-typographique{
+html body .these #these-methode-o3 .o3-lecture-parcours>li{text-align:start!important;hyphens:none!important}
+html body .these #these-methode-o3 .o3-lecture-parcours small{text-align:start!important;hyphens:none!important}
+}
+/* Une seule bordure par rubrique ; les repères ne sont pas des paragraphes en gras. */
+html body .these #these-methode-o3 .o3-lecture-details{padding:0!important;margin:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important}
+html body .these #these-methode-o3 .o3-lecture-details>summary{border:0!important;border-radius:0!important;margin:0!important;background:none!important}
+html body .these #these-methode-o3 .o3-lecture-details[open]>summary{background:#f9f8fb!important;border-bottom:1px solid #e4e0e8!important}
+html body .these #these-methode-o3 .o3-lecture-apercu{font-weight:400!important}
+html body .these #these-methode-o3 .o3-lecture-details>summary .methode-rubrique-titre{color:#5b476c!important}
+.these #these-methode-o3 .o3-lecture-parcours>li{grid-template-columns:24px minmax(0,1fr)}
+.these #these-methode-o3 .o3-lecture-parcours :is(strong,small){min-width:0;overflow-wrap:anywhere}
+.o3-lecture-volets{flex-wrap:wrap}
+@media(max-width:750px){html.lv .these #these-methode-o3 .o3-lecture-parcours{grid-template-columns:1fr!important}}
+
+@layer charte-typographique {
+/* Parcours : les intitulés longs gardent la taille de lecture commune. */
+html body .bande-parcours .trajectoire-texte{font-size:var(--type-corps)!important;line-height:1.65!important}
+html body .bande-parcours .trajectoire-date{font-size:var(--type-corps)!important}
+}
+
+@layer charte-typographique{
+html body :is(.mgp-trail a,.mgp-steps b,.mgp-flow span,.vg-guide .vg-rows span,.impact-ensemble dt){font-size:var(--type-corps)!important;line-height:1.5!important}
+html body .bande-restauree .impact-ensemble dt{line-height:1.35!important;hyphens:none!important;overflow-wrap:normal!important;word-break:normal!important}
+html body .bande-restauree .impact-ensemble dd bdi{white-space:nowrap!important}
+html body :is(nav button,nav a){font-family:var(--type-police)!important}
+}
+
+@layer charte-typographique{
+html body .trajectoire-texte{font-size:var(--type-corps)!important;line-height:1.5!important}
+html body :is(.trajectoire-date,.recit .type,.recit .date){font-size:var(--type-note)!important;line-height:1.5!important}
+html body .gab .gab-sommaire-chapitre a span{font-size:inherit!important;line-height:inherit!important}
+}
+
+@layer charte-typographique{
+html body .bande-parcours .trajectoire-texte{text-align:start!important;text-align-last:start!important;word-spacing:normal!important;hyphens:none!important;overflow-wrap:normal!important;line-height:1.4!important}
+}
+
+@layer charte-typographique{
+@media(max-width:700px){
+ html:not(.lv) body:has(>main>.accueil)>.entete .nav .acces-these{font-size:15px!important;font-weight:500!important}
+ html:not(.lv) body:has(>main>.accueil)>.entete .outils .bouton-cv{font-size:14px!important}
+ html:not(.lv) body:has(>main>.accueil)>.entete .entete-contact a{font-size:12px!important;line-height:1.2!important}
+ html:not(.lv) body:has(>main>.accueil)>.entete .direct-montreal{font-size:16px!important}
+ html:not(.lv) body:has(>main>.accueil)>.entete .direct-activite{font-size:14px!important}
+ html:not(.lv) body:has(>main>.accueil) .accueil h1{font-size:clamp(27px,7.75vw,40px)!important;line-height:1.15!important;font-weight:700!important;color:#05446b}
+ html:not(.lv) body:has(>main>.accueil) .accueil .roles{font-size:clamp(14px,3.88vw,20px)!important;line-height:1.35!important;text-align:start!important;hyphens:none!important;font-weight:400!important}
+}
+@media(max-width:440px){
+ html:not(.lv) body:has(>main>.accueil)>.entete .nav .acces-these{font-size:12px!important}
+ html:not(.lv) body:has(>main>.accueil)>.entete .outils .bouton-cv{font-size:12px!important}
+ html:not(.lv) body:has(>main>.accueil)>.entete .entete-contact a,html:not(.lv) body:has(>main>.accueil)>.entete .entete-rdv::after{font-size:clamp(8px,2.32vw,10px)!important}
+}
+}
+
+@layer charte-typographique{
+@media(max-width:700px){
+  /* Identité mobile : éviter la justification et privilégier deux lignes équilibrées,
+     dont Juriste · Entrepreneur · Éducateur spécialisé lorsque la largeur le permet. */
+  html:not(.lv) body:has(>main>.accueil) .accueil .identite .roles{
+    font-size:clamp(16px,3.6vw,18px)!important;
+    line-height:1.4!important;
+    text-align:start!important;
+    text-align-last:start!important;
+    text-justify:none!important;
+    word-spacing:normal!important;
+    hyphens:none!important;
+    text-wrap:balance!important;
+  }
+}
+/* Tout le texte rédigé suit la même taille ; seules les notes et les titres ont un autre rang. */
+html body .gab :is(.bio-intro,.bio-intro p,.intro,.sous-titre,.citation,.recit-fin,.vision p){font-family:var(--type-police)!important;font-size:var(--type-corps)!important;line-height:1.7!important}
+html body .gab :is(.gab-intro,.gab-corps) :is(p,blockquote){text-indent:0!important;hyphens:manual!important;overflow-wrap:break-word}
+html body .gab .gab-intro h2{margin-inline:0!important;text-align:start!important}
+html body .menu-cv .menu-panneau :is(a,strong){font-size:var(--type-corps)!important}
+}
+
+
+/* Densité commune des encadrés éditoriaux — 21 octobre 2026.
+   Le contenu dicte la hauteur ; les scènes, figures et commandes gardent leur géométrie. */
+@layer charte-typographique {
+  :root{--cadre-interieur:14px 16px;--cadre-ecart:12px}
+  @media(max-width:700px){:root{--cadre-interieur:12px}}
+
+  html body :is(main,#salle) :is(
+    .travail,.notion-carte,.concept-carte,.panel,.vr-panel,.methode,
+    .atelier-cas,.impl-tile,.impl-module,.impl-metric,
+    .cp-explorer,.cp-challenge,.cp-workshop,
+    .ei-intro,.ei-block,.ei-lens,.ei-journal,.ei-lab-output,.ei-qfeedback,
+    .representation-ouverture,.rs-mandat,.rs-past,.ds-award,
+    .cadrage-these-intro,.cadrage-these-fiche,.cadrage-these-secteurs,
+    .cadrage-these-articulation,.cadrage-these-sources,
+    .these-titre-contexte,.these-point,.lacune-principale,.these-objectif-general,
+    .these-question-principale,.these-problematique-bandeau,
+    .devis-bandeau-synthese-2026,.mat-sc,.o1-circuit,.o1-profils-carte,
+    .o1-protocole,.o1-vignette-scientifique,.o2-sources-groupe,
+    .precision-protocole,.methode-exemples,.m-encadre,.o3-devis-retro,
+    .revision-demo,.o3-definition-intersectorielle,.o3-pros__precautions,
+    .fais-capacites-projet,.f-synthese,.f-valid,
+    .biblio-hero,.biblio-outils,.rg,.vision,.pedago-edition,
+    .impl-portail-section,.methode-figures.methode-parcours,
+    .vul-relations article,.vul-chiffres article,.ia-reperes>article,
+    .logiciels-cartes>article>div
+  ){
+    padding:var(--cadre-interieur)!important;
+  }
+  html body :is(main,#salle) :is(
+    .mat-sc,.o1-circuit,.o1-protocole,.o1-vignette-scientifique,
+    .precision-protocole,.methode-exemples,.revision-demo,
+    .o3-devis-retro,.o3-definition-intersectorielle,
+    .cadrage-these-intro,.cadrage-these-secteurs,.cadrage-these-articulation,
+    .these-titre-contexte,.these-problematique-bandeau,
+    .devis-bandeau-synthese-2026,.fais-capacites-projet,.f-synthese,
+    .biblio-hero,.biblio-outils
+  ){
+    margin-block:var(--cadre-ecart)!important;
+  }
+  html body :is(main,#salle) :is(
+    .notions,.concepts,.methodes,.expertises,.valeurs,.chiffres,
+    .travaux-grille,.axes-cartes,.these-contextes,.these-lacunes,.these-objectifs,
+    .these-methodes,.these-methode-grille,.these-schema-grille,
+    .o1-profils-grille,.o2-sources-grille,.o2-var-grille,.o1-circuit-steps,
+    .o1-methode-flux,.o3-quali-grille,.o2-sources-indicateurs,
+    .o1-analyse-piliers,.cadrage-these-grille
+  ){gap:var(--cadre-ecart)!important}
+  html body :is(main,#salle) :is(
+    .notions>div,.valeurs>div,.piliers>div,.o1-circuit-step,
+    .these-schema-card,.these-methode-item,.o2-var-carte
+  ){padding:10px 12px!important;min-height:0!important}
+
+  /* Repliables : une seule marge interne, au lieu du cumul section + résumé. */
+  html body .gab-corps details:not(.lecture-theme):not(.o3-lecture-details){
+    margin-block:8px!important;
+  }
+  html body .gab-corps details:not(.lecture-theme)>summary{padding-block:9px!important}
+  html body .these #these-methode-o3 .o3-lecture-rubrique{
+    min-height:0!important;padding:0!important;margin:0 0 8px!important;
+  }
+  html body .these #these-methode-o3 .o3-lecture-details>summary{
+    min-height:0!important;padding:10px 14px!important;
+  }
+  html body .these #these-methode-o3 .o3-lecture-contenu{padding:10px 12px!important}
+
+  /* Tableaux : réduire les cellules sans diminuer le texte ni sa hauteur de ligne. */
+  html body :is(main,#salle) :is(.gab-corps,.these,.section-corps) table :is(td,th){
+    padding:10px 14px!important;
+  }
+  @media(max-width:700px){
+    html body :is(main,#salle) :is(.gab-corps,.these,.section-corps) table :is(td,th){padding:8px 10px!important}
+    html body .these #these-methode-o3 .o3-lecture-details>summary{padding:10px 12px!important}
+  }
+
+  /* Méthodologie : les modules ajoutés en rem ne doivent pas créer de microtexte.
+     Les nombres saillants, symboles et indices mathématiques restent distincts. */
+  html body .these .mat-sc :is(div,span,small,b,strong,em):not(:where(
+    .mat-sc__number,.mat-sc__scenario>strong,.mat-sc__kpis strong,
+    .mat-sc__verif-stat strong,.mat-sc__score-exemple strong,
+    .mat-sc__ampoule,.mat-sc__fleche-link,.mat-sc__parallel>span,
+    .mat-sc__exemple-arrow,.mat-sc__potentiel-plus,.mat-sc__potentiel-arrow,
+    .mat-sc__potentiel-trois>div>span
+  )){
+    font-size:var(--type-corps)!important;line-height:1.6!important;
+  }
+  html body .these .mat-sc :is(.mat-sc__eyebrow,.mat-sc__tag,.mat-sc__small){
+    font-size:var(--type-note)!important;line-height:1.5!important;
+  }
+  html body .these :is(
+    .o1-codage-intro,.o1-limites-note,.o1-vis-bases span,
+    .o2-these-phase>span,.precision-reperes span,
+    .o3viz-actor>strong,.o3viz-limit>strong
+  ){
+    font-size:var(--type-corps)!important;line-height:1.6!important;
+  }
+  html body .these :is(.o3-devis-retro__kicker,.o3-partie-quali>span,.o3-panneau-pied span){
+    font-size:var(--type-note)!important;line-height:1.5!important;
+  }
+  html body .these .mat-sc__resultats-row{flex-wrap:wrap!important}
+  html body .these .mat-sc__tag{white-space:normal!important;max-width:100%;overflow-wrap:break-word}
+  html body .these .o1-circuit-step>*{min-width:0;max-width:100%;overflow-wrap:break-word}
+}
+
+/* Libellés descriptifs à la taille de lecture commune. */
+@layer charte-typographique{
+ html body .these :is(.o2-these-phase>b,.o3viz-actor>b,.o3viz-limit>b){font-size:var(--type-corps)!important;line-height:1.55!important}
+ html body .these :is(.methode-statut-protocole,.methode-statut-protocole strong,.methode-statut-protocole span,.methode-essentiel span,.methode-note-courte,.o3-niveaux-precisions,.o3-niveaux-precisions summary,.o3-niveaux-precisions span,.o3-niveaux-precisions p){font-size:var(--type-note)!important;line-height:1.5!important}
+}
+
+/* Accueil : ne jamais couper les mots des intitulés sous le nom. */
+@layer charte-typographique {
+  html body .accueil .identite .roles {
+    overflow-wrap:normal!important;
+    word-break:normal!important;
+    hyphens:none!important;
+    text-wrap:pretty;
+  }
+}
+
+@layer charte-typographique {
+html body .methodo-chiffres>div>b{font-size:clamp(26px,3vw,38px)!important;line-height:1.15!important;font-weight:650!important;font-variant-numeric:tabular-nums}
+html body .methodo-note{font-size:var(--type-note)!important}
+html body .methodo-parcours>li>span{font-size:var(--type-corps)!important}
+}
+
+
+/* Nouvelles visualisations O2/O3 : échelle commune, sans microtypographie. */
+@layer charte-typographique {
+  html body .these :is(.methodo-exploratoire-entete h3,.methodo-questions-entete h3){
+    font-size:var(--type-section,22px)!important;
+    line-height:1.3!important;font-weight:700!important;
+  }
+  html body .these :is(.methodo-exploratoire-analyse h4,.methodo-question h4){
+    font-size:var(--type-sous-section,19px)!important;
+    line-height:1.4!important;font-weight:690!important;
+  }
+  html body .these :is(
+    .methodo-exploratoire-entete p,.methodo-questions-entete p,
+    .methodo-exploratoire-indic span,.methodo-exploratoire-table th,
+    .methodo-exploratoire-table td,.methodo-exploratoire-note,.methodo-question p
+  ){
+    font-size:var(--type-corps,16px)!important;line-height:1.55!important;
+  }
+  html body .these :is(
+    .methodo-exploratoire-label,.methodo-questions-label,
+    .methodo-exploratoire-carte figcaption
+  ){
+    font-size:var(--type-note,14px)!important;line-height:1.5!important;
+  }
+  html body .these .methodo-exploratoire-indic strong{
+    font-size:clamp(32px,3.2vw,42px)!important;line-height:1.1!important;
+  }
+  html body .these .methodo-question-num{
+    font-size:18px!important;line-height:1.3!important;
+  }
+}
+
+
+/* O2 · Tailles lisibles dans le schéma et le bilan de faisabilité, toutes éditions. */
+html body .these .o2-synthese-kicker{font-size:var(--type-note)!important;line-height:1.45!important}
+html body .these .o2-synthese-entete h6{font-size:clamp(21px,2.2vw,27px)!important;line-height:1.25!important;font-weight:790!important}
+html body .these .o2-synthese-entete p,
+html body .these .o2-synthese-portee,
+html body .these .o2-pilote-independant>p{font-size:var(--type-corps)!important;line-height:1.62!important;text-align:justify!important}
+html body .these .o2-synthese-noeud strong{font-size:clamp(16px,1.6vw,19px)!important;line-height:1.32!important}
+html body .these .o2-synthese-noeud span{font-size:var(--type-corps)!important;line-height:1.5!important;text-align:left!important;hyphens:none!important}
+html body .these .o2-synthese-noeud b{font-size:14px!important;line-height:1!important}
+html body .these .o2-synthese-tableau th,
+html body .these .o2-synthese-tableau td{font-size:var(--type-corps)!important;line-height:1.52!important;text-align:justify!important}
+html body .these .o2-synthese-tableau thead th{text-align:left!important}
+html body .these .o2-pilote-titre strong{font-size:clamp(19px,1.9vw,23px)!important;line-height:1.35!important}
+html body .these .o2-pilote-titre span{font-size:var(--type-note)!important;line-height:1.55!important}
+html body .these .o2-pilote-chiffres strong{font-size:clamp(30px,3.1vw,42px)!important;line-height:1.1!important}
+html body .these .o2-pilote-chiffres span{font-size:var(--type-corps)!important;line-height:1.5!important;text-align:left!important;hyphens:none!important}
+
+
+/* Méthodologie · bandeau DS : indicateurs compacts (2026-10-22). */
+@layer charte-typographique {
+  /* Quatre repères sur une ligne, à échelle secondaire par rapport au devis. */
+  html body .these .devis-bandeau-synthese-2026 .ds-chiffres {
+    gap:10px!important;
+    margin:0 0 10px!important;
+  }
+  html body .these .devis-bandeau-synthese-2026 .ds-indicateur {
+    min-height:0!important;
+    padding:12px 14px 11px!important;
+    justify-content:flex-start!important;
+    border-top-width:3px!important;
+    border-radius:10px!important;
+  }
+  html body .these .devis-bandeau-synthese-2026 .ds-indicateur-objectif {
+    top:7px!important;
+    right:8px!important;
+    padding:2px 6px!important;
+    font-size:11px!important;
+    line-height:1.25!important;
+  }
+  html body .these .devis-bandeau-synthese-2026 .ds-indicateur strong,
+  html body .these .devis-bandeau-synthese-2026 .ds-indicateur:nth-child(n) strong {
+    font-size:clamp(29px,2.7vw,35px)!important;
+    line-height:1.05!important;
+    font-weight:780!important;
+    letter-spacing:-.035em!important;
+    margin:0 0 5px!important;
+  }
+  html body .these .devis-bandeau-synthese-2026 .ds-indicateur .ds-indicateur-texte {
+    font-size:15px!important;
+    line-height:1.28!important;
+    font-weight:720!important;
+    margin:0 0 4px!important;
+    text-align:left!important;
+    hyphens:none!important;
+  }
+  html body .these .devis-bandeau-synthese-2026 .ds-indicateur small {
+    font-size:13px!important;
+    line-height:1.35!important;
+    font-weight:450!important;
+    text-align:left!important;
+    hyphens:none!important;
+  }
+  /* L'option grands caractères reste prioritaire pour l'accessibilité. */
+  html.lv body .these .devis-bandeau-synthese-2026 .ds-indicateur strong,
+  html.lv body .these .devis-bandeau-synthese-2026 .ds-indicateur:nth-child(n) strong {
+    font-size:42px!important;
+  }
+  html.lv body .these .devis-bandeau-synthese-2026 .ds-indicateur .ds-indicateur-texte {
+    font-size:var(--type-corps)!important;
+  }
+  html.lv body .these .devis-bandeau-synthese-2026 .ds-indicateur small {
+    font-size:var(--type-note)!important;
+  }
+  @media(max-width:620px) {
+    html body .these .devis-bandeau-synthese-2026 .ds-chiffres {
+      grid-template-columns:minmax(0,1fr)!important;
+      gap:8px!important;
+    }
+    html body .these .devis-bandeau-synthese-2026 .ds-indicateur {
+      display:grid!important;
+      grid-template-columns:60px minmax(0,1fr)!important;
+      grid-template-rows:auto auto;
+      gap:2px 12px!important;
+      align-items:center!important;
+      padding:11px 13px!important;
+      min-height:0!important;
+    }
+    html body .these .devis-bandeau-synthese-2026 .ds-indicateur strong,
+    html body .these .devis-bandeau-synthese-2026 .ds-indicateur:nth-child(n) strong {
+      grid-column:1;
+      grid-row:1 / 3;
+      margin:0!important;
+      align-self:center!important;
+    }
+    html body .these .devis-bandeau-synthese-2026 .ds-indicateur .ds-indicateur-texte {
+      grid-column:2;
+      grid-row:1;
+      padding-right:32px;
+      margin:0!important;
+    }
+    html body .these .devis-bandeau-synthese-2026 .ds-indicateur small {
+      grid-column:2;
+      grid-row:2;
+    }
+  }
+}
+
+
+/* Population O1 : courts descriptifs de lecture, sans espaces artificiellement étirés.
+   L'échelle commune, y compris le mode grands caractères, est conservée. */
+@layer charte-typographique{
+  html body .these #methode-o1-4 .methode-rubrique-contenu>.methodo-grille>.methodo-item>p{
+    text-align:start!important;
+    text-align-last:start!important;
+    hyphens:none!important;
+    overflow-wrap:break-word!important;
+    word-spacing:normal!important;
+    line-height:1.52!important;
+  }
+  html body .these #methode-o1-4 .o1-vis-population-carte>small{
+    text-align:start!important;
+    text-align-last:start!important;
+    hyphens:none!important;
+  }
+}
+
+@layer charte-typographique {
+:root{--type-methode-objectif:32px;--type-methode-section:26px;--type-methode-cle:24px;--type-methode-categorie:20px;--type-methode-numero:28px;--type-methode-figure:18px;--type-methode-chiffre:36px;--type-methode-stat:48px}
+html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .methode-objectif-tete h4{font-size:var(--type-methode-objectif)!important;font-weight:700!important;line-height:1.3!important}
+html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .ms-section>.methode-rubrique-titre{font-size:var(--type-methode-section)!important;font-weight:700!important;line-height:1.35!important}
+html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .ms-phase h5{font-size:var(--type-sous-section)!important;font-weight:600!important}
+html body :is(#salle,#contenu) .these [data-methodologie-visuelle] :is(.ms-visual,.ms-exploration,.ms-detail-body,.ms-archive-body) :is(h3,h4,h5,h6){font-size:var(--type-methode-figure)!important;font-weight:600!important;line-height:1.4!important}
+html body :is(#salle,#contenu) .these [data-methodologie-visuelle] :is(.ms-eyebrow,.ms-count,.ms-phase-badge,.ms-node){font-size:var(--type-note)!important;font-weight:650!important;line-height:1.4!important}
+html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .ms-key{font-size:var(--type-methode-chiffre)!important;font-weight:700!important;line-height:1.15!important}
+html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .ms-metric-value{font-size:var(--type-methode-stat)!important;font-weight:750!important;line-height:1.15!important;font-variant-numeric:tabular-nums}
+html body :is(#salle,#contenu) .these [data-methodologie-visuelle] :is(.ms-variable-number,.ms-metric-label,.ms-capture header>span){font-size:var(--type-corps)!important;font-weight:600!important;line-height:1.4!important}
+html body :is(#salle,#contenu) .these [data-methodologie-visuelle] :is(.ms-label,.ms-plan-name,.ms-decision-label){font-size:var(--type-note)!important;font-weight:650!important;line-height:1.4!important}
+html body :is(#salle,#contenu) .these [data-methodologie-visuelle] :is(.ms-formula,.ms-result>strong,.ms-purpose>strong,.ms-profile-origin>strong,.ms-synthesis>strong){font-size:var(--type-methode-figure)!important;font-weight:650!important;line-height:1.4!important}
+html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .ms-measure-key{font-size:var(--type-methode-figure)!important;line-height:1.3!important;font-weight:600!important}
+html body :is(#salle,#contenu) .these [data-methodologie-visuelle] :is(.ms-measure-key b,.ms-example-equation>b,.ms-profile-origin>strong>b){font-size:var(--type-methode-chiffre)!important;font-weight:750!important;line-height:1.15!important}
+html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .ms-link-word{font-size:var(--type-methode-chiffre)!important;line-height:1!important}
+html body :is(#salle,#contenu) .these [data-methodologie-visuelle] :is(.ms-service-orbit>span,.ms-service-orbit>b){font-size:var(--type-note)!important;line-height:1.35!important}
+html body :is(#salle,#contenu) .these [data-methodologie-visuelle] :is(.ms-calculation p,.ms-result p,.ms-purpose p,.ms-profile-example p,.ms-data-plan p,.ms-territory-network p,.ms-decisions p,.ms-synthesis p,.ms-correspondence p){text-align:start!important;text-align-last:auto!important;hyphens:none!important}
+html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .ms-measure-details>summary{font-size:var(--type-note)!important;font-weight:600!important;line-height:1.4!important}
+html body :is(#salle,#contenu) .these [data-methodologie-visuelle] :is(.ms-card p,.ms-flow li,.ms-flow li>span,.ms-pairs p,.ms-output,.ms-card h6,.ms-capture figcaption){text-align:start!important;text-align-last:auto!important;hyphens:none!important}
+html body :is(#salle,#contenu) .these [data-methodologie-visuelle] :is(.ms-details,.ms-archive)>summary{font-size:var(--type-note)!important;font-weight:600!important}
+html body :is(#salle,#contenu) .these [data-methodologie-visuelle] figcaption{font-size:var(--type-note)!important;font-weight:400!important;line-height:1.55!important}
+html.lv{--type-methode-objectif:34px;--type-methode-section:28px;--type-methode-figure:22px;--type-methode-chiffre:42px;--type-methode-stat:54px}
+@media(max-width:760px){:root{--type-methode-objectif:25px;--type-methode-section:21px;--type-methode-chiffre:30px;--type-methode-stat:38px}}
+html body :is(#salle,#contenu) .these [data-maquette-validee] :is(.ms-info-card h6,.ms-card h6,.ms-flow strong,.o2-these-etape>header h6,.o1-etape-visuelle h6,.ms-analysis-card h6,.o1-critere-name>b,.o1-circuit-step h6,.o2-these-livrable strong){font-size:var(--type-methode-cle)!important;font-weight:700!important;line-height:1.3!important}
+html body :is(#salle,#contenu) .these [data-maquette-validee] :is(.ms-card-category,.ms-node,.ms-concept-key,.o2-these-etape>header>span,.o1-circuit-step-kicker>span){font-size:var(--type-methode-categorie)!important;font-weight:650!important;line-height:1.35!important}
+html body :is(#salle,#contenu) .these [data-maquette-validee] :is(.ms-card-index,.ms-variable-number,.o1-number,.o1-circuit-step-kicker>b){font-size:var(--type-methode-numero)!important;font-weight:750!important;line-height:1.15!important}
+html body :is(#salle,#contenu) .these [data-maquette-validee] :is(.ms-info-card p,.ms-gallery-caption,.o1-circuit-step p,.ms-method-note,.o2-these-livrable p){text-align:start!important;text-align-last:auto!important;hyphens:none!important}
+html body :is(#salle,#contenu) .these [data-maquette-validee] .ms-gallery-caption{font-size:var(--type-corps)!important;line-height:1.55!important}
+html.lv{--type-methode-cle:28px;--type-methode-categorie:24px;--type-methode-numero:32px}
+@media(max-width:760px){:root{--type-methode-cle:21px;--type-methode-categorie:18px;--type-methode-numero:25px}}}
+html body footer.pied .pied-copyright>small.pied-attribution{display:block;font-size:var(--type-note)!important;line-height:1.5!important;font-weight:400!important;text-align:justify!important;margin-top:6px;max-width:72ch}
+
+/* Cadres du contexte et de la problématisation : rythme commun à la méthodologie. */
+@layer charte-typographique{
+ :root{--these-cadre-interieur:20px 24px;--these-cadre-ecart:20px;--these-cadre-rayon:16px}
+ html body :is(#salle,#contenu) .these :is(.these-titre-contexte,.these-problematique-bandeau,.these-contexte-partie,.these-point,.these-objectif-general,.lacune-principale,.figure-officielle){box-sizing:border-box!important;width:100%!important;max-width:none!important;padding:var(--these-cadre-interieur)!important;margin:0 0 var(--these-cadre-ecart)!important;border-radius:var(--these-cadre-rayon)!important;min-height:0!important}
+ html body :is(#salle,#contenu) .these .these-contexte-partie{border:1px solid #d5e5ef;border-inline-start:4px solid #0879be;background:#f8fbfd}
+ html body :is(#salle,#contenu) .these :is(.gab-corps,.chapitre-contenu) :is(.these-titre-contexte-principal,.these-problematique-bandeau>p){font-size:var(--type-section)!important;line-height:1.45!important;font-weight:650!important;margin:0!important}
+ html body :is(#salle,#contenu) .these :is(.gab-corps,.chapitre-contenu) :is(.these-titre-contexte-label,.these-problematique-bandeau__titre,.cadrage-these-surtexte){display:block;font-size:var(--type-note)!important;line-height:1.4!important;font-weight:650!important;letter-spacing:.06em!important;margin:0 0 8px!important}
+ html body :is(#salle,#contenu) .these .these-contexte-partie>h3{font-size:var(--type-section)!important;line-height:1.4!important;font-weight:650!important;margin:0 0 12px!important}
+ html body :is(#salle,#contenu) .these :is(.these-contexte-partie,.these-problematique-bandeau)>p:last-child{margin-bottom:0!important}
+ html body :is(#salle,#contenu) .these :is(.ov-carte,.cadrage-these-fiche){padding:16px!important;border-radius:12px!important}
+ html body :is(#salle,#contenu) .these .these-hypotheses{padding:12px 0;border-top:1px solid #d6e2e5;margin-top:12px}
+ html body :is(#salle,#contenu) .these .these-hypotheses>h5{font-size:var(--type-encadre)!important;margin:0 0 8px!important}
+ html body .these abbr[data-sigle]{font:inherit!important;text-decoration:none;border:0;cursor:help}
+ @media(max-width:760px){:root{--these-cadre-interieur:16px;--these-cadre-ecart:16px}}
+}
+
+@layer charte-typographique{
+ html body .these .these-section-cadre{min-width:0;margin:0 0 22px;padding:24px;border:1px solid #dce7ed;border-radius:16px;background:#fff;box-shadow:0 3px 14px #123c4d04}
+ html body .these .these-section-entete{display:flex;align-items:flex-start;gap:12px;margin-bottom:18px}
+ html body .these .these-section-entete>span{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:10px;background:#e9f4f6;color:#18627a;font-size:var(--type-note)!important;font-weight:700}
+ html body .these .these-section-entete>h3{margin:0!important;font-size:var(--type-section)!important;line-height:1.4!important;color:#173d50}
+ html body .these .these-cartes-synthese{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px;margin:20px 0}
+ html body .these .these-cartes-synthese>article{min-width:0;padding:18px;border:1px solid #dce7ed;border-top:3px solid #168da0;border-radius:12px;background:#f7fbfc}
+ html body .these .these-cartes-synthese>article>strong{display:block;margin-bottom:10px;color:#194d62;font-size:var(--type-encadre)!important;line-height:1.4!important;text-align:left}
+ html body .these .these-cartes-synthese p{margin:0!important}
+ html body .these .these-chiffres-cles>article>strong{font-size:34px!important;font-weight:700!important;color:#087e8e;font-variant-numeric:tabular-nums}
+ html body .these .these-flux{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,155px),1fr));gap:12px;counter-reset:etape;margin:20px 0!important;padding:0!important;list-style:none}
+ html body .these .these-flux>li{position:relative;min-width:0;display:flex;flex-direction:column;gap:8px;padding:16px 14px;border-radius:12px;background:#eaf5f6;border:1px solid #d3e7ea;text-align:left!important}
+ html body .these .these-flux>li>strong{color:#176072;font-size:var(--type-encadre)!important;text-align:left!important}
+ html body .these .these-flux>li>span{font-size:var(--type-note)!important;line-height:1.5!important;text-align:left!important}
+ html body .these .these-tableau-defilement{max-width:100%;overflow-x:auto;margin:20px 0;border:1px solid #d9e5eb;border-radius:12px}
+ html body .these .these-tableau{width:100%;min-width:640px;border-collapse:collapse;margin:0!important}
+ html body .these .these-tableau caption{padding:14px 16px;background:#f0f7fa;color:#244e60;font-weight:650;text-align:left;font-size:var(--type-note)!important}
+ html body .these .these-tableau :is(th,td){padding:14px 16px;border-bottom:1px solid #e2ebef;vertical-align:top;min-width:120px;font-size:var(--type-note)!important;line-height:1.6!important;word-break:normal}
+ html body .these .these-tableau thead th{color:#fff;background:#173e50;font-weight:650;text-align:left!important}
+ html body .these .these-tableau tbody th{width:20%;color:#16495c;background:#f4f9fb;text-align:left!important;font-weight:650}
+ html body .these .these-tableau tbody tr:nth-child(even) td{background:#f9fbfc}
+ html body .these .these-tableau tbody tr:last-child :is(th,td){border-bottom:0}
+ html body .these .these-message-cle{margin:20px 0;padding:18px 20px;border-inline-start:4px solid #109891;background:#edf8f7;border-radius:0 12px 12px 0}
+ html body .these .these-message-cle p{margin:0!important;font-weight:550}
+ html body .these .these-approfondissement{padding:16px 18px;background:#f5f9fb;border:1px solid #dce7ed;border-radius:12px;margin-top:18px}
+ html body .these .these-approfondissement>summary{cursor:pointer;font-weight:650;text-align:left}
+ html body .these .these-sous-cadre{border-radius:12px;border:1px solid #dce7ed;background:#f7fbfc}
+ html body .these .these-sous-section{min-width:0;margin:26px 0 0;padding-top:22px;border-top:1px solid #e3ecf0}
+ html body .these .these-section-entete+.these-sous-section,html body .these .these-section-entete+p+.these-sous-section{margin-top:8px}
+ html body .these .these-sous-entete>span{width:auto;min-width:34px;padding:0 8px}
+ html body .these .these-sous-entete>h4{margin:0!important;font-size:var(--type-sous-section)!important;line-height:1.4!important;color:#173d50}
+ html body .these .these-sous-section h5{font-size:var(--type-encadre)!important;color:#194d62;margin:22px 0 10px!important}
+ html body .these [data-volet-outils]>.these-sous-section{border-top:0;margin-top:14px;padding-top:0}
+ html body :is(#salle,#contenu) .these .these-frise{margin:24px 0;padding:22px 22px 18px;border:1px solid #dce7ed;border-radius:14px;background:linear-gradient(180deg,#f7fbfc,#fff 160px)}
+ html body :is(#salle,#contenu) .these .these-frise>figcaption{margin:0 0 10px;color:#173d50;font-weight:650;font-size:var(--type-encadre)!important;text-align:left}
+ html body :is(#salle,#contenu) .these .these-frise [data-nature]{--frise:#116e80;--frise-pale:#e9f5f6}
+ html body :is(#salle,#contenu) .these .these-frise [data-nature="orientations"]{--frise:#2d628e;--frise-pale:#eaf1fa}
+ html body :is(#salle,#contenu) .these .these-frise [data-nature="plan"]{--frise:#437344;--frise-pale:#edf6ea}
+ html body :is(#salle,#contenu) .these .these-frise [data-nature="loi"]{--frise:#6b4f8a;--frise-pale:#f2edf8}
+ html body :is(#salle,#contenu) .these .these-frise [data-nature="programme"]{--frise:#5b6f7a;--frise-pale:#eef2f4}
+ html body :is(#salle,#contenu) .these .these-frise [data-nature="reforme"]{--frise:#9a5a2e;--frise-pale:#faefe6}
+ html body :is(#salle,#contenu) .these .these-frise [data-nature="rapport"]{--frise:#7a4f9a;--frise-pale:#f3edf9}
+ html body :is(#salle,#contenu) .these .these-schema-officiel{margin:22px 0;padding:14px;border:1px solid #dce7ed;border-radius:14px;background:#fff}
+ html body :is(#salle,#contenu) .these .these-schema-officiel>img{display:block;width:100%;height:auto;border-radius:8px}
+ html body :is(#salle,#contenu) .these .these-schema-officiel>figcaption{margin-top:10px;color:#3d5866;font-size:var(--type-note)!important;text-align:left!important}
+ html body :is(#salle,#contenu) .these .these-frise-legende{display:flex;flex-wrap:wrap;gap:8px 14px;margin:0 0 20px!important}
+ html body :is(#salle,#contenu) .these .these-frise-legende>span{display:inline-flex;align-items:center;gap:6px;color:#3d5866;font-size:var(--type-note)!important}
+ html body :is(#salle,#contenu) .these .these-frise-legende>span::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--frise)}
+ html body :is(#salle,#contenu) .these .these-frise>ol{display:grid;grid-template-columns:repeat(var(--frise-col,4),minmax(0,1fr));gap:30px;margin:0!important;padding:0!important;list-style:none;counter-reset:jalon}
+ html body :is(#salle,#contenu) .these .these-frise-jalon{position:relative;display:flex;flex-direction:column;min-width:0;margin:0!important;padding:0!important;counter-increment:jalon;border:1px solid #dce7ed;border-radius:12px;background:#fff;overflow:visible;transition:box-shadow .2s,transform .2s}
+ html body :is(#salle,#contenu) .these .these-frise-jalon:hover{box-shadow:0 8px 20px #123c4d18;transform:translateY(-2px)}
+ html body :is(#salle,#contenu) .these .these-frise-jalon::after{content:"";position:absolute;left:var(--fx);right:var(--fr);top:var(--fy);width:var(--fw);height:var(--fh);background:#9fc3cc;clip-path:var(--fc)}
+ html body :is(#salle,#contenu) .these .these-frise-jalon:last-child::after{display:none}
+ html body :is(#salle,#contenu) .these .these-frise-date{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:11px 11px 0 0;background:var(--frise-pale);color:var(--frise);font-weight:700;font-size:var(--type-note)!important;line-height:1.3;text-align:left!important;font-variant-numeric:tabular-nums}
+ html body :is(#salle,#contenu) .these .these-frise-date::before{content:counter(jalon);display:grid;place-items:center;flex:none;width:26px;height:26px;border-radius:50%;background:var(--frise);color:#fff;font-size:12.5px;font-weight:700}
+ html body :is(#salle,#contenu) .these .these-frise-carte{display:flex;flex-direction:column;gap:4px;padding:10px 12px 13px;border-top:3px solid var(--frise)}
+ html body :is(#salle,#contenu) .these .these-frise-nature{align-self:flex-start;padding:1px 8px;border-radius:999px;background:var(--frise-pale);color:var(--frise);font-size:12px!important;font-weight:650;letter-spacing:.02em}
+ html body :is(#salle,#contenu) .these .these-frise-carte>strong{color:#173d50;font-size:15.5px!important;line-height:1.35!important;text-align:left}
+ html body :is(#salle,#contenu) .these .these-frise-carte>p{margin:0!important;font-size:var(--type-note)!important;line-height:1.5!important}
+ html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(1){grid-row:1;grid-column:1}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(1)::after{--fx:auto;--fr:-30px;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(0 40%,70% 40%,70% 0,100% 50%,70% 100%,70% 60%,0 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(2){grid-row:1;grid-column:2}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(2)::after{--fx:auto;--fr:-30px;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(0 40%,70% 40%,70% 0,100% 50%,70% 100%,70% 60%,0 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(3){grid-row:1;grid-column:3}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(3)::after{--fx:auto;--fr:-30px;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(0 40%,70% 40%,70% 0,100% 50%,70% 100%,70% 60%,0 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(4){grid-row:1;grid-column:4}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(4)::after{--fx:calc(50% - 6px);--fr:auto;--fy:calc(100% + 2px);--fw:12px;--fh:26px;--fc:polygon(40% 0,60% 0,60% 70%,100% 70%,50% 100%,0 70%,40% 70%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(5){grid-row:2;grid-column:4}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(5)::after{--fx:-30px;--fr:auto;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(100% 40%,30% 40%,30% 0,0 50%,30% 100%,30% 60%,100% 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(6){grid-row:2;grid-column:3}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(6)::after{--fx:-30px;--fr:auto;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(100% 40%,30% 40%,30% 0,0 50%,30% 100%,30% 60%,100% 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(7){grid-row:2;grid-column:2}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(7)::after{--fx:-30px;--fr:auto;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(100% 40%,30% 40%,30% 0,0 50%,30% 100%,30% 60%,100% 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(8){grid-row:2;grid-column:1}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(8)::after{--fx:calc(50% - 6px);--fr:auto;--fy:calc(100% + 2px);--fw:12px;--fh:26px;--fc:polygon(40% 0,60% 0,60% 70%,100% 70%,50% 100%,0 70%,40% 70%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(9){grid-row:3;grid-column:1}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(9)::after{--fx:auto;--fr:-30px;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(0 40%,70% 40%,70% 0,100% 50%,70% 100%,70% 60%,0 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(10){grid-row:3;grid-column:2}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(10)::after{--fx:auto;--fr:-30px;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(0 40%,70% 40%,70% 0,100% 50%,70% 100%,70% 60%,0 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(11){grid-row:3;grid-column:3}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(11)::after{--fx:auto;--fr:-30px;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(0 40%,70% 40%,70% 0,100% 50%,70% 100%,70% 60%,0 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(12){grid-row:3;grid-column:4}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(12)::after{--fx:calc(50% - 6px);--fr:auto;--fy:calc(100% + 2px);--fw:12px;--fh:26px;--fc:polygon(40% 0,60% 0,60% 70%,100% 70%,50% 100%,0 70%,40% 70%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(13){grid-row:4;grid-column:4}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(13)::after{--fx:-30px;--fr:auto;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(100% 40%,30% 40%,30% 0,0 50%,30% 100%,30% 60%,100% 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(14){grid-row:4;grid-column:3}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(14)::after{--fx:-30px;--fr:auto;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(100% 40%,30% 40%,30% 0,0 50%,30% 100%,30% 60%,100% 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(15){grid-row:4;grid-column:2}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(15)::after{--fx:-30px;--fr:auto;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(100% 40%,30% 40%,30% 0,0 50%,30% 100%,30% 60%,100% 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(16){grid-row:4;grid-column:1}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(16)::after{--fx:calc(50% - 6px);--fr:auto;--fy:calc(100% + 2px);--fw:12px;--fh:26px;--fc:polygon(40% 0,60% 0,60% 70%,100% 70%,50% 100%,0 70%,40% 70%)}
+ @media(max-width:1180px){html body :is(#salle,#contenu) .these .these-frise>ol{--frise-col:3}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(1){grid-row:1;grid-column:1}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(1)::after{--fx:auto;--fr:-30px;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(0 40%,70% 40%,70% 0,100% 50%,70% 100%,70% 60%,0 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(2){grid-row:1;grid-column:2}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(2)::after{--fx:auto;--fr:-30px;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(0 40%,70% 40%,70% 0,100% 50%,70% 100%,70% 60%,0 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(3){grid-row:1;grid-column:3}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(3)::after{--fx:calc(50% - 6px);--fr:auto;--fy:calc(100% + 2px);--fw:12px;--fh:26px;--fc:polygon(40% 0,60% 0,60% 70%,100% 70%,50% 100%,0 70%,40% 70%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(4){grid-row:2;grid-column:3}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(4)::after{--fx:-30px;--fr:auto;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(100% 40%,30% 40%,30% 0,0 50%,30% 100%,30% 60%,100% 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(5){grid-row:2;grid-column:2}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(5)::after{--fx:-30px;--fr:auto;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(100% 40%,30% 40%,30% 0,0 50%,30% 100%,30% 60%,100% 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(6){grid-row:2;grid-column:1}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(6)::after{--fx:calc(50% - 6px);--fr:auto;--fy:calc(100% + 2px);--fw:12px;--fh:26px;--fc:polygon(40% 0,60% 0,60% 70%,100% 70%,50% 100%,0 70%,40% 70%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(7){grid-row:3;grid-column:1}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(7)::after{--fx:auto;--fr:-30px;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(0 40%,70% 40%,70% 0,100% 50%,70% 100%,70% 60%,0 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(8){grid-row:3;grid-column:2}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(8)::after{--fx:auto;--fr:-30px;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(0 40%,70% 40%,70% 0,100% 50%,70% 100%,70% 60%,0 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(9){grid-row:3;grid-column:3}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(9)::after{--fx:calc(50% - 6px);--fr:auto;--fy:calc(100% + 2px);--fw:12px;--fh:26px;--fc:polygon(40% 0,60% 0,60% 70%,100% 70%,50% 100%,0 70%,40% 70%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(10){grid-row:4;grid-column:3}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(10)::after{--fx:-30px;--fr:auto;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(100% 40%,30% 40%,30% 0,0 50%,30% 100%,30% 60%,100% 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(11){grid-row:4;grid-column:2}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(11)::after{--fx:-30px;--fr:auto;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(100% 40%,30% 40%,30% 0,0 50%,30% 100%,30% 60%,100% 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(12){grid-row:4;grid-column:1}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(12)::after{--fx:calc(50% - 6px);--fr:auto;--fy:calc(100% + 2px);--fw:12px;--fh:26px;--fc:polygon(40% 0,60% 0,60% 70%,100% 70%,50% 100%,0 70%,40% 70%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(13){grid-row:5;grid-column:1}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(13)::after{--fx:auto;--fr:-30px;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(0 40%,70% 40%,70% 0,100% 50%,70% 100%,70% 60%,0 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(14){grid-row:5;grid-column:2}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(14)::after{--fx:auto;--fr:-30px;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(0 40%,70% 40%,70% 0,100% 50%,70% 100%,70% 60%,0 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(15){grid-row:5;grid-column:3}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(15)::after{--fx:calc(50% - 6px);--fr:auto;--fy:calc(100% + 2px);--fw:12px;--fh:26px;--fc:polygon(40% 0,60% 0,60% 70%,100% 70%,50% 100%,0 70%,40% 70%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(16){grid-row:6;grid-column:3}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(16)::after{--fx:-30px;--fr:auto;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(100% 40%,30% 40%,30% 0,0 50%,30% 100%,30% 60%,100% 60%)}}
+ @media(max-width:900px){html body :is(#salle,#contenu) .these .these-frise>ol{--frise-col:2}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(1){grid-row:1;grid-column:1}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(1)::after{--fx:auto;--fr:-30px;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(0 40%,70% 40%,70% 0,100% 50%,70% 100%,70% 60%,0 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(2){grid-row:1;grid-column:2}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(2)::after{--fx:calc(50% - 6px);--fr:auto;--fy:calc(100% + 2px);--fw:12px;--fh:26px;--fc:polygon(40% 0,60% 0,60% 70%,100% 70%,50% 100%,0 70%,40% 70%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(3){grid-row:2;grid-column:2}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(3)::after{--fx:-30px;--fr:auto;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(100% 40%,30% 40%,30% 0,0 50%,30% 100%,30% 60%,100% 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(4){grid-row:2;grid-column:1}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(4)::after{--fx:calc(50% - 6px);--fr:auto;--fy:calc(100% + 2px);--fw:12px;--fh:26px;--fc:polygon(40% 0,60% 0,60% 70%,100% 70%,50% 100%,0 70%,40% 70%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(5){grid-row:3;grid-column:1}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(5)::after{--fx:auto;--fr:-30px;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(0 40%,70% 40%,70% 0,100% 50%,70% 100%,70% 60%,0 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(6){grid-row:3;grid-column:2}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(6)::after{--fx:calc(50% - 6px);--fr:auto;--fy:calc(100% + 2px);--fw:12px;--fh:26px;--fc:polygon(40% 0,60% 0,60% 70%,100% 70%,50% 100%,0 70%,40% 70%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(7){grid-row:4;grid-column:2}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(7)::after{--fx:-30px;--fr:auto;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(100% 40%,30% 40%,30% 0,0 50%,30% 100%,30% 60%,100% 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(8){grid-row:4;grid-column:1}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(8)::after{--fx:calc(50% - 6px);--fr:auto;--fy:calc(100% + 2px);--fw:12px;--fh:26px;--fc:polygon(40% 0,60% 0,60% 70%,100% 70%,50% 100%,0 70%,40% 70%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(9){grid-row:5;grid-column:1}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(9)::after{--fx:auto;--fr:-30px;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(0 40%,70% 40%,70% 0,100% 50%,70% 100%,70% 60%,0 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(10){grid-row:5;grid-column:2}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(10)::after{--fx:calc(50% - 6px);--fr:auto;--fy:calc(100% + 2px);--fw:12px;--fh:26px;--fc:polygon(40% 0,60% 0,60% 70%,100% 70%,50% 100%,0 70%,40% 70%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(11){grid-row:6;grid-column:2}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(11)::after{--fx:-30px;--fr:auto;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(100% 40%,30% 40%,30% 0,0 50%,30% 100%,30% 60%,100% 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(12){grid-row:6;grid-column:1}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(12)::after{--fx:calc(50% - 6px);--fr:auto;--fy:calc(100% + 2px);--fw:12px;--fh:26px;--fc:polygon(40% 0,60% 0,60% 70%,100% 70%,50% 100%,0 70%,40% 70%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(13){grid-row:7;grid-column:1}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(13)::after{--fx:auto;--fr:-30px;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(0 40%,70% 40%,70% 0,100% 50%,70% 100%,70% 60%,0 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(14){grid-row:7;grid-column:2}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(14)::after{--fx:calc(50% - 6px);--fr:auto;--fy:calc(100% + 2px);--fw:12px;--fh:26px;--fc:polygon(40% 0,60% 0,60% 70%,100% 70%,50% 100%,0 70%,40% 70%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(15){grid-row:8;grid-column:2}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(15)::after{--fx:-30px;--fr:auto;--fy:20px;--fw:30px;--fh:12px;--fc:polygon(100% 40%,30% 40%,30% 0,0 50%,30% 100%,30% 60%,100% 60%)}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(16){grid-row:8;grid-column:1}html body :is(#salle,#contenu) .these .these-frise-jalon:nth-child(16)::after{--fx:calc(50% - 6px);--fr:auto;--fy:calc(100% + 2px);--fw:12px;--fh:26px;--fc:polygon(40% 0,60% 0,60% 70%,100% 70%,50% 100%,0 70%,40% 70%)}}
+ @media(max-width:560px){html body :is(#salle,#contenu) .these .these-frise{padding:16px 12px 12px}html body :is(#salle,#contenu) .these .these-frise>ol{grid-template-columns:1fr;gap:22px}html body :is(#salle,#contenu) .these .these-frise-jalon{grid-row:auto!important;grid-column:auto!important}html body :is(#salle,#contenu) .these .these-frise-jalon::after{left:calc(50% - 6px);right:auto;top:calc(100% + 2px);width:12px;height:18px;clip-path:polygon(40% 0,60% 0,60% 70%,100% 70%,50% 100%,0 70%,40% 70%)}}
+ @media(prefers-reduced-motion:reduce){html body :is(#salle,#contenu) .these .these-frise-jalon{transition:none}html body :is(#salle,#contenu) .these .these-frise-jalon:hover{transform:none}}
+ html body :is(#salle,#contenu) .these .these-repere-annees{margin:0 0 14px!important;padding:8px 12px;border-radius:8px;background:#f3f7f9;color:#3d5866;font-size:var(--type-note)!important}
+ html body :is(#salle,#contenu) .these .codirection-figure{margin:0}
+ html body :is(#salle,#contenu) .these .these-gantt{margin:20px 0;padding:18px 18px 12px;border:1px solid #dce7ed;border-radius:14px;background:#fff}
+ html body :is(#salle,#contenu) .these .these-gantt>figcaption{margin:0 0 12px;color:#173d50;font-weight:650;font-size:var(--type-encadre)!important;text-align:left}
+ html body :is(#salle,#contenu) .these .these-gantt-defilement{overflow-x:auto;padding-bottom:4px}
+ html body :is(#salle,#contenu) .these .these-gantt-grille{position:relative;display:grid;grid-template-columns:minmax(190px,1.6fr) repeat(12,minmax(42px,1fr));grid-template-rows:auto auto repeat(var(--lignes),minmax(44px,auto));min-width:760px;column-gap:0;row-gap:6px}
+ html body :is(#salle,#contenu) .these .these-gantt-coin{grid-row:1/span 2;grid-column:1;align-self:end;color:#5a6f7a;font-size:12.5px!important;font-weight:650;text-transform:uppercase;letter-spacing:.04em}
+ html body :is(#salle,#contenu) .these .these-gantt-annee{grid-row:1;padding:6px 8px;margin:0 2px;border-radius:8px 8px 0 0;background:#eaf3f6;color:#173d50;font-weight:700;font-size:13px!important;text-align:center!important}
+ html body :is(#salle,#contenu) .these .these-gantt-saison{grid-row:2;padding:3px 0;border-bottom:1px solid #dce7ed;color:#5a6f7a;font-size:12px!important;text-align:center!important}
+ html body :is(#salle,#contenu) .these .these-gantt-tache{grid-column:1;align-self:center;padding-right:12px;color:#173d50;font-size:13.5px!important;line-height:1.3!important;text-align:left!important}
+ html body :is(#salle,#contenu) .these .these-gantt-barre{align-self:center;height:20px;margin:0 2px;border-radius:999px;background:var(--g,#5b6f7a);box-shadow:inset 0 -2px 0 #0000001a}
+ html body :is(#salle,#contenu) .these .these-gantt [data-objectif="O1"]{--g:#5aae38}
+ html body :is(#salle,#contenu) .these .these-gantt [data-objectif="O2"]{--g:#11a7a5}
+ html body :is(#salle,#contenu) .these .these-gantt [data-objectif="O3"]{--g:#0755ad}
+ html body :is(#salle,#contenu) .these .these-gantt [data-objectif="transversal"]{--g:#76a2bb}
+ html body :is(#salle,#contenu) .these .these-gantt [data-objectif="transfert"]{--g:repeating-linear-gradient(135deg,#bf8953 0 8px,#d9ae82 8px 16px)}
+ html body :is(#salle,#contenu) .these .these-gantt-barre[data-objectif="transfert"]{background:var(--g)}
+ html body :is(#salle,#contenu) .these .these-gantt-ici{position:relative;justify-self:center;width:2px;background:#b3261e;opacity:.85;z-index:1}
+ html body :is(#salle,#contenu) .these .these-gantt-ici>b{position:absolute;top:-2px;left:6px;white-space:nowrap;padding:1px 6px;border-radius:6px;background:#b3261e;color:#fff;font-size:11.5px!important;font-weight:650}
+ html body :is(#salle,#contenu) .these .these-gantt-legende{display:flex;flex-wrap:wrap;gap:8px 16px;margin:12px 0 0!important}
+ html body :is(#salle,#contenu) .these .these-gantt-legende>span{display:inline-flex;align-items:center;gap:6px;color:#3d5866;font-size:var(--type-note)!important}
+ html body :is(#salle,#contenu) .these .these-gantt-legende>span::before{content:"";width:18px;height:10px;border-radius:999px;background:var(--g)}
+ @media(max-width:760px){html body .these .these-section-cadre{padding:16px;margin-bottom:16px}html body .these .these-section-entete{gap:10px}html body .these .these-cartes-synthese{grid-template-columns:1fr}html body .these .these-flux{grid-template-columns:repeat(2,minmax(0,1fr))}}
+ @media(max-width:420px){html body .these .these-flux{grid-template-columns:1fr}}
+}
+
+@layer charte-typographique{
+ html body :is(#salle,#contenu) .these .these-titre-contexte-principal{ text-align:justify!important;text-align-last:left!important}
+ html body :is(#salle,#contenu) .these :is(table,figure,.ms-card,.these-cartes-synthese) :is(p,td,th,li,figcaption){text-align:left!important;text-align-last:auto!important;hyphens:none!important}
+ html body .these .these-section-cadre:nth-child(4n+1){--these-ton:#116e80;--these-pale:#edf7f8}
+ html body .these .these-section-cadre:nth-child(4n+2){--these-ton:#2d628e;--these-pale:#eef4fc}
+ html body .these .these-section-cadre:nth-child(4n+3){--these-ton:#437344;--these-pale:#f0f7ee}
+ html body .these .these-section-cadre:nth-child(4n){--these-ton:#865a3c;--these-pale:#faf3eb}
+ html body .these .these-section-entete>span{background:var(--these-pale);color:var(--these-ton)}
+ html body .these .these-cartes-synthese>article:nth-child(4n+1){border-top-color:#168d94;background:#f1f9f9}
+ html body .these .these-cartes-synthese>article:nth-child(4n+2){border-top-color:#4c79ad;background:#f3f6fc}
+ html body .these .these-cartes-synthese>article:nth-child(4n+3){border-top-color:#6d944e;background:#f5f9f0}
+ html body .these .these-cartes-synthese>article:nth-child(4n){border-top-color:#b18457;background:#fcf7f0}
+ html body .these .these-flux>li{background:var(--these-pale,#edf7f8);border-color:color-mix(in srgb,var(--these-ton,#116e80) 18%,white)}
+ html body .these .these-flux>li>strong{color:var(--these-ton,#116e80)}
+ html body .these .these-sondage{margin:18px 0;padding:24px;border-radius:14px;background:linear-gradient(120deg,#edf8f7,#f3f6fd);border:1px solid #d9e8eb}
+ html body .these .these-sondage-ligne{display:grid;grid-template-columns:80px minmax(0,1fr);align-items:center;gap:18px;margin-bottom:20px}
+ html body .these .these-sondage-ligne>strong{font-size:32px!important;line-height:1.1!important;color:#116e80;font-variant-numeric:tabular-nums}
+ html body .these .these-sondage-ligne>div>span{display:block;margin-bottom:9px;font-size:var(--type-note)!important;line-height:1.5!important;text-align:left!important}
+ html body .these .these-jauge{height:11px;border-radius:10px;background:#dce8ec;overflow:hidden}
+ html body .these .these-jauge>i{display:block;height:100%;border-radius:10px;background:#139c96}
+ html body .these .these-sondage-ligne:nth-child(2) .these-jauge>i{background:#5a80b4}
+ html body .these .these-sondage-ligne:nth-child(2)>strong{color:#466d9c}
+ html body .these .these-sondage figcaption{font-size:var(--type-note)!important;line-height:1.6!important;color:#566f7c}
+ @media(max-width:600px){html body .these .these-sondage{padding:16px}html body .these .these-sondage-ligne{grid-template-columns:66px minmax(0,1fr);gap:12px}}
+}
+
+/* Posture de recherche : repères de lecture compacts sur écran étroit. */
+@layer charte-typographique {
+  @media (max-width: 640px) {
+    html body .these .these-section-cadre.these-posture-parcours > p {
+      margin-top: 0;
+      margin-bottom: 14px;
+    }
+    html body .these .these-section-cadre.these-posture-parcours > p:last-child {
+      margin-bottom: 0;
+    }
+    html body .these .these-section-cadre.these-posture-parcours > p > strong:first-child {
+      display: block;
+      margin-bottom: 3px;
+      color: #1c526d;
+      font-weight: 700;
+    }
+  }
+}
+
+/* Acquis de la littérature en pleine largeur, avant les trois cadres de lacune. */
+@layer charte-typographique {
+  html body .objectifs-visuels .ov-connaissances { display:grid; grid-template-columns:minmax(0,1fr); gap:24px; margin:24px 0; min-width:0; }
+  html body .objectifs-visuels .ov-savoir-avant { --ov-accent:#3d8028; min-width:0; padding:20px; border:1px solid color-mix(in srgb,var(--ov-accent) 22%,#fff); border-inline-start:4px solid var(--ov-accent); border-radius:12px; background:color-mix(in srgb,var(--ov-accent) 6%,#fff); }
+  html body .objectifs-visuels .ov-savoir-avant[data-etat-connaissances="O2"] { --ov-accent:#087e7b; }
+  html body .objectifs-visuels .ov-savoir-avant[data-etat-connaissances="O3"] { --ov-accent:#0755ad; }
+  html body .objectifs-visuels .ov-savoir-avant .ov-savoir-titre { margin:0 0 12px!important; color:var(--ov-accent); }
+  html body .objectifs-visuels .ov-savoir-avant > p + p { margin-top:1em!important; }
+  html body .objectifs-visuels .ov-savoir-avant .ov-citation { color:var(--ov-accent); text-decoration:underline; text-underline-offset:.15em; }
+  html:is(.hc,.lv) body .objectifs-visuels .ov-savoir-avant { background:Canvas; border-color:CanvasText; }
+  html:is(.hc,.lv) body .objectifs-visuels .ov-savoir-avant :is(p,h5,a) { color:CanvasText!important; }
+}
+ html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .ms-exploration .ms-metrics-ribbon .ms-metric{padding:12px 6px!important;gap:2px!important}
+ html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .ms-exploration .ms-metrics-ribbon .ms-metric-value{font-size:30px!important;line-height:1.1!important}
+ html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .ms-exploration .ms-metrics-ribbon .ms-metric-label{font-size:var(--type-note)!important;line-height:1.3!important}
+ html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .ms-exploration .ms-exploration-grid{gap:10px!important}
+ html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .ms-exploration .ms-exploration-grid .ms-card{padding:12px 14px!important;gap:4px!important}
+ html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .ms-exploration .ms-exploration-grid .ms-card h6{font-size:17px!important;line-height:1.3!important}
+ html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .ms-exploration .ms-exploration-grid .ms-card p{font-size:15px!important;line-height:1.5!important}
+ @media(max-width:1100px){html body :is(#salle,#contenu) .these [data-methodologie-visuelle] .ms-exploration .ms-metrics-ribbon .ms-metric-value{font-size:24px!important}}
+ html body :is(#salle,#contenu) .these .ms-msss>a>img{display:block;width:100%;max-width:560px;height:auto;margin:0 auto}
+@layer charte-typographique{
+ /* Hiérarchie de la méthodologie : une seule échelle (objectif 26 px, rubrique 22 px, sous-titre 18 px, texte 16-17 px, étiquettes 13 px, chiffres 28 px au plus) */
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture){--mh-encre:#173f52!important;--mh-texte:#354f59!important;--mh-doux:#56707a!important;--mh-trait:#d6e2e5!important;--mh-trait-doux:#e6eef0!important;--c:#173f52!important;--ct:#76a2bb!important;--cf:#eef3f6!important;color:var(--mh-texte)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif[data-objectif="O1"]{--c:#286c23!important;--ct:#5aae38!important;--cf:#ecf7e8!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif[data-objectif="O2"]{--c:#006e72!important;--ct:#11a7a5!important;--cf:#e9f7f6!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif[data-objectif="O3"]{--c:#18559b!important;--ct:#0755ad!important;--cf:#ebf2fd!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture,.mh-frise) [data-k="O1"]{--k:#286c23!important;--kf:#ecf7e8!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture,.mh-frise) [data-k="O2"]{--k:#006e72!important;--kf:#e9f7f6!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture,.mh-frise) [data-k="O3"]{--k:#18559b!important;--kf:#ebf2fd!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) *{box-sizing:border-box!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) :is(p,li,dt,dd,td,th,figcaption,summary,small,span,b,strong){text-align:left!important;text-align-last:auto!important;hyphens:none!important;overflow-wrap:break-word!important;word-spacing:normal!important;letter-spacing:normal!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) p{margin:0!important;font-size:16.5px!important;line-height:1.68!important;color:var(--mh-texte)!important;max-width:none!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) strong{color:var(--mh-encre)!important;font-weight:650!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) code{font:500 14px/1.5 ui-monospace,Consolas,monospace!important;background:#f1f5f6!important;border-radius:5px!important;padding:1px 5px!important;white-space:normal!important;overflow-wrap:anywhere!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-etiquette{display:block!important;margin:0!important;font:700 13px/1.35 var(--type-police)!important;letter-spacing:.07em!important;text-transform:uppercase!important;color:var(--k,var(--c))!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) :is(h4,h5,h6){font-family:var(--type-police)!important;text-align:left!important;text-transform:none!important;letter-spacing:-.01em!important;background:none!important;border:0!important;box-shadow:none!important}
+
+ /* Ouverture et clôture */
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-ouverture,.mh-cloture){margin:8px 0 0!important;padding:0!important;border:0!important;background:none!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-partie-tete{display:block!important;margin:0 0 4px!important;padding:0 0 22px!important;border:0!important;border-bottom:2px solid var(--c)!important;background:none!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-partie-tete h4{margin:6px 0 0!important;font-size:26px!important;font-weight:700!important;line-height:1.3!important;color:var(--mh-encre)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-partie-tete .mh-chapeau{margin:12px 0 0!important;font-size:17px!important;line-height:1.65!important;color:var(--mh-texte)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-cloture{margin-top:72px!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-ouverture-suite{margin-top:0!important}
+
+ /* Frise O1 → O2 ↔ O3 (navigation des trois volets) */
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 nav.these-methode-parcours.mh-frise{display:grid!important;grid-template-columns:minmax(0,1fr) 32px minmax(0,1fr) 32px minmax(0,1fr)!important;align-items:stretch!important;gap:0!important;margin:24px 0 8px!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important;row-gap:0!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 nav.these-methode-parcours.mh-frise>a{order:0!important;grid-column:auto!important;grid-row:auto!important;display:flex!important;align-items:center!important;gap:12px!important;min-width:0!important;min-height:0!important;margin:0!important;padding:14px 16px!important;border:1px solid var(--mh-trait,#d6e2e5)!important;border-top:3px solid var(--k)!important;border-radius:12px!important;background:var(--kf)!important;color:#173f52!important;text-decoration:none!important;box-shadow:none!important;transform:none!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 nav.these-methode-parcours.mh-frise>a:hover{border-color:var(--k)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 nav.these-methode-parcours.mh-frise>a::before,html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 nav.these-methode-parcours.mh-frise>a::after{content:none!important;display:none!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-frise-code{flex:0 0 auto!important;display:grid!important;place-items:center!important;width:40px!important;height:40px!important;border-radius:10px!important;background:var(--k)!important;color:#fff!important;font:800 15px/1 var(--type-police)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-frise-nom{min-width:0!important;font:700 16px/1.35 var(--type-police)!important;color:#173f52!important;text-align:left!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-frise-fleche{display:grid!important;place-items:center!important;color:#56707a!important;font:700 20px/1 var(--type-police)!important}
+
+ /* En-tête d’objectif : bandeau plein à la couleur de l’objectif */
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .these-methode-objectif.mh-objectif{margin:72px 0 0!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;overflow:visible!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .these-objectif-vue>.these-methode-objectif.mh-objectif:first-child{margin-top:72px!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif>.methode-objectif-tete.mh-objectif-tete{display:block!important;margin:0 0 8px!important;padding:28px 32px!important;border:0!important;border-radius:16px!important;background:var(--c)!important;color:#fff!important;box-shadow:0 14px 40px rgba(23,63,82,.12)!important;text-align:left!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif-tete .mh-etiquette{color:rgba(255,255,255,.88)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif-tete h4{display:block!important;margin:8px 0 0!important;padding:0!important;max-width:62ch!important;font-size:26px!important;font-weight:700!important;line-height:1.32!important;color:#fff!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif-tete .mh-hypothese{margin:16px 0 0!important;padding:14px 0 0!important;border-top:1px solid rgba(255,255,255,.3)!important;max-width:80ch!important;font-size:16px!important;line-height:1.6!important;color:rgba(255,255,255,.94)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif-tete .mh-hypothese b{color:#fff!important;font-weight:700!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif-tete .o3-acces-galerie{display:none!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif>.methode-these-corps.mh-corps{display:block!important;margin:0!important;padding:0!important;border:0!important;background:none!important}
+
+ /* Rubrique = une ligne : numéro et titre à gauche, contenu à droite, séparées par un filet */
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-rangee{display:grid!important;grid-template-columns:184px minmax(0,1fr)!important;column-gap:32px!important;row-gap:0!important;margin:0!important;padding:32px 0!important;border:0!important;border-bottom:1px solid var(--mh-trait)!important;border-radius:0!important;background:none!important;box-shadow:none!important;scroll-margin-top:110px!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-rangee:last-child{border-bottom:0!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-rangee>h5{grid-column:1!important;display:block!important;align-self:start!important;margin:0!important;padding:0!important;min-height:0!important;border:0!important;background:none!important;font-size:22px!important;font-weight:700!important;line-height:1.28!important;color:var(--c)!important;position:static!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-rangee>h5>span{display:block!important;position:static!important;transform:none!important;width:auto!important;height:auto!important;min-width:0!important;min-height:0!important;margin:0 0 6px!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;color:var(--c)!important;font:800 13px/1.3 var(--type-police)!important;letter-spacing:.07em!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-contenu{grid-column:2!important;min-width:0!important;display:flex!important;flex-direction:column!important;gap:18px!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-contenu>*{margin-top:0!important;margin-bottom:0!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-guide{font-size:17px!important;line-height:1.6!important;font-weight:550!important;color:var(--mh-encre)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-note{font-size:14px!important;line-height:1.55!important;color:var(--mh-doux)!important}
+
+ /* Grilles régulières et cartes : un seul niveau de cadre, mêmes hauteurs par rangée */
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-grille{display:grid!important;gap:16px!important;align-items:stretch!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-g2{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-g3{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-g4{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-carte{--k:var(--c)!important;--kf:var(--cf)!important;display:flex!important;flex-direction:column!important;gap:6px!important;min-width:0!important;margin:0!important;padding:16px 18px!important;background:#fff!important;border:1px solid var(--mh-trait)!important;border-top:3px solid var(--k)!important;border-radius:12px!important;box-shadow:none!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-carte>p{font-size:15px!important;line-height:1.55!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-carte-titre{display:block!important;font:700 16px/1.35 var(--type-police)!important;color:var(--mh-encre)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-preuves .mh-carte:nth-child(1){--k:#245c33!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-preuves .mh-carte:nth-child(2){--k:#4f8a5a!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-preuves .mh-carte:nth-child(3){--k:#8fa894!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-lettre{display:block!important;font:800 28px/1 var(--type-police)!important;color:var(--k)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-chiffre-carte{display:block!important;font:800 24px/1.15 var(--type-police)!important;color:var(--c)!important;letter-spacing:-.02em!important;font-variant-numeric:tabular-nums!important}
+
+ /* Chiffres clés */
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-chiffres{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:16px!important;margin:0!important;padding:0!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-chiffres.mh-chiffres-3{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-chiffres>div{min-width:0!important;margin:0!important;padding:14px 16px!important;background:var(--cf)!important;border:1px solid color-mix(in srgb,var(--c) 18%,white)!important;border-radius:12px!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-chiffres dt{margin:0!important;font:800 28px/1.1 var(--type-police)!important;color:var(--c)!important;letter-spacing:-.02em!important;white-space:nowrap!important;font-variant-numeric:tabular-nums!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-chiffres dd{margin:6px 0 0!important;font-size:14px!important;line-height:1.4!important;color:var(--mh-texte)!important}
+
+ /* Pastilles, équation, moyens, configurations */
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-pastilles,.mh-equation,.mh-configurations){display:flex!important;flex-wrap:wrap!important;align-items:center!important;gap:8px!important;margin:0!important;padding:0!important;list-style:none!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-pastilles,.mh-equation)>li{margin:0!important;padding:6px 13px!important;border-radius:999px!important;background:var(--cf)!important;border:1px solid color-mix(in srgb,var(--c) 26%,white)!important;color:var(--mh-encre)!important;font:600 14.5px/1.3 var(--type-police)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-pastilles-encre>li{background:#fff!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-equation>li.mh-op{padding:6px 2px!important;background:none!important;border:0!important;color:var(--c)!important;font:800 13px/1.3 var(--type-police)!important;letter-spacing:.06em!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-moyens{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:8px!important;margin:0!important;padding:0!important;list-style:none!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-moyens>li{display:flex!important;flex-direction:column!important;justify-content:center!important;gap:2px!important;min-width:0!important;margin:0!important;padding:12px 10px!important;border-radius:10px!important;background:var(--cf)!important;border:1px solid color-mix(in srgb,var(--c) 22%,white)!important;text-align:center!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-moyens>li.mh-moyen-admis{background:#fff!important;border-style:dashed!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-moyens b{font:700 14px/1.3 var(--type-police)!important;color:var(--mh-encre)!important;text-align:center!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-moyens span{font:800 15px/1.3 var(--type-police)!important;color:var(--c)!important;text-align:center!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-configurations>li{display:flex!important;align-items:center!important;gap:10px!important;margin:0!important;padding:6px 14px 6px 6px!important;border-radius:999px!important;background:#fff!important;border:1px solid var(--mh-trait)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-configurations b{display:grid!important;place-items:center!important;width:30px!important;height:30px!important;border-radius:50%!important;background:var(--c)!important;color:#fff!important;font:800 14px/1 var(--type-police)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-configurations span{font:600 14.5px/1.3 var(--type-police)!important;color:var(--mh-encre)!important}
+
+ /* Déroulé en étapes numérotées */
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-deroule{display:grid!important;grid-auto-flow:column!important;grid-auto-columns:minmax(0,1fr)!important;gap:0!important;margin:0!important;padding:0!important;list-style:none!important;counter-reset:mhd!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-deroule>li{position:relative!important;min-width:0!important;margin:0!important;padding:0 14px 0 0!important;counter-increment:mhd!important;display:flex!important;flex-direction:column!important;gap:3px!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-deroule>li::before{content:counter(mhd)!important;position:relative!important;z-index:1!important;display:grid!important;place-items:center!important;width:30px!important;height:30px!important;margin:0 0 8px!important;border-radius:50%!important;background:#fff!important;border:2px solid var(--c)!important;color:var(--c)!important;font:800 14px/1 var(--type-police)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-deroule>li.mh-fait::before{background:var(--c)!important;color:#fff!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-deroule>li::after{content:""!important;position:absolute!important;top:15px!important;left:32px!important;right:2px!important;height:2px!important;background:color-mix(in srgb,var(--c) 30%,white)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-deroule>li:last-child::after{display:none!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-deroule b{font:700 15px/1.35 var(--type-police)!important;color:var(--mh-encre)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-deroule span{font-size:14px!important;line-height:1.45!important;color:var(--mh-texte)!important}
+
+ /* Plan des rubriques (ouverture) */
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-plan{display:grid!important;grid-template-columns:repeat(7,minmax(0,1fr))!important;gap:6px!important;margin:0!important;padding:0!important;list-style:none!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-plan>li{min-width:0!important;margin:0!important;padding:10px 10px 10px 12px!important;border-radius:10px!important;background:#fff!important;border:1px solid var(--mh-trait)!important;font:600 14px/1.3 var(--type-police)!important;color:var(--mh-encre)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-plan>li>span{display:block!important;margin-bottom:2px!important;font:800 13px/1.2 var(--type-police)!important;letter-spacing:.06em!important;color:var(--mh-doux)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-plan>li.mh-plan-essai{background:#f1f5f6!important;border-style:dashed!important}
+
+ /* Figures */
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-figure{display:flex!important;flex-direction:column!important;min-width:0!important;margin:0!important;padding:0!important;background:#fff!important;border:1px solid var(--mh-trait)!important;border-radius:12px!important;overflow:hidden!important;box-shadow:none!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-figure>a{display:block!important;background:#fff!important;border-bottom:1px solid var(--mh-trait-doux)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-figure img{display:block!important;width:100%!important;max-width:100%!important;height:auto!important;max-height:none!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-grille>.mh-figure img{aspect-ratio:16/10!important;object-fit:cover!important;object-position:top left!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-figure figcaption{margin:0!important;padding:10px 14px 12px!important;font-size:14px!important;line-height:1.5!important;color:var(--mh-texte)!important;font-weight:400!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-figure-texte{display:grid!important;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)!important;gap:20px!important;align-items:start!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-secteurs{display:grid!important;gap:0!important;margin:0!important;padding:0!important;list-style:none!important;border-top:1px solid var(--mh-trait)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-secteurs>li{display:grid!important;grid-template-columns:30px minmax(0,1fr)!important;column-gap:10px!important;margin:0!important;padding:9px 0!important;border-bottom:1px solid var(--mh-trait)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-secteurs>li>span{grid-row:1/3!important;font:800 13px/1.6 var(--type-police)!important;letter-spacing:.06em!important;color:var(--c)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-secteurs b{font:700 15px/1.35 var(--type-police)!important;color:var(--mh-encre)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-secteurs small{font-size:14px!important;line-height:1.45!important;color:var(--mh-texte)!important}
+
+ /* Barres (notices par base) */
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-barres{margin:0!important;padding:16px 18px!important;background:#fff!important;border:1px solid var(--mh-trait)!important;border-radius:12px!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-barres figcaption{margin:0 0 12px!important;padding:0!important;font-size:14px!important;color:var(--mh-texte)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-barres figcaption b{color:var(--mh-encre)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-barres ul{display:grid!important;gap:10px!important;margin:0!important;padding:0!important;list-style:none!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-barres li{display:grid!important;grid-template-columns:120px minmax(0,1fr) 64px!important;gap:12px!important;align-items:center!important;margin:0!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-barres-lib{font:600 14px/1.3 var(--type-police)!important;color:var(--mh-encre)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-barres-piste{position:relative!important;display:block!important;height:20px!important;border-radius:5px!important;background:var(--mh-trait-doux)!important;overflow:hidden!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-barres-piste i{position:absolute!important;inset:0 auto 0 0!important;background:var(--c)!important;border-radius:5px!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-barres-val{font:800 14px/1.3 var(--type-police)!important;color:var(--mh-encre)!important;text-align:right!important;font-variant-numeric:tabular-nums!important;white-space:nowrap!important}
+
+ /* Questionnaire, mesures, lectures, jauge */
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-questionnaire{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important;margin:0!important;padding:0!important;list-style:none!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-questionnaire>li{display:grid!important;grid-template-columns:30px minmax(0,1fr)!important;column-gap:10px!important;row-gap:3px!important;align-content:start!important;margin:0!important;padding:14px 16px!important;background:#fff!important;border:1px solid var(--mh-trait)!important;border-radius:12px!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-questionnaire>li>span{grid-row:1/3!important;display:grid!important;place-items:center!important;width:30px!important;height:30px!important;border-radius:50%!important;background:var(--cf)!important;color:var(--c)!important;font:800 14px/1 var(--type-police)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-questionnaire b{font:700 15px/1.35 var(--type-police)!important;color:var(--mh-encre)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-questionnaire small{font-size:14px!important;line-height:1.45!important;color:var(--mh-texte)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-mesures .mh-carte{padding:14px 16px!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-mesures .mh-carte>p{font-size:14px!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-lectures svg{display:block!important;width:100%!important;height:120px!important;margin:0 0 6px!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-jauge{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;border-radius:12px!important;overflow:hidden!important;border:1px solid var(--mh-trait)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-jauge>div{display:flex!important;flex-direction:column!important;gap:4px!important;min-width:0!important;padding:12px 14px!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-jauge b{font:800 18px/1.2 var(--type-police)!important;font-variant-numeric:tabular-nums!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-jauge span{font-size:14px!important;line-height:1.45!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-jauge .mh-jauge-vise{background:var(--c)!important;color:#fff!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-jauge .mh-jauge-vise :is(b,span){color:#fff!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-jauge .mh-jauge-moyen{background:#fbf3e7!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-jauge .mh-jauge-moyen :is(b,span){color:#6e4514!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-jauge .mh-jauge-bas{background:#f6eef0!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-jauge .mh-jauge-bas :is(b,span){color:#7a2b44!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif .schema-reseau{max-width:560px!important;margin:0!important;padding:14px 16px!important;background:#fff!important;border:1px solid var(--mh-trait)!important;border-radius:12px!important;box-shadow:none!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif .schema-reseau svg{display:block!important;width:100%!important;height:auto!important;max-width:100%!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif .schema-reseau :is(.comparaison-etiquette,.schema-titre){margin:0 0 4px!important;font-size:14px!important;font-weight:700!important;color:var(--mh-encre)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif .schema-reseau .comparaison-etiquette{font-size:13px!important;letter-spacing:.07em!important;text-transform:uppercase!important;color:var(--c)!important;background:none!important;padding:0!important;border:0!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif .schema-reseau .schema-legende{margin:8px 0 0!important;font-size:14px!important;line-height:1.5!important;color:var(--mh-doux)!important}
+
+ /* Tableaux */
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-table-defile{max-width:100%!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-table{width:100%!important;margin:0!important;border-collapse:separate!important;border-spacing:0!important;background:#fff!important;border:1px solid var(--mh-trait)!important;border-radius:12px!important;overflow:hidden!important;font-size:14.5px!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-table :is(th,td){padding:10px 14px!important;vertical-align:top!important;border:0!important;border-bottom:1px solid var(--mh-trait-doux)!important;font-size:14.5px!important;line-height:1.5!important;color:var(--mh-texte)!important;background:none!important;min-width:0!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-table thead th{background:var(--mh-encre)!important;color:#fff!important;font:700 13px/1.35 var(--type-police)!important;letter-spacing:.06em!important;text-transform:uppercase!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-table .mh-table-groupe th{background:var(--cf)!important;color:var(--c)!important;font:800 13px/1.35 var(--type-police)!important;letter-spacing:.07em!important;text-transform:uppercase!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-table tbody tr:last-child td{border-bottom:0!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif .mh-table td:first-child{color:var(--mh-encre)!important;font-weight:600!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-defis tbody[data-k] .mh-table-groupe th{background:var(--k)!important;color:#fff!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-defis td:first-child{width:44%!important;color:var(--mh-encre)!important;font-weight:600!important;border-inline-start:4px solid var(--k)!important}
+
+ /* Précisions repliées : un seul volet par rubrique, sans cadre */
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-details{margin:4px 0 0!important;padding:0!important;border:0!important;border-top:1px solid var(--mh-trait-doux)!important;border-radius:0!important;background:none!important;box-shadow:none!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-details>summary{display:flex!important;align-items:center!important;gap:8px!important;margin:0!important;padding:12px 0 0!important;border:0!important;background:none!important;list-style:none!important;cursor:pointer!important;font:700 14px/1.4 var(--type-police)!important;color:var(--c)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-details>summary::-webkit-details-marker{display:none!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-details>summary::before{content:"+"!important;display:grid!important;place-items:center!important;width:20px!important;height:20px!important;border-radius:50%!important;border:1.5px solid currentColor!important;font:800 14px/1 var(--type-police)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-details[open]>summary::before{content:"−"!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-details-corps{display:flex!important;flex-direction:column!important;gap:14px!important;padding:16px 0 4px!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-details-corps>*{margin:0!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-details-corps p{font-size:15.5px!important;line-height:1.65!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-details-corps h6{margin:6px 0 -4px!important;padding:0!important;font-size:18px!important;font-weight:700!important;line-height:1.3!important;color:var(--mh-encre)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-formules{display:grid!important;gap:10px!important;margin:0!important;padding:0 0 0 20px!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-formules>li{margin:0!important;font-size:15.5px!important;line-height:1.65!important;color:var(--mh-texte)!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-formules>li::marker{color:var(--c)!important;font-weight:800!important}
+
+ /* Galeries d’essai : la visionneuse garde ses commandes, sans cadre supplémentaire */
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif #methode-o2-exemples.mh-galerie{margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif #methode-o2-exemples .mh-galerie-tete{margin:0 0 14px!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif .o3-galerie-intro h3{font-size:18px!important;font-weight:700!important;line-height:1.3!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif .mh-galerie-o3:empty{display:none!important}
+
+ /* Écrans moyens */
+ @media (max-width:1100px){
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-rangee{grid-template-columns:150px minmax(0,1fr)!important;column-gap:24px!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-g4,html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-chiffres{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-moyens,html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-questionnaire{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-plan{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-figure-texte{grid-template-columns:minmax(0,1fr)!important}
+ }
+ /* Tablette et téléphone : une colonne */
+ @media (max-width:760px){
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-rangee{grid-template-columns:minmax(0,1fr)!important;padding:24px 0!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-rangee>h5{display:flex!important;align-items:baseline!important;gap:10px!important;margin:0 0 14px!important;font-size:20px!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-rangee>h5>span{margin:0!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 :is(.mh-objectif,.mh-ouverture,.mh-cloture) .mh-contenu{grid-column:1!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-g2,html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-g3,html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-g4{grid-template-columns:minmax(0,1fr)!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-mesures,html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-chiffres,html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-chiffres.mh-chiffres-3{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-chiffres dt{font-size:24px!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-moyens,html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-questionnaire{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-plan{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-deroule{grid-auto-flow:row!important;grid-auto-columns:auto!important;gap:12px!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-deroule>li{display:grid!important;grid-template-columns:30px minmax(0,1fr)!important;column-gap:12px!important;row-gap:2px!important;padding:0!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-deroule>li::before{grid-row:1/3!important;margin:0!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-deroule>li::after{top:32px!important;bottom:-12px!important;left:14px!important;right:auto!important;width:2px!important;height:auto!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-jauge{grid-template-columns:minmax(0,1fr)!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 nav.these-methode-parcours.mh-frise{grid-template-columns:minmax(0,1fr)!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-frise-fleche{height:24px!important;transform:rotate(90deg)!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif>.methode-objectif-tete.mh-objectif-tete{padding:22px 20px!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif-tete h4,html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-partie-tete h4{font-size:22px!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-barres li{grid-template-columns:96px minmax(0,1fr) 54px!important;gap:8px!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif .mh-table :is(th,td){padding:8px 10px!important;font-size:14px!important}
+  html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .these-methode-objectif.mh-objectif,html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .these-objectif-vue>.these-methode-objectif.mh-objectif:first-child,html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-cloture{margin-top:48px!important}
+ }
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif #exploration-o3-galerie .o3-atlas{margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif #exploration-o3-galerie .o3-galerie-surtexte{display:flex!important;flex-wrap:wrap!important;gap:2px 10px!important}
+ html body :is(#salle,#contenu) .these #rubrique-fr-these-panneau-2 .mh-objectif #exploration-o3-galerie .o3-galerie-intro>p{display:none!important}
+}

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Éric Bernier</title>
+  <rect width="64" height="64" rx="18" fill="#173f52"/>
+  <g fill="#fcfdfb"><path d="M11 14h17v5H16v10h10v5H16v11h12v5H11z"/><path fill-rule="evenodd" d="M33 14h9c7 0 11 3.5 11 9.2 0 3.8-1.9 6.4-5 7.8 3.8 1.1 6 4 6 8.5C54 46.2 49.7 50 42.4 50H33zm5 5v10h3.7c4.1 0 6.2-1.7 6.2-5.1s-2.1-4.9-6.2-4.9zm0 15v11h4.1c4.5 0 6.8-1.9 6.8-5.5S46.6 34 42.1 34z"/></g>
+</svg>

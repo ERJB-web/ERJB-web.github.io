@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 310" role="img" aria-labelledby="titre description">
+<title id="titre">Accompagnement éducatif centré sur la personne</title>
+<desc id="description">Schéma d'une démarche d'éducation spécialisée : écouter la personne, co-construire son projet de vie et soutenir sa participation.</desc>
+<defs><linearGradient id="fond" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f6faf7"/><stop offset="1" stop-color="#e9f2ed"/></linearGradient><filter id="ombre"><feDropShadow dx="0" dy="7" stdDeviation="10" flood-color="#214a49" flood-opacity=".10"/></filter></defs>
+<rect width="600" height="310" rx="22" fill="url(#fond)"/>
+<g opacity=".48" stroke="#ceded5" fill="none"><path d="M25 76H575M25 236H575" stroke-dasharray="3 8"/><circle cx="300" cy="153" r="118"/><circle cx="300" cy="153" r="91"/></g>
+<path d="M212 153H150M388 153H450" stroke="#81ab9a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="300" cy="153" r="73" fill="#ffffff" stroke="#aacfc0" stroke-width="2.5" filter="url(#ombre)"/>
+<g fill="#19594e"><circle cx="300" cy="128" r="14"/><path d="M267 176v-7c0-18 15-30 33-30s33 12 33 30v7" opacity=".82"/></g>
+<text x="300" y="203" text-anchor="middle" font-size="15" font-family="Arial,sans-serif" font-weight="700" fill="#153e40">LA PERSONNE</text>
+<g filter="url(#ombre)"><rect x="20" y="118" width="130" height="72" rx="13" fill="#ffffff" stroke="#c2dcd0"/><rect x="450" y="118" width="130" height="72" rx="13" fill="#ffffff" stroke="#c2dcd0"/></g>
+<text x="85" y="147" text-anchor="middle" font-size="16" font-family="Arial,sans-serif" font-weight="700" fill="#246a5e">ÉCOUTER</text><text x="85" y="169" text-anchor="middle" font-size="12.5" font-family="Arial,sans-serif" fill="#47656a">Besoins · choix</text>
+<text x="515" y="147" text-anchor="middle" font-size="15" font-family="Arial,sans-serif" font-weight="700" fill="#246a5e">CO-CONSTRUIRE</text><text x="515" y="169" text-anchor="middle" font-size="12.5" font-family="Arial,sans-serif" fill="#47656a">Projet de vie</text>
+<path d="M300 227v31" stroke="#81ab9a" stroke-width="3" stroke-linecap="round"/>
+<rect x="192" y="250" width="216" height="42" rx="12" fill="#214e55"/>
+<text x="300" y="277" text-anchor="middle" font-size="14.5" font-family="Arial,sans-serif" font-weight="700" fill="#ffffff">PARTICIPATION &amp; AUTONOMIE</text>
+<path d="M300 30v42" stroke="#c9b38d" stroke-width="3" stroke-linecap="round"/><circle cx="300" cy="22" r="7" fill="#d3b16e"/>
+</svg>

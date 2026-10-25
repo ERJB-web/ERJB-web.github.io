@@ -1,0 +1,74 @@
+{
+  "intro": "From initial framing to public feedback: six principles for clear, accessible communication that welcomes dialogue.",
+  "navigation": "Six steps in science communication",
+  "pratique": "Putting it into practice", "exemple": "Illustrative example", "livrable": "Output to prepare", "vigilance": "Point to consider",
+  "boucle": "Public feedback informs subsequent messages: revisit and adapt this process.",
+  "etapes": [
+    {
+      "court": "Audience and purpose",
+      "actions": [
+        ["Start with people", "Identify their questions, experiences and vocabulary. Speak with some intended audience members before finalising the content."],
+        ["Set a specific objective", "Define what the content should enable: understanding an idea, discussing an issue or informing a decision."],
+        ["Adapt the entry point", "Choose the channel, length and detail according to audience practices, then frame a concrete question."]
+      ],
+      "exemple": "For people and their relatives: ‘Why might several services be needed to respond to one person’s situation?’",
+      "livrable": "A short brief: audience, question, objective, channel and central message.",
+      "vigilance": "One audience contains diverse experiences. Information needs and trust cannot be inferred from knowledge levels alone."
+    },
+    {
+      "court": "Clear message",
+      "actions": [
+        ["State one central idea", "Make the main message visible at the start and organise explanations around it."],
+        ["Translate concepts", "Explain jargon when first used. Include examples or diagrams when they genuinely improve understanding."],
+        ["Provide useful context", "Present numbers with their population and period, make sources accessible and specify the next step offered to the audience."]
+      ],
+      "exemple": "From intersectoral networks to a public-facing question: ‘How can the right services work together for each person’s situation?’",
+      "livrable": "A one-sentence message, three supporting ideas and one main source.",
+      "vigilance": "An engaging headline must remain faithful to available knowledge. Simple language can preserve necessary distinctions."
+    },
+    {
+      "court": "Listening and dialogue",
+      "actions": [
+        ["Ask a genuine question", "Invite experiences or questions and leave room for responses."],
+        ["Organise the exchange", "Explain moderation rules, the limits of the response offered and follow-up arrangements."],
+        ["Use the feedback", "Gather recurring questions, clarify disagreements and show how exchanges shape subsequent content."]
+      ],
+      "exemple": "‘What helped you move between services? What was more difficult?’",
+      "livrable": "An open question, discussion ground rules and a summary of feedback.",
+      "vigilance": "Provide a respectful space and avoid publicly requesting health information or details identifying a person."
+    },
+    {
+      "court": "Limits and nuance",
+      "actions": [
+        ["Locate the knowledge", "Specify what was observed, what is interpretation and what remains a hypothesis or planned project."],
+        ["Make uncertainty understandable", "Explain the population studied, scope of findings and important limitations in accessible language."],
+        ["Prepare for corrections", "Date content, retain sources and make corrections visible when errors or developments require them."]
+      ],
+      "exemple": "Introducing the thesis: ‘This project examines how services could organise more effectively. Results are not yet available.’",
+      "livrable": "A box covering what is known, what remains unknown and why.",
+      "vigilance": "Communicating uncertainty involves choices of language and context; its effect on trust cannot be guaranteed in advance."
+    },
+    {
+      "court": "Accessibility",
+      "actions": [
+        ["Plan alternatives early", "Include what will be spoken, shown and provided in text from the scripting stage."],
+        ["Prepare each format", "Provide reviewed captions, transcripts and useful descriptions of visual information; ensure clear reading and navigation."],
+        ["Consider real uses", "Invite intended users to read or try the content, considering mobile access, languages and listening contexts."]
+      ],
+      "exemple": "For a network diagram: name actors and explain connections aloud, then provide an accessible text description alongside the visual.",
+      "livrable": "Content accompanied by relevant text and audiovisual alternatives.",
+      "vigilance": "Needs vary by medium. Unreviewed automatic captions or vague alternative text may leave essential information inaccessible."
+    },
+    {
+      "court": "Evaluation",
+      "actions": [
+        ["Match indicators to objectives", "Distinguish reach, message comprehension, participation and perceived usefulness."],
+        ["Observe understanding", "Ask for a brief restatement and remaining questions, instead of relying solely on views or likes."],
+        ["Revise and share next steps", "Identify what needs revision, change the format or explanation and record improvements."]
+      ],
+      "exemple": "After a short video: ‘In one sentence, what idea do you remember? What question remains for you?’",
+      "livrable": "A short review connecting objectives, audience feedback and planned changes.",
+      "vigilance": "Views describe distribution. Alone, they demonstrate neither understanding, trust nor behaviour change."
+    }
+  ]
+}

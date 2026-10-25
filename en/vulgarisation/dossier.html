@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Scientific dossier: popularization, communication and engagement around science. State of knowledge, international data, report graphs, limitations and references.">
+<meta name="theme-color" content="#173744">
+<title>Science popularization: research dossier | Éric Bernier</title>
+<link rel="canonical" href="https://erjb-web.github.io/en/vulgarisation/dossier.html">
+<style>
+:root{--ink:#163644;--text:#283d46;--muted:#526972;--line:#d7e0e2;--paper:#fafbfa;--teal:#176a70;--blue:#285d7c;--green:#3c715e;--sand:#eef1ed}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--text);font:17px/1.78 "Segoe UI",Arial,sans-serif;overflow-wrap:break-word}
+a{color:#175c77;text-underline-offset:3px}a:hover{color:#0c465c}a:focus-visible{outline:3px solid #d19c48;outline-offset:3px}
+.page{max-width:1530px;margin:auto;padding:0 35px 100px}
+.masthead{border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px;padding:19px 0;font-size:13px;color:var(--muted)}
+.brand{font-size:13px;font-weight:800;letter-spacing:.13em;color:var(--ink);text-decoration:none;text-transform:uppercase}
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.66fr);gap:clamp(24px,4vw,72px);padding:58px 0 40px;border-bottom:1px solid var(--line);align-items:center}
+.overline,.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--teal)}
+h1,h2,h3,h4{color:var(--ink)}h1,h2,.opening{font-family:Georgia,"Times New Roman",serif;font-weight:400}
+h1{font-size:clamp(40px,4.1vw,66px);line-height:1.12;letter-spacing:-.035em;margin:20px 0 20px}
+.hero p{max-width:700px;font-size:18px;line-height:1.8}
+.hero figure{margin:0}.hero img{width:100%;height:auto;display:block;border-radius:3px;aspect-ratio:5/4;object-fit:cover}
+.hero figcaption{font-size:11px;color:var(--muted);margin-top:9px;line-height:1.55}
+.meta{font-size:13px!important;line-height:1.7!important;color:var(--muted)}
+.layout{display:grid;grid-template-columns:242px minmax(0,1fr);gap:clamp(34px,5vw,90px);align-items:start}
+.toc{position:sticky;top:24px;align-self:start;margin:28px 0;max-height:calc(100vh - 55px);overflow:auto;border-right:1px solid var(--line);padding-right:20px;font-size:13px;line-height:1.5}
+.toc b{display:block;margin-bottom:18px;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.toc a{display:block;padding:8px 2px;border-bottom:1px solid #edf0f1;text-decoration:none;color:#52636c}
+.toc a:hover{color:var(--teal)}
+.article{min-width:0}.section{padding:43px 0;border-bottom:1px solid var(--line);scroll-margin-top:20px}
+.section h2{font-size:clamp(28px,3vw,40px);line-height:1.23;margin:0 0 24px}
+.section h3{font-size:19px;line-height:1.35;margin:29px 0 13px;font-weight:750}
+.section p{max-width:890px;margin:13px 0 20px}.lead{font-size:19px;line-height:1.75;color:#315260}
+small,.note,.source{font-size:12.5px;color:var(--muted);line-height:1.65}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin:24px 0 30px}
+.facts>div{padding:22px 21px;border:1px solid var(--line);background:#fafcfb}
+.facts b{display:block;font-size:37px;color:var(--ink);font-weight:550;font-family:Georgia,serif;line-height:1.15;font-variant-numeric:tabular-nums}
+.facts span{display:block;margin-top:11px;font-size:12.5px;color:var(--muted);line-height:1.55}
+table{border-collapse:collapse;width:100%;margin:23px 0 12px;font-size:14px;line-height:1.6}
+th{text-align:left;background:#eaf0f0;color:var(--ink);font-size:12px;letter-spacing:.03em}
+td,th{vertical-align:top;padding:14px 13px;border-bottom:1px solid var(--line)}tr:nth-child(even) td{background:#fafcfc}
+td:first-child{font-weight:650;color:var(--ink)}
+.tablewrap{max-width:100%;overflow-x:auto}
+.docfig{max-width:100%;border:1px solid var(--line);margin:30px 0;padding:21px;background:#fbfcfc}
+.docfig img{display:block;margin:auto;max-width:100%;height:auto;max-height:610px;object-fit:contain}
+.docfig figcaption{font-size:13px;line-height:1.65;color:#405660;margin-top:17px;border-top:1px solid var(--line);padding-top:12px}
+.docfig .figtitle{font-weight:750;color:var(--ink)}
+.barfig{padding:24px 22px;margin:25px 0 30px;border:1px solid var(--line);background:#fbfcfc}
+.barfig>figcaption{margin-bottom:21px;font-size:14px;font-weight:750;color:var(--ink)}
+.barrow{display:grid;grid-template-columns:145px minmax(0,1fr) 58px;gap:14px;align-items:center;margin:15px 0;font-size:13px}
+.track{height:21px;background:#e7eeef;position:relative}.track span{height:100%;background:#247c80;display:block}.barrow strong{text-align:right;font-variant-numeric:tabular-nums;color:var(--ink);font-size:14px}
+.sourcenote{font-size:12px;color:var(--muted);line-height:1.65;margin-top:15px!important}
+.process{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:#dae2e2;border:1px solid #dae2e2;margin:26px 0}
+.process>div{background:#f8faf9;padding:21px 16px}.process span{font:700 12px Arial;color:var(--teal)}.process h4{font-size:15px;line-height:1.25;margin:10px 0}.process p{margin:0;font-size:12.5px;line-height:1.6}
+.reference-list{list-style:none;margin:21px 0;padding:0;counter-reset:ref}.reference-list li{padding:14px 0;border-bottom:1px solid #e8edee;font-size:14px;line-height:1.55;counter-increment:ref}.reference-list li::before{content:counter(ref,decimal-leading-zero);display:inline-block;font:700 11px Arial;color:var(--teal);margin-right:16px;width:23px}
+.source-tag{font:700 10px Arial;letter-spacing:.1em;text-transform:uppercase;color:#697e80}
+aside.studies{background:var(--sand);padding:23px 27px;margin:23px 0;border-left:3px solid var(--green)}aside.studies p{margin-bottom:0}
+footer{padding-top:35px;color:var(--muted);font-size:12px}
+@media(max-width:980px){.page{padding:0 18px 65px}.layout{display:block}.toc{position:static;max-height:none;border-right:0;border-bottom:1px solid var(--line);padding:0 0 20px;display:flex;flex-wrap:wrap;gap:5px 17px}.toc b{flex-basis:100%;margin:0 0 7px}.toc a{font-size:12px;border:0;padding:5px 0}.hero{grid-template-columns:1fr}.hero figure{max-width:700px}.process{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.facts{grid-template-columns:1fr}.barrow{grid-template-columns:90px minmax(0,1fr) 43px;gap:9px}.hero{padding:33px 0}.section{padding:32px 0}.process{grid-template-columns:1fr}td,th{padding:10px 9px}}
+@media print{.page{max-width:none;padding:0}.toc{display:none}.layout{display:block}.section{break-inside:auto}.docfig,.barfig{break-inside:avoid}a{color:inherit}}
+
+/* Seuls les paragraphes rédigés du dossier de vulgarisation sont justifiés. */
+main :is(.hero,.article) p:not(:is(.meta,.source,.sourcenote)) {
+  text-align:justify;
+}
+</style>
+<link rel="stylesheet" href="../../assets/typographie.css?v=a15bd5c947">
+</head>
+<body>
+<div class="page">
+<header class="masthead"><a class="brand" href="../#vulgarisation">Éric Bernier · Public health</a><a href="../#vulgarisation">← Back to the “Science popularization” room</a></header>
+<main>
+<section class="hero" id="debut">
+<div>
+<span class="overline">Scientific synthesis dossier · October 18, 2026</span>
+<h1>Science popularization: making knowledge intelligible, open to discussion and accessible</h1>
+<p class="opening">Conceptual foundations, state of knowledge, international data, communication formats, public engagement and evaluation issues.</p>
+<p class="meta">A documented narrative synthesis, not a systematic review. Empirical sources, graphs taken from open-access publications and synthesis diagrams are explicitly distinguished. No original research finding is claimed.</p>
+</div>
+<figure><img src="../../assets/chapitres/vulgarisation-01.webp" width="850" height="620" alt="A speaker explains a topic to an audience at a knowledge-sharing meeting in Quebec" loading="eager"><figcaption>Documentary photograph of a public meeting, Khayman / Wikimedia Commons; credit and licence in the <a href="../../assets/chapitres/catalogue.js?v=f08b961140">site’s catalogue of illustrations</a>. Real photograph, not generated.</figcaption></figure>
+</section>
+<div class="layout">
+<nav class="toc" aria-label="Table of contents"><b>In this dossier</b>
+<a href="#resume">Synthesis</a><a href="#definitions">01 · Definitions and boundaries</a><a href="#histoire">02 · Theoretical models</a><a href="#etat">03 · State of knowledge</a><a href="#confiance">04 · Trust and figures</a><a href="#preuves">05 · Experimental studies</a><a href="#fabrication">06 · From study to message</a><a href="#inclusion">07 · Accessibility and equity</a><a href="#formats">08 · Formats and evaluation</a><a href="#risques">09 · Limitations and ethics</a><a href="#agenda">10 · Open questions</a><a href="#canada">11 · Quebec and Canada</a><a href="#bibliographie">Sources and illustrations</a></nav>
+<div class="article">
+<section class="section" id="resume">
+<span class="eyebrow">Analytical summary</span>
+<h2>Communicating science is not just a matter of transmitting facts</h2>
+<p class="lead">Science popularization transforms the form of a piece of knowledge without unduly changing its scope. It provides reference points for understanding a method, appraising the robustness of a finding and situating uncertainties. But perfectly accurate information is not necessarily understood, judged relevant or put to use.</p>
+<p>Research on science communication studies the interactions between messages, audiences, institutions, media, decision situations and relationships of trust. It calls for defining the intended goal (understanding, dialogue, participation or use) before choosing the format. The National Academies point out that a one-way dissemination model does not meet every objective, particularly when values, collective consequences or controversies are at stake <a href="#ref-nasem">[1]</a>.</p>
+<div class="facts"><div><b>140</b><span>Countries covered by the Wellcome Global Monitor 2026; survey conducted in 2025 with more than 140,000 respondents <a href="#ref-wellcome">[2]</a>.</span></div><div><b>71,922</b><span>People surveyed in 68 countries in the multinational study published by Cologna and colleagues in 2025 <a href="#ref-cologna">[3]</a>.</span></div><div><b>20</b><span>Criteria scored in the CDC’s Clear Communication Index: a practical assessment tool, not a guarantee of effectiveness <a href="#ref-cdc">[4]</a>.</span></div></div>
+<p>This dossier mainly selects institutional reports, experimental studies, comparative research and recent syntheses. It does not claim to be exhaustive: no registered search strategy, no double screening and no exhaustive risk-of-bias appraisal were carried out. When data come from a cross-sectional survey, associations rather than causal effects are described.</p>
+</section>
+
+<section class="section" id="definitions"><span class="eyebrow">01 / Conceptualization</span><h2>Popularization, dissemination, mediation, participation: distinct objectives</h2>
+<p><strong>Science popularization</strong> aims to present knowledge, and the way it was produced, in terms a non-specialist audience can understand. It involves selection, prioritization, a change of register and often the use of examples. Its fidelity is measured not by the presence of every detail, but by respect for the findings, their degree of certainty and their conditions of validity.</p>
+<p><strong>Science communication</strong> is a broader category that includes exchanges between specialists, public dissemination, institutional communication and media information. <strong>Science mediation</strong> often adds a mechanism for appropriation: a visit, an exhibition, a dialogue with a researcher, a workshop or a participatory activity. <strong>Public engagement</strong> involves, to varying degrees, taking concerns into account and, sometimes, real influence over questions, methods or decisions. <strong>Knowledge mobilization</strong> concerns the conditions under which knowledge circulates and is used in action; <strong>implementation</strong> specifically examines the adoption and sustainability of practices.</p>
+<div class="tablewrap"><table><thead><tr><th>Approach</th><th>Guiding question</th><th>Examples</th><th>Outcome that can be evaluated</th></tr></thead><tbody>
+<tr><td>Dissemination</td><td>Is the information accessible?</td><td>Website, press release, publication</td><td>Access, consultation, reach</td></tr>
+<tr><td>Popularization</td><td>Is the content understood without misinterpretation?</td><td>Explanatory article, diagram, video</td><td>Understanding, recall, interpretation</td></tr>
+<tr><td>Mediation</td><td>How do audiences appropriate knowledge?</td><td>Exhibition, workshop, dialogue</td><td>Questioning, rephrasing, exchanges</td></tr>
+<tr><td>Participation</td><td>Can audiences act on the process?</td><td>Deliberation, participatory research</td><td>Quality of participation, influence, feedback</td></tr>
+<tr><td>Mobilization</td><td>Is the knowledge usable by stakeholders?</td><td>Tailored synthesis, brokering, co-production</td><td>Appropriation, documented use</td></tr>
+<tr><td>Implementation</td><td>Is a practice actually implemented?</td><td>Implementation strategies, support</td><td>Adoption, fidelity, adaptation, maintenance</td></tr></tbody></table></div>
+<p class="note">Analytical typology of this dossier, drawn from the distinction between objectives discussed by the National Academies <a href="#ref-nasem">[1]</a> and from the principle of opening research processes to other actors in the UNESCO Recommendation <a href="#ref-unesco">[5]</a>. Boundaries vary across disciplinary traditions.</p>
+</section>
+
+<section class="section" id="histoire"><span class="eyebrow">02 / Frameworks</span><h2>Three broad families of models and their limitations</h2>
+<p>The <em>deficit model</em> holds that difficulties of understanding or trust result mainly from a lack of knowledge. It can justify a useful educational explanation, but becomes inadequate when it presumes that transmitting facts automatically corrects attitudes. <em>Dialogue</em> models regard audiences as interlocutors whose expectations, knowledge and concerns shape the exchanges. <em>Participation</em> models go further when they provide for a power to act or decide. These models are not watertight historical periods: they coexist and can be combined depending on the problem.</p>
+<div class="process" role="group" aria-label="Summary comparative diagram">
+<div><span>01 / INFORMATION</span><h4>Explain</h4><p>Establish the message, its level of evidence and prior knowledge.</p></div>
+<div><span>02 / DIALOGUE</span><h4>Listen and respond</h4><p>Make room for questions, objections, experiences and uncertainties.</p></div>
+<div><span>03 / PARTICIPATION</span><h4>Share the definition of the problem</h4><p>Discuss priorities and make the influence of contributions visible.</p></div>
+<div><span>04 / EVALUATION</span><h4>Document the effects</h4><p>Measure understanding, participation and follow-up, rather than counting views alone.</p></div></div>
+<p class="note">Editorial synthesis diagram, not reproduced from a report and not equated with a validated causal model. Foundations: National Academies (2017) <a href="#ref-nasem">[1]</a> and UNESCO (2021) <a href="#ref-unesco">[5]</a>.</p>
+<p>The challenge is to define what one seeks to achieve without substituting a convenient indicator for the phenomenon under study. A video viewed by ten thousand people can have very wide reach without changing how a concept is interpreted. Conversely, a workshop bringing together a few participants can provide detailed knowledge of the obstacles to appropriation, without representing the general population.</p>
+</section>
+
+<section class="section" id="etat"><span class="eyebrow">03 / State of knowledge</span><h2>What research allows us to assert and what remains debated</h2>
+<h3>Effectiveness depends on the message, the situation and what is being measured</h3>
+<p>The National Academies synthesis (2017) relates audience characteristics (prior knowledge, numeracy, values, social belonging) to perceived credibility, the framing of information and the media environment <a href="#ref-nasem">[1]</a>. It identifies an architecture of research questions more than a universal formula. Communication can contribute to understanding or support a decision without single-handedly determining its outcome. Exposure, endorsement and change in practice are distinct outcomes.</p>
+<h3>Trust is multidimensional</h3>
+<p>Cologna and colleagues distinguish competence, integrity, benevolence and openness to criticism, rather than treating trust as a single judgment. In their survey, perceived competence is on average higher than perceived openness to other points of view. The authors stress that responses vary across national contexts and that full metric comparability of the scales has not been established <a href="#ref-cologna">[3]</a>.</p>
+<h3>Correcting false information is not a “magic” intervention</h3>
+<p>Work on disinformation calls for distinguishing between a mistaken belief, the detection of incorrect information, stated intention and actual behaviour. In an experiment conducted in twelve countries, six inoculation strategies against climate disinformation messages provided only very little protection, whereas exposure to disinformation worsened several indicators. This result contradicts the idea that a short intervention can, on its own, neutralize misleading content in all contexts <a href="#ref-inoculation">[6]</a>.</p>
+<h3>Digital media broaden formats, not necessarily social reach</h3>
+<p>Platforms make videos, podcasts, carousels, summaries and live sessions available. They also produce easy-to-track metrics (impressions, clicks, shares, comments) that do not assess understanding. Recommendation algorithms, language constraints and inequalities of access must be considered. The audiences reached by a post are not the same as all the audiences affected by a problem. The UNESCO Recommendation on Open Science establishes accessibility and participation as requirements broader than merely putting content online <a href="#ref-unesco">[5]</a>.</p>
+<aside class="studies"><strong>Methodological note.</strong><p>Findings from randomized trials estimate the effects of specific messages in defined populations and conditions. Cross-sectional surveys describe distributions and associations. Institutional recommendations translate criteria and objectives; they do not, in themselves, constitute experimental evidence of the effectiveness of a particular strategy.</p></aside>
+</section>
+
+<section class="section" id="confiance"><span class="eyebrow">04 / Empirical data</span><h2>Trust in science: a reading of international surveys</h2>
+<p>The <em>Wellcome Global Monitor 2026</em> draws on more than 140,000 responses collected in 140 countries in 2025. To compare the 2018, 2020 and 2025 waves, the report uses the 108 countries present at all three time points. The proportion reporting “some” or “a lot” of trust in science rose from 77% in 2018 to 80% in 2020, then 72% in 2025. These figures should not be read without the report’s caveat: changes in survey mode, notably in China, affect comparisons over time <a href="#ref-wellcome">[2]</a>.</p>
+<figure class="barfig"><figcaption>Reported trust in science: “a lot” or “some” (%, 108 common countries)</figcaption>
+<div class="barrow"><span>2018</span><div class="track"><span style="width:77%"></span></div><strong>77 %</strong></div>
+<div class="barrow"><span>2020</span><div class="track"><span style="width:80%"></span></div><strong>80 %</strong></div>
+<div class="barrow"><span>2025</span><div class="track"><span style="width:72%"></span></div><strong>72 %</strong></div>
+<p class="sourcenote"><strong>Data:</strong> Wellcome Global Monitor (2026), comparable results across three waves. Graph produced from the report’s values, not a facsimile of its figure. <a href="https://wellcome.org/insights/reports/wellcome-global-monitor-2026" target="_blank" rel="noopener">See Wellcome’s original graphs and tables ↗</a></p></figure>
+<p>The same report observes gaps linked to self-reported economic situation: 39% of people living comfortably say they have “a lot” of trust in science, compared with 20% among those experiencing financial difficulties. These comparisons describe an association, not a causal effect of affluence on trust. Similarly, 81% consider that scientists’ work benefits people like them, whereas only 37% judge that it benefits most people in their country <a href="#ref-wellcome">[2]</a>.</p>
+<figure class="barfig"><figcaption>High trust and perceived economic situation, 2025</figcaption>
+<div class="barrow"><span>Living comfortably</span><div class="track"><span style="width:39%"></span></div><strong>39 %</strong></div>
+<div class="barrow"><span>Financial difficulties</span><div class="track"><span style="width:20%"></span></div><strong>20 %</strong></div>
+<p class="sourcenote">Share reporting “a lot” of trust in science; self-reported economic situation categories. Graph produced from Wellcome (2026), chapter 2; observational survey <a href="#ref-wellcome">[2]</a>.</p></figure>
+<p>Another survey, published in <em>Nature Human Behaviour</em>, collected responses from 71,922 people in 68 countries between November 2022 and August 2023. On a scale of trust in scientists ranging from 1 to 5, the aggregate mean is 3.62. The authors note that 78% consider scientists qualified to conduct important research, whereas 42% believe that scientists pay attention to other people’s views. This dissociation points to a difficulty of relationship and listening, not only of understanding <a href="#ref-cologna">[3]</a>.</p>
+<figure class="docfig"><img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41562-024-02090-5/MediaObjects/41562_2024_2090_Fig3_HTML.png" loading="lazy" alt="Two world maps show, country by country, heterogeneous associations between self-reported political orientation and trust in scientists. Colours and scales are explained in the original figure."><figcaption><span class="figtitle">Original scientific figure: Cologna et al. (2025), figure 3.</span> National associations between political orientations and trust in scientists, using two ways of operationalizing orientation. Do not turn these statistical relationships into causality or into a uniform portrait of political groups. Image taken from the open-access article in <a href="https://www.nature.com/articles/s41562-024-02090-5" target="_blank" rel="noopener">Nature Human Behaviour</a>, licence <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>, with no modification to the figure. © The authors, 2025.</figcaption></figure>
+<p>Responsible communication should therefore not infer, from a global measure, that each population “believes” or “does not believe” science. The objects of trust, the wording of the question, timing and the concrete situation all matter.</p>
+</section>
+
+<section class="section" id="preuves"><span class="eyebrow">05 / Experiments and meta-analyses</span><h2>Uncertainty, consensus, disinformation: three experimental lessons</h2>
+<h3>Making uncertainty visible</h3>
+<p>In four experiments and a field study, van der Bles and colleagues (2020) examined the reception of information featuring different ways of expressing uncertainty. The use of numerical ranges had an overall limited effect on reported trust. Verbal wording could produce different results depending on the indicators. These observations do not prove that every statement of uncertainty is without consequence: the topic, the institution speaking and the way limitations are presented remain essential <a href="#ref-uncertainty">[7]</a>.</p>
+<figure class="docfig"><img src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/5dec/7149229/36d4ca5956a1/pnas.1913678117fig03.jpg" loading="lazy" alt="Figure made up of experimental graphs comparing the perception of uncertainty, trust in the numbers and trust in their source for various numerical and verbal formulations."><figcaption><span class="figtitle">Original experimental figure: van der Bles et al. (2020), figure 3.</span> Responses to various forms of uncertainty communication; compare the data points, their spread and the intervals rather than drawing conclusions from bar height alone. Source: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7149229/" target="_blank" rel="noopener">PNAS / PubMed Central</a>, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>. Image reproduced without retouching.</figcaption></figure>
+<h3>Expressing scientific consensus</h3>
+<p>In a preregistered experiment conducted with 10,527 participants from online samples in 27 countries, a message recalling the scientific consensus on the human cause of climate change substantially reduced errors in estimating that consensus (standardized effect d = 0.47; 95% CI: 0.41–0.52). Direct changes in other attitudes, including support for public action, were, however, weaker or absent. An improvement in an indicator of understanding therefore does not mechanically imply a transformation of all behaviours <a href="#ref-consensus">[8]</a>.</p>
+<h3>Responding to false information</h3>
+<p>The meta-analysis by Chan and Albarracín (2023) examines the effects of corrections on false beliefs about scientific issues; the authors deal with a heterogeneous literature whose effects are moderated by the characteristics of the interventions and of the beliefs <a href="#ref-correction">[9]</a>. A later analysis conducted in twelve countries, with 6,816 participants, shows that several attempts at psychological prevention offered only very little protection against misleading climate content, under the experimental conditions studied <a href="#ref-inoculation">[6]</a>. This contrast invites us not to confuse correction after exposure, prevention, understanding of consensus and lasting action.</p>
+<div class="tablewrap"><table><thead><tr><th>Reference</th><th>Type and population</th><th>Relevant finding</th><th>Caution in interpretation</th></tr></thead><tbody>
+<tr><td>van der Bles et al., 2020</td><td>Experiments + field</td><td>Limited effect of numerical ranges on trust, in the settings studied.</td><td>Context and wording matter; no universal effect.</td></tr>
+<tr><td>Cologna et al., 2025</td><td>Survey, 68 countries, n = 71,922</td><td>Plural trust; competence rated higher than openness.</td><td>Cross-sectional study, trust variables not perfectly invariant.</td></tr>
+<tr><td>Climate consensus, 2024</td><td>Online trial, 27 countries, n = 10,527</td><td>Reduced errors about the consensus (d = 0.47).</td><td>Does not demonstrate a change in policy or behaviour.</td></tr>
+<tr><td>Climate inoculation, 2023</td><td>Experiment, 12 countries, n = 6,816</td><td>Weak preventive effects in the interventions tested.</td><td>Does not rule out every other strategy or population.</td></tr>
+<tr><td>Wellcome, 2026</td><td>International survey, 140 countries</td><td>Distribution of trust and socioeconomic disparities.</td><td>Associations; comparability across waves to be qualified.</td></tr></tbody></table></div>
+</section>
+
+<section class="section" id="fabrication"><span class="eyebrow">06 / Writing method</span><h2>Turning a finding into a rigorous explanation</h2>
+<p>Good popularization does not begin with the search for a metaphor. It begins by identifying the claim that withstands scrutiny of the study. One must make explicit what is known, how it is known and to whom the finding may apply. The final wording can claim causality only if the study design and the body of arguments justify it; hypothesis, association and recommendation remain distinct intellectual acts.</p>
+<div class="process" role="group" aria-label="Verification chain for a science communication">
+<div><span>01</span><h4>Qualify the source</h4><p>Original article? Review? Protocol? Report? Preprint? Assess the design and the status.</p></div>
+<div><span>02</span><h4>Check the measure</h4><p>Population, date, denominator, effect size, uncertainty interval and bias.</p></div>
+<div><span>03</span><h4>Write for an audience</h4><p>Concrete question, explained term, main finding, faithful illustration, nuance.</p></div>
+<div><span>04</span><h4>Test and correct</h4><p>Rephrasing by the audience, accessibility, link checking, dated correction.</p></div></div>
+<p>The CDC offers a structured grid of 20 criteria covering, among other things, the visibility of the main message, plain language, visual organization, the state of knowledge, numbers and risk communication. This <em>Clear Communication Index</em> provides a framework for editorial review. It cannot replace an evaluation with real audiences <a href="#ref-cdc">[4]</a>.</p>
+<h3>Example applied to primary care</h3>
+<p>Inadequate message: “A dense network of partners guarantees integrated care.” This wording turns a hypothesis into a certainty. A more accurate statement would be: “The presence of many partners is not enough to establish that people receive a coordinated response. Actual relationships, trajectories and the experience of the people concerned must also be studied.” The second text distinguishes the configuration of the network from the observable quality of the response. It does not present as established thesis findings that have yet to be produced.</p>
+</section>
+
+<section class="section" id="inclusion"><span class="eyebrow">07 / Public responsibility</span><h2>Accessibility, literacy and equity</h2>
+<p>Making content available does not mean making it usable. Obstacles relate to language, disability, health literacy, available time, material conditions of access, familiarity with institutions and cultural representations. An undifferentiated “general public” strategy can increase visibility among people already familiar with research, while leaving out those who most need the information.</p>
+<p>The 2021 UNESCO Recommendation conceives of open science as a set of practices aimed at accessibility, reuse and opening the scientific process to actors beyond the research community. It calls for consideration of inequalities of access and multilingual contexts <a href="#ref-unesco">[5]</a>. For digital materials, the W3C recommends, among other things, verified captions, transcripts and, where necessary, descriptions of visual elements <a href="#ref-w3c">[10]</a>.</p>
+<div class="tablewrap"><table><thead><tr><th>Obstacle encountered</th><th>Concrete editorial choice</th><th>Verification</th></tr></thead><tbody>
+<tr><td>Jargon and acronyms</td><td>Definition at first occurrence; situated example.</td><td>The reader can rephrase without changing the meaning.</td></tr>
+<tr><td>Poorly explained numerical risk</td><td>Absolute frequency, denominator, period, context.</td><td>The direction of the comparison is correctly understood.</td></tr>
+<tr><td>Inaccessible multimedia content</td><td>Transcript, proofread captions, necessary descriptions.</td><td>Use by keyboard and assistive technologies.</td></tr>
+<tr><td>Purely institutional communication</td><td>Consultation and engagement with real questions.</td><td>Record of the changes made to the content.</td></tr>
+<tr><td>Under-represented audiences</td><td>Partnerships, adapted languages, offline formats.</td><td>Participation documented, not presumed.</td></tr></tbody></table></div>
+<p>Popularization thus entails editorial and organizational responsibility: stating whom one is addressing, who was consulted, what is inaccessible and what will be improved.</p>
+</section>
+
+<section class="section" id="formats"><span class="eyebrow">08 / Implementation</span><h2>Choosing formats according to evaluable objectives</h2>
+<div class="tablewrap"><table><thead><tr><th>Format</th><th>Appropriate use</th><th>Main risk</th><th>Preferable indicators</th></tr></thead><tbody>
+<tr><td>Text and fact sheet</td><td>One idea, consultable references, reading at one’s own pace</td><td>Text overload or jargon</td><td>Understanding, navigation, reuse</td></tr>
+<tr><td>Annotated graph</td><td>Comparing magnitudes, risks, trends</td><td>Truncated scale, confusing association with causation</td><td>Accurate reading and checking of figures</td></tr>
+<tr><td>Explainer video</td><td>Showing a temporal or spatial mechanism</td><td>Visual exaggeration, loss of uncertainties</td><td>Explanation recalled, accessibility</td></tr>
+<tr><td>Podcast</td><td>Bringing voices together and providing context</td><td>No visible sources, unchallenged discourse</td><td>Quality of explanations, transcript</td></tr>
+<tr><td>Workshop / exhibition</td><td>Questions, exploration, collective production</td><td>Non-representative audience, tokenistic participation</td><td>Questions produced, influence and feedback</td></tr>
+<tr><td>Social media</td><td>Directing people to a verifiable resource</td><td>Popularity metrics mistaken for impact</td><td>Access to the source, quality of interactions</td></tr></tbody></table></div>
+<p>A sound evaluation defines the unit of measurement and the expected change in advance. Five levels can be distinguished: <strong>production</strong> (materials actually disseminated), <strong>reach</strong> (people actually reached), <strong>understanding</strong> (what people are able to interpret), <strong>participation</strong> (who was able to contribute) and <strong>use</strong> (documented decisions or practices). Progress on one of these indicators does not automatically validate the others.</p>
+<p>For evaluations of understanding, an open-ended question or an application to a new situation can be more informative than a simple satisfaction survey. For participatory formats, it is essential to report back to people what was retained, rejected or left pending.</p>
+</section>
+
+<section class="section" id="risques"><span class="eyebrow">09 / Limitations and ethics</span><h2>Making knowledge accessible without building false certainty</h2>
+<p>The most common pitfalls involve selecting only spectacular findings, presenting associations as causes, generalizing to different audiences, using illustrations far removed from the data, concealing limitations and confusing media interest with scientific quality. A graph can be arithmetically accurate yet misleading through its scale, its categories or the period selected.</p>
+<p>Transparency requires keeping links to sources, dating the data, separating commentary from findings, disclosing relevant funding and conflicts of interest, and correcting errors publicly. The humanities, social sciences and public health also require distinguishing between a participant’s words, the researcher’s interpretation and a population-level conclusion.</p>
+<p><strong>Illustrations and artificial intelligence.</strong> The two scientific figures reproduced above come from identifiable publications and are accompanied by licence credits. The bars and diagrams produced for this dossier are explicitly presented as <em>editorial representations</em> based on published data and frameworks, not as original study figures. No synthetic photograph, invented quotation or fictitious data is used to represent a real scientific finding.</p>
+</section>
+
+<section class="section" id="agenda"><span class="eyebrow">10 / Perspectives</span><h2>A question of the quality of the relationship between science and society</h2>
+<p>The studies presented show that we must move beyond the artificial opposition between a complex science reserved for specialists and a popularization that is necessarily simplistic. Accessible content can rigorously address hypotheses, methods and disagreements. The challenge is not to systematically produce more information, but to better explain why it is produced, what it makes possible and where uncertainty begins.</p>
+<p>Several lines of work remain open: comparing long-term understanding across formats; measuring the real effect of an exchange with audiences rather than their satisfaction alone; studying people who are under-represented in surveys; understanding how institutional trust relates to experiences of services; and evaluating the impact of error-correction mechanisms beyond stated intentions. These questions call for suitable designs, sometimes mixed, and a responsibility shared between research, institutions and the communities concerned.</p>
+<p>Finally, for public health and primary care, popularizing accurately means not confusing <em>explaining a complex situation</em>, <em>advocating a response</em> and <em>demonstrating its effectiveness</em>. These are three complementary tasks, but methodologically different ones.</p>
+</section>
+
+<section class="section" id="canada"><span class="eyebrow">11 / Quebec and Canadian contexts</span><h2>Science mediation adapted to local practices and institutions</h2>
+<p>To design popularization activities in Quebec, data on <em>media use</em> must be distinguished from data that genuinely concern <em>scientific understanding</em>. The Institut de la statistique du Québec surveyed about 16,000 people aged 15 and over in 2024 about their cultural leisure activities. The results indicate that 96% use the Internet for personal purposes, 89% are active on social media and 49% listen to podcasts. These measures describe general practices: they demonstrate neither that these audiences consult scientific content nor that they retain its messages <a href="#ref-isq">[13]</a>.</p>
+<figure class="barfig"><figcaption>Quebec, 2024: cultural and digital uses reported in the ISQ survey</figcaption>
+<div class="barrow"><span>Personal Internet use</span><div class="track"><span style="width:96%"></span></div><strong>96 %</strong></div>
+<div class="barrow"><span>Social media</span><div class="track"><span style="width:89%"></span></div><strong>89 %</strong></div>
+<div class="barrow"><span>Podcasts</span><div class="track"><span style="width:49%"></span></div><strong>49 %</strong></div>
+<p class="sourcenote">Data: Institut de la statistique du Québec, survey on cultural leisure and entertainment (2024 data collection; 2025 press release). Editorial representation faithful to the published percentages; indicators of general cultural practices, not of science popularization <a href="#ref-isq">[13]</a>.</p></figure>
+<p>Differences between groups matter for the choice of materials. According to the same survey, podcast listening reaches 61% among people living in a high-income household compared with 39% for those living in a low-income household; this contrast does not say why uses differ. Consequently, a dissemination policy relying exclusively on podcasts risks not reaching all audiences evenly, even when digital access is high.</p>
+<p>The Public Health Agency of Canada’s <em>Stratégie scientifique 2024-2025 à 2029-2030</em> explicitly identifies communication science as a priority distinct from implementation science. It calls for explaining uncertainties, strengthening transparency, adapting resources to community needs and addressing disinformation without losing sight of the imperatives of equity and reconciliation <a href="#ref-aspc">[14]</a>. In Quebec, the tenth Forum of the Fonds de recherche du Québec (November 2024) brought together nearly 300 people around scientific trust and the science–society dialogue. This forum illustrates an institutional space for reflection; its attendance is not a representative estimate of public opinion <a href="#ref-frq">[15]</a>.</p>
+<div class="tablewrap"><table><thead><tr><th>Level</th><th>Documented observation</th><th>Cautious editorial implication</th></tr></thead><tbody>
+<tr><td>Quebec population</td><td>Frequent digital use, with social gaps depending on format.</td><td>Diversify between digital and in-person; do not equate access with understanding.</td></tr>
+<tr><td>Canadian framework</td><td>The PHAC strategy distinguishes communication, implementation science and trust.</td><td>Define indicators and responsibilities specific to each approach.</td></tr>
+<tr><td>Scientific dialogue</td><td>The FRQ organizes a discussion on credibility and the links between science and society.</td><td>Make participation and the follow-up given to discussions verifiable.</td></tr></tbody></table></div>
+</section>
+
+<section class="section" id="bibliographie"><span class="eyebrow">Verifiable documentation</span><h2>Scientific sources, reports and image credits</h2>
+<p class="lead">Annotated selection of the references used, with links to the original texts. Graphs that reuse published values explicitly state that they are editorial reconstructions.</p>
+<ol class="reference-list">
+<li id="ref-nasem">National Academies of Sciences, Engineering, and Medicine. (2017). <em>Communicating Science Effectively: A Research Agenda.</em> National Academies Press. <a href="https://doi.org/10.17226/23674">https://doi.org/10.17226/23674</a>. Synthesis report and research agenda.</li>
+<li id="ref-wellcome">Wellcome Trust. (2026). <em>Wellcome Global Monitor: Trust in Science Under Pressure.</em> <a href="https://wellcome.org/insights/reports/wellcome-global-monitor-2026">Report, data and tables</a>; <a href="https://doi.org/10.21955/wellcomeopenres.1115455.1">DOI</a>. 2025 survey: 140 countries, more than 140,000 responses; comparability caveats for historical waves.</li>
+<li id="ref-cologna">Cologna, V., Mede, N. G., Berger, S., et al. (2025). Trust in scientists and their role in society across 68 countries. <em>Nature Human Behaviour, 9</em>, 713–730. <a href="https://doi.org/10.1038/s41562-024-02090-5">DOI and original figures</a>. CC BY 4.0 article.</li>
+<li id="ref-cdc">Centers for Disease Control and Prevention. <em>Clear Communication Index: User Guide and Score Sheets.</em> <a href="https://www.cdc.gov/ccindex/tool/">User guide</a> and <a href="https://www.cdc.gov/ccindex/tool/faq.html">structure of the 20 criteria</a>.</li>
+<li id="ref-unesco">UNESCO. (2021). <em>Recommandation sur une science ouverte.</em> <a href="https://www.unesco.org/en/legal-affairs/recommendation-open-science">Official text</a>.</li>
+<li id="ref-inoculation">Multinational experimental study. (2023). Psychological inoculation strategies to fight climate disinformation across 12 countries. <em>Nature Human Behaviour.</em> <a href="https://doi.org/10.1038/s41562-023-01736-0">DOI</a>.</li>
+<li id="ref-uncertainty">van der Bles, A. M., van der Linden, S., Freeman, A. L. J., &amp; Spiegelhalter, D. J. (2020). The effects of communicating uncertainty on public trust in facts and numbers. <em>Proceedings of the National Academy of Sciences, 117</em>(14), 7672–7683. <a href="https://doi.org/10.1073/pnas.1913678117">DOI</a>. Figure reproduced under CC BY 4.0.</li>
+<li id="ref-consensus">A 27-country test of communicating the scientific consensus on climate change. (2024). <em>Nature Human Behaviour, 8</em>, 1892–1905. <a href="https://doi.org/10.1038/s41562-024-01928-2">DOI</a>.</li>
+<li id="ref-correction">Chan, M.-p. S., &amp; Albarracín, D. (2023). A meta-analysis of correction effects in science-relevant misinformation. <em>Nature Human Behaviour, 7</em>, 1514–1525. <a href="https://doi.org/10.1038/s41562-023-01623-8">DOI</a>.</li>
+<li id="ref-w3c">World Wide Web Consortium, Web Accessibility Initiative. <em>Making Audio and Video Media Accessible.</em> <a href="https://www.w3.org/WAI/media/av/">Reference guide</a>.</li>
+<li>Wellcome Trust. (2026). <em>Global Monitor — data dashboards and methodology.</em> <a href="https://wellcome.org/insights/reports/wellcome-global-monitor-2026/data">Explore the series, questionnaires and methodology</a>.</li>
+<li>National Co-ordinating Centre for Public Engagement. <em>Developing high-quality public engagement</em> and <em>Evaluating public engagement.</em> <a href="https://www.publicengagement.ac.uk/">Resource centre</a>.</li>
+<li id="ref-isq">Institut de la statistique du Québec. (2025). <em>Les pratiques culturelles au Québec : entre tradition et transformation.</em> Enquête québécoise sur les loisirs culturels et le divertissement, 2024. <a href="https://statistique.quebec.ca/fr/communique/pratiques-culturelles-au-quebec-2024">Presentation of results and access to the report</a>.</li>
+<li id="ref-aspc">Agence de la santé publique du Canada. (2024). <em>Stratégie scientifique 2024-2025 à 2029-2030.</em> <a href="https://www.canada.ca/fr/sante-publique/services/publications/science-recherche-et-donnees/strategie-scientifique-2024-2025-2029-2030.html">Full institutional report</a>.</li>
+<li id="ref-frq">Fonds de recherche du Québec. (2024–2025). <em>La confiance dans la science : une question de communication ?</em> Retour sur le 10e forum d’échange, November 28, 2024. <a href="https://frq.gouv.qc.ca/retour-sur-le-forum-la-confiance-dans-la-science-une-question-de-communication/">Summary and recordings</a>.</li>
+</ol>
+<p class="source"><strong>Illustrations:</strong> figure 3 of Cologna et al. (2025), <a href="https://www.nature.com/articles/s41562-024-02090-5">publisher Springer Nature</a>, CC BY 4.0; figure 3 of van der Bles et al. (2020), <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7149229/">PNAS / PMC</a>, CC BY 4.0. Both figures are reproduced without modification. The site’s documentary photographs are referenced in its catalogue. The other diagrams and graphs are editorial creations explicitly attributed to their data sources and do not reproduce protected Wellcome figures.</p>
+</section>
+<footer>© 2026 Éric Bernier · Documentary dossier, current as of October 18, 2026. The conclusions reported are those of the works cited; this synthesis is not a systematic review. <a href="../#vulgarisation">Return to the main site</a> · <a href="#debut">Back to top ↑</a></footer>
+</div></div></main></div>
+</body></html>

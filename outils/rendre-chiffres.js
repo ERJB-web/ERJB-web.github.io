@@ -1,0 +1,3 @@
+"use strict";
+const e = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+module.exports = I => '<section class="bande-accueil bande-restauree" aria-labelledby="parcours-chiffres-titre"><h2 class="bande-titre" id="parcours-chiffres-titre">'+e(I.titre)+'</h2><div class="impact-ensembles"><div class="impact-ensemble"><dl>'+[...I.chiffres,I.financement].filter(Boolean).map(([valeur,libelle],i)=>'<div'+(i===I.chiffres.length?' class="impact-financement"':'')+'><dt>'+e(libelle)+'</dt><dd><bdi dir="ltr">'+e(valeur)+'</bdi></dd></div>').join('')+'</dl></div></div><details class="impact-precisions"><summary>'+e(I.details)+'</summary><ul>'+I.notes.map(t=>'<li>'+e(t)+'</li>').join('')+'</ul></details></section>';

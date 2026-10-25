@@ -1,0 +1,74 @@
+{
+  "intro": "Del planteamiento inicial a los comentarios del público: seis claves para comunicar con claridad, accesibilidad y apertura al diálogo.",
+  "navigation": "Las seis etapas de la comunicación científica",
+  "pratique": "Poner en práctica", "exemple": "Ejemplo ilustrativo", "livrable": "Producto que preparar", "vigilance": "Punto de atención",
+  "boucle": "Los comentarios del público alimentan los siguientes mensajes: el proceso se retoma y ajusta.",
+  "etapes": [
+    {
+      "court": "Público y objetivo",
+      "actions": [
+        ["Partir de las personas", "Identificar preguntas, experiencias y vocabulario. Conversar con personas del público antes de cerrar el contenido."],
+        ["Fijar un objetivo preciso", "Definir qué debe permitir el contenido: comprender una idea, discutir un asunto o informar una decisión."],
+        ["Adaptar la entrada", "Elegir canal, extensión y detalle según los usos del público y formular una pregunta concreta."]
+      ],
+      "exemple": "Para personas y familiares: «¿Por qué pueden necesitarse varios servicios para responder a una misma situación?»",
+      "livrable": "Una ficha: público, pregunta, objetivo, canal y mensaje central.",
+      "vigilance": "Un público reúne experiencias diversas. Las necesidades informativas y la confianza no se deducen únicamente del nivel de conocimientos."
+    },
+    {
+      "court": "Mensaje claro",
+      "actions": [
+        ["Presentar una idea central", "Hacer visible el mensaje principal desde el inicio y organizar las explicaciones en torno a él."],
+        ["Traducir conceptos", "Explicar la jerga al introducirla. Utilizar ejemplos o esquemas cuando faciliten realmente la comprensión."],
+        ["Dar contexto útil", "Presentar cifras con su población y periodo, facilitar las fuentes y precisar el siguiente paso propuesto."]
+      ],
+      "exemple": "Del tema de redes intersectoriales a una pregunta accesible: «¿Cómo hacer que los servicios adecuados colaboren según la situación de cada persona?»",
+      "livrable": "Un mensaje en una frase, tres ideas de apoyo y una fuente principal.",
+      "vigilance": "Un título atractivo debe ser fiel al conocimiento disponible. El lenguaje sencillo puede conservar las distinciones necesarias."
+    },
+    {
+      "court": "Escucha y diálogo",
+      "actions": [
+        ["Plantear una pregunta real", "Invitar a compartir experiencias o dudas y dejar espacio para responder."],
+        ["Organizar el intercambio", "Explicar las reglas de moderación, los límites de la respuesta y las modalidades de seguimiento."],
+        ["Utilizar los comentarios", "Agrupar preguntas recurrentes, aclarar desacuerdos y mostrar cómo los intercambios cambian los contenidos siguientes."]
+      ],
+      "exemple": "«En sus gestiones, ¿qué les ayudó a pasar de un servicio a otro? ¿Qué resultó más difícil?»",
+      "livrable": "Una pregunta abierta, reglas de conversación y una síntesis de comentarios.",
+      "vigilance": "Ofrecer un espacio respetuoso y evitar solicitar públicamente información sanitaria o detalles que identifiquen a alguien."
+    },
+    {
+      "court": "Límites y matices",
+      "actions": [
+        ["Situar el conocimiento", "Precisar qué se observó, qué es interpretación y qué sigue siendo hipótesis o proyecto."],
+        ["Explicar la incertidumbre", "Describir población, alcance y limitaciones importantes con palabras comprensibles."],
+        ["Prever correcciones", "Fechar el contenido, conservar las fuentes y hacer visibles las rectificaciones necesarias."]
+      ],
+      "exemple": "Para presentar la tesis: «Este proyecto estudia cómo podrían organizarse mejor los servicios. Los resultados todavía no están disponibles». ",
+      "livrable": "Un recuadro: qué se sabe, qué falta por saber y por qué.",
+      "vigilance": "Comunicar incertidumbre exige elegir lenguaje y contexto; su efecto sobre la confianza no puede garantizarse de antemano."
+    },
+    {
+      "court": "Accesibilidad",
+      "actions": [
+        ["Planificar alternativas pronto", "Prever desde el guion lo que se dirá, mostrará y ofrecerá por escrito."],
+        ["Cuidar cada soporte", "Preparar subtítulos revisados, transcripción y descripciones útiles de lo visual; facilitar lectura y navegación."],
+        ["Considerar usos reales", "Pedir a personas destinatarias que lean o prueben el contenido, considerando móviles, idiomas y situaciones de escucha."]
+      ],
+      "exemple": "Para un esquema de red: nombrar actores y explicar vínculos oralmente, acompañando el visual de una descripción textual accesible.",
+      "livrable": "Un contenido con las alternativas textuales y audiovisuales pertinentes.",
+      "vigilance": "Las necesidades dependen del medio. Subtítulos automáticos sin revisar o textos alternativos vagos pueden dejar inaccesible información esencial."
+    },
+    {
+      "court": "Evaluación",
+      "actions": [
+        ["Vincular indicador y objetivo", "Distinguir alcance, comprensión, participación y utilidad percibida."],
+        ["Observar la comprensión", "Solicitar una reformulación breve y preguntas pendientes, sin basarse únicamente en visualizaciones o valoraciones."],
+        ["Revisar y compartir los pasos siguientes", "Identificar qué retomar, modificar formato o explicación y registrar las mejoras."]
+      ],
+      "exemple": "Tras una cápsula: «En una frase, ¿qué idea recuerda? ¿Qué pregunta sigue abierta para usted?»",
+      "livrable": "Un balance que relacione objetivo, comentarios del público y modificaciones previstas.",
+      "vigilance": "Las visualizaciones describen difusión. Por sí solas no demuestran comprensión, confianza ni cambios de conducta."
+    }
+  ]
+}
