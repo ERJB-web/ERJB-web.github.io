@@ -1132,6 +1132,7 @@ html body footer.pied .pied-copyright>small.pied-attribution{display:block;font-
  html body :is(#salle,#contenu) .these .these-titre-contexte-principal{ text-align:justify!important;text-align-last:left!important}
  html body :is(#salle,#contenu) .these :is(table,figure,.ms-card,.these-cartes-synthese) :is(p,td,th,li,figcaption){text-align:left!important;text-align-last:auto!important;hyphens:none!important}
  html body .gab.gab-engagements :is(.eng-chapeau,.eng-cartes,.eng-reseau) :is(p,li,h2,h4){text-align:left!important;text-align-last:auto!important;hyphens:none!important}
+ html body main.abrege.falc :is(p,li,dt,dd,blockquote,figcaption){text-align:left!important;text-align-last:auto!important;hyphens:none!important;-webkit-hyphens:none!important;word-spacing:normal}
  html body .these .these-section-cadre:nth-child(4n+1){--these-ton:#116e80;--these-pale:#edf7f8}
  html body .these .these-section-cadre:nth-child(4n+2){--these-ton:#2d628e;--these-pale:#eef4fc}
  html body .these .these-section-cadre:nth-child(4n+3){--these-ton:#437344;--these-pale:#f0f7ee}

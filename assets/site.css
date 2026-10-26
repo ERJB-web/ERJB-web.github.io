@@ -2806,6 +2806,7 @@ html.hc .implantation-portail-liens a{border-color:currentColor}
 .hall-tete .hall-titre-nom::after{background:linear-gradient(90deg,var(--gsk-bleu,#237a9a) 50%,var(--gsk-vert,#65a946) 50%)}
 /* Barre de navigation segmentée : icône colorée par rubrique, survol clair, trait de couleur */
 .entete::after{content:"";order:2;flex:0 0 100%;height:0}
+.page-abregee .entete::after{content:none}
 .entete .nav{flex:0 1 auto;width:fit-content;max-width:calc(100% - 340px);gap:2px;margin:12px 0 0;padding:4px;border:1px solid #dfe7ea;border-radius:12px;background:linear-gradient(180deg,#f8fbfb,#eef3f5);box-shadow:inset 0 1px 0 #fff}
 .entete .nav a{position:relative;gap:8px;min-height:40px;padding:8px 14px;border:0;border-radius:9px;background:transparent;font-size:14px;font-weight:500;color:var(--ink);box-shadow:none}
 .entete .nav a svg{flex:none;width:17px;height:17px;color:var(--nav-accent,#1f5a8a);transition:transform .2s ease}
