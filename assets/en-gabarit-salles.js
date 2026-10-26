@@ -222,124 +222,60 @@
   }
 
   // Une page éditoriale : les sept mandats restent des entrées, jamais des chapitres.
+  // Engagements : même composition que les chapitres de la thèse
+  // (chapeau, cadres de section numérotés, cartes à liseré).
+  function composerEngagements(intro, sections) {
+    const page = el("div", "eng-page");
+    $$(":scope > .surtitre", intro).forEach(x => x.remove());
+    if (net(intro.textContent)) {
+      const chapeau = el("header", "eng-chapeau");
+      chapeau.append(...Array.from(intro.children));
+      page.append(chapeau);
+    }
+    sections.forEach((s, k) => {
+      const cadre = el("section", "eng-cadre");
+      const entete = el("header", "eng-entete", '<span aria-hidden="true">' + deux(k + 1) + '</span>');
+      if (s.titre) entete.append(el("h3", "", echapper(s.titre)));
+      cadre.append(entete, s.contenu);
+      page.append(cadre);
+    });
+    return page;
+  }
+
+  function cartesEngagements(items) {
+    const liste = el("ul", "eng-cartes");
+    items.forEach(item => {
+      const carte = el("li", "eng-carte");
+      const date = $(".date", item);
+      if (date) { date.className = "eng-date"; carte.append(date); }
+      const texte = $(":scope > div", item);
+      carte.append(...Array.from((texte || item).childNodes));
+      liste.append(carte);
+    });
+    return liste;
+  }
+
+  const TITRES_REPRESENTATION = {
+    fr: ["Current commitments", "Previous roles"],
+    en: ["Current commitments", "Previous roles"],
+    es: ["Compromisos actuales", "Experiencias anteriores"],
+    zh: ["当前参与", "过往经历"],
+    ar: ["المهام الحالية", "المهام السابقة"],
+    ru: ["Текущие обязанности", "Предыдущий опыт"]
+  };
   function preparerRepresentation(corps) {
     const liste = $(".liste-cartes", corps);
-    const introduction = $(".colonne-texte", corps);
-    if (!liste || !introduction) return;
+    const intro = $(".colonne-texte", corps);
+    if (!liste || !intro) return;
     const mandats = Array.from(liste.children);
-    const page = el("div", "representation-editorial");
-    const ouverture = el("header", "representation-ouverture");
-    const texte = el("div", "representation-presentation");
-    texte.append(...Array.from(introduction.children));
-    const chiffre = el("div", "representation-repere");
-    chiffre.setAttribute("aria-hidden", "true");
-    chiffre.innerHTML = '<span>' + deux(mandats.length) + '</span><small>' +
-      echapper(langue === "fr" ? "mandates · one shared commitment" : net($(".groupe-large > h3", corps)?.textContent).replace(/\d+$/, "")) + '</small>';
-    ouverture.append(texte, chiffre);
-    page.append(ouverture);
-    const labels = langue === "fr" ? ["Engagements actuels", "Previous milestones"] : null;
-    const courts = langue === "fr" ? ["Doctorate · AÉÉSPUM", "Mentorat solidaire", "Program committee", "Doctorat · DGEPS", "Ambassadeur · UdeM", "Conseil d’administration · CROUS", "Presidency · Askoria"] : [];
-    [mandats.slice(0,4), mandats.slice(4)].forEach((groupe,k) => {
-      if (!groupe.length) return;
-      const section = el("section", "representation-periode");
-      section.dataset.periode = k ? "precedent" : "actuel";
-      if (labels) section.append(el("h3", "representation-section-titre", echapper(labels[k])));
-      const nouvelleListe = el("ol", "representation-mandats");
-      groupe.forEach((mandat,j) => {
-        const i = k ? j+4 : j;
-        mandat.className = "representation-mandat";
-        const date = $(".date", mandat);
-        if (date) {
-          const repere = el("div", "representation-date");
-          repere.append(el("span", "representation-numero", deux(i+1)), date);
-          mandat.prepend(repere);
-        }
-        const h = $("h4", mandat);
-        if (h && courts[i]) h.dataset.representationMenu = courts[i];
-        nouvelleListe.append(mandat);
-      });
-      section.append(nouvelleListe);page.append(section);
-    });
-    composerRepresentation(page);
+    const titres = TITRES_REPRESENTATION[langue];
+    const sections = titres
+      ? [mandats.slice(0, 4), mandats.slice(4)].map((groupe, k) => ({ titre: titres[k], contenu: cartesEngagements(groupe) })).filter(s => s.contenu.children.length)
+      : [{ titre: net($(".groupe-large > h3", corps)?.textContent).replace(/\d+$/, "").trim(), contenu: cartesEngagements(mandats) }];
+    const page = composerEngagements(intro, sections);
+    page.classList.add("engagements-representation");
     corps.replaceChildren(page);
   }
-
-  // Une composition visuelle fondée sur les mandats existants, dans chaque langue.
-  function composerRepresentation(page) {
-    const traductions = {
-      fr: ["The whole path", "En cours", "Previous", "Étudiants", "Instances", "One voice, many spaces", "Representation", "Mentorat", "Program life", "Department life", "Engagements actuels", "Previous milestones", "Show the mandates"],
-      en: ["Full journey", "Current", "Previous", "Students", "Committees", "One voice, many spaces", "Representation", "Mentoring", "Program life", "Department life", "Current commitments", "Previous roles", "Show roles"],
-      es: ["Todo el recorrido", "Actuales", "Anteriores", "Estudiantes", "Instancias", "Una voz, varios espacios", "Representación", "Mentoría", "Vida del programa", "Vida del departamento", "Compromisos actuales", "Experiencias anteriores", "Mostrar los mandatos"],
-      zh: ["全部经历", "现任", "曾任", "学生", "委员会", "同一个声音，多个交流空间", "学生代表", "指导支持", "项目事务", "系部事务", "当前参与", "过往经历", "显示任职"],
-      ar: ["المسار الكامل", "الحالية", "السابقة", "الطلاب", "الهيئات", "صوت واحد في فضاءات متعددة", "التمثيل", "الإرشاد", "شؤون البرنامج", "شؤون القسم", "المهام الحالية", "المهام السابقة", "عرض المهام"],
-      ru: ["Весь путь", "Текущие", "Предыдущие", "Студенты", "Органы управления", "Один голос, разные площадки", "Представительство", "Наставничество", "Жизнь программы", "Жизнь кафедры", "Текущие обязанности", "Предыдущий опыт", "Показать обязанности"]
-    };
-    const t = traductions[langue];
-    if (!t) return;
-    page.classList.add("rs-page");
-    const dessins = [
-      '<path d="M4 5h16v11H9l-5 4V5Z"/><path d="M8 9h8M8 12h5"/>',
-      '<circle cx="8" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M2 21v-3a6 6 0 0 1 12 0v3m1-7a5 5 0 0 1 7 4v3"/>',
-      '<path d="M4 4h16v17H4zM8 2v4m8-4v4M8 10h8m-8 4h5m-5 4h8"/>',
-      '<path d="m2 9 10-6 10 6H2Zm2 12h16M6 11v7m6-7v7m6-7v7"/>'
-    ];
-    const icone = (i) => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + dessins[i] + '</svg>';
-    const ouverture = $(".representation-ouverture", page);
-    ouverture.classList.add("rs-hero");
-    $(".representation-repere", ouverture)?.remove();
-    const art = el("div", "rs-illustration");
-    art.setAttribute("aria-hidden", "true");
-    art.innerHTML = '<div class="rs-art-grid"></div><div class="rs-art-ring"></div><div class="rs-art-ring rs-art-inner"></div><span class="rs-art-label rs-art-students">' + echapper(t[3]) + '</span><div class="rs-art-center">' + icone(0) + '</div><span class="rs-art-label rs-art-instances">' + echapper(t[4]) + '</span><i class="rs-dot rs-dot-one"></i><i class="rs-dot rs-dot-two"></i><i class="rs-dot rs-dot-three"></i><span class="rs-art-note">' + echapper(t[5]) + '</span>';
-    ouverture.append(art);
-    const commandes = el("div", "rs-filters");
-    commandes.setAttribute("role", "group");
-    commandes.setAttribute("aria-label", t[12]);
-    const periodes = $$(".representation-periode", page);
-    ["all", "actuel", "precedent"].forEach((valeur, i) => {
-      const nombre = i ? $$(".representation-mandat", periodes[i - 1]).length : $$(".representation-mandat", page).length;
-      const bouton = el("button", "", echapper(t[i]) + '<span class="rs-filter-count">' + nombre + '</span>');
-      bouton.type = "button";
-      bouton.dataset.rsFilter = valeur;
-      bouton.setAttribute("aria-pressed", String(i === 0));
-      commandes.append(bouton);
-    });
-    ouverture.after(commandes);
-    periodes.forEach((periode, k) => {
-      let titre = $("h3", periode);
-      if (!titre) { titre = el("h3", "representation-section-titre"); periode.prepend(titre); }
-      titre.textContent = t[10 + k];
-      $(".representation-mandats", periode).classList.add(k ? "rs-timeline" : "rs-bento");
-      $$(".representation-mandat", periode).forEach((mandat, j) => {
-        mandat.classList.add(k ? "rs-past" : "rs-mandat", "rs-mandat-" + j);
-        if (k) return;
-        const haut = el("div", "rs-card-top");
-        haut.innerHTML = '<span class="rs-card-icon">' + icone(j) + '</span><span class="rs-card-category">' + echapper(t[6 + j]) + '</span>';
-        const date = $(".representation-date", mandat);
-        if (date) haut.append(date);
-        mandat.prepend(haut);
-        if (j === 0) {
-          const sceau = el("div", "rs-card-seal", '<span>AÉÉSPUM</span><div><i></i><i></i><i></i><i></i><i></i></div>');
-          sceau.setAttribute("aria-hidden", "true");
-          mandat.append(sceau);
-        }
-        if (j === 3) {
-          const marque = el("span", "rs-department-mark", "DGEPS");
-          marque.setAttribute("aria-hidden", "true");
-          mandat.append(marque);
-        }
-      });
-    });
-  }
-
-  // La salle immersive clone le contenu : déléguer les commandes au document.
-  D.addEventListener("click", (event) => {
-    const bouton = event.target.closest("button[data-rs-filter]");
-    const page = bouton?.closest(".rs-page");
-    if (!page) return;
-    const valeur = bouton.dataset.rsFilter;
-    $$("button[data-rs-filter]", page).forEach(b => b.setAttribute("aria-pressed", String(b === bouton)));
-    $$(".representation-periode", page).forEach(p => { p.hidden = valeur !== "all" && p.dataset.periode !== valeur; });
-  });
 
   const SALLES_ENGAGEMENTS = ["representation", "communaute", "distinctions", "citoyen", "loisirs"];
   function preparerAutresEngagements(corps, salle) {
@@ -347,14 +283,7 @@
     const liste = $(".liste-cartes", corps);
     const galerie = $(".loisirs-etendus", corps);
     if (!intro || (!liste && !galerie)) return;
-    const titreSource = $(".groupe-large > h3", corps);
-    const titre = net(titreSource?.textContent).replace(/\d+$/, "").trim();
-    const items = liste ? Array.from(liste.children) : Array.from(galerie.children);
-    const affiliations = $(".etiquettes", intro);
-    const titreAffiliations = affiliations?.previousElementSibling;
-    const page = el("div", "representation-editorial engagements-" + salle);
-    const ouverture = el("header", "representation-ouverture");
-    const texte = el("div", "representation-presentation");
+    const titre = net($(".groupe-large > h3", corps)?.textContent).replace(/\d+$/, "").trim();
     // L'intitulé appartient au chapitre ; le chapeau présente son contenu.
     const h2 = $("h2", intro);
     if (h2 && langue === "fr") h2.textContent = {
@@ -363,57 +292,29 @@
       citoyen:"Serving others",
       loisirs:"Practices that open other horizons"
     }[salle];
-    $$(":scope > .surtitre", intro).forEach(x=>x.remove());
-    if (affiliations) affiliations.remove();
-    if (titreAffiliations) titreAffiliations.remove();
-    texte.append(...Array.from(intro.children));
-    const repere = el("div", "representation-repere");repere.setAttribute("aria-hidden","true");
-    const labels = {communaute:"scientific committees",distinctions:"scholarships and awards",citoyen:"engagements citoyens",loisirs:"practices and horizons"};
-    repere.innerHTML = '<span>'+deux(items.length)+'</span><small>'+echapper(langue === "fr" ? labels[salle] : titre)+'</small>';
-    ouverture.append(texte,repere);page.append(ouverture);
+    const sections = [];
+    const affiliations = $(".etiquettes", intro);
     if (affiliations) {
-      const section = el("section", "representation-periode engagements-affiliations");
-      if (titreAffiliations) {titreAffiliations.className="representation-section-titre";section.append(titreAffiliations);}
-      const reseau = el("ul", "engagements-reseau");
-      Array.from(affiliations.children).forEach((aff,i)=>{
-        const item=el("li");item.append(el("span","engagements-reseau-numero",deux(i+1)),el("span","",echapper(net(aff.textContent))));reseau.append(item);
-      });section.append(reseau);page.append(section);
+      const titreAffiliations = affiliations.previousElementSibling;
+      const reseau = el("ul", "eng-reseau");
+      Array.from(affiliations.children).forEach(aff => reseau.append(el("li", "", echapper(net(aff.textContent)))));
+      sections.push({ titre: net(titreAffiliations?.textContent), contenu: reseau });
+      affiliations.remove();
+      titreAffiliations?.remove();
     }
-    const section=el("section","representation-periode");
     const sectionTitre = langue === "fr" ? {communaute:"Contributing to scientific meetings",distinctions:"Academic awards and support",citoyen:"In the field",loisirs:"Sports, creation and curiosity"}[salle] : titre;
-    section.append(el("h3","representation-section-titre",echapper(sectionTitre)));
     if (galerie) {
       galerie.classList.add("engagements-galerie");
-      items.forEach(item=>{
+      Array.from(galerie.children).forEach(item => {
         if (salle === "loisirs") item.tabIndex = 0; // Les détails restent accessibles au clavier dans la mosaïque compacte.
-        const fort=$("figcaption > strong",item);
-        if (fort) {const titre=el("h4","",fort.innerHTML);fort.replaceWith(titre);}
+        const fort = $("figcaption > strong", item);
+        if (fort) fort.replaceWith(el("h4", "", fort.innerHTML));
       });
-      section.append(galerie);
-    } else {
-      const chronologie=el("ol","representation-mandats");
-      items.forEach((item,i)=>{
-        item.className="representation-mandat";
-        const date=$(".date",item);
-        if(date){const bloc=el("div","representation-date");bloc.append(el("span","representation-numero",deux(i+1)),date);item.prepend(bloc);}
-        chronologie.append(item);
-      });section.append(chronologie);
-    }
-    if (salle === "distinctions") {
-      page.classList.add("ds-page");
-      const recompenses = $(".representation-mandats", section);
-      recompenses?.classList.add("ds-list");
-      $$(".representation-mandat", section).forEach((item, i) => {
-        item.classList.add("ds-award", "ds-award-" + i);
-        if (i === 0) {
-          const medaille = el("div", "ds-medal");
-          medaille.setAttribute("aria-hidden", "true");
-          medaille.innerHTML = '<svg viewBox="0 0 120 140" fill="none"><path d="m37 74-8 52 31-17 31 17-8-52" stroke="currentColor" stroke-width="2"/><circle cx="60" cy="51" r="37" stroke="currentColor" stroke-width="2"/><circle cx="60" cy="51" r="29" stroke="currentColor" stroke-dasharray="2 5"/><path d="m60 29 6 14 15 2-11 10 3 16-13-8-13 8 3-16-11-10 15-2Z" fill="currentColor"/></svg>';
-          item.append(medaille);
-        }
-      });
-    }
-    page.append(section);corps.replaceChildren(page);
+      sections.push({ titre: sectionTitre, contenu: galerie });
+    } else sections.push({ titre: sectionTitre, contenu: cartesEngagements(Array.from(liste.children)) });
+    const page = composerEngagements(intro, sections);
+    page.classList.add("engagements-" + salle);
+    corps.replaceChildren(page);
   }
 
   function decouper(sc, salle) {

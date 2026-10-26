@@ -18,77 +18,13 @@
 .gab.gab-engagements .engagements-loisirs .loisir:first-child{background:#edf5f8}
 .gab.gab-engagements .engagements-loisirs .loisir:first-child figcaption{background:#edf5f8!important}
 .gab.gab-engagements .engagements-loisirs .loisir figcaption{flex:1}
-.gab.gab-engagements .ds-page .representation-ouverture{background:linear-gradient(115deg,#fffdf6,#f4f8fb);border-color:#e3dfcd}
-.gab.gab-engagements .ds-page .representation-repere{color:#8b712d;border-color:#dfd6b7}
-.gab.gab-engagements .ds-page .ds-list{display:grid;grid-template-columns:1.15fr 1fr;gap:20px}
-.gab.gab-engagements .ds-page .ds-award{display:flex;flex-direction:column;gap:20px;padding:28px;border:1px solid #dbe5ea;border-radius:20px;background:white;min-width:0;overflow:hidden}
-.gab.gab-engagements .ds-page .ds-award .representation-date{padding:0;gap:0}
-.gab.gab-engagements .ds-page .representation-numero{display:none}
-.gab.gab-engagements .ds-page .ds-award-0{grid-row:span 2;background:linear-gradient(135deg,#faf1d9,#fffdf6);border-color:#e7d49d;padding:32px}
-.gab.gab-engagements .ds-page .ds-award-0 h4{color:#624b17}
-.gab.gab-engagements .ds-page .ds-award-1{background:#edf6fc;border-color:#c9e0ee}
-.gab.gab-engagements .ds-page .ds-award-3{grid-column:1/-1;display:grid;grid-template-columns:150px minmax(0,1fr);background:#f2f7f5}
-.ds-medal{width:120px;align-self:center;margin:12px 0 0;color:#b18a34;opacity:.8}.ds-medal svg{width:100%;display:block}
 @media(max-width:900px){.gab.gab-engagements .engagements-loisirs .engagements-galerie{grid-template-columns:repeat(2,minmax(0,1fr))!important}.gab.gab-engagements .engagements-loisirs .loisir,.gab.gab-engagements .engagements-loisirs .loisir:nth-child(2){grid-column:span 1}.gab.gab-engagements .engagements-loisirs .loisir:first-child{grid-column:1/-1}.gab.gab-engagements .engagements-loisirs .loisir:nth-child(2)>img{height:230px!important}}
-@media(max-width:650px){.gab.gab-engagements .engagements-loisirs .engagements-galerie{grid-template-columns:minmax(0,1fr)!important}.gab.gab-engagements .engagements-loisirs .loisir:first-child{grid-column:auto}.gab.gab-engagements .engagements-loisirs .loisir:first-child>img{height:240px!important}.gab.gab-engagements .ds-page .ds-list{grid-template-columns:1fr}.gab.gab-engagements .ds-page .ds-award-0{grid-row:auto}.gab.gab-engagements .ds-page .ds-award-3{grid-column:auto;display:flex}.gab.gab-engagements .ds-page .ds-award{padding:24px}.ds-medal{width:86px}}
+@media(max-width:650px){.gab.gab-engagements .engagements-loisirs .engagements-galerie{grid-template-columns:minmax(0,1fr)!important}.gab.gab-engagements .engagements-loisirs .loisir:first-child{grid-column:auto}.gab.gab-engagements .engagements-loisirs .loisir:first-child>img{height:240px!important}}
 .gab.gab-cv-direct .gab-chapitre-aside,.gab.gab-cv-direct .gab-chapitre-tete,.gab.gab-cv-direct .gab-programme{display:none!important}
 .gab.gab-cv-direct .gab-chapitre-grille{display:block!important}
 .gab.gab-cv-direct .gab-chapitre-texte{width:100%;min-width:0}
 .gab.gab-cv-direct .gab-chapitre{border-top:0;padding-top:0}
 .gab.gab-cv-direct .bandeau.gab-bandeau{min-height:180px}
-.gab.gab-engagements .rs-page{--rs-blue:#0879be;--rs-navy:#0d2a3a;--rs-teal:#11a7a5;min-width:0}
-.gab.gab-engagements .rs-page .rs-hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:32px;align-items:center;border:1px solid #d3e3e9;border-radius:24px;background:linear-gradient(115deg,#fff 25%,#edf7fb);padding:30px 38px;position:relative;overflow:hidden;margin-bottom:28px}
-.rs-hero:before{content:'';position:absolute;inset:0 0 auto;height:4px;background:var(--gab-degrade)}
-.gab.gab-engagements .rs-page .representation-presentation{max-width:54ch;min-width:0}
-.rs-illustration{height:250px;position:relative;isolation:isolate;overflow:hidden;min-width:0}
-.rs-art-grid{position:absolute;inset:0;background-image:radial-gradient(#94b9cb 1px,transparent 1px);background-size:18px 18px;opacity:.55;mask-image:radial-gradient(ellipse,#000,transparent 73%)}
-.rs-art-ring{position:absolute;left:50%;top:45%;width:205px;height:205px;transform:translate(-50%,-50%);border:1px solid #b7d5e4;border-radius:50%}
-.rs-art-inner{width:143px;height:143px;border-style:dashed;border-color:#78c5c0;animation:rs-orbit 70s linear infinite}
-.rs-art-center{position:absolute;left:50%;top:45%;transform:translate(-50%,-50%) rotate(-8deg);width:84px;height:84px;background:var(--rs-blue);border:7px solid white;border-radius:24px;display:grid;place-items:center;box-shadow:0 15px 28px #0879be2a}
-.rs-art-center svg{width:38px;height:38px;color:#fff;transform:rotate(8deg)}
-.rs-art-label{position:absolute;padding:10px 16px;border-radius:10px;border:1px solid #bfd8e7;background:#fff;box-shadow:0 8px 20px #0d2a3a09;color:#12628d;white-space:nowrap}
-.rs-art-students{left:3%;top:35px;transform:rotate(-6deg)}.rs-art-instances{right:0;bottom:60px;transform:rotate(5deg);color:#13736e;border-color:#add9d3}
-.rs-art-note{position:absolute;bottom:0;left:0;right:0;text-align:center;color:#527581}
-.rs-dot{position:absolute;width:21px;height:21px;border:4px solid white;border-radius:50%;background:var(--rs-teal);box-shadow:0 3px 12px #0d2a3a16}
-.rs-dot-one{left:22%;bottom:65px}.rs-dot-two{right:18%;top:22px;background:#5aae38}.rs-dot-three{right:8%;top:100px;background:#0755ad}
-.rs-filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 30px;padding-bottom:18px;border-bottom:1px solid #dae6eb}
-.rs-filters button{font:inherit;display:inline-flex;align-items:center;gap:12px;min-height:46px;padding:9px 16px;border:1px solid #cfdee5;border-radius:999px;background:#fff;color:var(--rs-navy);cursor:pointer;transition:background .2s,border-color .2s}
-.rs-filters button[aria-pressed=true]{background:var(--rs-navy);border-color:var(--rs-navy);color:white}
-.rs-filters button:hover{border-color:var(--rs-blue)}.rs-filters button:focus-visible{outline:3px solid var(--rs-blue);outline-offset:4px}
-.rs-filter-count{display:grid;place-items:center;min-width:24px;min-height:24px;border-radius:50%;background:#edf4f7;color:#335d70}.rs-filters button[aria-pressed=true] .rs-filter-count{background:#ffffff25;color:#fff}
-.gab.gab-engagements .rs-page .rs-bento{display:grid;grid-template-columns:1.05fr 1fr;gap:18px;padding:0;margin:0;list-style:none}
-.gab.gab-engagements .rs-page .rs-mandat{display:flex;flex-direction:column;gap:0;min-width:0;padding:26px;border:1px solid #d5e3ea;border-radius:20px;background:#fff;overflow:hidden;position:relative;transition:transform .2s,box-shadow .2s}
-.gab.gab-engagements .rs-page .rs-mandat:hover{transform:translateY(-3px);box-shadow:0 16px 32px #0d2a3a0c}
-.gab.gab-engagements .rs-page .rs-mandat-0.rs-mandat{grid-row:span 2;background:linear-gradient(145deg,#086fba,#075299);color:#fff;border-color:#0864a5}
-.gab.gab-engagements .rs-page .rs-mandat-1.rs-mandat{background:#eaf7f4;border-color:#bfe1d7}
-.gab.gab-engagements .rs-page .rs-mandat-3.rs-mandat{grid-column:1/-1;background:#edf3fb;min-height:150px;padding-inline-end:180px}
-.rs-card-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:20px}
-.rs-card-icon{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;background:#e5f1fa;color:var(--rs-blue);flex:none}
-.rs-card-icon svg{width:22px;height:22px}.rs-card-category{color:#395e70}
-.rs-mandat-0 .rs-card-icon{background:#ffffff20;color:#fff}.rs-mandat-0 .rs-card-category{color:#d8edfc}
-.rs-mandat-1 .rs-card-icon{background:#d1ece3;color:#147962}
-.gab.gab-engagements .rs-page .representation-date{margin-inline-start:auto;min-width:0;padding:0}
-.gab.gab-engagements .rs-page .representation-numero{display:none}
-.gab.gab-engagements .rs-page .representation-date .date{color:#496775;max-width:145px}
-.gab.gab-engagements .rs-page .rs-mandat-0 :is(h4,p,.date){color:#fff!important}
-.gab.gab-engagements .rs-page .rs-mandat h4{margin:0 0 12px;overflow-wrap:anywhere}
-.rs-card-seal{margin-top:auto;padding-top:45px;color:#ffffffd9}
-.rs-card-seal>div{display:flex;align-items:flex-end;gap:10px;margin-top:30px}
-.rs-card-seal i{display:block;height:46px;flex:1;background:#ffffff18;border-radius:10px 10px 0 0;position:relative}
-.rs-card-seal i:before{content:'';position:absolute;top:-9px;left:calc(50% - 7px);width:14px;height:14px;border-radius:50%;background:#ffffff70}
-.rs-card-seal i:nth-child(2),.rs-card-seal i:nth-child(4){height:63px;background:#ffffff26}.rs-card-seal i:nth-child(3){height:84px;background:#ffffff3b}
-.rs-department-mark{position:absolute;right:28px;bottom:30px;color:#0755ad35}
-.gab.gab-engagements .rs-page [data-periode=precedent] .rs-timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;padding:0;margin-top:32px;border:0;border-radius:0;background:none;position:relative}
-.rs-timeline:before{content:'';position:absolute;inset:-11px 0 auto;height:1px;background:var(--gab-degrade)}
-.gab.gab-engagements .rs-page .rs-past{display:block;min-width:0;border:1px solid #dce6eb;border-radius:0 0 16px 16px;padding:24px;background:linear-gradient(#f4f8fb,#fff)}
-.gab.gab-engagements .rs-page .rs-past:before{content:'';display:block;position:absolute;top:-17px;left:24px;width:11px;height:11px;border:3px solid white;border-radius:50%;background:var(--rs-teal);box-shadow:0 0 0 1px var(--rs-teal)}
-.gab.gab-engagements .rs-page .rs-past .representation-date{margin:0 0 18px}.gab.gab-engagements .rs-page .rs-past h4{overflow-wrap:anywhere}
-.rs-page [hidden]{display:none!important}
-@keyframes rs-orbit{to{transform:translate(-50%,-50%) rotate(360deg)}}
-@media(max-width:900px){.gab.gab-engagements .rs-page .rs-hero{grid-template-columns:1fr;gap:8px;padding:26px}.rs-illustration{width:min(100%,380px);justify-self:center;height:220px}.rs-art-ring{width:180px;height:180px}.rs-art-inner{width:125px;height:125px}.rs-art-students{top:18px}.rs-dot-two{top:8px}.gab.gab-engagements .rs-page [data-periode=precedent] .rs-timeline{grid-template-columns:1fr;gap:18px}.rs-timeline:before{inset:0 auto 0 7px;height:auto;width:1px}.gab.gab-engagements .rs-page .rs-past{margin-inline-start:26px;border-radius:16px}.gab.gab-engagements .rs-page .rs-past:before{top:30px;left:-27px}}
-@media(max-width:650px){.gab.gab-engagements .rs-page .rs-hero{padding:22px 18px}.gab.gab-engagements .rs-page .rs-bento{grid-template-columns:1fr}.gab.gab-engagements .rs-page .rs-mandat{padding:22px}.gab.gab-engagements .rs-page .rs-mandat-0.rs-mandat{grid-row:auto}.gab.gab-engagements .rs-page .rs-mandat-3.rs-mandat{grid-column:auto;padding:22px}.rs-department-mark{position:static;margin-top:20px}.rs-card-seal{padding-top:24px}.rs-card-seal>div{display:none}.rs-filters{gap:6px}.rs-filters button{gap:8px;padding:9px 12px}.gab.gab-engagements .rs-page .rs-card-top .representation-date{width:100%;margin:0}.gab.gab-engagements .rs-page .representation-date .date{max-width:none}}
-@media(prefers-reduced-motion:reduce){.rs-art-inner{animation:none}.gab.gab-engagements .rs-page .rs-mandat{transition:none}.gab.gab-engagements .rs-page .rs-mandat:hover{transform:none}}
-@media print{.rs-filters,.rs-illustration{display:none!important}.rs-page [data-periode][hidden]{display:block!important}.rs-mandat,.rs-past{break-inside:avoid}}
 
 /* ---------- En-tête de la salle : hall, porte, salles, écoute ---------- */
 .salle.gab-salle{border-top:0}
@@ -1418,40 +1354,9 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 
 /* Représentation étudiante : un récit de mandats, dans un chapitre unique. */
 .gab.gab-engagements .gab-lecture-integrale{width:100%;min-width:0}
-.gab.gab-engagements .representation-editorial{min-width:0}
-.gab.gab-engagements .representation-ouverture{display:grid;grid-template-columns:minmax(0,1fr) 160px;gap:30px;align-items:center;padding:30px;margin:0 0 34px;background:linear-gradient(120deg,#eef7f7,#f4f7fc);border:1px solid #d7e7e8;border-radius:20px;position:relative;overflow:hidden}
-.gab.gab-engagements .representation-presentation{position:relative;min-width:0}
-.gab.gab-engagements .representation-presentation>.surtitre{display:none}
-.gab.gab-engagements .representation-presentation h2{margin:0 0 12px;max-width:25ch;color:#173f52}
-.gab.gab-engagements .representation-presentation p{margin:0;color:#506974;text-align:start!important}
-.gab.gab-engagements .representation-repere{display:grid;justify-items:center;gap:4px;border-inline-start:1px solid #c5dddd;padding-inline-start:24px;color:#116c7b}
-.gab.gab-engagements .representation-repere>span{font:400 64px/1 var(--serif);letter-spacing:-.05em}
-.gab.gab-engagements .representation-repere small{max-width:13ch;text-align:center;font:500 12px/1.5 var(--sans)}
-.gab.gab-engagements .representation-periode{margin:0 0 34px}
-.gab.gab-engagements .representation-section-titre{display:flex;align-items:center;gap:14px;margin:0 0 20px;color:#173f52}
-.gab.gab-engagements .representation-section-titre::after{content:"";height:1px;background:#d7e5e8;flex:1}
-.gab.gab-engagements .representation-mandats{display:grid;gap:0;list-style:none;margin:0;padding:0}
-.gab.gab-engagements .representation-mandat{position:relative;display:grid;grid-template-columns:155px minmax(0,1fr);gap:24px;margin:0;padding:23px 0;border:0;border-bottom:1px solid #e0e9ec;background:none;box-shadow:none;border-radius:0}
-.gab.gab-engagements .representation-mandat::before{display:none}
-.gab.gab-engagements .representation-date{display:flex;align-items:flex-start;gap:12px;padding-top:3px;min-width:0}
-.gab.gab-engagements .representation-numero{display:grid;place-items:center;flex:0 0 30px;height:30px;border-radius:50%;background:#e6f3f0;color:#267362;font:550 12px/1 var(--sans)}
-.gab.gab-engagements .representation-date .date{display:block;padding:0;margin:0;background:none;border:0;color:#526c77;font:500 12px/1.5 var(--sans);text-transform:none;letter-spacing:0;min-width:0}
-.gab.gab-engagements .representation-mandat>div:last-child{min-width:0}
-.gab.gab-engagements .representation-mandat h4{margin:0 0 8px;text-align:start!important;hyphens:none;overflow-wrap:normal;color:#173f52}
-.gab.gab-engagements .representation-mandat p{margin:0;color:#526974;text-align:start!important}
-.gab.gab-engagements [data-periode="precedent"] .representation-mandats{padding:0 22px;border:1px solid #e0e9ec;border-radius:16px;background:#f7f9fb}
-.gab.gab-engagements [data-periode="precedent"] .representation-mandat:last-child{border-bottom:0}
-.gab.gab-engagements [data-periode="precedent"] .representation-numero{background:#e9eff7;color:#426b94}
-@media(max-width:700px){.gab.gab-engagements .representation-ouverture{grid-template-columns:minmax(0,1fr);gap:20px;padding:22px}.gab.gab-engagements .representation-repere{display:flex;gap:16px;border-inline-start:0;border-top:1px solid #c5dddd;padding:18px 0 0}.gab.gab-engagements .representation-repere>span{font-size:44px}.gab.gab-engagements .representation-repere small{text-align:start;max-width:18ch}.gab.gab-engagements .representation-mandat{grid-template-columns:minmax(0,1fr);gap:12px;padding:20px 0}.gab.gab-engagements .representation-date{align-items:center}.gab.gab-engagements [data-periode="precedent"] .representation-mandats{padding:0 16px}}
 
-.gab.gab-engagements .representation-presentation h2{text-align:start!important;max-width:none}
-.gab.gab-engagements .representation-date :is(.date,.representation-numero){text-align:start!important;text-align-last:auto!important;word-spacing:normal}
 
 /* Engagements : même langage éditorial pour les cinq rubriques. */
-.gab.gab-engagements .engagements-reseau{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px;list-style:none;margin:0;padding:0}
-.gab.gab-engagements .engagements-reseau>li{display:flex;gap:14px;align-items:flex-start;padding:18px 0;margin:0;border-bottom:1px solid #e0e9ec;text-align:start}
-.gab.gab-engagements .engagements-reseau-numero{flex:0 0 27px;padding-top:2px;color:#34867d;font:500 12px/1.5 var(--sans)}
-.gab.gab-engagements .engagements-reseau>li>span:last-child{min-width:0;color:#244b5b;line-height:1.65}
 .gab.gab-engagements .engagements-galerie{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:26px!important;margin:0!important;padding:0!important}
 .gab.gab-engagements .engagements-galerie .loisir{display:flex!important;flex-direction:column;min-width:0;margin:0!important;padding:0!important;border:1px solid #dfE8eb!important;border-radius:16px!important;overflow:hidden;background:#fff;box-shadow:none!important;transition:transform .2s,border-color .2s}
 .gab.gab-engagements .engagements-galerie .loisir:hover{transform:translateY(-3px);border-color:#9abfc7!important}
@@ -1461,7 +1366,7 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
 .gab.gab-engagements .engagements-galerie figcaption h4{margin:0;color:#173f52;text-align:start!important}
 .gab.gab-engagements .engagements-galerie figcaption small{font:400 14px/1.6 var(--sans);color:#526974;text-align:start}
 .gab.gab-engagements .engagements-galerie figcaption .credit-image{font-size:11px;color:#6b8189}
-@media(max-width:700px){.gab.gab-engagements .engagements-reseau,.gab.gab-engagements .engagements-galerie{grid-template-columns:minmax(0,1fr)!important}.gab.gab-engagements .engagements-galerie{gap:20px!important}}
+@media(max-width:700px){.gab.gab-engagements .engagements-galerie{grid-template-columns:minmax(0,1fr)!important;gap:20px!important}}
 @media(prefers-reduced-motion:reduce){.gab.gab-engagements .engagements-galerie .loisir{transition:none}}
 /* Sports et loisirs : huit images dans une mosaïque de deux rangées sur ordinateur.
    Les descriptions complètes sont révélées au survol ou à la prise de focus,
@@ -1539,9 +1444,6 @@ html.hc .gab .gab-bandeau,html.lv .gab .gab-bandeau{--gab-voile:linear-gradient(
     font-size:clamp(20px,1.8vw,26px);
     line-height:1.2;
   }
-  .gab.gab-engagements .engagements-loisirs .representation-repere>span{font-size:42px}
-  .gab.gab-engagements .engagements-loisirs .representation-section-titre{margin-bottom:10px}
-  .gab.gab-engagements .engagements-loisirs .representation-periode{margin-bottom:0}
 }
 @media (max-width:980px){
   .gab.gab-engagements .engagements-loisirs .engagements-galerie{
@@ -2915,3 +2817,30 @@ html[data-methodo-lecture="grand-public"] .mgp-final{padding:25px;background:#ea
 .gab.gab-rubrique-complete .colonne-texte>h2{max-width:none!important;margin-inline:0!important}
 .gab[data-gab-salle="biographie"] .gab-chapitre-tete{display:none!important}
 .gab[data-gab-salle="biographie"] .colonne-texte>.surtitre{display:none}
+
+/* Engagements : composition des chapitres de la thèse (chapeau, cadres numérotés, cartes à liseré). */
+.gab.gab-engagements.gab-cv-direct .gab-chapitre-tete{display:block!important}
+.gab.gab-engagements .eng-page{min-width:0}
+.gab.gab-engagements .eng-chapeau{margin:0 0 22px;padding:24px 28px;border:1px solid #dce7ed;border-inline-start:4px solid #0879be;border-radius:16px;background:linear-gradient(120deg,#f3f9fc,#fff 70%);box-shadow:0 3px 14px #123c4d06}
+.gab.gab-engagements .eng-chapeau h2{margin:0!important;max-width:none;color:#173d50;font-size:var(--type-section)!important;line-height:1.45!important;font-weight:650!important;text-align:start!important}
+.gab.gab-engagements .eng-chapeau p{margin:10px 0 0!important;color:#3d5866;text-align:start!important}
+.gab.gab-engagements .eng-cadre{--eng-ton:#116e80;--eng-pale:#edf7f8;min-width:0;margin:0 0 22px;padding:24px;border:1px solid #dce7ed;border-radius:16px;background:#fff;box-shadow:0 3px 14px #123c4d04}
+.gab.gab-engagements .eng-cadre:nth-of-type(4n+2){--eng-ton:#2d628e;--eng-pale:#eef4fc}
+.gab.gab-engagements .eng-cadre:nth-of-type(4n+3){--eng-ton:#437344;--eng-pale:#f0f7ee}
+.gab.gab-engagements .eng-cadre:nth-of-type(4n){--eng-ton:#865a3c;--eng-pale:#faf3eb}
+.gab.gab-engagements .eng-entete{display:flex;align-items:center;gap:12px;margin:0 0 18px}
+.gab.gab-engagements .eng-entete>span{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:10px;background:var(--eng-pale);color:var(--eng-ton);font-size:var(--type-note)!important;font-weight:700}
+.gab.gab-engagements .eng-entete>h3{margin:0!important;color:#173d50;font-size:var(--type-section)!important;line-height:1.4!important;text-align:start!important}
+.gab.gab-engagements .eng-cartes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px;margin:0;padding:0;list-style:none}
+.gab.gab-engagements .eng-carte{display:flex;flex-direction:column;gap:8px;min-width:0;margin:0;padding:18px;border:1px solid #dce7ed;border-top:3px solid #168d94;border-radius:12px;background:#f1f9f9;box-shadow:none}
+.gab.gab-engagements .eng-carte::before{display:none}
+.gab.gab-engagements .eng-carte:nth-child(4n+2){border-top-color:#4c79ad;background:#f3f6fc}
+.gab.gab-engagements .eng-carte:nth-child(4n+3){border-top-color:#6d944e;background:#f5f9f0}
+.gab.gab-engagements .eng-carte:nth-child(4n){border-top-color:#b18457;background:#fcf7f0}
+.gab.gab-engagements .eng-date{display:block;margin:0;padding:0;border:0;background:none;color:#3d5866;font-size:var(--type-note)!important;font-weight:650;letter-spacing:.02em;text-transform:none}
+.gab.gab-engagements .eng-carte h4{margin:0!important;color:#194d62;font-size:var(--type-encadre)!important;line-height:1.4!important;text-align:start!important;hyphens:none}
+.gab.gab-engagements .eng-carte h4 a{color:inherit}
+.gab.gab-engagements .eng-carte p{margin:0!important;color:#3d5866;font-size:var(--type-note)!important;line-height:1.6!important;text-align:start!important}
+.gab.gab-engagements .eng-reseau{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:10px;margin:0;padding:0;list-style:none}
+.gab.gab-engagements .eng-reseau>li{margin:0;padding:12px 14px;border:1px solid #dce7ed;border-inline-start:3px solid var(--eng-ton);border-radius:10px;background:var(--eng-pale);color:#173d50;line-height:1.5;text-align:start}
+@media(max-width:760px){.gab.gab-engagements .eng-cadre{padding:16px;margin-bottom:16px}.gab.gab-engagements .eng-chapeau{padding:18px 20px}.gab.gab-engagements .eng-cartes{grid-template-columns:1fr}}
